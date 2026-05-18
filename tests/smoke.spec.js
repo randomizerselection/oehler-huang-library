@@ -76,7 +76,7 @@ function findFlashcardFiles(dir, base = dir) {
 
 function findSlideFiles(dir, base = dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    if (entry.name === 'node_modules' || entry.name === '.git') return [];
+    if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'test-results') return [];
 
     const absolutePath = path.join(dir, entry.name);
     if (entry.isDirectory()) return findSlideFiles(absolutePath, base);
@@ -299,8 +299,8 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(19);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(19);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(20);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(20);
     await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(19);
     await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(19);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
@@ -1241,6 +1241,60 @@ test.describe('site smoke', () => {
     await expect(page.locator('.handoutBlock').filter({ hasText: /Turn and talk/i })).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Direct tax', exact: true })).toBeVisible();
 
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('cocoa review deck shows verbatim question paper extracts on slides and handout', async ({ page }) => {
+    const deckPath = 'lessons/unit-2-allocation/2-review-cocoa-chocolate-section-a/index.html';
+    await page.goto(pageUrl(deckPath) + '#5');
+
+    await expect(page.locator('.slide.is-paperExtract')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active h2')).toHaveText(/^Q1: Using the information above/);
+    await expect(page.locator('.slide.is-active .paperExtractPanel')).toContainText('Cocoa beans are the main raw material used to make chocolate.');
+    await expect(page.locator('.paperExtractBlock > .lead')).toHaveCount(0);
+    await expect(page.locator('.paperExtractQuestion, .paperExtractQuestions')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(deckPath) + '#14');
+    await expect(page.locator('.slide.is-active h2')).toHaveText(/^Q3: Draw a demand and supply diagram/);
+    await expect(page.locator('.slide.is-active .examQuestion')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(deckPath) + '#15');
+    await expect(page.locator('.slide.is-active h2')).toHaveText(/^Q3: Draw a demand and supply diagram/);
+    await expect(page.locator('.slide.is-active .modelAnswerQuestion')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(deckPath) + '?view=print');
+    await expect(page.locator('.handoutBlock.is-paper-extract')).toHaveCount(5);
+    await expect(page.locator('.handoutBlock.is-paper-extract').first().locator('h3')).toHaveText(/^Q1: Using the information above/);
+    await expect(page.locator('.handoutPaperQuestion')).toHaveCount(0);
+    await expect(page.locator('.handoutDocument')).toContainText('In the United States, confectionery sales were US$54.2 billion in 2024');
+    await expect(page.locator('.handoutDocument')).toContainText('Explain two advantages of a market economic system. [4]');
+    await expectNoHorizontalOverflow(page);
+
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto(pageUrl(deckPath) + '#5');
+    const fittedTitle = await page.locator('.slide.is-active h2').evaluate((title) => {
+      const content = title.closest('.slide')?.querySelector('.content');
+      const extractText = title.closest('.slide')?.querySelector('.paperExtractText p');
+      const titleBox = title.getBoundingClientRect();
+      const contentBox = content?.getBoundingClientRect();
+      const style = getComputedStyle(title);
+      const extractStyle = extractText ? getComputedStyle(extractText) : null;
+      return {
+        fontSize: Number.parseFloat(style.fontSize),
+        height: titleBox.height,
+        lineHeight: Number.parseFloat(style.lineHeight),
+        width: titleBox.width,
+        contentWidth: contentBox?.width || 0,
+        extractFontSize: extractStyle ? Number.parseFloat(extractStyle.fontSize) : 0,
+      };
+    });
+    expect(fittedTitle.width).toBeGreaterThan(fittedTitle.contentWidth * 0.98);
+    expect(fittedTitle.fontSize).toBeLessThan(38);
+    expect(fittedTitle.extractFontSize).toBeGreaterThanOrEqual(20);
+    expect(fittedTitle.height).toBeLessThanOrEqual((fittedTitle.lineHeight * 2) + 3);
     await expectNoHorizontalOverflow(page);
   });
 

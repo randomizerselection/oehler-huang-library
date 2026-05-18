@@ -92,6 +92,37 @@ window.IGCSE = window.IGCSE || {};
     ),
   };
 
+  const cocoaChocolate = {
+    cocoaPods: photo(
+      'cocoa-chocolate',
+      'cocoa-pods.jpg',
+      'Ripe cocoa pods growing on a cocoa tree.',
+      'Wikimedia Commons / Medicaster40',
+      'https://commons.wikimedia.org/wiki/File:Cocoa_Pods.JPG'
+    ),
+    cocoaBeansDrying: photo(
+      'cocoa-chocolate',
+      'cocoa-beans-drying-ghana.jpg',
+      'Cocoa beans drying in Mpenkro, Ghana.',
+      'Wikimedia Commons / Francesco Veronesi',
+      'https://commons.wikimedia.org/wiki/File:Cocoa_beans_drying_Mpenkro_2014_B002a.jpg'
+    ),
+    chocolateShopDisplay: photo(
+      'cocoa-chocolate',
+      'chocolate-shop-display-bruges.jpg',
+      'Chocolate displayed in a chocolate shop in Bruges, Belgium.',
+      'Wikimedia Commons / Dietmar Rabich',
+      'https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_(B),_Schokolade_--_2018_--_8470.jpg'
+    ),
+    confectioneryShelf: photo(
+      'cocoa-chocolate',
+      'candy-products-supermarket.jpg',
+      'Candy products displayed on supermarket shelves in Orlando, Florida.',
+      'Wikimedia Commons / Nielsoncaetanosalmeron',
+      'https://commons.wikimedia.org/wiki/File:Candy_products_displayed_in_a_supermarket.jpg'
+    ),
+  };
+
   const fiscalPolicy = {
     budgetMeeting: photo(
       'fiscal-policy',
@@ -443,6 +474,7 @@ window.IGCSE = window.IGCSE || {};
     macroAims,
     marketTeaching: {
       ...marketEconomicSystem,
+      ...cocoaChocolate,
       classroom: fiscalPolicy.classroom,
       healthcare: fiscalPolicy.healthcare,
       tobacco: fiscalPolicy.tobacco,
@@ -451,6 +483,7 @@ window.IGCSE = window.IGCSE || {};
       roadwork: fiscalPolicy.roadwork,
     },
     marketEconomicSystem,
+    cocoaChocolate,
     monetaryPolicy,
     supplySidePolicy,
     supplySidePolicyFacts,

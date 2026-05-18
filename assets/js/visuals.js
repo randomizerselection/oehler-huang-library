@@ -180,6 +180,20 @@ const renderDemandSupplyDiagram = (spec = {}, id = 'demandSupply') => {
   const showSupplyShift = shift === 'supplyRight' || shift === 'supplyLeft';
   const demand2 = shift === 'demandLeft' ? 'M110 126 L378 398' : 'M158 126 L426 398';
   const supply2 = shift === 'supplyLeft' ? 'M122 398 L390 126' : 'M170 398 L438 126';
+  const showEquilibrium = spec.equilibrium !== false;
+  const baseEq = { x: 274, y: 268 };
+  const newEq = shift === 'supplyLeft'
+    ? { x: 262, y: 256 }
+    : shift === 'supplyRight'
+      ? { x: 286, y: 280 }
+      : shift === 'demandLeft'
+        ? { x: 262, y: 280 }
+        : shift === 'demandRight'
+          ? { x: 286, y: 256 }
+          : null;
+  const labelPrefix = spec.labelPrefix || '';
+  const baseSupplyLabel = showSupplyShift ? 'S1' : 'S';
+  const baseDemandLabel = showDemandShift ? 'D1' : 'D';
 
   return wrap(svg(id, `
     <text class="diagramTitle" x="260" y="42" text-anchor="middle">${htmlEsc(title)}</text>
@@ -189,11 +203,25 @@ const renderDemandSupplyDiagram = (spec = {}, id = 'demandSupply') => {
     <text class="diagramAxisLabel" transform="translate(30 252) rotate(-90)" text-anchor="middle">${htmlEsc(spec.yLabel || 'Price')}</text>
     <path class="diagramLine demandLine" d="M134 126 L402 398"/>
     <path class="diagramLine supplyLine" d="M146 398 L414 126"/>
-    <text class="diagramCurveLabel" x="410" y="398">D</text>
-    <text class="diagramCurveLabel" x="422" y="128">S</text>
+    <text class="diagramCurveLabel" x="410" y="398">${baseDemandLabel}</text>
+    <text class="diagramCurveLabel" x="422" y="128">${baseSupplyLabel}</text>
     ${showDemandShift ? `<path class="diagramLine demandLine is-secondary" d="${demand2}"/><text class="diagramCurveLabel is-secondary" x="${shift === 'demandLeft' ? 386 : 434}" y="398">D2</text>` : ''}
     ${showSupplyShift ? `<path class="diagramLine supplyLine is-secondary" d="${supply2}"/><text class="diagramCurveLabel is-secondary" x="${shift === 'supplyLeft' ? 398 : 446}" y="128">S2</text>` : ''}
-    ${shift ? `<path class="diagramShiftArrow" marker-end="url(#${id})" d="M250 260 C280 246 310 232 340 218"/>` : ''}
+    ${shift ? `<path class="diagramShiftArrow" marker-end="url(#${id})" d="${shift === 'supplyLeft' || shift === 'demandLeft' ? 'M330 196 C298 205 274 214 246 224' : 'M250 260 C280 246 310 232 340 218'}"/>` : ''}
+    ${showEquilibrium ? `
+      <line class="diagramGuide" x1="84" y1="${baseEq.y}" x2="${baseEq.x}" y2="${baseEq.y}"/>
+      <line class="diagramGuide" x1="${baseEq.x}" y1="${baseEq.y}" x2="${baseEq.x}" y2="418"/>
+      <circle class="diagramEqPoint" cx="${baseEq.x}" cy="${baseEq.y}" r="6"/>
+      <text class="diagramGuideLabel" x="52" y="${baseEq.y + 6}">${labelPrefix}P1</text>
+      <text class="diagramGuideLabel" x="${baseEq.x - 12}" y="446">${labelPrefix}Q1</text>
+      ${newEq ? `
+        <line class="diagramGuide is-new" x1="84" y1="${newEq.y}" x2="${newEq.x}" y2="${newEq.y}"/>
+        <line class="diagramGuide is-new" x1="${newEq.x}" y1="${newEq.y}" x2="${newEq.x}" y2="418"/>
+        <circle class="diagramEqPoint is-new" cx="${newEq.x}" cy="${newEq.y}" r="6"/>
+        <text class="diagramGuideLabel is-new" x="52" y="${newEq.y + 6}">${labelPrefix}P2</text>
+        <text class="diagramGuideLabel is-new" x="${newEq.x - 12}" y="446">${labelPrefix}Q2</text>
+      ` : ''}
+    ` : ''}
     <text class="diagramCaption" x="84" y="458">${htmlEsc(spec.caption || 'Reusable micro diagram shell for future demand and supply lessons.')}</text>
   `), 'diagramPanel diagram-demand-supply');
 };

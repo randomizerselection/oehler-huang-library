@@ -22,6 +22,18 @@ const localImageSrc = (src) => {
 
 const pad = (n) => String(n).padStart(2, '0');
 
+const normalizeQuestionText = (value = '') => String(value)
+  .replace(/^Q\d+[A-Z]?:\s*/i, '')
+  .replace(/\s+/g, ' ')
+  .trim()
+  .toLowerCase();
+
+const titleContainsQuestion = (title, question) => {
+  const titleText = normalizeQuestionText(title);
+  const questionText = normalizeQuestionText(question);
+  return Boolean(titleText && questionText && titleText.includes(questionText));
+};
+
 const SOURCE_PROFILES = {
   marketSystem: [
     { label: 'Syllabus source', ref: 'Syllabus 2.8' },
@@ -208,7 +220,7 @@ const renderSources = (sources = [], className = 'sourceList') => {
   `;
 };
 
-const contentSourceTypes = new Set(['term', 'cards', 'flow', 'compare', 'exam', 'modelAnswer', 'answer', 'split', 'systemCompare', 'socialEffectsVenn']);
+const contentSourceTypes = new Set(['term', 'cards', 'flow', 'compare', 'exam', 'modelAnswer', 'answer', 'split', 'systemCompare', 'socialEffectsVenn', 'paperExtract']);
 
 function sourcesForSlide(meta, slide) {
   const key = sourceProfileKey(meta);
@@ -679,42 +691,78 @@ const renderers = {
     </div>
   `,
 
-  exam: (s) => `
-    <div class="examBlock">
-      <h2>${esc(s.title)}</h2>
-      <p class="lead examQuestion">${esc(s.question)}</p>
-      <div class="examChainLabel">Required chain links</div>
-      <div class="cardgrid">
-        ${(s.keywords || []).map((k, i) => `
-          <div class="card examChainLink">
-            <div class="num">${i + 1}</div>
-            <b>${esc(k)}</b>
-          </div>
-        `).join('')}
+  exam: (s) => {
+    const showQuestion = s.question && !titleContainsQuestion(s.title, s.question);
+    return `
+      <div class="examBlock">
+        <h2>${esc(s.title)}</h2>
+        ${showQuestion ? `<p class="lead examQuestion">${esc(s.question)}</p>` : ''}
+        <div class="examChainLabel">Required chain links</div>
+        <div class="cardgrid">
+          ${(s.keywords || []).map((k, i) => `
+            <div class="card examChainLink">
+              <div class="num">${i + 1}</div>
+              <b>${esc(k)}</b>
+            </div>
+          `).join('')}
+        </div>
+        ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
       </div>
-      ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
-    </div>
-  `,
+    `;
+  },
 
-  modelAnswer: (s) => `
-    <div class="modelAnswerBlock">
-      <h2>${esc(s.title || 'Model answer')}</h2>
-      ${s.question ? `<p class="lead modelAnswerQuestion">${esc(s.question)}</p>` : ''}
-      <div class="modelAnswerCard">
-        <div class="modelAnswerLabel">Model answer</div>
-        <p class="modelAnswerText">${highlightTerms(s.answer || '', s.links || [])}</p>
+  paperExtract: (s) => {
+    const showQuestion = s.question && !titleContainsQuestion(s.title, s.question);
+    const visibleQuestions = (s.questions || []).filter((question) => !titleContainsQuestion(s.title, question));
+    return `
+      <div class="paperExtractBlock">
+        <h2>${esc(s.title || 'Question paper extract')}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
+        <div class="paperExtractPanel">
+          <div class="paperExtractLabel">Question paper extract</div>
+          <div class="paperExtractText">
+            ${(s.paragraphs || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}
+          </div>
+          ${showQuestion ? `
+            <div class="paperExtractQuestion">
+              <b>Question</b>
+              <span>${esc(s.question)}</span>
+            </div>` : ''}
+          ${visibleQuestions.length ? `
+            <div class="paperExtractQuestions">
+              <b>Questions</b>
+              <ol>
+                ${visibleQuestions.map((question) => `<li>${esc(question)}</li>`).join('')}
+              </ol>
+            </div>` : ''}
+          ${s.source ? `<div class="paperExtractSource">${esc(s.source)}</div>` : ''}
+        </div>
       </div>
-      ${(s.links || []).length ? `
-        <div class="modelAnswerLinks" aria-label="Required links used">
-          ${(s.links || []).map((link) => `<span>${esc(link)}</span>`).join('')}
-        </div>` : ''}
-      ${s.markSchemeNote ? `
-        <div class="modelAnswerNote">
-          <b>Why this scores well</b>
-          <span>${esc(s.markSchemeNote)}</span>
-        </div>` : ''}
-    </div>
-  `,
+    `;
+  },
+
+  modelAnswer: (s) => {
+    const showQuestion = s.question && !titleContainsQuestion(s.title, s.question);
+    return `
+      <div class="modelAnswerBlock">
+        <h2>${esc(s.title || 'Model answer')}</h2>
+        ${showQuestion ? `<p class="lead modelAnswerQuestion">${esc(s.question)}</p>` : ''}
+        <div class="modelAnswerCard">
+          <div class="modelAnswerLabel">Model answer</div>
+          <p class="modelAnswerText">${highlightTerms(s.answer || '', s.links || [])}</p>
+        </div>
+        ${(s.links || []).length ? `
+          <div class="modelAnswerLinks" aria-label="Required links used">
+            ${(s.links || []).map((link) => `<span>${esc(link)}</span>`).join('')}
+          </div>` : ''}
+        ${s.markSchemeNote ? `
+          <div class="modelAnswerNote">
+            <b>Why this scores well</b>
+            <span>${esc(s.markSchemeNote)}</span>
+          </div>` : ''}
+      </div>
+    `;
+  },
 
   discussion: (s) => `
     <div class="discussionPrompt">
@@ -1413,18 +1461,21 @@ function toggleStudentSelector() {
   openStudentSelector();
 }
 
-function mountLessonModeSwitch(mode) {
+function mountLessonModeSwitch(mode, meta = {}) {
   document.querySelector('.lessonModeSwitch')?.remove();
   const nav = document.createElement('nav');
   nav.className = 'lessonModeSwitch';
   nav.setAttribute('aria-label', 'Lesson navigation');
   const currentMode = ['handout', 'quiz', 'flashcards'].includes(mode) ? mode : 'slides';
+  const allowedViews = Array.isArray(meta.availableViews) && meta.availableViews.length
+    ? new Set(meta.availableViews)
+    : null;
   const modeTabs = [
     ['slides', 'Slides'],
     ['handout', 'Handout'],
     ['quiz', 'Quiz'],
     ['flashcards', 'Flashcards'],
-  ].map(([view, label]) => {
+  ].filter(([view]) => !allowedViews || allowedViews.has(view)).map(([view, label]) => {
     const active = currentMode === view;
     return `
       <a
@@ -1539,6 +1590,7 @@ const handoutContentTypes = new Set([
   'cards',
   'compare',
   'flow',
+  'paperExtract',
   'socialEffectsVenn',
   'split',
   'systemCompare',
@@ -1551,6 +1603,27 @@ function shouldIncludeHandoutSlide(slide) {
 
 function renderHandoutBlock(slide) {
   switch (slide.type) {
+    case 'paperExtract': {
+      const showQuestion = slide.question && !titleContainsQuestion(slide.title, slide.question);
+      const visibleQuestions = (slide.questions || []).filter((question) => !titleContainsQuestion(slide.title, question));
+      return handoutBlock(slide, `
+        ${handoutParagraph(slide.lead)}
+        ${(slide.paragraphs || []).map((paragraph) => handoutParagraph(paragraph)).join('')}
+        ${showQuestion ? `
+          <div class="handoutPaperQuestion">
+            <b>Question</b>
+            ${handoutParagraph(slide.question)}
+          </div>` : ''}
+        ${visibleQuestions.length ? `
+          <div class="handoutPaperQuestion">
+            <b>Questions</b>
+            ${handoutList(visibleQuestions, true)}
+          </div>` : ''}
+        ${handoutParagraph(slide.source, 'handoutNote')}
+        ${renderSources(slide.sources, 'handoutSources')}
+      `, 'is-paper-extract');
+    }
+
     case 'cards':
       return handoutBlock(slide, `
         ${handoutParagraph(slide.lead)}
@@ -1695,7 +1768,7 @@ function mountHandoutLesson(meta, slides, mountEl) {
   document.body.classList.remove('is-quiz-mode');
   document.body.classList.remove('is-flashcard-mode');
   if (meta.title) document.title = `${meta.lessonLabel || meta.title} - Student print view`;
-  mountLessonModeSwitch('handout');
+  mountLessonModeSwitch('handout', meta);
 
   mountEl.className = 'handoutDeck';
   mountEl.removeAttribute('aria-live');
@@ -1753,6 +1826,33 @@ function setupPartialReview(slideEls, slides, meta) {
   });
 }
 
+const QUESTION_TITLE_SELECTOR = '.examBlock h2, .paperExtractBlock h2, .modelAnswerBlock h2';
+
+function fitQuestionTitle(title) {
+  if (!title || !title.isConnected || title.offsetParent === null) return;
+  title.style.removeProperty('--question-title-size');
+
+  const baseSize = Number.parseFloat(window.getComputedStyle(title).fontSize) || 38;
+  const minSize = Math.max(18, Math.min(24, baseSize * 0.62));
+  const maxLines = window.matchMedia('(max-width: 760px)').matches ? 4 : 2;
+
+  for (let size = baseSize; size >= minSize; size -= 1) {
+    title.style.setProperty('--question-title-size', `${size}px`);
+    const style = window.getComputedStyle(title);
+    const lineHeight = Number.parseFloat(style.lineHeight) || size * 1.13;
+    const fitsWidth = title.scrollWidth <= title.clientWidth + 1;
+    const fitsHeight = title.scrollHeight <= (lineHeight * maxLines) + 2;
+    if (fitsWidth && fitsHeight) return;
+  }
+
+  title.style.setProperty('--question-title-size', `${minSize}px`);
+}
+
+function fitActiveQuestionTitles(root = document) {
+  const activeSlide = root.querySelector?.('.slide.is-active') || root;
+  activeSlide.querySelectorAll?.(QUESTION_TITLE_SELECTOR).forEach(fitQuestionTitle);
+}
+
 /* ---------- Mount & navigation ---------- */
 IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) {
   if (!lesson || !Array.isArray(lesson.slides)) {
@@ -1784,7 +1884,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   }
 
   if (isQuizView()) {
-    mountLessonModeSwitch('quiz');
+    mountLessonModeSwitch('quiz', meta);
     if (typeof IGCSE.mountQuizLesson === 'function') {
       return IGCSE.mountQuizLesson(lesson, IGCSE.quiz, mountEl);
     }
@@ -1793,7 +1893,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   }
 
   if (isFlashcardView()) {
-    mountLessonModeSwitch('flashcards');
+    mountLessonModeSwitch('flashcards', meta);
     if (typeof IGCSE.mountFlashcardLesson === 'function') {
       return IGCSE.mountFlashcardLesson(lesson, IGCSE.flashcards, mountEl);
     }
@@ -1804,7 +1904,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   document.body.classList.remove('is-quiz-mode');
   document.body.classList.remove('is-handout-mode');
   document.body.classList.remove('is-flashcard-mode');
-  mountLessonModeSwitch('slides');
+  mountLessonModeSwitch('slides', meta);
 
   // Render
   mountEl.innerHTML = renderSlides
@@ -1833,6 +1933,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   setupMarketSignalGames(mountEl);
   setupQuizChoices(mountEl);
   setupFillBlanks(mountEl);
+  document.fonts?.ready?.then(() => fitActiveQuestionTitles(mountEl)).catch(() => {});
 
   function syncPartials(n) {
     const items = [...slideEls[n].querySelectorAll('.partial-item')];
@@ -1868,6 +1969,8 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     syncPartials(idx);
     if (progressBar) progressBar.style.width = (((idx + 1) / slides.length) * 100) + '%';
     if (notesEl) notesEl.textContent = slideEls[idx].dataset.notes || '';
+    fitActiveQuestionTitles(mountEl);
+    requestAnimationFrame(() => fitActiveQuestionTitles(mountEl));
     if (location.hash !== `#${idx + 1}`) {
       history.replaceState(null, '', `#${idx + 1}`);
     }
@@ -2122,6 +2225,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   const fromHash = parseInt(location.hash.replace('#', ''), 10);
   show(Number.isFinite(fromHash) ? fromHash - 1 : 0);
   window.addEventListener('hashchange', showFromHash);
+  window.addEventListener('resize', () => fitActiveQuestionTitles(mountEl));
 
   return { show, toggleNotes, toggleOverview };
 }

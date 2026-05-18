@@ -316,6 +316,30 @@ body { overflow: hidden; }
 .diagramLine.is-secondary {
   stroke: var(--green);
 }
+.diagramGuide {
+  stroke: rgba(219,231,246,.46);
+  stroke-width: 2.4;
+  stroke-dasharray: 7 7;
+}
+.diagramGuide.is-new {
+  stroke: rgba(126,240,181,.66);
+}
+.diagramGuideLabel {
+  fill: rgba(219,231,246,.88);
+  font-size: 15px;
+  font-weight: 850;
+}
+.diagramGuideLabel.is-new {
+  fill: var(--green);
+}
+.diagramEqPoint {
+  fill: var(--ink);
+  stroke: var(--cyan);
+  stroke-width: 3.5;
+}
+.diagramEqPoint.is-new {
+  stroke: var(--green);
+}
 .diagramCurveLabel {
   fill: var(--cyan);
   font-size: 18px;
@@ -452,41 +476,127 @@ body { overflow: hidden; }
 }
 
 .slide.is-exam .content,
+.slide.is-paperExtract .content,
 .slide.is-modelAnswer .content {
   grid-template-columns: minmax(0, 1fr);
 }
 
 .slide.is-exam .visual,
+.slide.is-paperExtract .visual,
 .slide.is-modelAnswer .visual {
   display: none;
 }
 
 .examBlock,
+.paperExtractBlock,
 .modelAnswerBlock {
-  width: min(1120px, 100%);
-  justify-self: center;
+  width: 100%;
+  justify-self: stretch;
   display: grid;
   gap: 1rem;
 }
 
+.paperExtractBlock {
+  width: 100%;
+  justify-self: stretch;
+}
+
 .examBlock h2,
+.paperExtractBlock h2,
 .modelAnswerBlock h2 {
-  max-width: 18ch;
+  width: 100%;
+  max-width: none;
+  font-size: var(--question-title-size, clamp(24px, 2.15vw, 38px));
+  line-height: 1.13;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .examQuestion,
+.paperExtractBlock .lead,
 .modelAnswerQuestion {
   max-width: 46ch;
   color: var(--ink-dim);
 }
 
 .examChainLabel,
+.paperExtractLabel,
 .modelAnswerLabel {
   color: var(--gold);
   font-size: var(--t-small);
   font-weight: 850;
   letter-spacing: .08em;
   text-transform: uppercase;
+}
+
+.paperExtractPanel {
+  display: grid;
+  gap: .86rem;
+  width: 100%;
+  max-width: none;
+  padding: 1.05rem 1.18rem;
+  border: 1px solid rgba(255,255,255,.15);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--r-md);
+  background: linear-gradient(145deg, rgba(255,255,255,.072), rgba(255,255,255,.032));
+  box-shadow: var(--shadow-sm);
+}
+
+.paperExtractText {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: .72rem 1.1rem;
+}
+
+.paperExtractText p {
+  margin: 0;
+  color: #f3f7fb;
+  font-size: clamp(20px, 1.25vw, 24px);
+  line-height: 1.32;
+}
+
+.paperExtractText p:only-child {
+  max-width: none;
+}
+
+.paperExtractQuestion,
+.paperExtractQuestions {
+  display: grid;
+  gap: .38rem;
+  margin-top: .18rem;
+  padding: .78rem .88rem;
+  border: 1px solid rgba(86,216,255,.22);
+  border-radius: var(--r-sm);
+  background: rgba(86,216,255,.08);
+}
+
+.paperExtractQuestion b,
+.paperExtractQuestions b {
+  color: var(--cyan);
+  font-size: var(--t-small);
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.paperExtractQuestion span,
+.paperExtractQuestions li {
+  color: #fff;
+  font-size: clamp(18px, 1.18vw, 23px);
+  line-height: 1.36;
+}
+
+.paperExtractQuestions ol {
+  display: grid;
+  gap: .38rem;
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.paperExtractSource {
+  color: var(--ink-dim);
+  font-size: clamp(14px, .95vw, 17px);
+  line-height: 1.35;
 }
 
 .examBlock .cardgrid {
@@ -630,6 +740,20 @@ body { overflow: hidden; }
 
   .modelAnswerCard {
     padding: 1rem;
+  }
+
+  .paperExtractPanel {
+    padding: .92rem;
+  }
+
+  .paperExtractText {
+    grid-template-columns: 1fr;
+  }
+
+  .paperExtractText p,
+  .paperExtractQuestion span,
+  .paperExtractQuestions li {
+    font-size: clamp(16px, 4.25vw, 20px);
   }
 }
 
@@ -4218,6 +4342,28 @@ body.is-flashcard-mode #deck {
 
 .handoutBlock.is-example {
   border-left-color: #64748b;
+}
+
+.handoutBlock.is-paper-extract {
+  border-left-color: #9333ea;
+}
+
+.handoutPaperQuestion {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #dbe4f0;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+.handoutPaperQuestion b {
+  display: block;
+  margin-bottom: 5px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .handoutBlock h3 {
