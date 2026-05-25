@@ -633,7 +633,7 @@ test.describe('site smoke', () => {
     expect(missingChecks).toEqual([]);
   });
 
-  test('market failure term slides explain highlighted definition vocabulary', () => {
+  test('market failure term slides use definition blanks with bilingual vocabulary notes', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
     const missingNotes = [];
 
@@ -659,6 +659,55 @@ test.describe('site smoke', () => {
     }
 
     expect(missingNotes).toEqual([]);
+  });
+
+  test('market failure lesson 1 includes full private and external cost benefit definitions', () => {
+    const lesson = readLesson('lessons/unit-2-allocation/2-9-market-failure/slides-lesson-1.js');
+    const termSlides = new Map((lesson.slides || [])
+      .filter((slide) => slide.type === 'term')
+      .map((slide) => [String(slide.term || '').toLowerCase(), slide.definition]));
+
+    expect(termSlides.get('private cost')).toBe('A cost incurred by the consumer or producer of a product.');
+    expect(termSlides.get('external cost')).toBe('A cost suffered by a third party who is not directly involved in the consumption or production of the product.');
+    expect(termSlides.get('private benefit')).toBe('A benefit enjoyed by the consumer or producer of a product, e.g. better future job prospects from education or profits earned by a firm.');
+    expect(termSlides.get('external benefit')).toBe('A benefit gained by a third party who is not directly involved in the consumption or production of the product.');
+  });
+
+  test('market failure flow and contrast slides use bilingual fill-blank scaffolds', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
+    const badFlows = [];
+    const badCompares = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type === 'flow') {
+          const nodes = Array.isArray(slide.nodes?.[0]) ? slide.nodes[0] : slide.nodes || [];
+          nodes.forEach((node, nodeIndex) => {
+            const text = Array.isArray(node) ? node[0] : node?.text;
+            const zh = Array.isArray(node) ? node[1] : node?.zh;
+            if (!text || !zh) badFlows.push(`${slideFile} slide ${index + 1} node ${nodeIndex + 1}`);
+          });
+        }
+
+        if (slide.type === 'compare') {
+          if (slide.mode !== 'fillBlanks') badCompares.push(`${slideFile} slide ${index + 1}: missing fillBlanks mode`);
+          for (const side of ['left', 'right']) {
+            for (const [itemIndex, item] of (slide[side] || []).entries()) {
+              const statement = Array.isArray(item) ? item[1] : String(item);
+              const answer = Array.isArray(item) ? item[2] : '';
+              if (!statement.includes('__________') || !answer) {
+                badCompares.push(`${slideFile} slide ${index + 1} ${side} item ${itemIndex + 1}`);
+              }
+            }
+          }
+          expect(slide.partialReview || [], `${slideFile} slide ${index + 1}`).toHaveLength(0);
+        }
+      }
+    }
+
+    expect(badFlows).toEqual([]);
+    expect(badCompares).toEqual([]);
   });
 
   test('market failure decks avoid chain in slide titles', () => {
@@ -947,7 +996,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('term slides render as clear definition moments with highlighted vocabulary', async ({ page }) => {
+  test('term slides render as clear definition moments with fill-in vocabulary', async ({ page }) => {
     await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html'));
     const termNumber = await page.evaluate(() => window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'term') + 1);
 
@@ -957,10 +1006,14 @@ test.describe('site smoke', () => {
 
     await expect(page.locator('.slide.is-active .definitionCue')).toBeVisible();
     await expect(page.locator('.slide.is-active .termDefinitionText')).toBeVisible();
-    await expect(page.locator('.slide.is-active .termDefinitionText mark')).toHaveCount(3);
-    await expect(page.locator('.slide.is-active .termDefinitionText mark').first()).toBeVisible();
+    await expect(page.locator('.slide.is-active .termDefinitionText .blankAnswer')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .termDefinitionText .blankAnswer').first()).toBeVisible();
+    await page.locator('.slide.is-active .termDefinitionText .blankAnswer').first().click();
+    await expect(page.locator('.slide.is-active .termDefinitionText .blankAnswer').first()).toHaveClass(/is-revealed/);
     await expect(page.locator('.slide.is-active .definitionTermNote')).toHaveCount(3);
-    await expect(page.locator('.slide.is-active .definitionTermNote').first()).toBeVisible();
+    await expect(page.locator('.slide.is-active .definitionTermNote.partial-item.is-visible')).toHaveCount(0);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .definitionTermNote.partial-item.is-visible')).toHaveCount(1);
     await expect(page.locator('.slide.is-active .visual')).toBeHidden();
     const definitionLayout = await page.evaluate(() => {
       const text = document.querySelector('.slide.is-active .termDefinitionText');
@@ -972,6 +1025,54 @@ test.describe('site smoke', () => {
     });
     expect(definitionLayout.fontSize).toBeGreaterThanOrEqual(30);
     expect(definitionLayout.borderLeftWidth).toBeGreaterThanOrEqual(6);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('market failure flow chains and concept contrasts render bilingual blanks', async ({ page }) => {
+    await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html'));
+    const slideNumbers = await page.evaluate(() => ({
+      flow: window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'flow') + 1,
+      compare: window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'compare') + 1,
+    }));
+
+    expect(slideNumbers.flow).toBeGreaterThan(0);
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${slideNumbers.flow}`);
+    await expect(page.locator('.slide.is-active .flowTextZh')).toHaveCount(5);
+    await expectNoHorizontalOverflow(page);
+
+    expect(slideNumbers.compare).toBeGreaterThan(0);
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${slideNumbers.compare}`);
+    await expect(page.locator('.slide.is-active h2')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .compareBlock.is-fillBlanks')).toBeVisible();
+    await expect(page.locator('.slide.is-active .blankAnswer')).toHaveCount(8);
+    await page.locator('.slide.is-active .blankAnswer').first().click();
+    await expect(page.locator('.slide.is-active .blankAnswer').first()).toHaveClass(/is-revealed/);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('side-by-side contrast slides render full-width without pictures', async ({ page }) => {
+    await page.goto(pageUrl('lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html'));
+    const slideNumber = await page.evaluate(() => {
+      const contrastTypes = new Set(['compare', 'split', 'systemCompare']);
+      return window.IGCSE.lesson.slides.findIndex((slide) => contrastTypes.has(slide.type) && slide.visual) + 1;
+    });
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html')}#${slideNumber}`);
+
+    await expect(page.locator('.slide.is-active .visual')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .content')).toHaveClass(/is-full/);
+    const compareText = await page.evaluate(() => {
+      const firstChoice = document.querySelector('.slide.is-active .compareBlock .choice');
+      const firstHeading = document.querySelector('.slide.is-active .compareBlock .card > b');
+      return {
+        choiceSize: Number.parseFloat(getComputedStyle(firstChoice).fontSize),
+        headingSize: Number.parseFloat(getComputedStyle(firstHeading).fontSize),
+      };
+    });
+    expect(compareText.choiceSize).toBeGreaterThanOrEqual(20);
+    expect(compareText.headingSize).toBeGreaterThanOrEqual(24);
     await expectNoHorizontalOverflow(page);
   });
 

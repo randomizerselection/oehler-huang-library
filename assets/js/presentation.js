@@ -482,7 +482,8 @@ const flowChips = (nodes = []) => {
       ${arr.map((x, i) => `
         <div class="flowStep flowChip">
           <span class="flowNumber">${i + 1}</span>
-          <span class="flowText">${esc(x)}</span>
+          <span class="flowText">${esc(Array.isArray(x) ? x[0] : x?.text || x)}</span>
+          ${(Array.isArray(x) ? x[1] : x?.zh) ? `<span class="flowTextZh" lang="zh-Hans">${esc(Array.isArray(x) ? x[1] : x.zh)}</span>` : ''}
         </div>
       `).join('')}
     </div>
@@ -510,6 +511,29 @@ const highlightTerms = (text = '', terms = []) => {
   String(text || '').replace(pattern, (match, _term, offset) => {
     chunks.push(esc(String(text).slice(lastIndex, offset)));
     chunks.push(`<mark>${esc(match)}</mark>`);
+    lastIndex = offset + match.length;
+    return match;
+  });
+
+  chunks.push(esc(String(text).slice(lastIndex)));
+  return chunks.join('');
+};
+
+const definitionWithBlanks = (text = '', terms = []) => {
+  const uniqueTerms = [...new Set((terms || [])
+    .map((term) => String(term || '').trim())
+    .filter(Boolean))]
+    .sort((a, b) => b.length - a.length);
+
+  if (!uniqueTerms.length) return esc(text);
+
+  const pattern = new RegExp(`(${uniqueTerms.map(escapeRegExp).join('|')})`, 'gi');
+  const chunks = [];
+  let lastIndex = 0;
+
+  String(text || '').replace(pattern, (match, _term, offset) => {
+    chunks.push(esc(String(text).slice(lastIndex, offset)));
+    chunks.push(`<button type="button" class="blankAnswer definitionBlankAnswer" aria-expanded="false"><span>${esc(match)}</span></button>`);
     lastIndex = offset + match.length;
     return match;
   });
@@ -716,7 +740,7 @@ const renderers = {
           ${s.term && s.term.toLowerCase() !== String(s.title || '').toLowerCase()
             ? `<b>${esc(s.term)}</b>`
             : ''}
-          <p class="termDefinitionText">${highlightTerms(s.definition, highlightLabels)}</p>
+          <p class="termDefinitionText">${definitionWithBlanks(s.definition, highlightLabels)}</p>
           ${s.definitionZh ? `<p class="termDefinitionZh" lang="zh-Hans">${esc(s.definitionZh)}</p>` : ''}
         </div>
         ${termNotes(notes)}
@@ -727,8 +751,8 @@ const renderers = {
   },
 
   compare: (s) => `
-    <div>
-      <h2>${esc(s.title)}</h2>
+    <div class="compareBlock${s.mode === 'fillBlanks' ? ' is-fillBlanks' : ''}">
+      ${s.title ? `<h2>${esc(s.title)}</h2>` : ''}
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
       ${s.term ? `
         <div class="termBox">
@@ -736,8 +760,8 @@ const renderers = {
           <p>${esc(s.definition)}</p>
         </div>` : ''}
       <div class="splitCols">
-        <div class="card"><b>${esc(s.leftTitle)}</b>${choiceList(s.left)}</div>
-        <div class="card"><b>${esc(s.rightTitle)}</b>${choiceList(s.right)}</div>
+        <div class="card"><b>${esc(s.leftTitle)}</b>${s.mode === 'fillBlanks' ? fillBlankList(s.left) : choiceList(s.left)}</div>
+        <div class="card"><b>${esc(s.rightTitle)}</b>${s.mode === 'fillBlanks' ? fillBlankList(s.right) : choiceList(s.right)}</div>
       </div>
       ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>`
         : s.divider ? `<div class="prompt">${esc(s.divider)}</div>` : ''}
@@ -1399,7 +1423,10 @@ function renderSlide(meta, slide, idx, total) {
   const typeClass = slide.type && !['hero', 'fact'].includes(slide.type)
     ? ` is-${String(slide.type).replace(/[^a-z0-9_-]/gi, '')}`
     : '';
-  const visual = IGCSE.renderVisual(slide.visual, `viz-${idx}`);
+  const sideBySideContrastTypes = new Set(['compare', 'split', 'systemCompare']);
+  const visual = sideBySideContrastTypes.has(slide.type)
+    ? ''
+    : IGCSE.renderVisual(slide.visual, `viz-${idx}`);
   const r = renderers[slide.type];
   const renderSlide = {
     ...slide,
@@ -1986,6 +2013,7 @@ function getPartialSelectors(meta, slide) {
   if (slide.type === 'quiz') return '';
   if (config === false) return '';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div > ${selector}`).join(',');
+  if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';
   return (config || meta.partialReview) ? partialSelectors : '';
 }

@@ -723,6 +723,15 @@ button.choice:focus-visible {
   font-weight: 780;
   line-height: 1.18;
 }
+.flowTextZh {
+  align-self: start;
+  margin-top: -.32rem;
+  color: var(--ink-dim);
+  font-size: clamp(15px, .95vw, 19px);
+  font-weight: 720;
+  line-height: 1.24;
+  letter-spacing: 0;
+}
 .flowStep:not(:last-child)::after {
   right: -.98rem;
   width: 1.55rem;

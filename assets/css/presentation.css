@@ -1029,6 +1029,16 @@ h2 .inlineZh {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
+.termDefinitionText .definitionBlankAnswer {
+  min-width: 5.8em;
+  height: 1.28em;
+  margin: 0 .1em;
+  vertical-align: -.12em;
+  border-radius: .24em;
+}
+.termDefinitionText .definitionBlankAnswer.is-revealed {
+  background: linear-gradient(135deg, var(--gold), #ffe3a3);
+}
 .termBox .termDefinitionZh {
   max-width: 58ch;
   margin-top: .1rem;
@@ -1070,6 +1080,49 @@ h2 .inlineZh {
   font-style: normal;
 }
 
+.compareBlock.is-fillBlanks .splitCols .card {
+  display: grid;
+  align-content: start;
+  gap: .7rem;
+}
+.compareBlock.is-fillBlanks .fillBlanks {
+  margin-top: .2rem;
+}
+.compareBlock.is-fillBlanks .fillBlank {
+  grid-template-columns: 1fr;
+  gap: .3rem;
+  padding: .78rem .88rem;
+  border-radius: var(--r-sm);
+}
+.compareBlock.is-fillBlanks .fillNumber {
+  display: none;
+}
+.compareBlock.is-fillBlanks .fillBlank p {
+  font-size: clamp(18px, 1.22vw, 24px);
+  line-height: 1.24;
+}
+.slide.is-compare .content.is-full .compareBlock .splitCols,
+.slide.is-split .content.is-full .splitCols {
+  gap: clamp(.9rem, 1.8vw, 1.6rem);
+}
+.slide.is-compare .content.is-full .compareBlock .card,
+.slide.is-split .content.is-full .card {
+  padding: clamp(1rem, 1.8vw, 1.45rem);
+}
+.slide.is-compare .content.is-full .compareBlock .card > b,
+.slide.is-split .content.is-full .card > b,
+.slide.is-systemCompare .content.is-full .systemCompare h3 {
+  font-size: clamp(24px, 2vw, 36px);
+  line-height: 1.08;
+}
+.slide.is-compare .content.is-full .compareBlock .choice,
+.slide.is-compare .content.is-full .compareBlock .fillBlank p,
+.slide.is-split .content.is-full .card li,
+.slide.is-systemCompare .content.is-full .systemCompare li {
+  font-size: clamp(20px, 1.48vw, 28px);
+  line-height: 1.22;
+}
+
 @media (max-width: 960px) {
   .termBlock {
     gap: .55rem;
@@ -1086,6 +1139,9 @@ h2 .inlineZh {
     max-width: none;
     font-size: clamp(23px, 5.55vw, 31px);
     line-height: 1.12;
+  }
+  .termDefinitionText .definitionBlankAnswer {
+    min-width: 4.8em;
   }
   .termBox .termDefinitionZh {
     font-size: clamp(17px, 3.75vw, 20px);

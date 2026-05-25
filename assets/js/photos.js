@@ -76,6 +76,20 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Thomas Berg',
       'https://commons.wikimedia.org/wiki/File:Factory_Emitting_Smoke.jpg'
     ),
+    rainforestCanopy: photo(
+      'market-economic-system',
+      'rainforest-canopy.jpg',
+      'Rainforest canopy in Manaus, Brazil.',
+      'Wikimedia Commons / Ben Sutherland / CC BY 2.0',
+      'https://commons.wikimedia.org/wiki/File:Rainforest_canopy.jpg'
+    ),
+    floodBarrier: photo(
+      'market-economic-system',
+      'foss-flood-barrier.jpg',
+      'The Foss Flood Barrier in York, England.',
+      'Wikimedia Commons / Michael Jagger / CC BY-SA 2.0',
+      'https://commons.wikimedia.org/wiki/File:Foss_Flood_Barrier_-_geograph.org.uk_-_1608304.jpg'
+    ),
     streetLight: photo(
       'market-economic-system',
       'street-light.jpg',
