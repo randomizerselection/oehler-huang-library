@@ -1551,6 +1551,101 @@ h2 .inlineZh {
 }
 
 /* ---------- Interactive tax simulator ---------- */
+.taxRateCompare {
+  display: grid;
+  gap: .8rem;
+}
+.taxRateCompare h2 {
+  margin-bottom: -.25rem;
+}
+.taxRateDiagramGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+}
+.taxRateDiagramCard {
+  min-width: 0;
+  display: grid;
+  gap: .45rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.055);
+  box-shadow: var(--shadow-sm);
+}
+.taxRateDiagramCard h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(23px, 1.65vw, 34px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+.taxRateDiagramCard p {
+  margin: -.18rem 0 0;
+  color: var(--ink-dim);
+  font-size: clamp(17px, 1.1vw, 22px);
+  font-weight: 720;
+  line-height: 1.2;
+}
+.taxRateSvg {
+  width: 100%;
+  aspect-ratio: 1.125;
+  display: block;
+  overflow: visible;
+}
+.taxRateAxis {
+  stroke: rgba(219,231,246,.68);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+.taxRateCurve {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.taxRateDiagramCard.is-regressive .taxRateCurve {
+  stroke: var(--rose);
+}
+.taxRateDiagramCard.is-proportional .taxRateCurve {
+  stroke: var(--gold);
+}
+.taxRateAxisLabel {
+  fill: #edf4ff;
+  font-size: 17px;
+  font-weight: 820;
+  letter-spacing: 0;
+}
+.taxRateTickLabel {
+  fill: rgba(219,231,246,.76);
+  font-size: 14px;
+  font-weight: 720;
+  letter-spacing: 0;
+}
+.taxRateNote {
+  min-height: 3.8em;
+  display: grid;
+  align-content: center;
+  padding: .7rem .8rem;
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(219,231,246,.14);
+  color: #edf4ff;
+  font-size: clamp(18px, 1.22vw, 24px);
+  font-weight: 680;
+  line-height: 1.22;
+}
+
+@media (max-width: 960px) {
+  .taxRateDiagramGrid {
+    grid-template-columns: 1fr;
+  }
+  .taxRateNote {
+    min-height: 0;
+  }
+}
+
 .taxSim {
   display: grid;
   gap: 1rem;

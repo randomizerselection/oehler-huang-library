@@ -146,6 +146,50 @@ p, .text { margin: 0; font-size: var(--t-body); line-height: 1.4; color: var(--i
   line-height: .9; letter-spacing: -0.05em;
   margin-bottom: .15em;
 }
+.cardDefinitionBox,
+.cardExampleBox {
+  display: grid;
+  gap: .48rem;
+  margin-top: .75rem;
+  padding: .82rem .9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,.055);
+}
+.cardDefinitionBox {
+  border-left: 5px solid var(--cyan);
+}
+.cardExampleBox {
+  border-left: 5px solid var(--gold);
+}
+.card .cardBoxLabel,
+.card .cardExampleLine span {
+  color: var(--gold);
+  font-size: clamp(15px, 1vw, 19px);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.cardDefinitionBox p,
+.cardExampleLine em {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: clamp(20px, 1.35vw, 26px);
+  font-style: normal;
+  line-height: 1.3;
+}
+.cardDefinitionBox .cardDefinitionZh {
+  color: #edf4ff;
+}
+.cardExampleLine {
+  display: grid;
+  gap: .18rem;
+}
+.card .cardExampleLine span {
+  color: rgba(255,209,102,.9);
+  text-transform: none;
+}
 
 /* ---------- Highlight boxes ---------- */
 .termBox {

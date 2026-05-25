@@ -54,6 +54,7 @@ IGCSE.lesson = {
       title:   'By the end, you can',
       bullets: [
         'Define fiscal policy.',
+        'Define expansionary and contractionary fiscal policy.',
         'Identify fiscal-policy measures.',
         'Explain effects on macroeconomic aims.',
         'Evaluate likely trade-offs.',
@@ -64,25 +65,6 @@ IGCSE.lesson = {
       eyebrow: 'New section',
       title:   'Fiscal policy basics',
       zhTitle: '财政政策基础',
-    },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          flag: '🇸🇬',
-          country: 'Singapore',
-          fact: 'Singapore added S$1.9 billion for cost-of-living relief in Budget 2024. This is government spending.',
-          source: 'Source: Singapore Ministry of Finance.',
-        },
-        china: {
-          flag: '🇨🇳',
-          country: 'China',
-          fact: 'China planned RMB 28.5 trillion in general public budget spending for 2024.',
-          source: 'Source: 2024 Government Work Report.',
-        },
-      },
-      visual: factPhotos.singaporeBudget,
     },
     {
       type: 'term',
@@ -99,18 +81,6 @@ IGCSE.lesson = {
       ],
       visual: photos.budgetMeeting,
       partialReview: ['.termBox', '.termExamples > .termExample'],
-    },
-    {
-      type: 'compare',
-      eyebrow: 'Learn',
-      title:   'The two fiscal-policy measures',
-      leftTitle:  'Government spending',
-      left:  ['increase spending to raise demand or improve supply', 'reduce spending to lower demand or borrowing'],
-      rightTitle: 'Taxation',
-      right: ['cut taxes to raise disposable income or incentives', 'raise taxes to reduce demand or fund spending'],
-      prompt: 'Every fiscal-policy answer should mention spending and/or taxation.',
-      visual: photos.budgetMeeting,
-      partialReview: ['.splitCols > .card', '.prompt'],
     },
     {
       type: 'fact',
@@ -148,6 +118,64 @@ IGCSE.lesson = {
       eyebrow: 'New section',
       title:   'Expansionary and\ncontractionary policy',
       zhTitle: '扩张性与紧缩性政策',
+    },
+    {
+      type: 'term',
+      eyebrow: 'Exam-ready definition',
+      title:   'Expansionary fiscal policy',
+      zhTitle: '扩张性财政政策',
+      term:    'expansionary fiscal policy',
+      definition: 'Increasing government spending and/or reducing taxation to increase aggregate demand, output and employment or economic growth.',
+      definitionZh: '增加政府支出和/或减少税收，以提高总需求、产出和就业或经济增长。',
+      examples: [
+        ['Spending', 'increase public-sector spending, e.g. infrastructure'],
+        ['Taxation', 'cut taxes to raise disposable income'],
+        ['Aim', 'raise aggregate demand, output and jobs'],
+      ],
+      visual: photos.roadwork,
+      partialReview: ['.termBox', '.termExamples > .termExample'],
+      sources: [
+        {
+          label: 'Definitions overview',
+          ref: 'references/igcse-economics-definitions-2026.md, 4.3.9',
+          note: 'Definition wording for expansionary fiscal policy.',
+        },
+        {
+          label: 'Paper 2 archive',
+          ref: '2024FM-22 Q3(c)',
+          question: 'Analyse how fiscal policy can increase employment.',
+          extract: 'MS basis: rise in government spending / reduction in taxation; expansionary fiscal policy may increase aggregate demand and employment.',
+        },
+      ],
+    },
+    {
+      type: 'term',
+      eyebrow: 'Exam-ready definition',
+      title:   'Contractionary fiscal policy',
+      zhTitle: '紧缩性财政政策',
+      term:    'contractionary fiscal policy',
+      definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and inflationary pressure.',
+      definitionZh: '减少政府支出和/或增加税收，以降低总需求和通货膨胀压力。',
+      examples: [
+        ['Spending', 'reduce or delay public-sector spending'],
+        ['Taxation', 'raise taxes to reduce disposable income'],
+        ['Aim', 'lower aggregate demand and inflationary pressure'],
+      ],
+      visual: photos.taxForms,
+      partialReview: ['.termBox', '.termExamples > .termExample'],
+      sources: [
+        {
+          label: 'Definitions overview',
+          ref: 'references/igcse-economics-definitions-2026.md, 4.3.9',
+          note: 'Definition wording for contractionary fiscal policy.',
+        },
+        {
+          label: 'Paper 2 archive',
+          ref: '2025MJ-21 Q4(d); 2025ON-21 Q3(a)',
+          question: 'Discuss whether or not a decrease in government spending will reduce inflation. / Identify two fiscal policy measures.',
+          extract: 'MS basis: lower government spending may reduce aggregate demand and demand-pull inflation; contractionary and expansionary measures are accepted fiscal-policy measures.',
+        },
+      ],
     },
     {
       type: 'discussion',

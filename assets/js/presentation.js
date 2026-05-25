@@ -311,10 +311,32 @@ const normalizeCard = (card = {}) => {
   return {
     title: card.title,
     zhTitle: card.zhTitle,
-    body: card.body || card.detail || card.definition,
+    body: card.body || card.detail || (!card.examples && !card.definitionZh ? card.definition : ''),
+    definition: card.definition,
+    definitionZh: card.definitionZh,
+    examples: card.examples,
     num: card.num || card.number,
     icon: card.icon,
   };
+};
+
+const cardExampleBox = (examples = []) => {
+  if (!examples.length) return '';
+  return `
+    <div class="cardExampleBox">
+      <span class="cardBoxLabel">Example</span>
+      ${examples.map((example) => {
+        const label = Array.isArray(example) ? example[0] : '';
+        const detail = Array.isArray(example) ? example[1] : example;
+        return `
+          <div class="cardExampleLine">
+            ${label ? `<span>${esc(label)}</span>` : ''}
+            <em>${esc(detail || '')}</em>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
 };
 
 const cardGrid = (cards = [], options = {}) => {
@@ -333,9 +355,82 @@ const cardGrid = (cards = [], options = {}) => {
               ${card.zhTitle ? `<span class="cardTitleZh" lang="zh-Hans">${esc(card.zhTitle)}</span>` : ''}
             </b>
             ${card.body ? `<span class="cardBody">${esc(card.body)}</span>` : ''}
+            ${card.definition ? `
+              <div class="cardDefinitionBox">
+                <span class="cardBoxLabel">Definition</span>
+                <p>${esc(card.definition)}</p>
+                ${card.definitionZh ? `<p class="cardDefinitionZh">${esc(card.definitionZh)}</p>` : ''}
+              </div>
+            ` : ''}
+            ${cardExampleBox(card.examples || [])}
           </div>
         `;
       }).join('')}
+    </div>
+  `;
+};
+
+const taxRateDiagramPath = (mode = '') => {
+  switch (String(mode).toLowerCase()) {
+    case 'progressive':
+      return 'M78 250 C128 240 180 210 232 158 C258 132 280 104 304 76';
+    case 'regressive':
+      return 'M78 82 C128 102 180 140 232 192 C258 218 282 238 304 250';
+    case 'proportional':
+      return 'M78 166 L304 166';
+    default:
+      return 'M78 166 L304 166';
+  }
+};
+
+const taxRateDiagramCard = (item = {}) => `
+  <article class="taxRateDiagramCard is-${esc(item.mode || 'proportional')}">
+    <h3>${esc(item.title || '')}</h3>
+    ${item.zhTitle ? `<p lang="zh-Hans">${esc(item.zhTitle)}</p>` : ''}
+    <svg class="taxRateSvg" viewBox="0 0 360 320" role="img" aria-label="${esc(item.title || 'Tax rate diagram')}">
+      <line class="taxRateAxis" x1="58" y1="270" x2="318" y2="270"/>
+      <line class="taxRateAxis" x1="58" y1="270" x2="58" y2="42"/>
+      <path class="taxRateCurve" d="${taxRateDiagramPath(item.mode)}"/>
+      <text class="taxRateAxisLabel" x="188" y="306" text-anchor="middle">Income taxed</text>
+      <text class="taxRateAxisLabel" transform="translate(20 162) rotate(-90)" text-anchor="middle">Tax rate</text>
+      <text class="taxRateTickLabel" x="54" y="292" text-anchor="end">0</text>
+      <text class="taxRateTickLabel" x="84" y="292" text-anchor="middle">low</text>
+      <text class="taxRateTickLabel" x="304" y="292" text-anchor="middle">high</text>
+    </svg>
+    ${item.note ? `<div class="taxRateNote">${esc(item.note)}</div>` : ''}
+  </article>
+`;
+
+const taxRateDiagramCompare = (s) => {
+  const diagrams = s.diagrams || [
+    {
+      mode: 'progressive',
+      title: 'Progressive',
+      zhTitle: '累进税',
+      note: 'Tax rate rises as income taxed rises.',
+    },
+    {
+      mode: 'regressive',
+      title: 'Regressive',
+      zhTitle: '累退税',
+      note: 'Tax rate falls as income taxed rises.',
+    },
+    {
+      mode: 'proportional',
+      title: 'Proportional',
+      zhTitle: '比例税',
+      note: 'Tax rate stays the same at all income levels.',
+    },
+  ];
+
+  return `
+    <div class="taxRateCompare">
+      <h2>${esc(s.title || 'Tax rate diagrams')}</h2>
+      ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
+      <div class="taxRateDiagramGrid">
+        ${diagrams.map(taxRateDiagramCard).join('')}
+      </div>
+      ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
     </div>
   `;
 };
@@ -663,7 +758,7 @@ const renderers = {
 
   cards: (s) => `
     <div>
-      <h2>${esc(s.title)}</h2>
+      ${s.showTitle === false ? '' : `<h2>${esc(s.title)}</h2>`}
       ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
       ${cardGrid(s.cards, { style: s.cardStyle, layout: s.cardLayout })}
       ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
@@ -833,6 +928,8 @@ const renderers = {
       <div class="simTakeaway"></div>
     </div>
   `,
+
+  taxRateDiagramCompare: (s) => taxRateDiagramCompare(s),
 
   chinaIncomeTaxSim: (s) => `
     <div class="chinaTaxSim"
@@ -1532,11 +1629,15 @@ function handoutPairs(items = [], className = 'handoutPairs') {
         const title = Array.isArray(item) ? item[0] : item?.title;
         const detail = Array.isArray(item) ? item[1] : (item?.detail || item?.body || item?.definition);
         const number = Array.isArray(item) ? item[2] : item?.number;
+        const definitionZh = Array.isArray(item) ? '' : item?.definitionZh;
+        const examples = Array.isArray(item) ? [] : (item?.examples || []);
         return `
           <div>
             ${number ? `<span>${esc(number)}</span>` : ''}
             <b>${esc(title || '')}</b>
             ${detail ? `<p>${esc(detail)}</p>` : ''}
+            ${definitionZh ? `<p class="handoutDefinitionZh">${esc(definitionZh)}</p>` : ''}
+            ${examples.length ? handoutPairs(examples, 'handoutExamples') : ''}
           </div>
         `;
       }).join('')}
@@ -1595,6 +1696,7 @@ const handoutContentTypes = new Set([
   'split',
   'systemCompare',
   'term',
+  'taxRateDiagramCompare',
 ]);
 
 function shouldIncludeHandoutSlide(slide) {
@@ -1712,6 +1814,17 @@ function renderHandoutBlock(slide) {
         ${handoutParagraph(slide.prompt, 'handoutNote')}
         ${renderSources(slide.sources, 'handoutSources')}
       `, 'is-compare');
+
+    case 'taxRateDiagramCompare':
+      return handoutBlock(slide, `
+        ${handoutParagraph(slide.lead)}
+        ${handoutPairs((slide.diagrams || []).map((diagram) => ({
+          title: diagram.title,
+          body: diagram.note,
+        })))}
+        ${handoutParagraph(slide.prompt, 'handoutNote')}
+        ${renderSources(slide.sources, 'handoutSources')}
+      `, 'is-key-points');
 
     default:
       return '';
