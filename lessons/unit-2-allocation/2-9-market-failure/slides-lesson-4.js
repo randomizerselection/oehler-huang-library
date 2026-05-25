@@ -282,8 +282,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title: 'Fill in the blanks',
+      eyebrow: 'Check',
+      title: 'Exit ticket',
+      zhTitle: '离堂小测',
       mode: 'fillBlanks',
       steps: [
         ['1', 'A monopoly may restrict output and charge higher __________.', 'prices'],

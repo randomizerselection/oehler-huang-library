@@ -397,6 +397,7 @@ IGCSE.lesson = {
           type: 'answer',
           eyebrow: 'Check',
           title:   'Exit ticket',
+          zhTitle: '离堂小测',
           mode:    'fillBlanks',
           steps: [
             ['1', 'A direct tax is paid directly by the __________ to the government.', 'taxpayer'],

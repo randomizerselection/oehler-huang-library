@@ -584,6 +584,33 @@ test.describe('site smoke', () => {
     expect(missingCoverage).toEqual([]);
   });
 
+  test('exit ticket answer slides use the bilingual final-check standard', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons'), root);
+    const failures = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'answer') continue;
+
+        if (slide.eyebrow === 'Exit ticket') {
+          failures.push(`${slideFile} slide ${index + 1}: uses Exit ticket as eyebrow`);
+        }
+
+        if (slide.title === 'Exit ticket') {
+          if (slide.eyebrow !== 'Check') {
+            failures.push(`${slideFile} slide ${index + 1}: Exit ticket title must use Check eyebrow`);
+          }
+          if (slide.zhTitle !== '离堂小测') {
+            failures.push(`${slideFile} slide ${index + 1}: Exit ticket title must include zhTitle`);
+          }
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   test('market failure decks keep three bilingual objectives and three lesson parts', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
 
@@ -673,6 +700,30 @@ test.describe('site smoke', () => {
     expect(termSlides.get('external benefit')).toBe('A benefit gained by a third party who is not directly involved in the consumption or production of the product.');
   });
 
+  test('market failure lesson 1 teaches private and external effects before social totals', () => {
+    const lesson = readLesson('lessons/unit-2-allocation/2-9-market-failure/slides-lesson-1.js');
+    const slides = lesson.slides || [];
+    const titles = slides.map((slide) => slide.title).filter(Boolean);
+
+    expect(titles).not.toContain('Write the formula in words');
+    expect(titles).not.toContain('Predict the market problem');
+
+    const termIndex = (term) => slides.findIndex((slide) => slide.type === 'term' && String(slide.term).toLowerCase() === term);
+    const privateCost = termIndex('private cost');
+    const externalCost = termIndex('external cost');
+    const privateBenefit = termIndex('private benefit');
+    const externalBenefit = termIndex('external benefit');
+    const externalBenefitCheck = slides.findIndex((slide, index) => index > externalBenefit && slide.type === 'peerTask');
+    const firstSocialTotal = slides.findIndex((slide) => /\bsocial (cost|benefit|totals)\b/i.test(JSON.stringify(slide)));
+
+    expect(privateCost).toBeGreaterThan(0);
+    expect(externalCost).toBeGreaterThan(privateCost);
+    expect(privateBenefit).toBeGreaterThan(externalCost);
+    expect(externalBenefit).toBeGreaterThan(privateBenefit);
+    expect(externalBenefitCheck).toBeGreaterThan(externalBenefit);
+    expect(firstSocialTotal).toBeGreaterThan(externalBenefitCheck);
+  });
+
   test('market failure flow and contrast slides use bilingual fill-blank scaffolds', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
     const badFlows = [];
@@ -724,6 +775,147 @@ test.describe('site smoke', () => {
     }
 
     expect(badTitles).toEqual([]);
+  });
+
+  test('target fiscal and monetary decks keep three bilingual objectives and three lesson parts', () => {
+    const slideFiles = [
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+    ];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      const outcomes = (lesson.slides || []).filter((slide) => slide.type === 'outcomes');
+      const sections = (lesson.slides || []).filter((slide) => slide.type === 'section');
+
+      expect(outcomes, `${slideFile} outcomes`).toHaveLength(1);
+      expect(outcomes[0].bullets, `${slideFile} English objectives`).toHaveLength(3);
+      expect(outcomes[0].zhBullets, `${slideFile} Chinese objectives`).toHaveLength(3);
+      outcomes[0].zhBullets.forEach((bullet, i) => {
+        expect(bullet, `${slideFile} zh objective ${i + 1}`).toEqual(expect.any(String));
+        expect(bullet.trim(), `${slideFile} zh objective ${i + 1}`).not.toHaveLength(0);
+      });
+
+      expect(sections, `${slideFile} section count`).toHaveLength(3);
+    }
+  });
+
+  test('target fiscal and monetary definition slides use fill-in vocabulary notes', () => {
+    const slideFiles = [
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+    ];
+    const failures = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'term') continue;
+        const keyTerms = slide.keyTerms || slide.termNotes || [];
+        if (!keyTerms.length) {
+          failures.push(`${slideFile} slide ${index + 1}: missing keyTerms`);
+          continue;
+        }
+        if (slide.showExamples !== false) failures.push(`${slideFile} slide ${index + 1}: examples should be hidden`);
+        if (slide.visual) failures.push(`${slideFile} slide ${index + 1}: definition slide should not use a visual`);
+
+        for (const item of keyTerms) {
+          const term = Array.isArray(item) ? item[0] : item.term;
+          const zh = Array.isArray(item) ? item[1] : item.zh;
+          const note = Array.isArray(item) ? item[2] : item.note;
+          if (!String(slide.definition || '').toLowerCase().includes(String(term || '').toLowerCase())) {
+            failures.push(`${slideFile} slide ${index + 1}: definition does not include ${term}`);
+          }
+          if (!zh || !note) failures.push(`${slideFile} slide ${index + 1}: ${term} missing zh or note`);
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('target fiscal and monetary taught steps are immediately followed by formative checks', () => {
+    const slideFiles = [
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+    ];
+    const taughtTypes = new Set(['term', 'flow', 'compare', 'cards']);
+    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const failures = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      const slides = lesson.slides || [];
+      for (const [index, slide] of slides.entries()) {
+        if (!taughtTypes.has(slide.type)) continue;
+        const nextSlide = slides[index + 1];
+        if (!formativeTypes.has(nextSlide?.type)) {
+          failures.push(`${slideFile} slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('target fiscal and monetary flows and contrasts use bilingual scaffolds', () => {
+    const slideFiles = [
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+    ];
+    const failures = [];
+    const textFields = ['title', 'question', 'prompt'];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        for (const field of textFields) {
+          if (/\bchain\b/i.test(String(slide[field] || ''))) {
+            failures.push(`${slideFile} slide ${index + 1}: ${field} uses chain`);
+          }
+        }
+
+        if (slide.type === 'flow') {
+          const nodes = Array.isArray(slide.nodes?.[0]) ? slide.nodes[0] : slide.nodes || [];
+          nodes.forEach((node, nodeIndex) => {
+            const text = Array.isArray(node) ? node[0] : node?.text;
+            const zh = Array.isArray(node) ? node[1] : node?.zh;
+            if (!text || !zh) failures.push(`${slideFile} slide ${index + 1} node ${nodeIndex + 1}`);
+          });
+        }
+
+        if (slide.type === 'compare') {
+          if (slide.mode !== 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: compare missing fillBlanks`);
+          if (slide.title) failures.push(`${slideFile} slide ${index + 1}: compare should not have title`);
+          if ((slide.partialReview || []).length) failures.push(`${slideFile} slide ${index + 1}: compare should not use partialReview`);
+          if (slide.visual) failures.push(`${slideFile} slide ${index + 1}: compare should not use visual`);
+
+          for (const side of ['left', 'right']) {
+            for (const [itemIndex, item] of (slide[side] || []).entries()) {
+              const statement = Array.isArray(item) ? item[1] : String(item);
+              const answer = Array.isArray(item) ? item[2] : '';
+              if (!statement.includes('__________') || !answer) {
+                failures.push(`${slideFile} slide ${index + 1} ${side} item ${itemIndex + 1}`);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
   });
 
   test('exam chain slides are followed by mark-scheme model answers', () => {
@@ -959,6 +1151,64 @@ test.describe('site smoke', () => {
         await expect(page.locator('.slide.is-active .sectionProgress span')).toHaveCount(3);
         await expectNoHorizontalOverflow(page);
       }
+    }
+  });
+
+  test('target fiscal and monetary section progress shows three lesson parts', async ({ page }) => {
+    const lessonPaths = [
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-4.html',
+    ];
+
+    for (const lessonPath of lessonPaths) {
+      await page.goto(pageUrl(lessonPath));
+      const sectionNumbers = await page.evaluate(() => window.IGCSE.lesson.slides
+        .map((slide, index) => slide.type === 'section' ? index + 1 : null)
+        .filter(Boolean));
+
+      expect(sectionNumbers, lessonPath).toHaveLength(3);
+      for (const sectionNumber of sectionNumbers) {
+        await page.goto(`${pageUrl(lessonPath)}#${sectionNumber}`);
+        await expect(page.locator('.slide.is-active .sectionProgress span')).toHaveCount(3);
+        await expectNoHorizontalOverflow(page);
+      }
+    }
+  });
+
+  test('target fiscal and monetary decks render slide and handout views without overflow', async ({ page }) => {
+    const lessonPaths = [
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
+    ];
+
+    for (const lessonPath of lessonPaths) {
+      await page.setViewportSize({ width: 1366, height: 768 });
+      await page.goto(pageUrl(lessonPath));
+      const slideNumbers = await page.evaluate(() => {
+        const slides = window.IGCSE.lesson.slides;
+        return {
+          peerTask: slides.findIndex((slide) => slide.type === 'peerTask') + 1,
+          term: slides.findIndex((slide) => slide.type === 'term') + 1,
+          compare: slides.findIndex((slide) => slide.type === 'compare') + 1,
+        };
+      });
+
+      for (const slideNumber of [slideNumbers.peerTask, slideNumbers.term, slideNumbers.compare].filter(Boolean)) {
+        await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+        await expectNoHorizontalOverflow(page);
+      }
+
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.peerTask || slideNumbers.term}`);
+      await expectNoHorizontalOverflow(page);
+
+      await page.setViewportSize({ width: 1200, height: 900 });
+      await page.goto(pageUrl(lessonPath) + '?view=print');
+      await expect(page.locator('.handoutDocument')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
     }
   });
 
@@ -1231,6 +1481,21 @@ test.describe('site smoke', () => {
     expect(titleLayout.zhRight).toBeLessThanOrEqual(titleLayout.headingRight + 1);
   });
 
+  test('exit ticket answer slides render the Chinese title', async ({ page }) => {
+    await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html'));
+    const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides.findIndex((slide) => (
+      slide.type === 'answer' && slide.title === 'Exit ticket'
+    )) + 1);
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${slideNumber}`);
+
+    await expect(page.locator('.slide.is-active h2')).toHaveText(/Exit ticket/);
+    await expect(page.locator('.slide.is-active h2 .inlineZh')).toHaveText('离堂小测');
+    await expect(page.locator('.slide.is-active h2 .inlineZh')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('compact bilingual card slides fit without horizontal clipping', async ({ page }, testInfo) => {
     const checks = [
       {
@@ -1253,13 +1518,13 @@ test.describe('site smoke', () => {
       },
       {
         path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
-        hash: '#19',
+        hash: '#18',
         title: /Fiscal policy and macro aims/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
         path: 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
-        hash: '#10',
+        hash: '#11',
         title: /What central banks do/i,
       },
       {
@@ -1782,11 +2047,11 @@ test.describe('site smoke', () => {
         expectedQuestion: /Exam question: 2023ON-21 Q3\(a\): Identify two types of tax\./i,
       },
       {
-        url: 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html#14',
+        url: 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html#15',
         expected: /Definitions 2026: Monetary policy/i,
       },
       {
-        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html#21',
+        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html#36',
         expected: /Paper 2 source/i,
       },
       {

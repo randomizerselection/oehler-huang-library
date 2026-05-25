@@ -183,8 +183,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title: 'Fill in the blanks',
+      eyebrow: 'Check',
+      title: 'Exit ticket',
+      zhTitle: '离堂小测',
       mode: 'fillBlanks',
       steps: [
         ['1', 'A market economic system allocates resources mainly through markets, private ownership and the price __________.', 'mechanism'],

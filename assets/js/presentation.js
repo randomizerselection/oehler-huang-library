@@ -730,10 +730,11 @@ const renderers = {
     const highlightLabels = (notes || [])
       .map((item) => Array.isArray(item) ? item[0] : item?.term)
       .filter(Boolean);
+    const definitionCue = s.definitionCue === false ? '' : (s.definitionCue || 'Key term');
 
     return `
       <div class="termBlock">
-        <div class="definitionCue">${esc(s.eyebrow || 'Definition')}</div>
+        ${definitionCue ? `<div class="definitionCue">${esc(definitionCue)}</div>` : ''}
         <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
         ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
         <div class="termBox">
@@ -810,7 +811,7 @@ const renderers = {
 
   peerTask: (s) => `
     <div class="peerTaskBlock">
-      <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
+      ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
       <div class="peerTaskGrid">
         <section class="peerTaskPromptPanel">
           <div class="peerTaskBadge">${esc(s.eyebrow || 'Pair check')}</div>
@@ -834,7 +835,7 @@ const renderers = {
 
   answer: (s) => `
     <div>
-      <h2>${esc(s.title)}</h2>
+      <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
       ${s.answer ? `
         <div class="answerBox">
           <div class="big">${esc(s.answer)}</div>

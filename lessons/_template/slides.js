@@ -27,7 +27,9 @@
    Eyebrow convention:
      Use eyebrow only as a student learning-stage cue:
      Lesson overview | Starter | Objectives | New section | Learn | Explore
-     Example | Apply | Check | Exam practice | Review | Exit ticket
+     Example | Apply | Check | Exam practice | Review
+     Final exit-ticket answer slides should use eyebrow: 'Check',
+     title: 'Exit ticket', and zhTitle: '离堂小测'.
 
    Bilingual key-term convention:
      Important section, term and concept-bearing flow slides should use zhTitle
@@ -160,8 +162,9 @@ IGCSE.lesson = {
 
     {
       type: 'answer',
-      eyebrow: 'Review',
-      title:   'Fill in the blanks',
+      eyebrow: 'Check',
+      title:   'Exit ticket',
+      zhTitle: '离堂小测',
       mode:    'fillBlanks',
       steps: [
         ['1', '<Statement with __________.>', '<answer>'],

@@ -363,8 +363,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title: 'Four fast checks',
+      eyebrow: 'Check',
+      title: 'Exit ticket',
+      zhTitle: '离堂小测',
       mode: 'fillBlanks',
       steps: [
         ['1', 'New cocoa trees taking 3-5 years makes supply less price __________.', 'elastic'],

@@ -210,8 +210,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title: 'Fill in the blanks',
+      eyebrow: 'Check',
+      title: 'Exit ticket',
+      zhTitle: '离堂小测',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Consumer sovereignty means firms produce what consumers __________.', 'demand'],

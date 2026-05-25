@@ -203,8 +203,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title: 'Three retrieval prompts',
+      eyebrow: 'Check',
+      title: 'Exit ticket',
+      zhTitle: '离堂小测',
       steps: [
         ['1', 'Name two macroeconomic aims.'],
         ['2', 'State one reason low inflation is useful.'],

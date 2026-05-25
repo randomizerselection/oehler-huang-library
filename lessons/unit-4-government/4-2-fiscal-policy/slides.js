@@ -877,8 +877,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title:   'Four blanks',
+      eyebrow: 'Check',
+      title:   'Exit ticket',
+      zhTitle: '离堂小测',
       steps: [
         ['1', 'A direct tax is paid on income, profit or __________.'],
         ['2', 'An indirect tax is paid when goods and services are __________.'],
@@ -1190,8 +1191,9 @@ IGCSE.lesson = {
     },
     {
       type: 'answer',
-      eyebrow: 'Exit ticket',
-      title:   'Three blanks',
+      eyebrow: 'Check',
+      title:   'Exit ticket',
+      zhTitle: '离堂小测',
       steps: [
         ['1', 'Fiscal policy uses government __________ and taxation.'],
         ['2', 'A budget deficit means spending is __________ revenue.'],
