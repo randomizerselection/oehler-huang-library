@@ -2013,7 +2013,7 @@ function getPartialSelectors(meta, slide) {
   const config = slide.partialReview;
   if (slide.type === 'quiz') return '';
   if (config === false) return '';
-  if (Array.isArray(config)) return config.map((selector) => `.content main > div > ${selector}`).join(',');
+  if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';
   return (config || meta.partialReview) ? partialSelectors : '';

@@ -918,6 +918,46 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
+  test('fiscal policy lesson 4 uses varied checks and avoids unclear student-facing wording', () => {
+    const lesson = readLesson('lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js');
+    const slides = lesson.slides || [];
+    const taughtTypes = new Set(['term', 'flow', 'cards']);
+    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const formativeSeen = new Set();
+    const failures = [];
+
+    for (const [index, slide] of slides.entries()) {
+      for (const field of ['title', 'question', 'prompt']) {
+        if (/\b(?:stance|route|chain)\b/i.test(String(slide[field] || ''))) {
+          failures.push(`slide ${index + 1}: ${field} uses unclear wording`);
+        }
+      }
+      for (const objective of slide.type === 'outcomes' ? slide.bullets || [] : []) {
+        if (/\b(?:stance|route|chain)\b/i.test(objective)) failures.push(`objective uses unclear wording: ${objective}`);
+      }
+
+      if (formativeTypes.has(slide.type)) formativeSeen.add(slide.type);
+
+      if (taughtTypes.has(slide.type)) {
+        const nextSlide = slides[index + 1];
+        if (!formativeTypes.has(nextSlide?.type)) {
+          failures.push(`slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        }
+      }
+
+      if (slide.type === 'term') {
+        if (slide.eyebrow === 'Definition') failures.push(`slide ${index + 1}: repeated Definition eyebrow`);
+        if (slide.definitionCue === 'Definition') failures.push(`slide ${index + 1}: repeated Definition cue`);
+        if ((slide.partialReview || []).includes('.termBox')) failures.push(`slide ${index + 1}: termBox should not be hidden`);
+      }
+    }
+
+    expect(formativeSeen.has('answer')).toBe(true);
+    expect(formativeSeen.has('peerTask')).toBe(true);
+    expect(formativeSeen.has('quiz')).toBe(true);
+    expect(failures).toEqual([]);
+  });
+
   test('exam chain slides are followed by mark-scheme model answers', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons'), root)
       .filter((slideFile) => !slideFile.includes('/_template/'));
@@ -1210,6 +1250,55 @@ test.describe('site smoke', () => {
       await expect(page.locator('.handoutDocument')).toBeVisible();
       await expectNoHorizontalOverflow(page);
     }
+  });
+
+  test('fiscal policy lesson 4 reveals term notes and peer examples only after the task', async ({ page }) => {
+    const lessonPath = 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html';
+    await page.goto(pageUrl(lessonPath));
+    const slideNumbers = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides;
+      return {
+        term: slides.findIndex((slide) => slide.type === 'term') + 1,
+        peerTask: slides.findIndex((slide) => slide.type === 'peerTask') + 1,
+      };
+    });
+
+    expect(slideNumbers.term).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.term}`);
+    await expect(page.locator('.slide.is-active .termDefinitionText')).toBeVisible();
+    await expect(page.locator('.slide.is-active .termDefinitionText .blankAnswer')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .definitionTermNote')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .definitionTermNote.partial-item.is-visible')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .termBox.partial-item')).toHaveCount(0);
+    const visibleDefinitionLabels = await page.evaluate(() => {
+      const active = document.querySelector('.slide.is-active');
+      const visibleText = [...active.querySelectorAll('*')]
+        .filter((el) => {
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0;
+        })
+        .map((el) => el.textContent.trim())
+        .join(' ');
+      return (visibleText.match(/\bDefinition\b/g) || []).length;
+    });
+    expect(visibleDefinitionLabels).toBe(0);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .definitionTermNote.partial-item.is-visible')).toHaveCount(1);
+
+    expect(slideNumbers.peerTask).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.peerTask}`);
+    await expect(page.locator('.slide.is-active .peerTaskBlock')).toBeVisible();
+    await expect(page.locator('.slide.is-active .peerTaskBlock > h2')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .peerTaskSamples .choice')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(0);
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
   });
 
   test('peer task slides render pair checks without overflow', async ({ page }) => {
