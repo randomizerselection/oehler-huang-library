@@ -536,6 +536,25 @@ body { overflow: hidden; }
   letter-spacing: .05em;
   text-transform: uppercase;
 }
+.peerTaskPanelLabel,
+.peerTaskSampleLabel {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--gold);
+  font-size: clamp(13px, .88vw, 16px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.peerTaskSampleLabel span {
+  color: rgba(219,231,246,.78);
+  font-size: .95em;
+  letter-spacing: 0;
+  text-transform: none;
+}
 .peerTaskBlock .lead {
   max-width: 28ch;
   color: var(--ink);
@@ -581,6 +600,10 @@ body { overflow: hidden; }
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: .65rem;
   margin-top: 0;
+  padding: clamp(.7rem, 1vw, .95rem);
+  border: 1px solid rgba(255,209,102,.22);
+  border-radius: var(--r-sm);
+  background: rgba(255,209,102,.06);
 }
 .peerTaskSamples .choice {
   min-height: 0;

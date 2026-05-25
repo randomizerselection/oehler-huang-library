@@ -109,6 +109,14 @@ function readLesson(relativePath) {
   return context.window.IGCSE.lesson;
 }
 
+const targetFiscalMonetarySlideFiles = [
+  'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+  'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+  'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+  'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+  'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+];
+
 function readFlashcards(relativePath) {
   const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const context = { window: {} };
@@ -868,31 +876,43 @@ test.describe('site smoke', () => {
   });
 
   test('target fiscal and monetary flows and contrasts use bilingual scaffolds', () => {
-    const slideFiles = [
-      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
-      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
-      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
-      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
-      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
-    ];
+    const slideFiles = targetFiscalMonetarySlideFiles;
     const failures = [];
-    const textFields = ['title', 'question', 'prompt'];
+    const textFields = ['title', 'question', 'prompt', 'footer', 'sharePrompt', 'markSchemeNote'];
 
     for (const slideFile of slideFiles) {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         for (const field of textFields) {
-          if (/\bchain\b/i.test(String(slide[field] || ''))) {
-            failures.push(`${slideFile} slide ${index + 1}: ${field} uses chain`);
+          if (/\b(?:stance|route|chain)\b/i.test(String(slide[field] || ''))) {
+            failures.push(`${slideFile} slide ${index + 1}: ${field} uses unclear wording`);
+          }
+        }
+        for (const answer of slide.sampleAnswers || []) {
+          if (/\b(?:stance|route|chain)\b/i.test(String(answer || ''))) {
+            failures.push(`${slideFile} slide ${index + 1}: sample answer uses unclear wording`);
+          }
+        }
+        for (const card of slide.cards || []) {
+          const cardText = Array.isArray(card) ? card.join(' ') : Object.values(card || {}).join(' ');
+          if (/\b(?:stance|route|chain)\b/i.test(cardText)) {
+            failures.push(`${slideFile} slide ${index + 1}: card uses unclear wording`);
           }
         }
 
         if (slide.type === 'flow') {
           const nodes = Array.isArray(slide.nodes?.[0]) ? slide.nodes[0] : slide.nodes || [];
+          if (slide.mode !== 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: flow missing fillBlanks mode`);
+          if ((slide.partialReview || []).includes('.flowRow > .flowChip')) {
+            failures.push(`${slideFile} slide ${index + 1}: flow chips should not be partial reveal items`);
+          }
           nodes.forEach((node, nodeIndex) => {
-            const text = Array.isArray(node) ? node[0] : node?.text;
-            const zh = Array.isArray(node) ? node[1] : node?.zh;
-            if (!text || !zh) failures.push(`${slideFile} slide ${index + 1} node ${nodeIndex + 1}`);
+            const text = node?.text;
+            const zh = node?.zh;
+            const answer = node?.answer;
+            if (!text || !text.includes('______') || !answer || !zh) {
+              failures.push(`${slideFile} slide ${index + 1} node ${nodeIndex + 1}`);
+            }
           });
         }
 
@@ -910,6 +930,101 @@ test.describe('site smoke', () => {
                 failures.push(`${slideFile} slide ${index + 1} ${side} item ${itemIndex + 1}`);
               }
             }
+          }
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('target fiscal and monetary fact slides are question-led', () => {
+    const failures = [];
+
+    for (const slideFile of targetFiscalMonetarySlideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'fact') continue;
+        const factPanels = [
+          slide.facts?.left,
+          slide.facts?.china,
+          ...(Array.isArray(slide.facts) ? slide.facts : []),
+        ].filter(Boolean);
+
+        for (const panel of factPanels) {
+          const fact = String(panel.fact || '');
+          if (!fact.includes('?')) {
+            failures.push(`${slideFile} slide ${index + 1}: fact is not question-led`);
+          }
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('target dense card grids use full-width layouts without right-side visuals', () => {
+    const denseGridTitles = new Set([
+      'Fiscal policy and macro aims',
+      'When fiscal policy works',
+      'What central banks do',
+      'Macroeconomic aims link',
+      'Expansionary monetary policy',
+      'Contractionary monetary policy',
+      'Money supply measures',
+      'Current account effects',
+      'Policy trade-offs',
+    ]);
+    const failures = [];
+
+    for (const slideFile of targetFiscalMonetarySlideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'cards' || !denseGridTitles.has(slide.title)) continue;
+        if (slide.visual) failures.push(`${slideFile} slide ${index + 1}: dense card grid still has visual`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('target fiscal and monetary peer tasks are self-contained sample-only reveals', () => {
+    const failures = [];
+    const vagueReferences = /\b(?:this slide|previous slide|part 2|part two|from part|above)\b/i;
+    const hiddenTaskSelectors = new Set(['.steps > .step', '.peerTaskShare']);
+
+    for (const slideFile of targetFiscalMonetarySlideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'peerTask') continue;
+        if (!slide.prompt || slide.prompt.trim().length < 24) {
+          failures.push(`${slideFile} slide ${index + 1}: missing clear prompt`);
+        }
+        if ((slide.steps || []).length !== 3) {
+          failures.push(`${slideFile} slide ${index + 1}: must have exactly three visible steps`);
+        }
+        if (!slide.sharePrompt) failures.push(`${slideFile} slide ${index + 1}: missing share prompt`);
+        if (!(slide.sampleAnswers || []).length) failures.push(`${slideFile} slide ${index + 1}: missing sample answer`);
+        for (const selector of slide.partialReview || []) {
+          if (hiddenTaskSelectors.has(selector)) failures.push(`${slideFile} slide ${index + 1}: hides task instructions`);
+        }
+        if (!(slide.partialReview || []).includes('.peerTaskSamples > .choice')) {
+          failures.push(`${slideFile} slide ${index + 1}: sample answer should be the reveal target`);
+        }
+
+        const taskText = [
+          slide.prompt,
+          slide.sharePrompt,
+          ...(slide.steps || []).map((step) => Array.isArray(step) ? step[1] : step),
+        ].join(' ');
+        if (vagueReferences.test(taskText)) {
+          failures.push(`${slideFile} slide ${index + 1}: depends on another slide instead of the task surface`);
+        }
+
+        for (const answer of slide.sampleAnswers || []) {
+          const wordCount = String(answer).trim().split(/\s+/).filter(Boolean).length;
+          if (wordCount < 12 || !/[.!?]$/.test(String(answer).trim())) {
+            failures.push(`${slideFile} slide ${index + 1}: sample answer is not a full model answer`);
           }
         }
       }
@@ -1118,8 +1233,8 @@ test.describe('site smoke', () => {
       'Saving and spending',
       'Borrowing and investment',
       'Inflation',
-      'Imports route',
-      'Exchange-rate route',
+      'Imports effect',
+      'Exchange-rate effect',
     ]);
     const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 
@@ -1233,10 +1348,15 @@ test.describe('site smoke', () => {
           peerTask: slides.findIndex((slide) => slide.type === 'peerTask') + 1,
           term: slides.findIndex((slide) => slide.type === 'term') + 1,
           compare: slides.findIndex((slide) => slide.type === 'compare') + 1,
+          flow: slides.findIndex((slide) => slide.type === 'flow') + 1,
+          denseCards: slides.findIndex((slide) => slide.type === 'cards' && [
+            'Fiscal policy and macro aims',
+            'Money supply measures',
+          ].includes(slide.title)) + 1,
         };
       });
 
-      for (const slideNumber of [slideNumbers.peerTask, slideNumbers.term, slideNumbers.compare].filter(Boolean)) {
+      for (const slideNumber of [slideNumbers.peerTask, slideNumbers.term, slideNumbers.compare, slideNumbers.flow, slideNumbers.denseCards].filter(Boolean)) {
         await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
         await expectNoHorizontalOverflow(page);
       }
@@ -1248,6 +1368,41 @@ test.describe('site smoke', () => {
       await page.setViewportSize({ width: 1200, height: 900 });
       await page.goto(pageUrl(lessonPath) + '?view=print');
       await expect(page.locator('.handoutDocument')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+    }
+  });
+
+  test('target fiscal and monetary fill-blank flows reveal only keyword blanks', async ({ page }) => {
+    const lessonPaths = [
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
+    ];
+
+    for (const lessonPath of lessonPaths) {
+      await page.setViewportSize({ width: 1366, height: 768 });
+      await page.goto(pageUrl(lessonPath));
+      const flowSlideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
+        .findIndex((slide) => slide.type === 'flow') + 1);
+
+      await page.goto(`${pageUrl(lessonPath)}#${flowSlideNumber}`);
+      await expect(page.locator('.slide.is-active .flowChip')).toHaveCount(4);
+      await expect(page.locator('.slide.is-active .flowChip.partial-item')).toHaveCount(0);
+      await expect(page.locator('.slide.is-active .flowTextZh')).toHaveCount(4);
+      await expect(page.locator('.slide.is-active .flowText .blankAnswer')).toHaveCount(4);
+      await expect(page.locator('.slide.is-active .flowText .blankAnswer.is-revealed')).toHaveCount(0);
+
+      await page.locator('.slide.is-active .flowText .blankAnswer').first().click();
+      await expect(page.locator('.slide.is-active .flowText .blankAnswer.is-revealed')).toHaveCount(1);
+      await expectNoHorizontalOverflow(page);
+
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(`${pageUrl(lessonPath)}#${flowSlideNumber}`);
+      await expectNoHorizontalOverflow(page);
+
+      await page.setViewportSize({ width: 1200, height: 900 });
+      await page.goto(pageUrl(lessonPath) + '?view=print');
+      await expect(page.locator('.handoutBlock.is-flow .handoutFlow li').first()).toContainText('______');
+      await expect(page.locator('.handoutBlock.is-flow .blankAnswer')).toHaveCount(0);
       await expectNoHorizontalOverflow(page);
     }
   });
@@ -1290,12 +1445,13 @@ test.describe('site smoke', () => {
     await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.peerTask}`);
     await expect(page.locator('.slide.is-active .peerTaskBlock')).toBeVisible();
     await expect(page.locator('.slide.is-active .peerTaskBlock > h2')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .steps .step')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .steps .step.partial-item')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .peerTaskShare')).toBeVisible();
+    await expect(page.locator('.slide.is-active .peerTaskShare.partial-item')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .peerTaskSampleLabel')).toBeVisible();
     await expect(page.locator('.slide.is-active .peerTaskSamples .choice')).toHaveCount(1);
     await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(0);
-    await page.keyboard.press('ArrowRight');
-    await page.keyboard.press('ArrowRight');
-    await page.keyboard.press('ArrowRight');
-    await page.keyboard.press('ArrowRight');
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(1);
     await expectNoHorizontalOverflow(page);
@@ -1311,6 +1467,8 @@ test.describe('site smoke', () => {
 
     await expect(page.locator('.slide.is-active .peerTaskBlock')).toBeVisible();
     await expect(page.locator('.slide.is-active .peerTaskZh')).toBeVisible();
+    await expect(page.locator('.slide.is-active .peerTaskPanelLabel')).toHaveText(/Task steps/i);
+    await expect(page.locator('.slide.is-active .peerTaskSampleLabel')).toBeVisible();
     await expect(page.locator('.slide.is-active .steps .step')).toHaveCount(3);
     const desktopLayout = await page.evaluate(() => {
       const grid = document.querySelector('.slide.is-active .peerTaskGrid');

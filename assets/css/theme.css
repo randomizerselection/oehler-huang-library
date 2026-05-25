@@ -723,6 +723,11 @@ button.choice:focus-visible {
   font-weight: 780;
   line-height: 1.18;
 }
+.flowText .blankAnswer {
+  min-width: min(6.6em, 100%);
+  height: 1.54em;
+  margin: .08em .08em 0;
+}
 .flowTextZh {
   align-self: start;
   margin-top: -.32rem;

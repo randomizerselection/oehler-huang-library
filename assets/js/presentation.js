@@ -475,17 +475,35 @@ const stepList = (items = []) => `
   </div>
 `;
 
-const flowChips = (nodes = []) => {
+const blankStatement = (text = '', answer = '') => {
+  const blankPattern = /_{3,}/;
+  const parts = String(text || '').split(blankPattern);
+  return answer && parts.length > 1
+    ? `${esc(parts[0])}<button type="button" class="blankAnswer" aria-expanded="false"><span>${esc(answer)}</span></button>${esc(parts.slice(1).join(''))}`
+    : esc(text);
+};
+
+const normaliseFlowNode = (node = {}) => {
+  if (Array.isArray(node)) return { text: node[0], zh: node[1] };
+  if (node && typeof node === 'object') return node;
+  return { text: node };
+};
+
+const flowChips = (nodes = [], mode = '') => {
   const arr = Array.isArray(nodes[0]) ? nodes[0] : nodes;
   return `
-    <div class="flowChain flowRow" style="--flow-count:${arr.length}">
-      ${arr.map((x, i) => `
+    <div class="flowChain flowRow${mode === 'fillBlanks' ? ' is-fillBlanks' : ''}" style="--flow-count:${arr.length}">
+      ${arr.map((x, i) => {
+        const node = normaliseFlowNode(x);
+        const text = mode === 'fillBlanks' ? blankStatement(node.text, node.answer) : esc(node.text);
+        return `
         <div class="flowStep flowChip">
           <span class="flowNumber">${i + 1}</span>
-          <span class="flowText">${esc(Array.isArray(x) ? x[0] : x?.text || x)}</span>
-          ${(Array.isArray(x) ? x[1] : x?.zh) ? `<span class="flowTextZh" lang="zh-Hans">${esc(Array.isArray(x) ? x[1] : x.zh)}</span>` : ''}
+          <span class="flowText">${text}</span>
+          ${node.zh ? `<span class="flowTextZh" lang="zh-Hans">${esc(node.zh)}</span>` : ''}
         </div>
-      `).join('')}
+      `;
+      }).join('')}
     </div>
   `;
 };
@@ -819,6 +837,7 @@ const renderers = {
           ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
         </section>
         <section class="peerTaskStepsPanel">
+          <div class="peerTaskPanelLabel">Task steps</div>
           ${stepList((s.steps || []).map((step, i) => Array.isArray(step) ? step : [String(i + 1), step]))}
         </section>
       </div>
@@ -827,6 +846,7 @@ const renderers = {
           ${s.sharePrompt ? `<div class="prompt peerTaskShare">${esc(s.sharePrompt)}</div>` : ''}
           ${(s.sampleAnswers || []).length ? `
             <div class="peerTaskSamples">
+              <div class="peerTaskSampleLabel">After you try <span lang="zh-Hans">参考答案</span></div>
               ${(s.sampleAnswers || []).map((answer) => `<div class="choice">${esc(answer)}</div>`).join('')}
             </div>` : ''}
         </div>` : ''}
@@ -867,10 +887,10 @@ const renderers = {
   `,
 
   flow: (s) => `
-    <div class="flowBlock">
+      <div class="flowBlock">
       <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
-      ${flowChips(s.nodes)}
+      ${flowChips(s.nodes, s.mode)}
       ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
       ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
     </div>
@@ -1756,7 +1776,15 @@ function handoutFlow(nodes = []) {
   if (!arr?.length) return '';
   return `
     <ol class="handoutFlow">
-      ${arr.map((node) => `<li>${esc(node)}</li>`).join('')}
+      ${arr.map((rawNode) => {
+        const node = normaliseFlowNode(rawNode);
+        return `
+          <li>
+            ${esc(node.text || '')}
+            ${node.zh ? `<p lang="zh-Hans">${esc(node.zh)}</p>` : ''}
+          </li>
+        `;
+      }).join('')}
     </ol>
   `;
 }
@@ -2013,6 +2041,7 @@ function getPartialSelectors(meta, slide) {
   const config = slide.partialReview;
   if (slide.type === 'quiz') return '';
   if (config === false) return '';
+  if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';
