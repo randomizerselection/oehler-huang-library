@@ -128,7 +128,7 @@ const DIRECT_SOURCE_RULES = {
   marketFailure: [
     { terms: ['merit good', 'public good'], source: { label: 'Paper 2 source', ref: '2025MJ-22 Q3(b)', note: 'Merit/public good distinction and examples', extract: 'MS basis: merit goods are under-consumed; public goods are non-excludable/non-rival and often government-funded.' } },
     { terms: ['private benefits', 'external benefits'], source: { label: 'Paper 2 source', ref: '2023MJ-23 Q5(b)', note: 'Private/external benefit distinction', extract: 'MS basis: private benefits go to consumers/producers; external benefits go to third parties.' } },
-    { terms: ['external costs'], source: { label: 'Paper 2 source', ref: '2023MJ-23 Q1(b); 2023MJ-23 Q1(d)', note: 'External-cost examples and reduction chain', extract: 'MS basis: pollution/environmental harm are external costs; intervention can reduce them.' } },
+    { terms: ['external costs'], source: { label: 'Paper 2 source', ref: '2023MJ-23 Q1(b); 2023MJ-23 Q1(d)', note: 'External-cost examples and reduction steps', extract: 'MS basis: pollution/environmental harm are external costs; intervention can reduce them.' } },
     { terms: ['market failure'], source: { label: 'Paper 2 source', ref: '2023ON-21 Q3(c)', note: 'Consequences of market failure', extract: 'MS basis: consequences include under-consumption, non-supply of public goods and monopoly power.' } },
     { terms: ['monopoly'], source: { label: 'Paper 2 source', ref: '2024ON-23 Q2(d)', note: 'Monopoly and market-failure intervention wording', extract: 'MS basis: monopoly power can raise prices and reduce choice/affordability.' } },
   ],
@@ -534,6 +534,31 @@ const termExamples = (items = []) => `
   </div>
 `;
 
+const termNotes = (items = []) => {
+  const normalised = (items || [])
+    .map((item) => {
+      if (Array.isArray(item)) {
+        return { term: item[0], zh: item[1], note: item[2] };
+      }
+      return item || {};
+    })
+    .filter((item) => item.term && (item.zh || item.note));
+
+  if (!normalised.length) return '';
+
+  return `
+    <div class="definitionTermNotes" aria-label="Highlighted term notes">
+      ${normalised.map((item) => `
+        <div class="definitionTermNote">
+          <b>${esc(item.term)}</b>
+          ${item.zh ? `<span lang="zh-Hans">${esc(item.zh)}</span>` : ''}
+          ${item.note ? `<em>${esc(item.note)}</em>` : ''}
+        </div>
+      `).join('')}
+    </div>
+  `;
+};
+
 const fillBlankList = (items = []) => {
   const blankPattern = /_{3,}/;
   return `
@@ -664,26 +689,42 @@ const renderers = {
     <div>
       <h2>${esc(s.title)}</h2>
       ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
-      ${choiceList(s.bullets)}
+      <div class="choices is-outcomes">
+        ${(s.bullets || []).map((bullet, i) => `
+          <div class="choice">
+            <span>${esc(bullet)}</span>
+            ${s.zhBullets?.[i] ? `<span class="outcomeZh" lang="zh-Hans">${esc(s.zhBullets[i])}</span>` : ''}
+          </div>
+        `).join('')}
+      </div>
       ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
     </div>
   `,
 
-  term: (s) => `
-    <div class="termBlock">
-      <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
-      ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
-      <div class="termBox">
-        ${s.term && s.term.toLowerCase() !== String(s.title || '').toLowerCase()
-          ? `<b>${esc(s.term)}</b>`
-          : ''}
-        <p>${esc(s.definition)}</p>
-        ${s.definitionZh ? `<p class="termDefinitionZh">${esc(s.definitionZh)}</p>` : ''}
+  term: (s) => {
+    const notes = s.keyTerms || s.termNotes || [];
+    const highlightLabels = (notes || [])
+      .map((item) => Array.isArray(item) ? item[0] : item?.term)
+      .filter(Boolean);
+
+    return `
+      <div class="termBlock">
+        <div class="definitionCue">${esc(s.eyebrow || 'Definition')}</div>
+        <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
+        ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
+        <div class="termBox">
+          ${s.term && s.term.toLowerCase() !== String(s.title || '').toLowerCase()
+            ? `<b>${esc(s.term)}</b>`
+            : ''}
+          <p class="termDefinitionText">${highlightTerms(s.definition, highlightLabels)}</p>
+          ${s.definitionZh ? `<p class="termDefinitionZh" lang="zh-Hans">${esc(s.definitionZh)}</p>` : ''}
+        </div>
+        ${termNotes(notes)}
+        ${s.formula ? `<div class="formula">${esc(s.formula)}</div>` : ''}
+        ${s.examples && s.showExamples !== false ? termExamples(s.examples) : ''}
       </div>
-      ${s.formula ? `<div class="formula">${esc(s.formula)}</div>` : ''}
-      ${s.examples ? termExamples(s.examples) : ''}
-    </div>
-  `,
+    `;
+  },
 
   compare: (s) => `
     <div>
@@ -743,6 +784,30 @@ const renderers = {
     </div>
   `,
 
+  peerTask: (s) => `
+    <div class="peerTaskBlock">
+      <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
+      <div class="peerTaskGrid">
+        <section class="peerTaskPromptPanel">
+          <div class="peerTaskBadge">${esc(s.eyebrow || 'Pair check')}</div>
+          ${s.prompt ? `<p class="lead">${esc(s.prompt)}</p>` : ''}
+          ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
+        </section>
+        <section class="peerTaskStepsPanel">
+          ${stepList((s.steps || []).map((step, i) => Array.isArray(step) ? step : [String(i + 1), step]))}
+        </section>
+      </div>
+      ${s.sharePrompt || (s.sampleAnswers || []).length ? `
+        <div class="peerTaskBottom">
+          ${s.sharePrompt ? `<div class="prompt peerTaskShare">${esc(s.sharePrompt)}</div>` : ''}
+          ${(s.sampleAnswers || []).length ? `
+            <div class="peerTaskSamples">
+              ${(s.sampleAnswers || []).map((answer) => `<div class="choice">${esc(answer)}</div>`).join('')}
+            </div>` : ''}
+        </div>` : ''}
+    </div>
+  `,
+
   answer: (s) => `
     <div>
       <h2>${esc(s.title)}</h2>
@@ -792,7 +857,7 @@ const renderers = {
       <div class="examBlock">
         <h2>${esc(s.title)}</h2>
         ${showQuestion ? `<p class="lead examQuestion">${esc(s.question)}</p>` : ''}
-        <div class="examChainLabel">Required chain links</div>
+        <div class="examChainLabel">${esc(s.keywordLabel || 'Required explanation points')}</div>
         <div class="cardgrid">
           ${(s.keywords || []).map((k, i) => `
             <div class="card examChainLink">

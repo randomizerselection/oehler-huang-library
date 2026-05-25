@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Cambridge IGCSE Economics 0455 - Market failure terms, causes and consequences." />
+  <meta name="description" content="Cambridge IGCSE Economics 0455 - Market failure decks by type." />
   <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
   <title>Market failure decks - IGCSE Economics 0455</title>
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../../../assets/css/theme.css?v=2026-05-07-mcq" />
   <style>
     body { overflow-y: auto; min-height: 100vh; }
-    .deck-menu { width: min(920px, calc(100% - 48px)); margin: 0 auto; padding: 9vh 0 8vh; }
+    .deck-menu { width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 9vh 0 8vh; }
     .deck-nav { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 2rem; }
     .deck-nav a, .deck-action {
       display: inline-flex; min-height: 44px; align-items: center; justify-content: center;
@@ -21,10 +21,10 @@
     .deck-nav a:hover, .deck-nav a:focus-visible, .deck-action:hover, .deck-action:focus-visible {
       border-color: var(--line-strong); background: rgba(255,255,255,.11); outline: none;
     }
-    .deck-menu header { max-width: 760px; margin-bottom: 2.5rem; }
+    .deck-menu header { max-width: 780px; margin-bottom: 2.5rem; }
     .deck-menu h1 { font-size: clamp(44px, 6vw, 96px); line-height: .95; margin: .18em 0; letter-spacing: -0.04em; }
     .deck-menu .lead { color: var(--ink-dim); font-size: clamp(18px, 2vw, 27px); line-height: 1.32; margin: 0; }
-    .deck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; align-items: stretch; }
+    .deck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; align-items: stretch; }
     .deck-card {
       display: flex; flex-direction: column; min-height: 260px; padding: 1.35rem;
       border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--card-bg);
@@ -33,15 +33,9 @@
     .deck-card .code { color: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .deck-card h2 { margin: .65rem 0 .6rem; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.05; letter-spacing: -0.02em; }
     .deck-card .deck-title-zh {
-      margin: -.25rem 0 .7rem;
-      color: var(--ink-dim);
-      font-size: clamp(16px, 1.45vw, 22px);
-      line-height: 1.22;
-      font-weight: 760;
-      letter-spacing: 0;
-      text-wrap: balance;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      margin: -.25rem 0 .7rem; color: var(--ink-dim); font-size: clamp(16px, 1.45vw, 22px);
+      line-height: 1.22; font-weight: 760; letter-spacing: 0; text-wrap: balance;
+      word-break: keep-all; overflow-wrap: anywhere;
     }
     .deck-card p { color: var(--muted); font-size: 15px; line-height: 1.45; margin: 0 0 1.2rem; }
     .deck-actions { margin-top: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: .65rem; }
@@ -49,7 +43,10 @@
     .deck-action.secondary { color: var(--green); border-color: rgba(126,240,181,.28); }
     .deck-action.quiz { color: var(--gold); border-color: rgba(255,209,102,.34); }
     .deck-action.flashcards { color: var(--violet); border-color: rgba(167,139,250,.36); }
-    @media (max-width: 720px) { .deck-menu { width: min(100% - 28px, 920px); } .deck-actions { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) {
+      .deck-menu { width: min(100% - 28px, 1120px); }
+      .deck-actions { grid-template-columns: 1fr; }
+    }
   </style>
   <script src="../../../assets/js/baidu-analytics.js"></script>
 </head>
@@ -61,15 +58,15 @@
     <header>
       <div class="badge is-warm">Cambridge IGCSE Economics 0455</div>
       <h1>Market failure</h1>
-      <p class="lead">Two 40-minute decks for syllabus 2.9.1 to 2.9.4.</p>
+      <p class="lead">Four self-contained decks for syllabus 2.9, organised by type of market failure.</p>
     </header>
     <div class="deck-grid">
       <article class="deck-card">
-        <span class="code">Lesson 1 - 2.9.1-2.9.3</span>
-        <h2>Terms and causes</h2>
-        <p class="deck-title-zh" lang="zh-Hans">术语与成因</p>
-        <p>Market failure, private/external/social costs and benefits, public goods, merit goods, demerit goods and monopoly power.</p>
-        <div class="deck-actions" aria-label="Market failure terms and causes views">
+        <span class="code">Lesson 1 - 2.9</span>
+        <h2>External costs and benefits</h2>
+        <p class="deck-title-zh" lang="zh-Hans">外部成本与外部收益</p>
+        <p>Private, external and social costs and benefits, with clear cause-and-effect steps for over-production and under-production.</p>
+        <div class="deck-actions" aria-label="External costs and benefits views">
           <a class="deck-action primary" href="./lesson-1.html">Slide view</a>
           <a class="deck-action secondary" href="./lesson-1.html?view=print">Handout view</a>
           <a class="deck-action quiz" href="./lesson-1.html?view=quiz">Quiz</a>
@@ -77,15 +74,39 @@
         </div>
       </article>
       <article class="deck-card">
-        <span class="code">Lesson 2 - 2.9.4</span>
-        <h2>Consequences and evaluation</h2>
-        <p class="deck-title-zh" lang="zh-Hans">后果与评价</p>
-        <p>Over-consumption, under-consumption, non-provision, restricted monopoly supply and balanced exam judgement.</p>
-        <div class="deck-actions" aria-label="Market failure consequences and evaluation views">
+        <span class="code">Lesson 2 - 2.9</span>
+        <h2>Merit and demerit goods</h2>
+        <p class="deck-title-zh" lang="zh-Hans">有益品与有害品</p>
+        <p>Beneficial goods that may be under-consumed and harmful goods that may be over-consumed.</p>
+        <div class="deck-actions" aria-label="Merit and demerit goods views">
           <a class="deck-action primary" href="./lesson-2.html">Slide view</a>
           <a class="deck-action secondary" href="./lesson-2.html?view=print">Handout view</a>
           <a class="deck-action quiz" href="./lesson-2.html?view=quiz">Quiz</a>
           <a class="deck-action flashcards" href="./lesson-2.html?view=flashcards">Flashcards</a>
+        </div>
+      </article>
+      <article class="deck-card">
+        <span class="code">Lesson 3 - 2.9</span>
+        <h2>Public goods</h2>
+        <p class="deck-title-zh" lang="zh-Hans">公共物品</p>
+        <p>Non-rival and non-excludable goods, free riders, non-provision and public-good examples.</p>
+        <div class="deck-actions" aria-label="Public goods views">
+          <a class="deck-action primary" href="./lesson-3.html">Slide view</a>
+          <a class="deck-action secondary" href="./lesson-3.html?view=print">Handout view</a>
+          <a class="deck-action quiz" href="./lesson-3.html?view=quiz">Quiz</a>
+          <a class="deck-action flashcards" href="./lesson-3.html?view=flashcards">Flashcards</a>
+        </div>
+      </article>
+      <article class="deck-card">
+        <span class="code">Lesson 4 - 2.9</span>
+        <h2>Monopoly power and evaluation</h2>
+        <p class="deck-title-zh" lang="zh-Hans">垄断力量与评价</p>
+        <p>Abuse of monopoly power, restricted supply, higher prices and end-of-topic exam judgement.</p>
+        <div class="deck-actions" aria-label="Monopoly power and evaluation views">
+          <a class="deck-action primary" href="./lesson-4.html">Slide view</a>
+          <a class="deck-action secondary" href="./lesson-4.html?view=print">Handout view</a>
+          <a class="deck-action quiz" href="./lesson-4.html?view=quiz">Quiz</a>
+          <a class="deck-action flashcards" href="./lesson-4.html?view=flashcards">Flashcards</a>
         </div>
       </article>
     </div>

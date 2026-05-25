@@ -8,12 +8,14 @@ const root = path.resolve(__dirname, '..');
 const pageUrl = (relativePath) => pathToFileURL(path.join(root, relativePath)).toString();
 const remoteUrlPattern = /^https?:\/\//i;
 const deckTitleTranslations = {
+  'External costs and benefits': '外部成本与外部收益',
+  'Merit and demerit goods': '有益品与有害品',
+  'Public goods': '公共物品',
+  'Monopoly power and evaluation': '垄断力量与评价',
   'Market economic system': '市场经济体制',
   'Price mechanism': '价格机制',
   'Arguments for markets': '支持市场的论点',
   'Arguments against markets': '反对市场的论点',
-  'Terms and causes': '术语与成因',
-  'Consequences and evaluation': '后果与评价',
   'Macroeconomic aims': '宏观经济目标',
   'Government budget and spending': '政府预算与支出',
   'Taxation foundations': '税收基础',
@@ -299,10 +301,10 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(20);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(20);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(19);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(19);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(22);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(22);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(21);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(21);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);
@@ -459,7 +461,12 @@ test.describe('site smoke', () => {
       },
       {
         path: 'lessons/unit-2-allocation/2-9-market-failure/index.html',
-        titles: ['Terms and causes', 'Consequences and evaluation'],
+        titles: [
+          'External costs and benefits',
+          'Merit and demerit goods',
+          'Public goods',
+          'Monopoly power and evaluation',
+        ],
       },
       {
         path: 'lessons/unit-4-government/4-2-fiscal-policy/index.html',
@@ -575,6 +582,99 @@ test.describe('site smoke', () => {
     }
 
     expect(missingCoverage).toEqual([]);
+  });
+
+  test('market failure decks keep three bilingual objectives and three lesson parts', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      const outcomes = (lesson.slides || []).filter((slide) => slide.type === 'outcomes');
+      const sections = (lesson.slides || []).filter((slide) => slide.type === 'section');
+
+      expect(outcomes, `${slideFile} outcomes`).toHaveLength(1);
+      expect(outcomes[0].bullets, `${slideFile} objective count`).toHaveLength(3);
+      expect(outcomes[0].zhBullets, `${slideFile} zh objective count`).toHaveLength(3);
+      outcomes[0].zhBullets.forEach((bullet, i) => {
+        expect(bullet, `${slideFile} zh objective ${i + 1}`).toEqual(expect.any(String));
+        expect(bullet.trim(), `${slideFile} zh objective ${i + 1}`).not.toHaveLength(0);
+      });
+
+      expect(sections, `${slideFile} section count`).toHaveLength(3);
+    }
+  });
+
+  test('market failure taught steps are followed by formative checks', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
+    const taughtTypes = new Set([
+      'compare',
+      'flow',
+      'marketFailureExternalitySim',
+      'monopolyPowerSim',
+      'publicGoodFreeRiderSim',
+      'socialEffectsVenn',
+      'term',
+    ]);
+    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const missingChecks = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      const slides = lesson.slides || [];
+      for (const [index, slide] of slides.entries()) {
+        if (!taughtTypes.has(slide.type)) continue;
+        const nextSlide = slides[index + 1];
+        if (!formativeTypes.has(nextSlide?.type)) {
+          missingChecks.push(`${slideFile} slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        }
+      }
+    }
+
+    expect(missingChecks).toEqual([]);
+  });
+
+  test('market failure term slides explain highlighted definition vocabulary', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
+    const missingNotes = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'term') continue;
+        const keyTerms = slide.keyTerms || slide.termNotes || [];
+        if (!keyTerms.length) {
+          missingNotes.push(`${slideFile} slide ${index + 1}: no keyTerms`);
+          continue;
+        }
+
+        for (const item of keyTerms) {
+          const term = Array.isArray(item) ? item[0] : item.term;
+          const zh = Array.isArray(item) ? item[1] : item.zh;
+          const note = Array.isArray(item) ? item[2] : item.note;
+          expect(String(slide.definition || '').toLowerCase(), `${slideFile} slide ${index + 1} includes ${term}`).toContain(String(term).toLowerCase());
+          expect(zh, `${slideFile} slide ${index + 1} ${term} zh`).toEqual(expect.any(String));
+          expect(note, `${slideFile} slide ${index + 1} ${term} note`).toEqual(expect.any(String));
+        }
+      }
+    }
+
+    expect(missingNotes).toEqual([]);
+  });
+
+  test('market failure decks avoid chain in slide titles', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
+    const badTitles = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (/\bchain\b/i.test(String(slide.title || ''))) {
+          badTitles.push(`${slideFile} slide ${index + 1}: ${slide.title}`);
+        }
+      }
+    }
+
+    expect(badTitles).toEqual([]);
   });
 
   test('exam chain slides are followed by mark-scheme model answers', () => {
@@ -787,6 +887,91 @@ test.describe('site smoke', () => {
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();
     await expect(page.locator('.slide.is-active')).toHaveAttribute('data-idx', '1');
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('market failure section progress shows three lesson parts', async ({ page }) => {
+    const lessonPaths = [
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-2.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-4.html',
+    ];
+
+    for (const lessonPath of lessonPaths) {
+      await page.goto(pageUrl(lessonPath));
+      const sectionNumbers = await page.evaluate(() => window.IGCSE.lesson.slides
+        .map((slide, index) => slide.type === 'section' ? index + 1 : null)
+        .filter(Boolean));
+
+      expect(sectionNumbers, lessonPath).toHaveLength(3);
+      for (const sectionNumber of sectionNumbers) {
+        await page.goto(`${pageUrl(lessonPath)}#${sectionNumber}`);
+        await expect(page.locator('.slide.is-active .sectionProgress span')).toHaveCount(3);
+        await expectNoHorizontalOverflow(page);
+      }
+    }
+  });
+
+  test('peer task slides render pair checks without overflow', async ({ page }) => {
+    await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html'));
+    const peerTaskNumber = await page.evaluate(() => window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'peerTask') + 1);
+
+    expect(peerTaskNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${peerTaskNumber}`);
+
+    await expect(page.locator('.slide.is-active .peerTaskBlock')).toBeVisible();
+    await expect(page.locator('.slide.is-active .peerTaskZh')).toBeVisible();
+    await expect(page.locator('.slide.is-active .steps .step')).toHaveCount(3);
+    const desktopLayout = await page.evaluate(() => {
+      const grid = document.querySelector('.slide.is-active .peerTaskGrid');
+      const steps = [...document.querySelectorAll('.slide.is-active .steps .step')]
+        .map((step) => step.getBoundingClientRect());
+      const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+      const stepOverlap = steps.some((rect, index) => index > 0 && rect.top < steps[index - 1].bottom - 1);
+      return { columns, stepOverlap };
+    });
+    expect(desktopLayout.columns).toBeGreaterThanOrEqual(2);
+    expect(desktopLayout.stepOverlap).toBe(false);
+    await expectNoHorizontalOverflow(page);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${peerTaskNumber}`);
+    const phoneLayout = await page.evaluate(() => {
+      const grid = document.querySelector('.slide.is-active .peerTaskGrid');
+      const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+      return { columns };
+    });
+    expect(phoneLayout.columns).toBe(1);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('term slides render as clear definition moments with highlighted vocabulary', async ({ page }) => {
+    await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html'));
+    const termNumber = await page.evaluate(() => window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'term') + 1);
+
+    expect(termNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-9-market-failure/lesson-1.html')}#${termNumber}`);
+
+    await expect(page.locator('.slide.is-active .definitionCue')).toBeVisible();
+    await expect(page.locator('.slide.is-active .termDefinitionText')).toBeVisible();
+    await expect(page.locator('.slide.is-active .termDefinitionText mark')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .termDefinitionText mark').first()).toBeVisible();
+    await expect(page.locator('.slide.is-active .definitionTermNote')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .definitionTermNote').first()).toBeVisible();
+    await expect(page.locator('.slide.is-active .visual')).toBeHidden();
+    const definitionLayout = await page.evaluate(() => {
+      const text = document.querySelector('.slide.is-active .termDefinitionText');
+      const box = document.querySelector('.slide.is-active .termBox');
+      return {
+        fontSize: Number.parseFloat(getComputedStyle(text).fontSize),
+        borderLeftWidth: Number.parseFloat(getComputedStyle(box).borderLeftWidth),
+      };
+    });
+    expect(definitionLayout.fontSize).toBeGreaterThanOrEqual(30);
+    expect(definitionLayout.borderLeftWidth).toBeGreaterThanOrEqual(6);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1308,6 +1493,8 @@ test.describe('site smoke', () => {
       'lessons/unit-2-allocation/2-8-market-economic-system/lesson-4.html',
       'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html',
       'lessons/unit-2-allocation/2-9-market-failure/lesson-2.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-4.html',
       'lessons/unit-4-government/4-1-macroeconomic-aims/index.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-1.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html',
@@ -1445,6 +1632,8 @@ test.describe('site smoke', () => {
       'lessons/unit-2-allocation/2-8-market-economic-system/lesson-4.html',
       'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html',
       'lessons/unit-2-allocation/2-9-market-failure/lesson-2.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html',
+      'lessons/unit-2-allocation/2-9-market-failure/lesson-4.html',
       'lessons/unit-4-government/4-1-macroeconomic-aims/index.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-1.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html',
@@ -1741,10 +1930,10 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('lessons/unit-2-allocation/2-9-market-failure/index.html'));
 
     await expect(page.getByRole('link', { name: /Library index/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(2);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(2);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(2);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(2);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(4);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(4);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(4);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(4);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);
