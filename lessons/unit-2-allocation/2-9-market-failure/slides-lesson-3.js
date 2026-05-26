@@ -202,12 +202,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United Kingdom',
-          fact: 'The UK planned GBP 5.2 billion of public investment in flood and coastal erosion schemes from 2021 to 2027.',
+          context: 'The UK planned GBP 5.2 billion of public investment in flood and coastal erosion schemes from 2021 to 2027.',
+          question: 'Which public-good feature makes private firms unlikely to provide enough flood protection?',
+          questionZh: '哪个公共物品特征使私人企业不太可能提供足够的防洪保护？',
+          answer: 'Non-excludability is important because people can benefit from flood protection even if they do not pay.',
           source: 'Source: UK Environment Agency.',
         },
         china: {
           country: 'China',
-          fact: 'China issued treasury bond support for disaster recovery and flood-control capacity after 2023 floods.',
+          context: 'China issued treasury bond support for disaster recovery and flood-control capacity after 2023 floods.',
+          question: 'Which public-good feature makes private firms unlikely to provide enough flood protection?',
+          questionZh: '哪个公共物品特征使私人企业不太可能提供足够的防洪保护？',
+          answer: 'Non-excludability is important because people can benefit from flood protection even if they do not pay.',
           source: 'Source: China State Council, 2024.',
         },
       },

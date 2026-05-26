@@ -99,12 +99,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World cocoa market',
-          fact: 'In June 2024, cocoa prices moved above US$10,000 per metric tonne after poor harvests in West Africa.',
+          context: 'In June 2024, cocoa prices moved above US$10,000 per metric tonne after poor harvests in West Africa.',
+          question: 'How could poor harvests affect supply and the market price of cocoa?',
+          questionZh: '歉收会如何影响可可的供给和市场价格？',
+          answer: 'Poor harvests reduce supply, shifting supply left and increasing the market price if demand remains strong.',
           source: 'Source: IC1 Section A case extract.',
         },
         china: {
           country: 'Case visual',
-          fact: 'Cocoa starts as pods and beans before it becomes chocolate, so harvest problems can travel through the supply chain.',
+          context: 'Cocoa starts as pods and beans before it becomes chocolate, so harvest problems can travel through the supply chain.',
+          question: 'Which stage of production is most directly affected by a poor harvest?',
+          questionZh: '生产的哪个阶段最直接受到歉收影响？',
+          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
           source: 'Source: IC1 Section A case extract.',
         },
       },
@@ -166,12 +172,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'Consumers had many alternatives to chocolate, including non-chocolate candy, gum, mints, biscuits and other snacks.',
+          context: 'Consumers had many alternatives to chocolate, including non-chocolate candy, gum, mints, biscuits and other snacks.',
+          question: 'How would many substitutes affect the price elasticity of demand for chocolate?',
+          questionZh: '许多替代品会如何影响巧克力的需求价格弹性？',
+          answer: 'Many substitutes make demand more price elastic because consumers can switch away when chocolate becomes more expensive.',
           source: 'Source: IC1 Section A case extract.',
         },
         china: {
           country: 'Case clue',
-          fact: 'Average spending per confectionery shopping trip was US$7.73, so the share of income may be small for many buyers.',
+          context: 'Average spending per confectionery shopping trip was US$7.73, so the share of income may be small for many buyers.',
+          question: 'Why might chocolate demand be price inelastic for some buyers?',
+          questionZh: '为什么一些买家的巧克力需求可能缺乏价格弹性？',
+          answer: 'Demand may be price inelastic if the item is a small share of income or bought out of habit.',
           source: 'Source: IC1 Section A case extract.',
         },
       },

@@ -64,12 +64,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'How can changing money or bank reserves affect liquidity in the financial system?',
+          context: 'The Federal Reserve can use money and bank reserves to influence liquidity in the financial system.',
+          question: 'How can changing money or bank reserves affect liquidity in the financial system?',
+          questionZh: '改变货币或银行准备金会如何影响金融体系流动性？',
+          answer: 'More money or reserves can increase liquidity, making it easier for banks to lend and for spending to rise.',
           source: 'Source: Federal Reserve monetary policy implementation materials.',
         },
         china: {
           country: 'China',
-          fact: 'If China cuts the reserve requirement ratio, how might bank lending and spending change?',
+          context: 'In February 2024, China cut the reserve requirement ratio by 0.5 percentage points.',
+          question: 'How could this affect liquidity and spending?',
+          questionZh: '改变货币或银行准备金会如何影响金融体系流动性？',
+          answer: 'More money or reserves can increase liquidity, making it easier for banks to lend and for spending to rise.',
           source: 'Source: People\'s Bank of China, January 2024 announcement.',
         },
       },

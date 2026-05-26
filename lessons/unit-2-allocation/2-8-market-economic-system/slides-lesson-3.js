@@ -76,12 +76,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'The US App Store ecosystem facilitated USD 406 billion in developer billings and sales in 2024.',
+          context: 'The US App Store ecosystem facilitated USD 406 billion in developer billings and sales in 2024.',
+          question: 'How can competition in digital markets benefit consumers and producers?',
+          questionZh: '数字市场中的竞争如何使消费者和生产者受益？',
+          answer: 'Competition can push firms to improve quality, reduce prices and offer more choice to users and developers.',
           source: 'Source: Apple Newsroom, 2025.',
         },
         china: {
           country: 'China',
-          fact: 'China’s App Store ecosystem reached RMB 3.76 trillion in 2023.',
+          context: 'China’s App Store ecosystem reached RMB 3.76 trillion in 2023.',
+          question: 'How can competition in digital markets benefit consumers and producers?',
+          questionZh: '数字市场中的竞争如何使消费者和生产者受益？',
+          answer: 'Competition can push firms to improve quality, reduce prices and offer more choice to users and developers.',
           source: 'Source: Apple China Newsroom, 2024.',
         },
       },
@@ -119,12 +125,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Electric car sales topped 17 million in 2024 as firms competed for a fast-growing market.',
+          context: 'Electric car sales topped 17 million in 2024 as firms competed for a fast-growing market.',
+          question: 'How could competition affect price, quality or choice in this market?',
+          questionZh: '竞争会如何影响这个市场的价格、质量或选择？',
+          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
           source: 'Source: IEA Global EV Outlook 2025.',
         },
         china: {
           country: 'China',
-          fact: 'Chinese-headquartered car makers accounted for about 80% of domestic EV sales in China in 2024.',
+          context: 'Chinese-headquartered car makers accounted for about 80% of domestic EV sales in China in 2024.',
+          question: 'How could competition affect price, quality or choice in this market?',
+          questionZh: '竞争会如何影响这个市场的价格、质量或选择？',
+          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
           source: 'Source: IEA Global EV Outlook 2025.',
         },
       },
@@ -152,12 +164,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'Amazon’s fulfilment centers use large-scale logistics systems to reduce delivery times and unit handling costs.',
+          context: 'Amazon’s fulfilment centers use large-scale logistics systems to reduce delivery times and unit handling costs.',
+          question: 'How can large-scale production lower average costs or improve service?',
+          questionZh: '大规模生产如何降低平均成本或改善服务？',
+          answer: 'Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed.',
           source: 'Source: Amazon operations reporting and public fulfilment-center materials.',
         },
         china: {
           country: 'China',
-          fact: 'China’s express delivery volume exceeded 130 billion parcels in 2023, showing large-scale logistics competition.',
+          context: 'China’s express delivery volume exceeded 130 billion parcels in 2023,.',
+          question: 'How can large-scale production lower average costs or improve service?',
+          questionZh: '大规模生产如何降低平均成本或改善服务？',
+          answer: 'Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed.',
           source: 'Source: State Post Bureau of China, 2024.',
         },
       },

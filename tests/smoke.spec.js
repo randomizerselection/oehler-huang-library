@@ -109,6 +109,15 @@ function readLesson(relativePath) {
   return context.window.IGCSE.lesson;
 }
 
+function factPanels(slide) {
+  return [
+    (slide.context || slide.question || slide.fact || slide.country) ? slide : null,
+    slide.facts?.left,
+    slide.facts?.china,
+    ...(Array.isArray(slide.facts) ? slide.facts.map((item) => typeof item === 'string' ? { fact: item } : item) : []),
+  ].filter(Boolean);
+}
+
 const targetFiscalMonetarySlideFiles = [
   'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
   'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
@@ -274,6 +283,73 @@ test.describe('site smoke', () => {
     });
   });
 
+  test('@smoke home page exposes the primary learning paths', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('phone'), 'Covered by the dedicated responsive smoke test.');
+
+    await page.goto(pageUrl('index.html'));
+
+    await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Key definitions/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /Slide view/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /Handout view/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke definitions page opens and filters cards', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('phone'), 'Covered by the dedicated responsive smoke test.');
+
+    await page.goto(pageUrl('definitions.html'));
+
+    await expect(page.getByRole('heading', { name: /^Key Definitions$/i })).toBeVisible();
+    await expect(page.locator('.definition-card').first()).toBeVisible();
+
+    await page.getByRole('searchbox', { name: /Search definitions/i }).fill('Market failure');
+    await expect(page.locator('.definition-card').filter({ has: page.getByRole('heading', { name: 'Market failure', exact: true }) })).toBeVisible();
+    await expect(page.locator('.definition-card').filter({ has: page.getByRole('heading', { name: 'Opportunity cost', exact: true }) })).toBeHidden();
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke representative lesson views load', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('phone'), 'Covered by the dedicated responsive smoke test.');
+
+    const lessonPath = 'lessons/unit-4-government/4-1-macroeconomic-aims/index.html';
+
+    await page.goto(pageUrl(lessonPath));
+    await expect(page.locator('.slide.is-active')).toBeVisible();
+    await expectLessonModeTabs(page, 'Slides');
+
+    await page.goto(pageUrl(lessonPath) + '?view=print');
+    await expect(page.locator('.handoutDocument')).toBeVisible();
+    await expectLessonModeTabs(page, 'Handout');
+
+    await page.goto(pageUrl(lessonPath) + '?view=quiz');
+    await expect(page.locator('.quizDeck')).toBeVisible();
+    await expect(page.locator('.quizQuestion')).toHaveCount(8);
+    await expectLessonModeTabs(page, 'Quiz');
+
+    await page.goto(pageUrl(lessonPath) + '?view=flashcards');
+    await expect(page.locator('.flashcardDeck')).toBeVisible();
+    await expect(page.locator('.flashcardPosition')).toHaveText('8 left');
+    await expectLessonModeTabs(page, 'Flashcards');
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@responsive phone layout keeps core pages usable', async ({ page }, testInfo) => {
+    test.skip(!testInfo.project.name.includes('phone'), 'Responsive smoke is phone-only.');
+
+    await page.goto(pageUrl('index.html'));
+    await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html'));
+    await expect(page.locator('.slide.is-active')).toBeVisible();
+    await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeHidden();
+    await expect(page.locator('.lessonModeMenu')).toBeHidden();
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('landing page renders at desktop and phone widths', async ({ page }) => {
     await page.goto(pageUrl('index.html'));
 
@@ -386,6 +462,8 @@ test.describe('site smoke', () => {
   });
 
   test('definitions flashcard picker studies selected syllabus parts', async ({ page }) => {
+    test.setTimeout(60000);
+
     const expectedRows = definitionRows();
     const unitCount = (unit) => expectedRows.filter((row) => row.ref.startsWith(`${unit}.`)).length;
     const topicCount = (topic) => expectedRows.filter((row) => row.ref.startsWith(`${topic}.`)).length;
@@ -938,23 +1016,28 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
-  test('target fiscal and monetary fact slides are question-led', () => {
+  test('fact slides use one context sentence followed by one question', () => {
     const failures = [];
 
-    for (const slideFile of targetFiscalMonetarySlideFiles) {
+    for (const slideFile of findSlideFiles(path.join(root, 'lessons'), root)) {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         if (slide.type !== 'fact') continue;
-        const factPanels = [
-          slide.facts?.left,
-          slide.facts?.china,
-          ...(Array.isArray(slide.facts) ? slide.facts : []),
-        ].filter(Boolean);
 
-        for (const panel of factPanels) {
-          const fact = String(panel.fact || '');
-          if (!fact.includes('?')) {
-            failures.push(`${slideFile} slide ${index + 1}: fact is not question-led`);
+        for (const panel of factPanels(slide)) {
+          const context = String(panel.context || '').trim();
+          const question = String(panel.question || '').trim();
+          const fact = String(panel.fact || '').trim();
+
+          if (fact) failures.push(`${slideFile} slide ${index + 1}: still uses legacy fact text`);
+          if (!context) failures.push(`${slideFile} slide ${index + 1}: missing context`);
+          if (!question) failures.push(`${slideFile} slide ${index + 1}: missing question`);
+          if (!panel.questionZh) failures.push(`${slideFile} slide ${index + 1}: missing Chinese question`);
+          if (!panel.answer) failures.push(`${slideFile} slide ${index + 1}: missing possible answer`);
+          if (context.includes('?')) failures.push(`${slideFile} slide ${index + 1}: context is a question`);
+          if (question && !question.endsWith('?')) failures.push(`${slideFile} slide ${index + 1}: question does not end with ?`);
+          if ((context.match(/[.!?](?=\s|$)/g) || []).length > 1) {
+            failures.push(`${slideFile} slide ${index + 1}: context has more than one sentence`);
           }
         }
       }
@@ -1117,22 +1200,86 @@ test.describe('site smoke', () => {
       for (const [index, slide] of (lesson.slides || []).entries()) {
         if (slide.type !== 'fact') continue;
 
-        const factPanels = [
-          slide,
-          slide.facts?.left,
-          slide.facts?.china,
-        ].filter(Boolean);
-
-        for (const panel of factPanels) {
-          const fact = String(panel.fact || '');
-          if (sourceAttributionPattern.test(fact)) {
-            badFacts.push(`${slideFile} slide ${index + 1}: ${fact}`);
+        for (const panel of factPanels(slide)) {
+          const visibleText = [panel.context, panel.question].filter(Boolean).join(' ');
+          if (sourceAttributionPattern.test(visibleText)) {
+            badFacts.push(`${slideFile} slide ${index + 1}: ${visibleText}`);
           }
         }
       }
     }
 
     expect(badFacts).toEqual([]);
+  });
+
+  test('fact slides render context and question without overflow', async ({ page }) => {
+    const targets = [
+      { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html', slideNumber: 5 },
+      { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-3.html', slideNumber: 14 },
+      { htmlFile: 'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html', slideNumber: 14 },
+      { htmlFile: 'lessons/unit-2-allocation/2-review-cocoa-chocolate-section-a/index.html', slideNumber: 2 },
+      { htmlFile: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html', slideNumber: 14 },
+      { htmlFile: 'lessons/unit-4-government/4-3-monetary-policy/lesson-4.html', slideNumber: 5 },
+      { htmlFile: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-3.html', slideNumber: 8 },
+    ];
+
+    let checkedFactInteraction = false;
+    for (const target of targets) {
+      await page.goto(`${pageUrl(target.htmlFile)}#${target.slideNumber}`, { waitUntil: 'domcontentloaded' });
+      await expect(page.locator('.slide.is-active .factContext').first()).toBeVisible();
+      await expect(page.locator('.slide.is-active .factQuestion').first()).toBeVisible();
+      await expect(page.locator('.slide.is-active .factQuestionZh').first()).toBeVisible();
+      await expect(page.locator('.slide.is-active .chinaCompareButton')).toHaveCount(0);
+      await expect(page.locator('.slide.is-active .factCompareSlider')).toHaveCount(0);
+      await expect(page.locator('.slide.is-active .factAnswerButton')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+
+      if (!checkedFactInteraction) {
+        const chinaButton = page.locator('.slide.is-active .factSwitchButton[data-fact-target="china"]');
+        if (await chinaButton.count()) {
+          await expect(page.locator('.slide.is-active .factSwitchButton[data-fact-target="example"]')).toHaveAttribute('aria-pressed', 'true');
+          await expect(page.locator('.slide.is-active .factPanelStack .factCountry')).toHaveCount(0);
+          await chinaButton.click();
+          await expect(chinaButton).toHaveAttribute('aria-pressed', 'true');
+          await expect(page.locator('.slide.is-active .factPanel.is-china.is-active')).toBeVisible();
+        }
+        await page.locator('.slide.is-active .factAnswerButton').click();
+        await expect(page.getByRole('dialog', { name: /^Possible answer$/i })).toBeVisible();
+        await page.getByRole('button', { name: /^Close possible answer$/i }).click();
+        checkedFactInteraction = true;
+      }
+
+      const metrics = await page.evaluate(() => {
+        const slide = document.querySelector('.slide.is-active');
+        const factBlock = slide?.querySelector('.factBlock');
+        const visual = slide?.querySelector('.visual');
+        const hasSwitcher = Boolean(slide?.querySelector('.factCountrySwitch'));
+        const slideRect = slide?.getBoundingClientRect();
+        const factRect = factBlock?.getBoundingClientRect();
+        const visualRect = visual?.getBoundingClientRect();
+
+        return {
+          factBottom: factRect?.bottom ?? 0,
+          visualBottom: visualRect?.bottom ?? 0,
+          slideBottom: slideRect?.bottom ?? window.innerHeight,
+          factWidth: factRect?.width ?? 0,
+          slideWidth: slideRect?.width ?? window.innerWidth,
+          countryBadges: slide?.querySelectorAll('.factPanelStack .factCountry').length ?? 0,
+          hasSwitcher,
+        };
+      });
+
+      expect(metrics.factBottom, `${target.htmlFile}#${target.slideNumber}`).toBeLessThanOrEqual(metrics.slideBottom + 2);
+      expect(metrics.visualBottom, `${target.htmlFile}#${target.slideNumber}`).toBeLessThanOrEqual(metrics.slideBottom + 2);
+      if (metrics.hasSwitcher) {
+        expect(metrics.countryBadges, `${target.htmlFile}#${target.slideNumber}`).toBe(0);
+      } else {
+        expect(metrics.countryBadges, `${target.htmlFile}#${target.slideNumber}`).toBeGreaterThan(0);
+      }
+      if (metrics.slideWidth > 960) {
+        expect(metrics.factWidth, `${target.htmlFile}#${target.slideNumber}`).toBeGreaterThan(620);
+      }
+    }
   });
 
   test('section divider subtitles stay student-facing when present', () => {

@@ -623,17 +623,52 @@ const fillBlankList = (items = []) => {
   `;
 };
 
-const factPanel = (fact = {}, modifier = '') => `
-  <article class="factPanel${modifier ? ` ${modifier}` : ''}">
-    <div class="factCountry">
-      ${fact.flag ? `<span class="factFlag">${esc(fact.flag)}</span>` : ''}
-      <span>${esc(fact.country || '')}</span>
-    </div>
-    <p class="factText">${esc(fact.fact || '')}</p>
-    ${fact.zh ? `<p class="factZh">${esc(fact.zh)}</p>` : ''}
-    ${fact.source ? `<div class="factSource">${esc(fact.source)}</div>` : ''}
-  </article>
-`;
+const splitFactText = (fact = {}) => {
+  const fallback = String(fact.fact || '');
+  if (fact.context || fact.question) {
+    return {
+      context: fact.context || fallback,
+      question: fact.question || '',
+    };
+  }
+
+  const questionMatch = fallback.match(/^(.*?)([^.?!]*\?)\s*$/);
+  return {
+    context: questionMatch ? questionMatch[1].trim() : fallback,
+    question: questionMatch ? questionMatch[2].trim() : '',
+  };
+};
+
+const fallbackFactAnswer = (fact = {}) => {
+  const { context, question } = splitFactText(fact);
+  if (fact.answer) return fact.answer;
+  if (!question) return '';
+  return `${context ? `${context} ` : ''}A possible answer should connect the real-world example directly to the economic concept in the question.`;
+};
+
+const factPanel = (fact = {}, modifier = '', options = {}) => {
+  const { context, question } = splitFactText(fact);
+  const answer = fallbackFactAnswer(fact);
+  const sideAttr = options.side ? ` data-fact-side="${esc(options.side)}"` : '';
+  return `
+    <article class="factPanel${modifier ? ` ${modifier}` : ''}${options.active ? ' is-active' : ''}"${sideAttr}
+      data-answer="${esc(answer)}" data-answer-zh="${esc(fact.answerZh || '')}">
+      ${options.showCountry === false ? '' : `
+        <div class="factCountry">
+          ${fact.flag ? `<span class="factFlag">${esc(fact.flag)}</span>` : ''}
+          <span>${esc(fact.country || '')}</span>
+        </div>
+      `}
+      <div class="factText">
+        ${context ? `<p class="factContext">${esc(context)}</p>` : ''}
+        ${question ? `<p class="factQuestion">${esc(question)}</p>` : ''}
+        ${fact.questionZh ? `<p class="factQuestionZh" lang="zh-Hans">${esc(fact.questionZh)}</p>` : ''}
+      </div>
+      ${fact.zh ? `<p class="factZh">${esc(fact.zh)}</p>` : ''}
+      ${fact.source ? `<div class="factSource">${esc(fact.source)}</div>` : ''}
+    </article>
+  `;
+};
 
 const chinaFactPanel = (fact = {}, modifier = '') => `
   <aside class="chinaFactPanel${modifier ? ` ${modifier}` : ''}" aria-label="China comparison">
@@ -641,7 +676,15 @@ const chinaFactPanel = (fact = {}, modifier = '') => `
       ${fact.flag ? `<span class="factFlag">${esc(fact.flag)}</span>` : ''}
       <span>${esc(fact.country || 'China')} comparison</span>
     </div>
-    <p class="chinaFactText">${esc(fact.fact || '')}</p>
+    ${(() => {
+      const { context, question } = splitFactText(fact);
+      return `
+        <div class="chinaFactText">
+          ${context ? `<p class="factContext">${esc(context)}</p>` : ''}
+          ${question ? `<p class="factQuestion">${esc(question)}</p>` : ''}
+        </div>
+      `;
+    })()}
     ${fact.zh ? `<p class="chinaFactZh">${esc(fact.zh)}</p>` : ''}
     ${fact.source ? `<div class="factSource">${esc(fact.source)}</div>` : ''}
   </aside>
@@ -649,15 +692,30 @@ const chinaFactPanel = (fact = {}, modifier = '') => `
 
 const factBlock = (s) => {
   if (s.facts?.left || s.facts?.china) {
+    const left = s.facts.left || {};
+    const china = s.facts.china || {};
+    const hasChina = Boolean(china.context || china.question || china.fact);
     return `
-      <div class="factBlock has-china-reveal">
-        ${factPanel(s.facts.left || {}, 'is-main')}
-        ${s.facts.china ? `
-          <button type="button" class="chinaCompareButton" data-china-compare="${s.chinaCompareIndex ?? ''}" aria-haspopup="dialog">
-            <span class="factFlag">🇨🇳</span>
-            <span>China comparison</span>
-          </button>
+      <div class="factBlock has-fact-switcher">
+        ${hasChina ? `
+          <div class="factCountrySwitch" role="group" aria-label="Choose fact example">
+            <button type="button" class="factSwitchButton is-active" data-fact-target="example" aria-pressed="true">
+              ${left.flag ? `<span class="factFlag">${esc(left.flag)}</span>` : ''}
+              <span>${esc(left.country || 'Example')}</span>
+            </button>
+            <button type="button" class="factSwitchButton" data-fact-target="china" aria-pressed="false">
+              ${china.flag ? `<span class="factFlag">${esc(china.flag)}</span>` : '<span class="factFlag">🇨🇳</span>'}
+              <span>${esc(china.country || 'China')}</span>
+            </button>
+          </div>
         ` : ''}
+        <div class="factPanelStack">
+          ${factPanel(left, 'is-main', { side: 'example', active: true, showCountry: !hasChina })}
+          ${hasChina ? factPanel(china, 'is-main is-china', { side: 'china', showCountry: false }) : ''}
+        </div>
+        <button type="button" class="discussionAnswerButton factAnswerButton" aria-haspopup="dialog">
+          <span>Show possible answer</span>
+        </button>
       </div>
     `;
   }
@@ -668,13 +726,20 @@ const factBlock = (s) => {
         flag: s.flag,
         country: s.country,
         fact: s.fact || (s.facts || [])[0] || '',
+        context: s.context,
+        question: s.question,
+        questionZh: s.questionZh,
+        answer: s.answer,
+        answerZh: s.answerZh,
         zh: s.zh,
         source: s.source,
-      })}
+      }, '', { active: true })}
+      <button type="button" class="discussionAnswerButton factAnswerButton" aria-haspopup="dialog">
+        <span>Show possible answer</span>
+      </button>
     </div>
   `;
 };
-
 const systemCompare = (systems = []) => `
   <div class="systemCompare">
     ${systems.map((system, i) => `
@@ -2271,7 +2336,11 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
       ${fact.flag ? `<span class="factFlag">${esc(fact.flag)}</span>` : ''}
       <span>${esc(fact.country || 'China')} comparison</span>
     `;
-    chinaDialog.querySelector('.chinaDialogText').textContent = fact.fact || '';
+    const { context, question } = splitFactText(fact);
+    chinaDialog.querySelector('.chinaDialogText').innerHTML = `
+      ${context ? `<p class="factContext">${esc(context)}</p>` : ''}
+      ${question ? `<p class="factQuestion">${esc(question)}</p>` : ''}
+    `;
     const zhEl = chinaDialog.querySelector('.chinaDialogZh');
     zhEl.textContent = fact.zh || '';
     zhEl.hidden = !fact.zh;
@@ -2299,6 +2368,20 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     const zhEl = discussionDialog.querySelector('.discussionAnswerZh');
     zhEl.textContent = slide.answerZh || '';
     zhEl.hidden = !slide.answerZh;
+    discussionDialog.hidden = false;
+    discussionDialog.classList.add('is-visible');
+    discussionDialog.setAttribute('aria-hidden', 'false');
+    discussionDialog.querySelector('.discussionAnswerClose')?.focus({ preventScroll: true });
+  }
+
+  function openFactAnswer(panel) {
+    if (!panel || !discussionDialog) return;
+    const answer = panel.dataset.answer || '';
+    if (!answer) return;
+    discussionDialog.querySelector('.discussionAnswerText').textContent = answer;
+    const zhEl = discussionDialog.querySelector('.discussionAnswerZh');
+    zhEl.textContent = panel.dataset.answerZh || '';
+    zhEl.hidden = !panel.dataset.answerZh;
     discussionDialog.hidden = false;
     discussionDialog.classList.add('is-visible');
     discussionDialog.setAttribute('aria-hidden', 'false');
@@ -2410,8 +2493,9 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
 
   mountEl.addEventListener('change', (event) => {
     const select = event.target?.closest?.('[data-slide-jump]');
-    if (!select) return;
-    applySlideJump(select);
+    if (select) {
+      applySlideJump(select);
+    }
   });
 
   mountEl.querySelectorAll('.chinaCompareButton').forEach((button) => {
@@ -2423,7 +2507,33 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     });
   });
 
-  mountEl.querySelectorAll('.discussionAnswerButton').forEach((button) => {
+  mountEl.querySelectorAll('.factAnswerButton').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const block = button.closest('.factBlock');
+      openFactAnswer(block?.querySelector('.factPanel.is-active') || block?.querySelector('.factPanel'));
+    });
+  });
+
+  mountEl.querySelectorAll('.factSwitchButton').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const block = button.closest('.factBlock');
+      const targetSide = button.dataset.factTarget || 'example';
+      block?.querySelectorAll('.factSwitchButton').forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-pressed', String(isActive));
+      });
+      block?.querySelectorAll('.factPanel').forEach((panel) => {
+        panel.classList.toggle('is-active', panel.dataset.factSide === targetSide);
+      });
+    });
+  });
+
+  mountEl.querySelectorAll('.discussionAnswerButton:not(.factAnswerButton)').forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();

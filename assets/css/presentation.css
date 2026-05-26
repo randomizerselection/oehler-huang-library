@@ -1468,39 +1468,50 @@ h2 .inlineZh {
 
 /* ---------- Real-world fact slides ---------- */
 .slide.is-fact .content {
-  grid-template-columns: minmax(420px, .82fr) minmax(520px, .9fr);
-  gap: clamp(1.5rem, 2.4vw, 3rem);
+  grid-template-columns: minmax(760px, 1fr) minmax(360px, 560px);
+  gap: clamp(1rem, 1.6vw, 2rem);
 }
 .slide.is-fact .content main {
   align-content: center;
 }
 .slide.is-fact .content aside.visual {
-  place-items: center start;
+  place-items: center end;
 }
 .slide.is-fact .photoPanel {
-  width: min(100%, 680px);
+  width: min(100%, 560px);
   height: min(56vh, 500px);
   min-height: 320px;
   border-radius: var(--r-md);
 }
 @media (min-width: 1500px) {
   .slide.is-fact .content {
-    grid-template-columns: minmax(560px, .74fr) minmax(680px, 1fr);
+    grid-template-columns: minmax(900px, 1fr) minmax(460px, 660px);
   }
   .slide.is-fact .photoPanel {
-    width: min(100%, 820px);
+    width: min(100%, 660px);
     height: min(58vh, 560px);
   }
 }
 .factBlock {
   display: grid;
-  gap: clamp(.65rem, 1.1vw, .9rem);
+  width: 100%;
+  gap: clamp(.5rem, .85vw, .72rem);
+}
+.factPanelStack {
+  min-width: 0;
+  display: grid;
+}
+.factPanelStack .factPanel {
+  grid-area: 1 / 1;
+}
+.factPanelStack .factPanel:not(.is-active) {
+  display: none;
 }
 .factPanel {
   min-width: 0;
   display: grid;
   align-content: start;
-  gap: clamp(.75rem, 1.2vw, 1rem);
+  gap: clamp(.55rem, .9vw, .82rem);
 }
 .factPanel:not(.is-main) {
   min-height: 52vh;
@@ -1533,11 +1544,67 @@ h2 .inlineZh {
   margin: 0;
   padding-bottom: .08em;
   color: var(--ink);
-  font-size: clamp(29px, 3vw, 48px);
+  display: grid;
+  gap: clamp(.62rem, .85vw, .86rem);
+  max-width: 100%;
+}
+.factText p {
+  margin: 0;
+}
+.factContext {
+  color: rgba(219,231,246,.9);
+  font-size: clamp(18px, 1.55vw, 26px);
+  line-height: 1.18;
+  font-weight: 780;
+}
+.factQuestion {
+  color: var(--ink);
+  font-size: clamp(24px, 2.15vw, 34px);
   line-height: 1.1;
   font-weight: 900;
-  text-wrap: balance;
-  max-width: 20ch;
+}
+.factQuestionZh {
+  color: rgba(219,231,246,.86);
+  font-size: clamp(17px, 1.25vw, 22px);
+  line-height: 1.34;
+  font-weight: 760;
+}
+.factCountrySwitch {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: .55rem;
+}
+.factSwitchButton {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: .5rem .65rem;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,.055);
+  color: rgba(219,231,246,.88);
+  font: inherit;
+  font-size: clamp(13px, .92vw, 16px);
+  line-height: 1.1;
+  font-weight: 850;
+  cursor: pointer;
+}
+.factSwitchButton.is-active,
+.factSwitchButton:hover,
+.factSwitchButton:focus-visible {
+  border-color: rgba(255,209,102,.62);
+  background:
+    linear-gradient(145deg, rgba(255,209,102,.18), rgba(86,216,255,.08)),
+    rgba(255,255,255,.075);
+  color: var(--ink);
+  outline: none;
+}
+.factAnswerButton {
+  margin-top: .1rem;
 }
 .factZh {
   max-width: 34ch;
@@ -1809,14 +1876,12 @@ h2 .inlineZh {
   font-weight: 900;
 }
 .chinaDialogText {
-  max-width: 21ch;
+  max-width: 26ch;
   margin: 0;
   padding-bottom: .08em;
   color: var(--ink);
-  font-size: clamp(36px, 4.1vw, 68px);
-  line-height: 1.08;
-  font-weight: 900;
-  text-wrap: balance;
+  display: grid;
+  gap: clamp(.75rem, 1.2vw, 1rem);
 }
 .chinaDialogZh {
   max-width: 36ch;
@@ -1922,11 +1987,26 @@ h2 .inlineZh {
     min-height: 0;
   }
   .factText {
-    max-width: 22ch;
+    max-width: 100%;
+  }
+  .factContext {
+    font-size: clamp(18px, 4.6vw, 25px);
+  }
+  .factQuestion {
+    font-size: clamp(24px, 6vw, 34px);
+  }
+  .factQuestionZh {
+    font-size: clamp(17px, 4.5vw, 24px);
+  }
+  .factCountrySwitch {
+    width: 100%;
+    gap: .4rem;
+  }
+  .factSwitchButton {
+    padding: .48rem .5rem;
   }
   .chinaDialogText {
-    max-width: 18ch;
-    font-size: clamp(30px, 9vw, 46px);
+    max-width: 26ch;
   }
   .chinaDialogZh {
     font-size: clamp(18px, 5.1vw, 25px);

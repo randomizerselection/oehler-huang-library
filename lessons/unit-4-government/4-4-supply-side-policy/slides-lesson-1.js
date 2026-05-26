@@ -79,12 +79,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Singapore',
-          fact: 'SkillsFuture Credit began with a S$500 opening credit for eligible adults to support skills development.',
+          context: 'SkillsFuture Credit began with a S$500 opening credit for eligible adults to support skills development.',
+          question: 'How could training subsidies increase labour productivity?',
+          questionZh: '培训补贴会如何提高劳动生产率？',
+          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
           source: 'Source: SkillsFuture Singapore, 2015 launch materials.',
         },
         china: {
           country: 'China',
-          fact: 'China reported about 10 million technical and skilled workers trained each year by vocational colleges and schools.',
+          context: 'China reported about 10 million technical and skilled workers trained each year by vocational colleges and schools.',
+          question: 'How could training subsidies increase labour productivity?',
+          questionZh: '培训补贴会如何提高劳动生产率？',
+          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
           source: 'Source: China Ministry of Education, 13th Five-Year Plan vocational education briefing.',
         },
       },

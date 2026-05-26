@@ -157,12 +157,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Paper 2',
-          fact: 'Exam answers may credit higher prices, lower output and less choice when fewer firms have strong market power.',
+          context: 'Exam answers may credit higher prices, lower output and less choice when fewer firms have strong market power.',
+          question: 'How could monopoly power reduce consumer welfare?',
+          questionZh: '垄断力量会如何降低消费者福利？',
+          answer: 'Monopoly power can reduce welfare through higher prices, lower output and less consumer choice.',
           source: 'Source: Cambridge IGCSE Economics Paper 2 archive, 2023ON-22 Q3(d).',
         },
         china: {
           country: 'China',
-          fact: 'Competition policy can be used to stop dominant firms from harming consumers or smaller rivals.',
+          context: 'Competition policy can be used to stop dominant firms from harming consumers or smaller rivals.',
+          question: 'How could monopoly power reduce consumer welfare?',
+          questionZh: '垄断力量会如何降低消费者福利？',
+          answer: 'Monopoly power can reduce welfare through higher prices, lower output and less consumer choice.',
           source: 'Source: general competition-policy teaching example.',
         },
       },

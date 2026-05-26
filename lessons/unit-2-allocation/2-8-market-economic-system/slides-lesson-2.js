@@ -59,12 +59,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Electric car sales topped 17 million worldwide in 2024 as consumer demand rose.',
+          context: 'Electric car sales topped 17 million worldwide in 2024 as consumer demand rose.',
+          question: 'How could higher demand for electric cars affect price and output?',
+          questionZh: '电动汽车需求上升会如何影响价格和产量？',
+          answer: 'Higher demand can raise price at first and encourage firms to increase output if they expect profit.',
           source: 'Source: IEA Global EV Outlook 2025.',
         },
         china: {
           country: 'China',
-          fact: 'China sold over 11 million electric cars in 2024, more than the world sold two years earlier.',
+          context: 'China sold over 11 million electric cars in 2024, more than the world sold two years earlier.',
+          question: 'How could higher demand for electric cars affect price and output?',
+          questionZh: '电动汽车需求上升会如何影响价格和产量？',
+          answer: 'Higher demand can raise price at first and encourage firms to increase output if they expect profit.',
           source: 'Source: IEA Global EV Outlook 2025.',
         },
       },
@@ -103,12 +109,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'US e-bike imports rose sharply after 2020, reflecting stronger demand for electric bicycles.',
+          context: 'US e-bike imports rose sharply after 2020, reflecting stronger demand for electric bicycles.',
+          question: 'What market signal could encourage firms to supply more e-bikes?',
+          questionZh: '什么市场信号会鼓励企业供应更多电动自行车？',
+          answer: 'Rising demand or higher prices signal profit opportunities, so firms may increase supply.',
           source: 'Source: USITC DataWeb and industry reporting.',
         },
         china: {
           country: 'China',
-          fact: 'China produces most of the world’s electric bicycles and has a large domestic e-bike market.',
+          context: 'China produces most of the world’s electric bicycles and has a large domestic e-bike market.',
+          question: 'What market signal could encourage firms to supply more e-bikes?',
+          questionZh: '什么市场信号会鼓励企业供应更多电动自行车？',
+          answer: 'Rising demand or higher prices signal profit opportunities, so firms may increase supply.',
           source: 'Source: China Bicycle Association industry reports.',
         },
       },
@@ -158,12 +170,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'Plant-based food sales reached USD 8.1 billion in the United States in 2024.',
+          context: 'Plant-based food sales reached USD 8.1 billion in the United States in 2024.',
+          question: 'How could changing consumer tastes affect demand and supply for plant-based food?',
+          questionZh: '消费者偏好的变化会如何影响需求和供给？',
+          answer: 'If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue.',
           source: 'Source: Good Food Institute, 2024 retail sales data.',
         },
         china: {
           country: 'China',
-          fact: 'China’s plant-based meat market was estimated at about USD 428 million in 2023.',
+          context: 'China’s plant-based meat market was estimated at about USD 428 million in 2023.',
+          question: 'How could changing consumer tastes affect demand and supply for plant-based food?',
+          questionZh: '消费者偏好的变化会如何影响需求和供给？',
+          answer: 'If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue.',
           source: 'Source: Grand View Research, 2023 market estimate.',
         },
       },

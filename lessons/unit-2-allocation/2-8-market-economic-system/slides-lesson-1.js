@@ -59,12 +59,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'Starbucks operated over 16,000 stores in the United States in 2024, showing private firms allocating resources to meet demand.',
+          context: 'Starbucks operated over 16,000 stores in the United States in 2024,.',
+          question: 'How does this show private firms responding to consumer demand?',
+          questionZh: '这如何说明私人企业回应消费者需求？',
+          answer: 'It shows private enterprise because firms choose where to open stores when they expect enough consumer demand and profit.',
           source: 'Source: Starbucks FY2024 Form 10-K.',
         },
         china: {
           country: 'China',
-          fact: 'Starbucks had more than 7,600 stores in China at the end of fiscal 2024.',
+          context: 'Starbucks had more than 7,600 stores in China at the end of fiscal 2024.',
+          question: 'How does this show private firms responding to consumer demand?',
+          questionZh: '这如何说明私人企业回应消费者需求？',
+          answer: 'It shows private enterprise because firms choose where to open stores when they expect enough consumer demand and profit.',
           source: 'Source: Starbucks FY2024 Form 10-K.',
         },
       },
@@ -130,12 +136,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'In 2024, small businesses made up 99.9% of all US businesses.',
+          context: 'In 2024, small businesses made up 99.9% of all US businesses.',
+          question: 'How does this show the role of private enterprise in a market economy?',
+          questionZh: '这如何说明私人企业在市场经济中的作用？',
+          answer: 'It shows that private firms make many production and employment decisions in a market economy.',
           source: 'Source: US Small Business Administration, 2024 Small Business Profile.',
         },
         china: {
           country: 'China',
-          fact: 'China said private enterprises account for more than 90% of all enterprises.',
+          context: 'China said private enterprises account for more than 90% of all enterprises.',
+          question: 'How does this show the role of private enterprise in a market economy?',
+          questionZh: '这如何说明私人企业在市场经济中的作用？',
+          answer: 'It shows that private firms make many production and employment decisions in a market economy.',
           source: 'Source: State Council Information Office, 2024.',
         },
       },
@@ -170,12 +182,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Global',
-          fact: 'In 2024, global retail e-commerce sales were estimated at over USD 6 trillion, showing markets coordinating buyers and sellers at scale.',
+          context: 'In 2024, global retail e-commerce sales were estimated at over USD 6 trillion,.',
+          question: 'How do online markets help coordinate buyers and sellers?',
+          questionZh: '网络市场如何帮助买方和卖方协调？',
+          answer: 'Online markets bring buyers and sellers together, so prices, orders and delivery systems help coordinate resource allocation.',
           source: 'Source: eMarketer/Insider Intelligence, 2024 estimate.',
         },
         china: {
           country: 'China',
-          fact: 'China remained the world’s largest online retail market in 2024.',
+          context: 'China remained the world’s largest online retail market in 2024.',
+          question: 'How do online markets help coordinate buyers and sellers?',
+          questionZh: '网络市场如何帮助买方和卖方协调？',
+          answer: 'Online markets bring buyers and sellers together, so prices, orders and delivery systems help coordinate resource allocation.',
           source: 'Source: China Ministry of Commerce, 2024 retail reporting.',
         },
       },

@@ -64,12 +64,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'In September 2024, the Federal Reserve cut its target range by 50 basis points. Is this expansionary or contractionary monetary policy?',
+          context: 'In September 2024, the Federal Reserve cut its target range by 50 basis points.',
+          question: 'Is this expansionary or contractionary monetary policy?',
+          questionZh: '这是扩张性还是紧缩性货币政策？',
+          answer: 'It is expansionary because it lowers borrowing costs or increases liquidity to support spending.',
           source: 'Source: Federal Reserve implementation note, September 2024.',
         },
         china: {
           country: 'China',
-          fact: 'In February 2024, China cut the reserve requirement ratio by 0.5 percentage points. How could this affect liquidity and spending?',
+          context: 'In February 2024, China cut the reserve requirement ratio by 0.5 percentage points.',
+          question: 'How could this affect liquidity and spending?',
+          questionZh: '改变货币或银行准备金会如何影响金融体系流动性？',
+          answer: 'More money or reserves can increase liquidity, making it easier for banks to lend and for spending to rise.',
           source: 'Source: People\'s Bank of China, January 2024 announcement.',
         },
       },

@@ -120,12 +120,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Exam archive',
-          fact: 'A cut in corporation tax can increase retained profit and the incentive for firms to invest.',
+          context: 'A cut in corporation tax can increase retained profit and the incentive for firms to invest.',
+          question: 'How could lower corporation tax increase investment and total supply?',
+          questionZh: '降低公司税会如何增加投资和总供给？',
+          answer: 'Higher retained profit can encourage firms to invest, increasing total supply over time.',
           source: 'Source: 2025MJ-21 Q4(c), Cambridge IGCSE Economics 0455 Paper 2 archive.',
         },
         china: {
           country: 'China comparison',
-          fact: 'Tax incentives can be targeted at investment, innovation or small firms to encourage expansion.',
+          context: 'Tax incentives can be targeted at investment, innovation or small firms to encourage expansion.',
+          question: 'How could targeted tax incentives increase productive capacity?',
+          questionZh: '有针对性的税收激励会如何提高生产能力？',
+          answer: 'Higher retained profit can encourage firms to invest, increasing total supply over time.',
           source: 'Source: Cambridge 4.4 supply-side policy syllabus wording and Paper 2 archive.',
         },
       },

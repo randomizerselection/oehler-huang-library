@@ -100,12 +100,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'India',
-          fact: 'India budgeted INR 11.11 trillion for capital expenditure in 2024-25. Which fiscal-policy tool is shown, and which macro aim might it support?',
+          context: 'India budgeted INR 11.11 trillion for capital expenditure in 2024-25.',
+          question: 'Which fiscal-policy tool is shown, and which macro aim might it support?',
+          questionZh: '这里体现了哪种财政政策工具，可能支持哪个宏观目标？',
+          answer: 'It is government capital spending and it may support growth, employment or productivity.',
           source: 'Source: Government of India Budget 2024-25.',
         },
         china: {
           country: 'China',
-          fact: 'China allocated RMB 1 trillion in 2024 treasury bond funds for major projects. How could this affect aggregate demand?',
+          context: 'China allocated RMB 1 trillion in 2024 treasury bond funds for major projects.',
+          question: 'How could this affect aggregate demand?',
+          questionZh: '这会如何影响总需求？',
+          answer: 'Government project spending increases injections into the economy, so aggregate demand may rise.',
           source: 'Source: China State Council/Xinhua, 2024.',
         },
       },
@@ -204,12 +210,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'CHIPS for America gives USD 39 billion for chip factories and equipment. How could this affect investment, output and employment?',
+          context: 'CHIPS for America gives USD 39 billion for chip factories and equipment.',
+          question: 'How could this affect investment, output and employment?',
+          questionZh: '这会如何支持投资、产量和就业？',
+          answer: 'It can raise investment first, then increase productive capacity, output and employment if firms expand.',
           source: 'Source: NIST.',
         },
         china: {
           country: 'China',
-          fact: 'China fiscal spending on science and technology was RMB 1.26 trillion in 2024. Which long-term macro aim could this support?',
+          context: 'China fiscal spending on science and technology was RMB 1.26 trillion in 2024.',
+          question: 'Which long-term macro aim could this support?',
+          questionZh: '这个例子说明了哪个经济概念？',
+          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
           source: 'Source: National Bureau of Statistics of China, 2025.',
         },
       },

@@ -107,12 +107,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Germany',
-          fact: 'In 2022, 468,900 people signed new contracts in Germany\'s dual vocational training system.',
+          context: 'In 2022, 468,900 people signed new contracts in Germany\'s dual vocational training system.',
+          question: 'How could vocational training improve occupational mobility of labour?',
+          questionZh: '职业培训会如何提高劳动力的职业流动性？',
+          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
           source: 'Source: German Federal Statistical Office, 2023.',
         },
         china: {
           country: 'China',
-          fact: 'China\'s vocational schools had 28.57 million students acquiring skills during the 13th Five-Year Plan period.',
+          context: 'China\'s vocational schools had 28.57 million students acquiring skills during the 13th Five-Year Plan period.',
+          question: 'How could vocational training improve occupational mobility of labour?',
+          questionZh: '职业培训会如何提高劳动力的职业流动性？',
+          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
           source: 'Source: China Ministry of Education, 2020 vocational education briefing.',
         },
       },
@@ -272,12 +278,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World Bank LPI',
-          fact: 'The 2023 Logistics Performance Index covered 139 economies and includes trade and transport infrastructure quality.',
+          context: 'The 2023 Logistics Performance Index covered 139 economies and includes trade and transport infrastructure quality.',
+          question: 'How could better transport infrastructure increase productive capacity?',
+          questionZh: '更好的交通基础设施会如何提高生产能力？',
+          answer: 'Better infrastructure reduces transport costs and delays, increasing productive capacity.',
           source: 'Source: World Bank Logistics Performance Index 2023.',
         },
         china: {
           country: 'China',
-          fact: 'China allocated RMB 1 trillion in 2024 treasury bond funds to support major projects.',
+          context: 'China allocated RMB 1 trillion in 2024 treasury bond funds to support major projects.',
+          question: 'How could better transport infrastructure increase productive capacity?',
+          questionZh: '更好的交通基础设施会如何提高生产能力？',
+          answer: 'Better infrastructure reduces transport costs and delays, increasing productive capacity.',
           source: 'Source: China State Council/Xinhua, 2024.',
         },
       },

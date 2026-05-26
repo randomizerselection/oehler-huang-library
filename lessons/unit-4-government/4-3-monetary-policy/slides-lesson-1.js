@@ -64,12 +64,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United States',
-          fact: 'Which items count in money supply: currency, deposits, or a privately owned car?',
+          context: 'Federal Reserve education materials separate currency and bank deposits from other privately owned assets.',
+          question: 'Which items count in money supply: currency, deposits, or a privately owned car?',
+          questionZh: '哪些项目属于货币供给：现金、存款，还是私人拥有的汽车？',
+          answer: 'Currency and bank deposits count in money supply; a privately owned car is an asset, not money.',
           source: 'Source: Federal Reserve education materials.',
         },
         china: {
           country: 'China',
-          fact: 'Why might China publish M0, M1 and M2 money supply indicators for the economy?',
+          context: 'China publishes M0, M1 and M2 money supply indicators for the economy.',
+          question: 'Why might China publish these indicators for the economy?',
+          questionZh: '中国为什么可能公布这些货币供给指标？',
+          answer: 'They help the central bank monitor liquidity, spending pressure and credit conditions.',
           source: 'Source: People\'s Bank of China statistical releases.',
         },
       },

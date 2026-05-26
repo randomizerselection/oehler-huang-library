@@ -133,12 +133,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: '251 million children and youth were out of school in 2023.',
+          context: '251 million children and youth were out of school in 2023.',
+          question: 'Why might education be a merit good that is under-consumed?',
+          questionZh: '为什么教育可能是消费不足的有益品？',
+          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
           source: 'Source: UNESCO, 2024.',
         },
         china: {
           country: 'China',
-          fact: 'China reports near-universal completion of nine-year compulsory education.',
+          context: 'China reports near-universal completion of nine-year compulsory education.',
+          question: 'Why might education be a merit good that is under-consumed?',
+          questionZh: '为什么教育可能是消费不足的有益品？',
+          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
           source: 'Source: China Ministry of Education, 2024.',
         },
       },
@@ -225,12 +231,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Tobacco kills more than 8 million people each year.',
+          context: 'Tobacco kills more than 8 million people each year.',
+          question: 'Why might tobacco be a demerit good that is over-consumed?',
+          questionZh: '为什么教育可能是消费不足的有益品？',
+          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
           source: 'Source: World Health Organization tobacco fact sheet.',
         },
         china: {
           country: 'China',
-          fact: 'China has over 300 million smokers, the largest number in the world.',
+          context: 'China has over 300 million smokers, the largest number in the world.',
+          question: 'Why might tobacco be a demerit good that is over-consumed?',
+          questionZh: '为什么教育可能是消费不足的有益品？',
+          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
           source: 'Source: World Health Organization China tobacco profile.',
         },
       },

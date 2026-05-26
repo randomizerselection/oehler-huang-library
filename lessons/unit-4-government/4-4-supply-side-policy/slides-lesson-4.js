@@ -86,12 +86,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'Exam archive',
-          fact: 'Recent Paper 2 mark schemes link education, training, healthcare and infrastructure to productivity and lower unemployment.',
+          context: 'Recent Paper 2 mark schemes link education, training, healthcare and infrastructure to productivity and lower unemployment.',
+          question: 'Which macroeconomic aim is shown, and what cost can unemployment create?',
+          questionZh: '这里体现了哪个宏观经济目标，失业会造成什么成本？',
+          answer: 'The aim is low unemployment; unemployment wastes labour and reduces household income.',
           source: 'Source: Cambridge IGCSE Economics 0455 Paper 2 archive, 2023-2025.',
         },
         china: {
           country: 'China',
-          fact: 'China planned a modern vocational education system by 2025 to support high-quality development.',
+          context: 'China planned a modern vocational education system by 2025 to support high-quality development.',
+          question: 'How could vocational education support long-term economic growth?',
+          questionZh: '教育支出可能支持哪个政府支出目标？',
+          answer: 'Education spending can support long-run growth by improving human capital and productivity.',
           source: 'Source: China State Council vocational education guidelines, 2021.',
         },
       },

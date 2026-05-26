@@ -64,12 +64,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United Kingdom',
-          fact: 'If the Bank of England changes Bank Rate, which choices are affected first: borrowing, saving, or taxation?',
+          context: 'The Bank of England uses Bank Rate as its main interest-rate tool for monetary policy.',
+          question: 'How is a budget deficit linked to government borrowing?',
+          questionZh: '预算赤字与政府借款有什么联系？',
+          answer: 'A budget deficit means government spending exceeds revenue, so the government usually needs to borrow.',
           source: 'Source: Bank of England education materials.',
         },
         china: {
           country: 'China',
-          fact: 'How could loan prime rates or reserve requirements change credit conditions in China?',
+          context: 'China uses loan prime rates and reserve requirements as monetary policy tools.',
+          question: 'How could these tools change credit conditions in China?',
+          questionZh: '这些工具会如何改变中国的信贷条件？',
+          answer: 'Lower rates or reserve requirements can make credit easier and increase bank lending.',
           source: 'Source: People\'s Bank of China materials.',
         },
       },

@@ -164,12 +164,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Almost all people breathe air that exceeds WHO guideline limits, creating health costs not fully reflected in market prices.',
+          context: 'Almost all people breathe air that exceeds WHO guideline limits, creating health costs not fully reflected in market prices.',
+          question: 'Which market failure concept does this example show?',
+          questionZh: '这个例子说明了哪个经济概念？',
+          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
           source: 'Source: World Health Organization air pollution fact sheet.',
         },
         china: {
           country: 'China',
-          fact: 'China city PM2.5 average was 29.3 micrograms per m3 in 2024.',
+          context: 'China city PM2.5 average was 29.3 micrograms per m3 in 2024.',
+          question: 'Who is the third party, and what external cost do they face?',
+          questionZh: '第三方是谁，他们面对什么外部成本？',
+          answer: 'The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers.',
           source: 'Source: Ministry of Ecology and Environment of China, 2025.',
         },
       },
@@ -380,12 +386,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Rainforests can create external benefits by improving air quality and protecting against floods.',
+          context: 'Rainforests can create external benefits by improving air quality and protecting against floods.',
+          question: 'Why might government provide goods or services that markets underprovide?',
+          questionZh: '为什么政府可能提供市场供给不足的物品或服务？',
+          answer: 'Government may provide it because private firms may not find enough paying customers despite wider social benefits.',
           source: 'Source: Cambridge IGCSE Economics Paper 2 archive, 2025MJ-21 Q1(b).',
         },
         china: {
           country: 'China',
-          fact: 'Flood-control investment can create benefits for households and firms that do not directly pay for each project.',
+          context: 'Flood-control investment can create benefits for households and firms that do not directly pay for each project.',
+          question: 'Why might government provide goods or services that markets underprovide?',
+          questionZh: '为什么政府可能提供市场供给不足的物品或服务？',
+          answer: 'Government may provide it because private firms may not find enough paying customers despite wider social benefits.',
           source: 'Source: China State Council, 2024.',
         },
       },

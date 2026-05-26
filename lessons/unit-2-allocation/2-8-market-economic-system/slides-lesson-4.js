@@ -59,12 +59,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'The richest 10% of the global population receive about half of global income.',
+          context: 'The richest 10% of the global population receive about half of global income.',
+          question: 'Why might a market economy create unequal income distribution?',
+          questionZh: '为什么市场经济可能造成收入分配不均？',
+          answer: 'Markets reward ownership, skills and enterprise unequally, so income can become uneven without redistribution.',
           source: 'Source: World Inequality Report 2022.',
         },
         china: {
           country: 'China',
-          fact: 'China’s official urban-rural disposable income ratio remained above 2.3 to 1 in 2024.',
+          context: 'China’s official urban-rural disposable income ratio remained above 2.3 to 1 in 2024.',
+          question: 'Why might a market economy create unequal income distribution?',
+          questionZh: '为什么市场经济可能造成收入分配不均？',
+          answer: 'Markets reward ownership, skills and enterprise unequally, so income can become uneven without redistribution.',
           source: 'Source: National Bureau of Statistics of China, 2025.',
         },
       },
@@ -92,12 +98,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'World',
-          fact: 'Air pollution is linked to 6.7 million premature deaths annually.',
+          context: 'Air pollution is linked to 6.7 million premature deaths annually.',
+          question: 'Why might market activity create external costs for third parties?',
+          questionZh: '为什么市场活动可能给第三方带来外部成本？',
+          answer: 'The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers.',
           source: 'Source: World Health Organization.',
         },
         china: {
           country: 'China',
-          fact: 'China’s city PM2.5 average was 29.3 micrograms per m3 in 2024.',
+          context: 'China’s city PM2.5 average was 29.3 micrograms per m3 in 2024.',
+          question: 'Why might market activity create external costs for third parties?',
+          questionZh: '为什么市场活动可能给第三方带来外部成本？',
+          answer: 'The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers.',
           source: 'Source: Ministry of Ecology and Environment of China, 2025.',
         },
       },
@@ -135,12 +147,18 @@ IGCSE.lesson = {
       facts: {
         left: {
           country: 'United Kingdom',
-          fact: 'The UK government planned GBP 5.2 billion for flood and coastal erosion schemes from 2021 to 2027.',
+          context: 'The UK government planned GBP 5.2 billion for flood and coastal erosion schemes from 2021 to 2027.',
+          question: 'Why might government provide goods or services that markets underprovide?',
+          questionZh: '为什么政府可能提供市场供给不足的物品或服务？',
+          answer: 'Government may provide it because private firms may not find enough paying customers despite wider social benefits.',
           source: 'Source: UK Environment Agency.',
         },
         china: {
           country: 'China',
-          fact: 'China increased central support for flood-control and disaster-prevention projects after major 2023 floods.',
+          context: 'China increased central support for flood-control and disaster-prevention projects after major 2023 floods.',
+          question: 'Why might government provide goods or services that markets underprovide?',
+          questionZh: '为什么政府可能提供市场供给不足的物品或服务？',
+          answer: 'Government may provide it because private firms may not find enough paying customers despite wider social benefits.',
           source: 'Source: China State Council, 2024.',
         },
       },
