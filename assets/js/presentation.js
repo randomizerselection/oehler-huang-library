@@ -537,6 +537,20 @@ const highlightTerms = (text = '', terms = []) => {
   return chunks.join('');
 };
 
+const modelAnswerBody = (s = {}) => {
+  const paragraphs = Array.isArray(s.paragraphs) && s.paragraphs.length
+    ? s.paragraphs
+    : [s.answer || ''];
+  const rendered = paragraphs
+    .filter((paragraph) => String(paragraph || '').trim())
+    .map((paragraph) => `<p>${highlightTerms(paragraph, s.links || [])}</p>`)
+    .join('');
+
+  return paragraphs.length > 1
+    ? `<div class="modelAnswerText modelAnswerParagraphs">${rendered}</div>`
+    : `<p class="modelAnswerText">${highlightTerms(paragraphs[0] || '', s.links || [])}</p>`;
+};
+
 const definitionWithBlanks = (text = '', terms = []) => {
   const uniqueTerms = [...new Set((terms || [])
     .map((term) => String(term || '').trim())
@@ -773,6 +787,34 @@ const sectionProgress = (slide) => {
   `;
 };
 
+const peerTaskMissingSentence = (s) => {
+  const missingStep = Number(s.missingSentenceStep || 2);
+  const steps = (s.steps || []).map((step, i) => {
+    const label = Array.isArray(step) ? String(step[0]) : String(i + 1);
+    const text = Array.isArray(step) ? step[1] : step;
+    const answer = Array.isArray(step) ? step[2] : '';
+    const isMissing = Number(label) === missingStep || i + 1 === missingStep;
+    return `
+      <div class="step${isMissing ? ' is-missingSentence' : ''}">
+        <div class="label">${esc(label)}</div>
+        <div class="desc">${isMissing ? blankStatement(text, s.missingSentenceAnswer || answer) : esc(text)}</div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="peerTaskBlock is-missingSentenceTask">
+      ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
+      ${s.prompt ? `<p class="lead">${esc(s.prompt)}</p>` : ''}
+      ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
+      <div class="peerTaskMissingSteps steps">
+        ${steps}
+      </div>
+      ${s.sharePrompt ? `<div class="prompt peerTaskShare">${esc(s.sharePrompt)}</div>` : ''}
+    </div>
+  `;
+};
+
 /* ---------- Slide body renderers, keyed by slide.type ---------- */
 const renderers = {
   hero: (s) => `
@@ -835,7 +877,7 @@ const renderers = {
   },
 
   compare: (s) => `
-    <div class="compareBlock${s.mode === 'fillBlanks' ? ' is-fillBlanks' : ''}">
+    <div class="compareBlock${s.mode === 'fillBlanks' ? ' is-fillBlanks' : ''}${s.variant ? ` is-${esc(String(s.variant).replace(/[^a-z0-9_-]/gi, ''))}` : ''}">
       ${s.title ? `<h2>${esc(s.title)}</h2>` : ''}
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
       ${s.term ? `
@@ -892,7 +934,7 @@ const renderers = {
     </div>
   `,
 
-  peerTask: (s) => `
+  peerTask: (s) => s.taskType === 'missingSentence' ? peerTaskMissingSentence(s) : `
     <div class="peerTaskBlock">
       ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
       <div class="peerTaskGrid">
@@ -902,7 +944,7 @@ const renderers = {
           ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
         </section>
         <section class="peerTaskStepsPanel">
-          <div class="peerTaskPanelLabel">Task steps</div>
+          <div class="peerTaskPanelLabel">Do these three steps</div>
           ${stepList((s.steps || []).map((step, i) => Array.isArray(step) ? step : [String(i + 1), step]))}
         </section>
       </div>
@@ -911,7 +953,7 @@ const renderers = {
           ${s.sharePrompt ? `<div class="prompt peerTaskShare">${esc(s.sharePrompt)}</div>` : ''}
           ${(s.sampleAnswers || []).length ? `
             <div class="peerTaskSamples">
-              <div class="peerTaskSampleLabel">After you try <span lang="zh-Hans">参考答案</span></div>
+              <div class="peerTaskSampleLabel">Model answer after you try <span lang="zh-Hans">参考答案</span></div>
               ${(s.sampleAnswers || []).map((answer) => `<div class="choice">${esc(answer)}</div>`).join('')}
             </div>` : ''}
         </div>` : ''}
@@ -1019,9 +1061,9 @@ const renderers = {
         ${showQuestion ? `<p class="lead modelAnswerQuestion">${esc(s.question)}</p>` : ''}
         <div class="modelAnswerCard">
           <div class="modelAnswerLabel">Model answer</div>
-          <p class="modelAnswerText">${highlightTerms(s.answer || '', s.links || [])}</p>
+          ${modelAnswerBody(s)}
         </div>
-        ${(s.links || []).length ? `
+        ${(s.links || []).length && s.showLinkChips !== false ? `
           <div class="modelAnswerLinks" aria-label="Required links used">
             ${(s.links || []).map((link) => `<span>${esc(link)}</span>`).join('')}
           </div>` : ''}
@@ -1863,6 +1905,10 @@ function handoutChoices(choices = []) {
   `;
 }
 
+function handoutSources() {
+  return '';
+}
+
 function handoutBlock(slide, body, modifier = '') {
   if (!body.trim()) return '';
   return `
@@ -1908,7 +1954,7 @@ function renderHandoutBlock(slide) {
             ${handoutList(visibleQuestions, true)}
           </div>` : ''}
         ${handoutParagraph(slide.source, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-paper-extract');
     }
 
@@ -1917,7 +1963,7 @@ function renderHandoutBlock(slide) {
         ${handoutParagraph(slide.lead)}
         ${handoutPairs(slide.cards || [])}
         ${handoutParagraph(slide.footer, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-key-points');
 
     case 'term':
@@ -1930,7 +1976,7 @@ function renderHandoutBlock(slide) {
         </div>
         ${slide.formula ? `<p class="handoutFormula">${esc(slide.formula)}</p>` : ''}
         ${handoutPairs(slide.examples || [], 'handoutExamples')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-definition');
 
     case 'compare':
@@ -1953,7 +1999,7 @@ function renderHandoutBlock(slide) {
           </section>
         </div>
         ${handoutParagraph(slide.prompt || slide.divider, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-compare');
 
     case 'flow':
@@ -1961,7 +2007,7 @@ function renderHandoutBlock(slide) {
         ${handoutParagraph(slide.question)}
         ${handoutFlow(slide.nodes || [])}
         ${handoutParagraph(slide.prompt || slide.footer, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-flow');
 
     case 'socialEffectsVenn':
@@ -1983,7 +2029,7 @@ function renderHandoutBlock(slide) {
           }).join('')}
         </div>
         ${handoutParagraph(slide.prompt, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-compare');
 
     case 'systemCompare':
@@ -1998,7 +2044,7 @@ function renderHandoutBlock(slide) {
           `).join('')}
         </div>
         ${handoutParagraph(slide.prompt, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-compare');
 
     case 'taxRateDiagramCompare':
@@ -2009,7 +2055,7 @@ function renderHandoutBlock(slide) {
           body: diagram.note,
         })))}
         ${handoutParagraph(slide.prompt, 'handoutNote')}
-        ${renderSources(slide.sources, 'handoutSources')}
+        ${handoutSources(slide.sources)}
       `, 'is-key-points');
 
     default:
@@ -2106,6 +2152,7 @@ function getPartialSelectors(meta, slide) {
   const config = slide.partialReview;
   if (slide.type === 'quiz') return '';
   if (config === false) return '';
+  if (slide.type === 'peerTask' && slide.taskType === 'missingSentence') return '';
   if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';

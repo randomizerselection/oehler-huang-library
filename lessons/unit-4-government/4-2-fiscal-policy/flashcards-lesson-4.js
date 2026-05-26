@@ -3,8 +3,8 @@ window.IGCSE = window.IGCSE || {};
 IGCSE.flashcards = {
   id: '4-2-fiscal-policy-lesson-4-flashcards',
   version: '1.0.0',
-  title: 'Fiscal-policy measures and effects flashcards',
-  description: 'Self-check revision for expansionary and contractionary fiscal policy.',
+  title: 'Expansionary and contractionary fiscal policy flashcards',
+  description: 'Self-check revision for fiscal policy directions and aggregate-demand effects.',
   cards: [
     {
       id: 'definition',
@@ -31,28 +31,28 @@ IGCSE.flashcards = {
       definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and inflationary pressure.',
     },
     {
-      id: 'unemployment',
+      id: 'aggregate-demand',
+      type: 'fillBlank',
+      prompt: 'Expansionary fiscal policy usually increases aggregate __________.',
+      answer: 'demand',
+    },
+    {
+      id: 'employment',
       type: 'fillBlank',
       prompt: 'Higher spending can raise output and derived demand for __________.',
       answer: 'labour',
     },
     {
-      id: 'inflation-risk',
+      id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'If aggregate demand rises faster than output, prices may rise, causing demand-pull __________.',
-      answer: 'inflation',
+      prompt: 'Contractionary fiscal policy can reduce inflationary __________.',
+      answer: 'pressure',
     },
     {
       id: 'tax-cut',
       type: 'fillBlank',
       prompt: 'Cutting income tax can raise disposable income, consumption and aggregate __________.',
       answer: 'demand',
-    },
-    {
-      id: 'trade-off',
-      type: 'fillBlank',
-      prompt: 'Expansionary fiscal policy may support growth and employment but can increase inflationary __________.',
-      answer: 'pressure',
     },
   ],
 };

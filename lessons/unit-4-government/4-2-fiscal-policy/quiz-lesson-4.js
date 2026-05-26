@@ -3,8 +3,8 @@ window.IGCSE = window.IGCSE || {};
 IGCSE.quiz = {
   id: '4-2-fiscal-policy-lesson-4',
   version: '1.0.0',
-  title: 'Fiscal-policy measures and effects quiz',
-  description: 'Check fiscal policy, expansionary and contractionary measures, and effects on macroeconomic aims.',
+  title: 'Expansionary and contractionary fiscal policy quiz',
+  description: 'Check fiscal policy, expansionary and contractionary measures, aggregate demand, employment and inflationary pressure.',
   questions: [
     {
       id: 'fiscal-policy-definition',
@@ -47,24 +47,31 @@ IGCSE.quiz = {
       explanation: 'Contractionary fiscal policy reduces aggregate demand pressures.',
     },
     {
-      id: 'unemployment',
+      id: 'aggregate-demand',
+      type: 'fillBlank',
+      prompt: 'Expansionary fiscal policy usually increases aggregate __________.',
+      acceptedAnswers: ['demand'],
+      explanation: 'Higher government spending or lower taxes can increase total spending in the economy.',
+    },
+    {
+      id: 'employment-effect',
       type: 'multipleChoice',
       prompt: 'How can increased government spending reduce unemployment?',
       choices: [
-        'It can raise demand for goods, services, and labour.',
+        'It can raise demand for goods, services and labour.',
         'It always reduces all prices instantly.',
         'It stops firms from hiring workers.',
         'It removes consumer spending from GDP.',
       ],
       answer: 0,
-      explanation: 'Higher spending can raise aggregate demand, output, and derived demand for labour.',
+      explanation: 'Higher spending can raise aggregate demand, output and derived demand for labour.',
     },
     {
-      id: 'inflation-risk',
+      id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'Expansionary fiscal policy may create demand-pull __________ if the economy is near full capacity.',
-      acceptedAnswers: ['inflation', 'demand-pull inflation'],
-      explanation: 'If aggregate demand rises faster than output, prices may rise.',
+      prompt: 'Contractionary fiscal policy can reduce inflationary __________.',
+      acceptedAnswers: ['pressure'],
+      explanation: 'Lower aggregate demand can reduce demand-pull inflationary pressure.',
     },
     {
       id: 'tax-cut',
@@ -77,14 +84,7 @@ IGCSE.quiz = {
         'Exports must fall to zero.',
       ],
       answer: 0,
-      explanation: 'Lower income tax can raise disposable income, consumption, and aggregate demand.',
-    },
-    {
-      id: 'trade-off',
-      type: 'fillBlank',
-      prompt: 'A fiscal policy that increases growth may also worsen inflation, showing a policy __________.',
-      acceptedAnswers: ['trade-off', 'tradeoff', 'conflict'],
-      explanation: 'Fiscal policy can help one macroeconomic aim while creating pressure on another.',
+      explanation: 'Lower income tax can raise disposable income, consumption and aggregate demand.',
     },
   ],
 };

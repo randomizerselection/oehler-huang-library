@@ -37,6 +37,11 @@ body { overflow: hidden; }
   max-width: 100%;
   overflow-wrap: anywhere;
 }
+.sectionTitle {
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
 @keyframes slideIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
@@ -461,16 +466,64 @@ body { overflow: hidden; }
   text-wrap: balance;
 }
 .choices.is-outcomes .choice {
+  counter-increment: outcome;
+  position: relative;
+  min-height: clamp(126px, 17vh, 176px);
+  padding: clamp(1rem, 1.45vw, 1.35rem);
   align-items: flex-start;
   flex-direction: column;
-  gap: .38rem;
+  justify-content: flex-start;
+  gap: .64rem;
+  border-color: rgba(86,216,255,.22);
+  background:
+    linear-gradient(145deg, rgba(86,216,255,.095), rgba(255,255,255,.035)),
+    rgba(255,255,255,.045);
+}
+.choices.is-outcomes {
+  counter-reset: outcome;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.75rem, 1.1vw, 1rem);
+}
+.choices.is-outcomes .choice::before {
+  content: counter(outcome);
+  display: inline-grid;
+  place-items: center;
+  width: clamp(34px, 2.4vw, 46px);
+  height: clamp(34px, 2.4vw, 46px);
+  margin-bottom: .12rem;
+  border: 1px solid rgba(255,209,102,.42);
+  border-radius: 999px;
+  background: rgba(255,209,102,.13);
+  color: var(--gold);
+  font-size: clamp(18px, 1.32vw, 25px);
+  font-weight: 900;
+  line-height: 1;
+}
+.choices.is-outcomes .choice > span:first-child {
+  display: block;
+  width: 100%;
+  padding-bottom: .62rem;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+  font-size: clamp(22px, 1.55vw, 31px);
+  line-height: 1.16;
+  font-weight: 850;
 }
 .outcomeZh {
+  display: block;
+  width: 100%;
   color: var(--ink-dim);
   font-size: clamp(16px, 1.25vw, 22px);
   line-height: 1.25;
   font-weight: 740;
   letter-spacing: 0;
+}
+@media (max-width: 900px) {
+  .choices.is-outcomes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .choices.is-outcomes .choice {
+    min-height: 0;
+  }
 }
 
 .slide.is-peerTask .content {
@@ -480,10 +533,10 @@ body { overflow: hidden; }
   display: none;
 }
 .peerTaskBlock {
-  width: min(1240px, 100%);
+  width: min(1160px, 100%);
   justify-self: center;
   display: grid;
-  gap: clamp(.75rem, 1.55vh, 1.2rem);
+  gap: clamp(.68rem, 1.2vh, 1rem);
 }
 .peerTaskBlock h2 {
   max-width: none;
@@ -493,8 +546,8 @@ body { overflow: hidden; }
 .peerTaskGrid {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(340px, .82fr) minmax(460px, 1.18fr);
-  gap: clamp(1rem, 2vw, 1.6rem);
+  grid-template-columns: minmax(320px, .78fr) minmax(480px, 1.22fr);
+  gap: clamp(.85rem, 1.55vw, 1.25rem);
   align-items: stretch;
 }
 .peerTaskPromptPanel,
@@ -506,8 +559,8 @@ body { overflow: hidden; }
 .peerTaskStepsPanel {
   display: grid;
   align-content: start;
-  gap: clamp(.75rem, 1.4vh, 1.05rem);
-  padding: clamp(1rem, 1.8vw, 1.45rem);
+  gap: clamp(.65rem, 1.05vh, .9rem);
+  padding: clamp(.95rem, 1.42vw, 1.2rem);
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   background:
@@ -556,12 +609,12 @@ body { overflow: hidden; }
   text-transform: none;
 }
 .peerTaskBlock .lead {
-  max-width: 28ch;
+  max-width: 32ch;
   color: var(--ink);
-  font-size: clamp(24px, 2.05vw, 38px);
+  font-size: clamp(23px, 1.82vw, 34px);
   line-height: 1.18;
   font-weight: 820;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 .peerTaskZh {
   margin: 0;
@@ -576,18 +629,18 @@ body { overflow: hidden; }
   gap: clamp(.55rem, 1.05vh, .82rem);
 }
 .peerTaskBlock .step {
-  padding: clamp(.74rem, 1.1vw, 1rem);
-  gap: .85rem;
+  padding: clamp(.68rem, .95vw, .88rem);
+  gap: .75rem;
   border-radius: var(--r-sm);
 }
 .peerTaskBlock .step .desc {
-  font-size: clamp(18px, 1.28vw, 25px);
+  font-size: clamp(17px, 1.12vw, 22px);
   line-height: 1.24;
 }
 .peerTaskBottom {
   display: grid;
-  grid-template-columns: minmax(320px, .75fr) minmax(420px, 1fr);
-  gap: clamp(.75rem, 1.4vw, 1rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: .65rem;
   align-items: start;
 }
 .peerTaskShare {
@@ -611,6 +664,60 @@ body { overflow: hidden; }
   border-radius: var(--r-sm);
   font-size: clamp(16px, 1.05vw, 20px);
   line-height: 1.23;
+}
+.peerTaskBlock.is-missingSentenceTask {
+  width: min(1080px, 100%);
+  gap: clamp(.8rem, 1.55vh, 1.25rem);
+  padding: clamp(1rem, 1.7vw, 1.45rem);
+  border: 1px solid rgba(86,216,255,.24);
+  border-radius: var(--r-md);
+  background:
+    linear-gradient(145deg, rgba(86,216,255,.085), rgba(255,255,255,.032)),
+    rgba(255,255,255,.035);
+  box-shadow: var(--shadow-sm);
+}
+.peerTaskBlock.is-missingSentenceTask h2 {
+  max-width: none;
+  font-size: clamp(40px, 4vw, 70px);
+}
+.peerTaskBlock.is-missingSentenceTask .lead {
+  max-width: 54ch;
+  margin: 0;
+}
+.peerTaskBlock.is-missingSentenceTask .peerTaskZh {
+  max-width: 58ch;
+}
+.peerTaskMissingSteps {
+  display: grid;
+  gap: clamp(.68rem, 1.1vh, .92rem);
+}
+.peerTaskMissingSteps .step {
+  min-width: 0;
+  padding: clamp(.84rem, 1.15vw, 1.06rem);
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(255,255,255,.05);
+}
+.peerTaskMissingSteps .step.is-missingSentence {
+  border-color: rgba(255,209,102,.4);
+  background:
+    linear-gradient(135deg, rgba(255,209,102,.13), rgba(255,255,255,.045)),
+    rgba(255,255,255,.05);
+}
+.peerTaskMissingSteps .desc {
+  font-size: clamp(21px, 1.55vw, 30px);
+  line-height: 1.24;
+  font-weight: 780;
+}
+.peerTaskMissingSteps .blankAnswer {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 2.15em;
+  margin: .1rem 0;
+  padding: .36em .5em;
+  text-align: left;
+  white-space: normal;
 }
 
 @media (max-width: 960px) {
@@ -641,6 +748,73 @@ body { overflow: hidden; }
   .peerTaskSamples {
     grid-template-columns: minmax(0, 1fr);
   }
+  .peerTaskBlock.is-missingSentenceTask {
+    padding: .95rem;
+  }
+  .peerTaskBlock.is-missingSentenceTask h2 {
+    font-size: clamp(31px, 8vw, 45px);
+  }
+  .peerTaskMissingSteps .desc {
+    font-size: clamp(17px, 4.25vw, 22px);
+  }
+  .compareBlock.is-examDiscussion {
+    gap: .5rem;
+  }
+  .compareBlock.is-examDiscussion h2 {
+    max-width: 100%;
+    font-size: clamp(20px, 5.45vw, 27px);
+    line-height: 1.06;
+  }
+  .compareBlock.is-examDiscussion .splitCols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .5rem;
+  }
+  .compareBlock.is-examDiscussion .card {
+    gap: .45rem;
+    padding: .62rem;
+    border-top-width: 4px;
+  }
+  .compareBlock.is-examDiscussion .card > b {
+    font-size: clamp(13px, 3.6vw, 16px);
+    line-height: 1.08;
+  }
+  .compareBlock.is-examDiscussion .choices {
+    gap: .34rem;
+  }
+  .compareBlock.is-examDiscussion .choice {
+    padding: .42rem .45rem;
+    font-size: clamp(12px, 3.2vw, 15px);
+    line-height: 1.08;
+  }
+  .slide.is-modelAnswer .modelAnswerBlock {
+    gap: .5rem;
+  }
+  .slide.is-modelAnswer .modelAnswerBlock h2 {
+    font-size: clamp(25px, 6.5vw, 34px);
+  }
+  .slide.is-modelAnswer .modelAnswerQuestion {
+    font-size: clamp(15px, 3.6vw, 18px);
+    line-height: 1.15;
+  }
+  .slide.is-modelAnswer .modelAnswerCard {
+    padding: .7rem .78rem;
+    border-radius: var(--r-md);
+  }
+  .slide.is-modelAnswer .modelAnswerLabel {
+    font-size: 12px;
+  }
+  .slide.is-modelAnswer .modelAnswerText {
+    margin-top: .32rem;
+    font-size: clamp(13px, 3.28vw, 16px);
+    line-height: 1.18;
+  }
+  .slide.is-modelAnswer .modelAnswerParagraphs {
+    gap: .45rem;
+  }
+  .slide.is-modelAnswer .modelAnswerLinks,
+  .slide.is-modelAnswer .modelAnswerNote {
+    display: none;
+  }
 }
 
 .slide.is-flow .content {
@@ -650,7 +824,10 @@ body { overflow: hidden; }
   display: none;
 }
 .flowBlock h2 {
-  max-width: 18ch;
+  max-width: min(100%, 34ch);
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
 }
 .flowBlock .lead {
   max-width: 42ch;
@@ -849,6 +1026,13 @@ body { overflow: hidden; }
   font-size: clamp(22px, 1.75vw, 34px);
   line-height: 1.36;
   font-weight: 650;
+}
+.modelAnswerParagraphs {
+  display: grid;
+  gap: .9rem;
+}
+.modelAnswerParagraphs p {
+  margin: 0;
 }
 
 .modelAnswerText mark {
@@ -1107,6 +1291,43 @@ h2 .inlineZh {
   display: grid;
   align-content: start;
   gap: .7rem;
+}
+.compareBlock.is-examDiscussion {
+  display: grid;
+  gap: clamp(.8rem, 1.4vh, 1.1rem);
+}
+.compareBlock.is-examDiscussion h2 {
+  max-width: 100%;
+  font-size: clamp(26px, 2.18vw, 40px);
+  line-height: 1.08;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}
+.compareBlock.is-examDiscussion .splitCols {
+  align-items: stretch;
+}
+.compareBlock.is-examDiscussion .card {
+  display: grid;
+  align-content: start;
+  gap: .8rem;
+  border-top: 5px solid rgba(86,216,255,.64);
+}
+.compareBlock.is-examDiscussion .card:nth-child(2) {
+  border-top-color: rgba(255,209,102,.68);
+}
+.compareBlock.is-examDiscussion .card > b {
+  color: #fff;
+  font-size: clamp(21px, 1.65vw, 31px);
+  line-height: 1.12;
+}
+.compareBlock.is-examDiscussion .choices {
+  gap: .56rem;
+}
+.compareBlock.is-examDiscussion .choice {
+  min-height: 0;
+  padding: .72rem .85rem;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.18;
 }
 .compareBlock.is-fillBlanks .fillBlanks {
   margin-top: .2rem;
@@ -1468,8 +1689,8 @@ h2 .inlineZh {
 
 /* ---------- Real-world fact slides ---------- */
 .slide.is-fact .content {
-  grid-template-columns: minmax(760px, 1fr) minmax(360px, 560px);
-  gap: clamp(1rem, 1.6vw, 2rem);
+  grid-template-columns: minmax(0, 1.28fr) minmax(320px, .72fr);
+  gap: clamp(.85rem, 1.25vw, 1.55rem);
 }
 .slide.is-fact .content main {
   align-content: center;
@@ -1483,9 +1704,14 @@ h2 .inlineZh {
   min-height: 320px;
   border-radius: var(--r-md);
 }
+@media (min-width: 1200px) {
+  .slide.is-fact .content {
+    grid-template-columns: minmax(800px, 1fr) minmax(390px, 560px);
+  }
+}
 @media (min-width: 1500px) {
   .slide.is-fact .content {
-    grid-template-columns: minmax(900px, 1fr) minmax(460px, 660px);
+    grid-template-columns: minmax(930px, 1fr) minmax(460px, 660px);
   }
   .slide.is-fact .photoPanel {
     width: min(100%, 660px);
@@ -1495,7 +1721,7 @@ h2 .inlineZh {
 .factBlock {
   display: grid;
   width: 100%;
-  gap: clamp(.5rem, .85vw, .72rem);
+  gap: clamp(.42rem, .68vw, .62rem);
 }
 .factPanelStack {
   min-width: 0;
@@ -1511,7 +1737,7 @@ h2 .inlineZh {
   min-width: 0;
   display: grid;
   align-content: start;
-  gap: clamp(.55rem, .9vw, .82rem);
+  gap: clamp(.5rem, .72vw, .7rem);
 }
 .factPanel:not(.is-main) {
   min-height: 52vh;
@@ -1545,7 +1771,7 @@ h2 .inlineZh {
   padding-bottom: .08em;
   color: var(--ink);
   display: grid;
-  gap: clamp(.62rem, .85vw, .86rem);
+  gap: clamp(.7rem, .92vw, 1rem);
   max-width: 100%;
 }
 .factText p {
@@ -1553,20 +1779,20 @@ h2 .inlineZh {
 }
 .factContext {
   color: rgba(219,231,246,.9);
-  font-size: clamp(18px, 1.55vw, 26px);
-  line-height: 1.18;
+  font-size: clamp(20px, 1.72vw, 30px);
+  line-height: 1.16;
   font-weight: 780;
 }
 .factQuestion {
   color: var(--ink);
-  font-size: clamp(24px, 2.15vw, 34px);
-  line-height: 1.1;
+  font-size: clamp(30px, 2.48vw, 42px);
+  line-height: 1.08;
   font-weight: 900;
 }
 .factQuestionZh {
   color: rgba(219,231,246,.86);
-  font-size: clamp(17px, 1.25vw, 22px);
-  line-height: 1.34;
+  font-size: clamp(19px, 1.42vw, 25px);
+  line-height: 1.3;
   font-weight: 760;
 }
 .factCountrySwitch {
@@ -1604,7 +1830,7 @@ h2 .inlineZh {
   outline: none;
 }
 .factAnswerButton {
-  margin-top: .1rem;
+  margin-top: 0;
 }
 .factZh {
   max-width: 34ch;
@@ -4838,7 +5064,8 @@ body.is-flashcard-mode #deck {
 .handoutSection {
   display: grid;
   gap: 12px;
-  break-inside: avoid;
+  break-inside: auto;
+  page-break-inside: auto;
 }
 
 .handoutSection + .handoutSection {
@@ -4881,12 +5108,15 @@ body.is-flashcard-mode #deck {
 }
 
 .handoutBlock {
-  break-inside: avoid;
+  break-inside: auto;
+  page-break-inside: auto;
   border: 1px solid #dde3ec;
   border-left: 5px solid #cad3df;
   border-radius: 8px;
   background: #fff;
   padding: 14px 16px;
+  orphans: 2;
+  widows: 2;
 }
 
 .handoutBlock.is-key-points {
@@ -4915,6 +5145,8 @@ body.is-flashcard-mode #deck {
 
 .handoutPaperQuestion {
   margin-top: 10px;
+  break-inside: avoid;
+  page-break-inside: avoid;
   padding: 10px 12px;
   border: 1px solid #dbe4f0;
   border-radius: 6px;
@@ -4937,6 +5169,8 @@ body.is-flashcard-mode #deck {
   font-size: 20px;
   line-height: 1.22;
   letter-spacing: 0;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 
 .handoutBlock h4 {
@@ -4982,6 +5216,8 @@ body.is-flashcard-mode #deck {
 
 .handoutNote {
   margin-top: 8px !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
   border: 1px solid #dbe3ee;
   border-radius: 8px;
   background: #f8fafc;
@@ -5002,6 +5238,8 @@ body.is-flashcard-mode #deck {
 
 .handoutDefinition {
   margin: 8px 0 10px;
+  break-inside: avoid;
+  page-break-inside: avoid;
   border: 1px solid #dbe3ee;
   border-left: 4px solid #0f766e;
   border-radius: 8px;
@@ -5032,6 +5270,8 @@ body.is-flashcard-mode #deck {
 .handoutPairs > div,
 .handoutExamples > div,
 .handoutColumns > section {
+  break-inside: avoid;
+  page-break-inside: avoid;
   border: 1px solid #dbe3ee;
   border-radius: 8px;
   background: #fbfcfe;
@@ -5077,6 +5317,8 @@ body.is-flashcard-mode #deck {
 .handoutFlow li {
   list-style: none;
   position: relative;
+  break-inside: avoid;
+  page-break-inside: avoid;
   border: 1px solid #dbe3ee;
   border-radius: 8px;
   background: #fbfcfe;
@@ -5420,6 +5662,83 @@ body.is-flashcard-mode #deck {
   }
 }
 
+@media (max-width: 960px) {
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion {
+    gap: .42rem;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion h2 {
+    max-width: 100%;
+    font-size: clamp(18px, 5vw, 25px);
+    line-height: 1.04;
+    overflow-wrap: normal;
+    text-wrap: pretty;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion .splitCols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .42rem;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion .card {
+    gap: .34rem;
+    padding: .48rem;
+    border-top-width: 3px;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion .card > b {
+    font-size: clamp(11px, 3.15vw, 14px);
+    line-height: 1.05;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion .choices {
+    gap: .26rem;
+  }
+
+  .slide.is-compare .content.is-full .compareBlock.is-examDiscussion .choice {
+    padding: .32rem .34rem;
+    font-size: clamp(10px, 2.82vw, 13px);
+    line-height: 1.04;
+  }
+
+  .slide.is-modelAnswer .modelAnswerBlock {
+    gap: .42rem;
+  }
+
+  .slide.is-modelAnswer .modelAnswerBlock h2 {
+    font-size: clamp(23px, 6vw, 31px);
+  }
+
+  .slide.is-modelAnswer .modelAnswerQuestion {
+    font-size: clamp(13px, 3.25vw, 16px);
+    line-height: 1.12;
+  }
+
+  .slide.is-modelAnswer .modelAnswerCard {
+    padding: .55rem .6rem;
+    border-radius: var(--r-md);
+  }
+
+  .slide.is-modelAnswer .modelAnswerLabel {
+    font-size: 11px;
+  }
+
+  .slide.is-modelAnswer .modelAnswerText {
+    margin-top: .22rem;
+    font-size: clamp(11.5px, 2.9vw, 14px);
+    line-height: 1.12;
+  }
+
+  .slide.is-modelAnswer .modelAnswerParagraphs {
+    gap: .32rem;
+  }
+
+  .slide.is-modelAnswer .modelAnswerLinks,
+  .slide.is-modelAnswer .modelAnswerNote {
+    display: none;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .slide.is-active { animation: none; }
@@ -5460,7 +5779,8 @@ body.is-flashcard-mode #deck {
     padding-top: 6mm;
   }
   .handoutBlock {
-    break-inside: avoid;
+    break-inside: auto;
+    page-break-inside: auto;
   }
   .handoutBlock p,
   .handoutBlock li {

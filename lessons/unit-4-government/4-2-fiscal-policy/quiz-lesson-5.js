@@ -1,0 +1,90 @@
+window.IGCSE = window.IGCSE || {};
+
+IGCSE.quiz = {
+  id: '4-2-fiscal-policy-lesson-5',
+  version: '1.0.0',
+  title: 'Fiscal policy effects and limitations quiz',
+  description: 'Check fiscal-policy effects on macroeconomic aims and why the effects may be limited.',
+  questions: [
+    {
+      id: 'six-aims',
+      type: 'multipleChoice',
+      prompt: 'Which list contains only macroeconomic aims affected by fiscal policy?',
+      choices: [
+        'Economic growth, full employment, stable prices and balance of payments stability.',
+        'Profit maximisation, branding, market share and advertising.',
+        'Opportunity cost, scarcity, utility and specialisation.',
+        'Wages, rent, interest and profit only.',
+      ],
+      answer: 0,
+      explanation: 'Fiscal policy may support economic growth, full employment, stable prices, balance of payments stability, redistribution of income and environmental sustainability.',
+    },
+    {
+      id: 'growth',
+      type: 'fillBlank',
+      prompt: 'Higher government spending may increase aggregate demand and real __________.',
+      acceptedAnswers: ['gdp', 'GDP'],
+      explanation: 'If firms can raise output, higher demand may increase real GDP and economic growth.',
+    },
+    {
+      id: 'price-stability',
+      type: 'multipleChoice',
+      prompt: 'Which fiscal-policy effect is most likely to reduce demand-pull inflation?',
+      choices: [
+        'Higher government spending increases demand.',
+        'Higher taxes reduce household spending.',
+        'Lower taxes increase disposable income.',
+        'Higher transfer payments increase consumption.',
+      ],
+      answer: 1,
+      explanation: 'Higher taxes can reduce disposable income, spending and aggregate demand.',
+    },
+    {
+      id: 'redistribution',
+      type: 'fillBlank',
+      prompt: 'Progressive taxes and transfer payments can reduce income __________.',
+      acceptedAnswers: ['inequality'],
+      explanation: 'Progressive taxes take a larger share from higher incomes, while transfers can support lower-income households.',
+    },
+    {
+      id: 'balance-of-payments',
+      type: 'fillBlank',
+      prompt: 'Lower spending may reduce imports and support balance of payments __________.',
+      acceptedAnswers: ['stability'],
+      explanation: 'If consumers and firms buy fewer imported goods, international payments may become more stable.',
+    },
+    {
+      id: 'sustainability',
+      type: 'multipleChoice',
+      prompt: 'Which measure is most directly linked to environmental sustainability?',
+      choices: [
+        'Green government spending or environmental taxes.',
+        'A lower tariff on every imported good.',
+        'A cut in every transfer payment.',
+        'A higher income tax with no environmental target.',
+      ],
+      answer: 0,
+      explanation: 'Green spending and environmental taxes can change incentives and reduce pollution.',
+    },
+    {
+      id: 'weak-response',
+      type: 'fillBlank',
+      prompt: 'Expansionary fiscal policy may have a weak response if consumer confidence remains __________.',
+      acceptedAnswers: ['low'],
+      explanation: 'If confidence is low, households may save tax cuts rather than increase spending.',
+    },
+    {
+      id: 'may-wording',
+      type: 'multipleChoice',
+      prompt: 'Why should exam answers often use the word "may" for fiscal-policy effects?',
+      choices: [
+        'The result depends on conditions such as confidence, imports, time lag and budget burden.',
+        'Fiscal policy never changes aggregate demand.',
+        'All fiscal-policy effects are guaranteed.',
+        'Macroeconomic aims are unrelated to government policy.',
+      ],
+      answer: 0,
+      explanation: 'Fiscal policy effects are conditional, so strong answers explain when the effect is likely or limited.',
+    },
+  ],
+};

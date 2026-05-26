@@ -20,7 +20,8 @@ const deckTitleTranslations = {
   'Government budget and spending': '政府预算与支出',
   'Taxation foundations': '税收基础',
   'Tax structures': '税收结构',
-  'Fiscal-policy measures and effects': '财政政策措施与影响',
+  'Expansionary and contractionary fiscal policy': '扩张性与紧缩性财政政策',
+  'Effects on macroeconomic aims': '对宏观经济目标的影响',
   'Money supply and monetary policy': '货币供应与货币政策',
   'Interest rates': '利率',
   'Money supply and exchange rates': '货币供应与汇率',
@@ -120,6 +121,7 @@ function factPanels(slide) {
 
 const targetFiscalMonetarySlideFiles = [
   'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+  'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
   'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
   'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
   'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
@@ -385,10 +387,10 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(22);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(22);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(21);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(21);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(23);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(23);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(22);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(22);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);
@@ -560,7 +562,8 @@ test.describe('site smoke', () => {
           'Government budget and spending',
           'Taxation foundations',
           'Tax structures',
-          'Fiscal-policy measures and effects',
+          'Expansionary and contractionary fiscal policy',
+          'Effects on macroeconomic aims',
         ],
       },
       {
@@ -866,6 +869,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary decks keep three bilingual objectives and three lesson parts', () => {
     const slideFiles = [
       'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
@@ -892,6 +896,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary definition slides use fill-in vocabulary notes', () => {
     const slideFiles = [
       'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
@@ -929,6 +934,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary taught steps are immediately followed by formative checks', () => {
     const slideFiles = [
       'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
+      'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
@@ -995,6 +1001,14 @@ test.describe('site smoke', () => {
         }
 
         if (slide.type === 'compare') {
+          if (slide.variant === 'examDiscussion') {
+            if (!/\[\d+\]/.test(slide.title || '')) failures.push(`${slideFile} slide ${index + 1}: exam discussion title should include marks`);
+            if ((slide.partialReview || []).join(' ') !== '.splitCols .card .choice') {
+              failures.push(`${slideFile} slide ${index + 1}: exam discussion should reveal keyword rows`);
+            }
+            if (slide.mode === 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: exam discussion should not be a fill-blank compare`);
+            continue;
+          }
           if (slide.mode !== 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: compare missing fillBlanks`);
           if (slide.title) failures.push(`${slideFile} slide ${index + 1}: compare should not have title`);
           if ((slide.partialReview || []).length) failures.push(`${slideFile} slide ${index + 1}: compare should not use partialReview`);
@@ -1080,20 +1094,13 @@ test.describe('site smoke', () => {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         if (slide.type !== 'peerTask') continue;
-        if (!slide.prompt || slide.prompt.trim().length < 24) {
+        if (slide.taskType !== 'missingSentence' && (!slide.prompt || slide.prompt.trim().length < 24)) {
           failures.push(`${slideFile} slide ${index + 1}: missing clear prompt`);
         }
         if ((slide.steps || []).length !== 3) {
           failures.push(`${slideFile} slide ${index + 1}: must have exactly three visible steps`);
         }
-        if (!slide.sharePrompt) failures.push(`${slideFile} slide ${index + 1}: missing share prompt`);
-        if (!(slide.sampleAnswers || []).length) failures.push(`${slideFile} slide ${index + 1}: missing sample answer`);
-        for (const selector of slide.partialReview || []) {
-          if (hiddenTaskSelectors.has(selector)) failures.push(`${slideFile} slide ${index + 1}: hides task instructions`);
-        }
-        if (!(slide.partialReview || []).includes('.peerTaskSamples > .choice')) {
-          failures.push(`${slideFile} slide ${index + 1}: sample answer should be the reveal target`);
-        }
+        if (slide.taskType !== 'missingSentence' && !slide.sharePrompt) failures.push(`${slideFile} slide ${index + 1}: missing share prompt`);
 
         const taskText = [
           slide.prompt,
@@ -1104,10 +1111,47 @@ test.describe('site smoke', () => {
           failures.push(`${slideFile} slide ${index + 1}: depends on another slide instead of the task surface`);
         }
 
-        for (const answer of slide.sampleAnswers || []) {
-          const wordCount = String(answer).trim().split(/\s+/).filter(Boolean).length;
-          if (wordCount < 12 || !/[.!?]$/.test(String(answer).trim())) {
-            failures.push(`${slideFile} slide ${index + 1}: sample answer is not a full model answer`);
+        if (slide.taskType === 'missingSentence') {
+          if (slide.title !== 'Complete the missing sentence') {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task needs the standard title`);
+          }
+          if (!slide.zhPrompt) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task should keep Chinese task translation`);
+          }
+          if (slide.prompt || slide.sharePrompt) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task should not repeat English prompt/footer`);
+          }
+          if ((slide.sampleAnswers || []).length) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task should not show a model-answer panel`);
+          }
+          if ((slide.partialReview || []).length) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task should use a blank answer, not partial reveals`);
+          }
+          const stepIndex = Number(slide.missingSentenceStep || 0) - 1;
+          const missingStep = (slide.steps || [])[stepIndex];
+          const missingText = Array.isArray(missingStep) ? missingStep[1] : String(missingStep || '');
+          const missingAnswer = slide.missingSentenceAnswer || (Array.isArray(missingStep) ? missingStep[2] : '');
+          if (!missingText.includes('__________') || !missingAnswer) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence task needs one hidden blank answer`);
+          }
+          const answerWordCount = String(missingAnswer).trim().split(/\s+/).filter(Boolean).length;
+          if (answerWordCount < 7 || !/[.!?]$/.test(String(missingAnswer).trim())) {
+            failures.push(`${slideFile} slide ${index + 1}: missing-sentence answer should be a full sentence`);
+          }
+        } else {
+          if (!(slide.sampleAnswers || []).length) failures.push(`${slideFile} slide ${index + 1}: missing sample answer`);
+          for (const selector of slide.partialReview || []) {
+            if (hiddenTaskSelectors.has(selector)) failures.push(`${slideFile} slide ${index + 1}: hides task instructions`);
+          }
+          if (!(slide.partialReview || []).includes('.peerTaskSamples > .choice')) {
+            failures.push(`${slideFile} slide ${index + 1}: sample answer should be the reveal target`);
+          }
+
+          for (const answer of slide.sampleAnswers || []) {
+            const wordCount = String(answer).trim().split(/\s+/).filter(Boolean).length;
+            if (wordCount < 12 || !/[.!?]$/.test(String(answer).trim())) {
+              failures.push(`${slideFile} slide ${index + 1}: sample answer is not a full model answer`);
+            }
           }
         }
       }
@@ -1218,7 +1262,7 @@ test.describe('site smoke', () => {
       { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-3.html', slideNumber: 14 },
       { htmlFile: 'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html', slideNumber: 14 },
       { htmlFile: 'lessons/unit-2-allocation/2-review-cocoa-chocolate-section-a/index.html', slideNumber: 2 },
-      { htmlFile: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html', slideNumber: 14 },
+      { htmlFile: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html', slideNumber: 7 },
       { htmlFile: 'lessons/unit-4-government/4-3-monetary-policy/lesson-4.html', slideNumber: 5 },
       { htmlFile: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-3.html', slideNumber: 8 },
     ];
@@ -1459,6 +1503,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary section progress shows three lesson parts', async ({ page }) => {
     const lessonPaths = [
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
@@ -1483,6 +1528,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary decks render slide and handout views without overflow', async ({ page }) => {
     const lessonPaths = [
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
     ];
 
@@ -1515,6 +1561,8 @@ test.describe('site smoke', () => {
       await page.setViewportSize({ width: 1200, height: 900 });
       await page.goto(pageUrl(lessonPath) + '?view=print');
       await expect(page.locator('.handoutDocument')).toBeVisible();
+      await expect(page.locator('.handoutSources')).toHaveCount(0);
+      await expect(page.locator('.handoutDocument')).not.toContainText(/^Sources$/);
       await expectNoHorizontalOverflow(page);
     }
   });
@@ -1522,6 +1570,7 @@ test.describe('site smoke', () => {
   test('target fiscal and monetary fill-blank flows reveal only keyword blanks', async ({ page }) => {
     const lessonPaths = [
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
     ];
 
@@ -1911,9 +1960,9 @@ test.describe('site smoke', () => {
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
-        path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
-        hash: '#18',
-        title: /Fiscal policy and macro aims/i,
+        path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
+        hash: '#5',
+        title: /The six macroeconomic aims/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
@@ -2173,6 +2222,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.handoutBlock')).toHaveCount(4);
     await expect(page.locator('.handoutBlock').filter({ hasText: /The six macroeconomic aims/i })).toBeVisible();
     await expect(page.locator('.handoutDocument')).not.toContainText(/Key points/i);
+    await expect(page.locator('.handoutSources')).toHaveCount(0);
     await expect(page.locator('.handoutBlock').filter({ hasText: /Choose the priority/i })).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);
@@ -2184,6 +2234,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.slide')).toHaveCount(0);
     await expect(page.locator('.handoutBlock').filter({ hasText: /Denmark had a tax-to-GDP ratio/i })).toHaveCount(0);
     await expect(page.locator('.handoutBlock').filter({ hasText: /Turn and talk/i })).toHaveCount(0);
+    await expect(page.locator('.handoutSources')).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Direct tax', exact: true })).toBeVisible();
 
     await expectNoHorizontalOverflow(page);
@@ -2214,6 +2265,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.handoutBlock.is-paper-extract')).toHaveCount(5);
     await expect(page.locator('.handoutBlock.is-paper-extract').first().locator('h3')).toHaveText(/^Q1: Using the information above/);
     await expect(page.locator('.handoutPaperQuestion')).toHaveCount(0);
+    await expect(page.locator('.handoutSources')).toHaveCount(0);
     await expect(page.locator('.handoutDocument')).toContainText('In the United States, confectionery sales were US$54.2 billion in 2024');
     await expect(page.locator('.handoutDocument')).toContainText('Explain two advantages of a market economic system. [4]');
     await expectNoHorizontalOverflow(page);
@@ -2260,6 +2312,7 @@ test.describe('site smoke', () => {
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-3.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
@@ -2399,6 +2452,7 @@ test.describe('site smoke', () => {
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-3.html',
       'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html',
+      'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html',
       'lessons/unit-4-government/4-3-monetary-policy/lesson-3.html',
@@ -2445,7 +2499,7 @@ test.describe('site smoke', () => {
         expected: /Definitions 2026: Monetary policy/i,
       },
       {
-        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html#36',
+        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html#32',
         expected: /Paper 2 source/i,
       },
       {
