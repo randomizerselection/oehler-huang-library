@@ -4,7 +4,7 @@ IGCSE.quiz = {
   id: '4-2-fiscal-policy-lesson-4',
   version: '1.0.0',
   title: 'Expansionary and contractionary fiscal policy quiz',
-  description: 'Check fiscal policy, expansionary and contractionary measures, aggregate demand, employment and inflationary pressure.',
+  description: 'Check fiscal policy, expansionary and contractionary measures, aggregate demand, employment and demand-pull inflationary pressure.',
   questions: [
     {
       id: 'fiscal-policy-definition',
@@ -44,7 +44,7 @@ IGCSE.quiz = {
       type: 'fillBlank',
       prompt: 'Raising taxes or cutting government spending is usually __________ fiscal policy.',
       acceptedAnswers: ['contractionary', 'deflationary'],
-      explanation: 'Contractionary fiscal policy reduces aggregate demand pressures.',
+      explanation: 'Contractionary fiscal policy reduces aggregate demand and demand-pull inflationary pressure.',
     },
     {
       id: 'aggregate-demand',
@@ -69,7 +69,7 @@ IGCSE.quiz = {
     {
       id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'Contractionary fiscal policy can reduce inflationary __________.',
+      prompt: 'Contractionary fiscal policy can reduce demand-pull inflationary __________.',
       acceptedAnswers: ['pressure'],
       explanation: 'Lower aggregate demand can reduce demand-pull inflationary pressure.',
     },

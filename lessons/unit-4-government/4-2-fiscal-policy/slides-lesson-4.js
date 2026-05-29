@@ -54,6 +54,12 @@ IGCSE.lesson = {
       ],
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: fiscal-policy decisions',
+      visual: photos.visualPauseBudgetNegotiation,
+      notes: 'Visual pause: connect the image to government choices over spending, taxation and macroeconomic aims.',
+    },
+    {
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Fiscal policy tools',
@@ -124,6 +130,12 @@ IGCSE.lesson = {
       zhTitle: '扩张性财政政策',
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: infrastructure spending',
+      visual: photos.visualPauseRoadCrew,
+      notes: 'Visual pause: ask students what kind of government spending this image could represent.',
+    },
+    {
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -169,6 +181,12 @@ IGCSE.lesson = {
       visual: photos.roadwork,
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: aggregate demand',
+      visual: photos.visualPauseSupermarketLine,
+      notes: 'Visual pause: connect higher disposable income to more consumer spending and aggregate demand.',
+    },
+    {
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -189,18 +207,24 @@ IGCSE.lesson = {
       zhTitle: '紧缩性财政政策',
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: higher taxation',
+      visual: photos.visualPauseTaxForm,
+      notes: 'Visual pause: use the image as a quiet bridge into taxation and contractionary policy.',
+    },
+    {
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
       title: 'Contractionary fiscal policy',
       zhTitle: '紧缩性财政政策',
       term: 'contractionary fiscal policy',
-      definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and inflationary pressure.',
+      definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and demand-pull inflationary pressure.',
       definitionZh: '减少政府支出和/或提高税收，以降低总需求和通货膨胀压力。',
       keyTerms: [
         { term: 'Reducing government spending', zh: '减少政府支出', note: 'less demand comes directly from government' },
         { term: 'increasing taxation', zh: '提高税收', note: 'reduces disposable income or retained profit' },
-        { term: 'inflationary pressure', zh: '通胀压力', note: 'upward pressure on the general price level' },
+        { term: 'demand-pull inflationary pressure', zh: '通胀压力', note: 'upward pressure on prices caused by high aggregate demand' },
       ],
       showExamples: false,
       partialReview: ['.definitionTermNotes > .definitionTermNote'],
@@ -225,11 +249,17 @@ IGCSE.lesson = {
       nodes: [[
         { text: 'lower ______ or higher taxes', answer: 'spending', zh: '减少支出或提高税收' },
         { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
-        { text: 'spending ______ eases', answer: 'pressure', zh: '支出压力缓解' },
-        { text: 'inflationary ______ may fall', answer: 'pressure', zh: '通胀压力可能下降' },
+        { text: 'less pressure to raise ______', answer: 'prices', zh: '提高价格的压力减小' },
+        { text: 'demand-pull inflation may ______', answer: 'fall', zh: '需求拉动型通胀可能下降' },
       ]],
       footer: 'Risk: output and employment may fall.',
       visual: photos.taxForms,
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: price pressure',
+      visual: photos.visualPauseSupermarketPrices,
+      notes: 'Visual pause: bridge from lower aggregate demand to easing demand-pull inflationary pressure.',
     },
     {
       type: 'quiz',
@@ -293,7 +323,7 @@ IGCSE.lesson = {
       steps: [
         ['1', 'Fiscal policy uses government spending and __________.', 'taxation'],
         ['2', 'Expansionary fiscal policy usually increases aggregate __________.', 'demand'],
-        ['3', 'Contractionary fiscal policy can reduce inflationary __________.', 'pressure'],
+        ['3', 'Contractionary fiscal policy can reduce demand-pull inflationary __________.', 'pressure'],
         ['4', 'Higher output may increase demand for __________.', 'workers'],
       ],
       cue: 'Answer before leaving.',

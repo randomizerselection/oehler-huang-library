@@ -236,6 +236,90 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Wikideas1',
       'https://commons.wikimedia.org/wiki/File:Meat_Inflation_in_the_United_States.jpg'
     ),
+    visualPauseRoadCrew: photo(
+      'fiscal-policy',
+      'visual-pause-road-crew-maintains-asphalt.jpg',
+      'A road worker assists with asphalt road maintenance.',
+      'Wikimedia Commons / Sgt. Christopher Ruano, U.S. Air Force',
+      'https://commons.wikimedia.org/wiki/File:Road_Crew_Maintains_Asphalt.jpg'
+    ),
+    visualPauseBudgetNegotiation: photo(
+      'fiscal-policy',
+      'visual-pause-budget-negotiation.jpg',
+      'Government leaders meet around a conference table for federal budget negotiations.',
+      'Wikimedia Commons / Clinton White House Photograph Office',
+      'https://commons.wikimedia.org/wiki/File:Budget_meeting_with_Congress_-_DPLA_-_389e670ee5b40c14a7c85b792ce07776.jpg'
+    ),
+    visualPauseCityGrowth: photo(
+      'fiscal-policy',
+      'visual-pause-toronto-skyline.jpg',
+      'A dense city skyline seen from across the water.',
+      'Wikimedia Commons / Bernard Spragg. NZ / CC0',
+      'https://commons.wikimedia.org/wiki/File:Toronto_skyline._(49366040606).jpg'
+    ),
+    visualPauseSupermarketLine: photo(
+      'fiscal-policy',
+      'visual-pause-supermarket-line.jpg',
+      'Shoppers wait in line outside a supermarket.',
+      'Wikimedia Commons / Siobhan Leachman / CC0',
+      'https://commons.wikimedia.org/wiki/File:Wait_line_at_the_supermarket.jpg'
+    ),
+    visualPauseSupermarketPrices: photo(
+      'fiscal-policy',
+      'visual-pause-supermarket-prices.jpg',
+      'Supermarket shelves with clearly posted grocery prices.',
+      'Wikimedia Commons / Retired electrician / CC0',
+      'https://commons.wikimedia.org/wiki/File:Moscow,_Paveletskaya_Plaza_Nov.2023_-_chicken_prices.jpg'
+    ),
+    visualPauseTaxForm: photo(
+      'fiscal-policy',
+      'visual-pause-tax-form-1040.jpg',
+      'A scanned individual income tax return form.',
+      'Wikimedia Commons / U.S. Internal Revenue Service',
+      'https://commons.wikimedia.org/wiki/File:Form_1040,_2005.jpg'
+    ),
+    visualPauseDebtClock: photo(
+      'fiscal-policy',
+      'visual-pause-national-debt-clock.jpg',
+      'The National Debt Clock displayed above a New York street.',
+      'Wikimedia Commons / Oscar Grooters / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:The_National_Debt_Clock_-_March_1989.jpg'
+    ),
+    visualPauseCareerFair: photo(
+      'fiscal-policy',
+      'visual-pause-career-fair.jpg',
+      'Career advisers speak with employees at a career fair.',
+      'Wikimedia Commons / Savannah River Nuclear Solutions, U.S. Department of Energy',
+      'https://commons.wikimedia.org/wiki/File:Reverse_Career_Fair_Event_(29864863237).jpg'
+    ),
+    visualPauseJobInterview: photo(
+      'fiscal-policy',
+      'visual-pause-job-interview.jpg',
+      'A job candidate listens during a professional interview.',
+      'Pexels / Artem Podrez',
+      'https://www.pexels.com/photo/man-having-an-interview-6585014/'
+    ),
+    visualPausePortTacoma: photo(
+      'fiscal-policy',
+      'visual-pause-port-of-tacoma.jpg',
+      'Aerial view of the Port of Tacoma and its container terminals.',
+      'Wikimedia Commons / D Coetzee / CC0',
+      'https://commons.wikimedia.org/wiki/File:Aerial_photo_of_Port_of_Tacoma.jpg'
+    ),
+    visualPauseSolarFarm: photo(
+      'fiscal-policy',
+      'visual-pause-solar-farm.jpg',
+      'A large solar farm with rows of photovoltaic panels.',
+      'Wikimedia Commons / FBenjr123 / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:50_MWAC_San_Miguel_Solar_Farm_Project.jpg'
+    ),
+    visualPauseWindFarm: photo(
+      'fiscal-policy',
+      'visual-pause-wind-farm.jpg',
+      'Wind turbines on Savage Mountain in Pennsylvania.',
+      'Wikimedia Commons / Nyttend',
+      'https://commons.wikimedia.org/wiki/File:Savage_Mountain_wind_farm.jpg'
+    ),
   };
 
   const fiscalPolicyFacts = {

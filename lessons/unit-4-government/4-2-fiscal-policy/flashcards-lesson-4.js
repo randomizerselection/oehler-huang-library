@@ -28,7 +28,7 @@ IGCSE.flashcards = {
       id: 'contractionary',
       type: 'definition',
       term: 'Contractionary fiscal policy',
-      definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and inflationary pressure.',
+      definition: 'Reducing government spending and/or increasing taxation to reduce aggregate demand and demand-pull inflationary pressure.',
     },
     {
       id: 'aggregate-demand',
@@ -45,7 +45,7 @@ IGCSE.flashcards = {
     {
       id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'Contractionary fiscal policy can reduce inflationary __________.',
+      prompt: 'Contractionary fiscal policy can reduce demand-pull inflationary __________.',
       answer: 'pressure',
     },
     {

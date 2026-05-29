@@ -1496,6 +1496,24 @@ const renderers = {
 
 /* ---------- Full slide renderer ---------- */
 function renderSlide(meta, slide, idx, total) {
+  if (slide.type === 'visualPause') {
+    const photo = slide.visual && typeof slide.visual === 'object' ? slide.visual : null;
+    const photoSrc = photo?.src ? localImageSrc(photo.src) : '';
+    const objectPosition = slide.objectPosition || photo?.objectPosition || '';
+    return `
+      <section class="slide is-visualPause" data-idx="${idx}"
+               data-notes="${esc(slide.notes || 'Visual pause - let students observe the image before moving on.')}">
+        ${photoSrc ? `
+          <img class="visualPauseImage"
+               src="${esc(photoSrc)}"
+               alt="${esc(photo.alt || slide.title || '')}"
+               ${objectPosition ? `style="object-position: ${esc(objectPosition)};"` : ''}
+               loading="lazy"
+               decoding="async" />` : ''}
+      </section>
+    `;
+  }
+
   if (slide.type === 'discussion') {
     const photo = slide.visual && typeof slide.visual === 'object' ? slide.visual : null;
     const photoSrc = photo?.src ? localImageSrc(photo.src) : '';
@@ -1831,14 +1849,30 @@ function handoutTitle(slide) {
   return esc(slide.title || slide.eyebrow || '');
 }
 
+function handoutLabelKey(value = '') {
+  return String(value)
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function shouldRepeatHandoutTerm(slide) {
+  return Boolean(slide.term && handoutLabelKey(slide.term) !== handoutLabelKey(slide.title));
+}
+
 function handoutParagraph(text, className = '') {
   return text ? `<p${className ? ` class="${className}"` : ''}>${esc(text)}</p>` : '';
+}
+
+function handoutTextWithBlanks(text = '') {
+  const blankPattern = /_{3,}/g;
+  return esc(text).replace(blankPattern, '<span class="handoutBlank" aria-label="blank"></span>');
 }
 
 function handoutList(items = [], ordered = false) {
   if (!items.length) return '';
   const tag = ordered ? 'ol' : 'ul';
-  return `<${tag}>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</${tag}>`;
+  return `<${tag}>${items.map((item) => `<li>${handoutTextWithBlanks(item)}</li>`).join('')}</${tag}>`;
 }
 
 function handoutPairs(items = [], className = 'handoutPairs') {
@@ -1872,7 +1906,7 @@ function handoutSteps(items = []) {
       ${items.map((item) => {
         const label = Array.isArray(item) ? item[0] : '';
         const detail = Array.isArray(item) ? item[1] : item;
-        return `<li>${label ? `<b>${esc(label)}</b>` : ''}${esc(detail || '')}</li>`;
+        return `<li>${label ? `<b>${esc(label)}</b>` : ''}${handoutTextWithBlanks(detail || '')}</li>`;
       }).join('')}
     </ol>
   `;
@@ -1887,7 +1921,7 @@ function handoutFlow(nodes = []) {
         const node = normaliseFlowNode(rawNode);
         return `
           <li>
-            ${esc(node.text || '')}
+            ${handoutTextWithBlanks(node.text || '')}
             ${node.zh ? `<p lang="zh-Hans">${esc(node.zh)}</p>` : ''}
           </li>
         `;
@@ -1970,7 +2004,7 @@ function renderHandoutBlock(slide) {
       return handoutBlock(slide, `
         ${handoutParagraph(slide.lead)}
         <div class="handoutDefinition">
-          ${slide.term ? `<b>${esc(slide.term)}</b>` : ''}
+          ${shouldRepeatHandoutTerm(slide) ? `<b>${esc(slide.term)}</b>` : ''}
           ${handoutParagraph(slide.definition)}
           ${handoutParagraph(slide.definitionZh, 'handoutDefinitionZh')}
         </div>
@@ -2311,6 +2345,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     closeChinaComparison();
     idx = Math.max(0, Math.min(slides.length - 1, n));
     slideEls.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+    document.body.classList.toggle('is-visual-pause', slides[idx]?.type === 'visualPause');
     mountEl.querySelectorAll('[data-slide-jump]').forEach((input, i) => {
       input.value = String(i + 1);
     });

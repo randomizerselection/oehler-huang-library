@@ -54,6 +54,12 @@ IGCSE.lesson = {
       ],
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: macroeconomic aims',
+      visual: photos.visualPauseCityGrowth,
+      notes: 'Visual pause: use the city image to frame macroeconomic aims as whole-economy outcomes.',
+    },
+    {
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Six macro aims',
@@ -78,15 +84,15 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Which aim is most directly linked to reducing demand-pull inflation?',
+      question: 'The government raises taxes because firms are already near full capacity and prices are rising quickly. Which macro aim is this measure mainly trying to support?',
       choices: [
-        'Economic growth',
-        'Full employment / low unemployment',
-        'Stable prices / low inflation',
-        'Redistribution of income',
+        'Economic growth, because higher taxes directly increase output',
+        'Full employment, because higher taxes always increase labour demand',
+        'Stable prices / low inflation, because lower demand can reduce price pressure',
+        'Redistribution of income, because all taxes are progressive',
       ],
       answer: 2,
-      prompt: 'Stable prices / low inflation means avoiding rapid rises in the general price level.',
+      prompt: 'The key clue is excess demand near full capacity: contractionary fiscal policy may reduce demand-pull inflation.',
     },
     {
       type: 'section',
@@ -120,6 +126,12 @@ IGCSE.lesson = {
       ],
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: employment',
+      visual: photos.visualPauseJobInterview,
+      notes: 'Visual pause: connect stronger demand and output to derived demand for labour.',
+    },
+    {
       type: 'flow',
       eyebrow: 'Effect',
       title: '2. Full employment / low unemployment',
@@ -148,6 +160,12 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Because labour is a derived demand, firms increase output and demand more labour.',
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: stable prices',
+      visual: photos.visualPauseSupermarketPrices,
+      notes: 'Visual pause: connect price labels to stable prices and demand-pull inflationary pressure.',
+    },
+    {
       type: 'flow',
       eyebrow: 'Effect',
       title: '3. Stable prices / low inflation',
@@ -164,10 +182,21 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'This effect is strongest against which type of inflation?',
-      choices: ['Demand-pull inflation', 'Cost-push inflation', 'Imported inflation only', 'Deflation'],
+      question: 'A cut in government spending is most likely to reduce inflation when the main cause is:',
+      choices: [
+        'too much aggregate demand competing for limited output',
+        'a rise in world oil prices raising firms costs',
+        'a fall in the exchange rate raising import prices',
+        'a crop failure reducing food supply',
+      ],
       answer: 0,
-      prompt: 'The policy works through lower aggregate demand.',
+      prompt: 'Fiscal tightening works most directly by reducing aggregate demand, so it fits demand-pull inflation best.',
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: imports and exports',
+      visual: photos.visualPausePortTacoma,
+      notes: 'Visual pause: use the port image to connect domestic demand with spending on imports.',
     },
     {
       type: 'flow',
@@ -223,6 +252,12 @@ IGCSE.lesson = {
       ],
     },
     {
+      type: 'visualPause',
+      title: 'Visual pause: environmental sustainability',
+      visual: photos.visualPauseSolarFarm,
+      notes: 'Visual pause: connect green taxes or spending to incentives and sustainable development.',
+    },
+    {
       type: 'flow',
       eyebrow: 'Effect',
       title: '6. Environmental sustainability',
@@ -247,6 +282,13 @@ IGCSE.lesson = {
         ['3', 'Transfer payments can help redistribute __________.', 'income'],
         ['4', 'Lower spending may reduce imports and support balance of payments __________.', 'stability'],
       ],
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: fiscal-policy limits',
+      visual: photos.visualPauseDebtClock,
+      objectPosition: '82% center',
+      notes: 'Visual pause: bridge into limitations such as borrowing, budget burden and delayed effects.',
     },
     {
       type: 'section',
@@ -281,15 +323,21 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Which limitation means a policy may affect the economy too slowly?',
+      question: 'A recession starts in March, but a new infrastructure programme is not approved and paid out until November. Which limitation is shown?',
       choices: [
         'Time lag',
-        'Redistribution of income',
+        'Regressive taxation',
         'Environmental sustainability',
-        'Stable prices / low inflation',
+        'A budget surplus',
       ],
       answer: 0,
       prompt: 'A time lag means there is a delay before the policy changes spending, output or prices.',
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: policy delay',
+      visual: photos.visualPauseBudgetNegotiation,
+      notes: 'Visual pause: budget negotiation makes the time lag visible - recognition, approval, delivery and household or firm response do not happen at the same moment.',
     },
     {
       type: 'flow',
@@ -306,14 +354,27 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'What does a time lag mean?',
+      question: 'Why can a time lag make expansionary fiscal policy less effective during a downturn?',
       choices: [
-        'The effect takes time to reach spending and output.',
-        'Taxation has no effect on aggregate demand.',
-        'Imports always fall immediately.',
-        'Employment must rise instantly.',
+        'By the time spending reaches firms, output and employment may already have fallen sharply.',
+        'It means government spending has no opportunity cost.',
+        'It makes households import fewer goods immediately.',
+        'It turns every tax cut into a progressive tax.',
       ],
       answer: 0,
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: confidence and spending',
+      visual: {
+        type: 'photo',
+        src: '../../../assets/images/fiscal-policy/visual-pause-low-consumer-confidence.svg',
+        alt: 'A falling consumer confidence chart beside a tax cut being saved instead of spent.',
+        caption: 'Low consumer confidence can weaken the spending response to a tax cut',
+        credit: 'Created for Oehler-Huang Library',
+        source: 'Local teaching graphic',
+      },
+      notes: 'Visual pause: use the confidence chart to ask whether a tax cut is spent or saved when households feel insecure about jobs and future income.',
     },
     {
       type: 'flow',
@@ -330,14 +391,21 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Why might lower taxes fail to increase spending much?',
+      question: 'Income tax is cut, but households expect unemployment to rise and decide to save most of the extra income. What is the best evaluation?',
       choices: [
-        'Consumer confidence remains low.',
-        'Balance of payments stability is guaranteed.',
-        'All households spend more immediately.',
-        'Government spending is not part of fiscal policy.',
+        'The multiplier effect may be weak because consumer confidence is low.',
+        'The policy must increase imports by exactly the same amount as tax revenue.',
+        'The policy will reduce aggregate demand because disposable income rises.',
+        'The policy is monetary policy because it changes household income.',
       ],
       answer: 0,
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: debt and future choices',
+      visual: photos.visualPauseDebtClock,
+      objectPosition: '82% center',
+      notes: 'Visual pause: connect extra borrowing to debt interest, opportunity cost and limits on future government spending.',
     },
     {
       type: 'flow',
@@ -354,14 +422,20 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Which phrase best describes budget burden?',
+      question: 'The government borrows to fund a short-term spending increase. Debt interest then takes a larger share of future tax revenue. Which limitation is this?',
       choices: [
-        'Borrowing rises and future spending may be limited.',
-        'Consumer confidence rises automatically.',
-        'Imports are always zero.',
-        'Aggregate demand never changes.',
+        'Budget burden, because borrowing can limit future spending choices',
+        'Time lag, because debt interest always raises output immediately',
+        'Weak response, because firms must import all capital goods',
+        'Price stability, because borrowing automatically lowers inflation',
       ],
       answer: 0,
+    },
+    {
+      type: 'visualPause',
+      title: 'Visual pause: import leakage',
+      visual: photos.visualPausePortTacoma,
+      notes: 'Visual pause: container terminals make the import leakage clear - extra domestic spending can become demand for foreign output.',
     },
     {
       type: 'flow',
@@ -378,12 +452,12 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Why can imports limit expansionary fiscal policy?',
+      question: 'A tax cut raises household spending, but many households buy imported electronics and clothing. Why may domestic output rise by less than expected?',
       choices: [
-        'Some extra spending goes to foreign producers.',
-        'Imports always increase domestic output.',
-        'Imports are government spending.',
-        'Imports remove the need for taxation.',
+        'Some extra demand leaks to foreign producers instead of domestic firms.',
+        'Imports count as direct government spending on infrastructure.',
+        'Imported goods always reduce aggregate demand to zero.',
+        'Buying imports automatically creates a budget surplus.',
       ],
       answer: 0,
     },

@@ -244,6 +244,36 @@ body { overflow: hidden; }
   }
 }
 
+/* ---------- Visual pause slides ---------- */
+.slide.is-visualPause {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  gap: 0;
+  background: #030a14;
+}
+.slide.is-visualPause.is-active {
+  display: block;
+  animation: none;
+}
+.visualPauseImage {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  object-fit: cover;
+}
+body.is-visual-pause .lessonModeSwitch,
+body.is-visual-pause #progress,
+body.is-visual-pause .help,
+body.is-visual-pause #notes,
+body.is-visual-pause .studentSelectorSidePanel {
+  display: none !important;
+}
+
 /* SVG primitives */
 .axis     { stroke: rgba(255,255,255,.55); stroke-width: 2.5; }
 .gridline { stroke: rgba(255,255,255,.055); stroke-width: 1; }
@@ -5202,6 +5232,17 @@ body.is-flashcard-mode #deck {
   margin-top: 5px;
 }
 
+.handoutBlank {
+  display: inline-block;
+  width: clamp(96px, 18vw, 150px);
+  min-width: 7.5em;
+  max-width: 100%;
+  height: 1.15em;
+  margin: 0 .16em -.12em;
+  border-bottom: 1.8px solid #334155;
+  vertical-align: baseline;
+}
+
 .handoutCode,
 .handoutFormula,
 .handoutAnswer {
@@ -5749,6 +5790,10 @@ body.is-flashcard-mode #deck {
 
 /* ---------- Print ---------- */
 @media print {
+  @page {
+    margin: 12mm;
+  }
+
   html, body { height: auto; overflow: auto; background: white; }
   body::before, body::after, #progress, .help, #notes, #overview, .lessonModeSwitch { display: none !important; }
   #deck { height: auto; }
@@ -5770,26 +5815,68 @@ body.is-flashcard-mode #deck {
     font-size: 28pt;
   }
   .handoutDocument {
+    display: block;
     border: 0;
     box-shadow: none;
     padding: 0;
-    gap: 7mm;
+  }
+  .handoutSection {
+    display: block;
+    break-inside: auto;
+    page-break-inside: auto;
+    margin: 0 0 5mm;
   }
   .handoutSection + .handoutSection {
-    padding-top: 6mm;
+    margin-top: 6mm;
+    padding-top: 5mm;
+  }
+  .handoutSectionHeader {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+    margin-bottom: 3mm;
+  }
+  .handoutSectionBody {
+    display: block;
   }
   .handoutBlock {
     break-inside: auto;
     page-break-inside: auto;
+    margin: 0 0 4mm;
+    padding: 3.3mm 4mm;
   }
   .handoutBlock p,
   .handoutBlock li {
     font-size: 10.5pt;
   }
+  .handoutBlank {
+    width: 34mm;
+    min-width: 34mm;
+    border-bottom-width: 0.5mm;
+  }
+  .handoutPairs,
+  .handoutExamples,
+  .handoutColumns,
+  .handoutFlow {
+    display: block;
+  }
   .handoutPairs,
   .handoutExamples,
   .handoutColumns {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
+    column-gap: 6mm;
+  }
+  .handoutPairs > div,
+  .handoutExamples > div,
+  .handoutColumns > section,
+  .handoutFlow li,
+  .handoutDefinition,
+  .handoutNote,
+  .handoutPaperQuestion {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 3mm;
   }
   .slide {
     position: relative !important;

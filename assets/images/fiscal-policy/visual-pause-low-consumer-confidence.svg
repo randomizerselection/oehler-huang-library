@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Low consumer confidence weakens fiscal policy</title>
+  <desc id="desc">A teaching graphic showing a falling consumer confidence line, a tax cut, saving, and a weak spending response.</desc>
+  <rect width="1600" height="900" fill="#122026"/>
+  <rect x="72" y="70" width="1456" height="760" rx="36" fill="#f6f1e8"/>
+  <text x="130" y="154" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" fill="#16262d">Consumer confidence low</text>
+  <text x="130" y="213" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#45565d">A tax cut may be saved instead of spent.</text>
+
+  <g transform="translate(128 292)">
+    <rect x="0" y="0" width="650" height="420" rx="24" fill="#ffffff" stroke="#d2d7d3" stroke-width="3"/>
+    <text x="40" y="62" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#26383f">Consumer confidence index</text>
+    <line x1="70" y1="330" x2="590" y2="330" stroke="#9ba8a4" stroke-width="3"/>
+    <line x1="70" y1="90" x2="70" y2="330" stroke="#9ba8a4" stroke-width="3"/>
+    <path d="M70 136 C150 128 205 151 270 176 S380 252 455 270 S535 306 590 324" fill="none" stroke="#cf3f35" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="590" cy="324" r="18" fill="#cf3f35"/>
+    <path d="M520 268 L610 330 L578 233" fill="none" stroke="#cf3f35" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="82" y="372" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#5e6d72">confidence falling</text>
+  </g>
+
+  <g transform="translate(868 274)">
+    <rect x="0" y="0" width="540" height="456" rx="28" fill="#ffffff" stroke="#d2d7d3" stroke-width="3"/>
+    <g transform="translate(62 72)">
+      <circle cx="74" cy="58" r="46" fill="#315c72"/>
+      <path d="M16 206 C24 137 123 137 132 206 Z" fill="#315c72"/>
+      <rect x="184" y="22" width="228" height="94" rx="14" fill="#e6f0ec" stroke="#7fa394" stroke-width="4"/>
+      <text x="214" y="81" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#26443b">tax cut</text>
+      <path d="M160 72 H184" stroke="#7fa394" stroke-width="8" stroke-linecap="round"/>
+      <path d="M402 70 C448 78 454 134 418 160 L318 235" fill="none" stroke="#7fa394" stroke-width="10" stroke-linecap="round"/>
+      <rect x="222" y="204" width="182" height="96" rx="18" fill="#ffe7b8" stroke="#c88a2a" stroke-width="4"/>
+      <text x="270" y="264" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#7b5318">saved</text>
+      <path d="M126 216 C195 244 206 254 222 254" fill="none" stroke="#c88a2a" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <text x="54" y="386" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#26383f">Weak response</text>
+    <text x="54" y="424" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#51656b">Aggregate demand rises by less than expected.</text>
+  </g>
+
+  <g transform="translate(128 768)">
+    <rect x="0" y="-34" width="1344" height="70" rx="20" fill="#16262d"/>
+    <text x="34" y="12" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#f6f1e8">Limitation: expansionary fiscal policy depends on confidence, not just disposable income.</text>
+  </g>
+</svg>

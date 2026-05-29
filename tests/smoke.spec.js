@@ -1563,7 +1563,34 @@ test.describe('site smoke', () => {
       await expect(page.locator('.handoutDocument')).toBeVisible();
       await expect(page.locator('.handoutSources')).toHaveCount(0);
       await expect(page.locator('.handoutDocument')).not.toContainText(/^Sources$/);
+      const repeatedDefinitionLabels = await page.locator('.handoutBlock.is-definition').evaluateAll((blocks) => blocks
+        .map((block) => ({
+          heading: block.querySelector('h3')?.textContent?.trim().toLowerCase() || '',
+          nestedTerm: block.querySelector('.handoutDefinition > b')?.textContent?.trim().toLowerCase() || '',
+        }))
+        .filter((item) => item.heading && item.nestedTerm && item.heading === item.nestedTerm));
+      expect(repeatedDefinitionLabels).toEqual([]);
       await expectNoHorizontalOverflow(page);
+
+      await page.emulateMedia({ media: 'print' });
+      const printPaginationStyles = await page.locator('.handoutDocument').evaluate((documentEl) => {
+        const section = document.querySelector('.handoutSection');
+        const body = document.querySelector('.handoutSectionBody');
+        const block = document.querySelector('.handoutBlock');
+        return {
+          documentDisplay: getComputedStyle(documentEl).display,
+          sectionDisplay: section ? getComputedStyle(section).display : '',
+          bodyDisplay: body ? getComputedStyle(body).display : '',
+          blockBreakInside: block ? getComputedStyle(block).breakInside : '',
+        };
+      });
+      expect(printPaginationStyles).toEqual({
+        documentDisplay: 'block',
+        sectionDisplay: 'block',
+        bodyDisplay: 'block',
+        blockBreakInside: 'auto',
+      });
+      await page.emulateMedia({ media: 'screen' });
     }
   });
 
@@ -1597,7 +1624,9 @@ test.describe('site smoke', () => {
 
       await page.setViewportSize({ width: 1200, height: 900 });
       await page.goto(pageUrl(lessonPath) + '?view=print');
-      await expect(page.locator('.handoutBlock.is-flow .handoutFlow li').first()).toContainText('______');
+      await expect(page.locator('.handoutBlock.is-flow .handoutFlow li').first().locator('.handoutBlank')).toHaveCount(1);
+      const blankWidth = await page.locator('.handoutBlock.is-flow .handoutBlank').first().evaluate((blank) => blank.getBoundingClientRect().width);
+      expect(blankWidth).toBeGreaterThanOrEqual(95);
       await expect(page.locator('.handoutBlock.is-flow .blankAnswer')).toHaveCount(0);
       await expectNoHorizontalOverflow(page);
     }
