@@ -15,20 +15,20 @@ IGCSE.flashcards = {
     {
       id: 'saving',
       type: 'fillBlank',
-      prompt: 'A higher interest rate increases the reward for __________.',
-      answer: 'saving',
+      prompt: 'A higher interest rate increases the __________.',
+      answer: 'reward for saving',
     },
     {
       id: 'borrowing',
       type: 'fillBlank',
-      prompt: 'A higher interest rate makes borrowing more __________.',
-      answer: 'expensive',
+      prompt: 'A higher interest rate raises the __________.',
+      answer: 'cost of borrowing',
     },
     {
       id: 'lower-rates',
       type: 'fillBlank',
-      prompt: 'Lower interest rates can increase borrowing, spending and __________.',
-      answer: 'investment',
+      prompt: 'Lower interest rates can increase __________.',
+      answer: 'borrowing, spending and investment',
     },
     {
       id: 'expansionary',
@@ -45,14 +45,14 @@ IGCSE.flashcards = {
     {
       id: 'employment',
       type: 'fillBlank',
-      prompt: 'If output rises, firms may hire more workers and employment may __________.',
-      answer: 'rise',
+      prompt: 'If output rises, firms may hire more workers and __________ may rise.',
+      answer: 'employment',
     },
     {
       id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'Higher interest rates may reduce inflationary __________.',
-      answer: 'pressure',
+      prompt: 'Higher interest rates may reduce __________.',
+      answer: 'inflationary pressure',
     },
   ],
 };

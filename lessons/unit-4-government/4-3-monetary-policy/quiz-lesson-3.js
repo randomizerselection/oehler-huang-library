@@ -22,8 +22,8 @@ IGCSE.quiz = {
     {
       id: 'money-supply-lending',
       type: 'fillBlank',
-      prompt: 'Increasing money supply may help banks increase __________.',
-      acceptedAnswers: ['lending', 'loans', 'credit'],
+      prompt: 'Increasing money supply may increase __________.',
+      acceptedAnswers: ['bank lending', 'lending', 'loans', 'credit'],
       explanation: 'More liquidity can support bank lending.',
     },
     {
@@ -42,8 +42,8 @@ IGCSE.quiz = {
     {
       id: 'foreign-exchange-rate',
       type: 'fillBlank',
-      prompt: 'The foreign exchange rate is the price of one __________ in terms of another.',
-      acceptedAnswers: ['currency'],
+      prompt: 'The __________ is the price of one currency in terms of another.',
+      acceptedAnswers: ['foreign exchange rate', 'foreign exchange-rate', 'exchange rate'],
       explanation: 'This is the definition used in the definitions reference.',
     },
     {
@@ -63,8 +63,8 @@ IGCSE.quiz = {
     {
       id: 'lower-exchange-rate-imports',
       type: 'fillBlank',
-      prompt: 'A lower exchange rate can make imports more __________.',
-      acceptedAnswers: ['expensive', 'costly'],
+      prompt: 'A lower exchange rate can raise __________.',
+      acceptedAnswers: ['import prices', 'import costs', 'the price of imports'],
       explanation: 'A weaker currency buys less foreign currency, so imports cost more.',
     },
     {
@@ -84,8 +84,8 @@ IGCSE.quiz = {
     {
       id: 'current-account',
       type: 'fillBlank',
-      prompt: 'Exchange-rate measures can affect exports, imports and the current __________.',
-      acceptedAnswers: ['account'],
+      prompt: 'Exchange-rate measures can affect exports, imports and the __________.',
+      acceptedAnswers: ['current account'],
       explanation: 'Exports and imports are part of the current account of the balance of payments.',
     },
   ],

@@ -22,8 +22,8 @@ IGCSE.quiz = {
     {
       id: 'saving-reward',
       type: 'fillBlank',
-      prompt: 'Interest rate is the cost of borrowing and reward for __________.',
-      acceptedAnswers: ['saving', 'savings'],
+      prompt: 'An interest rate is the cost of borrowing and the __________.',
+      acceptedAnswers: ['reward for saving', 'reward for savings'],
       explanation: 'A higher interest rate increases the reward for saving.',
     },
     {
@@ -43,8 +43,8 @@ IGCSE.quiz = {
     {
       id: 'expansionary',
       type: 'fillBlank',
-      prompt: 'Lower interest rates are usually expansionary __________ policy.',
-      acceptedAnswers: ['monetary', 'monetary policy'],
+      prompt: 'Lower interest rates are usually __________.',
+      acceptedAnswers: ['expansionary monetary policy', 'monetary policy'],
       explanation: 'Lower rates can increase spending, investment, output and employment.',
     },
     {
@@ -64,8 +64,8 @@ IGCSE.quiz = {
     {
       id: 'investment',
       type: 'fillBlank',
-      prompt: 'Higher interest rates may reduce business __________ because loans become more expensive.',
-      acceptedAnswers: ['investment'],
+      prompt: 'Higher interest rates may reduce __________ because loans become more expensive.',
+      acceptedAnswers: ['business investment', 'investment'],
       explanation: 'When borrowing costs rise, fewer investment projects may be profitable.',
     },
     {
@@ -85,8 +85,8 @@ IGCSE.quiz = {
     {
       id: 'inflation-pressure',
       type: 'fillBlank',
-      prompt: 'Higher interest rates may reduce inflationary __________.',
-      acceptedAnswers: ['pressure'],
+      prompt: 'Higher interest rates may reduce __________.',
+      acceptedAnswers: ['inflationary pressure', 'pressure'],
       explanation: 'Reduced spending can reduce pressure on prices.',
     },
   ],
