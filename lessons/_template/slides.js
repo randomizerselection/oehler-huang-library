@@ -173,8 +173,8 @@ IGCSE.lesson = {
       zhTitle: '离堂小测',
       mode:    'fillBlanks',
       steps: [
-        ['1', '<Statement with __________.>', '<answer>'],
-        ['2', '<Statement with __________.>', '<answer>'],
+        ['1', '<Statement where __________ is the target key term.>', '<key term>'],
+        ['2', '<Statement where __________ is the target concept phrase.>', '<concept phrase>'],
       ],
     },
 

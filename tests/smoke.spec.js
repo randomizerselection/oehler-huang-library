@@ -731,7 +731,7 @@ test.describe('site smoke', () => {
       'socialEffectsVenn',
       'term',
     ]);
-    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
     const missingChecks = [];
 
     for (const slideFile of slideFiles) {
@@ -941,7 +941,7 @@ test.describe('site smoke', () => {
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
     ];
     const taughtTypes = new Set(['term', 'flow', 'compare', 'cards']);
-    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
     const failures = [];
 
     for (const slideFile of slideFiles) {
@@ -1064,7 +1064,7 @@ test.describe('site smoke', () => {
     const denseGridTitles = new Set([
       'Fiscal policy and macro aims',
       'When fiscal policy works',
-      'What central banks do',
+      'Central-bank functions',
       'Macroeconomic aims link',
       'Expansionary monetary policy',
       'Contractionary monetary policy',
@@ -1160,11 +1160,52 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
+  test('monetary policy classification tasks use the dedicated classification slide type', () => {
+    const slideFiles = [
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+      'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+    ];
+    const failures = [];
+    let classificationCount = 0;
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      for (const [index, slide] of (lesson.slides || []).entries()) {
+        if (slide.type === 'peerTask' && /\bclassify\b/i.test(`${slide.prompt || ''} ${slide.sharePrompt || ''}`)) {
+          failures.push(`${slideFile} slide ${index + 1}: classify task still uses peerTask`);
+        }
+        if (slide.type !== 'classificationTask') continue;
+        classificationCount += 1;
+        if (!slide.title || !slide.prompt || !slide.zhPrompt) {
+          failures.push(`${slideFile} slide ${index + 1}: missing title, prompt or zhPrompt`);
+        }
+        if ((slide.categories || []).length < 2) {
+          failures.push(`${slideFile} slide ${index + 1}: needs at least two visible categories`);
+        }
+        if ((slide.items || []).length !== 3) {
+          failures.push(`${slideFile} slide ${index + 1}: should classify exactly three cases`);
+        }
+        for (const [itemIndex, item] of (slide.items || []).entries()) {
+          if (!item.text || !item.answer || !item.reason) {
+            failures.push(`${slideFile} slide ${index + 1} item ${itemIndex + 1}: missing text, answer or reason`);
+          }
+          if (String(item.reason || '').trim().split(/\s+/).filter(Boolean).length < 7) {
+            failures.push(`${slideFile} slide ${index + 1} item ${itemIndex + 1}: reason is too thin`);
+          }
+        }
+      }
+    }
+
+    expect(classificationCount).toBe(6);
+    expect(failures).toEqual([]);
+  });
+
   test('fiscal policy lesson 4 uses varied checks and avoids unclear student-facing wording', () => {
     const lesson = readLesson('lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js');
     const slides = lesson.slides || [];
     const taughtTypes = new Set(['term', 'flow', 'cards']);
-    const formativeTypes = new Set(['answer', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
     const formativeSeen = new Set();
     const failures = [];
 
@@ -1539,6 +1580,7 @@ test.describe('site smoke', () => {
         const slides = window.IGCSE.lesson.slides;
         return {
           peerTask: slides.findIndex((slide) => slide.type === 'peerTask') + 1,
+          classificationTask: slides.findIndex((slide) => slide.type === 'classificationTask') + 1,
           term: slides.findIndex((slide) => slide.type === 'term') + 1,
           compare: slides.findIndex((slide) => slide.type === 'compare') + 1,
           flow: slides.findIndex((slide) => slide.type === 'flow') + 1,
@@ -1549,7 +1591,7 @@ test.describe('site smoke', () => {
         };
       });
 
-      for (const slideNumber of [slideNumbers.peerTask, slideNumbers.term, slideNumbers.compare, slideNumbers.flow, slideNumbers.denseCards].filter(Boolean)) {
+      for (const slideNumber of [slideNumbers.peerTask, slideNumbers.classificationTask, slideNumbers.term, slideNumbers.compare, slideNumbers.flow, slideNumbers.denseCards].filter(Boolean)) {
         await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
         await expectNoHorizontalOverflow(page);
       }
@@ -1679,6 +1721,33 @@ test.describe('site smoke', () => {
     await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(0);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('monetary policy classification tasks reveal answer reasons after classification', async ({ page }) => {
+    const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html';
+    await page.goto(pageUrl(lessonPath));
+    const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
+      .findIndex((slide) => slide.type === 'classificationTask') + 1);
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+    await expect(page.locator('.slide.is-active .classificationTaskBlock')).toBeVisible();
+    await expect(page.locator('.slide.is-active .classificationTaskBlock .lead')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .classificationZh')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .classificationCategory')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .classificationItem')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .classificationResult')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .classificationResult.partial-item.is-visible')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .classificationShare.partial-item')).toHaveCount(0);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .classificationResult.partial-item.is-visible')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+    await expect(page.locator('.slide.is-active .classificationItem')).toHaveCount(3);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1997,7 +2066,7 @@ test.describe('site smoke', () => {
       {
         path: 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
         hash: '#11',
-        title: /What central banks do/i,
+        title: /Central-bank functions/i,
       },
       {
         path: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-2.html',

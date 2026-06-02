@@ -16,8 +16,8 @@ IGCSE.flashcards = {
     {
       id: 'fill-blank',
       type: 'fillBlank',
-      prompt: '<Sentence with __________ for a missing key word>',
-      answer: '<Missing key word>',
+      prompt: '<Sentence with __________ for the target key term>',
+      answer: '<Key term>',
     },
   ],
 };

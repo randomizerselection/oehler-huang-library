@@ -2,22 +2,23 @@ window.IGCSE = window.IGCSE || {};
 
 IGCSE.quiz = {
   id: '4-3-monetary-policy-lesson-4',
-  version: '1.0.0',
+  version: '1.1.0',
   title: 'Effects of monetary policy quiz',
   description: 'Check syllabus 4.3.3: effects on spending, saving, borrowing, investment, output, employment, inflation and the current account.',
   questions: [
     {
       id: 'expansionary-definition',
       type: 'multipleChoice',
-      prompt: 'Which best describes expansionary monetary policy?',
+      prompt: 'What is the likely outcome of an expansionary monetary policy?',
       choices: [
-        'Higher interest rates or reduced money supply.',
-        'Lower interest rates or increased money supply.',
-        'Higher taxation and lower government spending.',
-        'A ban on all imports.',
+        'Borrowing by consumers falls as the money supply increases.',
+        'Firms expand to meet higher consumer demand.',
+        'Prices fall as total supply exceeds total demand.',
+        'Wages rise due to a lower rate of inflation.',
       ],
       answer: 1,
-      explanation: 'Expansionary monetary policy uses lower interest rates or increased money supply to raise demand.',
+      explanation: 'Expansionary monetary policy can raise demand, encouraging firms to expand output. Source: 0455_m23_12 Q19.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_m23_12 Q19', note: 'Recent Paper 1 MCQ on expansionary monetary policy outcomes.' }],
     },
     {
       id: 'contractionary-definition',
@@ -49,15 +50,16 @@ IGCSE.quiz = {
     {
       id: 'borrowing-investment',
       type: 'multipleChoice',
-      prompt: 'How can higher interest rates affect investment?',
+      prompt: 'Governments use monetary policy such as increasing the rate of interest. What is a result of increasing the rate of interest?',
       choices: [
-        'They make borrowing more expensive, so investment may fall.',
-        'They make every investment project profitable.',
-        'They directly increase government expenditure.',
-        'They remove all business costs.',
+        'It creates disincentives for wage earners.',
+        'It discourages investment by entrepreneurs.',
+        'It reduces the disposable income of consumers.',
+        'It reduces government transfer payments.',
       ],
-      answer: 0,
-      explanation: 'Higher borrowing costs can reduce business investment.',
+      answer: 1,
+      explanation: 'Higher interest rates raise the cost of business borrowing, so investment may fall. Source: 0455_m25_12 Q19.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_m25_12 Q19', note: 'Recent Paper 1 MCQ on higher interest rates and investment.' }],
     },
     {
       id: 'output-employment',

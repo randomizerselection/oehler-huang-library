@@ -76,12 +76,33 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Thomas Berg',
       'https://commons.wikimedia.org/wiki/File:Factory_Emitting_Smoke.jpg'
     ),
+    bakeryBread: photo(
+      'market-economic-system',
+      'bakery-prepares-bread.jpg',
+      'A culinary specialist preparing bread in a bakery.',
+      'Wikimedia Commons / U.S. Navy / Timothy C. Roache',
+      'https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-5837R-048_Culinary_Specialist_Third_Class_Joshua_Savoy_prepares_bread_in_the_bakery_aboard_the_Nimitz-class_aircraft_carrier_USS_Abraham_Lincoln.jpg'
+    ),
+    trafficJam: photo(
+      'market-economic-system',
+      'traffic-jam-census.jpg',
+      'A traffic jam on a busy road.',
+      'Wikimedia Commons / U.S. Census Bureau',
+      'https://commons.wikimedia.org/wiki/File:Trafficjam.jpg'
+    ),
     rainforestCanopy: photo(
       'market-economic-system',
       'rainforest-canopy.jpg',
       'Rainforest canopy in Manaus, Brazil.',
       'Wikimedia Commons / Ben Sutherland / CC BY 2.0',
       'https://commons.wikimedia.org/wiki/File:Rainforest_canopy.jpg'
+    ),
+    vaccination: photo(
+      'market-economic-system',
+      'giving-a-vaccination.jpg',
+      'A doctor giving a vaccination by injection.',
+      'Wikimedia Commons / National Cancer Institute / Bill Branson',
+      'https://commons.wikimedia.org/wiki/File:Giving_a_vaccination.jpg'
     ),
     floodBarrier: photo(
       'market-economic-system',
@@ -336,7 +357,7 @@ window.IGCSE = window.IGCSE || {};
       'https://commons.wikimedia.org/wiki/File:Elementary_school_classroom_in_Vantaankoski_school_in_Vantaa,_Finland,_2010.jpg'
     ),
     usSemiconductors: factPhoto(
-      'us-intel-d1x-fab.png',
+      'us-intel-d1x-fab.jpg',
       'Intel D1X semiconductor fab',
       'Wikimedia Commons / Intel Free Press',
       'https://commons.wikimedia.org/wiki/File:Intel_D1X_Development_Fab_Hillsboro_Oregon.png'

@@ -17,8 +17,8 @@ IGCSE.quiz = {
     {
       id: 'q2',
       type: 'fillBlank',
-      prompt: '<Statement with one missing key word>',
-      acceptedAnswers: ['<answer>'],
+      prompt: '<Statement with __________ for the target key term>',
+      acceptedAnswers: ['<key term>'],
       explanation: '<Short explanation>',
     },
   ],

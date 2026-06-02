@@ -134,12 +134,15 @@ Use the 4.2 rows for fiscal-policy wording when creating slides.
    {
      type: 'fillBlank',
      id: 'stable-id',
-     prompt: 'Sentence with __________ for a missing key word',
-     answer: 'missing key word'
+     prompt: 'Sentence with __________ for a missing key term',
+     answer: 'missing key term'
    }
    ```
    Flashcards are separately authored. Keep them limited to short definitions
-   of key terms or fill-in-the-blank retrieval.
+   of key terms or fill-in-the-blank retrieval. In fill-in-the-blank prompts,
+   the hidden answer should be the difficult keyword, syllabus phrase, or
+   concept students need to retrieve, not an easy tail word such as `bank`,
+   `rates`, `aims`, or `supply`.
 5. Leave **`index.html`** alone unless you're customising the page itself.
    It simply imports the engine and your slide data.
 6. Add a card to `index.html` (the landing page) under the matching unit.
@@ -231,7 +234,10 @@ visual feedback can show correct and incorrect choices.
 Use `answer` slides with `mode: 'fillBlanks'` for retrieval practice. Title
 these slides `Fill in the blanks`; show all statements immediately, and put the
 answer text in the third item of each step so it appears inside the blank when
-clicked.
+clicked. The blank should hide the target keyword or concept phrase students
+need to recall, not a low-value completion word. For example, prefer `The
+__________ is the amount of money in an economy` with answer `money supply`,
+rather than blanking only `economy`.
 
 For bilingual slides, put Chinese translations on discussion and fact slides.
 Use `zhTitle` on important section dividers, flow slides and definition slides

@@ -750,6 +750,121 @@ body.is-visual-pause .studentSelectorSidePanel {
   white-space: normal;
 }
 
+.slide.is-classificationTask .content {
+  grid-template-columns: minmax(0, 1fr);
+}
+.slide.is-classificationTask .visual {
+  display: none;
+}
+.classificationTaskBlock {
+  width: min(1180px, 100%);
+  justify-self: center;
+  display: grid;
+  gap: clamp(.85rem, 1.65vh, 1.25rem);
+}
+.classificationHeader {
+  min-width: 0;
+  display: grid;
+  gap: .45rem;
+}
+.classificationBadge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  padding: .34rem .58rem;
+  border: 1px solid rgba(86,216,255,.34);
+  border-radius: 999px;
+  color: var(--cyan);
+  background: rgba(86,216,255,.08);
+  font-size: clamp(12px, .76vw, 14px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.classificationTaskBlock h2 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(36px, 3.22vw, 58px);
+  line-height: 1.04;
+}
+.classificationItems {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.82rem, 1.28vw, 1.15rem);
+}
+.classificationItem {
+  min-width: 0;
+  min-height: clamp(220px, 25vh, 300px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(.75rem, 1.25vh, 1rem);
+  padding: clamp(1rem, 1.4vw, 1.35rem);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,.045);
+  box-shadow: none;
+}
+.classificationItemTop {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .78rem;
+  align-items: start;
+}
+.classificationItemNumber {
+  display: inline-grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border: 1px solid rgba(255,209,102,.32);
+  border-radius: 7px;
+  color: var(--gold);
+  background: rgba(255,209,102,.08);
+  font-size: clamp(16px, 1vw, 19px);
+  font-weight: 950;
+  line-height: 1;
+}
+.classificationItem p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(20px, 1.45vw, 28px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+.classificationResult {
+  align-self: end;
+  display: grid;
+  gap: .48rem;
+  padding: .72rem .82rem 0;
+  border-top: 1px solid rgba(255,209,102,.22);
+}
+.classificationAnswer {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  padding: .28rem .46rem;
+  border-radius: 8px;
+  color: #081523;
+  background: linear-gradient(135deg, var(--gold), var(--gold-warm));
+  font-size: clamp(15px, .98vw, 18px);
+  line-height: 1;
+  font-weight: 930;
+}
+.classificationReason {
+  color: var(--ink-dim);
+  font-size: clamp(16px, 1.06vw, 20px);
+  line-height: 1.28;
+  font-weight: 720;
+}
+.classificationShare {
+  margin-top: 0;
+  width: 100%;
+  padding: .74rem .9rem;
+  font-size: clamp(16px, 1.1vw, 20px);
+}
+
 @media (max-width: 960px) {
   .peerTaskBlock {
     gap: .72rem;
@@ -786,6 +901,47 @@ body.is-visual-pause .studentSelectorSidePanel {
   }
   .peerTaskMissingSteps .desc {
     font-size: clamp(17px, 4.25vw, 22px);
+  }
+  .classificationTaskBlock {
+    gap: .6rem;
+  }
+  .classificationTaskBlock h2 {
+    font-size: clamp(28px, 7vw, 38px);
+  }
+  .classificationItems {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .55rem;
+  }
+  .classificationItem {
+    min-height: 0;
+    gap: .48rem;
+    padding: .72rem;
+  }
+  .classificationItemNumber {
+    width: 1.82rem;
+    height: 1.82rem;
+  }
+  .classificationItemTop {
+    gap: .58rem;
+  }
+  .classificationItem p {
+    font-size: clamp(17px, 4.35vw, 21px);
+    line-height: 1.18;
+  }
+  .classificationResult {
+    gap: .32rem;
+    padding: .46rem .54rem 0;
+  }
+  .classificationAnswer {
+    font-size: clamp(13px, 3.45vw, 15px);
+  }
+  .classificationReason {
+    font-size: clamp(13px, 3.45vw, 16px);
+    line-height: 1.22;
+  }
+  .classificationShare {
+    padding: .52rem .62rem;
+    font-size: clamp(13px, 3.5vw, 16px);
   }
   .compareBlock.is-examDiscussion {
     gap: .5rem;

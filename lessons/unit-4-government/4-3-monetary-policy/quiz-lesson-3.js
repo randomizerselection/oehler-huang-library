@@ -2,7 +2,7 @@ window.IGCSE = window.IGCSE || {};
 
 IGCSE.quiz = {
   id: '4-3-monetary-policy-lesson-3',
-  version: '1.0.0',
+  version: '1.1.0',
   title: 'Money supply and exchange rates quiz',
   description: 'Check syllabus 4.3.2: money supply measures and foreign exchange-rate measures.',
   questions: [
@@ -49,10 +49,16 @@ IGCSE.quiz = {
     {
       id: 'lower-exchange-rate-exports',
       type: 'multipleChoice',
-      prompt: 'A lower exchange rate is most likely to make exports...',
-      choices: ['more expensive for foreign buyers', 'cheaper for foreign buyers', 'unaffected by price', 'illegal'],
-      answer: 1,
-      explanation: 'A lower currency value can make exports cheaper for foreign buyers.',
+      prompt: 'Which government measure would lead directly to more exports of goods?',
+      choices: [
+        'A devaluation of the currency.',
+        'A restriction of bank credit creation.',
+        'An increase in the rate of interest.',
+        'The issue of more bank notes and coins.',
+      ],
+      answer: 0,
+      explanation: 'A devaluation lowers the currency value and can make exports cheaper for foreign buyers. Source: 0455_s23_13 Q18.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_s23_13 Q18', note: 'Recent Paper 1 MCQ on exchange-rate policy and exports.' }],
     },
     {
       id: 'lower-exchange-rate-imports',
@@ -64,15 +70,16 @@ IGCSE.quiz = {
     {
       id: 'higher-exchange-rate',
       type: 'multipleChoice',
-      prompt: 'Which effect may follow a higher exchange rate?',
+      prompt: 'A country’s foreign exchange rate appreciates significantly. Which group in the country will directly benefit from this change?',
       choices: [
-        'Imports become cheaper, reducing some inflationary pressure.',
-        'Exports become cheaper for foreign buyers.',
-        'The current account must improve.',
-        'Money supply automatically becomes zero.',
+        'A government department which only buys locally made goods.',
+        'Retailers who get all their supplies from foreign producers.',
+        'Workers in local companies that compete with foreign firms in the local market.',
+        'Workers in local companies that sell only in foreign countries.',
       ],
-      answer: 0,
-      explanation: 'A stronger currency can reduce import prices, though it may make exports less competitive.',
+      answer: 1,
+      explanation: 'Appreciation makes imports cheaper, directly benefiting firms that buy foreign-produced supplies. Source: 0455_w23_13 Q29.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_w23_13 Q29', note: 'Recent Paper 1 MCQ on appreciation and direct beneficiaries.' }],
     },
     {
       id: 'current-account',

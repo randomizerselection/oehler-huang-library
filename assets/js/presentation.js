@@ -815,6 +815,43 @@ const peerTaskMissingSentence = (s) => {
   `;
 };
 
+const classificationKey = (value = '') => String(value)
+  .replace(/\s+/g, ' ')
+  .trim()
+  .toLowerCase();
+
+const normalizeClassificationCategory = (category) => {
+  if (typeof category === 'string') return { title: category };
+  return {
+    ...category,
+    title: category?.title || category?.label || '',
+  };
+};
+
+const normalizeClassificationItem = (item) => {
+  if (Array.isArray(item)) {
+    return {
+      text: item[0] || '',
+      answer: item[1] || '',
+      reason: item[2] || '',
+    };
+  }
+  return item || {};
+};
+
+const classificationAnswerLabel = (answer, categories = []) => {
+  const match = categories.find((category) => {
+    const keys = [
+      category.title,
+      category.label,
+      category.key,
+      ...(category.aliases || []),
+    ].map(classificationKey);
+    return keys.includes(classificationKey(answer));
+  });
+  return match?.title || answer || '';
+};
+
 /* ---------- Slide body renderers, keyed by slide.type ---------- */
 const renderers = {
   hero: (s) => `
@@ -959,6 +996,39 @@ const renderers = {
         </div>` : ''}
     </div>
   `,
+
+  classificationTask: (s) => {
+    const categories = (s.categories || []).map(normalizeClassificationCategory);
+    const items = (s.items || []).map(normalizeClassificationItem);
+    return `
+      <div class="classificationTaskBlock">
+        <header class="classificationHeader">
+          <div class="classificationBadge">${esc(s.eyebrow || 'Classify')}</div>
+          ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
+        </header>
+        <div class="classificationItems">
+          ${items.map((item, i) => {
+            const answerLabel = classificationAnswerLabel(item.answer, categories);
+            return `
+              <article class="classificationItem">
+                <div class="classificationItemTop">
+                  <span class="classificationItemNumber">${esc(item.label || String(i + 1))}</span>
+                  <p>${esc(item.text || item.prompt || '')}</p>
+                </div>
+                ${answerLabel || item.reason ? `
+                  <div class="classificationResult">
+                    ${answerLabel ? `<span class="classificationAnswer">${esc(answerLabel)}</span>` : ''}
+                    ${item.reason ? `<span class="classificationReason">${esc(item.reason)}</span>` : ''}
+                  </div>
+                ` : ''}
+              </article>
+            `;
+          }).join('')}
+        </div>
+        ${s.sharePrompt ? `<div class="prompt classificationShare">${esc(s.sharePrompt)}</div>` : ''}
+      </div>
+    `;
+  },
 
   answer: (s) => `
     <div>
@@ -2188,6 +2258,7 @@ function getPartialSelectors(meta, slide) {
   if (config === false) return '';
   if (slide.type === 'peerTask' && slide.taskType === 'missingSentence') return '';
   if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
+  if (slide.type === 'classificationTask') return '.content main > div .classificationResult';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';

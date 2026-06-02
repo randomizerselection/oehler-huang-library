@@ -189,16 +189,23 @@ IGCSE.lesson = {
     {
       type: 'quiz',
       eyebrow: 'Check',
-      question: 'Which effect is most likely after expansionary monetary policy?',
+      question: 'What correctly explains the effect of monetary policy measures on macroeconomic aims?',
       choices: [
-        'Borrowing falls because loans become more expensive.',
-        'Saving always rises because rates are higher.',
-        'Spending and investment may rise.',
-        'Tax revenue must become zero.',
+        'A higher exchange rate will make imports more expensive and improve the balance of payments.',
+        'An increase in interest rates will encourage investment and lead to higher economic growth.',
+        'An increase in the money supply in an economy without spare capacity will result in demand-pull inflation.',
+        'Higher interest rates result in less income from savings and therefore higher unemployment.',
       ],
       answer: 2,
-      prompt: 'Expansionary monetary policy raises aggregate demand.',
+      prompt: 'Past Paper 1: more money can raise demand-pull inflation if output cannot expand.',
       visual: photos.moneySupply,
+      sources: [
+        {
+          label: 'Paper 1 source',
+          ref: '0455_s24_13 Q19',
+          note: 'Recent Paper 1 MCQ on monetary-policy effects and macroeconomic aims.',
+        },
+      ],
     },
     {
       type: 'section',

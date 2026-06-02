@@ -9,8 +9,8 @@ IGCSE.flashcards = {
     {
       id: 'money-supply',
       type: 'fillBlank',
-      prompt: 'Money supply is the amount of money in the __________.',
-      answer: 'economy',
+      prompt: 'The __________ is the amount of money in the economy.',
+      answer: 'money supply',
     },
     {
       id: 'central-bank',
@@ -27,32 +27,32 @@ IGCSE.flashcards = {
     {
       id: 'tools-interest',
       type: 'fillBlank',
-      prompt: 'Monetary policy uses interest rates, money supply and foreign exchange-rate __________.',
-      answer: 'measures',
+      prompt: 'Monetary policy uses __________, money supply and foreign exchange-rate measures.',
+      answer: 'interest rates',
     },
     {
       id: 'tools-money-supply',
       type: 'fillBlank',
-      prompt: 'One monetary policy measure is changing the money __________.',
-      answer: 'supply',
+      prompt: 'One monetary policy measure is changing the __________.',
+      answer: 'money supply',
     },
     {
       id: 'tools-exchange-rate',
       type: 'fillBlank',
-      prompt: 'Foreign exchange-rate measures can affect exports and __________.',
-      answer: 'imports',
+      prompt: '__________ can affect exports and imports.',
+      answer: 'Foreign exchange-rate measures',
     },
     {
       id: 'fiscal-policy-difference',
       type: 'fillBlank',
-      prompt: 'Fiscal policy uses government spending and __________, not interest rates.',
-      answer: 'taxation',
+      prompt: '__________ uses government spending and taxation, not interest rates.',
+      answer: 'Fiscal policy',
     },
     {
       id: 'macro-aims',
       type: 'fillBlank',
-      prompt: 'Monetary policy is used to influence macroeconomic __________.',
-      answer: 'aims',
+      prompt: 'Monetary policy is used to influence __________.',
+      answer: 'macroeconomic aims',
     },
   ],
 };

@@ -2,7 +2,7 @@ window.IGCSE = window.IGCSE || {};
 
 IGCSE.quiz = {
   id: '4-3-monetary-policy-lesson-2',
-  version: '1.0.0',
+  version: '1.1.0',
   title: 'Interest rates quiz',
   description: 'Check syllabus 4.3.2: interest rates and their effects on spending, saving, borrowing, investment, output, employment and inflation.',
   questions: [
@@ -29,15 +29,16 @@ IGCSE.quiz = {
     {
       id: 'lower-rates',
       type: 'multipleChoice',
-      prompt: 'Which effect is most likely when interest rates fall?',
+      prompt: 'If interest rates fall, what will be the most likely effect on saving and borrowing?',
       choices: [
-        'Borrowing becomes cheaper and spending may rise.',
-        'Borrowing becomes more expensive and spending must fall.',
-        'Taxation automatically rises.',
-        'Exports become illegal.',
+        'Borrowing decreases; saving decreases.',
+        'Borrowing increases; saving decreases.',
+        'Borrowing decreases; saving increases.',
+        'Borrowing increases; saving increases.',
       ],
-      answer: 0,
-      explanation: 'Lower rates reduce the cost of borrowing and may increase spending.',
+      answer: 1,
+      explanation: 'Lower rates make borrowing cheaper and saving less rewarding, so borrowing is likely to rise while saving falls. Source: 0455_s25_11 Q11.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_s25_11 Q11', note: 'Recent Paper 1 MCQ on lower interest rates, saving and borrowing.' }],
     },
     {
       id: 'expansionary',
@@ -49,15 +50,16 @@ IGCSE.quiz = {
     {
       id: 'higher-rates',
       type: 'multipleChoice',
-      prompt: 'How can higher interest rates reduce inflationary pressure?',
+      prompt: 'Governments use monetary policy such as increasing the rate of interest. What is a result of increasing the rate of interest?',
       choices: [
-        'They make borrowing cheaper, increasing aggregate demand.',
-        'They raise the reward for saving and may reduce spending.',
-        'They cut all indirect taxes.',
-        'They increase government spending.',
+        'It creates disincentives for wage earners.',
+        'It discourages investment by entrepreneurs.',
+        'It reduces the disposable income of consumers.',
+        'It reduces government transfer payments.',
       ],
       answer: 1,
-      explanation: 'Higher rates can increase saving, reduce borrowing and reduce spending pressure.',
+      explanation: 'Higher interest rates increase borrowing costs, so some entrepreneurs may delay or cancel investment. Source: 0455_m25_12 Q19.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_m25_12 Q19', note: 'Recent Paper 1 MCQ on increasing interest rates and investment.' }],
     },
     {
       id: 'investment',
@@ -69,15 +71,16 @@ IGCSE.quiz = {
     {
       id: 'employment-chain',
       type: 'multipleChoice',
-      prompt: 'Which chain best links lower interest rates to employment?',
+      prompt: 'A government attempts to raise economic growth with a policy of reduced interest rates. Which other government objective is most likely to be helped in the short run?',
       choices: [
-        'Lower rates -> less borrowing -> less output -> more unemployment.',
-        'Lower rates -> more spending and investment -> higher output -> higher employment.',
-        'Lower rates -> higher taxes -> lower employment.',
-        'Lower rates -> no effect on any firm.',
+        'Lower unemployment.',
+        'Price stability.',
+        'Reduced income inequality.',
+        'Reduced trade deficit.',
       ],
-      answer: 1,
-      explanation: 'Lower rates can raise aggregate demand, output and demand for labour.',
+      answer: 0,
+      explanation: 'Lower rates may raise spending, output and firms’ demand for labour, so unemployment may fall in the short run. Source: 0455_s24_11 Q19.',
+      sources: [{ label: 'Paper 1 source', ref: '0455_s24_11 Q19', note: 'Recent Paper 1 MCQ on reduced interest rates and macroeconomic aims.' }],
     },
     {
       id: 'inflation-pressure',
