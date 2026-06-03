@@ -730,7 +730,7 @@ test.describe('site smoke', () => {
       'socialEffectsVenn',
       'term',
     ]);
-    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz', 'yesNoCheck']);
     const missingChecks = [];
 
     for (const slideFile of slideFiles) {
@@ -940,7 +940,7 @@ test.describe('site smoke', () => {
       'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
     ];
     const taughtTypes = new Set(['term', 'flow', 'compare', 'cards']);
-    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz', 'yesNoCheck']);
     const failures = [];
 
     for (const slideFile of slideFiles) {
@@ -1006,6 +1006,12 @@ test.describe('site smoke', () => {
               failures.push(`${slideFile} slide ${index + 1}: exam discussion should reveal keyword rows`);
             }
             if (slide.mode === 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: exam discussion should not be a fill-blank compare`);
+            continue;
+          }
+          if (slide.variant === 'policyDirection') {
+            if (slide.title) failures.push(`${slideFile} slide ${index + 1}: policy direction compare should not have title`);
+            if (!slide.leftVisual || !slide.rightVisual) failures.push(`${slideFile} slide ${index + 1}: policy direction compare needs side visuals`);
+            if ((slide.partialReview || []).length) failures.push(`${slideFile} slide ${index + 1}: policy direction compare should not use partialReview`);
             continue;
           }
           if (slide.mode !== 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: compare missing fillBlanks`);
@@ -1168,12 +1174,24 @@ test.describe('site smoke', () => {
     ];
     const failures = [];
     let classificationCount = 0;
+    let yesNoCheckCount = 0;
 
     for (const slideFile of slideFiles) {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         if (slide.type === 'peerTask' && /\bclassify\b/i.test(`${slide.prompt || ''} ${slide.sharePrompt || ''}`)) {
           failures.push(`${slideFile} slide ${index + 1}: classify task still uses peerTask`);
+        }
+        if (slide.type === 'yesNoCheck') {
+          yesNoCheckCount += 1;
+          if (!slide.title || !slide.prompt || (slide.items || []).length < 3) {
+            failures.push(`${slideFile} slide ${index + 1}: yes/no check is missing title, prompt or items`);
+          }
+          for (const [itemIndex, item] of (slide.items || []).entries()) {
+            if (!item.statement || typeof item.answer !== 'boolean' || !item.reason) {
+              failures.push(`${slideFile} slide ${index + 1} item ${itemIndex + 1}: missing statement, boolean answer or reason`);
+            }
+          }
         }
         if (slide.type !== 'classificationTask') continue;
         classificationCount += 1;
@@ -1197,7 +1215,8 @@ test.describe('site smoke', () => {
       }
     }
 
-    expect(classificationCount).toBe(6);
+    expect(classificationCount).toBe(5);
+    expect(yesNoCheckCount).toBe(1);
     expect(failures).toEqual([]);
   });
 
@@ -1205,7 +1224,7 @@ test.describe('site smoke', () => {
     const lesson = readLesson('lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js');
     const slides = lesson.slides || [];
     const taughtTypes = new Set(['term', 'flow', 'cards']);
-    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz', 'yesNoCheck']);
     const formativeSeen = new Set();
     const failures = [];
 
@@ -1273,6 +1292,49 @@ test.describe('site smoke', () => {
     }
 
     expect(missingModelAnswers).toEqual([]);
+  });
+
+  test('exam practice planning keywords are visible immediately', async ({ page }) => {
+    const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html';
+    await page.goto(pageUrl(lessonPath));
+    const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
+      .findIndex((slide) => slide.type === 'exam' && /higher interest rates may reduce inflation/i.test(slide.question || '')) + 1);
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+
+    await expect(page.locator('.slide.is-active .examBlock')).toBeVisible();
+    await expect(page.locator('.slide.is-active .examBlock .card')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active .examBlock .card').first()).toBeVisible();
+    await expect(page.locator('.slide.is-active .examBlock .prompt')).toBeVisible();
+    await expect(page.locator('.slide.is-active .partial-item')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('yes/no checks reveal one statement then its answer', async ({ page }) => {
+    const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html';
+    await page.goto(pageUrl(lessonPath));
+    const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
+      .findIndex((slide) => slide.type === 'yesNoCheck') + 1);
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+
+    await expect(page.locator('.slide.is-active .yesNoRow')).toHaveCount(4);
+    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(1);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(2);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
   });
 
   test('fact slide text keeps source attribution in source lines', () => {
@@ -1748,6 +1810,23 @@ test.describe('site smoke', () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
     await expect(page.locator('.slide.is-active .classificationItem')).toHaveCount(3);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('lesson MCQ explanations reveal only after a choice is selected', async ({ page }) => {
+    const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html';
+    await page.goto(pageUrl(lessonPath));
+    const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
+      .findIndex((slide) => slide.type === 'quiz') + 1);
+
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+
+    await expect(page.locator('.slide.is-active .quizBlock')).toBeVisible();
+    await expect(page.locator('.slide.is-active .mcqExplanation')).toBeHidden();
+    await page.locator('.slide.is-active .choices.is-mcq .choice').first().click();
+    await expect(page.locator('.slide.is-active .mcqExplanation')).toBeVisible();
     await expectNoHorizontalOverflow(page);
   });
 

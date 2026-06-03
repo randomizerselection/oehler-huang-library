@@ -485,15 +485,124 @@ body.is-visual-pause .studentSelectorSidePanel {
   display: none;
 }
 .quizBlock {
-  max-width: min(1120px, 100%);
+  width: min(1180px, 100%);
+  min-height: min(640px, 76vh);
   justify-self: center;
+  display: grid;
+  align-content: center;
+  gap: clamp(1rem, 1.8vw, 1.6rem);
 }
 .quizBlock .lead {
-  max-width: 36ch;
-  font-size: clamp(27px, 2.65vw, 48px);
-  line-height: 1.16;
+  max-width: 52ch;
+  margin: 0;
+  font-size: clamp(23px, 2.1vw, 40px);
+  line-height: 1.15;
   font-weight: 820;
+  text-align: left;
   text-wrap: balance;
+}
+.quizBlock .mcqExplanation[hidden] {
+  display: none !important;
+}
+
+.yesNoCheckBlock {
+  width: min(1580px, 100%);
+  display: grid;
+  gap: clamp(.85rem, 1.4vw, 1.2rem);
+}
+
+.yesNoCheckBlock h2 {
+  margin: 0;
+  max-width: 28ch;
+  font-size: clamp(42px, 4.4vw, 78px);
+  line-height: .96;
+}
+
+.yesNoCheckBlock .lead {
+  max-width: 58ch;
+  margin: 0;
+}
+
+.yesNoRows {
+  display: grid;
+  gap: .7rem;
+}
+
+.yesNoRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr);
+  gap: .8rem;
+  align-items: stretch;
+}
+
+.yesNoStatement,
+.yesNoAnswer {
+  min-width: 0;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,.055);
+  padding: clamp(.78rem, 1.12vw, 1.05rem);
+}
+
+.yesNoStatement {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .78rem;
+  align-items: center;
+}
+
+.yesNoStatement span {
+  width: 2rem;
+  height: 2rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(86,216,255,.14);
+  color: var(--cyan);
+  font-weight: 900;
+}
+
+.yesNoStatement b {
+  font-size: clamp(20px, 1.45vw, 29px);
+  line-height: 1.15;
+}
+
+.yesNoAnswer {
+  display: grid;
+  gap: .45rem;
+  align-content: center;
+  border-color: rgba(255,209,102,.28);
+  background:
+    linear-gradient(135deg, rgba(255,209,102,.11), rgba(255,255,255,.045)),
+    rgba(255,255,255,.055);
+}
+
+.yesNoBadge {
+  width: max-content;
+  min-width: 4.2rem;
+  display: inline-grid;
+  place-items: center;
+  padding: .32rem .75rem;
+  border-radius: 999px;
+  font-size: clamp(18px, 1.15vw, 23px);
+  font-weight: 900;
+}
+
+.yesNoBadge.is-yes {
+  color: #07100b;
+  background: var(--green);
+}
+
+.yesNoBadge.is-no {
+  color: #1b0d05;
+  background: var(--gold);
+}
+
+.yesNoAnswer em {
+  font-style: normal;
+  color: rgba(255,255,255,.83);
+  font-size: clamp(17px, 1.1vw, 22px);
+  line-height: 1.22;
 }
 .choices.is-outcomes .choice {
   counter-increment: outcome;
@@ -1145,35 +1254,21 @@ body.is-visual-pause .studentSelectorSidePanel {
 }
 
 .examBlock .cardgrid {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: .85rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
 }
 
 .examBlock .card {
-  min-height: 128px;
+  min-height: 136px;
   display: grid;
   align-content: center;
   gap: .45rem;
-  padding: 1.05rem 1rem;
+  padding: 1.08rem 1rem;
   border-color: rgba(86,216,255,.22);
   background: linear-gradient(145deg, rgba(86,216,255,.105), rgba(255,255,255,.035));
 }
 
 .examBlock .card::after {
-  content: ">";
-  display: block;
-  position: absolute;
-  right: -.72rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gold);
-  font-size: clamp(22px, 2.2vw, 34px);
-  font-weight: 900;
-  line-height: 1;
-  z-index: 2;
-}
-
-.examBlock .card:last-child::after {
   display: none;
 }
 
@@ -1195,6 +1290,23 @@ body.is-visual-pause .studentSelectorSidePanel {
   font-size: clamp(20px, 1.55vw, 30px);
   line-height: 1.12;
   overflow-wrap: anywhere;
+}
+
+.cardVisual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 .55rem;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+}
+
+.cardVisual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .modelAnswerCard {
@@ -1267,6 +1379,14 @@ body.is-visual-pause .studentSelectorSidePanel {
 }
 
 @media (max-width: 760px) {
+  .yesNoRow {
+    grid-template-columns: 1fr;
+  }
+
+  .yesNoCheckBlock h2 {
+    max-width: none;
+  }
+
   .examBlock .cardgrid {
     grid-template-columns: 1fr;
   }
@@ -1477,6 +1597,32 @@ h2 .inlineZh {
   display: grid;
   align-content: start;
   gap: .7rem;
+}
+.compareVisual {
+  width: 100%;
+  aspect-ratio: 16 / 8.2;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.055);
+}
+.compareVisual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.compareBlock.is-policyDirection .splitCols {
+  align-items: stretch;
+}
+.compareBlock.is-policyDirection .card {
+  display: grid;
+  align-content: start;
+  gap: clamp(.7rem, 1.05vw, 1rem);
+}
+.compareBlock.is-policyDirection .choices {
+  margin-top: 0;
 }
 .compareBlock.is-examDiscussion {
   display: grid;

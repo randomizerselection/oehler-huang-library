@@ -477,6 +477,27 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Michael',
       'https://commons.wikimedia.org/wiki/File:Bank_of_England_Facade.jpg'
     ),
+    householdSaving: photo(
+      'monetary-policy',
+      'deposit-into-piggy-bank-savings-account.jpg',
+      'A coin being deposited into a piggy bank savings account.',
+      'Wikimedia Commons / Ken Teegardin / CC BY-SA 2.0',
+      'https://commons.wikimedia.org/wiki/File:Deposit_Into_Piggy_Bank_Savings_Account_(6093700157).jpg'
+    ),
+    expansionaryDirection: photo(
+      'monetary-policy',
+      'expansionary-monetary-policy-direction.svg',
+      'Diagram showing expansionary monetary policy making borrowing easier and increasing demand.',
+      'Created by Samuel Oehler-Huang',
+      'Local teaching graphic.'
+    ),
+    contractionaryDirection: photo(
+      'monetary-policy',
+      'contractionary-monetary-policy-direction.svg',
+      'Diagram showing contractionary monetary policy making borrowing more expensive and reducing inflationary pressure.',
+      'Created by Samuel Oehler-Huang',
+      'Local teaching graphic.'
+    ),
     pboc: photo(
       'monetary-policy',
       'people-bank-of-china-2020.jpg',

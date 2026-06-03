@@ -25,12 +25,30 @@ IGCSE.lesson = {
   slides: [
     {
       type: 'hero',
-      eyebrow: 'Lesson overview',
+      eyebrow: 'Overview',
       title: 'Effects and evaluation',
       zhTitle: '影响与评价',
       subtitle: 'Monetary policy lesson 4 - 4.3.3',
       kicker: 'How do policy measures move through the whole economy?',
       visual: photos.fed,
+    },
+    {
+      type: 'peerTask',
+      eyebrow: 'Recall',
+      title: 'Recall last lesson',
+      prompt: 'On paper, write a simple definition for each term. Use one sentence for each.',
+      stepsLabel: 'Write these definitions',
+      steps: [
+        ['1', 'Money supply'],
+        ['2', 'Foreign exchange rate'],
+        ['3', 'Increasing money supply'],
+      ],
+      sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
+      sampleAnswers: [
+        'Money supply is the total amount of money in an economy.',
+        'A foreign exchange rate is the price of one currency in terms of another currency.',
+        'Increasing money supply means making more money or liquidity available in the economy, which may increase bank lending and spending.',
+      ],
     },
     {
       type: 'discussion',
@@ -44,17 +62,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.3.3',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
-        'Build complete monetary-policy effect chains.',
-        'Compare expansionary and contractionary effects on macro aims.',
-        'Evaluate when monetary policy is likely to work well.',
+        'Build effect chains.',
+        'Compare macro effects.',
+        'Evaluate monetary policy.',
       ],
       zhBullets: [
-        '构建完整的货币政策影响链。',
-        '比较扩张性和紧缩性政策对宏观目标的影响。',
-        '评价货币政策在什么情况下更可能有效。',
+        '构建影响链。',
+        '比较宏观影响。',
+        '评价货币政策。',
       ],
     },
     {
@@ -118,17 +136,18 @@ IGCSE.lesson = {
     },
     {
       type: 'peerTask',
-      eyebrow: 'Pair check',
-      prompt: 'With your partner, write one growth-and-employment explanation.',
+      taskType: 'missingSentence',
+      eyebrow: 'Pair task',
+      title: 'Complete the missing sentence',
+      prompt: 'Complete the missing sentence in this growth-and-employment explanation.',
       zhPrompt: '两人合作，写出一个关于增长和就业的解释。',
       steps: [
-        ['1', 'Start with lower rates or increased money supply.'],
-        ['2', 'Link to higher spending or investment.'],
-        ['3', 'End with higher output and employment.'],
+        ['1', 'Lower interest rates or increased money supply may raise borrowing and lending.'],
+        ['2', '__________', 'Spending and investment may rise.'],
+        ['3', 'Firms may raise output and employment may increase.'],
       ],
-      sharePrompt: 'Share one complete explanation using may.',
-      sampleAnswers: ['Lower interest rates may make borrowing cheaper, so firms invest more, output rises and employment may increase.'],
-      partialReview: ['.peerTaskSamples > .choice'],
+      missingSentenceStep: 2,
+      missingSentenceAnswer: 'Spending and investment may rise.',
     },
     {
       type: 'flow',
@@ -148,7 +167,7 @@ IGCSE.lesson = {
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Complete the inflation explanation',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Higher rates may reduce borrowing and __________.', 'lending'],
@@ -172,7 +191,7 @@ IGCSE.lesson = {
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Macro effects check',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Expansionary monetary policy may increase aggregate __________.', 'demand'],
@@ -202,7 +221,7 @@ IGCSE.lesson = {
     },
     {
       type: 'peerTask',
-      eyebrow: 'Pair check',
+      eyebrow: 'Pair task',
       prompt: 'With your partner, write one judgement sentence about a monetary-policy trade-off.',
       zhPrompt: '两人合作，写出一个关于货币政策取舍的判断句。',
       steps: [
@@ -227,8 +246,8 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Explain the employment effect',
       question: 'Explain how lower interest rates may increase employment.',
+      marks: 4,
       keywords: ['borrowing', 'spending', 'output', 'employment'],
       prompt: 'Use at least three connected explanation points.',
       visual: photos.bankEngland,
@@ -244,7 +263,7 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
-      eyebrow: 'Exam answer',
+      eyebrow: 'Model answer',
       title: 'Model answer',
       question: 'Explain how lower interest rates may increase employment.',
       answer: 'Lower interest rates make borrowing cheaper, so consumers and firms may spend more. Higher spending can increase demand for goods and services, encouraging firms to raise output. To produce more, firms may employ more workers, so employment increases.',
@@ -255,8 +274,8 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Discuss two sides',
       question: 'Discuss whether higher interest rates are the best way to reduce inflation.',
+      marks: 6,
       keywords: ['saving', 'borrowing', 'spending', 'inflation', 'employment'],
       prompt: 'Build one argument for, one argument against and a judgement.',
       visual: photos.fed,
@@ -272,7 +291,7 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
-      eyebrow: 'Exam answer',
+      eyebrow: 'Model answer',
       title: 'Model answer',
       question: 'Discuss whether higher interest rates are the best way to reduce inflation.',
       answer: 'Higher interest rates can encourage saving and make borrowing more expensive, so spending falls. This may reduce demand-pull inflation. However, lower spending can reduce firms\' output and employment, so unemployment may rise. It may also be less effective if inflation is caused by higher production costs. Overall, higher interest rates are useful against demand-pull inflation, but supply-side or fiscal policies may be better for cost-push inflation.',
@@ -283,8 +302,8 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Money supply discussion',
       question: 'Discuss whether an increase in the money supply will benefit an economy.',
+      marks: 8,
       keywords: ['lending', 'spending', 'investment', 'employment', 'inflation'],
       prompt: 'Use one benefit, one risk and a judgement.',
       visual: photos.moneySupply,
@@ -300,7 +319,7 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
-      eyebrow: 'Exam answer',
+      eyebrow: 'Model answer',
       title: 'Model answer',
       question: 'Discuss whether an increase in the money supply will benefit an economy.',
       answer: 'An increase in the money supply may help an economy because banks can lend more to households and firms. This can raise spending, investment, output and employment. However, if output cannot rise quickly, extra demand may cause demand-pull inflation. Overall, it is most useful when there is spare capacity and firms can increase output.',

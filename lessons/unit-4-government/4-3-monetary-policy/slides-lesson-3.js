@@ -25,12 +25,30 @@ IGCSE.lesson = {
   slides: [
     {
       type: 'hero',
-      eyebrow: 'Lesson overview',
+      eyebrow: 'Overview',
       title: 'Money supply measures',
       zhTitle: '货币供给措施',
       subtitle: 'Monetary policy lesson 3 - 4.3.2',
       kicker: 'What can a central bank change besides interest rates?',
       visual: photos.moneySupply,
+    },
+    {
+      type: 'peerTask',
+      eyebrow: 'Recall',
+      title: 'Recall last lesson',
+      prompt: 'On paper, write a simple definition for each term. Use one sentence for each.',
+      stepsLabel: 'Write these definitions',
+      steps: [
+        ['1', 'Interest rate'],
+        ['2', 'Contractionary monetary policy'],
+        ['3', 'Aggregate demand'],
+      ],
+      sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
+      sampleAnswers: [
+        'An interest rate is the cost of borrowing and the reward for saving, expressed as a percentage.',
+        'Contractionary monetary policy aims to reduce total demand and inflationary pressure, for example by raising interest rates or reducing money supply.',
+        'Aggregate demand is total demand in the economy.',
+      ],
     },
     {
       type: 'discussion',
@@ -44,17 +62,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.3.2',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
-        'Explain how changing money supply affects lending and spending.',
-        'Distinguish expansionary and contractionary money-supply measures.',
-        'Briefly introduce foreign exchange rates as a monetary-policy tool.',
+        'Define money supply.',
+        'Explain money-supply changes.',
+        'Introduce exchange rates briefly.',
       ],
       zhBullets: [
-        '解释改变货币供给如何影响贷款和支出。',
-        '区分扩张性和紧缩性货币供给措施。',
-        '简要介绍外汇汇率这一货币政策工具。',
+        '定义货币供给。',
+        '解释货币供给变化。',
+        '简要介绍汇率。',
       ],
     },
     {
@@ -150,17 +168,18 @@ IGCSE.lesson = {
     },
     {
       type: 'peerTask',
-      eyebrow: 'Pair check',
-      prompt: 'With your partner, write one money-supply link from banks to households or firms.',
+      taskType: 'missingSentence',
+      eyebrow: 'Pair task',
+      title: 'Complete the missing sentence',
+      prompt: 'Complete the missing sentence in this money-supply explanation.',
       zhPrompt: '两人合作，写出一条从银行到家庭或企业的货币供给影响链。',
       steps: [
-        ['1', 'Start with: money supply rises and banks may lend more.'],
-        ['2', 'Choose households OR firms, then name spending or investment.'],
-        ['3', 'End with output, employment or inflationary pressure.'],
+        ['1', 'Money supply rises and banks may lend more.'],
+        ['2', '__________', 'Households may spend more and firms may invest more.'],
+        ['3', 'Output and employment may rise, but inflationary pressure may also rise.'],
       ],
-      sharePrompt: 'Share one complete bank-lending link.',
-      sampleAnswers: ['If money supply rises, banks may lend more to firms, so business investment and output may rise and employment may increase.'],
-      partialReview: ['.peerTaskSamples > .choice'],
+      missingSentenceStep: 2,
+      missingSentenceAnswer: 'Households may spend more and firms may invest more.',
     },
     {
       type: 'section',
@@ -187,7 +206,7 @@ IGCSE.lesson = {
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Money supply check',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Increasing money supply can increase __________.', 'bank lending'],
@@ -198,7 +217,7 @@ IGCSE.lesson = {
     },
     {
       type: 'discussion',
-      eyebrow: 'Brief intro',
+      eyebrow: 'Brief link',
       title: 'Foreign exchange rate',
       question: 'Why should we only introduce exchange rates briefly in this monetary-policy lesson?',
       zh: '为什么在这节货币政策课中只简要介绍汇率？',

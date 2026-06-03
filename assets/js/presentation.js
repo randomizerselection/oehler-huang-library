@@ -317,6 +317,7 @@ const normalizeCard = (card = {}) => {
     examples: card.examples,
     num: card.num || card.number,
     icon: card.icon,
+    visual: card.visual || card.photo || card.image,
   };
 };
 
@@ -346,8 +347,14 @@ const cardGrid = (cards = [], options = {}) => {
     <div class="cardgrid${style}${layout}">
       ${cards.map((rawCard) => {
         const card = normalizeCard(rawCard);
+        const visual = card.visual || {};
         return `
           <div class="card">
+            ${visual.src ? `
+              <figure class="cardVisual">
+                <img src="${esc(visual.src)}" alt="${esc(visual.alt || '')}" loading="lazy" />
+              </figure>
+            ` : ''}
             ${card.icon ? cardIcon(card.icon) : ''}
             ${card.num ? `<div class="num">${esc(card.num)}</div>` : ''}
             <b class="cardTitle">
@@ -464,6 +471,32 @@ const mcqChoiceList = (items = [], answer = null) => `
   </div>
 `;
 
+const compareVisual = (visual = {}) => visual?.src ? `
+  <figure class="compareVisual">
+    <img src="${esc(visual.src)}" alt="${esc(visual.alt || '')}" loading="lazy" />
+  </figure>
+` : '';
+
+const yesNoRows = (items = []) => `
+  <div class="yesNoRows">
+    ${items.map((item, index) => {
+      const answer = Boolean(item.answer);
+      return `
+        <div class="yesNoRow">
+          <div class="yesNoStatement">
+            <span>${esc(String(index + 1))}</span>
+            <b>${esc(item.statement || item.text || '')}</b>
+          </div>
+          <div class="yesNoAnswer">
+            <span class="yesNoBadge is-${answer ? 'yes' : 'no'}">${answer ? 'Yes' : 'No'}</span>
+            ${item.reason ? `<em>${esc(item.reason)}</em>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('')}
+  </div>
+`;
+
 const stepList = (items = []) => `
   <div class="steps">
     ${items.map(x => `
@@ -506,6 +539,11 @@ const flowChips = (nodes = [], mode = '') => {
       }).join('')}
     </div>
   `;
+};
+
+const flowRows = (nodes = [], mode = '') => {
+  const rows = Array.isArray(nodes[0]) ? nodes : [nodes];
+  return rows.map((row) => flowChips(row, mode)).join('');
 };
 
 const cleanList = (items = []) =>
@@ -923,8 +961,8 @@ const renderers = {
           <p>${esc(s.definition)}</p>
         </div>` : ''}
       <div class="splitCols">
-        <div class="card"><b>${esc(s.leftTitle)}</b>${s.mode === 'fillBlanks' ? fillBlankList(s.left) : choiceList(s.left)}</div>
-        <div class="card"><b>${esc(s.rightTitle)}</b>${s.mode === 'fillBlanks' ? fillBlankList(s.right) : choiceList(s.right)}</div>
+        <div class="card"><b>${esc(s.leftTitle)}</b>${compareVisual(s.leftVisual || s.leftImage)}${s.mode === 'fillBlanks' ? fillBlankList(s.left) : choiceList(s.left)}</div>
+        <div class="card"><b>${esc(s.rightTitle)}</b>${compareVisual(s.rightVisual || s.rightImage)}${s.mode === 'fillBlanks' ? fillBlankList(s.right) : choiceList(s.right)}</div>
       </div>
       ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>`
         : s.divider ? `<div class="prompt">${esc(s.divider)}</div>` : ''}
@@ -967,7 +1005,16 @@ const renderers = {
     <div class="quizBlock">
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
       ${mcqChoiceList(s.choices, s.answer)}
-      ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
+      ${s.prompt ? `<div class="prompt mcqExplanation" hidden aria-live="polite">${esc(s.prompt)}</div>` : ''}
+    </div>
+  `,
+
+  yesNoCheck: (s) => `
+    <div class="yesNoCheckBlock">
+      ${s.title ? `<h2>${esc(s.title)}</h2>` : ''}
+      ${s.prompt ? `<p class="lead">${esc(s.prompt)}</p>` : ''}
+      ${yesNoRows(s.items || [])}
+      ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
     </div>
   `,
 
@@ -981,7 +1028,7 @@ const renderers = {
           ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
         </section>
         <section class="peerTaskStepsPanel">
-          <div class="peerTaskPanelLabel">Do these three steps</div>
+          <div class="peerTaskPanelLabel">${esc(s.stepsLabel || 'Do these three steps')}</div>
           ${stepList((s.steps || []).map((step, i) => Array.isArray(step) ? step : [String(i + 1), step]))}
         </section>
       </div>
@@ -1067,19 +1114,20 @@ const renderers = {
       <div class="flowBlock">
       <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
-      ${flowChips(s.nodes, s.mode)}
+      ${flowRows(s.nodes, s.mode)}
       ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
       ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
     </div>
   `,
 
   exam: (s) => {
-    const showQuestion = s.question && !titleContainsQuestion(s.title, s.question);
+    const heading = s.title || (s.marks ? `${s.question || 'Exam question'} [${s.marks}]` : (s.question || 'Exam question'));
+    const showQuestion = s.question && s.title && !titleContainsQuestion(s.title, s.question);
     return `
       <div class="examBlock">
-        <h2>${esc(s.title)}</h2>
+        <h2>${esc(heading)}</h2>
         ${showQuestion ? `<p class="lead examQuestion">${esc(s.question)}</p>` : ''}
-        <div class="examChainLabel">${esc(s.keywordLabel || 'Required explanation points')}</div>
+        <div class="examChainLabel">${esc(s.keywordLabel || 'Plan your answer')}</div>
         <div class="cardgrid">
           ${(s.keywords || []).map((k, i) => `
             <div class="card examChainLink">
@@ -1983,20 +2031,22 @@ function handoutSteps(items = []) {
 }
 
 function handoutFlow(nodes = []) {
-  const arr = Array.isArray(nodes[0]) ? nodes[0] : nodes;
-  if (!arr?.length) return '';
+  const rows = Array.isArray(nodes[0]) ? nodes : [nodes];
+  if (!rows.some((row) => row?.length)) return '';
   return `
-    <ol class="handoutFlow">
-      ${arr.map((rawNode) => {
-        const node = normaliseFlowNode(rawNode);
-        return `
-          <li>
-            ${handoutTextWithBlanks(node.text || '')}
-            ${node.zh ? `<p lang="zh-Hans">${esc(node.zh)}</p>` : ''}
-          </li>
-        `;
-      }).join('')}
-    </ol>
+    ${rows.map((row) => `
+      <ol class="handoutFlow">
+        ${row.map((rawNode) => {
+          const node = normaliseFlowNode(rawNode);
+          return `
+            <li>
+              ${handoutTextWithBlanks(node.text || '')}
+              ${node.zh ? `<p lang="zh-Hans">${esc(node.zh)}</p>` : ''}
+            </li>
+          `;
+        }).join('')}
+      </ol>
+    `).join('')}
   `;
 }
 
@@ -2033,6 +2083,7 @@ const handoutContentTypes = new Set([
   'systemCompare',
   'term',
   'taxRateDiagramCompare',
+  'yesNoCheck',
 ]);
 
 function shouldIncludeHandoutSlide(slide) {
@@ -2113,6 +2164,14 @@ function renderHandoutBlock(slide) {
         ${handoutParagraph(slide.prompt || slide.footer, 'handoutNote')}
         ${handoutSources(slide.sources)}
       `, 'is-flow');
+
+    case 'yesNoCheck':
+      return handoutBlock(slide, `
+        ${handoutParagraph(slide.prompt)}
+        ${handoutList((slide.items || []).map((item) => `${item.statement || item.text || ''} - ${item.answer ? 'Yes' : 'No'}${item.reason ? `: ${item.reason}` : ''}`))}
+        ${handoutParagraph(slide.footer, 'handoutNote')}
+        ${handoutSources(slide.sources)}
+      `, 'is-key-points');
 
     case 'socialEffectsVenn':
       return handoutBlock(slide, `
@@ -2255,10 +2314,12 @@ const partialSelectors = [
 function getPartialSelectors(meta, slide) {
   const config = slide.partialReview;
   if (slide.type === 'quiz') return '';
+  if (slide.type === 'exam') return '';
   if (config === false) return '';
   if (slide.type === 'peerTask' && slide.taskType === 'missingSentence') return '';
   if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
   if (slide.type === 'classificationTask') return '.content main > div .classificationResult';
+  if (slide.type === 'yesNoCheck') return '.content main > div .yesNoRow, .content main > div .yesNoAnswer';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';
@@ -2746,6 +2807,8 @@ function setupQuizChoices(root) {
           correctChoice.classList.add('is-correct');
           if (choice !== correctChoice) choice.classList.add('is-incorrect');
         }
+        const explanation = list.parentElement?.querySelector('.mcqExplanation');
+        if (explanation) explanation.hidden = false;
       });
     });
   });
