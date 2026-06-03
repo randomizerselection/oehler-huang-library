@@ -24,8 +24,7 @@ const deckTitleTranslations = {
   'Effects on macroeconomic aims': '对宏观经济目标的影响',
   'Money supply and monetary policy': '货币供应与货币政策',
   'Interest rates': '利率',
-  'Money supply and exchange rates': '货币供应与汇率',
-  'Effects of monetary policy': '货币政策的影响',
+  'Money supply measures': '货币供给措施',
   'Productive capacity and total supply': '生产能力与总供给',
   'Interventionist supply-side policies': '干预型供给侧政策',
   'Market-based supply-side policies': '市场型供给侧政策',
@@ -571,8 +570,8 @@ test.describe('site smoke', () => {
         titles: [
           'Money supply and monetary policy',
           'Interest rates',
-          'Money supply and exchange rates',
-          'Effects of monetary policy',
+          'Money supply measures',
+          'Effects and evaluation',
         ],
       },
       {
@@ -1069,8 +1068,9 @@ test.describe('site smoke', () => {
       'Expansionary monetary policy',
       'Contractionary monetary policy',
       'Money supply measures',
-      'Current account effects',
-      'Policy trade-offs',
+      'Policy tools to first effects',
+      'Current account: only the bridge for now',
+      'What decides effectiveness?',
     ]);
     const failures = [];
 
