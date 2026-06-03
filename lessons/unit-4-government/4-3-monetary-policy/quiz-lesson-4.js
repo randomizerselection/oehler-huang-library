@@ -36,15 +36,15 @@ IGCSE.quiz = {
     {
       id: 'spending',
       type: 'fillBlank',
-      prompt: 'Lower interest rates may increase consumer __________.',
-      acceptedAnswers: ['spending', 'expenditure'],
+      prompt: 'Lower interest rates may increase __________.',
+      acceptedAnswers: ['consumer spending', 'consumer expenditure', 'spending', 'expenditure'],
       explanation: 'Lower borrowing costs and lower saving rewards can increase spending.',
     },
     {
       id: 'saving',
       type: 'fillBlank',
-      prompt: 'Higher interest rates may increase __________ because the reward is higher.',
-      acceptedAnswers: ['saving', 'savings'],
+      prompt: 'Higher interest rates may increase the __________.',
+      acceptedAnswers: ['reward for saving', 'reward for savings'],
       explanation: 'Higher rates increase the reward for saving.',
     },
     {
@@ -77,8 +77,8 @@ IGCSE.quiz = {
     {
       id: 'inflation',
       type: 'fillBlank',
-      prompt: 'Contractionary monetary policy may reduce inflationary __________.',
-      acceptedAnswers: ['pressure'],
+      prompt: 'Contractionary monetary policy may reduce __________.',
+      acceptedAnswers: ['inflationary pressure', 'pressure'],
       explanation: 'Lower aggregate demand can reduce pressure on prices.',
     },
     {

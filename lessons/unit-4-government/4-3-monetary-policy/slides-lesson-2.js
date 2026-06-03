@@ -161,7 +161,7 @@ IGCSE.lesson = {
       zhTitle: '支出影响',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'lower interest rates', zh: '较低利率' },
+        { text: 'the central bank uses __________', answer: 'lower interest rates', zh: '较低利率' },
         { text: 'the __________ falls', answer: 'cost of borrowing', zh: '借款变得更便宜' },
         { text: '__________ may rise', answer: 'consumer spending', zh: '消费支出可能上升' },
         { text: '__________ may rise', answer: 'aggregate demand', zh: '总需求可能上升' },
@@ -190,9 +190,9 @@ IGCSE.lesson = {
       zhTitle: '储蓄影响',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'lower interest rates', zh: '较低利率' },
+        { text: 'the central bank uses __________', answer: 'lower interest rates', zh: '较低利率' },
         { text: 'the __________ falls', answer: 'reward for saving', zh: '储蓄回报下降' },
-        { text: 'household __________ may fall', answer: 'saving', zh: '家庭可能减少储蓄' },
+        { text: '__________ may fall', answer: 'household saving', zh: '家庭可能减少储蓄' },
         { text: '__________ may rise', answer: 'consumer spending', zh: '消费支出可能上升' },
       ]],
       footer: 'This effect also increases aggregate demand.',
@@ -219,7 +219,7 @@ IGCSE.lesson = {
       zhTitle: '投资与就业',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'lower interest rates', zh: '较低利率' },
+        { text: 'the central bank uses __________', answer: 'lower interest rates', zh: '较低利率' },
         { text: '__________ fall', answer: 'business borrowing costs', zh: '企业贷款成本下降' },
         { text: '__________ may rise', answer: 'business investment', zh: '投资可能上升' },
         { text: '__________ may rise', answer: 'output and employment', zh: '产出和就业可能上升' },
@@ -289,7 +289,7 @@ IGCSE.lesson = {
       zhTitle: '支出影响',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'higher interest rates', zh: '较高利率' },
+        { text: 'the central bank uses __________', answer: 'higher interest rates', zh: '较高利率' },
         { text: 'the __________ rises', answer: 'cost of borrowing', zh: '借款变得更昂贵' },
         { text: '__________ may fall', answer: 'consumer spending', zh: '消费支出可能下降' },
         { text: '__________ may fall', answer: 'inflationary pressure', zh: '通胀压力可能下降' },
@@ -318,9 +318,9 @@ IGCSE.lesson = {
       zhTitle: '储蓄影响',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'higher interest rates', zh: '较高利率' },
+        { text: 'the central bank uses __________', answer: 'higher interest rates', zh: '较高利率' },
         { text: 'the __________ rises', answer: 'reward for saving', zh: '储蓄回报上升' },
-        { text: 'household __________ may rise', answer: 'saving', zh: '家庭可能增加储蓄' },
+        { text: '__________ may rise', answer: 'household saving', zh: '家庭可能增加储蓄' },
         { text: '__________ may fall', answer: 'consumer spending', zh: '消费支出可能下降' },
       ]],
       footer: 'Saving can reduce current spending.',
@@ -347,7 +347,7 @@ IGCSE.lesson = {
       zhTitle: '投资与产出',
       mode: 'fillBlanks',
       nodes: [[
-        { text: '__________ can rise', answer: 'higher interest rates', zh: '较高利率' },
+        { text: 'the central bank uses __________', answer: 'higher interest rates', zh: '较高利率' },
         { text: '__________ rise', answer: 'business borrowing costs', zh: '企业借款成本上升' },
         { text: '__________ may fall', answer: 'business investment', zh: '投资可能下降' },
         { text: '__________ may fall', answer: 'output and employment', zh: '产出和就业可能下降' },

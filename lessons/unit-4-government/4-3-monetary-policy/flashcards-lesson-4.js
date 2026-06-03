@@ -21,20 +21,20 @@ IGCSE.flashcards = {
     {
       id: 'spending',
       type: 'fillBlank',
-      prompt: 'Lower interest rates may increase consumer __________.',
-      answer: 'spending',
+      prompt: 'Lower interest rates may increase __________.',
+      answer: 'consumer spending',
     },
     {
       id: 'saving',
       type: 'fillBlank',
-      prompt: 'Higher interest rates may increase __________.',
-      answer: 'saving',
+      prompt: 'Higher interest rates may increase the __________.',
+      answer: 'reward for saving',
     },
     {
       id: 'borrowing',
       type: 'fillBlank',
-      prompt: 'Higher interest rates make borrowing more __________.',
-      answer: 'expensive',
+      prompt: 'Higher interest rates increase the __________.',
+      answer: 'cost of borrowing',
     },
     {
       id: 'output',
@@ -45,14 +45,14 @@ IGCSE.flashcards = {
     {
       id: 'employment',
       type: 'fillBlank',
-      prompt: 'Higher output can increase demand for labour and raise __________.',
-      answer: 'employment',
+      prompt: 'Higher output can increase __________.',
+      answer: 'demand for labour and employment',
     },
     {
       id: 'current-account',
       type: 'fillBlank',
-      prompt: 'Monetary policy can affect imports, exports and the current __________.',
-      answer: 'account',
+      prompt: 'Monetary policy can affect imports, exports and the __________.',
+      answer: 'current account',
     },
   ],
 };
