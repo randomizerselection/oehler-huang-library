@@ -94,7 +94,7 @@ IGCSE.quiz = {
         'Higher interest rates result in less income from savings and therefore higher unemployment.',
       ],
       answer: 2,
-      explanation: 'If money supply rises when spare capacity is absent, total demand may rise faster than output and cause demand-pull inflation. Source: 0455_s24_13 Q19.',
+      explanation: 'If money supply rises when spare capacity is absent, aggregate demand may rise faster than output and cause demand-pull inflation. Source: 0455_s24_13 Q19.',
       sources: [{ label: 'Paper 1 source', ref: '0455_s24_13 Q19', note: 'Recent Paper 1 MCQ on monetary-policy effects.' }],
     },
   ],

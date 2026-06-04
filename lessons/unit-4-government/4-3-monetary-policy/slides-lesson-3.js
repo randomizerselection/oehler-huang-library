@@ -46,9 +46,10 @@ IGCSE.lesson = {
       sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
       sampleAnswers: [
         'An interest rate is the cost of borrowing and the reward for saving, expressed as a percentage.',
-        'Contractionary monetary policy aims to reduce total demand and inflationary pressure, for example by raising interest rates or reducing money supply.',
-        'Aggregate demand is total demand in the economy.',
+        'Contractionary monetary policy aims to reduce aggregate demand and inflationary pressure, for example by raising interest rates or reducing money supply.',
+        'Aggregate demand is demand for goods and services in the whole economy at a given time.',
       ],
+      partialReview: ['.peerTaskSamples > .choice'],
     },
     {
       type: 'discussion',
@@ -171,7 +172,6 @@ IGCSE.lesson = {
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
       title: 'Complete the missing sentence',
-      prompt: 'Complete the missing sentence in this money-supply explanation.',
       zhPrompt: '两人合作，写出一条从银行到家庭或企业的货币供给影响链。',
       steps: [
         ['1', 'Money supply rises and banks may lend more.'],
@@ -235,12 +235,12 @@ IGCSE.lesson = {
       definition: 'The price of one currency in terms of another currency.',
       definitionZh: '一种货币用另一种货币表示的价格。',
       keyTerms: [
-        { term: 'price', zh: '价格', note: 'how much one currency costs' },
-        { term: 'one currency', zh: '一种货币', note: 'for example, the yuan' },
-        { term: 'another currency', zh: '另一种货币', note: 'for example, the US dollar' },
+        { term: 'price', zh: '价格', explain: false },
+        { term: 'one currency', zh: '一种货币', explain: false },
+        { term: 'another currency', zh: '另一种货币', explain: false },
       ],
       showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
+      partialReview: false,
     },
     {
       type: 'classificationTask',

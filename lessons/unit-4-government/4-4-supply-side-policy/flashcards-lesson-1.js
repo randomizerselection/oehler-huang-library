@@ -27,7 +27,7 @@ IGCSE.flashcards = {
     {
       id: 'total-supply',
       type: 'fillBlank',
-      prompt: 'Demand-side policy affects total demand; supply-side policy aims to raise total __________.',
+      prompt: 'Demand-side policy affects aggregate demand; supply-side policy aims to raise total __________.',
       answer: 'supply',
     },
     {

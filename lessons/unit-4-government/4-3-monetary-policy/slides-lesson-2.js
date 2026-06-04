@@ -53,8 +53,9 @@ IGCSE.lesson = {
       sampleAnswers: [
         'Monetary policy is the use of interest rates, money supply or exchange rates to influence economic activity.',
         'A central bank is the government banker and banking regulator that conducts monetary policy.',
-        'Expansionary monetary policy aims to increase total demand, for example by lowering interest rates or increasing money supply.',
+        'Expansionary monetary policy aims to increase aggregate demand, for example by lowering interest rates or increasing money supply.',
       ],
+      partialReview: ['.peerTaskSamples > .choice'],
     },
     {
       type: 'discussion',
@@ -101,14 +102,12 @@ IGCSE.lesson = {
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Interest rate: cost and reward',
-      lead: 'Mark schemes define an interest rate as the cost of borrowing and the reward for saving, expressed as a percentage.',
       cards: [
         { title: 'Borrower', body: 'faces the cost of borrowing', visual: stakeholderPhotos.household },
         { title: 'Saver', body: 'receives the reward for saving', visual: stakeholderPhotos.saver },
         { title: 'Firm', body: 'compares borrowing cost with expected profit', visual: stakeholderPhotos.firm },
-        { title: 'Central bank', body: 'changes rates to influence total demand', visual: stakeholderPhotos.centralBank },
+        { title: 'Central bank', body: 'changes rates to influence aggregate demand', visual: stakeholderPhotos.centralBank },
       ],
-      footer: 'Use the exact phrase: cost of borrowing and reward for saving.',
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
@@ -123,29 +122,6 @@ IGCSE.lesson = {
       ],
     },
     {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'United Kingdom',
-          context: 'The Bank of England uses Bank Rate as its main interest-rate tool for monetary policy.',
-          question: 'What first changes for households and firms when this rate rises or falls?',
-          questionZh: '当这个利率上升或下降时，家庭和企业最先发生什么变化？',
-          answer: 'The cost of borrowing and the reward for saving change, so spending, saving and investment decisions may change.',
-          source: 'Source: Bank of England education materials.',
-        },
-        china: {
-          country: 'China',
-          context: 'China uses loan prime rates and reserve requirements as monetary policy tools.',
-          question: 'How could these tools change credit conditions in China?',
-          questionZh: '这些工具会如何改变中国的信贷条件？',
-          answer: 'Lower rates or reserve requirements can make credit easier and increase bank lending.',
-          source: 'Source: People\'s Bank of China materials.',
-        },
-      },
-      visual: photos.bankEngland,
-    },
-    {
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -157,7 +133,7 @@ IGCSE.lesson = {
       keyTerms: [
         { term: 'cost of borrowing', zh: '借款成本', note: 'the extra amount paid by a borrower' },
         { term: 'reward for saving', zh: '储蓄回报', note: 'the extra amount earned by a saver' },
-        { term: 'percentage', zh: '百分比', note: 'the rate is shown as a share of the amount borrowed or saved' },
+        { term: 'percentage', zh: '百分比', explain: false },
       ],
       showExamples: false,
       partialReview: ['.definitionTermNotes > .definitionTermNote'],
@@ -165,7 +141,7 @@ IGCSE.lesson = {
     {
       type: 'yesNoCheck',
       eyebrow: 'Check',
-      title: 'Thumbs up or thumbs down?',
+      title: 'Right or wrong?',
       prompt: 'I will show one statement at a time. Thumbs up if it is correct; thumbs down if it is wrong.',
       items: [
         { statement: 'Higher interest rates make borrowing more expensive.', answer: true, reason: 'The cost of borrowing rises.' },
@@ -201,8 +177,6 @@ IGCSE.lesson = {
       variant: 'policyDirection',
       leftTitle: 'Expansionary monetary policy',
       rightTitle: 'Contractionary monetary policy',
-      leftVisual: photos.expansionaryDirection,
-      rightVisual: photos.contractionaryDirection,
       left: [
         'Lower interest rates or increase money supply.',
         'Borrowing, lending, spending and investment may rise.',
@@ -220,7 +194,7 @@ IGCSE.lesson = {
       title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
-        ['1', 'Policy that raises total demand is __________.', 'expansionary'],
+        ['1', 'Policy that raises aggregate demand is __________.', 'expansionary'],
         ['2', 'Policy that cools demand to reduce inflationary pressure is __________.', 'contractionary'],
       ],
     },
@@ -261,7 +235,7 @@ IGCSE.lesson = {
           { text: 'aggregate demand, output and __________ may rise', answer: 'employment', zh: '总需求、产出和就业可能上升' },
         ],
       ],
-      footer: 'Lower rates are usually expansionary because they raise total demand.',
+      footer: 'Lower rates are usually expansionary because they raise aggregate demand.',
       visual: photos.fed,
     },
     {
@@ -293,7 +267,6 @@ IGCSE.lesson = {
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
       title: 'Complete the missing sentence',
-      prompt: 'Complete the missing sentence in this lower-rate explanation.',
       zhPrompt: '两人合作，写出一个完整的较低利率解释。',
       steps: [
         ['1', 'Lower interest rates make borrowing cheaper.'],
@@ -352,7 +325,7 @@ IGCSE.lesson = {
           { text: 'aggregate demand and __________ may fall', answer: 'inflationary pressure', zh: '总需求和通胀压力可能下降' },
         ],
       ],
-      footer: 'Higher rates are usually contractionary because they reduce total demand.',
+      footer: 'Higher rates are usually contractionary because they reduce aggregate demand.',
       visual: photos.bankEngland,
     },
     {
@@ -371,7 +344,7 @@ IGCSE.lesson = {
       eyebrow: 'Learn',
       title: 'Higher interest rates: exam trade-off',
       cards: [
-        ['Anti-inflation chain', 'borrowing, spending and investment may fall, so aggregate demand and demand-pull inflationary pressure may fall'],
+        ['Anti-inflation effect', 'borrowing, spending and investment may fall, so aggregate demand and demand-pull inflationary pressure may fall'],
         ['Output and employment cost', 'firms may sell less output or invest less, so employment may fall'],
         ['Most useful when', 'inflation is caused by excess aggregate demand'],
         ['Less useful when', 'inflation is caused by higher production costs'],
@@ -384,7 +357,6 @@ IGCSE.lesson = {
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
       title: 'Complete the missing sentence',
-      prompt: 'Complete the missing sentence in this higher-rate explanation.',
       zhPrompt: '两人合作，写出一个完整的较高利率解释。',
       steps: [
         ['1', 'Higher interest rates make borrowing more expensive and saving more rewarding.'],

@@ -11,7 +11,7 @@
 
    Pacing note:
    Lesson 1 focuses on 4.4.1. Keep the contrast with fiscal and monetary
-   policy explicit: demand-side policies mainly shift total demand, while
+   policy explicit: demand-side policies mainly shift aggregate demand, while
    supply-side policy raises productive capacity, efficiency and long-run output.
    ============================================================ */
 
@@ -117,7 +117,7 @@ IGCSE.lesson = {
       eyebrow: 'Learn',
       title:   'Demand-side vs supply-side',
       leftTitle:  'Demand-side policy',
-      left:  ['changes total demand', 'often has a shorter-term impact', 'examples: fiscal and monetary stimulus'],
+      left:  ['changes aggregate demand', 'often has a shorter-term impact', 'examples: fiscal and monetary stimulus'],
       rightTitle: 'Supply-side policy',
       right: ['raises total supply', 'often works over the long run', 'examples: education, infrastructure, tax incentives'],
       prompt: 'The exam difference: demand-side shifts spending; supply-side raises capacity.',
@@ -226,7 +226,7 @@ IGCSE.lesson = {
       eyebrow: 'Exam practice',
       title:   'Explain the difference',
       question: 'Explain one difference between monetary policy and supply-side policy.',
-      keywords: ['central bank', 'government', 'total demand', 'total supply'],
+      keywords: ['central bank', 'government', 'aggregate demand', 'total supply'],
       prompt:   'Use the contrast from 2025ON-22 Q5(b): who implements it and whether it targets demand or supply.',
       visual:   photos.fed,
       partialReview: ['.cardgrid > .card', '.prompt'],
@@ -236,8 +236,8 @@ IGCSE.lesson = {
       eyebrow: 'Exam answer',
       title:   'Model answer',
       question: 'Explain one difference between monetary policy and supply-side policy.',
-      answer: 'Monetary policy is usually carried out by a central bank and uses measures such as interest rates to influence total demand. Supply-side policy is usually carried out by the government and aims to increase total supply or productive capacity, for example through education, training or infrastructure.',
-      links: ['central bank', 'government', 'total demand', 'total supply'],
+      answer: 'Monetary policy is usually carried out by a central bank and uses measures such as interest rates to influence aggregate demand. Supply-side policy is usually carried out by the government and aims to increase total supply or productive capacity, for example through education, training or infrastructure.',
+      links: ['central bank', 'government', 'aggregate demand', 'total supply'],
       markSchemeNote: 'This matches explain wording by identifying a clear contrast and developing both sides with accurate policy terminology.',
       partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
     },

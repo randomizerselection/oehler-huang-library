@@ -919,10 +919,12 @@ test.describe('site smoke', () => {
           const term = Array.isArray(item) ? item[0] : item.term;
           const zh = Array.isArray(item) ? item[1] : item.zh;
           const note = Array.isArray(item) ? item[2] : item.note;
+          const needsBottomExplanation = Array.isArray(item) ? true : item.explain !== false;
           if (!String(slide.definition || '').toLowerCase().includes(String(term || '').toLowerCase())) {
             failures.push(`${slideFile} slide ${index + 1}: definition does not include ${term}`);
           }
-          if (!zh || !note) failures.push(`${slideFile} slide ${index + 1}: ${term} missing zh or note`);
+          if (!zh) failures.push(`${slideFile} slide ${index + 1}: ${term} missing zh`);
+          if (needsBottomExplanation && !note) failures.push(`${slideFile} slide ${index + 1}: ${term} missing note`);
         }
       }
     }
@@ -1010,7 +1012,7 @@ test.describe('site smoke', () => {
           }
           if (slide.variant === 'policyDirection') {
             if (slide.title) failures.push(`${slideFile} slide ${index + 1}: policy direction compare should not have title`);
-            if (!slide.leftVisual || !slide.rightVisual) failures.push(`${slideFile} slide ${index + 1}: policy direction compare needs side visuals`);
+            if (slide.leftVisual || slide.rightVisual || slide.visual) failures.push(`${slideFile} slide ${index + 1}: policy direction compare should stay text-only unless visuals add clear value`);
             if ((slide.partialReview || []).length) failures.push(`${slideFile} slide ${index + 1}: policy direction compare should not use partialReview`);
             continue;
           }

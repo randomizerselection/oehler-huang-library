@@ -31,13 +31,13 @@ IGCSE.quiz = {
       type: 'multipleChoice',
       prompt: 'Which contrast is most accurate?',
       choices: [
-        'Demand-side policy mainly affects total demand; supply-side policy raises total supply.',
+        'Demand-side policy mainly affects aggregate demand; supply-side policy raises total supply.',
         'Supply-side policy only changes consumer spending.',
         'Monetary policy and supply-side policy use exactly the same measures.',
         'Supply-side policy can only reduce output.',
       ],
       answer: 0,
-      explanation: 'The key exam contrast is total demand versus total supply.',
+      explanation: 'The key exam contrast is aggregate demand versus total supply.',
     },
     {
       id: 'long-run',

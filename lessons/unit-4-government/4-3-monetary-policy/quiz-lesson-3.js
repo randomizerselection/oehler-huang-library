@@ -11,7 +11,7 @@ IGCSE.quiz = {
       type: 'multipleChoice',
       prompt: 'What is the likely aim of increasing money supply?',
       choices: [
-        'To reduce bank lending and total demand.',
+        'To reduce bank lending and aggregate demand.',
         'To increase lending, spending, investment and output.',
         'To increase income tax revenue.',
         'To reduce the number of commercial banks.',

@@ -636,7 +636,7 @@ const termNotes = (items = []) => {
       }
       return item || {};
     })
-    .filter((item) => item.term && (item.zh || item.note));
+    .filter((item) => item.term && item.explain !== false && (item.zh || item.note));
 
   if (!normalised.length) return '';
 
@@ -1028,7 +1028,7 @@ const renderers = {
           ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
         </section>
         <section class="peerTaskStepsPanel">
-          <div class="peerTaskPanelLabel">${esc(s.stepsLabel || 'Do these three steps')}</div>
+          <div class="peerTaskPanelLabel">${esc(s.stepsLabel || 'Task steps')}</div>
           ${stepList((s.steps || []).map((step, i) => Array.isArray(step) ? step : [String(i + 1), step]))}
         </section>
       </div>

@@ -45,10 +45,11 @@ IGCSE.lesson = {
       ],
       sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
       sampleAnswers: [
-        'Money supply is the total amount of money in an economy.',
+        'Money supply is the total amount of money available in an economy at a given time.',
         'A foreign exchange rate is the price of one currency in terms of another currency.',
         'Increasing money supply means making more money or liquidity available in the economy, which may increase bank lending and spending.',
       ],
+      partialReview: ['.peerTaskSamples > .choice'],
     },
     {
       type: 'discussion',
@@ -102,8 +103,8 @@ IGCSE.lesson = {
       prompt: 'Classify each policy change, then name the first effect.',
       zhPrompt: '判断每个政策变化属于扩张性还是紧缩性，并说出第一步影响。',
       categories: [
-        { title: 'Expansionary', zhTitle: '扩张性', clue: 'raises total demand' },
-        { title: 'Contractionary', zhTitle: '紧缩性', clue: 'reduces total demand' },
+        { title: 'Expansionary', zhTitle: '扩张性', clue: 'raises aggregate demand' },
+        { title: 'Contractionary', zhTitle: '紧缩性', clue: 'reduces aggregate demand' },
       ],
       items: [
         { text: 'The central bank lowers interest rates', answer: 'Expansionary', reason: 'Borrowing becomes cheaper and spending or investment may rise.' },
@@ -139,7 +140,6 @@ IGCSE.lesson = {
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
       title: 'Complete the missing sentence',
-      prompt: 'Complete the missing sentence in this growth-and-employment explanation.',
       zhPrompt: '两人合作，写出一个关于增长和就业的解释。',
       steps: [
         ['1', 'Lower interest rates or increased money supply may raise borrowing and lending.'],
@@ -147,7 +147,7 @@ IGCSE.lesson = {
         ['3', 'Firms may raise output and employment may increase.'],
       ],
       missingSentenceStep: 2,
-      missingSentenceAnswer: 'Spending and investment may rise.',
+      missingSentenceAnswer: 'Spending and investment may rise as households and firms increase demand.',
     },
     {
       type: 'flow',

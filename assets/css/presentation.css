@@ -1331,9 +1331,12 @@ body.is-visual-pause .studentSelectorSidePanel {
 }
 .modelAnswerParagraphs p {
   margin: 0;
+  line-height: inherit;
 }
 
 .modelAnswerText mark {
+  display: inline;
+  line-height: inherit;
   padding: .04em .16em;
   border-radius: .22em;
   background: rgba(255,209,102,.24);

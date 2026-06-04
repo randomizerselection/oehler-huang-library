@@ -158,6 +158,51 @@ window.IGCSE = window.IGCSE || {};
     ),
   };
 
+  const marketFailure = {
+    visualPauseFreshFruitShelf: photo(
+      'market-failure',
+      'visual-pause-fresh-fruit-shelf.jpg',
+      'Fresh fruit displayed on a supermarket shelf.',
+      'Wikimedia Commons / Mycomp / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:Fruit_on_a_shelf.jpg'
+    ),
+    visualPauseSoftDrinkShelf: photo(
+      'market-failure',
+      'visual-pause-soft-drink-shelf.jpg',
+      'Soft drinks displayed on supermarket shelves.',
+      'Wikimedia Commons / Wilfredor / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:Soft_drink_shelf_2.jpg'
+    ),
+    smokingChemotherapyTreatment: photo(
+      'market-failure',
+      'smoking-cost-chemotherapy-treatment.jpg',
+      'A patient receiving chemotherapy treatment from nurses.',
+      'Wikimedia Commons / National Cancer Institute / Rhoda Baer',
+      'https://commons.wikimedia.org/wiki/File:Patient_receives_chemotherapy.jpg'
+    ),
+    smokingHospiceEndOfLifeCare: photo(
+      'market-failure',
+      'smoking-cost-hospice-end-of-life-care.jpg',
+      'Terhokoti, an end-of-life care home in Helsinki, Finland.',
+      'Wikimedia Commons / Mlang.Finn / CC0',
+      'https://commons.wikimedia.org/wiki/File:Terhokoti-2022.jpg'
+    ),
+    smokingLungCancerXray: photo(
+      'market-failure',
+      'smoking-cost-lung-cancer-xray.jpg',
+      'A chest X-ray showing a growth that could be lung cancer.',
+      'Wikimedia Commons / National Cancer Institute',
+      'https://commons.wikimedia.org/wiki/File:X-ray(Chest)Cancer.jpg'
+    ),
+    smokingSevereEmphysemaPatient: photo(
+      'market-failure',
+      'smoking-cost-severe-emphysema-patient.jpg',
+      'A patient with severe emphysema, a smoking-related lung disease.',
+      'Wikimedia Commons / James Heilman, MD / CC BY-SA 3.0',
+      'https://commons.wikimedia.org/wiki/File:Emphysema2008.jpg'
+    ),
+  };
+
   const fiscalPolicy = {
     budgetMeeting: photo(
       'fiscal-policy',
@@ -484,20 +529,6 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Ken Teegardin / CC BY-SA 2.0',
       'https://commons.wikimedia.org/wiki/File:Deposit_Into_Piggy_Bank_Savings_Account_(6093700157).jpg'
     ),
-    expansionaryDirection: photo(
-      'monetary-policy',
-      'expansionary-monetary-policy-direction.svg',
-      'Diagram showing expansionary monetary policy making borrowing easier and increasing demand.',
-      'Created by Samuel Oehler-Huang',
-      'Local teaching graphic.'
-    ),
-    contractionaryDirection: photo(
-      'monetary-policy',
-      'contractionary-monetary-policy-direction.svg',
-      'Diagram showing contractionary monetary policy making borrowing more expensive and reducing inflationary pressure.',
-      'Created by Samuel Oehler-Huang',
-      'Local teaching graphic.'
-    ),
     pboc: photo(
       'monetary-policy',
       'people-bank-of-china-2020.jpg',
@@ -615,6 +646,7 @@ window.IGCSE = window.IGCSE || {};
     marketTeaching: {
       ...marketEconomicSystem,
       ...cocoaChocolate,
+      ...marketFailure,
       classroom: fiscalPolicy.classroom,
       healthcare: fiscalPolicy.healthcare,
       tobacco: fiscalPolicy.tobacco,
@@ -624,6 +656,7 @@ window.IGCSE = window.IGCSE || {};
     },
     marketEconomicSystem,
     cocoaChocolate,
+    marketFailure,
     monetaryPolicy,
     supplySidePolicy,
     supplySidePolicyFacts,

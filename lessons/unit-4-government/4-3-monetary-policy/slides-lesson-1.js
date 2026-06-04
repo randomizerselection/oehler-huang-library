@@ -41,7 +41,7 @@ IGCSE.lesson = {
       title: 'A helicopter drops money',
       question: 'Imagine a central bank dropped new money into every town tomorrow. What would households and firms do first, and what problems might appear later?',
       zh: '如果家庭和企业突然更容易借钱，可能会发生什么？',
-      answer: 'Many households and firms may spend more at first, so total demand could rise. If output cannot rise as quickly, the extra money may create inflationary pressure.',
+      answer: 'Many households and firms may spend more at first, so aggregate demand could rise. If output cannot rise as quickly, the extra money may create inflationary pressure.',
       answerZh: '支出和投资可能上升，这会提高产出和就业，但也可能增加通胀压力。',
       zh: '想象一家中央银行明天向每个城镇投放新货币。家庭和企业首先会做什么？之后可能出现什么问题？',
       answerZh: '许多家庭和企业起初可能会增加支出，因此总需求可能上升。如果产出不能同样快速增加，新增货币可能带来通货膨胀压力。',
@@ -134,7 +134,7 @@ IGCSE.lesson = {
       steps: [
         ['1', 'The __________ is the amount of money in an economy.', 'money supply'],
         ['2', 'Bank deposits can be part of the __________.', 'money supply'],
-        ['3', 'If bank lending rises, a larger money supply may increase __________.', 'total demand'],
+        ['3', 'If bank lending rises, a larger money supply may increase __________.', 'aggregate demand'],
       ],
     },
     {

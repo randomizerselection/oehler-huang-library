@@ -259,7 +259,7 @@ IGCSE.lesson = {
         ['3', 'Choose one mistake students often make.'],
       ],
       sharePrompt: 'Share the mistake and the correction.',
-      sampleAnswers: ['Education is usually a merit good, not a pure public good, because students can be charged or excluded.'],
+      sampleAnswers: ['Education is usually a merit good, not a pure public good, because students can be charged and may not fully recognise its long-term benefits.'],
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
@@ -276,7 +276,7 @@ IGCSE.lesson = {
       ],
       rightTitle: 'Merit good',
       right: [
-        ['1', 'beneficial but __________', 'excludable'],
+        ['1', 'benefits not fully __________', 'recognised'],
         ['2', 'private firms can often __________ it', 'sell'],
         ['3', 'problem is under-__________', 'consumption'],
         ['4', 'example: __________', 'education'],
