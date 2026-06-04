@@ -201,6 +201,13 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / James Heilman, MD / CC BY-SA 3.0',
       'https://commons.wikimedia.org/wiki/File:Emphysema2008.jpg'
     ),
+    waterUtilityTreatmentPlant: photo(
+      'market-failure',
+      'water-utility-dalecarlia-treatment-plant.jpg',
+      'Dalecarlia Treatment Plant, a large water treatment utility in Washington, D.C.',
+      'Wikimedia Commons / District of Columbia Water and Sewer Authority',
+      'https://commons.wikimedia.org/wiki/File:Dalecarlia_Treatment_Plant_1997.jpg'
+    ),
   };
 
   const fiscalPolicy = {
@@ -543,12 +550,26 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Autopilot',
       'https://commons.wikimedia.org/wiki/File:Components_of_US_Money_supply.svg'
     ),
+    bankLendingCashier: photo(
+      'monetary-policy',
+      'cashier-handing-money-riggs-bank.jpg',
+      'A cashier handing money to a customer at Riggs Bank.',
+      'Library of Congress / Harris & Ewing Collection',
+      'https://commons.wikimedia.org/wiki/File:Cashier_handing_money_out,_Riggs_Bank,_3-2-38_LCCN2016873156.jpg'
+    ),
     exchangeRate: photo(
       'monetary-policy',
       'cny-usd-exchange-rate.svg',
       'Chart showing the renminbi and United States dollar exchange rate.',
       'Wikimedia Commons / Monaneko',
       'https://commons.wikimedia.org/wiki/File:CNY-USD_v2.svg'
+    ),
+    currencyExchangeStall: photo(
+      'monetary-policy',
+      'nyc-currency-exchange-stall.jpg',
+      'A currency exchange stall in New York City showing exchange-rate boards.',
+      'Wikimedia Commons / Rhododendrites / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:NYC_-_Currency_Exchange_stall_-_0670.jpg'
     ),
   };
 
