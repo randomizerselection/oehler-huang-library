@@ -38,13 +38,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.8.1',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Explain prices as signals and incentives.',
-        'Show how rising demand can move resources into production.',
-        'Show how falling demand can move resources away from production.',
+        'Explain how demand changes move resources.',
         'Apply the price mechanism to a specific market example.',
+      ],
+      zhBullets: [
+        '解释价格如何作为信号和激励。',
+        '解释需求变化如何转移资源。',
+        '把价格机制应用到具体市场例子。',
       ],
     },
     {
@@ -53,28 +57,11 @@ IGCSE.lesson = {
       title: 'Price signals',
       zhTitle: '价格信号',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'World',
-          context: 'Electric car sales topped 17 million worldwide in 2024 as consumer demand rose.',
-          question: 'How could higher demand for electric cars affect price and output?',
-          questionZh: '电动汽车需求上升会如何影响价格和产量？',
-          answer: 'Higher demand can raise price at first and encourage firms to increase output if they expect profit.',
-          source: 'Source: IEA Global EV Outlook 2025.',
-        },
-        china: {
-          country: 'China',
-          context: 'China sold over 11 million electric cars in 2024, more than the world sold two years earlier.',
-          question: 'How could higher demand for electric cars affect price and output?',
-          questionZh: '电动汽车需求上升会如何影响价格和产量？',
-          answer: 'Higher demand can raise price at first and encourage firms to increase output if they expect profit.',
-          source: 'Source: IEA Global EV Outlook 2025.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: World',
       visual: photos.evCharging,
+      notes: 'Example: World / China. Former fact context: Electric car sales topped 17 million worldwide in 2024 as consumer demand rose. | China sold over 11 million electric cars in 2024, more than the world sold two years earlier. Teacher question: How could higher demand for electric cars affect price and output? Possible answer: Higher demand can raise price at first and encourage firms to increase output if they expect profit. Source: Source: IEA Global EV Outlook 2025.',
     },
     {
       type: 'marketMechanismSim',
@@ -85,13 +72,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Demand rises',
       zhTitle: '需求上升',
-      nodes: [['demand rises', 'price rises', 'profit may rise', 'firms produce more', 'resources move into the market']],
-      footer: 'Resources include land, labour, capital and enterprise.',
-      visual: photos.evCharging,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'demand __________', answer: 'rises', zh: '需求上升' },
+          { text: 'price __________', answer: 'rises', zh: '价格上升' },
+          { text: 'profit may __________', answer: 'rise', zh: '利润可能上升' },
+          { text: 'firms produce __________', answer: 'more', zh: '企业生产更多' },
+          { text: 'resources move into the __________', answer: 'market', zh: '资源流入该市场' },
+        ]
+      ],
     },
     {
       type: 'discussion',
@@ -103,41 +96,36 @@ IGCSE.lesson = {
       answerZh: '更多资源应流向电动自行车的生产和销售，因为更高需求可能提高利润。',
       visual: photos.eBikeShop,
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'US e-bike imports rose sharply after 2020, reflecting stronger demand for electric bicycles.',
-          question: 'What market signal could encourage firms to supply more e-bikes?',
-          questionZh: '什么市场信号会鼓励企业供应更多电动自行车？',
-          answer: 'Rising demand or higher prices signal profit opportunities, so firms may increase supply.',
-          source: 'Source: USITC DataWeb and industry reporting.',
-        },
-        china: {
-          country: 'China',
-          context: 'China produces most of the world’s electric bicycles and has a large domestic e-bike market.',
-          question: 'What market signal could encourage firms to supply more e-bikes?',
-          questionZh: '什么市场信号会鼓励企业供应更多电动自行车？',
-          answer: 'Rising demand or higher prices signal profit opportunities, so firms may increase supply.',
-          source: 'Source: China Bicycle Association industry reports.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
       visual: photos.eBikeShop,
+      notes: 'Example: United States / China. Former fact context: US e-bike imports rose sharply after 2020, reflecting stronger demand for electric bicycles. | China produces most of the world’s electric bicycles and has a large domestic e-bike market. Teacher question: What market signal could encourage firms to supply more e-bikes? Possible answer: Rising demand or higher prices signal profit opportunities, so firms may increase supply. Source: Source: USITC DataWeb and industry reporting. | Source: China Bicycle Association industry reports.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Demand falls',
       zhTitle: '需求下降',
-      nodes: [['demand falls', 'price falls', 'profit may fall', 'firms cut output', 'resources move elsewhere']],
-      footer: 'The price mechanism can redirect resources without a central planner.',
-      visual: photos.bubbleTeaShop,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'demand __________', answer: 'falls', zh: '需求下降' },
+          { text: 'price __________', answer: 'falls', zh: '价格下降' },
+          { text: 'profit may __________', answer: 'fall', zh: '利润可能下降' },
+          { text: 'firms cut __________', answer: 'output', zh: '企业减少产量' },
+          { text: 'resources move __________', answer: 'elsewhere', zh: '资源流向其他市场' },
+        ]
+      ],
     },
     {
       type: 'term',
+      keyTerms: [
+        { term: 'consumers demand', zh: '消费者需求', note: 'what buyers want' },
+        { term: 'profit', zh: '利润动机', note: 'incentive for firms' },
+        { term: 'demand', zh: '需求', note: 'market signal from consumers' },
+      ],
+      showExamples: false,
       eyebrow: 'Learn',
       title: 'Consumer sovereignty',
       zhTitle: '消费者主权',
@@ -149,8 +137,6 @@ IGCSE.lesson = {
         ['Less spending', 'firms reduce output'],
         ['Profit signal', 'firms follow consumer demand'],
       ],
-      visual: photos.vegetables,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'quiz',
@@ -164,34 +150,17 @@ IGCSE.lesson = {
       answer: 0,
       prompt: 'Name one resource that may move into production.',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'Plant-based food sales reached USD 8.1 billion in the United States in 2024.',
-          question: 'How could changing consumer tastes affect demand and supply for plant-based food?',
-          questionZh: '消费者偏好的变化会如何影响需求和供给？',
-          answer: 'If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue.',
-          source: 'Source: Good Food Institute, 2024 retail sales data.',
-        },
-        china: {
-          country: 'China',
-          context: 'China’s plant-based meat market was estimated at about USD 428 million in 2023.',
-          question: 'How could changing consumer tastes affect demand and supply for plant-based food?',
-          questionZh: '消费者偏好的变化会如何影响需求和供给？',
-          answer: 'If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue.',
-          source: 'Source: Grand View Research, 2023 market estimate.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
       visual: photos.vegetables,
+      notes: 'Example: United States / China. Former fact context: Plant-based food sales reached USD 8.1 billion in the United States in 2024. | China’s plant-based meat market was estimated at about USD 428 million in 2023. Teacher question: How could changing consumer tastes affect demand and supply for plant-based food? Possible answer: If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue. Source: Source: Good Food Institute, 2024 retail sales data. | Source: Grand View Research, 2023 market estimate.',
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Prices act as signals and __________.', 'incentives'],

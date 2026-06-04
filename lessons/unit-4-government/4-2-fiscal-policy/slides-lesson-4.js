@@ -79,9 +79,7 @@ IGCSE.lesson = {
         { term: 'taxation', zh: '税收', note: 'money collected by government from households and firms' },
         { term: 'macroeconomic aims', zh: '宏观经济目标', note: 'aims such as growth, employment, stable prices and balance of payments stability' },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-      sources: [
+      showExamples: false,      sources: [
         {
           label: 'Definitions overview',
           ref: 'references/igcse-economics-definitions-2026.md, fiscal policy',
@@ -92,7 +90,7 @@ IGCSE.lesson = {
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Fiscal policy basics',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Fiscal policy uses government spending and __________.', 'taxation'],
@@ -100,28 +98,11 @@ IGCSE.lesson = {
         ['3', 'A macroeconomic aim might be employment, growth or stable __________.', 'prices'],
       ],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'India',
-          context: 'India budgeted INR 11.11 trillion for capital expenditure in 2024-25.',
-          question: 'Which fiscal-policy tool is shown, and which macro aim might it support?',
-          questionZh: '这里体现了哪种财政政策工具，可能支持哪个宏观目标？',
-          answer: 'It is government capital spending and it may support growth, employment or productivity.',
-          source: 'Source: Government of India Budget 2024-25.',
-        },
-        china: {
-          country: 'China',
-          context: 'China allocated RMB 1 trillion in 2024 treasury bond funds for major projects.',
-          question: 'How could this affect aggregate demand?',
-          questionZh: '这会如何影响总需求？',
-          answer: 'Government project spending increases injections into the economy, so aggregate demand may rise.',
-          source: 'Source: China State Council/Xinhua, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: India',
       visual: factPhotos.indiaBudget2024,
+      notes: 'Example: India / China. Former fact context: India budgeted INR 11.11 trillion for capital expenditure in 2024-25. | China allocated RMB 1 trillion in 2024 treasury bond funds for major projects. Teacher question: Which fiscal-policy tool is shown, and which macro aim might it support? Possible answer: It is government capital spending and it may support growth, employment or productivity. Source: Source: Government of India Budget 2024-25. | Source: China State Council/Xinhua, 2024.',
     },
     {
       type: 'section',
@@ -149,9 +130,7 @@ IGCSE.lesson = {
         { term: 'reducing taxation', zh: '降低税收', note: 'leaves households or firms with more income to spend' },
         { term: 'aggregate demand', zh: '总需求', note: 'total spending in the economy' },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-    },
+      showExamples: false,    },
     {
       type: 'quiz',
       eyebrow: 'Check',
@@ -171,14 +150,14 @@ IGCSE.lesson = {
       title: 'Expansionary policy',
       zhTitle: '扩张性政策',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'higher ______ or lower taxes', answer: 'spending', zh: '增加支出或降低税收' },
-        { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
-        { text: 'firms may increase ______', answer: 'output', zh: '企业可能增加产出' },
-        { text: 'growth and ______ may rise', answer: 'employment', zh: '经济增长和就业可能上升' },
-      ]],
-      footer: 'Use "may" because the effect depends on spare capacity, confidence and imports.',
-      visual: photos.roadwork,
+      nodes: [
+        [
+          { text: 'higher ______ or lower taxes', answer: 'spending', zh: '增加支出或降低税收' },
+          { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
+          { text: 'firms may increase ______', answer: 'output', zh: '企业可能增加产出' },
+          { text: 'growth and ______ may rise', answer: 'employment', zh: '经济增长和就业可能上升' },
+        ]
+      ],
     },
     {
       type: 'visualPause',
@@ -226,13 +205,11 @@ IGCSE.lesson = {
         { term: 'increasing taxation', zh: '提高税收', note: 'reduces disposable income or retained profit' },
         { term: 'demand-pull inflationary pressure', zh: '通胀压力', note: 'upward pressure on prices caused by high aggregate demand' },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-    },
+      showExamples: false,    },
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Expansionary or contractionary?',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Raising VAT is usually __________ fiscal policy.', 'contractionary'],
@@ -246,14 +223,14 @@ IGCSE.lesson = {
       title: 'Contractionary policy',
       zhTitle: '紧缩性政策',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'lower ______ or higher taxes', answer: 'spending', zh: '减少支出或提高税收' },
-        { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
-        { text: 'less pressure to raise ______', answer: 'prices', zh: '提高价格的压力减小' },
-        { text: 'demand-pull inflation may ______', answer: 'fall', zh: '需求拉动型通胀可能下降' },
-      ]],
-      footer: 'Risk: output and employment may fall.',
-      visual: photos.taxForms,
+      nodes: [
+        [
+          { text: 'lower ______ or higher taxes', answer: 'spending', zh: '减少支出或提高税收' },
+          { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
+          { text: 'less pressure to raise ______', answer: 'prices', zh: '提高价格的压力减小' },
+          { text: 'demand-pull inflation may ______', answer: 'fall', zh: '需求拉动型通胀可能下降' },
+        ]
+      ],
     },
     {
       type: 'visualPause',
@@ -277,9 +254,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Explain how fiscal policy can increase employment. [6]',
-      question: 'Explain how fiscal policy can increase employment.',
-      keywordLabel: 'One-sided explanation points',
+      title: 'Explain how fiscal policy can increase employment. [6]',      keywordLabel: 'One-sided explanation points',
       keywords: [
         'higher government spending or lower taxation',
         'aggregate demand rises',
@@ -306,19 +281,20 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title: 'Model answer',
+      title: 'Explain how fiscal policy can increase employment. [4]',
       question: 'Explain how fiscal policy can increase employment.',
       answer: 'Fiscal policy can increase employment through higher government spending or lower taxation. This can mean aggregate demand rises because households, firms or the government spend more. Firms increase output to meet higher demand. Because labour is a derived demand, derived demand for labour rises when firms need more workers to produce extra output. Employment may rise.',
       links: ['higher government spending or lower taxation', 'aggregate demand rises', 'firms increase output', 'derived demand for labour rises', 'employment may rise'],
-      markSchemeNote: 'This follows the mark scheme by moving from policy measure to aggregate demand, output and employment.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Fiscal policy uses government spending and __________.', 'taxation'],

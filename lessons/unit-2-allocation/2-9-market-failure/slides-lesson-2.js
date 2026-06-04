@@ -39,7 +39,7 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.9',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Define merit goods and demerit goods.',
@@ -82,9 +82,7 @@ IGCSE.lesson = {
         ['Problem', 'consumers may not recognise all benefits'],
         ['Consequence', 'too few resources are used'],
       ],
-      showExamples: false,
-      visual: photos.classroom,
-    },
+      showExamples: false,    },
     {
       type: 'peerTask',
       eyebrow: 'Pair check',
@@ -103,32 +101,17 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Why merit goods are under-consumed',
       zhTitle: '为什么有益品消费不足',
       nodes: [
-        {
-          text: 'beneficial good',
-          zh: '有益物品',
-        },
-        {
-          text: 'full benefits not recognised',
-          zh: '没有认识到全部收益',
-        },
-        {
-          text: 'demand too low',
-          zh: '需求过低',
-        },
-        {
-          text: 'too few resources allocated',
-          zh: '分配资源过少',
-        },
-        {
-          text: 'under-consumption',
-          zh: '消费不足',
-        },
+        { text: '__________ good', answer: 'beneficial', zh: '有益物品' },
+        { text: 'full benefits not __________', answer: 'recognised', zh: '没有认识到全部收益' },
+        { text: 'demand too __________', answer: 'low', zh: '需求过低' },
+        { text: 'too __________ resources allocated', answer: 'few', zh: '分配资源过少' },
+        { text: 'under-__________', answer: 'consumption', zh: '消费不足' },
       ],
-      partialReview: ['.flowRow > .flowChip'],
     },
     {
       type: 'exam',
@@ -158,28 +141,11 @@ IGCSE.lesson = {
       showLinkChips: false,
       partialReview: ['.modelAnswerCard'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'World',
-          context: '251 million children and youth were out of school in 2023.',
-          question: 'Why might education be a merit good that is under-consumed?',
-          questionZh: '为什么教育可能是消费不足的有益品？',
-          answer: 'Education can be under-consumed because people may not recognise its long-term benefits, so demand may be too low.',
-          source: 'Source: UNESCO, 2024.',
-        },
-        china: {
-          country: 'China',
-          context: 'China reports near-universal completion of nine-year compulsory education.',
-          question: 'Why might education be a merit good that is under-consumed?',
-          questionZh: '为什么教育可能是消费不足的有益品？',
-          answer: 'Education can be under-consumed because people may not recognise its long-term benefits, so demand may be too low.',
-          source: 'Source: China Ministry of Education, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: World',
       visual: photos.classroom,
+      notes: 'Example: World / China. Former fact context: 251 million children and youth were out of school in 2023. | China reports near-universal completion of nine-year compulsory education. Teacher question: Why might education be a merit good that is under-consumed? Possible answer: Education can be under-consumed because people may not recognise its long-term benefits, so demand may be too low. Source: Source: UNESCO, 2024. | Source: China Ministry of Education, 2024.',
     },
     {
       type: 'section',
@@ -212,9 +178,7 @@ IGCSE.lesson = {
         ['Problem', 'consumers may underestimate harm'],
         ['Consequence', 'too many resources are used'],
       ],
-      showExamples: false,
-      visual: photos.tobacco,
-    },
+      showExamples: false,    },
     {
       type: 'peerTask',
       eyebrow: 'Pair check',
@@ -280,32 +244,17 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Why demerit goods are over-consumed',
       zhTitle: '为什么有害品过度消费',
       nodes: [
-        {
-          text: 'harmful good',
-          zh: '有害物品',
-        },
-        {
-          text: 'full costs not recognised',
-          zh: '没有认识到全部成本',
-        },
-        {
-          text: 'demand too high',
-          zh: '需求过高',
-        },
-        {
-          text: 'too many resources allocated',
-          zh: '分配资源过多',
-        },
-        {
-          text: 'over-consumption',
-          zh: '过度消费',
-        },
+        { text: '__________ good', answer: 'harmful', zh: '有害物品' },
+        { text: 'full costs not __________', answer: 'recognised', zh: '没有认识到全部成本' },
+        { text: 'demand too __________', answer: 'high', zh: '需求过高' },
+        { text: 'too __________ resources allocated', answer: 'many', zh: '分配资源过多' },
+        { text: 'over-__________', answer: 'consumption', zh: '过度消费' },
       ],
-      partialReview: ['.flowRow > .flowChip'],
     },
     {
       type: 'peerTask',
@@ -323,28 +272,11 @@ IGCSE.lesson = {
       sampleAnswers: ['Consumers may underestimate health costs from tobacco, so demand is too high and too many resources are allocated to it.'],
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'World',
-          context: 'Tobacco kills more than 8 million people each year.',
-          question: 'Why might tobacco be a demerit good that is over-consumed?',
-          questionZh: '为什么烟草可能是过度消费的有害品？',
-          answer: 'Tobacco can be over-consumed because consumers may not fully recognise addiction and long-term health costs.',
-          source: 'Source: World Health Organization tobacco fact sheet.',
-        },
-        china: {
-          country: 'China',
-          context: 'China has over 300 million smokers, the largest number in the world.',
-          question: 'Why might tobacco be a demerit good that is over-consumed?',
-          questionZh: '为什么烟草可能是过度消费的有害品？',
-          answer: 'Tobacco can be over-consumed because consumers may not fully recognise addiction and long-term health costs.',
-          source: 'Source: World Health Organization China tobacco profile.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: World',
       visual: photos.tobacco,
+      notes: 'Example: World / China. Former fact context: Tobacco kills more than 8 million people each year. | China has over 300 million smokers, the largest number in the world. Teacher question: Why might tobacco be a demerit good that is over-consumed? Possible answer: Tobacco can be over-consumed because consumers may not fully recognise addiction and long-term health costs. Source: Source: World Health Organization tobacco fact sheet. | Source: World Health Organization China tobacco profile.',
     },
     {
       type: 'section',
@@ -371,7 +303,6 @@ IGCSE.lesson = {
         ['3', 'over-consumed and over-__________', 'produced'],
         ['4', 'government may __________ consumption', 'discourage'],
       ],
-      prompt: 'Paper 2 often rewards a definition plus a suitable example.',
     },
     {
       type: 'peerTask',
@@ -408,7 +339,6 @@ IGCSE.lesson = {
         ['3', 'problem is non-__________', 'provision'],
         ['4', 'example: __________', 'defence'],
       ],
-      prompt: 'A merit good is not automatically a public good.',
     },
     {
       type: 'quiz',
@@ -422,7 +352,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'A merit good may be under-__________.', 'consumed'],

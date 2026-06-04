@@ -65,13 +65,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.4.2',
+      eyebrow: 'Objectives',
       title:   'By the end, you can',
       bullets: [
-        'Classify education, training, healthcare, infrastructure and subsidies as interventionist policies.',
-        'Explain how education, training and healthcare can raise productivity.',
-        'Explain how infrastructure and subsidies can raise capacity.',
-        'Analyse how government support can reduce unemployment.',
+        'Classify interventionist supply-side policies.',
+        'Explain how education, healthcare and infrastructure raise productivity or capacity.',
+        'Explain how government support can reduce unemployment.',
+      ],
+      zhBullets: [
+        '判断干预型供给侧政策。',
+        '解释教育、医疗和基础设施如何提高生产率或产能。',
+        '解释政府支持如何减少失业。',
       ],
     },
     {
@@ -101,31 +105,19 @@ IGCSE.lesson = {
       title:   'Education and training',
       zhTitle: '教育与培训',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'Germany',
-          context: 'In 2022, 468,900 people signed new contracts in Germany\'s dual vocational training system.',
-          question: 'How could vocational training improve occupational mobility of labour?',
-          questionZh: '职业培训会如何提高劳动力的职业流动性？',
-          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
-          source: 'Source: German Federal Statistical Office, 2023.',
-        },
-        china: {
-          country: 'China',
-          context: 'China\'s vocational schools had 28.57 million students acquiring skills during the 13th Five-Year Plan period.',
-          question: 'How could vocational training improve occupational mobility of labour?',
-          questionZh: '职业培训会如何提高劳动力的职业流动性？',
-          answer: 'Training improves workers\' skills, so each worker can produce more output per hour.',
-          source: 'Source: China Ministry of Education, 2020 vocational education briefing.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Germany',
       visual: factPhotos.vocationalEducation,
+      notes: 'Example: Germany / China. Former fact context: In 2022, 468,900 people signed new contracts in Germany\'s dual vocational training system. | China\'s vocational schools had 28.57 million students acquiring skills during the 13th Five-Year Plan period. Teacher question: How could vocational training improve occupational mobility of labour? Possible answer: Training improves workers\' skills, so each worker can produce more output per hour. Source: Source: German Federal Statistical Office, 2023. | Source: China Ministry of Education, 2020 vocational education briefing.',
     },
     {
       type: 'term',
+      keyTerms: [
+        { term: 'Output per worker', zh: '每名工人的产出', note: 'output from each worker' },
+        { term: 'factor input', zh: '生产要素投入', note: 'input used in production' },
+      ],
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Productivity',
       zhTitle: '生产率',
@@ -137,18 +129,21 @@ IGCSE.lesson = {
         ['Training', 'raises job-specific skills'],
         ['Technology', 'helps each worker produce more'],
       ],
-      visual: photos.vwApprentices,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Training route',
       zhTitle: '培训路径',
-      nodes: [['more training', 'skills improve', 'productivity rises', 'firms can produce more']],
-      footer: 'Paper 2 basis: training can increase skills, productivity and job opportunities.',
-      visual: photos.autoMechanicsTraining,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'more __________', answer: 'training', zh: '中文提示： more training' },
+          { text: 'skills __________', answer: 'improve', zh: '中文提示： skills improve' },
+          { text: 'productivity __________', answer: 'rises', zh: '中文提示： productivity rises' },
+          { text: 'firms can produce __________', answer: 'more', zh: '中文提示： firms can produce more' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -196,13 +191,18 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Healthcare route',
       zhTitle: '医疗保健路径',
-      nodes: [['better healthcare', 'less illness and absence', 'workers are more productive', 'total supply may rise']],
-      footer: 'Evaluation: benefits may take time and require government spending.',
-      visual: photos.healthcareWorkforce,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'better __________', answer: 'healthcare', zh: '中文提示： better healthcare' },
+          { text: 'less illness and __________', answer: 'absence', zh: '中文提示： less illness and absence' },
+          { text: 'workers are more __________', answer: 'productive', zh: '中文提示： workers are more productive' },
+          { text: 'total supply may __________', answer: 'rise', zh: '中文提示： total supply may rise' },
+        ]
+      ],
     },
     {
       type: 'section',
@@ -212,10 +212,14 @@ IGCSE.lesson = {
     },
     {
       type: 'term',
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Factor immobility',
       zhTitle: '生产要素流动性不足',
-      term:    'factor immobility',
+      term:    'factor immobility',      keyTerms: [
+        { term: 'Factor immobility', zh: '生产要素流动性不足', note: 'key economics term' },
+      ],
+
       definition: 'Factors of production cannot move easily to where they are needed, causing unemployment, shortages or surpluses.',
       definitionZh: '生产要素难以流向需要它们的地方，从而导致失业、短缺或过剩。',
       examples: [
@@ -223,15 +227,17 @@ IGCSE.lesson = {
         ['Geographical', 'workers cannot move to where jobs are'],
         ['Policy link', 'training, housing, transport and job information'],
       ],
-      visual: photos.employmentOffice,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'term',
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Structural unemployment',
       zhTitle: '结构性失业',
-      term:    'structural unemployment',
+      term:    'structural unemployment',      keyTerms: [
+        { term: 'Structural unemployment', zh: '结构性失业', note: 'key economics term' },
+      ],
+
       definition: 'Unemployment caused by changes in demand and supply conditions, skills not matching vacancies, lack of labour mobility or decline of industries.',
       definitionZh: '由于需求和供给条件变化、技能与岗位不匹配、劳动力流动性不足或产业衰退而造成的失业。',
       examples: [
@@ -239,18 +245,21 @@ IGCSE.lesson = {
         ['Regional mismatch', 'transport and housing can help'],
         ['Industry decline', 'retraining may be needed'],
       ],
-      visual: photos.employmentOffice,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Mobility route',
       zhTitle: '流动性路径',
-      nodes: [['better transport or job information', 'workers can reach vacancies', 'labour mobility rises', 'unemployment may fall']],
-      footer: 'Paper 2 basis: infrastructure can increase geographical mobility and reduce unemployment.',
-      visual: photos.employmentOffice,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'better transport or job __________', answer: 'information', zh: 'better transport or job information' },
+          { text: 'workers can reach __________', answer: 'vacancies', zh: 'workers can reach vacancies' },
+          { text: 'labour mobility __________', answer: 'rises', zh: '中文提示： labour mobility rises' },
+          { text: 'unemployment may __________', answer: 'fall', zh: '中文提示： unemployment may fall' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -272,38 +281,26 @@ IGCSE.lesson = {
       title:   'Infrastructure and subsidies',
       zhTitle: '基础设施与补贴',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'World Bank LPI',
-          context: 'The 2023 Logistics Performance Index covered 139 economies and includes trade and transport infrastructure quality.',
-          question: 'How could better transport infrastructure increase productive capacity?',
-          questionZh: '更好的交通基础设施会如何提高生产能力？',
-          answer: 'Better infrastructure reduces transport costs and delays, increasing productive capacity.',
-          source: 'Source: World Bank Logistics Performance Index 2023.',
-        },
-        china: {
-          country: 'China',
-          context: 'China allocated RMB 1 trillion in 2024 treasury bond funds to support major projects.',
-          question: 'How could better transport infrastructure increase productive capacity?',
-          questionZh: '更好的交通基础设施会如何提高生产能力？',
-          answer: 'Better infrastructure reduces transport costs and delays, increasing productive capacity.',
-          source: 'Source: China State Council/Xinhua, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: World Bank LPI',
       visual: factPhotos.infrastructure,
+      notes: 'Example: World Bank LPI / China. Former fact context: The 2023 Logistics Performance Index covered 139 economies and includes trade and transport infrastructure quality. | China allocated RMB 1 trillion in 2024 treasury bond funds to support major projects. Teacher question: How could better transport infrastructure increase productive capacity? Possible answer: Better infrastructure reduces transport costs and delays, increasing productive capacity. Source: Source: World Bank Logistics Performance Index 2023. | Source: China State Council/Xinhua, 2024.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Infrastructure route',
       zhTitle: '基础设施路径',
-      nodes: [['better roads, ports or internet', 'transport and communication costs fall', 'firms can expand output', 'productive capacity rises']],
-      footer: 'Interventionist policy can lower firms\' costs by improving public infrastructure.',
-      visual: photos.portTerminal,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'better roads, ports or __________', answer: 'internet', zh: 'better roads, ports or internet' },
+          { text: 'transport and communication costs __________', answer: 'fall', zh: '中文提示： transport and communication costs fall' },
+          { text: 'firms can expand __________', answer: 'output', zh: '中文提示： firms can expand output' },
+          { text: 'productive capacity __________', answer: 'rises', zh: '中文提示： productive capacity rises' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -321,10 +318,14 @@ IGCSE.lesson = {
     },
     {
       type: 'term',
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Subsidy',
       zhTitle: '补贴',
-      term:    'subsidy',
+      term:    'subsidy',      keyTerms: [
+        { term: 'Subsidy', zh: '补贴', note: 'key economics term' },
+      ],
+
       definition: 'A government payment or financial incentive to producers or consumers; it can reduce costs, increase supply, lower price and encourage production or consumption.',
       definitionZh: '政府给生产者或消费者的付款或财政激励；可降低成本、增加供给、降低价格并鼓励生产或消费。',
       examples: [
@@ -332,8 +333,6 @@ IGCSE.lesson = {
         ['Training subsidy', 'lower cost of worker training'],
         ['Risk', 'firms may rely on support'],
       ],
-      visual: photos.chipsInvestment,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'answer',
@@ -350,8 +349,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title:   'Analyse unemployment',
-      question: 'Analyse how interventionist supply-side policies could reduce unemployment.',
+      title:   'Analyse how interventionist supply-side policies could reduce unemployment. [6]',
       keywords: ['education', 'training', 'infrastructure', 'mobility'],
       prompt:   'Use 2023ON-22 Q3(c): name a measure, explain the skill, mobility or cost link, then link to unemployment.',
       visual:   photos.employmentOffice,
@@ -359,19 +357,20 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title:   'Model answer',
+      title:   'Analyse how interventionist supply-side policies could reduce unemployment. [6]',
       question: 'Analyse how interventionist supply-side policies could reduce unemployment.',
       answer: 'Government spending on education and training can improve workers\' skills and productivity. This makes workers more employable, so firms may be more willing to hire them. Infrastructure spending can also improve mobility by making it easier for workers to travel to jobs, reducing geographical unemployment.',
       links: ['education', 'training', 'infrastructure', 'mobility'],
-      markSchemeNote: 'This follows analyse wording by building coherent links from policy measures to skills, employability, mobility and lower unemployment.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title:   'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode:    'fillBlanks',
       steps: [
         ['1', 'Training can reduce structural unemployment by improving worker __________.', 'skills'],

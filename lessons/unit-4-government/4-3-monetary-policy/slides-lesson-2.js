@@ -135,9 +135,7 @@ IGCSE.lesson = {
         { term: 'reward for saving', zh: '储蓄回报', note: 'the extra amount earned by a saver' },
         { term: 'percentage', zh: '百分比', explain: false },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-    },
+      showExamples: false,    },
     {
       type: 'yesNoCheck',
       eyebrow: 'Check',
@@ -173,19 +171,20 @@ IGCSE.lesson = {
     },
     {
       type: 'compare',
+      mode: 'fillBlanks',
       eyebrow: 'Key idea',
       variant: 'policyDirection',
       leftTitle: 'Expansionary monetary policy',
       rightTitle: 'Contractionary monetary policy',
       left: [
-        'Lower interest rates or increase money supply.',
-        'Borrowing, lending, spending and investment may rise.',
-        'Aggregate demand, output and employment may rise.',
+        ['1', 'Lower interest rates or increase money __________', 'supply'],
+        ['2', 'Borrowing, lending, spending and investment may __________', 'rise'],
+        ['3', 'Aggregate demand, output and employment may __________', 'rise'],
       ],
       right: [
-        'Raise interest rates or reduce money supply.',
-        'Borrowing, lending, spending and investment may fall.',
-        'Inflationary pressure may fall.',
+        ['1', 'Raise interest rates or reduce money __________', 'supply'],
+        ['2', 'Borrowing, lending, spending and investment may __________', 'fall'],
+        ['3', 'Inflationary pressure may __________', 'fall'],
       ],
     },
     {
@@ -233,10 +232,8 @@ IGCSE.lesson = {
           { text: 'saving becomes less __________', answer: 'attractive', zh: '储蓄吸引力下降' },
           { text: 'households may __________ more', answer: 'spend', zh: '家庭可能增加支出' },
           { text: 'aggregate demand, output and __________ may rise', answer: 'employment', zh: '总需求、产出和就业可能上升' },
-        ],
+        ]
       ],
-      footer: 'Lower rates are usually expansionary because they raise aggregate demand.',
-      visual: photos.fed,
     },
     {
       type: 'answer',
@@ -323,10 +320,8 @@ IGCSE.lesson = {
           { text: 'saving becomes more __________', answer: 'attractive', zh: '储蓄吸引力上升' },
           { text: 'households may __________ less', answer: 'spend', zh: '家庭可能减少支出' },
           { text: 'aggregate demand and __________ may fall', answer: 'inflationary pressure', zh: '总需求和通胀压力可能下降' },
-        ],
+        ]
       ],
-      footer: 'Higher rates are usually contractionary because they reduce aggregate demand.',
-      visual: photos.bankEngland,
     },
     {
       type: 'answer',
@@ -389,9 +384,8 @@ IGCSE.lesson = {
     },
     {
       type: 'exam',
-      eyebrow: 'Exam practice',
-      question: 'Explain how higher interest rates may reduce inflation.',
-      marks: 4,
+      title: 'Explain how higher interest rates may reduce inflation. [4]',
+      eyebrow: 'Exam practice',      marks: 4,
       keywords: ['borrowing', 'saving', 'spending', 'aggregate demand', 'inflation'],
       prompt: 'Write four connected steps with one clear "may".',
       visual: photos.bankEngland,
@@ -407,19 +401,20 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Model answer',
-      title: 'Model answer',
+      title: 'Explain how higher interest rates may reduce inflation. [4]',
       question: 'Explain how higher interest rates may reduce inflation.',
       answer: 'Higher interest rates make borrowing more expensive and saving more rewarding. Consumers and firms may borrow and spend less, so aggregate demand falls. With lower demand, firms have less ability to raise prices, so demand-pull inflationary pressure may fall.',
       links: ['borrowing', 'saving', 'spending', 'aggregate demand', 'inflation'],
-      markSchemeNote: 'This explain-style answer develops the link from the monetary-policy measure to inflation.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'An __________ is the cost of borrowing and reward for saving.', 'interest rate'],

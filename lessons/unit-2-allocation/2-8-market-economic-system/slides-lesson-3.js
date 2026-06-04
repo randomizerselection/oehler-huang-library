@@ -38,14 +38,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.8.2',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Explain consumer sovereignty as an argument for markets.',
-        'Explain choice as an argument for markets.',
-        'Explain quality and innovation using the profit motive and competition.',
-        'Explain efficiency using cost and waste reduction.',
-        'Build fact-based exam chains for arguments for markets.',
+        'Explain choice, quality and innovation.',
+        'Build exam chains for arguments for markets.',
+      ],
+      zhBullets: [
+        '解释消费者主权如何支持市场经济。',
+        '解释选择、质量和创新。',
+        '为支持市场经济的论点构建考试解释链。',
       ],
     },
     {
@@ -56,13 +59,18 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Consumer sovereignty',
       zhTitle: '消费者主权',
-      nodes: [['consumers demand products', 'firms respond to demand', 'profit rewards successful firms', 'consumers influence resource allocation']],
-      footer: 'Consumer sovereignty means firms produce what consumers demand because profit provides an incentive to respond.',
-      visual: photos.phoneDisplay,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'consumers demand __________', answer: 'products', zh: '中文提示： consumers demand products' },
+          { text: 'firms respond to __________', answer: 'demand', zh: '中文提示： firms respond to demand' },
+          { text: 'profit rewards successful __________', answer: 'firms', zh: '中文提示： profit rewards successful firms' },
+          { text: 'consumers influence resource __________', answer: 'allocation', zh: '中文提示： consumers influence resource allocation' },
+        ]
+      ],
     },
     {
       type: 'section',
@@ -70,38 +78,26 @@ IGCSE.lesson = {
       title: 'Choice',
       zhTitle: '选择',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'The US App Store ecosystem facilitated USD 406 billion in developer billings and sales in 2024.',
-          question: 'How can competition in digital markets benefit consumers and producers?',
-          questionZh: '数字市场中的竞争如何使消费者和生产者受益？',
-          answer: 'Competition can push firms to improve quality, reduce prices and offer more choice to users and developers.',
-          source: 'Source: Apple Newsroom, 2025.',
-        },
-        china: {
-          country: 'China',
-          context: 'China’s App Store ecosystem reached RMB 3.76 trillion in 2023.',
-          question: 'How can competition in digital markets benefit consumers and producers?',
-          questionZh: '数字市场中的竞争如何使消费者和生产者受益？',
-          answer: 'Competition can push firms to improve quality, reduce prices and offer more choice to users and developers.',
-          source: 'Source: Apple China Newsroom, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
       visual: photos.phoneDisplay,
+      notes: 'Example: United States / China. Former fact context: The US App Store ecosystem facilitated USD 406 billion in developer billings and sales in 2024. | China’s App Store ecosystem reached RMB 3.76 trillion in 2023. Teacher question: How can competition in digital markets benefit consumers and producers? Possible answer: Competition can push firms to improve quality, reduce prices and offer more choice to users and developers. Source: Source: Apple Newsroom, 2025. | Source: Apple China Newsroom, 2024.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Choice',
       zhTitle: '选择',
-      nodes: [['many firms compete', 'different prices and designs appear', 'consumers compare options', 'consumer welfare may rise']],
-      footer: 'Choice is stronger when competition is real.',
-      visual: photos.phoneDisplay,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'many firms __________', answer: 'compete', zh: '中文提示： many firms compete' },
+          { text: 'different prices and designs __________', answer: 'appear', zh: '中文提示： different prices and designs appear' },
+          { text: 'consumers compare __________', answer: 'options', zh: '中文提示： consumers compare options' },
+          { text: 'consumer welfare may __________', answer: 'rise', zh: '中文提示： consumer welfare may rise' },
+        ]
+      ],
     },
     {
       type: 'section',
@@ -119,38 +115,26 @@ IGCSE.lesson = {
       answerZh: '利润会激励商店创新、生产更多受欢迎的饮品，并把更多资源投入其中。',
       visual: photos.bubbleTeaShop,
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'World',
-          context: 'Electric car sales topped 17 million in 2024 as firms competed for a fast-growing market.',
-          question: 'How could competition affect price, quality or choice in this market?',
-          questionZh: '竞争会如何影响这个市场的价格、质量或选择？',
-          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
-          source: 'Source: IEA Global EV Outlook 2025.',
-        },
-        china: {
-          country: 'China',
-          context: 'Chinese-headquartered car makers accounted for about 80% of domestic EV sales in China in 2024.',
-          question: 'How could competition affect price, quality or choice in this market?',
-          questionZh: '竞争会如何影响这个市场的价格、质量或选择？',
-          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
-          source: 'Source: IEA Global EV Outlook 2025.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: World',
       visual: photos.evCharging,
+      notes: 'Example: World / China. Former fact context: Electric car sales topped 17 million in 2024 as firms competed for a fast-growing market. | Chinese-headquartered car makers accounted for about 80% of domestic EV sales in China in 2024. Teacher question: How could competition affect price, quality or choice in this market? Possible answer: A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome. Source: Source: IEA Global EV Outlook 2025.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Quality and innovation',
       zhTitle: '质量与创新',
-      nodes: [['firms want profit', 'better products attract consumers', 'sales may rise', 'quality and innovation improve']],
-      footer: 'Use this chain for smartphone, EV, app and food-market examples.',
-      visual: photos.evCharging,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'firms want __________', answer: 'profit', zh: '中文提示： firms want profit' },
+          { text: 'better products attract __________', answer: 'consumers', zh: '中文提示： better products attract consumers' },
+          { text: 'sales may __________', answer: 'rise', zh: '中文提示： sales may rise' },
+          { text: 'quality and innovation __________', answer: 'improve', zh: '中文提示： quality and innovation improve' },
+        ]
+      ],
     },
     {
       type: 'section',
@@ -158,38 +142,26 @@ IGCSE.lesson = {
       title: 'Efficiency',
       zhTitle: '效率',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'Amazon’s fulfilment centers use large-scale logistics systems to reduce delivery times and unit handling costs.',
-          question: 'How can large-scale production lower average costs or improve service?',
-          questionZh: '大规模生产如何降低平均成本或改善服务？',
-          answer: 'Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed.',
-          source: 'Source: Amazon operations reporting and public fulfilment-center materials.',
-        },
-        china: {
-          country: 'China',
-          context: 'China’s express delivery volume exceeded 130 billion parcels in 2023,.',
-          question: 'How can large-scale production lower average costs or improve service?',
-          questionZh: '大规模生产如何降低平均成本或改善服务？',
-          answer: 'Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed.',
-          source: 'Source: State Post Bureau of China, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
       visual: photos.amazonWarehouse,
+      notes: 'Example: United States / China. Former fact context: Amazon’s fulfilment centers use large-scale logistics systems to reduce delivery times and unit handling costs. | China’s express delivery volume exceeded 130 billion parcels in 2023,. Teacher question: How can large-scale production lower average costs or improve service? Possible answer: Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed. Source: Source: Amazon operations reporting and public fulfilment-center materials. | Source: State Post Bureau of China, 2024.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'Efficiency',
       zhTitle: '效率',
-      nodes: [['competition pressures firms', 'firms cut waste and costs', 'prices may fall', 'resources may be used efficiently']],
-      footer: 'Efficiency means producing with fewer wasted resources.',
-      visual: photos.amazonWarehouse,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'competition pressures __________', answer: 'firms', zh: '中文提示： competition pressures firms' },
+          { text: 'firms cut waste and __________', answer: 'costs', zh: '中文提示： firms cut waste and costs' },
+          { text: 'prices may __________', answer: 'fall', zh: '中文提示： prices may fall' },
+          { text: 'resources may be used __________', answer: 'efficiently', zh: '中文提示： resources may be used efficiently' },
+        ]
+      ],
     },
     {
       type: 'marketSignalGame',
@@ -198,39 +170,46 @@ IGCSE.lesson = {
     },
     {
       type: 'compare',
+      mode: 'fillBlanks',
       eyebrow: 'Exam practice',
       title: 'Weak answer or strong answer?',
       leftTitle: 'Weak',
-      left: ['Markets are good because there is choice.', 'Firms make profit.', 'Competition is good.'],
+      left: [
+        ['1', 'Markets are good because there is __________', 'choice'],
+        ['2', 'Firms make __________', 'profit'],
+        ['3', 'Competition is __________', 'good'],
+      ],
       rightTitle: 'Strong',
-      right: ['Competition gives firms an incentive to reduce costs.', 'Lower costs may allow lower prices.', 'Consumers may gain more choice and better quality.'],
-      prompt: 'The strong answer explains the chain.',
-      partialReview: ['.splitCols > .card', '.prompt'],
+      right: [
+        ['1', 'Competition gives firms an incentive to reduce __________', 'costs'],
+        ['2', 'Lower costs may allow lower __________', 'prices'],
+        ['3', 'Consumers may gain more choice and better __________', 'quality'],
+      ],
     },
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Analyse advantages',
-      question: 'Analyse two advantages of a market economic system. [6]',
+      title: 'Analyse two advantages of a market economic system. [6]',
       keywords: ['consumer sovereignty', 'choice', 'quality and innovation', 'efficiency'],
       prompt: 'Build two chains. Each chain needs a cause, an effect and a benefit. Paper 2 source: 2.8 market economic system archive.',
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title: 'Model answer',
+      title: 'Analyse two advantages of a market economic system. [6]',
       question: 'Analyse two advantages of a market economic system. [6]',
       answer: 'A market economic system can increase consumer sovereignty because firms respond to what consumers demand. This can increase choice and encourage firms to improve quality and innovation to attract buyers. Competition also gives firms an incentive to cut costs and use resources efficiently, which may lower prices for consumers.',
       links: ['consumer sovereignty', 'choice', 'quality and innovation', 'efficiency'],
-      markSchemeNote: 'This follows analyse wording by developing two advantages with clear cause-effect links and relevant economic terminology.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Consumer sovereignty means firms produce what consumers __________.', 'demand'],

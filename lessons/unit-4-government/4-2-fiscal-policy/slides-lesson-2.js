@@ -57,95 +57,74 @@ IGCSE.lesson = {
             'Distinguish between direct and indirect tax.',
             'Use real examples of direct and indirect taxes.',
           ],
-        },
+          zhBullets: [
+            '解释征税的原因。',
+            '区分直接税和间接税。',
+            '使用直接税和间接税的现实例子。',
+          ],
+    },
     {
           type: 'section',
           eyebrow: 'New section',
           title:   'Why governments tax',
           zhTitle: '政府征税的原因',
         },
-    {
-          type: 'fact',
-          eyebrow: 'Example',
-          facts: {
-            left: {
-              flag: '🇩🇰',
-              country: 'Denmark',
-              context: 'Denmark’s tax revenue was 45.2% of GDP in 2024.',
-          question: 'How does tax revenue help finance government spending?',
-          questionZh: '税收收入如何帮助政府支出融资？',
-          answer: 'Tax revenue gives the government funds to pay for public services, transfers and investment.',
-              zh: '2024年，丹麦税收收入占GDP的45.2%。',
-              source: 'Source: OECD Revenue Statistics 2025.',
-            },
-            china: {
-              flag: '🇨🇳',
-              country: 'China',
-              context: 'China’s tax revenue was 20.4% of GDP in 2023.',
-          question: 'How does tax revenue help finance government spending?',
-          questionZh: '税收收入如何帮助政府支出融资？',
-          answer: 'Tax revenue gives the government funds to pay for public services, transfers and investment.',
-              zh: '2023年，中国税收收入占GDP的20.4%。',
-              source: 'Source: OECD Revenue Statistics in Asia and the Pacific 2025.',
-            },
-          },
-          visual: factPhotos.denmarkTax,
-        },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Denmark',
+      visual: factPhotos.denmarkTax,
+      notes: 'Example: Denmark / China. Former fact context: Denmark’s tax revenue was 45.2% of GDP in 2024. | China’s tax revenue was 20.4% of GDP in 2023. Teacher question: How does tax revenue help finance government spending? Possible answer: Tax revenue gives the government funds to pay for public services, transfers and investment. Source: Source: OECD Revenue Statistics 2025. | Source: OECD Revenue Statistics in Asia and the Pacific 2025.',
+    },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '1. Raise revenue',
           zhTitle: '增加财政收入',
-          nodes: [['government charges taxes', 'revenue rises', 'public services can be funded']],
-          footer: 'Example: income tax can help fund education and healthcare.',
-          visual: photos.taxForms,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'government charges __________', answer: 'taxes', zh: '中文提示： government charges taxes' },
+          { text: 'revenue __________', answer: 'rises', zh: '中文提示： revenue rises' },
+          { text: 'public services can be __________', answer: 'funded', zh: 'public services can be funded' },
+        ]
+      ],
+    },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '2. Reduce demerit goods',
           zhTitle: '减少有害品',
-          nodes: [['tax on cigarettes', 'price rises', 'quantity demanded may fall', 'health costs may fall']],
-          footer: 'Evaluation: demand may be price inelastic.',
-          visual: photos.tobacco,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
-    {
-          type: 'fact',
-          eyebrow: 'Example',
-          facts: {
-            left: {
-              flag: '🇦🇺',
-              country: 'Australia',
-              context: 'Australia charged AUD 1.40312 excise tax per cigarette in March 2025.',
-          question: 'How could a cigarette tax reduce consumption of a demerit good?',
-          questionZh: '为什么教育可能是消费不足的有益品？',
-          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
-              source: 'Source: Australian Taxation Office.',
-            },
-            china: {
-              flag: '🇨🇳',
-              country: 'China',
-              context: 'China uses excise taxes on cigarettes, including production and wholesale taxes.',
-          question: 'How could a cigarette tax reduce consumption of a demerit good?',
-          questionZh: '为什么教育可能是消费不足的有益品？',
-          answer: 'Education can be under-consumed because people may underestimate its private and external benefits.',
-              source: 'Source: China consumption tax rate table.',
-            },
-          },
-          visual: factPhotos.philippinesTobacco,
-        },
+          nodes: [
+        [
+          { text: 'tax on __________', answer: 'cigarettes', zh: '中文提示： tax on cigarettes' },
+          { text: 'price __________', answer: 'rises', zh: '价格上升' },
+          { text: 'quantity demanded may __________', answer: 'fall', zh: '中文提示： quantity demanded may fall' },
+          { text: 'health costs may __________', answer: 'fall', zh: '中文提示： health costs may fall' },
+        ]
+      ],
+    },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Australia',
+      visual: factPhotos.philippinesTobacco,
+      notes: 'Example: Australia / China. Former fact context: Australia charged AUD 1.40312 excise tax per cigarette in March 2025. | China uses excise taxes on cigarettes, including production and wholesale taxes. Teacher question: How could a cigarette tax reduce consumption of a demerit good? Possible answer: Education can be under-consumed because people may underestimate its private and external benefits. Source: Source: Australian Taxation Office. | Source: China consumption tax rate table.',
+    },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '3. Reduce imports',
           zhTitle: '减少进口',
-          nodes: [['tariff on imports', 'import prices rise', 'consumers may buy fewer imports', 'domestic firms may sell more']],
-          footer: 'Evaluation: other countries may retaliate.',
-          visual: photos.port,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'tariff on __________', answer: 'imports', zh: '中文提示： tariff on imports' },
+          { text: 'import prices __________', answer: 'rise', zh: '中文提示： import prices rise' },
+          { text: 'consumers may buy fewer __________', answer: 'imports', zh: '中文提示： consumers may buy fewer imports' },
+          { text: 'domestic firms may sell __________', answer: 'more', zh: '中文提示： domestic firms may sell more' },
+        ]
+      ],
+    },
     {
           type: 'quiz',
           eyebrow: 'Check',
@@ -161,34 +140,48 @@ IGCSE.lesson = {
         },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '4. Redistribute income',
           zhTitle: '收入再分配',
-          nodes: [['higher taxes on high incomes', 'government revenue rises', 'welfare can be funded', 'inequality may fall']],
-          footer: 'Taxes on higher incomes can be linked directly to redistribution.',
-          visual: photos.socialSecurity,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'higher taxes on high __________', answer: 'incomes', zh: '中文提示： higher taxes on high incomes' },
+          { text: 'government revenue __________', answer: 'rises', zh: '中文提示： government revenue rises' },
+          { text: 'welfare can be __________', answer: 'funded', zh: '中文提示： welfare can be funded' },
+          { text: 'inequality may __________', answer: 'fall', zh: '中文提示： inequality may fall' },
+        ]
+      ],
+    },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '5. Influence demand',
           zhTitle: '影响需求',
-          nodes: [['higher income tax', 'disposable income falls', 'consumer spending may fall', 'inflationary pressure may fall']],
-          footer: 'This may conflict with growth and employment.',
-          visual: photos.inflation,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'higher income __________', answer: 'tax', zh: '中文提示： higher income tax' },
+          { text: 'disposable income __________', answer: 'falls', zh: '中文提示： disposable income falls' },
+          { text: 'consumer spending may __________', answer: 'fall', zh: '中文提示： consumer spending may fall' },
+          { text: 'inflationary pressure may __________', answer: 'fall', zh: '中文提示： inflationary pressure may fall' },
+        ]
+      ],
+    },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   '6. Encourage environmental sustainability',
           zhTitle: '鼓励可持续发展',
-          nodes: [['pollution tax', 'firms face higher costs for polluting', 'cleaner methods become more attractive']],
-          footer: 'Evaluate: firms may pass higher costs to consumers.',
-          visual: photos.pollution,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'pollution __________', answer: 'tax', zh: '中文提示： pollution tax' },
+          { text: 'firms face higher costs for __________', answer: 'polluting', zh: '中文提示： firms face higher costs for polluting' },
+          { text: 'cleaner methods become more __________', answer: 'attractive', zh: '中文提示： cleaner methods become more attractive' },
+        ]
+      ],
+    },
     {
           type: 'quiz',
           eyebrow: 'Check',
@@ -213,7 +206,7 @@ IGCSE.lesson = {
             ['3', 'A tariff can reduce __________ by making them more expensive.', 'imports'],
             ['4', 'Higher taxes on high incomes can help __________ income.', 'redistribute'],
           ],
-        },
+    },
     {
           type: 'section',
           eyebrow: 'New section',
@@ -232,10 +225,14 @@ IGCSE.lesson = {
         },
     {
           type: 'term',
+          showExamples: false,
           eyebrow: 'Learn',
           title:   'Direct tax',
           zhTitle: '直接税',
-          term:    'direct tax',
+          term:    'direct tax',          keyTerms: [
+        { term: 'Direct tax', zh: '直接税', note: 'key economics term' },
+      ],
+
           definition: 'A direct tax is a tax on income or wealth paid directly to government, such as income tax, corporation tax or wealth tax.',
           definitionZh: '直接税是对收入或财富征收、直接向政府缴纳的税，如所得税、公司税或财富税。',
           examples: [
@@ -243,15 +240,17 @@ IGCSE.lesson = {
             ['Corporation tax', 'tax on company profits'],
             ['Property tax', 'tax on land or buildings'],
           ],
-          visual: photos.taxForms,
-          partialReview: ['.termBox', '.termExamples > .termExample'],
-        },
+    },
     {
           type: 'term',
+          showExamples: false,
           eyebrow: 'Learn',
           title:   'Indirect tax',
           zhTitle: '间接税',
-          term:    'indirect tax',
+          term:    'indirect tax',          keyTerms: [
+        { term: 'Indirect tax', zh: '间接税', note: 'key economics term' },
+      ],
+
           definition: 'An indirect tax is a tax on spending / goods and services, such as VAT, sales tax, excise duties or tariffs.',
           definitionZh: '间接税是对支出、商品和服务征收的税，如增值税、销售税、消费税或关税。',
           examples: [
@@ -259,53 +258,27 @@ IGCSE.lesson = {
             ['Sales tax', 'paid at checkout'],
             ['Excise tax', 'on goods such as fuel'],
           ],
-          visual: photos.shopping,
-          partialReview: ['.termBox', '.termExamples > .termExample'],
-        },
-    {
-          type: 'fact',
-          eyebrow: 'Example',
-          facts: {
-            left: {
-              flag: '🇬🇧',
-              country: 'United Kingdom',
-              context: 'After the UK sugar levy, sugar in taxed soft drinks fell 46% from 2015 to 2020.',
-          question: 'How could a tax change firms\' incentives and consumer choices?',
-          questionZh: '税收会如何改变企业激励和消费者选择？',
-          answer: 'A tax can raise prices or encourage reformulation, so consumers buy less and firms reduce sugar content.',
-              zh: '英国含糖饮料税后，被征税软饮料含糖量在2015至2020年下降46%。',
-              source: 'Source: HM Treasury and HMRC.',
-            },
-            china: {
-              flag: '🇨🇳',
-              country: 'China',
-              context: 'China has no national sugar-sweetened beverage excise tax in this international policy dataset.',
-          question: 'What might happen to consumption if no sugar-sweetened beverage tax is used?',
-          questionZh: '如果不征收含糖饮料税，消费可能会怎样？',
-          answer: 'A tax can raise prices or encourage reformulation, so consumers buy less and firms reduce sugar content.',
-              zh: '世界银行数据库显示，中国全国层面的含糖饮料消费税为0。',
-              source: 'Source: World Bank Global SSB Tax Database.',
-            },
-          },
-          visual: factPhotos.ukSugar,
-        },
+    },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United Kingdom',
+      visual: factPhotos.ukSugar,
+      notes: 'Example: United Kingdom / China. Former fact context: After the UK sugar levy, sugar in taxed soft drinks fell 46% from 2015 to 2020. | China has no national sugar-sweetened beverage excise tax in this international policy dataset. Teacher question: How could a tax change firms\' incentives and consumer choices? Possible answer: A tax can raise prices or encourage reformulation, so consumers buy less and firms reduce sugar content. Source: Source: HM Treasury and HMRC. | Source: World Bank Global SSB Tax Database.',
+    },
     {
           type: 'compare',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   'Two direct taxes',
           leftTitle: 'Income tax',
           left: [
-            'tax on wages, salaries or other personal income',
-            'rates may vary by income band or income level'
-          ],
+        ['1', 'tax on wages, salaries or other personal __________', 'income'],
+        ['2', 'rates may vary by income band or income __________', 'level'],
+      ],
           rightTitle: 'Corporation tax',
           right: [
-            'tax on company profits',
-          ],
-          prompt: 'Real-world link: the UK, US, China and many other countries use both taxes.',
-          visual: photos.industry,
-          partialReview: ['.splitCols > .card', '.prompt'],
-        },
+        ['1', 'tax on company __________', 'profits'],
+      ],          visual: photos.industry,        },
     {
           type: 'discussion',
           eyebrow: 'Explore',
@@ -318,23 +291,22 @@ IGCSE.lesson = {
         },
     {
           type: 'compare',
+          mode: 'fillBlanks',
           eyebrow: 'Learn',
           title:   'VAT, sales tax and other indirect taxes',
           leftTitle: 'VAT or sales tax',
           left: [
-            'indirect tax on spending',
-            'charged as a percentage of the selling price',
-            'real examples: VAT in the UK and EU; sales tax in many US states'
-          ],
+        ['1', 'indirect tax on __________', 'spending'],
+        ['2', 'charged as a percentage of the selling __________', 'price'],
+        ['3', 'real examples: VAT in the UK and EU; sales tax in many US __________', 'states'],
+      ],
           rightTitle: 'Indirect tax on specific goods',
           right: [
-            'indirect tax on specific goods',
-            'often used on cigarettes, alcohol and fuel',
-            'aims can include revenue and reducing demerit goods'
-          ],
-          visual: photos.tobacco,
-          partialReview: ['.splitCols > .card', '.prompt'],
-        },
+        ['1', 'indirect tax on specific __________', 'goods'],
+        ['2', 'often used on cigarettes, alcohol and __________', 'fuel'],
+        ['3', 'aims can include revenue and reducing demerit __________', 'goods'],
+      ],
+          visual: photos.tobacco,        },
     {
           type: 'discussion',
           eyebrow: 'Explore',
@@ -347,21 +319,30 @@ IGCSE.lesson = {
         },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Example',
           title:   'Indirect tax on tobacco',
           zhTitle: '烟草间接税',
           question: 'Many governments put high indirect taxes on cigarettes.',
-          nodes: [['tax per packet rises', 'retail price rises', 'some smokers buy fewer cigarettes', 'health costs may fall']],
-          footer: 'Limitation: addiction can make demand price inelastic, so quantity may fall only slightly.',
-          visual: photos.tobacco,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'tax per packet __________', answer: 'rises', zh: '中文提示： tax per packet rises' },
+          { text: 'retail price __________', answer: 'rises', zh: '中文提示： retail price rises' },
+          { text: 'some smokers buy fewer __________', answer: 'cigarettes', zh: 'some smokers buy fewer cigarettes' },
+          { text: 'health costs may __________', answer: 'fall', zh: '中文提示： health costs may fall' },
+        ]
+      ],
+    },
     {
           type: 'term',
+          showExamples: false,
           eyebrow: 'Learn',
           title:   'Import tariff',
           zhTitle: '进口关税',
-          term:    'tariff',
+          term:    'tariff',          keyTerms: [
+        { term: 'Import tariff', zh: '进口关税', note: 'key economics term' },
+      ],
+
           definition: 'A tariff is an indirect tax on imported goods. It raises the price of imports and may protect domestic producers.',
           definitionZh: '关税是对进口商品征收的间接税。它提高进口品价格，并可能保护国内生产者。',
           examples: [
@@ -369,9 +350,7 @@ IGCSE.lesson = {
             ['Imported steel', 'domestic firms protected'],
             ['Imported clothing', 'consumer prices may rise'],
           ],
-          visual: photos.port,
-          partialReview: ['.termBox', '.termExamples > .termExample'],
-        },
+    },
     {
           type: 'discussion',
           eyebrow: 'Explore',
@@ -382,31 +361,12 @@ IGCSE.lesson = {
           answerZh: '国内生产者和政府可能受益，消费者和外国生产者可能受损。',
           visual: photos.port,
         },
-    {
-          type: 'fact',
-          eyebrow: 'Example',
-          facts: {
-            left: {
-              flag: '🇸🇪',
-              country: 'Sweden',
-              context: 'Sweden introduced a carbon tax in 1991.',
-          question: 'How could a pollution charge or carbon market reduce external costs?',
-          questionZh: '污染收费或碳市场会如何减少外部成本？',
-          answer: 'The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers.',
-              source: 'Source: Government Offices of Sweden.',
-            },
-            china: {
-              flag: '🇨🇳',
-              country: 'China',
-              context: 'China started a national carbon market in 2021, covering power-sector emissions.',
-          question: 'How could a pollution charge or carbon market reduce external costs?',
-          questionZh: '污染收费或碳市场会如何减少外部成本？',
-          answer: 'The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers.',
-              source: 'Source: Gov.cn and MEE reporting.',
-            },
-          },
-          visual: factPhotos.swedenCarbon,
-        },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Sweden',
+      visual: factPhotos.swedenCarbon,
+      notes: 'Example: Sweden / China. Former fact context: Sweden introduced a carbon tax in 1991. | China started a national carbon market in 2021, covering power-sector emissions. Teacher question: How could a pollution charge or carbon market reduce external costs? Possible answer: The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers. Source: Source: Government Offices of Sweden. | Source: Gov.cn and MEE reporting.',
+    },
     {
           type: 'discussion',
           eyebrow: 'Explore',
@@ -421,7 +381,7 @@ IGCSE.lesson = {
           type: 'answer',
           eyebrow: 'Check',
           title:   'Exit ticket',
-          zhTitle: '离堂小测',
+          zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
           mode:    'fillBlanks',
           steps: [
             ['1', 'A direct tax is paid directly by the __________ to the government.', 'taxpayer'],
@@ -429,7 +389,7 @@ IGCSE.lesson = {
             ['3', 'Corporation tax is a tax on company __________.', 'profits'],
             ['4', 'A tariff is an indirect tax on __________ goods.', 'imported'],
           ],
-        },
+    },
 
   ],
 };

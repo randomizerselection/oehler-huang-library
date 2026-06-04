@@ -55,8 +55,12 @@ IGCSE.lesson = {
       bullets: [
         'Define a government budget.',
         'Calculate deficits and surpluses.',
-        'Describe main areas of government spending.',
         'Explain reasons and effects of government spending.',
+      ],
+      zhBullets: [
+        '定义政府预算。',
+        '计算预算赤字和预算盈余。',
+        '解释政府支出的原因和影响。',
       ],
     },
     {
@@ -77,6 +81,11 @@ IGCSE.lesson = {
     },
     {
       type: 'term',
+      keyTerms: [
+        { term: 'government revenue', zh: '政府收入', note: 'money received by government' },
+        { term: 'government expenditure', zh: '政府支出', note: 'money spent by government' },
+      ],
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Budget balance',
       zhTitle: '预算差额',
@@ -88,35 +97,12 @@ IGCSE.lesson = {
         ['Deficit', 'negative balance'],
         ['Surplus', 'positive balance'],
       ],
-      visual:  photos.budgetMeeting,
-      partialReview: ['.termBox', '.formula', '.termExamples > .termExample'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          flag: '🇬🇧',
-          country: 'United Kingdom',
-          context: 'UK public borrowing was GBP 131.1 billion (about RMB 1.2 trillion) in 2023/24.',
-          question: 'How is a budget deficit linked to government borrowing?',
-          questionZh: '预算赤字与政府借款有什么联系？',
-          answer: 'A budget deficit means government spending exceeds revenue, so the government usually needs to borrow.',
-          zh: '2023/24财年，英国公共借款为1311亿英镑（约1.2万亿元人民币）。',
-          source: 'Source: UK ONS; RMB conversion approximate.',
-        },
-        china: {
-          flag: '🇨🇳',
-          country: 'China',
-          context: 'China planned a RMB 4.06 trillion budget deficit in 2024, equal to 3% of GDP.',
-          question: 'How is a budget deficit linked to government borrowing?',
-          questionZh: '预算赤字与政府借款有什么联系？',
-          answer: 'A budget deficit means government spending exceeds revenue, so the government usually needs to borrow.',
-          zh: '中国2024年安排预算赤字4.06万亿元人民币，相当于GDP的3%。',
-          source: 'Source: 2024 Government Work Report.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United Kingdom',
       visual: factPhotos.ukBudget,
+      notes: 'Example: United Kingdom / China. Former fact context: UK public borrowing was GBP 131.1 billion (about RMB 1.2 trillion) in 2023/24. | China planned a RMB 4.06 trillion budget deficit in 2024, equal to 3% of GDP. Teacher question: How is a budget deficit linked to government borrowing? Possible answer: A budget deficit means government spending exceeds revenue, so the government usually needs to borrow. Source: Source: UK ONS; RMB conversion approximate. | Source: 2024 Government Work Report.',
     },
     {
       type: 'quiz',
@@ -138,16 +124,19 @@ IGCSE.lesson = {
     },
     {
       type: 'compare',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Deficit or surplus?',
       leftTitle:  'Budget deficit',
-      left:  ['government spending exceeds government revenue', 'may require borrowing'],
+      left:  [
+        ['1', 'government spending exceeds government __________', 'revenue'],
+        ['2', 'may require __________', 'borrowing'],
+      ],
       rightTitle: 'Budget surplus',
-      right: ['government revenue exceeds government spending', 'may reduce borrowing or debt'],
-      prompt: 'A balanced budget means revenue equals expenditure.',
-      visual: photos.budgetHearing,
-      partialReview: ['.splitCols > .card', '.prompt'],
-    },
+      right: [
+        ['1', 'government revenue exceeds government __________', 'spending'],
+        ['2', 'may reduce borrowing or __________', 'debt'],
+      ],      visual: photos.budgetHearing,    },
     {
       type: 'answer',
       eyebrow: 'Check',
@@ -193,32 +182,11 @@ IGCSE.lesson = {
       ],
       partialReview: ['.cardgrid > .card'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          flag: '🇫🇮',
-          country: 'Finland',
-          context: 'Finland’s government education spending was 6.38% of GDP in 2022.',
-          question: 'Which government spending aim could education support?',
-          questionZh: '教育支出可能支持哪个政府支出目标？',
-          answer: 'Education spending can support long-run growth by improving human capital and productivity.',
-          zh: '2022年，芬兰政府教育支出占GDP的6.38%。',
-          source: 'Source: World Bank, based on UNESCO UIS data.',
-        },
-        china: {
-          flag: '🇨🇳',
-          country: 'China',
-          context: 'China spent RMB 6.4595 trillion on education in 2023.',
-          question: 'Which government spending aim could education support?',
-          questionZh: '教育支出可能支持哪个政府支出目标？',
-          answer: 'Education spending can support long-run growth by improving human capital and productivity.',
-          zh: '2023年，中国教育经费总投入达到6.4595万亿元人民币。',
-          source: 'Source: China Ministry of Education.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Finland',
       visual: factPhotos.finlandEducation,
+      notes: 'Example: Finland / China. Former fact context: Finland’s government education spending was 6.38% of GDP in 2022. | China spent RMB 6.4595 trillion on education in 2023. Teacher question: Which government spending aim could education support? Possible answer: Education spending can support long-run growth by improving human capital and productivity. Source: Source: World Bank, based on UNESCO UIS data. | Source: China Ministry of Education.',
     },
     {
       type: 'discussion',
@@ -258,14 +226,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '1. Provide merit goods',
       zhTitle: '提供有益品',
       question: 'Education and healthcare may be underprovided if people have to pay the full price.',
-      nodes: [['government funds schools or hospitals', 'more people can access them', 'skills and health improve', 'productivity may rise']],
-      footer: 'Exam link: merit goods can improve living standards and long-run growth.',
-      visual: photos.classroom,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'government funds schools or __________', answer: 'hospitals', zh: '中文提示： government funds schools or hospitals' },
+          { text: 'more people can access __________', answer: 'them', zh: '中文提示： more people can access them' },
+          { text: 'skills and health __________', answer: 'improve', zh: '中文提示： skills and health improve' },
+          { text: 'productivity may __________', answer: 'rise', zh: '中文提示： productivity may rise' },
+        ]
+      ],
     },
     {
       type: 'discussion',
@@ -279,14 +252,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '2. Provide public goods',
       zhTitle: '提供公共物品',
       question: 'Some goods would not be provided by private firms because people can benefit without paying directly.',
-      nodes: [['government funds defence', 'the country is protected', 'people and firms face less risk', 'economic activity is protected']],
-      footer: 'Exam link: public goods create benefits that markets may not provide.',
-      visual: photos.defence,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'government funds __________', answer: 'defence', zh: '中文提示： government funds defence' },
+          { text: 'the country is __________', answer: 'protected', zh: 'the country is protected' },
+          { text: 'people and firms face less __________', answer: 'risk', zh: '中文提示： people and firms face less risk' },
+          { text: 'economic activity is __________', answer: 'protected', zh: 'economic activity is protected' },
+        ]
+      ],
     },
     {
       type: 'discussion',
@@ -300,13 +278,18 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '3. Invest in infrastructure',
       zhTitle: '投资基础设施',
-      nodes: [['more infrastructure spending', 'lower transport costs', 'firms may produce more', 'real GDP may rise']],
-      footer: 'This links spending to economic growth.',
-      visual: photos.roadwork,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'more infrastructure __________', answer: 'spending', zh: '中文提示： more infrastructure spending' },
+          { text: 'lower transport __________', answer: 'costs', zh: '中文提示： lower transport costs' },
+          { text: 'firms may produce __________', answer: 'more', zh: '中文提示： firms may produce more' },
+          { text: 'real GDP may __________', answer: 'rise', zh: '中文提示： real GDP may rise' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -331,43 +314,27 @@ IGCSE.lesson = {
       answerZh: '如果未来收益很大，政府可以支持该产业，但应考虑机会成本和可能的低效率。',
       visual: photos.industry,
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          flag: '🇺🇸',
-          country: 'United States',
-          context: 'The US CHIPS Act offered $52.7 billion (about RMB 380 billion) for semiconductors.',
-          question: 'How could this support investment, output and employment?',
-          questionZh: '这会如何支持投资、产量和就业？',
-          answer: 'It can raise investment first, then increase productive capacity, output and employment if firms expand.',
-          zh: '《芯片法案》为美国半导体产业提供527亿美元（约3800亿元人民币）。',
-          source: 'Source: NIST; RMB conversion approximate.',
-        },
-        china: {
-          flag: '🇨🇳',
-          country: 'China',
-          context: 'China’s Big Fund III had RMB 344 billion registered capital.',
-          question: 'How could this support investment, output and employment?',
-          questionZh: '这会如何支持投资、产量和就业？',
-          answer: 'It can raise investment first, then increase productive capacity, output and employment if firms expand.',
-          zh: '中国大基金三期注册资本为3440亿元人民币。',
-          source: 'Source: Gov.cn.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
       visual: factPhotos.usSemiconductors,
+      notes: 'Example: United States / China. Former fact context: The US CHIPS Act offered $52.7 billion (about RMB 380 billion) for semiconductors. | China’s Big Fund III had RMB 344 billion registered capital. Teacher question: How could this support investment, output and employment? Possible answer: It can raise investment first, then increase productive capacity, output and employment if firms expand. Source: Source: NIST; RMB conversion approximate. | Source: Gov.cn.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '4. Support key industries',
       zhTitle: '支持关键产业',
       question: 'Governments may support industries that are important for jobs, exports or future technology.',
-      nodes: [['subsidy for a key industry', 'firms face lower costs', 'investment or R&D may rise', 'competitiveness may improve']],
-      footer: 'Evaluation: subsidies have an opportunity cost and may protect inefficient firms.',
-      visual: photos.industry,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'subsidy for a key __________', answer: 'industry', zh: 'subsidy for a key industry' },
+          { text: 'firms face lower __________', answer: 'costs', zh: '中文提示： firms face lower costs' },
+          { text: 'investment or R&D may __________', answer: 'rise', zh: '中文提示： investment or R&D may rise' },
+          { text: 'competitiveness may __________', answer: 'improve', zh: '中文提示： competitiveness may improve' },
+        ]
+      ],
     },
     {
       type: 'discussion',
@@ -381,13 +348,17 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '5. Reduce inequality',
       zhTitle: '减少不平等',
-      nodes: [['higher welfare spending', 'poorer households receive support', 'income inequality may fall']],
-      footer: 'Add a cost: the government may need higher taxes or borrowing.',
-      visual: photos.socialSecurity,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'higher welfare __________', answer: 'spending', zh: '中文提示： higher welfare spending' },
+          { text: 'poorer households receive __________', answer: 'support', zh: '中文提示： poorer households receive support' },
+          { text: 'income inequality may __________', answer: 'fall', zh: '中文提示： income inequality may fall' },
+        ]
+      ],
     },
     {
       type: 'discussion',
@@ -401,14 +372,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   '6. Manage the macroeconomy',
       zhTitle: '管理宏观经济',
       question: 'Government spending can be changed to influence aggregate demand.',
-      nodes: [['higher government spending', 'aggregate demand rises', 'firms may increase output', 'growth and employment may rise']],
-      footer: 'Evaluation: demand may rise too much and create inflationary pressure.',
-      visual: photos.budgetMeeting,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'higher government __________', answer: 'spending', zh: '中文提示： higher government spending' },
+          { text: 'aggregate demand __________', answer: 'rises', zh: '中文提示： aggregate demand rises' },
+          { text: 'firms may increase __________', answer: 'output', zh: '中文提示： firms may increase output' },
+          { text: 'growth and employment may __________', answer: 'rise', zh: '中文提示： growth and employment may rise' },
+        ]
+      ],
     },
     {
       type: 'quiz',

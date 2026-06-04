@@ -106,13 +106,14 @@ IGCSE.lesson = {
       title: '1. Economic growth',
       zhTitle: '目标1：经济增长',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'tax cuts or higher ______', answer: 'spending', zh: '减税或增加支出' },
-        { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
-        { text: 'firms sell more ______', answer: 'output', zh: '企业销售更多产出' },
-        { text: 'real ______ may rise', answer: 'GDP', zh: '实际GDP可能上升' },
-      ]],
-      visual: photos.industry,
+      nodes: [
+        [
+          { text: 'tax cuts or higher ______', answer: 'spending', zh: '减税或增加支出' },
+          { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
+          { text: 'firms sell more ______', answer: 'output', zh: '企业销售更多产出' },
+          { text: 'real ______ may rise', answer: 'GDP', zh: '实际GDP可能上升' },
+        ]
+      ],
     },
     {
       type: 'answer',
@@ -137,13 +138,14 @@ IGCSE.lesson = {
       title: '2. Full employment / low unemployment',
       zhTitle: '目标2：充分就业 / 低失业',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'higher government ______ or lower taxation', answer: 'spending', zh: '增加政府支出或降低税收' },
-        { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
-        { text: 'firms increase output and demand more ______', answer: 'labour', zh: '企业增加产出并需要更多劳动力' },
-        { text: 'employment may rise and unemployment may ______', answer: 'fall', zh: '就业可能上升，失业可能下降' },
-      ]],
-      visual: photos.roadwork,
+      nodes: [
+        [
+          { text: 'higher government ______ or lower taxation', answer: 'spending', zh: '增加政府支出或降低税收' },
+          { text: 'aggregate ______ rises', answer: 'demand', zh: '总需求上升' },
+          { text: 'firms increase output and demand more ______', answer: 'labour', zh: '企业增加产出并需要更多劳动力' },
+          { text: 'employment may rise and unemployment may ______', answer: 'fall', zh: '就业可能上升，失业可能下降' },
+        ]
+      ],
     },
     {
       type: 'peerTask',
@@ -171,13 +173,14 @@ IGCSE.lesson = {
       title: '3. Stable prices / low inflation',
       zhTitle: '目标3：价格稳定 / 低通胀',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'higher taxes or lower ______', answer: 'spending', zh: '提高税收或减少支出' },
-        { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
-        { text: 'shortages and demand ______ ease', answer: 'pressure', zh: '短缺和需求压力缓解' },
-        { text: 'inflationary ______ may fall', answer: 'pressure', zh: '通胀压力可能下降' },
-      ]],
-      visual: photos.shopping,
+      nodes: [
+        [
+          { text: 'higher taxes or lower ______', answer: 'spending', zh: '提高税收或减少支出' },
+          { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
+          { text: 'shortages and demand ______ ease', answer: 'pressure', zh: '短缺和需求压力缓解' },
+          { text: 'inflationary ______ may fall', answer: 'pressure', zh: '通胀压力可能下降' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -204,13 +207,14 @@ IGCSE.lesson = {
       title: '4. Balance of payments stability',
       zhTitle: '目标4：国际收支稳定',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'higher taxes or lower government ______', answer: 'spending', zh: '提高税收或减少政府支出' },
-        { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
-        { text: 'spending on ______ may fall', answer: 'imports', zh: '进口支出可能下降' },
-        { text: 'balance of payments may become more ______', answer: 'stable', zh: '国际收支可能更稳定' },
-      ]],
-      visual: factPhotos.euCbam,
+      nodes: [
+        [
+          { text: 'higher taxes or lower government ______', answer: 'spending', zh: '提高税收或减少政府支出' },
+          { text: 'aggregate ______ falls', answer: 'demand', zh: '总需求下降' },
+          { text: 'spending on ______ may fall', answer: 'imports', zh: '进口支出可能下降' },
+          { text: 'balance of payments may become more ______', answer: 'stable', zh: '国际收支可能更稳定' },
+        ]
+      ],
     },
     {
       type: 'peerTask',
@@ -232,13 +236,14 @@ IGCSE.lesson = {
       title: '5. Redistribution of income',
       zhTitle: '目标5：收入再分配',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'progressive taxes and transfer ______', answer: 'payments', zh: '累进税和转移支付' },
-        { text: 'higher-income groups pay ______', answer: 'more', zh: '高收入群体支付更多' },
-        { text: 'lower-income groups receive ______', answer: 'support', zh: '低收入群体获得支持' },
-        { text: 'income ______ may fall', answer: 'inequality', zh: '收入不平等可能下降' },
-      ]],
-      visual: factPhotos.usSocialSecurity,
+      nodes: [
+        [
+          { text: 'progressive taxes and transfer ______', answer: 'payments', zh: '累进税和转移支付' },
+          { text: 'higher-income groups pay ______', answer: 'more', zh: '高收入群体支付更多' },
+          { text: 'lower-income groups receive ______', answer: 'support', zh: '低收入群体获得支持' },
+          { text: 'income ______ may fall', answer: 'inequality', zh: '收入不平等可能下降' },
+        ]
+      ],
     },
     {
       type: 'answer',
@@ -263,18 +268,19 @@ IGCSE.lesson = {
       title: '6. Environmental sustainability',
       zhTitle: '目标6：环境可持续性',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'environmental taxes or green ______', answer: 'spending', zh: '环境税或绿色支出' },
-        { text: 'firms and consumers change ______', answer: 'incentives', zh: '企业和消费者改变激励' },
-        { text: '______ may fall', answer: 'pollution', zh: '污染可能下降' },
-        { text: 'sustainable ______ may improve', answer: 'development', zh: '可持续发展可能改善' },
-      ]],
-      visual: factPhotos.swedenCarbon,
+      nodes: [
+        [
+          { text: 'environmental taxes or green ______', answer: 'spending', zh: '环境税或绿色支出' },
+          { text: 'firms and consumers change ______', answer: 'incentives', zh: '企业和消费者改变激励' },
+          { text: '______ may fall', answer: 'pollution', zh: '污染可能下降' },
+          { text: 'sustainable ______ may improve', answer: 'development', zh: '可持续发展可能改善' },
+        ]
+      ],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Check your understanding',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Higher government spending may increase real __________.', 'GDP'],
@@ -345,11 +351,13 @@ IGCSE.lesson = {
       title: '1. Time lag',
       zhTitle: '局限1：时间滞后',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'fiscal policy is ______', answer: 'introduced', zh: '财政政策被实施' },
-        { text: 'effect on spending takes ______', answer: 'time', zh: '对支出的影响需要时间' },
-        { text: 'aim may not be achieved ______', answer: 'quickly', zh: '目标可能无法迅速实现' },
-      ]],
+      nodes: [
+        [
+          { text: 'fiscal policy is ______', answer: 'introduced', zh: '财政政策被实施' },
+          { text: 'effect on spending takes ______', answer: 'time', zh: '对支出的影响需要时间' },
+          { text: 'aim may not be achieved ______', answer: 'quickly', zh: '目标可能无法迅速实现' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -382,11 +390,13 @@ IGCSE.lesson = {
       title: '2. Weak response',
       zhTitle: '局限2：反应较弱',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'taxes fall or government spending ______', answer: 'rises', zh: '税收下降或政府支出上升' },
-        { text: 'consumer confidence remains ______', answer: 'low', zh: '消费者信心仍然较低' },
-        { text: 'aggregate demand rises by less than ______', answer: 'expected', zh: '总需求增长低于预期' },
-      ]],
+      nodes: [
+        [
+          { text: 'taxes fall or government spending ______', answer: 'rises', zh: '税收下降或政府支出上升' },
+          { text: 'consumer confidence remains ______', answer: 'low', zh: '消费者信心仍然较低' },
+          { text: 'aggregate demand rises by less than ______', answer: 'expected', zh: '总需求增长低于预期' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -413,11 +423,13 @@ IGCSE.lesson = {
       title: '3. Budget burden',
       zhTitle: '局限3：预算负担',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'government spending rises or taxation ______', answer: 'falls', zh: '政府支出增加或税收下降' },
-        { text: 'budget deficit or borrowing may ______', answer: 'increase', zh: '预算赤字或借款可能增加' },
-        { text: 'future government spending may be ______', answer: 'limited', zh: '未来政府支出可能受限' },
-      ]],
+      nodes: [
+        [
+          { text: 'government spending rises or taxation ______', answer: 'falls', zh: '政府支出增加或税收下降' },
+          { text: 'budget deficit or borrowing may ______', answer: 'increase', zh: '预算赤字或借款可能增加' },
+          { text: 'future government spending may be ______', answer: 'limited', zh: '未来政府支出可能受限' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -443,11 +455,13 @@ IGCSE.lesson = {
       title: '4. Imports',
       zhTitle: '局限4：进口',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'aggregate demand ______', answer: 'rises', zh: '总需求上升' },
-        { text: 'some extra spending buys ______', answer: 'imports', zh: '部分额外支出购买进口品' },
-        { text: 'domestic output and employment rise by ______', answer: 'less', zh: '本国产出和就业增长较少' },
-      ]],
+      nodes: [
+        [
+          { text: 'aggregate demand ______', answer: 'rises', zh: '总需求上升' },
+          { text: 'some extra spending buys ______', answer: 'imports', zh: '部分额外支出购买进口品' },
+          { text: 'domestic output and employment rise by ______', answer: 'less', zh: '本国产出和就业增长较少' },
+        ]
+      ],
     },
     {
       type: 'quiz',
@@ -463,24 +477,24 @@ IGCSE.lesson = {
     },
     {
       type: 'compare',
+      mode: 'fillBlanks',
       variant: 'examDiscussion',
       eyebrow: 'Exam practice',
       title: 'Discuss whether a decrease in government spending will reduce inflation. [8]',
       leftTitle: 'A decrease in government spending may reduce inflation',
       rightTitle: 'A decrease in government spending may not reduce inflation',
       left: [
-        'aggregate demand falls',
-        'demand-pull inflation may fall',
-        'near full employment: stronger effect',
-        'lower indirect taxes may reduce prices',
+        ['1', 'aggregate demand __________', 'falls'],
+        ['2', 'demand-pull inflation may __________', 'fall'],
+        ['3', 'near full employment: stronger __________', 'effect'],
+        ['4', 'lower indirect taxes may reduce __________', 'prices'],
       ],
       right: [
-        'lower subsidies may raise prices',
-        'less education and training may reduce productivity',
-        'less infrastructure may raise transport costs',
-        'cost-push inflation may rise',
+        ['1', 'lower subsidies may raise __________', 'prices'],
+        ['2', 'less education and training may reduce __________', 'productivity'],
+        ['3', 'less infrastructure may raise transport __________', 'costs'],
+        ['4', 'cost-push inflation may __________', 'rise'],
       ],
-      partialReview: ['.splitCols .card .choice'],
       sources: [
         {
           label: 'Syllabus source',
@@ -498,7 +512,7 @@ IGCSE.lesson = {
     {
       type: 'modelAnswer',
       eyebrow: 'Exam answer',
-      title: 'Sample answer',
+      title: 'Discuss whether a decrease in government spending will reduce inflation. [8]',
       question: 'Discuss whether a decrease in government spending will reduce inflation. [8]',
       paragraphs: [
         'A decrease in government spending may reduce inflation. Lower government spending can reduce aggregate demand. If aggregate demand falls, firms face less pressure to raise prices, so demand-pull inflation may fall. If the economy is near full employment, the fall in aggregate demand may have a stronger effect on inflation. Lower indirect taxes may also reduce prices.',
@@ -512,7 +526,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'The six aims include growth, full employment and stable __________.', 'prices'],

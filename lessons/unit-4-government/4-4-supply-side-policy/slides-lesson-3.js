@@ -64,13 +64,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.4.2',
+      eyebrow: 'Objectives',
       title:   'By the end, you can',
       bullets: [
-        'Classify tax cuts, privatisation, deregulation and labour-market reforms as market-based policies.',
-        'Explain how tax incentives can raise investment.',
-        'Explain how privatisation and deregulation may raise efficiency.',
+        'Classify market-based supply-side policies.',
+        'Explain how tax cuts, privatisation and deregulation may raise efficiency.',
         'Evaluate risks such as inequality, weaker protection and uncertain investment.',
+      ],
+      zhBullets: [
+        '判断市场化供给侧政策。',
+        '解释减税、私有化和放松管制如何提高效率。',
+        '评价不平等、保护减弱和投资不确定等风险。',
       ],
     },
     {
@@ -114,38 +118,26 @@ IGCSE.lesson = {
       title:   'Tax incentives',
       zhTitle: '税收激励',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'Exam archive',
-          context: 'A cut in corporation tax can increase retained profit and the incentive for firms to invest.',
-          question: 'How could lower corporation tax increase investment and total supply?',
-          questionZh: '降低公司税会如何增加投资和总供给？',
-          answer: 'Higher retained profit can encourage firms to invest, increasing total supply over time.',
-          source: 'Source: 2025MJ-21 Q4(c), Cambridge IGCSE Economics 0455 Paper 2 archive.',
-        },
-        china: {
-          country: 'China comparison',
-          context: 'Tax incentives can be targeted at investment, innovation or small firms to encourage expansion.',
-          question: 'How could targeted tax incentives increase productive capacity?',
-          questionZh: '有针对性的税收激励会如何提高生产能力？',
-          answer: 'Higher retained profit can encourage firms to invest, increasing total supply over time.',
-          source: 'Source: Cambridge 4.4 supply-side policy syllabus wording and Paper 2 archive.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Exam archive',
       visual: photos.corporationTaxReturn,
+      notes: 'Example: Exam archive / China comparison. Former fact context: A cut in corporation tax can increase retained profit and the incentive for firms to invest. | Tax incentives can be targeted at investment, innovation or small firms to encourage expansion. Teacher question: How could lower corporation tax increase investment and total supply? Possible answer: Higher retained profit can encourage firms to invest, increasing total supply over time. Source: Source: 2025MJ-21 Q4(c), Cambridge IGCSE Economics 0455 Paper 2 archive. | Source: Cambridge 4.4 supply-side policy syllabus wording and Paper 2 archive.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Tax incentive route',
       zhTitle: '税收激励路径',
-      nodes: [['lower corporation tax', 'retained profit rises', 'investment may rise', 'productive capacity may rise']],
-      footer: 'Paper 2 basis: a corporation-tax cut can increase investment, technology and output.',
-      visual: photos.corporationTaxReturn,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'lower corporation __________', answer: 'tax', zh: '中文提示： lower corporation tax' },
+          { text: 'retained profit __________', answer: 'rises', zh: '中文提示： retained profit rises' },
+          { text: 'investment may __________', answer: 'rise', zh: '中文提示： investment may rise' },
+          { text: 'productive capacity may __________', answer: 'rise', zh: '中文提示： productive capacity may rise' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -169,6 +161,11 @@ IGCSE.lesson = {
     },
     {
       type: 'term',
+      keyTerms: [
+        { term: 'public sector', zh: '公共部门', note: 'owned or controlled by government' },
+        { term: 'private sector', zh: '私营部门', note: 'owned by individuals or firms' },
+      ],
+      showExamples: false,
       eyebrow: 'Learn',
       title:   'Privatisation',
       zhTitle: '私有化',
@@ -180,8 +177,6 @@ IGCSE.lesson = {
         ['Possible risk', 'private monopoly may raise prices'],
         ['Exam word', 'evaluate, do not assume it always helps'],
       ],
-      visual: photos.stockCertificate,
-      partialReview: ['.termBox', '.termExamples > .termExample'],
     },
     {
       type: 'cards',
@@ -237,8 +232,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title:   'Analyse investment',
-      question: 'Analyse how a cut in corporation tax can increase economic growth.',
+      title:   'Analyse how a cut in corporation tax can increase economic growth. [6]',
       keywords: ['retained profit', 'investment', 'technology', 'productive capacity'],
       prompt:   'Use 2025MJ-21 Q4(c): profits retained, investment rises, capital or technology improves, output rises.',
       visual:   photos.corporationTaxReturn,
@@ -246,19 +240,20 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title:   'Model answer',
+      title:   'Analyse how a cut in corporation tax can increase economic growth. [6]',
       question: 'Analyse how a cut in corporation tax can increase economic growth.',
       answer: 'A cut in corporation tax can allow firms to keep more retained profit. This may increase investment in capital equipment and technology. Better technology can raise productivity and productive capacity, allowing firms to produce more output, so real GDP and economic growth may increase.',
       links: ['retained profit', 'investment', 'technology', 'productive capacity'],
-      markSchemeNote: 'This follows analyse wording by developing a logical chain from lower tax to investment, capacity and real GDP.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title:   'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode:    'fillBlanks',
       steps: [
         ['1', 'Deregulation can reduce barriers to market __________.', 'entry'],

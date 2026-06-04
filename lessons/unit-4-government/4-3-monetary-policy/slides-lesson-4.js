@@ -125,13 +125,14 @@ IGCSE.lesson = {
       title: 'Growth and employment',
       zhTitle: '经济增长与就业',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'lower rates or more money increase __________', answer: 'borrowing and lending', zh: '较低利率或更多货币增加借款和贷款' },
-        { text: 'spending and __________ may rise', answer: 'investment', zh: '支出和投资可能上升' },
-        { text: 'firms may raise __________', answer: 'output', zh: '企业可能提高产出' },
-        { text: 'demand for labour and __________ may rise', answer: 'employment', zh: '劳动力需求和就业可能上升' },
-      ]],
-      visual: photos.bankLendingCashier,
+      nodes: [
+        [
+          { text: 'lower rates or more money increase __________', answer: 'borrowing and lending', zh: '较低利率或更多货币增加借款和贷款' },
+          { text: 'spending and __________ may rise', answer: 'investment', zh: '支出和投资可能上升' },
+          { text: 'firms may raise __________', answer: 'output', zh: '企业可能提高产出' },
+          { text: 'demand for labour and __________ may rise', answer: 'employment', zh: '劳动力需求和就业可能上升' },
+        ]
+      ],
     },
     {
       type: 'peerTask',
@@ -153,13 +154,14 @@ IGCSE.lesson = {
       title: 'Inflationary pressure',
       zhTitle: '通胀压力',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'higher rates or less money reduce __________', answer: 'borrowing and lending', zh: '较高利率或更少货币减少借款和贷款' },
-        { text: 'spending and __________ may fall', answer: 'investment', zh: '支出和投资可能下降' },
-        { text: 'aggregate demand may __________', answer: 'fall', zh: '总需求可能下降' },
-        { text: 'demand-pull __________ may fall', answer: 'inflation', zh: '需求拉动型通胀可能下降' },
-      ]],
-      visual: photos.householdSaving,
+      nodes: [
+        [
+          { text: 'higher rates or less money reduce __________', answer: 'borrowing and lending', zh: '较高利率或更少货币减少借款和贷款' },
+          { text: 'spending and __________ may fall', answer: 'investment', zh: '支出和投资可能下降' },
+          { text: 'aggregate demand may __________', answer: 'fall', zh: '总需求可能下降' },
+          { text: 'demand-pull __________ may fall', answer: 'inflation', zh: '需求拉动型通胀可能下降' },
+        ]
+      ],
     },
     {
       type: 'answer',
@@ -241,9 +243,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Explain how lower interest rates may increase employment. [4]',
-      question: 'Explain how lower interest rates may increase employment.',
-      marks: 4,
+      title: 'Explain how lower interest rates may increase employment. [4]',      marks: 4,
       keywordLabel: 'Use these keywords',
       keywords: ['borrowing', 'spending', 'output', 'employment'],
       prompt: 'Use at least three connected explanation points.',
@@ -275,9 +275,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Discuss whether higher interest rates are the best way to reduce inflation. [6]',
-      question: 'Discuss whether higher interest rates are the best way to reduce inflation.',
-      marks: 6,
+      title: 'Discuss whether higher interest rates are the best way to reduce inflation. [6]',      marks: 6,
       keywordLabel: 'Use these keywords',
       keywords: ['saving', 'borrowing', 'spending', 'inflation', 'employment'],
       prompt: 'Build one argument for, one argument against and a judgement.',
@@ -311,9 +309,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Discuss whether an increase in the money supply will benefit an economy. [8]',
-      question: 'Discuss whether an increase in the money supply will benefit an economy.',
-      marks: 8,
+      title: 'Discuss whether an increase in the money supply will benefit an economy. [8]',      marks: 8,
       keywordLabel: 'Use these keywords',
       keywords: ['lending', 'spending', 'investment', 'employment', 'inflation'],
       prompt: 'Use one benefit, one risk and a judgement.',
@@ -347,7 +343,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Expansionary monetary policy may increase spending and __________.', 'investment'],

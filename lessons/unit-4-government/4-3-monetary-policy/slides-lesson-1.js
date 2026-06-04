@@ -49,7 +49,7 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.3.1',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Define money supply and monetary policy.',
@@ -68,28 +68,11 @@ IGCSE.lesson = {
       title: 'Money supply',
       zhTitle: '货币供给',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'Federal Reserve education materials separate currency and bank deposits from other privately owned assets.',
-          question: 'Which items count in money supply: currency, deposits, or a privately owned car?',
-          questionZh: '哪些项目属于货币供给：现金、存款，还是私人拥有的汽车？',
-          answer: 'Currency and bank deposits count in money supply; a privately owned car is an asset, not money.',
-          source: 'Source: Federal Reserve education materials.',
-        },
-        china: {
-          country: 'China',
-          context: 'China publishes M0, M1 and M2 money supply indicators for the economy.',
-          question: 'Why might China publish these indicators for the economy?',
-          questionZh: '中国为什么可能公布这些货币供给指标？',
-          answer: 'They help the central bank monitor liquidity, spending pressure and credit conditions.',
-          source: 'Source: People\'s Bank of China statistical releases.',
-        },
-      },
-      visual: photos.moneySupply,
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
+      visual: photos.bankLendingCashier,
+      notes: 'Example: United States / China. Former fact context: Federal Reserve education materials separate currency and bank deposits from other privately owned assets. | China publishes M0, M1 and M2 money supply indicators for the economy. Teacher question: Which items count in money supply: currency, deposits, or a privately owned car? Possible answer: Currency and bank deposits count in money supply; a privately owned car is an asset, not money. Source: Source: Federal Reserve education materials. | Source: People\'s Bank of China statistical releases.',
     },
     {
       type: 'term',
@@ -105,9 +88,7 @@ IGCSE.lesson = {
         { term: 'economy', zh: '经济体', note: 'the whole country or economic area being measured' },
         { term: 'particular time', zh: '特定时间', note: 'money supply is measured at a point or period' },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-    },
+      showExamples: false,    },
     {
       type: 'classificationTask',
       eyebrow: 'Classify',
@@ -129,7 +110,7 @@ IGCSE.lesson = {
     {
       type: 'answer',
       eyebrow: 'Check',
-      title: 'Money supply check',
+      title: 'Fill in the blanks',
       mode: 'fillBlanks',
       steps: [
         ['1', 'The __________ is the amount of money in an economy.', 'money supply'],
@@ -244,9 +225,7 @@ IGCSE.lesson = {
         { term: 'money supply', zh: '货币供给', note: 'the amount of money in the economy' },
         { term: 'foreign exchange rates', zh: '外汇汇率', note: 'the price of one currency in another currency' },
       ],
-      showExamples: false,
-      partialReview: ['.definitionTermNotes > .definitionTermNote'],
-      sources: [
+      showExamples: false,      sources: [
         {
           label: 'Syllabus source',
           ref: '4.3.1 monetary policy',
@@ -275,7 +254,6 @@ IGCSE.lesson = {
         ['2', 'Uses __________ and taxation.', 'government spending'],
         ['3', 'Can also influence __________.', 'macroeconomic aims'],
       ],
-      prompt: 'Both can affect demand, but the policy tools are different.',
     },
     {
       type: 'classificationTask',
@@ -321,7 +299,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'The __________ is the amount of money in an economy.', 'money supply'],

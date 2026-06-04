@@ -65,13 +65,17 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 4.4.3',
+      eyebrow: 'Objectives',
       title:   'By the end, you can',
       bullets: [
-        'Explain supply-side effects on growth and employment.',
-        'Explain effects on prices, competitiveness and the current account.',
-        'Evaluate time lags, opportunity cost and unequal effects.',
-        'Build balanced Paper 2 discuss answers.',
+        'Explain supply-side effects on growth, employment and prices.',
+        'Explain effects on competitiveness and the current account.',
+        'Evaluate supply-side policy in Paper 2 answers.',
+      ],
+      zhBullets: [
+        '解释供给侧政策对增长、就业和价格的影响。',
+        '解释对竞争力和经常账户的影响。',
+        '在 Paper 2 答案中评价供给侧政策。',
       ],
     },
     {
@@ -80,38 +84,26 @@ IGCSE.lesson = {
       title:   'Growth and employment',
       zhTitle: '增长与就业',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'Exam archive',
-          context: 'Recent Paper 2 mark schemes link education, training, healthcare and infrastructure to productivity and lower unemployment.',
-          question: 'Which macroeconomic aim is shown, and what cost can unemployment create?',
-          questionZh: '这里体现了哪个宏观经济目标，失业会造成什么成本？',
-          answer: 'The aim is low unemployment; unemployment wastes labour and reduces household income.',
-          source: 'Source: Cambridge IGCSE Economics 0455 Paper 2 archive, 2023-2025.',
-        },
-        china: {
-          country: 'China',
-          context: 'China planned a modern vocational education system by 2025 to support high-quality development.',
-          question: 'How could vocational education support long-term economic growth?',
-          questionZh: '教育支出可能支持哪个政府支出目标？',
-          answer: 'Education spending can support long-run growth by improving human capital and productivity.',
-          source: 'Source: China State Council vocational education guidelines, 2021.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Exam archive',
       visual: factPhotos.vocationalEducation,
+      notes: 'Example: Exam archive / China. Former fact context: Recent Paper 2 mark schemes link education, training, healthcare and infrastructure to productivity and lower unemployment. | China planned a modern vocational education system by 2025 to support high-quality development. Teacher question: Which macroeconomic aim is shown, and what cost can unemployment create? Possible answer: The aim is low unemployment; unemployment wastes labour and reduces household income. Source: Source: Cambridge IGCSE Economics 0455 Paper 2 archive, 2023-2025. | Source: China State Council vocational education guidelines, 2021.',
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Growth route',
       zhTitle: '增长路径',
-      nodes: [['productivity rises', 'costs per unit fall', 'firms can expand output', 'real GDP can rise']],
-      footer: 'Supply-side growth is about raising capacity, not only using spare capacity.',
-      visual: photos.industrialRobot,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'productivity __________', answer: 'rises', zh: '中文提示： productivity rises' },
+          { text: 'costs per unit __________', answer: 'fall', zh: '中文提示： costs per unit fall' },
+          { text: 'firms can expand __________', answer: 'output', zh: '中文提示： firms can expand output' },
+          { text: 'real GDP can __________', answer: 'rise', zh: '中文提示： real GDP can rise' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -129,13 +121,18 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Employment route',
       zhTitle: '就业路径',
-      nodes: [['skills or mobility improve', 'workers match vacancies', 'structural unemployment falls', 'employment can rise']],
-      footer: 'Evaluation: jobs must exist and workers must be able to access them.',
-      visual: photos.employmentOffice,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'skills or mobility __________', answer: 'improve', zh: '中文提示： skills or mobility improve' },
+          { text: 'workers match __________', answer: 'vacancies', zh: 'workers match vacancies' },
+          { text: 'structural unemployment __________', answer: 'falls', zh: '中文提示： structural unemployment falls' },
+          { text: 'employment can __________', answer: 'rise', zh: '中文提示： employment can rise' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -169,23 +166,33 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Price stability route',
       zhTitle: '价格稳定路径',
-      nodes: [['productivity rises', 'average costs fall', 'supply rises', 'cost-push inflationary pressure may fall']],
-      footer: 'This is why supply-side policy can help with stable prices.',
-      visual: photos.industrialRobot,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'productivity __________', answer: 'rises', zh: '中文提示： productivity rises' },
+          { text: 'average costs __________', answer: 'fall', zh: '中文提示： average costs fall' },
+          { text: 'supply __________', answer: 'rises', zh: '中文提示： supply rises' },
+          { text: 'cost-push inflationary pressure may __________', answer: 'fall', zh: '中文提示： cost-push inflationary pressure may fall' },
+        ]
+      ],
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title:   'Current account route',
       zhTitle: '经常账户路径',
-      nodes: [['quality rises or costs fall', 'exports become more competitive', 'exports may rise', 'current account may improve']],
-      footer: 'Evaluation: exchange rates, foreign demand and rival firms also matter.',
-      visual: photos.portTerminal,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'quality rises or costs __________', answer: 'fall', zh: '中文提示： quality rises or costs fall' },
+          { text: 'exports become more __________', answer: 'competitive', zh: '中文提示： exports become more competitive' },
+          { text: 'exports may __________', answer: 'rise', zh: '中文提示： exports may rise' },
+          { text: 'current account may __________', answer: 'improve', zh: '中文提示： current account may improve' },
+        ]
+      ],
     },
     {
       type: 'cards',
@@ -236,8 +243,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title:   'Discuss education',
-      question: 'Discuss whether improving education can help a government achieve its macroeconomic aims.',
+      title:   'Discuss whether improving education can help a government achieve its macroeconomic aims. [8]',
       keywords: ['productivity', 'employment', 'prices', 'exports', 'opportunity cost'],
       prompt:   'Use 2024ON-21 Q3(d): one argument for, one argument against, then a judgement.',
       visual:   ppcGrowth,
@@ -245,19 +251,19 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title:   'Model answer',
+      title:   'Discuss whether improving education can help a government achieve its macroeconomic aims. [8]',
       question: 'Discuss whether improving education can help a government achieve its macroeconomic aims.',
       answer: 'Improving education can raise productivity because workers gain more skills. This may increase employment, reduce costs and help firms keep prices stable. More productive firms may also become more competitive, increasing exports. However, education has an opportunity cost and can take years to affect output. It will help most if the education matches the skills firms need.',
       links: ['productivity', 'employment', 'prices', 'exports', 'opportunity cost'],
-      markSchemeNote: 'This follows discuss level wording by developing benefits, adding a limitation, and making a judgement about when the policy works best.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title:   'Evaluate supply-side policy',
-      question: 'Discuss whether supply-side policies are the best way to reduce inflation.',
+      title:   'Discuss whether supply-side policies are the best way to reduce inflation. [8]',
       keywords: ['productivity', 'costs', 'time lag', 'demand-pull inflation', 'monetary policy'],
       prompt:   'Compare supply-side policy with demand-side alternatives and judge the cause of inflation.',
       visual:   photos.industrialRobot,
@@ -265,19 +271,20 @@ IGCSE.lesson = {
     },
     {
       type: 'modelAnswer',
+      partialReview: ['.modelAnswerCard'],
+      showLinkChips: false,
       eyebrow: 'Exam answer',
-      title:   'Model answer',
+      title:   'Discuss whether supply-side policies are the best way to reduce inflation. [8]',
       question: 'Discuss whether supply-side policies are the best way to reduce inflation.',
       answer: 'Supply-side policies can reduce inflation if they raise productivity and lower firms\' costs. Lower costs can reduce cost-push inflation and higher output can reduce pressure on prices. However, there may be a long time lag, and these policies may not solve demand-pull inflation quickly. Monetary policy may be more effective if inflation is caused by excessive spending.',
       links: ['productivity', 'costs', 'time lag', 'demand-pull inflation', 'monetary policy'],
-      markSchemeNote: 'This follows discuss wording by comparing both sides and judging effectiveness according to the cause of inflation.',
-      partialReview: ['.modelAnswerCard', '.modelAnswerLinks > span', '.modelAnswerNote'],
+      partialReview: ['.modelAnswerCard'],
     },
     {
       type: 'answer',
       eyebrow: 'Check',
       title:   'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode:    'fillBlanks',
       steps: [
         ['1', 'Supply-side policy can raise long-run output by increasing productive __________.', 'capacity'],

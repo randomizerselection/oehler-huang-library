@@ -39,7 +39,7 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.9',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Explain how monopoly power can cause market failure.',
@@ -90,14 +90,15 @@ IGCSE.lesson = {
       title: 'Monopoly power as a cause',
       zhTitle: '垄断力量作为成因',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'one firm __________', answer: 'dominates', zh: '一家企业占主导地位' },
-        { text: 'competition is __________', answer: 'weak', zh: '竞争较弱' },
-        { text: 'firm has market __________', answer: 'power', zh: '企业拥有市场力量' },
-        { text: 'consumer __________ is limited', answer: 'choice', zh: '消费者选择受限制' },
-        { text: 'market __________ may occur', answer: 'failure', zh: '可能出现市场失灵' },
-      ]],
-      visual: photos.waterUtilityTreatmentPlant,
+      nodes: [
+        [
+          { text: 'one firm __________', answer: 'dominates', zh: '一家企业占主导地位' },
+          { text: 'competition is __________', answer: 'weak', zh: '竞争较弱' },
+          { text: 'firm has market __________', answer: 'power', zh: '企业拥有市场力量' },
+          { text: 'consumer __________ is limited', answer: 'choice', zh: '消费者选择受限制' },
+          { text: 'market __________ may occur', answer: 'failure', zh: '可能出现市场失灵' },
+        ]
+      ],
     },
     {
       type: 'peerTask',
@@ -150,14 +151,15 @@ IGCSE.lesson = {
       title: 'Restricted monopoly supply',
       zhTitle: '垄断限制供给',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'competition is __________', answer: 'weak', zh: '竞争较弱' },
-        { text: 'firm has market __________', answer: 'power', zh: '企业拥有市场力量' },
-        { text: 'output or supply is __________', answer: 'restricted', zh: '产量或供给受到限制' },
-        { text: 'prices may rise and __________ may fall', answer: 'choice', zh: '价格可能上升，选择可能减少' },
-        { text: 'consumer __________ falls', answer: 'welfare', zh: '消费者福利下降' },
-      ]],
-      visual: photos.waterUtilityTreatmentPlant,
+      nodes: [
+        [
+          { text: 'competition is __________', answer: 'weak', zh: '竞争较弱' },
+          { text: 'firm has market __________', answer: 'power', zh: '企业拥有市场力量' },
+          { text: 'output or supply is __________', answer: 'restricted', zh: '产量或供给受到限制' },
+          { text: 'prices may rise and __________ may fall', answer: 'choice', zh: '价格可能上升，选择可能减少' },
+          { text: 'consumer __________ falls', answer: 'welfare', zh: '消费者福利下降' },
+        ]
+      ],
     },
     {
       type: 'exam',
@@ -182,28 +184,11 @@ IGCSE.lesson = {
       showLinkChips: false,
       partialReview: ['.modelAnswerCard'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'Paper 2',
-          context: 'Exam answers may credit higher prices, lower output and less choice when fewer firms have strong market power.',
-          question: 'How could monopoly power reduce consumer welfare?',
-          questionZh: '垄断力量会如何降低消费者福利？',
-          answer: 'Monopoly power can reduce welfare through higher prices, lower output and less consumer choice.',
-          source: 'Source: Cambridge IGCSE Economics Paper 2 archive, 2023ON-22 Q3(d).',
-        },
-        china: {
-          country: 'China',
-          context: 'Competition policy can be used to stop dominant firms from harming consumers or smaller rivals.',
-          question: 'How could monopoly power reduce consumer welfare?',
-          questionZh: '垄断力量会如何降低消费者福利？',
-          answer: 'Monopoly power can reduce welfare through higher prices, lower output and less consumer choice.',
-          source: 'Source: general competition-policy teaching example.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Paper 2',
       visual: photos.waterUtilityTreatmentPlant,
+      notes: 'Example: Paper 2 / China. Former fact context: Exam answers may credit higher prices, lower output and less choice when fewer firms have strong market power. | Competition policy can be used to stop dominant firms from harming consumers or smaller rivals. Teacher question: How could monopoly power reduce consumer welfare? Possible answer: Monopoly power can reduce welfare through higher prices, lower output and less consumer choice. Source: Source: Cambridge IGCSE Economics Paper 2 archive, 2023ON-22 Q3(d). | Source: general competition-policy teaching example.',
     },
     {
       type: 'compare',
@@ -224,7 +209,6 @@ IGCSE.lesson = {
         ['3', 'stable supply may support __________', 'investment'],
         ['4', 'some industries naturally have __________ firms', 'few'],
       ],
-      prompt: 'Evaluation depends on how strong the market power is and whether consumers gain or lose.',
     },
     {
       type: 'peerTask',
@@ -287,7 +271,6 @@ IGCSE.lesson = {
         ['2', 'Free riders reduce private revenue for non-excludable goods, so public goods may not be __________.', 'provided'],
         ['3', 'A monopoly may restrict output, causing higher prices and less __________.', 'choice'],
       ],
-      prompt: 'The strong answer identifies the cause, mechanism and consequence.',
     },
     {
       type: 'quiz',
@@ -300,9 +283,7 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Discuss whether a market economic system is the best way to allocate resources. [8]',
-      question: 'Discuss whether a market economic system is the best way to allocate resources. [8]',
-      keywordLabel: 'Use these keywords',
+      title: 'Discuss whether a market economic system is the best way to allocate resources. [8]',      keywordLabel: 'Use these keywords',
       keywords: ['price mechanism', 'choice', 'external costs', 'public goods', 'monopoly power', 'judgement'],
       prompt: 'Use one argument for markets, one market-failure argument and a judgement. Paper 2 source: 2023MJ-21 Q2(d).',
       partialReview: ['.cardgrid > .card', '.prompt'],
@@ -321,7 +302,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'A monopoly may restrict output and charge higher __________.', 'prices'],

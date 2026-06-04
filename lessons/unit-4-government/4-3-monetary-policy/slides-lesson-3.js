@@ -82,28 +82,11 @@ IGCSE.lesson = {
       title: 'Money supply measures',
       zhTitle: '货币供给措施',
     },
-    {
-      type: 'fact',
-      eyebrow: 'Example',
-      facts: {
-        left: {
-          country: 'United States',
-          context: 'The Federal Reserve can use money and bank reserves to influence liquidity in the financial system.',
-          question: 'How can changing money or bank reserves affect liquidity in the financial system?',
-          questionZh: '改变货币或银行准备金会如何影响金融体系流动性？',
-          answer: 'More money or reserves can increase liquidity, making it easier for banks to lend and for spending to rise.',
-          source: 'Source: Federal Reserve monetary policy implementation materials.',
-        },
-        china: {
-          country: 'China',
-          context: 'In February 2024, China cut the reserve requirement ratio by 0.5 percentage points.',
-          question: 'How could this affect liquidity and spending?',
-          questionZh: '这会如何影响流动性和支出？',
-          answer: 'Lower reserve requirements can increase bank liquidity, making it easier for banks to lend and for spending to rise.',
-          source: 'Source: People\'s Bank of China, January 2024 announcement.',
-        },
-      },
-      visual: photos.pboc,
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United States',
+      visual: photos.bankLendingCashier,
+      notes: 'Example: United States / China. Former fact context: The Federal Reserve can use money and bank reserves to influence liquidity in the financial system. | In February 2024, China cut the reserve requirement ratio by 0.5 percentage points. Teacher question: How can changing money or bank reserves affect liquidity in the financial system? Possible answer: More money or reserves can increase liquidity, making it easier for banks to lend and for spending to rise. Source: Source: Federal Reserve monetary policy implementation materials. | Source: People\'s Bank of China, January 2024 announcement.',
     },
     {
       type: 'compare',
@@ -156,13 +139,14 @@ IGCSE.lesson = {
       title: 'Increasing money supply',
       zhTitle: '增加货币供给',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: '__________ rises', answer: 'money supply', zh: '货币供给上升' },
-        { text: '__________ may increase', answer: 'bank lending', zh: '银行可能增加贷款' },
-        { text: 'spending and __________ may rise', answer: 'investment', zh: '支出和投资可能上升' },
-        { text: 'output and __________ may rise', answer: 'employment', zh: '产出和就业可能上升' },
-      ]],
-      visual: photos.bankLendingCashier,
+      nodes: [
+        [
+          { text: '__________ rises', answer: 'money supply', zh: '货币供给上升' },
+          { text: '__________ may increase', answer: 'bank lending', zh: '银行可能增加贷款' },
+          { text: 'spending and __________ may rise', answer: 'investment', zh: '支出和投资可能上升' },
+          { text: 'output and __________ may rise', answer: 'employment', zh: '产出和就业可能上升' },
+        ]
+      ],
       sources: [
         {
           label: 'Paper 2 source',
@@ -199,13 +183,14 @@ IGCSE.lesson = {
       title: 'Reducing money supply',
       zhTitle: '减少货币供给',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: '__________ falls', answer: 'money supply', zh: '货币供给下降' },
-        { text: '__________ may decrease', answer: 'bank lending', zh: '银行可能减少贷款' },
-        { text: 'spending and __________ may fall', answer: 'investment', zh: '支出和投资可能下降' },
-        { text: '__________ may fall', answer: 'inflationary pressure', zh: '通胀压力可能下降' },
-      ]],
-      visual: photos.bankLendingCashier,
+      nodes: [
+        [
+          { text: '__________ falls', answer: 'money supply', zh: '货币供给下降' },
+          { text: '__________ may decrease', answer: 'bank lending', zh: '银行可能减少贷款' },
+          { text: 'spending and __________ may fall', answer: 'investment', zh: '支出和投资可能下降' },
+          { text: '__________ may fall', answer: 'inflationary pressure', zh: '通胀压力可能下降' },
+        ]
+      ],
     },
     {
       type: 'answer',
@@ -249,9 +234,7 @@ IGCSE.lesson = {
         { term: 'one currency', zh: '一种货币', explain: false },
         { term: 'another currency', zh: '另一种货币', explain: false },
       ],
-      showExamples: false,
-      partialReview: false,
-    },
+      showExamples: false,    },
     {
       type: 'classificationTask',
       eyebrow: 'Classify',
@@ -284,7 +267,6 @@ IGCSE.lesson = {
         ['1', '__________ may become more expensive for foreign buyers.', 'exports'],
         ['2', '__________ may become cheaper.', 'imports'],
       ],
-      prompt: 'Stop here for now: exchange-rate determination and current-account analysis come later in Unit 6.',
     },
     {
       type: 'quiz',
@@ -312,7 +294,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Monetary policy measures include changes in interest rates and the __________.', 'money supply'],

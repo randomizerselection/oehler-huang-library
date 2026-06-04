@@ -39,7 +39,7 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.9',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Define externalities using private and external effects.',
@@ -277,7 +277,6 @@ IGCSE.lesson = {
         ['3', 'market output may be too __________', 'low'],
         ['4', 'example: vaccines reducing disease __________', 'spread'],
       ],
-      prompt: 'Use the words private, external and social to make the explanation clear.',
     },
     {
       type: 'socialEffectsVenn',
@@ -323,19 +322,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'External costs',
       zhTitle: '外部成本',
-      nodes: [[
-        ['producer or consumer pays private cost', '生产者或消费者承担私人成本'],
-        ['third parties suffer external cost', '第三方承受外部成本'],
-        ['social cost exceeds private cost', '社会成本大于私人成本'],
-        ['market price is too low', '市场价格过低'],
-        ['output may be too high', '产量可能过高'],
-      ]],
-      footer: 'Examples: air pollution, noise, congestion, waste and second-hand smoke.',
-      visual: photos.factorySmoke,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'producer or consumer pays private __________', answer: 'cost', zh: '生产者或消费者承担私人成本' },
+          { text: 'third parties suffer external __________', answer: 'cost', zh: '第三方承受外部成本' },
+          { text: 'social cost exceeds private __________', answer: 'cost', zh: '社会成本大于私人成本' },
+          { text: 'market price is too __________', answer: 'low', zh: '市场价格过低' },
+          { text: 'output may be too __________', answer: 'high', zh: '产量可能过高' },
+        ]
+      ],
     },
     {
       type: 'visualPause',
@@ -361,19 +360,19 @@ IGCSE.lesson = {
     },
     {
       type: 'flow',
+      mode: 'fillBlanks',
       eyebrow: 'Learn',
       title: 'External benefits',
       zhTitle: '外部收益',
-      nodes: [[
-        ['consumer or producer gains private benefit', '消费者或生产者获得私人收益'],
-        ['third parties gain external benefit', '第三方获得外部收益'],
-        ['social benefit exceeds private benefit', '社会收益大于私人收益'],
-        ['market demand is too low', '市场需求过低'],
-        ['output may be too low', '产量可能过低'],
-      ]],
-      footer: 'Examples: education, vaccination, training, public health campaigns and rainforests.',
-      visual: photos.healthcare,
-      partialReview: ['.flowRow > .flowChip', '.prompt'],
+      nodes: [
+        [
+          { text: 'consumer or producer gains private __________', answer: 'benefit', zh: '消费者或生产者获得私人收益' },
+          { text: 'third parties gain external __________', answer: 'benefit', zh: '第三方获得外部收益' },
+          { text: 'social benefit exceeds private __________', answer: 'benefit', zh: '社会收益大于私人收益' },
+          { text: 'market demand is too __________', answer: 'low', zh: '市场需求过低' },
+          { text: 'output may be too __________', answer: 'low', zh: '产量可能过低' },
+        ]
+      ],
     },
     {
       type: 'visualPause',
@@ -409,7 +408,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'Social cost equals private cost plus external __________.', 'cost'],

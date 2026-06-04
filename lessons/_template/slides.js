@@ -7,7 +7,7 @@
 
    Supported slide types (see assets/js/presentation.js):
      hero | roadmap | outcomes | term | compare | quiz | answer
-     cards | split | flow | exam | section | discussion | fact
+     cards | split | flow | exam | section | discussion | visualPause
      taxSim | indirectTaxSim | marketMechanismSim | marketSignalGame
 
    Available "visual" keys (see assets/js/visuals.js):
@@ -50,14 +50,12 @@
      e.g. subtitle: 'How lower rates change spending and investment'.
      Do not use section subtitles for syllabus refs or topic breadcrumbs.
 
-   Fact and discussion convention:
-     Every complete deck should include both fact and discussion slides.
-     Each major section should normally start with a sourced fact slide or a
-     discussion prompt before abstract explanation. Prefer local photos from
-     assets/js/photos.js for fact slides.
-     Keep source names out of the large fact text; use the source line for
-     attribution. Use flags and a China comparison where relevant. Download a
-     new specific local photo when the catalogue only has a generic visual.
+   Visual pause and discussion convention:
+     Fact slides are discontinued. Each major section should normally start
+     with a specific visualPause slide or a student-facing discussion prompt
+     before abstract explanation. Prefer local photos from assets/js/photos.js.
+     Download a new specific local photo when the catalogue only has a generic
+     visual, then resize oversized downloads for full-screen classroom use.
    ============================================================ */
 
 window.IGCSE = window.IGCSE || {};
@@ -104,6 +102,11 @@ IGCSE.lesson = {
         '<Objective 2>',
         '<Objective 3>',
       ],
+      zhBullets: [
+        '<目标 1>',
+        '<目标 2>',
+        '<目标 3>',
+      ],
     },
 
     {
@@ -126,35 +129,60 @@ IGCSE.lesson = {
     },
 
     {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          flag: '🌐',
-          country: '<Country, region, firm or world economy>',
-          context: 'One short real-world context sentence; no source name here.',
-          question: 'One application question linked to the lesson concept?',
-          questionZh: '这个例子说明了哪个经济概念？',
-          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
-          zh: '<该事实的简短中文翻译>',
-          source: 'Source: <source name and year>.',
-        },
-        china: {
-          flag: '🇨🇳',
-          country: 'China',
-          context: 'One China comparison context sentence when relevant; no source name here.',
-          question: 'One China comparison application question?',
-          questionZh: '这个例子说明了哪个经济概念？',
-          answer: 'A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome.',
-          zh: '<中国比较事实的简短中文翻译>',
-          source: 'Source: <China source name and year>.',
-        },
-      },
+      type: 'visualPause',
+      title: 'Visual pause: <specific example>',
       visual: photos.starbucks || 'abstract',
+      notes: 'Teacher cue: ask students what they can observe in this specific example and how it connects to the lesson concept. Preserve source/context details here when replacing an old fact slide.',
     },
 
     // Repeat for each section:
-    // section -> fact/discussion -> taught content -> formative assessment.
+    // section -> visualPause/discussion -> taught content -> formative assessment.
+
+    {
+      type: 'term',
+      eyebrow: 'Key term',
+      title: '<Key term>',
+      zhTitle: '<中文术语>',
+      term: '<key term>',
+      definition: '<Definition with key phrase included for clickable blanks.>',
+      definitionZh: '<简明中文定义>',
+      keyTerms: [
+        { term: '<key phrase>', zh: '<中文>', note: '<short clarification>' },
+      ],
+      examples: [
+        ['Example', '<specific example>'],
+      ],
+      showExamples: false,
+    },
+
+    {
+      type: 'flow',
+      eyebrow: 'Learn',
+      title: '<Explanation flow>',
+      zhTitle: '<中文标题>',
+      mode: 'fillBlanks',
+      nodes: [
+        { text: '<first cause> __________', answer: '<key term>', zh: '<中文支持行>' },
+        { text: '<next link> __________', answer: '<key term>', zh: '<中文支持行>' },
+        { text: '<result> __________', answer: '<key term>', zh: '<中文支持行>' },
+      ],
+    },
+
+    {
+      type: 'compare',
+      eyebrow: 'Compare',
+      mode: 'fillBlanks',
+      leftTitle: '<Concept A>',
+      left: [
+        ['1', '<statement with __________>', '<answer>'],
+        ['2', '<statement with __________>', '<answer>'],
+      ],
+      rightTitle: '<Concept B>',
+      right: [
+        ['1', '<statement with __________>', '<answer>'],
+        ['2', '<statement with __________>', '<answer>'],
+      ],
+    },
 
     {
       type: 'quiz',
@@ -164,6 +192,28 @@ IGCSE.lesson = {
       answer: 0,
       prompt: '<Follow-up explanation or application task>',
       visual: 'abstract',
+    },
+
+    {
+      type: 'exam',
+      eyebrow: 'Exam practice',
+      title: '<Full exam question. [4]>',
+      keywordLabel: 'Use these keywords',
+      keywords: ['<keyword 1>', '<keyword 2>', '<keyword 3>', '<keyword 4>'],
+      prompt: 'Write one short paragraph. Use the keywords.',
+    },
+
+    {
+      type: 'modelAnswer',
+      eyebrow: 'Model answer',
+      title: '<Full exam question. [4]>',
+      paragraphs: [
+        '<Model answer sentence 1 using keywords.>',
+        '<Model answer sentence 2 using keywords.>',
+      ],
+      links: ['<keyword 1>', '<keyword 2>', '<keyword 3>', '<keyword 4>'],
+      showLinkChips: false,
+      partialReview: ['.modelAnswerCard'],
     },
 
     {

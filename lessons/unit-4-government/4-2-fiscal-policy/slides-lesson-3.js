@@ -54,9 +54,13 @@ IGCSE.lesson = {
       title:   'By the end, you can',
       bullets: [
         'Distinguish between progressive, regressive and proportional taxes.',
-        'Classify taxes as progressive, regressive or proportional from their design.',
+        'Classify taxes from their design.',
         'Explain why indirect taxes can be regressive.',
-        'Classify taxes before explaining their effects.',
+      ],
+      zhBullets: [
+        '区分累进税、累退税和比例税。',
+        '根据税制设计判断税种。',
+        '解释为什么间接税可能具有累退性。',
       ],
     },
     {
@@ -65,45 +69,24 @@ IGCSE.lesson = {
           title:   'Progressive, regressive\nand proportional taxes',
           zhTitle: '累进税、累退税和比例税',
         },
-    {
-          type: 'fact',
-          eyebrow: 'Country fact',
-          flag: '🇬🇧',
-          country: 'United Kingdom',
-          context: 'The UK income tax system has bands of 0%, 20%, 40% and 45% in the 2026-27 tax year.',
-          question: 'Why is this an example of progressive taxation?',
-          questionZh: '为什么这是累进税的例子？',
-          answer: 'It is progressive because people with higher taxable income face a higher tax rate.',
-          zh: '英国在2026-27纳税年度设有0%、20%、40%和45%的所得税税率档。较高应税收入可能适用更高的边际税率，因此这是累进税的例子。',
-          source: 'Source: GOV.UK Income Tax rates and Personal Allowances, 2026-27.',
-          visual: factPhotos.hmrcLondon,
-        },
-    {
-          type: 'fact',
-          eyebrow: 'Country fact',
-          flag: '🇯🇵',
-          country: 'Japan',
-          context: 'Japan has a 10% standard consumption tax rate, with an 8% reduced rate for some items.',
-          question: 'Why can a consumption tax be regressive?',
-          questionZh: '为什么消费税可能具有累退性？',
-          answer: 'It can be regressive because lower-income households may spend a larger share of income on taxed consumption.',
-          zh: '日本的消费税标准税率为10%，部分项目适用8%的较低税率。如果低收入家庭把更大比例的收入用于消费，消费税可能具有累退性。',
-          source: 'Source: Japan National Tax Agency consumption tax rate table; regressive effect is classroom inference.',
-          visual: photos.shopping,
-        },
-    {
-          type: 'fact',
-          eyebrow: 'Country fact',
-          flag: '🇭🇺',
-          country: 'Hungary',
-          context: 'Hungary sets personal income tax at 15% in 2026.',
-          question: 'Why is this an example of proportional taxation?',
-          questionZh: '为什么这是比例税的例子？',
-          answer: 'It is proportional because the same percentage tax rate is applied to income.',
-          zh: '匈牙利在2026年将个人所得税税率设为15%。对收入使用单一百分比税率体现了比例税，虽然高收入者缴纳的总金额更多。',
-          source: 'Source: Hungarian National Tax and Customs Administration, short summary on private-person taxation in 2026.',
-          visual: photos.taxForms,
-        },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United Kingdom',
+      visual: factPhotos.hmrcLondon,
+      notes: 'Example: United Kingdom. Former fact context: The UK income tax system has bands of 0%, 20%, 40% and 45% in the 2026-27 tax year. Teacher question: Why is this an example of progressive taxation? Possible answer: It is progressive because people with higher taxable income face a higher tax rate. Source: Source: GOV.UK Income Tax rates and Personal Allowances, 2026-27.',
+    },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Japan',
+      visual: photos.shopping,
+      notes: 'Example: Japan. Former fact context: Japan has a 10% standard consumption tax rate, with an 8% reduced rate for some items. Teacher question: Why can a consumption tax be regressive? Possible answer: It can be regressive because lower-income households may spend a larger share of income on taxed consumption. Source: Source: Japan National Tax Agency consumption tax rate table; regressive effect is classroom inference.',
+    },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: Hungary',
+      visual: photos.taxForms,
+      notes: 'Example: Hungary. Former fact context: Hungary sets personal income tax at 15% in 2026. Teacher question: Why is this an example of proportional taxation? Possible answer: It is proportional because the same percentage tax rate is applied to income. Source: Source: Hungarian National Tax and Customs Administration, short summary on private-person taxation in 2026.',
+    },
     {
           type: 'cards',
           eyebrow: 'Learn',
@@ -118,7 +101,7 @@ IGCSE.lesson = {
                 ['Income tax', 'higher income bands pay higher tax rates'],
                 ['Effect', 'often used to reduce inequality'],
               ],
-            },
+    },
             {
               title: 'Regressive tax',
               definition: 'A regressive tax takes a higher proportion of income from lower-income households.',
@@ -127,7 +110,7 @@ IGCSE.lesson = {
                 ['Sales tax', 'can take a larger share of a poorer household income'],
                 ['Effect', 'may increase inequality'],
               ],
-            },
+    },
             {
               title: 'Proportional tax',
               definition: 'A proportional tax takes the same proportion of income at all income levels, even though higher earners pay more money in total.',
@@ -137,11 +120,11 @@ IGCSE.lesson = {
                 ['High income', '10% of $80,000 = $8,000'],
                 ['Key point', 'same percentage, different amount'],
               ],
-            },
+    },
           ],
           footer: 'Key point: compare the percentage of income paid, not just the amount of money paid.',
           partialReview: ['.cardgrid > .card', '.prompt'],
-        },
+    },
     {
           type: 'quiz',
           eyebrow: 'Check',
@@ -171,7 +154,7 @@ IGCSE.lesson = {
     {
           type: 'answer',
           eyebrow: 'Check',
-          title:   'Classify the tax',
+          title:   'Fill in the blanks',
           mode:    'fillBlanks',
           steps: [
             ['1', 'Income tax with higher rates for higher income bands is usually __________.', 'progressive'],
@@ -218,7 +201,7 @@ IGCSE.lesson = {
           ],
           footer: 'For each card, say what evidence proves the classification.',
           partialReview: ['.cardgrid > .card', '.prompt'],
-        },
+    },
     {
           type: 'taxRateDiagramCompare',
           eyebrow: 'Diagram',
@@ -246,7 +229,7 @@ IGCSE.lesson = {
           ],
           prompt: 'The slope shows what happens to the percentage rate as income taxed increases.',
           partialReview: ['.taxRateDiagramCard', '.prompt'],
-        },
+    },
     {
           type: 'quiz',
           eyebrow: 'Check',
@@ -306,15 +289,20 @@ IGCSE.lesson = {
         },
     {
           type: 'flow',
+          mode: 'fillBlanks',
           eyebrow: 'Example',
           title:   'Sales tax can be regressive',
           zhTitle: '销售税可能具有累退性',
           question: 'A sales tax is charged on basic goods bought by most households.',
-          nodes: [['basic goods are taxed', 'poorer households spend a larger share of income', 'tax takes a higher proportion from poorer households', 'regressive tax']],
-          footer: 'Key explanation: classification depends on the share of income paid, not just the cash amount paid.',
-          visual: photos.shopping,
-          partialReview: ['.flowRow > .flowChip', '.prompt'],
-        },
+          nodes: [
+        [
+          { text: 'basic goods are __________', answer: 'taxed', zh: '中文提示： basic goods are taxed' },
+          { text: 'poorer households spend a larger share of __________', answer: 'income', zh: '中文提示： poorer households spend a larger share of income' },
+          { text: 'tax takes a higher proportion from poorer __________', answer: 'households', zh: '中文提示： tax takes a higher proportion from poorer households' },
+          { text: 'regressive __________', answer: 'tax', zh: '中文提示： regressive tax' },
+        ]
+      ],
+    },
     {
           type: 'quiz',
           eyebrow: 'Check',
@@ -331,7 +319,7 @@ IGCSE.lesson = {
     {
           type: 'answer',
           eyebrow: 'Check',
-          title:   'Explain the classification',
+          title:   'Fill in the blanks',
           mode:    'fillBlanks',
           steps: [
             ['1', 'A progressive income tax can reduce inequality because higher-income groups pay a higher __________ of income.', 'proportion'],
@@ -351,7 +339,7 @@ IGCSE.lesson = {
             ['3', 'A proportional tax charges the same __________ at all income levels.', 'percentage'],
             ['4', 'An indirect tax can be regressive if poorer households spend a larger share of their __________.', 'income'],
           ],
-        },
+    },
     {
           type: 'section',
           eyebrow: 'New section',
@@ -375,7 +363,7 @@ IGCSE.lesson = {
           type: 'answer',
           eyebrow: 'Check',
           title:   'Exit ticket',
-          zhTitle: '离堂小测',
+          zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
           mode:    'fillBlanks',
           steps: [
             ['1', 'A direct tax is paid on income, profit or __________.', 'wealth'],

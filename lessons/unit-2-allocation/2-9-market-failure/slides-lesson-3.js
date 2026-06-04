@@ -39,7 +39,7 @@ IGCSE.lesson = {
     },
     {
       type: 'outcomes',
-      eyebrow: 'Objectives - 2.9',
+      eyebrow: 'Objectives',
       title: 'By the end, you can',
       bullets: [
         'Define public goods using non-rival and non-excludable.',
@@ -119,7 +119,6 @@ IGCSE.lesson = {
         ['3', 'private revenue is __________', 'weak'],
         ['4', 'example: street lighting on a public __________', 'road'],
       ],
-      prompt: 'A public good needs both features.',
     },
     {
       type: 'peerTask',
@@ -175,14 +174,15 @@ IGCSE.lesson = {
       title: 'The free-rider problem',
       zhTitle: '搭便车问题',
       mode: 'fillBlanks',
-      nodes: [[
-        { text: 'good is non-__________', answer: 'excludable', zh: '物品具有非排他性' },
-        { text: 'people can benefit without __________', answer: 'paying', zh: '人们可以不付费也受益' },
-        { text: '__________ riders appear', answer: 'free', zh: '出现搭便车者' },
-        { text: 'private __________ is too low', answer: 'revenue', zh: '私人收入过低' },
-        { text: 'non-__________ may occur', answer: 'provision', zh: '可能出现无人提供' },
-      ]],
-      visual: photos.streetLight,
+      nodes: [
+        [
+          { text: 'good is non-__________', answer: 'excludable', zh: '物品具有非排他性' },
+          { text: 'people can benefit without __________', answer: 'paying', zh: '人们可以不付费也受益' },
+          { text: '__________ riders appear', answer: 'free', zh: '出现搭便车者' },
+          { text: 'private __________ is too low', answer: 'revenue', zh: '私人收入过低' },
+          { text: 'non-__________ may occur', answer: 'provision', zh: '可能出现无人提供' },
+        ]
+      ],
     },
     {
       type: 'exam',
@@ -207,28 +207,11 @@ IGCSE.lesson = {
       showLinkChips: false,
       partialReview: ['.modelAnswerCard'],
     },
-    {
-      type: 'fact',
-      eyebrow: 'Specific example',
-      facts: {
-        left: {
-          country: 'United Kingdom',
-          context: 'The UK planned GBP 5.2 billion of public investment in flood and coastal erosion schemes from 2021 to 2027.',
-          question: 'Which public-good feature makes private firms unlikely to provide enough flood protection?',
-          questionZh: '哪个公共物品特征使私人企业不太可能提供足够的防洪保护？',
-          answer: 'Non-excludability is important because people can benefit from flood protection even if they do not pay.',
-          source: 'Source: UK Environment Agency.',
-        },
-        china: {
-          country: 'China',
-          context: 'China issued treasury bond support for disaster recovery and flood-control capacity after 2023 floods.',
-          question: 'Which public-good feature makes private firms unlikely to provide enough flood protection?',
-          questionZh: '哪个公共物品特征使私人企业不太可能提供足够的防洪保护？',
-          answer: 'Non-excludability is important because people can benefit from flood protection even if they do not pay.',
-          source: 'Source: China State Council, 2024.',
-        },
-      },
+        {
+      type: 'visualPause',
+      title: 'Visual pause: United Kingdom',
       visual: photos.floodBarrier,
+      notes: 'Example: United Kingdom / China. Former fact context: The UK planned GBP 5.2 billion of public investment in flood and coastal erosion schemes from 2021 to 2027. | China issued treasury bond support for disaster recovery and flood-control capacity after 2023 floods. Teacher question: Which public-good feature makes private firms unlikely to provide enough flood protection? Possible answer: Non-excludability is important because people can benefit from flood protection even if they do not pay. Source: Source: UK Environment Agency. | Source: China State Council, 2024.',
     },
     {
       type: 'section',
@@ -255,7 +238,6 @@ IGCSE.lesson = {
         ['3', 'free-rider __________', 'problem'],
         ['4', 'example: national __________', 'defence'],
       ],
-      prompt: 'Do not call every government-provided service a public good. Use the two features.',
     },
     {
       type: 'peerTask',
@@ -292,7 +274,6 @@ IGCSE.lesson = {
         ['3', 'problem is under-__________', 'consumption'],
         ['4', 'example: __________', 'education'],
       ],
-      prompt: 'Paper 2 has asked students to explain this difference with examples.',
     },
     {
       type: 'quiz',
@@ -306,7 +287,7 @@ IGCSE.lesson = {
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
-      zhTitle: '离堂小测',
+      zhTitle: '\u79bb\u5802\u5c0f\u6d4b',
       mode: 'fillBlanks',
       steps: [
         ['1', 'A public good is non-rival and non-__________.', 'excludable'],
