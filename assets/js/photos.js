@@ -337,13 +337,6 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Siobhan Leachman / CC0',
       'https://commons.wikimedia.org/wiki/File:Wait_line_at_the_supermarket.jpg'
     ),
-    visualPauseSupermarketPrices: photo(
-      'fiscal-policy',
-      'visual-pause-supermarket-prices.jpg',
-      'Supermarket shelves with clearly posted grocery prices.',
-      'Wikimedia Commons / Retired electrician / CC0',
-      'https://commons.wikimedia.org/wiki/File:Moscow,_Paveletskaya_Plaza_Nov.2023_-_chicken_prices.jpg'
-    ),
     visualPauseTaxForm: photo(
       'fiscal-policy',
       'visual-pause-tax-form-1040.jpg',
@@ -577,6 +570,41 @@ window.IGCSE = window.IGCSE || {};
       'A currency exchange stall in New York City showing exchange-rate boards.',
       'Wikimedia Commons / Rhododendrites / CC BY-SA 4.0',
       'https://commons.wikimedia.org/wiki/File:NYC_-_Currency_Exchange_stall_-_0670.jpg'
+    ),
+    visualPauseFomcBoardRoom: photo(
+      'monetary-policy',
+      'visual-pause-fomc-board-room.jpg',
+      'The entrance to the Federal Open Market Committee board room in the Marriner S. Eccles building.',
+      'Wikimedia Commons / Federalreserve / U.S. Government Work',
+      'https://commons.wikimedia.org/wiki/File:The_Entrance_to_the_FOMC_Board_Room.jpg'
+    ),
+    visualPauseClosedMallShops: photo(
+      'monetary-policy',
+      'visual-pause-closed-mall-shops.jpg',
+      'Closed shops inside a mall.',
+      'Wikimedia Commons / 95 b-body ss / CC BY-SA 3.0',
+      'https://commons.wikimedia.org/wiki/File:Closed_mall_shops.JPG'
+    ),
+    visualPauseGasStationPricing: photo(
+      'monetary-policy',
+      'visual-pause-gas-station-pricing.jpg',
+      'A gas station pricing sign at a former petrol station.',
+      'Wikimedia Commons / Moonstruck Exploring / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:Gas_station_with_pricing_sign.jpg'
+    ),
+    visualPauseCreditCardDebt: photo(
+      'monetary-policy',
+      'visual-pause-credit-card-debt.jpg',
+      'A person using a laptop while holding a credit card.',
+      'Unsplash / rupixen / Unsplash License',
+      'https://unsplash.com/photos/person-using-laptop-computer-holding-card-Q59HmzK38eQ'
+    ),
+    visualPauseShippingContainersPort: photo(
+      'monetary-policy',
+      'visual-pause-shipping-containers-port.jpg',
+      'Shipping containers stacked at a busy port.',
+      'Unsplash / Haris Illahi / Unsplash License',
+      'https://unsplash.com/photos/shipping-containers-stacked-at-a-busy-port-at-sunset-fT4SwA83jH4'
     ),
   };
 

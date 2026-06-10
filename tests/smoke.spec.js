@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
+const { TextDecoder } = require('util');
 const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
@@ -24,7 +25,8 @@ const deckTitleTranslations = {
   'Effects on macroeconomic aims': '对宏观经济目标的影响',
   'Money supply and monetary policy': '货币供应与货币政策',
   'Interest rates': '利率',
-  'Money supply measures': '货币供给措施',
+  'Money supply and exchange rates': '货币供应与汇率',
+  'Effects of monetary policy': '货币政策的影响',
   'Productive capacity and total supply': '生产能力与总供给',
   'Interventionist supply-side policies': '干预型供给侧政策',
   'Market-based supply-side policies': '市场型供给侧政策',
@@ -51,6 +53,23 @@ const hierarchyTitleTranslations = {
     'Supply-side policy': '供给侧政策',
   },
 };
+const protectedChineseLabels = [
+  '核心定义',
+  '教学理念',
+  '经济学核心定义',
+  '复习要点',
+  '待补充',
+  '离堂小测',
+  ...Object.values(deckTitleTranslations),
+  ...Object.values(hierarchyTitleTranslations.section),
+  ...Object.values(hierarchyTitleTranslations.units),
+  ...Object.values(hierarchyTitleTranslations.topics),
+];
+const gbkDecoder = new TextDecoder('gbk');
+
+function corruptUtf8AsGbk(value) {
+  return gbkDecoder.decode(Buffer.from(value, 'utf8'));
+}
 
 function findHtmlFiles(dir, base = dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -59,6 +78,21 @@ function findHtmlFiles(dir, base = dir) {
     const absolutePath = path.join(dir, entry.name);
     if (entry.isDirectory()) return findHtmlFiles(absolutePath, base);
     if (!entry.name.endsWith('.html')) return [];
+
+    return [path.relative(base, absolutePath).replace(/\\/g, '/')];
+  });
+}
+
+function findTextFiles(dir, base = dir) {
+  const textExtensions = new Set(['.css', '.html', '.js', '.json', '.kt', '.kts', '.md', '.svg', '.txt', '.xml']);
+
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (['.git', '.gradle', 'build', 'node_modules', 'test-results'].includes(entry.name)) return [];
+    if (entry.name === 'package-lock.json') return [];
+
+    const absolutePath = path.join(dir, entry.name);
+    if (entry.isDirectory()) return findTextFiles(absolutePath, base);
+    if (!textExtensions.has(path.extname(entry.name))) return [];
 
     return [path.relative(base, absolutePath).replace(/\\/g, '/')];
   });
@@ -290,12 +324,31 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('index.html'));
 
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Key definitions/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /Slide view/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toBeVisible();
     await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke editable site text does not contain protected Chinese mojibake', () => {
+    const signatures = new Set(
+      protectedChineseLabels
+        .flatMap((label) => label.match(/\p{Script=Han}+/gu) || [])
+        .map((label) => corruptUtf8AsGbk(label))
+        .filter((signature) => signature && !signature.includes('\uFFFD'))
+    );
+    const failures = [];
+
+    for (const file of findTextFiles(root, root)) {
+      const source = fs.readFileSync(path.join(root, file), 'utf8');
+      for (const signature of signatures) {
+        if (source.includes(signature)) failures.push(`${file}: ${signature}`);
+      }
+    }
+
+    expect(failures).toEqual([]);
   });
 
   test('@smoke definitions page opens and filters cards', async ({ page }, testInfo) => {
@@ -356,7 +409,7 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Review lessons$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Key definitions/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i })).toBeVisible();
     await expect(page.getByRole('img', { name: /Samuel Oehler-Huang/i })).toBeVisible();
@@ -374,7 +427,7 @@ test.describe('site smoke', () => {
     }
 
     for (const [title, translation] of Object.entries(hierarchyTitleTranslations.topics)) {
-      const topic = page.locator('.topic-copy').filter({ has: page.getByRole('heading', { name: title }) });
+      const topic = page.locator('.topic-copy').filter({ has: page.getByRole('heading', { name: title, level: 4 }) });
       await expect(topic.locator('.topic-title-zh')).toHaveText(translation);
     }
 

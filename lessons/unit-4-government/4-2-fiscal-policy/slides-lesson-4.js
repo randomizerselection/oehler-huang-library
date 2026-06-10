@@ -235,8 +235,8 @@ IGCSE.lesson = {
     {
       type: 'visualPause',
       title: 'Visual pause: price pressure',
-      visual: photos.visualPauseSupermarketPrices,
-      notes: 'Visual pause: bridge from lower aggregate demand to easing demand-pull inflationary pressure.',
+      visual: photos.visualPauseBudgetNegotiation,
+      notes: 'Visual pause: bridge from fiscal-policy decisions to lower aggregate demand and easing demand-pull inflationary pressure.',
     },
     {
       type: 'quiz',

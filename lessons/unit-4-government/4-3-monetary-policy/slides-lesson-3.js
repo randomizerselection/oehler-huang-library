@@ -157,7 +157,7 @@ IGCSE.lesson = {
     {
       type: 'visualPause',
       title: 'Visual pause: price pressure',
-      visual: fiscalPhotos.visualPauseSupermarketPrices,
+      visual: photos.visualPauseFomcBoardRoom,
       notes: 'Before the reducing-money-supply flow, ask why policymakers might worry if extra lending pushes demand up faster than output. Bridge to demand-pull inflationary pressure and the reason a central bank may reduce the money supply.',
     },
     {

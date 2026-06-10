@@ -906,8 +906,8 @@ body.is-visual-pause .studentSelectorSidePanel {
     linear-gradient(135deg, rgba(255,209,102,.13), rgba(255,255,255,.045)),
     rgba(255,255,255,.05);
 }
-.peerTaskMissingSteps .desc {
-  font-size: clamp(21px, 1.55vw, 30px);
+.peerTaskBlock.is-missingSentenceTask .peerTaskMissingSteps .step .desc {
+  font-size: clamp(28px, 2rem, 36px);
   line-height: 1.24;
   font-weight: 780;
 }
@@ -1096,8 +1096,8 @@ body.is-visual-pause .studentSelectorSidePanel {
   .peerTaskBlock.is-missingSentenceTask h2 {
     font-size: clamp(31px, 8vw, 45px);
   }
-  .peerTaskMissingSteps .desc {
-    font-size: clamp(17px, 4.25vw, 22px);
+  .peerTaskBlock.is-missingSentenceTask .peerTaskMissingSteps .step .desc {
+    font-size: clamp(20px, 1.45rem, 26px);
   }
   .classificationTaskBlock {
     gap: .6rem;

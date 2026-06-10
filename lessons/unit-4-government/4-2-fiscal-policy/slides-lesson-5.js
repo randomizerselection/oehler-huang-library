@@ -164,8 +164,8 @@ IGCSE.lesson = {
     {
       type: 'visualPause',
       title: 'Visual pause: stable prices',
-      visual: photos.visualPauseSupermarketPrices,
-      notes: 'Visual pause: connect price labels to stable prices and demand-pull inflationary pressure.',
+      visual: photos.visualPauseBudgetNegotiation,
+      notes: 'Visual pause: connect budget decisions to aggregate demand and demand-pull inflationary pressure.',
     },
     {
       type: 'flow',
