@@ -1102,10 +1102,11 @@ test.describe('site smoke', () => {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         if (slide.type !== 'peerTask') continue;
+        const isDefinitionRecall = slide.taskType === 'definitionRecall';
         if (slide.taskType !== 'missingSentence' && (!slide.prompt || slide.prompt.trim().length < 24)) {
           failures.push(`${slideFile} slide ${index + 1}: missing clear prompt`);
         }
-        if ((slide.steps || []).length !== 3) {
+        if (!isDefinitionRecall && (slide.steps || []).length !== 3) {
           failures.push(`${slideFile} slide ${index + 1}: must have exactly three visible steps`);
         }
         if (slide.taskType !== 'missingSentence' && !slide.sharePrompt) failures.push(`${slideFile} slide ${index + 1}: missing share prompt`);
@@ -1114,6 +1115,7 @@ test.describe('site smoke', () => {
           slide.prompt,
           slide.sharePrompt,
           ...(slide.steps || []).map((step) => Array.isArray(step) ? step[1] : step),
+          ...(slide.definitionItems || []).map((item) => `${item.term || ''} ${item.answer || ''}`),
         ].join(' ');
         if (vagueReferences.test(taskText)) {
           failures.push(`${slideFile} slide ${index + 1}: depends on another slide instead of the task surface`);
@@ -1145,6 +1147,20 @@ test.describe('site smoke', () => {
           const answerWordCount = String(missingAnswer).trim().split(/\s+/).filter(Boolean).length;
           if (answerWordCount < 7 || !/[.!?]$/.test(String(missingAnswer).trim())) {
             failures.push(`${slideFile} slide ${index + 1}: missing-sentence answer should be a full sentence`);
+          }
+        } else if (isDefinitionRecall) {
+          if ((slide.definitionItems || []).length !== 3) {
+            failures.push(`${slideFile} slide ${index + 1}: definition recall needs exactly three definition items`);
+          }
+          for (const item of slide.definitionItems || []) {
+            if (!item.label || !item.term || !item.answer) {
+              failures.push(`${slideFile} slide ${index + 1}: definition recall item needs label, term and answer`);
+              continue;
+            }
+            const wordCount = String(item.answer).trim().split(/\s+/).filter(Boolean).length;
+            if (wordCount < 10 || !/[.!?]$/.test(String(item.answer).trim())) {
+              failures.push(`${slideFile} slide ${index + 1}: definition recall answer is not a full model definition`);
+            }
           }
         } else {
           if (!(slide.sampleAnswers || []).length) failures.push(`${slideFile} slide ${index + 1}: missing sample answer`);

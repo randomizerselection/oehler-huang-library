@@ -853,6 +853,37 @@ const peerTaskMissingSentence = (s) => {
   `;
 };
 
+const peerTaskDefinitionRecall = (s) => {
+  const rows = (s.definitionItems || (s.steps || []).map((step, i) => ({
+    label: Array.isArray(step) ? step[0] : String(i + 1),
+    term: Array.isArray(step) ? step[1] : step,
+    answer: (s.sampleAnswers || [])[i],
+  }))).filter((item) => item && item.term);
+
+  return `
+    <div class="peerTaskBlock is-definitionRecallTask">
+      ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
+      <section class="peerTaskPromptPanel">
+        <div class="peerTaskBadge">${esc(s.eyebrow || 'Recall')}</div>
+        ${s.prompt ? `<p class="lead">${esc(s.prompt)}</p>` : ''}
+        ${s.zhPrompt ? `<p class="peerTaskZh" lang="zh-Hans">${esc(s.zhPrompt)}</p>` : ''}
+      </section>
+      <div class="definitionRecallRows" aria-label="${esc(s.stepsLabel || 'Write these definitions')}">
+        ${rows.map((item, i) => `
+          <div class="definitionRecallRow">
+            <div class="definitionRecallTerm">
+              <span>${esc(item.label || String(i + 1))}</span>
+              <b>${esc(item.term)}</b>
+            </div>
+            <div class="definitionRecallAnswer">${esc(item.answer || '')}</div>
+          </div>
+        `).join('')}
+      </div>
+      ${s.sharePrompt ? `<div class="prompt peerTaskShare">${esc(s.sharePrompt)}</div>` : ''}
+    </div>
+  `;
+};
+
 const classificationKey = (value = '') => String(value)
   .replace(/\s+/g, ' ')
   .trim()
@@ -1018,7 +1049,7 @@ const renderers = {
     </div>
   `,
 
-  peerTask: (s) => s.taskType === 'missingSentence' ? peerTaskMissingSentence(s) : `
+  peerTask: (s) => s.taskType === 'missingSentence' ? peerTaskMissingSentence(s) : s.taskType === 'definitionRecall' ? peerTaskDefinitionRecall(s) : `
     <div class="peerTaskBlock">
       ${s.title || s.zhTitle ? `<h2>${esc(s.title || '')}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
       <div class="peerTaskGrid">
@@ -2317,6 +2348,7 @@ function getPartialSelectors(meta, slide) {
   if (slide.type === 'exam') return '';
   if (config === false) return '';
   if (slide.type === 'peerTask' && slide.taskType === 'missingSentence') return '';
+  if (slide.type === 'peerTask' && slide.taskType === 'definitionRecall') return '.content main > div .definitionRecallAnswer';
   if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
   if (slide.type === 'classificationTask') return '.content main > div .classificationResult';
   if (slide.type === 'yesNoCheck') return '.content main > div .yesNoRow, .content main > div .yesNoAnswer';

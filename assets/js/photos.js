@@ -557,6 +557,13 @@ window.IGCSE = window.IGCSE || {};
       'Library of Congress / Harris & Ewing Collection',
       'https://commons.wikimedia.org/wiki/File:Cashier_handing_money_out,_Riggs_Bank,_3-2-38_LCCN2016873156.jpg'
     ),
+    helicopterMoneyDrop: photo(
+      'monetary-policy',
+      'helicopter-money-drop.png',
+      'AI-generated illustration of a helicopter dropping generic banknotes over households and small businesses.',
+      'AI-generated image, OpenAI',
+      'Generated for this lesson, 2026-06-02'
+    ),
     exchangeRate: photo(
       'monetary-policy',
       'cny-usd-exchange-rate.svg',
