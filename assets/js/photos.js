@@ -118,6 +118,55 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Famartin',
       'https://commons.wikimedia.org/wiki/File:2021-10-08_21_20_53_Yellow_street_light_at_the_intersection_of_Kuakini_Highway_and_Likana_Lane_in_Kailua-Kona,_Hawaii_County,_Hawaii.jpg'
     ),
+    streetLightingPedestrians: photo(
+      'market-economic-system',
+      'street-lighting-many-pedestrians.jpg',
+      'Pedestrians walking through a lit public street in Lisbon.',
+      'Wikimedia Commons / Filipe Damaso Saraiva / CC BY-SA 2.0',
+      'https://commons.wikimedia.org/wiki/File:Pedestrians_in_Lisbon_with_light_silhouettes_due_to_backlight.jpg'
+    ),
+    streetLightingRoad: photo(
+      'market-economic-system',
+      'street-lighting-public-road.jpg',
+      'Street lights illuminating traffic on a public road at night.',
+      'Wikimedia Commons / dr-scott / CC BY-SA 3.0',
+      'https://commons.wikimedia.org/wiki/File:Nighttime_Traffic_-_panoramio.jpg'
+    ),
+    publicFireworksCrowd: photo(
+      'market-economic-system',
+      'public-fireworks-crowd.jpg',
+      'A crowd watching a public fireworks display over Manhattan.',
+      'Wikimedia Commons / Horizon206 / CC0',
+      'https://commons.wikimedia.org/wiki/File:People_watching_fireworks.jpg'
+    ),
+    nonRivalPrinciple: photo(
+      'market-economic-system',
+      'non-rival-principle.svg',
+      'Diagram showing one shared benefit reaching many users at the same time.',
+      'Created for this lesson',
+      '../../../assets/images/market-economic-system/non-rival-principle.svg'
+    ),
+    nonExcludablePrinciple: photo(
+      'market-economic-system',
+      'non-excludable-principle.svg',
+      'Diagram showing non-payers benefiting because access is hard to block.',
+      'Created for this lesson',
+      '../../../assets/images/market-economic-system/non-excludable-principle.svg'
+    ),
+    defenceFighterJets: photo(
+      'market-economic-system',
+      'defence-fighter-jets-formation.jpg',
+      'F-35A fighter jets flying in formation.',
+      'Wikimedia Commons / U.S. Air Force / Airman 1st Class Dominic Tyler',
+      'https://commons.wikimedia.org/wiki/File:US_Danish_Dutch_F-35A.jpg'
+    ),
+    defenceSoldiersPatrol: photo(
+      'market-economic-system',
+      'defence-soldiers-patrol.jpg',
+      'Soldiers on patrol in the Korengal Valley.',
+      'Wikimedia Commons / U.S. Army',
+      'https://commons.wikimedia.org/wiki/File:Flickr_-_The_U.S._Army_-_Soldiers_on_patrol_in_Korengal_Valley.jpg'
+    ),
     amazonWarehouse: photo(
       'market-economic-system',
       'amazon-warehouse-garner.jpg',
@@ -207,6 +256,72 @@ window.IGCSE = window.IGCSE || {};
       'Dalecarlia Treatment Plant, a large water treatment utility in Washington, D.C.',
       'Wikimedia Commons / District of Columbia Water and Sewer Authority',
       'https://commons.wikimedia.org/wiki/File:Dalecarlia_Treatment_Plant_1997.jpg'
+    ),
+  };
+
+  const marketFailureReview = {
+    cycleHelmetRoad: photo(
+      'market-failure-review',
+      'cycle-helmet-road.jpg',
+      'A cyclist putting on a helmet before riding on a road.',
+      'Wikimedia Commons / Alextredz / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:Cyclist_putting_on_helmet_for_cycling_on_road.jpg'
+    ),
+    protectedBikeLane: photo(
+      'market-failure-review',
+      'protected-bike-lane.jpg',
+      'A protected bicycle lane with a cyclist beside a bus lane.',
+      'Wikimedia Commons / Ganmatthew / CC BY 4.0',
+      'https://commons.wikimedia.org/wiki/File:BGC_7th_Ave_Bike_Lane_(cropped).jpg'
+    ),
+    energyDrinkCans: photo(
+      'market-failure-review',
+      'energy-drink-cans.jpg',
+      'Cans of high-caffeine energy drink displayed together.',
+      'Wikimedia Commons / Oto Zapletal / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:HELL_energy_drinks.jpg'
+    ),
+    energyDrinkFridge: photo(
+      'market-failure-review',
+      'energy-drink-fridge.jpg',
+      'A refrigerator display unit filled with high-caffeine energy drinks in a shop.',
+      'Wikimedia Commons / OathOn / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:A_Monster_Energy_drink_refrigerator_display_unit_inside_Nisa_Extra_convenience_shop_on_High_Street,_Gillingham.jpg'
+    ),
+    fitnessClass: photo(
+      'market-failure-review',
+      'fitness-class.jpg',
+      'A fitness centre screen used for exercise classes.',
+      'Wikimedia Commons / U.S. Air Force / Staff Sgt. Wes Wright',
+      'https://commons.wikimedia.org/wiki/File:Center_overhauls_fitness_classes_(3230262).jpg'
+    ),
+    factoryAirPollution: photo(
+      'market-failure-review',
+      'factory-air-pollution.jpg',
+      'Air pollution rising from a brick factory chimney.',
+      'Wikimedia Commons / Janak Bhatta / CC BY-SA 4.0',
+      'https://commons.wikimedia.org/wiki/File:Air_pollution3.jpg'
+    ),
+    cityTrafficCongestion: photo(
+      'market-failure-review',
+      'city-traffic-congestion.jpg',
+      'Traffic congestion on city roads viewed from above.',
+      'Wikimedia Commons / Marek Slusarczyk / CC BY 3.0',
+      'https://commons.wikimedia.org/wiki/File:11_Traffic_congestion_in_Makati_city,_Manila,_Philippines.jpg'
+    ),
+    reusableShoppingBag: photo(
+      'market-failure-review',
+      'reusable-grocery-bag-doorstep.jpg',
+      'A reusable grocery bag filled with food at a doorway.',
+      'Pexels / RDNE Stock project / free to use',
+      'https://www.pexels.com/photo/a-bag-with-groceries-on-the-floor-7363085/'
+    ),
+    healthyChoicesPoster: photo(
+      'market-failure-review',
+      'healthy-choices-poster.jpg',
+      'A public health poster encouraging healthy food choices.',
+      'Wikimedia Commons / National Cancer Institute / Public domain',
+      'https://commons.wikimedia.org/wiki/File:Make_healthy_choices_poster.jpg'
     ),
   };
 
@@ -713,6 +828,7 @@ window.IGCSE = window.IGCSE || {};
     marketEconomicSystem,
     cocoaChocolate,
     marketFailure,
+    marketFailureReview,
     monetaryPolicy,
     supplySidePolicy,
     supplySidePolicyFacts,

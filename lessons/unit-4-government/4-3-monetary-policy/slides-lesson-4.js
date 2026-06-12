@@ -50,12 +50,12 @@ IGCSE.lesson = {
         {
           label: '1',
           term: 'Contractionary monetary policy',
-          answer: 'Contractionary monetary policy uses higher interest rates or less money supply to reduce aggregate demand.',
+          answer: 'Contractionary monetary policy uses higher interest rates or reduced money supply to reduce consumer expenditure, investment, aggregate demand and inflationary pressure.',
         },
         {
           label: '2',
           term: 'Bank lending',
-          answer: 'Bank lending is when banks provide loans to households or firms that want to borrow money.',
+          answer: 'Bank lending means banks provide loans to households or firms that want to borrow money.',
         },
         {
           label: '3',

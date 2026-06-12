@@ -40,22 +40,29 @@ IGCSE.lesson = {
     },
     {
       type: 'peerTask',
+      taskType: 'definitionRecall',
       eyebrow: 'Recall',
       title: 'Recall last lesson',
       prompt: 'On paper, write a simple definition for each term. Use one sentence for each.',
       stepsLabel: 'Write these definitions',
-      steps: [
-        ['1', 'Monetary policy'],
-        ['2', 'Central bank'],
-        ['3', 'Expansionary monetary policy'],
+      definitionItems: [
+        {
+          label: '1',
+          term: 'Money supply',
+          answer: 'Money supply is the amount of money in an economy at a particular time.',
+        },
+        {
+          label: '2',
+          term: 'Central bank',
+          answer: 'A central bank manages money and credit conditions for the whole economy.',
+        },
+        {
+          label: '3',
+          term: 'Monetary policy',
+          answer: 'Monetary policy is central-bank policy using interest rates, money supply and foreign exchange rates to influence economic activity and macroeconomic aims.',
+        },
       ],
       sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
-      sampleAnswers: [
-        'Monetary policy is the use of interest rates, money supply or exchange rates to influence economic activity.',
-        'A central bank is the government banker and banking regulator that conducts monetary policy.',
-        'Expansionary monetary policy aims to increase aggregate demand, for example by lowering interest rates or increasing money supply.',
-      ],
-      partialReview: ['.peerTaskSamples > .choice'],
     },
     {
       type: 'discussion',

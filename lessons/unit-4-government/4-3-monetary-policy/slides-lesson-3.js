@@ -44,12 +44,12 @@ IGCSE.lesson = {
         {
           label: '1',
           term: 'Fiscal policy',
-          answer: 'Fiscal policy uses government spending and taxation to influence economic activity and macroeconomic aims.',
+          answer: 'Fiscal policy is the use of government spending and taxation to influence economic activity, aggregate demand and macroeconomic aims.',
         },
         {
           label: '2',
           term: 'Monetary policy',
-          answer: 'Monetary policy uses interest rates, money supply and foreign exchange rates to influence aggregate demand and macroeconomic aims.',
+          answer: 'Monetary policy is central-bank policy using interest rates, money supply and foreign exchange rates to influence economic activity and macroeconomic aims.',
         },
         {
           label: '3',

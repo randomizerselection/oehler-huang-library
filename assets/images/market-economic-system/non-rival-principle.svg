@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Non-rival principle diagram</title>
+  <desc id="desc">One shared light benefits several people at the same time without being used up.</desc>
+  <rect width="1200" height="520" fill="#07111f"/>
+  <path d="M310 74 L76 440 H1090 L848 74 Z" fill="#ffd166" opacity="0.24"/>
+  <path d="M310 74 L76 440 M848 74 L1090 440" stroke="#ffd166" stroke-width="10" stroke-linecap="round" opacity="0.62"/>
+  <circle cx="580" cy="92" r="54" fill="#ffd166"/>
+  <circle cx="580" cy="92" r="86" fill="none" stroke="#ffd166" stroke-width="12" opacity="0.25"/>
+  <path d="M580 146 V264" stroke="#dbe7f6" stroke-width="18" stroke-linecap="round"/>
+  <path d="M512 264 H648" stroke="#dbe7f6" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#56d8ff">
+    <circle cx="265" cy="330" r="34"/>
+    <path d="M218 430 C228 378 246 356 265 356 C284 356 302 378 312 430 Z"/>
+    <circle cx="580" cy="330" r="34"/>
+    <path d="M533 430 C543 378 561 356 580 356 C599 356 617 378 627 430 Z"/>
+    <circle cx="895" cy="330" r="34"/>
+    <path d="M848 430 C858 378 876 356 895 356 C914 356 932 378 942 430 Z"/>
+  </g>
+  <g stroke="#7ef0b5" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M360 334 C430 292 500 292 550 322"/>
+    <path d="M652 322 C710 292 782 294 842 336"/>
+  </g>
+  <rect x="80" y="38" width="316" height="70" rx="18" fill="#12233a" stroke="#56d8ff" stroke-width="3"/>
+  <text x="238" y="84" fill="#edf4ff" font-family="Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle">same benefit</text>
+  <rect x="804" y="38" width="316" height="70" rx="18" fill="#12233a" stroke="#7ef0b5" stroke-width="3"/>
+  <text x="962" y="84" fill="#edf4ff" font-family="Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle">many users</text>
+</svg>

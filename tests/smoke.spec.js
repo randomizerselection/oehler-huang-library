@@ -439,8 +439,8 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(23);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(23);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(24);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(24);
     await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(22);
     await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(22);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
@@ -783,7 +783,7 @@ test.describe('site smoke', () => {
       'socialEffectsVenn',
       'term',
     ]);
-    const formativeTypes = new Set(['answer', 'classificationTask', 'peerTask', 'quiz', 'yesNoCheck']);
+    const formativeTypes = new Set(['answer', 'classificationTask', 'exam', 'peerTask', 'quiz', 'yesNoCheck']);
     const missingChecks = [];
 
     for (const slideFile of slideFiles) {
@@ -978,6 +978,61 @@ test.describe('site smoke', () => {
           }
           if (!zh) failures.push(`${slideFile} slide ${index + 1}: ${term} missing zh`);
           if (needsBottomExplanation && !note) failures.push(`${slideFile} slide ${index + 1}: ${term} missing note`);
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('definition recall checks use taught model definitions @smoke', () => {
+    const expectedRecallDefinitions = [
+      {
+        slideFile: 'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-2.js',
+        entries: {
+          'Money supply': 'Money supply is the amount of money in an economy at a particular time.',
+          'Central bank': 'A central bank manages money and credit conditions for the whole economy.',
+          'Monetary policy': 'Monetary policy is central-bank policy using interest rates, money supply and foreign exchange rates to influence economic activity and macroeconomic aims.',
+        },
+      },
+      {
+        slideFile: 'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-3.js',
+        entries: {
+          'Fiscal policy': 'Fiscal policy is the use of government spending and taxation to influence economic activity, aggregate demand and macroeconomic aims.',
+          'Monetary policy': 'Monetary policy is central-bank policy using interest rates, money supply and foreign exchange rates to influence economic activity and macroeconomic aims.',
+          'Interest rate': 'An interest rate is the cost of borrowing and the reward for saving, expressed as a percentage.',
+        },
+      },
+      {
+        slideFile: 'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
+        entries: {
+          'Contractionary monetary policy': 'Contractionary monetary policy uses higher interest rates or reduced money supply to reduce consumer expenditure, investment, aggregate demand and inflationary pressure.',
+          'Bank lending': 'Bank lending means banks provide loans to households or firms that want to borrow money.',
+          'Foreign exchange rate': 'A foreign exchange rate is the price of one currency in terms of another currency.',
+        },
+      },
+      {
+        slideFile: 'lessons/unit-2-allocation/2-9-market-failure/slides-lesson-3.js',
+        entries: {
+          'Merit good': 'A merit good is a beneficial good that may be under-consumed because consumers may not recognise its full benefits.',
+          'Demerit good': 'A demerit good is a harmful good that may be over-consumed because consumers may not recognise its full costs.',
+          'Market failure': 'Market failure is an inefficient allocation of resources in a free market; production or consumption is not efficient.',
+        },
+      },
+    ];
+    const failures = [];
+
+    for (const { slideFile, entries } of expectedRecallDefinitions) {
+      const lesson = readLesson(slideFile);
+      const recallSlide = (lesson.slides || []).find((slide) => slide.taskType === 'definitionRecall');
+      if (!recallSlide) {
+        failures.push(`${slideFile}: missing definition recall slide`);
+        continue;
+      }
+      const actualEntries = new Map((recallSlide.definitionItems || []).map((item) => [item.term, item.answer]));
+      for (const [term, expectedAnswer] of Object.entries(entries)) {
+        if (actualEntries.get(term) !== expectedAnswer) {
+          failures.push(`${slideFile}: ${term} recall definition drifted`);
         }
       }
     }
@@ -1807,6 +1862,64 @@ test.describe('site smoke', () => {
     }
   });
 
+  test('@smoke @responsive handout fill-blank answers can be toggled', async ({ page }) => {
+    await page.setViewportSize({ width: 1200, height: 900 });
+    await page.goto(pageUrl('lessons/unit-4-government/4-3-monetary-policy/lesson-2.html') + '?view=print');
+
+    await expect(page.locator('.handoutDocument')).toBeVisible();
+    await expect(page.locator('.handoutToolbar')).toBeVisible();
+    await expect(page.locator('.handoutAnswerToggle')).toBeVisible();
+    const checkbox = page.locator('[data-handout-answer-toggle]');
+    await expect(checkbox).not.toBeChecked();
+
+    const answerBlankCount = await page.locator('.handoutBlank[data-answer]').count();
+    expect(answerBlankCount).toBeGreaterThan(0);
+    const firstAnswerBlank = page.locator('.handoutBlank[data-answer]').first();
+    const readBlankState = () => firstAnswerBlank.evaluate((blank) => {
+      const style = window.getComputedStyle(blank);
+      const afterStyle = window.getComputedStyle(blank, '::after');
+      return {
+        answer: blank.getAttribute('data-answer') || '',
+        ariaLabel: blank.getAttribute('aria-label') || '',
+        afterContent: afterStyle.content || '',
+        borderBottomWidth: style.borderBottomWidth,
+        width: blank.getBoundingClientRect().width,
+      };
+    });
+
+    const hiddenState = await readBlankState();
+    expect(hiddenState.answer).toBeTruthy();
+    expect(hiddenState.ariaLabel).toBe('blank');
+    expect(hiddenState.afterContent).not.toContain(hiddenState.answer);
+    expect(parseFloat(hiddenState.borderBottomWidth)).toBeGreaterThan(0);
+
+    await page.locator('.handoutAnswerToggle').click();
+    await expect(checkbox).toBeChecked();
+    await expect(page.locator('#deck')).toHaveClass(/is-showing-answers/);
+    const shownState = await readBlankState();
+    expect(shownState.afterContent).toContain(shownState.answer);
+    expect(shownState.ariaLabel).toContain(`answer: ${shownState.answer}`);
+    expect(parseFloat(shownState.borderBottomWidth)).toBe(0);
+
+    await page.emulateMedia({ media: 'print' });
+    await expect(page.locator('.handoutToolbar')).toBeHidden();
+    const printState = await readBlankState();
+    expect(printState.afterContent).toContain(printState.answer);
+    expect(parseFloat(printState.borderBottomWidth)).toBe(0);
+    await page.emulateMedia({ media: 'screen' });
+
+    await page.locator('.handoutAnswerToggle').click();
+    await expect(checkbox).not.toBeChecked();
+    const restoredState = await readBlankState();
+    expect(restoredState.afterContent).not.toContain(restoredState.answer);
+    expect(restoredState.ariaLabel).toBe('blank');
+    expect(parseFloat(restoredState.borderBottomWidth)).toBeGreaterThan(0);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(page.locator('.handoutAnswerToggle')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('fiscal policy lesson 4 reveals term notes and peer examples only after the task', async ({ page }) => {
     const lessonPath = 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html';
     await page.goto(pageUrl(lessonPath));
@@ -2540,6 +2653,135 @@ test.describe('site smoke', () => {
     expect(fittedTitle.fontSize).toBeLessThan(38);
     expect(fittedTitle.extractFontSize).toBeGreaterThanOrEqual(20);
     expect(fittedTitle.height).toBeLessThanOrEqual((fittedTitle.lineHeight * 2) + 3);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke market failure photo review deck loads and avoids live exam examples', async ({ page }) => {
+    const deckPath = 'lessons/unit-2-allocation/2-review-market-failure-section-a/index.html';
+    const deckSource = [
+      fs.readFileSync(path.join(root, 'lessons/unit-2-allocation/2-review-market-failure-section-a/index.html'), 'utf8'),
+      fs.readFileSync(path.join(root, 'lessons/unit-2-allocation/2-review-market-failure-section-a/slides.js'), 'utf8'),
+    ].join('\n');
+    const bannedLiveExamTerms = [
+      /Australia/i,
+      /\beducation\b/i,
+      /school completion/i,
+      /cigarettes?/i,
+      /\bsmoking\b/i,
+      /\bvaping\b/i,
+      /\btobacco\b/i,
+      /\bnicotine\b/i,
+      /passive smoking/i,
+      /National Tobacco Campaign/i,
+    ];
+
+    for (const pattern of bannedLiveExamTerms) {
+      expect(deckSource, `unexpected live-exam term: ${pattern}`).not.toMatch(pattern);
+    }
+    expect(deckSource).not.toMatch(/money price|Build a 4-mark explanation|Six-mark analysis ladder|Classify the photo clues|Identification rules/i);
+    expect(deckSource).toMatch(/price paid/);
+    expect(deckSource).toMatch(/energyDrinkFridge/);
+
+    await page.goto(pageUrl(deckPath));
+    await expect(page.locator('.slide.is-active')).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Market failure review/i })).toBeVisible();
+    await expect(page.locator('.slide.is-paperExtract')).toHaveCount(0);
+    await expectNoRemoteImageAssets(page);
+    await expectNoHorizontalOverflow(page);
+
+    const photoSlideNumbers = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides || [];
+      return {
+        starter: slides.findIndex((slide) => slide.title === 'From the picture, name the problem') + 1,
+        sixPhoto: slides.findIndex((slide) => slide.title === 'Six photo clues') + 1,
+      };
+    });
+    expect(photoSlideNumbers.starter).toBeGreaterThan(0);
+    await page.locator('.slide.is-active [data-slide-jump]').selectOption(String(photoSlideNumbers.starter));
+    await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGrid/);
+    await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGridFour/);
+    await expect(page.locator('.slide.is-active .card')).toHaveCount(4);
+    await expectNoHorizontalOverflow(page);
+
+    const sixPhotoSlideNumber = photoSlideNumbers.sixPhoto;
+    expect(sixPhotoSlideNumber).toBeGreaterThan(0);
+    await page.locator('.slide.is-active [data-slide-jump]').selectOption(String(sixPhotoSlideNumber));
+    await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGrid/);
+    await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGridSix/);
+    await expect(page.locator('.slide.is-active .card')).toHaveCount(6);
+    await expectNoHorizontalOverflow(page);
+
+    const lessonChecks = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides || [];
+      const text = slides.map((slide) => [
+        slide.title,
+        slide.zhTitle,
+        slide.prompt,
+        slide.footer,
+        slide.answer,
+        ...(slide.cards || []).flatMap((card) => [card.title, card.zhTitle, card.body]),
+        ...(slide.sampleAnswers || []),
+        ...(slide.steps || []).flat(),
+        ...(slide.nodes || []).flat().map((node) => node?.text || node),
+        ...(slide.keywords || []),
+      ].filter(Boolean).join(' ')).join(' ');
+      const sixPhotoSlide = slides.find((slide) => slide.title === 'Six photo clues') || {};
+      const sixPhotoCards = sixPhotoSlide.cards || [];
+      const definitionsSlide = slides.find((slide) => slide.title === 'Previously studied definitions') || {};
+      const definitionCards = definitionsSlide.cards || [];
+      return {
+        views: window.IGCSE.lesson.meta.availableViews,
+        hasClassification: slides.some((slide) => slide.type === 'classificationTask'),
+        hasExplainPractice: /over-consumed|over-consumption/i.test(text),
+        hasDemeritExplainChain: /demerit-good chain|demerit good/i.test(text) && /full private costs/i.test(text),
+        hasExternalCostExplainChain: /external-cost chain|external cost/i.test(text) && /third parties|third party/i.test(text),
+        hasAnalysePractice: /under-used|under-consumption/i.test(text),
+        hasDiagramPractice: slides.some((slide) => slide.visual?.kind === 'demand-supply'),
+        hasSupplyRightDiagram: slides.some((slide) => slide.visual?.kind === 'demand-supply' && slide.visual?.shift === 'supplyRight'),
+        hasDemandLeftDiagram: slides.some((slide) => slide.visual?.kind === 'demand-supply' && slide.visual?.shift === 'demandLeft'),
+        hasRewordedClassifyTitle: slides.some((slide) => slide.title === 'External benefit, external cost, merit good or demerit good? [4]'),
+        hasStudiedDefinitions: /A cost suffered by a third party/.test(text) && /A harmful good that may be over-consumed/.test(text),
+        hasMarkSchemeSlide: /Mark scheme: Explain two reasons/i.test(text) && /price paid/i.test(text),
+        hasRemovedAnalysisLadder: !/Six-mark analysis ladder/i.test(text),
+        hasSixPhotoChineseTerms: /工厂烟尘/.test(text) && /外部成本/.test(text) && /有害品/.test(text),
+        sixPhotoCardsHaveNoBodies: sixPhotoCards.length === 6 && sixPhotoCards.every((card) => !card.body),
+        hasNewReusableBagPhoto: /reusable-grocery-bag-doorstep\.jpg/.test(window.IGCSE.photos.marketFailureReview.reusableShoppingBag.src || ''),
+        definitionSlideHasCardReveal: (definitionsSlide.partialReview || []).join(' ') === '.cardgrid > .card',
+        definitionSlideHighlightsKeyTerms: definitionCards.length === 4 && definitionCards.every((card) => (card.highlightTerms || []).length >= 3),
+        givesAwayCampaignDiagram: /information campaign|information-campaign|health information|demand shifts left|leftward shift/i.test(text),
+      };
+    });
+
+    expect(lessonChecks.views).toEqual(['slides', 'handout']);
+    expect(lessonChecks.hasClassification).toBe(true);
+    expect(lessonChecks.hasExplainPractice).toBe(true);
+    expect(lessonChecks.hasDemeritExplainChain).toBe(true);
+    expect(lessonChecks.hasExternalCostExplainChain).toBe(true);
+    expect(lessonChecks.hasAnalysePractice).toBe(true);
+    expect(lessonChecks.hasDiagramPractice).toBe(true);
+    expect(lessonChecks.hasSupplyRightDiagram).toBe(true);
+    expect(lessonChecks.hasDemandLeftDiagram).toBe(false);
+    expect(lessonChecks.hasRewordedClassifyTitle).toBe(true);
+    expect(lessonChecks.hasStudiedDefinitions).toBe(true);
+    expect(lessonChecks.hasMarkSchemeSlide).toBe(true);
+    expect(lessonChecks.hasRemovedAnalysisLadder).toBe(true);
+    expect(lessonChecks.hasSixPhotoChineseTerms).toBe(true);
+    expect(lessonChecks.sixPhotoCardsHaveNoBodies).toBe(true);
+    expect(lessonChecks.hasNewReusableBagPhoto).toBe(true);
+    expect(lessonChecks.definitionSlideHasCardReveal).toBe(true);
+    expect(lessonChecks.definitionSlideHighlightsKeyTerms).toBe(true);
+    expect(lessonChecks.givesAwayCampaignDiagram).toBe(false);
+
+    await page.goto(pageUrl(deckPath) + '?view=print');
+    await expect(page.locator('.handoutDocument')).toBeVisible();
+    await expect(page.locator('.handoutBlock.is-paper-extract')).toHaveCount(0);
+    await expect(page.locator('.handoutDocument')).toContainText('Six photo clues');
+    await expect(page.locator('.handoutDocument')).toContainText('Previously studied definitions');
+    await expect(page.locator('.handoutDocument')).toContainText('Two chains: over-consumption');
+    await expect(page.locator('.handoutDocument')).toContainText('Cycle helmets: under-consumption');
+    await expect(page.locator('.handoutDocument')).not.toContainText(/information campaign|information-campaign|health information|demand shifts left|leftward shift/i);
+    await expect(page.locator('.handoutDocument .handoutPairVisual img')).toHaveCount(10);
+    await expectNoRemoteImageAssets(page);
     await expectNoHorizontalOverflow(page);
   });
 

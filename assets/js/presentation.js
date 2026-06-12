@@ -318,6 +318,7 @@ const normalizeCard = (card = {}) => {
     num: card.num || card.number,
     icon: card.icon,
     visual: card.visual || card.photo || card.image,
+    highlightTerms: card.highlightTerms || card.links || [],
   };
 };
 
@@ -361,7 +362,7 @@ const cardGrid = (cards = [], options = {}) => {
               ${esc(card.title)}
               ${card.zhTitle ? `<span class="cardTitleZh" lang="zh-Hans">${esc(card.zhTitle)}</span>` : ''}
             </b>
-            ${card.body ? `<span class="cardBody">${esc(card.body)}</span>` : ''}
+            ${card.body ? `<span class="cardBody">${highlightTerms(card.body, card.highlightTerms)}</span>` : ''}
             ${card.definition ? `
               <div class="cardDefinitionBox">
                 <span class="cardBoxLabel">Definition</span>
@@ -2013,29 +2014,70 @@ function handoutParagraph(text, className = '') {
   return text ? `<p${className ? ` class="${className}"` : ''}>${esc(text)}</p>` : '';
 }
 
-function handoutTextWithBlanks(text = '') {
+function handoutBlankMarkup(answer = '') {
+  const cleanAnswer = String(answer || '').trim();
+  return cleanAnswer
+    ? `<span class="handoutBlank" aria-label="blank" data-answer="${esc(cleanAnswer)}"></span>`
+    : '<span class="handoutBlank" aria-label="blank"></span>';
+}
+
+function handoutTextWithBlanks(text = '', answer = '') {
   const blankPattern = /_{3,}/g;
-  return esc(text).replace(blankPattern, '<span class="handoutBlank" aria-label="blank"></span>');
+  let usedAnswer = false;
+  return esc(text).replace(blankPattern, () => {
+    if (!usedAnswer && String(answer || '').trim()) {
+      usedAnswer = true;
+      return handoutBlankMarkup(answer);
+    }
+    return handoutBlankMarkup();
+  });
+}
+
+function normaliseHandoutListItem(item = '') {
+  if (Array.isArray(item)) {
+    return {
+      text: item[1] || '',
+      answer: item[2] || '',
+    };
+  }
+  if (item && typeof item === 'object') {
+    return {
+      text: item.text || item.statement || item.prompt || item.body || '',
+      answer: item.answer || '',
+    };
+  }
+  return { text: item, answer: '' };
 }
 
 function handoutList(items = [], ordered = false) {
   if (!items.length) return '';
   const tag = ordered ? 'ol' : 'ul';
-  return `<${tag}>${items.map((item) => `<li>${handoutTextWithBlanks(item)}</li>`).join('')}</${tag}>`;
+  return `<${tag}>${items.map((item) => {
+    const normalised = normaliseHandoutListItem(item);
+    return `<li>${handoutTextWithBlanks(normalised.text, normalised.answer)}</li>`;
+  }).join('')}</${tag}>`;
 }
 
-function handoutPairs(items = [], className = 'handoutPairs') {
+function handoutPairs(items = [], className = 'handoutPairs', options = {}) {
   if (!items.length) return '';
+  const includeVisuals = Boolean(options.includeVisuals);
   return `
-    <div class="${className}">
+    <div class="${className}${includeVisuals ? ' is-with-visuals' : ''}">
       ${items.map((item) => {
         const title = Array.isArray(item) ? item[0] : item?.title;
         const detail = Array.isArray(item) ? item[1] : (item?.detail || item?.body || item?.definition);
         const number = Array.isArray(item) ? item[2] : item?.number;
         const definitionZh = Array.isArray(item) ? '' : item?.definitionZh;
         const examples = Array.isArray(item) ? [] : (item?.examples || []);
+        const visual = includeVisuals && !Array.isArray(item) ? (item?.visual || item?.photo || item?.image || {}) : {};
+        const visualSrc = visual?.src ? localImageSrc(visual.src) : '';
         return `
           <div>
+            ${visualSrc ? `
+              <figure class="handoutPairVisual">
+                <img src="${esc(visualSrc)}" alt="${esc(visual.alt || title || '')}" loading="lazy" />
+              </figure>
+            ` : ''}
             ${number ? `<span>${esc(number)}</span>` : ''}
             <b>${esc(title || '')}</b>
             ${detail ? `<p>${esc(detail)}</p>` : ''}
@@ -2055,7 +2097,8 @@ function handoutSteps(items = []) {
       ${items.map((item) => {
         const label = Array.isArray(item) ? item[0] : '';
         const detail = Array.isArray(item) ? item[1] : item;
-        return `<li>${label ? `<b>${esc(label)}</b>` : ''}${handoutTextWithBlanks(detail || '')}</li>`;
+        const answer = Array.isArray(item) ? item[2] : '';
+        return `<li>${label ? `<b>${esc(label)}</b>` : ''}${handoutTextWithBlanks(detail || '', answer)}</li>`;
       }).join('')}
     </ol>
   `;
@@ -2071,7 +2114,7 @@ function handoutFlow(nodes = []) {
           const node = normaliseFlowNode(rawNode);
           return `
             <li>
-              ${handoutTextWithBlanks(node.text || '')}
+              ${handoutTextWithBlanks(node.text || '', node.answer || '')}
               ${node.zh ? `<p lang="zh-Hans">${esc(node.zh)}</p>` : ''}
             </li>
           `;
@@ -2102,6 +2145,38 @@ function handoutBlock(slide, body, modifier = '') {
       ${body}
     </article>
   `;
+}
+
+function renderHandoutAnswerToggle(hasAnswerBlanks) {
+  if (!hasAnswerBlanks) return '';
+  return `
+    <div class="handoutToolbar" aria-label="Handout options">
+      <label class="handoutAnswerToggle">
+        <input type="checkbox" data-handout-answer-toggle>
+        <span class="handoutAnswerSwitch" aria-hidden="true"></span>
+        <span>Answers</span>
+      </label>
+    </div>
+  `;
+}
+
+function setupHandoutAnswerToggle(mountEl) {
+  const toggle = mountEl.querySelector('[data-handout-answer-toggle]');
+  document.body.classList.remove('is-handout-answer-key');
+  mountEl.classList.remove('is-showing-answers');
+  if (!toggle) return;
+
+  const sync = () => {
+    const showAnswers = Boolean(toggle.checked);
+    mountEl.classList.toggle('is-showing-answers', showAnswers);
+    document.body.classList.toggle('is-handout-answer-key', showAnswers);
+    mountEl.querySelectorAll('.handoutBlank[data-answer]').forEach((blank) => {
+      blank.setAttribute('aria-label', showAnswers ? `answer: ${blank.dataset.answer || ''}` : 'blank');
+    });
+  };
+
+  toggle.addEventListener('change', sync);
+  sync();
 }
 
 const handoutContentTypes = new Set([
@@ -2147,7 +2222,7 @@ function renderHandoutBlock(slide) {
     case 'cards':
       return handoutBlock(slide, `
         ${handoutParagraph(slide.lead)}
-        ${handoutPairs(slide.cards || [])}
+        ${handoutPairs(slide.cards || [], 'handoutPairs', { includeVisuals: slide.handoutVisuals })}
         ${handoutParagraph(slide.footer, 'handoutNote')}
         ${handoutSources(slide.sources)}
       `, 'is-key-points');
@@ -2315,16 +2390,20 @@ function mountHandoutLesson(meta, slides, mountEl) {
     ...slide,
     sources: sourcesForSlide(meta, slide),
   }));
+  const handoutSections = renderHandoutSections(sourcedSlides);
+  const hasAnswerBlanks = handoutSections.includes('data-answer=');
   mountEl.innerHTML = `
     <header class="handoutHero">
       <div class="handoutKicker">${esc(meta.unit || meta.courseLabel || 'IGCSE Economics Lesson Library')}</div>
       <h1>${esc(meta.lessonLabel || meta.title || 'Lesson handout')}</h1>
       <p>${esc(meta.code ? `${meta.code} - key content handout` : 'Key content handout')}</p>
     </header>
+    ${renderHandoutAnswerToggle(hasAnswerBlanks)}
     <div class="handoutDocument" aria-label="Printable lesson content">
-      ${renderHandoutSections(sourcedSlides)}
+      ${handoutSections}
     </div>
   `;
+  setupHandoutAnswerToggle(mountEl);
 }
 
 /* ---------- Partial reveal helpers ---------- */
