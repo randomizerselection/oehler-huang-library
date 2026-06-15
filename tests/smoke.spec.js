@@ -194,6 +194,19 @@ async function expectNoHorizontalOverflow(page) {
   expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
 }
 
+function expectColorNotNearWhite(color) {
+  const channels = String(color).match(/[\d.]+/g)?.slice(0, 3).map(Number);
+  expect(channels, `Could not parse CSS colour ${color}`).toHaveLength(3);
+  expect(Math.max(...channels), `Text colour ${color} is too close to white for the Business light theme`).toBeLessThan(245);
+}
+
+async function expectTextNotNearWhite(page, selector) {
+  const target = page.locator(selector).first();
+  await expect(target).toBeVisible();
+  const color = await target.evaluate((node) => getComputedStyle(node).color);
+  expectColorNotNearWhite(color);
+}
+
 async function expectCompactCardGridFits(page, options = {}) {
   await expect(page.locator('.slide.is-active .cardgrid.is-compactVisual')).toBeVisible();
   await expect(page.locator('.slide.is-active .cardTitleZh').first()).toBeVisible();
@@ -249,6 +262,15 @@ async function expectLessonModeTabs(page, activeMode) {
   await expect(tabs.getByRole('link', { name: /^Handout$/i })).toBeVisible();
   await expect(tabs.getByRole('link', { name: /^Quiz$/i })).toBeVisible();
   await expect(tabs.getByRole('link', { name: /^Flashcards$/i })).toBeVisible();
+  await expect(tabs.getByRole('link', { name: new RegExp(`^${activeMode}$`, 'i') })).toHaveAttribute('aria-current', 'page');
+}
+
+async function expectLessonModeTabsOnly(page, activeMode, labels) {
+  const tabs = page.locator('.lessonModeTabs');
+  for (const label of labels) {
+    await expect(tabs.getByRole('link', { name: new RegExp(`^${label}$`, 'i') })).toBeVisible();
+  }
+  await expect(tabs.getByRole('link')).toHaveText(labels);
   await expect(tabs.getByRole('link', { name: new RegExp(`^${activeMode}$`, 'i') })).toHaveAttribute('aria-current', 'page');
 }
 
@@ -459,6 +481,113 @@ test.describe('site smoke', () => {
     expect(macroHeadingBox).not.toBeNull();
     expect(macroHeadingBox.x).toBeGreaterThanOrEqual(0);
     expect(macroHeadingBox.x + macroHeadingBox.width).toBeLessThanOrEqual(viewport.width + 1);
+  });
+
+  test('@responsive business landing page renders a separate Unit 5 course area', async ({ page }) => {
+    await page.goto(pageUrl('business/index.html'));
+
+    await expect(page.getByRole('heading', { name: /^Business finance decisions$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Main library$/i })).toHaveAttribute('href', '../index.html');
+    await expect(page.getByRole('link', { name: /^Economics page$/i })).toHaveAttribute('href', '../index.html#course-map');
+    await expect(page.getByRole('heading', { name: /^Financial information and decisions$/i })).toBeVisible();
+    await expect(page.locator('.business-lesson-card')).toHaveCount(3);
+    await expect(page.getByRole('link', { name: /^Slides$/i })).toHaveCount(3);
+    await expect(page.getByRole('link', { name: /^Handout$/i })).toHaveCount(3);
+    await expect(page.getByText(/Harbor Phone Repair/i)).toBeVisible();
+    await expect(page.locator('body')).not.toContainText(/IGCSE Economics Lesson Library/i);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@responsive business Unit 5 decks render with Business-only identity and slide handout views', async ({ page }, testInfo) => {
+    const decks = [
+      {
+        path: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/index.html',
+        heading: /The need for business finance/i,
+      },
+      {
+        path: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/index.html',
+        heading: /Sources of finance/i,
+      },
+      {
+        path: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/index.html',
+        heading: /Cash-flow forecasts/i,
+      },
+    ];
+
+    for (const deck of decks) {
+      await page.goto(pageUrl(deck.path));
+      await expect(page.locator('body')).toHaveClass(/subject-business/);
+      await expect(page.locator('link[href*="business-presentation.css"]')).toHaveCount(1);
+      await expect(page.locator('.slide.is-active h1')).toHaveText(deck.heading);
+      await expect(page.locator('.slide.is-active .slide-footer')).toContainText('Cambridge IGCSE Business 0264');
+      await expect(page.locator('body')).not.toContainText(/IGCSE Economics|Government and the macroeconomy|The allocation of resources/i);
+      await expectLessonModeTabsOnly(page, 'Slides', ['Slides', 'Handout']);
+      await expectNoHorizontalOverflow(page);
+
+      if (!testInfo.project.name.includes('phone')) {
+        await openLessonModeMenu(page);
+        await expect(page.getByRole('link', { name: /^Business index$/i })).toHaveAttribute('href', /business\/index\.html$/);
+      }
+
+      await page.goto(pageUrl(deck.path) + '?view=print');
+      await expect(page.locator('body')).toHaveClass(/subject-business/);
+      await expect(page.locator('.handoutDocument')).toBeVisible();
+      await expectLessonModeTabsOnly(page, 'Handout', ['Slides', 'Handout']);
+      await expect(page.locator('.handoutKicker')).toContainText('Unit 5 - Financial information and decisions');
+      await expect(page.locator('.handoutBlock')).not.toHaveCount(0);
+      await expect(page.locator('body')).not.toContainText(/IGCSE Economics|Government and the macroeconomy|The allocation of resources/i);
+      await expectNoHorizontalOverflow(page);
+    }
+  });
+
+  test('@responsive business slide components keep readable light-theme text', async ({ page }) => {
+    const decks = [
+      {
+        path: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/index.html',
+        slideFile: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/slides.js',
+      },
+      {
+        path: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/index.html',
+        slideFile: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/slides.js',
+      },
+      {
+        path: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/index.html',
+        slideFile: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/slides.js',
+      },
+    ];
+    const componentChecks = [
+      { type: 'paperExtract', selector: '.paperExtractText p' },
+      { type: 'term', selector: '.termDefinitionText' },
+      { type: 'cards', selector: '.cardTitleZh' },
+      { type: 'modelAnswer', selector: '.modelAnswerText' },
+      { type: 'dataTable', selector: '.dataTable td' },
+    ];
+    const coveredTypes = Object.fromEntries(componentChecks.map((check) => [check.type, 0]));
+
+    for (const deck of decks) {
+      const lesson = readLesson(deck.slideFile);
+
+      for (const check of componentChecks) {
+        const slideIndex = (lesson.slides || []).findIndex((slide) => slide.type === check.type);
+        if (slideIndex < 0) continue;
+        coveredTypes[check.type] += 1;
+        await page.goto(`${pageUrl(deck.path)}#${slideIndex + 1}`);
+        await expect(page.locator('.slide.is-active')).toHaveAttribute('data-idx', String(slideIndex));
+        await expectTextNotNearWhite(page, `.slide.is-active ${check.selector}`);
+      }
+
+      await page.goto(`${pageUrl(deck.path)}#1`);
+      const sourceSummary = page.locator('.slide.is-active .slideSourceControl summary').first();
+      if (await sourceSummary.count()) {
+        await expectTextNotNearWhite(page, '.slide.is-active .slideSourceControl summary');
+        await sourceSummary.click();
+        await expectTextNotNearWhite(page, '.slide.is-active .slideSourceControl .sourceItem');
+      }
+    }
+
+    for (const check of componentChecks) {
+      expect(coveredTypes[check.type], `Business batch should include a checked ${check.type} slide`).toBeGreaterThan(0);
+    }
   });
 
   test('definitions revision page renders searchable bilingual cards', async ({ page }) => {

@@ -1,0 +1,99 @@
+{
+  "schema_version": "igcse-economics-grading-pilot/v1",
+  "exam": {
+    "id": "ic1-section-a-pilot",
+    "title": "IC1 Section A pilot",
+    "class_group": "IC 1",
+    "max_marks": 6,
+    "question_paper": "exam/question-paper.pdf",
+    "mark_scheme": "exam/mark-scheme.pdf",
+    "notes": [
+      "Marks are provisional until teacher review."
+    ]
+  },
+  "sources": {
+    "roster": ""
+  },
+  "rubric": [
+    {
+      "question_id": "Q1",
+      "question": "Using the information above, identify two factors that may affect PES. [2]",
+      "command_word": "identify",
+      "max_mark": 2,
+      "mark_scheme_points": [
+        "Time period / new trees take years to produce.",
+        "Availability of suitable land, labour or fertiliser."
+      ],
+      "award_rules": [
+        "Award one mark per valid identification.",
+        "Do not require explanation for an identify question."
+      ],
+      "review_default": "Pending"
+    },
+    {
+      "question_id": "Q2",
+      "question": "Explain one advantage of a market economic system. [4]",
+      "command_word": "explain",
+      "max_mark": 4,
+      "mark_scheme_points": [
+        "Consumer choice signals demand.",
+        "Profit incentive encourages firms to produce what consumers want.",
+        "Competition may improve quality or efficiency.",
+        "Resources are allocated toward goods with higher demand."
+      ],
+      "award_rules": [
+        "Award only developed economic links.",
+        "Do not award vague references to businesses making money unless linked to allocation or consumer demand."
+      ],
+      "review_default": "Pending"
+    }
+  ],
+  "students": [
+    {
+      "student_id": "S001",
+      "extracted_name": "Example Student",
+      "matched_name": "Example Student",
+      "class": "IC 1.1",
+      "identity_confidence": "High"
+    }
+  ],
+  "answers": [
+    {
+      "student_id": "S001",
+      "question_id": "Q1",
+      "ai_mark": 1,
+      "max_mark": 2,
+      "confidence": "Medium",
+      "evidence": "The answer identifies time needed for trees to grow.",
+      "missing_point": "No second valid PES factor identified.",
+      "flags": [
+        "short-answer"
+      ],
+      "source_photo_refs": [
+        "photos/example-student-page-1.jpg"
+      ],
+      "transcription": "new trees take a long time"
+    }
+  ],
+  "unmatched": [
+    {
+      "issue_type": "Ambiguous identity",
+      "extracted_name": "",
+      "class": "",
+      "source_photo_refs": [
+        "photos/unmatched-page-1.jpg"
+      ],
+      "reason": "Student name is cropped or unreadable.",
+      "confidence": "Low"
+    }
+  ],
+  "audit": {
+    "codex_operator": "",
+    "run_notes": [
+      "Teacher review is required before final marks are used."
+    ],
+    "limitations": [
+      "Diagram answers require manual review unless all labels and shifts are clearly readable."
+    ]
+  }
+}

@@ -220,7 +220,7 @@ const renderSources = (sources = [], className = 'sourceList') => {
   `;
 };
 
-const contentSourceTypes = new Set(['term', 'cards', 'flow', 'compare', 'exam', 'modelAnswer', 'answer', 'split', 'systemCompare', 'socialEffectsVenn', 'paperExtract']);
+const contentSourceTypes = new Set(['term', 'cards', 'flow', 'compare', 'exam', 'modelAnswer', 'answer', 'split', 'systemCompare', 'socialEffectsVenn', 'paperExtract', 'dataTable']);
 
 function sourcesForSlide(meta, slide) {
   const key = sourceProfileKey(meta);
@@ -258,6 +258,14 @@ const footer = (meta, slide) => `
     <span>${esc(slide.eyebrow || meta.lessonLabel || '')}</span>
   </div>
 `;
+
+function sanitizeToken(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 /* ---------- Component helpers ---------- */
 const cardIcons = {
@@ -374,6 +382,38 @@ const cardGrid = (cards = [], options = {}) => {
           </div>
         `;
       }).join('')}
+    </div>
+  `;
+};
+
+const dataTable = (table = {}) => {
+  const columns = table.columns || [];
+  const rows = table.rows || [];
+  const rowHeaders = Boolean(table.rowHeaders);
+  const alignments = table.align || [];
+  const formatCell = (value, index, tag = 'td') => {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : { text: value };
+    const align = sanitizeToken(raw.align || alignments[index] || '');
+    return `<${tag}${align ? ` class="is-${esc(align)}"` : ''}>${esc(raw.text ?? '')}</${tag}>`;
+  };
+
+  return `
+    <div class="dataTableWrap">
+      <table class="dataTable">
+        ${columns.length ? `
+          <thead>
+            <tr>${columns.map((column, i) => formatCell(column, i, 'th')).join('')}</tr>
+          </thead>
+        ` : ''}
+        <tbody>
+          ${rows.map((row) => `
+            <tr>
+              ${(Array.isArray(row) ? row : []).map((cell, i) => formatCell(cell, i, rowHeaders && i === 0 ? 'th' : 'td')).join('')}
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+      ${table.caption ? `<p class="dataTableCaption">${esc(table.caption)}</p>` : ''}
     </div>
   `;
 };
@@ -1131,6 +1171,15 @@ const renderers = {
     </div>
   `,
 
+  dataTable: (s) => `
+    <div class="dataTableBlock${s.variant ? ` is-${esc(sanitizeToken(s.variant))}` : ''}">
+      <h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh">${esc(s.zhTitle)}</span>` : ''}</h2>
+      ${s.lead ? `<p class="lead">${esc(s.lead)}</p>` : ''}
+      ${dataTable(s.table || s)}
+      ${s.prompt ? `<div class="prompt">${esc(s.prompt)}</div>` : ''}
+    </div>
+  `,
+
   split: (s) => `
     <div>
       <h2>${esc(s.title)}</h2>
@@ -1780,6 +1829,8 @@ function lessonViewUrl(view) {
 }
 
 function courseIndexUrl() {
+  const configured = window.IGCSE?.lesson?.meta?.courseIndexUrl;
+  if (configured) return new URL(configured, location.href).href;
   return new URL('../../../index.html#course-map', location.href).href;
 }
 
@@ -1979,7 +2030,7 @@ function mountLessonModeSwitch(mode, meta = {}) {
     <details class="lessonModeMenu">
       <summary class="lessonModeMenuButton">More</summary>
       <div class="lessonModeUtilities" aria-label="Lesson actions">
-        <a class="lessonModeButton" href="${esc(courseIndexUrl())}">Library index</a>
+        <a class="lessonModeButton" href="${esc(courseIndexUrl())}">${esc(meta.courseIndexLabel || 'Library index')}</a>
         <a class="lessonModeButton" href="${esc(lessonStartUrl())}">Lesson start</a>
         ${currentMode === 'handout' ? '<button type="button" class="lessonModeButton" data-print-lesson>Print</button>' : ''}
         ${currentMode !== 'slides' ? '<button type="button" class="lessonModeButton lessonModeButton--selector" data-student-selector aria-pressed="false">Student selector</button>' : ''}
@@ -2056,6 +2107,45 @@ function handoutList(items = [], ordered = false) {
     const normalised = normaliseHandoutListItem(item);
     return `<li>${handoutTextWithBlanks(normalised.text, normalised.answer)}</li>`;
   }).join('')}</${tag}>`;
+}
+
+function handoutDataTable(table = {}) {
+  const columns = table.columns || [];
+  const rows = table.rows || [];
+  const rowHeaders = Boolean(table.rowHeaders);
+  const alignments = table.align || [];
+  const cellText = (value) => {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : { text: value };
+    return raw.text ?? '';
+  };
+  const cellClass = (value, index) => {
+    const raw = value && typeof value === 'object' && !Array.isArray(value) ? value : { text: value };
+    const align = sanitizeToken(raw.align || alignments[index] || '');
+    return align ? ` class="is-${esc(align)}"` : '';
+  };
+
+  if (!columns.length && !rows.length) return '';
+  return `
+    <div class="handoutTableWrap">
+      <table class="handoutTable">
+        ${columns.length ? `
+          <thead>
+            <tr>${columns.map((column, i) => `<th${cellClass(column, i)}>${esc(cellText(column))}</th>`).join('')}</tr>
+          </thead>
+        ` : ''}
+        <tbody>
+          ${rows.map((row) => `
+            <tr>
+              ${(Array.isArray(row) ? row : []).map((cell, i) => {
+                const tag = rowHeaders && i === 0 ? 'th' : 'td';
+                return `<${tag}${cellClass(cell, i)}>${handoutTextWithBlanks(cellText(cell), cell?.answer || '')}</${tag}>`;
+              }).join('')}
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function handoutPairs(items = [], className = 'handoutPairs', options = {}) {
@@ -2182,6 +2272,7 @@ function setupHandoutAnswerToggle(mountEl) {
 const handoutContentTypes = new Set([
   'cards',
   'compare',
+  'dataTable',
   'flow',
   'paperExtract',
   'socialEffectsVenn',
@@ -2198,6 +2289,14 @@ function shouldIncludeHandoutSlide(slide) {
 
 function renderHandoutBlock(slide) {
   switch (slide.type) {
+    case 'dataTable':
+      return handoutBlock(slide, `
+        ${handoutParagraph(slide.lead)}
+        ${handoutDataTable(slide.table || slide)}
+        ${handoutParagraph((slide.table || slide).caption || slide.prompt, 'handoutNote')}
+        ${handoutSources(slide.sources)}
+      `, 'is-data-table');
+
     case 'paperExtract': {
       const showQuestion = slide.question && !titleContainsQuestion(slide.title, slide.question);
       const visibleQuestions = (slide.questions || []).filter((question) => !titleContainsQuestion(slide.title, question));
@@ -2485,6 +2584,12 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     return;
   }
   const { meta = {}, slides } = lesson;
+  const subjectToken = sanitizeToken(meta.subject || 'economics');
+  document.body.classList.forEach((className) => {
+    if (className.startsWith('subject-')) document.body.classList.remove(className);
+  });
+  document.body.classList.add(`subject-${subjectToken}`);
+  document.body.dataset.subject = subjectToken;
   const sectionTitles = slides
     .filter((slide) => slide.type === 'section')
     .map((slide) => slide.title || slide.eyebrow || 'Section');

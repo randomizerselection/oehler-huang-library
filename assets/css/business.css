@@ -1,0 +1,406 @@
+/* ============================================================
+   Cambridge IGCSE Business 0264 landing styles
+   ============================================================ */
+
+:root {
+  --business-bg: #edf4f2;
+  --business-ink: #18212f;
+  --business-muted: #5c697b;
+  --business-line: #d8e0ea;
+  --business-panel: #ffffff;
+  --business-teal: #0f766e;
+  --business-navy: #1d3557;
+  --business-plum: #7f1d4e;
+  --business-amber: #b45309;
+}
+
+body.business-home {
+  min-height: 100vh;
+  overflow-y: auto;
+  color: var(--business-ink);
+  background:
+    linear-gradient(90deg, rgba(29, 53, 87, .045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 118, 110, .042) 1px, transparent 1px),
+    var(--business-bg);
+  background-size: 46px 46px, 46px 46px, auto;
+}
+
+body.business-home::before,
+body.business-home::after {
+  display: none;
+}
+
+.business-site {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 58px;
+}
+
+.business-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-bottom: 1rem;
+}
+
+.business-link,
+.business-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid var(--business-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--business-navy);
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(29, 53, 87, .05);
+  transition: transform .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.business-link:hover,
+.business-link:focus-visible,
+.business-action:hover,
+.business-action:focus-visible {
+  border-color: #9aa8bb;
+  background: #f8fbfd;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.business-link {
+  padding: 0 .9rem;
+}
+
+.business-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+  gap: clamp(1rem, 3.4vw, 3rem);
+  align-items: center;
+  padding: clamp(24px, 5vw, 54px);
+  border: 1px solid var(--business-line);
+  border-top: 5px solid var(--business-teal);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, .085), rgba(255,255,255,.96) 34%),
+    linear-gradient(315deg, rgba(127, 29, 78, .055), transparent 42%),
+    rgba(255, 255, 255, .96);
+  box-shadow: 0 22px 46px rgba(29, 53, 87, .11);
+}
+
+.business-eyebrow,
+.business-card-code,
+.business-section-kicker,
+.business-table-label {
+  color: var(--business-teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.business-card-code {
+  width: fit-content;
+  padding: .28rem .46rem;
+  border: 1px solid rgba(15, 118, 110, .18);
+  border-radius: 6px;
+  background: #eef9f7;
+}
+
+.business-hero h1 {
+  max-width: 12ch;
+  margin: .22rem 0 .85rem;
+  color: var(--business-ink);
+  font-size: clamp(48px, 7.6vw, 104px);
+  line-height: .98;
+  letter-spacing: 0;
+}
+
+.business-hero p {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--business-muted);
+  font-size: clamp(18px, 1.9vw, 26px);
+  line-height: 1.42;
+}
+
+.business-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 1.25rem;
+}
+
+.business-action.primary {
+  border-color: rgba(15, 118, 110, .36);
+  background: var(--business-teal);
+  color: #fff;
+}
+
+.business-action.primary:hover,
+.business-action.primary:focus-visible {
+  border-color: #0b5f58;
+  background: #0b5f58;
+  color: #fff;
+}
+
+.business-ledger {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--business-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.72),
+    0 12px 26px rgba(29, 53, 87, .08);
+}
+
+.business-ledger header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .85rem 1rem;
+  border-bottom: 1px solid var(--business-line);
+  background:
+    linear-gradient(90deg, #e4f5f2, #f8fbfd);
+}
+
+.business-ledger table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(13px, 1.1vw, 15px);
+}
+
+.business-ledger th,
+.business-ledger td {
+  padding: .72rem .85rem;
+  border-bottom: 1px solid #e6ecf3;
+  text-align: left;
+  color: var(--business-ink);
+}
+
+.business-ledger th {
+  color: #415066;
+}
+
+.business-ledger td:last-child,
+.business-ledger th:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-section {
+  margin-top: 34px;
+}
+
+.business-section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--business-line);
+  padding-bottom: .95rem;
+}
+
+.business-section h2 {
+  margin: .25rem 0 0;
+  color: var(--business-ink);
+  font-size: clamp(30px, 3.6vw, 56px);
+  letter-spacing: 0;
+}
+
+.business-section-head p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--business-muted);
+  line-height: 1.55;
+}
+
+.business-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+}
+
+.business-lesson-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 285px;
+  border: 1px solid var(--business-line);
+  border-top: 4px solid var(--business-teal);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #fff, #f8fbfd);
+  box-shadow: 0 16px 32px rgba(29, 53, 87, .08);
+  padding: 1rem;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.business-lesson-card:hover,
+.business-lesson-card:focus-within {
+  transform: translateY(-2px);
+  border-color: #b9c6d6;
+  box-shadow: 0 22px 42px rgba(29, 53, 87, .12);
+}
+
+.business-lesson-card:nth-child(2) {
+  border-top-color: var(--business-plum);
+}
+
+.business-lesson-card:nth-child(3) {
+  border-top-color: var(--business-amber);
+}
+
+.business-lesson-card h3 {
+  margin: .68rem 0 .5rem;
+  color: var(--business-ink);
+  font-size: clamp(21px, 1.8vw, 29px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.business-lesson-card p {
+  margin: 0;
+  color: var(--business-muted);
+  font-size: 15px;
+  line-height: 1.48;
+}
+
+.business-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .55rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.business-card-actions .business-action:first-child {
+  color: #fff;
+  border-color: var(--business-navy);
+  background: var(--business-navy);
+}
+
+.business-card-actions .business-action:first-child:hover,
+.business-card-actions .business-action:first-child:focus-visible {
+  color: #fff;
+  background: #12243e;
+  border-color: #12243e;
+}
+
+.business-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--business-line);
+  color: var(--business-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 860px) {
+  .business-hero,
+  .business-section-head,
+  .business-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .business-section-head {
+    display: grid;
+  }
+}
+
+@media (max-width: 620px) {
+  .business-site {
+    width: min(100% - 28px, 1160px);
+    padding-top: 18px;
+  }
+
+  .business-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .45rem;
+  }
+
+  .business-link {
+    min-height: 40px;
+    padding: 0 .45rem;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .business-hero {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .business-hero h1 {
+    max-width: 10ch;
+    margin-bottom: .62rem;
+    font-size: clamp(36px, 10vw, 47px);
+    line-height: 1;
+  }
+
+  .business-hero p {
+    font-size: 16px;
+    line-height: 1.42;
+  }
+
+  .business-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .55rem;
+    margin-top: .95rem;
+  }
+
+  .business-action {
+    min-height: 40px;
+    padding-inline: .55rem;
+    font-size: 13px;
+  }
+
+  .business-ledger header {
+    padding: .62rem .72rem;
+  }
+
+  .business-ledger th,
+  .business-ledger td {
+    padding: .52rem .62rem;
+    font-size: 13px;
+  }
+
+  .business-section {
+    margin-top: 24px;
+  }
+
+  .business-section-head {
+    gap: .65rem;
+    margin-bottom: .75rem;
+    padding-bottom: .75rem;
+  }
+
+  .business-section h2 {
+    font-size: clamp(28px, 7.2vw, 36px);
+  }
+
+  .business-section-head p {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .business-lesson-card {
+    min-height: 246px;
+    padding: .9rem;
+  }
+
+  .business-card-actions {
+    grid-template-columns: 1fr;
+    padding-top: .8rem;
+  }
+}

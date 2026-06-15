@@ -1,0 +1,536 @@
+/* ============================================================
+   Cambridge IGCSE Business 0264 presentation style
+   Loaded after the shared presentation engine.
+   ============================================================ */
+
+body.subject-business {
+  --bg-0: #f1f6f4;
+  --bg-1: #ffffff;
+  --bg-2: #e6efed;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --ink: #172033;
+  --ink-dim: #415066;
+  --muted: #66758a;
+  --gold: #b45309;
+  --gold-warm: #9a3412;
+  --cyan: #0f766e;
+  --green: #15803d;
+  --rose: #9f1239;
+  --violet: #7f1d4e;
+  --line: rgba(29, 53, 87, .16);
+  --line-strong: rgba(29, 53, 87, .3);
+  --card-bg: linear-gradient(145deg, rgba(255,255,255,.98), rgba(241,246,251,.9));
+  --card-bg-hi: linear-gradient(145deg, rgba(255,255,255,1), rgba(232,241,247,.96));
+  --shadow-sm: 0 8px 24px rgba(29, 53, 87, .10);
+  --shadow-md: 0 18px 46px rgba(29, 53, 87, .16);
+  --shadow-lg: 0 28px 70px rgba(29, 53, 87, .18);
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(29, 53, 87, .04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 118, 110, .042) 1px, transparent 1px),
+    var(--bg-0);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+body.subject-business.bg-ambient::before,
+body.subject-business.bg-ambient::after {
+  display: none;
+}
+
+body.subject-business .slide {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,247,251,.9)),
+    transparent;
+}
+
+body.subject-business .slide.is-hero {
+  background:
+    linear-gradient(90deg, rgba(15,118,110,.10) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(29,53,87,.06) 1px, transparent 1px),
+    #f7fafc;
+  background-size: 44px 44px, 44px 44px, auto;
+}
+
+body.subject-business .topline .count {
+  color: #415066;
+}
+
+body.subject-business .badge {
+  border-color: rgba(15,118,110,.26);
+  background: rgba(255,255,255,.92);
+  color: #0f766e;
+  box-shadow: 0 8px 18px rgba(29,53,87,.08);
+}
+
+body.subject-business .badge::before {
+  background: #0f766e;
+}
+
+body.subject-business .slide-footer {
+  color: #66758a;
+}
+
+body.subject-business .slide-footer .creator {
+  color: #415066;
+}
+
+body.subject-business .sub,
+body.subject-business .kicker {
+  color: #0f766e;
+}
+
+body.subject-business .heroTitleZh,
+body.subject-business .inlineZh,
+body.subject-business .outcomeZh,
+body.subject-business .termDefinitionZh,
+body.subject-business .peerTaskZh {
+  color: #526579;
+}
+
+body.subject-business .card,
+body.subject-business .termBox,
+body.subject-business .peerTaskPromptPanel,
+body.subject-business .peerTaskStepsPanel,
+body.subject-business .classificationItem,
+body.subject-business .modelAnswerCard,
+body.subject-business .answerBox {
+  border-color: rgba(29,53,87,.15);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(244,248,251,.94));
+  box-shadow: 0 12px 28px rgba(29,53,87,.08);
+}
+
+body.subject-business .card {
+  border-left: 5px solid rgba(15,118,110,.48);
+}
+
+body.subject-business .cardgrid .card:nth-child(3n+2),
+body.subject-business .splitCols .card:nth-child(2) {
+  border-left-color: rgba(127,29,78,.46);
+}
+
+body.subject-business .cardgrid .card:nth-child(3n+3) {
+  border-left-color: rgba(180,83,9,.48);
+}
+
+body.subject-business .choice,
+body.subject-business .step,
+body.subject-business .prompt {
+  border-color: rgba(29,53,87,.14);
+  border-radius: 8px;
+  background: rgba(255,255,255,.9);
+}
+
+body.subject-business .dataTableWrap {
+  border-color: rgba(29,53,87,.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #ffffff, #f8fbfd);
+  box-shadow: 0 16px 34px rgba(29,53,87,.10);
+}
+
+body.subject-business .dataTable {
+  color: #172033;
+}
+
+body.subject-business .dataTable thead th {
+  color: #0f766e;
+  background: #eaf6f4;
+}
+
+body.subject-business .dataTable th,
+body.subject-business .dataTable td {
+  border-bottom-color: #dfe7f0;
+}
+
+body.subject-business .dataTable tbody tr:nth-child(even) td,
+body.subject-business .dataTable tbody tr:nth-child(even) th {
+  background: rgba(241,246,251,.64);
+}
+
+body.subject-business .dataTableCaption {
+  border-top-color: #dfe7f0;
+  color: #66758a;
+  background: #fbfcfe;
+}
+
+body.subject-business .slideJumpSelect:hover,
+body.subject-business .slideJumpSelect:focus {
+  border-color: rgba(15,118,110,.34);
+  background: #eaf6f4;
+  color: #0f766e;
+}
+
+body.subject-business .slideJumpSelect:focus {
+  box-shadow: 0 0 0 3px rgba(15,118,110,.14);
+}
+
+body.subject-business .slideJumpSelect option {
+  color: #172033;
+  background: #fff;
+}
+
+body.subject-business .sectionTitle,
+body.subject-business .cardTitle,
+body.subject-business .cardBody,
+body.subject-business .card b,
+body.subject-business .compareBlock .card > b,
+body.subject-business .splitCols .card > b {
+  color: #172033;
+}
+
+body.subject-business .cardIcon {
+  color: #0f766e;
+}
+
+body.subject-business .cardgrid .card:nth-child(3n+2) .cardIcon,
+body.subject-business .splitCols .card:nth-child(2) .cardIcon {
+  color: #7f1d4e;
+}
+
+body.subject-business .cardgrid .card:nth-child(3n+3) .cardIcon {
+  color: #b45309;
+}
+
+body.subject-business .cardTitleZh {
+  display: block;
+  margin-top: .12rem;
+  color: #526579;
+  font-size: clamp(14px, .95vw, 18px);
+  line-height: 1.12;
+  font-weight: 760;
+}
+
+body.subject-business .cardgrid.is-compactVisual .cardTitleZh,
+body.subject-business .cardgrid.is-compactVisual.is-balancedGrid .cardTitleZh,
+body.subject-business .cardgrid.is-classroomPrinciples .cardTitleZh {
+  color: #526579;
+  font-size: clamp(14px, .95vw, 18px);
+  line-height: 1.12;
+  font-weight: 760;
+}
+
+body.subject-business .cardgrid.is-compactVisual .card,
+body.subject-business .cardgrid.is-compactVisual.is-balancedGrid .card,
+body.subject-business .cardgrid.is-classroomPrinciples .card,
+body.subject-business .cardgrid.is-photoGrid .card {
+  border-radius: 10px;
+}
+
+body.subject-business .cardBody,
+body.subject-business .card li,
+body.subject-business .choice,
+body.subject-business .prompt,
+body.subject-business .step {
+  color: #415066;
+}
+
+body.subject-business .cardVisual,
+body.subject-business .compareVisual {
+  border-color: #d8e0ea;
+  background: #f4f7fb;
+}
+
+body.subject-business .choices.is-outcomes .choice {
+  border-color: rgba(15,118,110,.18);
+  background:
+    linear-gradient(145deg, rgba(234,246,244,.86), rgba(255,255,255,.96)),
+    #fff;
+}
+
+body.subject-business .choices.is-outcomes .choice::before {
+  border-color: rgba(15,118,110,.28);
+  background: #eaf6f4;
+  color: #0f766e;
+}
+
+body.subject-business .choices.is-outcomes .choice > span:first-child {
+  border-bottom-color: #dfe7f0;
+  color: #172033;
+}
+
+body.subject-business .paperExtractPanel {
+  border-color: #dfe7f0;
+  border-left-color: #0f766e;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 32px rgba(29,53,87,.08);
+}
+
+body.subject-business .paperExtractText p,
+body.subject-business .paperExtractQuestion span,
+body.subject-business .paperExtractQuestions li {
+  color: #172033;
+}
+
+body.subject-business .paperExtractQuestion,
+body.subject-business .paperExtractQuestions {
+  border-color: #cfe7e3;
+  border-radius: 8px;
+  background: #eef9f7;
+}
+
+body.subject-business .paperExtractQuestion b,
+body.subject-business .paperExtractQuestions b {
+  color: #0f766e;
+}
+
+body.subject-business .paperExtractSource {
+  color: #66758a;
+}
+
+body.subject-business .examBlock .card {
+  border-color: #dfe7f0;
+  background: #fff;
+}
+
+body.subject-business .examBlock .card .num {
+  background: #eaf6f4;
+  color: #0f766e;
+}
+
+body.subject-business .examBlock .card b {
+  color: #172033;
+}
+
+body.subject-business .termBlock .termBox::before {
+  border-color: #dbe3ee;
+  background: #fff;
+  color: #66758a;
+}
+
+body.subject-business .termDefinitionText {
+  color: #172033;
+}
+
+body.subject-business .termBox .termDefinitionZh {
+  color: #526579;
+}
+
+body.subject-business .definitionTermNote {
+  border-color: #dfe7f0;
+  background: #fff;
+}
+
+body.subject-business .definitionTermNote b {
+  color: #172033;
+}
+
+body.subject-business .definitionTermNote span {
+  color: #0f766e;
+}
+
+body.subject-business .fillBlank p {
+  color: #172033;
+}
+
+body.subject-business .modelAnswerCard {
+  border-color: #cfe7e3;
+  border-radius: 10px;
+  background: #fff;
+}
+
+body.subject-business .modelAnswerText {
+  color: #172033;
+}
+
+body.subject-business .modelAnswerLinks span {
+  border-color: rgba(127,29,78,.22);
+  background: #fdf2f8;
+  color: #7f1d4e;
+}
+
+body.subject-business .modelAnswerNote {
+  border-left-color: #0f766e;
+  background: #eef9f7;
+  color: #415066;
+}
+
+body.subject-business .modelAnswerNote b {
+  color: #0f766e;
+}
+
+body.subject-business .sourceList summary,
+body.subject-business .handoutSources summary {
+  border-color: #d8e0ea;
+  background: #fff;
+  color: #415066;
+}
+
+body.subject-business .slideSourceControl summary {
+  border-color: rgba(15,118,110,.25);
+  background: rgba(255,255,255,.94);
+  color: #0f766e;
+  box-shadow: 0 10px 24px rgba(29,53,87,.12);
+}
+
+body.subject-business .sourceList summary::before,
+body.subject-business .handoutSources summary::before {
+  background: #eaf6f4;
+  color: #0f766e;
+}
+
+body.subject-business .sourceList[open] summary,
+body.subject-business .handoutSources[open] summary {
+  border-color: rgba(15,118,110,.34);
+  color: #0f766e;
+}
+
+body.subject-business .sourcePanel {
+  border-color: #d8e0ea;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 46px rgba(29,53,87,.16);
+}
+
+body.subject-business .sourceItem {
+  border-color: #dfe7f0;
+  background: #f8fbfd;
+  color: #415066;
+}
+
+body.subject-business .sourceLabel,
+body.subject-business .sourceQuestion b {
+  color: #0f766e;
+}
+
+body.subject-business .sourceQuestion,
+body.subject-business .sourceExtract,
+body.subject-business .sourceNote {
+  color: #415066;
+}
+
+body.subject-business #overview {
+  background: rgba(244,247,251,.96);
+}
+
+body.subject-business #overview h2 {
+  color: #172033;
+}
+
+body.subject-business .thumb {
+  border-color: #d8e0ea;
+  background: #fff;
+  color: #172033;
+  box-shadow: 0 14px 32px rgba(29,53,87,.10);
+}
+
+body.subject-business .thumb:hover {
+  border-color: rgba(15,118,110,.38);
+}
+
+body.subject-business .thumb .n {
+  color: #66758a;
+}
+
+body.subject-business .thumb .t {
+  color: #172033;
+}
+
+body.subject-business .lessonModeSwitch {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.subject-business .lessonModeTabs {
+  border-color: rgba(29,53,87,.14);
+  border-radius: 8px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 12px 28px rgba(29,53,87,.12);
+}
+
+body.subject-business .lessonModeUtilities {
+  border-color: rgba(29,53,87,.16);
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 16px 34px rgba(29,53,87,.16);
+}
+
+body.subject-business .lessonModeButton,
+body.subject-business .lessonModeTab,
+body.subject-business .lessonModeMenuButton {
+  color: #415066;
+  border-color: rgba(29,53,87,.14);
+  border-radius: 6px;
+  background: #fff;
+}
+
+body.subject-business .lessonModeTab {
+  background: transparent;
+  border-color: transparent;
+}
+
+body.subject-business .lessonModeTab.is-active,
+body.subject-business .lessonModeButton:hover,
+body.subject-business .lessonModeButton:focus-visible,
+body.subject-business .lessonModeMenuButton:hover,
+body.subject-business .lessonModeMenuButton:focus-visible,
+body.subject-business .lessonModeTab:hover,
+body.subject-business .lessonModeTab:focus-visible {
+  color: #0f766e;
+  border-color: rgba(15,118,110,.36);
+  background: #eaf6f4;
+}
+
+body.subject-business .lessonModeUtilities .lessonModeButton {
+  background: #fff;
+}
+
+body.subject-business .lessonModeButton--selector {
+  border-color: rgba(180,83,9,.34);
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+body.subject-business .lessonModeButton--selector[aria-pressed="true"] {
+  border-color: rgba(15,118,110,.42);
+  background: #eaf6f4;
+  color: #0f766e;
+}
+
+body.subject-business .photoPanel::after {
+  background: linear-gradient(180deg, transparent 58%, rgba(23,32,51,.78));
+}
+
+body.subject-business .slide.is-visualPause {
+  background: #172033;
+}
+
+body.subject-business.is-handout-mode {
+  background: #f4f7fb;
+}
+
+body.subject-business.is-handout-mode .handoutHero {
+  border-left-color: #0f766e;
+}
+
+body.subject-business.is-handout-mode .handoutKicker {
+  color: #0f766e;
+}
+
+body.subject-business.is-handout-mode .handoutDocument,
+body.subject-business.is-handout-mode .handoutSection,
+body.subject-business.is-handout-mode .handoutSectionBody,
+body.subject-business.is-handout-mode .handoutBlock,
+body.subject-business.is-handout-mode .handoutTableWrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body.subject-business.is-handout-mode .handoutTable {
+  table-layout: fixed;
+}
+
+body.subject-business.is-handout-mode .handoutTable th,
+body.subject-business.is-handout-mode .handoutTable td {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  body.subject-business .lessonModeTabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

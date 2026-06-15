@@ -5,12 +5,14 @@
     "build:android-data": "node scripts/export-definitions-android.js",
     "test:android-data": "node scripts/test-android-definitions-data.js",
     "test:android-offline": "node scripts/test-android-offline-app.js",
+    "test:grading": "node scripts/test-grading-workflow.js",
     "test": "playwright test",
     "test:regression": "playwright test tests/smoke.spec.js",
     "test:smoke": "playwright test tests/smoke.spec.js --project=chromium-desktop --grep @smoke",
     "test:responsive": "playwright test tests/smoke.spec.js --project=chromium-phone --grep @responsive"
   },
   "devDependencies": {
-    "@playwright/test": "^1.59.1"
+    "@playwright/test": "^1.59.1",
+    "exceljs": "^4.4.0"
   }
 }

@@ -809,6 +809,15 @@ window.IGCSE = window.IGCSE || {};
     healthcareProductivity: supplySidePolicy.healthcareWorkforce,
   };
 
+  const businessFinance = {
+    phoneShop: supplySidePolicy.smallMobilePhoneShop,
+    mobileStore: supplySidePolicy.mobilePhoneStore,
+    shareCapital: supplySidePolicy.stockCertificate,
+    financeForms: fiscalPolicy.taxForms,
+    cashRegister: monetaryPolicy.bankLendingCashier,
+    closedShops: monetaryPolicy.visualPauseClosedMallShops,
+  };
+
   IGCSE.photos = {
     ...(IGCSE.photos || {}),
     fiscalPolicy,
@@ -832,6 +841,7 @@ window.IGCSE = window.IGCSE || {};
     monetaryPolicy,
     supplySidePolicy,
     supplySidePolicyFacts,
+    businessFinance,
   };
 
   // Backward-compatible alias for older market lessons.
