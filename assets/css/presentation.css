@@ -1345,6 +1345,37 @@ body.is-visual-pause .studentSelectorSidePanel {
   color: var(--ink-dim);
 }
 
+.examSpecChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  max-width: 100%;
+}
+
+.examSpecChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  max-width: 100%;
+  padding: .34rem .58rem;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  color: #f7fbff;
+  font-size: clamp(13px, .9vw, 16px);
+  font-weight: 850;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.examSpecChip.is-paper,
+.examSpecChip.is-marks {
+  border-color: rgba(255,209,102,.34);
+  background: rgba(255,209,102,.12);
+  color: #ffe7a6;
+}
+
 .examChainLabel,
 .paperExtractLabel,
 .modelAnswerLabel {
@@ -5737,6 +5768,14 @@ body.is-flashcard-mode #deck {
   border-left-color: #0f766e;
 }
 
+.handoutBlock.is-exam {
+  border-left-color: #d97706;
+}
+
+.handoutBlock.is-model-answer {
+  border-left-color: #16a34a;
+}
+
 .handoutPaperQuestion {
   margin-top: 10px;
   break-inside: avoid;
@@ -5838,6 +5877,76 @@ body.is-flashcard-mode #deck {
 .handoutQuestion {
   font-weight: 720;
   color: #172033 !important;
+}
+
+.handoutExamSpec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+
+.handoutExamSpecChip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #dbe3ee;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 11.5px;
+  font-weight: 850;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.handoutExamSpecChip.is-paper,
+.handoutExamSpecChip.is-marks {
+  border-color: #fed7aa;
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.handoutExamLabel {
+  margin: 6px 0 5px !important;
+  color: #475569 !important;
+  font-size: 12px !important;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.handoutModelAnswer {
+  display: grid;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.handoutModelAnswerText {
+  margin: 0 !important;
+  color: #172033 !important;
+  font-weight: 650;
+}
+
+.handoutModelAnswerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.handoutModelAnswerLinks span {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #e9d5ff;
+  border-radius: 999px;
+  background: #faf5ff;
+  color: #6b21a8;
+  font-size: 12px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .handoutNote {

@@ -16,6 +16,12 @@ const businessSyllabus = {
   note: 'Cash importance, cash-flow forecast features, completing/amending/interpreting simple forecasts, and short-term solutions.',
 };
 
+const examRequirements = {
+  label: 'Exam requirements source',
+  ref: 'references/igcse-business-0264-exam-requirements.md',
+  note: 'Paper 1/Paper 2 mark templates and Unit 5 exam implications.',
+};
+
 const assessmentLimit = {
   label: 'Assessment note',
   ref: 'Cambridge IGCSE Business 0264 syllabus 2027-2029, 5.2.1',
@@ -34,7 +40,7 @@ IGCSE.lesson = {
     courseIndexUrl: '../../index.html',
     courseIndexLabel: 'Business index',
     availableViews: ['slides', 'handout'],
-    sources: [businessSyllabus, assessmentLimit],
+    sources: [businessSyllabus, examRequirements, assessmentLimit],
   },
 
   slides: [
@@ -197,6 +203,40 @@ IGCSE.lesson = {
       ],
     },
     {
+      type: 'exam',
+      eyebrow: 'Exam practice',
+      title: 'Using the forecast, calculate Harbor Phone Repair\'s August net cash flow and August closing balance. [4]',
+      examSpec: {
+        paper: 'P1',
+        marks: 4,
+        command: 'Calculate',
+        skills: ['k', 'app'],
+        pattern: 'P1 cash-flow calculation',
+      },
+      keywordLabel: 'Show working',
+      keywords: ['net cash flow = inflows - outflows', '$4,600 - $6,100', 'closing balance = opening balance + net cash flow', '$1,300 + -$1,500'],
+      prompt: 'Show the method and final figures. Then be ready to interpret the negative balance.',
+    },
+    {
+      type: 'modelAnswer',
+      eyebrow: 'Model answer',
+      title: 'Using the forecast, calculate Harbor Phone Repair\'s August net cash flow and August closing balance. [4]',
+      examSpec: {
+        paper: 'P1',
+        marks: 4,
+        command: 'Calculate',
+        skills: ['k', 'app'],
+        pattern: 'P1 cash-flow calculation',
+      },
+      paragraphs: [
+        'August net cash flow = cash inflows - cash outflows = $4,600 - $6,100 = -$1,500.',
+        'August closing balance = opening balance + net cash flow = $1,300 + -$1,500 = -$200.',
+      ],
+      links: ['net cash flow', '$4,600', '$6,100', '-$1,500', 'closing balance', '$1,300', '-$200'],
+      markSchemeNote: 'The working shows the calculation method before the final figures, matching calculation mark-scheme habits.',
+      showLinkChips: false,
+    },
+    {
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Interpret and solve',
@@ -240,22 +280,39 @@ IGCSE.lesson = {
     },
     {
       type: 'exam',
+      variant: 'businessDecision',
       eyebrow: 'Exam practice',
-      title: 'Using the cash-flow forecast, recommend one way Harbor Phone Repair could overcome its August cash-flow problem. Justify your answer. [6]',
-      keywordLabel: 'Use evidence',
-      keywords: ['August closing balance -$200', 'short-term problem', 'overdraft or delay purchase', 'benefit', 'drawback', 'justified decision'],
-      prompt: 'Use at least one figure from the forecast and explain why the solution fits this business.',
+      title: 'Consider whether Harbor Phone Repair should use an overdraft, ask customers to pay faster, or delay buying the diagnostic tablet to solve the August cash-flow problem. Justify your recommendation. [12]',
+      examSpec: {
+        paper: 'P2',
+        marks: 12,
+        command: 'Consider / Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P2 12-mark decision',
+      },
+      keywordLabel: 'Use forecast evidence',
+      keywords: ['August closing balance -$200', 'August net cash flow -$1,500', 'September closing balance $1,000', 'compare solutions', 'recommend and reject alternatives'],
+      prompt: 'Use at least two forecast figures and explain why one short-term solution fits better than another.',
     },
     {
       type: 'modelAnswer',
+      variant: 'businessDecision',
       eyebrow: 'Model answer',
-      title: 'Using the cash-flow forecast, recommend one way Harbor Phone Repair could overcome its August cash-flow problem. Justify your answer. [6]',
+      title: 'Consider whether Harbor Phone Repair should use an overdraft, ask customers to pay faster, or delay buying the diagnostic tablet to solve the August cash-flow problem. Justify your recommendation. [12]',
+      examSpec: {
+        paper: 'P2',
+        marks: 12,
+        command: 'Consider / Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P2 12-mark decision',
+      },
       paragraphs: [
-        'I recommend arranging a small bank overdraft for August. The forecast shows a negative closing balance of $200, so Harbor Phone Repair only has a short-term cash shortage.',
-        'An overdraft is suitable because it is flexible and can cover the temporary gap while the business waits for September cash inflows, when the closing balance is forecast to return to $1,000.',
-        'However, overdrafts may charge interest and fees. Overall, this is better than a long-term bank loan because the problem appears temporary and the amount needed is small.',
+        'An overdraft would help because the August closing balance is forecast to be -$200, so Harbor Phone Repair only needs a small amount of short-term finance. It is flexible and can cover the temporary gap until September, when the closing balance is forecast to return to $1,000.',
+        'Asking customers to pay faster could improve cash inflows, especially because one local office account pays at the end of each month. However, this may not solve the August problem quickly enough if customers refuse shorter payment terms.',
+        'Delaying the diagnostic tablet could reduce August outflows, which are high at $6,100. I reject making faster customer payment the main solution because it depends on customer cooperation and may damage relationships. I recommend a small overdraft for August, and delaying the tablet only if the bank refuses it, because the forecast shows a temporary cash shortage rather than a long-term finance problem.',
       ],
-      links: ['bank overdraft', 'negative closing balance', '$200', 'short-term cash shortage', 'September cash inflows', '$1,000', 'interest and fees'],
+      links: ['overdraft', '-$200', 'short-term finance', '$1,000', 'pay faster', '$6,100', 'reject', 'recommend'],
+      markSchemeNote: 'The answer compares solutions, uses forecast figures, recommends one option and rejects a weaker alternative.',
       showLinkChips: false,
     },
     {

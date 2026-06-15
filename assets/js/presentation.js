@@ -267,6 +267,46 @@ function sanitizeToken(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+const EXAM_SKILL_LABELS = {
+  k: 'K',
+  app: 'App',
+  an: 'An',
+  eval: 'Eval',
+};
+
+function normalizeExamSpec(spec = {}) {
+  if (!spec || typeof spec !== 'object') return null;
+  const paper = String(spec.paper || '').trim().toUpperCase();
+  const marks = Number(spec.marks);
+  const command = String(spec.command || '').trim();
+  const pattern = String(spec.pattern || '').trim();
+  const skills = Array.isArray(spec.skills)
+    ? spec.skills
+      .map((skill) => String(skill || '').trim().toLowerCase())
+      .filter((skill) => EXAM_SKILL_LABELS[skill])
+    : [];
+
+  const chips = [
+    paper ? { label: paper, className: 'is-paper' } : null,
+    Number.isFinite(marks) && marks > 0 ? { label: `${marks} marks`, className: 'is-marks' } : null,
+    command ? { label: command, className: 'is-command' } : null,
+    pattern ? { label: pattern, className: 'is-pattern' } : null,
+    skills.length ? { label: `Skills: ${skills.map((skill) => EXAM_SKILL_LABELS[skill]).join('/')}`, className: 'is-skills' } : null,
+  ].filter(Boolean);
+
+  return chips.length ? { chips } : null;
+}
+
+function renderExamSpecChips(spec, className = 'examSpecChips', chipClassName = 'examSpecChip') {
+  const normalized = normalizeExamSpec(spec);
+  if (!normalized) return '';
+  return `
+    <div class="${className}" aria-label="Exam requirements">
+      ${normalized.chips.map((chip) => `<span class="${chipClassName} ${chip.className}">${esc(chip.label)}</span>`).join('')}
+    </div>
+  `;
+}
+
 /* ---------- Component helpers ---------- */
 const cardIcons = {
   bank: '<path d="M8 18h48"/><path d="M14 18v24M26 18v24M38 18v24M50 18v24"/><path d="M12 42h40"/><path d="M10 18 32 7l22 11z"/>',
@@ -1205,8 +1245,9 @@ const renderers = {
     const heading = s.title || (s.marks ? `${s.question || 'Exam question'} [${s.marks}]` : (s.question || 'Exam question'));
     const showQuestion = s.question && s.title && !titleContainsQuestion(s.title, s.question);
     return `
-      <div class="examBlock">
+      <div class="examBlock${s.variant ? ` is-${esc(sanitizeToken(s.variant))}` : ''}">
         <h2>${esc(heading)}</h2>
+        ${renderExamSpecChips(s.examSpec)}
         ${showQuestion ? `<p class="lead examQuestion">${esc(s.question)}</p>` : ''}
         <div class="examChainLabel">${esc(s.keywordLabel || 'Plan your answer')}</div>
         <div class="cardgrid">
@@ -1255,8 +1296,9 @@ const renderers = {
   modelAnswer: (s) => {
     const showQuestion = s.question && !titleContainsQuestion(s.title, s.question);
     return `
-      <div class="modelAnswerBlock">
+      <div class="modelAnswerBlock${s.variant ? ` is-${esc(sanitizeToken(s.variant))}` : ''}">
         <h2>${esc(s.title || 'Model answer')}</h2>
+        ${renderExamSpecChips(s.examSpec)}
         ${showQuestion ? `<p class="lead modelAnswerQuestion">${esc(s.question)}</p>` : ''}
         <div class="modelAnswerCard">
           <div class="modelAnswerLabel">Model answer</div>
@@ -2223,6 +2265,10 @@ function handoutChoices(choices = []) {
   `;
 }
 
+function handoutExamSpec(spec = {}) {
+  return renderExamSpecChips(spec, 'handoutExamSpec', 'handoutExamSpecChip');
+}
+
 function handoutSources() {
   return '';
 }
@@ -2273,7 +2319,9 @@ const handoutContentTypes = new Set([
   'cards',
   'compare',
   'dataTable',
+  'exam',
   'flow',
+  'modelAnswer',
   'paperExtract',
   'socialEffectsVenn',
   'split',
@@ -2284,11 +2332,46 @@ const handoutContentTypes = new Set([
 ]);
 
 function shouldIncludeHandoutSlide(slide) {
+  if (slide?.type === 'exam' || slide?.type === 'modelAnswer') {
+    return Boolean(normalizeExamSpec(slide.examSpec));
+  }
   return handoutContentTypes.has(slide.type);
 }
 
 function renderHandoutBlock(slide) {
   switch (slide.type) {
+    case 'exam': {
+      const showQuestion = slide.question && slide.title && !titleContainsQuestion(slide.title, slide.question);
+      return handoutBlock(slide, `
+        ${handoutExamSpec(slide.examSpec)}
+        ${showQuestion ? handoutParagraph(slide.question, 'handoutQuestion') : ''}
+        ${slide.keywordLabel ? `<p class="handoutExamLabel">${esc(slide.keywordLabel)}</p>` : ''}
+        ${handoutList(slide.keywords || [], true)}
+        ${handoutParagraph(slide.prompt, 'handoutNote')}
+        ${handoutSources(slide.sources)}
+      `, `is-exam${slide.variant ? ` is-${esc(sanitizeToken(slide.variant))}` : ''}`);
+    }
+
+    case 'modelAnswer': {
+      const showQuestion = slide.question && !titleContainsQuestion(slide.title, slide.question);
+      const paragraphs = Array.isArray(slide.paragraphs) && slide.paragraphs.length
+        ? slide.paragraphs
+        : [slide.answer || ''];
+      return handoutBlock(slide, `
+        ${handoutExamSpec(slide.examSpec)}
+        ${showQuestion ? handoutParagraph(slide.question, 'handoutQuestion') : ''}
+        <div class="handoutModelAnswer">
+          ${paragraphs.map((paragraph) => handoutParagraph(paragraph, 'handoutModelAnswerText')).join('')}
+        </div>
+        ${(slide.links || []).length && slide.showLinkChips !== false ? `
+          <div class="handoutModelAnswerLinks">
+            ${(slide.links || []).map((link) => `<span>${esc(link)}</span>`).join('')}
+          </div>` : ''}
+        ${handoutParagraph(slide.markSchemeNote, 'handoutNote')}
+        ${handoutSources(slide.sources)}
+      `, `is-model-answer${slide.variant ? ` is-${esc(sanitizeToken(slide.variant))}` : ''}`);
+    }
+
     case 'dataTable':
       return handoutBlock(slide, `
         ${handoutParagraph(slide.lead)}

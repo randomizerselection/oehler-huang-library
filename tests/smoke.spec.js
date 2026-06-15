@@ -161,6 +161,24 @@ const targetFiscalMonetarySlideFiles = [
   'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js',
 ];
 
+const businessUnit5Decks = [
+  {
+    path: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/index.html',
+    slideFile: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/slides.js',
+    heading: /The need for business finance/i,
+  },
+  {
+    path: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/index.html',
+    slideFile: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/slides.js',
+    heading: /Sources of finance/i,
+  },
+  {
+    path: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/index.html',
+    slideFile: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/slides.js',
+    heading: /Cash-flow forecasts/i,
+  },
+];
+
 function readFlashcards(relativePath) {
   const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const context = { window: {} };
@@ -487,34 +505,78 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('business/index.html'));
 
     await expect(page.getByRole('heading', { name: /^Business finance decisions$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Unit 5 exam targets$/i })).toBeVisible();
+    await expect(page.locator('.business-paper-label', { hasText: /^Paper 1$/i })).toBeVisible();
+    await expect(page.locator('.business-paper-label', { hasText: /^Paper 2$/i })).toBeVisible();
+    await expect(page.getByText(/AO2 application is 30% overall/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Main library$/i })).toHaveAttribute('href', '../index.html');
     await expect(page.getByRole('link', { name: /^Economics page$/i })).toHaveAttribute('href', '../index.html#course-map');
     await expect(page.getByRole('heading', { name: /^Financial information and decisions$/i })).toBeVisible();
     await expect(page.locator('.business-lesson-card')).toHaveCount(3);
     await expect(page.getByRole('link', { name: /^Slides$/i })).toHaveCount(3);
     await expect(page.getByRole('link', { name: /^Handout$/i })).toHaveCount(3);
-    await expect(page.getByText(/Harbor Phone Repair/i)).toBeVisible();
+    await expect(page.locator('.business-table-label', { hasText: /^Harbor Phone Repair$/i })).toBeVisible();
+    await expect(page.getByText(/original classroom teaching case/i)).toBeVisible();
     await expect(page.locator('body')).not.toContainText(/IGCSE Economics Lesson Library/i);
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@responsive business Unit 5 decks render with Business-only identity and slide handout views', async ({ page }, testInfo) => {
-    const decks = [
-      {
-        path: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/index.html',
-        heading: /The need for business finance/i,
-      },
-      {
-        path: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/index.html',
-        heading: /Sources of finance/i,
-      },
-      {
-        path: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/index.html',
-        heading: /Cash-flow forecasts/i,
-      },
-    ];
+  test('@smoke Business Unit 5 decks include valid Paper 1 and Paper 2 exam specs', () => {
+    const validSkills = new Set(['k', 'app', 'an', 'eval']);
 
-    for (const deck of decks) {
+    for (const deck of businessUnit5Decks) {
+      const lesson = readLesson(deck.slideFile);
+      const examSlides = (lesson.slides || []).filter((slide) => slide.type === 'exam' && slide.examSpec);
+      const modelSlides = (lesson.slides || []).filter((slide) => slide.type === 'modelAnswer' && slide.examSpec);
+
+      expect(examSlides.some((slide) => slide.examSpec.paper === 'P1'), `${deck.slideFile} needs Paper 1 practice`).toBe(true);
+      expect(examSlides.some((slide) => slide.examSpec.paper === 'P2'), `${deck.slideFile} needs Paper 2 practice`).toBe(true);
+      expect(modelSlides.length, `${deck.slideFile} should pair exam questions with model answers`).toBeGreaterThanOrEqual(examSlides.length);
+
+      for (const slide of [...examSlides, ...modelSlides]) {
+        expect(['P1', 'P2']).toContain(slide.examSpec.paper);
+        expect(Number.isFinite(slide.examSpec.marks), `${slide.title} needs numeric marks`).toBe(true);
+        expect(slide.examSpec.marks).toBeGreaterThan(0);
+        expect(slide.examSpec.command, `${slide.title} needs a command word`).toEqual(expect.any(String));
+        expect(slide.examSpec.pattern, `${slide.title} needs a pattern label`).toEqual(expect.any(String));
+        expect(slide.examSpec.skills.length, `${slide.title} needs at least one skill`).toBeGreaterThan(0);
+        for (const skill of slide.examSpec.skills) expect(validSkills.has(skill), `${slide.title} has invalid skill ${skill}`).toBe(true);
+        expect(slide.title, `${slide.title} should show mark size`).toContain(`[${slide.examSpec.marks}]`);
+      }
+    }
+  });
+
+  test('@smoke Business Unit 5 Paper 2 12-mark model answers reject an alternative', () => {
+    const recommendationPattern = /recommend|recommendation|conclusion|overall|i would justify/i;
+    const rejectionPattern = /reject|less suitable|better than|rather than|instead of|weaker alternative/i;
+
+    for (const deck of businessUnit5Decks) {
+      const lesson = readLesson(deck.slideFile);
+      const models = (lesson.slides || [])
+        .filter((slide) => slide.type === 'modelAnswer' && slide.examSpec?.paper === 'P2' && slide.examSpec?.marks === 12);
+
+      for (const slide of models) {
+        const answerText = [...(slide.paragraphs || []), slide.answer || '', slide.markSchemeNote || ''].join(' ');
+        expect(answerText, `${slide.title} needs a recommendation or conclusion`).toMatch(recommendationPattern);
+        expect(answerText, `${slide.title} needs explicit rejection of an alternative`).toMatch(rejectionPattern);
+      }
+    }
+  });
+
+  test('@smoke Business Unit 5 decks cite syllabus and exam-requirements references', () => {
+    for (const deck of businessUnit5Decks) {
+      const lesson = readLesson(deck.slideFile);
+      const sources = lesson.meta?.sources || [];
+      const sourceText = sources.map((source) => `${source.label} ${source.ref} ${source.note}`).join('\n');
+
+      expect(sourceText, `${deck.slideFile} needs the Business syllabus source`).toMatch(/igcse business 0264 syllabus|Cambridge IGCSE Business 0264 syllabus/i);
+      expect(sourceText, `${deck.slideFile} needs the exam requirements source`).toMatch(/igcse-business-0264-exam-requirements\.md/i);
+      expect(sourceText, `${deck.slideFile} should keep Harbor separate from Cambridge sources`).not.toMatch(/Harbor Phone Repair.*Cambridge source/i);
+    }
+  });
+
+  test('@responsive business Unit 5 decks render with Business-only identity and slide handout views', async ({ page }, testInfo) => {
+    for (const deck of businessUnit5Decks) {
       await page.goto(pageUrl(deck.path));
       await expect(page.locator('body')).toHaveClass(/subject-business/);
       await expect(page.locator('link[href*="business-presentation.css"]')).toHaveCount(1);
@@ -535,36 +597,26 @@ test.describe('site smoke', () => {
       await expectLessonModeTabsOnly(page, 'Handout', ['Slides', 'Handout']);
       await expect(page.locator('.handoutKicker')).toContainText('Unit 5 - Financial information and decisions');
       await expect(page.locator('.handoutBlock')).not.toHaveCount(0);
+      await expect(page.locator('.handoutExamSpec').first()).toBeVisible();
+      await expect(page.locator('.handoutBlock.is-exam')).not.toHaveCount(0);
+      await expect(page.locator('.handoutBlock.is-model-answer')).not.toHaveCount(0);
       await expect(page.locator('body')).not.toContainText(/IGCSE Economics|Government and the macroeconomy|The allocation of resources/i);
       await expectNoHorizontalOverflow(page);
     }
   });
 
   test('@responsive business slide components keep readable light-theme text', async ({ page }) => {
-    const decks = [
-      {
-        path: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/index.html',
-        slideFile: 'business/unit-5-financial-information-decisions/5-1-1-finance-needs/slides.js',
-      },
-      {
-        path: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/index.html',
-        slideFile: 'business/unit-5-financial-information-decisions/5-1-2-sources-of-finance/slides.js',
-      },
-      {
-        path: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/index.html',
-        slideFile: 'business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts/slides.js',
-      },
-    ];
     const componentChecks = [
       { type: 'paperExtract', selector: '.paperExtractText p' },
       { type: 'term', selector: '.termDefinitionText' },
       { type: 'cards', selector: '.cardTitleZh' },
+      { type: 'exam', selector: '.examSpecChip' },
       { type: 'modelAnswer', selector: '.modelAnswerText' },
       { type: 'dataTable', selector: '.dataTable td' },
     ];
     const coveredTypes = Object.fromEntries(componentChecks.map((check) => [check.type, 0]));
 
-    for (const deck of decks) {
+    for (const deck of businessUnit5Decks) {
       const lesson = readLesson(deck.slideFile);
 
       for (const check of componentChecks) {
@@ -587,6 +639,20 @@ test.describe('site smoke', () => {
 
     for (const check of componentChecks) {
       expect(coveredTypes[check.type], `Business batch should include a checked ${check.type} slide`).toBeGreaterThan(0);
+    }
+  });
+
+  test('@responsive business decision slides render exam chips without overflow', async ({ page }) => {
+    for (const deck of businessUnit5Decks) {
+      const lesson = readLesson(deck.slideFile);
+      const decisionIndex = (lesson.slides || []).findIndex((slide) => slide.variant === 'businessDecision' && slide.examSpec);
+      if (decisionIndex < 0) continue;
+
+      await page.goto(`${pageUrl(deck.path)}#${decisionIndex + 1}`);
+      await expect(page.locator('.slide.is-active .examBlock.is-businessdecision')).toBeVisible();
+      await expect(page.locator('.slide.is-active .examSpecChip')).toHaveCount(5);
+      await expect(page.locator('.slide.is-active .examSpecChip.is-paper')).toContainText('P2');
+      await expectNoHorizontalOverflow(page);
     }
   });
 

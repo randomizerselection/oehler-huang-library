@@ -287,6 +287,37 @@ body.subject-business .examBlock .card {
   background: #fff;
 }
 
+body.subject-business .examSpecChip {
+  border-color: #d8e0ea;
+  background: #fff;
+  color: #415066;
+  box-shadow: 0 7px 16px rgba(29,53,87,.07);
+}
+
+body.subject-business .examSpecChip.is-paper,
+body.subject-business .examSpecChip.is-marks {
+  border-color: rgba(180,83,9,.26);
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+body.subject-business .examSpecChip.is-skills {
+  border-color: rgba(15,118,110,.24);
+  background: #eef9f7;
+  color: #0f766e;
+}
+
+body.subject-business .examBlock.is-businessdecision,
+body.subject-business .modelAnswerBlock.is-businessdecision {
+  border-left: 5px solid #7f1d4e;
+  padding-left: clamp(.85rem, 1.4vw, 1.1rem);
+}
+
+body.subject-business .examBlock.is-businessdecision .examChainLabel,
+body.subject-business .modelAnswerBlock.is-businessdecision .modelAnswerLabel {
+  color: #7f1d4e;
+}
+
 body.subject-business .examBlock .card .num {
   background: #eaf6f4;
   color: #0f766e;
@@ -527,6 +558,23 @@ body.subject-business.is-handout-mode .handoutTable {
 body.subject-business.is-handout-mode .handoutTable th,
 body.subject-business.is-handout-mode .handoutTable td {
   overflow-wrap: anywhere;
+}
+
+body.subject-business.is-handout-mode .handoutExamSpecChip.is-paper,
+body.subject-business.is-handout-mode .handoutExamSpecChip.is-marks {
+  border-color: rgba(180,83,9,.28);
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+body.subject-business.is-handout-mode .handoutExamSpecChip.is-skills {
+  border-color: rgba(15,118,110,.24);
+  background: #eef9f7;
+  color: #0f766e;
+}
+
+body.subject-business.is-handout-mode .handoutBlock.is-businessdecision {
+  border-left-color: #7f1d4e;
 }
 
 @media (max-width: 760px) {

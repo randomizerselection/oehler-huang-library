@@ -16,6 +16,12 @@ const businessSyllabus = {
   note: 'Internal and external sources of finance, selection factors, and justified recommendations.',
 };
 
+const examRequirements = {
+  label: 'Exam requirements source',
+  ref: 'references/igcse-business-0264-exam-requirements.md',
+  note: 'Paper 1/Paper 2 mark templates and Unit 5 exam implications.',
+};
+
 IGCSE.lesson = {
   meta: {
     subject: 'business',
@@ -28,7 +34,7 @@ IGCSE.lesson = {
     courseIndexUrl: '../../index.html',
     courseIndexLabel: 'Business index',
     availableViews: ['slides', 'handout'],
-    sources: [businessSyllabus],
+    sources: [businessSyllabus, examRequirements],
   },
 
   slides: [
@@ -219,21 +225,73 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Recommend and justify one suitable source of finance for Harbor Phone Repair. [6]',
-      keywordLabel: 'Build the recommendation',
-      keywords: ['recommend one source', 'link to $8,000 expansion', 'explain advantage', 'explain drawback', 'justify using case evidence'],
-      prompt: 'Write one recommendation. Use the case details; do not list every possible source.',
+      title: 'Justify whether a bank loan is suitable for Harbor Phone Repair. [8]',
+      examSpec: {
+        paper: 'P1',
+        marks: 8,
+        command: 'Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P1 8-mark justify',
+      },
+      keywordLabel: 'Build the decision',
+      keywords: ['bank loan', '$8,000 expansion', 'keep control', 'interest and repayments', 'final judgement'],
+      prompt: 'Analyse benefits and limits before deciding. Your judgement must follow the case evidence.',
     },
     {
       type: 'modelAnswer',
       eyebrow: 'Model answer',
-      title: 'Recommend and justify one suitable source of finance for Harbor Phone Repair. [6]',
+      title: 'Justify whether a bank loan is suitable for Harbor Phone Repair. [8]',
+      examSpec: {
+        paper: 'P1',
+        marks: 8,
+        command: 'Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P1 8-mark justify',
+      },
       paragraphs: [
-        'I recommend a bank loan for Harbor Phone Repair. The business needs $8,000 for a second repair counter and diagnostic equipment, so this is a long-term finance need.',
-        'A bank loan could provide the full amount and Lina would keep control of the business, unlike selling shares or accepting venture capital.',
-        'However, interest and repayments would increase costs. Overall, a bank loan is suitable if Harbor Phone Repair expects enough future revenue from the expansion to make the repayments, because the equipment should be used for several years.',
+        'A bank loan may be suitable because Harbor Phone Repair needs $8,000 for a second repair counter and diagnostic equipment. This is a long-term expansion need, so a loan with regular repayments matches the purpose better than a very short-term overdraft.',
+        'A loan also allows Lina to keep control of the business, which matters because the case says she does not want to lose control. However, interest and repayments will increase monthly costs, so the loan is only suitable if the new counter increases revenue enough to cover them.',
+        'Overall, I would justify a bank loan because it fits the amount, purpose and control issue, but Harbor should check the expected cash flow before borrowing.',
       ],
-      links: ['bank loan', '$8,000', 'long-term finance need', 'keep control', 'interest', 'repayments', 'future revenue'],
+      links: ['bank loan', '$8,000', 'second repair counter', 'diagnostic equipment', 'long-term expansion', 'keep control', 'interest', 'cash flow'],
+      markSchemeNote: 'The answer balances one source, applies it to amount/purpose/control and reaches a conditional judgement.',
+      showLinkChips: false,
+    },
+    {
+      type: 'exam',
+      variant: 'businessDecision',
+      eyebrow: 'Exam practice',
+      title: 'Consider whether Harbor Phone Repair should use a bank loan, leasing or share capital to finance the expansion. Justify your recommendation. [12]',
+      examSpec: {
+        paper: 'P2',
+        marks: 12,
+        command: 'Consider / Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P2 12-mark decision',
+      },
+      keywordLabel: 'Level 3 decision chain',
+      keywords: ['option 1: bank loan', 'option 2: leasing', 'option 3: share capital', 'case evidence', 'recommend and reject alternatives'],
+      prompt: 'Discuss at least two options in context. End with a recommendation and explain why a rejected option is less suitable.',
+    },
+    {
+      type: 'modelAnswer',
+      variant: 'businessDecision',
+      eyebrow: 'Model answer',
+      title: 'Consider whether Harbor Phone Repair should use a bank loan, leasing or share capital to finance the expansion. Justify your recommendation. [12]',
+      examSpec: {
+        paper: 'P2',
+        marks: 12,
+        command: 'Consider / Justify',
+        skills: ['k', 'app', 'an', 'eval'],
+        pattern: 'P2 12-mark decision',
+      },
+      paragraphs: [
+        'A bank loan is a strong option because Harbor Phone Repair needs $8,000 for a second repair counter and faster diagnostic equipment. These assets should be used for several years, so a longer-term source can match the life of the assets and Lina can keep control of the business.',
+        'Leasing may also be useful for the diagnostic equipment because Harbor could use the equipment without paying the full price immediately. This could reduce the immediate cash burden, but monthly leasing payments may continue and Harbor would not own the equipment at first.',
+        'Share capital could raise finance without loan repayments, but I reject this alternative because Lina does not want to lose control and a small repair business may have to change legal form to sell shares. I recommend a bank loan, possibly combined with leasing only for the diagnostic equipment, because it fits the $8,000 long-term expansion while protecting Lina\'s control better than share capital.',
+      ],
+      links: ['bank loan', '$8,000', 'diagnostic equipment', 'leasing', 'monthly payments', 'share capital', 'reject this alternative', 'recommend'],
+      markSchemeNote: 'The answer considers more than one option, uses case evidence, gives a recommendation and explicitly rejects a weaker alternative.',
       showLinkChips: false,
     },
     {

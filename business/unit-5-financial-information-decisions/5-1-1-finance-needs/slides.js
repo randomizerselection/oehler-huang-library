@@ -16,6 +16,12 @@ const businessSyllabus = {
   note: 'Need for finance, short-term and long-term finance needs, and working capital.',
 };
 
+const examRequirements = {
+  label: 'Exam requirements source',
+  ref: 'references/igcse-business-0264-exam-requirements.md',
+  note: 'Paper 1/Paper 2 mark templates and Unit 5 exam implications.',
+};
+
 const formulaSource = {
   label: 'Formula source',
   ref: 'Cambridge IGCSE Business 0264 formulas and ratios',
@@ -34,7 +40,7 @@ IGCSE.lesson = {
     courseIndexUrl: '../../index.html',
     courseIndexLabel: 'Business index',
     availableViews: ['slides', 'handout'],
-    sources: [businessSyllabus, formulaSource],
+    sources: [businessSyllabus, examRequirements, formulaSource],
   },
 
   slides: [
@@ -232,20 +238,102 @@ IGCSE.lesson = {
     {
       type: 'exam',
       eyebrow: 'Exam practice',
-      title: 'Explain two reasons why Harbor Phone Repair needs finance before opening. [4]',
-      keywordLabel: 'Use the case',
-      keywords: ['start-up capital', 'tools and rent deposit', 'working capital', 'pay suppliers and wages'],
-      prompt: 'Write two developed points. Each point needs a reason linked to Harbor Phone Repair.',
+      title: 'Define working capital. [2]',
+      examSpec: {
+        paper: 'P1',
+        marks: 2,
+        command: 'Define',
+        skills: ['k'],
+        pattern: 'P1 2-mark definition',
+      },
+      keywordLabel: 'Precise definition',
+      keywords: ['current assets minus current liabilities', 'day-to-day running finance'],
+      prompt: 'Write the meaning, not only an example.',
     },
     {
       type: 'modelAnswer',
       eyebrow: 'Model answer',
-      title: 'Explain two reasons why Harbor Phone Repair needs finance before opening. [4]',
+      title: 'Define working capital. [2]',
+      examSpec: {
+        paper: 'P1',
+        marks: 2,
+        command: 'Define',
+        skills: ['k'],
+        pattern: 'P1 2-mark definition',
+      },
+      paragraphs: [
+        'Working capital is the finance available for the day-to-day running of a business. It is calculated as current assets minus current liabilities.',
+      ],
+      links: ['working capital', 'day-to-day running', 'current assets', 'current liabilities'],
+      markSchemeNote: 'A full definition gives the meaning and the calculation; examples alone would not define the term.',
+      showLinkChips: false,
+    },
+    {
+      type: 'exam',
+      eyebrow: 'Exam practice',
+      title: 'Outline two reasons why Harbor Phone Repair needs finance before opening. [4]',
+      examSpec: {
+        paper: 'P1',
+        marks: 4,
+        command: 'Outline',
+        skills: ['k', 'app'],
+        pattern: 'P1 4-mark outline',
+      },
+      keywordLabel: 'Use the case',
+      keywords: ['start-up capital', 'tools and rent deposit', 'working capital', 'pay suppliers and wages'],
+      prompt: 'Write two distinct points. Each point needs one business term and one Harbor Phone Repair reference.',
+    },
+    {
+      type: 'modelAnswer',
+      eyebrow: 'Model answer',
+      title: 'Outline two reasons why Harbor Phone Repair needs finance before opening. [4]',
+      examSpec: {
+        paper: 'P1',
+        marks: 4,
+        command: 'Outline',
+        skills: ['k', 'app'],
+        pattern: 'P1 4-mark outline',
+      },
       paragraphs: [
         'Harbor Phone Repair needs start-up capital because it must pay for the rent deposit, tools and signs before it can start trading.',
         'It also needs working capital because it must pay suppliers and wages during the first month before enough customer revenue arrives.',
       ],
       links: ['start-up capital', 'rent deposit', 'tools', 'working capital', 'suppliers', 'wages', 'revenue'],
+      markSchemeNote: 'Each point names a finance need and applies it to a different piece of Harbor evidence.',
+      showLinkChips: false,
+    },
+    {
+      type: 'exam',
+      eyebrow: 'Exam practice',
+      title: 'Explain two finance needs of Harbor Phone Repair before opening. [8]',
+      examSpec: {
+        paper: 'P2',
+        marks: 8,
+        command: 'Explain',
+        skills: ['k', 'app', 'an'],
+        pattern: 'P2 applied explain',
+      },
+      keywordLabel: 'Build two applied chains',
+      keywords: ['finance need', 'case evidence', 'business consequence', 'different application for each point'],
+      prompt: 'For each point, use the chain: business term -> case evidence -> consequence for Harbor.',
+    },
+    {
+      type: 'modelAnswer',
+      eyebrow: 'Model answer',
+      title: 'Explain two finance needs of Harbor Phone Repair before opening. [8]',
+      examSpec: {
+        paper: 'P2',
+        marks: 8,
+        command: 'Explain',
+        skills: ['k', 'app', 'an'],
+        pattern: 'P2 applied explain',
+      },
+      paragraphs: [
+        'Harbor Phone Repair needs start-up capital because Lina must pay the rent deposit, repair tools and shop sign before trading starts. Without this finance, the shop may not be ready to repair phones, delaying the first sales revenue.',
+        'It also needs working capital because it must pay suppliers and wages during the first month while customer numbers are still uncertain. If this cash is not available when bills are due, Harbor could have a cash-flow problem even if demand improves later.',
+      ],
+      links: ['start-up capital', 'rent deposit', 'repair tools', 'sales revenue', 'working capital', 'suppliers', 'wages', 'cash-flow problem'],
+      markSchemeNote: 'The answer uses two different finance needs, two different case details and a consequence for the business in each paragraph.',
       showLinkChips: false,
     },
     {
