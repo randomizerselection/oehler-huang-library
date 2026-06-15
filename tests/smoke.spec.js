@@ -501,24 +501,93 @@ test.describe('site smoke', () => {
     expect(macroHeadingBox.x + macroHeadingBox.width).toBeLessThanOrEqual(viewport.width + 1);
   });
 
-  test('@responsive business landing page renders a separate Unit 5 course area', async ({ page }) => {
+  test('@responsive business landing page renders an extendable syllabus roadmap', async ({ page }) => {
     await page.goto(pageUrl('business/index.html'));
 
-    await expect(page.getByRole('heading', { name: /^Business finance decisions$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Unit 5 exam targets$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Business 0264 study hub$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^How Unit 5 helps you score marks$/i })).toBeVisible();
     await expect(page.locator('.business-paper-label', { hasText: /^Paper 1$/i })).toBeVisible();
     await expect(page.locator('.business-paper-label', { hasText: /^Paper 2$/i })).toBeVisible();
-    await expect(page.getByText(/AO2 application is 30% overall/i)).toBeVisible();
+    await expect(page.getByText(/Application is 30% of both papers/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Main library$/i })).toHaveAttribute('href', '../index.html');
     await expect(page.getByRole('link', { name: /^Economics page$/i })).toHaveAttribute('href', '../index.html#course-map');
+    await expect(page.getByRole('link', { name: /^Course map$/i })).toHaveAttribute('href', '#business-course-map');
+    await expect(page.getByRole('heading', { name: /^Business syllabus roadmap$/i })).toBeVisible();
+    await expect(page.locator('.business-unit-step')).toHaveCount(6);
+    await expect(page.locator('.business-unit-step.is-live')).toHaveCount(1);
+    await expect(page.locator('.business-unit-step.is-planned')).toHaveCount(5);
+    await expect(page.getByRole('heading', { name: /^Understanding business activity$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Financial information and decisions$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^External influences on business activity$/i })).toBeVisible();
+    await expect(page.locator('.business-status.live', { hasText: /^Ready to study$/i })).toBeVisible();
+    await expect(page.locator('.business-status', { hasText: /^Coming later$/i })).toHaveCount(5);
+    await expect(page.locator('.business-topic-group')).toHaveCount(3);
     await expect(page.locator('.business-lesson-card')).toHaveCount(3);
     await expect(page.getByRole('link', { name: /^Slides$/i })).toHaveCount(3);
     await expect(page.getByRole('link', { name: /^Handout$/i })).toHaveCount(3);
-    await expect(page.locator('.business-table-label', { hasText: /^Harbor Phone Repair$/i })).toBeVisible();
+    await expect(page.locator('.business-case-kicker', { hasText: /^Harbor Phone Repair$/i })).toBeVisible();
     await expect(page.getByText(/original classroom teaching case/i)).toBeVisible();
     await expect(page.locator('body')).not.toContainText(/IGCSE Economics Lesson Library/i);
     await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke Business CSS uses local Investment Desk palette without external fonts', () => {
+    const cssPaths = [
+      'assets/css/business.css',
+      'assets/css/business-presentation.css',
+    ];
+    const requiredTokens = [
+      '--business-desk-black: #10161D',
+      '--business-deep-petrol: #0B3640',
+      '--business-warm-paper: #F6F1E7',
+      '--business-paper-white: #FFFDF8',
+      '--business-carbon-ink: #151922',
+      '--business-mist-text: #F4EFE6',
+      '--business-evidence-emerald: #0C7C68',
+      '--business-calculation-amber: #B88416',
+      '--business-risk-brick: #B2493B',
+      '--business-executive-violet: #4A4356',
+      '--business-font-main:',
+      '--business-font-numeric:',
+    ];
+    const forbiddenFontSources = [
+      /@font-face/i,
+      /fonts\.googleapis/i,
+      /fonts\.gstatic/i,
+      /https?:\/\/[^)\s'"]+font/i,
+      /url\(["']?https?:\/\//i,
+    ];
+    const oldPrimaryPalette = [
+      '#3157f0',
+      '#008a72',
+      '#e05247',
+      '#b88a00',
+      '#edf3ff',
+      '#eaf8f4',
+      '#fff0ee',
+      '#fff7da',
+      '49,87,240',
+      '49, 87, 240',
+      '0,138,114',
+      '0, 138, 114',
+      '224,82,71',
+      '224, 82, 71',
+      '184,138,0',
+      '184, 138, 0',
+    ];
+
+    for (const cssPath of cssPaths) {
+      const source = fs.readFileSync(path.join(root, cssPath), 'utf8');
+      for (const token of requiredTokens) {
+        expect(source, `${cssPath} should define ${token}`).toContain(token);
+      }
+      for (const pattern of forbiddenFontSources) {
+        expect(source, `${cssPath} should not load external fonts`).not.toMatch(pattern);
+      }
+      for (const colour of oldPrimaryPalette) {
+        expect(source.toLowerCase(), `${cssPath} should not keep old Business palette value ${colour}`).not.toContain(colour);
+      }
+    }
   });
 
   test('@smoke Business Unit 5 decks include valid Paper 1 and Paper 2 exam specs', () => {

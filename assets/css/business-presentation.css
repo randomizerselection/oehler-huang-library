@@ -4,34 +4,51 @@
    ============================================================ */
 
 body.subject-business {
-  --bg-0: #f1f6f4;
-  --bg-1: #ffffff;
-  --bg-2: #e6efed;
+  --business-desk-black: #10161D;
+  --business-deep-petrol: #0B3640;
+  --business-warm-paper: #F6F1E7;
+  --business-paper-white: #FFFDF8;
+  --business-carbon-ink: #151922;
+  --business-mist-text: #F4EFE6;
+  --business-evidence-emerald: #0C7C68;
+  --business-calculation-amber: #B88416;
+  --business-risk-brick: #B2493B;
+  --business-executive-violet: #4A4356;
+  --business-font-main: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+  --business-font-numeric: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --bg-0: var(--business-desk-black);
+  --bg-1: var(--business-warm-paper);
+  --bg-2: #EDE7DC;
   --r-sm: 8px;
   --r-md: 10px;
   --r-lg: 12px;
-  --ink: #172033;
-  --ink-dim: #415066;
-  --muted: #66758a;
-  --gold: #b45309;
-  --gold-warm: #9a3412;
-  --cyan: #0f766e;
-  --green: #15803d;
-  --rose: #9f1239;
-  --violet: #7f1d4e;
-  --line: rgba(29, 53, 87, .16);
-  --line-strong: rgba(29, 53, 87, .3);
-  --card-bg: linear-gradient(145deg, rgba(255,255,255,.98), rgba(241,246,251,.9));
-  --card-bg-hi: linear-gradient(145deg, rgba(255,255,255,1), rgba(232,241,247,.96));
-  --shadow-sm: 0 8px 24px rgba(29, 53, 87, .10);
-  --shadow-md: 0 18px 46px rgba(29, 53, 87, .16);
-  --shadow-lg: 0 28px 70px rgba(29, 53, 87, .18);
+  --ink: var(--business-carbon-ink);
+  --ink-dim: #5F615D;
+  --muted: #7A766E;
+  --gold: var(--business-calculation-amber);
+  --gold-warm: #865F12;
+  --cyan: var(--business-deep-petrol);
+  --green: var(--business-evidence-emerald);
+  --rose: var(--business-risk-brick);
+  --violet: var(--business-executive-violet);
+  --business-blue-soft: #E7F0EF;
+  --business-green-soft: #E6F3EF;
+  --business-coral-soft: #F8E8E3;
+  --business-gold-soft: #F7EDD7;
+  --business-violet-soft: #EEEAEF;
+  --line: rgba(21, 25, 34, .16);
+  --line-strong: rgba(21, 25, 34, .28);
+  --card-bg: var(--business-paper-white);
+  --card-bg-hi: #FFFBF1;
+  --shadow-sm: 0 10px 25px rgba(16, 22, 29, .10);
+  --shadow-md: 0 18px 44px rgba(16, 22, 29, .14);
+  --shadow-lg: 0 26px 64px rgba(16, 22, 29, .18);
+  font-family: var(--business-font-main);
+  font-feature-settings: "tnum";
   color: var(--ink);
   background:
-    linear-gradient(90deg, rgba(29, 53, 87, .04) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(15, 118, 110, .042) 1px, transparent 1px),
-    var(--bg-0);
-  background-size: 48px 48px, 48px 48px, auto;
+    radial-gradient(circle at 85% 10%, rgba(184,132,22,.2), transparent 24rem),
+    linear-gradient(180deg, var(--business-desk-black), var(--business-deep-petrol) 44%, var(--business-warm-paper) 44%);
 }
 
 body.subject-business.bg-ambient::before,
@@ -41,44 +58,81 @@ body.subject-business.bg-ambient::after {
 
 body.subject-business .slide {
   background:
-    linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,247,251,.9)),
-    transparent;
+    linear-gradient(180deg, rgba(255,253,248,.96), rgba(246,241,231,.98)),
+    var(--business-paper-white);
 }
 
 body.subject-business .slide.is-hero {
   background:
-    linear-gradient(90deg, rgba(15,118,110,.10) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(29,53,87,.06) 1px, transparent 1px),
-    #f7fafc;
-  background-size: 44px 44px, 44px 44px, auto;
+    radial-gradient(circle at 82% 18%, rgba(184,132,22,.18), transparent 22rem),
+    linear-gradient(135deg, var(--business-desk-black), var(--business-deep-petrol) 78%);
+  color: var(--business-mist-text);
 }
 
 body.subject-business .topline .count {
-  color: #415066;
+  color: #6C6B66;
 }
 
 body.subject-business .badge {
-  border-color: rgba(15,118,110,.26);
-  background: rgba(255,255,255,.92);
-  color: #0f766e;
-  box-shadow: 0 8px 18px rgba(29,53,87,.08);
+  border-color: rgba(11,54,64,.24);
+  background: var(--business-paper-white);
+  color: var(--business-deep-petrol);
+  box-shadow: 0 8px 18px rgba(16,22,29,.08);
 }
 
 body.subject-business .badge::before {
-  background: #0f766e;
+  background: var(--business-deep-petrol);
 }
 
 body.subject-business .slide-footer {
-  color: #66758a;
+  color: #7A766E;
 }
 
 body.subject-business .slide-footer .creator {
-  color: #415066;
+  color: #5F615D;
 }
 
 body.subject-business .sub,
 body.subject-business .kicker {
-  color: #0f766e;
+  color: var(--business-deep-petrol);
+}
+
+body.subject-business .slide.is-hero h1,
+body.subject-business .slide.is-hero h2,
+body.subject-business .slide.is-hero h3,
+body.subject-business .slide.is-hero .sectionTitle {
+  color: var(--business-mist-text);
+  background: none;
+}
+
+body.subject-business .slide.is-hero .sub,
+body.subject-business .slide.is-hero .kicker,
+body.subject-business .slide.is-hero .badge {
+  color: #E2BD72;
+}
+
+body.subject-business .slide.is-hero .heroTitleZh,
+body.subject-business .slide.is-hero .inlineZh {
+  color: rgba(244,239,230,.78);
+}
+
+body.subject-business .slide:has(.content.is-section) {
+  background:
+    radial-gradient(circle at 80% 16%, rgba(184,132,22,.16), transparent 22rem),
+    linear-gradient(135deg, var(--business-desk-black), var(--business-deep-petrol) 72%);
+}
+
+body.subject-business .slide:has(.content.is-section) .sectionTitle,
+body.subject-business .slide:has(.content.is-section) h1,
+body.subject-business .slide:has(.content.is-section) h2,
+body.subject-business .slide:has(.content.is-section) h3 {
+  color: var(--business-mist-text);
+  background: none;
+}
+
+body.subject-business .slide:has(.content.is-section) p,
+body.subject-business .slide:has(.content.is-section) .lead {
+  color: rgba(244,239,230,.82);
 }
 
 body.subject-business .heroTitleZh,
@@ -86,7 +140,7 @@ body.subject-business .inlineZh,
 body.subject-business .outcomeZh,
 body.subject-business .termDefinitionZh,
 body.subject-business .peerTaskZh {
-  color: #526579;
+  color: #746F66;
 }
 
 body.subject-business .card,
@@ -96,81 +150,82 @@ body.subject-business .peerTaskStepsPanel,
 body.subject-business .classificationItem,
 body.subject-business .modelAnswerCard,
 body.subject-business .answerBox {
-  border-color: rgba(29,53,87,.15);
+  border-color: rgba(21,25,34,.14);
   border-radius: 10px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.98), rgba(244,248,251,.94));
-  box-shadow: 0 12px 28px rgba(29,53,87,.08);
+  background: var(--business-paper-white);
+  box-shadow: var(--shadow-sm);
 }
 
 body.subject-business .card {
-  border-left: 5px solid rgba(15,118,110,.48);
+  border-left: 5px solid color-mix(in srgb, var(--business-deep-petrol) 62%, transparent);
 }
 
 body.subject-business .cardgrid .card:nth-child(3n+2),
 body.subject-business .splitCols .card:nth-child(2) {
-  border-left-color: rgba(127,29,78,.46);
+  border-left-color: color-mix(in srgb, var(--business-evidence-emerald) 58%, transparent);
 }
 
 body.subject-business .cardgrid .card:nth-child(3n+3) {
-  border-left-color: rgba(180,83,9,.48);
+  border-left-color: color-mix(in srgb, var(--business-risk-brick) 58%, transparent);
 }
 
 body.subject-business .choice,
 body.subject-business .step,
 body.subject-business .prompt {
-  border-color: rgba(29,53,87,.14);
+  border-color: rgba(21,25,34,.14);
   border-radius: 8px;
-  background: rgba(255,255,255,.9);
+  background: var(--business-paper-white);
+  color: #4f5968;
 }
 
 body.subject-business .dataTableWrap {
-  border-color: rgba(29,53,87,.18);
+  border-color: #D4C7B3;
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, #ffffff, #f8fbfd);
-  box-shadow: 0 16px 34px rgba(29,53,87,.10);
+  background: var(--business-paper-white);
+  box-shadow: 0 16px 34px rgba(16,22,29,.10);
 }
 
 body.subject-business .dataTable {
-  color: #172033;
+  color: var(--business-carbon-ink);
+  font-family: var(--business-font-numeric);
+  font-variant-numeric: tabular-nums;
 }
 
 body.subject-business .dataTable thead th {
-  color: #0f766e;
-  background: #eaf6f4;
+  color: #3E2A06;
+  background: var(--business-gold-soft);
 }
 
 body.subject-business .dataTable th,
 body.subject-business .dataTable td {
-  border-bottom-color: #dfe7f0;
+  border-bottom-color: #E1D6C4;
 }
 
 body.subject-business .dataTable tbody tr:nth-child(even) td,
 body.subject-business .dataTable tbody tr:nth-child(even) th {
-  background: rgba(241,246,251,.64);
+  background: #FAF4EA;
 }
 
 body.subject-business .dataTableCaption {
-  border-top-color: #dfe7f0;
-  color: #66758a;
-  background: #fbfcfe;
+  border-top-color: #E1D6C4;
+  color: #5F615D;
+  background: #FAF4EA;
 }
 
 body.subject-business .slideJumpSelect:hover,
 body.subject-business .slideJumpSelect:focus {
-  border-color: rgba(15,118,110,.34);
-  background: #eaf6f4;
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 34%, transparent);
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .slideJumpSelect:focus {
-  box-shadow: 0 0 0 3px rgba(15,118,110,.14);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--business-deep-petrol) 14%, transparent);
 }
 
 body.subject-business .slideJumpSelect option {
-  color: #172033;
-  background: #fff;
+  color: var(--business-carbon-ink);
+  background: var(--business-paper-white);
 }
 
 body.subject-business .sectionTitle,
@@ -179,35 +234,27 @@ body.subject-business .cardBody,
 body.subject-business .card b,
 body.subject-business .compareBlock .card > b,
 body.subject-business .splitCols .card > b {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .cardIcon {
-  color: #0f766e;
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .cardgrid .card:nth-child(3n+2) .cardIcon,
 body.subject-business .splitCols .card:nth-child(2) .cardIcon {
-  color: #7f1d4e;
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business .cardgrid .card:nth-child(3n+3) .cardIcon {
-  color: #b45309;
+  color: var(--business-risk-brick);
 }
 
-body.subject-business .cardTitleZh {
-  display: block;
-  margin-top: .12rem;
-  color: #526579;
-  font-size: clamp(14px, .95vw, 18px);
-  line-height: 1.12;
-  font-weight: 760;
-}
-
+body.subject-business .cardTitleZh,
 body.subject-business .cardgrid.is-compactVisual .cardTitleZh,
 body.subject-business .cardgrid.is-compactVisual.is-balancedGrid .cardTitleZh,
 body.subject-business .cardgrid.is-classroomPrinciples .cardTitleZh {
-  color: #526579;
+  color: #746F66;
   font-size: clamp(14px, .95vw, 18px);
   line-height: 1.12;
   font-weight: 760;
@@ -225,240 +272,268 @@ body.subject-business .card li,
 body.subject-business .choice,
 body.subject-business .prompt,
 body.subject-business .step {
-  color: #415066;
+  color: #4f5968;
 }
 
 body.subject-business .cardVisual,
 body.subject-business .compareVisual {
-  border-color: #d8e0ea;
-  background: #f4f7fb;
+  border-color: #D8CEBE;
+  background: #FAF4EA;
 }
 
 body.subject-business .choices.is-outcomes .choice {
-  border-color: rgba(15,118,110,.18);
-  background:
-    linear-gradient(145deg, rgba(234,246,244,.86), rgba(255,255,255,.96)),
-    #fff;
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 18%, transparent);
+  background: var(--business-paper-white);
 }
 
 body.subject-business .choices.is-outcomes .choice::before {
-  border-color: rgba(15,118,110,.28);
-  background: #eaf6f4;
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 28%, transparent);
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .choices.is-outcomes .choice > span:first-child {
-  border-bottom-color: #dfe7f0;
-  color: #172033;
+  border-bottom-color: #E1D6C4;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .paperExtractPanel {
-  border-color: #dfe7f0;
-  border-left-color: #0f766e;
+  border-color: #E1D6C4;
+  border-left-color: var(--business-deep-petrol);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 14px 32px rgba(29,53,87,.08);
+  background: var(--business-paper-white);
+  box-shadow: 0 14px 32px rgba(16,22,29,.10);
 }
 
 body.subject-business .paperExtractText p,
 body.subject-business .paperExtractQuestion span,
 body.subject-business .paperExtractQuestions li {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .paperExtractQuestion,
 body.subject-business .paperExtractQuestions {
-  border-color: #cfe7e3;
+  border-color: #BFE6DA;
   border-radius: 8px;
-  background: #eef9f7;
+  background: var(--business-green-soft);
 }
 
 body.subject-business .paperExtractQuestion b,
 body.subject-business .paperExtractQuestions b {
-  color: #0f766e;
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business .paperExtractSource {
-  color: #66758a;
+  color: #7A766E;
 }
 
 body.subject-business .examBlock .card {
-  border-color: #dfe7f0;
-  background: #fff;
+  border-color: #E1D6C4;
+  background: var(--business-paper-white);
 }
 
 body.subject-business .examSpecChip {
-  border-color: #d8e0ea;
-  background: #fff;
-  color: #415066;
-  box-shadow: 0 7px 16px rgba(29,53,87,.07);
+  border-color: #D8CEBE;
+  background: var(--business-paper-white);
+  color: #4f5968;
+  box-shadow: 0 7px 16px rgba(16,22,29,.08);
+  font-family: var(--business-font-numeric);
+  font-variant-numeric: tabular-nums;
 }
 
-body.subject-business .examSpecChip.is-paper,
+body.subject-business .examSpecChip.is-paper {
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 28%, transparent);
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
+}
+
+body.subject-business .examBlock.is-businessdecision .examSpecChip.is-paper,
+body.subject-business .modelAnswerBlock.is-businessdecision .examSpecChip.is-paper {
+  border-color: color-mix(in srgb, var(--business-executive-violet) 30%, transparent);
+  background: var(--business-violet-soft);
+  color: var(--business-executive-violet);
+}
+
 body.subject-business .examSpecChip.is-marks {
-  border-color: rgba(180,83,9,.26);
-  background: #fff7ed;
-  color: #9a3412;
+  border-color: color-mix(in srgb, var(--business-calculation-amber) 34%, transparent);
+  background: var(--business-gold-soft);
+  color: #6E4E0E;
 }
 
 body.subject-business .examSpecChip.is-skills {
-  border-color: rgba(15,118,110,.24);
-  background: #eef9f7;
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-evidence-emerald) 24%, transparent);
+  background: var(--business-green-soft);
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business .examBlock.is-businessdecision,
 body.subject-business .modelAnswerBlock.is-businessdecision {
-  border-left: 5px solid #7f1d4e;
+  border-left: 5px solid var(--business-risk-brick);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(184,132,22,.14), transparent 18rem),
+    linear-gradient(135deg, var(--business-desk-black), var(--business-deep-petrol));
+  box-shadow: var(--shadow-md);
   padding-left: clamp(.85rem, 1.4vw, 1.1rem);
+  padding: clamp(.9rem, 1.45vw, 1.2rem);
+  color: var(--business-mist-text);
 }
 
 body.subject-business .examBlock.is-businessdecision .examChainLabel,
 body.subject-business .modelAnswerBlock.is-businessdecision .modelAnswerLabel {
-  color: #7f1d4e;
+  color: var(--business-risk-brick);
+}
+
+body.subject-business .examBlock.is-businessdecision h2,
+body.subject-business .modelAnswerBlock.is-businessdecision h2 {
+  color: var(--business-mist-text);
+}
+
+body.subject-business .examBlock.is-businessdecision .lead,
+body.subject-business .modelAnswerBlock.is-businessdecision .modelAnswerQuestion {
+  color: rgba(244,239,230,.82);
 }
 
 body.subject-business .examBlock .card .num {
-  background: #eaf6f4;
-  color: #0f766e;
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
+  font-family: var(--business-font-numeric);
+  font-variant-numeric: tabular-nums;
 }
 
 body.subject-business .examBlock .card b {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .termBlock .termBox::before {
-  border-color: #dbe3ee;
-  background: #fff;
-  color: #66758a;
+  border-color: #E1D6C4;
+  background: var(--business-paper-white);
+  color: #7A766E;
 }
 
-body.subject-business .termDefinitionText {
-  color: #172033;
+body.subject-business .termDefinitionText,
+body.subject-business .fillBlank p {
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .termBox .termDefinitionZh {
-  color: #526579;
+  color: #746F66;
 }
 
 body.subject-business .definitionTermNote {
-  border-color: #dfe7f0;
-  background: #fff;
+  border-color: #E1D6C4;
+  background: var(--business-paper-white);
 }
 
 body.subject-business .definitionTermNote b {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .definitionTermNote span {
-  color: #0f766e;
-}
-
-body.subject-business .fillBlank p {
-  color: #172033;
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business .modelAnswerCard {
-  border-color: #cfe7e3;
+  border-color: #D8CEBE;
   border-radius: 10px;
-  background: #fff;
+  background: var(--business-paper-white);
 }
 
 body.subject-business .modelAnswerText {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .modelAnswerLinks span {
-  border-color: rgba(127,29,78,.22);
-  background: #fdf2f8;
-  color: #7f1d4e;
+  border-color: color-mix(in srgb, var(--business-risk-brick) 22%, transparent);
+  background: var(--business-coral-soft);
+  color: var(--business-risk-brick);
 }
 
 body.subject-business .modelAnswerNote {
-  border-left-color: #0f766e;
-  background: #eef9f7;
-  color: #415066;
+  border-left-color: var(--business-evidence-emerald);
+  background: var(--business-green-soft);
+  color: #4f5968;
 }
 
 body.subject-business .modelAnswerNote b {
-  color: #0f766e;
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business .sourceList summary,
 body.subject-business .handoutSources summary {
-  border-color: #d8e0ea;
-  background: #fff;
-  color: #415066;
+  border-color: #D8CEBE;
+  background: var(--business-paper-white);
+  color: #4f5968;
 }
 
 body.subject-business .slideSourceControl summary {
-  border-color: rgba(15,118,110,.25);
-  background: rgba(255,255,255,.94);
-  color: #0f766e;
-  box-shadow: 0 10px 24px rgba(29,53,87,.12);
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 25%, transparent);
+  background: rgba(255,253,248,.96);
+  color: var(--business-deep-petrol);
+  box-shadow: 0 10px 24px rgba(16,22,29,.12);
 }
 
 body.subject-business .sourceList summary::before,
 body.subject-business .handoutSources summary::before {
-  background: #eaf6f4;
-  color: #0f766e;
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .sourceList[open] summary,
 body.subject-business .handoutSources[open] summary {
-  border-color: rgba(15,118,110,.34);
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 34%, transparent);
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .sourcePanel {
-  border-color: #d8e0ea;
+  border-color: #D8CEBE;
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 46px rgba(29,53,87,.16);
+  background: var(--business-paper-white);
+  box-shadow: 0 18px 46px rgba(16,22,29,.16);
 }
 
 body.subject-business .sourceItem {
-  border-color: #dfe7f0;
-  background: #f8fbfd;
-  color: #415066;
+  border-color: #E1D6C4;
+  background: #FAF4EA;
+  color: #4f5968;
 }
 
 body.subject-business .sourceLabel,
 body.subject-business .sourceQuestion b {
-  color: #0f766e;
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .sourceQuestion,
 body.subject-business .sourceExtract,
 body.subject-business .sourceNote {
-  color: #415066;
+  color: #4f5968;
 }
 
 body.subject-business #overview {
-  background: rgba(244,247,251,.96);
+  background: rgba(246,241,231,.96);
 }
 
 body.subject-business #overview h2 {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .thumb {
-  border-color: #d8e0ea;
-  background: #fff;
-  color: #172033;
-  box-shadow: 0 14px 32px rgba(29,53,87,.10);
+  border-color: #D8CEBE;
+  background: var(--business-paper-white);
+  color: var(--business-carbon-ink);
+  box-shadow: 0 14px 32px rgba(16,22,29,.10);
 }
 
 body.subject-business .thumb:hover {
-  border-color: rgba(15,118,110,.38);
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 38%, transparent);
 }
 
 body.subject-business .thumb .n {
-  color: #66758a;
+  color: #7A766E;
 }
 
 body.subject-business .thumb .t {
-  color: #172033;
+  color: var(--business-carbon-ink);
 }
 
 body.subject-business .lessonModeSwitch {
@@ -468,25 +543,25 @@ body.subject-business .lessonModeSwitch {
 }
 
 body.subject-business .lessonModeTabs {
-  border-color: rgba(29,53,87,.14);
+  border-color: rgba(21,25,34,.14);
   border-radius: 8px;
-  background: rgba(255,255,255,.92);
-  box-shadow: 0 12px 28px rgba(29,53,87,.12);
+  background: rgba(255,253,248,.94);
+  box-shadow: 0 12px 28px rgba(16,22,29,.12);
 }
 
 body.subject-business .lessonModeUtilities {
-  border-color: rgba(29,53,87,.16);
-  background: rgba(255,255,255,.96);
-  box-shadow: 0 16px 34px rgba(29,53,87,.16);
+  border-color: rgba(21,25,34,.16);
+  background: rgba(255,253,248,.96);
+  box-shadow: 0 16px 34px rgba(16,22,29,.14);
 }
 
 body.subject-business .lessonModeButton,
 body.subject-business .lessonModeTab,
 body.subject-business .lessonModeMenuButton {
-  color: #415066;
-  border-color: rgba(29,53,87,.14);
+  color: #4f5968;
+  border-color: rgba(21,25,34,.14);
   border-radius: 6px;
-  background: #fff;
+  background: var(--business-paper-white);
 }
 
 body.subject-business .lessonModeTab {
@@ -501,45 +576,45 @@ body.subject-business .lessonModeMenuButton:hover,
 body.subject-business .lessonModeMenuButton:focus-visible,
 body.subject-business .lessonModeTab:hover,
 body.subject-business .lessonModeTab:focus-visible {
-  color: #0f766e;
-  border-color: rgba(15,118,110,.36);
-  background: #eaf6f4;
+  color: var(--business-deep-petrol);
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 36%, transparent);
+  background: var(--business-blue-soft);
 }
 
 body.subject-business .lessonModeUtilities .lessonModeButton {
-  background: #fff;
+  background: var(--business-paper-white);
 }
 
 body.subject-business .lessonModeButton--selector {
-  border-color: rgba(180,83,9,.34);
-  background: #fff7ed;
-  color: #9a3412;
+  border-color: color-mix(in srgb, var(--business-calculation-amber) 34%, transparent);
+  background: var(--business-gold-soft);
+  color: #6E4E0E;
 }
 
 body.subject-business .lessonModeButton--selector[aria-pressed="true"] {
-  border-color: rgba(15,118,110,.42);
-  background: #eaf6f4;
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-deep-petrol) 42%, transparent);
+  background: var(--business-blue-soft);
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business .photoPanel::after {
-  background: linear-gradient(180deg, transparent 58%, rgba(23,32,51,.78));
+  background: linear-gradient(180deg, transparent 58%, rgba(16,22,29,.82));
 }
 
 body.subject-business .slide.is-visualPause {
-  background: #172033;
+  background: var(--business-desk-black);
 }
 
 body.subject-business.is-handout-mode {
-  background: #f4f7fb;
+  background: var(--business-warm-paper);
 }
 
 body.subject-business.is-handout-mode .handoutHero {
-  border-left-color: #0f766e;
+  border-left-color: var(--business-deep-petrol);
 }
 
 body.subject-business.is-handout-mode .handoutKicker {
-  color: #0f766e;
+  color: var(--business-deep-petrol);
 }
 
 body.subject-business.is-handout-mode .handoutDocument,
@@ -553,6 +628,8 @@ body.subject-business.is-handout-mode .handoutTableWrap {
 
 body.subject-business.is-handout-mode .handoutTable {
   table-layout: fixed;
+  font-family: var(--business-font-numeric);
+  font-variant-numeric: tabular-nums;
 }
 
 body.subject-business.is-handout-mode .handoutTable th,
@@ -562,19 +639,19 @@ body.subject-business.is-handout-mode .handoutTable td {
 
 body.subject-business.is-handout-mode .handoutExamSpecChip.is-paper,
 body.subject-business.is-handout-mode .handoutExamSpecChip.is-marks {
-  border-color: rgba(180,83,9,.28);
-  background: #fff7ed;
-  color: #9a3412;
+  border-color: color-mix(in srgb, var(--business-calculation-amber) 28%, transparent);
+  background: var(--business-gold-soft);
+  color: #6E4E0E;
 }
 
 body.subject-business.is-handout-mode .handoutExamSpecChip.is-skills {
-  border-color: rgba(15,118,110,.24);
-  background: #eef9f7;
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--business-evidence-emerald) 24%, transparent);
+  background: var(--business-green-soft);
+  color: var(--business-evidence-emerald);
 }
 
 body.subject-business.is-handout-mode .handoutBlock.is-businessdecision {
-  border-left-color: #7f1d4e;
+  border-left-color: var(--business-risk-brick);
 }
 
 @media (max-width: 760px) {
