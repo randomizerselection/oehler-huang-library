@@ -1,5 +1,7 @@
 window.INVEST = window.INVEST || {};
 
+const investmentPhotos = window.INVEST.photos || {};
+
 window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment Analysis",
@@ -25,6 +27,7 @@ window.INVEST.lesson = {
       eyebrow: "Market Brief",
       title: "What do you own when you buy one share?",
       subtitle: "Lesson 1 starts with a concrete listed company: Tencent Holdings, stock code 0700.HK.",
+      visual: investmentPhotos.hkexHall,
       ticker: "0700.HK",
       question: "If you buy one Tencent share, do you own Tencent?",
       questionZh: "如果你买一股腾讯股票，你是否拥有腾讯这家公司？",
@@ -44,6 +47,7 @@ window.INVEST.lesson = {
       type: "discussion",
       eyebrow: "Starter",
       title: "One share, one claim",
+      visual: investmentPhotos.stockCertificate,
       question: "A student owns one Tencent share. Write one thing the student owns and one thing the student does not own.",
       zh: "一名学生拥有一股腾讯股票。写出他拥有的一样东西，以及他不拥有的一样东西。",
       revealTitle: "Useful distinction",
@@ -86,14 +90,7 @@ window.INVEST.lesson = {
       eyebrow: "Look first",
       title: "A listed company has many owners",
       zhTitle: "上市公司有许多所有者",
-      visual: {
-        alt: "Market board showing Tencent as a listed company",
-        rows: [
-          { company: "Tencent Holdings", code: "0700.HK", signal: "Listed" },
-          { company: "Apple Inc.", code: "AAPL", signal: "Listed" },
-          { company: "HSBC Holdings", code: "0005.HK", signal: "Listed" }
-        ]
-      },
+      visual: investmentPhotos.hkexHall,
       notes: [
         "Observation question: what does the board show that a private family business would not show?",
         "Bridge: listed shares can be bought and sold by many investors, so ownership is split into many small units."
@@ -103,6 +100,7 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Share",
+      visual: investmentPhotos.stockCertificate,
       term: "Share",
       termZh: "股票 / 股份",
       definition: "A <span class=\"blank invReveal\">share</span> is one unit of ownership in a company.",
@@ -128,6 +126,7 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Shareholder",
+      visual: investmentPhotos.shareholderMeeting,
       term: "Shareholder",
       termZh: "股东",
       definition: "A <span class=\"blank invReveal\">shareholder</span> is a person or institution that owns one or more shares in a company.",
@@ -142,6 +141,7 @@ window.INVEST.lesson = {
       type: "discussion",
       eyebrow: "Discuss",
       title: "Does a shareholder control the company?",
+      visual: investmentPhotos.shareholderMeeting,
       question: "One student owns 1 share. A large fund owns 100 million shares. Which shareholder is more likely to influence company decisions? Why?",
       zh: "一个学生拥有1股，一个大型基金拥有1亿股。哪个股东更可能影响公司决策？为什么？",
       revealTitle: "Model direction",
@@ -152,6 +152,7 @@ window.INVEST.lesson = {
       type: "quiz",
       eyebrow: "Hinge check",
       title: "Share or shareholder?",
+      visual: investmentPhotos.stockCertificate,
       question: "Which statement is correct?",
       zh: "哪一句是正确的？",
       choices: [
@@ -170,6 +171,7 @@ window.INVEST.lesson = {
       part: "2",
       title: "Finding the right listed company",
       zhTitle: "找到正确的上市公司",
+      visual: investmentPhotos.appleStore,
       prompt: "Next we read the identification information in a stock snapshot.",
       parts: [
         { label: "Company, share, shareholder" },
@@ -184,7 +186,13 @@ window.INVEST.lesson = {
       eyebrow: "Data Snapshot",
       title: "Tencent: frozen company snapshot",
       subtitle: "Real company data are useful only if the date and source are clear.",
+      visual: investmentPhotos.tencentTowers,
       sourceStamp: "Tencent FY2025 results | RMB billions | snapshot date 26 Jun 2026",
+      focusMetrics: [
+        { label: "Revenue", value: "RMB751.8bn" },
+        { label: "Gross profit", value: "RMB422.6bn" },
+        { label: "Gross margin", value: "56%" }
+      ],
       table: [
         ["Item", "What it tells an investor", "Snapshot"],
         ["Company", "The business being analysed", "Tencent Holdings Limited"],
@@ -207,6 +215,7 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Stock code",
+      visual: investmentPhotos.marketScreen,
       term: "Stock code",
       termZh: "股票代码",
       definition: "A <span class=\"blank invReveal\">stock code</span> is the short market identifier used to find a listed company's shares.",
@@ -232,6 +241,7 @@ window.INVEST.lesson = {
       type: "discussion",
       eyebrow: "Discuss",
       title: "What the code cannot tell you",
+      visual: investmentPhotos.iphoneDisplay,
       question: "Does 0700.HK tell us whether Tencent shares are cheap, expensive, risky or safe?",
       zh: "0700.HK 能不能告诉我们腾讯股票便宜、昂贵、有风险或安全？",
       revealTitle: "Boundary",
@@ -257,6 +267,7 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Share price",
+      visual: investmentPhotos.tradingApps,
       term: "Share price",
       termZh: "股价",
       definition: "A <span class=\"blank invReveal\">share price</span> is the market price of one share at a specific time.",
@@ -271,6 +282,7 @@ window.INVEST.lesson = {
       type: "calculationDesk",
       eyebrow: "Calculation Desk",
       title: "Formula: percentage price change",
+      visual: investmentPhotos.marketScreen,
       formula: "percentage change = (new price - old price) / old price x 100",
       worked: "If a share rises from HK$400 to HK$420: (420 - 400) / 400 x 100 = 5%.",
       workedZh: "如果股价从400港元升至420港元，涨幅为5%。",
@@ -294,6 +306,7 @@ window.INVEST.lesson = {
       type: "quiz",
       eyebrow: "Hinge check",
       title: "Which denominator?",
+      visual: investmentPhotos.tradingApps,
       question: "A share price falls from HK$80 to HK$72. What is the percentage change?",
       zh: "股价从80港元跌至72港元。百分比变化是多少？",
       choices: [
@@ -310,6 +323,7 @@ window.INVEST.lesson = {
       type: "flow",
       eyebrow: "Key idea",
       title: "Why share prices move",
+      visual: investmentPhotos.marketScreen,
       zhTitle: "股价为什么变化",
       mode: "fillBlanks",
       steps: [
@@ -324,6 +338,7 @@ window.INVEST.lesson = {
       type: "peerTask",
       eyebrow: "Pair task",
       title: "Complete the missing sentence",
+      visual: investmentPhotos.tradingApps,
       steps: [
         "With your partner, complete the sentence in your notebook.",
         "Use the words: information, expectations, buyers, price.",
@@ -338,6 +353,7 @@ window.INVEST.lesson = {
       part: "4",
       title: "Good company or good investment?",
       zhTitle: "好公司还是好投资？",
+      visual: investmentPhotos.hsbcBuilding,
       prompt: "Finally we separate business quality from the price paid for the share.",
       parts: [
         { label: "Company, share, shareholder" },
@@ -351,6 +367,7 @@ window.INVEST.lesson = {
       type: "analystBoard",
       eyebrow: "Analyst Board",
       title: "Three evidence blocks before judgement",
+      visual: investmentPhotos.annualReports,
       blocks: [
         {
           label: "Company performance",
@@ -384,6 +401,7 @@ window.INVEST.lesson = {
       type: "riskRegister",
       eyebrow: "Risk Register",
       title: "A good company can still be a risky share",
+      visual: investmentPhotos.shippingPort,
       table: [
         ["Risk", "Investor question", "Likely effect"],
         ["High expectations", "Has the price already assumed strong growth?", "Even good results may disappoint investors"],
@@ -399,6 +417,7 @@ window.INVEST.lesson = {
       type: "quiz",
       eyebrow: "Hinge check",
       title: "Good company = good investment?",
+      visual: investmentPhotos.annualReports,
       question: "Which answer best explains why a profitable company may still be a poor investment?",
       zh: "哪一个答案最能解释为什么盈利公司仍可能不是好投资？",
       choices: [
@@ -415,6 +434,7 @@ window.INVEST.lesson = {
       type: "exam",
       eyebrow: "Exam practice",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
+      visual: investmentPhotos.tencentTowers,
       prompt: "Write two developed points. Use the Tencent snapshot if it helps.",
       zh: "写出两个有发展的观点。可以使用腾讯数据快照。",
       keywords: ["revenue", "profit", "risk", "price paid", "expectations", "future"],
@@ -424,6 +444,7 @@ window.INVEST.lesson = {
       type: "modelAnswer",
       eyebrow: "Model answer",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
+      visual: investmentPhotos.annualReports,
       paragraphs: [
         "<mark>Revenue</mark> only shows the value of sales before costs are deducted. A company may have high revenue but weaker <mark>profit</mark> if its costs are also high.",
         "A share can also be unattractive if the <mark>price paid</mark> is already too high. Investors compare expected future profit and <mark>risk</mark> with the current share price before judging whether it is a good investment."

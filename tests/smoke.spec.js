@@ -212,6 +212,36 @@ async function expectNoHorizontalOverflow(page) {
   expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
 }
 
+async function expectMinimumVisibleFontSize(page, rootSelector, minimum = 24) {
+  const offenders = await page.evaluate(({ rootSelector, minimum }) => {
+    const rootNode = document.querySelector(rootSelector);
+    if (!rootNode) return [`Missing root ${rootSelector}`];
+
+    return [rootNode, ...rootNode.querySelectorAll('*')]
+      .filter((node) => {
+        const text = (node.innerText || node.textContent || '').trim();
+        if (!text) return false;
+
+        const style = window.getComputedStyle(node);
+        const rect = node.getBoundingClientRect();
+        return style.display !== 'none'
+          && style.visibility !== 'hidden'
+          && rect.width > 0
+          && rect.height > 0;
+      })
+      .map((node) => ({
+        tag: node.tagName.toLowerCase(),
+        className: node.className || '',
+        text: (node.innerText || node.textContent || '').trim().slice(0, 60),
+        size: parseFloat(window.getComputedStyle(node).fontSize)
+      }))
+      .filter((item) => item.size < minimum - 0.1)
+      .map((item) => `${item.tag}.${String(item.className).replace(/\s+/g, '.')} ${item.size}px "${item.text}"`);
+  }, { rootSelector, minimum });
+
+  expect(offenders).toEqual([]);
+}
+
 function expectColorNotNearWhite(color) {
   const channels = String(color).match(/[\d.]+/g)?.slice(0, 3).map(Number);
   expect(channels, `Could not parse CSS colour ${color}`).toHaveLength(3);
@@ -519,8 +549,20 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
     await expect(page.locator('.invCounter')).toHaveText('1 / 29');
     await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /hkex-hall\.jpg/);
+    await expectMinimumVisibleFontSize(page, '.invApp', 24);
+    const investmentPhotoCount = await page.locator('img[src*="assets/images/investment-analysis/"]').count();
+    expect(investmentPhotoCount).toBeGreaterThanOrEqual(10);
+    const completePhotoMetadataCount = await page.evaluate(() =>
+      Object.values(window.INVEST.photos || {}).filter((photo) =>
+        photo.src && photo.alt && photo.caption && photo.credit && photo.source
+      ).length
+    );
+    expect(completePhotoMetadataCount).toBeGreaterThanOrEqual(10);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
+    await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/stock-certificate.jpg"]')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Wikimedia Commons/i);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#6');
@@ -548,6 +590,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#10');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '9');
+    await expectMinimumVisibleFontSize(page, '.invApp', 24);
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
     await page.locator('.invSlide.is-active .invChoice').nth(1).click();
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeVisible();
@@ -556,12 +599,16 @@ test.describe('site smoke', () => {
     await page.setViewportSize({ width: 1366, height: 768 });
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#12');
     await expect(page.locator('.invSlide.is-active .invTable')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/tencent-seafront-towers.jpg"]')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Tencent Seafront Towers/i);
+    await expectMinimumVisibleFontSize(page, '.invApp', 24);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
     await expect(page.locator('.invQuizDeck')).toBeVisible();
     await expect(page.locator('.invQuizQuestion')).toHaveCount(8);
     await expect(page.locator('.invQuizScore')).toHaveText('0/8 answered');
+    await expectMinimumVisibleFontSize(page, '.invQuizDeck', 24);
     await page.locator('.invQuizQuestion').first().getByLabel('One unit of ownership in a company').check();
     await page.getByRole('button', { name: /Mark quiz/i }).click();
     await expect(page.locator('.invQuizScore')).toContainText('/8');

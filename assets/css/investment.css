@@ -1,20 +1,20 @@
 :root {
-  --inv-bg: #f4f5f1;
-  --inv-surface: #fffef8;
-  --inv-panel: #eef1ec;
-  --inv-line: #cfd6cf;
-  --inv-ink: #17201b;
-  --inv-muted: #59645e;
-  --inv-soft: #7b857f;
-  --inv-green: #087f5b;
-  --inv-red: #b02a2a;
-  --inv-amber: #b7791f;
-  --inv-blue: #255f9a;
-  --inv-graphite: #27302c;
-  --inv-grid: rgba(39, 48, 44, 0.08);
-  --inv-shadow: 0 18px 44px rgba(23, 32, 27, 0.13);
-  --inv-font: Inter, "Segoe UI", Arial, "Noto Sans SC", sans-serif;
-  --inv-num: "Roboto Mono", "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+  --inv-bg: #070b0e;
+  --inv-bg-2: #0c1217;
+  --inv-panel: #101820;
+  --inv-panel-2: #151f28;
+  --inv-line: rgba(194, 213, 214, 0.22);
+  --inv-ink: #f4f8f6;
+  --inv-muted: #b5c3c3;
+  --inv-dim: #7f8f90;
+  --inv-green: #20d18f;
+  --inv-red: #ff5f5f;
+  --inv-amber: #f0b84f;
+  --inv-cyan: #48d6ff;
+  --inv-blue: #73a7ff;
+  --inv-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  --inv-font: "Segoe UI", Arial, "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --inv-num: "Cascadia Mono", "Roboto Mono", "Segoe UI Mono", Consolas, monospace;
 }
 
 * {
@@ -33,25 +33,27 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(var(--inv-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--inv-grid) 1px, transparent 1px),
+    linear-gradient(rgba(72, 214, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72, 214, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(32, 209, 143, 0.055), transparent 28rem),
     var(--inv-bg);
-  background-size: 32px 32px;
+  background-size: 44px 44px, 44px 44px, auto, auto;
   color: var(--inv-ink);
 }
 
-body.investment-home {
+a {
+  color: var(--inv-cyan);
+}
+
+body.investment-home,
+body.investment-quiz {
   overflow-x: hidden;
 }
 
-a {
-  color: var(--inv-blue);
-}
-
 .investment-page {
-  width: min(1180px, calc(100% - 32px));
+  width: min(1240px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 28px 0 44px;
+  padding: 28px 0 46px;
 }
 
 .investment-nav,
@@ -84,13 +86,13 @@ a {
 .invModeTabs a,
 .invQuizSubmit,
 .invQuizReset {
-  min-height: 38px;
+  min-height: 42px;
   border: 1px solid var(--inv-line);
   border-radius: 6px;
-  background: var(--inv-surface);
+  background: rgba(16, 24, 32, 0.86);
   color: var(--inv-ink);
-  padding: 9px 13px;
-  font: 700 0.88rem/1.1 var(--inv-font);
+  padding: 10px 14px;
+  font: 800 0.95rem/1.1 var(--inv-font);
   text-decoration: none;
   cursor: pointer;
 }
@@ -110,17 +112,16 @@ a {
 .investment-card-action.primary,
 .invButton.primary,
 .invQuizSubmit {
-  background: var(--inv-graphite);
-  border-color: var(--inv-graphite);
-  color: #fffef8;
+  background: var(--inv-green);
+  border-color: var(--inv-green);
+  color: #04100c;
 }
 
 .investment-hero {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 24px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
   align-items: stretch;
-  margin-bottom: 28px;
 }
 
 .investment-hero-copy,
@@ -131,42 +132,51 @@ a {
 .invQuizDeck {
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: rgba(255, 254, 248, 0.94);
+  background: rgba(12, 18, 23, 0.92);
   box-shadow: var(--inv-shadow);
 }
 
 .investment-hero-copy {
   padding: 34px;
+  background:
+    linear-gradient(90deg, rgba(7, 11, 14, 0.96), rgba(7, 11, 14, 0.66)),
+    url("../images/investment-analysis/hkex-hall.jpg") center / cover;
 }
 
 .investment-eyebrow,
 .investment-section-kicker,
 .invEyebrow,
 .invSourceStamp,
-.invQuizMeta {
-  color: var(--inv-muted);
-  font: 800 0.78rem/1.2 var(--inv-num);
-  letter-spacing: 0.08em;
+.invQuizMeta,
+.photoCredit {
+  color: var(--inv-cyan);
+  font: 900 0.8rem/1.2 var(--inv-num);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .investment-hero h1 {
-  margin: 14px 0 12px;
+  margin: 16px 0 12px;
   color: var(--inv-ink);
-  font-size: 3.4rem;
-  line-height: 0.98;
+  font-size: 4rem;
+  line-height: 0.94;
 }
 
 .investment-hero p,
 .investment-section p,
 .investment-card p {
   color: var(--inv-muted);
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: 1.16rem;
+  line-height: 1.5;
+}
+
+.investment-status-panel,
+.investment-section,
+.investment-card {
+  padding: 24px;
 }
 
 .investment-status-panel {
-  padding: 22px;
   display: grid;
   gap: 14px;
   align-content: center;
@@ -177,15 +187,16 @@ a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border: 1px solid var(--inv-line);
-  background: var(--inv-panel);
+  background: rgba(21, 31, 40, 0.86);
 }
 
 .investment-ticker-strip span,
 .invTickerStrip span {
   min-width: 0;
-  padding: 12px;
+  padding: 13px;
   border-right: 1px solid var(--inv-line);
-  font: 800 0.9rem/1.1 var(--inv-num);
+  color: var(--inv-ink);
+  font: 900 1rem/1.1 var(--inv-num);
 }
 
 .investment-ticker-strip span:last-child,
@@ -194,7 +205,6 @@ a {
 }
 
 .investment-section {
-  padding: 24px;
   margin-top: 22px;
 }
 
@@ -208,7 +218,7 @@ a {
 
 .investment-section h2,
 .investment-card h3 {
-  margin: 6px 0;
+  margin: 7px 0;
   color: var(--inv-ink);
 }
 
@@ -219,14 +229,13 @@ a {
 }
 
 .investment-card {
-  padding: 20px;
   box-shadow: none;
 }
 
 .investment-card-meta,
 .investment-card .code {
-  color: var(--inv-muted);
-  font: 800 0.8rem/1.2 var(--inv-num);
+  color: var(--inv-amber);
+  font: 900 0.86rem/1.2 var(--inv-num);
 }
 
 .investment-footer {
@@ -234,7 +243,7 @@ a {
   justify-content: space-between;
   gap: 16px;
   color: var(--inv-muted);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   margin-top: 30px;
 }
 
@@ -245,7 +254,7 @@ body.investment-deck {
 
 .invApp {
   height: 100vh;
-  padding: 12px;
+  padding: 10px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 10px;
@@ -253,11 +262,11 @@ body.investment-deck {
 
 .invTopbar,
 .invFooter {
-  min-height: 42px;
+  min-height: 38px;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: rgba(255, 254, 248, 0.92);
-  padding: 7px 10px;
+  background: rgba(7, 11, 14, 0.92);
+  padding: 6px 10px;
 }
 
 .invBrand {
@@ -265,10 +274,11 @@ body.investment-deck {
   align-items: center;
   gap: 10px;
   min-width: 0;
-  font-weight: 900;
+  color: var(--inv-ink);
+  font-weight: 950;
 }
 
-.invBrand span {
+.invBrand span:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -279,7 +289,7 @@ body.investment-deck {
   height: 12px;
   border-radius: 2px;
   background: var(--inv-green);
-  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.45);
+  box-shadow: 0 0 18px rgba(32, 209, 143, 0.72);
 }
 
 .invDeckStage {
@@ -290,21 +300,23 @@ body.investment-deck {
 .invSlide {
   display: none;
   height: 100%;
-  padding: 26px;
+  padding: 30px 36px;
   overflow: hidden;
+  background: rgba(10, 15, 19, 0.96);
 }
 
 .invSlide.is-active {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 14px;
+  gap: 18px;
 }
 
 .invSlideHeader {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
   align-items: start;
+  min-width: 0;
 }
 
 .invTitleBlock {
@@ -313,15 +325,15 @@ body.investment-deck {
 
 .invTitleBlock h1,
 .invTitleBlock h2 {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   color: var(--inv-ink);
-  font-size: 2.45rem;
-  line-height: 1.05;
-  max-width: 1040px;
+  font-size: 3.35rem;
+  line-height: 0.98;
+  max-width: 1100px;
 }
 
 .invTitleBlock h2 {
-  font-size: 2.1rem;
+  font-size: 2.7rem;
 }
 
 .invZhTitle,
@@ -330,13 +342,13 @@ body.investment-deck {
 .invTermZh,
 .invPromptZh {
   color: var(--inv-muted);
-  font-family: "Noto Sans SC", "Microsoft YaHei", var(--inv-font);
+  font-family: "Microsoft YaHei", "Noto Sans SC", var(--inv-font);
 }
 
 .invZhTitle {
-  margin-top: 5px;
-  font-size: 1.08rem;
-  font-weight: 800;
+  margin-top: 8px;
+  font-size: 1.28rem;
+  font-weight: 900;
 }
 
 .sourceList {
@@ -349,10 +361,10 @@ body.investment-deck {
   list-style: none;
   border: 1px solid var(--inv-line);
   border-radius: 6px;
-  background: var(--inv-panel);
-  padding: 8px 10px;
-  color: var(--inv-blue);
-  font: 800 0.78rem/1 var(--inv-font);
+  background: rgba(16, 24, 32, 0.96);
+  padding: 9px 11px;
+  color: var(--inv-cyan);
+  font: 900 0.82rem/1 var(--inv-font);
   cursor: pointer;
 }
 
@@ -363,13 +375,13 @@ body.investment-deck {
 .sourcePanel {
   position: absolute;
   right: 0;
-  top: 40px;
-  width: min(520px, calc(100vw - 40px));
-  max-height: 52vh;
+  top: 42px;
+  width: min(560px, calc(100vw - 46px));
+  max-height: 54vh;
   overflow: auto;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-surface);
+  background: #0c1217;
   box-shadow: var(--inv-shadow);
   padding: 12px;
 }
@@ -385,13 +397,13 @@ body.investment-deck {
 
 .sourcePanel h3 {
   margin: 0 0 4px;
-  font-size: 0.92rem;
+  font-size: 0.96rem;
 }
 
 .sourcePanel p {
   margin: 2px 0;
   color: var(--inv-muted);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
@@ -407,11 +419,19 @@ body.investment-deck {
   align-items: stretch;
 }
 
-.invTwoColumn {
+.invTwoColumn,
+.invHeroGrid,
+.invDataLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
+  gap: 22px;
   min-height: 0;
+}
+
+.invPhotoColumn {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
 }
 
 .invPanel,
@@ -421,47 +441,83 @@ body.investment-deck {
 .invNotePanel,
 .invTableWrap,
 .invCalcBox,
-.invPeerBox {
+.invPeerBox,
+.invMarketCard {
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-surface);
-  padding: 18px;
+  background: rgba(16, 24, 32, 0.9);
+  padding: 22px;
+}
+
+.invPanel,
+.invTermBox,
+.invCalcBox,
+.invPeerBox {
+  display: grid;
+  align-content: center;
 }
 
 .invBigQuestion {
-  font-size: 2rem;
-  line-height: 1.15;
-  font-weight: 900;
-  max-width: 900px;
+  font-size: 2.8rem;
+  line-height: 1.06;
+  font-weight: 950;
+  max-width: 920px;
 }
 
 .invLead {
   color: var(--inv-muted);
-  font-size: 1.26rem;
-  line-height: 1.42;
-  max-width: 920px;
+  font-size: 1.48rem;
+  line-height: 1.34;
+  max-width: 980px;
+}
+
+.invHeroSlide {
+  position: relative;
+  isolation: isolate;
+  background: #05080a;
+}
+
+.invHeroSlide::before,
+.invPhotoBack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--hero-photo, none) var(--photo-position, center) / cover no-repeat;
+}
+
+.invHeroSlide::after,
+.invPhotoBack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 11, 14, 0.9), rgba(7, 11, 14, 0.5), rgba(7, 11, 14, 0.18)),
+    linear-gradient(0deg, rgba(7, 11, 14, 0.66), rgba(7, 11, 14, 0.08));
+}
+
+.invHeroSlide .invSlideHeader,
+.invHeroSlide .invSlideBody,
+.invHeroSlide .invSlideFooter {
+  position: relative;
+  z-index: 1;
 }
 
 .invHeroGrid {
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 18px;
-}
-
-.invMarketCard {
-  border: 2px solid var(--inv-graphite);
-  border-radius: 8px;
-  background: var(--inv-panel);
-  padding: 20px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.62fr);
+  align-items: center;
 }
 
 .invTicker {
   display: inline-flex;
-  border: 1px solid var(--inv-line);
+  margin-bottom: 18px;
+  border: 1px solid rgba(72, 214, 255, 0.45);
   border-radius: 6px;
-  background: var(--inv-surface);
-  padding: 8px 10px;
-  font: 900 1.05rem/1 var(--inv-num);
+  background: rgba(72, 214, 255, 0.12);
+  padding: 10px 12px;
+  color: var(--inv-cyan);
+  font: 950 1.24rem/1 var(--inv-num);
 }
 
 .invMetricGrid,
@@ -471,7 +527,7 @@ body.investment-deck {
 .invTermGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .invMetric,
@@ -484,8 +540,8 @@ body.investment-deck {
 .invQuizQuestion {
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-panel);
-  padding: 14px;
+  background: rgba(21, 31, 40, 0.92);
+  padding: 16px;
 }
 
 .invMetric strong,
@@ -493,7 +549,7 @@ body.investment-deck {
 .invRiskItem strong,
 .invObjective strong {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .invMetricValue,
@@ -507,94 +563,159 @@ body.investment-deck {
 
 .invMetricValue {
   display: block;
-  margin-top: 3px;
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: var(--inv-graphite);
+  margin-top: 4px;
+  color: var(--inv-green);
+  font-size: 2rem;
+  font-weight: 950;
 }
 
-.invVisualFrame {
-  display: grid;
-  place-items: center;
+.invHeroPhotoCredit {
+  margin-top: 20px;
+  color: var(--inv-muted);
+  font: 800 0.88rem/1.3 var(--inv-font);
+}
+
+.invPhotoFigure {
+  position: relative;
+  min-height: 0;
+  margin: 0;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: repeating-linear-gradient(
-    -45deg,
-    #f8f8f3,
-    #f8f8f3 10px,
-    #ecefe9 10px,
-    #ecefe9 20px
-  );
-  min-height: 320px;
-  padding: 26px;
+  overflow: hidden;
+  background: #05080a;
 }
 
-.invExchangeBoard {
-  width: min(780px, 100%);
-  border: 2px solid var(--inv-graphite);
-  border-radius: 8px;
-  background: #17201b;
-  color: #fffef8;
-  padding: 20px;
-  box-shadow: 0 18px 38px rgba(23, 32, 27, 0.28);
+.invPhotoFigure img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: var(--photo-position, center);
 }
 
-.invExchangeHeader,
-.invExchangeRow {
+.invPhotoCaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.2));
+  color: var(--inv-muted);
+  font-size: 0.85rem;
+}
+
+.invPhotoCaption span:first-child {
+  min-width: 0;
+}
+
+.invPhotoFull {
+  height: 100%;
+  min-height: 420px;
+}
+
+.invPhotoStrip {
+  min-height: 220px;
+}
+
+.invPhotoInset {
+  min-height: 300px;
+}
+
+.invVisualPauseSlide {
+  padding: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.invVisualPauseSlide.is-active {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 0.8fr;
-  gap: 10px;
-  align-items: center;
+  grid-template-rows: 1fr;
 }
 
-.invExchangeHeader {
-  color: #b6c0b8;
-  font: 800 0.8rem/1.2 var(--inv-num);
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-  padding-bottom: 10px;
+.invVisualPauseSlide .invSlideHeader,
+.invVisualPauseSlide .invSlideFooter {
+  display: none;
 }
 
-.invExchangeRow {
-  padding-top: 14px;
-  font: 900 1.55rem/1.15 var(--inv-num);
+.invVisualPauseHero {
+  position: relative;
+  min-height: 100%;
+  display: grid;
+  align-content: end;
+  padding: 52px;
+  overflow: hidden;
+  background: #05080a;
 }
 
-.invUp {
-  color: #58d68d;
+.invVisualPauseHero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--photo-position, center);
 }
 
-.invDown {
-  color: #ff7b72;
+.invVisualPauseHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.08) 62%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.58), transparent 58%);
+}
+
+.invVisualPauseText {
+  position: relative;
+  z-index: 1;
+  max-width: 940px;
+}
+
+.invVisualPauseText h1 {
+  margin: 10px 0;
+  font-size: 4rem;
+  line-height: 0.98;
+}
+
+.invVisualPauseText p {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 1.18rem;
 }
 
 .invSectionSlide {
-  align-content: center;
+  position: relative;
+  isolation: isolate;
 }
 
 .invSectionDeck {
   display: grid;
-  grid-template-columns: 0.65fr 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(240px, 0.55fr) minmax(0, 1fr);
+  gap: 26px;
   align-items: center;
 }
 
 .invSectionNumber {
-  font: 900 6rem/0.9 var(--inv-num);
   color: var(--inv-green);
+  font: 950 7rem/0.85 var(--inv-num);
 }
 
 .invSectionList {
   display: grid;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .invSectionList span {
-  border-left: 5px solid var(--inv-line);
-  padding: 9px 0 9px 12px;
+  border-left: 6px solid rgba(181, 195, 195, 0.2);
+  padding: 10px 0 10px 14px;
   color: var(--inv-muted);
-  font-weight: 800;
+  font-size: 1.24rem;
+  font-weight: 900;
 }
 
 .invSectionList span.is-current {
@@ -603,27 +724,27 @@ body.investment-deck {
 }
 
 .invTermBox {
-  display: grid;
-  align-content: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .invTermWord {
-  font-size: 4rem;
-  line-height: 0.95;
+  color: var(--inv-cyan);
+  font-size: 5.5rem;
+  line-height: 0.9;
   font-weight: 950;
 }
 
 .invTermDefinition {
-  font-size: 1.9rem;
-  line-height: 1.24;
-  font-weight: 800;
+  color: var(--inv-ink);
+  font-size: 2.55rem;
+  line-height: 1.16;
+  font-weight: 900;
 }
 
 .blank {
   display: inline-block;
-  min-width: 140px;
-  border-bottom: 3px solid var(--inv-graphite);
+  min-width: 150px;
+  border-bottom: 4px solid var(--inv-cyan);
   color: transparent;
 }
 
@@ -633,7 +754,7 @@ body.investment-deck {
 
 .invReveal {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(10px);
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
@@ -648,80 +769,112 @@ body.investment-deck {
 .invModelParas,
 .invExamKeywords {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .invCheckItem {
-  border: 1px solid var(--inv-line);
-  border-radius: 8px;
-  padding: 15px;
-  background: var(--inv-panel);
-  font-size: 1.34rem;
-  line-height: 1.32;
-  font-weight: 800;
+  border-left: 8px solid var(--inv-cyan);
+  font-size: 1.8rem;
+  line-height: 1.22;
+  font-weight: 900;
 }
 
 .invStep {
   display: grid;
-  gap: 5px;
-  font-size: 1.16rem;
-  line-height: 1.35;
+  grid-template-columns: auto 1fr;
+  gap: 8px 14px;
+  align-items: start;
+  font-size: 1.38rem;
+  line-height: 1.28;
+}
+
+.invStep .invZhLine {
+  grid-column: 2;
 }
 
 .invStepNum {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   display: inline-grid;
   place-items: center;
   border-radius: 6px;
-  background: var(--inv-graphite);
-  color: #fffef8;
-  font: 900 0.9rem/1 var(--inv-num);
+  background: var(--inv-green);
+  color: #04100c;
+  font: 950 1rem/1 var(--inv-num);
 }
 
-.invDataLayout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.75fr);
-  gap: 16px;
+.invTableWrap {
+  overflow: hidden;
 }
 
 .invTable {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1.05rem;
+  color: var(--inv-ink);
+  font-size: 1.18rem;
 }
 
 .invTable th,
 .invTable td {
   border-bottom: 1px solid var(--inv-line);
-  padding: 12px 10px;
+  padding: 14px 12px;
   text-align: left;
   vertical-align: top;
 }
 
 .invTable th {
-  background: var(--inv-panel);
-  font-size: 0.82rem;
-  color: var(--inv-muted);
+  background: rgba(72, 214, 255, 0.09);
+  color: var(--inv-cyan);
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .invTable td:last-child,
 .invTable th:last-child {
+  color: var(--inv-green);
   font-family: var(--inv-num);
-  font-weight: 900;
+  font-weight: 950;
+}
+
+.invDataFocus {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.invDataFocusCard {
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+  background: rgba(21, 31, 40, 0.92);
+  padding: 14px;
+}
+
+.invDataFocusCard span {
+  display: block;
+  color: var(--inv-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.invDataFocusCard strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--inv-green);
+  font: 950 1.9rem/1 var(--inv-num);
 }
 
 .invBarChart {
   display: grid;
-  gap: 13px;
+  gap: 14px;
 }
 
 .invBarTrack {
-  height: 32px;
+  height: 34px;
   border: 1px solid var(--inv-line);
-  background: #e7eae4;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -736,25 +889,24 @@ body.investment-deck {
 .invBarFill.red { background: var(--inv-red); }
 
 .invCalcBox {
-  display: grid;
-  gap: 14px;
-  align-content: start;
+  gap: 16px;
 }
 
 .invFormula {
-  border: 2px solid var(--inv-graphite);
+  border: 2px solid var(--inv-cyan);
   border-radius: 8px;
-  background: var(--inv-panel);
-  padding: 16px;
-  font: 900 1.45rem/1.25 var(--inv-num);
+  background: rgba(72, 214, 255, 0.09);
+  padding: 18px;
+  color: var(--inv-ink);
+  font: 950 1.62rem/1.22 var(--inv-num);
 }
 
 .invWorked,
 .invTryIt {
-  border-left: 5px solid var(--inv-green);
-  padding: 10px 0 10px 14px;
-  font-size: 1.2rem;
-  line-height: 1.38;
+  border-left: 7px solid var(--inv-green);
+  padding: 12px 0 12px 16px;
+  font-size: 1.38rem;
+  line-height: 1.32;
 }
 
 .invTryIt {
@@ -762,66 +914,68 @@ body.investment-deck {
 }
 
 .invChoice {
+  width: 100%;
   text-align: left;
-  font: 800 1.05rem/1.25 var(--inv-font);
+  color: var(--inv-ink);
+  font: 900 1.34rem/1.22 var(--inv-font);
   cursor: pointer;
 }
 
 .invChoice.is-selected {
   border-color: var(--inv-blue);
-  background: #edf4fb;
+  background: rgba(115, 167, 255, 0.18);
 }
 
 .invChoice.is-correct {
   border-color: var(--inv-green);
-  background: #eaf6f1;
+  background: rgba(32, 209, 143, 0.16);
 }
 
 .invChoice.is-wrong {
   border-color: var(--inv-red);
-  background: #fbebeb;
+  background: rgba(255, 95, 95, 0.14);
 }
 
 .invQuizFeedback {
-  border-left: 5px solid var(--inv-blue);
-  margin-top: 14px;
-  padding: 12px 0 12px 14px;
-  font-size: 1.08rem;
-  line-height: 1.4;
+  border-left: 7px solid var(--inv-cyan);
+  margin-top: 16px;
+  padding: 12px 0 12px 16px;
+  font-size: 1.28rem;
+  line-height: 1.34;
 }
 
 .invExamBox h3,
 .invModelParas p {
-  font-size: 1.28rem;
-  line-height: 1.42;
+  font-size: 1.5rem;
+  line-height: 1.34;
 }
 
 .invExamKeywords {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .invKeyword {
   border: 1px solid var(--inv-line);
   border-radius: 6px;
-  padding: 10px;
-  background: var(--inv-panel);
-  color: var(--inv-graphite);
-  font-weight: 900;
+  padding: 12px;
+  background: rgba(72, 214, 255, 0.1);
+  color: var(--inv-ink);
+  font-weight: 950;
   text-align: center;
 }
 
 .invModelParas p {
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-panel);
+  background: rgba(21, 31, 40, 0.92);
   margin: 0;
-  padding: 14px;
+  padding: 16px;
 }
 
 .invModelParas mark {
-  background: #fff0bf;
+  background: rgba(240, 184, 79, 0.34);
   color: var(--inv-ink);
-  padding: 1px 3px;
+  padding: 1px 4px;
 }
 
 .invFooter {
@@ -835,7 +989,7 @@ body.investment-deck {
 .invProgressTrack {
   height: 8px;
   border-radius: 999px;
-  background: #dfe4de;
+  background: rgba(255, 255, 255, 0.12);
   overflow: hidden;
 }
 
@@ -848,15 +1002,15 @@ body.investment-deck {
 .invNotes {
   position: fixed;
   right: 18px;
-  bottom: 66px;
+  bottom: 64px;
   z-index: 10;
-  width: min(560px, calc(100vw - 36px));
-  max-height: 42vh;
+  width: min(600px, calc(100vw - 36px));
+  max-height: 44vh;
   overflow: auto;
   display: none;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-surface);
+  background: #0c1217;
   box-shadow: var(--inv-shadow);
   padding: 16px;
 }
@@ -867,7 +1021,7 @@ body.investment-deck {
 
 .invNotes h2 {
   margin: 0 0 8px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .invNotes p,
@@ -881,7 +1035,7 @@ body.investment-deck {
   inset: 0;
   z-index: 20;
   display: none;
-  background: rgba(23, 32, 27, 0.62);
+  background: rgba(0, 0, 0, 0.72);
   padding: 24px;
 }
 
@@ -895,7 +1049,7 @@ body.investment-deck {
   max-height: 88vh;
   overflow: auto;
   border-radius: 8px;
-  background: var(--inv-surface);
+  background: #0c1217;
   padding: 20px;
 }
 
@@ -909,20 +1063,17 @@ body.investment-deck {
   min-height: 86px;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
-  background: var(--inv-panel);
+  background: rgba(21, 31, 40, 0.92);
+  color: var(--inv-ink);
   padding: 10px;
   text-align: left;
   cursor: pointer;
 }
 
 .invQuizDeck {
-  width: min(980px, calc(100% - 28px));
+  width: min(1000px, calc(100% - 28px));
   margin: 22px auto;
-  padding: 22px;
-}
-
-body.investment-quiz {
-  overflow-x: hidden;
+  padding: 24px;
 }
 
 .invQuizHeader {
@@ -936,8 +1087,8 @@ body.investment-quiz {
 }
 
 .invQuizHeader h1 {
-  margin: 6px 0;
-  font-size: 2.2rem;
+  margin: 8px 0;
+  font-size: 2.55rem;
 }
 
 .invQuizQuestion {
@@ -945,39 +1096,40 @@ body.investment-quiz {
 }
 
 .invQuizPrompt {
-  font-size: 1.18rem;
-  font-weight: 850;
-  line-height: 1.35;
+  font-size: 1.34rem;
+  font-weight: 900;
+  line-height: 1.3;
 }
 
 .invQuizChoices {
   display: grid;
-  gap: 8px;
+  gap: 9px;
   margin-top: 10px;
 }
 
 .invQuizChoices label {
   border: 1px solid var(--inv-line);
   border-radius: 6px;
-  background: var(--inv-surface);
-  padding: 10px;
+  background: rgba(7, 11, 14, 0.72);
+  padding: 12px;
   cursor: pointer;
 }
 
 .invQuizQuestion input[type="text"] {
-  width: min(420px, 100%);
+  width: min(440px, 100%);
   margin-top: 10px;
   border: 1px solid var(--inv-line);
   border-radius: 6px;
-  background: var(--inv-surface);
-  padding: 10px;
-  font: 800 1rem/1 var(--inv-font);
+  background: rgba(7, 11, 14, 0.72);
+  color: var(--inv-ink);
+  padding: 11px;
+  font: 900 1rem/1 var(--inv-font);
 }
 
 .invQuizCorrection {
   display: none;
   margin-top: 10px;
-  border-left: 5px solid var(--inv-blue);
+  border-left: 6px solid var(--inv-cyan);
   padding-left: 12px;
   color: var(--inv-muted);
 }
@@ -993,6 +1145,86 @@ body.investment-quiz {
 
 .invQuizQuestion.is-wrong {
   border-color: var(--inv-red);
+}
+
+body.investment-deck :is(.invApp, .invDeckStage, .invTopbar, .invFooter, .invSlide, .invNotes, .invOverview) {
+  font-size: 24px;
+}
+
+body.investment-deck :is(
+  .invBrand,
+  .invModeTabs a,
+  .invButton,
+  .invCounter,
+  .invProgressText,
+  .invTicker,
+  .invTickerStrip span,
+  .invEyebrow,
+  .invSourceStamp,
+  .sourceList summary,
+  .sourcePanel h3,
+  .sourcePanel p,
+  .invZhTitle,
+  .invZhLine,
+  .invObjectiveZh,
+  .invTermZh,
+  .invPromptZh,
+  .invLead,
+  .invPhotoCaption,
+  .photoCredit,
+  .invHeroPhotoCredit,
+  .invSectionList span,
+  .invMetric,
+  .invEvidence,
+  .invRiskItem,
+  .invObjective,
+  .invTermNote,
+  .invChoice,
+  .invStep,
+  .invQuizQuestion,
+  .invTable,
+  .invTable th,
+  .invTable td,
+  .invDataFocusCard span,
+  .invWorked,
+  .invTryIt,
+  .invQuizFeedback,
+  .invExamBox h3,
+  .invModelParas p,
+  .invKeyword
+) {
+  font-size: max(24px, 1em);
+}
+
+body.investment-deck .sourcePanel {
+  width: min(720px, calc(100vw - 46px));
+}
+
+body.investment-deck .invButton,
+body.investment-deck .invModeTabs a {
+  min-height: 48px;
+}
+
+body.investment-quiz :is(
+  .invQuizDeck,
+  .invQuizHeader,
+  .invQuizMeta,
+  .invQuizPrompt,
+  .invQuizChoices label,
+  .invQuizQuestion input[type="text"],
+  .invQuizCorrection,
+  .invQuizSubmit,
+  .invQuizReset,
+  .invQuizScore,
+  .invModeTabs a,
+  .investment-link,
+  .investment-card-meta
+) {
+  font-size: max(24px, 1em);
+}
+
+body.investment-quiz :is(.invQuizSubmit, .invQuizReset, .invModeTabs a, .investment-link) {
+  min-height: 48px;
 }
 
 @media (max-width: 900px) {
@@ -1048,26 +1280,33 @@ body.investment-quiz {
   }
 
   .invSlide {
-    min-height: 760px;
+    min-height: 780px;
     padding: 18px;
   }
 
   .invTitleBlock h1,
   .invTitleBlock h2 {
-    font-size: 1.85rem;
+    font-size: 2rem;
   }
 
-  .investment-hero h1 {
-    font-size: 2.45rem;
+  .investment-hero h1,
+  .invVisualPauseText h1 {
+    font-size: 2.55rem;
   }
 
   .invTermWord {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .invTermDefinition,
   .invBigQuestion {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
+  }
+
+  .invLead,
+  .invCheckItem,
+  .invChoice {
+    font-size: 1.1rem;
   }
 
   .invMetricGrid,
@@ -1075,6 +1314,7 @@ body.investment-quiz {
   .invRiskGrid,
   .invObjectiveGrid,
   .invTermGrid,
+  .invDataFocus,
   .invExamKeywords,
   .invTickerStrip,
   .investment-ticker-strip,
@@ -1106,6 +1346,7 @@ body.investment-quiz {
     height: auto;
     overflow: visible;
     background: #fff;
+    color: #000;
   }
 
   .invTopbar,
