@@ -449,6 +449,7 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Review lessons$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Investment Analysis$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
     await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
@@ -501,6 +502,88 @@ test.describe('site smoke', () => {
     expect(macroHeadingBox).not.toBeNull();
     expect(macroHeadingBox.x).toBeGreaterThanOrEqual(0);
     expect(macroHeadingBox.x + macroHeadingBox.width).toBeLessThanOrEqual(viewport.width + 1);
+  });
+
+  test('@smoke investment course page and lesson interactions work', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment test.');
+
+    await page.goto(pageUrl('investment-analysis/index.html'));
+    await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Teach Lesson 1$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
+    await expect(page.getByRole('link', { name: /^Open quiz$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
+    await expectNoHorizontalOverflow(page);
+
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
+    await expect(page.locator('body')).toHaveClass(/investment-deck/);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 29');
+    await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#6');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
+    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+
+    await page.locator('.invSlide.is-active .sourceList summary').click();
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
+    await expect(page.locator('.invSlide.is-active .sourceList')).toHaveAttribute('open', '');
+    await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/Tencent investor relations/i);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#7');
+    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+
+    await page.keyboard.press('N');
+    await expect(page.locator('.invNotes')).toBeVisible();
+    await page.keyboard.press('N');
+    await expect(page.locator('.invNotes')).toBeHidden();
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#10');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '9');
+    await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
+    await page.locator('.invSlide.is-active .invChoice').nth(1).click();
+    await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invChoice').nth(1)).toHaveClass(/is-correct/);
+
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#12');
+    await expect(page.locator('.invSlide.is-active .invTable')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
+    await expect(page.locator('.invQuizDeck')).toBeVisible();
+    await expect(page.locator('.invQuizQuestion')).toHaveCount(8);
+    await expect(page.locator('.invQuizScore')).toHaveText('0/8 answered');
+    await page.locator('.invQuizQuestion').first().getByLabel('One unit of ownership in a company').check();
+    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await expect(page.locator('.invQuizScore')).toContainText('/8');
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@responsive investment course and quiz fit phone width', async ({ page }, testInfo) => {
+    test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment smoke is phone-only.');
+
+    await page.goto(pageUrl('investment-analysis/index.html'));
+    await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
+    await expect(page.locator('.invSlide.is-active')).toBeVisible();
+    await expect(page.locator('.invCounter')).toHaveText('1 / 29');
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
+    await expect(page.locator('.invQuizDeck')).toBeVisible();
+    await expect(page.locator('.invQuizQuestion')).toHaveCount(8);
+    await expectNoHorizontalOverflow(page);
   });
 
   test('@responsive business landing page renders an extendable syllabus roadmap', async ({ page }) => {

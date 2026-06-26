@@ -1,0 +1,30 @@
+{
+  "company": "Tencent Holdings Limited",
+  "stockCode": "0700.HK",
+  "exchange": "Hong Kong Stock Exchange",
+  "snapshotDate": "2026-06-26",
+  "currency": "RMB",
+  "source": {
+    "label": "Tencent 2025 Annual and Fourth Quarter Results",
+    "url": "https://static.www.tencent.com/uploads/2026/03/18/e6a646796d0d869acc76271c9ee1a6a5.pdf",
+    "published": "2026-03-18",
+    "accessed": "2026-06-26"
+  },
+  "items": [
+    {
+      "label": "Revenue",
+      "valueBillions": 751.8,
+      "note": "Total revenues, FY2025"
+    },
+    {
+      "label": "Gross profit",
+      "valueBillions": 422.6,
+      "note": "Gross profit, FY2025"
+    },
+    {
+      "label": "Gross margin",
+      "valuePercent": 56,
+      "note": "Gross profit as a percentage of revenue"
+    }
+  ]
+}

@@ -366,6 +366,86 @@
       --accent: var(--gold);
     }
 
+    .course-branch {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+
+    .course-branch-card {
+      border: 1px solid rgba(94, 126, 155, .24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 16px 38px rgba(9, 32, 47, .12);
+      padding: 22px;
+    }
+
+    .course-branch-card h3 {
+      margin: 8px 0;
+      color: var(--navy);
+      font-size: 1.45rem;
+    }
+
+    .course-branch-card p {
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .course-branch-kicker {
+      color: var(--deep-teal);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .course-branch-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .course-branch-link {
+      border: 1px solid rgba(94, 126, 155, .28);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--navy);
+      padding: 9px 12px;
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .course-branch-link.primary {
+      background: #17201b;
+      border-color: #17201b;
+      color: #fffef8;
+    }
+
+    .course-branch-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+      border: 1px solid rgba(94, 126, 155, .26);
+      background: #f4f5f1;
+    }
+
+    .course-branch-strip span {
+      min-width: 0;
+      padding: 11px;
+      border-right: 1px solid rgba(94, 126, 155, .26);
+      font-size: .82rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .course-branch-strip span:last-child {
+      border-right: 0;
+    }
+
     .course-roadmap {
       position: relative;
       display: grid;
@@ -722,6 +802,23 @@
         padding: .95rem;
       }
 
+      .course-branch {
+        grid-template-columns: 1fr;
+      }
+
+      .course-branch-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .course-branch-strip span {
+        border-right: 0;
+        border-bottom: 1px solid rgba(94, 126, 155, .26);
+      }
+
+      .course-branch-strip span:last-child {
+        border-bottom: 0;
+      }
+
       .lesson-actions {
         grid-template-columns: 1fr;
       }
@@ -763,6 +860,7 @@
         </div>
         <div class="hero-actions" aria-label="Featured links">
           <a class="button primary" href="#course-map">Review lessons</a>
+          <a class="button" href="investment-analysis/index.html">Investment Analysis</a>
           <a class="button" href="definitions.html">Key definitions / 核心定义</a>
           <a class="button" href="pedagogy.html">Teaching philosophy / 教学理念</a>
         </div>
@@ -773,6 +871,40 @@
         </div>
       </div>
     </header>
+
+    <section class="section" aria-labelledby="investment-title">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">New course</div>
+          <h2 id="investment-title">Investment Analysis</h2>
+          <p class="section-title-zh" lang="zh-Hans">投资分析课程</p>
+        </div>
+      </div>
+      <div class="course-branch">
+        <article class="course-branch-card">
+          <div class="course-branch-kicker">Grade 9 internal course</div>
+          <h3>Stocks, company evidence and price judgement</h3>
+          <p>
+            A projector-first investment course with real company data snapshots, bilingual scaffolding, in-class checks and HTML quizzes.
+          </p>
+          <div class="course-branch-actions" aria-label="Investment Analysis links">
+            <a class="course-branch-link primary" href="investment-analysis/index.html">Course page</a>
+            <a class="course-branch-link" href="investment-analysis/unit-1/lesson-1/index.html">Lesson 1 slides</a>
+            <a class="course-branch-link" href="investment-analysis/unit-1/lesson-1/index.html?view=quiz">Lesson 1 quiz</a>
+          </div>
+        </article>
+        <aside class="course-branch-card">
+          <div class="course-branch-kicker">Lesson 1 snapshot</div>
+          <h3>What is a share?</h3>
+          <p lang="zh-Hans">股票、股东、股票代码、股价，以及为什么好公司不一定等于好投资。</p>
+          <div class="course-branch-strip" aria-label="Investment course signals">
+            <span>0700.HK</span>
+            <span>FY2025</span>
+            <span>Risk</span>
+          </div>
+        </aside>
+      </div>
+    </section>
 
     <section class="section" id="course-map" aria-labelledby="materials-title">
       <div class="section-head">
