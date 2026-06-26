@@ -24,6 +24,19 @@ window.INVEST.lesson = {
   slides: [
     {
       type: "hero",
+      eyebrow: "Lesson overview",
+      title: "What is a share?",
+      zhTitle: "什么是股票？",
+      subtitle: "Unit 1 Lesson 1",
+      kicker: "What does one small ownership claim actually mean?",
+      visual: investmentPhotos.hkexHall,
+      notes: [
+        "Use this as the formal title slide before starting the market brief.",
+        "Set expectations: this lesson teaches ownership, identification, price movement and careful judgement, not a recommendation."
+      ]
+    },
+    {
+      type: "hero",
       eyebrow: "Market Brief",
       title: "What do you own when you buy one share?",
       subtitle: "Lesson 1 starts with a concrete listed company: Tencent Holdings, stock code 0700.HK.",

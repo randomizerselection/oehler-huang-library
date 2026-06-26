@@ -547,8 +547,9 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
-    await expect(page.locator('.invCounter')).toHaveText('1 / 29');
-    await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
+    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Lesson overview/i);
+    await expect(page.getByRole('heading', { name: /^What is a share\?$/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /hkex-hall\.jpg/);
     await expectMinimumVisibleFontSize(page, '.invApp', 24);
     const investmentPhotoCount = await page.locator('img[src*="assets/images/investment-analysis/"]').count();
@@ -561,26 +562,29 @@ test.describe('site smoke', () => {
     expect(completePhotoMetadataCount).toBeGreaterThanOrEqual(10);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
+    await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '2');
     await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/stock-certificate.jpg"]')).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Wikimedia Commons/i);
     await expectNoHorizontalOverflow(page);
 
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#6');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
-    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
-    await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
-    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
-
-    await page.locator('.invSlide.is-active .sourceList summary').click();
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '5');
-    await expect(page.locator('.invSlide.is-active .sourceList')).toHaveAttribute('open', '');
-    await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/Tencent investor relations/i);
-
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#7');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
     await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
     await page.keyboard.press('Space');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+
+    await page.locator('.invSlide.is-active .sourceList summary').click();
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await expect(page.locator('.invSlide.is-active .sourceList')).toHaveAttribute('open', '');
+    await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/Tencent investor relations/i);
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#8');
+    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '7');
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
 
     await page.keyboard.press('N');
@@ -588,8 +592,8 @@ test.describe('site smoke', () => {
     await page.keyboard.press('N');
     await expect(page.locator('.invNotes')).toBeHidden();
 
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#10');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '9');
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#11');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '10');
     await expectMinimumVisibleFontSize(page, '.invApp', 24);
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
     await page.locator('.invSlide.is-active .invChoice').nth(1).click();
@@ -597,7 +601,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invChoice').nth(1)).toHaveClass(/is-correct/);
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#12');
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#13');
     await expect(page.locator('.invSlide.is-active .invTable')).toBeVisible();
     await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/tencent-seafront-towers.jpg"]')).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Tencent Seafront Towers/i);
@@ -624,7 +628,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
-    await expect(page.locator('.invCounter')).toHaveText('1 / 29');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');

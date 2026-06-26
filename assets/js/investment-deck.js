@@ -68,6 +68,7 @@
             ${slide.title ? `<h1>${html(slide.title)}</h1>` : ''}
             ${slide.zhTitle ? `<div class="invZhTitle" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</div>` : ''}
             ${slide.subtitle ? `<p class="invLead">${html(slide.subtitle)}</p>` : ''}
+            ${slide.kicker ? `<p class="invHeroKicker">${escapeHtml(slide.kicker)}</p>` : ''}
           </div>
           ${sourceMarkup(sources)}
         </header>
@@ -80,6 +81,8 @@
 
   function renderHero(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const hasMarketCard = Boolean(slide.ticker || (slide.metrics || []).length);
+    const titleOnly = !hasMarketCard && !slide.question;
     const metrics = (slide.metrics || []).map((metric) => `
       <div class="invMetric">
         <strong>${escapeHtml(metric.label)}</strong>
@@ -88,22 +91,26 @@
       </div>
     `).join('');
 
+    if (titleOnly) {
+      return slideShell(slide, index, lesson, '', 'invHeroSlide invTitleOnlySlide', photo);
+    }
+
     const body = `
-      <div class="invHeroGrid">
+      <div class="invHeroGrid ${hasMarketCard ? '' : 'is-titleOnly'}">
         <div class="invPanel">
           ${slide.ticker ? `<span class="invTicker">${escapeHtml(slide.ticker)}</span>` : ''}
-          ${slide.question ? `<div class="invBigQuestion">${html(slide.question)}</div>` : ''}
+          ${slide.question || slide.kicker ? `<div class="invBigQuestion">${html(slide.question || slide.kicker)}</div>` : ''}
           ${slide.questionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.questionZh)}</p>` : ''}
           ${photo?.credit ? `<div class="invHeroPhotoCredit">${escapeHtml(photo.caption || photo.alt || '')} · ${escapeHtml(photo.credit)}</div>` : ''}
         </div>
-        <div class="invMarketCard">
+        ${hasMarketCard ? `<div class="invMarketCard">
           <div class="invTickerStrip" aria-label="Market snapshot">
             <span>Company</span>
             <span>Code</span>
             <span>Market</span>
           </div>
           <div class="invMetricGrid">${metrics}</div>
-        </div>
+        </div>` : ''}
       </div>`;
 
     return slideShell(slide, index, lesson, body, 'invHeroSlide', photo);

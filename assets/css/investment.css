@@ -336,6 +336,15 @@ body.investment-deck {
   font-size: 2.7rem;
 }
 
+.invHeroKicker {
+  max-width: 900px;
+  margin: 16px 0 0;
+  color: var(--inv-ink);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
 .invZhTitle,
 .invZhLine,
 .invObjectiveZh,
@@ -504,9 +513,41 @@ body.investment-deck {
   z-index: 1;
 }
 
+.invTitleOnlySlide.is-active {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.invTitleOnlySlide .invSlideHeader {
+  align-self: end;
+  padding: 0 0 44px;
+}
+
+.invTitleOnlySlide .invTitleBlock h1 {
+  font-size: 4.7rem;
+}
+
+.invTitleOnlySlide .invLead {
+  margin-top: 22px;
+}
+
+.invTitleOnlySlide .invSlideBody,
+.invTitleOnlySlide .sourceList {
+  display: none;
+}
+
 .invHeroGrid {
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.62fr);
   align-items: center;
+}
+
+.invHeroGrid.is-titleOnly {
+  grid-template-columns: minmax(0, 0.82fr);
+  align-content: end;
+  align-items: end;
+}
+
+.invHeroGrid.is-titleOnly .invPanel {
+  max-width: 980px;
 }
 
 .invTicker {
@@ -1159,6 +1200,7 @@ body.investment-deck :is(
   .invProgressText,
   .invTicker,
   .invTickerStrip span,
+  .invHeroKicker,
   .invEyebrow,
   .invSourceStamp,
   .sourceList summary,

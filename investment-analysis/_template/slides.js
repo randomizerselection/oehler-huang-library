@@ -9,8 +9,16 @@ window.INVEST.lesson = {
   slides: [
     {
       type: "hero",
-      eyebrow: "Market Brief",
+      eyebrow: "Lesson overview",
       title: "Lesson title",
+      zhTitle: "课程标题",
+      subtitle: "Unit X Lesson Y",
+      kicker: "Replace with one short guiding question."
+    },
+    {
+      type: "hero",
+      eyebrow: "Market Brief",
+      title: "Market question",
       subtitle: "Replace with a concrete company, chart or decision prompt.",
       question: "What should students decide first?",
       questionZh: "学生首先需要判断什么？",
