@@ -1,5 +1,7 @@
 # Cambridge IGCSE Business 0264 Authoring Guidance
 
+Archive status: this course is retained in the repository for reference, but it is not linked from the public Oehler-Huang Library and Business HTML pages are marked `noindex,nofollow`.
+
 Business decks in this folder should be exam-facing teaching materials for Cambridge IGCSE Business 0264. Use the official syllabus reference and exam-requirements reference as the local planning authorities:
 
 - `../references/igcse-business-0264-syllabus-2027-2029.md`

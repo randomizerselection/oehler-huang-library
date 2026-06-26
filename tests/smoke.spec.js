@@ -449,6 +449,8 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Review lessons$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
+    await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
     await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i })).toBeVisible();
@@ -529,6 +531,18 @@ test.describe('site smoke', () => {
     await expect(page.getByText(/original classroom teaching case/i)).toBeVisible();
     await expect(page.locator('body')).not.toContainText(/IGCSE Economics Lesson Library/i);
     await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke archived Business HTML pages opt out of indexing', () => {
+    const businessHtmlFiles = findHtmlFiles(path.join(root, 'business'))
+      .map((relativePath) => `business/${relativePath}`);
+
+    expect(businessHtmlFiles.length).toBeGreaterThan(0);
+
+    for (const relativePath of businessHtmlFiles) {
+      const html = fs.readFileSync(path.join(root, relativePath), 'utf8');
+      expect(html, `${relativePath} should stay archived`).toMatch(/<meta name="robots" content="noindex,nofollow" \/>/);
+    }
   });
 
   test('@smoke Business CSS uses local Investment Desk palette without external fonts', () => {
