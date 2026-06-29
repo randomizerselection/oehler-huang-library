@@ -24,6 +24,86 @@ window.INVEST = window.INVEST || {};
   }
 
   window.INVEST.photos = {
+    modernTradingDesk: photo(
+      "trading-desk-laptops-2025.jpg",
+      "Laptops and phones showing financial charts on a dark trading desk.",
+      "Modern trading desk with financial charts",
+      "Unsplash / Mehedi Hasan",
+      "https://unsplash.com/photos/people-working-on-laptops-with-financial-charts-at-night-T1snPsRIvfk",
+      { objectPosition: "center 58%" }
+    ),
+    smartphoneMarketChart: photo(
+      "smartphone-market-chart-2025.jpg",
+      "Hands using a smartphone with a candlestick market chart on screen.",
+      "A market chart on a smartphone",
+      "Pexels / Jakub Zerdzicki",
+      "https://www.pexels.com/photo/analyzing-financial-market-data-on-smartphone-34482029/",
+      { objectPosition: "center 46%" }
+    ),
+    tabletFinancialChart: photo(
+      "tablet-financial-chart-2026.jpg",
+      "A person marks a candlestick chart on a tablet in a trading workspace.",
+      "Tablet chart analysis in a trading workspace",
+      "Pexels / Jakub Zerdzicki",
+      "https://www.pexels.com/photo/analyzing-financial-charts-on-tablet-for-market-insights-35638638/",
+      { objectPosition: "center 58%" }
+    ),
+    investorChartScreens: photo(
+      "investor-chart-screens-2026.jpg",
+      "An investor points at a market chart across tablet and monitor screens.",
+      "Investor screens used for market analysis",
+      "Pexels / Jakub Zerdzicki",
+      "https://www.pexels.com/photo/investor-analyzing-charts-on-tablet-and-laptop-screens-35638668/",
+      { objectPosition: "center 48%" }
+    ),
+    financialAnalysisDesk: photo(
+      "financial-analysis-desk-2024.jpg",
+      "A laptop, calculator and monitor set up for financial analysis.",
+      "Financial analysis desk with charts and calculator",
+      "Pexels / Jakub Zerdzicki",
+      "https://www.pexels.com/photo/financial-results-stock-market-25589797/",
+      { objectPosition: "center 54%" }
+    ),
+    businessChartsPaper: photo(
+      "business-charts-paper-2021.jpg",
+      "A person marks printed business charts and graphs on a desk.",
+      "Printed charts marked before an investment judgement",
+      "Pexels / RDNE Stock project",
+      "https://www.pexels.com/photo/marketing-people-hand-exit-7414211/",
+      { objectPosition: "center 56%" }
+    ),
+    financeChartWhiteboard: photo(
+      "finance-chart-whiteboard-2021.jpg",
+      "A finance chart and review sheet pinned to a whiteboard while a person points at the chart.",
+      "Finance chart used to identify one listing",
+      "Pexels / Kaboompics.com",
+      "https://www.pexels.com/photo/a-report-paper-on-white-board-7876379/",
+      { objectPosition: "center 48%" }
+    ),
+    stockReportCalculator: photo(
+      "stock-report-calculator-2021.jpg",
+      "Stock charts, a calculator and business metrics reports spread across a table.",
+      "Calculator and reports used for price-change work",
+      "Pexels / RDNE Stock project",
+      "https://www.pexels.com/photo/marketing-exit-desk-notebook-7414218/",
+      { objectPosition: "center 54%" }
+    ),
+    investorMeetingReport: photo(
+      "investor-meeting-report-2021.jpg",
+      "Business people review printed charts and a tablet during a meeting.",
+      "Modern analyst meeting with charts and reports",
+      "Pexels / Yan Krukau",
+      "https://www.pexels.com/photo/a-man-looking-at-a-document-with-graphs-7693735/",
+      { objectPosition: "center 46%" }
+    ),
+    tencentBinhaiTowers: photo(
+      "tencent-binhai-towers-2023.jpg",
+      "Tencent Binhai Towers in Shenzhen photographed from street level in June 2023.",
+      "Tencent Binhai Towers, Shenzhen, June 2023",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Haitian_2nd_Road_Binhai_Blvd_Road_Haixue_Road_Houhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Binhai_Towers_June_2023_Px3_01.jpg",
+      { objectPosition: "center 45%" }
+    ),
     hkexHall: photo(
       "hkex-hall.jpg",
       "The trading hall of Hong Kong Exchanges and Clearing.",
@@ -82,13 +162,6 @@ window.INVEST = window.INVEST || {};
       "Market screen with changing stock information",
       "Wikimedia Commons contributor",
       "https://commons.wikimedia.org/wiki/File:US_Stock_Market_-_Investing_in_the_United_States.jpg"
-    ),
-    stockCertificate: photo(
-      "stock-certificate.jpg",
-      "An early twentieth-century stock certificate showing private share ownership.",
-      "Stock certificate: a historical ownership claim",
-      "Wikimedia Commons / Museum of Vojvodinian Slovaks",
-      "https://commons.wikimedia.org/wiki/File:Stock_certificate.jpg"
     ),
     iphoneDisplay: photo(
       "iphone-display.jpg",

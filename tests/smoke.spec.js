@@ -242,6 +242,294 @@ async function expectMinimumVisibleFontSize(page, rootSelector, minimum = 24) {
   expect(offenders).toEqual([]);
 }
 
+async function expectInvestmentSlideFits(page, label = 'investment slide') {
+  const metrics = await page.evaluate(() => {
+    const slide = document.querySelector('.invSlide.is-active');
+    const body = slide?.querySelector('.invSlideBody');
+    const stage = document.querySelector('.invDeckStage');
+
+    if (!slide || !stage) return { missing: true };
+
+    const slideRect = slide.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
+
+    return {
+      missing: false,
+      slideClientHeight: slide.clientHeight,
+      slideScrollHeight: slide.scrollHeight,
+      slideClientWidth: slide.clientWidth,
+      slideScrollWidth: slide.scrollWidth,
+      bodyClientHeight: body?.clientHeight || 0,
+      bodyScrollHeight: body?.scrollHeight || 0,
+      bodyClientWidth: body?.clientWidth || 0,
+      bodyScrollWidth: body?.scrollWidth || 0,
+      slideBottom: slideRect.bottom,
+      stageBottom: stageRect.bottom,
+      slideRight: slideRect.right,
+      stageRight: stageRect.right,
+    };
+  });
+
+  expect(metrics.missing, `${label}: active investment slide exists`).toBe(false);
+  expect(metrics.slideScrollWidth, `${label}: slide has no horizontal clipping`).toBeLessThanOrEqual(metrics.slideClientWidth + 4);
+  expect(metrics.bodyScrollWidth, `${label}: slide body has no horizontal clipping`).toBeLessThanOrEqual(metrics.bodyClientWidth + 4);
+  expect(metrics.slideScrollHeight, `${label}: slide has no vertical clipping`).toBeLessThanOrEqual(metrics.slideClientHeight + 8);
+  expect(metrics.bodyScrollHeight, `${label}: slide body has no vertical clipping`).toBeLessThanOrEqual(metrics.bodyClientHeight + 8);
+  expect(metrics.slideBottom, `${label}: slide stays inside stage`).toBeLessThanOrEqual(metrics.stageBottom + 2);
+  expect(metrics.slideRight, `${label}: slide stays inside stage horizontally`).toBeLessThanOrEqual(metrics.stageRight + 2);
+}
+
+const investmentTeachingTextSelector = [
+  '.invSlideHeader h1',
+  '.invSlideHeader h2',
+  '.invVisualPauseText h1',
+  '.invLead',
+  '.invHeroKicker',
+  '.invZhTitle',
+  '.invBigQuestion',
+  '.invPromptZh',
+  '.invObjective strong',
+  '.invObjectiveZh',
+  '.invSectionNumber',
+  '.invSectionList span',
+  '.invTermWord',
+  '.invTermDefinition',
+  '.invTermZh',
+  '.invTermNote strong',
+  '.invTermNote p',
+  '.invCheckItem',
+  '.invCheckNumber',
+  '.invCheckItem .invZhLine',
+  '.invStepNum',
+  '.invStep strong',
+  '.invStep .invZhLine',
+  '.invChoice',
+  '.invQuizFeedback',
+  '.invMetric strong',
+  '.invMetricValue',
+  '.invTicker',
+  '.invTickerStrip span',
+  '.invDataFocusCard span',
+  '.invDataFocusCard strong',
+  '.invDataPrompt h2',
+  '.invDataPrompt p',
+  '.invDataTask strong',
+  '.invDataTask span',
+  '.invEvidence strong',
+  '.invEvidence p',
+  '.invRiskItem strong',
+  '.invRiskItem p',
+  '.invFormula',
+  '.invWorked',
+  '.invTryIt',
+  '.invExamBox h3',
+  '.invKeyword',
+  '.invModelCue strong',
+  '.invModelCue span',
+  '.invModelParas p'
+].join(',');
+
+async function expectInvestmentTeachingTextAtLeast(page, minimumPx, label = 'investment slide') {
+  const offenders = await page.evaluate(({ minimumPx, selector }) => {
+    const slide = document.querySelector('.invSlide.is-active');
+    if (!slide) return ['missing active slide'];
+
+    return [...slide.querySelectorAll(selector)]
+      .filter((node) => {
+        const text = (node.innerText || node.textContent || '').trim();
+        if (!text) return false;
+        const style = window.getComputedStyle(node);
+        if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
+        const rect = node.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      })
+      .map((node) => {
+        const style = window.getComputedStyle(node);
+        return {
+          tag: node.tagName.toLowerCase(),
+          className: node.className || '',
+          text: (node.innerText || node.textContent || '').trim().slice(0, 80),
+          size: parseFloat(style.fontSize),
+        };
+      })
+      .filter((item) => item.size < minimumPx - 0.1)
+      .map((item) => `${item.tag}.${String(item.className).replace(/\s+/g, '.')} ${item.size}px "${item.text}"`);
+  }, { minimumPx, selector: investmentTeachingTextSelector });
+
+  expect(offenders, `${label}: teaching text is at least ${minimumPx}px`).toEqual([]);
+}
+
+async function expectInvestmentCompactTeachingScale(page, label = 'investment slide') {
+  const offenders = await page.evaluate(({ selector }) => {
+    const slide = document.querySelector('.invSlide.is-active');
+    if (!slide) return ['missing active slide'];
+
+    const allowedSizes = [32, 48];
+    return [...slide.querySelectorAll(selector)]
+      .filter((node) => {
+        const text = (node.innerText || node.textContent || '').trim();
+        if (!text) return false;
+        const style = window.getComputedStyle(node);
+        if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
+        const rect = node.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      })
+      .map((node) => {
+        const style = window.getComputedStyle(node);
+        return {
+          tag: node.tagName.toLowerCase(),
+          className: node.className || '',
+          text: (node.innerText || node.textContent || '').trim().slice(0, 80),
+          size: parseFloat(style.fontSize),
+          family: style.fontFamily,
+        };
+      })
+      .filter((item) => {
+        const usesAllowedSize = allowedSizes.some((size) => Math.abs(item.size - size) <= 0.5);
+        const usesMonoTeachingFont = /Cascadia|Consolas|Mono/i.test(item.family);
+        return !usesAllowedSize || usesMonoTeachingFont;
+      })
+      .map((item) => `${item.tag}.${String(item.className).replace(/\s+/g, '.')} ${item.size}px ${item.family} "${item.text}"`);
+  }, { selector: investmentTeachingTextSelector });
+
+  expect(offenders, `${label}: teaching text uses only the 32px/48px classroom scale`).toEqual([]);
+}
+
+async function expectInvestmentNoUltraBold(page, label = 'investment slide') {
+  const offenders = await page.evaluate(() => {
+    const slide = document.querySelector('.invSlide.is-active');
+    if (!slide) return ['missing active slide'];
+
+    return [...slide.querySelectorAll('*')]
+      .filter((node) => {
+        const text = (node.innerText || node.textContent || '').trim();
+        if (!text) return false;
+        const style = window.getComputedStyle(node);
+        if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
+        const rect = node.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      })
+      .map((node) => {
+        const style = window.getComputedStyle(node);
+        return {
+          tag: node.tagName.toLowerCase(),
+          className: node.className || '',
+          text: (node.innerText || node.textContent || '').trim().slice(0, 80),
+          weight: parseInt(style.fontWeight, 10),
+        };
+      })
+      .filter((item) => Number.isFinite(item.weight) && item.weight > 700)
+      .map((item) => `${item.tag}.${String(item.className).replace(/\s+/g, '.')} ${item.weight} "${item.text}"`);
+  });
+
+  expect(offenders, `${label}: visible slide text avoids ultra-bold weights`).toEqual([]);
+}
+
+async function expectInvestmentBlankVisualState(page, label = 'investment blank') {
+  const state = await page.locator('.invSlide.is-active .blank').first().evaluate((blank) => {
+    const style = window.getComputedStyle(blank);
+    const rect = blank.getBoundingClientRect();
+    const container = blank.closest('.invCheckText, .invTermDefinition, .invStep strong, .invBigQuestion, .invPanel') || blank.parentElement;
+    const text = (blank.textContent || '').trim();
+    return {
+      answer: blank.getAttribute('data-answer') || text,
+      className: blank.className,
+      display: style.display,
+      width: rect.width,
+      parentWidth: container?.getBoundingClientRect().width || rect.width,
+      height: rect.height,
+      borderBottomWidth: parseFloat(style.borderBottomWidth),
+      borderBottomColor: style.borderBottomColor,
+      backgroundImage: style.backgroundImage,
+      backgroundColor: style.backgroundColor,
+      color: style.color,
+    };
+  });
+
+  expect(state.answer, `${label}: answer metadata exists`).not.toHaveLength(0);
+  expect(state.display, `${label}: blank slot keeps grid display before reveal`).toMatch(/grid/);
+  expect(state.width, `${label}: blank slot is visibly wide`).toBeGreaterThanOrEqual(58);
+  expect(state.width, `${label}: blank slot does not expand across the line before reveal`).toBeLessThan(state.parentWidth * 0.8);
+  expect(state.height, `${label}: blank slot has visible height`).toBeGreaterThan(20);
+  expect(state.borderBottomWidth, `${label}: blank has a clear underline`).toBeGreaterThanOrEqual(3);
+  expect(`${state.backgroundImage} ${state.backgroundColor}`, `${label}: blank has a visible fill`).not.toMatch(/none rgba\(0, 0, 0, 0\)/);
+}
+
+async function expectInvestmentBlankRevealedVisualState(page, label = 'investment blank') {
+  const state = await page.locator('.invSlide.is-active .blank').first().evaluate((blank) => {
+    const style = window.getComputedStyle(blank);
+    const rect = blank.getBoundingClientRect();
+    const container = blank.closest('.invCheckText, .invTermDefinition, .invStep strong, .invBigQuestion, .invPanel') || blank.parentElement;
+    return {
+      text: (blank.textContent || '').trim(),
+      display: style.display,
+      width: rect.width,
+      parentWidth: container?.getBoundingClientRect().width || rect.width,
+      color: style.color,
+      borderBottomColor: style.borderBottomColor,
+    };
+  });
+
+  expect(state.text, `${label}: revealed answer text exists`).not.toHaveLength(0);
+  expect(state.display, `${label}: revealed blank keeps grid display`).toMatch(/grid/);
+  expect(state.width, `${label}: revealed blank does not expand across the line`).toBeLessThan(state.parentWidth * 0.8);
+  expect(state.color, `${label}: revealed answer is visibly colored`).not.toMatch(/rgba?\(0, 0, 0(, 0)?\)/);
+  expect(state.borderBottomColor, `${label}: revealed underline remains visible`).not.toMatch(/rgba?\(0, 0, 0(, 0)?\)/);
+}
+
+async function expectInvestmentAllBlanksInline(page, label = 'investment blanks') {
+  const states = await page.evaluate(() => [...document.querySelectorAll('.invSlide.is-active .blank')]
+    .map((blank) => {
+      const style = window.getComputedStyle(blank);
+      const rect = blank.getBoundingClientRect();
+      const container = blank.closest('.invCheckText, .invTermDefinition, .invStep strong, .invBigQuestion, .invPanel') || blank.parentElement;
+
+      return {
+        text: (blank.textContent || '').trim(),
+        className: blank.className,
+        display: style.display,
+        width: rect.width,
+        containerWidth: container?.getBoundingClientRect().width || rect.width,
+      };
+    }));
+
+  expect(states.length, `${label}: slide has blanks`).toBeGreaterThan(0);
+  expect(
+    states.filter((state) => !/grid/.test(state.display)),
+    `${label}: every blank keeps grid display instead of becoming block-level`
+  ).toEqual([]);
+  expect(
+    states.filter((state) => state.width >= state.containerWidth * 0.8),
+    `${label}: no blank expands across its text container`
+  ).toEqual([]);
+}
+
+async function findInvestmentSlideNumber(page, match) {
+  return page.evaluate(({ title, type, occurrence = 1 }) => {
+    let seen = 0;
+    const slides = window.INVEST?.lesson?.slides || [];
+
+    for (let index = 0; index < slides.length; index += 1) {
+      const slide = slides[index];
+      if (title && slide.title !== title) continue;
+      if (type && slide.type !== type) continue;
+      seen += 1;
+      if (seen === occurrence) return index + 1;
+    }
+
+    return 0;
+  }, match);
+}
+
+async function goToInvestmentSlide(page, match) {
+  const slideNumber = await findInvestmentSlideNumber(page, match);
+  expect(slideNumber, `investment slide exists: ${match.type || '*'} ${match.title || ''}`).toBeGreaterThan(0);
+  await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `#${slideNumber}`);
+  await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
+  await page.evaluate(() => document.querySelectorAll('.sourceList[open]').forEach((node) => node.removeAttribute('open')));
+  return slideNumber;
+}
+
 function expectColorNotNearWhite(color) {
   const channels = String(color).match(/[\d.]+/g)?.slice(0, 3).map(Number);
   expect(channels, `Could not parse CSS colour ${color}`).toHaveLength(3);
@@ -539,80 +827,185 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Teach Lesson 1$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
-    await expect(page.getByRole('link', { name: /^Open quiz$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
+    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
+    await expect(page.getByRole('link', { name: /^Lesson 1 quiz$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
+    await expect(page.getByText(/What you will learn/i)).toBeVisible();
+    await expect(page.getByText(/Read a share/i)).toBeVisible();
     await expectNoHorizontalOverflow(page);
 
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
-    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 39');
     await expect(page.locator('.invSlide.is-active')).toContainText(/Lesson overview/i);
     await expect(page.getByRole('heading', { name: /^What is a share\?$/i })).toBeVisible();
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /hkex-hall\.jpg/);
-    await expectMinimumVisibleFontSize(page, '.invApp', 24);
-    const investmentPhotoCount = await page.locator('img[src*="assets/images/investment-analysis/"]').count();
-    expect(investmentPhotoCount).toBeGreaterThanOrEqual(10);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /trading-desk-laptops-2025\.jpg/);
+    await expectInvestmentSlideFits(page, 'hero slide desktop');
+    const investmentPhotoRefCount = await page.evaluate(() =>
+      document.querySelectorAll('img[src*="assets/images/investment-analysis/"], [style*="assets/images/investment-analysis/"]').length
+    );
+    expect(investmentPhotoRefCount).toBeGreaterThanOrEqual(20);
     const completePhotoMetadataCount = await page.evaluate(() =>
       Object.values(window.INVEST.photos || {}).filter((photo) =>
         photo.src && photo.alt && photo.caption && photo.credit && photo.source
       ).length
     );
-    expect(completePhotoMetadataCount).toBeGreaterThanOrEqual(10);
+    expect(completePhotoMetadataCount).toBeGreaterThanOrEqual(20);
+    const investmentVisualChecks = await page.evaluate(() => {
+      const slides = window.INVEST?.lesson?.slides || [];
+      const slideVisualFiles = slides.map((slide) => slide.visual?.src || '').filter(Boolean);
+      const requiredModernFiles = [
+        'trading-desk-laptops-2025.jpg',
+        'smartphone-market-chart-2025.jpg',
+        'tablet-financial-chart-2026.jpg',
+        'investor-chart-screens-2026.jpg',
+        'financial-analysis-desk-2024.jpg',
+        'tencent-binhai-towers-2023.jpg',
+        'business-charts-paper-2021.jpg',
+        'finance-chart-whiteboard-2021.jpg',
+        'stock-report-calculator-2021.jpg',
+        'investor-meeting-report-2021.jpg'
+      ];
+
+      return {
+        visualPauseCount: slides.filter((slide) => slide.type === 'visualPause').length,
+        hasOldStockCertificate: slideVisualFiles.some((src) => /stock-certificate\.jpg/i.test(src)),
+        missingModernFiles: requiredModernFiles.filter((file) => !slideVisualFiles.some((src) => src.includes(file)))
+      };
+    });
+    expect(investmentVisualChecks.visualPauseCount).toBeGreaterThanOrEqual(10);
+    expect(investmentVisualChecks.hasOldStockCertificate).toBe(false);
+    expect(investmentVisualChecks.missingModernFiles).toEqual([]);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
     await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '2');
-    await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/stock-certificate.jpg"]')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Wikimedia Commons/i);
+    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/A student owns one Tencent share/i);
+    await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#7');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await goToInvestmentSlide(page, { type: 'term', title: 'Share' });
+    await expect(page.locator('.invSlide.is-active .invTitleBlock h1')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Share');
+    await expectInvestmentTeachingTextAtLeast(page, 32, 'term definition slide classroom');
+    await expectInvestmentNoUltraBold(page, 'term definition slide');
     await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await expectInvestmentBlankVisualState(page, 'term definition blank');
     await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Share');
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentBlankRevealedVisualState(page, 'term definition revealed blank');
 
     await page.locator('.invSlide.is-active .sourceList summary').click();
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '6');
+    await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Share');
     await expect(page.locator('.invSlide.is-active .sourceList')).toHaveAttribute('open', '');
     await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/Tencent investor relations/i);
 
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#8');
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Fill in the blanks', occurrence: 1 });
     await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await expectInvestmentBlankVisualState(page, 'fill blanks slide 8 blank');
     await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '7');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toBeVisible();
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentBlankRevealedVisualState(page, 'fill blanks slide 8 revealed blank');
 
     await page.keyboard.press('N');
     await expect(page.locator('.invNotes')).toBeVisible();
     await page.keyboard.press('N');
     await expect(page.locator('.invNotes')).toBeHidden();
 
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#11');
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '10');
-    await expectMinimumVisibleFontSize(page, '.invApp', 24);
+    await goToInvestmentSlide(page, { type: 'quiz', title: 'Share or shareholder?' });
+    await expectInvestmentSlideFits(page, 'quiz slide desktop');
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
     await page.locator('.invSlide.is-active .invChoice').nth(1).click();
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invChoice').nth(1)).toHaveClass(/is-correct/);
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '#13');
-    await expect(page.locator('.invSlide.is-active .invTable')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/tencent-seafront-towers.jpg"]')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invPhotoCaption')).toContainText(/Tencent Seafront Towers/i);
-    await expectMinimumVisibleFontSize(page, '.invApp', 24);
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Fill in the blanks', occurrence: 3 });
+    await expectInvestmentTeachingTextAtLeast(page, 32, 'fill blanks classroom');
+    await expectInvestmentNoUltraBold(page, 'fill blanks classroom');
+    await expectInvestmentBlankVisualState(page, 'fill blanks classroom blank');
+    await expectInvestmentSlideFits(page, 'fill blanks classroom');
+    const fillBlankSize = await page.locator('.invSlide.is-active .invCheckItem').first().evaluate((node) =>
+      parseFloat(window.getComputedStyle(node).fontSize)
+    );
+
+    await goToInvestmentSlide(page, { type: 'flow', title: 'Why share prices move' });
+    await expectInvestmentTeachingTextAtLeast(page, 32, 'why share prices move classroom');
+    await expectInvestmentNoUltraBold(page, 'why share prices move classroom');
+    await expectInvestmentSlideFits(page, 'why share prices move classroom');
+    const flowTextSize = await page.locator('.invSlide.is-active .invStep strong').first().evaluate((node) =>
+      parseFloat(window.getComputedStyle(node).fontSize)
+    );
+    expect(Math.abs(fillBlankSize - flowTextSize), 'fill blanks and flow slides use the same classroom task size').toBeLessThanOrEqual(1);
+
+    const blankSlideNumbers = await page.evaluate(() => (window.INVEST.lesson.slides || [])
+      .map((slide, index) => ({ slide, slideNumber: index + 1 }))
+      .filter(({ slide }) => slide.mode === 'fillBlanks' || /class="blank/.test(slide.definition || ''))
+      .map(({ slideNumber }) => slideNumber));
+
+    for (const slideNumber of blankSlideNumbers) {
+      await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `#${slideNumber}`);
+      await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
+      await page.evaluate(() => document.querySelectorAll('.sourceList[open]').forEach((node) => node.removeAttribute('open')));
+      await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal.is-revealed')
+        .forEach((node) => node.classList.remove('is-revealed')));
+      await expectInvestmentAllBlanksInline(page, `investment slide ${slideNumber} blanks before reveal`);
+
+      const blankCount = await page.locator('.invSlide.is-active .blank').count();
+      for (let revealIndex = 0; revealIndex < blankCount; revealIndex += 1) {
+        await page.keyboard.press('Space');
+      }
+
+      await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
+      await expectInvestmentAllBlanksInline(page, `investment slide ${slideNumber} blanks after reveal`);
+      await expectInvestmentSlideFits(page, `investment slide ${slideNumber} revealed blanks`);
+    }
+
+    await goToInvestmentSlide(page, { type: 'dataSnapshot', title: 'Tencent: frozen company snapshot' });
+    await expect(page.locator('.invSlide.is-active .invDataFocusCard')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invDataReadItem')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invDataPrompt h2')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/Find the stock code/i);
+    await expectInvestmentTeachingTextAtLeast(page, 32, 'data snapshot classroom');
+    await expectInvestmentNoUltraBold(page, 'data snapshot classroom');
+    await expectInvestmentSlideFits(page, 'data snapshot classroom');
     await expectNoHorizontalOverflow(page);
+
+    await goToInvestmentSlide(page, { type: 'analystBoard', title: 'Three evidence blocks before judgement' });
+    await expect(page.locator('.invSlide.is-active .invEvidence')).toHaveCount(3);
+    await expectInvestmentSlideFits(page, 'analyst board classroom');
+
+    await goToInvestmentSlide(page, { type: 'riskRegister', title: 'A good company can still be a risky share' });
+    await expect(page.locator('.invSlide.is-active .invRiskItem')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'risk register classroom');
+
+    await goToInvestmentSlide(page, { type: 'exam', title: 'Explain why high revenue does not prove that a share is a good investment. [4]' });
+    await expect(page.locator('.invSlide.is-active .invExamKeywords .invKeyword')).toHaveCount(6);
+    await expectInvestmentSlideFits(page, 'exam slide classroom');
+
+    await goToInvestmentSlide(page, { type: 'modelAnswer', title: 'Explain why high revenue does not prove that a share is a good investment. [4]' });
+    await page.keyboard.press('Space');
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invModelParas p.is-revealed')).toHaveCount(2);
+    await expectInvestmentSlideFits(page, 'model answer classroom');
+
+    for (let slideNumber = 1; slideNumber <= 39; slideNumber += 1) {
+      await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `?classroom-fit=${slideNumber}#${slideNumber}`);
+      await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
+      await expectInvestmentSlideFits(page, `investment slide ${slideNumber} classroom`);
+      await expectInvestmentTeachingTextAtLeast(page, 32, `investment slide ${slideNumber} classroom`);
+      await expectInvestmentCompactTeachingScale(page, `investment slide ${slideNumber} classroom`);
+      await expectInvestmentNoUltraBold(page, `investment slide ${slideNumber} classroom`);
+    }
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
     await expect(page.locator('.invQuizDeck')).toBeVisible();
     await expect(page.locator('.invQuizQuestion')).toHaveCount(8);
     await expect(page.locator('.invQuizScore')).toHaveText('0/8 answered');
-    await expectMinimumVisibleFontSize(page, '.invQuizDeck', 24);
     await page.locator('.invQuizQuestion').first().getByLabel('One unit of ownership in a company').check();
     await page.getByRole('button', { name: /Mark quiz/i }).click();
     await expect(page.locator('.invQuizScore')).toContainText('/8');
@@ -628,8 +1021,41 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
-    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 39');
+    await expectInvestmentSlideFits(page, 'hero slide phone');
+    await expectInvestmentTeachingTextAtLeast(page, 24, 'hero slide phone');
     await expectNoHorizontalOverflow(page);
+
+    const phoneChecks = [
+      { type: 'visualPause', title: 'First identify the company' },
+      { type: 'visualPause', title: 'The old price is the base' },
+      { type: 'dataSnapshot', title: 'Tencent: frozen company snapshot' },
+      { type: 'answer', title: 'Fill in the blanks', occurrence: 3 },
+      { type: 'flow', title: 'Why share prices move' },
+      { type: 'visualPause', title: 'Evidence comes before judgement' },
+      { type: 'answer', title: 'Exit ticket' }
+    ];
+
+    for (const match of phoneChecks) {
+      const slideNumber = await goToInvestmentSlide(page, match);
+      if (match.title === 'Exit ticket') await expect(page.locator('.invSlide.is-active')).toHaveClass(/invExitTicketSlide/);
+      await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone`);
+      await expectInvestmentTeachingTextAtLeast(page, 24, `investment slide ${slideNumber} phone`);
+      await expectInvestmentNoUltraBold(page, `investment slide ${slideNumber} phone`);
+      const blankCount = await page.locator('.invSlide.is-active .blank').count();
+      if (blankCount > 0) {
+        await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal.is-revealed')
+          .forEach((node) => node.classList.remove('is-revealed')));
+        await expectInvestmentAllBlanksInline(page, `investment slide ${slideNumber} phone blanks before reveal`);
+        for (let revealIndex = 0; revealIndex < blankCount; revealIndex += 1) {
+          await page.keyboard.press('Space');
+        }
+        await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
+        await expectInvestmentAllBlanksInline(page, `investment slide ${slideNumber} phone blanks after reveal`);
+        await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed blanks`);
+      }
+      await expectNoHorizontalOverflow(page);
+    }
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
     await expect(page.locator('.invQuizDeck')).toBeVisible();

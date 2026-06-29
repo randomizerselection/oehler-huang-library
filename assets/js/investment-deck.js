@@ -58,14 +58,29 @@
       </details>`;
   }
 
-  function slideShell(slide, index, lesson, body, extraClass = '', backgroundPhoto = null) {
+  function blankMarkup(answer) {
+    const answerText = String(answer ?? '');
+    const width = Math.max(4, Math.min(16, answerText.length + 2));
+    return `<span class="blank invReveal" data-answer="${escapeHtml(answerText)}" style="--blank-width:${width}ch"><span class="invBlankText">${escapeHtml(answerText)}</span></span>`;
+  }
+
+  function fillBlankMarkup(template, answer) {
+    return escapeHtml(template).replace(/__________([.,!?%]*)/g, (_match, punctuation = '') => {
+      const slot = blankMarkup(answer);
+      if (!punctuation) return slot;
+      return `<span class="invBlankGroup">${slot}<span class="invBlankPunctuation">${escapeHtml(punctuation)}</span></span>`;
+    });
+  }
+
+  function slideShell(slide, index, lesson, body, extraClass = '', backgroundPhoto = null, options = {}) {
     const sources = slide.sources || lesson.meta?.sources || lesson.sources || [];
+    const className = ['invSlide', extraClass].filter(Boolean).join(' ');
     return `
-      <section class="invSlide ${extraClass}" data-idx="${index}" data-type="${escapeHtml(slide.type)}" aria-label="${escapeHtml(slide.title || `Slide ${index + 1}`)}"${backgroundStyle(backgroundPhoto)}>
+      <section class="${escapeHtml(className)}" data-idx="${index}" data-type="${escapeHtml(slide.type)}" aria-label="${escapeHtml(slide.title || `Slide ${index + 1}`)}"${backgroundStyle(backgroundPhoto)}>
         <header class="invSlideHeader">
           <div class="invTitleBlock">
             ${slide.eyebrow ? `<div class="invEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
-            ${slide.title ? `<h1>${html(slide.title)}</h1>` : ''}
+            ${slide.title && !options.hideTitle ? `<h1>${html(slide.title)}</h1>` : ''}
             ${slide.zhTitle ? `<div class="invZhTitle" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</div>` : ''}
             ${slide.subtitle ? `<p class="invLead">${html(slide.subtitle)}</p>` : ''}
             ${slide.kicker ? `<p class="invHeroKicker">${escapeHtml(slide.kicker)}</p>` : ''}
@@ -83,11 +98,10 @@
     const photo = slide.visual || slide.photo;
     const hasMarketCard = Boolean(slide.ticker || (slide.metrics || []).length);
     const titleOnly = !hasMarketCard && !slide.question;
-    const metrics = (slide.metrics || []).map((metric) => `
+    const metrics = (slide.metrics || []).slice(0, 3).map((metric) => `
       <div class="invMetric">
         <strong>${escapeHtml(metric.label)}</strong>
         <span class="invMetricValue">${escapeHtml(metric.value)}</span>
-        ${metric.note ? `<span class="invZhLine">${escapeHtml(metric.note)}</span>` : ''}
       </div>
     `).join('');
 
@@ -131,22 +145,27 @@
 
   function renderSection(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const body = `
-      <div class="${photo?.src ? 'invTwoColumn' : 'invSectionDeck'}">
-        <div class="invSectionDeck">
+    const parts = slide.parts || [];
+    const currentPartIndex = parts.findIndex((part) => part.current);
+    const roadmap = currentPartIndex >= 0 ? parts.slice(currentPartIndex + 1) : parts.filter((part) => !part.current);
+    const sectionDeck = `
+      <div class="invSectionDeck">
         <div>
           <div class="invSectionNumber">${escapeHtml(slide.part || index)}</div>
           <div class="invEyebrow">${escapeHtml(slide.kicker || 'Lesson map')}</div>
         </div>
         <div>
           <p class="invLead">${html(slide.prompt || '')}</p>
-          <div class="invSectionList">
-            ${(slide.parts || []).map((part) => `<span class="${part.current ? 'is-current' : ''}">${escapeHtml(part.label || part)}</span>`).join('')}
-          </div>
+          ${roadmap.length ? `<div class="invSectionList">
+            ${roadmap.map((part) => `<span>${escapeHtml(part.label || part)}</span>`).join('')}
+          </div>` : ''}
         </div>
-        </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
       </div>`;
+    const body = photo?.src ? `
+      <div class="invTwoColumn">
+        ${sectionDeck}
+        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
+      </div>` : sectionDeck;
     return slideShell(slide, index, lesson, body, 'invSectionSlide');
   }
 
@@ -182,27 +201,20 @@
   function renderDiscussion(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const body = `
-      <div class="invTwoColumn">
+      <div class="invDiscussionStack">
         <div class="invPanel">
           <div class="invBigQuestion">${html(slide.question || slide.prompt || '')}</div>
           ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
         </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : `
-          <div class="invNotePanel invReveal">
-            <strong>${escapeHtml(slide.revealTitle || 'Teacher cue')}</strong>
-            <p>${html(slide.answer || slide.note || '')}</p>
-          </div>`}
+        <div class="invNotePanel invReveal">
+          <strong>${escapeHtml(slide.revealTitle || 'Teacher cue')}</strong>
+          <p>${html(slide.answer || slide.note || '')}</p>
+        </div>
       </div>`;
-    if (!photo?.src) return slideShell(slide, index, lesson, body);
-    return slideShell(slide, index, lesson, `${body}
-      <div class="invNotePanel invReveal">
-        <strong>${escapeHtml(slide.revealTitle || 'Teacher cue')}</strong>
-        <p>${html(slide.answer || slide.note || '')}</p>
-      </div>`);
+    return slideShell(slide, index, lesson, body, 'invDiscussionSlide invContextPhotoSlide', photo);
   }
 
   function renderTerm(slide, index, lesson) {
-    const photo = slide.visual || slide.photo;
     const terms = (slide.keyTerms || []).map((term) => `
       <div class="invTermNote invReveal">
         <strong>${escapeHtml(term.term)}</strong>
@@ -220,24 +232,23 @@
         ${slide.definitionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.definitionZh)}</p>` : ''}
         <div class="invTermGrid">${terms}</div>
       </div>`;
-    const body = photo?.src
-      ? `<div class="invTwoColumn">
-          ${termBox}
-          <div class="invPhotoColumn">${photoMarkup(photo)}</div>
-        </div>`
-      : termBox;
-    return slideShell(slide, index, lesson, body);
+    const body = termBox;
+    return slideShell(slide, index, lesson, body, 'invTermSlide', null, { hideTitle: true });
   }
 
   function renderAnswer(slide, index, lesson) {
-    const items = (slide.items || []).map((item) => `
+    const isExitTicket = /exit ticket/i.test(slide.title || '');
+    const items = (slide.items || []).map((item, i) => `
       <div class="invCheckItem">
-        ${html(item.prompt).replace('__________', `<span class="blank invReveal">${escapeHtml(item.answer)}</span>`)}
-        ${item.zh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</div>` : ''}
+        ${isExitTicket ? `<span class="invCheckNumber">${i + 1}</span>` : ''}
+        <span class="invCheckText">
+          ${fillBlankMarkup(item.prompt, item.answer)}
+          ${item.zh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</div>` : ''}
+        </span>
       </div>
     `).join('');
-    const body = `<div class="invCheckList">${items}</div>`;
-    return slideShell(slide, index, lesson, body);
+    const body = `<div class="invCheckList${isExitTicket ? ' invExitList' : ''}">${items}</div>`;
+    return slideShell(slide, index, lesson, body, isExitTicket ? 'invAnswerSlide invExitTicketSlide' : 'invAnswerSlide');
   }
 
   function renderFlow(slide, index, lesson) {
@@ -245,14 +256,11 @@
     const steps = (slide.steps || []).map((step, i) => `
       <div class="invStep">
         <span class="invStepNum">${i + 1}</span>
-        <strong>${html(step.text).replace('__________', `<span class="blank invReveal">${escapeHtml(step.answer)}</span>`)}</strong>
-        ${step.zh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(step.zh)}</span>` : ''}
+        <strong>${fillBlankMarkup(step.text, step.answer)}</strong>
       </div>
     `).join('');
-    const body = photo?.src
-      ? `<div class="invTwoColumn"><div class="invFlow">${steps}</div><div class="invPhotoColumn">${photoMarkup(photo)}</div></div>`
-      : `<div class="invFlow">${steps}</div>`;
-    return slideShell(slide, index, lesson, body);
+    const body = `<div class="invFlow">${steps}</div>`;
+    return slideShell(slide, index, lesson, body, 'invFlowSlide invContextPhotoSlide', photo);
   }
 
   function renderDataSnapshot(slide, index, lesson) {
@@ -263,40 +271,23 @@
         <strong>${escapeHtml(metric.value)}</strong>
       </div>
     `).join('');
-    const table = `
-      <div class="invTableWrap">
-        <table class="invTable">
-          <thead><tr>${(slide.table?.[0] || []).map((cell) => `<th>${escapeHtml(cell)}</th>`).join('')}</tr></thead>
-          <tbody>
-            ${(slide.table || []).slice(1).map((row) => `<tr>${row.map((cell) => `<td>${html(cell)}</td>`).join('')}</tr>`).join('')}
-          </tbody>
-        </table>
-      </div>`;
-    const bars = (slide.bars || []).map((bar) => `
-      <div>
-        <div><strong>${escapeHtml(bar.label)}</strong> <span class="invNumber">${escapeHtml(bar.value)}</span></div>
-        <div class="invBarTrack"><div class="invBarFill ${escapeHtml(bar.tone || '')}" style="width:${Math.max(0, Math.min(100, Number(bar.width) || 0))}%"></div></div>
-      </div>
-    `).join('');
     const body = `
-      <div class="invDataLayout">
-        <div>
-          ${focus ? `<div class="invDataFocus">${focus}</div>` : ''}
-          ${table}
-        </div>
-        <div class="invPanel">
-          ${photo?.src ? photoMarkup(photo, 'invPhotoInset') : ''}
-          ${slide.chartTitle ? `<h2>${escapeHtml(slide.chartTitle)}</h2>` : ''}
-          <div class="invBarChart">${bars}</div>
-          ${slide.note ? `<p class="invLead">${escapeHtml(slide.note)}</p>` : ''}
+      <div class="invDataSimple">
+        ${focus ? `<div class="invDataFocus">${focus}</div>` : ''}
+        <div class="invDataPrompt">
+          <p>${escapeHtml(slide.note || 'Use the source, date and key figures before making a judgement.')}</p>
+          <div class="invDataTask">
+            <strong>Student task</strong>
+            <span>Find the stock code, the source date, and one performance number before judging the share.</span>
+          </div>
         </div>
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invDataSnapshotSlide invContextPhotoSlide', photo);
   }
 
   function renderAnalystBoard(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const blocks = (slide.blocks || []).map((block) => `
+    const blocks = (slide.blocks || []).slice(0, 3).map((block) => `
       <div class="invEvidence">
         <span class="invEyebrow">${escapeHtml(block.label)}</span>
         <strong>${escapeHtml(block.title)}</strong>
@@ -305,29 +296,25 @@
       </div>
     `).join('');
     const body = `
-      <div class="invTwoColumn">
+      <div>
         <div class="invEvidenceGrid">${blocks}</div>
-        <div class="invPhotoColumn">
-          ${photo?.src ? photoMarkup(photo) : ''}
-          ${slide.prompt ? `<div class="invNotePanel invReveal"><strong>Judgement prompt</strong><p>${escapeHtml(slide.prompt)}</p></div>` : ''}
-        </div>
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal">${escapeHtml(slide.prompt)}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invAnalystBoardSlide invContextPhotoSlide', photo);
   }
 
   function renderCalculationDesk(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const body = `
-      <div class="${photo?.src ? 'invTwoColumn' : ''}">
+      <div>
         <div class="invCalcBox">
           ${slide.formula ? `<div class="invFormula">${escapeHtml(slide.formula)}</div>` : ''}
           ${slide.worked ? `<div class="invWorked"><strong>Worked example</strong><br>${html(slide.worked)}${slide.workedZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.workedZh)}</div>` : ''}</div>` : ''}
           ${slide.prompt ? `<div class="invTryIt"><strong>Try it</strong><br>${html(slide.prompt)}${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
           ${slide.answer ? `<div class="invNotePanel invReveal"><strong>Answer</strong><p>${html(slide.answer)}</p></div>` : ''}
         </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invCalculationDeskSlide invContextPhotoSlide', photo);
   }
 
   function renderRiskRegister(slide, index, lesson) {
@@ -340,14 +327,11 @@
       </div>
     `).join('');
     const body = `
-      <div class="invTwoColumn">
+      <div>
         <div class="invRiskGrid">${rows}</div>
-        <div class="invPhotoColumn">
-          ${photo?.src ? photoMarkup(photo) : ''}
-          ${slide.prompt ? `<div class="invNotePanel invReveal"><strong>${escapeHtml(slide.prompt)}</strong><p>${escapeHtml(slide.answer || '')}</p></div>` : ''}
-        </div>
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong> ${escapeHtml(slide.answer || '')}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invRiskRegisterSlide invContextPhotoSlide', photo);
   }
 
   function renderPeerTask(slide, index, lesson) {
@@ -359,14 +343,13 @@
       </div>
     `).join('');
     const body = `
-      <div class="${photo?.src ? 'invTwoColumn' : ''}">
+      <div>
         <div class="invPeerBox">
           <div class="invPeerSteps">${steps}</div>
           ${slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p></div>` : ''}
         </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invPeerTaskSlide', photo);
   }
 
   function renderQuiz(slide, index, lesson) {
@@ -375,40 +358,42 @@
       <button class="invChoice" type="button" data-choice="${i}">${escapeHtml(choice)}</button>
     `).join('');
     const body = `
-      <div class="${photo?.src ? 'invTwoColumn' : ''}">
+      <div>
         <div class="invPanel">
           <div class="invBigQuestion">${html(slide.question || '')}</div>
-          ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
           <div class="invQuizChoices">${choices}</div>
           <div class="invQuizFeedback" hidden>${html(slide.explanation || '')}</div>
         </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invQuizSlide invContextPhotoSlide', photo);
   }
 
   function renderExam(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const keywords = (slide.keywords || []).map((keyword) => `<span class="invKeyword">${escapeHtml(keyword)}</span>`).join('');
     const body = `
-      <div class="${photo?.src ? 'invTwoColumn' : ''}">
+      <div>
         <div class="invExamBox">
           ${slide.prompt ? `<h3>${html(slide.prompt)}</h3>` : ''}
           <div class="invExamKeywords">${keywords}</div>
           ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
         </div>
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body);
+    return slideShell(slide, index, lesson, body, 'invExamSlide invContextPhotoSlide', photo);
   }
 
   function renderModelAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const paragraphs = (slide.paragraphs || []).map((paragraph) => `<p class="invReveal">${html(paragraph)}</p>`).join('');
-    const body = photo?.src
-      ? `<div class="invTwoColumn"><div class="invModelParas">${paragraphs}</div><div class="invPhotoColumn">${photoMarkup(photo)}</div></div>`
-      : `<div class="invModelParas">${paragraphs}</div>`;
-    return slideShell(slide, index, lesson, body);
+    const body = `
+      <div class="invModelFrame">
+        <div class="invModelCue">
+          <strong>Answer focus</strong>
+          <span>Two developed points: one about profit, one about price and risk.</span>
+        </div>
+        <div class="invModelParas">${paragraphs}</div>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invModelAnswerSlide invContextPhotoSlide', photo);
   }
 
   const renderers = {
