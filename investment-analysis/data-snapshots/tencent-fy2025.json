@@ -1,6 +1,9 @@
 {
   "company": "Tencent Holdings Limited",
   "stockCode": "0700.HK",
+  "quoteTicker": "0700.HK",
+  "officialHkexCode": "00700 (HKD counter)",
+  "stockCodeNote": "0700.HK is the classroom quote-style ticker; Tencent's source lists HKEX 00700 (HKD Counter) and 80700 (RMB Counter).",
   "exchange": "Hong Kong Stock Exchange",
   "snapshotDate": "2026-06-26",
   "currency": "RMB",

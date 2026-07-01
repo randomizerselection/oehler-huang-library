@@ -15,7 +15,7 @@ window.INVEST.lesson = {
       },
       {
         label: "Tencent 2025 annual and fourth quarter results",
-        note: "Used for FY2025 revenue, gross profit and gross-margin snapshot: revenue RMB751.8 billion, gross profit RMB422.6 billion, gross margin 56%.",
+        note: "Used for FY2025 revenue, gross profit and gross-margin snapshot, and official listing context: HKEX 00700 (HKD Counter) / 80700 (RMB Counter).",
         date: "Published 18 March 2026; accessed 26 June 2026",
         url: "https://static.www.tencent.com/uploads/2026/03/18/e6a646796d0d869acc76271c9ee1a6a5.pdf"
       }
@@ -40,7 +40,8 @@ window.INVEST.lesson = {
             type: "facts",
             items: [
               { label: "Company", value: "Tencent Holdings Limited" },
-              { label: "Stock code", value: "0700.HK" },
+              { label: "Quote ticker", value: "0700.HK" },
+              { label: "Official HKEX code", value: "00700 (HKD counter)" },
               { label: "Exchange", value: "Hong Kong Stock Exchange" },
               { label: "Source", value: "Tencent 2025 annual and fourth quarter results" },
               { label: "Published", value: "18 Mar 2026" },
@@ -50,8 +51,8 @@ window.INVEST.lesson = {
           {
             type: "prompts",
             prompts: [
-              { label: "Identity check", prompt: "Circle the stock code and underline the source date.", lines: 1 },
-              { label: "Boundary", prompt: "What can a stock code prove, and what can it not prove?", lines: 2 }
+              { label: "Identity check", prompt: "Circle the quote ticker and official HKEX code; underline the source date.", lines: 1 },
+              { label: "Boundary", prompt: "What can a ticker or stock code prove, and what can it not prove?", lines: 2 }
             ]
           }
         ]
@@ -169,11 +170,11 @@ window.INVEST.lesson = {
   slides: [
     {
       type: "hero",
-      eyebrow: "Lesson overview",
+      eyebrow: "Overview",
       title: "What is a share?",
       zhTitle: "什么是股票？",
       subtitle: "Unit 1 Lesson 1",
-      kicker: "What does one small ownership claim actually mean?",
+      kicker: "If you buy one Tencent share, what do you actually own?",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
         "Use this as the formal title slide before starting the market brief.",
@@ -183,31 +184,63 @@ window.INVEST.lesson = {
     {
       type: "hero",
       eyebrow: "Market Brief",
-      title: "What do you own when you buy one share?",
-      subtitle: "Lesson 1 starts with a concrete listed company: Tencent Holdings, stock code 0700.HK.",
+      title: "Start with the Tencent case file",
+      subtitle: "Before any opinion, find the facts.",
       visual: investmentPhotos.tencentBinhaiTowers,
-      ticker: "0700.HK",
-      question: "Handout Section A: If you buy one Tencent share, do you own Tencent?",
-      questionZh: "如果你买一股腾讯股票，你是否拥有腾讯这家公司？",
+      ticker: "Handout A",
+      question: "Open Section A. Circle these three facts before you judge the share.",
+      questionZh: "打开A部分。先圈出这三个事实，再判断股票。",
       sourceStamp: "Tencent snapshot | accessed 26 Jun 2026",
       metrics: [
-        { label: "Company", value: "Tencent", note: "腾讯控股" },
-        { label: "Listing", value: "HKEX", note: "香港交易所" },
-        { label: "Stock code", value: "0700.HK", note: "股票代码" },
-        { label: "Data type", value: "FY2025", note: "年度业绩" }
+        { label: "1. Company", value: "Tencent", note: "腾讯控股" },
+        { label: "2. Codes", value: "0700.HK / 00700", note: "报价 / 港交所" },
+        { label: "3. Source date", value: "18 Mar 2026", note: "来源日期" }
       ],
       notes: [
-        "Give students the Tencent analyst sheet first. Start with Section A and ownership, not price. Ask students to vote yes/no before showing the careful answer.",
+        "Give students the Tencent analyst sheet first. Keep the first student action simple: open Section A and circle company, codes and source date. Do not ask for valuation yet.",
         "Emphasise that the lesson is not investment advice; the company is used as a real data example."
       ]
+    },
+    {
+      type: "outcomes",
+      eyebrow: "Objectives",
+      title: "By the end, you can",
+      phases: ["Learn terms", "Use data", "Judge evidence"],
+      bullets: [
+        "distinguish saving, investing, speculating and trading",
+        "read company, exchange, stock code and share price in a stock snapshot",
+        "explain why a good company is not automatically a good investment"
+      ],
+      zhBullets: [
+        "区分储蓄、投资、投机和交易",
+        "读懂公司、交易所、股票代码和股价等信息",
+        "解释为什么好公司不一定等于好投资"
+      ],
+      notes: "Keep this short. The success test is whether students can separate saving, investing, speculating and trading, then separate company, share and price."
+    },
+    {
+      type: "section",
+      eyebrow: "Part 1",
+      part: "1",
+      title: "Why invest at all?",
+      zhTitle: "为什么投资？",
+      visual: investmentPhotos.financialAnalysisDesk,
+      prompt: "First we separate saving, investing, speculating and trading before talking about shares.",
+      parts: [
+        { label: "Why invest at all?", current: true },
+        { label: "Shares and company identity" },
+        { label: "Data, price and expectations" },
+        { label: "Good company or good investment?" }
+      ],
+      notes: "This section gives students the decision categories they need before the ownership and data parts."
     },
     {
       type: "discussion",
       eyebrow: "Before the first share",
       title: "Why not just keep money as cash?",
       visual: investmentPhotos.financialAnalysisDesk,
-      question: "Handout Section B: If cash feels safer than shares, why might someone still choose to invest?",
-      zh: "如果现金看起来比股票更安全，为什么有人仍然会选择投资？",
+      question: "First rule: saving keeps money safe for later use; investing accepts risk for expected return.",
+      zh: "第一条规则：储蓄把钱安全地留到以后使用；投资为了预期回报而承担风险。",
       revealTitle: "Careful answer",
       answer: "Saving protects money for later use. Investing accepts risk because the investor hopes the asset can grow, earn income, or beat inflation over time. Nobody can predict prices perfectly.",
       notes: [
@@ -220,15 +253,14 @@ window.INVEST.lesson = {
       eyebrow: "Key distinctions",
       title: "Saving, investing, speculating, trading",
       visual: investmentPhotos.stockReportCalculator,
-      mode: "fillBlanks",
       flowStyle: "categories",
       steps: [
-        { text: "__________ means keeping money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
-        { text: "__________ means putting money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
-        { text: "__________ means taking high risk mainly because you expect a price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
-        { text: "__________ means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
+        { text: "Saving means keeping money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
+        { text: "Investing means putting money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
+        { text: "Speculating means taking high risk mainly because you expect a price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
+        { text: "Trading means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
       ],
-      notes: "Students should complete the Section B term blanks before reveal. Then ask which one best describes today's Tencent lesson: investing analysis, not trading advice."
+      notes: "Teach these four categories explicitly first. Students then complete the Section B term blanks and use the following sort task as the formative check."
     },
     {
       type: "peerTask",
@@ -268,46 +300,30 @@ window.INVEST.lesson = {
       notes: "If students choose C or D, pause and ask what evidence or time horizon is missing before moving past Section B."
     },
     {
+      type: "section",
+      eyebrow: "Part 2",
+      part: "2",
+      title: "Shares and company identity",
+      zhTitle: "股票与公司身份",
+      prompt: "Now we separate the business, one ownership unit, the owner and the market identifiers.",
+      parts: [
+        { label: "Why invest at all?" },
+        { label: "Shares and company identity", current: true },
+        { label: "Data, price and expectations" },
+        { label: "Good company or good investment?" }
+      ],
+      notes: "Students should finish Section B ownership terms and Section A identity checks before any data or price judgement."
+    },
+    {
       type: "discussion",
       eyebrow: "Starter",
       title: "One share, one claim",
       visual: investmentPhotos.smartphoneMarketChart,
-      question: "Handout Section B: A student owns one Tencent share. Write one thing the student owns and one thing the student does not own.",
-      zh: "一名学生拥有一股腾讯股票。写出他拥有的一样东西，以及他不拥有的一样东西。",
+      question: "A share gives a small ownership claim. It does not make the student the owner of Tencent's offices, managers or bank account.",
+      zh: "一股股票给学生一个很小的所有权权益，但不代表他拥有腾讯的办公室、经理或银行账户。",
       revealTitle: "Useful distinction",
-      answer: "The student owns a very small ownership claim. The student does not own Tencent's offices, games, managers, or bank account personally.",
-      notes: "Give students 60 seconds on Section B of the handout, then take two answers. This prepares the share/shareholder definitions."
-    },
-    {
-      type: "outcomes",
-      eyebrow: "Objectives",
-      title: "By the end, you can",
-      bullets: [
-        "distinguish saving, investing, speculating and trading",
-        "read company, exchange, stock code and share price in a stock snapshot",
-        "explain why a good company is not automatically a good investment"
-      ],
-      zhBullets: [
-        "解释股票代表公司的一部分所有权",
-        "读懂公司、交易所、股票代码和股价等信息",
-        "解释为什么好公司不一定等于好投资"
-      ],
-      notes: "Keep this short. The success test is whether students can separate saving, investing, speculating and trading, then separate company, share and price."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 1",
-      part: "1",
-      title: "Company, share, shareholder",
-      zhTitle: "公司、股票与股东",
-      prompt: "First we separate the business itself from one small ownership unit.",
-      parts: [
-        { label: "Company, share, shareholder", current: true },
-        { label: "Finding the right listed company" },
-        { label: "Reading a price move" },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "Use this as a map: students are not yet judging whether Tencent is attractive."
+      answer: "After teaching the distinction, students write one thing a shareholder owns and one thing a shareholder does not personally own.",
+      notes: "Use this as a taught concrete example before the formal share/shareholder definitions and checks."
     },
     {
       type: "visualPause",
@@ -400,30 +416,77 @@ window.INVEST.lesson = {
       notes: "Wait for votes before clicking a choice. The explanation should stay hidden until a choice is selected."
     },
     {
-      type: "section",
-      eyebrow: "Part 2",
-      part: "2",
-      title: "Finding the right listed company",
-      zhTitle: "找到正确的上市公司",
-      visual: investmentPhotos.tencentBinhaiTowers,
-      prompt: "Next we use Handout Section A to read the identification information in a stock snapshot.",
-      parts: [
-        { label: "Company, share, shareholder" },
-        { label: "Finding the right listed company", current: true },
-        { label: "Reading a price move" },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "The point is identification, not valuation."
-    },
-    {
       type: "visualPause",
       eyebrow: "Look first",
       title: "First identify the company",
       visual: investmentPhotos.tencentBinhaiTowers,
       notes: [
-        "Observation question: what real business is behind the stock code 0700.HK?",
+        "Observation question: what real business is behind the quote ticker 0700.HK and HKEX code 00700?",
         "Bridge: before analysing a share price, students need the company name, market, code, source and date from Handout Section A."
       ]
+    },
+    {
+      type: "visualPause",
+      eyebrow: "Look first",
+      title: "A code points to one listing",
+      visual: investmentPhotos.financeChartWhiteboard,
+      notes: [
+        "Observation question: what information helps stop investors mixing up companies, markets or charts?",
+        "Bridge: a stock code or quote ticker is an identifier, not an investment judgement. Students record this boundary in Handout Section A."
+      ]
+    },
+    {
+      type: "term",
+      eyebrow: "Key idea",
+      title: "Stock code",
+      visual: investmentPhotos.financeChartWhiteboard,
+      term: "Stock code",
+      termZh: "股票代码",
+      definition: "A <span class=\"blank invReveal\">stock code</span> or quote ticker is a short identifier used to find a listed company's shares.",
+      definitionZh: "股票代码或报价代码是寻找上市公司股票的简短标识。",
+      keyTerms: [
+        { term: "0700.HK", zh: "课堂报价代码", note: "Market-data ticker used in class." },
+        { term: "00700", zh: "腾讯港股代码", note: "Official HKEX HKD-counter code in Tencent's source." }
+      ],
+      notes: "Students complete the stock-code idea from Section A. Contrast with company name: codes reduce confusion when companies have similar names."
+    },
+    {
+      type: "answer",
+      eyebrow: "Check",
+      title: "Fill in the blanks",
+      mode: "fillBlanks",
+      items: [
+        { prompt: "A stock code or quote ticker helps investors __________ the correct listed company.", answer: "identify", zh: "股票代码或报价代码帮助投资者识别正确的上市公司。" },
+        { prompt: "0700.HK and 00700 connect Tencent to the __________ market.", answer: "Hong Kong", zh: "0700.HK 和 00700 说明该股票与香港市场有关。" }
+      ],
+      notes: "Accept HK or Hong Kong verbally, but reveal the full wording. This is the Section A identification check."
+    },
+    {
+      type: "discussion",
+      eyebrow: "Discuss",
+      title: "What the code cannot tell you",
+      visual: investmentPhotos.financialAnalysisDesk,
+      question: "Handout Section A check: Do 0700.HK or 00700 tell us whether Tencent shares are cheap, expensive, risky or safe?",
+      zh: "0700.HK 或 00700 能不能告诉我们腾讯股票便宜、昂贵、有风险或安全？",
+      revealTitle: "Boundary",
+      answer: "No. A ticker or stock code identifies the share. To judge the investment, investors need evidence about performance, expectations, risk and price.",
+      notes: "Students write what the code can and cannot prove in Section A. This prepares the final objective: identification is not analysis."
+    },
+    {
+      type: "section",
+      eyebrow: "Part 3",
+      part: "3",
+      title: "Data, price and expectations",
+      zhTitle: "数据、价格与预期",
+      visual: investmentPhotos.tabletFinancialChart,
+      prompt: "Now we use Handout Sections C and D to read evidence, calculate one price move and explain why prices can change.",
+      parts: [
+        { label: "Why invest at all?" },
+        { label: "Shares and company identity" },
+        { label: "Data, price and expectations", current: true },
+        { label: "Good company or good investment?" }
+      ],
+      notes: "Students first read the FY2025 data, then calculate one frozen Tencent-style price change, then explain the information-expectations-price chain."
     },
     {
       type: "dataSnapshot",
@@ -441,7 +504,7 @@ window.INVEST.lesson = {
         ["Item", "What it tells an investor", "Snapshot"],
         ["Company", "The business being analysed", "Tencent Holdings Limited"],
         ["Exchange", "The market where this share is listed", "Hong Kong Stock Exchange"],
-        ["Stock code", "The identifier investors use to find the share", "0700.HK"],
+        ["Quote ticker / HKEX code", "The identifiers investors use to find the share", "0700.HK / 00700"],
         ["Revenue", "Total sales before costs are deducted", "RMB751.8bn"],
         ["Gross profit", "Revenue left after direct costs", "RMB422.6bn"],
         ["Gross margin", "Gross profit as a percentage of revenue", "56%"]
@@ -452,9 +515,9 @@ window.INVEST.lesson = {
         { label: "Gross profit", value: "422.6", width: 56, tone: "green" },
         { label: "Direct costs implied", value: "329.2", width: 44, tone: "amber" }
       ],
-      task: "Handout Sections A and C: find the stock code, source date and one performance figure, then write what the figure cannot prove.",
-      note: "The snapshot identifies the company and its latest annual figures. It still does not say whether the share is cheap or expensive.",
-      notes: "Students use Sections A and C. Ask them to find the stock code first, then one performance number, then the source/date stamp, then one limitation."
+      task: "Handout Section C: read the three figures. For each, write what it shows and what it does not prove.",
+      note: "Company, code, exchange, source and date are secure. Now read the performance figures.",
+      notes: "Students have already checked company/code/source in Section A. Now use Section C to read one performance number, then one limitation."
     },
     {
       type: "answer",
@@ -462,74 +525,11 @@ window.INVEST.lesson = {
       title: "Section C: What the data can show",
       mode: "fillBlanks",
       items: [
-        { prompt: "Revenue shows total __________ before costs are deducted.", answer: "sales", zh: "Revenue tells us sales scale, not whether the share is cheap." },
-        { prompt: "High revenue does not prove a good __________.", answer: "investment", zh: "A strong company may still have an unattractive share price." },
-        { prompt: "Gross margin compares gross profit with __________.", answer: "revenue", zh: "Gross margin is useful evidence, but it is not a full judgement." }
+        { prompt: "Revenue shows total __________ before costs are deducted.", answer: "sales", zh: "营业收入说明销售规模，但不能说明股票是否便宜。" },
+        { prompt: "High revenue does not prove a good __________.", answer: "investment", zh: "强公司仍然可能有不吸引人的股价。" },
+        { prompt: "Gross margin compares gross profit with __________.", answer: "revenue", zh: "毛利率是有用证据，但不是完整判断。" }
       ],
-      notes: "Students complete Section C before the lesson moves from data reading to stock-code and price-change checks."
-    },
-    {
-      type: "visualPause",
-      eyebrow: "Look first",
-      title: "A code points to one listing",
-      visual: investmentPhotos.financeChartWhiteboard,
-      notes: [
-        "Observation question: what information helps stop investors mixing up companies, markets or charts?",
-        "Bridge: a stock code is an identifier, not an investment judgement. Students record this boundary in Handout Section A."
-      ]
-    },
-    {
-      type: "term",
-      eyebrow: "Key idea",
-      title: "Stock code",
-      visual: investmentPhotos.financeChartWhiteboard,
-      term: "Stock code",
-      termZh: "股票代码",
-      definition: "A <span class=\"blank invReveal\">stock code</span> is the short market identifier used to find a listed company's shares.",
-      definitionZh: "股票代码是在市场上寻找上市公司股票的简短标识。",
-      keyTerms: [
-        { term: "0700.HK", zh: "腾讯在港股的代码", note: "The suffix helps show the market." },
-        { term: "Identifier", zh: "标识", note: "A code helps you find the share; it does not judge the investment." }
-      ],
-      notes: "Students complete the stock-code idea from Section A. Contrast with company name: codes reduce confusion when companies have similar names."
-    },
-    {
-      type: "answer",
-      eyebrow: "Check",
-      title: "Fill in the blanks",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "A stock code helps investors __________ the correct listed company.", answer: "identify", zh: "股票代码帮助投资者识别正确的上市公司。" },
-        { prompt: "The code 0700.HK tells us the share is connected to the __________ market.", answer: "Hong Kong", zh: "0700.HK 表明该股票与香港市场有关。" }
-      ],
-      notes: "Accept HK or Hong Kong verbally, but reveal the full wording. This is the Section A identification check."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Discuss",
-      title: "What the code cannot tell you",
-      visual: investmentPhotos.financialAnalysisDesk,
-      question: "Handout Section A check: Does 0700.HK tell us whether Tencent shares are cheap, expensive, risky or safe?",
-      zh: "0700.HK 能不能告诉我们腾讯股票便宜、昂贵、有风险或安全？",
-      revealTitle: "Boundary",
-      answer: "No. A stock code identifies the share. To judge the investment, investors need evidence about performance, expectations, risk and price.",
-      notes: "Students write what the code can and cannot prove in Section A. This prepares the final objective: identification is not analysis."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 3",
-      part: "3",
-      title: "Reading a price move",
-      zhTitle: "读懂股价变化",
-      visual: investmentPhotos.tabletFinancialChart,
-      prompt: "Now we use Handout Section D to read a simple share-price change as a percentage.",
-      parts: [
-        { label: "Company, share, shareholder" },
-        { label: "Finding the right listed company" },
-        { label: "Reading a price move", current: true },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "Use frozen Tencent-style prices here. The lesson is the percentage method, not Tencent's current market price."
+      notes: "Students complete Section C after the data-reading slide. This is a formative check, not the first presentation of the figures."
     },
     {
       type: "visualPause",
@@ -623,15 +623,14 @@ window.INVEST.lesson = {
       title: "Why share prices move",
       visual: investmentPhotos.investorChartScreens,
       zhTitle: "股价为什么变化",
-      mode: "fillBlanks",
       flowStyle: "sequence",
       steps: [
-        { text: "Investors receive new __________.", answer: "information", zh: "投资者收到新的信息。" },
-        { text: "They change expectations about future __________.", answer: "profit", zh: "他们改变对未来利润的预期。" },
-        { text: "More buyers than sellers can push the price __________.", answer: "up", zh: "买方多于卖方可能推动价格上涨。" },
-        { text: "More sellers than buyers can push the price __________.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
+        { text: "Investors receive new information.", answer: "information", zh: "投资者收到新的信息。" },
+        { text: "They change expectations about future profit.", answer: "profit", zh: "他们改变对未来利润的预期。" },
+        { text: "More buyers than sellers can push the price up.", answer: "up", zh: "买方多于卖方可能推动价格上涨。" },
+        { text: "More sellers than buyers can push the price down.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
       ],
-      notes: "Students use this flow to complete the Section D price movement sentence. Do not introduce efficient-market theory."
+      notes: "Teach the whole causal sequence explicitly first. The following sentence-completion task is the formative check. Do not introduce efficient-market theory."
     },
     {
       type: "peerTask",
@@ -655,9 +654,9 @@ window.INVEST.lesson = {
       visual: investmentPhotos.financialAnalysisDesk,
       prompt: "Finally we use Handout Section E to separate business quality from the price paid for the share.",
       parts: [
-        { label: "Company, share, shareholder" },
-        { label: "Finding the right listed company" },
-        { label: "Reading a price move" },
+        { label: "Why invest at all?" },
+        { label: "Shares and company identity" },
+        { label: "Data, price and expectations" },
         { label: "Good company or good investment?", current: true }
       ],
       notes: "This is the judgement frame for the course."
@@ -717,10 +716,10 @@ window.INVEST.lesson = {
       visual: investmentPhotos.shippingPort,
       table: [
         ["Risk", "Investor question", "Likely effect"],
-        ["High expectations", "Has the price already assumed strong growth?", "Even good results may disappoint investors"],
-        ["Regulation", "Could rules reduce future profit?", "Lower expected future cash flows"],
-        ["Competition", "Can rivals weaken the business model?", "Lower margins or slower growth"],
-        ["Currency and market risk", "Could exchange rates or market sentiment change?", "Lower return for some investors"]
+        ["High expectations", "Has the price already assumed strong growth?", "Good results may still disappoint."],
+        ["Regulation", "Could rules reduce future profit?", "Expected future profit may fall."],
+        ["Competition", "Can rivals weaken the business model?", "Margins or growth may fall."],
+        ["Currency and market risk", "Could exchange rates or market sentiment change?", "Some investors may earn less."]
       ],
       prompt: "Handout Section E: which risk is most important for Tencent in this lesson snapshot?",
       answer: "A strong answer names one risk and links it to future profit, investor expectations or the price paid.",
@@ -782,7 +781,7 @@ window.INVEST.lesson = {
       mode: "fillBlanks",
       items: [
         { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "股票是公司所有权的一个单位。" },
-        { prompt: "A stock code helps investors __________ the correct listed company.", answer: "identify", zh: "股票代码帮助投资者识别公司。" },
+        { prompt: "A code helps investors __________ the correct listed company.", answer: "identify", zh: "代码帮助投资者识别公司。" },
         { prompt: "A good company may be a poor investment if the share __________ is too high.", answer: "price", zh: "如果股价过高，好公司也可能不是好投资。" }
       ],
       notes: "Collect or cold-call. This checks the handout's minimum exit evidence: ownership, identification and price-paid judgement."

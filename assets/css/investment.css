@@ -2069,6 +2069,113 @@ img {
   align-content: center;
 }
 
+.invTitleOnlySlide {
+  background:
+    linear-gradient(90deg, rgba(5, 10, 12, 0.98) 0%, rgba(5, 10, 12, 0.84) 40%, rgba(5, 10, 12, 0.36) 72%, rgba(5, 10, 12, 0.12) 100%),
+    linear-gradient(0deg, rgba(5, 10, 12, 0.96), rgba(5, 10, 12, 0.1) 58%),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #091014;
+}
+
+.invTitleOnlySlide::after {
+  content: "";
+  position: absolute;
+  left: clamp(56px, 7vw, 126px);
+  right: clamp(28px, 12vw, 220px);
+  bottom: clamp(54px, 8vh, 104px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(79, 210, 255, 0.72), rgba(57, 217, 145, 0.4), transparent);
+  pointer-events: none;
+}
+
+.invTitleOnlySlide.is-active {
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+.invTitleOnlySlide .invSlideHeader {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  padding: clamp(42px, 7vh, 88px) clamp(34px, 6vw, 96px);
+  border-bottom: 0;
+}
+
+.invTitleOnlySlide .invTitleBlock {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  display: grid;
+  gap: 16px;
+  padding-left: 34px;
+}
+
+.invTitleOnlySlide .invTitleBlock::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--inv-cyan), var(--inv-green));
+  box-shadow: 0 0 24px rgba(79, 210, 255, 0.28);
+}
+
+.invTitleOnlySlide .invTitleBlock::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -28px -40px -28px -24px;
+  border: 1px solid rgba(152, 184, 188, 0.18);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(90deg, rgba(5, 14, 17, 0.76), rgba(5, 14, 17, 0.46) 68%, rgba(5, 14, 17, 0)),
+    rgba(5, 14, 17, 0.34);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+.invTitleOnlySlide .invEyebrow {
+  border: 1px solid rgba(79, 210, 255, 0.28);
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.09);
+  padding: 8px 12px;
+}
+
+.invTitleOnlySlide .invTitleBlock h1 {
+  max-width: 760px;
+  margin-top: 0;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.54);
+}
+
+.invTitleOnlySlide .invZhTitle {
+  margin-top: -8px;
+  color: rgba(205, 242, 246, 0.92);
+}
+
+.invTitleOnlySlide .invLead {
+  width: fit-content;
+  margin: 0;
+  border: 1px solid rgba(57, 217, 145, 0.32);
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.08);
+  color: rgba(205, 242, 246, 0.92);
+  padding: 8px 12px;
+}
+
+.invTitleOnlySlide .invHeroKicker {
+  max-width: 860px;
+  margin: 2px 0 0;
+  border-left: 5px solid rgba(241, 190, 90, 0.86);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(90deg, rgba(241, 190, 90, 0.14), rgba(5, 14, 17, 0.44)),
+    rgba(5, 14, 17, 0.26);
+  color: var(--inv-ink);
+  padding: 16px 18px;
+}
+
 .invObjectiveGrid {
   width: min(1220px, 100%);
 }
@@ -2652,6 +2759,503 @@ img {
   color: var(--inv-cyan);
   font-size: var(--inv-ui);
   font-weight: 600;
+}
+
+/* Slide-type polish: make each classroom format match its teaching job. */
+
+.invHeroSlide:not(.invTitleOnlySlide) .invHeroGrid {
+  align-items: end;
+  gap: 20px;
+}
+
+.invHeroSlide:not(.invTitleOnlySlide) .invPanel {
+  min-height: 270px;
+  align-content: end;
+  border-left-width: 6px;
+}
+
+.invDiscussionStack {
+  width: min(1180px, 100%);
+}
+
+.invDiscussionQuestion {
+  position: relative;
+  padding-top: 52px;
+}
+
+.invDiscussionQuestion::before,
+.invDiscussionAnswer::before {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  color: var(--type-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.invDiscussionQuestion::before {
+  content: "teach / think";
+}
+
+.invDiscussionAnswer {
+  position: relative;
+  padding-top: 48px;
+  background: rgba(57, 217, 145, 0.08);
+}
+
+.invDiscussionAnswer::before {
+  content: "reveal check";
+  color: var(--inv-green);
+}
+
+.invObjectiveGrid {
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.invObjective {
+  overflow: visible;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-content: stretch;
+  gap: 16px;
+  min-height: 250px;
+  padding: 20px 22px;
+}
+
+.invObjective:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  background: var(--type-accent-line);
+  clip-path: polygon(0 42%, 58% 42%, 58% 20%, 100% 50%, 58% 80%, 58% 58%, 0 58%);
+}
+
+.invObjectivePhase {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(241, 190, 90, 0.34);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.08);
+  color: var(--inv-amber);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 7px 9px;
+  text-transform: uppercase;
+}
+
+.invObjective strong {
+  align-self: end;
+}
+
+.invSectionDeck {
+  background:
+    linear-gradient(90deg, rgba(241, 190, 90, 0.08), rgba(6, 15, 18, 0.94) 34%),
+    rgba(9, 20, 23, 0.92);
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px;
+}
+
+.invSectionDeck > div:first-child {
+  gap: 10px;
+}
+
+.invSectionNumber {
+  width: 96px;
+  height: 96px;
+}
+
+.invSectionList {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.invSectionList span {
+  position: relative;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: start;
+  min-height: 142px;
+  padding: 8px 10px;
+}
+
+.invSectionList span::after {
+  grid-column: 1 / -1;
+  justify-self: end;
+  align-self: center;
+  border: 1px solid rgba(152, 184, 188, 0.24);
+  border-radius: var(--inv-radius);
+  color: rgba(214, 231, 232, 0.7);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 6px 8px;
+  text-transform: uppercase;
+}
+
+.invSectionList .is-current::after {
+  content: "now";
+  border-color: rgba(241, 190, 90, 0.45);
+  color: var(--inv-amber);
+}
+
+.invSectionList .is-complete::after {
+  content: "done";
+  border-color: rgba(57, 217, 145, 0.36);
+  color: var(--inv-green);
+}
+
+.invSectionList .is-next::after {
+  content: "next";
+}
+
+.invVisualPauseText {
+  border-left: 5px solid rgba(79, 210, 255, 0.68);
+}
+
+.invTermBox {
+  min-height: 450px;
+  align-items: stretch;
+}
+
+.invTermHeaderBlock {
+  align-content: start;
+  padding-top: 18px;
+}
+
+.invTermDefinition {
+  display: block;
+  min-height: 180px;
+  padding-top: 42px;
+}
+
+.invTermBox > .invPromptZh {
+  display: none;
+}
+
+.invTermGrid {
+  gap: 12px;
+}
+
+.invTermNote {
+  position: relative;
+  min-height: 132px;
+  border-left: 4px solid rgba(79, 210, 255, 0.4);
+  background: rgba(79, 210, 255, 0.06);
+  padding-top: 34px;
+}
+
+.invTermNote::before {
+  content: "meaning";
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.invCheckList {
+  width: min(1180px, 100%);
+}
+
+.invCheckItem {
+  min-height: 118px;
+  border-left-width: 6px;
+  background:
+    linear-gradient(90deg, rgba(57, 217, 145, 0.07), rgba(7, 17, 20, 0.88)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invCheckNumber {
+  box-shadow: 0 0 0 6px rgba(57, 217, 145, 0.08);
+}
+
+.invFlow-categories .invStep {
+  background:
+    linear-gradient(90deg, rgba(79, 210, 255, 0.08), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invFlow-categories .invStep:nth-child(2) {
+  border-left-color: rgba(57, 217, 145, 0.58);
+}
+
+.invFlow-categories .invStep:nth-child(3) {
+  border-left-color: rgba(241, 190, 90, 0.62);
+}
+
+.invFlow-categories .invStep:nth-child(4) {
+  border-left-color: rgba(238, 108, 101, 0.58);
+}
+
+.invFlow-sequence .invStep {
+  background:
+    linear-gradient(180deg, rgba(79, 210, 255, 0.08), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invPeerTaskSlide .invSortPeerBox {
+  background: rgba(7, 16, 19, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.invSortCategory {
+  border-style: dashed;
+  background:
+    linear-gradient(180deg, rgba(241, 190, 90, 0.1), rgba(7, 16, 19, 0.72)),
+    rgba(16, 28, 31, 0.72);
+}
+
+.invQuizSlide .invPanel {
+  width: min(1160px, 100%);
+  border-left-width: 6px;
+}
+
+.invChoice {
+  min-height: 120px;
+  background:
+    linear-gradient(180deg, rgba(79, 210, 255, 0.05), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invChoice:hover {
+  border-color: rgba(79, 210, 255, 0.58);
+  background: rgba(79, 210, 255, 0.11);
+}
+
+.invDataFocusCard {
+  position: relative;
+  grid-template-rows: auto minmax(0, 1fr);
+  align-content: end;
+  min-height: 176px;
+  padding: 22px 18px 20px;
+}
+
+.invDataIndex {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  color: rgba(79, 210, 255, 0.22);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invDataMetricLabel {
+  align-self: end;
+}
+
+.invDataFocusCard strong {
+  color: var(--inv-green);
+}
+
+.invDataPrompt {
+  overflow: hidden;
+  padding: 18px 22px;
+}
+
+.invDataTask {
+  max-width: 100%;
+}
+
+.invCalcBox {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.invFormula,
+.invCalcBox > .invNotePanel {
+  grid-column: 1 / -1;
+}
+
+.invWorked,
+.invTryIt {
+  display: grid;
+  align-content: start;
+  min-height: 178px;
+  padding: 16px;
+  background: rgba(7, 17, 20, 0.82);
+}
+
+.invEvidenceGrid {
+  position: relative;
+}
+
+.invEvidence {
+  position: relative;
+  min-height: 318px;
+  padding: 52px 22px 20px;
+  background:
+    linear-gradient(180deg, rgba(57, 217, 145, 0.07), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invEvidenceNumber {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  color: rgba(57, 217, 145, 0.24);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invEvidence strong {
+  min-height: 70px;
+}
+
+.invFocusPrompt {
+  border-left-width: 6px;
+  box-shadow: inset 0 1px 0 rgba(241, 190, 90, 0.18);
+}
+
+.invRiskGrid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.invRiskRegisterSlide .invSlideBody {
+  align-content: start;
+  padding-top: 8px;
+}
+
+.invRiskItem {
+  display: grid;
+  grid-template-columns: 24px minmax(240px, 0.24fr) minmax(390px, 0.38fr) minmax(390px, 0.38fr);
+  grid-template-areas:
+    "marker title question effect";
+  align-items: center;
+  gap: 10px;
+  min-height: 86px;
+  padding: 8px 14px;
+}
+
+.invRiskMarker {
+  position: static;
+  grid-area: marker;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+}
+
+.invRiskItem strong {
+  grid-area: title;
+  align-self: center;
+  line-height: 1.08;
+}
+
+.invRiskItem p {
+  margin: 0;
+}
+
+.invRiskQuestion {
+  grid-area: question;
+  line-height: 1.08;
+}
+
+.invRiskEffect {
+  grid-area: effect;
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  border-left: 1px solid rgba(238, 108, 101, 0.28);
+  padding-left: 14px;
+  line-height: 1.08;
+}
+
+.invRiskRegisterSlide .invRiskItem p:last-child {
+  display: block;
+}
+
+.invRiskEffect .invEyebrow {
+  display: inline-flex;
+  margin-right: 0;
+  border-left: 0;
+  background: transparent;
+  color: var(--inv-red);
+  padding-left: 0;
+}
+
+.invExamBox {
+  width: min(1220px, 100%);
+  border-left-width: 6px;
+  background:
+    linear-gradient(90deg, rgba(241, 190, 90, 0.09), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.9);
+}
+
+.invExamKeywords {
+  gap: 12px;
+}
+
+.invKeyword {
+  min-height: 76px;
+  background: rgba(79, 210, 255, 0.07);
+}
+
+.invModelFrame {
+  width: min(1220px, 100%);
+}
+
+.invModelCue {
+  min-height: 108px;
+}
+
+.invModelParas {
+  grid-template-columns: 1fr;
+}
+
+.invModelPoint {
+  position: relative;
+  min-height: 112px;
+  border: 1px dashed rgba(79, 210, 255, 0.28);
+  border-left: 5px solid rgba(79, 210, 255, 0.5);
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.04);
+  padding: 14px 14px 14px 72px;
+}
+
+.invModelPoint::before {
+  content: attr(data-point);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.14);
+  color: var(--inv-cyan);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+}
+
+.invModelParas p {
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.invModelParas p::before {
+  content: none;
 }
 
 /* Notes and overview */
@@ -3280,7 +3884,38 @@ img {
   }
 
   .invTitleOnlySlide .invSlideHeader {
-    padding-bottom: 28px;
+    min-height: 100%;
+    padding: clamp(18px, 5vh, 42px) 6px 18px;
+  }
+
+  .invTitleOnlySlide::after {
+    left: 32px;
+    right: 24px;
+    bottom: 30px;
+  }
+
+  .invTitleOnlySlide .invTitleBlock {
+    width: 100%;
+    gap: 12px;
+    padding-left: 18px;
+  }
+
+  .invTitleOnlySlide .invTitleBlock::before {
+    width: 4px;
+  }
+
+  .invTitleOnlySlide .invTitleBlock::after {
+    inset: -18px -10px -18px -14px;
+  }
+
+  .invTitleOnlySlide .invEyebrow,
+  .invTitleOnlySlide .invLead {
+    padding: 6px 9px;
+  }
+
+  .invTitleOnlySlide .invHeroKicker {
+    border-left-width: 4px;
+    padding: 12px 13px;
   }
 
   .invPhotoFull,
@@ -3544,6 +4179,90 @@ img {
   .invQuizDeck {
     width: min(100% - 24px, 1000px);
     margin-top: 12px;
+  }
+
+  .invObjective:not(:last-child)::before {
+    display: none;
+  }
+
+  .invObjective {
+    min-height: auto;
+  }
+
+  .invSectionList span {
+    min-height: auto;
+    padding-right: 10px;
+  }
+
+  .invSectionList span::after {
+    justify-self: start;
+  }
+
+  .invTermNote {
+    min-height: auto;
+    padding-top: 30px;
+  }
+
+  .invCheckItem,
+  .invChoice {
+    min-height: auto;
+  }
+
+  .invFormula,
+  .invCalcBox > .invNotePanel {
+    grid-column: auto;
+  }
+
+  .invWorked,
+  .invTryIt {
+    min-height: auto;
+  }
+
+  .invEvidence {
+    min-height: auto;
+    padding-top: 48px;
+  }
+
+  .invRiskGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .invRiskItem {
+    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-areas:
+      "marker title"
+      "question question"
+      "effect effect";
+    padding: 12px;
+  }
+
+  .invRiskMarker {
+    position: static;
+  }
+
+  .invRiskEffect {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    border-left: 0;
+    border-top: 1px solid rgba(238, 108, 101, 0.24);
+    padding-left: 0;
+    padding-top: 6px;
+  }
+
+  .invModelPoint {
+    min-height: auto;
+    padding: 12px 12px 12px 54px;
+  }
+
+  .invModelPoint::before {
+    left: 12px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .invModelParas p {
+    padding: 0;
   }
 
   .handoutToolbar,

@@ -313,11 +313,13 @@
   }
 
   function renderOutcomes(slide, index, lesson) {
+    const defaultPhases = ['Learn', 'Use', 'Judge'];
     const body = `
       <div class="invObjectiveGrid">
         ${(slide.bullets || []).map((bullet, i) => `
           <div class="invObjective">
             <span class="invObjectiveStep">${String(i + 1).padStart(2, '0')}</span>
+            <span class="invObjectivePhase">${escapeHtml((slide.phases || [])[i] || defaultPhases[i] || 'Step')}</span>
             <strong>${escapeHtml(bullet)}</strong>
             <span class="invObjectiveZh" lang="zh-Hans">${escapeHtml((slide.zhBullets || [])[i] || '')}</span>
           </div>
@@ -403,7 +405,7 @@
 
   function renderTerm(slide, index, lesson) {
     const terms = (slide.keyTerms || []).map((term) => `
-      <div class="invTermNote invReveal">
+      <div class="invTermNote">
         <strong>${escapeHtml(term.term)}</strong>
         ${term.zh ? `<span class="invTermZh" lang="zh-Hans">${escapeHtml(term.zh)}</span>` : ''}
         ${term.note ? `<p>${escapeHtml(term.note)}</p>` : ''}
@@ -454,9 +456,10 @@
 
   function renderDataSnapshot(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const focus = (slide.focusMetrics || []).map((metric) => `
+    const focus = (slide.focusMetrics || []).map((metric, i) => `
       <div class="invDataFocusCard">
-        <span>${escapeHtml(metric.label)}</span>
+        <span class="invDataIndex">${String(i + 1).padStart(2, '0')}</span>
+        <span class="invDataMetricLabel">${escapeHtml(metric.label)}</span>
         <strong>${escapeHtml(metric.value)}</strong>
       </div>
     `).join('');
@@ -476,8 +479,9 @@
 
   function renderAnalystBoard(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const blocks = (slide.blocks || []).slice(0, 3).map((block) => `
+    const blocks = (slide.blocks || []).slice(0, 3).map((block, i) => `
       <div class="invEvidence">
+        <span class="invEvidenceNumber">${String(i + 1).padStart(2, '0')}</span>
         <span class="invEyebrow">${escapeHtml(block.label)}</span>
         <strong>${escapeHtml(block.title)}</strong>
         <p>${escapeHtml(block.body)}</p>
@@ -512,8 +516,8 @@
       <div class="invRiskItem">
         <span class="invRiskMarker"></span>
         <strong>${escapeHtml(row[0])}</strong>
-        <p>${escapeHtml(row[1])}</p>
-        <p><span class="invEyebrow">Likely effect</span> ${escapeHtml(row[2])}</p>
+        <p class="invRiskQuestion">${escapeHtml(row[1])}</p>
+        <p class="invRiskEffect"><span class="invEyebrow">Likely effect</span><span>${escapeHtml(row[2])}</span></p>
       </div>
     `).join('');
     const body = `
@@ -600,7 +604,11 @@
 
   function renderModelAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const paragraphs = (slide.paragraphs || []).map((paragraph, i) => `<p class="invReveal" data-point="${i + 1}">${html(paragraph)}</p>`).join('');
+    const paragraphs = (slide.paragraphs || []).map((paragraph, i) => `
+      <div class="invModelPoint" data-point="${i + 1}">
+        <p class="invReveal">${html(paragraph)}</p>
+      </div>
+    `).join('');
     const body = `
       <div class="invModelFrame">
         <div class="invModelCue">

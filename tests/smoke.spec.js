@@ -849,9 +849,11 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
+    await expect(page.locator('.invSlide.is-active')).toHaveClass(/invTitleOnlySlide/);
     await expect(page.locator('.invCounter')).toHaveText('1 / 44');
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Lesson overview/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Overview/i);
     await expect(page.getByRole('heading', { name: /^What is a share\?$/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invHeroKicker')).toContainText(/Tencent share/i);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /trading-desk-laptops-2025\.jpg/);
     await expectInvestmentSlideFits(page, 'hero slide desktop');
     const investmentPhotoRefCount = await page.evaluate(() =>
@@ -889,13 +891,112 @@ test.describe('site smoke', () => {
     expect(investmentVisualChecks.visualPauseCount).toBeGreaterThanOrEqual(10);
     expect(investmentVisualChecks.hasOldStockCertificate).toBe(false);
     expect(investmentVisualChecks.missingModernFiles).toEqual([]);
+
+    const learningProgression = await page.evaluate(() => {
+      const slides = window.INVEST?.lesson?.slides || [];
+      const slideNumber = (match) => slides.findIndex((slide) =>
+        (!match.type || slide.type === match.type) &&
+        (!match.title || slide.title === match.title)
+      ) + 1;
+
+      return {
+        objectives: slideNumber({ type: 'outcomes', title: 'By the end, you can' }),
+        part1: slideNumber({ type: 'section', title: 'Why invest at all?' }),
+        decisionIntro: slideNumber({ type: 'discussion', title: 'Why not just keep money as cash?' }),
+        decisionDefinitions: slideNumber({ type: 'flow', title: 'Saving, investing, speculating, trading' }),
+        moneySort: slideNumber({ type: 'peerTask', title: 'Sort the money decision' }),
+        investingQuiz: slideNumber({ type: 'quiz', title: 'Investing or speculating?' }),
+        part2: slideNumber({ type: 'section', title: 'Shares and company identity' }),
+        ownershipStarter: slideNumber({ type: 'discussion', title: 'One share, one claim' }),
+        shareTerm: slideNumber({ type: 'term', title: 'Share' }),
+        shareholderTerm: slideNumber({ type: 'term', title: 'Shareholder' }),
+        stockCodeTerm: slideNumber({ type: 'term', title: 'Stock code' }),
+        codeBoundary: slideNumber({ type: 'discussion', title: 'What the code cannot tell you' }),
+        part3: slideNumber({ type: 'section', title: 'Data, price and expectations' }),
+        dataSnapshot: slideNumber({ type: 'dataSnapshot', title: 'Tencent: frozen company snapshot' }),
+        dataCheck: slideNumber({ type: 'answer', title: 'Section C: What the data can show' }),
+        sharePriceTerm: slideNumber({ type: 'term', title: 'Share price' }),
+        priceCalculation: slideNumber({ type: 'calculationDesk', title: 'Formula: percentage price change' }),
+        denominatorQuiz: slideNumber({ type: 'quiz', title: 'Which denominator?' }),
+        priceMoveFlow: slideNumber({ type: 'flow', title: 'Why share prices move' }),
+        priceSentence: slideNumber({ type: 'peerTask', title: 'Complete the missing sentence' }),
+        part4: slideNumber({ type: 'section', title: 'Good company or good investment?' }),
+        evidenceBoard: slideNumber({ type: 'analystBoard', title: 'Three evidence blocks before judgement' }),
+        riskRegister: slideNumber({ type: 'riskRegister', title: 'A good company can still be a risky share' }),
+        judgementQuiz: slideNumber({ type: 'quiz', title: 'Good company = good investment?' }),
+        examPractice: slideNumber({ type: 'exam', title: 'Explain why high revenue does not prove that a share is a good investment. [4]' })
+      };
+    });
+    expect(Object.values(learningProgression).every((slideNumber) => slideNumber > 0), 'all progression slides exist').toBe(true);
+    expect(learningProgression.objectives).toBeLessThan(learningProgression.part1);
+    expect(learningProgression.part1).toBeLessThan(learningProgression.decisionIntro);
+    expect(learningProgression.decisionIntro).toBeLessThan(learningProgression.decisionDefinitions);
+    expect(learningProgression.decisionDefinitions).toBeLessThan(learningProgression.moneySort);
+    expect(learningProgression.moneySort).toBeLessThan(learningProgression.investingQuiz);
+    expect(learningProgression.investingQuiz).toBeLessThan(learningProgression.part2);
+    expect(learningProgression.part2).toBeLessThan(learningProgression.ownershipStarter);
+    expect(learningProgression.ownershipStarter).toBeLessThan(learningProgression.shareTerm);
+    expect(learningProgression.shareTerm).toBeLessThan(learningProgression.shareholderTerm);
+    expect(learningProgression.shareholderTerm).toBeLessThan(learningProgression.stockCodeTerm);
+    expect(learningProgression.stockCodeTerm).toBeLessThan(learningProgression.dataSnapshot);
+    expect(learningProgression.codeBoundary).toBeLessThan(learningProgression.part3);
+    expect(learningProgression.part3).toBeLessThan(learningProgression.dataSnapshot);
+    expect(learningProgression.dataSnapshot).toBeLessThan(learningProgression.dataCheck);
+    expect(learningProgression.dataCheck).toBeLessThan(learningProgression.sharePriceTerm);
+    expect(learningProgression.sharePriceTerm).toBeLessThan(learningProgression.priceCalculation);
+    expect(learningProgression.priceCalculation).toBeLessThan(learningProgression.denominatorQuiz);
+    expect(learningProgression.denominatorQuiz).toBeLessThan(learningProgression.priceMoveFlow);
+    expect(learningProgression.priceMoveFlow).toBeLessThan(learningProgression.priceSentence);
+    expect(learningProgression.priceSentence).toBeLessThan(learningProgression.part4);
+    expect(learningProgression.part4).toBeLessThan(learningProgression.evidenceBoard);
+    expect(learningProgression.evidenceBoard).toBeLessThan(learningProgression.riskRegister);
+    expect(learningProgression.evidenceBoard).toBeLessThan(learningProgression.judgementQuiz);
+    expect(learningProgression.judgementQuiz).toBeLessThan(learningProgression.examPractice);
+
+    const lessonOneLocalization = await page.evaluate(() => {
+      const hasChinese = (value) => /[\u3400-\u9fff]/.test(value || '');
+      const lesson = window.INVEST?.lesson || {};
+      const slides = lesson.slides || [];
+      const quizQuestions = window.INVEST?.quiz?.questions || [];
+      const handoutSectionA = lesson.handout?.sections?.find((section) => section.label === 'A');
+      const facts = handoutSectionA?.blocks?.find((block) => block.type === 'facts')?.items || [];
+      const objectiveSlide = slides.find((slide) => slide.title === 'By the end, you can');
+
+      return {
+        answerZhWithoutChinese: slides.flatMap((slide, index) =>
+          (slide.items || [])
+            .filter((item) => item.zh && !hasChinese(item.zh))
+            .map((item) => `${index + 1}: ${item.prompt}`)
+        ),
+        quizMissingChinese: quizQuestions
+          .filter((question) => !hasChinese(question.zh))
+          .map((question) => question.id),
+        objectiveFirstZh: objectiveSlide?.zhBullets?.[0] || '',
+        factLabels: facts.map((item) => `${item.label}: ${item.value}`)
+      };
+    });
+    expect(lessonOneLocalization.answerZhWithoutChinese).toEqual([]);
+    expect(lessonOneLocalization.quizMissingChinese).toEqual([]);
+    expect(lessonOneLocalization.objectiveFirstZh).toMatch(/储蓄.*投资.*投机.*交易/);
+    expect(lessonOneLocalization.factLabels).toEqual(expect.arrayContaining([
+      'Quote ticker: 0700.HK',
+      'Official HKEX code: 00700 (HKD counter)'
+    ]));
+
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
-    await expect(page.getByRole('heading', { name: /What do you own when you buy one share/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Start with the Tencent case file/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Open Section A/i);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '2');
+    await expect(page.getByRole('heading', { name: /By the end, you can/i })).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '3');
+    await expect(page.getByRole('heading', { name: /Why invest at all/i })).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '4');
     await expect(page.getByRole('heading', { name: /Why not just keep money as cash/i })).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/why might someone still choose to invest/i);
+    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/saving keeps money safe/i);
     await expectInvestmentSlideFits(page, 'why invest foundation slide');
 
     await goToInvestmentSlide(page, { type: 'flow', title: 'Saving, investing, speculating, trading' });
@@ -917,7 +1018,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'investing or speculating quiz slide');
 
     await goToInvestmentSlide(page, { type: 'discussion', title: 'One share, one claim' });
-    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/A student owns one Tencent share/i);
+    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/small ownership claim/i);
     await expect(page.locator('.invSlide.is-active img[src*="investment-analysis/"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
@@ -1004,7 +1105,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invDataFocusCard')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invDataReadItem')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invDataPrompt h2')).toHaveCount(0);
-    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/Handout Sections A and C/i);
+    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/Handout Section C/i);
     await expectInvestmentTeachingTextAtLeast(page, 32, 'data snapshot classroom');
     await expectInvestmentNoUltraBold(page, 'data snapshot classroom');
     await expectInvestmentSlideFits(page, 'data snapshot classroom');
