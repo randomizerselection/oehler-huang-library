@@ -281,10 +281,11 @@
     const photo = slide.visual || slide.photo;
     const hasMarketCard = Boolean(slide.ticker || (slide.metrics || []).length);
     const titleOnly = !hasMarketCard && !slide.question;
+    const revealMetricValues = Boolean(slide.revealMetricValues);
     const metrics = (slide.metrics || []).slice(0, 4).map((metric) => `
       <div class="invMetric">
         <strong>${escapeHtml(metric.label)}</strong>
-        <span class="invMetricValue">${escapeHtml(metric.value)}</span>
+        <span class="invMetricValue${revealMetricValues ? ' invReveal' : ''}">${escapeHtml(metric.value)}</span>
       </div>
     `).join('');
 

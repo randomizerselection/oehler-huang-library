@@ -987,6 +987,14 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
     await expect(page.getByRole('heading', { name: /Start with the Tencent case file/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Open Section A/i);
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(0);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(1);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(2);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(3);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '2');
     await expect(page.getByRole('heading', { name: /By the end, you can/i })).toBeVisible();

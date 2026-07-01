@@ -191,6 +191,7 @@ window.INVEST.lesson = {
       question: "Open Section A. Circle these three facts before you judge the share.",
       questionZh: "打开A部分。先圈出这三个事实，再判断股票。",
       sourceStamp: "Tencent snapshot | accessed 26 Jun 2026",
+      revealMetricValues: true,
       metrics: [
         { label: "1. Company", value: "Tencent", note: "腾讯控股" },
         { label: "2. Codes", value: "0700.HK / 00700", note: "报价 / 港交所" },
