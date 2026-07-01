@@ -51,15 +51,22 @@ body.investment-deck {
 }
 
 body.investment-home,
-body.investment-quiz {
+body.investment-quiz,
+body.investment-handout {
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 body.investment-home *,
 body.investment-deck *,
-body.investment-quiz * {
+body.investment-quiz *,
+body.investment-handout * {
   letter-spacing: 0;
+}
+
+body.investment-handout {
+  background: #e8eeee;
+  color: #14191a;
 }
 
 a {
@@ -147,7 +154,10 @@ img {
 .invApp summary:focus-visible,
 .invQuizDeck a:focus-visible,
 .invQuizDeck button:focus-visible,
-.invQuizDeck input:focus-visible {
+.invQuizDeck input:focus-visible,
+.invHandout a:focus-visible,
+.invHandout button:focus-visible,
+.invHandout input:focus-visible {
   outline: 2px solid var(--inv-cyan);
   outline-offset: 2px;
 }
@@ -671,7 +681,10 @@ img {
 .invModelCue strong,
 .invModelCue span,
 .invModelParas p,
-.invSectionList span {
+.invSectionList span,
+.invSortCategory,
+.invSortCase span,
+.invSortCase strong {
   font-family: var(--inv-text);
   font-size: var(--inv-classroom-text);
   font-style: normal;
@@ -695,7 +708,8 @@ img {
 .invTryIt,
 .invQuizFeedback,
 .invModelCue span,
-.invSectionList span {
+.invSectionList span,
+.invSortCase strong {
   color: var(--inv-muted);
   font-weight: 400;
 }
@@ -715,7 +729,8 @@ img {
 .invKeyword,
 .invModelCue strong,
 .invModelParas p,
-.invCheckItem {
+.invCheckItem,
+.invSortCategory {
   color: var(--inv-ink);
   font-weight: 500;
 }
@@ -1261,14 +1276,14 @@ img {
 }
 
 .invExitList {
-  gap: 10px;
+  gap: 8px;
 }
 
 .invExitTicketSlide .invCheckItem {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
-  gap: 14px;
+  gap: 12px;
   border-left-color: var(--inv-green);
 }
 
@@ -1360,6 +1375,10 @@ img {
 
 .invRiskRegisterSlide .invRiskItem p:last-child {
   display: none;
+}
+
+.invRiskRegisterSlide .invSlideBody {
+  padding-top: 4px;
 }
 
 .invFocusPrompt {
@@ -1487,6 +1506,1152 @@ img {
   background: rgba(241, 190, 90, 0.28);
   color: var(--inv-ink);
   padding: 0 4px;
+}
+
+/* Investment deck visual refresh */
+
+.invApp {
+  background:
+    linear-gradient(180deg, rgba(12, 26, 31, 0.9), rgba(6, 12, 15, 0.96)),
+    #071013;
+}
+
+.invTopbar,
+.invFooter {
+  border-color: rgba(111, 148, 151, 0.24);
+  background: rgba(5, 11, 13, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.invSlide {
+  border-color: rgba(111, 148, 151, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 104px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 88px),
+    #091014;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+.invHeroSlide,
+.invContextPhotoSlide,
+.invPeerTaskSlide {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 70px rgba(0, 0, 0, 0.36);
+}
+
+.invSlide:not(.invVisualPauseSlide):not(.invTitleOnlySlide) .invSlideHeader {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(214, 231, 232, 0.1);
+}
+
+.invHeroSlide .invSlideHeader,
+.invContextPhotoSlide .invSlideHeader,
+.invPeerTaskSlide .invSlideHeader {
+  border-bottom-color: rgba(214, 231, 232, 0.14);
+}
+
+.invEyebrow {
+  width: fit-content;
+  color: var(--inv-cyan);
+  font-weight: 600;
+}
+
+.invTitleBlock h1 {
+  max-width: 1180px;
+}
+
+.invPanel,
+.invMarketCard,
+.invMetric,
+.invObjective,
+.invTermBox,
+.invTermNote,
+.invCheckItem,
+.invStep,
+.invDataFocusCard,
+.invDataPrompt,
+.invEvidence,
+.invRiskItem,
+.invCalcBox,
+.invPeerBox,
+.invExamBox,
+.invModelCue,
+.invModelParas p,
+.invNotePanel,
+.invChoice,
+.invKeyword {
+  border-color: rgba(152, 184, 188, 0.28);
+  background:
+    linear-gradient(180deg, rgba(24, 42, 49, 0.88), rgba(9, 19, 23, 0.86)),
+    rgba(21, 36, 43, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.invContextPhotoSlide .invPanel,
+.invContextPhotoSlide .invDataFocusCard,
+.invContextPhotoSlide .invDataPrompt,
+.invContextPhotoSlide .invEvidence,
+.invContextPhotoSlide .invRiskItem,
+.invContextPhotoSlide .invCalcBox,
+.invContextPhotoSlide .invPeerBox,
+.invContextPhotoSlide .invExamBox,
+.invContextPhotoSlide .invModelCue,
+.invContextPhotoSlide .invModelParas p,
+.invContextPhotoSlide .invChoice,
+.invContextPhotoSlide .invStep {
+  background:
+    linear-gradient(180deg, rgba(18, 35, 41, 0.9), rgba(7, 16, 19, 0.88)),
+    rgba(13, 23, 27, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 14px 42px rgba(0, 0, 0, 0.24);
+}
+
+.invHeroSlide {
+  background:
+    linear-gradient(90deg, rgba(5, 10, 12, 0.95), rgba(5, 10, 12, 0.76) 48%, rgba(5, 10, 12, 0.24)),
+    linear-gradient(0deg, rgba(5, 10, 12, 0.9), rgba(5, 10, 12, 0.06) 70%),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #091014;
+}
+
+.invHeroSlide:not(.invTitleOnlySlide) .invSlideHeader {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.invHeroGrid {
+  width: min(1290px, 100%);
+  gap: 16px;
+}
+
+.invHeroGrid .invPanel {
+  border-left: 5px solid rgba(79, 210, 255, 0.64);
+  background:
+    linear-gradient(90deg, rgba(14, 34, 41, 0.94), rgba(10, 23, 27, 0.84)),
+    rgba(21, 36, 43, 0.72);
+}
+
+.invTicker {
+  border-color: rgba(79, 210, 255, 0.62);
+  background: rgba(79, 210, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(79, 210, 255, 0.1);
+}
+
+.invHeroSlide .invMarketCard {
+  border-color: rgba(79, 210, 255, 0.22);
+  background: rgba(7, 18, 22, 0.58);
+  padding: 12px;
+}
+
+.invMetricGrid {
+  gap: 10px;
+}
+
+.invMetric,
+.invDataFocusCard {
+  border-left: 4px solid rgba(57, 217, 145, 0.68);
+}
+
+.invMetricValue,
+.invDataFocusCard strong {
+  color: #48e79f;
+}
+
+.invObjective {
+  min-height: 190px;
+  align-content: space-between;
+  border-top: 4px solid rgba(79, 210, 255, 0.58);
+}
+
+.invObjective strong::before {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 5px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--inv-green);
+}
+
+.invSectionSlide {
+  background:
+    linear-gradient(120deg, rgba(7, 22, 26, 0.96), rgba(6, 12, 15, 0.92) 52%, rgba(33, 50, 47, 0.56)),
+    #091014;
+}
+
+.invSectionDeck {
+  grid-template-columns: 150px minmax(0, 1fr);
+  border: 1px solid rgba(152, 184, 188, 0.22);
+  border-radius: var(--inv-radius);
+  background: rgba(10, 22, 26, 0.76);
+  padding: 22px;
+}
+
+.invSectionNumber {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(57, 217, 145, 0.48);
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.1);
+}
+
+.invSectionList span {
+  border-left-width: 5px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 9px 12px;
+}
+
+.invPhotoFigure {
+  border-color: rgba(152, 184, 188, 0.28);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+}
+
+.invVisualPauseHero::after {
+  background:
+    linear-gradient(0deg, rgba(5, 9, 11, 0.95), rgba(5, 9, 11, 0.1) 62%),
+    linear-gradient(90deg, rgba(5, 9, 11, 0.7), transparent 66%);
+}
+
+.invVisualPauseText {
+  border-left: 5px solid rgba(79, 210, 255, 0.7);
+  padding-left: 30px;
+}
+
+.invDiscussionStack {
+  width: min(1180px, 100%);
+  align-content: start;
+  gap: 14px;
+}
+
+.invDiscussionStack .invPanel {
+  border-left: 5px solid rgba(79, 210, 255, 0.7);
+}
+
+.invNotePanel {
+  border-left: 5px solid var(--inv-green);
+}
+
+.invTermBox {
+  width: min(1120px, 100%);
+  gap: 18px;
+  border-left: 6px solid rgba(79, 210, 255, 0.72);
+  background:
+    linear-gradient(90deg, rgba(12, 34, 42, 0.88), rgba(10, 21, 25, 0.84)),
+    rgba(21, 36, 43, 0.72);
+}
+
+.invTermWord {
+  color: var(--inv-cyan);
+}
+
+.invTermDefinition {
+  border-top: 1px solid rgba(214, 231, 232, 0.12);
+  padding-top: 14px;
+}
+
+.invTermNote {
+  border-left: 4px solid rgba(57, 217, 145, 0.52);
+}
+
+.blank {
+  border-bottom-color: rgba(79, 210, 255, 0.86);
+  background: linear-gradient(180deg, transparent 62%, rgba(79, 210, 255, 0.22) 62%);
+}
+
+.blank.is-revealed {
+  border-bottom-color: rgba(57, 217, 145, 0.82);
+}
+
+.invCheckList {
+  width: min(1140px, 100%);
+}
+
+.invCheckItem {
+  border-left-color: rgba(79, 210, 255, 0.72);
+}
+
+.invFlow {
+  width: min(1160px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.invStep {
+  min-height: 136px;
+  align-items: start;
+  border-left: 4px solid rgba(57, 217, 145, 0.5);
+}
+
+.invStepNum,
+.invCheckNumber {
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.14);
+}
+
+.invDataSnapshotSlide .invSlideBody {
+  align-content: start;
+}
+
+.invDataSimple {
+  width: min(1220px, 100%);
+  gap: 14px;
+}
+
+.invDataFocus {
+  gap: 12px;
+}
+
+.invDataFocusCard {
+  min-height: 132px;
+  align-content: center;
+  background:
+    linear-gradient(180deg, rgba(57, 217, 145, 0.1), rgba(11, 24, 28, 0.86)),
+    rgba(21, 36, 43, 0.72);
+}
+
+.invDataTask {
+  border-left-width: 6px;
+  background: rgba(241, 190, 90, 0.06);
+  padding: 18px 18px 18px 20px;
+}
+
+.invEvidenceGrid,
+.invRiskGrid {
+  gap: 14px;
+}
+
+.invEvidence,
+.invRiskItem {
+  min-height: 320px;
+  border-top: 4px solid rgba(79, 210, 255, 0.48);
+}
+
+.invEvidence:nth-child(2) {
+  border-top-color: rgba(241, 190, 90, 0.58);
+}
+
+.invEvidence:nth-child(3) {
+  border-top-color: rgba(57, 217, 145, 0.58);
+}
+
+.invRiskItem {
+  min-height: 132px;
+  border-top-color: rgba(238, 108, 101, 0.56);
+}
+
+.invFocusPrompt {
+  border-left-width: 6px;
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.12);
+}
+
+.invCalculationDeskSlide .invSlideBody {
+  align-content: start;
+}
+
+.invCalcBox {
+  width: min(1220px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  border-left: 6px solid rgba(79, 210, 255, 0.62);
+}
+
+.invFormula {
+  grid-column: 1 / -1;
+  border-color: rgba(79, 210, 255, 0.38);
+  background: rgba(79, 210, 255, 0.1);
+}
+
+.invWorked,
+.invTryIt {
+  min-height: 178px;
+  border-left-width: 6px;
+}
+
+.invPeerTaskSlide .invPeerBox {
+  width: min(1060px, 100%);
+  border-left: 6px solid rgba(241, 190, 90, 0.66);
+}
+
+.invPeerTaskSlide .invSlideBody {
+  padding-top: 24px;
+}
+
+.invPeerTaskSlide .invStep {
+  min-height: 126px;
+  border-left-color: rgba(241, 190, 90, 0.56);
+}
+
+.invQuizSlide .invPanel {
+  width: min(1160px, 100%);
+  border-left: 6px solid rgba(79, 210, 255, 0.68);
+}
+
+.invChoice {
+  position: relative;
+  border-left: 4px solid rgba(79, 210, 255, 0.28);
+}
+
+.invChoice.is-correct {
+  border-left-color: rgba(57, 217, 145, 0.86);
+}
+
+.invChoice.is-wrong {
+  border-left-color: rgba(238, 108, 101, 0.9);
+}
+
+.invExamBox {
+  width: min(1220px, 100%);
+  border-left: 6px solid rgba(241, 190, 90, 0.68);
+}
+
+.invExamKeywords {
+  gap: 12px;
+}
+
+.invKeyword {
+  border-color: rgba(79, 210, 255, 0.32);
+  background: rgba(79, 210, 255, 0.09);
+}
+
+.invModelFrame {
+  width: min(1220px, 100%);
+}
+
+.invSlide[data-type="modelAnswer"] .invSlideBody {
+  padding-top: 2px;
+}
+
+.invModelCue {
+  border-left-width: 6px;
+}
+
+.invModelParas p {
+  border-left: 4px solid rgba(79, 210, 255, 0.42);
+}
+
+/* Investment deck type-specific redesign */
+
+.invSlide {
+  --type-accent: var(--inv-cyan);
+  --type-accent-soft: rgba(79, 210, 255, 0.12);
+  --type-accent-line: rgba(79, 210, 255, 0.46);
+  position: relative;
+  isolation: isolate;
+}
+
+.invSlide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--type-accent-soft), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 24%);
+  opacity: 0.78;
+}
+
+.invVisualPauseSlide::before,
+.invTitleOnlySlide::before {
+  display: none;
+}
+
+.invSlideHeader,
+.invSlideBody,
+.invSlideFooter {
+  position: relative;
+  z-index: 1;
+}
+
+.invHeroSlide,
+.invDiscussionSlide,
+.invDataSnapshotSlide,
+.invQuizSlide {
+  --type-accent: var(--inv-cyan);
+  --type-accent-soft: rgba(79, 210, 255, 0.12);
+  --type-accent-line: rgba(79, 210, 255, 0.5);
+}
+
+.invFlowSlide,
+.invTermSlide,
+.invAnswerSlide,
+.invAnalystBoardSlide {
+  --type-accent: var(--inv-green);
+  --type-accent-soft: rgba(57, 217, 145, 0.12);
+  --type-accent-line: rgba(57, 217, 145, 0.5);
+}
+
+.invPeerTaskSlide,
+.invCalculationDeskSlide,
+.invExamSlide,
+.invModelAnswerSlide,
+.invSectionSlide {
+  --type-accent: var(--inv-amber);
+  --type-accent-soft: rgba(241, 190, 90, 0.12);
+  --type-accent-line: rgba(241, 190, 90, 0.5);
+}
+
+.invRiskRegisterSlide {
+  --type-accent: #ee6c65;
+  --type-accent-soft: rgba(238, 108, 101, 0.12);
+  --type-accent-line: rgba(238, 108, 101, 0.54);
+}
+
+.invEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 4px solid var(--type-accent);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 5px 10px 5px 9px;
+  border-radius: 0 var(--inv-radius) var(--inv-radius) 0;
+}
+
+.invTitleBlock h1 {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.34);
+}
+
+.invHeroGrid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.74fr);
+  align-items: stretch;
+}
+
+.invHeroGrid .invPanel {
+  min-height: 270px;
+  display: grid;
+  align-content: end;
+  gap: 18px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invHeroGrid .invBigQuestion {
+  max-width: 820px;
+}
+
+.invMarketCard {
+  align-content: stretch;
+}
+
+.invMarketHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(152, 184, 188, 0.22);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--inv-muted);
+  padding: 11px 12px;
+  font-size: var(--inv-ui);
+  line-height: 1.25;
+}
+
+.invMarketHeader span:first-child {
+  color: var(--inv-cyan);
+  font-weight: 600;
+}
+
+.invHeroSlide .invMetricGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  flex: 1;
+}
+
+.invHeroSlide .invMetric {
+  min-height: 118px;
+  align-content: center;
+}
+
+.invObjectiveGrid {
+  width: min(1220px, 100%);
+}
+
+.invObjective {
+  position: relative;
+  min-height: 236px;
+  overflow: hidden;
+  border-top: 0;
+  border-left: 5px solid var(--type-accent-line);
+  align-content: end;
+}
+
+.invObjective::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--type-accent), transparent);
+}
+
+.invObjectiveStep {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: rgba(214, 231, 232, 0.18);
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.invObjective strong::before {
+  margin-bottom: 14px;
+  background: var(--type-accent);
+}
+
+.invSectionSlide::before {
+  background:
+    linear-gradient(120deg, rgba(241, 190, 90, 0.12), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 118px);
+}
+
+.invSectionSlide .invSlideBody {
+  padding-top: 10px;
+}
+
+.invSectionSlide .invTwoColumn {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.26fr);
+  gap: 16px;
+}
+
+.invSectionDeck {
+  width: 100%;
+  inline-size: 100%;
+  min-inline-size: 100%;
+  max-width: none;
+  justify-self: stretch;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 26px;
+  align-items: stretch;
+  border-left: 6px solid var(--type-accent-line);
+  padding: 18px;
+}
+
+.invSectionDeck > div:first-child {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 14px;
+}
+
+.invSectionNumber {
+  width: 126px;
+  height: 126px;
+  background:
+    linear-gradient(180deg, rgba(241, 190, 90, 0.16), rgba(241, 190, 90, 0.04)),
+    rgba(255, 255, 255, 0.025);
+}
+
+.invSectionList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invSectionList span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border-left-color: rgba(152, 184, 188, 0.24);
+  padding: 8px 10px;
+}
+
+.invSectionList b {
+  color: var(--type-accent);
+  font-weight: 600;
+}
+
+.invSectionList .is-current {
+  border-left-color: var(--type-accent);
+  background: rgba(241, 190, 90, 0.1);
+  color: var(--inv-ink);
+}
+
+.invSectionList .is-complete {
+  color: rgba(214, 231, 232, 0.62);
+}
+
+.invVisualPauseHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5, 9, 11, 0.84), rgba(5, 9, 11, 0.18) 58%, rgba(5, 9, 11, 0.1)),
+    linear-gradient(0deg, rgba(5, 9, 11, 0.92), rgba(5, 9, 11, 0.06) 72%);
+}
+
+.invVisualPauseHero img,
+.invVisualPauseText {
+  position: relative;
+  z-index: 2;
+}
+
+.invVisualPauseText {
+  width: min(920px, calc(100% - 72px));
+  margin-left: 36px;
+  padding: 0 0 38px 30px;
+  background: linear-gradient(90deg, rgba(5, 12, 14, 0.38), transparent);
+}
+
+.invVisualPauseText p {
+  display: none;
+}
+
+.invDiscussionStack {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.invDiscussionQuestion {
+  min-height: 244px;
+  display: grid;
+  align-content: center;
+  border-left-color: var(--type-accent-line);
+}
+
+.invDiscussionAnswer {
+  max-width: 1040px;
+  border-left-color: var(--inv-green);
+}
+
+.invTermBox {
+  min-height: 420px;
+  grid-template-columns: minmax(260px, 0.38fr) minmax(0, 1fr);
+  grid-template-areas:
+    "term definition"
+    "notes notes";
+  align-items: center;
+  border-left-color: var(--type-accent-line);
+}
+
+.invTermHeaderBlock {
+  grid-area: term;
+  display: grid;
+  gap: 8px;
+  align-content: center;
+}
+
+.invTermDefinition {
+  grid-area: definition;
+  border-top: 0;
+  border-left: 1px solid rgba(214, 231, 232, 0.12);
+  padding-top: 0;
+  padding-left: 28px;
+}
+
+.invTermGrid {
+  grid-area: notes;
+}
+
+.invTermNote {
+  min-height: 104px;
+  align-content: center;
+}
+
+.invCheckList {
+  display: grid;
+  gap: 12px;
+}
+
+.invCheckItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invCheckNumber {
+  background: var(--type-accent);
+}
+
+.invExitList {
+  gap: 6px;
+}
+
+.invExitTicketSlide .invSlideBody {
+  padding-top: 6px;
+}
+
+.invExitTicketSlide .invCheckItem {
+  gap: 10px;
+  padding: 14px;
+}
+
+.invFlow {
+  gap: 14px;
+}
+
+.invFlow .invStep {
+  position: relative;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: center;
+  min-height: 154px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invFlow .invStep::after {
+  content: none;
+}
+
+.invFlow-categories {
+  width: min(1420px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.invFlow-categories .invStep {
+  min-height: 158px;
+  border-left-width: 5px;
+}
+
+.invFlow-sequence {
+  width: min(1580px, 100%);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.invFlow-sequence .invStep {
+  grid-template-columns: 1fr;
+  align-content: start;
+  min-height: 266px;
+  padding: 20px;
+  border-left-width: 0;
+  border-top: 5px solid var(--type-accent-line);
+}
+
+.invFlow-sequence .invStep::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  width: 14px;
+  height: 16px;
+  transform: translateY(-50%);
+  background: var(--type-accent-line);
+  clip-path: polygon(0 43%, 58% 43%, 58% 22%, 100% 50%, 58% 78%, 58% 57%, 0 57%);
+}
+
+.invFlow-sequence .invStep:last-child::after {
+  display: none;
+}
+
+.invFlow-sequence .blank {
+  width: min(var(--blank-width, 6ch), 10ch);
+  min-width: min(var(--blank-width, 6ch), 10ch);
+}
+
+.invFlow-sequence .invStepNum {
+  margin-bottom: 20px;
+}
+
+.invFlow-categories .invZhLine,
+.invFlow-sequence .invZhLine {
+  display: none;
+}
+
+.invStepNum {
+  background: var(--type-accent);
+}
+
+.invDataSimple {
+  gap: 16px;
+}
+
+.invDataFocus {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.invDataFocusCard {
+  min-height: 168px;
+  border-left: 0;
+  border-top: 5px solid var(--type-accent-line);
+}
+
+.invDataPrompt {
+  border-left: 6px solid var(--inv-amber);
+}
+
+.invDataTask {
+  border-left: 0;
+  border-top: 1px solid rgba(241, 190, 90, 0.36);
+  padding: 16px 0 0;
+}
+
+.invAnalystBoardSlide .invSlideBody,
+.invRiskRegisterSlide .invSlideBody,
+.invExamSlide .invSlideBody {
+  align-content: center;
+}
+
+.invEvidenceGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.invEvidence {
+  min-height: 340px;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  border-top: 0;
+  border-left: 5px solid var(--type-accent-line);
+}
+
+.invEvidence .invEyebrow {
+  border-left: 0;
+  padding-left: 0;
+  background: transparent;
+}
+
+.invRiskGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.invRiskItem {
+  position: relative;
+  min-height: 300px;
+  padding-top: 54px;
+  border-top: 0;
+  border-left: 5px solid var(--type-accent-line);
+}
+
+.invRiskMarker {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--type-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(238, 108, 101, 0.08);
+}
+
+.invCalculationDeskSlide .invSlideBody {
+  align-content: center;
+}
+
+.invCalcBox {
+  padding: 16px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invFormula {
+  display: grid;
+  place-items: center;
+  min-height: 86px;
+  border-left: 0;
+  border-top: 5px solid var(--type-accent-line);
+}
+
+.invWorked,
+.invTryIt {
+  min-height: 206px;
+}
+
+.invWorked {
+  border-left-color: rgba(57, 217, 145, 0.62);
+}
+
+.invTryIt {
+  border-left-color: rgba(241, 190, 90, 0.7);
+}
+
+.invPeerTaskSlide {
+  background:
+    linear-gradient(90deg, rgba(6, 12, 15, 0.94), rgba(6, 12, 15, 0.78) 60%, rgba(6, 12, 15, 0.34)),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #091014;
+}
+
+.invPeerTaskSlide .invPeerBox {
+  width: min(1120px, 100%);
+  border-left-color: var(--type-accent-line);
+  padding: 20px;
+}
+
+.invPeerSteps {
+  gap: 12px;
+}
+
+.invPeerTaskSlide .invStep {
+  min-height: 118px;
+  border-left-color: rgba(241, 190, 90, 0.56);
+}
+
+.invPeerTaskSlide .invSortPeerBox {
+  width: min(1420px, 100%);
+}
+
+.invSortBoard {
+  display: grid;
+  gap: 14px;
+}
+
+.invSortCategories {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invSortCategory {
+  display: grid;
+  place-items: center;
+  min-height: 74px;
+  border: 1px solid rgba(241, 190, 90, 0.38);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.08);
+  color: var(--inv-ink);
+}
+
+.invSortCases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.invSortCase {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 112px;
+  border: 1px solid rgba(152, 184, 188, 0.28);
+  border-left: 5px solid rgba(79, 210, 255, 0.48);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 35, 41, 0.9), rgba(7, 16, 19, 0.88)),
+    rgba(13, 23, 27, 0.86);
+  padding: 14px;
+}
+
+.invSortCase span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.14);
+  color: var(--inv-cyan);
+  font-weight: 600;
+}
+
+.invSortCase strong {
+  color: var(--inv-ink);
+  font-weight: 500;
+}
+
+.invQuizSlide .invPanel {
+  display: grid;
+  gap: 18px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invQuizChoices {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.invChoice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.invChoiceBadge {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.12);
+  color: var(--inv-cyan);
+  font-weight: 600;
+}
+
+.invChoice.is-correct .invChoiceBadge {
+  background: rgba(57, 217, 145, 0.2);
+  color: var(--inv-green);
+}
+
+.invChoice.is-wrong .invChoiceBadge {
+  background: rgba(238, 108, 101, 0.18);
+  color: #ff9a95;
+}
+
+.invQuizFeedback {
+  border-left: 5px solid var(--inv-green);
+  padding-left: 16px;
+}
+
+.invExamBox {
+  display: grid;
+  gap: 18px;
+  border-left-color: var(--type-accent-line);
+}
+
+.invExamKeywords {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.invKeyword {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.invKeyword span {
+  color: var(--inv-amber);
+  font-weight: 600;
+}
+
+.invModelFrame {
+  gap: 14px;
+}
+
+.invModelCue {
+  grid-template-columns: minmax(0, 0.34fr) minmax(0, 1fr);
+  align-items: center;
+  border-left-color: var(--type-accent-line);
+}
+
+.invModelParas {
+  gap: 14px;
+}
+
+.invModelParas p {
+  position: relative;
+  padding-left: 74px;
+  border-left-color: rgba(79, 210, 255, 0.46);
+}
+
+.invModelParas p::before {
+  content: attr(data-point);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.14);
+  color: var(--inv-cyan);
+  font-size: var(--inv-ui);
+  font-weight: 600;
 }
 
 /* Notes and overview */
@@ -1689,6 +2854,289 @@ img {
   font-weight: 600;
 }
 
+/* Investment handout view */
+
+.invHandout {
+  width: min(1040px, calc(100% - 28px));
+  margin: 14px auto 42px;
+}
+
+.handoutToolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(7, 16, 19, 0.94);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+
+.handoutTools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.handoutAnswerToggle {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--inv-ink);
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.handoutDocument {
+  margin: 14px auto 0;
+  border: 1px solid #cfd8d8;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.18);
+  padding: 20px;
+  font-size: 13px;
+  line-height: 1.28;
+}
+
+.handoutHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+  gap: 16px;
+  border-bottom: 2px solid #111;
+  padding-bottom: 12px;
+}
+
+.handoutKicker {
+  margin: 0 0 4px;
+  color: #36545a;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.handoutHeader h1 {
+  margin: 0;
+  color: #111;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.04;
+}
+
+.handoutHeader p {
+  margin: 7px 0 0;
+  color: #334;
+}
+
+.handoutMeta {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.handoutMeta div {
+  display: grid;
+  grid-template-columns: minmax(86px, 0.45fr) minmax(0, 1fr);
+  gap: 8px;
+  border-bottom: 1px solid #d7dddd;
+  padding-bottom: 4px;
+}
+
+.handoutMeta dt {
+  color: #4b6266;
+  font-weight: 700;
+}
+
+.handoutMeta dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.handoutSection {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.26fr) minmax(0, 1fr);
+  gap: 14px;
+  border-top: 1px solid #cfd8d8;
+  padding-top: 12px;
+  margin-top: 12px;
+  break-inside: avoid;
+}
+
+.handoutSectionTitle span {
+  display: inline-flex;
+  min-width: 32px;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+}
+
+.handoutSectionTitle h2 {
+  margin: 8px 0 0;
+  color: #111;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.handoutSectionTitle p {
+  margin: 6px 0 0;
+  color: #46585c;
+}
+
+.handoutSectionBody {
+  display: grid;
+  gap: 10px;
+}
+
+.handoutFactGrid,
+.handoutCases,
+.handoutTermList,
+.handoutPromptGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.handoutFactGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.handoutFact,
+.handoutCase,
+.handoutTermItem,
+.handoutPrompt,
+.handoutCalculation,
+.handoutSentence,
+.handoutWriting {
+  border: 1px solid #cfd8d8;
+  border-radius: 5px;
+  background: #fbfdfd;
+  padding: 8px;
+}
+
+.handoutFact {
+  display: grid;
+  gap: 3px;
+}
+
+.handoutFact span,
+.handoutFact em,
+.handoutPrompt span {
+  color: #4b6266;
+}
+
+.handoutFact strong {
+  font-size: 15px;
+}
+
+.handoutFact em {
+  font-style: normal;
+  font-size: 12px;
+}
+
+.handoutCases {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.handoutCase,
+.handoutTermItem,
+.handoutPrompt,
+.handoutCalculation,
+.handoutSentence,
+.handoutWriting {
+  display: grid;
+  gap: 6px;
+}
+
+.handoutTermItem {
+  grid-template-columns: minmax(100px, 0.22fr) minmax(0, 1fr);
+  align-items: baseline;
+}
+
+.handoutDataTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.handoutDataTable th,
+.handoutDataTable td {
+  border: 1px solid #cbd5d5;
+  padding: 7px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.handoutDataTable th {
+  background: #edf4f4;
+  color: #1a2b2f;
+  font-weight: 700;
+}
+
+.handoutDataTable span {
+  color: #4b6266;
+}
+
+.handoutBlank {
+  display: inline-flex;
+  min-width: var(--handout-blank-width, 12ch);
+  min-height: 1.1em;
+  align-items: end;
+  justify-content: center;
+  border-bottom: 1.5px solid #111;
+  color: transparent;
+  vertical-align: baseline;
+}
+
+.blankAnswer {
+  color: transparent;
+}
+
+.handoutDocument.is-showing-answers .blankAnswer {
+  color: #111;
+}
+
+.handoutWriteLine {
+  display: block;
+  min-height: 22px;
+  border-bottom: 1px solid #9aa8aa;
+}
+
+.handoutKeywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.handoutKeywords span {
+  border: 1px solid #b8c5c6;
+  border-radius: 4px;
+  background: #edf4f4;
+  padding: 3px 6px;
+  font-weight: 600;
+}
+
+.handoutFootnote {
+  border-top: 1px solid #cfd8d8;
+  margin-top: 12px;
+  padding-top: 8px;
+  color: #4b6266;
+  font-size: 11px;
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
@@ -1788,7 +3236,7 @@ img {
   .invModeTabs,
   .invControls {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(52px, 1fr));
     width: 100%;
   }
 
@@ -1799,7 +3247,8 @@ img {
   .invModeTabs a,
   .invButton {
     min-height: 34px;
-    padding: 7px 8px;
+    padding: 7px 6px;
+    font-size: 13px;
   }
 
   .invSlide {
@@ -1819,6 +3268,8 @@ img {
   .invTwoColumn,
   .invDataSimple,
   .invSectionDeck,
+  .invFlow,
+  .invCalcBox,
   .invObjectiveGrid,
   .invEvidenceGrid,
   .invRiskGrid,
@@ -1874,12 +3325,153 @@ img {
   }
 
   .invFlow {
-    gap: 6px;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .invFlow .invStep {
+    min-height: auto;
+    padding: 7px;
+  }
+
+  .invFlow-sequence .invStep {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .invFlow-sequence .invStepNum {
+    margin-bottom: 0;
+  }
+
+  .invFlow .invStep::after {
+    display: none;
   }
 
   .invStep {
+    min-height: auto;
     gap: 8px;
     padding: 8px;
+  }
+
+  .invFlow .invZhLine {
+    display: none;
+  }
+
+  .invCalcBox {
+    min-height: auto;
+  }
+
+  .invWorked,
+  .invTryIt,
+  .invObjective,
+  .invDataFocusCard,
+  .invEvidence,
+  .invRiskItem {
+    min-height: auto;
+  }
+
+  .invHeroGrid .invPanel,
+  .invHeroSlide .invMetric,
+  .invDiscussionQuestion,
+  .invTermBox,
+  .invPeerTaskSlide .invStep {
+    min-height: auto;
+  }
+
+  .invMarketHeader {
+    display: none;
+  }
+
+  .invPeerTaskSlide .invSlideBody {
+    padding-top: 8px;
+  }
+
+  .invPeerTaskSlide .invPeerBox {
+    padding: 10px;
+  }
+
+  .invPeerSteps {
+    gap: 6px;
+  }
+
+  .invSortBoard {
+    gap: 8px;
+  }
+
+  .invSortCategories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invSortCategory {
+    min-height: 42px;
+  }
+
+  .invSortCases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invSortCase {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    min-height: auto;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .invSortCase span {
+    width: 32px;
+    height: 32px;
+  }
+
+  .invDataSnapshotSlide .invSlideBody {
+    padding-top: 2px;
+  }
+
+  .invObjectiveStep {
+    top: 10px;
+    right: 12px;
+    font-size: 36px;
+  }
+
+  .invTermBox {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "term"
+      "definition"
+      "notes";
+  }
+
+  .invTermDefinition {
+    border-left: 0;
+    border-top: 1px solid rgba(214, 231, 232, 0.12);
+    padding-left: 0;
+    padding-top: 10px;
+  }
+
+  .invSectionList {
+    grid-template-columns: 1fr;
+  }
+
+  .invModelCue {
+    grid-template-columns: 1fr;
+  }
+
+  .invModelParas p {
+    padding-left: 52px;
+  }
+
+  .invRiskGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invRiskItem {
+    padding-top: 40px;
+  }
+
+  .invRiskMarker {
+    width: 16px;
+    height: 16px;
   }
 
   .invExitTicketSlide .invCheckItem {
@@ -1911,10 +3503,22 @@ img {
 
   .invDataFocus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .invDataSimple,
+  .invDataPrompt {
+    gap: 8px;
   }
 
   .invDataFocusCard:last-child {
     grid-column: 1 / -1;
+  }
+
+  .invDataTask {
+    gap: 4px;
+    padding: 10px 10px 10px 12px;
+    border-left-width: 4px;
   }
 
   .invProgressText {
@@ -1941,9 +3545,40 @@ img {
     width: min(100% - 24px, 1000px);
     margin-top: 12px;
   }
+
+  .handoutToolbar,
+  .handoutHeader,
+  .handoutSection {
+    grid-template-columns: 1fr;
+  }
+
+  .handoutToolbar {
+    position: static;
+    display: grid;
+  }
+
+  .handoutTools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .handoutFactGrid,
+  .handoutCases,
+  .handoutTermItem,
+  .handoutPromptGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .handoutDocument {
+    padding: 14px;
+  }
 }
 
 @media (max-width: 520px) {
+  .invSortCases {
+    grid-template-columns: 1fr;
+  }
+
   .investment-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
@@ -1968,6 +3603,11 @@ img {
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
   body {
     background: #fff;
     color: #111;
@@ -1979,6 +3619,45 @@ img {
   .invNotes,
   .invOverview {
     display: none !important;
+  }
+
+  body.investment-handout {
+    background: #fff;
+  }
+
+  .invHandout {
+    width: 100%;
+    margin: 0;
+  }
+
+  .handoutToolbar {
+    display: none !important;
+  }
+
+  .handoutDocument {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    font-size: 10.5pt;
+  }
+
+  .handoutHeader,
+  .handoutSection,
+  .handoutFact,
+  .handoutCase,
+  .handoutTermItem,
+  .handoutPrompt,
+  .handoutCalculation,
+  .handoutSentence,
+  .handoutWriting,
+  .handoutDataTable tr {
+    break-inside: avoid;
+  }
+
+  .handoutWriteLine {
+    min-height: 18px;
   }
 
   .invSlide {

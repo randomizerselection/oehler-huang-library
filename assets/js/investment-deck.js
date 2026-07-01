@@ -2,7 +2,7 @@
   window.INVEST = window.INVEST || {};
 
   const INVEST = window.INVEST;
-  const interactiveSelector = 'a, button, input, textarea, select, label, summary, details, .sourcePanel, .sourceList, .invOverview';
+  const interactiveSelector = 'a, button, input, textarea, select, label, summary, details, .sourcePanel, .sourceList, .invOverview, .invHandout';
 
   function escapeHtml(value) {
     return String(value ?? '')
@@ -72,6 +72,189 @@
     });
   }
 
+  function alphaLabel(index) {
+    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.charAt(index) || String(index + 1);
+  }
+
+  function handoutBlank(answer, width = null) {
+    const answerText = String(answer ?? '');
+    const blankWidth = width || Math.max(8, Math.min(24, answerText.length + 4));
+    return `<span class="handoutBlank" data-answer="${escapeHtml(answerText)}" style="--handout-blank-width:${blankWidth}ch"><span class="blankAnswer">${escapeHtml(answerText)}</span></span>`;
+  }
+
+  function handoutFillBlankMarkup(template, answer) {
+    return escapeHtml(template).replace(/__________([.,!?%]*)/g, (_match, punctuation = '') => {
+      const slot = handoutBlank(answer);
+      return punctuation ? `${slot}${escapeHtml(punctuation)}` : slot;
+    });
+  }
+
+  function handoutLines(count = 1) {
+    return Array.from({ length: count }, () => '<span class="handoutWriteLine"></span>').join('');
+  }
+
+  function renderHandoutBlock(block) {
+    if (block.type === 'facts') {
+      return `
+        <div class="handoutFactGrid">
+          ${(block.items || []).map((item) => `
+            <div class="handoutFact">
+              <span>${escapeHtml(item.label)}</span>
+              <strong>${escapeHtml(item.value)}</strong>
+              ${item.note ? `<em>${escapeHtml(item.note)}</em>` : ''}
+            </div>
+          `).join('')}
+        </div>`;
+    }
+
+    if (block.type === 'cases') {
+      return `
+        <div class="handoutCases">
+          ${(block.cases || []).map((item) => `
+            <div class="handoutCase">
+              <strong>${escapeHtml(item.label)}</strong>
+              <span>${escapeHtml(item.text)}</span>
+              <div>Category: ${handoutBlank(item.answer || '', 16)}</div>
+            </div>
+          `).join('')}
+        </div>`;
+    }
+
+    if (block.type === 'terms') {
+      return `
+        <div class="handoutTermList">
+          ${(block.terms || []).map((item) => `
+            <div class="handoutTermItem">
+              <strong>${escapeHtml(item.label)}</strong>
+              <span>${handoutFillBlankMarkup(item.prompt, item.answer)}</span>
+            </div>
+          `).join('')}
+        </div>`;
+    }
+
+    if (block.type === 'table') {
+      return `
+        <table class="handoutDataTable">
+          <thead>
+            <tr>${(block.columns || []).map((column) => `<th>${escapeHtml(column)}</th>`).join('')}</tr>
+          </thead>
+          <tbody>
+            ${(block.rows || []).map((row) => `
+              <tr>
+                <td><strong>${escapeHtml(row.metric)}</strong><br><span>${escapeHtml(row.value)}</span></td>
+                <td>${escapeHtml(row.shows || '')}${row.showsLines ? handoutLines(row.showsLines) : ''}</td>
+                <td>${escapeHtml(row.limits || '')}${row.limitLines ? handoutLines(row.limitLines) : ''}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>`;
+    }
+
+    if (block.type === 'calculation') {
+      return `
+        <div class="handoutCalculation">
+          ${block.formula ? `<div><strong>Formula:</strong> ${escapeHtml(block.formula)}</div>` : ''}
+          ${block.worked ? `<div><strong>Worked example:</strong> ${escapeHtml(block.worked)}</div>` : ''}
+          ${block.task ? `<div><strong>Try it:</strong> ${escapeHtml(block.task)}</div>` : ''}
+          ${handoutLines(block.lines || 3)}
+        </div>`;
+    }
+
+    if (block.type === 'prompts') {
+      return `
+        <div class="handoutPromptGrid">
+          ${(block.prompts || []).map((prompt) => `
+            <div class="handoutPrompt">
+              <strong>${escapeHtml(prompt.label)}</strong>
+              <span>${escapeHtml(prompt.prompt)}</span>
+              ${handoutLines(prompt.lines || 1)}
+            </div>
+          `).join('')}
+        </div>`;
+    }
+
+    if (block.type === 'sentence') {
+      return `
+        <div class="handoutSentence">
+          <strong>${escapeHtml(block.label || 'Sentence check')}</strong>
+          <p>${escapeHtml(block.prompt || '')}</p>
+          ${block.keywords ? `<div class="handoutKeywords">${block.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join('')}</div>` : ''}
+          ${handoutLines(block.lines || 2)}
+        </div>`;
+    }
+
+    if (block.type === 'writing') {
+      return `
+        <div class="handoutWriting">
+          <strong>${escapeHtml(block.question || '')}</strong>
+          ${block.keywords ? `<div class="handoutKeywords">${block.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join('')}</div>` : ''}
+          ${handoutLines(block.lines || 6)}
+        </div>`;
+    }
+
+    return '';
+  }
+
+  function mountHandout(lesson, target = document.body) {
+    const handout = lesson.handout || {};
+    const title = handout.title || lesson.meta?.lessonLabel || 'Investment Analysis handout';
+    const subtitle = handout.subtitle || lesson.meta?.courseLabel || 'Investment Analysis';
+    const sections = handout.sections || [];
+
+    document.body.classList.remove('investment-deck', 'investment-quiz');
+    document.body.classList.add('investment-handout');
+    target.innerHTML = `
+      <main class="invHandout">
+        <header class="handoutToolbar">
+          <nav class="invModeTabs" aria-label="Lesson views">
+            <a href="${escapeHtml(location.pathname)}">Slides</a>
+            <a href="${escapeHtml(location.pathname)}?view=print" aria-current="page">Handout</a>
+            <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
+            <a href="../../index.html">Course</a>
+          </nav>
+          <div class="handoutTools">
+            <label class="handoutAnswerToggle">
+              <input type="checkbox" data-handout-answer-toggle />
+              <span>Answers</span>
+            </label>
+            <button class="invButton" type="button" data-action="print">Print</button>
+          </div>
+        </header>
+        <article class="handoutDocument">
+          <header class="handoutHeader">
+            <div>
+              <p class="handoutKicker">${escapeHtml(subtitle)}</p>
+              <h1>${escapeHtml(title)}</h1>
+              ${handout.description ? `<p>${escapeHtml(handout.description)}</p>` : ''}
+            </div>
+            ${handout.meta ? `<dl class="handoutMeta">
+              ${handout.meta.map((item) => `
+                <div><dt>${escapeHtml(item.label)}</dt><dd>${escapeHtml(item.value)}</dd></div>
+              `).join('')}
+            </dl>` : ''}
+          </header>
+          ${sections.map((section) => `
+            <section class="handoutSection">
+              <div class="handoutSectionTitle">
+                <span>${escapeHtml(section.label || '')}</span>
+                <h2>${escapeHtml(section.title || '')}</h2>
+                ${section.instruction ? `<p>${escapeHtml(section.instruction)}</p>` : ''}
+              </div>
+              <div class="handoutSectionBody">
+                ${(section.blocks || []).map(renderHandoutBlock).join('')}
+              </div>
+            </section>
+          `).join('')}
+          ${handout.sources ? `<footer class="handoutFootnote">${escapeHtml(handout.sources)}</footer>` : ''}
+        </article>
+      </main>`;
+
+    document.querySelector('[data-handout-answer-toggle]')?.addEventListener('change', (event) => {
+      document.querySelector('.handoutDocument')?.classList.toggle('is-showing-answers', event.target.checked);
+    });
+    document.querySelector('[data-action="print"]')?.addEventListener('click', () => window.print());
+  }
+
   function slideShell(slide, index, lesson, body, extraClass = '', backgroundPhoto = null, options = {}) {
     const sources = slide.sources || lesson.meta?.sources || lesson.sources || [];
     const className = ['invSlide', extraClass].filter(Boolean).join(' ');
@@ -98,7 +281,7 @@
     const photo = slide.visual || slide.photo;
     const hasMarketCard = Boolean(slide.ticker || (slide.metrics || []).length);
     const titleOnly = !hasMarketCard && !slide.question;
-    const metrics = (slide.metrics || []).slice(0, 3).map((metric) => `
+    const metrics = (slide.metrics || []).slice(0, 4).map((metric) => `
       <div class="invMetric">
         <strong>${escapeHtml(metric.label)}</strong>
         <span class="invMetricValue">${escapeHtml(metric.value)}</span>
@@ -118,10 +301,9 @@
           ${photo?.credit ? `<div class="invHeroPhotoCredit">${escapeHtml(photo.caption || photo.alt || '')} · ${escapeHtml(photo.credit)}</div>` : ''}
         </div>
         ${hasMarketCard ? `<div class="invMarketCard">
-          <div class="invTickerStrip" aria-label="Market snapshot">
-            <span>Company</span>
-            <span>Code</span>
-            <span>Market</span>
+          <div class="invMarketHeader">
+            <span>${escapeHtml(slide.ticker || 'Case file')}</span>
+            <span>${escapeHtml(slide.sourceStamp || 'Frozen classroom snapshot')}</span>
           </div>
           <div class="invMetricGrid">${metrics}</div>
         </div>` : ''}
@@ -135,6 +317,7 @@
       <div class="invObjectiveGrid">
         ${(slide.bullets || []).map((bullet, i) => `
           <div class="invObjective">
+            <span class="invObjectiveStep">${String(i + 1).padStart(2, '0')}</span>
             <strong>${escapeHtml(bullet)}</strong>
             <span class="invObjectiveZh" lang="zh-Hans">${escapeHtml((slide.zhBullets || [])[i] || '')}</span>
           </div>
@@ -147,7 +330,7 @@
     const photo = slide.visual || slide.photo;
     const parts = slide.parts || [];
     const currentPartIndex = parts.findIndex((part) => part.current);
-    const roadmap = currentPartIndex >= 0 ? parts.slice(currentPartIndex + 1) : parts.filter((part) => !part.current);
+    const roadmap = parts.length ? parts : [];
     const sectionDeck = `
       <div class="invSectionDeck">
         <div>
@@ -157,7 +340,11 @@
         <div>
           <p class="invLead">${html(slide.prompt || '')}</p>
           ${roadmap.length ? `<div class="invSectionList">
-            ${roadmap.map((part) => `<span>${escapeHtml(part.label || part)}</span>`).join('')}
+            ${roadmap.map((part, partIndex) => {
+              const partLabel = part.label || part;
+              const stateClass = part.current ? 'is-current' : partIndex < currentPartIndex ? 'is-complete' : 'is-next';
+              return `<span class="${escapeHtml(stateClass)}"><b>${String(partIndex + 1).padStart(2, '0')}</b>${escapeHtml(partLabel)}</span>`;
+            }).join('')}
           </div>` : ''}
         </div>
       </div>`;
@@ -202,11 +389,11 @@
     const photo = slide.visual || slide.photo;
     const body = `
       <div class="invDiscussionStack">
-        <div class="invPanel">
+        <div class="invPanel invDiscussionQuestion">
           <div class="invBigQuestion">${html(slide.question || slide.prompt || '')}</div>
           ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
         </div>
-        <div class="invNotePanel invReveal">
+        <div class="invNotePanel invReveal invDiscussionAnswer">
           <strong>${escapeHtml(slide.revealTitle || 'Teacher cue')}</strong>
           <p>${html(slide.answer || slide.note || '')}</p>
         </div>
@@ -224,7 +411,7 @@
     `).join('');
     const termBox = `
       <div class="invTermBox">
-        <div>
+        <div class="invTermHeaderBlock">
           <div class="invTermWord">${escapeHtml(slide.term || slide.title)}</div>
           ${slide.termZh ? `<div class="invTermZh" lang="zh-Hans">${escapeHtml(slide.termZh)}</div>` : ''}
         </div>
@@ -240,7 +427,7 @@
     const isExitTicket = /exit ticket/i.test(slide.title || '');
     const items = (slide.items || []).map((item, i) => `
       <div class="invCheckItem">
-        ${isExitTicket ? `<span class="invCheckNumber">${i + 1}</span>` : ''}
+        <span class="invCheckNumber">${i + 1}</span>
         <span class="invCheckText">
           ${fillBlankMarkup(item.prompt, item.answer)}
           ${item.zh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</div>` : ''}
@@ -253,14 +440,16 @@
 
   function renderFlow(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const flowStyle = slide.flowStyle || 'sequence';
     const steps = (slide.steps || []).map((step, i) => `
       <div class="invStep">
         <span class="invStepNum">${i + 1}</span>
         <strong>${fillBlankMarkup(step.text, step.answer)}</strong>
+        ${step.zh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(step.zh)}</span>` : ''}
       </div>
     `).join('');
-    const body = `<div class="invFlow">${steps}</div>`;
-    return slideShell(slide, index, lesson, body, 'invFlowSlide invContextPhotoSlide', photo);
+    const body = `<div class="invFlow invFlow-${escapeHtml(flowStyle)}">${steps}</div>`;
+    return slideShell(slide, index, lesson, body, `invFlowSlide invFlowSlide-${escapeHtml(flowStyle)} invContextPhotoSlide`, photo);
   }
 
   function renderDataSnapshot(slide, index, lesson) {
@@ -278,7 +467,7 @@
           <p>${escapeHtml(slide.note || 'Use the source, date and key figures before making a judgement.')}</p>
           <div class="invDataTask">
             <strong>Student task</strong>
-            <span>Find the stock code, the source date, and one performance number before judging the share.</span>
+            <span>${escapeHtml(slide.task || 'Find the stock code, the source date, and one performance number before judging the share.')}</span>
           </div>
         </div>
       </div>`;
@@ -321,6 +510,7 @@
     const photo = slide.visual || slide.photo;
     const rows = (slide.table || []).slice(1).map((row) => `
       <div class="invRiskItem">
+        <span class="invRiskMarker"></span>
         <strong>${escapeHtml(row[0])}</strong>
         <p>${escapeHtml(row[1])}</p>
         <p><span class="invEyebrow">Likely effect</span> ${escapeHtml(row[2])}</p>
@@ -336,6 +526,29 @@
 
   function renderPeerTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const sample = slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p></div>` : '';
+
+    if (slide.taskType === 'sort') {
+      const categories = (slide.categories || []).map((category) => `<span class="invSortCategory">${escapeHtml(category)}</span>`).join('');
+      const cases = (slide.cases || []).map((item) => `
+        <div class="invSortCase">
+          <span>${escapeHtml(item.label || '')}</span>
+          <strong>${escapeHtml(item.text || '')}</strong>
+        </div>
+      `).join('');
+      const body = `
+        <div>
+          <div class="invPeerBox invSortPeerBox">
+            <div class="invSortBoard">
+              <div class="invSortCategories">${categories}</div>
+              <div class="invSortCases">${cases}</div>
+            </div>
+            ${sample}
+          </div>
+        </div>`;
+      return slideShell(slide, index, lesson, body, 'invPeerTaskSlide invSortTaskSlide', photo);
+    }
+
     const steps = (slide.steps || []).map((step, i) => `
       <div class="invStep">
         <span class="invStepNum">${i + 1}</span>
@@ -346,7 +559,7 @@
       <div>
         <div class="invPeerBox">
           <div class="invPeerSteps">${steps}</div>
-          ${slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p></div>` : ''}
+          ${sample}
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invPeerTaskSlide', photo);
@@ -355,7 +568,10 @@
   function renderQuiz(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const choices = (slide.choices || []).map((choice, i) => `
-      <button class="invChoice" type="button" data-choice="${i}">${escapeHtml(choice)}</button>
+      <button class="invChoice" type="button" data-choice="${i}">
+        <span class="invChoiceBadge">${alphaLabel(i)}</span>
+        <span>${escapeHtml(choice)}</span>
+      </button>
     `).join('');
     const body = `
       <div>
@@ -370,7 +586,7 @@
 
   function renderExam(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const keywords = (slide.keywords || []).map((keyword) => `<span class="invKeyword">${escapeHtml(keyword)}</span>`).join('');
+    const keywords = (slide.keywords || []).map((keyword, i) => `<span class="invKeyword"><span>${String(i + 1).padStart(2, '0')}</span>${escapeHtml(keyword)}</span>`).join('');
     const body = `
       <div>
         <div class="invExamBox">
@@ -384,7 +600,7 @@
 
   function renderModelAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const paragraphs = (slide.paragraphs || []).map((paragraph) => `<p class="invReveal">${html(paragraph)}</p>`).join('');
+    const paragraphs = (slide.paragraphs || []).map((paragraph, i) => `<p class="invReveal" data-point="${i + 1}">${html(paragraph)}</p>`).join('');
     const body = `
       <div class="invModelFrame">
         <div class="invModelCue">
@@ -424,7 +640,13 @@
   function mountLesson(lesson, target = document.body) {
     if (!lesson) return;
     const params = new URLSearchParams(window.location.search);
-    if (params.get('view') === 'quiz' && INVEST.quiz && typeof INVEST.mountQuiz === 'function') {
+    const view = params.get('view');
+    if ((view === 'print' || view === 'handout') && lesson.handout) {
+      mountHandout(lesson, target);
+      return;
+    }
+
+    if (view === 'quiz' && INVEST.quiz && typeof INVEST.mountQuiz === 'function') {
       document.body.classList.remove('investment-deck');
       document.body.classList.add('investment-quiz');
       INVEST.mountQuiz(INVEST.quiz, target);
@@ -440,6 +662,7 @@
           <div class="invBrand"><span class="invDot"></span><span>${escapeHtml(lesson.meta?.courseLabel || 'Investment Analysis')}</span></div>
           <nav class="invModeTabs" aria-label="Lesson views">
             <a href="${escapeHtml(location.pathname)}" aria-current="page">Slides</a>
+            ${lesson.handout ? `<a href="${escapeHtml(location.pathname)}?view=print">Handout</a>` : ''}
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
             <a href="../../index.html">Course</a>
             <a href="../../../index.html">Library</a>

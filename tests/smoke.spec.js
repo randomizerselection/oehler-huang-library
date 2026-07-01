@@ -838,6 +838,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^30-lesson map$/i }).first()).toHaveAttribute('href', 'syllabus.html');
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
+    await expect(page.getByRole('link', { name: /^Lesson 1 handout$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=print');
     await expect(page.getByRole('link', { name: /^Lesson 1 quiz$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
     await expect(page.getByText(/What you will learn/i)).toBeVisible();
     await expect(page.getByText(/Read a share/i)).toBeVisible();
@@ -848,7 +849,7 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
-    await expect(page.locator('.invCounter')).toHaveText('1 / 43');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 44');
     await expect(page.locator('.invSlide.is-active')).toContainText(/Lesson overview/i);
     await expect(page.getByRole('heading', { name: /^What is a share\?$/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /trading-desk-laptops-2025\.jpg/);
@@ -903,8 +904,9 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'saving investing flow slide');
 
     await goToInvestmentSlide(page, { type: 'peerTask', title: 'Sort the money decision' });
-    await expect(page.locator('.invSlide.is-active')).toContainText(/saving, investing, speculating or trading/i);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/D: buy and sell/i);
+    await expect(page.locator('.invSlide.is-active .invSortCategory')).toHaveText(['Saving', 'Investing', 'Speculating', 'Trading']);
+    await expect(page.locator('.invSlide.is-active .invSortCase')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invSortCase').nth(3)).toContainText(/Buy and sell this week/i);
     await expectInvestmentSlideFits(page, 'money decision sort slide');
 
     await goToInvestmentSlide(page, { type: 'quiz', title: 'Investing or speculating?' });
@@ -1002,11 +1004,16 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invDataFocusCard')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invDataReadItem')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invDataPrompt h2')).toHaveCount(0);
-    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/Find the stock code/i);
+    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/Handout Sections A and C/i);
     await expectInvestmentTeachingTextAtLeast(page, 32, 'data snapshot classroom');
     await expectInvestmentNoUltraBold(page, 'data snapshot classroom');
     await expectInvestmentSlideFits(page, 'data snapshot classroom');
     await expectNoHorizontalOverflow(page);
+
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Section C: What the data can show' });
+    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/does not prove/i);
+    await expectInvestmentSlideFits(page, 'section C data check classroom');
 
     await goToInvestmentSlide(page, { type: 'analystBoard', title: 'Three evidence blocks before judgement' });
     await expect(page.locator('.invSlide.is-active .invEvidence')).toHaveCount(3);
@@ -1026,7 +1033,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invModelParas p.is-revealed')).toHaveCount(2);
     await expectInvestmentSlideFits(page, 'model answer classroom');
 
-    for (let slideNumber = 1; slideNumber <= 43; slideNumber += 1) {
+    for (let slideNumber = 1; slideNumber <= 44; slideNumber += 1) {
       await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `?classroom-fit=${slideNumber}#${slideNumber}`);
       await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
       await expectInvestmentSlideFits(page, `investment slide ${slideNumber} classroom`);
@@ -1034,6 +1041,18 @@ test.describe('site smoke', () => {
       await expectInvestmentCompactTeachingScale(page, `investment slide ${slideNumber} classroom`);
       await expectInvestmentNoUltraBold(page, `investment slide ${slideNumber} classroom`);
     }
+
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=print');
+    await expect(page.locator('body')).toHaveClass(/investment-handout/);
+    await expect(page.locator('.handoutDocument')).toBeVisible();
+    await expect(page.locator('.handoutSection')).toHaveCount(5);
+    await expect(page.locator('.handoutDocument')).toContainText(/Tencent analyst sheet/i);
+    await expect(page.locator('.handoutDocument')).toContainText(/RMB751\.8bn/i);
+    await expect(page.locator('.handoutDataTable tbody tr')).toHaveCount(3);
+    await expect(page.locator('.handoutBlank[data-answer]')).not.toHaveCount(0);
+    await page.locator('.handoutAnswerToggle').click();
+    await expect(page.locator('.handoutDocument')).toHaveClass(/is-showing-answers/);
+    await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
     await expect(page.locator('.invQuizDeck')).toBeVisible();
@@ -1124,7 +1143,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
-    await expect(page.locator('.invCounter')).toHaveText('1 / 43');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 44');
     await expectInvestmentSlideFits(page, 'hero slide phone');
     await expectInvestmentTeachingTextAtLeast(page, 24, 'hero slide phone');
     await expectNoHorizontalOverflow(page);
