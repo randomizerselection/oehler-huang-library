@@ -88,7 +88,7 @@ window.INVEST.lesson = {
       {
         label: "C",
         title: "What the Tencent data can show",
-        instruction: "Use each figure, but also write what the figure does not prove.",
+        instruction: "Use each figure first, then write the limitation yourself before the reveal.",
         blocks: [
           {
             type: "table",
@@ -98,25 +98,25 @@ window.INVEST.lesson = {
                 metric: "Revenue",
                 value: "RMB751.8bn",
                 shows: "Total sales before costs are deducted.",
-                limits: "It does not show whether the share is cheap.",
+                limits: "",
                 showsLines: 1,
-                limitLines: 1
+                limitLines: 2
               },
               {
                 metric: "Gross profit",
                 value: "RMB422.6bn",
                 shows: "Revenue left after direct costs.",
-                limits: "It does not show all costs or future profit.",
+                limits: "",
                 showsLines: 1,
-                limitLines: 1
+                limitLines: 2
               },
               {
                 metric: "Gross margin",
                 value: "56%",
                 shows: "Gross profit as a percentage of revenue.",
-                limits: "It does not show risk or the price paid.",
+                limits: "",
                 showsLines: 1,
-                limitLines: 1
+                limitLines: 2
               }
             ]
           }
@@ -182,14 +182,14 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "hero",
+      type: "marketBrief",
       eyebrow: "Market Brief",
       title: "Start with the Tencent case file",
       subtitle: "Before any opinion, find the facts.",
       visual: investmentPhotos.tencentBinhaiTowers,
       ticker: "Handout A",
-      question: "Open Section A. Circle these three facts before you judge the share.",
-      questionZh: "打开A部分。先圈出这三个事实，再判断股票。",
+      question: "Open Section A. Circle each fact before it is revealed.",
+      questionZh: "打开A部分。每个事实揭示前先圈出来。",
       sourceStamp: "Tencent snapshot | accessed 26 Jun 2026",
       revealMetricValues: true,
       metrics: [
@@ -198,7 +198,7 @@ window.INVEST.lesson = {
         { label: "3. Source date", value: "18 Mar 2026", note: "来源日期" }
       ],
       notes: [
-        "Give students the Tencent analyst sheet first. Keep the first student action simple: open Section A and circle company, codes and source date. Do not ask for valuation yet.",
+        "Give students the Tencent analyst sheet first. Reveal company, codes and source date one at a time only after they have located each item.",
         "Emphasise that the lesson is not investment advice; the company is used as a real data example."
       ]
     },
@@ -208,16 +208,16 @@ window.INVEST.lesson = {
       title: "By the end, you can",
       phases: ["Learn terms", "Use data", "Judge evidence"],
       bullets: [
-        "distinguish saving, investing, speculating and trading",
-        "read company, exchange, stock code and share price in a stock snapshot",
-        "explain why a good company is not automatically a good investment"
+        "define share, shareholder and share price accurately",
+        "identify Tencent's company, code, source date and three figures",
+        "write why high revenue alone does not prove a good investment"
       ],
       zhBullets: [
-        "区分储蓄、投资、投机和交易",
-        "读懂公司、交易所、股票代码和股价等信息",
-        "解释为什么好公司不一定等于好投资"
+        "准确解释股票、股东和股价",
+        "识别腾讯的公司、代码、来源日期和三项数据",
+        "写出为什么高收入本身不能证明是好投资"
       ],
-      notes: "Keep this short. The success test is whether students can separate saving, investing, speculating and trading, then separate company, share and price."
+      notes: "Keep this short. The success test is whether students can define the ownership terms, locate the case-file evidence, and write one evidence-limitation judgement."
     },
     {
       type: "section",
@@ -240,12 +240,12 @@ window.INVEST.lesson = {
       eyebrow: "Before the first share",
       title: "Why not just keep money as cash?",
       visual: investmentPhotos.financialAnalysisDesk,
-      question: "First rule: saving keeps money safe for later use; investing accepts risk for expected return.",
-      zh: "第一条规则：储蓄把钱安全地留到以后使用；投资为了预期回报而承担风险。",
+      question: "A: keep money for lunch next week. B: buy Tencent after checking evidence. C: buy because a short video says it will jump tomorrow. Which one is saving, investing or speculating? What clue tells you?",
+      zh: "A：把钱留到下周午饭用。B：查证后买腾讯。C：因为短视频说明天会涨就买。哪一个是储蓄、投资或投机？线索是什么？",
       revealTitle: "Careful answer",
-      answer: "Saving protects money for later use. Investing accepts risk because the investor hopes the asset can grow, earn income, or beat inflation over time. Nobody can predict prices perfectly.",
+      answer: "A is saving because the money is kept safe for near use. B is investing because the decision uses evidence and accepts risk for expected return. C is speculating because the reason is mainly a hoped-for quick price move.",
       notes: [
-        "Use this as the syllabus foundation before students classify the Section B Tencent-related decisions.",
+        "Make every student choose before revealing. This turns the opening from a definition lecture into a diagnostic check.",
         "Keep the tone balanced: investing is not automatically better than saving, and prediction risk is real."
       ]
     },
@@ -256,12 +256,12 @@ window.INVEST.lesson = {
       visual: investmentPhotos.stockReportCalculator,
       flowStyle: "categories",
       steps: [
-        { text: "Saving means keeping money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
-        { text: "Investing means putting money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
-        { text: "Speculating means taking high risk mainly because you expect a price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
-        { text: "Trading means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
+        { text: "__________ keeps money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
+        { text: "__________ puts money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
+        { text: "__________ takes high risk mainly for an expected price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
+        { text: "__________ means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
       ],
-      notes: "Teach these four categories explicitly first. Students then complete the Section B term blanks and use the following sort task as the formative check."
+      notes: "Make students predict each term from the clue before revealing the blank. They then complete the Section B term blanks and use the following sort task as the formative check."
     },
     {
       type: "peerTask",
@@ -277,10 +277,11 @@ window.INVEST.lesson = {
         { label: "D", text: "Buy and sell this week." }
       ],
       steps: [
-        "Handout Section B: sort cases A-D as saving, investing, speculating or trading.",
-        "A: bank account. B: Tencent after evidence. C: short-video jump. D: buy and sell Tencent this week. Then write one corrected sentence."
+        "Sort A-D alone first.",
+        "Underline the clue in each case.",
+        "Write: A careful investor..., but a speculator..."
       ],
-      sampleAnswer: "A = saving; B = investing; C = speculating; D = trading. A careful investor checks evidence and accepts risk; a speculator mainly hopes for a quick price move.",
+      sampleAnswer: "A = saving because the money is kept safe for near use. B = investing because evidence is checked and risk is accepted. C = speculating because the decision depends on a quick hoped-for price jump. D = trading because buying and selling happens repeatedly in a short period.",
       notes: "This is a one-class sorting task, not a project. Require each student to copy one justified classification individually on the handout."
     },
     {
@@ -320,11 +321,11 @@ window.INVEST.lesson = {
       eyebrow: "Starter",
       title: "One share, one claim",
       visual: investmentPhotos.smartphoneMarketChart,
-      question: "A share gives a small ownership claim. It does not make the student the owner of Tencent's offices, managers or bank account.",
-      zh: "一股股票给学生一个很小的所有权权益，但不代表他拥有腾讯的办公室、经理或银行账户。",
+      question: "If one student buys 1 Tencent share, which statement is correct: they own a tiny claim, they own Tencent's buildings, or they control Tencent's managers? Explain your choice.",
+      zh: "如果一个学生买了1股腾讯股票，哪句话正确：拥有很小的权益、拥有腾讯大楼，还是控制腾讯经理？说明理由。",
       revealTitle: "Useful distinction",
-      answer: "After teaching the distinction, students write one thing a shareholder owns and one thing a shareholder does not personally own.",
-      notes: "Use this as a taught concrete example before the formal share/shareholder definitions and checks."
+      answer: "They own a tiny ownership claim. A shareholder does not personally own Tencent's buildings, managers or bank account, and one tiny shareholder does not control the company.",
+      notes: "Ask for votes before revealing. Students then write one thing a shareholder owns and one thing a shareholder does not personally own."
     },
     {
       type: "visualPause",
@@ -341,16 +342,15 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Share",
-      visual: investmentPhotos.smartphoneMarketChart,
       term: "Share",
       termZh: "股票 / 股份",
-      definition: "A <span class=\"blank invReveal\">share</span> is one unit of ownership in a company.",
+      definition: "A share is one <span class=\"blank invReveal\" data-answer=\"unit\" style=\"--blank-width:6ch\"><span class=\"invBlankText\">unit</span></span> of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company.",
       definitionZh: "股票是公司所有权中的一个单位。",
       keyTerms: [
         { term: "Ownership", zh: "所有权", note: "The investor has a claim on part of the company." },
         { term: "Unit", zh: "单位", note: "One share is only a small piece, not the whole company." }
       ],
-      notes: "Students complete the Share blank in Section B before reveal. Make students say the full sentence aloud after the blank is revealed."
+      notes: "Students complete the Share line in Section B before reveal. The reveal should focus on unit and ownership, not just the word share."
     },
     {
       type: "answer",
@@ -377,16 +377,15 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Shareholder",
-      visual: investmentPhotos.investorMeetingReport,
       term: "Shareholder",
       termZh: "股东",
-      definition: "A <span class=\"blank invReveal\">shareholder</span> is a person or institution that owns one or more shares in a company.",
+      definition: "A shareholder is a person or institution that <span class=\"blank invReveal\" data-answer=\"owns\" style=\"--blank-width:6ch\"><span class=\"invBlankText\">owns</span></span> one or more shares in a company.",
       definitionZh: "股东是拥有公司一股或多股股票的个人或机构。",
       keyTerms: [
         { term: "Person", zh: "个人", note: "For example, a household investor." },
         { term: "Institution", zh: "机构", note: "For example, a fund, pension scheme or company." }
       ],
-      notes: "Students complete the Shareholder blank in Section B before reveal. Point out that shareholders can be people or institutions; Grade 9 students often assume only individuals."
+      notes: "Students complete the Shareholder line in Section B before reveal. Point out that shareholders can be people or institutions; Grade 9 students often assume only individuals."
     },
     {
       type: "discussion",
@@ -427,23 +426,23 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "visualPause",
-      eyebrow: "Look first",
+      type: "discussion",
+      eyebrow: "Discuss",
       title: "A code points to one listing",
       visual: investmentPhotos.financeChartWhiteboard,
-      notes: [
-        "Observation question: what information helps stop investors mixing up companies, markets or charts?",
-        "Bridge: a stock code or quote ticker is an identifier, not an investment judgement. Students record this boundary in Handout Section A."
-      ]
+      question: "Look at 0700.HK and 00700 in Handout A. What can these codes identify, and what can they not prove about the investment?",
+      zh: "看A部分的0700.HK和00700。这些代码能识别什么？又不能证明什么投资判断？",
+      revealTitle: "Identifier, not judgement",
+      answer: "The codes identify Tencent's listed shares on the Hong Kong market. They do not prove whether the share is cheap, expensive, safe or risky.",
+      notes: "This replaces the second back-to-back visual pause with a commitment question. Students should write the boundary in Section A before reveal."
     },
     {
       type: "term",
       eyebrow: "Key idea",
       title: "Stock code",
-      visual: investmentPhotos.financeChartWhiteboard,
       term: "Stock code",
       termZh: "股票代码",
-      definition: "A <span class=\"blank invReveal\">stock code</span> or quote ticker is a short identifier used to find a listed company's shares.",
+      definition: "A stock code or quote ticker is a short <span class=\"blank invReveal\" data-answer=\"identifier\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">identifier</span></span> used to find a listed company's shares.",
       definitionZh: "股票代码或报价代码是寻找上市公司股票的简短标识。",
       keyTerms: [
         { term: "0700.HK", zh: "课堂报价代码", note: "Market-data ticker used in class." },
@@ -493,7 +492,6 @@ window.INVEST.lesson = {
       type: "dataSnapshot",
       eyebrow: "Data Snapshot",
       title: "Tencent: frozen company snapshot",
-      subtitle: "Real company data are useful only if the date and source are clear.",
       visual: investmentPhotos.tencentBinhaiTowers,
       sourceStamp: "Tencent FY2025 results | RMB billions | snapshot date 26 Jun 2026",
       focusMetrics: [
@@ -501,36 +499,21 @@ window.INVEST.lesson = {
         { label: "Gross profit", value: "RMB422.6bn" },
         { label: "Gross margin", value: "56%" }
       ],
-      table: [
-        ["Item", "What it tells an investor", "Snapshot"],
-        ["Company", "The business being analysed", "Tencent Holdings Limited"],
-        ["Exchange", "The market where this share is listed", "Hong Kong Stock Exchange"],
-        ["Quote ticker / HKEX code", "The identifiers investors use to find the share", "0700.HK / 00700"],
-        ["Revenue", "Total sales before costs are deducted", "RMB751.8bn"],
-        ["Gross profit", "Revenue left after direct costs", "RMB422.6bn"],
-        ["Gross margin", "Gross profit as a percentage of revenue", "56%"]
-      ],
-      chartTitle: "Scale of FY2025 figures",
-      bars: [
-        { label: "Revenue", value: "751.8", width: 100, tone: "blue" },
-        { label: "Gross profit", value: "422.6", width: 56, tone: "green" },
-        { label: "Direct costs implied", value: "329.2", width: 44, tone: "amber" }
-      ],
-      task: "Handout Section C: read the three figures. For each, write what it shows and what it does not prove.",
+      task: "Handout Section C: record what each figure shows. Leave the limitation column blank until you have written your own limit.",
       note: "Company, code, exchange, source and date are secure. Now read the performance figures.",
-      notes: "Students have already checked company/code/source in Section A. Now use Section C to read one performance number, then one limitation."
+      notes: "Students have already checked company/code/source in Section A. Keep this slide to three headline figures only; limitations are generated on the next check."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "Section C: What the data can show",
+      title: "Correct the evidence claim",
       mode: "fillBlanks",
       items: [
-        { prompt: "Revenue shows total __________ before costs are deducted.", answer: "sales", zh: "营业收入说明销售规模，但不能说明股票是否便宜。" },
-        { prompt: "High revenue does not prove a good __________.", answer: "investment", zh: "强公司仍然可能有不吸引人的股价。" },
-        { prompt: "Gross margin compares gross profit with __________.", answer: "revenue", zh: "毛利率是有用证据，但不是完整判断。" }
+        { prompt: "High revenue shows large __________ before costs are deducted.", answer: "sales", zh: "营业收入说明销售规模。" },
+        { prompt: "It does not prove a good __________, because price and risk still matter.", answer: "investment", zh: "它不能单独证明是好投资。" },
+        { prompt: "Gross margin is useful evidence, but it is not a complete __________.", answer: "judgement", zh: "毛利率有用，但不是完整判断。" }
       ],
-      notes: "Students complete Section C after the data-reading slide. This is a formative check, not the first presentation of the figures."
+      notes: "Start with the wrong claim 'high revenue proves a good investment'. Students correct it by adding sales, investment and judgement before reveal."
     },
     {
       type: "visualPause",
@@ -546,16 +529,15 @@ window.INVEST.lesson = {
       type: "term",
       eyebrow: "Key idea",
       title: "Share price",
-      visual: investmentPhotos.smartphoneMarketChart,
       term: "Share price",
       termZh: "股价",
-      definition: "A <span class=\"blank invReveal\">share price</span> is the market price of one share at a specific time.",
+      definition: "A share price is the <span class=\"blank invReveal\" data-answer=\"market price\" style=\"--blank-width:13ch\"><span class=\"invBlankText\">market price</span></span> of one share at a <span class=\"blank invReveal\" data-answer=\"specific time\" style=\"--blank-width:14ch\"><span class=\"invBlankText\">specific time</span></span>.",
       definitionZh: "股价是在特定时间一股股票的市场价格。",
       keyTerms: [
         { term: "Market price", zh: "市场价格", note: "It is formed by buyers and sellers in the market." },
         { term: "Specific time", zh: "特定时间", note: "Prices can change during the day." }
       ],
-      notes: "Students complete the share-price blank in Section B. Stress the time point. Students often speak as if a share has one permanent price."
+      notes: "Students complete the share-price line in Section B. Stress market price and specific time; students often speak as if a share has one permanent price."
     },
     {
       type: "visualPause",
@@ -573,20 +555,18 @@ window.INVEST.lesson = {
       title: "Formula: percentage price change",
       visual: investmentPhotos.stockReportCalculator,
       formula: "percentage change = (new price - old price) / old price x 100",
-      worked: "Tencent-style example: if a share rises from HK$400 to HK$420: (420 - 400) / 400 x 100 = 5%.",
-      workedZh: "如果股价从400港元升至420港元，涨幅为5%。",
-      prompt: "Handout Section D: A Tencent-style price rises from HK$50 to HK$55. Calculate the percentage change.",
-      promptZh: "一只股票从50港元升至55港元。计算百分比变化。",
-      answer: "(55 - 50) / 50 x 100 = 10%.",
-      notes: "Students should write the substitution in Handout Section D, not just the answer. Reveal answer after they try."
+      worked: "Tencent-style example: HK$400 to HK$420 means the change is HK$20. The old price is the base: 20 / 400 x 100 = 5%.",
+      workedZh: "如果股价从400港元升至420港元，变化是20港元；旧价格400港元是基数。",
+      notes: "Keep this slide to formula plus worked example. Students do the HK$50 to HK$55 try-it on the next slide so the base-denominator idea is not crowded."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "Fill in the blanks",
+      title: "Try it: old price is the base",
       mode: "fillBlanks",
       items: [
         { prompt: "If a share rises from HK$50 to HK$55, the increase is HK$__________.", answer: "5", zh: "先找出价格增加了多少。" },
+        { prompt: "The denominator is the __________ price, HK$50.", answer: "old", zh: "分母是旧价格，而不是新价格。" },
         { prompt: "HK$5 divided by HK$50, times 100, equals __________%.", answer: "10", zh: "再把增加额除以原价并乘以100。" }
       ],
       notes: "This checks Handout Section D and catches students who divide by the new price."
@@ -626,12 +606,12 @@ window.INVEST.lesson = {
       zhTitle: "股价为什么变化",
       flowStyle: "sequence",
       steps: [
-        { text: "Investors receive new information.", answer: "information", zh: "投资者收到新的信息。" },
-        { text: "They change expectations about future profit.", answer: "profit", zh: "他们改变对未来利润的预期。" },
-        { text: "More buyers than sellers can push the price up.", answer: "up", zh: "买方多于卖方可能推动价格上涨。" },
-        { text: "More sellers than buyers can push the price down.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
+        { text: "Investors receive new __________.", answer: "information", zh: "投资者收到新的信息。" },
+        { text: "They change __________ about future profit.", answer: "expectations", zh: "他们改变对未来利润的预期。" },
+        { text: "More __________ than sellers can push the price up.", answer: "buyers", zh: "买方多于卖方可能推动价格上涨。" },
+        { text: "More sellers than buyers can push the price __________.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
       ],
-      notes: "Teach the whole causal sequence explicitly first. The following sentence-completion task is the formative check. Do not introduce efficient-market theory."
+      notes: "Show the whole causal sequence, but make students predict each key link before reveal. The following sentence-completion task is the formative check. Do not introduce efficient-market theory."
     },
     {
       type: "peerTask",
@@ -639,9 +619,9 @@ window.INVEST.lesson = {
       title: "Complete the missing sentence",
       visual: investmentPhotos.investorChartScreens,
       steps: [
-        "Handout Section D: complete the sentence with your partner.",
-        "Use the words: information, expectations, buyers, price.",
-        "Prepare one sentence explaining why a price can rise even before profits actually rise."
+        "Write your own sentence first using: information, expectations, buyers, price.",
+        "Compare with your partner and check the order: information -> expectations -> buyers -> price.",
+        "Prepare one sentence explaining why a price can rise before profits actually rise."
       ],
       sampleAnswer: "If investors receive positive information, their expectations about future profit may rise, so more buyers want the share and the price can rise.",
       notes: "Students need this sentence-level explanation in Section D before moving to judgement."
@@ -677,6 +657,7 @@ window.INVEST.lesson = {
       eyebrow: "Analyst Board",
       title: "Three evidence blocks before judgement",
       visual: investmentPhotos.financialAnalysisDesk,
+      revealBlocks: true,
       blocks: [
         {
           label: "Company performance",
@@ -698,7 +679,7 @@ window.INVEST.lesson = {
         }
       ],
       prompt: "Handout Section E: which block is missing when someone says 'high revenue means a good investment'?",
-      notes: "Students should identify price paid first. Risk is checked on the next slide so the judgement builds step by step."
+      notes: "Show only the block labels and questions first. Students choose the missing block, then reveal the three bodies one by one and finally reveal the prompt."
     },
     {
       type: "visualPause",
@@ -715,16 +696,18 @@ window.INVEST.lesson = {
       eyebrow: "Risk Register",
       title: "A good company can still be a risky share",
       visual: investmentPhotos.shippingPort,
+      revealEffects: true,
+      effectLabel: "Effect link",
       table: [
         ["Risk", "Investor question", "Likely effect"],
-        ["High expectations", "Has the price already assumed strong growth?", "Good results may still disappoint."],
-        ["Regulation", "Could rules reduce future profit?", "Expected future profit may fall."],
-        ["Competition", "Can rivals weaken the business model?", "Margins or growth may fall."],
-        ["Currency and market risk", "Could exchange rates or market sentiment change?", "Some investors may earn less."]
+        ["High expectations", "Has Tencent's price already assumed strong growth?", "Good results may still disappoint investors if expectations were even higher."],
+        ["Regulation", "Could platform or gaming rules reduce future profit?", "Lower expected future profit can reduce the price investors are willing to pay."],
+        ["Competition", "Could rivals weaken Tencent's games, ads or cloud margins?", "Lower margins or slower growth can weaken the investment case."],
+        ["Currency and market mood", "Could exchange rates or market sentiment change returns?", "Some investors may earn less even if the business remains strong."]
       ],
-      prompt: "Handout Section E: which risk is most important for Tencent in this lesson snapshot?",
-      answer: "A strong answer names one risk and links it to future profit, investor expectations or the price paid.",
-      notes: "This is not a recommendation. It trains risk-evidence-effect language before the final hinge question."
+      prompt: "Handout Section E: choose one risk and complete: risk -> future profit or expectations -> price paid.",
+      answer: "A strong answer names one Tencent risk and links it to future profit, investor expectations or the price paid.",
+      notes: "Reveal the effect links only after students have chosen a risk. This is not a recommendation; it trains risk-evidence-effect language before the final hinge question."
     },
     {
       type: "quiz",
@@ -734,14 +717,14 @@ window.INVEST.lesson = {
       question: "Handout Section E check: Which answer best explains why a profitable company may still be a poor investment?",
       zh: "哪一个答案最能解释为什么盈利公司仍可能不是好投资？",
       choices: [
-        "Profit is always bad for shareholders.",
-        "The share price may already be too high compared with expected future profit.",
-        "Stock codes make companies impossible to identify.",
-        "Revenue and profit are the same thing."
+        "A famous company is automatically a safe investment.",
+        "The share price may already be too high compared with expected future profit and risk.",
+        "High revenue always means the share price is cheap.",
+        "A stock code proves the company has no future risk."
       ],
       answer: 1,
-      explanation: "Investment judgement compares future profit and risk with the price paid for the share.",
-      notes: "Use this before the 4-mark question. Students need the core judgement sentence before writing."
+      explanation: "Investment judgement compares expected future profit and risk with the price paid for the share.",
+      notes: "Use this before the 4-mark question. The wrong options are plausible student shortcuts, so ask students to explain why each shortcut fails."
     },
     {
       type: "visualPause",
@@ -758,7 +741,8 @@ window.INVEST.lesson = {
       eyebrow: "Exam practice",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
       visual: investmentPhotos.businessChartsPaper,
-      prompt: "Use Handout Sections C and E. Write two developed points using one Tencent figure and one limitation.",
+      revealKeywords: true,
+      prompt: "First write a two-point plan: one revenue/profit limit and one price/risk/expectations limit. Then reveal keywords if needed.",
       zh: "写出两个有发展的观点。可以使用腾讯数据快照。",
       keywords: ["revenue", "profit", "risk", "price paid", "expectations", "future"],
       notes: "Give 4 minutes. Require two because-cause-effect chains and at least one Tencent figure from the handout."
@@ -768,6 +752,8 @@ window.INVEST.lesson = {
       eyebrow: "Model answer",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
       visual: investmentPhotos.financialAnalysisDesk,
+      cueLabel: "Compare your answer",
+      cueText: "Underline evidence, then underline the limitation or judgement link in each paragraph.",
       paragraphs: [
         "Tencent's <mark>revenue</mark> of RMB751.8bn shows very large sales before costs are deducted, but revenue alone does not prove strong <mark>profit</mark> after all costs.",
         "A share can also be unattractive if the <mark>price paid</mark> is already too high. Investors compare expected future profit and <mark>risk</mark> with the current share price before judging whether it is a good investment."

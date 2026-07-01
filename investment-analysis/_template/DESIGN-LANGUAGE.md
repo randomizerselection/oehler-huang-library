@@ -24,19 +24,22 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Keep source panels, notes, overview and photo captions outside the teaching hierarchy.
 - Titles appear once. Term slides should not repeat the term in both the title and body.
 - Body content should sit in the upper-middle teaching zone with generous whitespace. Avoid bottom-heavy layouts on tall classroom screens.
-- Use reveal states to stage secondary evidence instead of showing every detail at once.
+- Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. Keep the projected pause surface visual-first; put the teaching bridge in notes.
 
 ## Component Rules
 
+- `marketBrief`: use `revealMetricValues: true` when students must locate company, code, source date or key facts before seeing the answer.
+- `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
-- `analystBoard`: show no more than three large evidence blocks.
-- `riskRegister`: show four short risk prompts in large blocks; keep detailed explanations out of the projected surface.
-- `flow`: use large numbered steps with blanks; do not add a second explanatory line to every step.
+- `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.
+- `riskRegister`: show four short risk prompts in large blocks; use `revealEffects: true` so students link risk to future profit, expectations or price paid before seeing the effect.
+- `flow`: use large numbered steps with meaningful blanks and `answer` values; do not add a second explanatory line to every step.
 - `answer` and fill-blank term slides: blanks must render as clear answer slots with a visible underline/fill, stable width before and after reveal, and punctuation attached to the slot.
 - `Exit ticket`: keep it as a compact final-check slide with numbered prompts, no visible source button, and all prompts fitting above the footer on phone.
 - `peerTask`: show one large task surface; if a visual is useful, keep it as a subdued background rather than a competing card.
-- `exam` and `modelAnswer`: use the exam question once, then staged keywords or paragraphs.
+- `exam`: use the exam question once, then reveal keywords only after students have tried a plan when `revealKeywords: true`.
+- `modelAnswer`: use `cueLabel` and `cueText` to make the comparison task explicit, then reveal paragraphs one at a time.
 
 ## Landing Pages
 

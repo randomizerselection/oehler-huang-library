@@ -480,13 +480,16 @@
 
   function renderAnalystBoard(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const revealBlocks = Boolean(slide.revealBlocks);
     const blocks = (slide.blocks || []).slice(0, 3).map((block, i) => `
       <div class="invEvidence">
         <span class="invEvidenceNumber">${String(i + 1).padStart(2, '0')}</span>
         <span class="invEyebrow">${escapeHtml(block.label)}</span>
         <strong>${escapeHtml(block.title)}</strong>
-        <p>${escapeHtml(block.body)}</p>
-        ${block.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(block.zh)}</p>` : ''}
+        <div class="invEvidenceBody${revealBlocks ? ' invReveal' : ''}">
+          <p>${escapeHtml(block.body)}</p>
+          ${block.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(block.zh)}</p>` : ''}
+        </div>
       </div>
     `).join('');
     const body = `
@@ -513,12 +516,13 @@
 
   function renderRiskRegister(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const revealEffects = Boolean(slide.revealEffects);
     const rows = (slide.table || []).slice(1).map((row) => `
       <div class="invRiskItem">
         <span class="invRiskMarker"></span>
         <strong>${escapeHtml(row[0])}</strong>
         <p class="invRiskQuestion">${escapeHtml(row[1])}</p>
-        <p class="invRiskEffect"><span class="invEyebrow">Likely effect</span><span>${escapeHtml(row[2])}</span></p>
+        <p class="invRiskEffect${revealEffects ? ' invReveal' : ''}"><span class="invEyebrow">${escapeHtml(slide.effectLabel || 'Likely effect')}</span><span>${escapeHtml(row[2])}</span></p>
       </div>
     `).join('');
     const body = `
@@ -532,6 +536,12 @@
   function renderPeerTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const sample = slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p></div>` : '';
+    const steps = (slide.steps || []).map((step, i) => `
+      <div class="invStep">
+        <span class="invStepNum">${i + 1}</span>
+        <strong>${html(step)}</strong>
+      </div>
+    `).join('');
 
     if (slide.taskType === 'sort') {
       const categories = (slide.categories || []).map((category) => `<span class="invSortCategory">${escapeHtml(category)}</span>`).join('');
@@ -544,6 +554,7 @@
       const body = `
         <div>
           <div class="invPeerBox invSortPeerBox">
+            ${steps ? `<div class="invPeerSteps invSortInstructions">${steps}</div>` : ''}
             <div class="invSortBoard">
               <div class="invSortCategories">${categories}</div>
               <div class="invSortCases">${cases}</div>
@@ -554,12 +565,6 @@
       return slideShell(slide, index, lesson, body, 'invPeerTaskSlide invSortTaskSlide', photo);
     }
 
-    const steps = (slide.steps || []).map((step, i) => `
-      <div class="invStep">
-        <span class="invStepNum">${i + 1}</span>
-        <strong>${html(step)}</strong>
-      </div>
-    `).join('');
     const body = `
       <div>
         <div class="invPeerBox">
@@ -591,7 +596,8 @@
 
   function renderExam(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const keywords = (slide.keywords || []).map((keyword, i) => `<span class="invKeyword"><span>${String(i + 1).padStart(2, '0')}</span>${escapeHtml(keyword)}</span>`).join('');
+    const revealKeywords = Boolean(slide.revealKeywords);
+    const keywords = (slide.keywords || []).map((keyword, i) => `<span class="invKeyword${revealKeywords ? ' invReveal' : ''}"><span>${String(i + 1).padStart(2, '0')}</span>${escapeHtml(keyword)}</span>`).join('');
     const body = `
       <div>
         <div class="invExamBox">
@@ -613,8 +619,8 @@
     const body = `
       <div class="invModelFrame">
         <div class="invModelCue">
-          <strong>Answer focus</strong>
-          <span>Two developed points: one about profit, one about price and risk.</span>
+          <strong>${escapeHtml(slide.cueLabel || 'Answer focus')}</strong>
+          <span>${escapeHtml(slide.cueText || 'Two developed points: one about profit, one about price and risk.')}</span>
         </div>
         <div class="invModelParas">${paragraphs}</div>
       </div>`;

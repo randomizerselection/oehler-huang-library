@@ -1854,6 +1854,7 @@ img {
 
 .invCalculationDeskSlide .invSlideBody {
   align-content: start;
+  padding-top: 0;
 }
 
 .invCalcBox {
@@ -2546,25 +2547,25 @@ img {
 }
 
 .invCalculationDeskSlide .invSlideBody {
-  align-content: center;
+  align-content: start;
 }
 
 .invCalcBox {
-  padding: 16px;
+  padding: 14px;
   border-left-color: var(--type-accent-line);
 }
 
 .invFormula {
   display: grid;
   place-items: center;
-  min-height: 86px;
+  min-height: 68px;
   border-left: 0;
   border-top: 5px solid var(--type-accent-line);
 }
 
 .invWorked,
 .invTryIt {
-  min-height: 206px;
+  min-height: 0;
 }
 
 .invWorked {
@@ -2592,6 +2593,21 @@ img {
   gap: 12px;
 }
 
+.invSortTaskSlide .invSortInstructions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invSortTaskSlide .invSortInstructions .invStep {
+  min-height: 58px;
+  padding: 8px;
+}
+
+.invSortTaskSlide .invSortInstructions .invStepNum {
+  width: 34px;
+  height: 34px;
+}
+
 .invPeerTaskSlide .invStep {
   min-height: 118px;
   border-left-color: rgba(241, 190, 90, 0.56);
@@ -2599,11 +2615,12 @@ img {
 
 .invPeerTaskSlide .invSortPeerBox {
   width: min(1420px, 100%);
+  padding: 14px;
 }
 
 .invSortBoard {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .invSortCategories {
@@ -2615,7 +2632,7 @@ img {
 .invSortCategory {
   display: grid;
   place-items: center;
-  min-height: 74px;
+  min-height: 56px;
   border: 1px solid rgba(241, 190, 90, 0.38);
   border-radius: var(--inv-radius);
   background: rgba(241, 190, 90, 0.08);
@@ -2625,7 +2642,7 @@ img {
 .invSortCases {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 8px;
 }
 
 .invSortCase {
@@ -2633,7 +2650,7 @@ img {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 12px;
   align-items: center;
-  min-height: 112px;
+  min-height: 82px;
   border: 1px solid rgba(152, 184, 188, 0.28);
   border-left: 5px solid rgba(79, 210, 255, 0.48);
   border-radius: var(--inv-radius);
@@ -3073,8 +3090,8 @@ img {
 
 .invCalcBox {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding: 16px 18px;
+  gap: 10px;
+  padding: 12px 14px;
 }
 
 .invFormula,
@@ -3086,8 +3103,8 @@ img {
 .invTryIt {
   display: grid;
   align-content: start;
-  min-height: 178px;
-  padding: 16px;
+  min-height: 0;
+  padding: 12px 14px;
   background: rgba(7, 17, 20, 0.82);
 }
 
@@ -3178,8 +3195,13 @@ img {
   line-height: 1.08;
 }
 
-.invRiskRegisterSlide .invRiskItem p:last-child {
+.invRiskRegisterSlide .invRiskItem p:last-child:not(.invReveal) {
   display: block;
+}
+
+.invRiskEffect.invReveal.is-revealed,
+.invKeyword.invReveal.is-revealed {
+  display: grid;
 }
 
 .invRiskEffect .invEyebrow {
@@ -4016,6 +4038,20 @@ img {
     display: none;
   }
 
+  .invSlide[data-type="marketBrief"] .invMetricGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invSlide[data-type="marketBrief"] .invMetric {
+    min-height: 0;
+    padding: 8px;
+  }
+
+  .invSlide[data-type="marketBrief"] .invHeroPhotoCredit {
+    display: none;
+  }
+
   .invPeerTaskSlide .invSlideBody {
     padding-top: 8px;
   }
@@ -4026,6 +4062,10 @@ img {
 
   .invPeerSteps {
     gap: 6px;
+  }
+
+  .invSortTaskSlide .invSortInstructions {
+    display: none;
   }
 
   .invSortBoard {
@@ -4084,6 +4124,10 @@ img {
     padding-top: 10px;
   }
 
+  .invTermGrid {
+    display: none;
+  }
+
   .invSectionList {
     grid-template-columns: 1fr;
   }
@@ -4115,6 +4159,10 @@ img {
   }
 
   .invExitTicketSlide .invZhLine {
+    display: none;
+  }
+
+  .invAnswerSlide .invZhLine {
     display: none;
   }
 
@@ -4152,8 +4200,12 @@ img {
 
   .invDataTask {
     gap: 4px;
-    padding: 10px 10px 10px 12px;
+    padding: 8px;
     border-left-width: 4px;
+  }
+
+  .invDataTask strong {
+    display: none;
   }
 
   .invProgressText {
@@ -4218,13 +4270,26 @@ img {
     min-height: auto;
   }
 
+  .invCalculationDeskSlide .invZhLine {
+    display: none;
+  }
+
   .invEvidence {
     min-height: auto;
-    padding-top: 48px;
+    padding: 10px;
+  }
+
+  .invEvidenceNumber {
+    display: none;
+  }
+
+  .invEvidence strong {
+    min-height: auto;
   }
 
   .invRiskGrid {
     grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .invRiskItem {
@@ -4233,7 +4298,11 @@ img {
       "marker title"
       "question question"
       "effect effect";
-    padding: 12px;
+    padding: 8px;
+  }
+
+  .invRiskRegisterSlide .invRiskQuestion {
+    display: none;
   }
 
   .invRiskMarker {

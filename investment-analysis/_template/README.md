@@ -15,13 +15,21 @@ Required files:
 Classroom rhythm:
 
 1. Hero or market brief.
-2. Concrete starter.
+2. Concrete starter that asks students to choose, predict or classify before the reveal.
 3. Exactly three bilingual objectives.
 4. Section divider, visual or data pause, taught content, formative check.
 5. Calculation or evidence practice where useful.
 6. Exam-style writing and exit ticket.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
+
+Teaching rhythm:
+
+- Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
+- `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
+- `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
+- `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.
+- `peerTask` slides should end with an individual written check even when students compare with a partner.
 
 Syllabus alignment:
 
@@ -38,7 +46,10 @@ Visual rhythm:
 - Keep each projected slide to one main idea or student action.
 - Do not combine a dense table, chart, photo and prompt on the same slide.
 - Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
-- Use `analystBoard` and `riskRegister` for a small number of large evidence/risk blocks with reveal prompts, not crowded dashboard panels.
+- Use `marketBrief` with `revealMetricValues: true` when students should locate company facts before seeing the answer.
+- Use `analystBoard` with `revealBlocks: true` and `riskRegister` with `revealEffects: true` for staged evidence/risk thinking, not crowded dashboard panels.
+- Use `exam` with `revealKeywords: true` when students should plan before seeing the keyword scaffold.
+- Use `modelAnswer` with `cueLabel` and `cueText` so the comparison instruction matches the question.
 - Keep landing-page copy student-facing: lesson actions, what students will learn, and clear quiz/data links.
 
 Typography rhythm:
