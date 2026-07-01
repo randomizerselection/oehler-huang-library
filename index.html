@@ -368,33 +368,66 @@
 
     .course-branch {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+      gap: 16px;
       align-items: stretch;
       margin-top: 22px;
     }
 
     .course-branch-card {
-      border: 1px solid rgba(94, 126, 155, .24);
+      position: relative;
+      display: grid;
+      align-content: start;
+      gap: .75rem;
+      min-width: 0;
+      min-height: 250px;
+      border: 1px solid rgba(255,255,255,.13);
       border-radius: 8px;
-      background: rgba(255, 255, 255, .9);
-      box-shadow: 0 16px 38px rgba(9, 32, 47, .12);
+      background:
+        linear-gradient(145deg, rgba(86,216,255,.08), rgba(255,255,255,.032) 42%, rgba(126,240,181,.045)),
+        rgba(255,255,255,.024);
+      box-shadow: 0 16px 38px rgba(0,0,0,.2);
       padding: 22px;
+      overflow: hidden;
+    }
+
+    .course-branch-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--green), var(--gold));
+      opacity: .8;
+    }
+
+    .course-branch-card.is-primary {
+      border-color: rgba(86,216,255,.28);
+    }
+
+    .course-branch-card.is-snapshot {
+      border-color: rgba(255,209,102,.24);
+      background:
+        linear-gradient(145deg, rgba(255,209,102,.08), rgba(255,255,255,.03) 48%, rgba(86,216,255,.045)),
+        rgba(255,255,255,.022);
     }
 
     .course-branch-card h3 {
-      margin: 8px 0;
-      color: var(--navy);
-      font-size: 1.45rem;
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(24px, 2vw, 34px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .course-branch-card p {
-      color: var(--text-muted);
+      color: var(--muted);
       line-height: 1.55;
+      font-size: 16px;
     }
 
     .course-branch-kicker {
-      color: var(--deep-teal);
+      color: var(--cyan);
       font-size: .78rem;
       font-weight: 900;
       letter-spacing: .12em;
@@ -402,41 +435,59 @@
     }
 
     .course-branch-actions {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
       gap: 10px;
       margin-top: 18px;
     }
 
     .course-branch-link {
-      border: 1px solid rgba(94, 126, 155, .28);
-      border-radius: 6px;
-      background: #fff;
-      color: var(--navy);
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 8px;
+      background: rgba(255,255,255,.045);
+      color: var(--ink);
       padding: 9px 12px;
       font-size: .86rem;
       font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
       text-decoration: none;
+      transition: border-color .18s var(--ease), background .18s var(--ease), transform .18s var(--ease);
+    }
+
+    .course-branch-link:hover,
+    .course-branch-link:focus-visible {
+      border-color: rgba(86,216,255,.55);
+      background: rgba(86,216,255,.12);
+      outline: none;
+      transform: translateY(-1px);
     }
 
     .course-branch-link.primary {
-      background: #17201b;
-      border-color: #17201b;
-      color: #fffef8;
+      background: var(--green);
+      border-color: rgba(126,240,181,.68);
+      color: #06131b;
     }
 
     .course-branch-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 18px;
-      border: 1px solid rgba(94, 126, 155, .26);
-      background: #f4f5f1;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      background: rgba(7,17,31,.42);
+      overflow: hidden;
     }
 
     .course-branch-strip span {
       min-width: 0;
       padding: 11px;
-      border-right: 1px solid rgba(94, 126, 155, .26);
+      border-right: 1px solid rgba(255,255,255,.1);
+      color: var(--ink-dim);
       font-size: .82rem;
       font-weight: 900;
       text-align: center;
@@ -879,28 +930,30 @@
           <h2 id="investment-title">Investment Analysis</h2>
           <p class="section-title-zh" lang="zh-Hans">投资分析课程</p>
         </div>
+        <p class="section-intro">A separate Grade 9 course for learning how to read company evidence, calculate simple investment measures and write careful judgements.</p>
       </div>
       <div class="course-branch">
-        <article class="course-branch-card">
-          <div class="course-branch-kicker">Grade 9 internal course</div>
-          <h3>Stocks, company evidence and price judgement</h3>
+        <article class="course-branch-card is-primary">
+          <div class="course-branch-kicker">Grade 9 course</div>
+          <h3>Learn how to judge a share using evidence.</h3>
           <p>
-            A projector-first investment course with real company data snapshots, bilingual scaffolding, in-class checks and HTML quizzes.
+            Start with Tencent, then build the habits you need for shares, source dates, percentage changes, valuation and risk. This is classroom analysis, not personal investment advice.
           </p>
           <div class="course-branch-actions" aria-label="Investment Analysis links">
-            <a class="course-branch-link primary" href="investment-analysis/index.html">Course page</a>
-            <a class="course-branch-link" href="investment-analysis/unit-1/lesson-1/index.html">Lesson 1 slides</a>
+            <a class="course-branch-link primary" href="investment-analysis/index.html">Course home</a>
+            <a class="course-branch-link" href="investment-analysis/unit-1/lesson-1/index.html">Start Lesson 1</a>
+            <a class="course-branch-link" href="investment-analysis/syllabus.html">30-lesson map</a>
             <a class="course-branch-link" href="investment-analysis/unit-1/lesson-1/index.html?view=quiz">Lesson 1 quiz</a>
           </div>
         </article>
-        <aside class="course-branch-card">
-          <div class="course-branch-kicker">Lesson 1 snapshot</div>
-          <h3>What is a share?</h3>
-          <p lang="zh-Hans">股票、股东、股票代码、股价，以及为什么好公司不一定等于好投资。</p>
+        <aside class="course-branch-card is-snapshot">
+          <div class="course-branch-kicker">Course starts here</div>
+          <h3>Lesson 1: What is a share?</h3>
+          <p>Use one Tencent share to practise company name, exchange, stock code, share price and first risk judgement.</p>
           <div class="course-branch-strip" aria-label="Investment course signals">
-            <span>0700.HK</span>
-            <span>FY2025</span>
-            <span>Risk</span>
+            <span>Shares</span>
+            <span>Evidence</span>
+            <span>Judgement</span>
           </div>
         </aside>
       </div>

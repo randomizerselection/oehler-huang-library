@@ -4,6 +4,8 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
+Also check `../syllabus.html` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, key terms, definitions, formulae, required evidence fields and individual classroom output for each taught lesson.
+
 Required files:
 
 - `index.html` loads `../../../assets/css/investment.css`, `../../../assets/js/investment-deck.js`, `../../../assets/js/investment-quiz.js`, then local `slides.js` and `quiz.js`.
@@ -20,6 +22,16 @@ Classroom rhythm:
 6. Exam-style writing and exit ticket.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
+
+Syllabus alignment:
+
+- Center each lesson on the real company named in `syllabus.html` unless the syllabus itself is intentionally revised.
+- Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
+- Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
+- Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
+- Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
+- One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
+- Do not turn any unit into a multi-lesson portfolio, report or final project sequence.
 
 Visual rhythm:
 

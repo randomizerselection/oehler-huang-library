@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review shares, shareholders, stock codes, share prices and the first investment judgement rule.",
+  description: "Review saving, investing, speculating, trading, shares, shareholders, stock codes, share prices and the first investment judgement rule.",
   questions: [
     {
       id: "share-definition",
@@ -65,6 +65,32 @@ window.INVEST.quiz = {
       ],
       answer: 1,
       explanation: "Investment judgement compares future profit and risk with the current price paid."
+    },
+    {
+      id: "investing-definition",
+      type: "multipleChoice",
+      prompt: "Which choice best describes investing?",
+      choices: [
+        "Keeping money safe for use next week",
+        "Putting money into an asset with expected return and risk after checking evidence",
+        "Buying only because the price rose yesterday",
+        "Buying and selling many times in a short period"
+      ],
+      answer: 1,
+      explanation: "Investing uses evidence and accepts risk for expected return. It is different from saving, speculating and short-term trading."
+    },
+    {
+      id: "speculating-vs-trading",
+      type: "multipleChoice",
+      prompt: "A student buys a share only because a short video says it will jump tomorrow. Which term best fits?",
+      choices: [
+        "Saving",
+        "Investing",
+        "Speculating",
+        "Reading a source carefully"
+      ],
+      answer: 2,
+      explanation: "This is speculating because the decision depends mainly on a hoped-for price jump, not careful evidence."
     },
     {
       id: "ownership-blank",

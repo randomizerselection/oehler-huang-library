@@ -58,6 +58,63 @@ window.INVEST.lesson = {
     },
     {
       type: "discussion",
+      eyebrow: "Before the first share",
+      title: "Why not just keep money as cash?",
+      visual: investmentPhotos.financialAnalysisDesk,
+      question: "If cash feels safer than shares, why might someone still choose to invest?",
+      zh: "如果现金看起来比股票更安全，为什么有人仍然会选择投资？",
+      revealTitle: "Careful answer",
+      answer: "Saving protects money for later use. Investing accepts risk because the investor hopes the asset can grow, earn income, or beat inflation over time. Nobody can predict prices perfectly.",
+      notes: [
+        "Use this as the syllabus foundation before the first Tencent share question.",
+        "Keep the tone balanced: investing is not automatically better than saving, and prediction risk is real."
+      ]
+    },
+    {
+      type: "flow",
+      eyebrow: "Key distinctions",
+      title: "Saving, investing, speculating, trading",
+      visual: investmentPhotos.stockReportCalculator,
+      mode: "fillBlanks",
+      steps: [
+        { text: "__________ means keeping money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
+        { text: "__________ means putting money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
+        { text: "__________ means taking high risk mainly because you expect a price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
+        { text: "__________ means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
+      ],
+      notes: "Students should write the four terms before reveal. Then ask which one best describes today's Tencent lesson: investing analysis, not trading advice."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "Team task",
+      title: "Sort the money decision",
+      visual: investmentPhotos.businessChartsPaper,
+      steps: [
+        "Team of two: sort cases A-D as saving, investing, speculating or trading.",
+        "A: bank account for next month. B: broad fund for long-term growth after reading risks.",
+        "C: buy because a short video says it will jump tomorrow. D: buy and sell the same share several times this week."
+      ],
+      notes: "This is a one-class sorting task, not a project. Model answer: A = saving; B = investing; C = speculating; D = trading. Require each student to copy one justified classification individually."
+    },
+    {
+      type: "quiz",
+      eyebrow: "Hinge check",
+      title: "Investing or speculating?",
+      visual: investmentPhotos.smartphoneMarketChart,
+      question: "Which choice best describes investing?",
+      zh: "哪一个最能描述投资？",
+      choices: [
+        "Keeping money safe for next week's lunch payment.",
+        "Putting money into an asset with expected return and risk after checking evidence.",
+        "Buying only because the price rose yesterday.",
+        "Buying and selling quickly many times for small price moves."
+      ],
+      answer: 1,
+      explanation: "Investing uses evidence and accepts risk for expected return. Saving, speculating and trading are different decisions.",
+      notes: "If students choose C or D, pause and ask what evidence or time horizon is missing."
+    },
+    {
+      type: "discussion",
       eyebrow: "Starter",
       title: "One share, one claim",
       visual: investmentPhotos.smartphoneMarketChart,
@@ -72,7 +129,7 @@ window.INVEST.lesson = {
       eyebrow: "Objectives",
       title: "By the end, you can",
       bullets: [
-        "explain that a share is part ownership of a company",
+        "distinguish saving, investing, speculating and trading",
         "read company, exchange, stock code and share price in a stock snapshot",
         "explain why a good company is not automatically a good investment"
       ],
@@ -81,7 +138,7 @@ window.INVEST.lesson = {
         "读懂公司、交易所、股票代码和股价等信息",
         "解释为什么好公司不一定等于好投资"
       ],
-      notes: "Keep this short. The success test is whether students can separate company, share and price."
+      notes: "Keep this short. The success test is whether students can separate saving, investing, speculating and trading, then separate company, share and price."
     },
     {
       type: "section",
