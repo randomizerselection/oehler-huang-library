@@ -6,8 +6,9 @@ system.
 
 ## Quick start
 
-Open `index.html` in a browser (or double-click it) to see the landing page,
-then click any lesson tile to open that deck.
+Open `index.html` in a browser (or double-click it) to choose a course page.
+The Economics course page is `economics/index.html`; click any lesson tile
+there to open that deck.
 
 Inside a deck:
 
@@ -33,7 +34,9 @@ when students need to see the whole structure at once.
 
 ```
 oehler-huang-library/
-├── index.html                         ← course landing page
+├── index.html                         ← course directory
+├── economics/
+│   └── index.html                     ← IGCSE Economics course landing page
 ├── README.md                          ← this file
 ├── references/
 │   ├── igcse-economics-syllabus-2027-2029.md ← current syllabus reference
