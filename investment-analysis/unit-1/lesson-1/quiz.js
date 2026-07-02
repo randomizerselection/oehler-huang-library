@@ -2,8 +2,50 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review what a stock-price graph represents, why it can change, graph-based percentage changes and the first investment judgement rule.",
+  description: "Review the Lesson 1 map question: what investment analysis is, what a share is, and why evidence comes before opinion.",
   questions: [
+    {
+      id: "evidence-before-opinion",
+      type: "multipleChoice",
+      prompt: "What does investment analysis use before opinion?",
+      zh: "投资分析在形成观点之前先使用什么？",
+      choices: [
+        "Evidence",
+        "A favourite brand",
+        "A guess",
+        "A class vote"
+      ],
+      answer: 0,
+      explanation: "Investment analysis starts with evidence, then builds a careful judgement."
+    },
+    {
+      id: "analysis-not-opinion",
+      type: "multipleChoice",
+      prompt: "Which sentence is analysis rather than unsupported opinion?",
+      zh: "哪一句是分析，而不是没有证据的观点？",
+      choices: [
+        "Tencent must be good because I know the brand.",
+        "Tencent is a familiar company, so risk is impossible.",
+        "Tencent has source-dated company evidence, but I still need to judge price and risk.",
+        "The share is good because the name is famous."
+      ],
+      answer: 2,
+      explanation: "The analytical sentence uses evidence and keeps price and risk open for judgement."
+    },
+    {
+      id: "asset",
+      type: "multipleChoice",
+      prompt: "What is an asset?",
+      zh: "资产是什么？",
+      choices: [
+        "Something owned that may have value",
+        "Only a daily price movement",
+        "Only a company product",
+        "A guaranteed profit"
+      ],
+      answer: 0,
+      explanation: "A share is one type of financial asset because it can be owned and may have value."
+    },
     {
       id: "share-definition",
       type: "multipleChoice",
@@ -11,91 +53,54 @@ window.INVEST.quiz = {
       zh: "股票是什么？",
       choices: [
         "One unit of ownership in a company",
-        "A guaranteed payment from a bank",
-        "A government tax on companies",
-        "A loan that must pay fixed interest"
+        "A guaranteed bank payment",
+        "A company product",
+        "A government tax"
       ],
       answer: 0,
-      explanation: "A share is an ownership claim, not a bank deposit or fixed-interest loan."
+      explanation: "A share is an ownership claim, not the product sold by the company."
     },
     {
-      id: "shareholder",
+      id: "share-price-point",
       type: "multipleChoice",
-      prompt: "Which person is a shareholder?",
-      zh: "谁是股东？",
+      prompt: "What does one point on a share-price graph show?",
+      zh: "股价图上的一个点表示什么？",
       choices: [
-        "A person who reads a company website",
-        "A person or institution that owns one or more shares",
-        "A customer who buys the company's product",
-        "A worker who receives a fixed wage"
-      ],
-      answer: 1,
-      explanation: "A shareholder owns shares. Customers and workers may be connected to the company without owning it."
-    },
-    {
-      id: "share-price-meaning",
-      type: "multipleChoice",
-      prompt: "Which sentence reads the Tencent price graph precisely?",
-      zh: "哪一句能精确解读腾讯价格图？",
-      choices: [
-        "Each point is the market price of one Tencent share at that date.",
-        "Each point is Tencent's total company value.",
-        "Each point is Tencent's revenue for that year.",
-        "Each point proves whether Tencent is a good investment."
+        "The market price of one share at that date",
+        "The company's total revenue for the year",
+        "A final proof that the share is a good investment",
+        "The number of products the company sold"
       ],
       answer: 0,
-      explanation: "Correct: the graph gives one-share market prices over time. The misconception is treating a price point as total value, revenue or investment quality."
+      explanation: "A graph point is a source-dated share price. It is evidence, not a complete judgement."
     },
     {
-      id: "price-change",
+      id: "risk",
       type: "multipleChoice",
-      prompt: "Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
-      zh: "腾讯图表从663.00港元跌至429.80港元。大约百分比变化是多少？",
-      choices: ["-35%", "-54%", "+35%", "-233%"],
-      answer: 0,
-      explanation: "(429.80 - 663.00) / 663.00 x 100 is about -35%. The old graph point is the denominator."
-    },
-    {
-      id: "good-investment",
-      type: "multipleChoice",
-      prompt: "Why can a famous company with a rising price graph still be a poor investment?",
-      zh: "为什么有上涨价格图表的知名公司仍可能不是好投资？",
+      prompt: "What is risk in this lesson?",
+      zh: "本课中的风险是什么意思？",
       choices: [
-        "A good company never earns profit.",
-        "The price point may already be too high compared with future profit and risk.",
-        "A low share price removes all risk.",
-        "Revenue is the same as ownership."
-      ],
-      answer: 1,
-      explanation: "Investment judgement compares future profit and risk with the current price paid, not just the shape of the graph."
-    },
-    {
-      id: "market-price",
-      type: "multipleChoice",
-      prompt: "What can push a share price up?",
-      zh: "什么可能推动股价上涨？",
-      choices: [
-        "More buyers than sellers after positive information changes expectations",
-        "The company having a stock code",
-        "The old price being used as the denominator",
-        "The company having a long name"
+        "The possibility that results, returns or prices are worse than expected",
+        "A source date on a graph",
+        "The code used to find a listed share",
+        "A company being famous"
       ],
       answer: 0,
-      explanation: "New information can change expectations. If more buyers want the share than sellers, the market price can rise."
+      explanation: "Risk means the outcome may disappoint compared with expectations."
     },
     {
-      id: "expectations",
+      id: "product-not-share",
       type: "multipleChoice",
-      prompt: "Why can a price rise before profit actually rises?",
-      zh: "为什么利润还没有真正上升，股价就可能先上涨？",
+      prompt: "Tencent makes games, social apps and payment services. What kind of statement is this?",
+      zh: "腾讯制作游戏、社交应用和支付服务。这是哪类句子？",
       choices: [
-        "Investors may expect higher future profit after new information.",
-        "A share price is fixed once a year.",
-        "Revenue and price are always the same number.",
-        "A ticker guarantees a higher price."
+        "A company/product fact",
+        "A share price",
+        "A complete investment judgement",
+        "A risk-free guarantee"
       ],
       answer: 0,
-      explanation: "Share prices can react to expectations about the future, not only to profit that has already happened."
+      explanation: "The products help identify the company, but they are not the same thing as the listed share."
     },
     {
       id: "ownership-blank",
@@ -106,20 +111,20 @@ window.INVEST.quiz = {
       explanation: "Ownership is the key word: a share is not a loan or a bank deposit."
     },
     {
-      id: "expectations-blank",
+      id: "evidence-blank",
       type: "fillBlank",
-      prompt: "New information can change investors' ________ about future profit.",
-      zh: "新信息会改变投资者对未来利润的________。",
-      acceptedAnswers: ["expectations", "expectation"],
-      explanation: "Expectations are investors' views about what may happen in the future."
+      prompt: "Investment analysis uses ________ before opinion.",
+      zh: "投资分析先用________，再形成观点。",
+      acceptedAnswers: ["evidence"],
+      explanation: "Evidence is the starting point for a careful investment judgement."
     },
     {
-      id: "price-blank",
+      id: "risk-blank",
       type: "fillBlank",
-      prompt: "A company can have high revenue, but investors still need to consider risk and the ________ paid for the share.",
-      zh: "公司可以有很高的营业收入，但投资者仍需要考虑风险和买入股票的________。",
-      acceptedAnswers: ["price"],
-      explanation: "A good company can be a weak investment if the price is too high."
+      prompt: "Before judging a share, an analyst asks about price and ________.",
+      zh: "判断股票前，分析者要问价格和________。",
+      acceptedAnswers: ["risk"],
+      explanation: "Lesson 1 introduces risk as a basic question before judgement."
     }
   ]
 };

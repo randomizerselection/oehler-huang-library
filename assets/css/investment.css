@@ -360,6 +360,28 @@ img {
   margin-top: 6px;
 }
 
+.investment-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.investment-audience-card {
+  min-height: 0;
+  align-content: start;
+}
+
+.investment-audience-card h3 {
+  font-size: clamp(22px, 2.2vw, 30px);
+}
+
+.investment-audience-zh {
+  border-top: 1px solid rgba(79, 210, 255, 0.18);
+  padding-top: 12px;
+  color: rgba(247, 251, 248, 0.82);
+}
+
 .investment-footer {
   display: flex;
   justify-content: space-between;
@@ -433,6 +455,63 @@ img {
   margin-top: 18px;
 }
 
+.investment-syllabus-table-wrap {
+  overflow-x: auto;
+  margin-top: 18px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(6, 16, 19, 0.78);
+}
+
+.investment-generator-table {
+  width: 100%;
+  min-width: 2480px;
+  border-collapse: collapse;
+  color: var(--inv-muted);
+}
+
+.investment-generator-table th,
+.investment-generator-table td {
+  vertical-align: top;
+  border-right: 1px solid rgba(79, 210, 255, 0.14);
+  border-bottom: 1px solid rgba(79, 210, 255, 0.14);
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.investment-generator-table thead th {
+  color: var(--inv-ink);
+  background: rgba(18, 35, 40, 0.94);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.investment-generator-table tbody th {
+  width: 92px;
+  color: var(--inv-ink);
+  font-weight: 600;
+  text-align: left;
+}
+
+.investment-generator-table tbody th span {
+  color: var(--inv-amber);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.investment-generator-terms {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 17px;
+}
+
+.investment-generator-terms li {
+  color: var(--inv-muted);
+}
+
 .investment-syllabus-lesson {
   display: grid;
   align-content: start;
@@ -494,10 +573,28 @@ img {
   line-height: 1.45;
 }
 
+.investment-lesson-generator {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+  border: 1px solid rgba(79, 210, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(4, 13, 16, 0.3);
+}
+
+.investment-lesson-generator li {
+  color: var(--inv-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .investment-lesson-terms strong,
 .investment-lesson-formula strong,
 .investment-lesson-evidence strong,
-.investment-lesson-check strong {
+.investment-lesson-check strong,
+.investment-lesson-generator strong {
   color: var(--inv-ink);
   font-weight: 600;
 }
@@ -2066,7 +2163,20 @@ img {
 }
 
 .invPeerTaskSlide .invSlideBody {
-  padding-top: 24px;
+  padding-top: 8px;
+}
+
+.invPeerTaskSlide .invSlideHeader {
+  padding-bottom: 4px;
+}
+
+.invPeerTaskSlide .invTitleBlock h1 {
+  font-size: 48px;
+  margin-top: 2px;
+}
+
+.invPeerTaskSlide .invEyebrow {
+  padding: 3px 8px 3px 8px;
 }
 
 .invPeerTaskSlide .invStep {
@@ -2784,8 +2894,8 @@ img {
 }
 
 .invSortTaskSlide .invSortInstructions .invStep {
-  min-height: 58px;
-  padding: 8px;
+  min-height: 42px;
+  padding: 5px 8px;
 }
 
 .invSortTaskSlide .invSortInstructions .invStepNum {
@@ -2817,12 +2927,20 @@ img {
 
 .invPeerTaskSlide .invSortPeerBox {
   width: min(1420px, 100%);
-  padding: 14px;
+  padding: 10px;
+  align-content: start;
+  align-self: start;
+  height: fit-content;
+}
+
+.invSortTaskSlide .invSlideBody > div {
+  align-self: start;
+  height: fit-content;
 }
 
 .invSortBoard {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .invSortCategories {
@@ -2834,7 +2952,7 @@ img {
 .invSortCategory {
   display: grid;
   place-items: center;
-  min-height: 56px;
+  min-height: 40px;
   border: 1px solid rgba(241, 190, 90, 0.38);
   border-radius: var(--inv-radius);
   background: rgba(241, 190, 90, 0.08);
@@ -2844,29 +2962,29 @@ img {
 .invSortCases {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
 }
 
 .invSortCase {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 12px;
+  gap: 8px;
   align-items: center;
-  min-height: 82px;
+  min-height: 58px;
   border: 1px solid rgba(152, 184, 188, 0.28);
   border-left: 5px solid rgba(79, 210, 255, 0.48);
   border-radius: var(--inv-radius);
   background:
     linear-gradient(180deg, rgba(18, 35, 41, 0.9), rgba(7, 16, 19, 0.88)),
     rgba(13, 23, 27, 0.86);
-  padding: 14px;
+  padding: 8px;
 }
 
 .invSortCase span {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--inv-radius);
   background: rgba(79, 210, 255, 0.14);
   color: var(--inv-cyan);
@@ -4321,6 +4439,7 @@ img {
   .investment-nav,
   .investment-section-head,
   .investment-card-grid,
+  .investment-audience-grid,
   .investment-syllabus-unit-grid,
   .investment-syllabus-reference-grid,
   .invQuizHeader,
@@ -5038,31 +5157,31 @@ img {
   }
 
   .invAnalystBoardSlide .invEvidenceGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 5px;
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .invAnalystBoardSlide .invEvidence {
     gap: 3px;
+    display: block;
+    min-height: auto;
     padding: 7px;
   }
 
   .invAnalystBoardSlide .invEvidence .invEyebrow,
+  .invAnalystBoardSlide .invEvidenceNumber,
+  .invAnalystBoardSlide .invEvidenceBody,
   .invAnalystBoardSlide .invEvidenceBody .invZhLine {
     display: none;
   }
 
-  .invAnalystBoardSlide .invEvidence strong,
-  .invAnalystBoardSlide .invEvidence p {
-    font-size: 12px;
+  .invAnalystBoardSlide .invEvidence strong {
+    font-size: 24px;
     line-height: 1.08;
   }
 
   .invAnalystBoardSlide .invFocusPrompt {
-    margin-top: 5px;
-    padding: 7px;
-    font-size: 14px;
-    line-height: 1.08;
+    display: none;
   }
 
   .invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invFocusPrompt {

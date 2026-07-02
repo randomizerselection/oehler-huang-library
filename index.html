@@ -497,6 +497,68 @@
       border-right: 0;
     }
 
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .audience-card {
+      display: grid;
+      align-content: start;
+      gap: .72rem;
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(86,216,255,.055), rgba(255,255,255,.026) 48%, rgba(255,209,102,.04)),
+        rgba(255,255,255,.02);
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.16);
+    }
+
+    .audience-label {
+      width: fit-content;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(86,216,255,.34);
+      border-radius: 999px;
+      background: rgba(86,216,255,.09);
+      color: var(--cyan);
+      padding: .2rem .5rem;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .audience-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(20px, 1.6vw, 26px);
+      line-height: 1.1;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .audience-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .audience-card .audience-zh {
+      border-top: 1px solid rgba(86,216,255,.16);
+      padding-top: .72rem;
+      color: var(--ink-dim);
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
     .course-roadmap {
       position: relative;
       display: grid;
@@ -857,6 +919,10 @@
         grid-template-columns: 1fr;
       }
 
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
       .course-branch-strip {
         grid-template-columns: 1fr;
       }
@@ -956,6 +1022,26 @@
             <span>Judgement</span>
           </div>
         </aside>
+      </div>
+      <div class="audience-grid" aria-label="Investment Analysis audience descriptions">
+        <article class="audience-card">
+          <span class="audience-label">Students</span>
+          <h3>Develop source-based investment judgement.</h3>
+          <p>Students develop the ability to interpret company and market information, use simple financial calculations, analyse risk and valuation, and support written judgements with evidence. The course uses real listed companies and funds to build source-reading, quantitative reasoning and balanced evaluation, while making clear that classroom analysis is not personal investment advice.</p>
+          <p class="audience-zh" lang="zh-Hans">学生将培养解读公司和市场信息、运用简单金融计算、分析风险与估值，并用证据支持书面判断的能力。本课程使用真实上市公司和基金案例，训练资料阅读、定量推理和均衡评价，同时明确课堂分析不是个人投资建议。</p>
+        </article>
+        <article class="audience-card">
+          <span class="audience-label">Teachers</span>
+          <h3>A 30-lesson IGCSE-style sequence.</h3>
+          <p>This 30-lesson Grade 9 course provides an IGCSE-style sequence of defined knowledge, source interpretation, calculation practice and short evaluative writing. Each lesson is organised around one company question and one assessable output, progressing from shares and market data to financial statements, valuation, risk, funds and synoptic case analysis.</p>
+          <p class="audience-zh" lang="zh-Hans">这门面向九年级的30课时课程采用IGCSE风格的学习顺序，涵盖明确知识、资料解读、计算练习和简短评价写作。每课围绕一个公司问题和一个可评价产出展开，从股票与市场数据逐步过渡到财务报表、估值、风险、基金和综合案例分析。</p>
+        </article>
+        <article class="audience-card">
+          <span class="audience-label">Parents</span>
+          <h3>Financial literacy with clear boundaries.</h3>
+          <p>This course gives students a structured financial-literacy foundation: they learn to understand companies, markets and investment claims through evidence rather than speculation. It develops careful reading, numerical confidence, risk awareness and balanced judgement in English, with key Chinese support, and it does not provide stock recommendations or personal investment advice.</p>
+          <p class="audience-zh" lang="zh-Hans">这门课程为学生建立结构化的金融素养基础：他们学习通过证据而不是猜测来理解公司、市场和投资说法。课程培养谨慎阅读、数字信心、风险意识和均衡判断，并在关键词中文支持下用英语表达，同时不提供股票推荐或个人投资建议。</p>
+        </article>
       </div>
     </section>
 
