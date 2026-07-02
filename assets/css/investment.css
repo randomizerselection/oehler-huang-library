@@ -1287,6 +1287,10 @@ img {
   border-left-color: var(--inv-green);
 }
 
+.invExitTicketSlide .invZhLine {
+  display: none;
+}
+
 .invCheckNumber {
   width: 44px;
   height: 44px;
@@ -2393,6 +2397,7 @@ img {
 
 .invExitTicketSlide .invCheckItem {
   gap: 10px;
+  min-height: 92px;
   padding: 14px;
 }
 
@@ -2934,6 +2939,107 @@ img {
 
 .invSectionList .is-next::after {
   content: "next";
+}
+
+.invSectionSlide {
+  background:
+    linear-gradient(180deg, rgba(7, 16, 19, 0.98), rgba(7, 16, 19, 0.94)),
+    #071013;
+}
+
+.invSectionSlide::before {
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 140px);
+}
+
+.invSectionSlide .invSlideBody {
+  display: grid;
+  align-items: center;
+  padding-top: 0;
+}
+
+.invSectionDivider {
+  width: min(100%, 1080px);
+  display: grid;
+  gap: 14px;
+  align-content: center;
+}
+
+.invSectionKicker {
+  color: var(--inv-cyan);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.invSectionDivider h1 {
+  max-width: 980px;
+  margin: 0;
+  color: var(--inv-ink);
+  font-family: var(--inv-text);
+  font-size: var(--inv-classroom-title);
+  font-weight: 600;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.invSectionZh,
+.invSectionSubtitle {
+  max-width: 900px;
+  color: var(--inv-muted);
+  font-family: var(--inv-text);
+  font-size: var(--inv-classroom-text);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.invSectionSubtitle {
+  margin: 0;
+}
+
+.invSectionProgress {
+  width: min(100%, 940px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.invSectionProgress span {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  border-top: 2px solid rgba(152, 184, 188, 0.28);
+  color: rgba(214, 231, 232, 0.6);
+  font-family: var(--inv-text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.18;
+  padding-top: 8px;
+}
+
+.invSectionProgress .is-current {
+  border-top-color: var(--inv-green);
+  color: var(--inv-ink);
+}
+
+.invSectionProgress .is-complete {
+  border-top-color: rgba(57, 217, 145, 0.48);
+  color: rgba(214, 231, 232, 0.72);
+}
+
+.invSectionProgress i {
+  color: inherit;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.invSectionProgress em {
+  min-width: 0;
+  font-style: normal;
+  overflow-wrap: anywhere;
 }
 
 .invVisualPauseText {
@@ -4130,6 +4236,40 @@ img {
 
   .invSectionList {
     grid-template-columns: 1fr;
+  }
+
+  .invSectionDivider {
+    gap: 10px;
+  }
+
+  .invSectionKicker {
+    font-size: 13px;
+  }
+
+  .invSectionDivider h1 {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .invSectionZh,
+  .invSectionSubtitle {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .invSectionProgress {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .invSectionProgress span {
+    font-size: 12px;
+    padding-top: 6px;
+  }
+
+  .invSectionProgress em {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .invModelCue {

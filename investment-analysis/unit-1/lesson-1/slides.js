@@ -23,8 +23,8 @@ window.INVEST.lesson = {
   },
   handout: {
     title: "Tencent analyst sheet",
-    subtitle: "Unit 1 Lesson 1: What is a share?",
-    description: "Use this sheet throughout the lesson. Complete each section before moving to the next judgement.",
+    subtitle: "Unit 1 Lesson 1: What does a stock price mean?",
+    description: "Use this sheet to connect one share, its market price and why that price changes.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -33,8 +33,8 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "A",
-        title: "Tencent case file",
-        instruction: "First identify the company, listing and source before judging anything.",
+        title: "Tencent price case file",
+        instruction: "Identify the company and code quickly, then focus on what one share price means.",
         blocks: [
           {
             type: "facts",
@@ -51,48 +51,37 @@ window.INVEST.lesson = {
           {
             type: "prompts",
             prompts: [
-              { label: "Identity check", prompt: "Circle the quote ticker and official HKEX code; underline the source date.", lines: 1 },
-              { label: "Boundary", prompt: "What can a ticker or stock code prove, and what can it not prove?", lines: 2 }
+              { label: "Fast ID check", prompt: "Circle Tencent, 0700.HK / 00700 and the source date. This should take under one minute.", lines: 1 },
+              { label: "Price meaning", prompt: "A share price is the price of what exactly? What can it not prove by itself?", lines: 2 }
             ]
           }
         ]
       },
       {
         label: "B",
-        title: "Key terms and first checks",
-        instruction: "Classify the decision first, then complete the ownership terms.",
+        title: "Stock price key terms",
+        instruction: "Complete the ownership and price terms before judging whether the price is attractive.",
         blocks: [
-          {
-            type: "cases",
-            cases: [
-              { label: "A", text: "Keep money in a bank account for next month.", answer: "Saving" },
-              { label: "B", text: "Buy Tencent only after checking evidence and accepting risk.", answer: "Investing" },
-              { label: "C", text: "Buy Tencent because a short video says it will jump tomorrow.", answer: "Speculating" },
-              { label: "D", text: "Buy and sell Tencent shares several times this week.", answer: "Trading" }
-            ]
-          },
           {
             type: "terms",
             terms: [
-              { label: "Saving", prompt: "Saving means keeping money __________ for later use.", answer: "safe" },
-              { label: "Investing", prompt: "Investing means putting money into an asset with expected __________ and risk.", answer: "return" },
-              { label: "Speculating", prompt: "Speculating means taking high risk mainly because you expect a __________ move.", answer: "price" },
-              { label: "Trading", prompt: "Trading means frequent buying and selling over a __________ period.", answer: "shorter" },
               { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
               { label: "Shareholder", prompt: "A shareholder is a person or institution that owns one or more __________.", answer: "shares" },
-              { label: "Share price", prompt: "A share price is the market price of one share at a specific __________.", answer: "time" }
+              { label: "Share price", prompt: "A share price is the __________ price of one share at a specific time.", answer: "market" },
+              { label: "Market price", prompt: "A market price is formed by __________ and sellers.", answer: "buyers" },
+              { label: "Expectations", prompt: "Expectations are investors' views about future profit and __________.", answer: "risk" }
             ]
           }
         ]
       },
       {
         label: "C",
-        title: "What the Tencent data can show",
-        instruction: "Use each figure first, then write the limitation yourself before the reveal.",
+        title: "Why Tencent's price might change",
+        instruction: "Use each figure as possible information, then connect information to expectations and price.",
         blocks: [
           {
             type: "table",
-            columns: ["Figure", "What it shows", "What it does not show"],
+            columns: ["Figure", "Possible information", "Why the price may still change"],
             rows: [
               {
                 metric: "Revenue",
@@ -124,8 +113,8 @@ window.INVEST.lesson = {
       },
       {
         label: "D",
-        title: "Price move and expectations",
-        instruction: "Only calculate after the company and source are clear.",
+        title: "Measure the price move",
+        instruction: "Use the old price as the base, then explain why the move may have happened.",
         blocks: [
           {
             type: "calculation",
@@ -184,137 +173,114 @@ window.INVEST.lesson = {
     {
       type: "marketBrief",
       eyebrow: "Market Brief",
-      title: "Start with the Tencent case file",
-      subtitle: "Before any opinion, find the facts.",
+      title: "Start with one share and one price",
+      subtitle: "Find the right listed share quickly, then ask what its price means.",
       visual: investmentPhotos.tencentBinhaiTowers,
       ticker: "Handout A",
-      question: "Open Section A. Circle each fact before it is revealed.",
-      questionZh: "打开A部分。每个事实揭示前先圈出来。",
+      question: "Open Section A. Circle the company, code and source date, then answer: what is the price attached to?",
+      questionZh: "打开A部分。圈出公司、代码和来源日期，然后回答：这个价格对应的是什么？",
       sourceStamp: "Tencent snapshot | accessed 26 Jun 2026",
       revealMetricValues: true,
       metrics: [
         { label: "1. Company", value: "Tencent", note: "腾讯控股" },
-        { label: "2. Codes", value: "0700.HK / 00700", note: "报价 / 港交所" },
-        { label: "3. Source date", value: "18 Mar 2026", note: "来源日期" }
+        { label: "2. Listed share", value: "0700.HK / 00700", note: "报价 / 港交所" },
+        { label: "3. Core question", value: "One share price", note: "一股股票的价格" }
       ],
       notes: [
-        "Give students the Tencent analyst sheet first. Reveal company, codes and source date one at a time only after they have located each item.",
-        "Emphasise that the lesson is not investment advice; the company is used as a real data example."
+        "Give students the Tencent analyst sheet first. Let them locate the company and code quickly, then move to what the quoted price is actually pricing.",
+        "Emphasise that the company is a real data example, not personal investment advice."
       ]
     },
     {
       type: "outcomes",
       eyebrow: "Objectives",
       title: "By the end, you can",
-      phases: ["Learn terms", "Use data", "Judge evidence"],
+      phases: ["One share", "Why it moves", "Use judgement"],
       bullets: [
-        "define share, shareholder and share price accurately",
-        "identify Tencent's company, code, source date and three figures",
-        "write why high revenue alone does not prove a good investment"
+        "explain what a stock price represents",
+        "explain why new information can change a share price",
+        "calculate a simple price change and judge why price still matters"
       ],
       zhBullets: [
-        "准确解释股票、股东和股价",
-        "识别腾讯的公司、代码、来源日期和三项数据",
-        "写出为什么高收入本身不能证明是好投资"
+        "解释股价代表什么",
+        "解释新信息为什么会改变股价",
+        "计算简单价格变化，并判断为什么价格仍然重要"
       ],
-      notes: "Keep this short. The success test is whether students can define the ownership terms, locate the case-file evidence, and write one evidence-limitation judgement."
+      notes: "Keep this short. The success test is whether students can say price of what, why it changes, and why high company figures still need a price judgement."
     },
     {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "Why invest at all?",
-      zhTitle: "为什么投资？",
-      visual: investmentPhotos.financialAnalysisDesk,
-      prompt: "First we separate saving, investing, speculating and trading before talking about shares.",
-      parts: [
-        { label: "Why invest at all?", current: true },
-        { label: "Shares and company identity" },
-        { label: "Data, price and expectations" },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "This section gives students the decision categories they need before the ownership and data parts."
+      title: "One share, one price",
+      zhTitle: "一股股票，一个价格",
+      notes: "This section starts with the price concept instead of spending time on identifiers or decision categories."
     },
     {
       type: "discussion",
-      eyebrow: "Before the first share",
-      title: "Why not just keep money as cash?",
+      eyebrow: "Starter",
+      title: "What is the price attached to?",
       visual: investmentPhotos.financialAnalysisDesk,
-      question: "A: keep money for lunch next week. B: buy Tencent after checking evidence. C: buy because a short video says it will jump tomorrow. Which one is saving, investing or speculating? What clue tells you?",
-      zh: "A：把钱留到下周午饭用。B：查证后买腾讯。C：因为短视频说明天会涨就买。哪一个是储蓄、投资或投机？线索是什么？",
-      revealTitle: "Careful answer",
-      answer: "A is saving because the money is kept safe for near use. B is investing because the decision uses evidence and accepts risk for expected return. C is speculating because the reason is mainly a hoped-for quick price move.",
+      question: "If a Tencent share is shown at HK$420 in a classroom example, what exactly costs HK$420: the whole company, one ownership unit, or last year's revenue? Explain.",
+      zh: "如果课堂例子中腾讯股价是420港元，420港元对应的到底是什么：整家公司、一份所有权单位，还是去年的收入？说明理由。",
+      revealTitle: "Price of one share",
+      answer: "The price is for one share: one small ownership unit in the company at that time. It is not the price of the whole company and it is not the same as last year's revenue.",
       notes: [
-        "Make every student choose before revealing. This turns the opening from a definition lecture into a diagnostic check.",
-        "Keep the tone balanced: investing is not automatically better than saving, and prediction risk is real."
+        "Make every student choose before revealing. This turns the opening into the central misconception check.",
+        "Use the HK$420 figure as a classroom example only; do not imply it is a live price."
       ]
     },
     {
       type: "flow",
-      eyebrow: "Key distinctions",
-      title: "Saving, investing, speculating, trading",
+      eyebrow: "Key idea",
+      title: "Price meaning in four steps",
       visual: investmentPhotos.stockReportCalculator,
-      flowStyle: "categories",
+      flowStyle: "sequence",
       steps: [
-        { text: "__________ keeps money safe for later use.", answer: "Saving", zh: "储蓄：把钱安全地留到以后使用。" },
-        { text: "__________ puts money into an asset with expected return and risk.", answer: "Investing", zh: "投资：把钱投入有预期回报和风险的资产。" },
-        { text: "__________ takes high risk mainly for an expected price move.", answer: "Speculating", zh: "投机：主要基于价格预期承担较高风险。" },
-        { text: "__________ means frequent buying and selling over a shorter period.", answer: "Trading", zh: "交易：在较短时间内频繁买卖。" }
+        { text: "A listed company is split into many __________.", answer: "shares", zh: "上市公司的所有权被分成许多股票。" },
+        { text: "One share is a small unit of __________.", answer: "ownership", zh: "一股股票是一小份所有权。" },
+        { text: "The share price is the market price of __________ share.", answer: "one", zh: "股价是一股股票的市场价格。" },
+        { text: "That price is a time point, not a guarantee of __________.", answer: "value", zh: "这个价格是某一时点的价格，不保证价值。" }
       ],
-      notes: "Make students predict each term from the clue before revealing the blank. They then complete the Section B term blanks and use the following sort task as the formative check."
+      notes: "Make students predict each blank before reveal. The point is to attach price to one ownership unit."
     },
     {
       type: "peerTask",
       eyebrow: "Pair task",
-      title: "Sort the money decision",
+      title: "Write the price sentence",
       visual: investmentPhotos.businessChartsPaper,
-      taskType: "sort",
-      categories: ["Saving", "Investing", "Speculating", "Trading"],
-      cases: [
-        { label: "A", text: "Bank account for next month." },
-        { label: "B", text: "Tencent after checking evidence." },
-        { label: "C", text: "Short-video price jump." },
-        { label: "D", text: "Buy and sell this week." }
-      ],
       steps: [
-        "Sort A-D alone first.",
-        "Underline the clue in each case.",
-        "Write: A careful investor..., but a speculator..."
+        "Write: A stock price is...",
+        "Add what the price represents.",
+        "Add one thing the price does not prove."
       ],
-      sampleAnswer: "A = saving because the money is kept safe for near use. B = investing because evidence is checked and risk is accepted. C = speculating because the decision depends on a quick hoped-for price jump. D = trading because buying and selling happens repeatedly in a short period.",
-      notes: "This is a one-class sorting task, not a project. Require each student to copy one justified classification individually on the handout."
+      sampleAnswer: "A stock price is the market price of one share at a specific time. It represents what buyers and sellers currently pay for one ownership unit, but it does not prove the share is cheap, safe or a good investment.",
+      notes: "This is the first individual written check. Students copy a corrected sentence into Handout Section A or B."
     },
     {
       type: "quiz",
       eyebrow: "Hinge check",
-      title: "Investing or speculating?",
+      title: "What does the price show?",
       visual: investmentPhotos.smartphoneMarketChart,
-      question: "Handout Section B check: Which choice best describes investing?",
-      zh: "哪一个最能描述投资？",
+      question: "Handout Section B check: A Tencent-style price is HK$420. Which statement is best?",
+      zh: "B部分检查：腾讯风格的价格是420港元。哪句话最准确？",
       choices: [
-        "Keeping money safe for next week's lunch payment.",
-        "Putting money into an asset with expected return and risk after checking evidence.",
-        "Buying only because the price rose yesterday.",
-        "Buying and selling quickly many times for small price moves."
+        "The whole company costs HK$420.",
+        "One share has a market price of HK$420 at that time.",
+        "Tencent's revenue is HK$420.",
+        "The share is guaranteed to be a good investment."
       ],
       answer: 1,
-      explanation: "Investing uses evidence and accepts risk for expected return. Saving, speculating and trading are different decisions.",
-      notes: "If students choose C or D, pause and ask what evidence or time horizon is missing before moving past Section B."
+      explanation: "A share price is the market price of one share at a specific time. It does not prove total company value, revenue or investment quality by itself.",
+      notes: "If students choose A or C, re-anchor the price to one share. If they choose D, stress that price alone is not a judgement."
     },
     {
       type: "section",
       eyebrow: "Part 2",
       part: "2",
-      title: "Shares and company identity",
-      zhTitle: "股票与公司身份",
-      prompt: "Now we separate the business, one ownership unit, the owner and the market identifiers.",
-      parts: [
-        { label: "Why invest at all?" },
-        { label: "Shares and company identity", current: true },
-        { label: "Data, price and expectations" },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "Students should finish Section B ownership terms and Section A identity checks before any data or price judgement."
+      title: "The ownership behind the price",
+      zhTitle: "价格背后的所有权",
+      notes: "Keep this focused on the ownership claim. Identifiers are handled later as a quick one-minute check."
     },
     {
       type: "discussion",
@@ -418,75 +384,68 @@ window.INVEST.lesson = {
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "First identify the company",
+      title: "A code only gets us to the right share",
       visual: investmentPhotos.tencentBinhaiTowers,
       notes: [
         "Observation question: what real business is behind the quote ticker 0700.HK and HKEX code 00700?",
-        "Bridge: before analysing a share price, students need the company name, market, code, source and date from Handout Section A."
+        "Bridge: the code is a quick address check. Once students have the right listed share, return to price meaning and price movement."
       ]
     },
     {
       type: "discussion",
       eyebrow: "Discuss",
-      title: "A code points to one listing",
+      title: "Ticker first, price question next",
       visual: investmentPhotos.financeChartWhiteboard,
-      question: "Look at 0700.HK and 00700 in Handout A. What can these codes identify, and what can they not prove about the investment?",
-      zh: "看A部分的0700.HK和00700。这些代码能识别什么？又不能证明什么投资判断？",
-      revealTitle: "Identifier, not judgement",
-      answer: "The codes identify Tencent's listed shares on the Hong Kong market. They do not prove whether the share is cheap, expensive, safe or risky.",
-      notes: "This replaces the second back-to-back visual pause with a commitment question. Students should write the boundary in Section A before reveal."
+      question: "Look at 0700.HK and 00700 in Handout A. What do the codes help us find, and what is the more important price question for today?",
+      zh: "看A部分的0700.HK和00700。代码帮助我们找到什么？今天更重要的价格问题是什么？",
+      revealTitle: "Fast identifier, bigger question",
+      answer: "The codes help us find Tencent's Hong Kong-listed share. Today's bigger question is what the share price represents and why that price might change.",
+      notes: "Keep this to one reveal. The point is not to drill identifiers; it is to clear the path for price analysis."
     },
     {
       type: "term",
       eyebrow: "Key idea",
-      title: "Stock code",
-      term: "Stock code",
-      termZh: "股票代码",
-      definition: "A stock code or quote ticker is a short <span class=\"blank invReveal\" data-answer=\"identifier\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">identifier</span></span> used to find a listed company's shares.",
-      definitionZh: "股票代码或报价代码是寻找上市公司股票的简短标识。",
+      title: "Share price",
+      term: "Share price",
+      termZh: "股价",
+      definition: "A share price is the <span class=\"blank invReveal\" data-answer=\"market price\" style=\"--blank-width:13ch\"><span class=\"invBlankText\">market price</span></span> of one share at a <span class=\"blank invReveal\" data-answer=\"specific time\" style=\"--blank-width:14ch\"><span class=\"invBlankText\">specific time</span></span>.",
+      definitionZh: "股价是在特定时间一股股票的市场价格。",
       keyTerms: [
-        { term: "0700.HK", zh: "课堂报价代码", note: "Market-data ticker used in class." },
-        { term: "00700", zh: "腾讯港股代码", note: "Official HKEX HKD-counter code in Tencent's source." }
+        { term: "Market price", zh: "市场价格", note: "It is formed by buyers and sellers in the market." },
+        { term: "Specific time", zh: "特定时间", note: "Prices can change during the day." }
       ],
-      notes: "Students complete the stock-code idea from Section A. Contrast with company name: codes reduce confusion when companies have similar names."
+      notes: "Students complete the share-price line in Section B. Stress market price and specific time; students often speak as if a share has one permanent price."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "Fill in the blanks",
+      title: "Price meaning check",
       mode: "fillBlanks",
       items: [
-        { prompt: "A stock code or quote ticker helps investors __________ the correct listed company.", answer: "identify", zh: "股票代码或报价代码帮助投资者识别正确的上市公司。" },
-        { prompt: "0700.HK and 00700 connect Tencent to the __________ market.", answer: "Hong Kong", zh: "0700.HK 和 00700 说明该股票与香港市场有关。" }
+        { prompt: "A share price is the market price of __________ share.", answer: "one", zh: "股价是一股股票的市场价格。" },
+        { prompt: "It is recorded at a specific __________.", answer: "time", zh: "股价对应一个特定时间。" },
+        { prompt: "It does not prove the share is cheap, safe or a good __________.", answer: "investment", zh: "股价本身不能证明便宜、安全或是好投资。" }
       ],
-      notes: "Accept HK or Hong Kong verbally, but reveal the full wording. This is the Section A identification check."
+      notes: "This is the main price-definition check. Students should write the full sentence in Handout Section B."
     },
     {
       type: "discussion",
       eyebrow: "Discuss",
-      title: "What the code cannot tell you",
+      title: "Price is not the same as value",
       visual: investmentPhotos.financialAnalysisDesk,
-      question: "Handout Section A check: Do 0700.HK or 00700 tell us whether Tencent shares are cheap, expensive, risky or safe?",
-      zh: "0700.HK 或 00700 能不能告诉我们腾讯股票便宜、昂贵、有风险或安全？",
-      revealTitle: "Boundary",
-      answer: "No. A ticker or stock code identifies the share. To judge the investment, investors need evidence about performance, expectations, risk and price.",
-      notes: "Students write what the code can and cannot prove in Section A. This prepares the final objective: identification is not analysis."
+      question: "If Tencent's share price rises today, does that prove the business became better today? What else could have changed?",
+      zh: "如果腾讯股价今天上涨，能不能证明公司今天变好了？还可能是什么发生了变化？",
+      revealTitle: "Price reacts to views",
+      answer: "Not necessarily. The business may be the same today, but investors' information, expectations, buying pressure or selling pressure may have changed.",
+      notes: "This bridges from price meaning into the information-expectations sequence."
     },
     {
       type: "section",
       eyebrow: "Part 3",
       part: "3",
-      title: "Data, price and expectations",
-      zhTitle: "数据、价格与预期",
-      visual: investmentPhotos.tabletFinancialChart,
-      prompt: "Now we use Handout Sections C and D to read evidence, calculate one price move and explain why prices can change.",
-      parts: [
-        { label: "Why invest at all?" },
-        { label: "Shares and company identity" },
-        { label: "Data, price and expectations", current: true },
-        { label: "Good company or good investment?" }
-      ],
-      notes: "Students first read the FY2025 data, then calculate one frozen Tencent-style price change, then explain the information-expectations-price chain."
+      title: "Why prices change",
+      zhTitle: "股价为什么变化",
+      notes: "Students first read the FY2025 data as possible information, then explain the information-expectations-price chain and calculate one frozen Tencent-style price change."
     },
     {
       type: "dataSnapshot",
@@ -500,8 +459,8 @@ window.INVEST.lesson = {
         { label: "Gross margin", value: "56%" }
       ],
       task: "Handout Section C: record what each figure shows. Leave the limitation column blank until you have written your own limit.",
-      note: "Company, code, exchange, source and date are secure. Now read the performance figures.",
-      notes: "Students have already checked company/code/source in Section A. Keep this slide to three headline figures only; limitations are generated on the next check."
+      note: "Company, listing and source date are secure. Now read the performance figures as possible price-changing information.",
+      notes: "Students have already done the quick ID check in Section A. Keep this slide to three headline figures only; limitations are generated on the next check."
     },
     {
       type: "answer",
@@ -518,26 +477,26 @@ window.INVEST.lesson = {
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "A price is only a time point",
+      title: "Market price needs buyers and sellers",
       visual: investmentPhotos.smartphoneMarketChart,
       notes: [
-        "Observation question: what would you need to know before saying whether this price is high or low?",
-        "Bridge: a share price is the market price of one share at a specific time, so the time point matters. Students complete the share-price term in Section B before the calculation."
+        "Observation question: what could make more buyers want the same share at the same time?",
+        "Bridge: a market price is formed by buyers and sellers, so a price can change when information changes expectations and pressure on either side."
       ]
     },
     {
       type: "term",
       eyebrow: "Key idea",
-      title: "Share price",
-      term: "Share price",
-      termZh: "股价",
-      definition: "A share price is the <span class=\"blank invReveal\" data-answer=\"market price\" style=\"--blank-width:13ch\"><span class=\"invBlankText\">market price</span></span> of one share at a <span class=\"blank invReveal\" data-answer=\"specific time\" style=\"--blank-width:14ch\"><span class=\"invBlankText\">specific time</span></span>.",
-      definitionZh: "股价是在特定时间一股股票的市场价格。",
+      title: "Market price",
+      term: "Market price",
+      termZh: "市场价格",
+      definition: "A market price is formed by <span class=\"blank invReveal\" data-answer=\"buyers\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">buyers</span></span> and <span class=\"blank invReveal\" data-answer=\"sellers\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">sellers</span></span> at a specific time.",
+      definitionZh: "市场价格是在特定时间由买方和卖方形成的价格。",
       keyTerms: [
-        { term: "Market price", zh: "市场价格", note: "It is formed by buyers and sellers in the market." },
-        { term: "Specific time", zh: "特定时间", note: "Prices can change during the day." }
+        { term: "Buyers", zh: "买方", note: "More buying pressure can push the price up." },
+        { term: "Sellers", zh: "卖方", note: "More selling pressure can push the price down." }
       ],
-      notes: "Students complete the share-price line in Section B. Stress market price and specific time; students often speak as if a share has one permanent price."
+      notes: "Students complete the market-price and expectations lines in Section B. This prepares the price-movement flow."
     },
     {
       type: "visualPause",
@@ -632,14 +591,6 @@ window.INVEST.lesson = {
       part: "4",
       title: "Good company or good investment?",
       zhTitle: "好公司还是好投资？",
-      visual: investmentPhotos.financialAnalysisDesk,
-      prompt: "Finally we use Handout Section E to separate business quality from the price paid for the share.",
-      parts: [
-        { label: "Why invest at all?" },
-        { label: "Shares and company identity" },
-        { label: "Data, price and expectations" },
-        { label: "Good company or good investment?", current: true }
-      ],
       notes: "This is the judgement frame for the course."
     },
     {
@@ -720,7 +671,7 @@ window.INVEST.lesson = {
         "A famous company is automatically a safe investment.",
         "The share price may already be too high compared with expected future profit and risk.",
         "High revenue always means the share price is cheap.",
-        "A stock code proves the company has no future risk."
+        "A lower share price always means a better investment."
       ],
       answer: 1,
       explanation: "Investment judgement compares expected future profit and risk with the price paid for the share.",
@@ -767,11 +718,11 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "股票是公司所有权的一个单位。" },
-        { prompt: "A code helps investors __________ the correct listed company.", answer: "identify", zh: "代码帮助投资者识别公司。" },
-        { prompt: "A good company may be a poor investment if the share __________ is too high.", answer: "price", zh: "如果股价过高，好公司也可能不是好投资。" }
+        { prompt: "Share price = market price of one __________.", answer: "share", zh: "股价是一股股票的市场价格。" },
+        { prompt: "New information can change investor __________.", answer: "expectations", zh: "新信息会改变投资者预期。" },
+        { prompt: "A high share price can make a good company a poor __________.", answer: "investment", zh: "高股价会影响投资判断。" }
       ],
-      notes: "Collect or cold-call. This checks the handout's minimum exit evidence: ownership, identification and price-paid judgement."
+      notes: "Collect or cold-call. This checks the handout's minimum exit evidence: price meaning, expectations and price-paid judgement."
     }
   ]
 };

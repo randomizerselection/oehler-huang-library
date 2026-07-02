@@ -26,10 +26,12 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Body content should sit in the upper-middle teaching zone with generous whitespace. Avoid bottom-heavy layouts on tall classroom screens.
 - Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. Keep the projected pause surface visual-first; put the teaching bridge in notes.
+- Keep `section` dividers as simple reset screens: part label, title, optional concise Chinese title and an automatic progress strip. Do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
 
 ## Component Rules
 
 - `marketBrief`: use `revealMetricValues: true` when students must locate company, code, source date or key facts before seeing the answer.
+- `section`: keep the slide visually closer to the standard economics-presentation divider, with the title doing the work and only a quiet progress strip below it.
 - `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.

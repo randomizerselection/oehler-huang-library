@@ -27,6 +27,7 @@ Teaching rhythm:
 
 - Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
 - `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
+- `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
 - `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.
 - `peerTask` slides should end with an individual written check even when students compare with a partner.
@@ -45,6 +46,7 @@ Visual rhythm:
 
 - Keep each projected slide to one main idea or student action.
 - Do not combine a dense table, chart, photo and prompt on the same slide.
+- Keep section dividers closer to the economics-presentation divider style: simple reset screen, no lesson-map card, no image column.
 - Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
 - Use `marketBrief` with `revealMetricValues: true` when students should locate company facts before seeing the answer.
 - Use `analystBoard` with `revealBlocks: true` and `riskRegister` with `revealEffects: true` for staged evidence/risk thinking, not crowded dashboard panels.

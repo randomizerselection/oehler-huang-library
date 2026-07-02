@@ -48,6 +48,14 @@ window.INVEST.lesson = {
       ]
     },
     {
+      type: "section",
+      eyebrow: "Part 1",
+      part: "1",
+      title: "Replace with the first lesson part",
+      zhTitle: "绗竴閮ㄥ垎",
+      notes: "Keep section dividers simple: part label, title, optional Chinese title, and the automatic progress strip. Do not add a photo, prompt card or manual roadmap."
+    },
+    {
       type: "visualPause",
       eyebrow: "Look first",
       title: "Replace with a concrete visual bridge",

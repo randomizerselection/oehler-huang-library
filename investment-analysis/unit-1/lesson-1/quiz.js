@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review saving, investing, speculating, trading, shares, shareholders, stock codes, share prices and the first investment judgement rule.",
+  description: "Review what a stock price represents, why it can change, simple percentage price changes and the first investment judgement rule.",
   questions: [
     {
       id: "share-definition",
@@ -33,18 +33,18 @@ window.INVEST.quiz = {
       explanation: "A shareholder owns shares. Customers and workers may be connected to the company without owning it."
     },
     {
-      id: "stock-code",
+      id: "share-price-meaning",
       type: "multipleChoice",
-      prompt: "What does the quote ticker 0700.HK or HKEX code 00700 mainly help investors do?",
-      zh: "0700.HK 报价代码或港交所 00700 主要帮助投资者做什么？",
+      prompt: "What does a share price represent?",
+      zh: "股价代表什么？",
       choices: [
-        "Identify Tencent shares on the Hong Kong market",
-        "Prove Tencent shares are cheap",
-        "Calculate Tencent gross profit",
-        "Guarantee Tencent future dividends"
+        "The market price of one share at a specific time",
+        "The total price of the whole company",
+        "The company's revenue for the year",
+        "A guaranteed future profit"
       ],
       answer: 0,
-      explanation: "A ticker or stock code identifies the listed security. It does not judge value by itself."
+      explanation: "A share price is the market price of one share at a specific time. It does not prove value or future profit by itself."
     },
     {
       id: "price-change",
@@ -63,39 +63,39 @@ window.INVEST.quiz = {
       choices: [
         "A good company never earns profit.",
         "The share price may already be too high compared with future profit and risk.",
-        "Stock codes remove all risk.",
+        "A low share price removes all risk.",
         "Revenue is the same as ownership."
       ],
       answer: 1,
       explanation: "Investment judgement compares future profit and risk with the current price paid."
     },
     {
-      id: "investing-definition",
+      id: "market-price",
       type: "multipleChoice",
-      prompt: "Which choice best describes investing?",
-      zh: "哪一个最能描述投资？",
+      prompt: "What can push a share price up?",
+      zh: "什么可能推动股价上涨？",
       choices: [
-        "Keeping money safe for use next week",
-        "Putting money into an asset with expected return and risk after checking evidence",
-        "Buying only because the price rose yesterday",
-        "Buying and selling many times in a short period"
+        "More buyers than sellers after positive information changes expectations",
+        "The company having a stock code",
+        "The old price being used as the denominator",
+        "The company having a long name"
       ],
-      answer: 1,
-      explanation: "Investing uses evidence and accepts risk for expected return. It is different from saving, speculating and short-term trading."
+      answer: 0,
+      explanation: "New information can change expectations. If more buyers want the share than sellers, the market price can rise."
     },
     {
-      id: "speculating-vs-trading",
+      id: "expectations",
       type: "multipleChoice",
-      prompt: "A student buys a share only because a short video says it will jump tomorrow. Which term best fits?",
-      zh: "学生只因为短视频说股票明天会上涨就买入。哪个术语最合适？",
+      prompt: "Why can a price rise before profit actually rises?",
+      zh: "为什么利润还没有真正上升，股价就可能先上涨？",
       choices: [
-        "Saving",
-        "Investing",
-        "Speculating",
-        "Reading a source carefully"
+        "Investors may expect higher future profit after new information.",
+        "A share price is fixed once a year.",
+        "Revenue and price are always the same number.",
+        "A ticker guarantees a higher price."
       ],
-      answer: 2,
-      explanation: "This is speculating because the decision depends mainly on a hoped-for price jump, not careful evidence."
+      answer: 0,
+      explanation: "Share prices can react to expectations about the future, not only to profit that has already happened."
     },
     {
       id: "ownership-blank",
@@ -106,12 +106,12 @@ window.INVEST.quiz = {
       explanation: "Ownership is the key word: a share is not a loan or a bank deposit."
     },
     {
-      id: "identify-blank",
+      id: "expectations-blank",
       type: "fillBlank",
-      prompt: "A stock code or quote ticker helps investors ________ the correct listed company.",
-      zh: "股票代码或报价代码帮助投资者________正确的上市公司。",
-      acceptedAnswers: ["identify", "find"],
-      explanation: "The code helps with identification, not valuation."
+      prompt: "New information can change investors' ________ about future profit.",
+      zh: "新信息会改变投资者对未来利润的________。",
+      acceptedAnswers: ["expectations", "expectation"],
+      explanation: "Expectations are investors' views about what may happen in the future."
     },
     {
       id: "price-blank",

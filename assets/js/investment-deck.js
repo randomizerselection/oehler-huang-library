@@ -260,7 +260,7 @@
     const className = ['invSlide', extraClass].filter(Boolean).join(' ');
     return `
       <section class="${escapeHtml(className)}" data-idx="${index}" data-type="${escapeHtml(slide.type)}" aria-label="${escapeHtml(slide.title || `Slide ${index + 1}`)}"${backgroundStyle(backgroundPhoto)}>
-        <header class="invSlideHeader">
+        ${options.hideHeader ? '' : `<header class="invSlideHeader">
           <div class="invTitleBlock">
             ${slide.eyebrow ? `<div class="invEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
             ${slide.title && !options.hideTitle ? `<h1>${html(slide.title)}</h1>` : ''}
@@ -269,7 +269,7 @@
             ${slide.kicker ? `<p class="invHeroKicker">${escapeHtml(slide.kicker)}</p>` : ''}
           </div>
           ${sourceMarkup(sources)}
-        </header>
+        </header>`}
         <div class="invSlideBody">${body}</div>
         <footer class="invSlideFooter">
           ${slide.sourceStamp ? `<div class="invSourceStamp">${escapeHtml(slide.sourceStamp)}</div>` : ''}
@@ -329,34 +329,34 @@
     return slideShell(slide, index, lesson, body);
   }
 
-  function renderSection(slide, index, lesson) {
-    const photo = slide.visual || slide.photo;
-    const parts = slide.parts || [];
-    const currentPartIndex = parts.findIndex((part) => part.current);
-    const roadmap = parts.length ? parts : [];
-    const sectionDeck = `
-      <div class="invSectionDeck">
-        <div>
-          <div class="invSectionNumber">${escapeHtml(slide.part || index)}</div>
-          <div class="invEyebrow">${escapeHtml(slide.kicker || 'Lesson map')}</div>
-        </div>
-        <div>
-          <p class="invLead">${html(slide.prompt || '')}</p>
-          ${roadmap.length ? `<div class="invSectionList">
-            ${roadmap.map((part, partIndex) => {
-              const partLabel = part.label || part;
-              const stateClass = part.current ? 'is-current' : partIndex < currentPartIndex ? 'is-complete' : 'is-next';
-              return `<span class="${escapeHtml(stateClass)}"><b>${String(partIndex + 1).padStart(2, '0')}</b>${escapeHtml(partLabel)}</span>`;
-            }).join('')}
-          </div>` : ''}
-        </div>
+  function sectionProgressMarkup(slide) {
+    const titles = slide._sectionTitles || [];
+    if (!titles.length) return '';
+    return `
+      <div class="invSectionProgress" aria-label="Lesson section progress">
+        ${titles.map((title, i) => {
+          const step = i + 1;
+          const stateClass = step < slide._sectionStep ? 'is-complete' : step === slide._sectionStep ? 'is-current' : 'is-next';
+          return `
+            <span class="${escapeHtml(stateClass)}">
+              <i>${step}</i>
+              <em>${escapeHtml(String(title).replace(/\s+/g, ' '))}</em>
+            </span>`;
+        }).join('')}
       </div>`;
-    const body = photo?.src ? `
-      <div class="invTwoColumn">
-        ${sectionDeck}
-        ${photo?.src ? `<div class="invPhotoColumn">${photoMarkup(photo)}</div>` : ''}
-      </div>` : sectionDeck;
-    return slideShell(slide, index, lesson, body, 'invSectionSlide');
+  }
+
+  function renderSection(slide, index, lesson) {
+    const stepLabel = slide.eyebrow || (slide._sectionStep ? `Part ${slide._sectionStep}` : 'Section');
+    const body = `
+      <div class="invSectionDivider">
+        <div class="invSectionKicker">${escapeHtml(stepLabel)}</div>
+        <h1>${html(slide.title || '')}</h1>
+        ${slide.zhTitle ? `<div class="invSectionZh" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</div>` : ''}
+        ${slide.subtitle ? `<p class="invSectionSubtitle">${html(slide.subtitle)}</p>` : ''}
+        ${sectionProgressMarkup(slide)}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invSectionSlide', null, { hideHeader: true });
   }
 
   function renderVisualPause(slide, index, lesson) {
@@ -652,6 +652,24 @@
     return renderer(slide, index, lesson);
   }
 
+  function prepareSlides(slides) {
+    const sectionTitles = slides
+      .filter((slide) => slide.type === 'section')
+      .map((slide) => slide.title)
+      .filter(Boolean);
+    let sectionStep = 0;
+    return slides.map((slide) => {
+      if (slide.type !== 'section') return slide;
+      sectionStep += 1;
+      return {
+        ...slide,
+        _sectionStep: sectionStep,
+        _sectionTotal: sectionTitles.length,
+        _sectionTitles: sectionTitles,
+      };
+    });
+  }
+
   function mountLesson(lesson, target = document.body) {
     if (!lesson) return;
     const params = new URLSearchParams(window.location.search);
@@ -669,7 +687,7 @@
     }
 
     document.body.classList.add('investment-deck');
-    const slides = lesson.slides || [];
+    const slides = prepareSlides(lesson.slides || []);
     const title = lesson.meta?.lessonLabel || lesson.title || 'Investment Analysis';
     target.innerHTML = `
       <main class="invApp">
