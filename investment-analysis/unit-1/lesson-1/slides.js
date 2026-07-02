@@ -6,7 +6,7 @@ const investmentMarketData = window.INVEST.marketData || {};
 window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment Analysis",
-    lessonLabel: "Unit 1 Lesson 1: Share price means one ownership unit",
+    lessonLabel: "Unit 1 Lesson 1: Shares (1): Share prices",
     sources: [
       {
         label: "Tencent investor relations",
@@ -30,7 +30,7 @@ window.INVEST.lesson = {
   },
   handout: {
     title: "Tencent analyst sheet",
-    subtitle: "Unit 1 Lesson 1: What does a stock price mean?",
+    subtitle: "Unit 1 Lesson 1: Shares (1): Share prices",
     description: "Start from Tencent's five-year price graph, then connect one share, market price and why that price changes.",
     meta: [
       { label: "Name", value: "" },
@@ -39,9 +39,9 @@ window.INVEST.lesson = {
     ],
     sections: [
       {
-        label: "A",
-        title: "Tencent's graph shows one listed share price",
-        instruction: "Use the five-year graph as the hook, then identify the company and code quickly.",
+        label: "1",
+        title: "Exercise 1: identify the graph",
+        instruction: "Use the five-year graph as the hook, then identify what one point on the line shows.",
         blocks: [
           {
             type: "facts",
@@ -61,15 +61,44 @@ window.INVEST.lesson = {
             type: "prompts",
             prompts: [
               { label: "Graph hook", prompt: "The Tencent line rises and falls sharply. What exactly does each point on the line measure?", lines: 2 },
-              { label: "Fast ID check", prompt: "Circle Tencent, 0700.HK / 00700 and the source date. This should take under one minute.", lines: 1 },
-              { label: "Price meaning", prompt: "A share price is the price of what exactly? What can it not prove by itself?", lines: 2 }
+              { label: "First answer", prompt: "Each point shows the market price of __________ Tencent share at that time.", lines: 1 }
             ]
           }
         ]
       },
       {
-        label: "B",
-        title: "Key terms: ownership unit and market price",
+        label: "2",
+        title: "Exercise 2: define share price",
+        instruction: "Write the definition before checking the key-term blanks.",
+        blocks: [
+          {
+            type: "prompts",
+            prompts: [
+              { label: "Definition sentence", prompt: "A share price is...", lines: 2 },
+              { label: "What it represents", prompt: "It represents the price of what ownership unit?", lines: 1 },
+              { label: "What it does not prove", prompt: "Name one thing a share price does not prove by itself.", lines: 1 }
+            ]
+          }
+        ]
+      },
+      {
+        label: "3",
+        title: "Exercise 3: identify the listed share",
+        instruction: "Use the company name and stock codes as a quick address check.",
+        blocks: [
+          {
+            type: "prompts",
+            prompts: [
+              { label: "Fast ID check", prompt: "Circle Tencent, 0700.HK / 00700 and the source date. This should take under one minute.", lines: 1 },
+              { label: "Code meaning", prompt: "What do 0700.HK and 00700 help us find?", lines: 1 },
+              { label: "Main price question", prompt: "After the code check, what is the more important price question for today?", lines: 2 }
+            ]
+          }
+        ]
+      },
+      {
+        label: "4",
+        title: "Exercise 4: share price",
         instruction: "Complete the ownership and price terms before judging whether the price is attractive.",
         blocks: [
           {
@@ -85,8 +114,8 @@ window.INVEST.lesson = {
         ]
       },
       {
-        label: "C",
-        title: "New information can change Tencent's price",
+        label: "5",
+        title: "Exercise 5: evidence is not judgement",
         instruction: "Use each figure as possible information, then connect information to expectations and price.",
         blocks: [
           {
@@ -122,9 +151,9 @@ window.INVEST.lesson = {
         ]
       },
       {
-        label: "D",
-        title: "Measure a move on Tencent's graph",
-        instruction: "Use the old graph point as the base, then explain why the move may have happened.",
+        label: "6",
+        title: "Exercise 6: calculate the price change",
+        instruction: "Use the old graph point as the base.",
         blocks: [
           {
             type: "calculation",
@@ -132,7 +161,14 @@ window.INVEST.lesson = {
             worked: "Tencent graph example: HK$195.27 to HK$663.00 = (663.00 - 195.27) / 195.27 x 100 = about 240%.",
             task: "Tencent's graph then moves from HK$663.00 to HK$429.80. Calculate the percentage change.",
             lines: 4
-          },
+          }
+        ]
+      },
+      {
+        label: "7",
+        title: "Exercise 7: explain a price movement",
+        instruction: "Use the information-expectations-buyers-price chain.",
+        blocks: [
           {
             type: "sentence",
             label: "Price movement sentence",
@@ -143,8 +179,8 @@ window.INVEST.lesson = {
         ]
       },
       {
-        label: "E",
-        title: "Strong company does not always mean good investment",
+        label: "Exam",
+        title: "Are high-share-price companies good investments?",
         instruction: "Use one Tencent figure, one graph point and one limitation before writing.",
         blocks: [
           {
@@ -168,10 +204,25 @@ window.INVEST.lesson = {
   },
   slides: [
     {
+      type: "hero",
+      eyebrow: "Overview",
+      title: "Shares (1): Share prices (股价)",
+      zhTitle: "股票（一）：股价",
+      subtitle: "Unit 1 Lesson 1",
+      kicker: "What does each point on Tencent's share-price line show?",
+      visual: investmentPhotos.modernTradingDesk,
+      notes: [
+        "Use this as the title slide before the graph hook.",
+        "Then move to the Tencent price line and ask students what the line actually measures."
+      ]
+    },
+    {
       type: "priceChart",
       eyebrow: "Starter",
-      title: "Tencent's price story",
+      title: "What does this line measure?",
+      zhTitle: "这条线衡量什么？",
       question: "What is this line actually measuring?",
+      questionZh: "这条线到底在衡量什么？",
       ticker: "0700.HK",
       data: investmentMarketData.tencentFiveYearSharePrice,
       yMin: 150,
@@ -187,7 +238,8 @@ window.INVEST.lesson = {
     {
       type: "discussion",
       eyebrow: "Starter",
-      title: "Each point is one share price",
+      title: "What does each point on the line show?",
+      zhTitle: "线上的每个点显示什么？",
       question: "Look at Tencent's five-year line. Does one point show the value of the whole company, one share's market price, or Tencent's annual revenue? Explain.",
       zh: "看腾讯五年股价走势。一个点表示整家公司价值、一股的市场价格，还是腾讯的年度收入？说明理由。",
       revealTitle: "Line meaning",
@@ -200,18 +252,19 @@ window.INVEST.lesson = {
     {
       type: "marketBrief",
       eyebrow: "Market Brief",
-      title: "The graph belongs to one listed share",
-      subtitle: "Company and code identify the share; the line prices one ownership unit over time.",
+      title: "Exercise 1: identify the graph",
+      zhTitle: "练习1：识别图表",
+      subtitle: "The graph belongs to one listed share.",
       visual: investmentPhotos.tencentBinhaiTowers,
-      ticker: "Handout A",
-      question: "Open Section A. Circle Tencent, 0700.HK / 00700 and the graph source, then answer: what is the line attached to?",
-      questionZh: "打开A部分。圈出公司、代码和来源日期，然后回答：这个价格对应的是什么？",
-      sourceStamp: "Tencent price graph and company snapshot | accessed Jul 2026",
+      ticker: "Handout Exercise 1",
+      question: "Exercise 1: identify the company, code, source and line.",
+      questionZh: "练习1：找出公司、代码、来源和这条线。",
+      sourceStamp: "Tencent graph | Jul 2026",
       revealMetricValues: true,
       metrics: [
-        { label: "1. Company", value: "Tencent", note: "腾讯控股" },
-        { label: "2. Listed share", value: "0700.HK / 00700", note: "报价 / 港交所" },
-        { label: "3. Graph line", value: "One share price", note: "一股股票的价格" }
+        { label: "Company", value: "Tencent", note: "腾讯控股" },
+        { label: "Listed share", value: "0700.HK / 00700", note: "报价 / 港交所" },
+        { label: "Graph line", value: "One share price", note: "一股股票的价格" }
       ],
       notes: [
         "Students should already have said what the graph measures. Use this slide to attach the graph to the correct listed share.",
@@ -239,17 +292,18 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "A stock price is one share's market price",
-      zhTitle: "股价是一股股票的市场价格",
+      title: "What is a share price?",
+      zhTitle: "什么是股价？",
       notes: "This section starts with the price concept instead of spending time on identifiers or decision categories."
     },
     {
       type: "discussion",
       eyebrow: "Starter",
-      title: "A stock price is for one share",
+      title: "What exactly does HK$429.80 measure?",
+      zhTitle: "429.80港元到底衡量什么？",
       visual: investmentPhotos.financialAnalysisDesk,
       question: "The graph shows Tencent at HK$429.80 in the latest monthly close. What exactly costs HK$429.80: the whole company, one ownership unit, or last year's revenue? Explain.",
-      zh: "如果课堂例子中腾讯股价是420港元，420港元对应的到底是什么：整家公司、一份所有权单位，还是去年的收入？说明理由。",
+      zh: "图表显示腾讯最新月度收盘价为429.80港元。429.80港元对应的到底是什么：整家公司、一份所有权单位，还是去年的收入？说明理由。",
       revealTitle: "Price of one share",
       answer: "The price is for one share: one small ownership unit in the company at that time. It is not the price of the whole company and it is not the same as last year's revenue.",
       notes: [
@@ -260,7 +314,8 @@ window.INVEST.lesson = {
     {
       type: "flow",
       eyebrow: "Key idea",
-      title: "Share price means one ownership unit at one time",
+      title: "How can we define share price?",
+      zhTitle: "怎样定义股价？",
       visual: investmentPhotos.stockReportCalculator,
       flowStyle: "sequence",
       steps: [
@@ -274,45 +329,50 @@ window.INVEST.lesson = {
     {
       type: "peerTask",
       eyebrow: "Pair task",
-      title: "Define stock price in one sentence",
+      title: "Exercise 2: define share price",
+      zhTitle: "练习2：定义股价",
       visual: investmentPhotos.businessChartsPaper,
       steps: [
-        "Write: A stock price is...",
-        "Add what the price represents.",
-        "Add one thing the price does not prove."
+        { text: "Write: A stock price is...", zh: "写出句子：股价是……" },
+        { text: "Add what the price represents.", zh: "说明股价代表什么。" },
+        { text: "Add one thing the price does not prove.", zh: "补充说明股价本身不能证明什么。" }
       ],
       sampleAnswer: "A stock price is the market price of one share at a specific time. It represents what buyers and sellers currently pay for one ownership unit, but it does not prove the share is cheap, safe or a good investment.",
-      notes: "This is the first individual written check. Students copy a corrected sentence into Handout Section A or B."
+      sampleAnswerZh: "股价是在特定时间一股股票的市场价格。它代表买方和卖方当前愿意为一份所有权单位支付的价格，但不能证明这只股票便宜、安全或是好投资。",
+      notes: "This is the first individual written check. Students copy a corrected sentence into Handout Exercise 2."
     },
     {
       type: "quiz",
       eyebrow: "Hinge check",
-      title: "Price shows one share at one time",
+      title: "Check 1: share price",
+      zhTitle: "检查1：股价",
       visual: investmentPhotos.smartphoneMarketChart,
-      question: "Handout Section B check: Tencent's latest monthly graph point is HK$429.80. Which statement is best?",
-      zh: "B部分检查：腾讯风格的价格是420港元。哪句话最准确？",
+      question: "Tencent's graph point is HK$429.80. What does it mean?",
+      zh: "腾讯图表点是429.80港元。它表示什么？",
       choices: [
-        "The whole company costs HK$420.",
-        "One Tencent share had a market price of HK$429.80 at that monthly close.",
-        "Tencent's revenue is HK$420.",
-        "The share is guaranteed to be a good investment."
+        "The whole company cost HK$429.80.",
+        "One share cost HK$429.80.",
+        "Tencent's revenue was HK$429.80.",
+        "The share was guaranteed good."
       ],
       answer: 1,
       explanation: "A share price is the market price of one share at a specific time. It does not prove total company value, revenue or investment quality by itself.",
+      explanationZh: "股价是在特定时间一股股票的市场价格。它本身不能证明整家公司价值、收入或投资质量。",
       notes: "If students choose A or C, re-anchor the price to one share. If they choose D, stress that price alone is not a judgement."
     },
     {
       type: "section",
       eyebrow: "Part 2",
       part: "2",
-      title: "Buying a share gives a small ownership claim",
-      zhTitle: "买入股票获得一小份所有权",
+      title: "What do shareholders own?",
+      zhTitle: "股东拥有什么？",
       notes: "Keep this focused on the ownership claim. Identifiers are handled later as a quick one-minute check."
     },
     {
       type: "discussion",
       eyebrow: "Starter",
-      title: "One share gives a tiny ownership claim",
+      title: "Does one share mean owning Tencent?",
+      zhTitle: "买一股就等于拥有腾讯吗？",
       visual: investmentPhotos.smartphoneMarketChart,
       question: "If one student buys 1 Tencent share, which statement is correct: they own a tiny claim, they own Tencent's buildings, or they control Tencent's managers? Explain your choice.",
       zh: "如果一个学生买了1股腾讯股票，哪句话正确：拥有很小的权益、拥有腾讯大楼，还是控制腾讯经理？说明理由。",
@@ -323,7 +383,7 @@ window.INVEST.lesson = {
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Listed companies split ownership into shares",
+      title: "Why can listed companies have many owners?",
       zhTitle: "上市公司把所有权分成许多股票",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
@@ -343,27 +403,29 @@ window.INVEST.lesson = {
         { term: "Ownership", zh: "所有权", note: "The investor has a claim on part of the company." },
         { term: "Unit", zh: "单位", note: "One share is only a small piece, not the whole company." }
       ],
-      notes: "Students complete the Share line in Section B before reveal. The reveal should focus on unit and ownership, not just the word share."
+      notes: "Students complete the Share line in Handout Exercise 4 before reveal. The reveal should focus on unit and ownership, not just the word share."
     },
     {
       type: "answer",
       eyebrow: "Check",
       title: "Fill in the blanks",
+      zhTitle: "填空",
       mode: "fillBlanks",
       items: [
         { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "股票代表公司所有权中的一个单位。" },
         { prompt: "Buying one share does not mean you own the __________ company.", answer: "whole", zh: "买一股不等于拥有整家公司。" }
       ],
-      notes: "Students write the Section B ownership blanks first. Click to reveal each answer before introducing shareholder."
+      notes: "Students write the Handout Exercise 4 ownership blanks first. Click to reveal each answer before introducing shareholder."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "A shareholder owns one or more shares",
+      title: "Who can be a shareholder?",
+      zhTitle: "谁可以成为股东？",
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Observation question: who might own shares besides one individual student?",
-        "Bridge: a shareholder is any person or institution that owns one or more shares. Students then complete the shareholder line in Section B."
+        "Bridge: a shareholder is any person or institution that owns one or more shares. Students then complete the shareholder line in Handout Exercise 4."
       ]
     },
     {
@@ -378,14 +440,15 @@ window.INVEST.lesson = {
         { term: "Person", zh: "个人", note: "For example, a household investor." },
         { term: "Institution", zh: "机构", note: "For example, a fund, pension scheme or company." }
       ],
-      notes: "Students complete the Shareholder line in Section B before reveal. Point out that shareholders can be people or institutions; Grade 9 students often assume only individuals."
+      notes: "Students complete the Shareholder line in Handout Exercise 4 before reveal. Point out that shareholders can be people or institutions; Grade 9 students often assume only individuals."
     },
     {
       type: "discussion",
       eyebrow: "Discuss",
-      title: "More shares usually mean more influence",
+      title: "Do all shareholders control the company?",
+      zhTitle: "所有股东都能控制公司吗？",
       visual: investmentPhotos.investorMeetingReport,
-      question: "Handout Section B check: One student owns 1 share. A large fund owns 100 million shares. Which shareholder is more likely to influence company decisions? Why?",
+      question: "Handout Exercise 4 check: One student owns 1 share. A large fund owns 100 million shares. Which shareholder is more likely to influence company decisions? Why?",
       zh: "一个学生拥有1股，一个大型基金拥有1亿股。哪个股东更可能影响公司决策？为什么？",
       revealTitle: "Model direction",
       answer: "The large fund is more likely to influence decisions because voting power and attention from managers usually depend on how many shares are owned.",
@@ -394,9 +457,10 @@ window.INVEST.lesson = {
     {
       type: "quiz",
       eyebrow: "Hinge check",
-      title: "A share is the unit; a shareholder owns units",
+      title: "Check 2: share or shareholder?",
+      zhTitle: "检查2：股票还是股东？",
       visual: investmentPhotos.smartphoneMarketChart,
-      question: "Handout Section B check: Which statement is correct?",
+      question: "Handout Exercise 4 check: Which statement is correct?",
       zh: "哪一句是正确的？",
       choices: [
         "A share is a person who owns a company.",
@@ -406,12 +470,14 @@ window.INVEST.lesson = {
       ],
       answer: 1,
       explanation: "A shareholder is the owner of one or more shares. A share is the ownership unit.",
+      explanationZh: "股东是拥有一股或多股股票的人或机构。股票是所有权单位。",
       notes: "Wait for votes before clicking a choice. The explanation should stay hidden until a choice is selected."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Stock codes identify the right listed share",
+      title: "Why do stock codes matter?",
+      zhTitle: "股票代码为什么重要？",
       visual: investmentPhotos.tencentBinhaiTowers,
       notes: [
         "Observation question: what real business is behind the quote ticker 0700.HK and HKEX code 00700?",
@@ -421,9 +487,10 @@ window.INVEST.lesson = {
     {
       type: "discussion",
       eyebrow: "Discuss",
-      title: "Codes identify the share; price explains the quote",
+      title: "Exercise 3: identify the listed share",
+      zhTitle: "练习3：识别上市股票",
       visual: investmentPhotos.financeChartWhiteboard,
-      question: "Look at 0700.HK and 00700 in Handout A. What do the codes help us find, and what is the more important price question for today?",
+      question: "Look at 0700.HK and 00700 in Handout Exercise 3. What do the codes help us find, and what is the more important price question for today?",
       zh: "看A部分的0700.HK和00700。代码帮助我们找到什么？今天更重要的价格问题是什么？",
       revealTitle: "Fast identifier, bigger question",
       answer: "The codes help us find Tencent's Hong Kong-listed share. Today's bigger question is what the share price represents and why that price might change.",
@@ -441,24 +508,26 @@ window.INVEST.lesson = {
         { term: "Market price", zh: "市场价格", note: "It is formed by buyers and sellers in the market." },
         { term: "Specific time", zh: "特定时间", note: "Prices can change during the day." }
       ],
-      notes: "Students complete the share-price line in Section B. Stress market price and specific time; students often speak as if a share has one permanent price."
+      notes: "Students complete the share-price line in Handout Exercise 4. Stress market price and specific time; students often speak as if a share has one permanent price."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "Share price = one share at one time",
+      title: "Exercise 4: share price",
+      zhTitle: "练习4：股价",
       mode: "fillBlanks",
       items: [
         { prompt: "A share price is the market price of __________ share.", answer: "one", zh: "股价是一股股票的市场价格。" },
         { prompt: "It is recorded at a specific __________.", answer: "time", zh: "股价对应一个特定时间。" },
         { prompt: "It does not prove the share is cheap, safe or a good __________.", answer: "investment", zh: "股价本身不能证明便宜、安全或是好投资。" }
       ],
-      notes: "This is the main price-definition check. Students should write the full sentence in Handout Section B."
+      notes: "This is the main price-definition check. Students should write the full sentence in Handout Exercise 4."
     },
     {
       type: "discussion",
       eyebrow: "Discuss",
-      title: "Price is not the same as value",
+      title: "Does a higher price mean a better business?",
+      zhTitle: "股价更高就代表公司更好吗？",
       visual: investmentPhotos.financialAnalysisDesk,
       question: "If Tencent's share price rises today, does that prove the business became better today? What else could have changed?",
       zh: "如果腾讯股价今天上涨，能不能证明公司今天变好了？还可能是什么发生了变化？",
@@ -470,14 +539,15 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 3",
       part: "3",
-      title: "New information can move the price line",
-      zhTitle: "新信息会改变预期和股价",
+      title: "Why do share prices change?",
+      zhTitle: "股价为什么会变化？",
       notes: "Students first read the FY2025 data as possible information, then connect information to expectations and movements on the frozen Tencent price graph."
     },
     {
       type: "dataSnapshot",
       eyebrow: "Data Snapshot",
       title: "What could move this line?",
+      zhTitle: "什么可能推动这条线变化？",
       visual: investmentPhotos.tencentBinhaiTowers,
       sourceStamp: "Tencent FY2025 results | RMB billions | snapshot date 26 Jun 2026",
       focusMetrics: [
@@ -485,14 +555,17 @@ window.INVEST.lesson = {
         { label: "Gross profit", value: "RMB422.6bn" },
         { label: "Gross margin", value: "56%" }
       ],
-      task: "Handout Section C: record what each figure shows, then decide how it might change expectations about the price line.",
+      task: "Handout Exercise 5: link each figure to expectations.",
+      taskZh: "练习5：把每个数据与预期联系起来。",
       note: "A graph line can move when investors receive new information about performance, risk or future profit.",
-      notes: "Students have already done the quick ID check in Section A. Keep this slide to three headline figures only, then ask which figure might help explain a change in the price line."
+      noteZh: "当投资者收到有关业绩、风险或未来利润的新信息时，股价线可能变化。",
+      notes: "Students have already done the quick ID check in Exercise 3. Keep this slide to three headline figures only, then ask which figure might help explain a change in the price line."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "High revenue is evidence, not a full judgement",
+      title: "Exercise 5: evidence is not judgement",
+      zhTitle: "练习5：证据不等于判断",
       mode: "fillBlanks",
       items: [
         { prompt: "High revenue shows large __________ before costs are deducted.", answer: "sales", zh: "营业收入说明销售规模。" },
@@ -504,7 +577,8 @@ window.INVEST.lesson = {
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Price lines need buyers and sellers",
+      title: "Who forms each market price?",
+      zhTitle: "每一个市场价格由谁形成？",
       visual: investmentPhotos.smartphoneMarketChart,
       notes: [
         "Observation question: what could make more buyers want the same Tencent share at the same time?",
@@ -523,46 +597,50 @@ window.INVEST.lesson = {
         { term: "Buyers", zh: "买方", note: "More buying pressure can push the price up." },
         { term: "Sellers", zh: "卖方", note: "More selling pressure can push the price down." }
       ],
-      notes: "Students complete the market-price and expectations lines in Section B. This prepares the price-line movement flow."
+      notes: "Students complete the market-price and expectations lines in Handout Exercise 4. This prepares the price-line movement flow."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "The old graph point is the base",
+      title: "Which graph point is the base?",
+      zhTitle: "哪个图表点是基数？",
       visual: investmentPhotos.stockReportCalculator,
       notes: [
         "Observation question: which graph point should be the base before calculating a percentage change?",
-        "Bridge: percentage price change compares the change with the old price. Students set up the calculation in Handout Section D."
+        "Bridge: percentage price change compares the change with the old price. Students set up the calculation in Handout Exercise 6."
       ]
     },
     {
       type: "calculationDesk",
       eyebrow: "Calculation Desk",
-      title: "Formula: percentage price change",
+      title: "How is price change calculated?",
+      zhTitle: "怎样计算价格变化？",
       visual: investmentPhotos.stockReportCalculator,
       formula: "percentage change = (new price - old price) / old price x 100",
-      worked: "Tencent graph example: HK$195.27 to HK$663.00 means the change is HK$467.73. The old price is the base: 467.73 / 195.27 x 100 = about 240%.",
-      workedZh: "腾讯图表示例：股价从195.27港元到663.00港元，变化为467.73港元；旧价格195.27港元是基数。",
+      worked: "HK$195.27 to HK$663.00: change = HK$467.73. Percentage change = 467.73 / 195.27 x 100, about 240%.",
+      workedZh: "旧价格是基数：467.73 / 195.27 x 100 ≈ 240%。",
       notes: "Keep this slide to formula plus worked graph example. Students do the latest graph fall on the next slide so the base-denominator idea is not crowded."
     },
     {
       type: "answer",
       eyebrow: "Check",
-      title: "Try it: old price is the base",
+      title: "Exercise 6: calculate the price change",
+      zhTitle: "练习6：计算价格变化",
       mode: "fillBlanks",
       items: [
         { prompt: "From HK$663.00 to HK$429.80, the change is HK$__________.", answer: "-233.20", zh: "先找出价格变化：429.80 - 663.00。" },
         { prompt: "The denominator is the __________ graph point, HK$663.00.", answer: "old", zh: "分母是旧价格，而不是新价格。" },
         { prompt: "-233.20 divided by 663.00, times 100, is about __________%.", answer: "-35", zh: "再把变化额除以原价并乘以100。" }
       ],
-      notes: "This checks Handout Section D using the graph's high-to-latest move and catches students who divide by the new price."
+      notes: "This checks Handout Exercise 6 using the graph's high-to-latest move and catches students who divide by the new price."
     },
     {
       type: "quiz",
       eyebrow: "Hinge check",
-      title: "Use old price as the denominator",
+      title: "Check 3: which price is the base?",
+      zhTitle: "检查3：哪个价格是基数？",
       visual: investmentPhotos.tabletFinancialChart,
-      question: "Handout Section D check: Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
+      question: "Handout Exercise 6 check: Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
       zh: "腾讯图表从663.00港元跌至429.80港元。大约百分比变化是多少？",
       choices: [
         "-35%",
@@ -572,58 +650,63 @@ window.INVEST.lesson = {
       ],
       answer: 0,
       explanation: "(429.80 - 663.00) / 663.00 x 100 is about -35%. The old graph point is the denominator.",
+      explanationZh: "（429.80 - 663.00）/ 663.00 x 100 约为 -35%。旧图表点是分母。",
       notes: "This is the main calculation hinge before the expectations chain. If many choose -54% or -233%, re-teach old price as the base and percent as relative change."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "New information changes expectations",
+      title: "What can change investor expectations?",
+      zhTitle: "什么会改变投资者预期？",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
         "Observation question: why might investors react before a company's profit has actually changed?",
-        "Bridge: information changes expectations, and expectations can change buying and selling pressure. Students use this to write the Section D sentence."
+        "Bridge: information changes expectations, and expectations can change buying and selling pressure. Students use this to write the Exercise 7 sentence."
       ]
     },
     {
       type: "flow",
       eyebrow: "Key idea",
-      title: "New information can move the price",
+      title: "Why can price move?",
       visual: investmentPhotos.investorChartScreens,
       zhTitle: "信息会改变买卖压力和股价",
       flowStyle: "sequence",
       steps: [
-        { text: "Investors receive new __________.", answer: "information", zh: "投资者收到新的信息。" },
-        { text: "They change __________ about future profit.", answer: "expectations", zh: "他们改变对未来利润的预期。" },
-        { text: "More __________ than sellers can push the price up.", answer: "buyers", zh: "买方多于卖方可能推动价格上涨。" },
-        { text: "More sellers than buyers can push the price __________.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
+        { text: "New __________ arrives.", answer: "information", zh: "投资者收到新的信息。" },
+        { text: "Future-profit __________ change.", answer: "expectations", zh: "他们改变对未来利润的预期。" },
+        { text: "More __________ than sellers push price up.", answer: "buyers", zh: "买方多于卖方可能推动价格上涨。" },
+        { text: "More sellers push price __________.", answer: "down", zh: "卖方多于买方可能推动价格下跌。" }
       ],
       notes: "Show the whole causal sequence, but make students predict each key link before reveal. The following sentence-completion task is the formative check. Do not introduce efficient-market theory."
     },
     {
       type: "peerTask",
       eyebrow: "Pair task",
-      title: "Write the information-to-price sentence",
+      title: "Exercise 7: explain a price movement",
+      zhTitle: "练习7：解释股价变化",
       visual: investmentPhotos.investorChartScreens,
       steps: [
-        "Write your own sentence first using: information, expectations, buyers, price.",
-        "Compare with your partner and check the order: information -> expectations -> buyers -> price.",
-        "Prepare one sentence explaining why a price can rise before profits actually rise."
+        { text: "Use: information -> expectations -> buyers -> price.", zh: "使用：信息 -> 预期 -> 买方 -> 价格。" },
+        { text: "Compare the causal order with a partner.", zh: "与同伴比较因果顺序。" },
+        { text: "Explain why price can rise before profit rises.", zh: "解释为何利润上升前股价可能先涨。" }
       ],
       sampleAnswer: "If investors receive positive information, their expectations about future profit may rise, so more buyers want the share and the price can rise.",
-      notes: "Students need this sentence-level explanation in Section D before moving to judgement."
+      sampleAnswerZh: "如果投资者收到正面信息，他们对未来利润的预期可能上升，因此更多买方想买这只股票，价格就可能上涨。",
+      notes: "Students need this sentence-level explanation in Handout Exercise 7 before moving to judgement."
     },
     {
       type: "section",
       eyebrow: "Part 4",
       part: "4",
-      title: "A strong company can still be a weak investment",
-      zhTitle: "强公司仍可能是弱投资",
+      title: "Are companies with high share prices good investments?",
+      zhTitle: "高股价公司就是好投资吗？",
       notes: "This is the judgement frame for the course."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Evidence comes before judgement",
+      title: "What evidence do we need before judging?",
+      zhTitle: "判断前需要哪些证据？",
       visual: investmentPhotos.financialAnalysisDesk,
       notes: [
         "Observation question: what evidence is visible here besides a price chart?",
@@ -633,46 +716,50 @@ window.INVEST.lesson = {
     {
       type: "analystBoard",
       eyebrow: "Analyst Board",
-      title: "Judge performance, expectations and price paid",
+      title: "What evidence belongs in the judgement?",
+      zhTitle: "判断中应包含哪些证据？",
       visual: investmentPhotos.financialAnalysisDesk,
       revealBlocks: true,
       blocks: [
         {
           label: "Company performance",
           title: "What does the business do?",
-          body: "Tencent's FY2025 snapshot shows very large revenue and gross profit, but those figures do not explain the whole price line by themselves.",
+          body: "Tencent shows very large revenue and gross profit, but those figures do not explain the whole price line.",
           zh: "公司业绩：业务规模和利润情况。"
         },
         {
           label: "Expectations",
           title: "What does the market expect next?",
-          body: "Tencent's graph can move because the share price reflects what investors expect in the future, not only what happened last year.",
+          body: "The price line can move because investors react to future profit, not only last year's data.",
           zh: "市场预期：投资者对未来的看法。"
         },
         {
           label: "Price paid",
           title: "What are you paying?",
-          body: "Even a strong company can be a weak investment if the price point you pay already assumes excellent results.",
+          body: "A strong company can be a weak investment if the price point already assumes excellent results.",
           zh: "买入价格：价格太高会降低投资吸引力。"
         }
       ],
-      prompt: "Handout Section E: which block is missing when someone says 'Tencent's graph went up, so it must be a good investment'?",
+      prompt: "Handout Exam practice: which block is missing when someone says 'Tencent's graph went up, so it must be a good investment'?",
+      promptZh: "练习册考试练习：如果有人说“腾讯图表上涨，所以一定是好投资”，他遗漏了哪一块？",
       notes: "Show only the block labels and questions first. Students choose the missing block, then reveal the three bodies one by one and finally reveal the prompt."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Risk changes whether the price is attractive",
+      title: "How can risk change the judgement?",
+      zhTitle: "风险怎样改变判断？",
       visual: investmentPhotos.shippingPort,
       notes: [
         "Observation question: what could change outside the company even if the company is well managed?",
-        "Bridge: investor judgement includes future risk, not just last year's revenue or profit. Students add one risk to Section E."
+        "Bridge: investor judgement includes future risk, not just last year's revenue or profit. Students add one risk to the Exam practice section."
       ]
     },
     {
       type: "riskRegister",
       eyebrow: "Risk Register",
-      title: "A good company can still be a risky share",
+      title: "What risks can make a share unattractive?",
+      zhTitle: "哪些风险会降低股票吸引力？",
       visual: investmentPhotos.shippingPort,
       revealEffects: true,
       effectLabel: "Effect link",
@@ -683,41 +770,46 @@ window.INVEST.lesson = {
         ["Competition", "Could rivals weaken Tencent's games, ads or cloud margins?", "Lower margins or slower growth can weaken the investment case."],
         ["Currency and market mood", "Could exchange rates or market sentiment change returns?", "Some investors may earn less even if the business remains strong."]
       ],
-      prompt: "Handout Section E: choose one risk and complete: risk -> future profit or expectations -> next point on the price line.",
+      prompt: "Handout Exam practice: choose one risk and complete: risk -> future profit or expectations -> next point on the price line.",
+      promptZh: "练习册考试练习：选择一个风险，并完成：风险 -> 未来利润或预期 -> 股价线上的下一个点。",
       answer: "A strong answer names one Tencent risk and links it to future profit, investor expectations or the price paid.",
       notes: "Reveal the effect links only after students have chosen a risk. This is not a recommendation; it trains risk-evidence-effect language before the final hinge question."
     },
     {
       type: "quiz",
       eyebrow: "Hinge check",
-      title: "A good company can still be overpriced",
+      title: "Check 4: overpriced shares",
+      zhTitle: "检查4：股票会被高估吗？",
       visual: investmentPhotos.financialAnalysisDesk,
-      question: "Handout Section E check: Which answer best explains why a famous company with a rising price graph may still be a poor investment?",
-      zh: "哪一个答案最能解释为什么盈利公司仍可能不是好投资？",
+      question: "Why can a famous company still be a poor investment?",
+      zh: "为什么知名公司仍可能不是好投资？",
       choices: [
-        "A famous company is automatically a safe investment.",
-        "The price point may already be too high compared with expected future profit and risk.",
-        "High revenue always means the share price is cheap.",
-        "A lower share price always means a better investment."
+        "Famous company = safe investment.",
+        "Price may be too high for profit and risk.",
+        "High revenue means cheap share.",
+        "Lower price always means better."
       ],
       answer: 1,
       explanation: "Investment judgement compares expected future profit and risk with the price paid for the share, not just the shape of the graph.",
+      explanationZh: "投资判断要比较预期未来利润、风险和买入价格，而不能只看图表形状。",
       notes: "Use this before the 4-mark question. The wrong options are plausible student shortcuts, so ask students to explain why each shortcut fails."
     },
     {
       type: "visualPause",
       eyebrow: "Look first",
-      title: "Plan the evidence before writing",
+      title: "What evidence should your answer use?",
+      zhTitle: "答案应该使用哪些证据？",
       visual: investmentPhotos.businessChartsPaper,
       notes: [
         "Observation question: what evidence would you select before answering the 4-mark question?",
-        "Bridge: the exam answer needs two developed points, not just a statement that revenue is high. Students should use their Section C and E notes."
+        "Bridge: the exam answer needs two developed points, not just a statement that revenue is high. Students should use their Exercise 5 and Exam practice notes."
       ]
     },
     {
       type: "exam",
       eyebrow: "Exam practice",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
+      zhTitle: "解释为什么高收入不能证明一股股票是好投资。[4]",
       visual: investmentPhotos.businessChartsPaper,
       revealKeywords: true,
       prompt: "First write a two-point plan: one revenue/profit limit and one price-graph/risk/expectations limit. Then reveal keywords if needed.",
@@ -729,12 +821,13 @@ window.INVEST.lesson = {
       type: "modelAnswer",
       eyebrow: "Model answer",
       title: "Explain why high revenue does not prove that a share is a good investment. [4]",
+      zhTitle: "示范答案：高收入不等于好投资",
       visual: investmentPhotos.financialAnalysisDesk,
       cueLabel: "Compare your answer",
       cueText: "Underline evidence, then underline the limitation or judgement link in each paragraph.",
       paragraphs: [
         "Tencent's <mark>revenue</mark> of RMB751.8bn shows very large sales before costs are deducted, but revenue alone does not prove strong <mark>profit</mark> after all costs.",
-        "A share can also be unattractive if the <mark>price paid</mark> is already too high. Tencent's five-year graph shows that price points can move sharply, so investors compare expected future profit and <mark>risk</mark> with the current share price before judging whether it is a good investment."
+        "A share can also be unattractive if the <mark>price paid</mark> is already too high. Tencent's graph shows price points can move sharply, so investors compare future profit and <mark>risk</mark> with the current share price."
       ],
       notes: "Ask students to compare the model answer with Sections C and E of the handout, then underline two developed points: revenue vs profit, and price/risk/expectations."
     },

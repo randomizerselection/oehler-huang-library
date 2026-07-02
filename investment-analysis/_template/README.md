@@ -26,7 +26,7 @@ Keep real company data frozen with source and date metadata. Do not fetch live p
 Teaching rhythm:
 
 - Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
-- Make teaching titles notebook-ready. State the concept, rule or judgement being taught, such as `A stock price is one share's market price`, instead of a slogan such as `One share, one price`.
+- Make teaching titles student-facing and note-friendly. Use the taught concept, question or exercise label, such as `What is a share price?` or `Exercise 1`, instead of a slogan such as `One share, one price`.
 - `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.

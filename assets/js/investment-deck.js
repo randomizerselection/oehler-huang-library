@@ -354,7 +354,9 @@
         <div class="invPriceChartOverlay">
           ${slide.eyebrow ? `<div class="invEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
           <h1>${html(slide.title || '')}</h1>
+          ${slide.zhTitle ? `<div class="invZhTitle" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</div>` : ''}
           ${slide.question ? `<p class="invPriceChartQuestion">${html(slide.question)}</p>` : ''}
+          ${slide.questionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.questionZh)}</p>` : ''}
         </div>
         <svg class="invPriceChartSvg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(slide.alt || slide.title || 'Share price chart')}">
           <defs>
@@ -578,9 +580,11 @@
         ${focus ? `<div class="invDataFocus">${focus}</div>` : ''}
         <div class="invDataPrompt">
           <p>${escapeHtml(slide.note || 'Use the source, date and key figures before making a judgement.')}</p>
+          ${slide.noteZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.noteZh)}</p>` : ''}
           <div class="invDataTask">
             <strong>Student task</strong>
             <span>${escapeHtml(slide.task || 'Find the stock code, the source date, and one performance number before judging the share.')}</span>
+            ${slide.taskZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.taskZh)}</span>` : ''}
           </div>
         </div>
       </div>`;
@@ -604,7 +608,7 @@
     const body = `
       <div>
         <div class="invEvidenceGrid">${blocks}</div>
-        ${slide.prompt ? `<div class="invFocusPrompt invReveal">${escapeHtml(slide.prompt)}</div>` : ''}
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal">${escapeHtml(slide.prompt)}${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invAnalystBoardSlide invContextPhotoSlide', photo);
   }
@@ -637,20 +641,24 @@
     const body = `
       <div>
         <div class="invRiskGrid">${rows}</div>
-        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong> ${escapeHtml(slide.answer || '')}</div>` : ''}
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong> ${escapeHtml(slide.answer || '')}${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invRiskRegisterSlide invContextPhotoSlide', photo);
   }
 
   function renderPeerTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
-    const sample = slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p></div>` : '';
-    const steps = (slide.steps || []).map((step, i) => `
+    const sample = slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p>${slide.sampleAnswerZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.sampleAnswerZh)}</p>` : ''}</div>` : '';
+    const steps = (slide.steps || []).map((step, i) => {
+      const stepText = typeof step === 'string' ? step : step.text;
+      const stepZh = typeof step === 'string' ? '' : step.zh;
+      return `
       <div class="invStep">
         <span class="invStepNum">${i + 1}</span>
-        <strong>${html(step)}</strong>
-      </div>
-    `).join('');
+        <strong>${html(stepText || '')}</strong>
+        ${stepZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(stepZh)}</span>` : ''}
+      </div>`;
+    }).join('');
 
     if (slide.taskType === 'sort') {
       const categories = (slide.categories || []).map((category) => `<span class="invSortCategory">${escapeHtml(category)}</span>`).join('');
@@ -696,8 +704,9 @@
       <div>
         <div class="invPanel">
           <div class="invBigQuestion">${html(slide.question || '')}</div>
+          ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
           <div class="invQuizChoices">${choices}</div>
-          <div class="invQuizFeedback" hidden>${html(slide.explanation || '')}</div>
+          <div class="invQuizFeedback" hidden>${html(slide.explanation || '')}${slide.explanationZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.explanationZh)}</p>` : ''}</div>
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invQuizSlide invContextPhotoSlide', photo);

@@ -1394,6 +1394,10 @@ img {
   display: block;
 }
 
+.invChartAnnotation.invReveal.is-revealed {
+  display: initial;
+}
+
 .blank {
   display: inline-grid;
   place-items: center;
@@ -2794,6 +2798,23 @@ img {
   border-left-color: rgba(241, 190, 90, 0.56);
 }
 
+.invPeerTaskSlide:not(.invSortTaskSlide) .invPeerSteps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invPeerTaskSlide:not(.invSortTaskSlide) .invStep {
+  align-items: start;
+  min-height: 0;
+  gap: 8px;
+  padding: 12px;
+}
+
+.invPeerTaskSlide:not(.invSortTaskSlide) .invStep .invZhLine {
+  grid-column: 2;
+  line-height: 1.12;
+}
+
 .invPeerTaskSlide .invSortPeerBox {
   width: min(1420px, 100%);
   padding: 14px;
@@ -3278,6 +3299,17 @@ img {
     rgba(9, 19, 22, 0.9);
 }
 
+.invAnswerSlide .invCheckList {
+  width: min(1280px, 100%);
+  gap: 8px;
+}
+
+.invAnswerSlide .invCheckItem {
+  min-height: 94px;
+  padding: 12px 14px;
+  gap: 10px;
+}
+
 .invCheckNumber {
   box-shadow: 0 0 0 6px rgba(57, 217, 145, 0.08);
 }
@@ -3321,13 +3353,52 @@ img {
 .invQuizSlide .invPanel {
   width: min(1160px, 100%);
   border-left-width: 6px;
+  gap: 10px;
+  padding: 10px 12px;
 }
 
-.invChoice {
-  min-height: 120px;
+.invQuizSlide .invChoice {
+  min-height: 86px;
+  padding: 10px 12px;
   background:
     linear-gradient(180deg, rgba(79, 210, 255, 0.05), rgba(7, 17, 20, 0.9)),
     rgba(9, 19, 22, 0.9);
+}
+
+.invQuizSlide .invQuizChoices {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 4px;
+  gap: 6px;
+}
+
+.invQuizSlide .invQuizFeedback {
+  margin-top: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  line-height: 1.12;
+}
+
+.invDataSnapshotSlide .invDataSimple {
+  gap: 10px;
+}
+
+.invDataSnapshotSlide .invDataFocus {
+  gap: 10px;
+}
+
+.invDataSnapshotSlide .invDataFocusCard {
+  min-height: 136px;
+  padding: 14px 14px 12px;
+}
+
+.invDataSnapshotSlide .invDataPrompt {
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.invDataSnapshotSlide .invDataTask {
+  gap: 4px;
+  padding-top: 8px;
 }
 
 .invChoice:hover {
@@ -3420,6 +3491,34 @@ img {
 .invFocusPrompt {
   border-left-width: 6px;
   box-shadow: inset 0 1px 0 rgba(241, 190, 90, 0.18);
+}
+
+.invAnalystBoardSlide .invEvidenceGrid {
+  gap: 12px;
+}
+
+.invAnalystBoardSlide .invEvidence {
+  min-height: 300px;
+  gap: 4px;
+  padding: 36px 16px 12px;
+}
+
+.invAnalystBoardSlide .invEvidence strong {
+  min-height: 0;
+  line-height: 1.12;
+}
+
+.invAnalystBoardSlide .invEvidence p {
+  line-height: 1.12;
+}
+
+.invAnalystBoardSlide .invFocusPrompt {
+  margin-top: 8px;
+  padding: 10px 14px;
+}
+
+.invAnalystBoardSlide .invFocusPrompt .invZhLine {
+  line-height: 1.12;
 }
 
 .invRiskGrid {
@@ -3560,6 +3659,35 @@ img {
 
 .invModelParas p::before {
   content: none;
+}
+
+.invModelAnswerSlide .invModelFrame {
+  gap: 10px;
+}
+
+.invModelAnswerSlide .invModelCue {
+  min-height: 86px;
+  padding: 12px 14px;
+}
+
+.invModelAnswerSlide .invModelParas {
+  gap: 10px;
+}
+
+.invModelAnswerSlide .invModelPoint {
+  min-height: 96px;
+  padding: 10px 12px 10px 60px;
+}
+
+.invModelAnswerSlide .invModelPoint::before {
+  left: 14px;
+  top: 14px;
+  width: 34px;
+  height: 34px;
+}
+
+.invModelAnswerSlide .invModelParas p {
+  line-height: 1.12;
 }
 
 /* Notes and overview */
@@ -4361,6 +4489,15 @@ img {
     display: none;
   }
 
+  .invSlide[data-type="marketBrief"] .invLead {
+    display: none;
+  }
+
+  .invSlide[data-type="marketBrief"] .invHeroGrid,
+  .invSlide[data-type="marketBrief"] .invPanel {
+    gap: 10px;
+  }
+
   .invSlide[data-type="marketBrief"] .invMetricGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
@@ -4384,7 +4521,18 @@ img {
   }
 
   .invPeerSteps {
+    grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .invPeerTaskSlide:not(.invSortTaskSlide) .invPeerSteps {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .invPeerTaskSlide:not(.invSortTaskSlide) .invStep {
+    gap: 6px;
+    padding: 8px;
   }
 
   .invSortTaskSlide .invSortInstructions {
@@ -4424,6 +4572,20 @@ img {
 
   .invDataSnapshotSlide .invSlideBody {
     padding-top: 2px;
+  }
+
+  .invDataSnapshotSlide .invDataFocusCard {
+    min-height: 84px;
+    padding: 8px;
+    gap: 3px;
+  }
+
+  .invDataSnapshotSlide .invDataPrompt {
+    padding: 8px;
+  }
+
+  .invDataSnapshotSlide .invDataTask {
+    padding: 6px;
   }
 
   .invObjectiveStep {
