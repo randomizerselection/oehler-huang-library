@@ -31,7 +31,7 @@ window.INVEST.lesson = {
   handout: {
     title: "Investment analysis starter sheet",
     subtitle: "Unit 1 Lesson 1: What is investment analysis, and what is a share?",
-    description: "Start the course by separating company, product, share, share price, evidence, opinion and risk, then ask one evidence question about a price movement.",
+    description: "Start the course by separating company, product, share, share price, evidence, opinion and risk. This is not short-term stock speculation: students ask evidence questions instead of chasing tips or price jumps.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -49,8 +49,9 @@ window.INVEST.lesson = {
               { label: "A", text: "Tencent makes games, social apps and payment services.", answer: "company/product fact" },
               { label: "B", text: "0700.HK is a listed share that can be found in market data.", answer: "share" },
               { label: "C", text: "HK$429.80 is one graph point in the frozen classroom source.", answer: "share price" },
-              { label: "D", text: "Tencent must be a good investment because I know the brand.", answer: "opinion" },
-              { label: "E", text: "Investors need evidence about return, risk and price.", answer: "analysis rule" }
+              { label: "D", text: "Tencent must be a good investment because I know the brand.", answer: "weak opinion" },
+              { label: "E", text: "Trying to profit from a short-term price jump without enough evidence is short-term stock speculation.", answer: "not our method" },
+              { label: "F", text: "Investors need evidence about possible return, risk and price.", answer: "analysis rule" }
             ]
           }
         ]
@@ -91,10 +92,12 @@ window.INVEST.lesson = {
             type: "terms",
             terms: [
               { label: "Investment analysis", prompt: "Investment analysis uses __________ before opinion.", answer: "evidence" },
+              { label: "Course boundary", prompt: "This course is not about short-term __________.", answer: "speculation" },
               { label: "Asset", prompt: "An asset is something owned that may have __________.", answer: "value" },
               { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
               { label: "Share price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" },
-              { label: "Risk", prompt: "Risk is the possibility that results are worse than __________.", answer: "expected" }
+              { label: "Risk", prompt: "Risk is the possibility that results are worse than __________.", answer: "expected" },
+              { label: "Risk-return rule", prompt: "Higher possible return usually comes with higher __________.", answer: "risk" }
             ]
           }
         ]
@@ -174,8 +177,8 @@ window.INVEST.lesson = {
         blocks: [
           {
             type: "writing",
-            question: "Why does investment analysis need evidence before opinion?",
-            keywords: ["company", "share", "share price", "evidence", "risk", "opinion"],
+            question: "Why is investment analysis not the same as short-term speculation or guessing?",
+            keywords: ["company", "share", "share price", "evidence", "risk", "return", "price", "no advice"],
             lines: 6
           }
         ]
@@ -190,11 +193,11 @@ window.INVEST.lesson = {
       title: "What is investment analysis, and what is a share?",
       zhTitle: "什么是投资分析？什么是股票？",
       subtitle: "Unit 1 Lesson 1",
-      kicker: "Use evidence before opinion: separate Tencent the company from Tencent the listed share.",
+      kicker: "Use evidence before opinion. This is not short-term stock speculation: separate Tencent the company from Tencent the listed share.",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
         "Frame this as the first investment lesson for students with no prior investment study.",
-        "Emphasise that the course teaches evidence-based analysis, not personal investment recommendations."
+        "Emphasise that the course teaches evidence-based analysis, not short-term stock speculation, stock tips, market timing or personal investment recommendations."
       ]
     },
     {
@@ -205,9 +208,9 @@ window.INVEST.lesson = {
       visual: investmentPhotos.financialAnalysisDesk,
       question: "Write one guess: will investment analysis be more like guessing, calculating, reading evidence, or giving advice?",
       zh: "先写一个猜测：投资分析更像猜测、计算、读证据，还是给建议？",
-      revealTitle: "Course rule",
-      answer: "Investment analysis uses evidence to study possible return, risk and price before making a judgement. It is not a promise and not personal advice.",
-      notes: "Let students guess first. Then set the non-advice boundary explicitly."
+      revealTitle: "Evidence first; no advice",
+      answer: "Investment analysis uses evidence to judge possible return, risk and price. It is not speculation, stock tips or personal advice.",
+      notes: "Let students guess first. Then set the anti-speculation and non-advice boundary explicitly."
     },
     {
       type: "answer",
@@ -217,10 +220,10 @@ window.INVEST.lesson = {
       mode: "fillBlanks",
       items: [
         { prompt: "Investment analysis uses __________ before opinion.", answer: "evidence", zh: "投资分析要先看证据，再形成观点。" },
-        { prompt: "A judgement is weaker if it ignores __________.", answer: "risk", zh: "如果忽视风险，判断就更弱。" },
-        { prompt: "This course gives no personal investment __________.", answer: "advice", zh: "本课程不提供个人投资建议。" }
+        { prompt: "This course is not about short-term __________.", answer: "speculation", zh: "本课程不是教炒股。" },
+        { prompt: "Higher possible return usually comes with higher __________.", answer: "risk", zh: "更高的可能回报通常伴随更高风险。" }
       ],
-      notes: "Students complete the course rule on the handout before revealing the blanks."
+      notes: "Students complete the course rule on the handout before revealing the blanks. Keep the wording simple: higher possible return usually means more uncertainty, not guaranteed profit."
     },
     {
       type: "section",
@@ -238,7 +241,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.tencentBinhaiTowers,
       question: "List two familiar Tencent products or services. Then write one thing that this does not prove about the share.",
       zh: "列出两个你熟悉的腾讯产品或服务。然后写出这不能证明股票的哪一点。",
-      revealTitle: "Analysis boundary",
+      revealTitle: "Familiar products do not prove a good investment",
       answer: "Knowing the company helps us start, but product familiarity does not prove the share is a good investment.",
       notes: "Use student familiarity as the hook, then separate brand awareness from investment judgement."
     },
@@ -281,13 +284,13 @@ window.INVEST.lesson = {
       title: "Investment analysis",
       term: "Investment analysis",
       termZh: "投资分析",
-      definition: "Investment analysis uses <span class=\"blank invReveal\" data-answer=\"evidence\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">evidence</span></span> to study possible return, risk and price before making a judgement.",
-      definitionZh: "投资分析是在判断前用证据研究可能的回报、风险和价格。",
+      definition: "Investment analysis uses <span class=\"blank invReveal\" data-answer=\"evidence\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">evidence</span></span> to study possible return, risk and price before making a judgement. It is not short-term stock speculation.",
+      definitionZh: "投资分析是在判断前用证据研究可能的回报、风险和价格。它不是投机或炒股。",
       keyTerms: [
         { term: "Evidence", zh: "证据", note: "Sources, dates and figures used to support a claim." },
         { term: "Judgement", zh: "判断", note: "A careful conclusion after evidence is checked." }
       ],
-      notes: "Do not let students equate analysis with prediction or advice."
+      notes: "Do not let students equate analysis with prediction, short-term speculation or advice."
     },
     {
       type: "term",
@@ -352,7 +355,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.shareholderMeeting,
       question: "Choose one: the whole company, one product, one unit of ownership, or one guaranteed profit. Explain your choice.",
       zh: "选择一个：整家公司、一个产品、一个所有权单位，还是一个保证利润。说明理由。",
-      revealTitle: "Model answer",
+      revealTitle: "One share is one ownership unit",
       answer: "One share is one ownership unit. It does not mean owning the whole company, owning a product or receiving guaranteed profit.",
       notes: "This prepares Lesson 4 but does not teach ownership percentage yet."
     },
@@ -469,8 +472,8 @@ window.INVEST.lesson = {
         {
           label: "Risk",
           title: "What could go wrong?",
-          body: "Risk reminds us that future results may be worse than expected.",
-          zh: "风险提醒我们未来结果可能低于预期。"
+          body: "Risk reminds us that future results may be worse than expected, even when possible return looks attractive.",
+          zh: "风险提醒我们，即使可能回报看起来有吸引力，未来结果也可能低于预期。"
         }
       ],
       prompt: "Which block is missing from this weak claim: 'Tencent is famous, so it is a good investment'?",
@@ -486,10 +489,11 @@ window.INVEST.lesson = {
       definition: "Risk is the possibility that results, returns or prices are worse than <span class=\"blank invReveal\" data-answer=\"expected\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">expected</span></span>.",
       definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
       keyTerms: [
-        { term: "Possibility", zh: "可能性", note: "Risk is about what could happen." },
+        { term: "Possible return", zh: "可能回报", note: "The gain an investor hopes for, not a guarantee." },
+        { term: "Trade-off", zh: "取舍", note: "Higher possible return usually comes with higher uncertainty." },
         { term: "Expected", zh: "预期", note: "A result can disappoint if expectations were too high." }
       ],
-      notes: "Keep risk broad and beginner-friendly. Detailed risk types come in Unit 4."
+      notes: "Keep risk broad and beginner-friendly. Detailed risk types come in Unit 4. The key sentence is: higher possible return usually comes with higher uncertainty, but risk does not guarantee return."
     },
     {
       type: "riskRegister",
@@ -500,16 +504,16 @@ window.INVEST.lesson = {
       revealEffects: true,
       effectLabel: "Why it matters",
       table: [
-        ["Risk", "Analyst question", "Likely effect"],
-        ["Missing source", "Where did the number come from?", "The claim may not be reliable."],
+        ["Weak pattern", "Analyst question", "Likely effect"],
+        ["Short-term speculation", "Am I just betting on a price jump?", "This is not rational investment analysis."],
         ["Ignoring price", "What price is paid for one share?", "A strong company can still be expensive."],
-        ["Ignoring risk", "What could go worse than expected?", "Future results may disappoint."],
+        ["Chasing high return", "What risk comes with the possible return?", "Higher risk does not guarantee higher return."],
         ["Only using opinion", "What evidence supports the claim?", "The judgement is weak." ]
       ],
-      prompt: "Pick one weak opinion and improve it by adding evidence.",
-      promptZh: "选择一个弱观点，并加入证据来改进它。",
-      answer: "Better judgement starts with a source, a figure and a risk question.",
-      notes: "This is a first risk habit, not a full risk taxonomy."
+      prompt: "Pick one weak or speculative claim and turn it into an evidence question.",
+      promptZh: "选择一个弱观点或投机说法，把它改成一个证据问题。",
+      answer: "Rational analysis needs evidence, possible return, risk, price and a limitation. Short-term speculation is not the course method.",
+      notes: "This is a first risk habit and course-boundary check, not a full risk taxonomy."
     },
     {
       type: "peerTask",
@@ -517,18 +521,18 @@ window.INVEST.lesson = {
       title: "Sort the statements",
       zhTitle: "给句子分类",
       taskType: "sort",
-      categories: ["Company fact", "Share price", "Evidence", "Weak opinion"],
+      categories: ["Company fact", "Share price", "Evidence rule", "Speculation / weak opinion"],
       steps: [
         { text: "Sort each statement into one category.", zh: "把每个句子分到一个类别。" },
-        { text: "Choose one weak opinion and add evidence to improve it.", zh: "选择一个弱观点，并加入证据来改进。" }
+        { text: "Choose one speculative or weak opinion and rewrite it as an evidence question.", zh: "选择一个投机说法或弱观点，并把它改写成证据问题。" }
       ],
       cases: [
         { label: "A", text: "Tencent is listed as 0700.HK." },
         { label: "B", text: "The graph line moved up and down." },
         { label: "C", text: "The source was accessed on 2 Jul 2026." },
-        { label: "D", text: "Tencent must be safe because many students know it." }
+        { label: "D", text: "Tencent must be safe, and I heard it will jump next week." }
       ],
-      notes: "This matches the handout sorter and gives a quick collaborative check. Model improvement: Tencent is familiar, but an analyst still needs source-dated evidence about share price, company performance and risk."
+      notes: "This matches the handout sorter and gives a quick collaborative check. Model improvement: Tencent is familiar, but an analyst still needs source-dated evidence about share price, possible return, company performance and risk."
     },
     {
       type: "flow",
@@ -541,9 +545,9 @@ window.INVEST.lesson = {
         { text: "Start with the __________.", answer: "company", zh: "先确认公司。" },
         { text: "Identify the listed __________.", answer: "share", zh: "识别上市股票。" },
         { text: "Read source-dated __________.", answer: "evidence", zh: "阅读带来源日期的证据。" },
-        { text: "Ask about price and __________ before judging.", answer: "risk", zh: "判断前询问价格和风险。" }
+        { text: "Compare possible return, price and __________ before judging.", answer: "risk", zh: "判断前比较可能回报、价格和风险。" }
       ],
-      notes: "This is the final structure students should remember from Lesson 1."
+      notes: "This is the final structure students should remember from Lesson 1: analyse, do not speculate."
     },
     {
       type: "quiz",
@@ -555,13 +559,13 @@ window.INVEST.lesson = {
       zh: "哪一句最符合今天的课程规则？",
       choices: [
         "I know Tencent, so I know the share is good.",
-        "A share-price graph and company figures are evidence, but I still need risk and price judgement.",
+        "This is not short-term speculation: a graph and company figures are evidence, but I still need possible return, risk, price and limits.",
         "If a company has revenue, there is no risk.",
-        "A source date is not important."
+        "Higher risk guarantees higher return."
       ],
       answer: 1,
-      explanation: "Correct: evidence starts the analysis, but judgement still needs price, risk and limits.",
-      explanationZh: "正确：证据开启分析，但判断仍需要价格、风险和局限。",
+      explanation: "Correct: rational analysis uses evidence and balances possible return with risk, price and limits. It does not chase a price jump.",
+      explanationZh: "正确：理性分析使用证据，并平衡可能回报、风险、价格和局限，而不是追逐价格跳涨。",
       notes: "This is the main formative check before the exit ticket."
     },
     {
@@ -572,7 +576,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.hkexHall,
       question: "If Tencent is a company and 0700.HK is a listed share, what do we need to understand about the stock market next?",
       zh: "如果腾讯是公司，0700.HK 是上市股票，那么下一步我们需要理解股票市场的什么？",
-      revealTitle: "Bridge to Lesson 2",
+      revealTitle: "Next question: how listed shares trade",
       answer: "Next we ask why companies need a stock market and how exchanges, listing, liquidity and trading frictions help a share trade.",
       notes: "Make the progression to Lesson 2 explicit."
     },
@@ -583,9 +587,9 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "Investment analysis uses __________ before opinion.", answer: "evidence", zh: "投资分析先用证据，再形成观点。" },
         { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "股票是公司所有权中的一个单位。" },
-        { prompt: "Before judging a share, an analyst asks about price and __________.", answer: "risk", zh: "判断股票前，分析者要问价格和风险。" }
+        { prompt: "This course is not about short-term __________.", answer: "speculation", zh: "本课程不是教炒股。" },
+        { prompt: "Before judging a share, an analyst compares possible return, price and __________.", answer: "risk", zh: "判断股票前，分析者要比较可能回报、价格和风险。" }
       ],
       notes: "Collect or cold-call. The written handout exit ticket asks for one full sentence."
     }

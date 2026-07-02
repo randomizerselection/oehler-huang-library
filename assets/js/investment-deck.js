@@ -508,7 +508,7 @@
           ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
         </div>
         <div class="invNotePanel invReveal invDiscussionAnswer">
-          <strong>${escapeHtml(slide.revealTitle || 'Teacher cue')}</strong>
+          ${slide.revealTitle ? `<strong>${escapeHtml(slide.revealTitle)}</strong>` : ''}
           <p>${html(slide.answer || slide.note || '')}</p>
         </div>
       </div>`;

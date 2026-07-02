@@ -6,6 +6,7 @@
     "test:android-data": "node scripts/test-android-definitions-data.js",
     "test:android-offline": "node scripts/test-android-offline-app.js",
     "test:grading": "node scripts/test-grading-workflow.js",
+    "test:investment-content": "node scripts/test-investment-analysis-content.js",
     "test": "playwright test",
     "test:regression": "playwright test tests/smoke.spec.js",
     "test:smoke": "playwright test tests/smoke.spec.js --project=chromium-desktop --grep @smoke",

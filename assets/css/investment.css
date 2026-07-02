@@ -2961,21 +2961,6 @@ img {
   gap: 12px;
 }
 
-.invSortTaskSlide .invSortInstructions {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.invSortTaskSlide .invSortInstructions .invStep {
-  min-height: 42px;
-  padding: 5px 8px;
-}
-
-.invSortTaskSlide .invSortInstructions .invStepNum {
-  width: 34px;
-  height: 34px;
-}
-
 .invPeerTaskSlide .invStep {
   min-height: 118px;
   border-left-color: rgba(241, 190, 90, 0.56);
@@ -2996,6 +2981,33 @@ img {
 .invPeerTaskSlide:not(.invSortTaskSlide) .invStep .invZhLine {
   grid-column: 2;
   line-height: 1.12;
+}
+
+.invSortTaskSlide .invSortInstructions {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 10px;
+}
+
+.invSortTaskSlide .invSortInstructions .invStep {
+  align-items: start;
+  min-height: 0;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.invSortTaskSlide .invSortInstructions .invStep strong,
+.invSortTaskSlide .invSortInstructions .invStep .invZhLine {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.invSortTaskSlide .invSortInstructions .invStep .invZhLine {
+  line-height: 1.12;
+}
+
+.invSortTaskSlide .invSortInstructions .invStepNum {
+  width: 34px;
+  height: 34px;
 }
 
 .invPeerTaskSlide .invSortPeerBox {
@@ -3942,7 +3954,6 @@ img {
   line-height: 1.14;
 }
 
-.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
 .invQuizSlide:has(.invQuizFeedback:not([hidden])) .invQuizChoices,
 .invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerSteps,
 .invModelAnswerSlide:has(.invModelParas p.is-revealed) .invModelCue,
@@ -3957,6 +3968,11 @@ img {
 .invModelAnswerSlide:has(.invModelParas p.is-revealed) .invModelFrame {
   align-content: start;
   gap: 10px;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion {
+  min-height: auto;
+  padding-top: 42px;
 }
 
 .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer,
@@ -4849,6 +4865,31 @@ img {
   .invTermBox,
   .invPeerTaskSlide .invStep {
     min-height: auto;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionStack {
+    gap: 6px;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer {
+    padding: 8px 10px;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion::before,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer::before,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invSlideHeader .invZhTitle,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .sourceList {
+    display: none;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invBigQuestion,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer p {
+    line-height: 1.08;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer p {
+    margin: 0;
   }
 
   .invMarketHeader {

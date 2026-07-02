@@ -72,7 +72,7 @@ window.INVEST.lesson = {
       visual: window.INVEST.photos?.financialAnalysisDesk,
       question: "Ask students to choose, predict or classify before revealing the explanation.",
       questionZh: "先让学生选择、预测或分类，再揭示解释。",
-      revealTitle: "Model direction",
+      revealTitle: "Answer: evidence comes before judgement",
       answer: "Reveal a concise model answer only after students commit to an answer."
     },
     {

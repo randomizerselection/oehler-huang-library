@@ -28,6 +28,7 @@ Teaching rhythm:
 - Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
 - Make teaching titles student-facing and note-friendly. Use the taught concept, question or exercise label, such as `What is a share price?` or `Exercise 1`, instead of a slogan such as `One share, one price`.
 - `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
+- `discussion.revealTitle` must be a concise answer statement, such as `One share is one ownership unit`, not a vague label such as `Model answer`, `Course rule` or `Bridge`.
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
 - `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.

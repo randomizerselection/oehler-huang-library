@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review the Lesson 1 map question: what investment analysis is, what a share is, and why evidence comes before opinion.",
+  description: "Review the Lesson 1 map question: what investment analysis is, why this course is not short-term stock speculation, what a share is, and why evidence comes before opinion.",
   questions: [
     {
       id: "evidence-before-opinion",
@@ -17,6 +17,20 @@ window.INVEST.quiz = {
       ],
       answer: 0,
       explanation: "Investment analysis starts with evidence, then builds a careful judgement."
+    },
+    {
+      id: "not-stock-speculation",
+      type: "multipleChoice",
+      prompt: "What is this course not teaching students to do?",
+      zh: "本课程不是教学生做什么？",
+      choices: [
+        "Short-term stock speculation, tips or market timing",
+        "Read source-dated evidence",
+        "Separate a company from its listed share",
+        "Ask about possible return, risk and price"
+      ],
+      answer: 0,
+      explanation: "The course studies investment analysis, not speculation, stock tips, market timing or personal buy/sell advice."
     },
     {
       id: "analysis-not-opinion",
@@ -77,30 +91,16 @@ window.INVEST.quiz = {
     {
       id: "risk",
       type: "multipleChoice",
-      prompt: "What is risk in this lesson?",
-      zh: "本课中的风险是什么意思？",
+      prompt: "Which sentence best explains the risk-return trade-off?",
+      zh: "哪句话最能解释风险与回报的取舍？",
       choices: [
-        "The possibility that results, returns or prices are worse than expected",
-        "A source date on a graph",
-        "The code used to find a listed share",
-        "A company being famous"
+        "Higher possible return usually comes with higher uncertainty, but higher risk does not guarantee higher return.",
+        "Higher risk always guarantees higher return.",
+        "A famous company has no risk.",
+        "A price graph removes the need to check evidence."
       ],
       answer: 0,
-      explanation: "Risk means the outcome may disappoint compared with expectations."
-    },
-    {
-      id: "product-not-share",
-      type: "multipleChoice",
-      prompt: "Tencent makes games, social apps and payment services. What kind of statement is this?",
-      zh: "腾讯制作游戏、社交应用和支付服务。这是哪类句子？",
-      choices: [
-        "A company/product fact",
-        "A share price",
-        "A complete investment judgement",
-        "A risk-free guarantee"
-      ],
-      answer: 0,
-      explanation: "The products help identify the company, but they are not the same thing as the listed share."
+      explanation: "The course uses a simple rule: possible return and risk must be judged together, and risk can still lead to loss."
     },
     {
       id: "ownership-blank",
@@ -121,10 +121,10 @@ window.INVEST.quiz = {
     {
       id: "risk-blank",
       type: "fillBlank",
-      prompt: "Before judging a share, an analyst asks about price and ________.",
-      zh: "判断股票前，分析者要问价格和________。",
+      prompt: "Before judging a share, an analyst compares possible return, price and ________.",
+      zh: "判断股票前，分析者要比较可能回报、价格和________。",
       acceptedAnswers: ["risk"],
-      explanation: "Lesson 1 introduces risk as a basic question before judgement."
+      explanation: "Lesson 1 introduces the basic risk-return habit before judgement."
     }
   ]
 };

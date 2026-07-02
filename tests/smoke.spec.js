@@ -1032,8 +1032,17 @@ test.describe('site smoke', () => {
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
     await expect(page.getByRole('heading', { name: /^What will this course ask you to do\?$/i })).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/guessing, calculating, reading evidence/i);
+    const courseStarterQuestion = page.locator('.invSlide.is-active .invDiscussionQuestion');
+    const courseStarterAnswer = page.locator('.invSlide.is-active .invDiscussionAnswer');
+    await expect(courseStarterQuestion).toContainText(/guessing, calculating, reading evidence/i);
+    await expect(courseStarterAnswer).toBeHidden();
     await expectInvestmentSlideFits(page, 'course starter discussion desktop');
+    await page.keyboard.press('Space');
+    await expect(courseStarterAnswer).toBeVisible();
+    await expect(courseStarterAnswer.locator('strong')).toHaveText('Evidence first; no advice');
+    await expect(courseStarterQuestion).toBeVisible();
+    await expect(courseStarterQuestion).toContainText(/guessing, calculating, reading evidence/i);
+    await expectInvestmentSlideFits(page, 'course starter discussion revealed desktop');
 
     await goToInvestmentSlide(page, { type: 'answer', title: 'Course rule: evidence before opinion' });
     await expect(page.getByRole('heading', { name: /^Course rule: evidence before opinion$/i })).toBeVisible();
@@ -1232,11 +1241,11 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Course-entry concept sorter/i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Cold-call sort/i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/evidence before opinion/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms li')).toHaveCount(5);
+    await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms li')).toHaveCount(6);
     await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms')).toContainText(/investment analysis/i);
     await expect(page.locator('.investment-generator-title-zh')).toHaveCount(30);
     await expect(page.locator('.investment-lesson-title-zh')).toHaveCount(30);
-    await expect(page.locator('.investment-term-zh')).toHaveCount(190);
+    await expect(page.locator('.investment-term-zh')).toHaveCount(192);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/什么是投资分析，什么是股票/);
     await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms')).toContainText(/投资分析/);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(30);
@@ -1306,7 +1315,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('.investment-lesson-formula')).toHaveCount(30);
     await expect(page.locator('.investment-lesson-title-zh')).toHaveCount(30);
-    await expect(page.locator('.investment-term-zh')).toHaveCount(190);
+    await expect(page.locator('.investment-term-zh')).toHaveCount(192);
     await expect(page.getByText(/Start with investment analysis/i)).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson][data-lesson="20"]')).toContainText(/ChinaAMC CSI 300 ETF/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="20"]')).toContainText(/投资组合权重/);
@@ -1336,8 +1345,19 @@ test.describe('site smoke', () => {
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invCounter')).toHaveText('2 / 27');
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invDiscussionSlide/);
+    const phoneCourseStarterQuestion = page.locator('.invSlide.is-active .invDiscussionQuestion');
+    const phoneCourseStarterAnswer = page.locator('.invSlide.is-active .invDiscussionAnswer');
+    await expect(phoneCourseStarterQuestion).toBeVisible();
+    await expect(phoneCourseStarterAnswer).toBeHidden();
     await expectInvestmentSlideFits(page, 'course starter slide phone');
     await expectInvestmentTeachingTextAtLeast(page, 24, 'course starter slide phone');
+    await expectNoHorizontalOverflow(page);
+    await page.keyboard.press('Space');
+    await expect(phoneCourseStarterAnswer).toBeVisible();
+    await expect(phoneCourseStarterAnswer.locator('strong')).toHaveText('Evidence first; no advice');
+    await expect(phoneCourseStarterQuestion).toBeVisible();
+    await expect(phoneCourseStarterQuestion).toContainText(/guessing, calculating, reading evidence/i);
+    await expectInvestmentSlideFits(page, 'course starter revealed slide phone');
     await expectNoHorizontalOverflow(page);
 
     const phoneChecks = [
