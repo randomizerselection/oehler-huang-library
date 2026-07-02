@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review what a stock price represents, why it can change, simple percentage price changes and the first investment judgement rule.",
+  description: "Review what a stock-price graph represents, why it can change, graph-based percentage changes and the first investment judgement rule.",
   questions: [
     {
       id: "share-definition",
@@ -49,25 +49,25 @@ window.INVEST.quiz = {
     {
       id: "price-change",
       type: "multipleChoice",
-      prompt: "A share price rises from HK$50 to HK$55. What is the percentage increase?",
-      zh: "股价从50港元升至55港元。百分比涨幅是多少？",
-      choices: ["5%", "10%", "50%", "55%"],
-      answer: 1,
-      explanation: "(55 - 50) / 50 x 100 = 10%."
+      prompt: "Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
+      zh: "腾讯图表从663.00港元跌至429.80港元。大约百分比变化是多少？",
+      choices: ["-35%", "-54%", "+35%", "-233%"],
+      answer: 0,
+      explanation: "(429.80 - 663.00) / 663.00 x 100 is about -35%. The old graph point is the denominator."
     },
     {
       id: "good-investment",
       type: "multipleChoice",
-      prompt: "Why can a good company still be a poor investment?",
-      zh: "为什么好公司仍可能不是好投资？",
+      prompt: "Why can a famous company with a rising price graph still be a poor investment?",
+      zh: "为什么有上涨价格图表的知名公司仍可能不是好投资？",
       choices: [
         "A good company never earns profit.",
-        "The share price may already be too high compared with future profit and risk.",
+        "The price point may already be too high compared with future profit and risk.",
         "A low share price removes all risk.",
         "Revenue is the same as ownership."
       ],
       answer: 1,
-      explanation: "Investment judgement compares future profit and risk with the current price paid."
+      explanation: "Investment judgement compares future profit and risk with the current price paid, not just the shape of the graph."
     },
     {
       id: "market-price",

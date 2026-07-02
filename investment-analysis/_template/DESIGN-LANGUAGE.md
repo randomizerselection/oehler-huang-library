@@ -22,7 +22,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 - Keep the top chrome compact. The slide, not the navigation, must dominate the viewport.
 - Keep source panels, notes, overview and photo captions outside the teaching hierarchy.
-- Titles appear once. Term slides should not repeat the term in both the title and body.
+- Titles appear once and should state the taught knowledge as clearly as possible. Term slides should not repeat the term in both the title and body.
 - Body content should sit in the upper-middle teaching zone with generous whitespace. Avoid bottom-heavy layouts on tall classroom screens.
 - Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. Keep the projected pause surface visual-first; put the teaching bridge in notes.

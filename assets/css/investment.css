@@ -954,6 +954,182 @@ img {
   backdrop-filter: blur(2px);
 }
 
+.invPriceChartSlide {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(8, 18, 21, 0.98), rgba(5, 10, 12, 0.98)),
+    #071013;
+}
+
+.invPriceChartSlide .invSlideBody {
+  align-content: stretch;
+  padding-top: 0;
+}
+
+.invPriceChartStage {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(214, 231, 232, 0.14);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 108px),
+    #081215;
+}
+
+.invPriceChartOverlay {
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  left: 24px;
+  display: grid;
+  gap: 10px;
+  width: min(540px, calc(100% - 48px));
+  padding: 18px;
+  border: 1px solid rgba(79, 210, 255, 0.28);
+  border-radius: var(--inv-radius);
+  background: rgba(6, 13, 16, 0.82);
+  backdrop-filter: blur(3px);
+}
+
+.invPriceChartOverlay h1 {
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-title);
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.invPriceChartQuestion {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: var(--inv-classroom-text);
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.invPriceChartSvg {
+  position: relative;
+  z-index: 1;
+  align-self: stretch;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding-top: 76px;
+}
+
+.invChartPlotBg {
+  fill: rgba(9, 20, 24, 0.54);
+  stroke: rgba(214, 231, 232, 0.2);
+}
+
+.invChartGridLine line,
+.invChartAxisLabel line {
+  stroke: rgba(214, 231, 232, 0.14);
+  stroke-width: 1;
+}
+
+.invChartGridLine text,
+.invChartAxisLabel text {
+  fill: var(--inv-muted);
+  font-family: var(--inv-text);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.invChartGridLine text {
+  text-anchor: end;
+}
+
+.invChartAxisLabel text {
+  text-anchor: middle;
+}
+
+.invChartArea {
+  opacity: 0.86;
+}
+
+.invChartLine {
+  fill: none;
+  stroke: var(--inv-green);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(57, 217, 145, 0.28));
+}
+
+.invChartMarker,
+.invChartMarkerDot {
+  fill: var(--inv-amber);
+  stroke: #071013;
+  stroke-width: 3;
+}
+
+.invChartAnnotation line {
+  stroke: rgba(241, 190, 90, 0.62);
+  stroke-width: 2;
+}
+
+.invChartAnnotation.invReveal.is-revealed {
+  display: initial;
+}
+
+.invChartLabel {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  border: 1px solid rgba(241, 190, 90, 0.44);
+  border-radius: var(--inv-radius);
+  background: rgba(11, 19, 22, 0.92);
+  color: var(--inv-ink);
+  padding: 8px 10px;
+  font-family: var(--inv-text);
+  line-height: 1.12;
+}
+
+.invChartLabel strong,
+.invChartLabel span,
+.invChartLabel em {
+  display: block;
+}
+
+.invChartLabel strong {
+  color: var(--inv-amber);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.invChartLabel span {
+  color: var(--inv-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.invChartLabel em {
+  color: var(--inv-ink);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.invPriceChartFooter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(214, 231, 232, 0.12);
+  color: var(--inv-dim);
+  font-size: var(--inv-ui);
+  line-height: 1.2;
+}
+
 .invHeroSlide:not(.invTitleOnlySlide) .invLead {
   display: none;
 }
@@ -4034,6 +4210,47 @@ img {
 
   .invTitleOnlySlide .invTitleBlock::after {
     inset: -18px -10px -18px -14px;
+  }
+
+  .invPriceChartStage {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .invPriceChartOverlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    margin: 8px;
+    padding: 12px;
+  }
+
+  .invPriceChartOverlay h1 {
+    font-size: 28px;
+  }
+
+  .invPriceChartQuestion {
+    font-size: 24px;
+  }
+
+  .invPriceChartSvg {
+    padding-top: 0;
+  }
+
+  .invChartGridLine text,
+  .invChartAxisLabel text {
+    font-size: 24px;
+  }
+
+  .invChartLabel {
+    padding: 7px;
+  }
+
+  .invPriceChartFooter {
+    display: grid;
+    gap: 4px;
+    padding: 8px;
+    font-size: 12px;
   }
 
   .invTitleOnlySlide .invEyebrow,

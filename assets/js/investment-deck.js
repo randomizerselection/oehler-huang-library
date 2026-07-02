@@ -277,6 +277,115 @@
       </section>`;
   }
 
+  function formatChartMonth(date) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const [year, month] = String(date || '').split('-');
+    const monthLabel = months[Math.max(0, Math.min(11, Number(month) - 1))] || '';
+    return `${monthLabel} ${year || ''}`.trim();
+  }
+
+  function formatChartValue(value, currency = '') {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return '';
+    const formatted = number.toLocaleString('en-US', {
+      minimumFractionDigits: number % 1 === 0 ? 0 : 2,
+      maximumFractionDigits: 2,
+    });
+    return `${currency ? `${currency} ` : ''}${formatted}`;
+  }
+
+  function renderPriceChart(slide, index, lesson) {
+    const data = slide.data || {};
+    const rawPoints = (slide.points || data.points || [])
+      .map((point) => ({ date: point.date, close: Number(point.close) }))
+      .filter((point) => point.date && Number.isFinite(point.close));
+
+    if (rawPoints.length < 2) {
+      const body = `<div class="invPanel"><div class="invBigQuestion">${html(slide.question || slide.title || 'Price chart')}</div></div>`;
+      return slideShell(slide, index, lesson, body, 'invPriceChartSlide');
+    }
+
+    const width = 1000;
+    const height = 560;
+    const pad = { top: 46, right: 48, bottom: 58, left: 84 };
+    const chartWidth = width - pad.left - pad.right;
+    const chartHeight = height - pad.top - pad.bottom;
+    const closes = rawPoints.map((point) => point.close);
+    const minClose = Math.min(...closes);
+    const maxClose = Math.max(...closes);
+    const yMin = slide.yMin ?? Math.max(0, Math.floor(minClose / 50) * 50);
+    const yMax = slide.yMax ?? Math.ceil(maxClose / 50) * 50;
+    const yRange = Math.max(1, yMax - yMin);
+    const xFor = (i) => pad.left + (i / Math.max(1, rawPoints.length - 1)) * chartWidth;
+    const yFor = (value) => pad.top + ((yMax - value) / yRange) * chartHeight;
+    const polyline = rawPoints.map((point, i) => `${xFor(i).toFixed(1)},${yFor(point.close).toFixed(1)}`).join(' ');
+    const areaPath = `M ${pad.left},${pad.top + chartHeight} L ${polyline.replaceAll(' ', ' L ')} L ${pad.left + chartWidth},${pad.top + chartHeight} Z`;
+    const highPoint = rawPoints.reduce((best, point, i) => point.close > best.point.close ? { point, i } : best, { point: rawPoints[0], i: 0 });
+    const lowPoint = rawPoints.reduce((best, point, i) => point.close < best.point.close ? { point, i } : best, { point: rawPoints[0], i: 0 });
+    const latestPoint = { point: rawPoints[rawPoints.length - 1], i: rawPoints.length - 1 };
+    const annotations = [
+      { key: 'high', label: 'High point', item: highPoint, align: 'right' },
+      { key: 'low', label: 'Low point', item: lowPoint, align: 'left' },
+      { key: 'latest', label: 'Latest monthly close', item: latestPoint, align: 'right' },
+    ];
+    const yTicks = Array.from({ length: 6 }, (_, i) => yMin + ((yMax - yMin) / 5) * i);
+    const xTicks = [0, Math.floor((rawPoints.length - 1) / 4), Math.floor((rawPoints.length - 1) / 2), Math.floor((rawPoints.length - 1) * 3 / 4), rawPoints.length - 1];
+    const currency = data.currency || slide.currency || '';
+    const labelMarkup = annotations.map(({ key, label, item, align }) => {
+      const x = xFor(item.i);
+      const y = yFor(item.point.close);
+      const labelX = align === 'right' ? Math.max(pad.left + 130, x - 170) : Math.min(pad.left + chartWidth - 190, x + 18);
+      const labelY = Math.max(pad.top + 8, Math.min(pad.top + chartHeight - 78, y - 40));
+      return `
+        <g class="invChartAnnotation invChartAnnotation-${escapeHtml(key)} invReveal">
+          <circle class="invChartMarkerDot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8" />
+          <line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${labelX}" y2="${labelY + 30}" />
+          <foreignObject x="${labelX}" y="${labelY}" width="190" height="76">
+            <div class="invChartLabel">
+              <strong>${escapeHtml(label)}</strong>
+              <span>${escapeHtml(formatChartMonth(item.point.date))}</span>
+              <em>${escapeHtml(formatChartValue(item.point.close, currency))}</em>
+            </div>
+          </foreignObject>
+        </g>`;
+    }).join('');
+    const body = `
+      <div class="invPriceChartStage">
+        <div class="invPriceChartOverlay">
+          ${slide.eyebrow ? `<div class="invEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
+          <h1>${html(slide.title || '')}</h1>
+          ${slide.question ? `<p class="invPriceChartQuestion">${html(slide.question)}</p>` : ''}
+        </div>
+        <svg class="invPriceChartSvg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(slide.alt || slide.title || 'Share price chart')}">
+          <defs>
+            <linearGradient id="invPriceChartArea-${index}" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="rgba(57, 217, 145, 0.34)" />
+              <stop offset="100%" stop-color="rgba(57, 217, 145, 0.02)" />
+            </linearGradient>
+          </defs>
+          <rect class="invChartPlotBg" x="${pad.left}" y="${pad.top}" width="${chartWidth}" height="${chartHeight}" />
+          ${yTicks.map((tick) => {
+            const y = yFor(tick);
+            return `<g class="invChartGridLine"><line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${pad.left + chartWidth}" y2="${y.toFixed(1)}" /><text x="${pad.left - 14}" y="${(y + 6).toFixed(1)}">${escapeHtml(formatChartValue(tick, currency))}</text></g>`;
+          }).join('')}
+          ${xTicks.map((tick) => {
+            const x = xFor(tick);
+            return `<g class="invChartAxisLabel"><line x1="${x.toFixed(1)}" y1="${pad.top + chartHeight}" x2="${x.toFixed(1)}" y2="${pad.top + chartHeight + 8}" /><text x="${x.toFixed(1)}" y="${pad.top + chartHeight + 34}">${escapeHtml(formatChartMonth(rawPoints[tick].date))}</text></g>`;
+          }).join('')}
+          <path class="invChartArea" d="${escapeHtml(areaPath)}" fill="url(#invPriceChartArea-${index})" />
+          <polyline class="invChartLine" points="${escapeHtml(polyline)}" />
+          ${annotations.map(({ key, item }) => `<circle class="invChartMarker invChartMarker-${escapeHtml(key)}" cx="${xFor(item.i).toFixed(1)}" cy="${yFor(item.point.close).toFixed(1)}" r="5" />`).join('')}
+          ${labelMarkup}
+        </svg>
+        <div class="invPriceChartFooter">
+          <span>${escapeHtml(data.ticker || slide.ticker || '')} ${escapeHtml(data.interval || slide.interval || '')}</span>
+          <span>${escapeHtml(data.sourceLabel || slide.sourceLabel || '')}${data.accessed ? ` | accessed ${escapeHtml(data.accessed)}` : ''}</span>
+        </div>
+      </div>`;
+
+    return slideShell(slide, index, lesson, body, 'invPriceChartSlide', null, { hideHeader: true });
+  }
+
   function renderHero(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const hasMarketCard = Boolean(slide.ticker || (slide.metrics || []).length);
@@ -628,6 +737,7 @@
   }
 
   const renderers = {
+    priceChart: renderPriceChart,
     hero: renderHero,
     marketBrief: renderHero,
     outcomes: renderOutcomes,

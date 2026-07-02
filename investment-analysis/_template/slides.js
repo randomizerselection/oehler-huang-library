@@ -115,7 +115,7 @@ window.INVEST.lesson = {
     {
       type: "analystBoard",
       eyebrow: "Analyst Board",
-      title: "Three evidence blocks before judgement",
+      title: "Judge evidence, expectations and price paid",
       visual: window.INVEST.photos?.financialAnalysisDesk,
       revealBlocks: true,
       blocks: [
