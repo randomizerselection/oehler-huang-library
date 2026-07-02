@@ -32,6 +32,7 @@ Teaching rhythm:
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
 - `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.
+- `term` slides should show the term, English definition and Chinese definition only; keep extra related terms out of the projected definition block.
 - `peerTask` slides should end with an individual written check even when students compare with a partner.
 
 Syllabus alignment:

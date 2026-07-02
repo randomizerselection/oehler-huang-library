@@ -516,22 +516,16 @@
   }
 
   function renderTerm(slide, index, lesson) {
-    const terms = (slide.keyTerms || []).map((term) => `
-      <div class="invTermNote">
-        <strong>${escapeHtml(term.term)}</strong>
-        ${term.zh ? `<span class="invTermZh" lang="zh-Hans">${escapeHtml(term.zh)}</span>` : ''}
-        ${term.note ? `<p>${escapeHtml(term.note)}</p>` : ''}
-      </div>
-    `).join('');
     const termBox = `
       <div class="invTermBox">
         <div class="invTermHeaderBlock">
           <div class="invTermWord">${escapeHtml(slide.term || slide.title)}</div>
           ${slide.termZh ? `<div class="invTermZh" lang="zh-Hans">${escapeHtml(slide.termZh)}</div>` : ''}
         </div>
-        <div class="invTermDefinition">${html(slide.definition || '')}</div>
-        ${slide.definitionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.definitionZh)}</p>` : ''}
-        <div class="invTermGrid">${terms}</div>
+        <div class="invTermDefinition">
+          <div>${html(slide.definition || '')}</div>
+          ${slide.definitionZh ? `<p class="invTermDefinitionZh" lang="zh-Hans">${escapeHtml(slide.definitionZh)}</p>` : ''}
+        </div>
       </div>`;
     const body = termBox;
     return slideShell(slide, index, lesson, body, 'invTermSlide', null, { hideTitle: true });

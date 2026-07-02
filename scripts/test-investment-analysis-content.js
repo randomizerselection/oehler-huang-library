@@ -55,6 +55,22 @@ function hasTemplateGuidance() {
   return /discussion\.revealTitle.+concise answer statement/i.test(source);
 }
 
+function validateTermRenderer() {
+  const failures = [];
+  const rendererPath = path.join(root, 'assets', 'js', 'investment-deck.js');
+  const source = fs.readFileSync(rendererPath, 'utf8');
+
+  if (/class="invTermGrid"/.test(source)) {
+    failures.push('assets/js/investment-deck.js: term slides should not render invTermGrid below definitions');
+  }
+
+  if (!/class="invTermDefinitionZh"/.test(source)) {
+    failures.push('assets/js/investment-deck.js: term slides should render definitionZh inside the definition block');
+  }
+
+  return failures;
+}
+
 function validateDiscussionRevealTitles() {
   const failures = [];
   const slideFiles = findInvestmentSlideFiles(courseRoot);
@@ -77,7 +93,10 @@ function validateDiscussionRevealTitles() {
   return failures;
 }
 
-const failures = validateDiscussionRevealTitles();
+const failures = [
+  ...validateDiscussionRevealTitles(),
+  ...validateTermRenderer(),
+];
 
 if (failures.length > 0) {
   console.error('Investment Analysis content validation failed:');
