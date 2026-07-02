@@ -820,6 +820,7 @@ img {
 .invBigQuestion,
 .invObjective strong,
 .invTermDefinition,
+.invTermDefinitionText,
 .invTermDefinitionZh,
 .invTermNote strong,
 .invTermNote p,
@@ -2702,9 +2703,10 @@ img {
 }
 
 .invTermBox {
-  min-height: 420px;
-  grid-template-columns: minmax(260px, 0.38fr) minmax(0, 1fr);
+  min-height: 390px;
+  grid-template-columns: minmax(270px, 0.36fr) minmax(0, 1fr);
   grid-template-areas: "term definition";
+  gap: 28px;
   align-items: center;
   border-left-color: var(--type-accent-line);
 }
@@ -2719,15 +2721,22 @@ img {
 .invTermDefinition {
   grid-area: definition;
   display: grid;
-  gap: 14px;
+  gap: 18px;
+  align-content: center;
   border-top: 0;
   border-left: 1px solid rgba(214, 231, 232, 0.12);
   padding-top: 0;
   padding-left: 28px;
 }
 
+.invTermDefinitionText,
 .invTermDefinitionZh {
   margin: 0;
+}
+
+.invTermDefinitionZh {
+  padding-top: 16px;
+  border-top: 1px solid rgba(214, 231, 232, 0.12);
 }
 
 .invTermNote {
@@ -3454,16 +3463,15 @@ img {
 }
 
 .invTermHeaderBlock {
-  align-content: start;
-  padding-top: 18px;
+  align-content: center;
 }
 
 .invTermDefinition {
   display: grid;
-  gap: 14px;
+  gap: 18px;
   align-content: center;
-  min-height: 180px;
-  padding-top: 42px;
+  min-height: 220px;
+  padding-top: 0;
 }
 
 .invTermGrid {
@@ -5040,6 +5048,10 @@ img {
     border-top: 1px solid rgba(214, 231, 232, 0.12);
     padding-left: 0;
     padding-top: 10px;
+  }
+
+  .invTermDefinitionZh {
+    padding-top: 12px;
   }
 
   .invTermGrid {

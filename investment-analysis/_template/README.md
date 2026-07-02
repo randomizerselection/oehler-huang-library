@@ -4,7 +4,7 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../syllabus.html` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, key terms, definitions, formulae, required evidence fields and individual classroom output for each taught lesson.
+Also check `../course-map-data.js` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, key terms, definitions, formulae, required evidence fields, handout sections, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
 
 Required files:
 
@@ -37,11 +37,13 @@ Teaching rhythm:
 
 Syllabus alignment:
 
-- Center each lesson on the real company named in `syllabus.html` unless the syllabus itself is intentionally revised.
+- Center each lesson on the real company named in `course-map-data.js` unless the structured course map itself is intentionally revised.
 - Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
 - Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
 - Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
+- Build the lesson handout from the six `handoutSections` in `course-map-data.js`: source box, vocabulary, company evidence, calculation or judgement task, misconception check and individual written output.
+- The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
 - Do not turn any unit into a multi-lesson portfolio, report or final project sequence.
 

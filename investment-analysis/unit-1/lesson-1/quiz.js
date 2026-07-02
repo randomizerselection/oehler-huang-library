@@ -72,7 +72,7 @@ window.INVEST.quiz = {
         "A government tax"
       ],
       answer: 0,
-      explanation: "A share is an ownership claim, not the product sold by the company."
+      explanation: "A share is an ownership claim, not the product sold by the company. Market sources may also say stock; this course uses share for one ownership unit."
     },
     {
       id: "share-price-point",
@@ -86,7 +86,7 @@ window.INVEST.quiz = {
         "The number of products the company sold"
       ],
       answer: 0,
-      explanation: "A graph point is a source-dated share price. It is evidence, not a complete judgement."
+      explanation: "A graph point is a source-dated share price, often labelled stock price in market sources. It is evidence, not a complete judgement."
     },
     {
       id: "risk",

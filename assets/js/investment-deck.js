@@ -523,7 +523,7 @@
           ${slide.termZh ? `<div class="invTermZh" lang="zh-Hans">${escapeHtml(slide.termZh)}</div>` : ''}
         </div>
         <div class="invTermDefinition">
-          <div>${html(slide.definition || '')}</div>
+          <div class="invTermDefinitionText">${html(slide.definition || '')}</div>
           ${slide.definitionZh ? `<p class="invTermDefinitionZh" lang="zh-Hans">${escapeHtml(slide.definitionZh)}</p>` : ''}
         </div>
       </div>`;
