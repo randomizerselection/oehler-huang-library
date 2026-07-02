@@ -35,16 +35,16 @@ window.INVEST.quiz = {
     {
       id: "share-price-meaning",
       type: "multipleChoice",
-      prompt: "What does a share price represent?",
-      zh: "股价代表什么？",
+      prompt: "Which sentence reads the Tencent price graph precisely?",
+      zh: "哪一句能精确解读腾讯价格图？",
       choices: [
-        "The market price of one share at a specific time",
-        "The total price of the whole company",
-        "The company's revenue for the year",
-        "A guaranteed future profit"
+        "Each point is the market price of one Tencent share at that date.",
+        "Each point is Tencent's total company value.",
+        "Each point is Tencent's revenue for that year.",
+        "Each point proves whether Tencent is a good investment."
       ],
       answer: 0,
-      explanation: "A share price is the market price of one share at a specific time. It does not prove value or future profit by itself."
+      explanation: "Correct: the graph gives one-share market prices over time. The misconception is treating a price point as total value, revenue or investment quality."
     },
     {
       id: "price-change",

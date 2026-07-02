@@ -3448,8 +3448,51 @@ img {
 }
 
 .invFormula,
+.invCalcRows,
 .invCalcBox > .invNotePanel {
   grid-column: 1 / -1;
+}
+
+.invCalcRows {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invCalcRow {
+  display: grid;
+  gap: 4px;
+  min-height: 118px;
+  border: 1px solid rgba(214, 231, 232, 0.16);
+  border-radius: var(--inv-radius);
+  background: rgba(7, 17, 20, 0.82);
+  padding: 10px;
+}
+
+.invCalcRow span,
+.invCalcRow strong,
+.invCalcRow em {
+  font-family: var(--inv-text);
+  font-style: normal;
+  line-height: 1.12;
+}
+
+.invCalcRow span {
+  color: var(--inv-cyan);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+}
+
+.invCalcRow strong {
+  color: var(--inv-ink);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.invCalcRow em {
+  color: var(--inv-muted);
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .invWorked,
@@ -3498,7 +3541,7 @@ img {
 }
 
 .invAnalystBoardSlide .invEvidence {
-  min-height: 300px;
+  min-height: 160px;
   gap: 4px;
   padding: 36px 16px 12px;
 }
@@ -3514,15 +3557,22 @@ img {
 
 .invAnalystBoardSlide .invFocusPrompt {
   margin-top: 8px;
-  padding: 10px 14px;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 1.08;
 }
 
 .invAnalystBoardSlide .invFocusPrompt .invZhLine {
   line-height: 1.12;
 }
 
+.invAnalystBoardSlide .invEvidenceBody .invZhLine,
+.invAnalystBoardSlide .invFocusPrompt .invZhLine {
+  display: none;
+}
+
 .invRiskGrid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -3688,6 +3738,83 @@ img {
 
 .invModelAnswerSlide .invModelParas p {
   line-height: 1.12;
+}
+
+.invMarkNote {
+  border: 1px solid rgba(241, 190, 90, 0.42);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.1);
+  color: var(--inv-ink);
+  padding: 10px 14px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.14;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+.invQuizSlide:has(.invQuizFeedback:not([hidden])) .invQuizChoices,
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerSteps,
+.invModelAnswerSlide:has(.invModelParas p.is-revealed) .invModelCue,
+.invExamSlide:has(.invKeyword.is-revealed) .invExamBox h3,
+.invCalculationDeskSlide:has(.invCalcRows) .invWorked {
+  display: none;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionStack,
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerBox,
+.invQuizSlide:has(.invQuizFeedback:not([hidden])) .invPanel,
+.invModelAnswerSlide:has(.invModelParas p.is-revealed) .invModelFrame {
+  align-content: start;
+  gap: 10px;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer,
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invNotePanel {
+  padding-top: 38px;
+}
+
+.invQuizSlide:has(.invQuizFeedback:not([hidden])) .invQuizFeedback {
+  border-top: 1px solid rgba(57, 217, 145, 0.28);
+  border-left-width: 0;
+  padding: 6px 0 0;
+}
+
+.invSlide[data-type="marketBrief"] .invSlideBody {
+  padding-top: 0;
+}
+
+.invSlide[data-type="marketBrief"] .invHeroGrid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.invSlide[data-type="marketBrief"] .invPanel {
+  display: none;
+}
+
+.invSlide[data-type="marketBrief"] .invBigQuestion,
+.invSlide[data-type="marketBrief"]:has(.invMetricValue.is-revealed) .invBigQuestion,
+.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskQuestion,
+.invCalculationDeskSlide:has(.invNotePanel.is-revealed) .invFormula {
+  display: none;
+}
+
+.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskEffect {
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskEffect .invEyebrow {
+  display: none;
+}
+
+.invRiskItem,
+.invRiskEffect,
+.invRiskItem strong,
+.invRiskItem p {
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Notes and overview */
@@ -4427,6 +4554,46 @@ img {
     min-height: auto;
   }
 
+  .invChoice {
+    min-width: 0;
+    gap: 7px;
+    overflow-wrap: anywhere;
+    padding: 8px;
+  }
+
+  .invChoice span:last-child {
+    min-width: 0;
+  }
+
+  .invChoiceBadge {
+    width: 30px;
+    height: 30px;
+  }
+
+  .invQuizSlide .invPromptZh {
+    display: none;
+  }
+
+  .invQuizSlide .invPanel {
+    gap: 7px;
+  }
+
+  .invQuizSlide .invBigQuestion,
+  .invQuizSlide .invChoice {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .invQuizSlide .invQuizChoices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .invQuizSlide .invQuizFeedback {
+    font-size: 20px;
+    line-height: 1.08;
+  }
+
   .invStepNum {
     width: 32px;
     height: 32px;
@@ -4535,6 +4702,11 @@ img {
     padding: 8px;
   }
 
+  .invPeerTaskSlide .invStep .invZhLine,
+  .invPeerTaskSlide .invNotePanel .invPromptZh {
+    display: none;
+  }
+
   .invSortTaskSlide .invSortInstructions {
     display: none;
   }
@@ -4592,6 +4764,28 @@ img {
     top: 10px;
     right: 12px;
     font-size: 36px;
+  }
+
+  .invObjectiveStep,
+  .invObjectivePhase {
+    display: none;
+  }
+
+  .invObjectiveGrid {
+    gap: 7px;
+  }
+
+  .invObjective {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .invObjective strong {
+    align-self: start;
+  }
+
+  .invObjectiveZh {
+    line-height: 1.1;
   }
 
   .invTermBox {
@@ -4683,6 +4877,11 @@ img {
 
   .invAnswerSlide .invZhLine {
     display: none;
+  }
+
+  .invAnswerSlide .invCheckItem {
+    min-height: auto;
+    padding: 8px;
   }
 
   .invExitTicketSlide .invCheckNumber {
@@ -4780,8 +4979,40 @@ img {
   }
 
   .invFormula,
+  .invCalcRows,
   .invCalcBox > .invNotePanel {
     grid-column: auto;
+  }
+
+  .invCalcRows {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .invCalculationDeskSlide .invFormula,
+  .invCalculationDeskSlide:has(.invNotePanel.is-revealed) .invCalcRows {
+    display: none;
+  }
+
+  .invCalcRow {
+    grid-template-columns: minmax(82px, 0.8fr) minmax(0, 1fr);
+    align-items: center;
+    min-height: auto;
+    gap: 4px 8px;
+    padding: 6px 8px;
+  }
+
+  .invCalcRow span {
+    font-size: 13px;
+  }
+
+  .invCalcRow strong {
+    font-size: 22px;
+  }
+
+  .invCalcRow em {
+    grid-column: 2;
+    font-size: 14px;
   }
 
   .invWorked,
@@ -4804,6 +5035,38 @@ img {
 
   .invEvidence strong {
     min-height: auto;
+  }
+
+  .invAnalystBoardSlide .invEvidenceGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .invAnalystBoardSlide .invEvidence {
+    gap: 3px;
+    padding: 7px;
+  }
+
+  .invAnalystBoardSlide .invEvidence .invEyebrow,
+  .invAnalystBoardSlide .invEvidenceBody .invZhLine {
+    display: none;
+  }
+
+  .invAnalystBoardSlide .invEvidence strong,
+  .invAnalystBoardSlide .invEvidence p {
+    font-size: 12px;
+    line-height: 1.08;
+  }
+
+  .invAnalystBoardSlide .invFocusPrompt {
+    margin-top: 5px;
+    padding: 7px;
+    font-size: 14px;
+    line-height: 1.08;
+  }
+
+  .invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invFocusPrompt {
+    display: none;
   }
 
   .invRiskGrid {
@@ -4837,6 +5100,61 @@ img {
     padding-top: 6px;
   }
 
+  .invRiskRegisterSlide .invFocusPrompt .invZhLine {
+    display: none;
+  }
+
+  .invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invFocusPrompt {
+    display: none;
+  }
+
+  .invExamSlide .invExamBox {
+    gap: 8px;
+  }
+
+  .invExamSlide .invExamKeywords {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .invExamSlide .invPromptZh {
+    display: none;
+  }
+
+  .invExamSlide .invExamBox h3,
+  .invExamSlide .invKeyword {
+    font-size: 16px;
+    line-height: 1.08;
+  }
+
+  .invModelAnswerSlide .invModelFrame {
+    gap: 6px;
+  }
+
+  .invModelAnswerSlide .invModelCue {
+    display: none;
+  }
+
+  .invModelAnswerSlide .invModelPoint {
+    padding: 7px 8px 7px 46px;
+  }
+
+  .invModelAnswerSlide .invModelPoint::before {
+    left: 8px;
+    top: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .invModelAnswerSlide .invMarkNote {
+    padding: 7px;
+    font-size: 18px;
+  }
+
+  .invModelAnswerSlide:has(.invModelParas p.is-revealed) .invMarkNote {
+    display: none;
+  }
+
   .invModelPoint {
     min-height: auto;
     padding: 12px 12px 12px 54px;
@@ -4850,6 +5168,8 @@ img {
   }
 
   .invModelParas p {
+    font-size: 18px;
+    line-height: 1.08;
     padding: 0;
   }
 

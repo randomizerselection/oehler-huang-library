@@ -615,10 +615,18 @@
 
   function renderCalculationDesk(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const rows = (slide.rows || []).map((row) => `
+      <div class="invCalcRow">
+        <span>${escapeHtml(row.label || '')}</span>
+        <strong>${escapeHtml(row.value || '')}</strong>
+        ${row.zh ? `<em lang="zh-Hans">${escapeHtml(row.zh)}</em>` : ''}
+      </div>
+    `).join('');
     const body = `
       <div>
         <div class="invCalcBox">
           ${slide.formula ? `<div class="invFormula">${escapeHtml(slide.formula)}</div>` : ''}
+          ${rows ? `<div class="invCalcRows">${rows}</div>` : ''}
           ${slide.worked ? `<div class="invWorked"><strong>Worked example</strong><br>${html(slide.worked)}${slide.workedZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.workedZh)}</div>` : ''}</div>` : ''}
           ${slide.prompt ? `<div class="invTryIt"><strong>Try it</strong><br>${html(slide.prompt)}${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
           ${slide.answer ? `<div class="invNotePanel invReveal"><strong>Answer</strong><p>${html(slide.answer)}</p></div>` : ''}
@@ -741,6 +749,7 @@
           <span>${escapeHtml(slide.cueText || 'Two developed points: one about profit, one about price and risk.')}</span>
         </div>
         <div class="invModelParas">${paragraphs}</div>
+        ${slide.markNote ? `<div class="invMarkNote invReveal">${escapeHtml(slide.markNote)}</div>` : ''}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invModelAnswerSlide invContextPhotoSlide', photo);
   }
