@@ -259,6 +259,105 @@
         "misconception": "investment analysis means learning how to trade on short-term price jumps, guessing what to buy, chasing tips, or assuming a famous company must be a good investment.",
         "evidenceTask": "use Tencent to identify company, product familiarity, listed share, source date, one graph observation and one question about what information might explain a movement.",
         "studentOutput": "one course promise sentence, one company/share distinction, one share-price definition, one anti-speculation boundary, one risk-return rule, one evidence-before-opinion rule and one evidence question about a price movement."
+      },
+      "coreClaim": "Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "definition-and-evidence-question",
+        "description": "one course promise sentence and one evidence question about a Tencent price movement"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "short company evidence extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.",
+        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation or valuation judgement yet."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Tencent and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.",
+          "Teach: make students write the core claim: Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.",
+          "Evidence practice: Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.",
+          "Output rehearsal: students build one course promise sentence and one evidence question about a Tencent price movement.",
+          "Exit ticket: students submit Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Tencent source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: investment analysis, asset, share, share price, risk, short-term stock speculation.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises.",
+            "expectedStudentWork": "one course promise sentence and one evidence question about a Tencent price movement"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.",
+            "expectedStudentWork": "one course promise sentence and one evidence question about a Tencent price movement"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a short company evidence extract; assess one course promise sentence and one evidence question about a Tencent price movement."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -351,6 +450,105 @@
         "misconception": "every stock-market purchase gives new money to the company, or a stock code is just decoration.",
         "evidenceTask": "use HKEX examples to identify company, exchange, stock code, listing and a simple trading friction.",
         "studentOutput": "a company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+      },
+      "coreClaim": "A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
+      "caseRole": "exchange/infrastructure case",
+      "primaryOutput": {
+        "type": "matching-table",
+        "description": "one company-code-exchange match plus one trading-friction sentence"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "exchange education/listing page",
+          "stock-code example table",
+          "dated trading-friction or liquidity note"
+        ],
+        "preferredSourceOrder": [
+          "official exchange source",
+          "company/listing examples",
+          "secondary explanation only for classroom wording"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Identify and explain",
+        "marks": 4,
+        "stimulusType": "exchange or listing extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.",
+        "mustAvoid": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 1 investment-analysis purpose, company/share distinction, share price and listed-share identity.",
+          "Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
+          "Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.",
+          "Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.",
+          "Exit ticket: students submit Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record HKEX source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: stock exchange, listing, stock code, liquidity.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use HKEX examples to identify company, exchange, code, listing and trading friction.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Match companies to exchange, code and listing information, then name one reason real trading is not frictionless.",
+            "expectedStudentWork": "one company-code-exchange match plus one trading-friction sentence"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Every market purchase gives new money to the company.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.",
+            "expectedStudentWork": "one company-code-exchange match plus one trading-friction sentence"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Identify and explain using a exchange or listing extract; assess one company-code-exchange match plus one trading-friction sentence."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -443,6 +641,105 @@
         "misconception": "the displayed price guarantees instant execution at exactly that price.",
         "evidenceTask": "label a frozen Alibaba quote page and separate facts the page proves from facts it cannot prove.",
         "studentOutput": "one labelled quote-page extract, one spread calculation and one sentence explaining the limit of a quote snapshot."
+      },
+      "coreClaim": "A quote page is a dated market snapshot, not a promise of execution price or investment value.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "quote-label-and-spread-calculation",
+        "description": "one labelled quote extract, bid-ask spread calculation and quote-limit sentence"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "frozen quote page",
+          "market data provider snapshot",
+          "source-date note"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "frozen quote page",
+        "calculationRequirement": "bid-ask spread = ask price - bid price; previous close is a read-only field for context.",
+        "judgementRequirement": "Labelled quote extract, spread calculation and quote-limit sentence.",
+        "mustAvoid": "Do not make the quote page a valuation lesson."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Alibaba and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 2 exchange, listing, stock code, liquidity and trading friction.",
+          "Teach: make students write the core claim: A quote page is a dated market snapshot, not a promise of execution price or investment value.",
+          "Evidence practice: Label a frozen Alibaba quote table and separate proved facts from missing information.",
+          "Output rehearsal: students build one labelled quote extract, bid-ask spread calculation and quote-limit sentence.",
+          "Exit ticket: students submit Labelled quote extract, spread calculation and quote-limit sentence."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Alibaba source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: quote page, volume, bid, ask.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Label a frozen Alibaba quote table and separate proved facts from missing information.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Label what a quote page proves, calculate the spread and explain what it cannot promise.",
+            "expectedStudentWork": "one labelled quote extract, bid-ask spread calculation and quote-limit sentence"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A displayed quote guarantees execution at exactly that price.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Labelled quote extract, spread calculation and quote-limit sentence.",
+            "expectedStudentWork": "one labelled quote extract, bid-ask spread calculation and quote-limit sentence"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a frozen quote page; assess one labelled quote extract, bid-ask spread calculation and quote-limit sentence."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -530,6 +827,105 @@
         "misconception": "owning one share means controlling or owning the whole company.",
         "evidenceTask": "read a Xiaomi shareholder or share-capital extract and identify total shares, shares owned and percentage ownership.",
         "studentOutput": "one ownership-percentage calculation and a comparison between a small shareholder and a large holder."
+      },
+      "coreClaim": "A share is an ownership claim, but control depends on ownership size and shareholder rights.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "ownership-percentage-calculation",
+        "description": "one ownership-percentage calculation and small-holder versus large-holder comparison"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "ownership % = shares owned / total shares x 100.",
+        "judgementRequirement": "Ownership-percentage calculation and small-holder versus large-holder comparison.",
+        "mustAvoid": "Avoid detailed corporate governance and board structures."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Xiaomi and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 1 ownership-unit meaning and Lesson 2 listing identity.",
+          "Teach: make students write the core claim: A share is an ownership claim, but control depends on ownership size and shareholder rights.",
+          "Evidence practice: Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned.",
+          "Output rehearsal: students build one ownership-percentage calculation and small-holder versus large-holder comparison.",
+          "Exit ticket: students submit Ownership-percentage calculation and small-holder versus large-holder comparison."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Xiaomi source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: voting rights, ordinary share, control.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Compare a tiny shareholder with a large holder and explain who has more influence.",
+            "expectedStudentWork": "one ownership-percentage calculation and small-holder versus large-holder comparison"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Owning one share means controlling or owning the whole company.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Ownership-percentage calculation and small-holder versus large-holder comparison.",
+            "expectedStudentWork": "one ownership-percentage calculation and small-holder versus large-holder comparison"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one ownership-percentage calculation and small-holder versus large-holder comparison."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -617,6 +1013,105 @@
         "misconception": "a screenshot, number or company claim is reliable enough without date, source and limitation, or a price movement explains itself.",
         "evidenceTask": "turn JD.com investor-relations evidence and one dated price or news claim into a clean log row.",
         "studentOutput": "one individual evidence-log row and one limited price-movement explanation using information, expectations and price."
+      },
+      "coreClaim": "Useful evidence records source, date, figure, use and limitation before explaining a price movement.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "evidence-log-row",
+        "description": "one complete evidence-log row plus one limited price-movement explanation"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Compare",
+        "marks": 4,
+        "stimulusType": "short company evidence extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price.",
+        "mustAvoid": "Do not add new ratios or recommendations."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with JD.com and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 1-4 company identity, price meaning, exchange source and ownership claims.",
+          "Teach: make students write the core claim: Useful evidence records source, date, figure, use and limitation before explaining a price movement.",
+          "Evidence practice: Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row.",
+          "Output rehearsal: students build one complete evidence-log row plus one limited price-movement explanation.",
+          "Exit ticket: students submit Individual evidence-log row plus one limited price-movement explanation using information, expectations and price."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record JD.com source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: evidence log, source date, accessed date.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "You complete one individual evidence log row and one limited price-movement explanation without making a recommendation.",
+            "expectedStudentWork": "one complete evidence-log row plus one limited price-movement explanation"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A screenshot or number is enough without source date and limitation, or a price move explains itself without evidence.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price.",
+            "expectedStudentWork": "one complete evidence-log row plus one limited price-movement explanation"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Compare using a short company evidence extract; assess one complete evidence-log row plus one limited price-movement explanation."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -704,6 +1199,105 @@
         "misconception": "high revenue automatically means a strong or profitable company.",
         "evidenceTask": "read Meituan revenue by year or segment and calculate revenue growth with the old figure as the base.",
         "studentOutput": "one revenue-growth calculation and one limitation sentence: revenue shows scale, not profit."
+      },
+      "coreClaim": "Revenue shows sales scale, not profit strength or investment quality by itself.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "revenue-growth-calculation",
+        "description": "one revenue-growth calculation and one limitation sentence"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "revenue growth = (new revenue - old revenue) / old revenue x 100.",
+        "judgementRequirement": "Revenue-growth calculation and limitation sentence.",
+        "mustAvoid": "Do not teach gross margin or cash flow yet."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Meituan and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 5 evidence logging and Lesson 1 rule that evidence is not yet investment judgement.",
+          "Teach: make students write the core claim: Revenue shows sales scale, not profit strength or investment quality by itself.",
+          "Evidence practice: Read Meituan revenue by year or segment and calculate growth from the old base.",
+          "Output rehearsal: students build one revenue-growth calculation and one limitation sentence.",
+          "Exit ticket: students submit Revenue-growth calculation and limitation sentence."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Meituan source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: revenue, sales growth, business model.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read Meituan revenue by year or segment and calculate growth from the old base.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain why high revenue alone does not prove high profit.",
+            "expectedStudentWork": "one revenue-growth calculation and one limitation sentence"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "High revenue automatically means strong or profitable.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Revenue-growth calculation and limitation sentence.",
+            "expectedStudentWork": "one revenue-growth calculation and one limitation sentence"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one revenue-growth calculation and one limitation sentence."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -791,6 +1385,105 @@
         "misconception": "rising sales always mean the company is becoming stronger.",
         "evidenceTask": "use BYD revenue and cost-of-sales figures to calculate gross profit and gross margin.",
         "studentOutput": "one completed margin calculation and one explanation of why a margin can matter more than raw sales."
+      },
+      "coreClaim": "Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "margin-calculation",
+        "description": "one gross-profit and gross-margin calculation with interpretation"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.",
+        "judgementRequirement": "Gross-profit and gross-margin calculation with a margin interpretation.",
+        "mustAvoid": "Do not introduce operating profit, net profit or free cash flow."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with BYD and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 6 revenue and the question of what revenue misses.",
+          "Teach: make students write the core claim: Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.",
+          "Evidence practice: Use BYD revenue and cost-of-sales figures to calculate gross profit and margin.",
+          "Output rehearsal: students build one gross-profit and gross-margin calculation with interpretation.",
+          "Exit ticket: students submit Gross-profit and gross-margin calculation with a margin interpretation."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record BYD source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: cost of sales, gross profit, gross margin.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use BYD revenue and cost-of-sales figures to calculate gross profit and margin.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Calculate gross profit and explain why margin matters.",
+            "expectedStudentWork": "one gross-profit and gross-margin calculation with interpretation"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Sales growth always means the business is becoming stronger.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Gross-profit and gross-margin calculation with a margin interpretation.",
+            "expectedStudentWork": "one gross-profit and gross-margin calculation with interpretation"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one gross-profit and gross-margin calculation with interpretation."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -878,6 +1571,105 @@
         "misconception": "the company with higher revenue is automatically more efficient.",
         "evidenceTask": "compare CATL margin data with one aligned company, year or benchmark.",
         "studentOutput": "one fair comparison sentence naming the metric, direction and percentage-point difference."
+      },
+      "coreClaim": "Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.",
+      "caseRole": "comparison case",
+      "primaryOutput": {
+        "type": "margin-comparison-sentence",
+        "description": "one fair comparison sentence naming metric, direction and percentage-point difference"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Compare",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "margin difference = margin A - margin B, measured in percentage points.",
+        "judgementRequirement": "Fair comparison sentence naming metric, direction and percentage-point difference.",
+        "mustAvoid": "Do not reteach revenue growth except as contrast to efficiency; do not treat all margins as the same metric."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with CATL and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 7 gross profit and gross margin.",
+          "Teach: make students write the core claim: Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.",
+          "Evidence practice: Compare CATL margin data with one aligned company, period or benchmark.",
+          "Output rehearsal: students build one fair comparison sentence naming metric, direction and percentage-point difference.",
+          "Exit ticket: students submit Fair comparison sentence naming metric, direction and percentage-point difference."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record CATL source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: operating profit, operating margin, percentage-point difference.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Compare CATL margin data with one aligned company, period or benchmark.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "You state which business is more efficient and support it with a margin figure.",
+            "expectedStudentWork": "one fair comparison sentence naming metric, direction and percentage-point difference"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "The higher-revenue company is automatically more efficient.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Fair comparison sentence naming metric, direction and percentage-point difference.",
+            "expectedStudentWork": "one fair comparison sentence naming metric, direction and percentage-point difference"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Compare using a company data table or report extract; assess one fair comparison sentence naming metric, direction and percentage-point difference."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -965,6 +1757,105 @@
         "misconception": "a profitable company must have plenty of cash available.",
         "evidenceTask": "read Tesla operating cash flow and capital expenditure from a filed extract.",
         "studentOutput": "one free-cash-flow calculation and one sentence explaining why profit and cash can disagree."
+      },
+      "coreClaim": "Profit and cash flow answer different questions, and growth can still require cash investment.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "free-cash-flow-calculation",
+        "description": "one free-cash-flow calculation and profit-versus-cash explanation"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "free cash flow = operating cash flow - capital expenditure.",
+        "judgementRequirement": "Free-cash-flow calculation and profit-versus-cash explanation.",
+        "mustAvoid": "Do not teach a full cash-flow statement or working-capital detail."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Tesla and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 6-8 revenue, profit and margin evidence.",
+          "Teach: make students write the core claim: Profit and cash flow answer different questions, and growth can still require cash investment.",
+          "Evidence practice: Read Tesla operating cash flow and capital expenditure from a filed extract.",
+          "Output rehearsal: students build one free-cash-flow calculation and profit-versus-cash explanation.",
+          "Exit ticket: students submit Free-cash-flow calculation and profit-versus-cash explanation."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Tesla source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: operating cash flow, capital expenditure, free cash flow.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read Tesla operating cash flow and capital expenditure from a filed extract.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain why profit and cash flow can send different signals.",
+            "expectedStudentWork": "one free-cash-flow calculation and profit-versus-cash explanation"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Profit means the company has plenty of available cash.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Free-cash-flow calculation and profit-versus-cash explanation.",
+            "expectedStudentWork": "one free-cash-flow calculation and profit-versus-cash explanation"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one free-cash-flow calculation and profit-versus-cash explanation."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1052,6 +1943,105 @@
         "misconception": "one impressive number proves which company is stronger.",
         "evidenceTask": "build a TSMC comparison table using the same metric categories for both sides.",
         "studentOutput": "one scale-trend-margin-cash comparison paragraph that uses at least one figure from each company."
+      },
+      "coreClaim": "A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.",
+      "caseRole": "comparison case",
+      "primaryOutput": {
+        "type": "comparison-paragraph",
+        "description": "one scale-trend-margin-cash comparison paragraph using figures from both sides"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Compare",
+        "marks": 6,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "compare growth, margin and scale side by side; no single new formula.",
+        "judgementRequirement": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company.",
+        "mustAvoid": "No new formula; keep it as consolidation and exam preparation."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with TSMC and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Unit 2 revenue, costs, margin, cash flow and evidence discipline.",
+          "Teach: make students write the core claim: A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.",
+          "Evidence practice: Build a TSMC comparison table using the same metric categories for both sides.",
+          "Output rehearsal: students build one scale-trend-margin-cash comparison paragraph using figures from both sides.",
+          "Exit ticket: students submit Scale-trend-margin-cash comparison paragraph using at least one figure from each company."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record TSMC source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: benchmark, trend, scale.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Build a TSMC comparison table using the same metric categories for both sides.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Write one scale-trend-margin-cash comparison sentence using a figure from each company.",
+            "expectedStudentWork": "one scale-trend-margin-cash comparison paragraph using figures from both sides"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "One impressive metric proves which company is stronger.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company.",
+            "expectedStudentWork": "one scale-trend-margin-cash comparison paragraph using figures from both sides"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Compare using a company data table or report extract; assess one scale-trend-margin-cash comparison paragraph using figures from both sides."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1139,6 +2129,105 @@
         "misconception": "a larger money gain is always the better return without considering the amount invested, or high risk automatically produces high return.",
         "evidenceTask": "use an Apple frozen buy/sell price example with dates.",
         "studentOutput": "one gain calculation, one loss calculation, one return-percentage explanation and one risk-return trade-off sentence."
+      },
+      "coreClaim": "Investor return depends on gain or loss relative to the purchase price, not only the money change.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "return-calculation",
+        "description": "gain, loss and return-percentage calculations"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "gain = sale price - purchase price; return % = gain / purchase price x 100.",
+        "judgementRequirement": "Gain, loss and return-percentage calculations.",
+        "mustAvoid": "Keep dividends for Lesson 12 and valuation for Lessons 14-15."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Apple and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 1 first price-graph reading; this lesson introduces formal old-price denominator discipline.",
+          "Teach: make students write the core claim: Investor return depends on gain or loss relative to the purchase price, not only the money change.",
+          "Evidence practice: Use an Apple frozen buy/sell price example with dates.",
+          "Output rehearsal: students build gain, loss and return-percentage calculations.",
+          "Exit ticket: students submit Gain, loss and return-percentage calculations."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Apple source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: capital gain, capital loss, return.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use an Apple frozen buy/sell price example with dates.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Calculate a gain, a loss and the percentage return.",
+            "expectedStudentWork": "gain, loss and return-percentage calculations"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A larger money gain is always the better return, or higher risk guarantees higher return.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Gain, loss and return-percentage calculations.",
+            "expectedStudentWork": "gain, loss and return-percentage calculations"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess gain, loss and return-percentage calculations."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1226,6 +2315,105 @@
         "misconception": "a higher dividend is automatically better for every investor.",
         "evidenceTask": "read an HSBC dividend announcement or annual-report extract and connect dividend to share price.",
         "studentOutput": "one dividend-yield calculation and one comparison of two investors paying different prices."
+      },
+      "coreClaim": "Dividends add income, but yield and total return depend on the price paid.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "dividend-yield-calculation",
+        "description": "one dividend-yield calculation and two-investor comparison"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.",
+        "judgementRequirement": "Dividend-yield calculation and two-investor comparison.",
+        "mustAvoid": "Avoid dividend policy, taxation and advanced income strategies."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with HSBC and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 11 return from price movement.",
+          "Teach: make students write the core claim: Dividends add income, but yield and total return depend on the price paid.",
+          "Evidence practice: Read HSBC dividend announcement or annual-report extract and connect dividend to price paid.",
+          "Output rehearsal: students build one dividend-yield calculation and two-investor comparison.",
+          "Exit ticket: students submit Dividend-yield calculation and two-investor comparison."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record HSBC source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: dividend, dividend yield, total return.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read HSBC dividend announcement or annual-report extract and connect dividend to price paid.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain why two investors may value the same dividend differently.",
+            "expectedStudentWork": "one dividend-yield calculation and two-investor comparison"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A higher dividend is always better for every investor.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Dividend-yield calculation and two-investor comparison.",
+            "expectedStudentWork": "one dividend-yield calculation and two-investor comparison"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one dividend-yield calculation and two-investor comparison."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1313,6 +2501,105 @@
         "misconception": "the company with the higher share price must be worth more in total.",
         "evidenceTask": "use Nvidia share price and shares outstanding from one frozen source.",
         "studentOutput": "one simplified market-cap calculation and one limitation sentence about what market cap does not prove."
+      },
+      "coreClaim": "Market capitalisation combines one-share price and share count; share price alone is not company size.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "market-cap-calculation",
+        "description": "one simplified market-cap calculation and limitation sentence"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "market capitalisation = share price x shares outstanding.",
+        "judgementRequirement": "Simplified market-cap calculation and limitation sentence.",
+        "mustAvoid": "Keep EPS and P/E for Lesson 14; market cap alone is not valuation."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Nvidia and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 1 one-share price and Lesson 4 total shares and ownership percentage.",
+          "Teach: make students write the core claim: Market capitalisation combines one-share price and share count; share price alone is not company size.",
+          "Evidence practice: Use Nvidia share price and shares outstanding from one frozen source.",
+          "Output rehearsal: students build one simplified market-cap calculation and limitation sentence.",
+          "Exit ticket: students submit Simplified market-cap calculation and limitation sentence."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Nvidia source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: market capitalisation, shares outstanding, mega-cap.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use Nvidia share price and shares outstanding from one frozen source.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Calculate a simplified market cap and explain what it does not prove.",
+            "expectedStudentWork": "one simplified market-cap calculation and limitation sentence"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Higher share price means a bigger company.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Simplified market-cap calculation and limitation sentence.",
+            "expectedStudentWork": "one simplified market-cap calculation and limitation sentence"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one simplified market-cap calculation and limitation sentence."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1400,6 +2687,105 @@
         "misconception": "a high P/E is simply good because investors are optimistic, or simply bad because the share is expensive.",
         "evidenceTask": "calculate or read Microsoft EPS and P/E from a frozen source and source date.",
         "studentOutput": "one P/E interpretation that gives both optimism and risk as possible meanings."
+      },
+      "coreClaim": "A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "pe-interpretation",
+        "description": "one P/E interpretation giving both optimism and risk as possible meanings"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "EPS = net profit / shares; P/E = share price / EPS.",
+        "judgementRequirement": "P/E interpretation giving both optimism and risk as possible meanings.",
+        "mustAvoid": "Do not present P/E as a mechanical buy/sell rule."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Microsoft and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 13 share count and company value, plus Unit 2 profit evidence.",
+          "Teach: make students write the core claim: A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.",
+          "Evidence practice: Calculate or read Microsoft EPS and P/E from a frozen source.",
+          "Output rehearsal: students build one P/E interpretation giving both optimism and risk as possible meanings.",
+          "Exit ticket: students submit P/E interpretation giving both optimism and risk as possible meanings."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Microsoft source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: EPS, P/E ratio, valuation.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Calculate or read Microsoft EPS and P/E from a frozen source.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain why a high P/E may show optimism, risk or both.",
+            "expectedStudentWork": "one P/E interpretation giving both optimism and risk as possible meanings"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "High P/E is simply good, or simply bad.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "P/E interpretation giving both optimism and risk as possible meanings.",
+            "expectedStudentWork": "one P/E interpretation giving both optimism and risk as possible meanings"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a company data table or report extract; assess one P/E interpretation giving both optimism and risk as possible meanings."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1487,6 +2873,105 @@
         "misconception": "a good company is automatically a good investment at any price.",
         "evidenceTask": "read Toyota growth, profitability and P/E evidence, then decide what each piece can and cannot prove.",
         "studentOutput": "a two-point valuation answer linking quality, possible return, price paid and risk."
+      },
+      "coreClaim": "A good company only becomes an attractive investment when quality is judged with price and risk.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "two-point-valuation-answer",
+        "description": "one two-point valuation answer linking quality, possible return, price paid and risk"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Assess",
+        "marks": 6,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Two-point valuation answer linking quality, possible return, price paid and risk.",
+        "mustAvoid": "No new calculation; make writing and judgement the main work."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Toyota and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 11-14 return, dividend, market capitalisation, EPS and P/E.",
+          "Teach: make students write the core claim: A good company only becomes an attractive investment when quality is judged with price and risk.",
+          "Evidence practice: Read Toyota growth, profitability and P/E evidence and classify what each can prove.",
+          "Output rehearsal: students build one two-point valuation answer linking quality, possible return, price paid and risk.",
+          "Exit ticket: students submit Two-point valuation answer linking quality, possible return, price paid and risk."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Toyota source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: cheap or expensive, expectations, margin of safety.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read Toyota growth, profitability and P/E evidence and classify what each can prove.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Write a two-point answer explaining why quality and price must be judged together.",
+            "expectedStudentWork": "one two-point valuation answer linking quality, possible return, price paid and risk"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A good company is a good investment at any price.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Two-point valuation answer linking quality, possible return, price paid and risk.",
+            "expectedStudentWork": "one two-point valuation answer linking quality, possible return, price paid and risk"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Assess using a company data table or report extract; assess one two-point valuation answer linking quality, possible return, price paid and risk."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1574,6 +3059,105 @@
         "misconception": "a familiar brand is automatically safe.",
         "evidenceTask": "use Starbucks store, demand or margin evidence to identify one company-specific risk.",
         "studentOutput": "one risk-evidence-effect chain: risk -> future revenue or profit -> possible price effect."
+      },
+      "coreClaim": "A familiar company can still face risks that affect future revenue, profit, expectations and price.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "risk-chain",
+        "description": "one risk to future revenue/profit to price-effect chain"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "short company evidence extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Risk -> future revenue/profit -> price effect chain.",
+        "mustAvoid": "Do not cover sector, regulation, currency or fund risk yet."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Starbucks and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 15 valuation rule that price must be judged with risk.",
+          "Teach: make students write the core claim: A familiar company can still face risks that affect future revenue, profit, expectations and price.",
+          "Evidence practice: Use Starbucks store, demand or margin evidence to identify one company-specific risk.",
+          "Output rehearsal: students build one risk to future revenue/profit to price-effect chain.",
+          "Exit ticket: students submit Risk -> future revenue/profit -> price effect chain."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Starbucks source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: company-specific risk, demand risk, execution risk.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Use Starbucks store, demand or margin evidence to identify one company-specific risk.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Name one risk and link it to future revenue or profit.",
+            "expectedStudentWork": "one risk to future revenue/profit to price-effect chain"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A familiar brand is automatically safe.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Risk -> future revenue/profit -> price effect chain.",
+            "expectedStudentWork": "one risk to future revenue/profit to price-effect chain"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a short company evidence extract; assess one risk to future revenue/profit to price-effect chain."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1661,6 +3245,105 @@
         "misconception": "a growing sector helps every company in that sector equally.",
         "evidenceTask": "compare Li Ning sales trend with competitor or sector evidence.",
         "studentOutput": "one explanation of how the same trend can help one company and hurt another."
+      },
+      "coreClaim": "The same consumer trend can help one company and hurt another within a sector.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "trend-impact-explanation",
+        "description": "one explanation of how the same trend can help one company and hurt another"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "Optional calculation only if source data is clean: market share = company sales / sector sales x 100, if suitable data is available.",
+        "judgementRequirement": "Explanation of how the same trend can help one company and hurt another.",
+        "mustAvoid": "Do not repeat company-specific risk; make the cause external."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Li Ning and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lesson 16 risk chain and Unit 2 revenue/margin evidence.",
+          "Teach: make students write the core claim: The same consumer trend can help one company and hurt another within a sector.",
+          "Evidence practice: Compare Li Ning sales trend with competitor or sector evidence.",
+          "Output rehearsal: students build one explanation of how the same trend can help one company and hurt another.",
+          "Exit ticket: students submit Explanation of how the same trend can help one company and hurt another."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Li Ning source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: sector, competition, consumer trend.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Compare Li Ning sales trend with competitor or sector evidence.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain how a trend can help one company and hurt another.",
+            "expectedStudentWork": "one explanation of how the same trend can help one company and hurt another"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A growing sector helps every company equally.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Explanation of how the same trend can help one company and hurt another.",
+            "expectedStudentWork": "one explanation of how the same trend can help one company and hurt another"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a company data table or report extract; assess one explanation of how the same trend can help one company and hurt another."
+      },
+      "caseReview": {
+        "status": "review-before-production",
+        "reason": "Consumer-trend and competitor evidence must be clean enough for a fair sector comparison.",
+        "replacementCandidate": "Xtep or Anta if Li Ning data is not aligned with the chosen trend.",
+        "sourceFit": "pending-source-pack-check"
       }
     },
     {
@@ -1748,6 +3431,105 @@
         "misconception": "current profit protects a company from future rule changes.",
         "evidenceTask": "read a Ping An report extract or regulatory note and classify the likely effect on cost, revenue, risk or expectations.",
         "studentOutput": "one rule-change classification and one sentence linking regulation to future profit or price."
+      },
+      "coreClaim": "Regulation can change costs, revenue limits, risk profile and investor expectations.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "rule-change-classification",
+        "description": "one rule-change classification with future-profit or price link"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "short company evidence extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Rule-change classification and future-profit or price link.",
+        "mustAvoid": "Keep it business-focused and non-political."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Ping An and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 16-17 risk-evidence-effect chains.",
+          "Teach: make students write the core claim: Regulation can change costs, revenue limits, risk profile and investor expectations.",
+          "Evidence practice: Classify a Ping An report extract or regulatory note by likely effect.",
+          "Output rehearsal: students build one rule-change classification with future-profit or price link.",
+          "Exit ticket: students submit Rule-change classification and future-profit or price link."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Ping An source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: regulation, compliance cost, policy risk.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Classify a Ping An report extract or regulatory note by likely effect.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Explain why a profitable company may still face regulation risk.",
+            "expectedStudentWork": "one rule-change classification with future-profit or price link"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Current profit protects a company from rule changes.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Rule-change classification and future-profit or price link.",
+            "expectedStudentWork": "one rule-change classification with future-profit or price link"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a short company evidence extract; assess one rule-change classification with future-profit or price link."
+      },
+      "caseReview": {
+        "status": "review-before-production",
+        "reason": "Regulation evidence must stay business-focused and age-appropriate, not political or too technical.",
+        "replacementCandidate": "AIA or China Life if Ping An source evidence is too complex.",
+        "sourceFit": "pending-source-pack-check"
       }
     },
     {
@@ -1835,6 +3617,105 @@
         "misconception": "foreign sales only create growth opportunity and never create measurement or return risk.",
         "evidenceTask": "connect Samsung geographic sales or currency-risk note to one frozen exchange-rate change.",
         "studentOutput": "one exchange-rate percentage change and one investor-risk explanation."
+      },
+      "coreClaim": "Exchange rates can create measurement and return risk for global companies and shareholders.",
+      "caseRole": "listed company",
+      "primaryOutput": {
+        "type": "exchange-rate-risk-calculation",
+        "description": "one exchange-rate percentage-change calculation plus investor-risk explanation"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company annual/interim report or investor presentation",
+          "dated market snapshot when price or return is discussed",
+          "supporting company or sector source only when required by the evidence task"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Calculate and explain",
+        "marks": 4,
+        "stimulusType": "company data table or report extract",
+        "calculationRequirement": "exchange-rate change % = (new rate - old rate) / old rate x 100.",
+        "judgementRequirement": "Exchange-rate percentage change plus investor-risk explanation.",
+        "mustAvoid": "Do not teach foreign-exchange trading."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Samsung and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 16-18 risk chains and the percentage-change method from Lesson 11.",
+          "Teach: make students write the core claim: Exchange rates can create measurement and return risk for global companies and shareholders.",
+          "Evidence practice: Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change.",
+          "Output rehearsal: students build one exchange-rate percentage-change calculation plus investor-risk explanation.",
+          "Exit ticket: students submit Exchange-rate percentage change plus investor-risk explanation."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Samsung source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: exchange rate, export exposure, translation effect.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Calculate an exchange-rate change and link it to investor risk.",
+            "expectedStudentWork": "one exchange-rate percentage-change calculation plus investor-risk explanation"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Foreign sales only create opportunity and not measurement or return risk.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Exchange-rate percentage change plus investor-risk explanation.",
+            "expectedStudentWork": "one exchange-rate percentage-change calculation plus investor-risk explanation"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Calculate and explain using a company data table or report extract; assess one exchange-rate percentage-change calculation plus investor-risk explanation."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -1927,6 +3808,105 @@
         "misconception": "diversification removes all investment risk.",
         "evidenceTask": "read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.",
         "studentOutput": "one ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence."
+      },
+      "coreClaim": "Diversification reduces company-specific risk but does not remove market, sector or fund risks.",
+      "caseRole": "fund",
+      "primaryOutput": {
+        "type": "etf-comparison",
+        "description": "one ETF-versus-single-share comparison with weight, risk reduced and risk remaining"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "ETF factsheet",
+          "holdings table",
+          "fund cost/index description"
+        ],
+        "preferredSourceOrder": [
+          "issuer factsheet",
+          "index provider or exchange source",
+          "market snapshot only if trading context is needed"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Compare",
+        "marks": 4,
+        "stimulusType": "ETF factsheet extract",
+        "calculationRequirement": "portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.",
+        "judgementRequirement": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence.",
+        "mustAvoid": "Make portfolio weight the main calculation; treat expense ratio as read-only unless extending."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with ChinaAMC CSI 300 ETF and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Lessons 16-19 risk types and Lesson 4 ownership of shares.",
+          "Teach: make students write the core claim: Diversification reduces company-specific risk but does not remove market, sector or fund risks.",
+          "Evidence practice: Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.",
+          "Output rehearsal: students build one ETF-versus-single-share comparison with weight, risk reduced and risk remaining.",
+          "Exit ticket: students submit ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record ChinaAMC CSI 300 ETF source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: ETF, index fund, diversification, portfolio weight.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Compare one ETF with one single-company share using one portfolio weight, one risk reduced and one risk remaining.",
+            "expectedStudentWork": "one ETF-versus-single-share comparison with weight, risk reduced and risk remaining"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Diversification removes all investment risk.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence.",
+            "expectedStudentWork": "one ETF-versus-single-share comparison with weight, risk reduced and risk remaining"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Compare using a ETF factsheet extract; assess one ETF-versus-single-share comparison with weight, risk reduced and risk remaining."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2014,6 +3994,105 @@
         "misconception": "a large platform with many users is automatically low-risk.",
         "evidenceTask": "combine Tencent revenue mix, margin evidence and one dated risk note.",
         "studentOutput": "one attraction-risk-price triangle with one evidence point in each corner."
+      },
+      "coreClaim": "Platform network effects can be attractive, but price, competition and regulation still matter.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "attraction-risk-price-triangle",
+        "description": "one attraction-risk-price triangle with one evidence point in each corner"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Assess",
+        "marks": 6,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "combine growth, margin, P/E and risk notes; no single new formula.",
+        "judgementRequirement": "Attraction-risk-price triangle with one evidence point in each corner.",
+        "mustAvoid": "Do not reteach share-price meaning or revenue definitions."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Tencent and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate Tencent familiarity from Lesson 1 plus growth, margin, P/E and risk tools from Units 2-4.",
+          "Teach: make students write the core claim: Platform network effects can be attractive, but price, competition and regulation still matter.",
+          "Evidence practice: Combine Tencent revenue mix, margin evidence and one dated risk note.",
+          "Output rehearsal: students build one attraction-risk-price triangle with one evidence point in each corner.",
+          "Exit ticket: students submit Attraction-risk-price triangle with one evidence point in each corner."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Tencent source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: platform business, network effects, regulatory overhang.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Combine Tencent revenue mix, margin evidence and one dated risk note.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Complete one attraction-risk-price triangle for Tencent.",
+            "expectedStudentWork": "one attraction-risk-price triangle with one evidence point in each corner"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A large platform with many users is automatically low-risk.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Attraction-risk-price triangle with one evidence point in each corner.",
+            "expectedStudentWork": "one attraction-risk-price triangle with one evidence point in each corner"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Assess using a multi-evidence company case extract; assess one attraction-risk-price triangle with one evidence point in each corner."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2101,6 +4180,105 @@
         "misconception": "operational strength is the same as investment attractiveness.",
         "evidenceTask": "read BYD sales, margin, production or valuation evidence and tag each item as strength, price or risk evidence.",
         "studentOutput": "one strength-price-risk evidence matrix separating business strength from investment attractiveness."
+      },
+      "coreClaim": "Operational strength must be separated from fair price and manufacturing-cycle risk.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "strength-price-risk-matrix",
+        "description": "one strength-price-risk evidence matrix separating business strength from investment attractiveness"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Assess",
+        "marks": 6,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "compare margin and growth; then add price and risk evidence.",
+        "judgementRequirement": "Strength-price-risk evidence matrix separating business strength from investment attractiveness.",
+        "mustAvoid": "Do not recalculate gross margin from first principles except as retrieval."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with BYD and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate BYD margin work from Lesson 7 and valuation discipline from Lesson 15.",
+          "Teach: make students write the core claim: Operational strength must be separated from fair price and manufacturing-cycle risk.",
+          "Evidence practice: Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence.",
+          "Output rehearsal: students build one strength-price-risk evidence matrix separating business strength from investment attractiveness.",
+          "Exit ticket: students submit Strength-price-risk evidence matrix separating business strength from investment attractiveness."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record BYD source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: vertical integration, capacity, cyclicality.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Complete one BYD strength-price-risk evidence matrix.",
+            "expectedStudentWork": "one strength-price-risk evidence matrix separating business strength from investment attractiveness"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Operational strength equals investment attractiveness.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Strength-price-risk evidence matrix separating business strength from investment attractiveness.",
+            "expectedStudentWork": "one strength-price-risk evidence matrix separating business strength from investment attractiveness"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Assess using a multi-evidence company case extract; assess one strength-price-risk evidence matrix separating business strength from investment attractiveness."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2188,6 +4366,105 @@
         "misconception": "bank revenue and profit can be analysed exactly like a technology or consumer company.",
         "evidenceTask": "read an HSBC results summary and identify one bank-specific evidence item.",
         "studentOutput": "one bank-evidence exception note explaining why one ordinary company metric is insufficient."
+      },
+      "coreClaim": "Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "bank-exception-note",
+        "description": "one bank-evidence exception note explaining why an ordinary metric is insufficient"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.",
+        "judgementRequirement": "Bank-evidence exception note explaining why one ordinary company metric is insufficient.",
+        "mustAvoid": "Avoid advanced bank ratios."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with HSBC and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate HSBC dividend work from Lesson 12 and risk classification from Unit 4.",
+          "Teach: make students write the core claim: Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.",
+          "Evidence practice: Read HSBC results summary and identify one bank-specific evidence item.",
+          "Output rehearsal: students build one bank-evidence exception note explaining why an ordinary metric is insufficient.",
+          "Exit ticket: students submit Bank-evidence exception note explaining why one ordinary company metric is insufficient."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record HSBC source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: interest margin, credit risk, capital strength.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read HSBC results summary and identify one bank-specific evidence item.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Write one bank-evidence exception note.",
+            "expectedStudentWork": "one bank-evidence exception note explaining why an ordinary metric is insufficient"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Banks can be analysed exactly like technology or consumer firms.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Bank-evidence exception note explaining why one ordinary company metric is insufficient.",
+            "expectedStudentWork": "one bank-evidence exception note explaining why an ordinary metric is insufficient"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a multi-evidence company case extract; assess one bank-evidence exception note explaining why an ordinary metric is insufficient."
+      },
+      "caseReview": {
+        "status": "review-before-production",
+        "reason": "Bank evidence can become too technical; use only clear student-readable interest margin, credit risk or capital-strength evidence.",
+        "replacementCandidate": "Standard Chartered if HSBC source extracts do not give a clean bank-specific contrast.",
+        "sourceFit": "pending-source-pack-check"
       }
     },
     {
@@ -2275,6 +4552,105 @@
         "misconception": "a strong or famous brand guarantees high profit and low risk.",
         "evidenceTask": "use Anta revenue, margin, brand and inventory notes to classify support and limitation evidence.",
         "studentOutput": "one brand-to-margin evidence map plus one limitation linked to inventory or demand."
+      },
+      "coreClaim": "Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "brand-to-margin-map",
+        "description": "one brand-to-margin evidence map with an inventory or demand limitation"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Brand-to-margin evidence map plus one limitation linked to inventory or demand.",
+        "mustAvoid": "Do not repeat generic sector risk unless tied to brand, inventory or pricing power."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Anta Sports and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate revenue, margin and competition analysis from Lessons 6-8 and 17.",
+          "Teach: make students write the core claim: Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.",
+          "Evidence practice: Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence.",
+          "Output rehearsal: students build one brand-to-margin evidence map with an inventory or demand limitation.",
+          "Exit ticket: students submit Brand-to-margin evidence map plus one limitation linked to inventory or demand."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Anta Sports source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: brand equity, inventory risk, pricing power.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Complete one brand-to-margin evidence map with one limitation.",
+            "expectedStudentWork": "one brand-to-margin evidence map with an inventory or demand limitation"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A famous brand guarantees high profit and low risk.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Brand-to-margin evidence map plus one limitation linked to inventory or demand.",
+            "expectedStudentWork": "one brand-to-margin evidence map with an inventory or demand limitation"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a multi-evidence company case extract; assess one brand-to-margin evidence map with an inventory or demand limitation."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2362,6 +4738,105 @@
         "misconception": "two brands can be compared fairly even when the figures use different definitions, years or currencies.",
         "evidenceTask": "align Nike data with one China/HK brand comparison using the same metric set.",
         "studentOutput": "one comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation."
+      },
+      "coreClaim": "Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.",
+      "caseRole": "comparison case",
+      "primaryOutput": {
+        "type": "comparable-company-row",
+        "description": "one comparable-company alignment row plus fair comparison paragraph"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Compare",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "compare two companies using the same metric set.",
+        "judgementRequirement": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation.",
+        "mustAvoid": "No new metrics; focus on fair comparison method."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Nike and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate comparison discipline from Lesson 10 and brand analysis from Lesson 24.",
+          "Teach: make students write the core claim: Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.",
+          "Evidence practice: Align Nike data with one China/HK brand using the same metric set.",
+          "Output rehearsal: students build one comparable-company alignment row plus fair comparison paragraph.",
+          "Exit ticket: students submit Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Nike source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: multinational, comparable company, local/global risk.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Align Nike data with one China/HK brand using the same metric set.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Submit one comparable-company alignment row and one fair comparison sentence.",
+            "expectedStudentWork": "one comparable-company alignment row plus fair comparison paragraph"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Different years, currencies or metric definitions can still be compared casually.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation.",
+            "expectedStudentWork": "one comparable-company alignment row plus fair comparison paragraph"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Compare using a multi-evidence company case extract; assess one comparable-company alignment row plus fair comparison paragraph."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2449,6 +4924,105 @@
         "misconception": "one recovery figure proves the turnaround is complete.",
         "evidenceTask": "compare Haidilao store count, revenue or operating recovery evidence across periods.",
         "studentOutput": "one red/amber/green recovery verdict explaining whether the claim needs more evidence."
+      },
+      "coreClaim": "Recovery judgement needs enough evidence across operations, stores, revenue and profitability.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "recovery-verdict",
+        "description": "one red/amber/green recovery verdict explaining the evidence gap"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Assess",
+        "marks": 6,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "Optional calculation only if source data is clean: revenue per store = total revenue / number of stores, if data allows.",
+        "judgementRequirement": "Red/amber/green recovery verdict explaining whether the claim needs more evidence.",
+        "mustAvoid": "Revenue per store is optional and only if data is clean."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Haidilao and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate evidence discipline, revenue analysis, margin caution and valuation/risk judgement from earlier units.",
+          "Teach: make students write the core claim: Recovery judgement needs enough evidence across operations, stores, revenue and profitability.",
+          "Evidence practice: Compare Haidilao store count, revenue or operating recovery evidence across periods.",
+          "Output rehearsal: students build one red/amber/green recovery verdict explaining the evidence gap.",
+          "Exit ticket: students submit Red/amber/green recovery verdict explaining whether the claim needs more evidence."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Haidilao source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: turnaround, store network, same-store sales.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Compare Haidilao store count, revenue or operating recovery evidence across periods.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Give a red/amber/green recovery verdict and justify the evidence gap.",
+            "expectedStudentWork": "one red/amber/green recovery verdict explaining the evidence gap"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "One recovery figure proves the turnaround is complete.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Red/amber/green recovery verdict explaining whether the claim needs more evidence.",
+            "expectedStudentWork": "one red/amber/green recovery verdict explaining the evidence gap"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Assess using a multi-evidence company case extract; assess one red/amber/green recovery verdict explaining the evidence gap."
+      },
+      "caseReview": {
+        "status": "review-before-production",
+        "reason": "Recovery evidence needs comparable period data; same-store sales or store-network evidence may be incomplete.",
+        "replacementCandidate": "Yum China if Haidilao recovery data is not clean enough.",
+        "sourceFit": "pending-source-pack-check"
       }
     },
     {
@@ -2536,6 +5110,105 @@
         "misconception": "revenue and profit should rise or fall at the same rate.",
         "evidenceTask": "compare Trip.com revenue and operating profit before and after a travel-cycle shift.",
         "studentOutput": "one operating-leverage chain diagram linking travel demand, revenue, operating profit and margin."
+      },
+      "coreClaim": "Cyclical demand can make operating profit move faster than revenue through operating leverage.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "operating-leverage-chain",
+        "description": "one operating-leverage chain diagram linking demand, revenue, operating profit and margin"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "operating margin = operating profit / revenue x 100.",
+        "judgementRequirement": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin.",
+        "mustAvoid": "Do not turn this into a macroeconomics lesson."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Trip.com and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate margin analysis from Unit 2, sector/cyclical risk from Unit 4 and turnaround thinking from Lesson 26.",
+          "Teach: make students write the core claim: Cyclical demand can make operating profit move faster than revenue through operating leverage.",
+          "Evidence practice: Compare Trip.com revenue and operating profit before and after a travel-cycle shift.",
+          "Output rehearsal: students build one operating-leverage chain diagram linking demand, revenue, operating profit and margin.",
+          "Exit ticket: students submit Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Trip.com source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: cyclical demand, recovery, operating leverage.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Compare Trip.com revenue and operating profit before and after a travel-cycle shift.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Complete a demand -> revenue -> operating profit -> margin chain diagram.",
+            "expectedStudentWork": "one operating-leverage chain diagram linking demand, revenue, operating profit and margin"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Revenue and profit should move at the same rate.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin.",
+            "expectedStudentWork": "one operating-leverage chain diagram linking demand, revenue, operating profit and margin"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a multi-evidence company case extract; assess one operating-leverage chain diagram linking demand, revenue, operating profit and margin."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2623,6 +5296,105 @@
         "misconception": "more users automatically mean more revenue, higher ARPU or a stronger investment case.",
         "evidenceTask": "read Kuaishou active-user and revenue data from one reporting period.",
         "studentOutput": "one monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit."
+      },
+      "coreClaim": "User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "monetisation-ladder",
+        "description": "one monetisation ladder plus ARPU calculation and limitation sentence"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "ARPU = revenue / active users.",
+        "judgementRequirement": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit.",
+        "mustAvoid": "Do not reteach all platform-business concepts; focus on users to revenue."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Kuaishou and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate platform thinking from Lesson 21 and revenue/margin caution from Unit 2.",
+          "Teach: make students write the core claim: User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.",
+          "Evidence practice: Read Kuaishou active-user and revenue data from one reporting period.",
+          "Output rehearsal: students build one monetisation ladder plus ARPU calculation and limitation sentence.",
+          "Exit ticket: students submit Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Kuaishou source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: active users, monetisation, ARPU.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read Kuaishou active-user and revenue data from one reporting period.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Complete one monetisation ladder and one ARPU limitation sentence.",
+            "expectedStudentWork": "one monetisation ladder plus ARPU calculation and limitation sentence"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "More users automatically mean more revenue, higher ARPU or better investment quality.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit.",
+            "expectedStudentWork": "one monetisation ladder plus ARPU calculation and limitation sentence"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a multi-evidence company case extract; assess one monetisation ladder plus ARPU calculation and limitation sentence."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     },
     {
@@ -2710,6 +5482,105 @@
         "misconception": "borrowing is always bad, or borrowing is harmless if the company is large.",
         "evidenceTask": "read a Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.",
         "studentOutput": "one leverage benefit-risk note with a simple ratio only if the figures are clear."
+      },
+      "coreClaim": "Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "leverage-benefit-risk-note",
+        "description": "one leverage benefit-risk note with a simple ratio only if figures are clear"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Explain",
+        "marks": 4,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "Optional calculation only if source data is clean: debt-to-equity = total debt / equity, if the data is suitable.",
+        "judgementRequirement": "Leverage benefit-risk note with a simple ratio only if figures are clear.",
+        "mustAvoid": "Keep advanced solvency and interest coverage optional."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Lenovo and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate risk-evidence-effect chains and earlier evidence reading of company reports.",
+          "Teach: make students write the core claim: Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.",
+          "Evidence practice: Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.",
+          "Output rehearsal: students build one leverage benefit-risk note with a simple ratio only if figures are clear.",
+          "Exit ticket: students submit Leverage benefit-risk note with a simple ratio only if figures are clear."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Lenovo source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: debt, liabilities, gearing or leverage.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Write one leverage benefit-risk note.",
+            "expectedStudentWork": "one leverage benefit-risk note with a simple ratio only if figures are clear"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "Borrowing is always bad, or harmless if the company is large.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Leverage benefit-risk note with a simple ratio only if figures are clear.",
+            "expectedStudentWork": "one leverage benefit-risk note with a simple ratio only if figures are clear"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Explain using a multi-evidence company case extract; assess one leverage benefit-risk note with a simple ratio only if figures are clear."
+      },
+      "caseReview": {
+        "status": "review-before-production",
+        "reason": "Debt evidence must be simple enough for Grade 9 and not depend on advanced solvency analysis.",
+        "replacementCandidate": "Xiaomi or another familiar company if Lenovo debt figures are not classroom-clean.",
+        "sourceFit": "pending-source-pack-check"
       }
     },
     {
@@ -2797,9 +5668,118 @@
         "misconception": "a steady business is automatically a safe or good investment.",
         "evidenceTask": "combine Costco growth, margin, valuation and risk evidence from dated sources.",
         "studentOutput": "a final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal investment advice."
+      },
+      "coreClaim": "A quality defensive business can still be a poor investment if the price already assumes too much good news.",
+      "caseRole": "synthesis case",
+      "primaryOutput": {
+        "type": "quality-price-risk-memo",
+        "description": "one final quality-price-risk memo using dated evidence without personal advice"
+      },
+      "sourcePack": {
+        "requiredSourceTypes": [
+          "official company report or results presentation",
+          "dated market valuation or quote snapshot when price is discussed",
+          "risk/news/regulatory source only when needed for the case question"
+        ],
+        "preferredSourceOrder": [
+          "official company/issuer source",
+          "exchange or market-data snapshot",
+          "reputable news/regulator/sector source for risk context"
+        ],
+        "snapshotDateFields": [
+          "source title",
+          "source URL",
+          "publication date",
+          "accessed date",
+          "snapshot date",
+          "company/security identifier",
+          "key figures used",
+          "evidence limitation"
+        ],
+        "evidenceLimitations": [
+          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "Source dates and accessed dates must be recorded because investment evidence changes over time."
+        ],
+        "noLivePriceDependency": true,
+        "sourceFitCheck": "Complete the source-fit audit before building the deck, handout chapter or exam item."
+      },
+      "assessmentBlueprint": {
+        "commandWord": "Assess",
+        "marks": 8,
+        "stimulusType": "multi-evidence company case extract",
+        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
+        "judgementRequirement": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice.",
+        "mustAvoid": "No new formula; final judgement only."
+      },
+      "artifactBlueprint": {
+        "deckArc": [
+          "Hook: start with Costco and the guiding question, using a concrete source or visual before definitions.",
+          "Retrieval: activate the full course: source discipline, growth, margin, cash, returns, valuation, risk, funds and case comparison.",
+          "Teach: make students write the core claim: A quality defensive business can still be a poor investment if the price already assumes too much good news.",
+          "Evidence practice: Combine Costco growth, margin, valuation and risk evidence from dated sources.",
+          "Output rehearsal: students build one final quality-price-risk memo using dated evidence without personal advice.",
+          "Exit ticket: students submit Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice."
+        ],
+        "handoutBlocks": [
+          {
+            "key": "sourceBox",
+            "title": "Source box",
+            "prompt": "Record Costco source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
+            "expectedStudentWork": "A complete dated source record before any judgement."
+          },
+          {
+            "key": "vocabulary",
+            "title": "Vocabulary",
+            "prompt": "Define and use: defensive business, quality company, valuation risk.",
+            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+          },
+          {
+            "key": "companyEvidence",
+            "title": "Company evidence",
+            "prompt": "Combine Costco growth, margin, valuation and risk evidence from dated sources.",
+            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+          },
+          {
+            "key": "calculationOrJudgement",
+            "title": "Calculation or judgement task",
+            "prompt": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice.",
+            "expectedStudentWork": "one final quality-price-risk memo using dated evidence without personal advice"
+          },
+          {
+            "key": "misconceptionCheck",
+            "title": "Misconception check",
+            "prompt": "A steady business is automatically safe or a good investment.",
+            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+          },
+          {
+            "key": "individualOutput",
+            "title": "Individual written output",
+            "prompt": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice.",
+            "expectedStudentWork": "one final quality-price-risk memo using dated evidence without personal advice"
+          }
+        ],
+        "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
+        "examItemShape": "Assess using a multi-evidence company case extract; assess one final quality-price-risk memo using dated evidence without personal advice."
+      },
+      "caseReview": {
+        "status": "keep",
+        "sourceFit": "pending-source-pack-check",
+        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "replacementCandidate": null
       }
     }
-  ]
+  ],
+  "sourceFitAudit": {
+    "rule": "Run this before building a lesson deck or final exam item. Keep the current anchor unless source evidence is not classroom-clean, source dates are missing, or the company case no longer fits the unit role.",
+    "checks": [
+      "At least one official dated source is available for the required evidence task.",
+      "The needed figures can be frozen into a classroom snapshot without live-price dependency.",
+      "The source can support the lesson output without requiring advanced finance beyond the map.",
+      "The case does not duplicate the prior lesson output or weaken the six-unit progression.",
+      "Any replacement keeps the same unit role, skill target and assessment blueprint."
+    ]
+  }
 };
 
   if (typeof module === "object" && module.exports) {

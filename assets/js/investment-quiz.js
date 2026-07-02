@@ -109,7 +109,7 @@
         const answerText = question.type === 'fillBlank'
           ? (question.acceptedAnswers || [])[0]
           : (question.choices || [])[question.answer];
-        correction.textContent = `${correct ? 'Correct' : `Correct answer: ${answerText}`}. ${question.explanation || ''}`;
+        correction.innerHTML = `${correct ? 'Correct' : `Correct answer: ${escapeHtml(answerText)}`}. ${escapeHtml(question.explanation || '')}${question.explanationZh ? `<div class="invPromptZh" lang="zh-Hans">${escapeHtml(question.explanationZh)}</div>` : ''}`;
       });
       const scoreNode = document.querySelector('.invQuizScore');
       scoreNode.dataset.marked = 'true';
@@ -123,7 +123,7 @@
           if (input.type === 'radio') input.checked = false;
           else input.value = '';
         });
-        node.querySelector('.invQuizCorrection').textContent = '';
+        node.querySelector('.invQuizCorrection').innerHTML = '';
       });
       const scoreNode = document.querySelector('.invQuizScore');
       delete scoreNode.dataset.marked;

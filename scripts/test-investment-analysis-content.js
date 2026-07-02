@@ -5,7 +5,12 @@ const vm = require('vm');
 const root = path.resolve(__dirname, '..');
 const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
-const { outputPath: handoutBookPath, renderHandoutBook } = require('./build-investment-handout-book.js');
+const {
+  outputPath: handoutBookPath,
+  teacherBlueprintPath,
+  renderHandoutBook,
+  renderTeacherBlueprint,
+} = require('./build-investment-handout-book.js');
 
 const vagueRevealTitlePattern = /^(?:answer|possible answer|sample answer|model answer|model sentence|model direction|teacher cue|course rule|analysis boundary|bridge(?: to lesson \d+)?)$/i;
 const requiredLessonFields = [
@@ -15,12 +20,21 @@ const requiredLessonFields = [
   'guidingQuestion',
   'terms',
   'formulaOrNoFormula',
+  'formativeAssessment',
+  'exitTicket',
   'retrievalBase',
   'newKnowledge',
   'evidenceTask',
   'misconception',
   'studentOutput',
   'handoutSections',
+  'coreClaim',
+  'caseRole',
+  'primaryOutput',
+  'sourcePack',
+  'artifactBlueprint',
+  'assessmentBlueprint',
+  'caseReview',
   'examPattern',
 ];
 const requiredHandoutSectionKeys = [
@@ -31,6 +45,18 @@ const requiredHandoutSectionKeys = [
   'misconceptionCheck',
   'individualOutput',
 ];
+const allowedCaseRoles = new Set([
+  'listed company',
+  'exchange/infrastructure case',
+  'fund',
+  'comparison case',
+  'synthesis case',
+]);
+const allowedCaseReviewStatuses = new Set([
+  'keep',
+  'review-before-production',
+  'replace',
+]);
 
 function deepProxy() {
   return new Proxy(function noop() {}, {
@@ -88,8 +114,26 @@ function normaliseLineEndings(value) {
   return String(value).replace(/\r\n/g, '\n');
 }
 
+function includesAllDeckArcPhases(deckArc) {
+  if (!Array.isArray(deckArc)) return false;
+
+  const source = deckArc.join('\n');
+  return [
+    /Hook:/i,
+    /Retrieval:/i,
+    /Teach:/i,
+    /(Evidence|Calculation|Data|Source|Company).*practice:/i,
+    /Output rehearsal:/i,
+    /(Exit ticket|Individual output):/i,
+  ].every((pattern) => pattern.test(source));
+}
+
 function validateCourseMapContract() {
   const failures = [];
+
+  if (!courseMap.sourceFitAudit?.rule || !Array.isArray(courseMap.sourceFitAudit?.checks) || courseMap.sourceFitAudit.checks.length < 3) {
+    failures.push('investment-analysis/course-map-data.js: sourceFitAudit must define a rule and checks');
+  }
 
   if (!Array.isArray(courseMap.units) || courseMap.units.length !== 6) {
     failures.push('investment-analysis/course-map-data.js: expected exactly 6 units');
@@ -126,8 +170,16 @@ function validateCourseMapContract() {
       failures.push(`${label}: expected unit ${expectedUnit}, got ${lesson.unit}`);
     }
 
-    for (const field of ['company', 'guidingQuestion', 'formulaOrNoFormula', 'retrievalBase', 'newKnowledge', 'evidenceTask', 'misconception', 'studentOutput']) {
+    for (const field of ['company', 'guidingQuestion', 'formulaOrNoFormula', 'formativeAssessment', 'exitTicket', 'retrievalBase', 'newKnowledge', 'evidenceTask', 'misconception', 'studentOutput', 'coreClaim']) {
       if (!isNonEmptyString(lesson[field])) failures.push(`${label}: "${field}" must be a non-empty string`);
+    }
+
+    if (!allowedCaseRoles.has(lesson.caseRole)) {
+      failures.push(`${label}: caseRole must be one of ${[...allowedCaseRoles].join(', ')}`);
+    }
+
+    if (!isNonEmptyString(lesson.primaryOutput?.type) || !isNonEmptyString(lesson.primaryOutput?.description)) {
+      failures.push(`${label}: primaryOutput must have exactly one type and description`);
     }
 
     if (!Array.isArray(lesson.terms) || lesson.terms.length === 0) {
@@ -155,6 +207,66 @@ function validateCourseMapContract() {
     const individualOutput = lesson.handoutSections?.find((section) => section.key === 'individualOutput');
     if (individualOutput?.task !== lesson.studentOutput) {
       failures.push(`${label}: individualOutput handout section must match studentOutput`);
+    }
+
+    const sourcePack = lesson.sourcePack || {};
+    if (!Array.isArray(sourcePack.requiredSourceTypes) || sourcePack.requiredSourceTypes.length === 0) {
+      failures.push(`${label}: sourcePack.requiredSourceTypes must be a non-empty array`);
+    }
+    if (!Array.isArray(sourcePack.preferredSourceOrder) || sourcePack.preferredSourceOrder.length === 0) {
+      failures.push(`${label}: sourcePack.preferredSourceOrder must be a non-empty array`);
+    }
+    if (!Array.isArray(sourcePack.snapshotDateFields) || !sourcePack.snapshotDateFields.some((field) => /date/i.test(field))) {
+      failures.push(`${label}: sourcePack.snapshotDateFields must include a date field`);
+    }
+    if (!Array.isArray(sourcePack.evidenceLimitations) || sourcePack.evidenceLimitations.length === 0) {
+      failures.push(`${label}: sourcePack.evidenceLimitations must be a non-empty array`);
+    }
+    if (sourcePack.noLivePriceDependency !== true) {
+      failures.push(`${label}: sourcePack.noLivePriceDependency must be true`);
+    }
+
+    const artifactBlueprint = lesson.artifactBlueprint || {};
+    if (!Array.isArray(artifactBlueprint.deckArc) || artifactBlueprint.deckArc.length < 5) {
+      failures.push(`${label}: artifactBlueprint.deckArc must contain at least 5 steps`);
+    } else if (!includesAllDeckArcPhases(artifactBlueprint.deckArc)) {
+      failures.push(`${label}: artifactBlueprint.deckArc must follow the ILA rhythm: Hook, Retrieval, Teach, practice, Output rehearsal and Exit ticket`);
+    }
+    const blueprintHandoutKeys = Array.isArray(artifactBlueprint.handoutBlocks)
+      ? artifactBlueprint.handoutBlocks.map((section) => section.key)
+      : [];
+    if (JSON.stringify(blueprintHandoutKeys) !== JSON.stringify(requiredHandoutSectionKeys)) {
+      failures.push(`${label}: artifactBlueprint.handoutBlocks must use ${requiredHandoutSectionKeys.join(', ')} in order`);
+    }
+    for (const block of artifactBlueprint.handoutBlocks || []) {
+      if (!isNonEmptyString(block.prompt) || !isNonEmptyString(block.expectedStudentWork)) {
+        failures.push(`${label}: every artifactBlueprint handout block needs prompt and expectedStudentWork`);
+      }
+    }
+    if (!/handout/i.test(artifactBlueprint.chapterOutput || '') || /textbook-only/i.test(artifactBlueprint.chapterOutput || '') === false) {
+      failures.push(`${label}: artifactBlueprint.chapterOutput must keep textbook chapters tied to handouts and reject textbook-only content`);
+    }
+    if (!isNonEmptyString(artifactBlueprint.examItemShape)) {
+      failures.push(`${label}: artifactBlueprint.examItemShape must be a non-empty string`);
+    }
+
+    const assessmentBlueprint = lesson.assessmentBlueprint || {};
+    for (const field of ['commandWord', 'stimulusType', 'calculationRequirement', 'judgementRequirement', 'mustAvoid']) {
+      if (!isNonEmptyString(assessmentBlueprint[field])) failures.push(`${label}: assessmentBlueprint.${field} must be a non-empty string`);
+    }
+    if (!Number.isInteger(assessmentBlueprint.marks) || assessmentBlueprint.marks < 1) {
+      failures.push(`${label}: assessmentBlueprint.marks must be a positive integer`);
+    }
+
+    const review = lesson.caseReview || {};
+    if (!allowedCaseReviewStatuses.has(review.status)) {
+      failures.push(`${label}: caseReview.status must be one of ${[...allowedCaseReviewStatuses].join(', ')}`);
+    }
+    if (!isNonEmptyString(review.sourceFit) || !isNonEmptyString(review.reason)) {
+      failures.push(`${label}: caseReview must include sourceFit and reason`);
+    }
+    if (review.status !== 'keep' && !isNonEmptyString(review.replacementCandidate)) {
+      failures.push(`${label}: non-keep caseReview entries need a replacementCandidate`);
     }
 
     if (lesson.examPattern?.checkpoint !== expectedUnit) {
@@ -202,22 +314,32 @@ function validateSyllabusUsesCourseMap() {
 function validateCompiledHandoutBook() {
   const failures = [];
   const expected = normaliseLineEndings(renderHandoutBook(courseMap));
+  const expectedTeacherBlueprint = normaliseLineEndings(renderTeacherBlueprint(courseMap));
   const actual = fs.existsSync(handoutBookPath)
     ? normaliseLineEndings(fs.readFileSync(handoutBookPath, 'utf8'))
+    : '';
+  const actualTeacherBlueprint = fs.existsSync(teacherBlueprintPath)
+    ? normaliseLineEndings(fs.readFileSync(teacherBlueprintPath, 'utf8'))
     : '';
 
   if (actual !== expected) {
     failures.push('investment-analysis/companion-textbook/compiled-handout-book.md: compiled handout book is missing or out of date');
-    return failures;
+  }
+  if (actualTeacherBlueprint !== expectedTeacherBlueprint) {
+    failures.push('investment-analysis/companion-textbook/course-map-teacher-blueprint.md: teacher blueprint is missing or out of date');
   }
 
   const lessonHeadings = actual.match(/^## Lesson \d+:/gm) || [];
   const unitHeadings = actual.match(/^# Unit \d+:/gm) || [];
   const sourceBoxes = actual.match(/^### Source box$/gm) || [];
+  const blueprintLessonHeadings = actualTeacherBlueprint.match(/^## Lesson \d+:/gm) || [];
 
   if (lessonHeadings.length !== 30) failures.push('compiled handout book: expected 30 lesson handouts');
   if (unitHeadings.length !== 6) failures.push('compiled handout book: expected 6 unit dividers');
   if (sourceBoxes.length !== 30) failures.push('compiled handout book: every lesson handout needs a source box');
+  if (blueprintLessonHeadings.length !== 30) failures.push('teacher blueprint: expected 30 lesson blueprints');
+  if (!/Case Review Table/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing case review table');
+  if (!/Source-Fit Audit/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing source-fit audit');
   if (/^#{1,3}\s+Chapter\b/im.test(actual)) {
     failures.push('compiled handout book: should not contain separate textbook chapter headings');
   }

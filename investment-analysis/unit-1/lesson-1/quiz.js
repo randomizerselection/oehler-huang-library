@@ -72,7 +72,8 @@ window.INVEST.quiz = {
         "A government tax"
       ],
       answer: 0,
-      explanation: "A share is an ownership claim, not the product sold by the company. Market sources may also say stock; this course uses share for one ownership unit."
+      explanation: "A share is an ownership claim, not the product sold by the company. Stock can mean the company's shares in general; share means one unit.",
+      explanationZh: "一股股票是一种所有权要求，不是公司出售的产品。Stock 可以指某家公司股票的总体；share 指一股、一个单位。"
     },
     {
       id: "share-price-point",
@@ -86,7 +87,8 @@ window.INVEST.quiz = {
         "The number of products the company sold"
       ],
       answer: 0,
-      explanation: "A graph point is a source-dated share price, often labelled stock price in market sources. It is evidence, not a complete judgement."
+      explanation: "A graph point is a source-dated share price. It is evidence, not a complete judgement.",
+      explanationZh: "图上的一个点是带有来源日期的股价。它是证据，但不是完整判断。"
     },
     {
       id: "risk",

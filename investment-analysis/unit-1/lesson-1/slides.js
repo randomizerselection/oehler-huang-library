@@ -94,8 +94,8 @@ window.INVEST.lesson = {
               { label: "Investment analysis", prompt: "Investment analysis uses __________ before opinion.", answer: "evidence" },
               { label: "Course boundary", prompt: "This course is not about short-term __________.", answer: "speculation" },
               { label: "Asset", prompt: "An asset is something owned that may have __________.", answer: "value" },
-              { label: "Share / stock", prompt: "British English usually uses share for one unit; market sources may also say stock. A share is one unit of __________ in a company.", answer: "ownership" },
-              { label: "Share price / stock price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" },
+              { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
+              { label: "Share price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" },
               { label: "Risk", prompt: "Risk is the possibility that results are worse than __________.", answer: "expected" },
               { label: "Risk-return rule", prompt: "Higher possible return usually comes with higher __________.", answer: "risk" }
             ]
@@ -339,12 +339,12 @@ window.INVEST.lesson = {
       title: "Share",
       term: "Share",
       termZh: "股票 / 股份",
-      definition: "British English usually uses share for one unit; market sources may also say stock. A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company.",
-      definitionZh: "股票是公司所有权中的一个单位。",
+      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company. Stock can mean the company's shares in general; share means one unit.",
+      definitionZh: "一股股票是公司所有权中的一个单位。Stock 可以指某家公司股票的总体；share 指一股、一个单位。",
       keyTerms: [
         { term: "One unit", zh: "一个单位", note: "A share is a small part, not the whole company." },
         { term: "Ownership", zh: "所有权", note: "The shareholder owns a claim, not the company's products." },
-        { term: "Stock", zh: "股票", note: "Common market word for company shares; this course uses share for one ownership unit." }
+        { term: "Stock", zh: "股票", note: "Stock can mean the company's shares in general; share means one unit." }
       ],
       notes: "Keep the definition direct. Control and voting detail comes later."
     },
@@ -357,7 +357,8 @@ window.INVEST.lesson = {
       question: "Choose one: the whole company, one product, one unit of ownership, or one guaranteed profit. Explain your choice.",
       zh: "选择一个：整家公司、一个产品、一个所有权单位，还是一个保证利润。说明理由。",
       revealTitle: "One share is one ownership unit",
-      answer: "One share is one ownership unit. Market sources may say stock, but this course uses share for the unit. It does not mean owning the whole company, owning a product or receiving guaranteed profit.",
+      answer: "One share is one ownership unit. Stock can mean the company's shares in general; share means one unit. It is not the whole company, a product or guaranteed profit.",
+      answerZh: "一股股票是一个所有权单位。Stock 可指某家公司股票的总体；share 指一股、一个单位。它不是整家公司、产品或保证利润。",
       notes: "This prepares Lesson 4 but does not teach ownership percentage yet."
     },
     {
@@ -366,12 +367,11 @@ window.INVEST.lesson = {
       title: "Share price",
       term: "Share price",
       termZh: "股价",
-      definition: "A share price, often labelled stock price in market sources, is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
+      definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
       definitionZh: "股价是在特定时间一股股票的市场价格。",
       keyTerms: [
         { term: "One share", zh: "一股", note: "Not the whole company." },
-        { term: "Specific time", zh: "特定时间", note: "The classroom graph is frozen, not live." },
-        { term: "Stock price", zh: "股价", note: "Common market label for the price of one listed share." }
+        { term: "Specific time", zh: "特定时间", note: "The classroom graph is frozen, not live." }
       ],
       notes: "Do not calculate percentage change in this lesson."
     },

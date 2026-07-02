@@ -4,7 +4,7 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../course-map-data.js` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, key terms, definitions, formulae, required evidence fields, handout sections, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
+Also check `../course-map-data.js` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
 
 Required files:
 
@@ -14,14 +14,24 @@ Required files:
 
 Classroom rhythm:
 
-1. Hero or market brief.
-2. Concrete starter that asks students to choose, predict or classify before the reveal.
+1. Case hook or market brief.
+2. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
 3. Exactly three bilingual objectives.
-4. Section divider, visual or data pause, taught content, formative check.
-5. Calculation or evidence practice where useful.
-6. Exam-style writing and exit ticket.
+4. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
+5. Output rehearsal using the lesson `primaryOutput`.
+6. Exit ticket, then follow-up quiz.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
+
+ILA and continuous retrieval:
+
+- Treat ILA as integrated learning and assessment: checks are part of teaching, not a separate test at the end.
+- Every taught section should begin with brief retrieval from the lesson `retrievalBase`, earlier course concepts, recurring misconceptions, formulas, source habits or evidence-judgement chains.
+- Every taught section should include a student attempt before the reveal and a formative check after the reveal.
+- Vary formative assessment across the lesson: hinge questions, sorting, mini calculations, source checks, misconception correction, peer comparison, cold-call justification and individual written checks.
+- Every formative check should produce a visible decision point for the teacher: move on, reteach, ask for improvement or collect the individual output.
+- The final exit ticket should assess the lesson `primaryOutput`; the lesson quiz should retrieve the same core ideas after the lesson.
+- Keep technical ILA language mostly in notes and planning guidance. Visible slide labels should remain student-facing, such as `Try first`, `Key idea`, `Practice check`, `Output rehearsal` and `Exit ticket`.
 
 Teaching rhythm:
 
@@ -39,10 +49,13 @@ Syllabus alignment:
 
 - Center each lesson on the real company named in `course-map-data.js` unless the structured course map itself is intentionally revised.
 - Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
+- Start from the lesson `coreClaim`, `primaryOutput`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint`; do not invent a separate deck, handout or exam objective.
+- Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.
 - Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
 - Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
-- Build the lesson handout from the six `handoutSections` in `course-map-data.js`: source box, vocabulary, company evidence, calculation or judgement task, misconception check and individual written output.
+- Run the `sourceFitAudit` and check `caseReview` before building a deck; if the source pack fails, replace the company only with a case that preserves the same unit role, skill target and assessment blueprint.
+- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-data.js`: source box, vocabulary, company evidence, calculation or judgement task, misconception check and individual written output.
 - The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
 - Do not turn any unit into a multi-lesson portfolio, report or final project sequence.

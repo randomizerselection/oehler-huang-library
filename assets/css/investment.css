@@ -2702,6 +2702,11 @@ img {
   border-left-color: var(--inv-green);
 }
 
+.invDiscussionAnswer .invPromptZh {
+  margin: 8px 0 0;
+  line-height: 1.16;
+}
+
 .invTermBox {
   min-height: 390px;
   grid-template-columns: minmax(270px, 0.36fr) minmax(0, 1fr);

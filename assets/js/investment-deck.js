@@ -510,6 +510,7 @@
         <div class="invNotePanel invReveal invDiscussionAnswer">
           ${slide.revealTitle ? `<strong>${escapeHtml(slide.revealTitle)}</strong>` : ''}
           <p>${html(slide.answer || slide.note || '')}</p>
+          ${slide.answerZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.answerZh)}</p>` : ''}
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invDiscussionSlide invContextPhotoSlide', photo);
