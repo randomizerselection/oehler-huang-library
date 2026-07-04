@@ -10,7 +10,7 @@ window.INVEST.lesson = {
     sources: [
       {
         label: "Tencent investor relations",
-        note: "Used for company identity, official investor-material context and listed-company source habits.",
+        note: "Used for company identity and official investor-material context.",
         date: "Accessed 26 June 2026",
         url: "https://www.tencent.com/en-us/investors.html"
       },
@@ -19,19 +19,13 @@ window.INVEST.lesson = {
         note: "Used for the frozen five-year 0700.HK monthly share-price graph as a classroom observation source.",
         date: "Accessed 2 July 2026",
         url: "https://finance.yahoo.com/quote/0700.HK/history/"
-      },
-      {
-        label: "Tencent 2025 annual and fourth quarter results",
-        note: "Used for a simple company-evidence example: HKEX 00700 / 0700.HK and FY2025 revenue, gross profit and gross margin.",
-        date: "Published 18 March 2026; accessed 26 June 2026",
-        url: "https://static.www.tencent.com/uploads/2026/03/18/e6a646796d0d869acc76271c9ee1a6a5.pdf"
       }
     ]
   },
   handout: {
     title: "Investment analysis starter sheet",
     subtitle: "Unit 1 Lesson 1: What is investment analysis, and what is a share?",
-    description: "Build the first analyst habit: record the source, separate Tencent the company from Tencent the listed share, define share price and risk, and write one evidence question before making an opinion.",
+    description: "Distinguish investment analysis from short-term speculation, define the first share vocabulary, and explain why return, risk and share price must be considered together.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -41,7 +35,7 @@ window.INVEST.lesson = {
       {
         label: "1",
         title: "Source box",
-        instruction: "Record the source before making any judgement.",
+        instruction: "Record the classroom source before making any judgement.",
         blocks: [
           {
             type: "facts",
@@ -51,145 +45,104 @@ window.INVEST.lesson = {
               { label: "Official HKEX code", value: "00700 (HKD counter)" },
               { label: "Exchange", value: "Hong Kong Stock Exchange" },
               { label: "Graph source", value: "Yahoo Finance historical prices" },
-              { label: "Graph accessed", value: "2 Jul 2026" },
-              { label: "Company results source", value: "Tencent FY2025 annual and Q4 results" },
-              { label: "Results published", value: "18 Mar 2026" }
+              { label: "Graph accessed", value: "2 Jul 2026" }
             ]
           },
           {
             type: "prompts",
             prompts: [
-              { label: "URL", prompt: "Write the source URL or source title you used.", lines: 1 },
-              { label: "Key figure", prompt: "Record one figure or graph point from the source.", lines: 1 },
-              { label: "Limitation", prompt: "What can this source not prove by itself?", lines: 2 }
+              { label: "Observation", prompt: "What do you notice about the Tencent share-price line?", lines: 2 },
+              { label: "Question", prompt: "What evidence would you need before judging the share?", lines: 2 }
             ]
           }
         ]
       },
       {
         label: "2",
-        title: "Vocabulary",
-        instruction: "Complete the course-entry definitions, then use one term in a sentence.",
+        title: "Investment or speculation",
+        instruction: "Classify each statement, then correct one weak statement.",
         blocks: [
           {
-            type: "terms",
-            terms: [
-              { label: "Investment analysis", prompt: "Investment analysis uses __________ before opinion.", answer: "evidence" },
-              { label: "Asset", prompt: "An asset is something owned that may have __________.", answer: "value" },
-              { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
-              { label: "Share price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" },
-              { label: "Risk", prompt: "Risk is the possibility that results are worse than __________.", answer: "expected" },
-              { label: "Short-term stock speculation", prompt: "Speculation bets on price movement without enough __________.", answer: "evidence" }
+            type: "cases",
+            cases: [
+              { label: "A", text: "I will buy because the line might jump next week.", answer: "speculation" },
+              { label: "B", text: "I need evidence about possible return, risk and price before judging.", answer: "investment analysis" },
+              { label: "C", text: "Tencent is famous, so the share must be safe.", answer: "weak opinion" }
             ]
           },
           {
             type: "sentence",
-            label: "Use-in-context check",
-            prompt: "Use one vocabulary term to explain why a famous company is not automatically a good investment.",
-            keywords: ["company", "share", "evidence", "risk"],
+            label: "Correction sentence",
+            prompt: "Rewrite one weak statement so it becomes an investment-analysis question.",
+            keywords: ["evidence", "possible return", "risk", "share price"],
             lines: 3
           }
         ]
       },
       {
         label: "3",
-        title: "Company evidence",
-        instruction: "Use Tencent as a familiar company, then inspect the frozen graph as evidence.",
+        title: "Vocabulary",
+        instruction: "Complete the definitions. These are the Lesson 1 core terms.",
         blocks: [
           {
-            type: "prompts",
-            prompts: [
-              { label: "Company", prompt: "Name one Tencent product or service students may recognise.", lines: 1 },
-              { label: "Listed share", prompt: "Which code identifies the listed share in the classroom source?", lines: 1 },
-              { label: "Graph observation", prompt: "Does the frozen share-price line stay flat, rise steadily, fall steadily or move up and down?", lines: 2 },
-              { label: "Movement question", prompt: "What information might explain one movement in the graph?", lines: 2 }
+            type: "terms",
+            terms: [
+              { label: "Investment analysis", prompt: "Investment analysis uses evidence to study possible return, risk and __________ before judgement.", answer: "price" },
+              { label: "Asset", prompt: "An asset is something owned that may have __________.", answer: "value" },
+              { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
+              { label: "Possible return", prompt: "Possible return is the gain an investor hopes to __________.", answer: "earn" },
+              { label: "Risk", prompt: "Risk is the possibility that results are worse than __________.", answer: "expected" },
+              { label: "Share price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" }
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "Calculation or judgement task",
-        instruction: "No percentage-change formula yet. Separate evidence from judgement.",
+        title: "Asset, share and share price",
+        instruction: "Keep the three ideas separate before judging the graph.",
         blocks: [
           {
             type: "table",
-            columns: ["Evidence", "What it may show", "What it cannot prove alone"],
+            columns: ["Idea", "Meaning", "What it is not"],
             rows: [
-              {
-                metric: "Share-price graph",
-                value: "0700.HK monthly closes",
-                shows: "How one share price moved over time.",
-                limits: "",
-                showsLines: 1,
-                limitLines: 2
-              },
-              {
-                metric: "Revenue",
-                value: "RMB751.8bn",
-                shows: "The scale of sales before costs.",
-                limits: "",
-                showsLines: 1,
-                limitLines: 2
-              },
-              {
-                metric: "Gross margin",
-                value: "56%",
-                shows: "Gross profit compared with revenue.",
-                limits: "",
-                showsLines: 1,
-                limitLines: 2
-              },
-              {
-                metric: "Risk note",
-                value: "Future unknowns",
-                shows: "A reason results may be worse than expected.",
-                limits: "",
-                showsLines: 1,
-                limitLines: 2
-              }
+              { metric: "Asset", value: "Something owned that may have value", shows: "Owned item with possible value", limits: "Not automatically profitable" },
+              { metric: "Share", value: "One ownership unit in a company", shows: "A claim on one unit of ownership", limits: "Not the whole company" },
+              { metric: "Share price", value: "Market price of one share at one time", shows: "What buyers and sellers paid then", limits: "Not revenue, profit or total company value" }
             ]
           }
         ]
       },
       {
         label: "5",
-        title: "Misconception check",
-        instruction: "Correct each weak claim so it becomes an analyst sentence.",
+        title: "Risk and return",
+        instruction: "Explain why possible return is incomplete without risk.",
         blocks: [
           {
-            type: "cases",
-            cases: [
-              { label: "A", text: "Tencent is famous, so the share must be a good investment.", answer: "weak opinion" },
-              { label: "B", text: "The line moved up, so there is no risk.", answer: "graph overclaim" },
-              { label: "C", text: "I heard it will jump next week.", answer: "short-term speculation" },
-              { label: "D", text: "An analyst needs source-dated evidence about the company, share price, possible return and risk.", answer: "analysis rule" }
+            type: "prompts",
+            prompts: [
+              { label: "Return", prompt: "How could an investor gain from owning a share?", lines: 2 },
+              { label: "Risk", prompt: "What could make the result worse than expected?", lines: 2 },
+              { label: "Trade-off", prompt: "Why should return and risk be judged together?", lines: 3 }
             ]
-          },
-          {
-            type: "sentence",
-            label: "Correction sentence",
-            prompt: "Rewrite one weak claim so it delays judgement until evidence is checked.",
-            keywords: ["source", "date", "price", "risk", "evidence before opinion"],
-            lines: 3
           }
         ]
       },
       {
         label: "6",
         title: "Individual written output",
-        instruction: "Submit your own course promise sentence and one evidence question.",
+        instruction: "Submit one careful Lesson 1 analyst sentence.",
         blocks: [
           {
             type: "writing",
-            question: "Write one course promise sentence and one evidence question about a Tencent price movement.",
-            keywords: ["investment analysis", "company", "listed share", "share price", "evidence", "risk", "not speculation"],
+            question: "Write three sentences: define investment analysis, define one share, and explain why possible return must be judged with risk and share price.",
+            keywords: ["investment analysis", "evidence", "share", "possible return", "risk", "share price", "not speculation"],
             lines: 8
           }
         ]
       }
     ],
-    sources: "Tencent price graph: Yahoo Finance monthly historical prices, accessed 2 Jul 2026. Tencent company data: 2025 annual and fourth quarter results, published 18 Mar 2026, accessed 26 Jun 2026. Frozen classroom evidence only; no personal investment recommendation."
+    sources: "Tencent price graph: Yahoo Finance monthly historical prices, accessed 2 Jul 2026. Tencent company identity: Tencent investor relations, accessed 26 Jun 2026. Frozen classroom evidence only; no personal investment recommendation."
   },
   slides: [
     {
@@ -197,21 +150,19 @@ window.INVEST.lesson = {
       eyebrow: "Unit 1 Lesson 1",
       title: "What is investment analysis, and what is a share?",
       zhTitle: "什么是投资分析？什么是股票？",
-      subtitle: "Tencent first case",
-      kicker: "Use evidence before opinion. Separate Tencent the company, Tencent the listed share, the share price, possible return and risk.",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
-        "This is the course-entry lesson for students with no prior investment study.",
-        "State the boundary early: this course is not stock tips, market timing, short-term speculation or personal investment advice."
+        "This is a vocabulary-and-boundary starter lesson.",
+        "Keep the focus on concepts, not advice or stock picking."
       ]
     },
     {
       type: "priceChart",
       eyebrow: "Case hook",
-      title: "What does this line make you ask?",
-      zhTitle: "这条线让你提出什么问题？",
-      question: "Look first. What movement do you notice, and what information might explain one change?",
-      questionZh: "先观察。你注意到什么变化？可能需要什么信息来解释其中一次变化？",
+      title: "What is investment?",
+      zhTitle: "什么是投资？",
+      question: "Look at the Tencent price line. What would make buying one share investment analysis rather than short-term speculation?",
+      questionZh: "看腾讯股价线。什么会使买入一股成为投资分析，而不是短期投机？",
       ticker: "0700.HK",
       data: investmentMarketData.tencentFiveYearSharePrice,
       yMin: 150,
@@ -219,106 +170,75 @@ window.INVEST.lesson = {
       sourceStamp: "Tencent 0700.HK monthly closes | Yahoo Finance | accessed 2 Jul 2026",
       alt: "Five-year line chart of Tencent 0700.HK monthly share-price closes.",
       notes: [
-        "Use the chart before definitions so students experience evidence first.",
-        "Do not calculate percentage change. Students only observe movement and ask what evidence may explain it."
+        "Use the chart as the hook only. The lesson question is not whether Tencent is a good investment.",
+        "Students should say that investment analysis needs evidence about possible return, risk and price."
       ]
-    },
-    {
-      type: "discussion",
-      eyebrow: "Try first",
-      title: "What can we say before we calculate?",
-      zhTitle: "计算之前我们能说什么？",
-      visual: investmentPhotos.smartphoneMarketChart,
-      question: "Write one careful sentence about the line without saying buy, sell, good or bad.",
-      zh: "写一句谨慎的话描述这条线，但不要说买、卖、好或坏。",
-      revealTitle: "A graph gives a question, not advice",
-      answer: "The line shows how one Tencent share price moved in this frozen source. It raises a question about evidence; it does not give investment advice.",
-      answerZh: "这条线显示这份冻结来源中一股腾讯股票价格如何变化。它提出证据问题，不提供投资建议。",
-      notes: "This immediately separates observation from recommendation."
-    },
-    {
-      type: "classificationTask",
-      eyebrow: "Retrieval",
-      title: "Everyday ideas we already know",
-      zhTitle: "我们已经知道的日常概念",
-      prompt: "Classify each starting idea before we add investment vocabulary.",
-      promptZh: "在加入投资词汇前，先给每个起点想法分类。",
-      categories: [
-        { title: "Company", zhTitle: "公司", clue: "business and products" },
-        { title: "Price", zhTitle: "价格", clue: "one number at one time" },
-        { title: "Evidence habit", zhTitle: "证据习惯", clue: "check before judging" }
-      ],
-      items: [
-        {
-          label: "A",
-          text: "Tencent sells products and services.",
-          zh: "腾讯销售产品和服务。",
-          answer: "Company",
-          answerZh: "公司",
-          reason: "This names the business; it is not yet a judgement about the listed share.",
-          reasonZh: "这说明公司业务，还不是对上市股票的判断。"
-        },
-        {
-          label: "B",
-          text: "A price line changes over time.",
-          zh: "价格线会随时间变化。",
-          answer: "Price",
-          answerZh: "价格",
-          reason: "This describes the number we can observe before asking why it changed.",
-          reasonZh: "这描述我们能先观察到的数字，然后再问它为什么变化。"
-        },
-        {
-          label: "C",
-          text: "A claim needs a source before it becomes analysis.",
-          zh: "一个观点成为分析前需要来源。",
-          answer: "Evidence habit",
-          answerZh: "证据习惯",
-          reason: "This is the course habit: evidence first, judgement second.",
-          reasonZh: "这是本课程的习惯：先证据，后判断。"
-        }
-      ],
-      sharePrompt: "Which category will matter most when we look at the Tencent graph?",
-      sharePromptZh: "看腾讯图表时，哪一类最重要？",
-      notes: "Brief diagnostic only. No prior investment vocabulary is assumed."
     },
     {
       type: "outcomes",
       eyebrow: "Objectives",
       title: "By the end, you can",
       zhTitle: "本节课结束时，你能够",
-      phases: ["Name", "Separate", "Judge"],
+      phases: ["Separate", "Define", "Define", "Explain", "Explain"],
       bullets: [
-        "name the course rule: evidence before opinion",
-        "separate company, products, listed share and share price",
-        "judge what graph evidence can and cannot prove"
+        "distinguish between investment and speculation",
+        "define investment analysis",
+        "define asset and share",
+        "explain risk and return",
+        "explain what a share price is"
       ],
       zhBullets: [
-        "说出课程规则：先证据，后观点",
-        "区分公司、产品、上市股票和股价",
-        "判断图表证据能证明什么、不能证明什么"
+        "区分投资与投机",
+        "定义投资分析",
+        "定义资产和股票",
+        "解释风险与回报",
+        "解释什么是股价"
       ],
-      notes: "Exactly three objectives, aligned to the syllabus handout and exit output."
+      notes: "These five visible objectives are the whole Lesson 1 contract."
     },
     {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "Knowledge step 1: evidence before opinion",
-      zhTitle: "知识步骤1：先证据，后观点",
-      notes: "Cycle 1: retrieve everyday opinions, attempt to classify, reveal the course rule, check the core claim."
+      title: "Investment is not short-term speculation",
+      zhTitle: "投资不是短期投机",
+      notes: "Cycle 1: separate the course method from price-jump guessing."
     },
     {
       type: "discussion",
       eyebrow: "Try first",
-      title: "Is this analysis or opinion?",
-      zhTitle: "这是分析还是观点？",
-      visual: investmentPhotos.investorMeetingReport,
-      question: "Tencent is famous, so the share must be a good investment. What is missing from this sentence?",
-      zh: "“腾讯很有名，所以这只股票一定是好投资。”这句话缺少什么？",
-      revealTitle: "Familiarity is not evidence",
-      answer: "The sentence starts with opinion. It does not identify a source, date, share price, possible return, risk or limitation.",
-      answerZh: "这句话从观点开始，没有说明来源、日期、股价、可能回报、风险或局限性。",
-      notes: "Cold-call one missing evidence type before reveal."
+      title: "Is this investment or speculation?",
+      zhTitle: "这是投资还是投机？",
+      visual: investmentPhotos.smartphoneMarketChart,
+      question: "A student says: 'The line might jump next week, so buy now.' What is missing?",
+      zh: "一位学生说：“这条线下周可能会上涨，所以现在买。”这句话缺少什么？",
+      revealTitle: "A price guess is not analysis",
+      answer: "It is missing evidence about possible return, risk and price. It guesses a short-term movement instead of analysing the investment.",
+      answerZh: "它缺少关于可能回报、风险和价格的证据。它是在猜测短期价格变动，而不是分析投资。",
+      notes: "Students should identify missing evidence before the reveal."
+    },
+    {
+      type: "compare",
+      eyebrow: "Key distinction",
+      title: "Investment analysis vs speculation",
+      zhTitle: "投资分析与投机",
+      leftTitle: "Investment analysis",
+      leftTitleZh: "投资分析",
+      rightTitle: "Short-term speculation",
+      rightTitleZh: "短期投机",
+      left: [
+        { label: "1", text: "Uses source-dated evidence before judgement.", zh: "判断前使用有来源和日期的证据。" },
+        { label: "2", text: "Studies possible return, risk and price together.", zh: "同时研究可能回报、风险和价格。" },
+        { label: "3", text: "Can say 'I do not know yet' when evidence is missing.", zh: "证据不足时可以说“我还不知道”。" }
+      ],
+      right: [
+        { label: "1", text: "Chases a short-term price movement.", zh: "追逐短期价格变动。" },
+        { label: "2", text: "Relies on tips, fame or feelings.", zh: "依赖消息、名气或感觉。" },
+        { label: "3", text: "Jumps to buy, sell, good or bad too quickly.", zh: "过快跳到买、卖、好或坏。" }
+      ],
+      prompt: "Which side is the method of this course?",
+      promptZh: "本课程采用哪一边的方法？",
+      notes: "Frame speculation as the mistake to avoid."
     },
     {
       type: "term",
@@ -328,106 +248,34 @@ window.INVEST.lesson = {
       termZh: "投资分析",
       definition: "Investment analysis uses <span class=\"blank invReveal\" data-answer=\"evidence\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">evidence</span></span> to study possible return, risk and price before making a judgement.",
       definitionZh: "投资分析是在作出判断之前，用证据研究可能回报、风险和价格。",
-      notes: "Make students write the definition, then underline evidence, return, risk and price."
-    },
-    {
-      type: "compare",
-      eyebrow: "Key idea",
-      title: "Evidence-based analysis vs weak opinion",
-      zhTitle: "基于证据的分析与薄弱观点",
-      leftTitle: "Evidence-based analysis",
-      leftTitleZh: "基于证据的分析",
-      rightTitle: "Weak opinion",
-      rightTitleZh: "薄弱观点",
-      left: [
-        { label: "1", text: "Names the source, date and evidence.", zh: "说明来源、日期和证据。" },
-        { label: "2", text: "Checks price, possible return, risk and limits before judging.", zh: "判断前检查价格、可能回报、风险和局限。" }
-      ],
-      right: [
-        { label: "1", text: "Starts from fame, rumours or feelings.", zh: "从名气、传闻或感觉出发。" },
-        { label: "2", text: "Jumps from a graph to buy, sell, good or bad.", zh: "从图表直接跳到买、卖、好或坏。" }
-      ],
-      prompt: "Which side is acceptable in this course, and why?",
-      promptZh: "本课程接受哪一边？为什么？",
-      notes: "This is the core claim from the course map. The contrast should be visible before the first hinge check."
+      notes: "Make students write the definition and underline evidence, return, risk and price."
     },
     {
       type: "quiz",
       eyebrow: "Practice check",
-      title: "Check 1: what changes a guess into analysis?",
-      zhTitle: "检查1：什么把猜测变成分析？",
-      visual: investmentPhotos.financialAnalysisDesk,
-      question: "Which sentence best follows evidence before opinion?",
-      zh: "哪一句最符合先证据、后观点？",
+      title: "Check 1: investment or speculation?",
+      zhTitle: "检查1：投资还是投机？",
+      visual: investmentPhotos.investorMeetingReport,
+      question: "Which sentence is investment analysis?",
+      zh: "哪一句是投资分析？",
       choices: [
-        "Tencent is famous, so the share is safe.",
-        "I heard the price will jump next week.",
-        "Tencent is a familiar company, but I need source-dated evidence before judging the share.",
-        "The graph moved up, so risk has disappeared."
+        "Tencent is famous, so the share must be safe.",
+        "The line might jump next week, so buy now.",
+        "I need evidence about possible return, risk and price before judging.",
+        "A high price always means a good company."
       ],
       answer: 2,
-      explanation: "Correct: the sentence identifies the company but delays judgement until source-dated evidence is checked.",
-      explanationZh: "正确：这句话识别了公司，但把判断放在核查带日期的证据之后。",
-      notes: "Use responses to decide whether to reteach opinion versus evidence."
+      explanation: "Correct: investment analysis delays judgement until evidence about possible return, risk and price is checked.",
+      explanationZh: "正确：投资分析会等到核查可能回报、风险和价格的证据之后再作判断。",
+      notes: "Use responses to decide whether to reteach the distinction."
     },
     {
       type: "section",
       eyebrow: "Part 2",
       part: "2",
-      title: "Knowledge step 2: company, share and price",
-      zhTitle: "知识步骤2：公司、股票和价格",
-      notes: "Cycle 2: separate the four beginner ideas and define asset, share and share price."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Retrieve",
-      title: "What do you already know about Tencent?",
-      zhTitle: "你已经知道腾讯什么？",
-      visual: investmentPhotos.tencentBinhaiTowers,
-      question: "List two Tencent products or services. Then write one thing product familiarity cannot prove.",
-      zh: "列出两个腾讯产品或服务。再写出产品熟悉度不能证明的一件事。",
-      revealTitle: "A company is not the same as its share",
-      answer: "Products help us recognise Tencent, but they do not prove whether Tencent's listed share is good value or low risk.",
-      answerZh: "产品帮助我们认识腾讯，但不能证明腾讯上市股票是否价格合理或风险低。",
-      notes: "Use familiarity as an entry point, not as evidence for investment quality."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Source check",
-      title: "Check the Tencent source",
-      zhTitle: "记录腾讯来源框",
-      subtitle: "Check source details before judging.",
-      ticker: "Tencent classroom source",
-      question: "What must we record before judging Tencent?",
-      questionZh: "圈出公司、上市股票、来源标题和访问日期。",
-      sourceStamp: "Tencent graph | Yahoo Finance | accessed 2 Jul 2026",
-      revealTitle: "Source first, judgement second",
-      answer: "Record the listed share, source title and date. That identifies the evidence; it does not prove a good investment.",
-      answerZh: "先记录上市股票、来源标题和日期。这能确认证据来源，但不能证明它是好投资。",
-      metaItems: [
-        { label: "Company", value: "Tencent Holdings Limited", note: "腾讯控股有限公司" },
-        { label: "Listed share", value: "0700.HK / HKEX 00700", note: "报价代码 / 港交所代码" },
-        { label: "Source date", value: "Accessed 2 Jul 2026", note: "冻结课堂来源" }
-      ],
-      checks: [
-        { label: "Limit", prompt: "What can it not prove by itself?", answer: "It cannot prove whether Tencent is a good investment." }
-      ],
-      notes: "Use this as a focused source-validity check."
-    },
-    {
-      type: "flow",
-      eyebrow: "Try first",
-      title: "Keep the four ideas separate",
-      zhTitle: "把四个概念分清楚",
-      visual: investmentPhotos.businessChartsPaper,
-      flowStyle: "sequence",
-      steps: [
-        { text: "Tencent Holdings Limited is the __________.", answer: "company", zh: "腾讯控股有限公司是公司。" },
-        { text: "Games, apps and payments are products or __________.", answer: "services", zh: "游戏、应用和支付是产品或服务。" },
-        { text: "0700.HK is a listed __________.", answer: "share", zh: "0700.HK 是上市股票。" },
-        { text: "One graph point shows the share __________.", answer: "price", zh: "图上的一个点显示股价。" }
-      ],
-      notes: "Students predict the labels, then reveal. Do not teach quote-page mechanics."
+      title: "Assets and shares are ownership ideas",
+      zhTitle: "资产和股票是所有权概念",
+      notes: "Cycle 2: define asset and share cleanly before adding price."
     },
     {
       type: "term",
@@ -437,7 +285,7 @@ window.INVEST.lesson = {
       termZh: "资产",
       definition: "An asset is something owned that may have <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span>.",
       definitionZh: "资产是被拥有且可能有价值的东西。",
-      notes: "Examples can include cash, a building, a machine or a share. Avoid a full asset-class taxonomy."
+      notes: "Examples can include cash, a building, a machine, a brand or a share."
     },
     {
       type: "term",
@@ -447,188 +295,83 @@ window.INVEST.lesson = {
       termZh: "股票 / 股份",
       definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company.",
       definitionZh: "一股股票是公司所有权中的一个单位。",
-      notes: "Control, voting power and ownership percentage come later. Keep this first definition simple."
+      notes: "Keep this definition simple. Voting rights and ownership percentages come later."
     },
     {
       type: "discussion",
       eyebrow: "Practice check",
-      title: "What do you own if you own one share?",
-      zhTitle: "如果拥有一股，你拥有什么？",
+      title: "What does one share mean?",
+      zhTitle: "一股股票意味着什么？",
       visual: investmentPhotos.shareholderMeeting,
-      question: "Choose one: the whole company, one product, one unit of ownership, or guaranteed profit. Explain your choice.",
-      zh: "选择一个：整家公司、一个产品、一个所有权单位，还是保证利润。说明你的选择。",
+      question: "If you own one Tencent share, do you own the whole company, one product, or one ownership unit?",
+      zh: "如果你拥有一股腾讯股票，你拥有的是整家公司、一个产品，还是一个所有权单位？",
       revealTitle: "One share is one ownership unit",
-      answer: "One share is one ownership unit in a company. It is not the whole company, not a product and not guaranteed profit.",
-      answerZh: "一股股票是公司中的一个所有权单位。它不是整家公司，不是产品，也不是保证利润。",
-      notes: "This checks the most important beginner misconception before moving to share price."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Share price",
-      term: "Share price",
-      termZh: "股价",
-      definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
-      definitionZh: "股价是在特定时间一股股票的市场价格。",
-      notes: "Emphasise one share at one time. It is not revenue, profit or the total value of the whole company."
+      answer: "One share is one ownership unit in a company. It is not the whole company, one product or guaranteed profit.",
+      answerZh: "一股股票是公司中的一个所有权单位。它不是整家公司、一个产品，也不是保证利润。",
+      notes: "This checks the core share misconception."
     },
     {
       type: "classificationTask",
       eyebrow: "Hinge check",
-      title: "Check 2: separate the ideas",
-      zhTitle: "检查2：区分概念",
-      prompt: "Classify each Tencent statement before revealing the reason.",
-      promptZh: "揭示理由前，先给每个腾讯说法分类。",
+      title: "Check 2: asset, share or not?",
+      zhTitle: "检查2：资产、股票还是不是？",
+      prompt: "Classify each item before revealing the reason.",
+      promptZh: "揭示理由前，先给每一项分类。",
       categories: [
-        { title: "Company", zhTitle: "公司", clue: "the business" },
-        { title: "Listed share", zhTitle: "上市股票", clue: "the traded ownership unit" },
-        { title: "Share price", zhTitle: "股价", clue: "one share at one time" }
+        { title: "Asset", zhTitle: "资产", clue: "owned and may have value" },
+        { title: "Share", zhTitle: "股票", clue: "ownership unit in a company" },
+        { title: "Not enough information", zhTitle: "信息不足", clue: "cannot classify safely" }
       ],
       items: [
         {
           label: "A",
-          text: "Tencent Holdings Limited sells services.",
-          zh: "腾讯控股有限公司销售服务。",
-          answer: "Company",
-          answerZh: "公司",
-          reason: "This describes the business, not one share price.",
-          reasonZh: "这描述公司业务，不是一股股票的价格。"
+          text: "One Tencent 0700.HK share.",
+          zh: "一股腾讯0700.HK股票。",
+          answer: "Share",
+          answerZh: "股票",
+          reason: "It is one ownership unit in Tencent.",
+          reasonZh: "它是腾讯公司的一个所有权单位。"
         },
         {
           label: "B",
-          text: "0700.HK is Tencent's listed share.",
-          zh: "0700.HK 是腾讯的上市股票。",
-          answer: "Listed share",
-          answerZh: "上市股票",
-          reason: "The code points to the traded ownership unit.",
-          reasonZh: "这个代码指向可交易的所有权单位。"
+          text: "A phone app used by customers.",
+          zh: "顾客使用的一款手机应用。",
+          answer: "Not enough information",
+          answerZh: "信息不足",
+          reason: "Using a product does not tell us who owns it or whether it is an asset for that person.",
+          reasonZh: "使用产品不能说明谁拥有它，也不能说明它是否是这个人的资产。"
         },
         {
           label: "C",
-          text: "One graph point is one share price on one date.",
-          zh: "图上一个点是某一天的一股股价。",
-          answer: "Share price",
-          answerZh: "股价",
-          reason: "A share price is one share at one specific time.",
-          reasonZh: "股价是在某个特定时间一股股票的价格。"
+          text: "Cash owned by a household.",
+          zh: "一个家庭拥有的现金。",
+          answer: "Asset",
+          answerZh: "资产",
+          reason: "Cash is owned and has value.",
+          reasonZh: "现金被拥有并且有价值。"
         }
       ],
-      sharePrompt: "Defend one classification using the words company, share or price.",
-      sharePromptZh: "用“公司、股票或价格”说明一个分类理由。",
-      notes: "If many students miss this, reteach the four-part distinction with the source box."
+      sharePrompt: "Defend one classification using the words owned, value or ownership.",
+      sharePromptZh: "用“拥有、价值或所有权”说明一个分类理由。",
+      notes: "This keeps asset and share precise before the price concept."
     },
     {
       type: "section",
       eyebrow: "Part 3",
       part: "3",
-      title: "Knowledge step 3: graph evidence has limits",
-      zhTitle: "知识步骤3：图表证据有局限",
-      notes: "Cycle 3: use the graph and company figures as evidence with limits, not as recommendations."
+      title: "Risk and return must be judged together",
+      zhTitle: "风险和回报必须一起判断",
+      notes: "Cycle 3: explain possible return, risk and the beginner risk-return trade-off."
     },
     {
-      type: "answer",
-      eyebrow: "Graph check",
-      title: "Graph observation and movement question",
-      zhTitle: "图表观察和价格变化问题",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "Each point shows the price of one __________.", answer: "share", zh: "每个点显示一股股票的价格。" },
-        { prompt: "The graph is source-dated evidence, not a complete investment __________.", answer: "judgement", zh: "图表是带来源日期的证据，不是完整的投资判断。" },
-        { prompt: "A price movement needs a question about missing __________.", answer: "information", zh: "价格变化需要关于缺失信息的问题。" }
-      ],
-      notes: "Students answer from the earlier chart. Keep formal percentage change for a later lesson."
-    },
-    {
-      type: "dataSnapshot",
-      eyebrow: "Evidence",
-      title: "One company fact is not a judgement",
-      zhTitle: "一个公司事实不是完整判断",
-      visual: investmentPhotos.annualReports,
-      sourceStamp: "Tencent FY2025 results | RMB billions | published 18 Mar 2026",
-      focusMetrics: [
-        { label: "Revenue", value: "RMB751.8bn" },
-        { label: "Gross profit", value: "RMB422.6bn" },
-        { label: "Gross margin", value: "56%" }
-      ],
-      task: "Mark each figure as evidence, then write what it cannot prove alone.",
-      taskZh: "把每个数字标为证据，然后写出它单独不能证明什么。",
-      note: "A figure can help an analyst ask a better question, but one figure cannot prove quality, value and risk at the same time.",
-      noteZh: "一个数据可以帮助分析者提出更好的问题，但单个数据不能同时证明质量、价值和风险。",
-      notes: "Do not teach revenue or margin formulas. They are evidence examples only."
-    },
-    {
-      type: "analystBoard",
-      eyebrow: "Source limits",
-      title: "What can evidence show and not prove?",
-      zhTitle: "证据能显示什么，不能证明什么？",
-      visual: investmentPhotos.financialAnalysisDesk,
-      revealBlocks: true,
-      blocks: [
-        {
-          label: "Graph",
-          title: "Movement over time",
-          body: "A price graph may show how one share price moved. It cannot explain every cause by itself.",
-          zh: "股价图可以显示一股价格如何变化，但不能单独解释所有原因。"
-        },
-        {
-          label: "Company figure",
-          title: "Business evidence",
-          body: "Revenue or gross profit may show scale or performance. It cannot prove the current share price is fair.",
-          zh: "收入或毛利润可以显示规模或表现，但不能证明当前股价合理。"
-        },
-        {
-          label: "Risk note",
-          title: "What could go worse",
-          body: "A risk note may show uncertainty. It cannot tell the exact future result.",
-          zh: "风险说明可以显示不确定性，但不能告诉我们准确的未来结果。"
-        }
-      ],
-      prompt: "Before reveal: choose one source and say what it cannot prove alone.",
-      promptZh: "揭示前：选择一个来源，说出它单独不能证明什么。",
-      notes: "This mirrors the handout table and creates a teacher decision point before output rehearsal."
-    },
-    {
-      type: "yesNoCheck",
-      eyebrow: "Hinge check",
-      title: "Check 3: what can the graph prove?",
-      zhTitle: "检查3：图表能证明什么？",
-      prompt: "Vote yes or no before reveal. Which claims are safe after the frozen Tencent graph?",
-      promptZh: "揭示前先投票：看完冻结的腾讯图表后，哪些说法是稳妥的？",
-      items: [
-        {
-          text: "The graph can show how one Tencent share price moved over time.",
-          zh: "图表能显示一股腾讯股票价格如何随时间变化。",
-          answer: true,
-          answerZh: "是",
-          reason: "That is exactly what the source-dated price line records.",
-          reasonZh: "这正是带来源日期的价格线所记录的内容。"
-        },
-        {
-          text: "The graph proves Tencent is definitely a good investment.",
-          zh: "图表证明腾讯一定是好投资。",
-          answer: false,
-          answerZh: "否",
-          reason: "A graph alone cannot prove quality, value, return and risk.",
-          reasonZh: "单独一张图不能证明质量、价值、回报和风险。"
-        },
-        {
-          text: "The graph can start a better evidence question.",
-          zh: "图表可以引出更好的证据问题。",
-          answer: true,
-          answerZh: "是",
-          reason: "A movement makes us ask what information may explain it.",
-          reasonZh: "价格变化会让我们询问哪些信息可能解释它。"
-        }
-      ],
-      notes: "This is the formative check for evidence limits."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 4",
-      part: "4",
-      title: "Knowledge step 4: risk completes the judgement",
-      zhTitle: "知识步骤4：风险补全判断",
-      notes: "Cycle 4: define risk, name the anti-speculation boundary, rehearse and submit the individual output."
+      type: "term",
+      eyebrow: "Key term",
+      title: "Possible return",
+      term: "Possible return",
+      termZh: "可能回报",
+      definition: "Possible return is the gain an investor hopes to <span class=\"blank invReveal\" data-answer=\"earn\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">earn</span></span> from an investment.",
+      definitionZh: "可能回报是投资者希望从投资中获得的收益。",
+      notes: "Return is possible, not guaranteed."
     },
     {
       type: "term",
@@ -638,87 +381,165 @@ window.INVEST.lesson = {
       termZh: "风险",
       definition: "Risk is the possibility that results, returns or prices are worse than <span class=\"blank invReveal\" data-answer=\"expected\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">expected</span></span>.",
       definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
-      notes: "Keep risk broad. Detailed risk categories arrive later in the course."
+      notes: "Keep risk broad. Detailed risk categories come later."
+    },
+    {
+      type: "compare",
+      eyebrow: "Key idea",
+      title: "Risk and return belong together",
+      zhTitle: "风险和回报要一起看",
+      leftTitle: "Possible return",
+      leftTitleZh: "可能回报",
+      rightTitle: "Risk",
+      rightTitleZh: "风险",
+      left: [
+        { label: "1", text: "What gain might the investor earn?", zh: "投资者可能获得什么收益？" },
+        { label: "2", text: "What improvement would support that gain?", zh: "什么改善会支持这个收益？" }
+      ],
+      right: [
+        { label: "1", text: "What could be worse than expected?", zh: "什么可能比预期更差？" },
+        { label: "2", text: "What could reduce or remove the return?", zh: "什么可能减少或消除回报？" }
+      ],
+      prompt: "Why is a high possible return incomplete without risk?",
+      promptZh: "为什么高可能回报如果没有风险分析就是不完整的？",
+      notes: "Teach the simple rule: higher possible return usually comes with higher uncertainty, but higher risk does not guarantee return."
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Hinge check",
+      title: "Check 3: risk and return",
+      zhTitle: "检查3：风险与回报",
+      prompt: "Vote yes or no before reveal.",
+      promptZh: "揭示前先投票：是还是不是。",
+      items: [
+        {
+          text: "Possible return means guaranteed profit.",
+          zh: "可能回报意味着保证利润。",
+          answer: false,
+          answerZh: "不是",
+          reason: "Possible return is hoped for, not guaranteed.",
+          reasonZh: "可能回报是希望获得的，不是保证的。"
+        },
+        {
+          text: "Risk means the result may be worse than expected.",
+          zh: "风险意味着结果可能比预期更差。",
+          answer: true,
+          answerZh: "是",
+          reason: "This is the Lesson 1 risk definition.",
+          reasonZh: "这就是第一课的风险定义。"
+        },
+        {
+          text: "A careful analyst considers return and risk together.",
+          zh: "谨慎的分析者会一起考虑回报和风险。",
+          answer: true,
+          answerZh: "是",
+          reason: "Return without risk is an incomplete judgement.",
+          reasonZh: "没有风险分析的回报是不完整的判断。"
+        }
+      ],
+      notes: "This is the formative check for the risk-return objective."
+    },
+    {
+      type: "section",
+      eyebrow: "Part 4",
+      part: "4",
+      title: "A share price is one share at one time",
+      zhTitle: "股价是在某一时间的一股价格",
+      notes: "Cycle 4: define share price and connect it back to the Tencent hook."
     },
     {
       type: "term",
       eyebrow: "Key term",
-      title: "Short-term stock speculation",
-      term: "Short-term stock speculation",
-      termZh: "短期股票投机 / 炒股",
-      definition: "Short-term stock speculation means betting mainly on a price movement without enough <span class=\"blank invReveal\" data-answer=\"evidence\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">evidence</span></span> about value, risk and return.",
-      definitionZh: "短期股票投机是主要押注价格变化，而没有足够证据说明价值、风险和回报。",
-      notes: "Use the term as a course boundary, not as a moral lecture."
+      title: "Share price",
+      term: "Share price",
+      termZh: "股价",
+      definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
+      definitionZh: "股价是在特定时间一股股票的市场价格。",
+      notes: "Emphasise one share at one time. It is not revenue, profit or total company value."
     },
     {
-      type: "riskRegister",
-      eyebrow: "Misconception check",
-      title: "What makes a claim speculative?",
-      zhTitle: "什么让观点变成投机？",
-      visual: investmentPhotos.shippingPort,
-      revealEffects: true,
-      effectLabel: "Why it is weak",
-      table: [
-        ["Weak pattern", "Analyst question", "Likely effect"],
-        ["Famous company shortcut", "What source-dated evidence supports the claim?", "Familiarity is not enough."],
-        ["Price jump chase", "Am I only betting on a short-term movement?", "This is speculation, not analysis."],
-        ["Ignoring price", "What price is paid for one share?", "A good company may still be too expensive."],
-        ["Ignoring risk", "What could be worse than expected?", "Possible return is incomplete without risk."]
-      ],
-      prompt: "Pick one weak pattern and turn it into an evidence question.",
-      promptZh: "选择一个弱点，把它改写成一个证据问题。",
-      answer: "A stronger claim names the source, date, share price, possible return, risk and limitation before judging.",
-      notes: "This completes the misconception check from the syllabus."
-    },
-    {
-      type: "peerTask",
+      type: "answer",
       eyebrow: "Practice check",
-      title: "Rewrite weak claims as evidence questions",
-      zhTitle: "把弱观点改写成证据问题",
-      taskType: "sort",
-      categories: ["Company fact", "Share price evidence", "Risk question", "Speculation / weak opinion"],
-      steps: [
-        { text: "Sort each sentence into one category.", zh: "把每句话分到一个类别。" },
-        { text: "Choose one weak opinion and rewrite it as a question an analyst could investigate.", zh: "选择一个弱观点，把它改写成分析者可以调查的问题。" },
-        { text: "End with one individual sentence in your handout.", zh: "最后在讲义上写一句个人句子。" }
+      title: "Share price check",
+      zhTitle: "股价检查",
+      mode: "fillBlanks",
+      items: [
+        { prompt: "A share price is for one __________.", answer: "share", zh: "股价对应的是一股股票。" },
+        { prompt: "A share price is recorded at one specific __________.", answer: "time", zh: "股价是在一个特定时间记录的。" },
+        { prompt: "A share price is not the total value of the whole __________.", answer: "company", zh: "股价不是整家公司的总价值。" }
       ],
-      cases: [
-        { label: "A", text: "Tencent is listed as 0700.HK." },
-        { label: "B", text: "The graph moved up and down." },
-        { label: "C", text: "What risk could make future results worse than expected?" },
-        { label: "D", text: "Tencent must be safe because everyone knows it." }
+      notes: "This is direct retrieval from the term slide."
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Hinge check",
+      title: "Check 4: what can a share price prove?",
+      zhTitle: "检查4：股价能证明什么？",
+      prompt: "Vote yes or no before reveal. Which claims are safe from one share price?",
+      promptZh: "揭示前先投票：从一个股价可以稳妥得出哪些说法？",
+      items: [
+        {
+          text: "It shows the market price of one share at that time.",
+          zh: "它显示那个时间一股股票的市场价格。",
+          answer: true,
+          answerZh: "是",
+          reason: "That is exactly what a share price means.",
+          reasonZh: "这正是股价的含义。"
+        },
+        {
+          text: "It proves the company is a good investment.",
+          zh: "它证明这家公司是好投资。",
+          answer: false,
+          answerZh: "不是",
+          reason: "A share price alone does not prove return, risk or value.",
+          reasonZh: "单独一个股价不能证明回报、风险或价值。"
+        },
+        {
+          text: "It can be one piece of evidence for analysis.",
+          zh: "它可以成为分析中的一项证据。",
+          answer: true,
+          answerZh: "是",
+          reason: "It matters, but it must be combined with other evidence.",
+          reasonZh: "它很重要，但必须和其他证据一起使用。"
+        }
       ],
-      sampleAnswer: "Tencent is familiar, but what source-dated evidence explains one movement in the share-price graph and what risk could affect the judgement?",
-      sampleAnswerZh: "腾讯很熟悉，但哪些带来源日期的证据能解释股价图中的一次变化？什么风险可能影响判断？",
-      notes: "Pair talk is allowed, but the last sentence must be individual."
+      notes: "This prevents students from overreading the Tencent chart."
     },
     {
       type: "flow",
       eyebrow: "Output rehearsal",
-      title: "How should an analyst think?",
-      zhTitle: "分析者应该怎样思考？",
+      title: "Connect the five lesson ideas",
+      zhTitle: "连接本课五个概念",
       visual: investmentPhotos.financeChartWhiteboard,
       flowStyle: "sequence",
       steps: [
-        { text: "Identify the __________ and listed share.", answer: "company", zh: "识别公司和上市股票。" },
-        { text: "Record the source title and __________.", answer: "date", zh: "记录来源标题和日期。" },
-        { text: "Separate evidence from __________.", answer: "opinion", zh: "区分证据和观点。" },
-        { text: "Ask about price, possible return and __________ before judging.", answer: "risk", zh: "判断前询问价格、可能回报和风险。" }
+        { text: "Separate investment analysis from short-term __________.", answer: "speculation", zh: "区分投资分析和短期投机。" },
+        { text: "Use __________ before judgement.", answer: "evidence", zh: "判断前使用证据。" },
+        { text: "Define a share as one unit of __________.", answer: "ownership", zh: "把股票定义为一个所有权单位。" },
+        { text: "Judge possible return together with __________.", answer: "risk", zh: "把可能回报和风险一起判断。" },
+        { text: "Read share price as one share at one __________.", answer: "time", zh: "把股价理解为某一时间的一股价格。" }
       ],
-      notes: "Students rehearse the final written structure before the exit ticket."
+      notes: "Students rehearse the final answer before the individual output."
     },
     {
-      type: "discussion",
+      type: "peerTask",
       eyebrow: "Output rehearsal",
-      title: "Write the course promise",
-      zhTitle: "写出课程承诺",
-      visual: investmentPhotos.businessChartsPaper,
-      question: "Complete this sentence: In this course, I will not guess from a famous company; I will first...",
-      zh: "完成这句话：在这门课中，我不会因为公司有名就猜测；我会先……",
-      revealTitle: "A promise delays judgement",
-      answer: "In this course, I will identify the company and listed share, record source-dated evidence, ask about price and risk, and avoid short-term speculation.",
-      answerZh: "在这门课中，我会识别公司和上市股票，记录带来源日期的证据，询问价格和风险，并避免短期投机。",
-      notes: "Students can adapt the revealed sentence, but the submitted sentence must be their own."
+      title: "Build a careful analyst sentence",
+      zhTitle: "写出谨慎的分析句",
+      taskType: "missingSentence",
+      steps: [
+        { text: "Choose one starting claim about Tencent.", zh: "选择一个关于腾讯的起始观点。" },
+        { text: "Add the missing evidence words: return, risk and share price.", zh: "加入缺少的证据词：回报、风险和股价。" },
+        { text: "Remove any buy, sell or next-week prediction.", zh: "删除任何买、卖或下周预测。" }
+      ],
+      sentenceParts: [
+        "Tencent is a familiar company, but investment analysis needs",
+        "about possible return, risk and the current share price before judgement."
+      ],
+      missing: "source-dated evidence",
+      sampleAnswer: "Tencent is familiar, but investment analysis needs source-dated evidence about possible return, risk and the current share price before judgement.",
+      sampleAnswerZh: "腾讯很熟悉，但投资分析在判断前需要关于可能回报、风险和当前股价的、有来源和日期的证据。",
+      notes: "Pair talk is allowed. The final sentence must be individual."
     },
     {
       type: "answer",
@@ -727,12 +548,13 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "股票是公司所有权中的一个单位。" },
-        { prompt: "Investment analysis uses __________ before opinion.", answer: "evidence", zh: "投资分析先使用证据，再形成观点。" },
-        { prompt: "This course is not about short-term stock __________.", answer: "speculation", zh: "本课程不是关于短期股票投机。" },
-        { prompt: "Write one question: What information might explain one Tencent price __________?", answer: "movement", zh: "写一个问题：什么信息可能解释腾讯股价的一次变化？" }
+        { prompt: "Investment analysis is different from short-term stock __________.", answer: "speculation", zh: "投资分析不同于短期股票投机。" },
+        { prompt: "Investment analysis uses __________ before judgement.", answer: "evidence", zh: "投资分析在判断前使用证据。" },
+        { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "一股股票是公司中的一个所有权单位。" },
+        { prompt: "Possible return must be judged together with __________.", answer: "risk", zh: "可能回报必须和风险一起判断。" },
+        { prompt: "A share price is the market price of one share at a specific __________.", answer: "time", zh: "股价是在特定时间一股股票的市场价格。" }
       ],
-      notes: "Collect the handout output: one course promise sentence and one evidence question about a Tencent price movement."
+      notes: "Collect the handout output after the fill-blank exit check."
     }
   ]
 };

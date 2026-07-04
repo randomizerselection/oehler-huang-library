@@ -208,18 +208,18 @@
       "company": "Tencent",
       "guidingQuestion": "What is investment analysis, and what is a share?",
       "guidingQuestionZh": "什么是投资分析，什么是股票？",
-      "handoutMaterial": "Course-entry concept sorter, Tencent graph observation, company/share distinction prompts, anti-speculation boundary and evidence-before-opinion rule.",
-      "formativeAssessment": "Cold-call sort: company, product, share, share price, analysis rule or speculative claim; students justify one choice.",
-      "exitTicket": "Write one sentence explaining why investment analysis needs evidence before opinion and is not short-term speculation.",
+      "handoutMaterial": "Foundation starter sheet on investment versus speculation, investment analysis, asset, share, possible return, risk and share price.",
+      "formativeAssessment": "Hinge checks: investment or speculation; asset, share or not; risk-return yes/no; share-price evidence limits.",
+      "exitTicket": "Complete five foundation statements: investment versus speculation, investment analysis, share ownership, risk-return and share price.",
       "sequenceRole": "Course entry lesson for students with no prior investment study.",
       "retrievalBase": "Everyday experience with companies, products, prices and risk in normal life.",
-      "newKnowledge": "Investment analysis, evidence before opinion, company versus share, share price, anti-speculation boundary, risk-return trade-off and a first price-movement question.",
-      "evidenceTask": "Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.",
-      "avoidOverlap": "No percentage-change formula, quote-page mechanics, market capitalisation or valuation judgement yet.",
-      "misconception": "Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good.",
-      "studentOutput": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.",
-      "futureReuse": "Creates the vocabulary, evidence norms and price-movement question used in every later company lesson.",
-      "focus": "Focus: what the course studies, why evidence comes before opinion, why this is not short-term stock speculation, how a company is different from one listed share, and how a share-price graph gives an analyst a first question rather than an answer.",
+      "newKnowledge": "Investment versus short-term speculation, investment analysis, asset, share, possible return, risk, risk-return trade-off and share price.",
+      "evidenceTask": "Use the frozen Tencent 0700.HK price graph only as a hook for the share-price concept and the investment-versus-speculation boundary.",
+      "avoidOverlap": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or personal buy/sell advice yet.",
+      "misconception": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
+      "studentOutput": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.",
+      "futureReuse": "Creates the first vocabulary base for every later lesson: evidence, investment analysis, asset, share, return, risk and share price.",
+      "focus": "Focus: distinguish investment analysis from short-term speculation; define investment analysis, asset and share; explain risk with possible return; explain share price as one share at one time.",
       "terms": [
         {
           "term": "investment analysis",
@@ -237,6 +237,11 @@
           "definition": "one unit of ownership in a company."
         },
         {
+          "term": "possible return",
+          "zh": "可能回报",
+          "definition": "the gain an investor hopes to earn from an investment."
+        },
+        {
           "term": "share price",
           "zh": "股价",
           "definition": "the market price of one share at a specific time."
@@ -252,9 +257,9 @@
           "definition": "betting mainly on a price movement without enough evidence about value, risk and return; not the course method."
         }
       ],
-      "formulaOrNoFormula": "no new formula; students read graph direction and identify old/new price points informally before formal percentage work later.",
-      "evidenceSummary": "Tencent as a familiar company, frozen five-year price graph, listed-share identity, source date and one simple company fact that does not by itself prove a good investment.",
-      "check": "Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises.",
+      "formulaOrNoFormula": "no new formula; students explain concepts in words only.",
+      "evidenceSummary": "Tencent as a familiar listed-company example and frozen five-year 0700.HK price graph for the share-price hook.",
+      "check": "Distinguish investment analysis from short-term speculation; define investment analysis, asset and share; explain possible return with risk; explain share price.",
       "unit": 1,
       "unitTitle": "Market foundations",
       "handoutSections": [
@@ -266,27 +271,27 @@
         {
           "key": "vocabulary",
           "title": "Vocabulary",
-          "task": "Define and use the lesson terms: investment analysis, asset, share, share price, risk, short-term stock speculation."
+          "task": "Define and use the lesson terms: investment analysis, asset, share, possible return, risk, share price and short-term stock speculation."
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement."
+          "title": "Investment or speculation",
+          "task": "Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement."
         },
         {
           "key": "calculationOrJudgement",
-          "title": "Calculation or judgement task",
-          "task": "Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises."
+          "title": "Asset, share and share price",
+          "task": "Separate asset, share and share price, then explain why one share price is only one piece of evidence."
         },
         {
           "key": "misconceptionCheck",
           "title": "Misconception check",
-          "task": "Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good."
+          "task": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed."
         },
         {
           "key": "individualOutput",
           "title": "Individual written output",
-          "task": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement."
+          "task": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price."
         }
       ],
       "examPattern": {
@@ -294,21 +299,21 @@
         "itemType": "evidence interpretation and judgement paragraph",
         "sourceRequirement": "Use a frozen Tencent extract with source title, date, accessed date and at least one figure or evidence statement.",
         "task": "Assess whether students can answer: What is investment analysis, and what is a share?",
-        "mustAssess": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement."
+        "mustAssess": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition."
       },
       "cardGenerator": {
         "retrievalBase": "everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.",
-        "newKnowledge": "investment analysis studies evidence, possible return, risk and price; it is not short-term stock speculation, stock tips or personal buy/sell advice; a share is one ownership unit, the share price is not the whole company, higher possible return usually comes with higher uncertainty, and price movement needs evidence.",
+        "newKnowledge": "investment analysis studies evidence, possible return, risk and price; it is not short-term speculation, tips or personal buy/sell advice; an asset is something owned that may have value; a share is one ownership unit; possible return must be judged with risk; share price means one share at one time.",
         "avoidOverlap": "do not teach quote-page mechanics, percentage change, market capitalisation or valuation ratios yet.",
-        "misconception": "investment analysis means learning how to trade on short-term price jumps, guessing what to buy, chasing tips, or assuming a famous company must be a good investment.",
-        "evidenceTask": "use Tencent to identify company, product familiarity, listed share, source date, one graph observation and one question about what information might explain a movement.",
-        "studentOutput": "one course promise sentence, one company/share distinction, one share-price definition, one anti-speculation boundary, one risk-return rule, one evidence-before-opinion rule and one evidence question about a price movement."
+        "misconception": "investment analysis means learning how to trade on short-term price jumps, guessing what to buy, chasing tips, treating fame as safety, or assuming possible return is guaranteed.",
+        "evidenceTask": "use Tencent's frozen 0700.HK price graph as a hook for the share-price definition and the investment-versus-speculation boundary.",
+        "studentOutput": "three foundation sentences defining investment analysis and a share, then explaining why possible return must be judged with risk and share price."
       },
-      "coreClaim": "Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.",
+      "coreClaim": "Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation.",
       "caseRole": "listed company",
       "primaryOutput": {
-        "type": "definition-and-evidence-question",
-        "description": "one course promise sentence and one evidence question about a Tencent price movement"
+        "type": "foundation-definition-output",
+        "description": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
       },
       "sourcePack": {
         "requiredSourceTypes": [
@@ -343,59 +348,60 @@
         "commandWord": "Explain",
         "marks": 4,
         "stimulusType": "short company evidence extract",
-        "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.",
-        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation or valuation judgement yet."
+        "calculationRequirement": "No new calculation; assess concept definitions and simple judgement language.",
+        "judgementRequirement": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition.",
+        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or personal buy/sell advice yet."
       },
       "artifactBlueprint": {
         "deckArc": [
-          "Hook: start with Tencent and the guiding question, using a concrete source or visual before definitions.",
-          "Retrieval: activate everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.",
-          "Teach: make students write the core claim: Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.",
-          "Evidence practice: Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.",
-          "Output rehearsal: students build one course promise sentence and one evidence question about a Tencent price movement.",
-          "Exit ticket: students submit Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement."
+          "Hook: use Tencent's frozen share-price graph to ask what makes buying a share investment analysis rather than short-term speculation.",
+          "Objectives: distinguish investment from speculation; define investment analysis; define asset and share; explain risk and return; explain share price.",
+          "Teach cycle 1: separate investment analysis from short-term speculation.",
+          "Teach cycle 2: define investment analysis, asset and share.",
+          "Teach cycle 3: explain possible return and risk together.",
+          "Teach cycle 4: define share price as one share at one time, then rehearse a careful analyst sentence.",
+          "Exit ticket: students complete five foundation statements aligned to the visible objectives."
         ],
         "handoutBlocks": [
           {
             "key": "sourceBox",
             "title": "Source box",
-            "prompt": "Record Tencent source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.",
-            "expectedStudentWork": "A complete dated source record before any judgement."
+            "prompt": "Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence question.",
+            "expectedStudentWork": "A complete dated source record plus one question before any judgement."
           },
           {
             "key": "vocabulary",
             "title": "Vocabulary",
-            "prompt": "Define and use: investment analysis, asset, share, share price, risk, short-term stock speculation.",
+            "prompt": "Define and use: investment analysis, asset, share, possible return, risk, share price and short-term stock speculation.",
             "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Investment or speculation",
+            "prompt": "Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement.",
+            "expectedStudentWork": "One corrected statement that asks for evidence about return, risk and share price."
           },
           {
             "key": "calculationOrJudgement",
-            "title": "Calculation or judgement task",
-            "prompt": "Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises.",
-            "expectedStudentWork": "one course promise sentence and one evidence question about a Tencent price movement"
+            "title": "Asset, share and share price",
+            "prompt": "Separate asset, share and share price, then explain why one share price is only one piece of evidence.",
+            "expectedStudentWork": "A completed distinction table for asset, share and share price."
           },
           {
             "key": "misconceptionCheck",
             "title": "Misconception check",
-            "prompt": "Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good.",
+            "prompt": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
             "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
           },
           {
             "key": "individualOutput",
             "title": "Individual written output",
-            "prompt": "Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.",
-            "expectedStudentWork": "one course promise sentence and one evidence question about a Tencent price movement"
+            "prompt": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.",
+            "expectedStudentWork": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a short company evidence extract; assess one course promise sentence and one evidence question about a Tencent price movement."
+        "examItemShape": "Explain using a short classroom scenario; assess the five Lesson 1 foundation concepts."
       },
       "caseReview": {
         "status": "keep",

@@ -454,8 +454,9 @@
 
   function renderOutcomes(slide, index, lesson) {
     const defaultPhases = ['Learn', 'Use', 'Judge'];
+    const objectiveCount = (slide.bullets || []).length;
     const body = `
-      <div class="invObjectiveGrid">
+      <div class="invObjectiveGrid" data-count="${objectiveCount}">
         ${(slide.bullets || []).map((bullet, i) => `
           <div class="invObjective">
             <span class="invObjectiveStep">${String(i + 1).padStart(2, '0')}</span>

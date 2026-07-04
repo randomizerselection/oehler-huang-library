@@ -3301,6 +3301,35 @@ img {
   align-self: end;
 }
 
+.invObjectiveGrid[data-count="5"] {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.invObjectiveGrid[data-count="5"] .invObjective {
+  min-height: 210px;
+  padding: 16px 14px;
+}
+
+.invObjectiveGrid[data-count="5"] .invObjective::before {
+  display: none;
+}
+
+.invObjectiveGrid[data-count="5"] .invObjectivePhase {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 6px 7px;
+}
+
+.invObjectiveGrid[data-count="5"] .invObjective strong {
+  font-size: 22px;
+  line-height: 1.08;
+}
+
+.invObjectiveGrid[data-count="5"] .invObjectiveZh {
+  line-height: 1.12;
+}
+
 .invSectionDeck {
   background:
     linear-gradient(90deg, rgba(241, 190, 90, 0.08), rgba(6, 15, 18, 0.94) 34%),
@@ -6514,6 +6543,10 @@ img {
 
   .invObjectiveGrid {
     gap: 7px;
+  }
+
+  .invObjectiveGrid[data-count="5"] {
+    grid-template-columns: 1fr;
   }
 
   .invObjective {

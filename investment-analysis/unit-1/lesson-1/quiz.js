@@ -2,112 +2,85 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review the Lesson 1 course-entry question: what investment analysis is, how a share and share price differ from a company, why source-dated evidence comes before opinion, and why this course is not short-term stock speculation.",
+  description: "Review the Lesson 1 foundations: investment versus speculation, investment analysis, asset, share, possible return, risk and share price.",
   questions: [
     {
-      id: "evidence-before-opinion",
+      id: "investment-vs-speculation",
       type: "multipleChoice",
-      prompt: "What does investment analysis use before opinion?",
-      zh: "投资分析在形成观点之前先使用什么？",
+      prompt: "Which sentence is investment analysis rather than short-term speculation?",
+      zh: "哪一句是投资分析，而不是短期投机？",
       choices: [
-        "Evidence",
-        "A favourite brand",
-        "A guess",
-        "A class vote"
+        "The price might jump next week, so buy now.",
+        "Tencent is famous, so the share must be safe.",
+        "I need evidence about possible return, risk and price before judging.",
+        "A high share price always means a better company."
       ],
-      answer: 0,
-      explanation: "Investment analysis starts with evidence, then builds a careful judgement about possible return, risk and price.",
-      explanationZh: "投资分析从证据开始，再对可能回报、风险和价格作出谨慎判断。"
+      answer: 2,
+      explanation: "Investment analysis uses evidence before judgement. Speculation mainly guesses a short-term price movement.",
+      explanationZh: "投资分析在判断前使用证据。投机主要是在猜测短期价格变动。"
     },
     {
-      id: "not-stock-speculation",
+      id: "investment-analysis-definition",
       type: "multipleChoice",
-      prompt: "What is this course not teaching students to do?",
-      zh: "本课程不是教学生做什么？",
+      prompt: "What does investment analysis study before making a judgement?",
+      zh: "投资分析在作出判断前研究什么？",
       choices: [
-        "Short-term stock speculation, tips or market timing",
-        "Read source-dated evidence",
-        "Separate a company from its listed share",
-        "Ask about possible return, risk and price"
+        "Possible return, risk and price using evidence",
+        "Only whether a company is famous",
+        "Only next week's price movement",
+        "Only whether classmates like the product"
       ],
       answer: 0,
-      explanation: "The course teaches analysis, not short-term price-jump betting or personal buy/sell advice.",
-      explanationZh: "本课程教授分析，不教授短期押注价格跳动或个人买卖建议。"
+      explanation: "The Lesson 1 definition is: investment analysis uses evidence to study possible return, risk and price before judgement.",
+      explanationZh: "第一课的定义是：投资分析在判断前用证据研究可能回报、风险和价格。"
     },
     {
-      id: "source-box",
+      id: "asset-definition",
+      type: "fillBlank",
+      prompt: "An asset is something owned that may have ________.",
+      zh: "资产是被拥有且可能有________的东西。",
+      acceptedAnswers: ["value"],
+      explanation: "Value is the key word. An asset is something owned that may have value.",
+      explanationZh: "关键词是“价值”。资产是被拥有且可能有价值的东西。"
+    },
+    {
+      id: "share-definition",
+      type: "fillBlank",
+      prompt: "A share is one unit of ________ in a company.",
+      zh: "一股股票是公司中的一个________单位。",
+      acceptedAnswers: ["ownership"],
+      explanation: "Ownership is the key word. A share is one ownership unit in a company.",
+      explanationZh: "关键词是“所有权”。一股股票是公司中的一个所有权单位。"
+    },
+    {
+      id: "one-share-meaning",
       type: "multipleChoice",
-      prompt: "Which item belongs in a source box before judging Tencent?",
-      zh: "在判断腾讯之前，哪一项应该记录在来源框中？",
+      prompt: "If you own one share, what do you own?",
+      zh: "如果你拥有一股股票，你拥有什么？",
       choices: [
-        "A source title, accessed date and company/security identifier",
-        "Only whether students like Tencent products",
-        "A final buy or sell recommendation",
-        "A percentage-change calculation from a later lesson"
+        "The whole company",
+        "One product",
+        "One unit of ownership in the company",
+        "Guaranteed profit"
+      ],
+      answer: 2,
+      explanation: "One share is one ownership unit. It is not the whole company, a product or guaranteed profit.",
+      explanationZh: "一股股票是一个所有权单位。它不是整家公司、一个产品，也不是保证利润。"
+    },
+    {
+      id: "possible-return",
+      type: "multipleChoice",
+      prompt: "What is possible return?",
+      zh: "什么是可能回报？",
+      choices: [
+        "The gain an investor hopes to earn",
+        "A guaranteed profit",
+        "The risk that price falls",
+        "The name of the stock exchange"
       ],
       answer: 0,
-      explanation: "Lesson 1 requires a source title, source URL or title, dates, identifier, key figure and limitation before judgement.",
-      explanationZh: "第1课要求在判断前记录来源标题、URL或标题、日期、识别代码、关键数据和局限性。"
-    },
-    {
-      id: "company-share-price",
-      type: "multipleChoice",
-      prompt: "Which sentence correctly separates Tencent, 0700.HK and one graph point?",
-      zh: "哪一句正确区分腾讯、0700.HK 和图上的一个点？",
-      choices: [
-        "Tencent is a product, and 0700.HK is the annual revenue.",
-        "Tencent is the company, 0700.HK is the listed share, and one graph point is the share price at one date.",
-        "Tencent's products are the same thing as the listed share.",
-        "One graph point proves the share is a good investment."
-      ],
-      answer: 1,
-      explanation: "Tencent is the company, 0700.HK identifies the listed share, and one graph point shows the market price of one share at a date.",
-      explanationZh: "腾讯是公司，0700.HK 识别上市股票，图上一个点显示某一日期一股股票的市场价格。"
-    },
-    {
-      id: "asset-share",
-      type: "multipleChoice",
-      prompt: "What is a share?",
-      zh: "股票是什么？",
-      choices: [
-        "One unit of ownership in a company",
-        "A guaranteed bank payment",
-        "A company product",
-        "A government tax"
-      ],
-      answer: 0,
-      explanation: "A share is an ownership unit in a company. It is not a product, a loan or guaranteed profit.",
-      explanationZh: "股票是公司中的一个所有权单位。它不是产品、贷款或保证利润。"
-    },
-    {
-      id: "share-price-point",
-      type: "multipleChoice",
-      prompt: "What does one point on a share-price graph show?",
-      zh: "股价图上的一个点表示什么？",
-      choices: [
-        "The market price of one share at that date",
-        "The company's total revenue for the year",
-        "A final proof that the share is a good investment",
-        "The number of products the company sold"
-      ],
-      answer: 0,
-      explanation: "A graph point is source-dated share-price evidence. It is useful, but it is not a complete investment judgement.",
-      explanationZh: "图上的一个点是带来源日期的股价证据。它有用，但不是完整的投资判断。"
-    },
-    {
-      id: "evidence-limitation",
-      type: "multipleChoice",
-      prompt: "What can a single company figure or graph not prove alone?",
-      zh: "单个公司数据或图表不能单独证明什么？",
-      choices: [
-        "The complete quality, value and risk of the investment",
-        "That the source has a date",
-        "That Tencent is a company",
-        "That a price can move"
-      ],
-      answer: 0,
-      explanation: "One figure or graph can be evidence, but it cannot prove quality, value and risk at the same time.",
-      explanationZh: "单个数据或图表可以作为证据，但不能同时证明质量、价值和风险。"
+      explanation: "Possible return is hoped for, not guaranteed.",
+      explanationZh: "可能回报是希望获得的，不是保证的。"
     },
     {
       id: "risk-definition",
@@ -115,26 +88,53 @@ window.INVEST.quiz = {
       prompt: "Risk is the possibility that results, returns or prices are worse than ________.",
       zh: "风险是结果、回报或价格比________更差的可能性。",
       acceptedAnswers: ["expected", "expectation", "expectations"],
-      explanation: "Expected is the key word: risk means the result may disappoint.",
-      explanationZh: "关键词是“预期”：风险意味着结果可能令人失望。"
+      explanation: "Expected is the key word. Risk means the result may disappoint.",
+      explanationZh: "关键词是“预期”。风险意味着结果可能令人失望。"
     },
     {
-      id: "ownership-blank",
-      type: "fillBlank",
-      prompt: "A share is one unit of ________ in a company.",
-      zh: "一股股票是公司中的一个________单位。",
-      acceptedAnswers: ["ownership"],
-      explanation: "Ownership is the key word: a share is not the whole company or a product.",
-      explanationZh: "关键词是“所有权”：股票不是整家公司，也不是产品。"
+      id: "risk-return-together",
+      type: "multipleChoice",
+      prompt: "Why must possible return and risk be judged together?",
+      zh: "为什么必须把可能回报和风险一起判断？",
+      choices: [
+        "Because a high possible return is incomplete if the risk is ignored",
+        "Because risk guarantees higher return",
+        "Because share prices never change",
+        "Because famous companies have no risk"
+      ],
+      answer: 0,
+      explanation: "A careful judgement asks what gain is possible and what could be worse than expected.",
+      explanationZh: "谨慎的判断会同时询问可能获得什么收益，以及什么可能比预期更差。"
     },
     {
-      id: "movement-question",
-      type: "fillBlank",
-      prompt: "A good first question is: what information might explain one Tencent price ________?",
-      zh: "一个好的初始问题是：什么信息可能解释腾讯股价的一次________？",
-      acceptedAnswers: ["movement", "change"],
-      explanation: "Lesson 1 asks for one evidence question about a price movement, not a buy/sell judgement.",
-      explanationZh: "第1课要求提出一个关于价格变化的证据问题，而不是买卖判断。"
+      id: "share-price-definition",
+      type: "multipleChoice",
+      prompt: "What is a share price?",
+      zh: "什么是股价？",
+      choices: [
+        "The market price of one share at a specific time",
+        "The total value of the whole company",
+        "The company's annual revenue",
+        "A guarantee that the share is a good investment"
+      ],
+      answer: 0,
+      explanation: "A share price is one share at one time. It is not revenue, profit or total company value.",
+      explanationZh: "股价是在某一时间的一股价格。它不是收入、利润或整家公司的总价值。"
+    },
+    {
+      id: "share-price-evidence",
+      type: "multipleChoice",
+      prompt: "What can one Tencent share-price point prove by itself?",
+      zh: "一个腾讯股价点本身能证明什么？",
+      choices: [
+        "The market price of one Tencent share at that time",
+        "That Tencent is definitely a good investment",
+        "That possible return is guaranteed",
+        "That there is no risk"
+      ],
+      answer: 0,
+      explanation: "One price point is useful evidence, but it does not prove return, risk or investment quality by itself.",
+      explanationZh: "一个价格点是有用证据，但它本身不能证明回报、风险或投资质量。"
     }
   ]
 };
