@@ -191,16 +191,38 @@ window.INVEST.lesson = {
       notes: "Use this as a question-first hook. Students record source details in the handout, but the projected slide should teach the infrastructure idea."
     },
     {
-      type: "answer",
+      type: "peerTask",
+      taskType: "definitionRecall",
       eyebrow: "Retrieval",
       title: "What did Lesson 1 give us?",
       zhTitle: "第1课给了我们什么？",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "Tencent is the company; 0700.HK is the listed __________.", answer: "share", zh: "腾讯是公司；0700.HK 是上市股票。" },
-        { prompt: "A share price is the market price of one share at one __________.", answer: "time", zh: "股价是在某一时间一股股票的市场价格。" },
-        { prompt: "Analysis uses evidence before __________.", answer: "opinion", zh: "分析先使用证据，再形成观点。" }
+      prompt: "Write one-sentence definitions before reveal.",
+      promptZh: "先写一句定义，再揭示答案。",
+      definitionItems: [
+        {
+          label: "1",
+          term: "Listed share",
+          termZh: "上市股票",
+          answer: "A listed share is one ownership unit in a company that can trade on a stock exchange.",
+          answerZh: "上市股票是在证券交易所交易的公司所有权单位。"
+        },
+        {
+          label: "2",
+          term: "Share price",
+          termZh: "股价",
+          answer: "A share price is the market price of one share at a specific time.",
+          answerZh: "股价是在特定时间一股股票的市场价格。"
+        },
+        {
+          label: "3",
+          term: "Evidence before opinion",
+          termZh: "先证据后观点",
+          answer: "Investment analysis uses source-backed evidence before making a judgement about a share.",
+          answerZh: "投资分析先使用有来源支持的证据，再对股票作出判断。"
+        }
       ],
+      sharePrompt: "Improve one definition before we add stock-market knowledge.",
+      sharePromptZh: "在加入股票市场知识前，改进一个定义。",
       notes: "Use this as the retrieval diagnostic. If students miss share versus company, reteach before continuing."
     },
     {
@@ -210,14 +232,14 @@ window.INVEST.lesson = {
       zhTitle: "本节课结束时，你能够",
       phases: ["Define", "Match", "Explain"],
       bullets: [
-        "define exchange, listing, code and liquidity",
-        "match company, code and exchange",
-        "explain one trading friction"
+        "define exchange, listing, code and liquidity in order",
+        "build the company-code-exchange knowledge chain",
+        "explain why market trading still has friction"
       ],
       zhBullets: [
-        "定义交易所、上市、代码和流动性",
-        "匹配公司、代码和交易所",
-        "解释一个交易摩擦"
+        "按顺序定义交易所、上市、代码和流动性",
+        "构建公司-代码-交易所知识链",
+        "解释为什么市场交易仍有摩擦"
       ],
       notes: "Exactly three objectives aligned to the primary output."
     },
@@ -225,8 +247,8 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "What a stock exchange does",
-      zhTitle: "证券交易所的作用",
+      title: "Knowledge step 1: a market lets listed shares trade",
+      zhTitle: "知识步骤1：市场让上市股票交易",
       notes: "Cycle 1: retrieve listed-share identity, attempt the exchange role, reveal the definition and core claim."
     },
     {
@@ -253,17 +275,25 @@ window.INVEST.lesson = {
       notes: "Keep this definition broad. HKEX is the case, not the only possible exchange."
     },
     {
-      type: "answer",
+      type: "compare",
       eyebrow: "Key idea",
-      title: "Core claim: trade does not always fund the company",
-      zhTitle: "核心观点：交易不一定给公司融资",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "A stock exchange helps listed shares __________.", answer: "trade", zh: "证券交易所帮助上市股票交易。" },
-        { prompt: "A market trade can be investor to __________.", answer: "investor", zh: "市场交易可以是投资者之间的交易。" },
-        { prompt: "Secondary-market trades do not automatically give new money to the __________.", answer: "company", zh: "二级市场交易不会自动给公司带来新资金。" }
+      title: "Primary issue vs secondary trade",
+      zhTitle: "一级发行与二级交易",
+      leftTitle: "Primary issue",
+      leftTitleZh: "一级发行",
+      rightTitle: "Secondary-market trade",
+      rightTitleZh: "二级市场交易",
+      left: [
+        { label: "1", text: "The company sells new shares.", zh: "公司出售新股票。" },
+        { label: "2", text: "Money can go to the company.", zh: "资金可以进入公司。" }
       ],
-      notes: "This is the Lesson 2 core claim from the course map."
+      right: [
+        { label: "1", text: "One investor sells to another investor.", zh: "一个投资者卖给另一个投资者。" },
+        { label: "2", text: "The company does not automatically receive new money.", zh: "公司不会自动收到新资金。" }
+      ],
+      prompt: "Which side can give new money to the company?",
+      promptZh: "哪一边可能给公司带来新资金？",
+      notes: "This is the Lesson 2 core claim from the course map. Keep the contrast simple: primary issue can fund the company; secondary-market trade can be investor to investor."
     },
     {
       type: "quiz",
@@ -288,8 +318,8 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 2",
       part: "2",
-      title: "Listing and stock code",
-      zhTitle: "上市和股票代码",
+      title: "Knowledge step 2: listing and code make a share findable",
+      zhTitle: "知识步骤2：上市和代码让股票可查找",
       notes: "Cycle 2: identify how a listed share is found in market data."
     },
     {
@@ -363,30 +393,56 @@ window.INVEST.lesson = {
       notes: "The individual written check is one company-code-exchange row plus one limitation."
     },
     {
-      type: "quiz",
+      type: "classificationTask",
       eyebrow: "Hinge check",
-      title: "Check 2: what does a code prove?",
-      zhTitle: "检查2：代码能证明什么？",
-      visual: investmentPhotos.investorChartScreens,
-      question: "Which claim is safest after finding a stock code?",
-      zh: "找到股票代码后，哪一个说法最稳妥？",
-      choices: [
-        "The code proves the company is a good investment.",
-        "The code helps identify a listed security in a market source.",
-        "The code means the company receives money from every trade.",
-        "The code removes the need for a source date."
+      title: "Check 2: classify the code claim",
+      zhTitle: "检查2：给代码说法分类",
+      prompt: "Classify each claim after finding a stock code.",
+      promptZh: "找到股票代码后，给每个说法分类。",
+      categories: [
+        { title: "Identifier", zhTitle: "识别信息", clue: "helps find the security" },
+        { title: "Overclaim", zhTitle: "过度推断", clue: "claims too much" },
+        { title: "Source habit", zhTitle: "来源习惯", clue: "keeps evidence dated" }
       ],
-      answer: 1,
-      explanation: "Correct: a stock code helps identification. It does not prove quality, value, risk or funding.",
-      explanationZh: "正确：股票代码帮助识别。它不能证明质量、价值、风险或融资。",
+      items: [
+        {
+          label: "A",
+          text: "The code helps identify one listed security in a market source.",
+          zh: "代码帮助在市场来源中识别一个上市证券。",
+          answer: "Identifier",
+          answerZh: "识别信息",
+          reason: "A code is useful for finding the security accurately.",
+          reasonZh: "代码有助于准确找到证券。"
+        },
+        {
+          label: "B",
+          text: "The code proves the share is a good investment.",
+          zh: "代码证明这只股票是好投资。",
+          answer: "Overclaim",
+          answerZh: "过度推断",
+          reason: "A code does not prove quality, value, risk or return.",
+          reasonZh: "代码不能证明质量、价值、风险或回报。"
+        },
+        {
+          label: "C",
+          text: "The code should be recorded with the source and date.",
+          zh: "代码应与来源和日期一起记录。",
+          answer: "Source habit",
+          answerZh: "来源习惯",
+          reason: "Dated records make later evidence checks possible.",
+          reasonZh: "带日期的记录让后续证据检查成为可能。"
+        }
+      ],
+      sharePrompt: "Defend one classification with a reason.",
+      sharePromptZh: "用理由说明一个分类。",
       notes: "This is the formative decision point before moving to liquidity and friction."
     },
     {
       type: "section",
       eyebrow: "Part 3",
       part: "3",
-      title: "Liquidity and trading friction",
-      zhTitle: "流动性和交易摩擦",
+      title: "Knowledge step 3: liquidity affects trading ease",
+      zhTitle: "知识步骤3：流动性影响交易难易度",
       notes: "Cycle 3: show that an exchange helps trading, but trading still has rules, time windows, liquidity and costs."
     },
     {
@@ -451,30 +507,46 @@ window.INVEST.lesson = {
       notes: "This is the lesson's trading-friction prompt."
     },
     {
-      type: "quiz",
+      type: "yesNoCheck",
       eyebrow: "Hinge check",
       title: "Check 3: secondary-market misconception",
       zhTitle: "检查3：二级市场误解",
-      visual: investmentPhotos.tradingApps,
-      question: "Which sentence corrects the misconception?",
-      zh: "哪一句纠正了误解？",
-      choices: [
-        "Every market purchase gives new money to the company.",
-        "A secondary-market trade can transfer shares between investors; it does not automatically fund the company.",
-        "A stock exchange removes all risk.",
-        "A stock code is just decoration."
+      prompt: "Vote yes or no before reveal. Which statements are safe?",
+      promptZh: "揭示前先投票：哪些说法是稳妥的？",
+      items: [
+        {
+          text: "Every market purchase gives new money to the company.",
+          zh: "每一次市场购买都会给公司带来新资金。",
+          answer: false,
+          answerZh: "否",
+          reason: "A secondary-market trade can be investor to investor.",
+          reasonZh: "二级市场交易可以是投资者之间的交易。"
+        },
+        {
+          text: "A stock exchange helps listed shares trade under rules.",
+          zh: "证券交易所帮助上市股票在规则下交易。",
+          answer: true,
+          answerZh: "是",
+          reason: "That is the core exchange role in this lesson.",
+          reasonZh: "这是本课中交易所的核心作用。"
+        },
+        {
+          text: "A stock exchange removes all risk and friction.",
+          zh: "证券交易所消除所有风险和摩擦。",
+          answer: false,
+          answerZh: "否",
+          reason: "Trading can still involve time, units, liquidity, price movement and costs.",
+          reasonZh: "交易仍可能涉及时间、交易单位、流动性、价格变化和成本。"
+        }
       ],
-      answer: 1,
-      explanation: "Correct: secondary-market trading helps ownership units change hands, but it is not automatically new company finance.",
-      explanationZh: "正确：二级市场交易帮助所有权单位换手，但不自动成为公司的新融资。",
       notes: "This should be correct before the output rehearsal."
     },
     {
       type: "section",
       eyebrow: "Part 4",
       part: "4",
-      title: "Output rehearsal",
-      zhTitle: "输出排练",
+      title: "Use the knowledge chain in one output",
+      zhTitle: "在一个输出中使用知识链",
       notes: "Cycle 4: assemble the company-code-exchange match and friction sentence."
     },
     {
@@ -493,16 +565,36 @@ window.INVEST.lesson = {
       notes: "Students can use another matched row from the handout if they prefer."
     },
     {
-      type: "discussion",
+      type: "peerTask",
+      taskType: "missingSentence",
       eyebrow: "Output rehearsal",
-      title: "Write the trading-friction sentence",
-      zhTitle: "写出交易摩擦句",
-      visual: investmentPhotos.stockReportCalculator,
-      question: "Complete one sentence: A stock exchange helps trading because..., but trading is not frictionless because...",
-      zh: "完成一句话：证券交易所帮助交易，因为……但交易不是无摩擦的，因为……",
-      revealTitle: "A strong sentence names the help and the friction",
-      answer: "A stock exchange helps listed shares trade under rules, but trading is not frictionless because price, time, trading units, liquidity and costs can still matter.",
-      answerZh: "证券交易所帮助上市股票在规则下交易，但交易不是无摩擦的，因为价格、时间、交易单位、流动性和成本仍然重要。",
+      title: "Complete the trading-friction sentence",
+      zhTitle: "完成交易摩擦句",
+      prompt: "Use the knowledge chain to complete the missing link.",
+      promptZh: "用知识链完成缺失环节。",
+      steps: [
+        {
+          label: "1",
+          text: "A stock exchange helps listed shares trade under rules.",
+          zh: "证券交易所帮助上市股票在规则下交易。"
+        },
+        {
+          label: "2",
+          text: "Trading is not frictionless because __________.",
+          zh: "交易不是无摩擦的，因为________。",
+          answer: "price, time, trading units, liquidity or costs can still matter"
+        },
+        {
+          label: "3",
+          text: "A strong output names one specific friction without giving advice.",
+          zh: "强输出会说出一个具体摩擦，但不提供投资建议。"
+        }
+      ],
+      missingSentenceStep: 2,
+      missingSentenceAnswer: "price, time, trading units, liquidity or costs can still matter",
+      missingSentenceAnswerZh: "价格、时间、交易单位、流动性或成本仍然重要",
+      sharePrompt: "Improve the sentence by naming one specific friction.",
+      sharePromptZh: "通过说出一个具体摩擦来改进句子。",
       notes: "This model sentence is deliberately broad and avoids bid/ask/spread mechanics."
     },
     {

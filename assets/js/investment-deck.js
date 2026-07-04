@@ -76,6 +76,34 @@
     return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.charAt(index) || String(index + 1);
   }
 
+  function normalizeNumberedItem(item, index) {
+    if (Array.isArray(item)) {
+      return {
+        label: item[0] || String(index + 1),
+        text: item[1] || '',
+        answer: item[2] || '',
+        zh: item[3] || '',
+      };
+    }
+    return {
+      label: item?.label || String(index + 1),
+      text: item?.text || item?.prompt || '',
+      answer: item?.answer || '',
+      zh: item?.zh || '',
+      answerZh: item?.answerZh || '',
+      reason: item?.reason || '',
+      reasonZh: item?.reasonZh || '',
+      term: item?.term || '',
+      termZh: item?.termZh || '',
+    };
+  }
+
+  function yesNoLabel(value) {
+    if (value === true) return 'Yes';
+    if (value === false) return 'No';
+    return String(value ?? '');
+  }
+
   function handoutBlank(answer, width = null) {
     const answerText = String(answer ?? '');
     const blankWidth = width || Math.max(8, Math.min(24, answerText.length + 4));
@@ -814,8 +842,161 @@
     return slideShell(slide, index, lesson, body, 'invRiskRegisterSlide invContextPhotoSlide', photo);
   }
 
+  function renderCompare(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const mode = slide.mode || 'list';
+    const renderColumn = (title, titleZh, items = []) => `
+      <section class="invCompareColumn">
+        <h2>${escapeHtml(title || '')}${titleZh ? `<span lang="zh-Hans">${escapeHtml(titleZh)}</span>` : ''}</h2>
+        <div class="invCompareList">
+          ${(items || []).map((item, i) => {
+            const normalized = normalizeNumberedItem(item, i);
+            const text = mode === 'fillBlanks' && normalized.answer
+              ? fillBlankMarkup(normalized.text, normalized.answer)
+              : html(normalized.text);
+            return `
+              <div class="invCompareListItem">
+                <span>${escapeHtml(normalized.label)}</span>
+                <strong>${text}</strong>
+                ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+              </div>`;
+          }).join('')}
+        </div>
+      </section>`;
+    const promptClass = slide.promptReveal ? ' invReveal' : '';
+    const body = `
+      <div class="invCompareTwoColumn">
+        <div class="invCompareColumns">
+          ${renderColumn(slide.leftTitle, slide.leftTitleZh, slide.left)}
+          ${renderColumn(slide.rightTitle, slide.rightTitleZh, slide.right)}
+        </div>
+        ${slide.prompt ? `<div class="invFocusPrompt${promptClass}"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invCompareSlide invContextPhotoSlide', photo);
+  }
+
+  function renderClassificationTask(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealAnswers = slide.revealAnswers !== false;
+    const categories = (slide.categories || []).map((category) => {
+      const normalized = typeof category === 'string' ? { title: category } : category || {};
+      return `
+        <div class="invClassificationCategory">
+          <strong>${escapeHtml(normalized.title || normalized.label || '')}</strong>
+          ${normalized.zhTitle ? `<span lang="zh-Hans">${escapeHtml(normalized.zhTitle)}</span>` : ''}
+          ${normalized.clue ? `<em>${escapeHtml(normalized.clue)}</em>` : ''}
+        </div>`;
+    }).join('');
+    const items = (slide.items || []).map((item, i) => {
+      const normalized = normalizeNumberedItem(item, i);
+      return `
+        <article class="invClassificationItem">
+          <div class="invClassificationPrompt">
+            <span>${escapeHtml(normalized.label)}</span>
+            <strong>${escapeHtml(normalized.text)}</strong>
+            ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+          </div>
+          ${(normalized.answer || normalized.reason) ? `
+            <div class="invClassificationResult${revealAnswers ? ' invReveal' : ''}">
+              ${normalized.answer ? `<span>${escapeHtml(normalized.answer)}</span>` : ''}
+              ${normalized.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}
+              ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
+              ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+            </div>` : ''}
+        </article>`;
+    }).join('');
+    const body = `
+      <div class="invClassificationTask">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+        ${categories ? `<div class="invClassificationCategories">${categories}</div>` : ''}
+        <div class="invClassificationItems">${items}</div>
+        ${slide.sharePrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.sharePrompt)}</strong>${slide.sharePromptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.sharePromptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invClassificationTaskSlide invContextPhotoSlide', photo);
+  }
+
+  function renderYesNoCheck(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealAnswers = slide.revealAnswers !== false;
+    const items = (slide.items || []).map((item, i) => {
+      const normalized = normalizeNumberedItem(item, i);
+      const answer = yesNoLabel(item?.answer);
+      return `
+        <article class="invYesNoItem">
+          <div class="invYesNoStatement">
+            <span>${String(i + 1).padStart(2, '0')}</span>
+            <strong>${escapeHtml(normalized.text)}</strong>
+            ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+          </div>
+          <div class="invYesNoAnswer${revealAnswers ? ' invReveal' : ''}">
+            <span>${escapeHtml(answer)}</span>
+            ${normalized.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}
+            ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
+            ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+          </div>
+        </article>`;
+    }).join('');
+    const body = `
+      <div class="invYesNoCheck">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+        <div class="invYesNoItems">${items}</div>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invYesNoCheckSlide invContextPhotoSlide', photo);
+  }
+
+  function renderDefinitionRecall(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const rows = (slide.definitionItems || []).map((item, i) => `
+      <article class="invDefinitionRecallRow">
+        <div class="invDefinitionRecallTerm">
+          <span>${escapeHtml(item.label || String(i + 1))}</span>
+          <strong>${escapeHtml(item.term || '')}</strong>
+          ${item.termZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.termZh)}</p>` : ''}
+        </div>
+        <div class="invDefinitionRecallAnswer invReveal">
+          <strong>${escapeHtml(item.answer || '')}</strong>
+          ${item.answerZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.answerZh)}</p>` : ''}
+        </div>
+      </article>
+    `).join('');
+    const body = `
+      <div class="invDefinitionRecall">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+        <div class="invDefinitionRecallRows">${rows}</div>
+        ${slide.sharePrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.sharePrompt)}</strong>${slide.sharePromptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.sharePromptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invPeerTaskSlide invDefinitionRecallSlide', photo);
+  }
+
+  function renderMissingSentence(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const missingIndex = Math.max(0, Number(slide.missingSentenceStep || 2) - 1);
+    const steps = (slide.steps || []).map((step, i) => {
+      const normalized = normalizeNumberedItem(step, i);
+      const answer = normalized.answer || (i === missingIndex ? slide.missingSentenceAnswer : '');
+      const text = answer ? fillBlankMarkup(normalized.text || '__________', answer) : html(normalized.text || '');
+      return `
+        <div class="invStep${i === missingIndex ? ' is-missingSentence' : ''}">
+          <span class="invStepNum">${escapeHtml(normalized.label)}</span>
+          <strong>${text}</strong>
+          ${normalized.zh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</span>` : ''}
+          ${i === missingIndex && slide.missingSentenceAnswerZh ? `<span class="invZhLine invMissingSentenceAnswerZh" lang="zh-Hans">${escapeHtml(slide.missingSentenceAnswerZh)}</span>` : ''}
+        </div>`;
+    }).join('');
+    const body = `
+      <div class="invMissingSentence">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh || slide.zhPrompt ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh || slide.zhPrompt)}</div>` : ''}</div>` : ''}
+        <div class="invFlow invFlow-sequence">${steps}</div>
+        ${slide.sharePrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.sharePrompt)}</strong>${slide.sharePromptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.sharePromptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invPeerTaskSlide invMissingSentenceSlide', photo);
+  }
+
   function renderPeerTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    if (slide.taskType === 'definitionRecall') return renderDefinitionRecall(slide, index, lesson);
+    if (slide.taskType === 'missingSentence') return renderMissingSentence(slide, index, lesson);
+
     const sample = slide.sampleAnswer ? `<div class="invNotePanel invReveal"><strong>Sample answer</strong><p>${html(slide.sampleAnswer)}</p>${slide.sampleAnswerZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.sampleAnswerZh)}</p>` : ''}</div>` : '';
     const steps = (slide.steps || []).map((step, i) => {
       const stepText = typeof step === 'string' ? step : step.text;
@@ -933,12 +1114,15 @@
     conceptTriad: renderConceptTriad,
     sourceLens: renderSourceLens,
     quoteMap: renderQuoteMap,
+    compare: renderCompare,
     comparisonMatrix: renderComparisonMatrix,
     catalystTimeline: renderCatalystTimeline,
     judgementFrame: renderJudgementFrame,
     analystBoard: renderAnalystBoard,
     calculationDesk: renderCalculationDesk,
     riskRegister: renderRiskRegister,
+    classificationTask: renderClassificationTask,
+    yesNoCheck: renderYesNoCheck,
     peerTask: renderPeerTask,
     quiz: renderQuiz,
     exam: renderExam,

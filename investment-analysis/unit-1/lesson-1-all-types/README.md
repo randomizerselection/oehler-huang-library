@@ -16,9 +16,14 @@ Current slide types shown:
 - `answer`
 - `flow`
 - `peerTask`
+- `peerTask` / `definitionRecall`
+- `peerTask` / `missingSentence`
+- `yesNoCheck`
 - `quiz`
 - `dataSnapshot`
 - `conceptTriad`
+- `compare`
+- `classificationTask`
 - `sourceLens`
 - `quoteMap`
 - `comparisonMatrix`

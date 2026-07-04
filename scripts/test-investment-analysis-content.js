@@ -577,14 +577,38 @@ function validateImportantChineseSupport() {
           });
           break;
         case 'peerTask':
-          (slide.steps || []).forEach((step, stepIndex) => {
-            if (typeof step === 'string') {
-              failures.push(`${label} step ${stepIndex + 1}: peerTask steps must be objects with zh support`);
-            } else if (step.text) {
-              requireChinese(failures, `${label} step ${stepIndex + 1}`, step.zh, 'Chinese support for the peer-task step');
+          if (slide.taskType === 'definitionRecall') {
+            if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the recall prompt');
+            (slide.definitionItems || []).forEach((item, itemIndex) => {
+              if (item.term) requireChinese(failures, `${label} definition ${itemIndex + 1}`, item.termZh, 'termZh for the recall term');
+              if (item.answer) requireChinese(failures, `${label} definition ${itemIndex + 1}`, item.answerZh, 'answerZh for the model definition');
+            });
+            if (slide.sharePrompt) requireChinese(failures, label, slide.sharePromptZh, 'sharePromptZh for the recall share prompt');
+          } else if (slide.taskType === 'missingSentence') {
+            if (slide.prompt) {
+              if (!hasChineseText(slide.promptZh) && !hasChineseText(slide.zhPrompt)) {
+                failures.push(`${label}: missing Chinese support for the missing-sentence prompt`);
+              }
             }
-          });
-          if (slide.sampleAnswer) requireChinese(failures, label, slide.sampleAnswerZh, 'sampleAnswerZh for the revealed sample answer');
+            (slide.steps || []).forEach((step, stepIndex) => {
+              if (typeof step === 'string') {
+                failures.push(`${label} step ${stepIndex + 1}: missingSentence steps must be objects with zh support`);
+              } else if (step.text) {
+                requireChinese(failures, `${label} step ${stepIndex + 1}`, step.zh, 'Chinese support for the missing-sentence step');
+              }
+            });
+            if (slide.missingSentenceAnswer) requireChinese(failures, label, slide.missingSentenceAnswerZh, 'missingSentenceAnswerZh');
+            if (slide.sharePrompt) requireChinese(failures, label, slide.sharePromptZh, 'sharePromptZh for the missing-sentence share prompt');
+          } else {
+            (slide.steps || []).forEach((step, stepIndex) => {
+              if (typeof step === 'string') {
+                failures.push(`${label} step ${stepIndex + 1}: peerTask steps must be objects with zh support`);
+              } else if (step.text) {
+                requireChinese(failures, `${label} step ${stepIndex + 1}`, step.zh, 'Chinese support for the peer-task step');
+              }
+            });
+            if (slide.sampleAnswer) requireChinese(failures, label, slide.sampleAnswerZh, 'sampleAnswerZh for the revealed sample answer');
+          }
           break;
         case 'quiz':
           if (slide.question) requireChinese(failures, label, slide.zh, 'zh for the quiz question');
@@ -611,8 +635,32 @@ function validateImportantChineseSupport() {
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the quote-map task');
           if (slide.answer) requireChinese(failures, label, slide.answerZh, 'answerZh for the revealed quote-map answer');
           break;
+        case 'compare':
+          [...(slide.left || []), ...(slide.right || [])].forEach((item, itemIndex) => {
+            if (item?.text || Array.isArray(item)) {
+              const zh = Array.isArray(item) ? item[3] : item.zh;
+              requireChinese(failures, `${label} item ${itemIndex + 1}`, zh, 'Chinese support for the compare item');
+            }
+          });
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the compare task');
+          break;
         case 'comparisonMatrix':
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the comparison task');
+          break;
+        case 'classificationTask':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the classification task');
+          (slide.items || []).forEach((item, itemIndex) => {
+            if (item.text || item.prompt) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh, 'Chinese support for the classification case');
+            if (item.reason) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.reasonZh, 'reasonZh for the classification reason');
+          });
+          if (slide.sharePrompt) requireChinese(failures, label, slide.sharePromptZh, 'sharePromptZh for the classification share prompt');
+          break;
+        case 'yesNoCheck':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the yes/no task');
+          (slide.items || []).forEach((item, itemIndex) => {
+            if (item.text || item.statement) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh, 'Chinese support for the yes/no statement');
+            if (item.reason) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.reasonZh, 'reasonZh for the yes/no reason');
+          });
           break;
         case 'catalystTimeline':
           (slide.events || []).forEach((event, eventIndex) => {

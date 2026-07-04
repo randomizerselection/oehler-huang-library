@@ -34,6 +34,22 @@ window.INVEST.lesson = {
       ]
     },
     {
+      type: "peerTask",
+      taskType: "definitionRecall",
+      eyebrow: "Recall",
+      title: "Recall last lesson",
+      zhTitle: "回忆上一课",
+      prompt: "Write one-sentence definitions before reveal.",
+      promptZh: "先写一句定义，再揭示答案。",
+      definitionItems: [
+        { label: "1", term: "Term A", termZh: "术语A", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" },
+        { label: "2", term: "Term B", termZh: "术语B", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" },
+        { label: "3", term: "Term C", termZh: "术语C", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" }
+      ],
+      sharePrompt: "Compare with a partner, then improve one definition.",
+      sharePromptZh: "与同伴比较，然后改进一个定义。"
+    },
+    {
       type: "outcomes",
       eyebrow: "Objectives",
       title: "By the end, you can",
@@ -109,6 +125,25 @@ window.INVEST.lesson = {
       notes: "Vary these checks across the lesson: hinge question, sort, mini calculation, source check, misconception correction, peer comparison, cold-call justification or individual written check."
     },
     {
+      type: "peerTask",
+      taskType: "missingSentence",
+      eyebrow: "Pair task",
+      title: "Complete the missing sentence",
+      zhTitle: "补全缺失句子",
+      prompt: "Use the first and last step to write the missing explanation sentence.",
+      promptZh: "利用第一步和最后一步，写出缺失的解释句。",
+      steps: [
+        { label: "1", text: "A source gives a dated fact.", zh: "一个来源提供了带日期的事实。" },
+        { label: "2", text: "__________", answer: "The analyst connects the fact to expectations.", zh: "分析者把事实连接到预期。" },
+        { label: "3", text: "The judgement becomes more careful.", zh: "判断会变得更谨慎。" }
+      ],
+      missingSentenceStep: 2,
+      missingSentenceAnswer: "The analyst connects the fact to expectations.",
+      missingSentenceAnswerZh: "分析者把事实连接到预期。",
+      sharePrompt: "Read your sentence aloud and check that it explains the link.",
+      sharePromptZh: "读出你的句子，并检查它是否解释了连接。"
+    },
+    {
       type: "dataSnapshot",
       eyebrow: "Data Snapshot",
       title: "Company: frozen data snapshot",
@@ -152,6 +187,60 @@ window.INVEST.lesson = {
       ],
       prompt: "Before reveal, classify one classroom example into the correct concept.",
       promptZh: "揭示前，把一个课堂例子归入正确概念。"
+    },
+    {
+      type: "compare",
+      eyebrow: "Review",
+      title: "Compare two ideas in a T-table",
+      zhTitle: "用T表比较两个概念",
+      mode: "fillBlanks",
+      leftTitle: "Evidence-based analysis",
+      leftTitleZh: "基于证据的分析",
+      left: [
+        { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的来源开始。" },
+        { label: "2", text: "Names a possible __________.", answer: "risk", zh: "说出一个可能的风险。" }
+      ],
+      rightTitle: "Weak opinion",
+      rightTitleZh: "薄弱观点",
+      right: [
+        { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人熟悉度开始。" },
+        { label: "2", text: "Ignores the __________ paid.", answer: "price", zh: "忽视支付的价格。" }
+      ],
+      prompt: "Fill the blanks, then explain which side is stronger.",
+      promptZh: "填空后，解释哪一边更有说服力。"
+    },
+    {
+      type: "classificationTask",
+      eyebrow: "Classify",
+      title: "Classify the evidence habit",
+      zhTitle: "给证据习惯分类",
+      prompt: "Classify each case using the taught categories.",
+      promptZh: "用已学类别给每个案例分类。",
+      categories: [
+        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure" },
+        { title: "Risk", zhTitle: "风险", clue: "what could go worse" },
+        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support" }
+      ],
+      items: [
+        { label: "A", text: "Uses a dated annual-report figure.", zh: "使用带日期的年报数据。", answer: "Evidence", answerZh: "证据", reason: "It names a source-backed fact.", reasonZh: "它说出了有来源支持的事实。" },
+        { label: "B", text: "Says the company is famous, so the share is safe.", zh: "说公司很有名，所以股票安全。", answer: "Weak opinion", answerZh: "薄弱观点", reason: "Familiarity is not evidence of value or risk.", reasonZh: "熟悉度不是价值或风险的证据。" },
+        { label: "C", text: "Asks what could reduce future profit.", zh: "询问什么可能降低未来利润。", answer: "Risk", answerZh: "风险", reason: "It checks what could go worse than expected.", reasonZh: "它检查什么可能比预期更差。" }
+      ],
+      sharePrompt: "Defend one classification with a reason.",
+      sharePromptZh: "用理由说明一个分类。"
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Check",
+      title: "Yes or no: does this prove quality?",
+      zhTitle: "判断：这能证明投资质量吗？",
+      prompt: "Vote yes or no before revealing the reason.",
+      promptZh: "先投票判断是或否，再揭示理由。",
+      items: [
+        { text: "A stock code proves the share is a good investment.", zh: "股票代码能证明这只股票是好投资。", answer: false, answerZh: "否", reason: "A code identifies the security; it is not a quality signal.", reasonZh: "代码识别证券，但不是质量信号。" },
+        { text: "A dated source is useful evidence.", zh: "带日期的来源是有用证据。", answer: true, answerZh: "是", reason: "The date helps judge whether the evidence is current.", reasonZh: "日期帮助判断证据是否及时。" },
+        { text: "One source can prove the full investment case.", zh: "一个来源能证明完整投资判断。", answer: false, answerZh: "否", reason: "A judgement still needs return, risk, price and limits.", reasonZh: "判断仍需要回报、风险、价格和局限。" }
+      ]
     },
     {
       type: "sourceLens",

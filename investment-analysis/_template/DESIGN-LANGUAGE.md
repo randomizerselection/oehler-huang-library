@@ -36,6 +36,9 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
+- `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
+- `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
+- `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason.
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.
@@ -47,6 +50,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `answer` and fill-blank term slides: blanks must render as clear answer slots with a visible underline/fill, stable width before and after reveal, and punctuation attached to the slot.
 - `Exit ticket`: keep it as a compact final-check slide with numbered prompts, no visible source button, and all prompts fitting above the footer on phone.
 - `peerTask`: show one large task surface; if a visual is useful, keep it as a subdued background rather than a competing card.
+- `peerTask` variants: use `definitionRecall` for three prior terms at the start of Lesson 2+; use `missingSentence` for one missing explanation link, not broad discussion.
 - `exam`: use the exam question once, then reveal keywords only after students have tried a plan when `revealKeywords: true`.
 - `modelAnswer`: use `cueLabel` and `cueText` to make the comparison task explicit, then reveal paragraphs one at a time.
 

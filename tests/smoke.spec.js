@@ -1316,9 +1316,17 @@ test.describe('site smoke', () => {
           if (slide.type === 'term' && (!hasChinese(slide.termZh) || !hasChinese(slide.definitionZh))) gaps.push(`${slideNumber}: missing term zh`);
           if (slide.type === 'flow' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) gaps.push(`${slideNumber}: missing flow zh`);
           if (slide.type === 'answer' && (slide.items || []).some((item) => !hasChinese(item.zh))) gaps.push(`${slideNumber}: missing answer zh`);
-          if (slide.type === 'peerTask' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) gaps.push(`${slideNumber}: missing peer zh`);
+          if (slide.type === 'peerTask' && slide.taskType === 'definitionRecall') {
+            if (!hasChinese(slide.promptZh)) gaps.push(`${slideNumber}: missing recall prompt zh`);
+            if ((slide.definitionItems || []).some((item) => !hasChinese(item.termZh) || !hasChinese(item.answerZh))) gaps.push(`${slideNumber}: missing recall zh`);
+          } else if (slide.type === 'peerTask' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) {
+            gaps.push(`${slideNumber}: missing peer zh`);
+          }
           if (slide.type === 'dataSnapshot' && (!hasChinese(slide.noteZh) || !hasChinese(slide.taskZh))) gaps.push(`${slideNumber}: missing data zh`);
           if (slide.type === 'riskRegister' && !hasChinese(slide.promptZh)) gaps.push(`${slideNumber}: missing risk prompt zh`);
+          if (slide.type === 'compare' && [...(slide.left || []), ...(slide.right || [])].some((item) => !hasChinese(item.zh))) gaps.push(`${slideNumber}: missing compare zh`);
+          if (slide.type === 'classificationTask' && (slide.items || []).some((item) => !hasChinese(item.zh) || !hasChinese(item.reasonZh))) gaps.push(`${slideNumber}: missing classification zh`);
+          if (slide.type === 'yesNoCheck' && (slide.items || []).some((item) => !hasChinese(item.zh) || !hasChinese(item.reasonZh))) gaps.push(`${slideNumber}: missing yes/no zh`);
           return gaps;
         })
       };
@@ -1404,7 +1412,12 @@ test.describe('site smoke', () => {
     const isPhone = testInfo.project.name.includes('phone');
     const minimumTextSize = isPhone ? 24 : 32;
     const newSlideTypes = [
+      { type: 'peerTask', title: 'Recall last lesson', marker: '.invDefinitionRecall' },
       { type: 'conceptTriad', title: 'Compare three beginner ideas', marker: '.invConceptTriad' },
+      { type: 'peerTask', title: 'Complete the missing sentence', marker: '.invMissingSentence' },
+      { type: 'compare', title: 'Compare two ideas in a T-table', marker: '.invCompareTwoColumn' },
+      { type: 'classificationTask', title: 'Classify the evidence habit', marker: '.invClassificationTask' },
+      { type: 'yesNoCheck', title: 'Yes or no: does this prove quality?', marker: '.invYesNoCheck' },
       { type: 'sourceLens', title: 'Can this source support the claim?', marker: '.invSourceLens' },
       { type: 'quoteMap', title: 'Read the quote page before the opinion', marker: '.invQuoteMap' },
       { type: 'comparisonMatrix', title: 'Compare two choices with the same criteria', marker: '.invCompareMatrix' },
@@ -1668,14 +1681,18 @@ test.describe('site smoke', () => {
 
     const phoneChecks = [
       { type: 'discussion', title: 'HKEX is market infrastructure' },
-      { type: 'answer', title: 'What did Lesson 1 give us?' },
+      { type: 'peerTask', title: 'What did Lesson 1 give us?' },
       { type: 'outcomes', title: 'By the end, you can' },
       { type: 'term', title: 'Stock exchange' },
+      { type: 'compare', title: 'Primary issue vs secondary trade' },
       { type: 'term', title: 'Stock code' },
       { type: 'peerTask', title: 'Match company, code and exchange' },
+      { type: 'classificationTask', title: 'Check 2: classify the code claim' },
       { type: 'dataSnapshot', title: 'Three trading facts' },
       { type: 'riskRegister', title: 'What can make trading less easy?' },
+      { type: 'yesNoCheck', title: 'Check 3: secondary-market misconception' },
       { type: 'flow', title: 'Build the matching-table answer' },
+      { type: 'peerTask', title: 'Complete the trading-friction sentence' },
       { type: 'answer', title: 'Exit ticket' }
     ];
 
@@ -1687,14 +1704,15 @@ test.describe('site smoke', () => {
       await expectInvestmentNoUltraBold(page, `lesson 2 slide ${slideNumber} phone`);
       const blankCount = await page.locator('.invSlide.is-active .blank').count();
       if (blankCount > 0) {
+        const isMissingSentence = match.type === 'peerTask' && match.title === 'Complete the trading-friction sentence';
         await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal.is-revealed')
           .forEach((node) => node.classList.remove('is-revealed')));
-        await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks before reveal`);
+        if (!isMissingSentence) await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks before reveal`);
         for (let revealIndex = 0; revealIndex < blankCount; revealIndex += 1) {
           await page.keyboard.press('Space');
         }
         await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
-        await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks after reveal`);
+        if (!isMissingSentence) await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks after reveal`);
         await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} phone revealed blanks`);
       }
       if (match.type === 'riskRegister') {
