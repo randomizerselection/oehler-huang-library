@@ -525,10 +525,10 @@ async function findInvestmentSlideNumber(page, match) {
   }, match);
 }
 
-async function goToInvestmentSlide(page, match) {
+async function goToInvestmentSlide(page, match, relativePath = 'investment-analysis/unit-1/lesson-1/index.html') {
   const slideNumber = await findInvestmentSlideNumber(page, match);
   expect(slideNumber, `investment slide exists: ${match.type || '*'} ${match.title || ''}`).toBeGreaterThan(0);
-  await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `#${slideNumber}`);
+  await page.goto(pageUrl(relativePath) + `#${slideNumber}`);
   await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
   await page.evaluate(() => document.querySelectorAll('.sourceList[open]').forEach((node) => node.removeAttribute('open')));
   return slideNumber;
@@ -1230,6 +1230,125 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invQuizScore')).toContainText('/10');
     await expectNoHorizontalOverflow(page);
   });
+
+  test('@smoke investment lesson 2 page and quiz work', async ({ page }, testInfo) => {
+    test.setTimeout(120000);
+    test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment lesson 2 test.');
+
+    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
+
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto(pageUrl(lessonPath));
+    await expect(page.locator('body')).toHaveClass(/investment-deck/);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 26');
+    await expect(page.getByRole('heading', { name: /^Why do companies need a stock market\?$/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invHeroKicker')).toContainText(/secondary-market trades/i);
+    await expectInvestmentSlideFits(page, 'lesson 2 hero desktop');
+
+    const lessonTwoChecks = await page.evaluate(() => {
+      const slides = window.INVEST?.lesson?.slides || [];
+      const quizQuestions = window.INVEST?.quiz?.questions || [];
+      const hasChinese = (value) => /[\u3400-\u9fff]/.test(value || '');
+      return {
+        slideCount: slides.length,
+        sectionCount: slides.filter((slide) => slide.type === 'section').length,
+        termTitles: slides.filter((slide) => slide.type === 'term').map((slide) => slide.title),
+        quizCount: quizQuestions.length,
+        sourceLabels: (window.INVEST?.lesson?.meta?.sources || []).map((source) => source.label),
+        translationGaps: slides.flatMap((slide, index) => {
+          const slideNumber = index + 1;
+          const gaps = [];
+          if (!['term'].includes(slide.type) && !hasChinese(slide.zhTitle)) gaps.push(`${slideNumber}: missing zhTitle`);
+          if (['discussion', 'marketBrief', 'quiz'].includes(slide.type) && !hasChinese(slide.zh || slide.questionZh)) gaps.push(`${slideNumber}: missing prompt zh`);
+          if (slide.type === 'quiz' && !hasChinese(slide.explanationZh)) gaps.push(`${slideNumber}: missing explanation zh`);
+          if (slide.type === 'term' && (!hasChinese(slide.termZh) || !hasChinese(slide.definitionZh))) gaps.push(`${slideNumber}: missing term zh`);
+          if (slide.type === 'flow' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) gaps.push(`${slideNumber}: missing flow zh`);
+          if (slide.type === 'answer' && (slide.items || []).some((item) => !hasChinese(item.zh))) gaps.push(`${slideNumber}: missing answer zh`);
+          if (slide.type === 'peerTask' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) gaps.push(`${slideNumber}: missing peer zh`);
+          if (slide.type === 'dataSnapshot' && (!hasChinese(slide.noteZh) || !hasChinese(slide.taskZh))) gaps.push(`${slideNumber}: missing data zh`);
+          if (slide.type === 'riskRegister' && !hasChinese(slide.promptZh)) gaps.push(`${slideNumber}: missing risk prompt zh`);
+          return gaps;
+        })
+      };
+    });
+
+    expect(lessonTwoChecks.slideCount).toBe(26);
+    expect(lessonTwoChecks.sectionCount).toBe(4);
+    expect(lessonTwoChecks.termTitles).toEqual(['Stock exchange', 'Listing', 'Stock code', 'Liquidity']);
+    expect(lessonTwoChecks.quizCount).toBe(10);
+    expect(lessonTwoChecks.sourceLabels).toEqual(expect.arrayContaining([
+      'HKEX List with HKEX FAQ',
+      'HKEX Securities Market Operations FAQ',
+      'HKEX Securities Market Trading Hours',
+      'HKEX Equities Quote pages'
+    ]));
+    expect(lessonTwoChecks.translationGaps).toEqual([]);
+
+    await goToInvestmentSlide(page, { type: 'marketBrief', title: 'HKEX is market infrastructure' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal')).toHaveCount(3);
+    await page.keyboard.press('Space');
+    await page.keyboard.press('Space');
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(3);
+    await expectInvestmentSlideFits(page, 'lesson 2 source-box market brief');
+
+    await goToInvestmentSlide(page, { type: 'term', title: 'Stock exchange' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Stock exchange');
+    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
+    await expectInvestmentBlankVisualState(page, 'lesson 2 stock exchange blank');
+    await page.keyboard.press('Space');
+    await expectInvestmentBlankRevealedVisualState(page, 'lesson 2 stock exchange revealed blank');
+    await page.locator('.invSlide.is-active .sourceList summary').click();
+    await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/HKEX List with HKEX FAQ/i);
+    await expectInvestmentSlideFits(page, 'lesson 2 stock exchange term');
+
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Match company, code and exchange' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/0700\.HK/);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/0388\.HK/);
+    await expectInvestmentSlideFits(page, 'lesson 2 matching task');
+
+    await goToInvestmentSlide(page, { type: 'riskRegister', title: 'What can make trading less easy?' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invRiskItem')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invRiskEffect.invReveal.is-revealed')).toHaveCount(0);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invRiskEffect.invReveal.is-revealed')).toHaveCount(1);
+    await expectInvestmentSlideFits(page, 'lesson 2 risk register');
+
+    for (let slideNumber = 1; slideNumber <= 26; slideNumber += 1) {
+      await page.goto(pageUrl(lessonPath) + `?classroom-fit=${slideNumber}#${slideNumber}`);
+      await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
+      await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} classroom`);
+      await expectInvestmentTeachingTextAtLeast(page, 32, `lesson 2 slide ${slideNumber} classroom`);
+      await expectInvestmentNoUltraBold(page, `lesson 2 slide ${slideNumber} classroom`);
+    }
+
+    await page.goto(pageUrl(lessonPath) + '?view=print');
+    await expect(page.locator('body')).toHaveClass(/investment-handout/);
+    await expect(page.locator('.handoutSection')).toHaveCount(6);
+    await expect(page.locator('.handoutSectionTitle h2')).toHaveText([
+      'Source box',
+      'Vocabulary',
+      'Company evidence',
+      'Calculation or judgement task',
+      'Misconception check',
+      'Individual written output'
+    ]);
+    await expect(page.locator('.handoutDocument')).toContainText(/Stock market infrastructure sheet/i);
+    await expect(page.locator('.handoutDataTable tbody tr')).toHaveCount(4);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=quiz');
+    await expect(page.locator('.invQuizDeck')).toBeVisible();
+    await expect(page.locator('.invQuizQuestion')).toHaveCount(10);
+    await expect(page.locator('.invQuizQuestion').filter({ hasText: /What is a stock exchange/i })).toHaveCount(1);
+    await expect(page.locator('.invQuizQuestion').filter({ hasText: /What does liquidity describe/i })).toHaveCount(1);
+    await page.locator('.invQuizQuestion').first().getByLabel(/regulated market/i).check();
+    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await expect(page.locator('.invQuizScore')).toContainText('/10');
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@smoke investment course map page works', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
@@ -1400,6 +1519,60 @@ test.describe('site smoke', () => {
     }
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + '?view=quiz');
+    await expect(page.locator('.invQuizDeck')).toBeVisible();
+    await expect(page.locator('.invQuizQuestion')).toHaveCount(10);
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@responsive investment lesson 2 fits phone width', async ({ page }, testInfo) => {
+    test.setTimeout(60000);
+    test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment lesson 2 coverage is phone-only.');
+
+    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
+
+    await page.goto(pageUrl(lessonPath));
+    await expect(page.locator('.invSlide.is-active')).toBeVisible();
+    await expect(page.locator('.invCounter')).toHaveText('1 / 26');
+    await expect(page.getByRole('heading', { name: /^Why do companies need a stock market\?$/i })).toBeVisible();
+    await expectInvestmentSlideFits(page, 'lesson 2 hero phone');
+    await expectInvestmentTeachingTextAtLeast(page, 24, 'lesson 2 hero phone');
+    await expectNoHorizontalOverflow(page);
+
+    const phoneChecks = [
+      { type: 'marketBrief', title: 'HKEX is market infrastructure' },
+      { type: 'answer', title: 'What did Lesson 1 give us?' },
+      { type: 'outcomes', title: 'By the end, you can' },
+      { type: 'term', title: 'Stock exchange' },
+      { type: 'term', title: 'Stock code' },
+      { type: 'peerTask', title: 'Match company, code and exchange' },
+      { type: 'dataSnapshot', title: 'Three trading facts' },
+      { type: 'riskRegister', title: 'What can make trading less easy?' },
+      { type: 'flow', title: 'Build the matching-table answer' },
+      { type: 'answer', title: 'Exit ticket' }
+    ];
+
+    for (const match of phoneChecks) {
+      const slideNumber = await goToInvestmentSlide(page, match, lessonPath);
+      if (match.title === 'Exit ticket') await expect(page.locator('.invSlide.is-active')).toHaveClass(/invExitTicketSlide/);
+      await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} phone`);
+      await expectInvestmentTeachingTextAtLeast(page, 24, `lesson 2 slide ${slideNumber} phone`);
+      await expectInvestmentNoUltraBold(page, `lesson 2 slide ${slideNumber} phone`);
+      const blankCount = await page.locator('.invSlide.is-active .blank').count();
+      if (blankCount > 0) {
+        await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal.is-revealed')
+          .forEach((node) => node.classList.remove('is-revealed')));
+        await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks before reveal`);
+        for (let revealIndex = 0; revealIndex < blankCount; revealIndex += 1) {
+          await page.keyboard.press('Space');
+        }
+        await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
+        await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks after reveal`);
+        await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} phone revealed blanks`);
+      }
+      await expectNoHorizontalOverflow(page);
+    }
+
+    await page.goto(pageUrl(lessonPath) + '?view=quiz');
     await expect(page.locator('.invQuizDeck')).toBeVisible();
     await expect(page.locator('.invQuizQuestion')).toHaveCount(10);
     await expectNoHorizontalOverflow(page);
