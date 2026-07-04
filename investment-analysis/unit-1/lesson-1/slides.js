@@ -237,16 +237,48 @@ window.INVEST.lesson = {
       notes: "This immediately separates observation from recommendation."
     },
     {
-      type: "answer",
+      type: "classificationTask",
       eyebrow: "Retrieval",
       title: "Everyday ideas we already know",
       zhTitle: "我们已经知道的日常概念",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "A company sells products or __________.", answer: "services", zh: "公司销售产品或服务。" },
-        { prompt: "A price tells us what someone pays at a specific __________.", answer: "time", zh: "价格告诉我们某个特定时间有人支付多少。" },
-        { prompt: "Risk means the result may be worse than __________.", answer: "expected", zh: "风险意味着结果可能低于预期。" }
+      prompt: "Classify each starting idea before we add investment vocabulary.",
+      promptZh: "在加入投资词汇前，先给每个起点想法分类。",
+      categories: [
+        { title: "Company", zhTitle: "公司", clue: "business and products" },
+        { title: "Price", zhTitle: "价格", clue: "one number at one time" },
+        { title: "Evidence habit", zhTitle: "证据习惯", clue: "check before judging" }
       ],
+      items: [
+        {
+          label: "A",
+          text: "Tencent sells products and services.",
+          zh: "腾讯销售产品和服务。",
+          answer: "Company",
+          answerZh: "公司",
+          reason: "This names the business; it is not yet a judgement about the listed share.",
+          reasonZh: "这说明公司业务，还不是对上市股票的判断。"
+        },
+        {
+          label: "B",
+          text: "A price line changes over time.",
+          zh: "价格线会随时间变化。",
+          answer: "Price",
+          answerZh: "价格",
+          reason: "This describes the number we can observe before asking why it changed.",
+          reasonZh: "这描述我们能先观察到的数字，然后再问它为什么变化。"
+        },
+        {
+          label: "C",
+          text: "A claim needs a source before it becomes analysis.",
+          zh: "一个观点成为分析前需要来源。",
+          answer: "Evidence habit",
+          answerZh: "证据习惯",
+          reason: "This is the course habit: evidence first, judgement second.",
+          reasonZh: "这是本课程的习惯：先证据，后判断。"
+        }
+      ],
+      sharePrompt: "Which category will matter most when we look at the Tencent graph?",
+      sharePromptZh: "看腾讯图表时，哪一类最重要？",
       notes: "Brief diagnostic only. No prior investment vocabulary is assumed."
     },
     {
@@ -254,16 +286,16 @@ window.INVEST.lesson = {
       eyebrow: "Objectives",
       title: "By the end, you can",
       zhTitle: "本节课结束时，你能够",
-      phases: ["Define", "Separate", "Write"],
+      phases: ["Name", "Separate", "Judge"],
       bullets: [
-        "define analysis, asset, share, price and risk",
-        "separate company, products, share and price",
-        "write one promise and one evidence question"
+        "name the course rule: evidence before opinion",
+        "separate company, products, listed share and share price",
+        "judge what graph evidence can and cannot prove"
       ],
       zhBullets: [
-        "定义分析、资产、股票、股价和风险",
-        "区分公司、产品、股票和股价",
-        "写一句承诺和一个证据问题"
+        "说出课程规则：先证据，后观点",
+        "区分公司、产品、上市股票和股价",
+        "判断图表证据能证明什么、不能证明什么"
       ],
       notes: "Exactly three objectives, aligned to the syllabus handout and exit output."
     },
@@ -271,8 +303,8 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "Evidence before opinion",
-      zhTitle: "先证据，后观点",
+      title: "Knowledge step 1: evidence before opinion",
+      zhTitle: "知识步骤1：先证据，后观点",
       notes: "Cycle 1: retrieve everyday opinions, attempt to classify, reveal the course rule, check the core claim."
     },
     {
@@ -299,17 +331,25 @@ window.INVEST.lesson = {
       notes: "Make students write the definition, then underline evidence, return, risk and price."
     },
     {
-      type: "answer",
+      type: "compare",
       eyebrow: "Key idea",
-      title: "Core claim: evidence before opinion",
-      zhTitle: "核心观点：先证据，后观点",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "Investment analysis uses __________ before opinion.", answer: "evidence", zh: "投资分析先使用证据，再形成观点。" },
-        { prompt: "It studies the company, listed share, price, possible return and __________.", answer: "risk", zh: "它研究公司、上市股票、价格、可能回报和风险。" },
-        { prompt: "It is not stock tips, market timing or personal __________.", answer: "advice", zh: "它不是股票提示、择时交易或个人投资建议。" }
+      title: "Evidence-based analysis vs weak opinion",
+      zhTitle: "基于证据的分析与薄弱观点",
+      leftTitle: "Evidence-based analysis",
+      leftTitleZh: "基于证据的分析",
+      rightTitle: "Weak opinion",
+      rightTitleZh: "薄弱观点",
+      left: [
+        { label: "1", text: "Names the source, date and evidence.", zh: "说明来源、日期和证据。" },
+        { label: "2", text: "Checks price, possible return, risk and limits before judging.", zh: "判断前检查价格、可能回报、风险和局限。" }
       ],
-      notes: "This is the core claim from the course map. Students complete the blanks before reveal."
+      right: [
+        { label: "1", text: "Starts from fame, rumours or feelings.", zh: "从名气、传闻或感觉出发。" },
+        { label: "2", text: "Jumps from a graph to buy, sell, good or bad.", zh: "从图表直接跳到买、卖、好或坏。" }
+      ],
+      prompt: "Which side is acceptable in this course, and why?",
+      promptZh: "本课程接受哪一边？为什么？",
+      notes: "This is the core claim from the course map. The contrast should be visible before the first hinge check."
     },
     {
       type: "quiz",
@@ -334,8 +374,8 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 2",
       part: "2",
-      title: "Company, product, listed share, share price",
-      zhTitle: "公司、产品、上市股票、股价",
+      title: "Knowledge step 2: company, share and price",
+      zhTitle: "知识步骤2：公司、股票和价格",
       notes: "Cycle 2: separate the four beginner ideas and define asset, share and share price."
     },
     {
@@ -433,30 +473,56 @@ window.INVEST.lesson = {
       notes: "Emphasise one share at one time. It is not revenue, profit or the total value of the whole company."
     },
     {
-      type: "quiz",
+      type: "classificationTask",
       eyebrow: "Hinge check",
       title: "Check 2: separate the ideas",
       zhTitle: "检查2：区分概念",
-      visual: investmentPhotos.tabletFinancialChart,
-      question: "Which statement keeps company, product, share and share price separate?",
-      zh: "哪一句把公司、产品、股票和股价区分清楚？",
-      choices: [
-        "Tencent games are the same thing as Tencent's share price.",
-        "0700.HK is a listed share; one point on the graph is the price of one share at one date.",
-        "Revenue is the same as share price.",
-        "One share means owning all Tencent products."
+      prompt: "Classify each Tencent statement before revealing the reason.",
+      promptZh: "揭示理由前，先给每个腾讯说法分类。",
+      categories: [
+        { title: "Company", zhTitle: "公司", clue: "the business" },
+        { title: "Listed share", zhTitle: "上市股票", clue: "the traded ownership unit" },
+        { title: "Share price", zhTitle: "股价", clue: "one share at one time" }
       ],
-      answer: 1,
-      explanation: "Correct: it identifies the listed share and explains what one graph point measures.",
-      explanationZh: "正确：它识别了上市股票，并说明图上一个点衡量的是什么。",
+      items: [
+        {
+          label: "A",
+          text: "Tencent Holdings Limited sells services.",
+          zh: "腾讯控股有限公司销售服务。",
+          answer: "Company",
+          answerZh: "公司",
+          reason: "This describes the business, not one share price.",
+          reasonZh: "这描述公司业务，不是一股股票的价格。"
+        },
+        {
+          label: "B",
+          text: "0700.HK is Tencent's listed share.",
+          zh: "0700.HK 是腾讯的上市股票。",
+          answer: "Listed share",
+          answerZh: "上市股票",
+          reason: "The code points to the traded ownership unit.",
+          reasonZh: "这个代码指向可交易的所有权单位。"
+        },
+        {
+          label: "C",
+          text: "One graph point is one share price on one date.",
+          zh: "图上一个点是某一天的一股股价。",
+          answer: "Share price",
+          answerZh: "股价",
+          reason: "A share price is one share at one specific time.",
+          reasonZh: "股价是在某个特定时间一股股票的价格。"
+        }
+      ],
+      sharePrompt: "Defend one classification using the words company, share or price.",
+      sharePromptZh: "用“公司、股票或价格”说明一个分类理由。",
       notes: "If many students miss this, reteach the four-part distinction with the source box."
     },
     {
       type: "section",
       eyebrow: "Part 3",
       part: "3",
-      title: "Frozen graph evidence",
-      zhTitle: "冻结图表证据",
+      title: "Knowledge step 3: graph evidence has limits",
+      zhTitle: "知识步骤3：图表证据有局限",
       notes: "Cycle 3: use the graph and company figures as evidence with limits, not as recommendations."
     },
     {
@@ -522,30 +588,46 @@ window.INVEST.lesson = {
       notes: "This mirrors the handout table and creates a teacher decision point before output rehearsal."
     },
     {
-      type: "quiz",
+      type: "yesNoCheck",
       eyebrow: "Hinge check",
       title: "Check 3: what can the graph prove?",
       zhTitle: "检查3：图表能证明什么？",
-      visual: investmentPhotos.investorChartScreens,
-      question: "Which claim is safest after looking at the frozen Tencent graph?",
-      zh: "看完冻结的腾讯图表后，哪一个说法最稳妥？",
-      choices: [
-        "Tencent is definitely a good investment.",
-        "The line shows how one Tencent share price moved in this source.",
-        "Tencent's revenue equals the latest share price.",
-        "The graph removes the need to study risk."
+      prompt: "Vote yes or no before reveal. Which claims are safe after the frozen Tencent graph?",
+      promptZh: "揭示前先投票：看完冻结的腾讯图表后，哪些说法是稳妥的？",
+      items: [
+        {
+          text: "The graph can show how one Tencent share price moved over time.",
+          zh: "图表能显示一股腾讯股票价格如何随时间变化。",
+          answer: true,
+          answerZh: "是",
+          reason: "That is exactly what the source-dated price line records.",
+          reasonZh: "这正是带来源日期的价格线所记录的内容。"
+        },
+        {
+          text: "The graph proves Tencent is definitely a good investment.",
+          zh: "图表证明腾讯一定是好投资。",
+          answer: false,
+          answerZh: "否",
+          reason: "A graph alone cannot prove quality, value, return and risk.",
+          reasonZh: "单独一张图不能证明质量、价值、回报和风险。"
+        },
+        {
+          text: "The graph can start a better evidence question.",
+          zh: "图表可以引出更好的证据问题。",
+          answer: true,
+          answerZh: "是",
+          reason: "A movement makes us ask what information may explain it.",
+          reasonZh: "价格变化会让我们询问哪些信息可能解释它。"
+        }
       ],
-      answer: 1,
-      explanation: "Correct: the graph is useful evidence, but it cannot prove investment quality by itself.",
-      explanationZh: "正确：图表是有用证据，但不能单独证明投资质量。",
       notes: "This is the formative check for evidence limits."
     },
     {
       type: "section",
       eyebrow: "Part 4",
       part: "4",
-      title: "Risk, speculation, output",
-      zhTitle: "风险、投机与输出",
+      title: "Knowledge step 4: risk completes the judgement",
+      zhTitle: "知识步骤4：风险补全判断",
       notes: "Cycle 4: define risk, name the anti-speculation boundary, rehearse and submit the individual output."
     },
     {

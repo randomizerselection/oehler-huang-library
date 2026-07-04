@@ -3951,6 +3951,10 @@ img {
   padding: 10px 12px 10px 60px;
 }
 
+.invModelAnswerSlide .invModelPoint:not(:has(.invReveal.is-revealed)) {
+  display: none;
+}
+
 .invModelAnswerSlide .invModelPoint::before {
   left: 14px;
   top: 14px;
@@ -3974,9 +3978,7 @@ img {
 }
 
 .invQuizSlide:has(.invQuizFeedback:not([hidden])) .invQuizChoices,
-.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerSteps,
 .invModelAnswerSlide:has(.invModelParas p.is-revealed) .invModelCue,
-.invExamSlide:has(.invKeyword.is-revealed) .invExamBox h3,
 .invCalculationDeskSlide:has(.invCalcRows) .invWorked {
   display: none;
 }
@@ -3999,6 +4001,40 @@ img {
   padding-top: 38px;
 }
 
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerSteps {
+  gap: 8px;
+}
+
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invStep {
+  min-height: 0;
+  padding: 10px 12px;
+}
+
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invStep strong {
+  font-size: 26px;
+  line-height: 1.06;
+}
+
+.invSortTaskSlide:has(.invNotePanel.is-revealed) .invSortInstructions,
+.invSortTaskSlide:has(.invNotePanel.is-revealed) .invNotePanel .invPromptZh {
+  display: none;
+}
+
+.invSortTaskSlide:has(.invNotePanel.is-revealed) .invNotePanel {
+  padding: 10px 14px;
+}
+
+.invSortTaskSlide:has(.invNotePanel.is-revealed) .invNotePanel p {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.08;
+}
+
+.invExamSlide:has(.invKeyword.is-revealed) .invExamBox h3 {
+  font-size: 30px;
+  line-height: 1.08;
+}
+
 .invQuizSlide:has(.invQuizFeedback:not([hidden])) .invQuizFeedback {
   border-top: 1px solid rgba(57, 217, 145, 0.28);
   border-left-width: 0;
@@ -4019,8 +4055,7 @@ img {
 
 .invSlide[data-type="marketBrief"] .invBigQuestion,
 .invSlide[data-type="marketBrief"]:has(.invMetricValue.is-revealed) .invBigQuestion,
-.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskQuestion,
-.invCalculationDeskSlide:has(.invNotePanel.is-revealed) .invFormula {
+.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskQuestion {
   display: none;
 }
 
@@ -4971,7 +5006,6 @@ img {
 .invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteField em,
 .invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteTask > strong,
 .invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteTask > .invZhLine,
-.invSortTaskSlide:has(.invNotePanel.is-revealed) .invSortBoard,
 .invCatalystTimelineSlide:has(.invCatalystEffect.is-revealed) .invCatalystEvent > p:not(.invCatalystEffect),
 .invJudgementFrameSlide:has(.invJudgementAnswer.is-revealed) .invJudgementStage > p:not(.invJudgementAnswer) {
   display: none;
@@ -5178,15 +5212,6 @@ img {
   margin-top: 0;
 }
 
-.invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt,
-.invClassificationTask:has(.invClassificationResult.is-revealed) > .invClassificationCategories {
-  display: none;
-}
-
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-  display: none;
-}
-
 .invCompareSlide .invSlideBody,
 .invClassificationTaskSlide .invSlideBody,
 .invYesNoCheckSlide .invSlideBody,
@@ -5228,10 +5253,6 @@ img {
   margin-top: 4px;
   font-size: 24px;
   line-height: 1.1;
-}
-
-.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt:not(.invReveal) {
-  display: none;
 }
 
 .invClassificationCategory {
@@ -5349,6 +5370,11 @@ img {
 }
 
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong,
+.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+  font-size: 24px;
+  line-height: 1.06;
+}
+
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt .invZhLine {
   display: none;
 }
@@ -5358,7 +5384,10 @@ img {
   align-content: start;
 }
 
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
+.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
   display: none;
 }
@@ -5440,10 +5469,6 @@ img {
 .invMissingSentence .invStep {
   align-content: start;
   padding: 12px;
-}
-
-.invMissingSentence:has(.blank.is-revealed) > .invFocusPrompt:not(.invReveal) {
-  display: none;
 }
 
 .invMissingSentence .blank {
@@ -6220,9 +6245,9 @@ img {
 
   .invChoice {
     min-width: 0;
-    gap: 7px;
+    gap: 6px;
     overflow-wrap: anywhere;
-    padding: 8px;
+    padding: 6px 8px;
   }
 
   .invChoice span:last-child {
@@ -6239,18 +6264,20 @@ img {
   }
 
   .invQuizSlide .invPanel {
-    gap: 7px;
+    gap: 5px;
+    padding: 8px;
   }
 
   .invQuizSlide .invBigQuestion,
   .invQuizSlide .invChoice {
+    min-height: 0;
     font-size: 18px;
     line-height: 1.08;
   }
 
   .invQuizSlide .invQuizChoices {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px;
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   .invQuizSlide .invQuizFeedback {
@@ -6394,6 +6421,31 @@ img {
   .invPeerTaskSlide .invStep .invZhLine,
   .invPeerTaskSlide .invNotePanel .invPromptZh {
     display: none;
+  }
+
+  .invPeerTaskSlide:has(.invNotePanel.is-revealed):not(.invSortTaskSlide):not(.invDefinitionRecallSlide):not(.invMissingSentenceSlide) .invPeerSteps {
+    gap: 3px;
+  }
+
+  .invPeerTaskSlide:has(.invNotePanel.is-revealed):not(.invSortTaskSlide):not(.invDefinitionRecallSlide):not(.invMissingSentenceSlide) .invStep {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 3px 6px;
+    padding: 5px;
+  }
+
+  .invPeerTaskSlide:has(.invNotePanel.is-revealed):not(.invSortTaskSlide):not(.invDefinitionRecallSlide):not(.invMissingSentenceSlide) .invStep strong {
+    font-size: 20px;
+    line-height: 1.02;
+  }
+
+  .invPeerTaskSlide:has(.invNotePanel.is-revealed):not(.invSortTaskSlide) .invNotePanel {
+    padding: 6px;
+  }
+
+  .invPeerTaskSlide:has(.invNotePanel.is-revealed):not(.invSortTaskSlide) .invNotePanel p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.04;
   }
 
   .invSortTaskSlide .invSortInstructions {
@@ -6681,9 +6733,15 @@ img {
     gap: 5px;
   }
 
-  .invCalculationDeskSlide .invFormula,
   .invCalculationDeskSlide:has(.invNotePanel.is-revealed) .invCalcRows {
     display: none;
+  }
+
+  .invCalculationDeskSlide .invFormula {
+    min-height: 0;
+    padding: 7px 8px;
+    font-size: 24px;
+    line-height: 1.04;
   }
 
   .invCalcRow {
@@ -6821,10 +6879,6 @@ img {
 
   .invModelAnswerSlide .invModelFrame {
     gap: 6px;
-  }
-
-  .invModelAnswerSlide .invModelCue {
-    display: none;
   }
 
   .invModelAnswerSlide .invModelPoint {
@@ -7180,19 +7234,21 @@ img {
   }
 
   .invCompareColumn {
-    gap: 5px;
+    gap: 4px;
+    padding: 6px 7px;
   }
 
   .invCompareColumn h2 {
-    font-size: 24px;
+    font-size: 22px;
+    line-height: 1;
   }
 
   .invCompareTwoColumn > .invFocusPrompt {
-    padding: 7px;
+    padding: 6px 7px;
   }
 
   .invCompareTwoColumn > .invFocusPrompt strong {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.04;
   }
 
@@ -7222,7 +7278,7 @@ img {
   .invCompareListItem {
     grid-template-columns: 26px minmax(0, 1fr);
     gap: 4px 7px;
-    padding: 5px 6px;
+    padding: 4px 6px;
   }
 
   .invCompareListItem > span,
@@ -7242,6 +7298,10 @@ img {
   .invDefinitionRecallAnswer strong {
     font-size: 24px;
     line-height: 1.04;
+  }
+
+  .invCompareListItem strong {
+    font-size: 22px;
   }
 
   .invClassificationCategory {
@@ -7270,12 +7330,24 @@ img {
     gap: 5px;
   }
 
+  .invClassificationTask:has(.invClassificationResult.is-revealed) > .invClassificationCategories,
+  .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt.invReveal {
+    display: none;
+  }
+
   .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
     min-height: 0;
-    padding: 6px;
+    gap: 3px;
+    padding: 5px;
   }
 
   .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 3px 6px;
+    align-items: start;
+  }
+
   .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult .invZhLine {
     display: none;
   }
@@ -7294,17 +7366,56 @@ img {
   }
 
   .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+    grid-template-columns: 1fr;
     gap: 5px;
   }
 
   .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
     min-height: 0;
-    padding: 6px;
+    gap: 3px;
+    padding: 5px;
   }
 
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
   .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
     display: none;
+  }
+
+  .invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt,
+  .invMissingSentence:has(.blank.is-revealed) > .invFocusPrompt,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
+  .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
+    padding: 5px 7px;
+  }
+
+  .invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt strong,
+  .invMissingSentence:has(.blank.is-revealed) > .invFocusPrompt strong,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
+  .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt strong {
+    font-size: 22px;
+    line-height: 1.02;
+  }
+
+  .invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt.invReveal {
+    display: none;
+  }
+
+  .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+    font-size: 20px;
+    line-height: 1.02;
+  }
+
+  .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 3px 6px;
+    padding: 4px 5px;
+  }
+
+  .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult p,
+  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
+    font-size: 16px;
+    line-height: 1.02;
   }
 
   .invDefinitionRecall > .invFocusPrompt {
@@ -7317,6 +7428,10 @@ img {
   }
 
   .invDefinitionRecall > .invFocusPrompt .invZhLine {
+    display: none;
+  }
+
+  .invMissingSentenceSlide .invSlideHeader .invZhTitle {
     display: none;
   }
 
@@ -7337,8 +7452,22 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .invMissingSentence:has(.blank.is-revealed) > .invFocusPrompt {
+  .invMissingSentence:has(.blank.is-revealed) .invFlow-sequence {
+    gap: 3px;
+  }
+
+  .invMissingSentence:has(.blank.is-revealed) > .invFocusPrompt.invReveal {
     display: none;
+  }
+
+  .invMissingSentence:has(.blank.is-revealed) .invStep {
+    gap: 3px;
+    padding: 4px 5px;
+  }
+
+  .invMissingSentence:has(.blank.is-revealed) .invStep strong {
+    font-size: 18px;
+    line-height: 1.02;
   }
 
   .invClassificationResult,
@@ -7358,9 +7487,15 @@ img {
     gap: 5px;
   }
 
+  .invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallRows {
+    gap: 3px;
+  }
+
   .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) {
     grid-template-columns: 1fr;
     align-items: start;
+    gap: 3px;
+    padding: 5px;
   }
 
   .invDefinitionRecallTerm {
@@ -7370,10 +7505,14 @@ img {
     padding-bottom: 5px;
   }
 
-  .invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
-  .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
-    display: none;
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm {
+    padding-bottom: 3px;
+  }
+
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm strong,
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallAnswer strong {
+    font-size: 20px;
+    line-height: 1.02;
   }
 
   .invCatalystEvent,

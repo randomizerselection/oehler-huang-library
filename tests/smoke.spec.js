@@ -966,14 +966,14 @@ test.describe('site smoke', () => {
       '1. hero: What is investment analysis, and what is a share?',
       '2. priceChart: What does this line make you ask?',
       '3. discussion: What can we say before we calculate?',
-      '4. answer: Everyday ideas we already know',
+      '4. classificationTask: Everyday ideas we already know',
       '5. outcomes: By the end, you can',
-      '6. section: Evidence before opinion',
+      '6. section: Knowledge step 1: evidence before opinion',
       '7. discussion: Is this analysis or opinion?',
       '8. term: Investment analysis',
-      '9. answer: Core claim: evidence before opinion',
+      '9. compare: Evidence-based analysis vs weak opinion',
       '10. quiz: Check 1: what changes a guess into analysis?',
-      '11. section: Company, product, listed share, share price',
+      '11. section: Knowledge step 2: company, share and price',
       '12. discussion: What do you already know about Tencent?',
       '13. discussion: Check the Tencent source',
       '14. flow: Keep the four ideas separate',
@@ -981,13 +981,13 @@ test.describe('site smoke', () => {
       '16. term: Share',
       '17. discussion: What do you own if you own one share?',
       '18. term: Share price',
-      '19. quiz: Check 2: separate the ideas',
-      '20. section: Frozen graph evidence',
+      '19. classificationTask: Check 2: separate the ideas',
+      '20. section: Knowledge step 3: graph evidence has limits',
       '21. answer: Graph observation and movement question',
       '22. dataSnapshot: One company fact is not a judgement',
       '23. analystBoard: What can evidence show and not prove?',
-      '24. quiz: Check 3: what can the graph prove?',
-      '25. section: Risk, speculation, output',
+      '24. yesNoCheck: Check 3: what can the graph prove?',
+      '25. section: Knowledge step 4: risk completes the judgement',
       '26. term: Risk',
       '27. term: Short-term stock speculation',
       '28. riskRegister: What makes a claim speculative?',
@@ -1031,7 +1031,7 @@ test.describe('site smoke', () => {
       const quizQuestions = window.INVEST?.quiz?.questions || [];
       const sourceBox = lesson.handout?.sections?.find((section) => section.title === 'Source box');
       const facts = sourceBox?.blocks?.find((block) => block.type === 'facts')?.items || [];
-      const visiblePromptTypes = ['discussion', 'priceChart', 'quiz'];
+      const visiblePromptTypes = ['discussion', 'priceChart', 'quiz', 'classificationTask', 'yesNoCheck', 'compare'];
 
       return {
         answerZhWithoutChinese: slides.flatMap((slide, index) =>
@@ -1045,7 +1045,7 @@ test.describe('site smoke', () => {
           if (!['term'].includes(slide.type) && !hasChinese(slide.zhTitle)) {
             gaps.push(`${slideNumber}: missing zhTitle`);
           }
-          if (visiblePromptTypes.includes(slide.type) && !hasChinese(slide.zh || slide.questionZh)) {
+          if (visiblePromptTypes.includes(slide.type) && !hasChinese(slide.zh || slide.questionZh || slide.promptZh)) {
             gaps.push(`${slideNumber}: missing question zh`);
           }
           if (slide.type === 'quiz' && !hasChinese(slide.explanationZh)) {
@@ -1073,6 +1073,25 @@ test.describe('site smoke', () => {
           }
           if (slide.type === 'answer' && (slide.items || []).some((item) => !hasChinese(item.zh))) {
             gaps.push(`${slideNumber}: missing answer item zh`);
+          }
+          if (slide.type === 'compare') {
+            if (!hasChinese(slide.leftTitleZh) || !hasChinese(slide.rightTitleZh)) {
+              gaps.push(`${slideNumber}: missing compare title zh`);
+            }
+            if ([...(slide.left || []), ...(slide.right || [])].some((item) => !hasChinese(item.zh))) {
+              gaps.push(`${slideNumber}: missing compare item zh`);
+            }
+          }
+          if (slide.type === 'classificationTask') {
+            if ((slide.categories || []).some((category) => typeof category === 'string' || !hasChinese(category.zhTitle))) {
+              gaps.push(`${slideNumber}: missing classification category zh`);
+            }
+            if ((slide.items || []).some((item) => !hasChinese(item.zh) || !hasChinese(item.answerZh) || !hasChinese(item.reasonZh))) {
+              gaps.push(`${slideNumber}: missing classification item zh`);
+            }
+          }
+          if (slide.type === 'yesNoCheck' && (slide.items || []).some((item) => !hasChinese(item.zh) || !hasChinese(item.answerZh) || !hasChinese(item.reasonZh))) {
+            gaps.push(`${slideNumber}: missing yes/no item zh`);
           }
           return gaps;
         }),
@@ -1111,12 +1130,12 @@ test.describe('site smoke', () => {
     await expect(courseStarterQuestion).toContainText(/without saying buy, sell, good or bad/i);
     await expectInvestmentSlideFits(page, 'course starter discussion revealed desktop');
 
-    await goToInvestmentSlide(page, { type: 'answer', title: 'Core claim: evidence before opinion' });
-    await expect(page.getByRole('heading', { name: /^Core claim: evidence before opinion$/i })).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .blank').first()).not.toHaveClass(/is-revealed/);
-    await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
-    await expectInvestmentSlideFits(page, 'course rule fill blanks desktop');
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Evidence-based analysis vs weak opinion' });
+    await expect(page.getByRole('heading', { name: /^Evidence-based analysis vs weak opinion$/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invCompareColumn')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/source, date and evidence/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/rumours or feelings/i);
+    await expectInvestmentSlideFits(page, 'evidence opinion compare desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion', title: 'Check the Tencent source' });
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
@@ -1158,6 +1177,14 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
     await expectInvestmentSlideFits(page, 'share term slide desktop');
 
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Check 2: separate the ideas' });
+    await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invClassificationResult.invReveal.is-revealed')).toHaveCount(0);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invClassificationResult.invReveal.is-revealed')).toHaveCount(1);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/listed share/i);
+    await expectInvestmentSlideFits(page, 'company share price classification desktop');
+
     await goToInvestmentSlide(page, { type: 'priceChart', title: 'What does this line make you ask?' });
     await expect(page.locator('.invSlide.is-active .invPriceChartSvg')).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invChartLine')).toHaveCount(1);
@@ -1185,6 +1212,14 @@ test.describe('site smoke', () => {
     await page.keyboard.press('Space');
     await expect(page.locator('.invSlide.is-active .invEvidenceBody.invReveal.is-revealed')).toHaveCount(3);
     await expectInvestmentSlideFits(page, 'intro analyst board classroom');
+
+    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Check 3: what can the graph prove?' });
+    await expect(page.locator('.invSlide.is-active .invYesNoItem')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invYesNoAnswer.invReveal.is-revealed')).toHaveCount(0);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invYesNoAnswer.invReveal.is-revealed')).toHaveCount(1);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/good investment/i);
+    await expectInvestmentSlideFits(page, 'graph evidence yes no desktop');
 
     await goToInvestmentSlide(page, { type: 'riskRegister', title: 'What makes a claim speculative?' });
     await expect(page.locator('.invSlide.is-active .invRiskItem')).toHaveCount(4);
@@ -1468,6 +1503,102 @@ test.describe('site smoke', () => {
     );
     await expectInvestmentVisualPauseImageOnly(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
     await expectInvestmentSlideFits(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
+
+    const revealPromptChecks = [
+      {
+        type: 'peerTask',
+        title: 'Improve one analyst sentence',
+        selector: '.invPeerSteps .invStep strong',
+        text: /Write your own sentence first/i,
+      },
+      {
+        type: 'peerTask',
+        title: 'Recall three definitions',
+        selector: '.invDefinitionRecall > .invFocusPrompt strong',
+        text: /Write one-sentence definitions before reveal/i,
+      },
+      {
+        type: 'peerTask',
+        title: 'Complete the missing explanation sentence',
+        selector: '.invMissingSentence > .invFocusPrompt strong',
+        text: /Use the first and last step to write the missing analyst sentence/i,
+      },
+      {
+        type: 'classificationTask',
+        title: 'Classify the evidence habit',
+        selector: '.invClassificationPrompt strong',
+        text: /Uses a dated annual-report figure/i,
+      },
+      {
+        type: 'yesNoCheck',
+        title: 'Yes or no: does this prove quality?',
+        selector: '.invYesNoStatement strong',
+        text: /A stock code proves the share is a good investment/i,
+      },
+      {
+        type: 'exam',
+        title: 'Output rehearsal',
+        selector: '.invExamBox h3',
+        text: /familiar company is not automatically a good investment/i,
+      },
+    ];
+
+    for (const match of revealPromptChecks) {
+      const slideNumber = await goToInvestmentSlide(page, match, galleryPath);
+      const prompt = page.locator(`.invSlide.is-active ${match.selector}`).filter({ hasText: match.text }).first();
+      await expect(prompt).toBeVisible();
+      await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+        node.classList.add('is-revealed');
+        if (node.hasAttribute('hidden')) node.hidden = false;
+      }));
+      await expect(prompt).toBeVisible();
+      await expect(prompt).toContainText(match.text);
+      await expectInvestmentSlideFits(page, `gallery ${match.type} slide ${slideNumber} revealed keeps prompt`);
+    }
+
+    const sortSlideNumber = await goToInvestmentSlide(
+      page,
+      { type: 'peerTask', title: 'Sort the evidence habit' },
+      galleryPath
+    );
+    const sortTargets = page.locator('.invSlide.is-active .invSortCase');
+    await expect(sortTargets).toHaveCount(4);
+    await expect(sortTargets.first()).toBeVisible();
+    await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+      node.classList.add('is-revealed');
+      if (node.hasAttribute('hidden')) node.hidden = false;
+    }));
+    await expect(sortTargets.first()).toBeVisible();
+    await expectInvestmentSlideFits(page, `gallery sort peerTask slide ${sortSlideNumber} revealed keeps sort targets`);
+
+    const calculationSlideNumber = await goToInvestmentSlide(
+      page,
+      { type: 'calculationDesk', title: 'Show the calculation without hiding the judgement' },
+      galleryPath
+    );
+    const formula = page.locator('.invSlide.is-active .invFormula').filter({ hasText: /change \/ old price/i }).first();
+    await expect(formula).toBeVisible();
+    await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+      node.classList.add('is-revealed');
+      if (node.hasAttribute('hidden')) node.hidden = false;
+    }));
+    await expect(formula).toBeVisible();
+    await expectInvestmentSlideFits(page, `gallery calculationDesk slide ${calculationSlideNumber} revealed keeps formula`);
+
+    const modelSlideNumber = await goToInvestmentSlide(
+      page,
+      { type: 'modelAnswer', title: 'Compare your answer with the model' },
+      galleryPath
+    );
+    await expect(page.locator('.invSlide.is-active .invModelCue')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invModelPoint').first()).toBeHidden();
+    await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+      node.classList.add('is-revealed');
+      if (node.hasAttribute('hidden')) node.hidden = false;
+    }));
+    await expect(page.locator('.invSlide.is-active .invModelPoint').first()).toBeVisible();
+    await expectInvestmentSlideFits(page, `gallery modelAnswer slide ${modelSlideNumber} revealed fits model text`);
+
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1604,16 +1735,18 @@ test.describe('site smoke', () => {
 
     const phoneChecks = [
       { type: 'discussion', title: 'What can we say before we calculate?' },
-      { type: 'answer', title: 'Everyday ideas we already know' },
+      { type: 'classificationTask', title: 'Everyday ideas we already know' },
       { type: 'outcomes', title: 'By the end, you can' },
-      { type: 'answer', title: 'Core claim: evidence before opinion' },
+      { type: 'compare', title: 'Evidence-based analysis vs weak opinion' },
       { type: 'discussion', title: 'Check the Tencent source' },
       { type: 'flow', title: 'Keep the four ideas separate' },
       { type: 'term', title: 'Investment analysis' },
       { type: 'term', title: 'Share' },
+      { type: 'classificationTask', title: 'Check 2: separate the ideas' },
       { type: 'priceChart', title: 'What does this line make you ask?' },
       { type: 'dataSnapshot', title: 'One company fact is not a judgement' },
       { type: 'analystBoard', title: 'What can evidence show and not prove?' },
+      { type: 'yesNoCheck', title: 'Check 3: what can the graph prove?' },
       { type: 'riskRegister', title: 'What makes a claim speculative?' },
       { type: 'peerTask', title: 'Rewrite weak claims as evidence questions' },
       { type: 'flow', title: 'How should an analyst think?' },
@@ -1646,7 +1779,7 @@ test.describe('site smoke', () => {
         await expect(page.locator('.invSlide.is-active .invDiscussionAnswer')).toBeVisible();
         await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed discussion`);
       }
-      if (match.type === 'analystBoard' || match.type === 'riskRegister') {
+      if (['analystBoard', 'riskRegister', 'classificationTask', 'yesNoCheck'].includes(match.type)) {
         await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
           node.classList.add('is-revealed');
           if (node.hasAttribute('hidden')) node.hidden = false;
