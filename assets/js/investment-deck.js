@@ -477,35 +477,23 @@
         <section class="invSlide invVisualPauseSlide" data-idx="${index}" data-type="${escapeHtml(slide.type)}" aria-label="${escapeHtml(slide.title || `Slide ${index + 1}`)}">
           <div class="invVisualPauseHero"${photoStyle(photo)}>
             <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || '')}" loading="eager" />
-            <div class="invVisualPauseText">
-              ${slide.eyebrow ? `<div class="invEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
-              ${slide.title ? `<h1>${html(slide.title)}</h1>` : ''}
-              ${slide.zhTitle ? `<p lang="zh-Hans">${escapeHtml(slide.zhTitle)}</p>` : ''}
-              <p>${escapeHtml(photo.caption || photo.alt || '')}${photo.credit ? ` · ${escapeHtml(photo.credit)}` : ''}</p>
-            </div>
           </div>
         </section>`;
     }
-    const body = `
-      <div class="invPanel">
-        <div class="invBigQuestion">${html(slide.title || '')}</div>
-        ${slide.zhTitle ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</p>` : ''}
-        <div class="invTickerStrip" aria-label="Listed company examples">
-          ${(slide.visual?.rows || []).map((row) => `
-            <span>${escapeHtml(row.company)} · ${escapeHtml(row.code)} · ${escapeHtml(row.signal)}</span>
-          `).join('')}
-        </div>
-      </div>`;
-    return slideShell(slide, index, lesson, body);
+    return `
+      <section class="invSlide invVisualPauseSlide" data-idx="${index}" data-type="${escapeHtml(slide.type)}" aria-label="${escapeHtml(slide.title || `Slide ${index + 1}`)}">
+        <div class="invVisualPauseHero invVisualPauseHeroEmpty"></div>
+      </section>`;
   }
 
   function renderDiscussion(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const questionZh = slide.zh || slide.questionZh || slide.promptZh;
     const body = `
       <div class="invDiscussionStack">
         <div class="invPanel invDiscussionQuestion">
           <div class="invBigQuestion">${html(slide.question || slide.prompt || '')}</div>
-          ${slide.zh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.zh)}</p>` : ''}
+          ${questionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(questionZh)}</p>` : ''}
         </div>
         <div class="invNotePanel invReveal invDiscussionAnswer">
           ${slide.revealTitle ? `<strong>${escapeHtml(slide.revealTitle)}</strong>` : ''}
@@ -602,6 +590,7 @@
           ${concept.tag ? `<span class="invConceptTag">${escapeHtml(concept.tag)}</span>` : ''}
           <strong>${escapeHtml(concept.label || `Concept ${i + 1}`)}</strong>
           ${concept.definition ? `<p class="invConceptDefinition">${html(concept.definition)}</p>` : ''}
+          ${concept.definitionZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(concept.definitionZh)}</p>` : ''}
           ${rows.length ? `<div class="invConceptRows${revealDetails ? ' invReveal' : ''}">
             ${rows.map(([label, value]) => `
               <div class="invConceptRow">
@@ -637,7 +626,7 @@
         <strong>${escapeHtml(check.label || `Check ${i + 1}`)}</strong>
         <p>${html(check.prompt || '')}</p>
         ${check.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(check.zh)}</p>` : ''}
-        ${check.answer ? `<p class="invSourceAnswer${revealAnswers ? ' invReveal' : ''}"><span>${escapeHtml(slide.answerLabel || 'Strong answer')}</span>${html(check.answer)}</p>` : ''}
+        ${check.answer ? `<p class="invSourceAnswer${revealAnswers ? ' invReveal' : ''}"><span>${escapeHtml(slide.answerLabel || 'Strong answer')}</span>${html(check.answer)}${check.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(check.answerZh)}</span>` : ''}</p>` : ''}
       </div>
     `).join('');
     const body = `
@@ -674,7 +663,7 @@
         <div class="invQuoteTask">
           <strong>${html(slide.prompt || 'Read the quote page before making a claim.')}</strong>
           ${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}
-          ${slide.answer ? `<p class="invReveal">${html(slide.answer)}</p>` : ''}
+          ${slide.answer ? `<p class="invReveal">${html(slide.answer)}${slide.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.answerZh)}</span>` : ''}</p>` : ''}
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invQuoteMapSlide invContextPhotoSlide', photo);
@@ -751,7 +740,7 @@
         <strong>${escapeHtml(stage.label || '')}</strong>
         <p>${html(stage.prompt || '')}</p>
         ${stage.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(stage.zh)}</p>` : ''}
-        ${stage.answer ? `<p class="invJudgementAnswer${revealAnswers ? ' invReveal' : ''}">${html(stage.answer)}</p>` : ''}
+        ${stage.answer ? `<p class="invJudgementAnswer${revealAnswers ? ' invReveal' : ''}">${html(stage.answer)}${stage.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(stage.answerZh)}</span>` : ''}</p>` : ''}
       </div>
     `).join('');
     const body = `
@@ -800,7 +789,7 @@
           ${rows ? `<div class="invCalcRows">${rows}</div>` : ''}
           ${slide.worked ? `<div class="invWorked"><strong>Worked example</strong><br>${html(slide.worked)}${slide.workedZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.workedZh)}</div>` : ''}</div>` : ''}
           ${slide.prompt ? `<div class="invTryIt"><strong>Try it</strong><br>${html(slide.prompt)}${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
-          ${slide.answer ? `<div class="invNotePanel invReveal"><strong>Answer</strong><p>${html(slide.answer)}</p></div>` : ''}
+          ${slide.answer ? `<div class="invNotePanel invReveal"><strong>Answer</strong><p>${html(slide.answer)}${slide.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.answerZh)}</span>` : ''}</p></div>` : ''}
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invCalculationDeskSlide invContextPhotoSlide', photo);
@@ -908,19 +897,23 @@
 
   function renderModelAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const paragraphsZh = slide.paragraphsZh || [];
     const paragraphs = (slide.paragraphs || []).map((paragraph, i) => `
       <div class="invModelPoint" data-point="${i + 1}">
         <p class="invReveal">${html(paragraph)}</p>
+        ${paragraphsZh[i] ? `<p class="invPromptZh invReveal" lang="zh-Hans">${escapeHtml(paragraphsZh[i])}</p>` : ''}
       </div>
     `).join('');
     const body = `
       <div class="invModelFrame">
         <div class="invModelCue">
           <strong>${escapeHtml(slide.cueLabel || 'Answer focus')}</strong>
+          ${slide.cueLabelZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.cueLabelZh)}</span>` : ''}
           <span>${escapeHtml(slide.cueText || 'Two developed points: one about profit, one about price and risk.')}</span>
+          ${slide.cueTextZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.cueTextZh)}</span>` : ''}
         </div>
         <div class="invModelParas">${paragraphs}</div>
-        ${slide.markNote ? `<div class="invMarkNote invReveal">${escapeHtml(slide.markNote)}</div>` : ''}
+        ${slide.markNote ? `<div class="invMarkNote invReveal">${escapeHtml(slide.markNote)}${slide.markNoteZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.markNoteZh)}</span>` : ''}</div>` : ''}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invModelAnswerSlide invContextPhotoSlide', photo);
   }

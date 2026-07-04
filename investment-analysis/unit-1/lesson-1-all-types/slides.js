@@ -6,331 +6,438 @@ const investmentMarketData = window.INVEST.marketData || {};
 window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment Analysis",
-    lessonLabel: "Unit 1 Lesson 1: Knowledge-based starter version",
+    lessonLabel: "Slide Type Gallery: Investment Analysis",
     sources: [
       {
-        label: "Tencent investor relations",
-        note: "Used for company identity and official source habits.",
-        date: "Accessed 26 June 2026",
-        url: "https://www.tencent.com/en-us/investors.html"
+        label: "Investment deck renderer",
+        note: "The gallery mirrors the current renderer keys in assets/js/investment-deck.js.",
+        date: "Reviewed 4 July 2026",
+        url: "../../../assets/js/investment-deck.js"
       },
       {
-        label: "Yahoo Finance historical prices",
-        note: "Used for the frozen five-year 0700.HK monthly share-price graph.",
-        date: "Accessed 2 July 2026",
-        url: "https://finance.yahoo.com/quote/0700.HK/history/"
-      },
-      {
-        label: "Tencent 2025 annual and fourth quarter results",
-        note: "Used for a simple company-evidence example without valuation judgement.",
-        date: "Published 18 March 2026; accessed 26 June 2026",
-        url: "https://static.www.tencent.com/uploads/2026/03/18/e6a646796d0d869acc76271c9ee1a6a5.pdf"
+        label: "Investment lesson template",
+        note: "The template provides the starting examples for future Investment Analysis decks.",
+        date: "Reviewed 4 July 2026",
+        url: "../../_template/slides.js"
       }
     ]
   },
   handout: {
-    title: "Investment Analysis Starter Map",
-    subtitle: "Unit 1 Lesson 1: Saving, investment, speculation and one share price",
-    description: "Classify saving, investment and speculation; define asset, share and share price; then use Tencent to ask why a share price can move.",
+    title: "Investment slide type decision worksheet",
+    subtitle: "Review deck for future lesson design",
+    description: "Use this as a structured review sheet while moving through the gallery. Mark each type as keep, edit, replace, split into variants, or delete.",
     meta: [
-      { label: "Name", value: "" },
-      { label: "Class", value: "" },
-      { label: "Date", value: "" }
+      { label: "Reviewer", value: "" },
+      { label: "Date", value: "" },
+      { label: "Next deck", value: "" }
     ],
     sections: [
       {
         label: "1",
-        title: "Three uses of money",
-        instruction: "Define the three choices before using Tencent.",
+        title: "Opening and navigation types",
+        instruction: "Decide whether each type should stay available for future decks.",
         blocks: [
           {
             type: "table",
-            columns: ["Choice", "Main purpose", "Main risk"],
+            columns: ["Slide type", "Current role", "Decision"],
             rows: [
-              { metric: "Saving", value: "Safety and access", shows: "Low return; inflation may reduce buying power.", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "Investment", value: "Possible future return", shows: "Value can rise or fall.", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "Speculation", value: "Short-term price bet", shows: "High uncertainty and weak analysis.", limits: "", showsLines: 1, limitLines: 1 }
+              { metric: "hero", value: "Lesson opener and big case signal.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "priceChart", value: "Frozen share-price chart hook.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "outcomes", value: "Three lesson objectives.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "section", value: "Section divider and progress reset.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "visualPause", value: "Image-only pause before a concept or source.", shows: "", limits: "", showsLines: 1, limitLines: 1 }
             ]
           }
         ]
       },
       {
         label: "2",
-        title: "Vocabulary",
-        instruction: "Complete each definition.",
+        title: "Teaching and practice types",
+        instruction: "Record whether the type teaches clearly or needs a redesign.",
         blocks: [
           {
-            type: "terms",
-            terms: [
-              { label: "Asset", prompt: "An asset is something owned that may have __________.", answer: "value" },
-              { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" },
-              { label: "Share price", prompt: "A share price is the market price of one __________ at a specific time.", answer: "share" },
-              { label: "Possible return", prompt: "Possible return is what an investor may __________.", answer: "gain" },
-              { label: "Risk", prompt: "Risk means results may be worse than __________.", answer: "expected" },
-              { label: "Speculation", prompt: "Speculation mainly bets on a short-term price __________.", answer: "movement" }
+            type: "table",
+            columns: ["Slide type", "Current role", "Decision"],
+            rows: [
+              { metric: "discussion", value: "Question first, answer reveal second.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "term", value: "One key term and definition.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "answer", value: "Fill-in retrieval, checks, or exit ticket.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "flow", value: "Sequence with reveal blanks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "peerTask", value: "Partner steps or sorting board.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "quiz", value: "Interactive multiple-choice hinge check.", shows: "", limits: "", showsLines: 1, limitLines: 1 }
             ]
           }
         ]
       },
       {
         label: "3",
-        title: "Tencent map",
-        instruction: "Separate the company, product, listed share and one share price.",
+        title: "Evidence and judgement types",
+        instruction: "Identify which types should be used often, rarely, or replaced.",
         blocks: [
           {
-            type: "prompts",
-            prompts: [
-              { label: "Company", prompt: "What is the company name?", lines: 1 },
-              { label: "Product", prompt: "Name one product or service Tencent provides.", lines: 1 },
-              { label: "Listed share", prompt: "Which code identifies the listed share?", lines: 1 },
-              { label: "Share price", prompt: "What does one point on the graph represent?", lines: 2 }
+            type: "table",
+            columns: ["Slide type", "Current role", "Decision"],
+            rows: [
+              { metric: "dataSnapshot", value: "Three metrics plus a student evidence task.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "conceptTriad", value: "Compare three related concepts.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "sourceLens", value: "Source metadata and source checks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "quoteMap", value: "Quote-page identity fields.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "comparisonMatrix", value: "Compare choices across common criteria.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "catalystTimeline", value: "Event-to-expectation chain.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "calculationDesk", value: "Formula, inputs, worked example, try-it task.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "analystBoard", value: "Three evidence blocks and a missing-block prompt.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "riskRegister", value: "Risk table with revealed effects.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "judgementFrame", value: "Evidence, return, risk, price-paid stages.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "exam", value: "Output rehearsal with keywords.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "modelAnswer", value: "Revealed paragraphs for comparison.", shows: "", limits: "", showsLines: 1, limitLines: 1 }
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "Why can price move?",
-        instruction: "Use the graph to write a knowledge question, not advice.",
-        blocks: [
-          {
-            type: "sentence",
-            label: "Price movement chain",
-            prompt: "New information can change __________, which can change buying and selling, which can move the share price.",
-            keywords: ["expectations", "buyers", "sellers", "share price"],
-            lines: 3
-          }
-        ]
-      },
-      {
-        label: "5",
-        title: "Misconception check",
-        instruction: "Correct each weak idea.",
-        blocks: [
-          {
-            type: "cases",
-            cases: [
-              { label: "A", text: "Saving and investing are the same.", answer: "misconception" },
-              { label: "B", text: "A famous company must be a good investment.", answer: "misconception" },
-              { label: "C", text: "A share price is the whole company's value.", answer: "misconception" },
-              { label: "D", text: "Speculation is mainly a short-term price bet.", answer: "correct" }
-            ]
-          }
-        ]
-      },
-      {
-        label: "6",
-        title: "Exit output",
-        instruction: "Submit the knowledge map and one Tencent question.",
+        title: "Replacement notes",
+        instruction: "Use this area for specific instructions I should apply to future decks.",
         blocks: [
           {
             type: "writing",
-            question: "Classify saving, investment and speculation; define share price; then write one Tencent price-movement question.",
-            keywords: ["saving", "investment", "speculation", "asset", "share", "share price", "expectations", "risk"],
-            lines: 8
+            question: "Which slide types should be kept, edited, split into variants, replaced, or deleted?",
+            keywords: ["keep", "edit", "split", "replace", "delete", "future use"],
+            lines: 10
           }
         ]
       }
     ],
-    sources: "Tencent price graph: Yahoo Finance monthly historical prices, accessed 2 Jul 2026. Tencent company data: FY2025 annual and Q4 results, published 18 Mar 2026, accessed 26 Jun 2026. Frozen classroom evidence only; no personal investment recommendation."
+    sources: "Gallery generated from the current Investment Analysis renderer on 4 July 2026."
   },
   slides: [
     {
       type: "hero",
-      eyebrow: "Unit 1 Lesson 1",
-      title: "Saving, investment, speculation and one share price",
-      subtitle: "Tencent starter map",
-      kicker: "Learn the first knowledge map: three uses of money, one ownership unit, one share price and one price-movement question.",
+      eyebrow: "type: hero",
+      title: "Investment slide type gallery",
+      zhTitle: "投资幻灯片类型展示",
+      subtitle: "A review deck for future presentation design",
+      kicker: "Move through each available renderer. Use Notes and the worksheet to mark keep, edit, replace, split or delete.",
       visual: investmentPhotos.modernTradingDesk,
       notes: [
-        "Keep the course boundary explicit: no stock tips, market timing or personal investment advice.",
-        "This version is knowledge-first. Evidence habits appear only where they help students understand source dates and price movement."
+        "Current role: hero opens a lesson with a strong case signal.",
+        "Future use: use once at the start of a deck, not as a generic section title.",
+        "Review decision: keep, edit, replace or delete."
       ]
     },
     {
       type: "priceChart",
-      eyebrow: "Case hook",
-      title: "Tencent's share price moved over time",
-      question: "What do you notice about the line before we define anything?",
+      eyebrow: "type: priceChart",
+      title: "A chart can start a question",
+      zhTitle: "图表可以引出问题",
+      question: "What movement do you notice before any explanation?",
+      questionZh: "在任何解释之前，你注意到什么变化？",
       ticker: "0700.HK",
       data: investmentMarketData.tencentFiveYearSharePrice,
       yMin: 150,
       yMax: 700,
       sourceStamp: "Tencent 0700.HK monthly closes | Yahoo Finance | accessed 2 Jul 2026",
       alt: "Five-year line chart of Tencent 0700.HK monthly share-price closes.",
-      notes: "Students only observe direction and volatility. Do not calculate percentage change."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Try first",
-      title: "Is this saving, investment or speculation?",
-      visual: investmentPhotos.smartphoneMarketChart,
-      question: "A student sees the Tencent line and says, 'I want to put money there because it might jump next week.' Which category is this closest to, and why?",
-      revealTitle: "A short-term price bet is speculation",
-      answer: "It is closest to speculation because the student is mainly betting on a short-term price jump, not explaining the asset, possible return and risk.",
-      notes: "This opens with classification knowledge rather than a source-method lecture."
+      notes: [
+        "Current role: full-screen frozen chart hook.",
+        "Future use: use for observation, not live price dependence or advice.",
+        "Review decision: decide whether chart controls, labels or annotations need redesign."
+      ]
     },
     {
       type: "outcomes",
-      eyebrow: "Objectives",
+      eyebrow: "type: outcomes",
       title: "By the end, you can",
-      phases: ["Classify", "Define", "Explain"],
+      zhTitle: "本课结束时，你能够",
+      phases: ["Recognise", "Decide", "Apply"],
       bullets: [
-        "classify saving, investment and speculation",
-        "define asset, share, share price, possible return and risk",
-        "explain why a Tencent share price can move"
+        "recognise the available slide types",
+        "decide which types need edits or replacement",
+        "apply the strongest types in future decks"
       ],
-      notes: "Exactly three objectives, all knowledge-facing."
+      zhBullets: [
+        "识别可用的幻灯片类型",
+        "判断哪些类型需要修改或替换",
+        "在未来课件中使用最有效的类型"
+      ],
+      notes: [
+        "Current role: exactly three objective cards.",
+        "Future use: use once near the start and keep objectives concrete.",
+        "Review decision: decide whether the phase labels add value."
+      ]
     },
     {
       type: "section",
-      eyebrow: "Part 1",
+      eyebrow: "Review group",
       part: "1",
-      title: "Three uses of money",
-      subtitle: "Saving, investment and speculation are not the same choice.",
-      notes: "Cycle: classify first, teach the triad, then sort examples."
+      title: "Navigation and lesson rhythm",
+      zhTitle: "导航与课堂节奏",
+      subtitle: "These types structure the deck before or between learning cycles.",
+      notes: [
+        "Current role: section reset with automatic progress labels.",
+        "Future use: use between major lesson parts only.",
+        "Review decision: decide whether the progress strip is useful enough to keep."
+      ]
+    },
+    {
+      type: "visualPause",
+      eyebrow: "type: visualPause",
+      title: "Look before the explanation",
+      visual: investmentPhotos.hkexHall,
+      notes: [
+        "Current role: image-only reset that lets students observe before explanation.",
+        "Future use: strongest before a new source, market setting, company context or misconception.",
+        "Review decision: keep it picture-only; put any prompt in notes or the next slide."
+      ]
+    },
+    {
+      type: "section",
+      eyebrow: "Review group",
+      part: "2",
+      title: "Teach, reveal and check",
+      zhTitle: "讲解、揭示与检查",
+      subtitle: "These types create the core classroom moves inside each section.",
+      notes: [
+        "Current role: reset before the main teaching and practice examples.",
+        "Future use: keep section titles notebook-ready and student-facing.",
+        "Review decision: keep, edit, replace or delete."
+      ]
+    },
+    {
+      type: "discussion",
+      eyebrow: "type: discussion",
+      title: "Question first, answer second",
+      zhTitle: "先提问，再揭示答案",
+      visual: investmentPhotos.investorMeetingReport,
+      question: "A student says: Tencent is famous, so its share must be safe. What is missing?",
+      questionZh: "学生说：腾讯很有名，所以它的股票一定安全。这里缺少什么？",
+      revealTitle: "Familiarity is not evidence",
+      answer: "The claim needs a source, date, share price, possible return, risk and limitation before judgement.",
+      answerZh: "判断前需要来源、日期、股价、可能回报、风险和局限，而不能只靠熟悉度。",
+      notes: [
+        "Current role: student-answerable prompt with a concise reveal answer.",
+        "Future use: use when you want commitment before explanation.",
+        "Review decision: decide whether the answer reveal is visually strong enough."
+      ]
+    },
+    {
+      type: "term",
+      eyebrow: "type: term",
+      title: "Share price",
+      term: "Share price",
+      termZh: "股价",
+      definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
+      definitionZh: "股价是在特定时间一股股票的市场价格。",
+      notes: [
+        "Current role: one term, one definition, optional revealed blank.",
+        "Future use: use for definitions students should copy exactly.",
+        "Review decision: decide whether examples or non-examples should be built into this type."
+      ]
+    },
+    {
+      type: "answer",
+      eyebrow: "type: answer",
+      title: "Retrieval check",
+      zhTitle: "回忆检查",
+      mode: "fillBlanks",
+      items: [
+        { prompt: "Evidence comes before __________.", answer: "opinion", zh: "先看证据，再形成观点。" },
+        { prompt: "A share is one unit of __________.", answer: "ownership", zh: "一股股票是一个所有权单位。" },
+        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能低于预期。" }
+      ],
+      notes: [
+        "Current role: fill-in retrieval or short answer list.",
+        "Future use: use for quick diagnostic checks and notebook-ready rules.",
+        "Review decision: decide whether this type should be renamed because it is not always an answer slide."
+      ]
+    },
+    {
+      type: "flow",
+      eyebrow: "type: flow",
+      title: "Link information to price movement",
+      zhTitle: "把信息连接到价格变化",
+      visual: investmentPhotos.financeChartWhiteboard,
+      flowStyle: "sequence",
+      steps: [
+        { text: "New information changes __________.", answer: "expectations", zh: "新信息会改变预期。" },
+        { text: "Expectations affect buyers and __________.", answer: "sellers", zh: "预期会影响买方和卖方。" },
+        { text: "Buying and selling can move the share __________.", answer: "price", zh: "买卖力量可能推动股价变化。" },
+        { text: "The analyst checks evidence before __________.", answer: "judgement", zh: "分析者先核查证据，再作判断。" }
+      ],
+      notes: [
+        "Current role: sequence with revealed blanks.",
+        "Future use: good for mechanisms, calculation steps and evidence chains.",
+        "Review decision: decide whether arrows or a more visual pathway would improve it."
+      ]
+    },
+    {
+      type: "peerTask",
+      eyebrow: "type: peerTask",
+      title: "Improve one analyst sentence",
+      zhTitle: "改进一句分析句",
+      visual: investmentPhotos.businessChartsPaper,
+      steps: [
+        { text: "Write your own sentence first.", zh: "先写出自己的句子。" },
+        { text: "Compare with a partner and underline the evidence.", zh: "与同伴比较，并划出证据。" },
+        { text: "Improve one word before the reveal.", zh: "揭示前改进一个词。" }
+      ],
+      sampleAnswer: "Tencent is a familiar company, but a judgement needs source-dated evidence about price, return and risk.",
+      sampleAnswerZh: "腾讯是熟悉的公司，但判断需要关于价格、回报和风险的带日期证据。",
+      notes: [
+        "Current role: partner work with a revealed sample answer.",
+        "Future use: use for short writing, peer comparison or improvement routines.",
+        "Review decision: decide whether the steps panel is clear enough."
+      ]
+    },
+    {
+      type: "peerTask",
+      eyebrow: "type: peerTask / sort variant",
+      title: "Sort the evidence habit",
+      zhTitle: "给证据习惯分类",
+      visual: investmentPhotos.investorChartScreens,
+      taskType: "sort",
+      categories: ["Company", "Share price", "Risk", "Weak opinion"],
+      steps: [
+        { text: "Sort each case into one category.", zh: "把每个案例分到一个类别。" },
+        { text: "Explain the most difficult choice.", zh: "解释最难判断的一项。" }
+      ],
+      cases: [
+        { label: "A", text: "Tencent Holdings" },
+        { label: "B", text: "0700.HK moved" },
+        { label: "C", text: "Competition may reduce profit" },
+        { label: "D", text: "Famous means safe" }
+      ],
+      sampleAnswer: "Famous means safe is a weak opinion because it has not checked price, return or risk.",
+      sampleAnswerZh: "“有名就安全”是弱观点，因为它没有核查价格、回报或风险。",
+      notes: [
+        "Current role: same peerTask type, but taskType sort changes the layout.",
+        "Future use: use for categories, concepts, evidence/source sorting and misconception checks.",
+        "Review decision: decide whether this should become its own slide type."
+      ]
+    },
+    {
+      type: "quiz",
+      eyebrow: "type: quiz",
+      title: "Hinge check",
+      zhTitle: "关键检查",
+      visual: investmentPhotos.tabletFinancialChart,
+      question: "Which claim is safest after looking at a frozen share-price chart?",
+      zh: "看完冻结的股价图后，哪一个说法最稳妥？",
+      choices: [
+        "The share is definitely a good investment.",
+        "The chart shows how one share price moved in that source.",
+        "The company has no risk.",
+        "The latest price proves future return."
+      ],
+      answer: 1,
+      explanation: "A chart is evidence of movement in a source. It does not prove quality, risk or future return by itself.",
+      explanationZh: "图表是某个来源中的价格变化证据，但不能单独证明质量、风险或未来回报。",
+      notes: [
+        "Current role: clickable multiple-choice hinge check.",
+        "Future use: use after a key concept when the teacher needs a fast decision.",
+        "Review decision: decide whether feedback should be more visible after selection."
+      ]
+    },
+    {
+      type: "section",
+      eyebrow: "Review group",
+      part: "3",
+      title: "Evidence and source work",
+      zhTitle: "证据与来源任务",
+      subtitle: "These types help students read data, sources, quote pages and comparisons.",
+      notes: [
+        "Current role: reset before evidence-heavy slide types.",
+        "Future use: use this group when a lesson moves from terms into analyst habits.",
+        "Review decision: keep, edit, replace or delete."
+      ]
+    },
+    {
+      type: "dataSnapshot",
+      eyebrow: "type: dataSnapshot",
+      title: "Compact facts with a task",
+      zhTitle: "带任务的紧凑事实",
+      visual: investmentPhotos.annualReports,
+      sourceStamp: "Tencent FY2025 results | RMB billions | published 18 Mar 2026",
+      focusMetrics: [
+        { label: "Revenue", value: "RMB751.8bn" },
+        { label: "Gross profit", value: "RMB422.6bn" },
+        { label: "Gross margin", value: "56%" }
+      ],
+      task: "Mark what each figure shows, then name what it cannot prove alone.",
+      taskZh: "标出每个数字说明什么，再写出它单独不能证明什么。",
+      notes: [
+        "Current role: data focus plus a task.",
+        "Future use: use this when students need compact facts with a purpose.",
+        "Review decision: decide whether source limitations need a built-in field."
+      ]
     },
     {
       type: "conceptTriad",
-      eyebrow: "Concept map",
-      title: "Saving, investment and speculation",
+      eyebrow: "type: conceptTriad",
+      title: "Compare three beginner ideas",
+      zhTitle: "比较三个入门概念",
       visual: investmentPhotos.businessChartsPaper,
       revealDetails: true,
       concepts: [
         {
           label: "Saving",
-          tag: "Safety and access",
-          definition: "Money kept for safety, access or future spending.",
+          tag: "Safety",
+          definition: "Money kept mainly for safety and access.",
+          definitionZh: "主要为安全和取用方便而保留的钱。",
           purpose: "Keep money available",
-          risk: "Usually lower, but inflation can reduce buying power",
-          time: "Short to medium term",
-          example: "Emergency money in a bank account"
+          risk: "Lower uncertainty"
         },
         {
           label: "Investment",
-          tag: "Asset with risk",
+          tag: "Asset",
           definition: "Money put into an asset for possible return and risk.",
+          definitionZh: "投入资产以追求可能回报并承担风险的钱。",
           purpose: "Seek future gain",
-          risk: "Value can rise or fall",
-          time: "Usually medium to long term",
-          example: "Owning one listed share"
+          risk: "Value can rise or fall"
         },
         {
           label: "Speculation",
           tag: "Price bet",
-          definition: "A short-term price bet with weak analysis.",
-          purpose: "Try to profit from a quick move",
-          risk: "High uncertainty",
-          time: "Often short term",
-          example: "Buying because of a tip"
+          definition: "A short-term bet on price movement with weak analysis.",
+          definitionZh: "在分析不足时押注短期价格变化。",
+          purpose: "Catch a quick move",
+          risk: "High uncertainty"
         }
       ],
-      prompt: "Classify the Tencent price-jump sentence from the starter."
+      notes: [
+        "Current role: three-way comparison with reveal details.",
+        "Future use: use for closely related concepts students confuse.",
+        "Review decision: decide whether the detail reveal is too dense."
+      ]
     },
     {
-      type: "flow",
-      eyebrow: "Key idea",
-      title: "Each money choice asks a different question",
-      visual: investmentPhotos.financeChartWhiteboard,
-      flowStyle: "sequence",
-      steps: [
-        { text: "Saving asks: is my money safe and __________?", answer: "accessible" },
-        { text: "Investment asks: what asset, return and __________?", answer: "risk" },
-        { text: "Speculation asks: can I catch a short-term price __________?", answer: "move" }
+      type: "sourceLens",
+      eyebrow: "type: sourceLens",
+      title: "Check whether the source can support the claim",
+      zhTitle: "检查来源能否支持观点",
+      visual: investmentPhotos.financialAnalysisDesk,
+      revealAnswers: true,
+      metaItems: [
+        { label: "Source title", value: "Tencent FY2025 results" },
+        { label: "Date", value: "18 Mar 2026" }
       ],
-      notes: "Students should write the three guiding questions in notebooks."
-    },
-    {
-      type: "peerTask",
-      eyebrow: "Practice check",
-      title: "Classify the money choice",
-      visual: investmentPhotos.investorChartScreens,
-      taskType: "sort",
-      categories: ["Saving", "Investment", "Speculation"],
-      steps: [
-        { text: "Sort each example." },
-        { text: "Explain one difficult choice." }
+      checks: [
+        { label: "Scope", prompt: "What can it support?", zh: "它能支持什么？", answer: "Reported company figures.", answerZh: "它能支持公司报告中的数据。" },
+        { label: "Limit", prompt: "What can it not prove?", zh: "它不能证明什么？", answer: "Good value by itself.", answerZh: "它不能单独证明股票价格合理。" }
       ],
-      cases: [
-        { label: "A", text: "Emergency money." },
-        { label: "B", text: "One listed share." },
-        { label: "C", text: "Tip says jump." },
-        { label: "D", text: "Next month cash." },
-        { label: "E", text: "Long-term asset." },
-        { label: "F", text: "Quick price bet." }
-      ],
-      sampleAnswer: "Tip-based quick bets are speculation; asset ownership with return and risk is investment.",
-      notes: "Use this as the first formative check."
-    },
-    {
-      type: "quiz",
-      eyebrow: "Hinge check",
-      title: "Check 1: classify the choice",
-      visual: investmentPhotos.businessChartsPaper,
-      question: "Which choice is most clearly investment?",
-      choices: [
-        "Cash for next week",
-        "One share, possible return and risk",
-        "Tip says price jumps tomorrow",
-        "Money kept for safety and access"
-      ],
-      answer: 1,
-      explanation: "Investment means putting money into an asset with possible future return and risk."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 2",
-      part: "2",
-      title: "Assets, shares and share prices",
-      subtitle: "Now define what the Tencent graph is actually showing.",
-      notes: "Cycle: define asset, share and share price, then map Tencent."
-    },
-    {
-      type: "visualPause",
-      eyebrow: "Look carefully",
-      title: "Tencent is a company, not a price line",
-      visual: investmentPhotos.tencentBinhaiTowers,
-      notes: "Use the image to separate company identity from the listed share and the share price."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "An asset is something owned that may have value",
-      term: "Asset",
-      definition: "An asset is something owned that may have <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span>.",
-      notes: "Keep asset broad: cash, a building, equipment or a share can be assets."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "A share is one ownership unit",
-      term: "Share",
-      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company.",
-      notes: "Do not teach ownership percentages or voting yet."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Practice check",
-      title: "What do you own if you own one share?",
-      visual: investmentPhotos.shareholderMeeting,
-      question: "Choose one: the whole company, one product, one ownership unit or guaranteed profit.",
-      revealTitle: "One share is one ownership unit",
-      answer: "One share is one ownership unit in a company. It is not the whole company, not a product and not guaranteed profit."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Share price means one share at one time",
-      term: "Share price",
-      definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
-      notes: "This corrects the misconception that share price is total company value."
+      notes: [
+        "Current role: source metadata and four checks.",
+        "Future use: use when students may overclaim from one source.",
+        "Review decision: decide whether source checks should be shorter for classroom slides."
+      ]
     },
     {
       type: "quoteMap",
-      eyebrow: "Listed-share identity",
-      title: "Read the quote page only for identity today",
+      eyebrow: "type: quoteMap",
+      title: "Read the quote page before the opinion",
+      zhTitle: "先读报价页，再形成观点",
       visual: investmentPhotos.tradingApps,
-      quoteLabel: "Beginner quote snapshot",
+      quoteLabel: "Classroom quote snapshot",
       quoteTitle: "Tencent | 0700.HK | HKD | date",
       revealValues: true,
       fields: [
@@ -338,144 +445,232 @@ window.INVEST.lesson = {
         { label: "Code", value: "0700.HK", note: "Listed-share identifier" },
         { label: "Exchange", value: "HKEX", note: "Where it trades" },
         { label: "Price", value: "One share", note: "Not total company value" },
-        { label: "Date", value: "Snapshot", note: "One time point" },
+        { label: "Date", value: "Snapshot", note: "One point in time" },
         { label: "Currency", value: "HKD", note: "Price unit" }
       ],
-      prompt: "Point to the field that identifies the listed share.",
-      answer: "0700.HK identifies the listed share. The price is for one share at one time."
+      prompt: "Before reveal, point to the field that identifies the listed share.",
+      promptZh: "揭示前，指出哪个字段能识别上市股票。",
+      answer: "A quote page identifies a listed security and a dated price; it does not prove investment quality.",
+      answerZh: "报价页能识别上市证券和带日期的价格，但不能证明投资质量。",
+      notes: [
+        "Current role: quote-page field map.",
+        "Future use: use when students need to read ticker, exchange, date, price and currency.",
+        "Review decision: decide whether six fields are too many."
+      ]
     },
     {
       type: "comparisonMatrix",
-      eyebrow: "Compare",
-      title: "Company and share price differ",
+      eyebrow: "type: comparisonMatrix",
+      title: "Compare two choices with the same criteria",
+      zhTitle: "用相同标准比较两个选择",
       visual: investmentPhotos.stockReportCalculator,
       revealCells: true,
-      cornerLabel: "Question",
+      cornerLabel: "Criterion",
       columns: [
-        { label: "Tencent company", note: "The business" },
-        { label: "Tencent listed share", note: "One ownership unit" }
+        { label: "Company A" },
+        { label: "Company B" }
       ],
       rows: [
-        { label: "Example", values: ["Products and services", "0700.HK"] },
-        { label: "Price means", values: ["Not the whole value", "One share at one time"] },
-        { label: "Misconception", values: ["Famous means good", "High price means big company"] }
+        { label: "Evidence", values: ["Official report", "Market data"] },
+        { label: "Return", values: ["Profit growth", "Dividend yield"] },
+        { label: "Risk", values: ["Competition", "Currency exposure"] }
       ],
-      prompt: "Correct one misconception from the matrix."
-    },
-    {
-      type: "quiz",
-      eyebrow: "Hinge check",
-      title: "Check 2: what does one graph point show?",
-      visual: investmentPhotos.tabletFinancialChart,
-      question: "What does one point on the Tencent share-price graph show?",
-      choices: [
-        "Tencent's total company value",
-        "The market price of one listed share at one date",
-        "Tencent's revenue for the year",
-        "A guaranteed future return"
-      ],
-      answer: 1,
-      explanation: "A graph point shows the market price of one listed share at one date."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 3",
-      part: "3",
-      title: "Why can a share price move?",
-      subtitle: "Price movement starts with changing expectations.",
-      notes: "Cycle: teach information, expectations, buying/selling and price movement."
+      notes: [
+        "Current role: two- or three-column criteria comparison.",
+        "Future use: use for investment choices, company-versus-fund choices or strategy comparisons.",
+        "Review decision: decide whether this should support student input boxes or only reveal cells."
+      ]
     },
     {
       type: "catalystTimeline",
-      eyebrow: "Price movement",
-      title: "Information can change expectations and price",
+      eyebrow: "type: catalystTimeline",
+      title: "Connect information to expectations",
+      zhTitle: "把信息连接到预期",
       visual: investmentPhotos.financeChartWhiteboard,
       revealEffects: true,
-      effectLabel: "Link",
+      effectLabel: "Expectation link",
       events: [
-        { date: "1", title: "New information", detail: "A result, product, risk or market event appears.", effect: "Investors update expectations." },
-        { date: "2", title: "Buying and selling", detail: "More buyers or sellers may react.", effect: "Market pressure changes." },
-        { date: "3", title: "Share price movement", detail: "The price of one share may rise or fall.", effect: "The graph records the movement." }
+        { date: "Step 1", title: "New information", detail: "A result, product or risk event appears.", detailZh: "出现业绩、产品或风险事件。", effect: "Investors update expectations.", effectZh: "投资者更新预期。" },
+        { date: "Step 2", title: "Market reaction", detail: "Buying or selling pressure changes.", detailZh: "买入或卖出压力发生变化。", effect: "The price may move.", effectZh: "价格可能发生变化。" },
+        { date: "Step 3", title: "Evidence check", detail: "A second source tests the story.", detailZh: "第二个来源检验这个解释。", effect: "The claim becomes more careful.", effectZh: "观点会变得更谨慎。" }
       ],
-      prompt: "Complete: new information can change expectations, which can move..."
+      notes: [
+        "Current role: event-to-expectation timeline.",
+        "Future use: use for price movement, news, results, risk events or market reactions.",
+        "Review decision: decide whether the timeline should be horizontal or shorter."
+      ]
     },
     {
-      type: "flow",
-      eyebrow: "Key idea",
-      title: "The beginner price-movement chain",
-      visual: investmentPhotos.financeChartWhiteboard,
-      flowStyle: "sequence",
-      steps: [
-        { text: "New information changes __________.", answer: "expectations" },
-        { text: "Expectations affect buyers and __________.", answer: "sellers" },
-        { text: "Buying and selling can move the share __________.", answer: "price" }
+      type: "calculationDesk",
+      eyebrow: "type: calculationDesk",
+      title: "Show the calculation without hiding the judgement",
+      zhTitle: "展示计算，但不隐藏判断",
+      visual: investmentPhotos.stockReportCalculator,
+      formula: "% change = change / old price x 100",
+      rows: [
+        { label: "Old price", value: "HKD 310" },
+        { label: "New price", value: "HKD 403" }
       ],
-      notes: "This is qualitative only. Percentage change is later."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Possible return is what an investor may gain",
-      term: "Possible return",
-      definition: "Possible return is what an investor may <span class=\"blank invReveal\" data-answer=\"gain\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">gain</span></span> from holding an asset.",
-      notes: "Keep dividends and formal total return for later lessons."
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Risk means results may be worse than expected",
-      term: "Risk",
-      definition: "Risk is the possibility that results, returns or prices are worse than <span class=\"blank invReveal\" data-answer=\"expected\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">expected</span></span>.",
-      notes: "Detailed risk categories come later."
-    },
-    {
-      type: "peerTask",
-      eyebrow: "Misconception check",
-      title: "Correct the weak knowledge claim",
-      visual: investmentPhotos.investorMeetingReport,
-      steps: [
-        "Choose one weak claim.",
-        "Name the correct concept.",
-        "Rewrite it in one accurate sentence."
-      ],
-      sampleAnswer: "A famous company is not automatically a good investment. Investment still involves return, risk and price.",
-      notes: "Use this for the four misconceptions in the plan."
-    },
-    {
-      type: "quiz",
-      eyebrow: "Final hinge",
-      title: "Check 3: strongest knowledge statement",
-      visual: investmentPhotos.businessChartsPaper,
-      question: "Which statement is most accurate?",
-      choices: [
-        "Saving and investing are the same.",
-        "Speculation is mainly a short-term price bet.",
-        "A high share price is the whole company's value.",
-        "A famous company is automatically a good investment."
-      ],
-      answer: 1,
-      explanation: "Speculation mainly bets on a short-term price movement without enough analysis of value, return and risk."
+      worked: "93 / 310 x 100 = 30.0%",
+      workedZh: "计算：93 / 310 x 100 = 30.0%。",
+      answer: "HKD 250 to HKD 300 is 20.0%.",
+      answerZh: "从250港元到300港元是20.0%。",
+      notes: [
+        "Current role: formula, inputs, worked example, try-it task and answer reveal.",
+        "Future use: use for simple calculations with a visible method.",
+        "Review decision: decide whether calculator rows are large enough on phone."
+      ]
     },
     {
       type: "section",
-      eyebrow: "Exit",
+      eyebrow: "Review group",
       part: "4",
-      title: "Build the starter knowledge map",
-      subtitle: "Classify, define, explain and ask one Tencent question.",
-      notes: "Students now produce a compact knowledge map, not a methodology slogan."
+      title: "Judgement, risk and output",
+      zhTitle: "判断、风险与输出",
+      subtitle: "These types support stronger written analysis and exam rehearsal.",
+      notes: [
+        "Current role: reset before judgement and output slide types.",
+        "Future use: section titles should make the final student output clear.",
+        "Review decision: keep, edit, replace or delete."
+      ]
+    },
+    {
+      type: "analystBoard",
+      eyebrow: "type: analystBoard",
+      title: "What is missing from the weak judgement?",
+      zhTitle: "这个弱判断缺少什么？",
+      visual: investmentPhotos.financialAnalysisDesk,
+      revealBlocks: true,
+      blocks: [
+        {
+          label: "Evidence",
+          title: "What do we know?",
+          body: "Use one dated source fact before making a claim.",
+          zh: "提出观点前，先使用一个带日期的来源事实。"
+        },
+        {
+          label: "Expectation",
+          title: "What might change?",
+          body: "Explain why future profit, demand or risk could change.",
+          zh: "解释未来利润、需求或风险可能怎样变化。"
+        },
+        {
+          label: "Price paid",
+          title: "What is already priced in?",
+          body: "A good company can still be an expensive share.",
+          zh: "好公司仍可能是一只价格偏高的股票。"
+        }
+      ],
+      prompt: "Before reveal: which block is missing from the weak judgement?",
+      promptZh: "揭示前：这个弱判断缺少哪一块？",
+      notes: [
+        "Current role: three evidence blocks plus missing-block prompt.",
+        "Future use: use for output rehearsal before paragraph writing.",
+        "Review decision: decide whether three cards work better than a matrix."
+      ]
+    },
+    {
+      type: "riskRegister",
+      eyebrow: "type: riskRegister",
+      title: "A strong company can still be a risky share",
+      zhTitle: "强公司仍可能是有风险的股票",
+      visual: investmentPhotos.shippingPort,
+      revealEffects: true,
+      effectLabel: "Effect link",
+      table: [
+        ["Risk", "Investor question", "Likely effect"],
+        ["Competition", "Can rivals reduce future profit?", "Lower expected profit may reduce valuation."],
+        ["Currency", "Are costs and revenue in different currencies?", "Exchange-rate changes can affect returns."],
+        ["Regulation", "Could rules change the business model?", "Policy risk can change expectations."],
+        ["Price paid", "Is good news already priced in?", "A strong company may still disappoint investors."]
+      ],
+      prompt: "Choose one risk and complete: risk -> future profit or expectations -> price paid.",
+      promptZh: "选择一个风险并完成：风险 -> 未来利润或预期 -> 支付价格。",
+      notes: [
+        "Current role: risk categories with revealed effect links.",
+        "Future use: use when risk needs to be explicit before a judgement.",
+        "Review decision: decide whether the risk question should stay visible after reveal."
+      ]
+    },
+    {
+      type: "judgementFrame",
+      eyebrow: "type: judgementFrame",
+      title: "Build a balanced investment judgement",
+      zhTitle: "形成平衡的投资判断",
+      visual: investmentPhotos.stockReportCalculator,
+      revealAnswers: true,
+      stages: [
+        { label: "Evidence", prompt: "What source-backed fact matters?", zh: "哪个有来源支持的事实重要？", answer: "Use one dated figure, quote field or document fact.", answerZh: "使用一个带日期的数据、报价字段或文件事实。" },
+        { label: "Return", prompt: "How could value or profit improve?", zh: "价值或利润可能怎样改善？", answer: "Name the possible return mechanism.", answerZh: "说出可能回报的机制。" },
+        { label: "Risk", prompt: "What could go worse than expected?", zh: "什么可能比预期更差？", answer: "Name the risk and who it affects.", answerZh: "说出风险以及它影响谁。" },
+        { label: "Price paid", prompt: "Why does the current price matter?", zh: "为什么当前价格重要？", answer: "Link judgement to what investors already pay.", answerZh: "把判断连接到投资者已经支付的价格。" }
+      ],
+      finalPrompt: "Write the final sentence with evidence, risk and price paid.",
+      finalPromptZh: "用证据、风险和支付价格写出最后一句判断。",
+      notes: [
+        "Current role: four-stage judgement scaffold.",
+        "Future use: use before longer written answers or investment memos.",
+        "Review decision: decide whether this overlaps too much with analystBoard."
+      ]
+    },
+    {
+      type: "exam",
+      eyebrow: "type: exam",
+      title: "Output rehearsal",
+      zhTitle: "输出演练",
+      visual: investmentPhotos.businessChartsPaper,
+      revealKeywords: true,
+      prompt: "Using the evidence, explain why a familiar company is not automatically a good investment. [6]",
+      zh: "利用证据解释为什么熟悉的公司不一定自动是好投资。[6]",
+      keywords: ["source date", "share price", "possible return", "risk", "price paid", "judgement"],
+      notes: [
+        "Current role: exam-style output prompt plus keyword reveal.",
+        "Future use: use after teaching and before model answer comparison.",
+        "Review decision: decide whether keywords should be hidden until after an attempt."
+      ]
+    },
+    {
+      type: "modelAnswer",
+      eyebrow: "type: modelAnswer",
+      title: "Compare your answer with the model",
+      zhTitle: "把你的答案与范例比较",
+      visual: investmentPhotos.investorMeetingReport,
+      cueLabel: "Comparison focus",
+      cueText: "Underline evidence once and judgement twice.",
+      cueTextZh: "划出一次证据，再划出两次判断。",
+      paragraphs: [
+        "A familiar company is not automatically a good investment because investors need evidence about the listed share, not only knowledge of the company's products.",
+        "A stronger judgement also checks risk and price paid. Even if the company performs well, the current share price may already include high expectations."
+      ],
+      paragraphsZh: [
+        "熟悉的公司不一定自动是好投资，因为投资者需要关于上市股票的证据，而不只是知道公司的产品。",
+        "更强的判断还要检查风险和支付价格。即使公司表现好，当前股价也可能已经包含很高预期。"
+      ],
+      markNote: "A strong answer uses evidence, explains risk and reaches a conditional judgement.",
+      markNoteZh: "强答案会使用证据，解释风险，并得出有条件的判断。",
+      notes: [
+        "Current role: revealed paragraphs for comparison and improvement.",
+        "Future use: use after students write first, not before.",
+        "Review decision: decide whether paragraph reveal should support sentence-by-sentence annotation."
+      ]
     },
     {
       type: "answer",
-      eyebrow: "Exit ticket",
+      eyebrow: "type: answer / exit ticket variant",
       title: "Exit ticket",
+      zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "Saving mainly protects safety and __________.", answer: "access" },
-        { prompt: "Investment puts money into an __________ with possible return and risk.", answer: "asset" },
-        { prompt: "A share price is the market price of one __________ at one time.", answer: "share" },
-        { prompt: "New information can change __________ and move price.", answer: "expectations" }
+        { prompt: "The slide type I would keep is __________.", answer: "name one type", zh: "我会保留的幻灯片类型是……" },
+        { prompt: "The slide type I would edit first is __________.", answer: "name one type", zh: "我会优先修改的幻灯片类型是……" },
+        { prompt: "The slide type I may replace or delete is __________.", answer: "name one type", zh: "我可能替换或删除的幻灯片类型是……" },
+        { prompt: "One rule for future decks is __________.", answer: "write a rule", zh: "未来课件的一条规则是……" }
       ],
-      notes: "Collect the written Tencent question after this slide."
+      notes: [
+        "Current role: answer type becomes an exit ticket when the title includes Exit ticket.",
+        "Future use: use for collectable individual output at the end of a lesson.",
+        "Review decision: decide whether this variant should be split from retrieval checks."
+      ]
     }
   ]
 };

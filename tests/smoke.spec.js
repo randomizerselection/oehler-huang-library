@@ -279,10 +279,49 @@ async function expectInvestmentSlideFits(page, label = 'investment slide') {
   expect(metrics.slideRight, `${label}: slide stays inside stage horizontally`).toBeLessThanOrEqual(metrics.stageRight + 2);
 }
 
+async function expectInvestmentVisualPauseImageOnly(page, label = 'investment visual pause') {
+  await expect(page.locator('.invSlide.is-active.invVisualPauseSlide')).toBeVisible();
+  await expect(page.locator('.invSlide.is-active .invVisualPauseHero img')).toBeVisible();
+  await expect(page.locator('.invSlide.is-active .invVisualPauseText')).toHaveCount(0);
+
+  const state = await page.evaluate(() => {
+    const slide = document.querySelector('.invSlide.is-active.invVisualPauseSlide');
+    const hero = slide?.querySelector('.invVisualPauseHero');
+    const image = hero?.querySelector('img');
+    if (!slide || !hero || !image) return { missing: true };
+
+    const heroRect = hero.getBoundingClientRect();
+    const imageRect = image.getBoundingClientRect();
+    const beforeStyle = getComputedStyle(hero, '::before');
+    const afterStyle = getComputedStyle(hero, '::after');
+
+    return {
+      missing: false,
+      heroText: (hero.innerText || hero.textContent || '').trim(),
+      textNodeCount: hero.querySelectorAll('.invEyebrow, h1, h2, p, .invVisualPauseText').length,
+      beforeVisible: beforeStyle.display !== 'none'
+        && beforeStyle.visibility !== 'hidden'
+        && Number(beforeStyle.opacity) !== 0,
+      afterVisible: afterStyle.display !== 'none'
+        && afterStyle.visibility !== 'hidden'
+        && Number(afterStyle.opacity) !== 0,
+      imageCoversWidth: imageRect.width >= heroRect.width - 2,
+      imageCoversHeight: imageRect.height >= heroRect.height - 2,
+    };
+  });
+
+  expect(state.missing, `${label}: active visual pause exists`).toBe(false);
+  expect(state.heroText, `${label}: no visible text in hero`).toBe('');
+  expect(state.textNodeCount, `${label}: no rendered text overlay elements`).toBe(0);
+  expect(state.beforeVisible, `${label}: no before overlay`).toBe(false);
+  expect(state.afterVisible, `${label}: no after overlay`).toBe(false);
+  expect(state.imageCoversWidth, `${label}: image covers width`).toBe(true);
+  expect(state.imageCoversHeight, `${label}: image covers height`).toBe(true);
+}
+
 const investmentTeachingTextSelector = [
   '.invSlideHeader h1',
   '.invSlideHeader h2',
-  '.invVisualPauseText h1',
   '.invLead',
   '.invHeroKicker',
   '.invPriceChartOverlay h1',
@@ -880,7 +919,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
     await expect(page.getByRole('link', { name: /^Lesson 1 handout$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=print');
     await expect(page.getByRole('link', { name: /^Lesson 1 quiz$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
-    await expect(page.getByText(/Evidence before opinion/i).first()).toBeVisible();
+    await expect(page.getByText(/Learn the first knowledge map/i).first()).toBeVisible();
     await expect(page.getByText(/Start with evidence/i)).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Investment Analysis Add-on Course$/i })).toBeVisible();
     await expect(page.getByText(/The Investment Analysis add-on course provides a practical foundation/i)).toBeVisible();
@@ -936,7 +975,7 @@ test.describe('site smoke', () => {
       '10. quiz: Check 1: what changes a guess into analysis?',
       '11. section: Company, product, listed share, share price',
       '12. discussion: What do you already know about Tencent?',
-      '13. marketBrief: Record the Tencent source box',
+      '13. discussion: Check the Tencent source',
       '14. flow: Keep the four ideas separate',
       '15. term: Asset',
       '16. term: Share',
@@ -992,7 +1031,7 @@ test.describe('site smoke', () => {
       const quizQuestions = window.INVEST?.quiz?.questions || [];
       const sourceBox = lesson.handout?.sections?.find((section) => section.title === 'Source box');
       const facts = sourceBox?.blocks?.find((block) => block.type === 'facts')?.items || [];
-      const visiblePromptTypes = ['discussion', 'marketBrief', 'priceChart', 'quiz'];
+      const visiblePromptTypes = ['discussion', 'priceChart', 'quiz'];
 
       return {
         answerZhWithoutChinese: slides.flatMap((slide, index) =>
@@ -1079,16 +1118,11 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
     await expectInvestmentSlideFits(page, 'course rule fill blanks desktop');
 
-    await goToInvestmentSlide(page, { type: 'marketBrief', title: 'Record the Tencent source box' });
-    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Circle the company/i);
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(0);
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'Check the Tencent source' });
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(1);
-    await page.keyboard.press('Space');
-    await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(3);
-    await expectInvestmentSlideFits(page, 'case identification market brief desktop');
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(1);
+    await expectInvestmentSlideFits(page, 'Tencent source discussion desktop');
 
     await goToInvestmentSlide(page, { type: 'flow', title: 'Keep the four ideas separate' });
     await expect(page.locator('.invSlide.is-active .invStep')).toHaveCount(4);
@@ -1277,7 +1311,7 @@ test.describe('site smoke', () => {
           const slideNumber = index + 1;
           const gaps = [];
           if (!['term'].includes(slide.type) && !hasChinese(slide.zhTitle)) gaps.push(`${slideNumber}: missing zhTitle`);
-          if (['discussion', 'marketBrief', 'quiz'].includes(slide.type) && !hasChinese(slide.zh || slide.questionZh)) gaps.push(`${slideNumber}: missing prompt zh`);
+          if (['discussion', 'quiz'].includes(slide.type) && !hasChinese(slide.zh || slide.questionZh)) gaps.push(`${slideNumber}: missing prompt zh`);
           if (slide.type === 'quiz' && !hasChinese(slide.explanationZh)) gaps.push(`${slideNumber}: missing explanation zh`);
           if (slide.type === 'term' && (!hasChinese(slide.termZh) || !hasChinese(slide.definitionZh))) gaps.push(`${slideNumber}: missing term zh`);
           if (slide.type === 'flow' && (slide.steps || []).some((step) => typeof step === 'string' || !hasChinese(step.zh))) gaps.push(`${slideNumber}: missing flow zh`);
@@ -1302,13 +1336,11 @@ test.describe('site smoke', () => {
     ]));
     expect(lessonTwoChecks.translationGaps).toEqual([]);
 
-    await goToInvestmentSlide(page, { type: 'marketBrief', title: 'HKEX is market infrastructure' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal')).toHaveCount(3);
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'HKEX is market infrastructure' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await page.keyboard.press('Space');
-    await page.keyboard.press('Space');
-    await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .invMetricValue.invReveal.is-revealed')).toHaveCount(3);
-    await expectInvestmentSlideFits(page, 'lesson 2 source-box market brief');
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(1);
+    await expectInvestmentSlideFits(page, 'lesson 2 HKEX discussion');
 
     await goToInvestmentSlide(page, { type: 'term', title: 'Stock exchange' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Stock exchange');
@@ -1384,9 +1416,18 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
 
     const templateTypes = await page.evaluate(() => (window.INVEST?.lesson?.slides || []).map((slide) => slide.type));
+    expect(templateTypes, 'template includes visualPause').toContain('visualPause');
     for (const { type } of newSlideTypes) {
       expect(templateTypes, `template includes ${type}`).toContain(type);
     }
+
+    const templateVisualPauseSlide = await goToInvestmentSlide(
+      page,
+      { type: 'visualPause', title: 'Replace with a concrete visual bridge' },
+      lessonPath
+    );
+    await expectInvestmentVisualPauseImageOnly(page, `template visualPause slide ${templateVisualPauseSlide}`);
+    await expectInvestmentSlideFits(page, `template visualPause slide ${templateVisualPauseSlide}`);
 
     for (const match of newSlideTypes) {
       const slideNumber = await goToInvestmentSlide(page, match, lessonPath);
@@ -1403,6 +1444,17 @@ test.describe('site smoke', () => {
       await expectInvestmentSlideFits(page, `template ${match.type} slide ${slideNumber} revealed`);
     }
 
+    await expectNoHorizontalOverflow(page);
+
+    const galleryPath = 'investment-analysis/unit-1/lesson-1-all-types/index.html';
+    await page.goto(pageUrl(galleryPath));
+    const galleryVisualPauseSlide = await goToInvestmentSlide(
+      page,
+      { type: 'visualPause', title: 'Look before the explanation' },
+      galleryPath
+    );
+    await expectInvestmentVisualPauseImageOnly(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
+    await expectInvestmentSlideFits(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1542,7 +1594,7 @@ test.describe('site smoke', () => {
       { type: 'answer', title: 'Everyday ideas we already know' },
       { type: 'outcomes', title: 'By the end, you can' },
       { type: 'answer', title: 'Core claim: evidence before opinion' },
-      { type: 'marketBrief', title: 'Record the Tencent source box' },
+      { type: 'discussion', title: 'Check the Tencent source' },
       { type: 'flow', title: 'Keep the four ideas separate' },
       { type: 'term', title: 'Investment analysis' },
       { type: 'term', title: 'Share' },
@@ -1615,7 +1667,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
 
     const phoneChecks = [
-      { type: 'marketBrief', title: 'HKEX is market infrastructure' },
+      { type: 'discussion', title: 'HKEX is market infrastructure' },
       { type: 'answer', title: 'What did Lesson 1 give us?' },
       { type: 'outcomes', title: 'By the end, you can' },
       { type: 'term', title: 'Stock exchange' },

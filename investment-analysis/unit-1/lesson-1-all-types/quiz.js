@@ -1,120 +1,87 @@
 window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
-  title: "Unit 1 Lesson 1 Knowledge Quiz",
-  description: "Review saving, investment, speculation, asset, share, share price, possible return, risk and the Tencent price-movement chain.",
+  title: "Slide Type Gallery Review Check",
+  description: "Quickly check that the current Investment Analysis slide types and their main uses are clear.",
   questions: [
     {
-      id: "saving-definition",
+      id: "compact-data-purpose",
       type: "multipleChoice",
-      prompt: "Which description best matches saving?",
-      choices: [
-        "Setting money aside mainly for safety, access or future spending",
-        "Buying an asset for possible future return and risk",
-        "Betting mainly on a short-term price jump",
-        "Owning one unit of a listed company"
-      ],
+      prompt: "If a deck needs compact company figures with a student task, which slide type should it use?",
+      zh: "如果课件需要带学生任务的紧凑公司数据，应该使用哪种幻灯片类型？",
+      choices: ["dataSnapshot", "modelAnswer", "riskRegister", "visualPause"],
       answer: 0,
-      explanation: "Saving is mainly about safety, access or future spending."
+      explanation: "Use dataSnapshot for compact figures with a clear student task.",
+      explanationZh: "用 dataSnapshot 呈现紧凑数据和明确任务。"
     },
     {
-      id: "investment-definition",
+      id: "chart-hook",
       type: "multipleChoice",
-      prompt: "Which description best matches investment?",
-      choices: [
-        "Keeping cash only for next week's spending",
-        "Putting money into an asset with possible future return and risk",
-        "Buying because a friend gives a tip",
-        "Guessing the next one-day price move"
-      ],
+      prompt: "Which slide type shows a frozen share-price chart as a classroom hook?",
+      zh: "哪种幻灯片类型用冻结的股价图作为课堂导入？",
+      choices: ["quoteMap", "priceChart", "comparisonMatrix", "answer"],
       answer: 1,
-      explanation: "Investment involves an asset, possible return and risk."
+      explanation: "priceChart is the dedicated full-screen chart slide.",
+      explanationZh: "priceChart 是专门用于全屏图表的幻灯片。"
     },
     {
-      id: "speculation-definition",
+      id: "question-first",
       type: "multipleChoice",
-      prompt: "Which action is closest to short-term stock speculation?",
-      choices: [
-        "Saving money for a school trip",
-        "Buying because a tip says the price will jump tomorrow",
-        "Defining a share as one ownership unit",
-        "Recording the quote date"
-      ],
-      answer: 1,
-      explanation: "Short-term speculation mainly bets on a quick price movement."
-    },
-    {
-      id: "asset-blank",
-      type: "fillBlank",
-      prompt: "An asset is something owned that may have ________.",
-      acceptedAnswers: ["value"],
-      explanation: "Value is the key word."
-    },
-    {
-      id: "share-blank",
-      type: "fillBlank",
-      prompt: "A share is one unit of ________ in a company.",
-      acceptedAnswers: ["ownership"],
-      explanation: "A share is an ownership unit, not the whole company or a product."
-    },
-    {
-      id: "share-price",
-      type: "multipleChoice",
-      prompt: "What does one point on Tencent's share-price graph show?",
-      choices: [
-        "Tencent's total company value",
-        "The market price of one listed share at one date",
-        "Tencent's annual revenue",
-        "A guaranteed future return"
-      ],
-      answer: 1,
-      explanation: "A share-price graph point shows one share's market price at one date."
-    },
-    {
-      id: "company-share-separation",
-      type: "multipleChoice",
-      prompt: "Which statement correctly separates Tencent the company from Tencent's listed share?",
-      choices: [
-        "Tencent products are the same thing as 0700.HK.",
-        "Tencent is the company; 0700.HK identifies the listed share.",
-        "Tencent revenue is the same as its share price.",
-        "One share means owning every Tencent product."
-      ],
-      answer: 1,
-      explanation: "The company and the listed share are connected, but they are not the same thing."
-    },
-    {
-      id: "return-risk",
-      type: "multipleChoice",
-      prompt: "Which pair belongs together in an investment decision?",
-      choices: [
-        "Possible return and risk",
-        "Saving and guaranteed high return",
-        "Speculation and low uncertainty",
-        "Share price and total company value"
-      ],
+      prompt: "Which slide type should ask a student-answerable question before revealing a concise answer?",
+      zh: "哪种幻灯片类型应先提出学生能回答的问题，再揭示简洁答案？",
+      choices: ["discussion", "section", "sourceLens", "modelAnswer"],
       answer: 0,
-      explanation: "Investment decisions must consider possible return and risk together."
+      explanation: "discussion is the question-first, reveal-second slide type.",
+      explanationZh: "discussion 是先提问、后揭示的幻灯片类型。"
     },
     {
-      id: "expectations-blank",
-      type: "fillBlank",
-      prompt: "New information can change investor ________, which can affect buying, selling and price.",
-      acceptedAnswers: ["expectations", "expectation"],
-      explanation: "Expectations are the link between information and possible price movement."
-    },
-    {
-      id: "knowledge-question",
+      id: "source-check",
       type: "multipleChoice",
-      prompt: "Which is the best Lesson 1 question about Tencent's graph?",
-      choices: [
-        "Should I buy it today?",
-        "What information might explain one price movement?",
-        "Which exact percentage return will happen next?",
-        "Why is the company automatically a good investment?"
-      ],
+      prompt: "Which slide type is designed for source metadata and source-limit checks?",
+      zh: "哪种幻灯片类型用于来源信息和来源局限检查？",
+      choices: ["sourceLens", "hero", "flow", "quiz"],
+      answer: 0,
+      explanation: "sourceLens shows source title, publisher, date, unit and source checks.",
+      explanationZh: "sourceLens 显示来源标题、发布者、日期、单位和来源检查。"
+    },
+    {
+      id: "quote-fields",
+      type: "multipleChoice",
+      prompt: "Which slide type maps quote-page fields such as company, code, exchange, price, date and currency?",
+      zh: "哪种幻灯片类型整理公司、代码、交易所、价格、日期和货币等报价页字段？",
+      choices: ["conceptTriad", "quoteMap", "calculationDesk", "outcomes"],
       answer: 1,
-      explanation: "Lesson 1 ends with a knowledge question about why the share price may have moved, not advice."
+      explanation: "quoteMap is the quote-page identity field map.",
+      explanationZh: "quoteMap 用来整理报价页上的身份字段。"
+    },
+    {
+      id: "calculation",
+      type: "multipleChoice",
+      prompt: "Which slide type is best for formula, inputs, worked example and try-it calculation work?",
+      zh: "哪种幻灯片类型最适合公式、输入、例题和试算任务？",
+      choices: ["calculationDesk", "analystBoard", "visualPause", "section"],
+      answer: 0,
+      explanation: "calculationDesk is the calculation-focused slide type.",
+      explanationZh: "calculationDesk 是以计算为核心的幻灯片类型。"
+    },
+    {
+      id: "risk",
+      type: "multipleChoice",
+      prompt: "Which slide type makes risk categories and their likely effects explicit?",
+      zh: "哪种幻灯片类型能清楚展示风险类别及其可能影响？",
+      choices: ["riskRegister", "term", "priceChart", "visualPause"],
+      answer: 0,
+      explanation: "riskRegister shows risk rows with revealed effect links.",
+      explanationZh: "riskRegister 用风险行和揭示的影响连接来展示风险。"
+    },
+    {
+      id: "review-decision",
+      type: "fillBlank",
+      prompt: "After reviewing a slide type, mark it as keep, edit, split, replace or ________.",
+      zh: "复习一个幻灯片类型后，把它标记为保留、修改、拆分、替换或……",
+      acceptedAnswers: ["delete"],
+      explanation: "The gallery worksheet uses keep, edit, split, replace and delete as the review decisions.",
+      explanationZh: "展示讲义使用保留、修改、拆分、替换和删除作为复习决定。"
     }
   ]
 };

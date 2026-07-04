@@ -1503,9 +1503,10 @@ img {
 .invVisualPauseHero {
   position: relative;
   display: grid;
-  align-content: end;
+  align-content: stretch;
   min-height: 100%;
   overflow: hidden;
+  background: #05090b;
 }
 
 .invVisualPauseHero img {
@@ -1519,14 +1520,11 @@ img {
 
 .invVisualPauseHero::after {
   content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(0deg, rgba(5, 9, 11, 0.92), rgba(5, 9, 11, 0.12) 60%),
-    linear-gradient(90deg, rgba(5, 9, 11, 0.62), transparent 62%);
+  display: none;
 }
 
 .invVisualPauseText {
+  display: none;
   position: relative;
   z-index: 1;
   width: min(980px, 100%);
@@ -2073,9 +2071,8 @@ img {
 }
 
 .invVisualPauseHero::after {
-  background:
-    linear-gradient(0deg, rgba(5, 9, 11, 0.95), rgba(5, 9, 11, 0.1) 62%),
-    linear-gradient(90deg, rgba(5, 9, 11, 0.7), transparent 66%);
+  display: none;
+  background: none;
 }
 
 .invVisualPauseText {
@@ -2665,16 +2662,14 @@ img {
 
 .invVisualPauseHero::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(5, 9, 11, 0.84), rgba(5, 9, 11, 0.18) 58%, rgba(5, 9, 11, 0.1)),
-    linear-gradient(0deg, rgba(5, 9, 11, 0.92), rgba(5, 9, 11, 0.06) 72%);
+  display: none;
 }
 
-.invVisualPauseHero img,
+.invVisualPauseHero img {
+  position: absolute;
+  z-index: 0;
+}
+
 .invVisualPauseText {
   position: relative;
   z-index: 2;
@@ -4234,8 +4229,15 @@ img {
 }
 
 .invConceptDefinition {
+  margin: 0;
   color: var(--inv-ink);
   font-size: var(--inv-classroom-text);
+  line-height: 1.12;
+}
+
+.invConceptCard > .invZhLine {
+  color: var(--inv-muted);
+  font-size: var(--inv-ui);
   line-height: 1.12;
 }
 
@@ -4623,6 +4625,414 @@ img {
   border-top: 1px solid rgba(57, 217, 145, 0.28);
   color: var(--inv-green);
   padding-top: 8px;
+}
+
+/* Investment slide formatting polish */
+
+.invSlide {
+  --inv-card-gap: 10px;
+  --inv-card-pad: 16px;
+}
+
+.invSlide:not(.invVisualPauseSlide):not(.invTitleOnlySlide) .invSlideHeader {
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.invEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 5px 9px;
+}
+
+.invTitleBlock h1 {
+  line-height: 1.06;
+}
+
+.invZhTitle {
+  margin-top: 5px;
+  color: rgba(205, 242, 246, 0.82);
+  line-height: 1.12;
+}
+
+.invLead,
+.invHeroKicker,
+.invPromptZh,
+.invZhLine,
+.invObjectiveZh,
+.invTermDefinitionZh {
+  line-height: 1.14;
+}
+
+.invBigQuestion,
+.invDataPrompt h2,
+.invExamBox h3,
+.invModelCue strong {
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invPanel,
+.invMarketCard,
+.invMetric,
+.invObjective,
+.invTermBox,
+.invTermNote,
+.invCheckItem,
+.invStep,
+.invDataFocusCard,
+.invDataPrompt,
+.invEvidence,
+.invRiskItem,
+.invCalcBox,
+.invPeerBox,
+.invExamBox,
+.invModelCue,
+.invModelPoint,
+.invNotePanel,
+.invChoice,
+.invKeyword,
+.invSourceMetaItem,
+.invSourceCheck,
+.invQuoteScreen,
+.invQuoteTask,
+.invQuoteField,
+.invCompareHead,
+.invCompareCriterion,
+.invCompareCell,
+.invCatalystEvent,
+.invJudgementStage {
+  gap: var(--inv-card-gap);
+  padding: var(--inv-card-pad);
+}
+
+.invNotePanel,
+.invSourceAnswer,
+.invJudgementAnswer,
+.invCatalystEffect,
+.invQuoteTask p.invReveal.is-revealed {
+  background: rgba(57, 217, 145, 0.055);
+}
+
+.invNotePanel > strong,
+.invSourceAnswer > span:first-child,
+.invCatalystEffect span,
+.invRiskEffect .invEyebrow {
+  color: var(--inv-green);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.invSectionSlide .invSlideBody {
+  align-content: center;
+}
+
+.invSectionDivider {
+  width: min(100%, 1160px);
+  min-height: 360px;
+  gap: 16px;
+  padding: 28px 0;
+}
+
+.invSectionProgress {
+  width: min(100%, 1040px);
+  gap: 10px;
+}
+
+.invSectionProgress span {
+  min-height: 50px;
+  padding: 9px 10px 0 0;
+}
+
+.invObjectiveGrid {
+  gap: 16px;
+  align-items: stretch;
+}
+
+.invObjective {
+  min-height: 250px;
+  align-content: end;
+  padding: 22px 20px;
+}
+
+.invObjective strong {
+  line-height: 1.1;
+}
+
+.invDiscussionStack {
+  gap: 16px;
+}
+
+.invDiscussionQuestion,
+.invDiscussionAnswer {
+  padding: 22px;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionStack {
+  gap: 16px;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer {
+  min-height: 300px;
+  padding: 24px;
+}
+
+.invTermBox {
+  min-height: 370px;
+  padding: 24px;
+}
+
+.invTermDefinition {
+  gap: 16px;
+}
+
+.invCheckList {
+  gap: 10px;
+}
+
+.invCheckItem {
+  min-height: 100px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.invFlow {
+  gap: 16px;
+}
+
+.invFlow .invStep {
+  min-height: 148px;
+  padding: 16px;
+}
+
+.invFlow-sequence .invStep {
+  min-height: 240px;
+  padding: 18px;
+}
+
+.invPeerTaskSlide .invPeerBox {
+  gap: 14px;
+  padding: 16px;
+}
+
+.invPeerTaskSlide .invStep {
+  min-height: 112px;
+}
+
+.invQuizSlide .invPanel,
+.invDataSnapshotSlide .invDataSimple,
+.invCalcBox,
+.invExamBox,
+.invModelFrame {
+  width: min(1240px, 100%);
+}
+
+.invDataFocus {
+  gap: 12px;
+}
+
+.invDataFocusCard {
+  min-height: 128px;
+}
+
+.invDataTask {
+  gap: 6px;
+  padding: 14px 16px;
+}
+
+.invConceptTriad {
+  gap: 16px;
+}
+
+.invConceptCard {
+  min-height: 360px;
+  gap: 8px;
+  padding: 18px 16px;
+}
+
+.invConceptRows {
+  gap: 6px;
+}
+
+.invSourceMeta {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.invSourceChecks {
+  gap: 12px;
+}
+
+.invSourceCheck {
+  min-height: 146px;
+  padding-left: 56px;
+}
+
+.invSourceAnswer {
+  border-radius: calc(var(--inv-radius) - 2px);
+  padding: 8px 10px;
+}
+
+.invQuoteMap {
+  grid-template-columns: minmax(0, 0.68fr) minmax(350px, 0.32fr);
+  gap: 16px;
+}
+
+.invQuoteFields,
+.invCompareMatrix,
+.invCatalystTimeline,
+.invJudgementStages {
+  gap: 10px;
+}
+
+.invQuoteTask {
+  align-content: start;
+}
+
+.invCompareCell {
+  min-height: 88px;
+}
+
+.invCatalystTimeline {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.invCatalystEvent {
+  min-height: 226px;
+  padding-top: 48px;
+}
+
+.invJudgementStage {
+  min-height: 250px;
+  padding-top: 52px;
+}
+
+.invJudgementAnswer {
+  border-radius: calc(var(--inv-radius) - 2px);
+  padding: 8px 10px;
+}
+
+.invAnalystBoardSlide .invEvidenceGrid {
+  gap: 14px;
+}
+
+.invAnalystBoardSlide .invEvidence {
+  min-height: 178px;
+  padding: 38px 16px 14px;
+}
+
+.invRiskGrid {
+  gap: 12px;
+}
+
+.invRiskItem {
+  min-height: 88px;
+  padding: 10px 14px;
+}
+
+.invModelAnswerSlide .invModelFrame {
+  gap: 12px;
+}
+
+.invModelPoint {
+  min-height: 94px;
+  padding: 12px 14px 12px 62px;
+}
+
+.invModelPoint p + p {
+  margin-top: 5px;
+}
+
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invNotePanel {
+  padding: 14px 16px;
+}
+
+.invPeerTaskSlide:has(.invNotePanel.is-revealed) .invPeerBox {
+  gap: 10px;
+}
+
+.invConceptTriadSlide:has(.invFocusPrompt.is-revealed) .invFocusPrompt,
+.invSourceLens:has(.invSourceAnswer.is-revealed) .invFocusPrompt,
+.invComparisonMatrixSlide:has(.invCompareCell .invReveal.is-revealed) .invFocusPrompt,
+.invCatalystTimelineSlide:has(.invCatalystEffect.is-revealed) .invFocusPrompt,
+.invJudgementFrameSlide:has(.invJudgementAnswer.is-revealed) .invFocusPrompt,
+.invModelAnswerSlide:has(.invModelParas p.is-revealed) .invMarkNote {
+  display: none;
+}
+
+.invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteHeader,
+.invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteField em,
+.invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteTask > strong,
+.invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteTask > .invZhLine,
+.invSortTaskSlide:has(.invNotePanel.is-revealed) .invSortBoard,
+.invCatalystTimelineSlide:has(.invCatalystEffect.is-revealed) .invCatalystEvent > p:not(.invCatalystEffect),
+.invJudgementFrameSlide:has(.invJudgementAnswer.is-revealed) .invJudgementStage > p:not(.invJudgementAnswer) {
+  display: none;
+}
+
+.invCompareHead,
+.invCompareCriterion,
+.invCompareCell {
+  padding: 8px 10px;
+}
+
+.invCompareCell {
+  min-height: 66px;
+}
+
+.invQuoteField {
+  min-height: 96px;
+}
+
+.invQuoteTask {
+  gap: 8px;
+  padding: 12px;
+}
+
+.invQuoteMap:has(.invQuoteTask p.invReveal.is-revealed) .invQuoteTask {
+  align-content: center;
+}
+
+.invQuoteTask p.invReveal.is-revealed,
+.invJudgementAnswer,
+.invSourceAnswer,
+.invCatalystEffect {
+  padding: 6px 8px;
+  line-height: 1.08;
+}
+
+.invConceptCard {
+  min-height: 330px;
+}
+
+.invSourceCheck {
+  min-height: 126px;
+}
+
+.invCatalystEvent {
+  min-height: 198px;
+}
+
+.invJudgementStage {
+  min-height: 214px;
+  padding: 46px 10px 10px;
+}
+
+.invJudgementStep {
+  top: 10px;
+  left: 10px;
+}
+
+.invModelAnswerSlide .invModelPoint {
+  min-height: 84px;
+  padding: 9px 12px 9px 56px;
+}
+
+.invModelAnswerSlide .invModelPoint::before {
+  left: 12px;
+  top: 10px;
 }
 
 /* Notes and overview */
@@ -6074,13 +6484,15 @@ img {
 
   .invConceptTriad {
     grid-template-columns: 1fr;
-    gap: 6px;
+    align-content: start;
+    align-items: start;
+    gap: 3px;
   }
 
   .invConceptCard {
     min-height: 0;
-    gap: 4px;
-    padding: 8px 8px 8px 42px;
+    gap: 1px;
+    padding: 3px 8px 3px 40px;
     border-top-width: 0;
     border-left: 4px solid rgba(57, 217, 145, 0.46);
   }
@@ -6100,7 +6512,13 @@ img {
 
   .invConceptCard strong,
   .invConceptDefinition {
+    font-size: 24px;
     line-height: 1.04;
+  }
+
+  .invConceptCard > .invZhLine {
+    font-size: 13px;
+    line-height: 1;
   }
 
   .invConceptRows {
@@ -6119,6 +6537,7 @@ img {
   }
 
   .invConceptNote,
+  .invConceptTriadSlide .invFocusPrompt,
   .invConceptTriadSlide .invFocusPrompt.invReveal.is-revealed {
     display: none;
   }
@@ -6276,10 +6695,15 @@ img {
   .invCompareHead strong,
   .invCompareCriterion,
   .invCompareCell strong {
+    font-size: 24px;
     line-height: 1.02;
   }
 
   .invComparisonMatrixSlide .invFocusPrompt.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invComparisonMatrixSlide:has(.invCompareCell .invReveal.is-revealed) .invCompareHead {
     display: none;
   }
 
@@ -6306,6 +6730,118 @@ img {
   .invJudgementStage .invZhLine,
   .invJudgementAnswer.invReveal.is-revealed {
     display: none;
+  }
+
+  .invSlide {
+    --inv-card-gap: 5px;
+    --inv-card-pad: 8px;
+  }
+
+  .invSlide:not(.invVisualPauseSlide):not(.invTitleOnlySlide) .invSlideHeader {
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+
+  .invTitleBlock h1,
+  .invTitleBlock h2 {
+    line-height: 1.04;
+  }
+
+  .invZhTitle {
+    margin-top: 2px;
+    line-height: 1.08;
+  }
+
+  .invSectionSlide .invSlideBody {
+    align-content: center;
+  }
+
+  .invSectionDivider {
+    min-height: 100%;
+    gap: 8px;
+    padding: 6px 0;
+  }
+
+  .invSectionProgress {
+    gap: 5px;
+  }
+
+  .invSectionProgress span {
+    min-height: 0;
+    padding: 5px 6px 0 0;
+  }
+
+  .invObjective {
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .invDiscussionQuestion,
+  .invDiscussionAnswer,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer {
+    min-height: 0;
+    padding: 8px;
+  }
+
+  .invTermBox {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .invCheckItem {
+    gap: 8px;
+  }
+
+  .invFlow .invStep,
+  .invFlow-sequence .invStep {
+    min-height: 0;
+    padding: 7px;
+  }
+
+  .invPeerTaskSlide .invPeerBox {
+    gap: 6px;
+    padding: 9px;
+  }
+
+  .invDataFocusCard,
+  .invSourceMetaItem,
+  .invSourceCheck,
+  .invQuoteField,
+  .invCompareHead,
+  .invCompareCriterion,
+  .invCompareCell,
+  .invCatalystEvent,
+  .invJudgementStage {
+    padding: 7px;
+  }
+
+  .invConceptCard {
+    padding: 5px 8px 5px 42px;
+  }
+
+  .invSourceCheck {
+    padding-left: 7px;
+  }
+
+  .invQuoteMap,
+  .invComparisonMatrixSlide .invSlideBody > div,
+  .invCatalystTimelineSlide .invSlideBody > div,
+  .invJudgementFrame {
+    width: 100%;
+  }
+
+  .invQuoteTask {
+    align-content: start;
+  }
+
+  .invCatalystEvent,
+  .invJudgementStage {
+    padding-left: 44px;
+  }
+
+  .invModelPoint {
+    min-height: 0;
   }
 
   .handoutToolbar,

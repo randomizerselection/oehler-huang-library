@@ -1,7 +1,39 @@
-# Lesson 1 Knowledge-Based Starter Version
+# Investment Slide Type Gallery
 
-This is a parallel Lesson 1 version that keeps the legacy folder name for continuity but no longer tries to use every slide type.
+This folder contains a review deck for the current Investment Analysis slide renderers.
 
-It preserves the original Lesson 1 at `../lesson-1/` and uses the same frozen Tencent price data. The sequence is knowledge-first: saving, investment and speculation; asset, share and share price; possible return and risk; Tencent the company versus Tencent's listed share; and a simple information-to-expectations-to-price movement chain.
+It deliberately reuses the old `lesson-1-all-types` path so existing links keep working, but the content is no longer a Lesson 1 variant. The deck shows each available slide type from `assets/js/investment-deck.js` and includes speaker notes plus a printable worksheet for keep, edit, split, replace, or delete decisions.
 
-The deck deliberately avoids stock tips, market timing, personal buy/sell advice, percentage-change formulas, market capitalisation and valuation ratios.
+Current slide types shown:
+
+- `hero`
+- `priceChart`
+- `outcomes`
+- `section`
+- `visualPause`
+- `discussion`
+- `term`
+- `answer`
+- `flow`
+- `peerTask`
+- `quiz`
+- `dataSnapshot`
+- `conceptTriad`
+- `sourceLens`
+- `quoteMap`
+- `comparisonMatrix`
+- `catalystTimeline`
+- `calculationDesk`
+- `analystBoard`
+- `riskRegister`
+- `judgementFrame`
+- `exam`
+- `modelAnswer`
+
+The deck also shows meaningful variants of `peerTask` and `answer`, because those are likely candidates for splitting into clearer future slide types.
+
+`visualPause` is intentionally picture-only on the projected slide. Put prompts, captions and teaching bridges in speaker notes or adjacent slides.
+
+Deprecated:
+
+- Deprecated `marketBrief` slides should not be used in new decks. Use `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` instead.

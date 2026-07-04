@@ -170,23 +170,25 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "marketBrief",
+      type: "discussion",
       eyebrow: "Case hook",
       title: "HKEX is market infrastructure",
       zhTitle: "港交所是市场基础设施",
       subtitle: "Recover the case before definitions.",
-      ticker: "HKEX source box",
+      ticker: "HKEX source",
       question: "Before reveal, circle the exchange, one listed share code and the source date.",
       questionZh: "揭示前，圈出交易所、一个上市股票代码和来源日期。",
       sourceStamp: "HKEX website and FAQs | accessed 2 Jul 2026",
       visual: investmentPhotos.financialAnalysisDesk,
-      revealMetricValues: true,
-      metrics: [
+      revealTitle: "HKEX is market infrastructure",
+      answer: "HKEX is the exchange where listed shares can trade. A stock code identifies a listed share; it is not a quality signal or investment recommendation.",
+      answerZh: "港交所是上市股票可以交易的交易所。股票代码识别上市股票，但不是质量信号或投资建议。",
+      sourceFacts: [
         { label: "Exchange case", value: "HKEX", note: "香港交易所" },
         { label: "Example code", value: "0700.HK / 00700", note: "腾讯上市股票" },
         { label: "Source date", value: "Accessed 2 Jul 2026", note: "冻结课堂来源" }
       ],
-      notes: "Students should record source title, URL/date and company/security identifier before judging anything."
+      notes: "Use this as a question-first hook. Students record source details in the handout, but the projected slide should teach the infrastructure idea."
     },
     {
       type: "answer",

@@ -8,9 +8,11 @@ window.INVEST.quiz = {
       id: "example-mcq",
       type: "multipleChoice",
       prompt: "Question prompt",
+      zh: "问题提示。",
       choices: ["Correct answer", "Distractor", "Distractor", "Distractor"],
       answer: 0,
-      explanation: "Explain the correct answer."
+      explanation: "Explain the correct answer.",
+      explanationZh: "解释为什么这个答案正确。"
     }
   ]
 };

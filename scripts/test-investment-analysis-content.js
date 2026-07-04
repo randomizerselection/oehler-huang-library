@@ -91,6 +91,20 @@ function findInvestmentSlideFiles(dir, base = root) {
   });
 }
 
+function findInvestmentQuizFiles(dir, base = root) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'test-results' || entry.name === 'output') return [];
+
+    const absolutePath = path.join(dir, entry.name);
+    const relativePath = path.relative(base, absolutePath).replace(/\\/g, '/');
+    if (relativePath.includes('/archive') || relativePath.includes('-archive-')) return [];
+    if (entry.isDirectory()) return findInvestmentQuizFiles(absolutePath, base);
+    if (entry.name !== 'quiz.js') return [];
+
+    return [relativePath];
+  });
+}
+
 function readInvestmentLesson(relativePath) {
   const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const INVEST = {
@@ -107,6 +121,19 @@ function readInvestmentLesson(relativePath) {
   return context.window.INVEST.lesson;
 }
 
+function readInvestmentQuiz(relativePath) {
+  const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+  const INVEST = {};
+  const context = {
+    window: { INVEST },
+    INVEST,
+    console,
+  };
+  context.window.window = context.window;
+  vm.runInNewContext(source, context, { filename: relativePath });
+  return context.window.INVEST.quiz;
+}
+
 function hasTemplateGuidance() {
   const readmePath = path.join(courseRoot, '_template', 'README.md');
   const source = fs.readFileSync(readmePath, 'utf8');
@@ -115,6 +142,10 @@ function hasTemplateGuidance() {
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function hasChineseText(value) {
+  return /[\u3400-\u9fff]/.test(String(value || ''));
 }
 
 function normaliseLineEndings(value) {
@@ -472,6 +503,171 @@ function validateTermRenderer() {
   return failures;
 }
 
+function requireChinese(failures, label, value, description) {
+  if (!hasChineseText(value)) failures.push(`${label}: missing ${description}`);
+}
+
+function requireChineseArray(failures, label, englishItems, chineseItems, description) {
+  const source = Array.isArray(englishItems) ? englishItems : [];
+  const translations = Array.isArray(chineseItems) ? chineseItems : [];
+
+  if (source.length !== translations.length) {
+    failures.push(`${label}: ${description} must have ${source.length} Chinese entries`);
+    return;
+  }
+
+  translations.forEach((value, index) => {
+    if (!hasChineseText(value)) failures.push(`${label}: missing ${description} ${index + 1}`);
+  });
+}
+
+function validateImportantChineseSupport() {
+  const failures = [];
+
+  for (const slideFile of findInvestmentSlideFiles(courseRoot)) {
+    const lesson = readInvestmentLesson(slideFile);
+    for (const [index, slide] of (lesson.slides || []).entries()) {
+      const label = `${slideFile} slide ${index + 1} (${slide.type || 'unknown'}: ${slide.title || slide.term || 'untitled'})`;
+
+      if (slide.type === 'marketBrief') {
+        failures.push(`${label}: do not use deprecated marketBrief slides`);
+        continue;
+      }
+
+      if (slide.type === 'visualPause') continue;
+
+      if (slide.type !== 'term' && slide.title) {
+        requireChinese(failures, label, slide.zhTitle, 'zhTitle for the main slide title');
+      }
+
+      switch (slide.type) {
+        case 'hero':
+          if (slide.question) requireChinese(failures, label, slide.questionZh, 'questionZh for the main question');
+          break;
+        case 'priceChart':
+          if (slide.question) requireChinese(failures, label, slide.questionZh, 'questionZh for the chart question');
+          break;
+        case 'outcomes':
+          requireChineseArray(failures, label, slide.bullets, slide.zhBullets, 'zhBullets');
+          break;
+        case 'discussion':
+          if (slide.question || slide.prompt) {
+            if (!hasChineseText(slide.zh) && !hasChineseText(slide.questionZh) && !hasChineseText(slide.promptZh)) {
+              failures.push(`${label}: missing Chinese support for the discussion question`);
+            }
+          }
+          if (slide.answer || slide.note) requireChinese(failures, label, slide.answerZh, 'answerZh for the revealed answer');
+          break;
+        case 'term':
+          requireChinese(failures, label, slide.termZh, 'termZh');
+          requireChinese(failures, label, slide.definitionZh, 'definitionZh');
+          break;
+        case 'answer':
+          (slide.items || []).forEach((item, itemIndex) => {
+            if (item.prompt) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh, 'Chinese support for the answer item');
+          });
+          break;
+        case 'flow':
+          (slide.steps || []).forEach((step, stepIndex) => {
+            if (typeof step === 'string') {
+              failures.push(`${label} step ${stepIndex + 1}: flow steps must be objects with zh support`);
+            } else if (step.text) {
+              requireChinese(failures, `${label} step ${stepIndex + 1}`, step.zh, 'Chinese support for the flow step');
+            }
+          });
+          break;
+        case 'peerTask':
+          (slide.steps || []).forEach((step, stepIndex) => {
+            if (typeof step === 'string') {
+              failures.push(`${label} step ${stepIndex + 1}: peerTask steps must be objects with zh support`);
+            } else if (step.text) {
+              requireChinese(failures, `${label} step ${stepIndex + 1}`, step.zh, 'Chinese support for the peer-task step');
+            }
+          });
+          if (slide.sampleAnswer) requireChinese(failures, label, slide.sampleAnswerZh, 'sampleAnswerZh for the revealed sample answer');
+          break;
+        case 'quiz':
+          if (slide.question) requireChinese(failures, label, slide.zh, 'zh for the quiz question');
+          if (slide.explanation) requireChinese(failures, label, slide.explanationZh, 'explanationZh for quiz feedback');
+          break;
+        case 'dataSnapshot':
+          if (slide.note) requireChinese(failures, label, slide.noteZh, 'noteZh for the data note');
+          if (slide.task) requireChinese(failures, label, slide.taskZh, 'taskZh for the student task');
+          break;
+        case 'conceptTriad':
+          (slide.concepts || []).forEach((concept, conceptIndex) => {
+            if (concept.definition) requireChinese(failures, `${label} concept ${conceptIndex + 1}`, concept.definitionZh, 'definitionZh for the concept definition');
+          });
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the concept prompt');
+          break;
+        case 'sourceLens':
+          if (slide.task) requireChinese(failures, label, slide.taskZh, 'taskZh for the source task');
+          (slide.checks || []).forEach((check, checkIndex) => {
+            if (check.prompt) requireChinese(failures, `${label} check ${checkIndex + 1}`, check.zh, 'Chinese support for the source check');
+            if (check.answer) requireChinese(failures, `${label} check ${checkIndex + 1}`, check.answerZh, 'answerZh for the source-check answer');
+          });
+          break;
+        case 'quoteMap':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the quote-map task');
+          if (slide.answer) requireChinese(failures, label, slide.answerZh, 'answerZh for the revealed quote-map answer');
+          break;
+        case 'comparisonMatrix':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the comparison task');
+          break;
+        case 'catalystTimeline':
+          (slide.events || []).forEach((event, eventIndex) => {
+            if (event.detail) requireChinese(failures, `${label} event ${eventIndex + 1}`, event.detailZh, 'detailZh for the timeline detail');
+            if (event.effect) requireChinese(failures, `${label} event ${eventIndex + 1}`, event.effectZh, 'effectZh for the timeline effect');
+          });
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the timeline task');
+          break;
+        case 'judgementFrame':
+          (slide.stages || []).forEach((stage, stageIndex) => {
+            if (stage.prompt) requireChinese(failures, `${label} stage ${stageIndex + 1}`, stage.zh, 'Chinese support for the judgement prompt');
+            if (stage.answer) requireChinese(failures, `${label} stage ${stageIndex + 1}`, stage.answerZh, 'answerZh for the judgement answer');
+          });
+          if (slide.finalPrompt) requireChinese(failures, label, slide.finalPromptZh, 'finalPromptZh for the final prompt');
+          break;
+        case 'analystBoard':
+          (slide.blocks || []).forEach((block, blockIndex) => {
+            if (block.body) requireChinese(failures, `${label} block ${blockIndex + 1}`, block.zh, 'Chinese support for the evidence body');
+          });
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the analyst-board prompt');
+          break;
+        case 'calculationDesk':
+          if (slide.worked) requireChinese(failures, label, slide.workedZh, 'workedZh for the worked example');
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the calculation prompt');
+          if (slide.answer) requireChinese(failures, label, slide.answerZh, 'answerZh for the calculation answer');
+          break;
+        case 'riskRegister':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the risk prompt');
+          break;
+        case 'exam':
+          if (slide.prompt) requireChinese(failures, label, slide.zh, 'zh for the exam prompt');
+          break;
+        case 'modelAnswer':
+          if (slide.cueText) requireChinese(failures, label, slide.cueTextZh, 'cueTextZh for the comparison cue');
+          requireChineseArray(failures, label, slide.paragraphs, slide.paragraphsZh, 'paragraphsZh');
+          if (slide.markNote) requireChinese(failures, label, slide.markNoteZh, 'markNoteZh for the mark note');
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  for (const quizFile of findInvestmentQuizFiles(courseRoot)) {
+    const quiz = readInvestmentQuiz(quizFile);
+    for (const [index, question] of (quiz.questions || []).entries()) {
+      const label = `${quizFile} question ${index + 1} (${question.id || question.prompt || 'untitled'})`;
+      if (question.prompt) requireChinese(failures, label, question.zh, 'zh for the quiz prompt');
+      if (question.explanation) requireChinese(failures, label, question.explanationZh, 'explanationZh for quiz feedback');
+    }
+  }
+
+  return failures;
+}
+
 function validateDiscussionRevealTitles() {
   const failures = [];
   const slideFiles = findInvestmentSlideFiles(courseRoot);
@@ -499,6 +695,7 @@ const failures = [
   ...validateSyllabusUsesCourseMap(),
   ...validateGeneratorContextAccess(),
   ...validateCompiledHandoutBook(),
+  ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
   ...validateTermRenderer(),
 ];

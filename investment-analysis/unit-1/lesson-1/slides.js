@@ -352,22 +352,27 @@ window.INVEST.lesson = {
       notes: "Use familiarity as an entry point, not as evidence for investment quality."
     },
     {
-      type: "marketBrief",
-      eyebrow: "Source box",
-      title: "Record the Tencent source box",
+      type: "discussion",
+      eyebrow: "Source check",
+      title: "Check the Tencent source",
       zhTitle: "记录腾讯来源框",
-      subtitle: "Identify the case before judging.",
+      subtitle: "Check source details before judging.",
       ticker: "Tencent classroom source",
-      question: "Circle the company, listed share, source title and accessed date.",
+      question: "What must we record before judging Tencent?",
       questionZh: "圈出公司、上市股票、来源标题和访问日期。",
       sourceStamp: "Tencent graph | Yahoo Finance | accessed 2 Jul 2026",
-      revealMetricValues: true,
-      metrics: [
+      revealTitle: "Source first, judgement second",
+      answer: "Record the listed share, source title and date. That identifies the evidence; it does not prove a good investment.",
+      answerZh: "先记录上市股票、来源标题和日期。这能确认证据来源，但不能证明它是好投资。",
+      metaItems: [
         { label: "Company", value: "Tencent Holdings Limited", note: "腾讯控股有限公司" },
         { label: "Listed share", value: "0700.HK / HKEX 00700", note: "报价代码 / 港交所代码" },
         { label: "Source date", value: "Accessed 2 Jul 2026", note: "冻结课堂来源" }
       ],
-      notes: "This fulfills the source-box habit: company/security identifier, source title and date before judgement."
+      checks: [
+        { label: "Limit", prompt: "What can it not prove by itself?", answer: "It cannot prove whether Tencent is a good investment." }
+      ],
+      notes: "Use this as a focused source-validity check."
     },
     {
       type: "flow",
