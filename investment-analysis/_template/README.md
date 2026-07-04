@@ -6,6 +6,13 @@ Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the sourc
 
 Also check `../course-map-data.js` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
 
+Generator context:
+
+- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new deck.
+- Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
+- Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
+- The generator context is a contract, not optional background: preserve the `primaryOutput`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+
 Required files:
 
 - `index.html` loads `../../../assets/css/investment.css`, `../../../assets/js/investment-deck.js`, `../../../assets/js/investment-quiz.js`, then local `slides.js` and `quiz.js`.

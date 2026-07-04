@@ -8,6 +8,7 @@
     "test:grading": "node scripts/test-grading-workflow.js",
     "test:investment-content": "node scripts/test-investment-analysis-content.js",
     "build:investment-handout-book": "node scripts/build-investment-handout-book.js",
+    "export:investment-generator-context": "node scripts/export-investment-generator-context.js",
     "test": "playwright test",
     "test:regression": "playwright test tests/smoke.spec.js",
     "test:smoke": "playwright test tests/smoke.spec.js --project=chromium-desktop --grep @smoke",

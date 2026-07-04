@@ -46,6 +46,50 @@
       "Lesson handouts 1-30"
     ]
   },
+  "generatorAccess": {
+    "canonicalSource": "investment-analysis/course-map-data.js",
+    "contextModule": "investment-analysis/generator-context.js",
+    "cli": "node scripts/export-investment-generator-context.js --lesson <1-30> --target lesson",
+    "targets": [
+      {
+        "key": "lesson",
+        "purpose": "Full lesson-planning context for a deck generator.",
+        "use": "Use before writing slides.js, lesson notes, source tasks or quiz alignment."
+      },
+      {
+        "key": "deck",
+        "purpose": "Slide-deck contract.",
+        "use": "Use artifactBlueprint.deckArc, retrievalBase, formativeAssessment, exitTicket and primaryOutput as the lesson spine."
+      },
+      {
+        "key": "handout",
+        "purpose": "Lesson handout contract.",
+        "use": "Use artifactBlueprint.handoutBlocks in the fixed six-block handout order."
+      },
+      {
+        "key": "quiz",
+        "purpose": "Follow-up quiz contract.",
+        "use": "Retrieve terms, core claim, misconception correction, formula or judgement rule and exit-ticket output."
+      },
+      {
+        "key": "exam",
+        "purpose": "Checkpoint exam-item contract.",
+        "use": "Use assessmentBlueprint and examPattern for command word, marks, stimulus, calculation and judgement."
+      },
+      {
+        "key": "textbook",
+        "purpose": "Compiled handout-book contract.",
+        "use": "Use the lesson handout as the chapter; do not create textbook-only teaching content."
+      }
+    ],
+    "rules": [
+      "Treat course-map-data.js as the single source of lesson scope.",
+      "Run sourceFitAudit and caseReview before choosing sources or replacing a company anchor.",
+      "Build the deck, handout, quiz and exam item from the same lesson context so the primary output, misconception and exit ticket stay aligned.",
+      "Freeze source dates and figures before generating classroom materials; do not depend on live prices.",
+      "Do not turn a lesson into personal investment advice, stock tips, market timing or short-term speculation."
+    ]
+  },
   "units": [
     {
       "unit": 1,

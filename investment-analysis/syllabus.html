@@ -18,6 +18,7 @@
         <a class="investment-link" href="index.html">Course home</a>
         <a class="investment-link" href="#lesson-map">Lesson map</a>
         <a class="investment-link" href="#lesson-generator-table">Generator table</a>
+        <a class="investment-link" href="#generator-access">Generator access</a>
         <a class="investment-link" href="#exam-schedule">Exam schedule</a>
         <a class="investment-link" href="#course-standards">Course standards</a>
         <a class="investment-link" href="unit-1/lesson-1/index.html">Start Lesson 1</a>
@@ -34,6 +35,7 @@
         <div class="investment-actions" aria-label="Course map jump links">
           <a class="investment-action primary" href="#lesson-map">View 30 lessons</a>
           <a class="investment-action" href="#lesson-generator-table">Generator table</a>
+          <a class="investment-action" href="#generator-access">Generator access</a>
           <a class="investment-action" href="#exam-schedule">Exam schedule</a>
           <a class="investment-action" href="#formula-bank">Formula bank</a>
           <a class="investment-action" href="#evidence-protocol">Evidence protocol</a>
@@ -153,6 +155,41 @@
       </div>
 
       <div class="investment-syllabus-lesson-grid" data-course-map-lesson-grid></div>
+    </section>
+
+    <section class="investment-section" id="generator-access" aria-labelledby="generator-access-title">
+      <div class="investment-section-head">
+        <div>
+          <div class="investment-section-kicker">Generator access</div>
+          <h2 id="generator-access-title">One source for lessons and materials</h2>
+        </div>
+        <p>
+          The complete 30-lesson map is machine-readable. Deck, handout, quiz, exam and handout-book generators should load the same lesson context before creating classroom materials.
+        </p>
+      </div>
+
+      <div class="investment-syllabus-reference-grid">
+        <article class="investment-card">
+          <span class="code">Canonical data</span>
+          <h3>Course map data</h3>
+          <p>The structured source is <code>investment-analysis/course-map-data.js</code>. It contains all 30 lessons, units, checkpoints, source-fit rules, handout blocks and assessment blueprints.</p>
+        </article>
+        <article class="investment-card">
+          <span class="code">Lesson generator</span>
+          <h3>Deck context</h3>
+          <p>Use <code>getLessonGeneratorContext(lessonNumber)</code> from <code>investment-analysis/generator-context.js</code> to build a lesson from the guiding question, core claim, retrieval base, source pack and deck arc.</p>
+        </article>
+        <article class="investment-card">
+          <span class="code">Material generators</span>
+          <h3>Targeted contexts</h3>
+          <p>Use <code>getLessonMaterialContext(lessonNumber, target)</code> with <code>deck</code>, <code>handout</code>, <code>quiz</code>, <code>exam</code> or <code>textbook</code> so each material uses the same terms, misconception, output and evidence rules.</p>
+        </article>
+        <article class="investment-card">
+          <span class="code">CLI export</span>
+          <h3>Prompt-ready output</h3>
+          <p>Run <code>node scripts/export-investment-generator-context.js --lesson 2 --target deck --format md</code> for a Markdown brief, or omit <code>--format md</code> for JSON.</p>
+        </article>
+      </div>
     </section>
 
     <section class="investment-section" id="exam-schedule" aria-labelledby="exam-schedule-title">

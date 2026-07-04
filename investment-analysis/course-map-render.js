@@ -68,6 +68,13 @@
           <li><strong>Evidence task:</strong> ${escapeHtml((lesson.cardGenerator || lesson).evidenceTask)}</li>
           <li><strong>Student output:</strong> ${escapeHtml((lesson.cardGenerator || lesson).studentOutput)}</li>
         </ul>
+        <ul class="investment-lesson-generator" aria-label="Lesson ${lesson.lesson} build contract">
+          <li><strong>Core claim:</strong> ${escapeHtml(lesson.coreClaim)}</li>
+          <li><strong>Primary output:</strong> ${escapeHtml(lesson.primaryOutput && lesson.primaryOutput.description)}</li>
+          <li><strong>Case role:</strong> ${escapeHtml(lesson.caseRole)}</li>
+          <li><strong>Source pack:</strong> ${escapeHtml((lesson.sourcePack && lesson.sourcePack.requiredSourceTypes || []).join("; "))}</li>
+          <li><strong>Assessment:</strong> ${escapeHtml(lesson.assessmentBlueprint && `${lesson.assessmentBlueprint.commandWord}, ${lesson.assessmentBlueprint.marks} marks, ${lesson.assessmentBlueprint.stimulusType}`)}</li>
+        </ul>
       </article>
     `).join("");
   }

@@ -1,10 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const childProcess = require('child_process');
 
 const root = path.resolve(__dirname, '..');
 const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
+const {
+  MATERIAL_TARGETS,
+  getCourseGeneratorContext,
+  getLessonGeneratorContext,
+  getLessonMaterialContext,
+} = require('../investment-analysis/generator-context.js');
 const {
   outputPath: handoutBookPath,
   teacherBlueprintPath,
@@ -311,6 +318,108 @@ function validateSyllabusUsesCourseMap() {
   return failures;
 }
 
+function validateGeneratorContextAccess() {
+  const failures = [];
+  const generatorContextPath = path.join(courseRoot, 'generator-context.js');
+  const exportScriptPath = path.join(root, 'scripts', 'export-investment-generator-context.js');
+  const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+  const materialTargetKeys = Object.keys(MATERIAL_TARGETS);
+
+  if (!fs.existsSync(generatorContextPath)) {
+    failures.push('investment-analysis/generator-context.js: missing generator context module');
+  }
+  if (!fs.existsSync(exportScriptPath)) {
+    failures.push('scripts/export-investment-generator-context.js: missing generator context export CLI');
+  }
+  if (packageJson.scripts?.['export:investment-generator-context'] !== 'node scripts/export-investment-generator-context.js') {
+    failures.push('package.json: missing export:investment-generator-context script');
+  }
+  if (courseMap.generatorAccess?.contextModule !== 'investment-analysis/generator-context.js') {
+    failures.push('investment-analysis/course-map-data.js: generatorAccess.contextModule must point to generator-context.js');
+  }
+  if (!Array.isArray(courseMap.generatorAccess?.rules) || courseMap.generatorAccess.rules.length < 4) {
+    failures.push('investment-analysis/course-map-data.js: generatorAccess.rules must define generator guardrails');
+  }
+
+  const accessTargets = new Set((courseMap.generatorAccess?.targets || []).map((target) => target.key));
+  for (const target of ['lesson', ...materialTargetKeys]) {
+    if (!accessTargets.has(target)) {
+      failures.push(`investment-analysis/course-map-data.js: generatorAccess missing target "${target}"`);
+    }
+  }
+
+  const courseContext = getCourseGeneratorContext(courseMap);
+  if (courseContext.contextType !== 'course-generator-index') {
+    failures.push('investment-analysis/generator-context.js: course context must identify itself as course-generator-index');
+  }
+  if (!Array.isArray(courseContext.lessons) || courseContext.lessons.length !== 30) {
+    failures.push('investment-analysis/generator-context.js: course context must expose all 30 lessons');
+  }
+
+  for (let lessonNumber = 1; lessonNumber <= 30; lessonNumber += 1) {
+    const lessonContext = getLessonGeneratorContext(lessonNumber, courseMap);
+    if (lessonContext.contextType !== 'lesson-generator-context') {
+      failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: wrong lesson context type`);
+    }
+    if (lessonContext.lesson.lesson !== lessonNumber) {
+      failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: lesson number mismatch`);
+    }
+    if (!isNonEmptyString(lessonContext.teachingContract?.primaryOutput?.description)) {
+      failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: missing primary output`);
+    }
+    if (!Array.isArray(lessonContext.artifactContract?.artifactBlueprint?.handoutBlocks)) {
+      failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: missing handout block contract`);
+    }
+
+    for (const target of materialTargetKeys) {
+      const materialContext = getLessonMaterialContext(lessonNumber, target, courseMap);
+      if (materialContext.contextType !== 'lesson-material-generator-context') {
+        failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber} ${target}: wrong material context type`);
+      }
+      if (materialContext.target !== target) {
+        failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber} ${target}: target mismatch`);
+      }
+      if (!Array.isArray(materialContext.generationRules) || materialContext.generationRules.length === 0) {
+        failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber} ${target}: missing generation rules`);
+      }
+      if (!materialContext.requiredInputs?.evidenceContract?.sourcePack?.noLivePriceDependency) {
+        failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber} ${target}: source pack must keep no live price dependency`);
+      }
+    }
+  }
+
+  try {
+    const jsonOutput = childProcess.execFileSync(process.execPath, [
+      exportScriptPath,
+      '--lesson',
+      '2',
+      '--target',
+      'deck',
+    ], { cwd: root, encoding: 'utf8' });
+    const parsed = JSON.parse(jsonOutput);
+    if (parsed.target !== 'deck' || parsed.lesson.lesson !== 2) {
+      failures.push('scripts/export-investment-generator-context.js: deck JSON output must include target deck and lesson 2');
+    }
+
+    const markdownOutput = childProcess.execFileSync(process.execPath, [
+      exportScriptPath,
+      '--lesson',
+      '2',
+      '--target',
+      'handout',
+      '--format',
+      'md',
+    ], { cwd: root, encoding: 'utf8' });
+    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
+      failures.push('scripts/export-investment-generator-context.js: markdown output must include the lesson and generation rules');
+    }
+  } catch (error) {
+    failures.push(`scripts/export-investment-generator-context.js: CLI failed: ${error.message}`);
+  }
+
+  return failures;
+}
+
 function validateCompiledHandoutBook() {
   const failures = [];
   const expected = normaliseLineEndings(renderHandoutBook(courseMap));
@@ -388,6 +497,7 @@ function validateDiscussionRevealTitles() {
 const failures = [
   ...validateCourseMapContract(),
   ...validateSyllabusUsesCourseMap(),
+  ...validateGeneratorContextAccess(),
   ...validateCompiledHandoutBook(),
   ...validateDiscussionRevealTitles(),
   ...validateTermRenderer(),
