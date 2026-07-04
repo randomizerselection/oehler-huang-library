@@ -115,6 +115,130 @@ window.INVEST.lesson = {
       task: "Read the three figures. Write what each shows before judging what it proves."
     },
     {
+      type: "conceptTriad",
+      eyebrow: "Concept map",
+      title: "Compare three beginner ideas",
+      visual: window.INVEST.photos?.businessChartsPaper,
+      revealDetails: true,
+      concepts: [
+        {
+          label: "Concept A",
+          tag: "Use when...",
+          definition: "Replace with the first definition.",
+          purpose: "Main purpose",
+          risk: "Low / medium / high",
+          time: "Typical time horizon",
+          example: "Short example"
+        },
+        {
+          label: "Concept B",
+          tag: "Different because...",
+          definition: "Replace with the second definition.",
+          purpose: "Main purpose",
+          risk: "Low / medium / high",
+          time: "Typical time horizon",
+          example: "Short example"
+        },
+        {
+          label: "Concept C",
+          tag: "Do not confuse",
+          definition: "Replace with the third definition.",
+          purpose: "Main purpose",
+          risk: "Low / medium / high",
+          time: "Typical time horizon",
+          example: "Short example"
+        }
+      ],
+      prompt: "Before reveal, classify one classroom example into the correct concept."
+    },
+    {
+      type: "sourceLens",
+      eyebrow: "Source check",
+      title: "Can this source support the claim?",
+      visual: window.INVEST.photos?.financialAnalysisDesk,
+      revealAnswers: true,
+      metaItems: [
+        { label: "Source title", value: "Replace with source title" },
+        { label: "Publisher", value: "Company / exchange / data provider" },
+        { label: "Date", value: "Published or accessed date" },
+        { label: "Unit", value: "Currency, period or market" }
+      ],
+      checks: [
+        { label: "Authority", prompt: "Who produced this evidence?", answer: "Name the source and why it is useful." },
+        { label: "Date", prompt: "Is the source current enough for this judgement?", answer: "Use the publication or accessed date." },
+        { label: "Scope", prompt: "What can this source prove?", answer: "State the narrow claim it can support." },
+        { label: "Limit", prompt: "What can it not prove alone?", answer: "Name one missing evidence need." }
+      ],
+      task: "Write one source-backed sentence and one limitation."
+    },
+    {
+      type: "quoteMap",
+      eyebrow: "Quote page",
+      title: "Read the quote page before the opinion",
+      visual: window.INVEST.photos?.smartphoneMarketChart,
+      quoteLabel: "Classroom quote snapshot",
+      quoteTitle: "Company code / exchange / price / date",
+      revealValues: true,
+      fields: [
+        { label: "Company", value: "Company name", note: "Do not confuse company with share." },
+        { label: "Code", value: "Ticker / stock code", note: "Identifier, not a quality signal." },
+        { label: "Exchange", value: "Market", note: "Where the security is listed." },
+        { label: "Price", value: "Price and currency", note: "One share at one time." },
+        { label: "Date/time", value: "Snapshot time", note: "Price evidence needs a date." },
+        { label: "Source", value: "Provider", note: "Record before judging." }
+      ],
+      prompt: "Before reveal, point to the field that proves the identity of the listed share.",
+      answer: "A quote page identifies a listed security and a dated price; it does not prove investment quality."
+    },
+    {
+      type: "comparisonMatrix",
+      eyebrow: "Compare",
+      title: "Compare two choices with the same criteria",
+      visual: window.INVEST.photos?.businessChartsPaper,
+      revealCells: true,
+      cornerLabel: "Test",
+      columns: [
+        { label: "Choice A", note: "Replace with company, ETF or strategy" },
+        { label: "Choice B", note: "Replace with comparison case" }
+      ],
+      rows: [
+        { label: "Evidence", values: ["Known source", "Known source"] },
+        { label: "Possible return", values: ["Return argument", "Return argument"] },
+        { label: "Risk", values: ["Risk argument", "Risk argument"] },
+        { label: "Price paid", values: ["Valuation link", "Valuation link"] }
+      ],
+      prompt: "Choose the stronger case only after filling every criterion."
+    },
+    {
+      type: "catalystTimeline",
+      eyebrow: "Price movement",
+      title: "Connect information to expectations",
+      visual: window.INVEST.photos?.financeChartWhiteboard,
+      revealEffects: true,
+      effectLabel: "Expectation link",
+      events: [
+        { date: "Step 1", title: "New information", detail: "Replace with a source event.", effect: "Students explain why expectations might change." },
+        { date: "Step 2", title: "Market reaction", detail: "Replace with the observed price or volume move.", effect: "Students avoid claiming the source proves the whole cause." },
+        { date: "Step 3", title: "Evidence check", detail: "Replace with confirming or conflicting evidence.", effect: "Students identify what more evidence is needed." },
+        { date: "Step 4", title: "Careful claim", detail: "Replace with the final cautious sentence.", effect: "Students link information, expectation and price without advice." }
+      ],
+      prompt: "Write one cautious sentence: the information may have mattered because..."
+    },
+    {
+      type: "judgementFrame",
+      eyebrow: "Judgement frame",
+      title: "Build a balanced investment judgement",
+      visual: window.INVEST.photos?.stockReportCalculator,
+      revealAnswers: true,
+      stages: [
+        { label: "Evidence", prompt: "What source-backed fact matters?", answer: "Use one dated figure, quote field or document fact." },
+        { label: "Return", prompt: "How could value or profit improve?", answer: "Name the possible return mechanism." },
+        { label: "Risk", prompt: "What could go worse than expected?", answer: "Name the risk and who it affects." },
+        { label: "Price paid", prompt: "Why does the current price matter?", answer: "Link judgement to what investors already pay." }
+      ],
+      finalPrompt: "Write the final sentence with evidence, risk and price paid."
+    },
+    {
       type: "analystBoard",
       eyebrow: "Analyst Board",
       title: "Judge evidence, expectations and price paid",

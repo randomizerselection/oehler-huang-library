@@ -34,6 +34,12 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `section`: keep the slide visually closer to the standard economics-presentation divider, with the title doing the work and only a quiet progress strip below it.
 - `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
+- `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
+- `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
+- `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
+- `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.
+- `catalystTimeline`: show up to four events linking information to expectations or price movement; use `revealEffects: true` so students avoid overclaiming causation.
+- `judgementFrame`: use four stages: evidence, return, risk and price paid; reveal answers only after students draft the balanced judgement.
 - `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.
 - `riskRegister`: show four short risk prompts in large blocks; use `revealEffects: true` so students link risk to future profit, expectations or price paid before seeing the effect.
 - `flow`: use large numbered steps with meaningful blanks and `answer` values; do not add a second explanatory line to every step.

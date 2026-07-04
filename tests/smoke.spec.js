@@ -318,6 +318,23 @@ const investmentTeachingTextSelector = [
   '.invDataPrompt p',
   '.invDataTask strong',
   '.invDataTask span',
+  '.invConceptCard strong',
+  '.invConceptDefinition',
+  '.invConceptRow',
+  '.invSourceMetaItem strong',
+  '.invSourceCheck strong',
+  '.invSourceCheck p:not(.invZhLine)',
+  '.invSourceAnswer',
+  '.invQuoteHeader strong',
+  '.invQuoteValue',
+  '.invQuoteTask strong',
+  '.invCompareHead strong',
+  '.invCompareCriterion',
+  '.invCompareCell strong',
+  '.invCatalystEvent strong',
+  '.invCatalystEvent p:not(.invZhLine)',
+  '.invJudgementStage strong',
+  '.invJudgementStage p:not(.invZhLine)',
   '.invEvidence strong',
   '.invEvidence p',
   '.invRiskItem strong',
@@ -1349,6 +1366,46 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test('@smoke investment @responsive investment template new slide types render', async ({ page }, testInfo) => {
+    test.setTimeout(90000);
+    const lessonPath = 'investment-analysis/_template/index.html';
+    const isPhone = testInfo.project.name.includes('phone');
+    const minimumTextSize = isPhone ? 24 : 32;
+    const newSlideTypes = [
+      { type: 'conceptTriad', title: 'Compare three beginner ideas', marker: '.invConceptTriad' },
+      { type: 'sourceLens', title: 'Can this source support the claim?', marker: '.invSourceLens' },
+      { type: 'quoteMap', title: 'Read the quote page before the opinion', marker: '.invQuoteMap' },
+      { type: 'comparisonMatrix', title: 'Compare two choices with the same criteria', marker: '.invCompareMatrix' },
+      { type: 'catalystTimeline', title: 'Connect information to expectations', marker: '.invCatalystTimeline' },
+      { type: 'judgementFrame', title: 'Build a balanced investment judgement', marker: '.invJudgementFrame' },
+    ];
+
+    await page.goto(pageUrl(lessonPath));
+    await expect(page.locator('body')).toHaveClass(/investment-deck/);
+
+    const templateTypes = await page.evaluate(() => (window.INVEST?.lesson?.slides || []).map((slide) => slide.type));
+    for (const { type } of newSlideTypes) {
+      expect(templateTypes, `template includes ${type}`).toContain(type);
+    }
+
+    for (const match of newSlideTypes) {
+      const slideNumber = await goToInvestmentSlide(page, match, lessonPath);
+      await expect(page.locator(`.invSlide.is-active ${match.marker}`)).toBeVisible();
+      await expectInvestmentSlideFits(page, `template ${match.type} slide ${slideNumber}`);
+      await expectInvestmentTeachingTextAtLeast(page, minimumTextSize, `template ${match.type} slide ${slideNumber}`);
+      await expectInvestmentNoUltraBold(page, `template ${match.type} slide ${slideNumber}`);
+
+      await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+        node.classList.add('is-revealed');
+        if (node.hasAttribute('hidden')) node.hidden = false;
+      }));
+
+      await expectInvestmentSlideFits(page, `template ${match.type} slide ${slideNumber} revealed`);
+    }
+
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@smoke investment course map page works', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
@@ -1493,6 +1550,7 @@ test.describe('site smoke', () => {
       { type: 'dataSnapshot', title: 'One company fact is not a judgement' },
       { type: 'analystBoard', title: 'What can evidence show and not prove?' },
       { type: 'riskRegister', title: 'What makes a claim speculative?' },
+      { type: 'peerTask', title: 'Rewrite weak claims as evidence questions' },
       { type: 'flow', title: 'How should an analyst think?' },
       { type: 'answer', title: 'Exit ticket' }
     ];
@@ -1514,6 +1572,24 @@ test.describe('site smoke', () => {
         await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
         await expectInvestmentAllBlanksInline(page, `investment slide ${slideNumber} phone blanks after reveal`);
         await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed blanks`);
+      }
+      if (match.type === 'discussion') {
+        await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+          node.classList.add('is-revealed');
+          if (node.hasAttribute('hidden')) node.hidden = false;
+        }));
+        await expect(page.locator('.invSlide.is-active .invDiscussionAnswer')).toBeVisible();
+        await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed discussion`);
+      }
+      if (match.type === 'analystBoard' || match.type === 'riskRegister') {
+        await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+          node.classList.add('is-revealed');
+          if (node.hasAttribute('hidden')) node.hidden = false;
+        }));
+        if (match.type === 'analystBoard') {
+          await expect(page.locator('.invSlide.is-active .invEvidenceBody:visible')).toHaveCount(0);
+        }
+        await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed evidence`);
       }
       await expectNoHorizontalOverflow(page);
     }
@@ -1568,6 +1644,13 @@ test.describe('site smoke', () => {
         await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(blankCount);
         await expectInvestmentAllBlanksInline(page, `lesson 2 slide ${slideNumber} phone blanks after reveal`);
         await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} phone revealed blanks`);
+      }
+      if (match.type === 'riskRegister') {
+        await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+          node.classList.add('is-revealed');
+          if (node.hasAttribute('hidden')) node.hidden = false;
+        }));
+        await expectInvestmentSlideFits(page, `lesson 2 slide ${slideNumber} phone revealed evidence`);
       }
       await expectNoHorizontalOverflow(page);
     }

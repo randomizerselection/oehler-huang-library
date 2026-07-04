@@ -2345,6 +2345,8 @@ img {
 .invHeroSlide,
 .invDiscussionSlide,
 .invDataSnapshotSlide,
+.invSourceLensSlide,
+.invQuoteMapSlide,
 .invQuizSlide {
   --type-accent: var(--inv-cyan);
   --type-accent-soft: rgba(79, 210, 255, 0.12);
@@ -2354,6 +2356,9 @@ img {
 .invFlowSlide,
 .invTermSlide,
 .invAnswerSlide,
+.invConceptTriadSlide,
+.invComparisonMatrixSlide,
+.invJudgementFrameSlide,
 .invAnalystBoardSlide {
   --type-accent: var(--inv-green);
   --type-accent-soft: rgba(57, 217, 145, 0.12);
@@ -2364,6 +2369,7 @@ img {
 .invCalculationDeskSlide,
 .invExamSlide,
 .invModelAnswerSlide,
+.invCatalystTimelineSlide,
 .invSectionSlide {
   --type-accent: var(--inv-amber);
   --type-accent-soft: rgba(241, 190, 90, 0.12);
@@ -4037,6 +4043,588 @@ img {
   word-break: break-word;
 }
 
+/* Slide-type refinement pass: keep each format visually matched to its teaching job. */
+
+.invPriceChartSlide.is-active,
+.invSectionSlide.is-active {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.invDiscussionSlide .invSlideBody,
+.invAnswerSlide .invSlideBody,
+.invFlowSlide .invSlideBody,
+.invTermSlide .invSlideBody,
+.invDataSnapshotSlide .invSlideBody,
+.invConceptTriadSlide .invSlideBody,
+.invSourceLensSlide .invSlideBody,
+.invQuoteMapSlide .invSlideBody,
+.invComparisonMatrixSlide .invSlideBody,
+.invCatalystTimelineSlide .invSlideBody,
+.invJudgementFrameSlide .invSlideBody,
+.invPeerTaskSlide .invSlideBody {
+  align-content: center;
+}
+
+.invExitTicketSlide .invSlideBody {
+  align-content: start;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionStack {
+  width: min(1320px, 100%);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer {
+  min-height: 318px;
+  align-content: center;
+}
+
+.invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer p {
+  max-width: 880px;
+}
+
+.invSlide[data-type="marketBrief"] .invMetricGrid,
+.invDataSnapshotSlide .invDataSimple,
+.invAnalystBoardSlide .invEvidenceGrid,
+.invRiskRegisterSlide .invRiskGrid,
+.invPeerTaskSlide .invPeerBox {
+  justify-self: start;
+}
+
+.invSlide[data-type="marketBrief"] .invMarketCard {
+  width: min(920px, 100%);
+}
+
+.invSlide[data-type="marketBrief"] .invMetric {
+  min-height: 124px;
+  border-top: 4px solid rgba(79, 210, 255, 0.34);
+}
+
+.invDataSnapshotSlide .invDataSimple {
+  width: min(1180px, 100%);
+}
+
+.invDataSnapshotSlide .invDataFocusCard {
+  border-top-width: 4px;
+}
+
+.invAnalystBoardSlide .invEvidenceGrid {
+  width: min(1320px, 100%);
+}
+
+.invAnalystBoardSlide .invEvidence {
+  min-height: 188px;
+}
+
+.invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invEvidence {
+  min-height: 226px;
+}
+
+.invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invEvidenceBody {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+
+.invRiskRegisterSlide .invRiskGrid {
+  width: min(1360px, 100%);
+}
+
+.invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskItem {
+  min-height: 104px;
+}
+
+.invRiskRegisterSlide .invFocusPrompt {
+  width: min(1200px, 100%);
+  margin-top: 10px;
+}
+
+.invPeerTaskSlide .invPeerBox {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+.invSortTaskSlide .invSortCases {
+  gap: 8px;
+}
+
+.invSourceLens,
+.invConceptTriadSlide .invSlideBody > div,
+.invQuoteMap,
+.invComparisonMatrixSlide .invSlideBody > div,
+.invCatalystTimelineSlide .invSlideBody > div,
+.invJudgementFrame {
+  width: min(1320px, 100%);
+  justify-self: start;
+}
+
+.invSourceLens,
+.invJudgementFrame {
+  display: grid;
+  gap: 12px;
+}
+
+.invSourceMeta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invConceptTriad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.invConceptCard {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 420px;
+  align-content: start;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(152, 184, 188, 0.28);
+  border-top: 5px solid rgba(57, 217, 145, 0.52);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 40, 34, 0.9), rgba(7, 16, 19, 0.9)),
+    rgba(13, 23, 27, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.invConceptIndex,
+.invConceptTag {
+  color: var(--inv-green);
+  font-size: var(--inv-ui);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invConceptIndex {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.12);
+}
+
+.invConceptTag {
+  justify-self: start;
+  padding: 5px 8px;
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.1);
+}
+
+.invConceptCard strong {
+  padding-right: 42px;
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-heading);
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+.invConceptDefinition {
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-text);
+  line-height: 1.12;
+}
+
+.invConceptRows {
+  display: grid;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.invConceptRow {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding: 7px 8px;
+  border: 1px solid rgba(152, 184, 188, 0.18);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.invConceptRow span {
+  color: var(--inv-green);
+  font-size: var(--inv-ui);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.invConceptRow em,
+.invConceptNote {
+  color: var(--inv-ink);
+  font-size: var(--inv-ui);
+  font-style: normal;
+  line-height: 1.18;
+}
+
+.invConceptNote {
+  margin: 0;
+  color: var(--inv-muted);
+}
+
+.invSourceMetaItem,
+.invSourceCheck,
+.invQuoteField,
+.invCompareHead,
+.invCompareCriterion,
+.invCompareCell,
+.invCatalystEvent,
+.invJudgementStage {
+  border: 1px solid rgba(152, 184, 188, 0.28);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 35, 41, 0.92), rgba(7, 16, 19, 0.88)),
+    rgba(13, 23, 27, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.invSourceMetaItem,
+.invQuoteField,
+.invCompareCell,
+.invCatalystEvent,
+.invJudgementStage {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  padding: 12px;
+}
+
+.invSourceMetaItem {
+  min-height: 112px;
+  border-top: 4px solid rgba(79, 210, 255, 0.42);
+}
+
+.invSourceMetaItem span,
+.invQuoteLabel,
+.invCatalystDate,
+.invSourceAnswer span {
+  color: var(--inv-cyan);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.invSourceMetaItem strong,
+.invQuoteValue,
+.invCompareCell strong,
+.invCatalystEvent strong,
+.invJudgementStage strong {
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-text);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.invSourceMetaItem em,
+.invQuoteField em,
+.invCompareHead span,
+.invCompareCell span {
+  color: var(--inv-muted);
+  font-size: var(--inv-ui);
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.invSourceChecks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invSourceCheck {
+  position: relative;
+  min-height: 136px;
+  display: grid;
+  gap: 6px;
+  padding: 12px 12px 10px 54px;
+  border-left: 5px solid rgba(79, 210, 255, 0.5);
+}
+
+.invSourceCheckNum,
+.invJudgementStep,
+.invCatalystStep,
+.invQuoteIndex {
+  display: grid;
+  place-items: center;
+  border-radius: var(--inv-radius);
+  color: var(--inv-ink);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.invSourceCheckNum {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  width: 30px;
+  height: 30px;
+  background: rgba(79, 210, 255, 0.16);
+  color: var(--inv-cyan);
+}
+
+.invSourceCheck strong,
+.invSourceCheck p,
+.invSourceAnswer,
+.invQuoteTask strong,
+.invQuoteTask p,
+.invCatalystEvent p,
+.invJudgementStage p {
+  min-width: 0;
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-text);
+  font-weight: 500;
+  line-height: 1.06;
+  overflow-wrap: anywhere;
+}
+
+.invSourceCheck .invZhLine,
+.invQuoteTask .invZhLine,
+.invCatalystEvent .invZhLine,
+.invJudgementStage .invZhLine {
+  color: var(--inv-muted);
+  line-height: 1.1;
+}
+
+.invSourceAnswer {
+  display: grid;
+  gap: 3px;
+  border-top: 1px solid rgba(57, 217, 145, 0.28);
+  color: var(--inv-green);
+  padding-top: 7px;
+}
+
+.invSourceLens .invFocusPrompt {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 1.08;
+}
+
+.invQuoteMap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(320px, 0.28fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.invQuoteScreen {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(79, 210, 255, 0.34);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(11, 32, 38, 0.9), rgba(5, 13, 16, 0.92)),
+    rgba(8, 18, 22, 0.88);
+  padding: 12px;
+}
+
+.invQuoteHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(79, 210, 255, 0.18);
+  padding-bottom: 10px;
+}
+
+.invQuoteHeader span {
+  color: var(--inv-cyan);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+}
+
+.invQuoteHeader strong {
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-text);
+  font-weight: 500;
+}
+
+.invQuoteFields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invQuoteField {
+  min-height: 122px;
+  border-top: 4px solid rgba(79, 210, 255, 0.42);
+}
+
+.invQuoteIndex {
+  justify-self: end;
+  width: 28px;
+  height: 28px;
+  background: rgba(79, 210, 255, 0.14);
+  color: var(--inv-cyan);
+}
+
+.invQuoteTask {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  border-left: 5px solid rgba(241, 190, 90, 0.7);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.08);
+  padding: 16px;
+}
+
+.invQuoteTask p.invReveal.is-revealed {
+  display: block;
+  border-top: 1px solid rgba(57, 217, 145, 0.28);
+  color: var(--inv-green);
+  padding-top: 10px;
+}
+
+.invCompareMatrix {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.58fr) repeat(var(--compare-cols), minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invCompareCorner,
+.invCompareHead,
+.invCompareCriterion,
+.invCompareCell {
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.invCompareCorner,
+.invCompareHead {
+  border: 1px solid rgba(57, 217, 145, 0.32);
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.08);
+  color: var(--inv-green);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.invCompareHead {
+  display: grid;
+  gap: 4px;
+  text-transform: none;
+}
+
+.invCompareHead strong,
+.invCompareCriterion {
+  color: var(--inv-ink);
+  font-size: var(--inv-classroom-text);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.invCompareCriterion {
+  display: grid;
+  align-content: center;
+  border-left: 5px solid rgba(57, 217, 145, 0.5);
+  background: rgba(57, 217, 145, 0.07);
+}
+
+.invCompareCell {
+  min-height: 96px;
+  border-top: 3px solid rgba(152, 184, 188, 0.24);
+}
+
+.invCompareCell.is-preferred {
+  border-top-color: rgba(57, 217, 145, 0.64);
+  background:
+    linear-gradient(180deg, rgba(57, 217, 145, 0.09), rgba(7, 16, 19, 0.9)),
+    rgba(13, 23, 27, 0.86);
+}
+
+.invCatalystTimeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invCatalystEvent {
+  position: relative;
+  min-height: 260px;
+  border-top: 5px solid rgba(241, 190, 90, 0.54);
+  padding-top: 48px;
+}
+
+.invCatalystStep {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(241, 190, 90, 0.14);
+  color: var(--inv-amber);
+}
+
+.invCatalystDate {
+  width: fit-content;
+  border: 1px solid rgba(241, 190, 90, 0.34);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.08);
+  color: var(--inv-amber);
+  padding: 5px 8px;
+}
+
+.invCatalystEffect {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid rgba(57, 217, 145, 0.28);
+  color: var(--inv-green);
+  padding-top: 8px;
+}
+
+.invCatalystEffect span {
+  color: var(--inv-green);
+  font-size: var(--inv-ui);
+  font-weight: 600;
+}
+
+.invJudgementStages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invJudgementStage {
+  position: relative;
+  min-height: 246px;
+  border-left: 5px solid rgba(57, 217, 145, 0.5);
+  padding: 54px 12px 12px;
+}
+
+.invJudgementStep {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(57, 217, 145, 0.16);
+  color: var(--inv-green);
+}
+
+.invJudgementAnswer {
+  border-top: 1px solid rgba(57, 217, 145, 0.28);
+  color: var(--inv-green);
+  padding-top: 8px;
+}
+
 /* Notes and overview */
 
 .invNotes {
@@ -5429,6 +6017,297 @@ img {
     padding: 0;
   }
 
+  .invDiscussionSlide .invSlideBody,
+  .invAnswerSlide .invSlideBody,
+  .invFlowSlide .invSlideBody,
+  .invTermSlide .invSlideBody,
+  .invDataSnapshotSlide .invSlideBody,
+  .invConceptTriadSlide .invSlideBody,
+  .invSourceLensSlide .invSlideBody,
+  .invQuoteMapSlide .invSlideBody,
+  .invComparisonMatrixSlide .invSlideBody,
+  .invCatalystTimelineSlide .invSlideBody,
+  .invJudgementFrameSlide .invSlideBody,
+  .invPeerTaskSlide .invSlideBody {
+    align-content: start;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionStack {
+    grid-template-columns: 1fr;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer {
+    min-height: auto;
+    align-content: start;
+  }
+
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion .invPromptZh,
+  .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer .invPromptZh {
+    display: none;
+  }
+
+  .invSlide[data-type="marketBrief"] .invMarketCard {
+    width: 100%;
+  }
+
+  .invSlide[data-type="marketBrief"] .invMetricGrid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .invSlide[data-type="marketBrief"] .invMetric {
+    display: grid;
+    grid-template-columns: minmax(86px, 0.42fr) minmax(0, 1fr);
+    align-items: center;
+    min-height: 0;
+    gap: 5px 8px;
+    border-top: 0;
+    border-left: 4px solid rgba(79, 210, 255, 0.38);
+    padding: 7px 8px;
+  }
+
+  .invSlide[data-type="marketBrief"] .invMetric strong,
+  .invSlide[data-type="marketBrief"] .invMetricValue {
+    line-height: 1.05;
+  }
+
+  .invConceptTriad {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .invConceptCard {
+    min-height: 0;
+    gap: 4px;
+    padding: 8px 8px 8px 42px;
+    border-top-width: 0;
+    border-left: 4px solid rgba(57, 217, 145, 0.46);
+  }
+
+  .invConceptIndex {
+    top: 8px;
+    left: 8px;
+    right: auto;
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .invConceptTag {
+    display: none;
+  }
+
+  .invConceptCard strong,
+  .invConceptDefinition {
+    line-height: 1.04;
+  }
+
+  .invConceptRows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+  }
+
+  .invConceptRow {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 4px 5px;
+  }
+
+  .invConceptTriadSlide .invConceptRows.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invConceptNote,
+  .invConceptTriadSlide .invFocusPrompt.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invSortTaskSlide .invSortBoard,
+  .invSortTaskSlide .invSortCategories,
+  .invSortTaskSlide .invSortCases {
+    gap: 4px;
+  }
+
+  .invSortTaskSlide .invSortCategory {
+    min-height: 36px;
+    padding: 3px 4px;
+  }
+
+  .invSortTaskSlide .invSortCase {
+    min-height: 50px;
+    padding: 6px;
+  }
+
+  .invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invEvidence {
+    min-height: auto;
+  }
+
+  .invAnalystBoardSlide:has(.invEvidenceBody.is-revealed) .invEvidenceBody {
+    display: none;
+  }
+
+  .invRiskRegisterSlide .invRiskItem,
+  .invRiskRegisterSlide:has(.invRiskEffect.is-revealed) .invRiskItem {
+    min-height: 0;
+  }
+
+  .invRiskRegisterSlide .invRiskEffect.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invSourceMeta,
+  .invSourceChecks,
+  .invQuoteMap,
+  .invQuoteFields,
+  .invCatalystTimeline,
+  .invJudgementStages {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .invSourceMeta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invSourceMetaItem {
+    min-height: 0;
+    gap: 3px;
+    padding: 7px;
+  }
+
+  .invSourceCheck {
+    min-height: 0;
+    gap: 4px;
+    padding: 7px;
+  }
+
+  .invSourceCheckNum {
+    position: static;
+    width: 26px;
+    height: 26px;
+  }
+
+  .invSourceChecks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invSourceCheck p:not(.invSourceAnswer) {
+    display: none;
+  }
+
+  .invSourceCheck .invZhLine,
+  .invSourceAnswer.invReveal.is-revealed,
+  .invSourceLens .invFocusPrompt.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invQuoteMap {
+    gap: 7px;
+  }
+
+  .invQuoteHeader {
+    display: none;
+  }
+
+  .invQuoteScreen,
+  .invQuoteTask {
+    padding: 8px;
+  }
+
+  .invQuoteFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invQuoteHeader {
+    padding-bottom: 6px;
+  }
+
+  .invQuoteField {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    min-height: 0;
+    gap: 4px 8px;
+    border-top: 0;
+    border-left: 4px solid rgba(79, 210, 255, 0.38);
+    padding: 7px;
+  }
+
+  .invQuoteIndex {
+    grid-row: 1 / span 2;
+    justify-self: start;
+  }
+
+  .invQuoteField em,
+  .invQuoteTask .invZhLine,
+  .invQuoteTask p.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invCompareMatrix {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+  }
+
+  .invCompareCorner {
+    display: none;
+  }
+
+  .invCompareHead,
+  .invCompareCriterion,
+  .invCompareCell {
+    padding: 5px;
+  }
+
+  .invCompareCriterion {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+
+  .invCompareHead span,
+  .invCompareCell span {
+    display: none;
+  }
+
+  .invCompareCell {
+    min-height: 44px;
+  }
+
+  .invCompareHead strong,
+  .invCompareCriterion,
+  .invCompareCell strong {
+    line-height: 1.02;
+  }
+
+  .invComparisonMatrixSlide .invFocusPrompt.invReveal.is-revealed {
+    display: none;
+  }
+
+  .invCatalystEvent,
+  .invJudgementStage {
+    min-height: 0;
+    padding: 8px 8px 8px 44px;
+  }
+
+  .invCatalystStep,
+  .invJudgementStep {
+    left: 8px;
+    right: auto;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .invCatalystDate,
+  .invCatalystEvent .invZhLine,
+  .invCatalystEffect.invReveal.is-revealed,
+  .invCatalystTimelineSlide .invFocusPrompt.invReveal.is-revealed,
+  .invJudgementFrameSlide .invFocusPrompt.invReveal.is-revealed,
+  .invJudgementStage .invZhLine,
+  .invJudgementAnswer.invReveal.is-revealed {
+    display: none;
+  }
+
   .handoutToolbar,
   .handoutHeader,
   .handoutSection {
@@ -5458,8 +6337,73 @@ img {
 }
 
 @media (max-width: 520px) {
+  .invSlideHeader .sourceList {
+    display: none;
+  }
+
+  .invSortTaskSlide .invSortPeerBox,
+  .invSortTaskSlide .invSortBoard,
+  .invSortTaskSlide .invSortCategories,
+  .invSortTaskSlide .invSortCases {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
   .invSortCases {
     grid-template-columns: 1fr;
+  }
+
+  .invSortTaskSlide .invSlideHeader {
+    gap: 8px;
+  }
+
+  .invSortTaskSlide .invTitleBlock h1 {
+    font-size: 36px;
+    line-height: 1.04;
+  }
+
+  .invSortTaskSlide .invSlideHeader .invZhTitle,
+  .invSortTaskSlide .sourceList {
+    display: none;
+  }
+
+  .invSortTaskSlide .invSortCategories {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3px;
+  }
+
+  .invSortTaskSlide .invSortCategory {
+    min-height: 40px;
+    font-size: 16px;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .invSortTaskSlide .invSortCases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+  }
+
+  .invSortTaskSlide .invSortCase {
+    min-height: 58px;
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .invSortTaskSlide .invSortCase span {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+  }
+
+  .invSortTaskSlide .invSortCase strong {
+    font-size: 18px;
+    line-height: 1.06;
+  }
+
+  .invSortTaskSlide .invNotePanel.invReveal.is-revealed {
+    display: none;
   }
 
   .investment-nav {

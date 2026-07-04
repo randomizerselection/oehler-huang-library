@@ -586,6 +586,182 @@
     return slideShell(slide, index, lesson, body, 'invDataSnapshotSlide invContextPhotoSlide', photo);
   }
 
+  function renderConceptTriad(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealDetails = Boolean(slide.revealDetails);
+    const concepts = (slide.concepts || []).slice(0, 3).map((concept, i) => {
+      const rows = [
+        ['Purpose', concept.purpose],
+        ['Risk', concept.risk],
+        ['Time', concept.time],
+        ['Example', concept.example],
+      ].filter((row) => row[1] !== undefined && row[1] !== null && row[1] !== '');
+      return `
+        <article class="invConceptCard">
+          <span class="invConceptIndex">${String(i + 1).padStart(2, '0')}</span>
+          ${concept.tag ? `<span class="invConceptTag">${escapeHtml(concept.tag)}</span>` : ''}
+          <strong>${escapeHtml(concept.label || `Concept ${i + 1}`)}</strong>
+          ${concept.definition ? `<p class="invConceptDefinition">${html(concept.definition)}</p>` : ''}
+          ${rows.length ? `<div class="invConceptRows${revealDetails ? ' invReveal' : ''}">
+            ${rows.map(([label, value]) => `
+              <div class="invConceptRow">
+                <span>${escapeHtml(label)}</span>
+                <em>${escapeHtml(value)}</em>
+              </div>
+            `).join('')}
+          </div>` : ''}
+          ${concept.note ? `<p class="invConceptNote${revealDetails ? ' invReveal' : ''}">${html(concept.note)}</p>` : ''}
+        </article>`;
+    }).join('');
+    const body = `
+      <div>
+        <div class="invConceptTriad">${concepts}</div>
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invConceptTriadSlide invContextPhotoSlide', photo);
+  }
+
+  function renderSourceLens(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealAnswers = Boolean(slide.revealAnswers);
+    const metaItems = (slide.metaItems || slide.sourceItems || []).slice(0, 4).map((item, i) => `
+      <div class="invSourceMetaItem">
+        <span>${escapeHtml(item.label || `Source ${i + 1}`)}</span>
+        <strong>${escapeHtml(item.value ?? '')}</strong>
+        ${item.note ? `<em>${escapeHtml(item.note)}</em>` : ''}
+      </div>
+    `).join('');
+    const checks = (slide.checks || []).slice(0, 4).map((check, i) => `
+      <div class="invSourceCheck">
+        <span class="invSourceCheckNum">${i + 1}</span>
+        <strong>${escapeHtml(check.label || `Check ${i + 1}`)}</strong>
+        <p>${html(check.prompt || '')}</p>
+        ${check.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(check.zh)}</p>` : ''}
+        ${check.answer ? `<p class="invSourceAnswer${revealAnswers ? ' invReveal' : ''}"><span>${escapeHtml(slide.answerLabel || 'Strong answer')}</span>${html(check.answer)}</p>` : ''}
+      </div>
+    `).join('');
+    const body = `
+      <div class="invSourceLens">
+        <div class="invSourceMeta">${metaItems}</div>
+        <div class="invSourceChecks">${checks}</div>
+        ${slide.task ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.task)}</strong>${slide.taskZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.taskZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invSourceLensSlide invContextPhotoSlide', photo);
+  }
+
+  function renderQuoteMap(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealValues = Boolean(slide.revealValues);
+    const fields = (slide.fields || []).slice(0, 6).map((field, i) => {
+      const valueClass = (revealValues || field.reveal) ? ' invReveal' : '';
+      return `
+        <div class="invQuoteField">
+          <span class="invQuoteIndex">${String(i + 1).padStart(2, '0')}</span>
+          <span class="invQuoteLabel">${escapeHtml(field.label || '')}</span>
+          <strong class="invQuoteValue${valueClass}">${escapeHtml(field.value ?? '')}</strong>
+          ${field.note ? `<em>${escapeHtml(field.note)}</em>` : ''}
+        </div>`;
+    }).join('');
+    const body = `
+      <div class="invQuoteMap">
+        <div class="invQuoteScreen">
+          <div class="invQuoteHeader">
+            <span>${escapeHtml(slide.quoteLabel || 'Quote page')}</span>
+            <strong>${escapeHtml(slide.quoteTitle || slide.title || '')}</strong>
+          </div>
+          <div class="invQuoteFields">${fields}</div>
+        </div>
+        <div class="invQuoteTask">
+          <strong>${html(slide.prompt || 'Read the quote page before making a claim.')}</strong>
+          ${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}
+          ${slide.answer ? `<p class="invReveal">${html(slide.answer)}</p>` : ''}
+        </div>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invQuoteMapSlide invContextPhotoSlide', photo);
+  }
+
+  function renderComparisonMatrix(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const columns = (slide.columns || []).slice(0, 3);
+    const rows = (slide.rows || slide.criteria || []).slice(0, 4);
+    const revealCells = Boolean(slide.revealCells);
+    const header = `
+      <div class="invCompareCorner">${escapeHtml(slide.cornerLabel || 'Criterion')}</div>
+      ${columns.map((column) => `
+        <div class="invCompareHead">
+          <strong>${escapeHtml(column.label || '')}</strong>
+          ${column.note ? `<span>${escapeHtml(column.note)}</span>` : ''}
+        </div>
+      `).join('')}`;
+    const rowMarkup = rows.map((row) => {
+      const values = row.values || [];
+      return `
+        <div class="invCompareCriterion">${escapeHtml(row.label || '')}</div>
+        ${columns.map((column, i) => {
+          const rawValue = values[i];
+          const value = rawValue && typeof rawValue === 'object' && !Array.isArray(rawValue)
+            ? rawValue
+            : { text: rawValue ?? '' };
+          const isPreferred = row.preferred === i || row.preferred === column.label;
+          return `
+            <div class="invCompareCell${isPreferred ? ' is-preferred' : ''}">
+              <strong class="${revealCells || value.reveal ? 'invReveal' : ''}">${escapeHtml(value.text ?? '')}</strong>
+              ${value.note ? `<span>${escapeHtml(value.note)}</span>` : ''}
+            </div>`;
+        }).join('')}`;
+    }).join('');
+    const body = `
+      <div>
+        <div class="invCompareMatrix" style="--compare-cols:${Math.max(1, columns.length)}">
+          ${header}
+          ${rowMarkup}
+        </div>
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invComparisonMatrixSlide invContextPhotoSlide', photo);
+  }
+
+  function renderCatalystTimeline(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealEffects = Boolean(slide.revealEffects);
+    const events = (slide.events || []).slice(0, 4).map((event, i) => `
+      <div class="invCatalystEvent">
+        <span class="invCatalystStep">${String(i + 1).padStart(2, '0')}</span>
+        <span class="invCatalystDate">${escapeHtml(event.date || event.label || '')}</span>
+        <strong>${escapeHtml(event.title || '')}</strong>
+        <p>${escapeHtml(event.detail || '')}</p>
+        ${event.detailZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(event.detailZh)}</p>` : ''}
+        ${event.effect ? `<p class="invCatalystEffect${revealEffects ? ' invReveal' : ''}"><span>${escapeHtml(slide.effectLabel || 'Possible link')}</span>${escapeHtml(event.effect)}</p>` : ''}
+      </div>
+    `).join('');
+    const body = `
+      <div>
+        <div class="invCatalystTimeline">${events}</div>
+        ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invCatalystTimelineSlide invContextPhotoSlide', photo);
+  }
+
+  function renderJudgementFrame(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const revealAnswers = Boolean(slide.revealAnswers);
+    const stages = (slide.stages || []).slice(0, 4).map((stage, i) => `
+      <div class="invJudgementStage">
+        <span class="invJudgementStep">${String(i + 1).padStart(2, '0')}</span>
+        <strong>${escapeHtml(stage.label || '')}</strong>
+        <p>${html(stage.prompt || '')}</p>
+        ${stage.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(stage.zh)}</p>` : ''}
+        ${stage.answer ? `<p class="invJudgementAnswer${revealAnswers ? ' invReveal' : ''}">${html(stage.answer)}</p>` : ''}
+      </div>
+    `).join('');
+    const body = `
+      <div class="invJudgementFrame">
+        <div class="invJudgementStages">${stages}</div>
+        ${slide.finalPrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.finalPrompt)}</strong>${slide.finalPromptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.finalPromptZh)}</div>` : ''}</div>` : ''}
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invJudgementFrameSlide invContextPhotoSlide', photo);
+  }
+
   function renderAnalystBoard(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const revealBlocks = Boolean(slide.revealBlocks);
@@ -761,6 +937,12 @@
     answer: renderAnswer,
     flow: renderFlow,
     dataSnapshot: renderDataSnapshot,
+    conceptTriad: renderConceptTriad,
+    sourceLens: renderSourceLens,
+    quoteMap: renderQuoteMap,
+    comparisonMatrix: renderComparisonMatrix,
+    catalystTimeline: renderCatalystTimeline,
+    judgementFrame: renderJudgementFrame,
     analystBoard: renderAnalystBoard,
     calculationDesk: renderCalculationDesk,
     riskRegister: renderRiskRegister,

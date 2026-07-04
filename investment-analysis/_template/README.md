@@ -74,6 +74,12 @@ Visual rhythm:
 - Keep section dividers closer to the economics-presentation divider style: simple reset screen, no lesson-map card, no image column.
 - Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
 - Use `marketBrief` with `revealMetricValues: true` when students should locate company facts before seeing the answer.
+- Use `conceptTriad` when students must compare three beginner concepts with definition, purpose, risk level, time horizon and example.
+- Use `sourceLens` when students must test whether a source can support a claim: source title, publisher, date, unit, scope and limitation.
+- Use `quoteMap` when students must read a quote page: company, code, exchange, price, date/time and source before making an opinion.
+- Use `comparisonMatrix` when students compare two or three choices against the same criteria such as evidence, possible return, risk and price paid.
+- Use `catalystTimeline` when students connect new information, expectations and price movement without overclaiming causation.
+- Use `judgementFrame` when students need to assemble a balanced investment judgement from evidence, return, risk and price paid.
 - Use `analystBoard` with `revealBlocks: true` and `riskRegister` with `revealEffects: true` for staged evidence/risk thinking, not crowded dashboard panels.
 - Use `exam` with `revealKeywords: true` when students should plan before seeing the keyword scaffold.
 - Use `modelAnswer` with `cueLabel` and `cueText` so the comparison instruction matches the question.
