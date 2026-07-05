@@ -19,7 +19,9 @@ window.INVEST = window.INVEST || {};
       caption,
       credit,
       source,
-      objectPosition: options.objectPosition || "center"
+      objectPosition: options.objectPosition || "center",
+      objectFit: options.objectFit || "cover",
+      background: options.background || "#05090b"
     };
   }
 
@@ -31,6 +33,14 @@ window.INVEST = window.INVEST || {};
       "Unsplash / Mehedi Hasan",
       "https://unsplash.com/photos/people-working-on-laptops-with-financial-charts-at-night-T1snPsRIvfk",
       { objectPosition: "center 58%" }
+    ),
+    speculatorInvestorRace: photo(
+      "speculator-investor-race.png",
+      "Illustration of a fast speculator and a steady investor moving toward a finish line.",
+      "Speculator and investor race illustration",
+      "User-provided classroom image",
+      "Added from user-provided lesson image, 2026-07-04",
+      { objectFit: "contain", background: "#ffec8f" }
     ),
     smartphoneMarketChart: photo(
       "smartphone-market-chart-2025.jpg",

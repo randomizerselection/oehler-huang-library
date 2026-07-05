@@ -4,339 +4,240 @@
 
 By the end of this chapter, you should be able to:
 
-- explain what investment analysis means
-- separate a company from its products, its listed share and its share price
-- define asset, share, share price and risk
-- use the rule evidence before opinion
-- ask one careful question about a share-price movement without giving investment advice
+- distinguish between investment and speculation
+- define investment analysis
+- define asset and share
+- explain risk and return
+- explain what a share price is
 
-This course is about analysis. It is not a course about guessing which share will rise next, and it is not personal investment advice. You will learn how to look at a company, read evidence, ask better questions and make careful judgements.
+This course teaches investment analysis. It does not teach short-term stock tips, market timing or personal buy/sell advice. The first lesson builds the vocabulary needed before we calculate anything.
 
-## 1.1 The Course Rule: Evidence Before Opinion
+## 1.1 What Is Investment?
 
-People often talk about companies using quick opinions:
+An investment is putting money into an asset in the hope of earning a return in the future.
 
-- "I know this brand, so it must be a good investment."
-- "The price went up, so it is safe."
-- "The company is famous, so the share must be strong."
+Three parts of this definition matter:
 
-These sentences may sound confident, but they are weak analysis. They start with opinion before checking evidence.
-
-Investment analysis uses evidence to study possible return, risk and price before making a judgement.
-
-In this course, the main rule is:
-
-> Evidence before opinion.
-
-Evidence can include a source, a date, a company fact, a figure, a graph, a price, a risk note or a calculation. Evidence does not automatically prove that an investment is good. Evidence gives an analyst something more reliable to think with.
-
-An analyst does not need to know everything before asking a good question. A good first step is often to slow down and ask:
-
-- What company are we studying?
-- What listed share are we looking at?
-- What source gives this information?
-- What date does the source come from?
-- What can this evidence show?
-- What can this evidence not prove by itself?
-
-## 1.2 Tencent as a First Case
-
-We will start with Tencent because many students already know something about the company. Tencent is connected with games, social apps, payments, cloud services and other digital businesses.
-
-Knowing the company helps us begin. However, knowing the company is not the same as analysing the share.
-
-The first distinction is important:
-
-| Idea | Meaning | Tencent Example |
+| Part | Meaning | Why it matters |
 | --- | --- | --- |
-| Company | The business organisation | Tencent Holdings Limited |
-| Product or service | What the company sells or provides | games, social apps, payments, cloud services |
-| Listed share | A tradable ownership unit in the company | 0700.HK / HKEX 00700 |
-| Share price | The market price of one share at a specific time | one point on a share-price graph |
-| Opinion | A personal view that may not yet have evidence | "Tencent must be a good investment" |
+| money | something of value is committed | an investor gives up the ability to use that money now |
+| asset | something owned that may have value | the investment must be connected to something that can be studied |
+| future return | a possible gain later | return is possible, not guaranteed |
 
-A common beginner mistake is to move too quickly from company familiarity to investment judgement. For example:
+Investment is not just "buying something". It involves a reasoned expectation that an asset may create value or income in the future. That expectation needs evidence.
 
-> Tencent is famous, so it must be a good investment.
+## 1.2 Investment or Speculation?
 
-This is not strong investment analysis. It does not identify a source, a price, a risk or a reason why the current price might be fair or unfair.
+Speculation means betting mainly on a short-term price movement without enough evidence about value, risk and return.
 
-A better analyst sentence would be:
+Investment and speculation can both involve buying shares, but the thinking is different.
 
-> Tencent is a familiar company, but I need evidence about the listed share, the share price, company performance and risk before making a judgement.
+| Question | Investment analysis | Short-term speculation |
+| --- | --- | --- |
+| Main focus | evidence about possible return, risk and price | quick price movement |
+| Time idea | future value or income after study | near-term rise or fall |
+| Evidence | source-dated information, company facts, price, risk | tip, trend, rumour or excitement |
+| Careful sentence | "What evidence supports this possible return, and what risk could make it worse?" | "I think this will jump soon." |
 
-This second sentence is stronger because it delays judgement until evidence has been checked.
+A sentence such as "Tencent is famous, so the share must be a good investment" is weak. It uses familiarity instead of evidence.
+
+A stronger sentence is:
+
+> Tencent is a familiar company, but investment analysis needs evidence about possible return, risk and the current share price before judgement.
+
+This stronger sentence is still not a final investment decision. It is a better starting point because it asks for evidence.
 
 ## 1.3 Key Term: Investment Analysis
 
 Investment analysis means using evidence to study possible return, risk and price before making a judgement.
 
-Key term support:
+Useful evidence can include:
 
-| Term | Chinese Support | Meaning |
-| --- | --- | --- |
-| investment analysis | 投资分析 | using evidence to study return, risk and price before judgement |
-| evidence | 证据 | source-dated information used to support a claim |
-| judgement | 判断 | a careful conclusion after evidence is checked |
-| personal investment advice | 个人投资建议 | advice about what one person should buy, sell or hold |
+- a source title and date
+- a company name and listed share
+- a share-price graph
+- financial figures
+- a risk note
+- a calculation
+- a comparison with another company or asset
 
-Investment analysis is not the same as prediction. A prediction says what someone thinks will happen. Analysis explains what the evidence suggests and what is still uncertain.
+Evidence does not automatically prove that an investment is good. It gives an analyst something more reliable to think with.
 
-Investment analysis is also not the same as personal advice. Personal advice depends on one person's money, age, goals, risk tolerance and situation. This classroom course does not tell anyone what to buy. It teaches how to think carefully about evidence.
+Investment analysis is also not personal investment advice. Advice depends on one person's money, age, goals, risk tolerance and situation. This classroom course teaches careful reasoning, not what one person should buy, sell or hold.
 
 ## 1.4 Key Term: Asset
 
 An asset is something owned that may have value.
 
-Examples of assets include cash, a building, a machine, a brand, a bond or a share. In this course, we will mainly study listed shares and funds because they give us clear public evidence: company names, share prices, financial reports, graphs and source dates.
+Examples of assets include cash, a building, a machine, a bond, a fund and a share.
 
-Two words in the asset definition matter:
+Two words in the definition are important:
 
 - Owned: someone has a claim to it.
 - May have value: the value can change and is not guaranteed.
 
-A share is one type of asset. It can have value, but that value can rise or fall.
+An asset can be useful, valuable or income-producing. It can also lose value. That is why analysis must include risk.
 
 ## 1.5 Key Term: Share
 
 A share is one unit of ownership in a company.
 
-This definition is short, but students often misunderstand it. Owning one share does not usually mean:
+Owning one share does not usually mean:
 
 - owning the whole company
 - controlling the company
 - owning the company's products
 - receiving guaranteed profit
 
-It means owning one unit of ownership. The details of shareholder rights and control come later in the course. For now, remember the simple definition:
+It means owning one unit of ownership. The details of shareholder rights and control come later in the course.
 
-> A share is one ownership unit in a company.
+Tencent the company is not the same as one Tencent share. The company has employees, products, customers, managers, brands, software, costs and risks. A listed share is one ownership unit that can be bought and sold in a market.
 
-Tencent the company is not the same as one Tencent share. The company has employees, products, customers, managers, buildings, software, brands and costs. A listed share is an ownership unit that can be bought and sold in a market.
+## 1.6 Possible Return and Risk
 
-## 1.6 Key Term: Share Price
+Possible return is the gain an investor hopes to earn from an investment.
 
-A share price is the market price of one share at a specific time.
+For shares, possible return can come from:
 
-This definition also needs careful reading.
+- a higher selling price in the future
+- dividends, if the company pays them
 
-The share price is not the total value of the whole company. It is the price of one share.
-
-The share price is not revenue. Revenue is money earned from sales before costs are deducted.
-
-The share price is not profit. Profit is what remains after costs are deducted, depending on the type of profit being measured.
-
-The share price is a market price. It shows what buyers and sellers were willing to pay for one share at a point in time.
-
-When we look at a share-price graph, each point on the line shows the price of one share at a particular date. In Lesson 1, the Tencent graph is a frozen classroom source, not a live trading screen. That matters because a source date tells us when the information was collected.
-
-## 1.7 First Graph Observation
-
-A share-price graph is useful evidence, but it is not a complete investment judgement.
-
-Look at a graph carefully before calculating anything. In this first lesson, you do not need a percentage-change formula. You only need to observe and ask a careful question.
-
-Useful first observations include:
-
-- Does the line stay flat?
-- Does the line rise steadily?
-- Does the line fall steadily?
-- Does the line move up and down?
-- Where are the high and low points?
-- What is the latest point in this source?
-
-After observing, an analyst should ask about missing information. For example:
-
-> What information might explain one movement in Tencent's share-price graph?
-
-This is better than immediately saying:
-
-> Tencent is a good investment because the graph moved up.
-
-or:
-
-> Tencent is a bad investment because the graph moved down.
-
-A graph shows movement. It does not explain every reason for the movement by itself. To explain a movement, an analyst may need information about company performance, investor expectations, news, regulation, competition, interest rates, exchange rates or wider market mood.
-
-## 1.8 One Company Fact Is Not a Judgement
-
-Company figures are useful, but one figure alone does not prove that a share is a good investment.
-
-For example, Tencent's FY2025 results can give classroom evidence such as revenue, gross profit and gross margin. These figures help analysts ask better questions about business performance. However, one company figure cannot prove a complete investment judgement by itself.
-
-Here is the habit to practise:
-
-| Evidence | What it may show | What it cannot prove alone |
-| --- | --- | --- |
-| Share-price graph | how one share price moved over time | whether the share is good value |
-| Revenue | the scale of sales before costs | whether the company is profitable after all costs |
-| Gross profit | profit after direct costs | whether all business costs are controlled |
-| Gross margin | how much gross profit is made from revenue | whether the current share price is fair |
-| Risk note | what could go worse than expected | the exact future result |
-
-Investment analysis becomes stronger when students can say both sides:
-
-- This evidence may show...
-- This evidence cannot prove alone...
-
-That second sentence is important. It prevents overclaiming.
-
-## 1.9 Key Term: Risk
+Possible return is not guaranteed. The word possible is important.
 
 Risk is the possibility that results, returns or prices are worse than expected.
 
-Risk does not mean that something bad will definitely happen. It means there is uncertainty, and the result may disappoint.
+Risk does not mean something bad will definitely happen. It means the future is uncertain and the result may disappoint.
 
-In this course, risk can appear in different ways:
+An investment sentence is weak if it talks about return but ignores risk.
 
-- A company may earn less profit than expected.
-- A share price may fall.
-- A currency movement may reduce returns for some investors.
-- New rules may affect future profit.
-- Customers may change their behaviour.
-- Competition may become stronger.
-- A good company may already be too expensive at the current price.
+Weak:
 
-For Lesson 1, keep the idea simple:
+> The price might rise, so it is a good investment.
 
-> A judgement is weak if it ignores risk.
+Stronger:
 
-## 1.10 How an Analyst Thinks
+> The possible return must be judged with risk, because the price could also fall or the company's results could be worse than expected.
 
-By the end of the first chapter, you should have a basic analyst habit:
+## 1.7 Key Term: Share Price
 
-1. Start with the company.
-2. Identify the listed share.
-3. Read source-dated evidence.
-4. Ask about price and risk before judging.
+A share price is the market price of one share at a specific time.
 
-This habit will return throughout the course. Later lessons will add exchanges, quote pages, revenue, costs, margins, cash flow, dividends, market capitalisation, earnings per share, P/E ratios, funds and different types of risk.
+Read this definition carefully:
 
-For now, the important point is the order of thinking.
+- one share, not the whole company
+- market price, not profit or revenue
+- specific time, not a permanent value
 
-Weak order:
+When we look at the Tencent share-price graph in class, each point on the line shows the price of one Tencent share at one date in the source. The graph can show movement, but it cannot prove by itself whether the share is a good investment.
 
-1. I know the company.
-2. I like the company.
-3. Therefore, the share is a good investment.
+Useful first questions include:
 
-Stronger order:
+- What movement do I notice?
+- What date or period does the source show?
+- What information might explain one change?
+- What risk could make a hoped-for return worse than expected?
 
-1. I identify the company and listed share.
-2. I check source-dated evidence.
-3. I separate company facts from share-price evidence.
-4. I ask what the evidence can and cannot prove.
-5. I consider risk before making a judgement.
+## 1.8 Put the Five Ideas Together
 
-## Worked Example
+The first lesson is a vocabulary foundation. The five ideas connect like this:
 
-Read the statement:
+1. Investment means putting money into an asset hoping for future return.
+2. Speculation focuses mainly on short-term price movement without enough evidence.
+3. Investment analysis uses evidence to study possible return, risk and price before judgement.
+4. A share is one ownership unit in a company and is one type of asset.
+5. A share price is the market price of one share at one specific time.
 
-> Tencent must be a good investment because many students know the brand.
+These ideas prepare us for later lessons on stock exchanges, quote pages, ownership, financial statements, valuation and risk.
 
-This is a weak opinion. It uses familiarity as the main reason. It does not include a source, a price, a risk or a limit.
+## Practice 1: Investment or Speculation?
 
-Improved version:
+Classify each statement as investment analysis or speculation. Then improve one weak statement.
 
-> Tencent is a familiar company, but familiarity alone does not prove that its listed share is a good investment. An analyst needs source-dated evidence about the share price, company performance and risk before making a judgement.
-
-Why is the improved version stronger?
-
-- It separates the company from the listed share.
-- It avoids personal advice.
-- It names evidence.
-- It includes risk.
-- It does not overclaim.
-
-## Practice 1: Sort the Statements
-
-Sort each statement into one category: company fact, product or service, listed share, share price, evidence rule or weak opinion.
-
-| Statement | Category |
+| Statement | Investment analysis or speculation? |
 | --- | --- |
-| Tencent makes games, social apps and payment services. | |
-| 0700.HK is a listed share that can be found in market data. | |
-| HK$429.80 is one graph point in the frozen classroom source. | |
-| Tencent must be a good investment because I know the brand. | |
-| Investors need evidence about return, risk and price. | |
+| "I need evidence about possible return, risk and price before judging." | |
+| "My friend says this share will rise tomorrow." | |
+| "The company is famous, so it must be safe." | |
+| "The graph moved up, but I need to know what information explains the change." | |
+
+Improved sentence starter:
+
+> This statement is weak because __________. A stronger analyst would ask __________.
 
 ## Practice 2: Complete the Definitions
 
 Fill in each blank.
 
-1. Investment analysis uses __________ before opinion.
+1. Investment analysis uses __________ to study possible return, risk and price before judgement.
 2. An asset is something owned that may have __________.
 3. A share is one unit of __________ in a company.
-4. A share price is the market price of one __________ at a specific time.
-5. Risk is the possibility that results are worse than __________.
+4. Possible return is the gain an investor __________ to earn.
+5. Risk is the possibility that results, returns or prices are worse than __________.
+6. A share price is the market price of one __________ at a specific time.
 
-## Practice 3: Graph Observation
-
-Use the Tencent share-price graph from the lesson.
-
-1. Does the line stay flat, rise steadily, fall steadily or move up and down?
-2. What does each point on the line measure?
-3. Write one question about missing information that might explain one movement in the graph.
-
-Sentence starter:
-
-> One movement I notice is __________. To understand it better, I would need evidence about __________.
-
-## Practice 4: Evidence and Limits
+## Practice 3: Asset, Share or Share Price?
 
 Complete the table.
 
-| Evidence | What it may show | What it cannot prove alone |
+| Item | Asset, share or share price? | Reason |
 | --- | --- | --- |
-| Share-price graph | how one share price moved over time | |
-| Revenue | large sales before costs are deducted | |
-| Risk note | something that could go worse than expected | |
+| one ownership unit in Tencent | | |
+| the market price of one Tencent share at one date | | |
+| cash owned by a person | | |
+| a building owned by a company | | |
 
-## Practice 5: Improve a Weak Opinion
+## Practice 4: Risk and Return
 
-Weak opinion:
+Explain why each sentence is incomplete.
 
-> Tencent is famous, so it is a good investment.
+| Incomplete sentence | What is missing? |
+| --- | --- |
+| "The price might rise, so this is definitely good." | |
+| "Tencent is famous, so there is no risk." | |
+| "The latest share price proves the whole company is valuable." | |
 
-Rewrite the sentence so that it follows the course rule evidence before opinion.
+Use this sentence frame:
 
-Your improved sentence should include:
+> Possible return must be judged with risk because __________.
 
-- company
-- listed share or share price
-- evidence
-- risk
-- no personal investment advice
+## Practice 5: Share Price Check
+
+Use the Tencent share-price graph from the lesson.
+
+1. What does each point on the line measure?
+2. Does one share price tell us the total value of the whole company?
+3. What information might explain one movement in the graph?
+4. Why is a share-price graph evidence, but not a complete judgement?
 
 ## Chapter Review
 
 Key ideas to remember:
 
-- Investment analysis uses evidence before opinion.
-- A company is not the same as its products, its listed share or its share price.
+- Investment is different from speculation.
+- Investment analysis uses evidence before judgement.
+- An asset is something owned that may have value.
 - A share is one ownership unit in a company.
-- A share price is the market price of one share at a specific time.
-- A graph is evidence, not a complete judgement.
-- A famous company is not automatically a good investment.
+- Possible return is hoped for, not guaranteed.
 - Risk means results, returns or prices may be worse than expected.
-- Strong analysis says what evidence can show and what it cannot prove alone.
+- A share price is the market price of one share at one specific time.
+- One share price or one graph cannot prove a complete investment judgement by itself.
 
 ## Exit Ticket
 
-Answer in one paragraph:
+Write one careful analyst sentence about Tencent.
 
-> Why does investment analysis need evidence before opinion?
+Your sentence must include:
 
-Use at least three of these words:
-
-- company
-- share
-- share price
+- investment analysis
 - evidence
+- possible return
 - risk
-- opinion
+- share price
+
+Sentence starter:
+
+> Tencent is familiar, but investment analysis needs __________ before __________.
 
 ## Source Note
 
-Classroom sources for this chapter include Tencent investor relations, Yahoo Finance historical monthly prices for 0700.HK accessed on 2 July 2026, and Tencent 2025 annual and fourth quarter results published on 18 March 2026 and accessed on 26 June 2026. This chapter is for educational use only and does not provide personal investment recommendations.
+Classroom sources for this chapter include the frozen Tencent share-price graph used in Lesson 1 and source-dated course materials prepared for educational use. This chapter does not provide personal investment recommendations.

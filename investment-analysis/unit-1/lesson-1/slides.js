@@ -197,6 +197,16 @@ window.INVEST.lesson = {
       notes: "These five visible objectives are the whole Lesson 1 contract."
     },
     {
+      type: "visualPause",
+      title: "Speculator and investor race",
+      zhTitle: "投机者与投资者赛跑",
+      visual: investmentPhotos.speculatorInvestorRace,
+      notes: [
+        "Project the image without text. Ask students silently: Which figure looks fast? Which figure looks steady?",
+        "Bridge: now separate short-term speculation from investment analysis."
+      ]
+    },
+    {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
@@ -227,16 +237,16 @@ window.INVEST.lesson = {
       rightTitle: "Short-term speculation",
       rightTitleZh: "短期投机",
       left: [
-        { label: "1", text: "Uses source-dated evidence before judgement.", zh: "判断前使用有来源和日期的证据。" },
-        { label: "2", text: "Studies possible return, risk and price together.", zh: "同时研究可能回报、风险和价格。" },
-        { label: "3", text: "Can say 'I do not know yet' when evidence is missing.", zh: "证据不足时可以说“我还不知道”。" }
+        { label: "1", text: "Checks dated evidence.", zh: "检查有日期的证据。" },
+        { label: "2", text: "Studies return, risk and price.", zh: "研究回报、风险和价格。" },
+        { label: "3", text: "Waits when evidence is missing.", zh: "证据不足时先等待。" }
       ],
       right: [
-        { label: "1", text: "Chases a short-term price movement.", zh: "追逐短期价格变动。" },
-        { label: "2", text: "Relies on tips, fame or feelings.", zh: "依赖消息、名气或感觉。" },
-        { label: "3", text: "Jumps to buy, sell, good or bad too quickly.", zh: "过快跳到买、卖、好或坏。" }
+        { label: "1", text: "Chases short-term price.", zh: "追逐短期价格。" },
+        { label: "2", text: "Follows tips, fame or feelings.", zh: "跟随消息、名气或感觉。" },
+        { label: "3", text: "Jumps to buy or sell too fast.", zh: "过快跳到买或卖。" }
       ],
-      prompt: "Which side is the method of this course?",
+      prompt: "Which side is this course?",
       promptZh: "本课程采用哪一边的方法？",
       notes: "Frame speculation as the mistake to avoid."
     },
@@ -527,18 +537,17 @@ window.INVEST.lesson = {
       title: "Build a careful analyst sentence",
       zhTitle: "写出谨慎的分析句",
       taskType: "missingSentence",
+      missingSentenceStep: 2,
       steps: [
         { text: "Choose one starting claim about Tencent.", zh: "选择一个关于腾讯的起始观点。" },
-        { text: "Add the missing evidence words: return, risk and share price.", zh: "加入缺少的证据词：回报、风险和股价。" },
+        {
+          text: "Tencent is familiar, but investment analysis needs __________ about possible return, risk and the current share price before judgement.",
+          zh: "腾讯很熟悉，但投资分析在判断前需要关于可能回报、风险和当前股价的证据。"
+        },
         { text: "Remove any buy, sell or next-week prediction.", zh: "删除任何买、卖或下周预测。" }
       ],
-      sentenceParts: [
-        "Tencent is a familiar company, but investment analysis needs",
-        "about possible return, risk and the current share price before judgement."
-      ],
-      missing: "source-dated evidence",
-      sampleAnswer: "Tencent is familiar, but investment analysis needs source-dated evidence about possible return, risk and the current share price before judgement.",
-      sampleAnswerZh: "腾讯很熟悉，但投资分析在判断前需要关于可能回报、风险和当前股价的、有来源和日期的证据。",
+      missingSentenceAnswer: "source-dated evidence",
+      missingSentenceAnswerZh: "有来源和日期的证据",
       notes: "Pair talk is allowed. The final sentence must be individual."
     },
     {
@@ -548,11 +557,11 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "Investment analysis is different from short-term stock __________.", answer: "speculation", zh: "投资分析不同于短期股票投机。" },
+        { prompt: "Investment analysis differs from short-term stock __________.", answer: "speculation", zh: "投资分析不同于短期股票投机。" },
         { prompt: "Investment analysis uses __________ before judgement.", answer: "evidence", zh: "投资分析在判断前使用证据。" },
         { prompt: "A share is one unit of __________ in a company.", answer: "ownership", zh: "一股股票是公司中的一个所有权单位。" },
         { prompt: "Possible return must be judged together with __________.", answer: "risk", zh: "可能回报必须和风险一起判断。" },
-        { prompt: "A share price is the market price of one share at a specific __________.", answer: "time", zh: "股价是在特定时间一股股票的市场价格。" }
+        { prompt: "A share price is one share at a specific __________.", answer: "time", zh: "股价是在特定时间一股股票的市场价格。" }
       ],
       notes: "Collect the handout output after the fill-blank exit check."
     }

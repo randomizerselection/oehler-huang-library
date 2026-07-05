@@ -934,7 +934,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invHeroSlide/);
-    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 26');
     await expect(page.locator('.invSlide.is-active')).toContainText(/Unit 1 Lesson 1/i);
     await expect(page.getByRole('heading', { name: /^What is investment analysis, and what is a share\?$/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invLead')).toHaveCount(0);
@@ -956,51 +956,69 @@ test.describe('site smoke', () => {
         priceChartCount: slides.filter((slide) => slide.type === 'priceChart').length,
         pricePointCount: window.INVEST?.marketData?.tencentFiveYearSharePrice?.points?.length || 0,
         priceChartSource: window.INVEST?.marketData?.tencentFiveYearSharePrice?.sourceLabel || '',
+        hasSpeculatorInvestorRace: slideVisualFiles.some((src) => /speculator-investor-race\.png/i.test(src)),
         hasOldStockCertificate: slideVisualFiles.some((src) => /stock-certificate\.jpg/i.test(src)),
         overusedVisuals: Object.entries(visualUseCounts)
           .filter(([, count]) => count > 3)
           .map(([src, count]) => `${src}: ${count}`)
       };
     });
-    expect(investmentVisualChecks.slideCount).toBe(30);
+    expect(investmentVisualChecks.slideCount).toBe(26);
     expect(investmentVisualChecks.slideMap).toEqual([
       '1. hero: What is investment analysis, and what is a share?',
       '2. priceChart: What is investment?',
       '3. outcomes: By the end, you can',
-      '4. section: Knowledge step 1: evidence before opinion',
-      '5. discussion: Is this analysis or opinion?',
-      '6. term: Investment analysis',
-      '7. compare: Evidence-based analysis vs weak opinion',
-      '8. quiz: Check 1: what changes a guess into analysis?',
-      '9. section: Knowledge step 2: company, share and price',
-      '10. discussion: What do you already know about Tencent?',
-      '11. discussion: Check the Tencent source',
-      '12. flow: Keep the four ideas separate',
-      '13. term: Asset',
-      '14. term: Share',
-      '15. discussion: What do you own if you own one share?',
-      '16. term: Share price',
-      '17. classificationTask: Check 2: separate the ideas',
-      '18. section: Knowledge step 3: graph evidence has limits',
-      '19. answer: Graph observation and movement question',
-      '20. dataSnapshot: One company fact is not a judgement',
-      '21. analystBoard: What can evidence show and not prove?',
-      '22. yesNoCheck: Check 3: what can the graph prove?',
-      '23. section: Knowledge step 4: risk completes the judgement',
-      '24. term: Risk',
-      '25. term: Short-term stock speculation',
-      '26. riskRegister: What makes a claim speculative?',
-      '27. peerTask: Rewrite weak claims as evidence questions',
-      '28. flow: How should an analyst think?',
-      '29. discussion: Write the course promise',
-      '30. answer: Exit ticket'
+      '4. visualPause: Speculator and investor race',
+      '5. section: Investment is not short-term speculation',
+      '6. discussion: Is this investment or speculation?',
+      '7. compare: Investment analysis vs speculation',
+      '8. term: Investment analysis',
+      '9. quiz: Check 1: investment or speculation?',
+      '10. section: Assets and shares are ownership ideas',
+      '11. term: Asset',
+      '12. term: Share',
+      '13. discussion: What does one share mean?',
+      '14. classificationTask: Check 2: asset, share or not?',
+      '15. section: Risk and return must be judged together',
+      '16. term: Possible return',
+      '17. term: Risk',
+      '18. compare: Risk and return belong together',
+      '19. yesNoCheck: Check 3: risk and return',
+      '20. section: A share price is one share at one time',
+      '21. term: Share price',
+      '22. answer: Share price check',
+      '23. yesNoCheck: Check 4: what can a share price prove?',
+      '24. flow: Connect the five lesson ideas',
+      '25. peerTask: Build a careful analyst sentence',
+      '26. answer: Exit ticket'
     ]);
-    expect(investmentVisualChecks.visualPauseCount).toBe(0);
+    expect(investmentVisualChecks.visualPauseCount).toBe(1);
     expect(investmentVisualChecks.priceChartCount).toBe(1);
     expect(investmentVisualChecks.pricePointCount).toBeGreaterThanOrEqual(60);
     expect(investmentVisualChecks.priceChartSource).toBe('Yahoo Finance historical prices');
+    expect(investmentVisualChecks.hasSpeculatorInvestorRace).toBe(true);
     expect(investmentVisualChecks.hasOldStockCertificate).toBe(false);
     expect(investmentVisualChecks.overusedVisuals).toEqual([]);
+
+    await goToInvestmentSlide(page, { type: 'visualPause', title: 'Speculator and investor race' });
+    await expect(page.locator('.invSlide.is-active')).toHaveClass(/invVisualPauseSlide/);
+    await expect(page.locator('.invSlide.is-active .invVisualPauseHero img')).toBeVisible();
+    const visualPauseState = await page.evaluate(() => {
+      const slide = document.querySelector('.invSlide.is-active');
+      const hero = slide?.querySelector('.invVisualPauseHero');
+      const img = hero?.querySelector('img');
+      return {
+        text: (slide?.innerText || '').trim(),
+        imageCount: slide?.querySelectorAll('img').length || 0,
+        objectFit: img ? getComputedStyle(img).objectFit : '',
+        backgroundColor: hero ? getComputedStyle(hero).backgroundColor : '',
+      };
+    });
+    expect(visualPauseState.text).toBe('');
+    expect(visualPauseState.imageCount).toBe(1);
+    expect(visualPauseState.objectFit).toBe('contain');
+    expect(visualPauseState.backgroundColor).toMatch(/rgb\(255,\s*236,\s*143\)/);
+    await expectInvestmentSlideFits(page, 'speculator investor visual pause desktop');
 
     const sectionDividerChecks = await page.evaluate(() => {
       const sections = (window.INVEST?.lesson?.slides || []).filter((slide) => slide.type === 'section');
@@ -1108,6 +1126,8 @@ test.describe('site smoke', () => {
       'Official HKEX code: 00700 (HKD counter)'
     ]));
 
+    await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '1');
     await expect(page.getByRole('heading', { name: /^What is investment\?$/i })).toBeVisible();
@@ -1115,24 +1135,26 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invPriceChartQuestion')).toContainText(/investment analysis rather than short-term speculation/i);
     await expectInvestmentSlideFits(page, 'opening price chart desktop');
 
-    await goToInvestmentSlide(page, { type: 'compare', title: 'Evidence-based analysis vs weak opinion' });
-    await expect(page.getByRole('heading', { name: /^Evidence-based analysis vs weak opinion$/i })).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invCompareColumn')).toHaveCount(2);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/source, date and evidence/i);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/rumours or feelings/i);
-    await expectInvestmentSlideFits(page, 'evidence opinion compare desktop');
+    await goToInvestmentSlide(page, { type: 'outcomes', title: 'By the end, you can' });
+    await expect(page.locator('.invSlide.is-active .invObjective')).toHaveCount(5);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/distinguish between investment and speculation/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/explain what a share price is/i);
+    await expectInvestmentSlideFits(page, 'five objectives desktop');
 
-    await goToInvestmentSlide(page, { type: 'discussion', title: 'Check the Tencent source' });
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'Is this investment or speculation?' });
+    await expect(page.getByRole('heading', { name: /^Is this investment or speculation\?$/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await page.keyboard.press('Space');
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(1);
-    await expectInvestmentSlideFits(page, 'Tencent source discussion desktop');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/A price guess is not analysis/i);
+    await expectInvestmentSlideFits(page, 'investment speculation discussion desktop');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Keep the four ideas separate' });
-    await expect(page.locator('.invSlide.is-active .invStep')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/company/i);
-    await expectInvestmentSlideFits(page, 'company product share flow desktop');
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Investment analysis vs speculation' });
+    await expect(page.getByRole('heading', { name: /^Investment analysis vs speculation$/i })).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invCompareColumn')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Checks dated evidence/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Chases short-term price/i);
+    await expectInvestmentSlideFits(page, 'investment speculation compare desktop');
 
     await goToInvestmentSlide(page, { type: 'term', title: 'Investment analysis' });
     await expect(page.locator('.invSlide.is-active .invTitleBlock h1')).toHaveCount(0);
@@ -1148,12 +1170,18 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .sourceList')).toHaveAttribute('open', '');
     await expect(page.locator('.invSlide.is-active .sourcePanel')).toContainText(/Tencent investor relations/i);
 
-    await goToInvestmentSlide(page, { type: 'quiz', title: 'Check 1: what changes a guess into analysis?' });
+    await goToInvestmentSlide(page, { type: 'quiz', title: 'Check 1: investment or speculation?' });
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
     await page.locator('.invSlide.is-active .invChoice').nth(2).click();
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invChoice').nth(2)).toHaveClass(/is-correct/);
-    await expectInvestmentSlideFits(page, 'evidence or opinion quiz slide');
+    await expectInvestmentSlideFits(page, 'investment speculation quiz slide');
+
+    await goToInvestmentSlide(page, { type: 'term', title: 'Asset' });
+    await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Asset');
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'asset term slide desktop');
 
     await goToInvestmentSlide(page, { type: 'term', title: 'Share' });
     await expect(page.locator('.invSlide.is-active .invTermWord')).toHaveText('Share');
@@ -1162,67 +1190,72 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
     await expectInvestmentSlideFits(page, 'share term slide desktop');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Check 2: separate the ideas' });
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'What does one share mean?' });
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/One share is one ownership unit/i);
+    await expectInvestmentSlideFits(page, 'one share meaning desktop');
+
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Check 2: asset, share or not?' });
     await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invClassificationResult.invReveal.is-revealed')).toHaveCount(0);
     await page.keyboard.press('Space');
     await expect(page.locator('.invSlide.is-active .invClassificationResult.invReveal.is-revealed')).toHaveCount(1);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/listed share/i);
-    await expectInvestmentSlideFits(page, 'company share price classification desktop');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/ownership unit/i);
+    await expectInvestmentSlideFits(page, 'asset share classification desktop');
 
-    await goToInvestmentSlide(page, { type: 'priceChart', title: 'What is investment?' });
-    await expect(page.locator('.invSlide.is-active .invPriceChartSvg')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invChartLine')).toHaveCount(1);
-    await expect(page.locator('.invSlide.is-active .invPriceChartQuestion')).toContainText(/investment analysis rather than short-term speculation/i);
-    await expectInvestmentSlideFits(page, 'first graph observation desktop');
-
-    await goToInvestmentSlide(page, { type: 'answer', title: 'Graph observation and movement question' });
-    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(3);
+    await goToInvestmentSlide(page, { type: 'term', title: 'Possible return' });
     await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(1);
-    await expectInvestmentSlideFits(page, 'graph observation fill blanks desktop');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'possible return term desktop');
 
-    await goToInvestmentSlide(page, { type: 'dataSnapshot', title: 'One company fact is not a judgement' });
-    await expect(page.locator('.invSlide.is-active .invDataFocusCard')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invDataTask')).toContainText(/what it cannot prove alone/i);
-    await expectInvestmentTeachingTextAtLeast(page, 32, 'intro data snapshot classroom');
-    await expectInvestmentNoUltraBold(page, 'intro data snapshot classroom');
-    await expectInvestmentSlideFits(page, 'intro data snapshot classroom');
+    await goToInvestmentSlide(page, { type: 'term', title: 'Risk' });
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'risk term desktop');
 
-    await goToInvestmentSlide(page, { type: 'analystBoard', title: 'What can evidence show and not prove?' });
-    await expect(page.locator('.invSlide.is-active .invEvidence')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invEvidenceBody.invReveal.is-revealed')).toHaveCount(0);
-    await page.keyboard.press('Space');
-    await page.keyboard.press('Space');
-    await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .invEvidenceBody.invReveal.is-revealed')).toHaveCount(3);
-    await expectInvestmentSlideFits(page, 'intro analyst board classroom');
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Risk and return belong together' });
+    await expect(page.locator('.invSlide.is-active .invCompareColumn')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/What gain might the investor earn/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/What could be worse than expected/i);
+    await expectInvestmentSlideFits(page, 'risk return compare desktop');
 
-    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Check 3: what can the graph prove?' });
+    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Check 3: risk and return' });
     await expect(page.locator('.invSlide.is-active .invYesNoItem')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invYesNoAnswer.invReveal.is-revealed')).toHaveCount(0);
     await page.keyboard.press('Space');
     await expect(page.locator('.invSlide.is-active .invYesNoAnswer.invReveal.is-revealed')).toHaveCount(1);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/good investment/i);
-    await expectInvestmentSlideFits(page, 'graph evidence yes no desktop');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Possible return is hoped for/i);
+    await expectInvestmentSlideFits(page, 'risk return yes no desktop');
 
-    await goToInvestmentSlide(page, { type: 'riskRegister', title: 'What makes a claim speculative?' });
-    await expect(page.locator('.invSlide.is-active .invRiskItem')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .invRiskEffect.invReveal.is-revealed')).toHaveCount(0);
+    await goToInvestmentSlide(page, { type: 'term', title: 'Share price' });
     await page.keyboard.press('Space');
-    await expect(page.locator('.invSlide.is-active .invRiskEffect.invReveal.is-revealed')).toHaveCount(1);
-    await expectInvestmentSlideFits(page, 'intro risk register classroom');
+    await expect(page.locator('.invSlide.is-active .blank').first()).toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'share price term desktop');
 
-    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Rewrite weak claims as evidence questions' });
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Company fact/);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Tencent must be safe/i);
-    await expectInvestmentSlideFits(page, 'intro statement sort classroom');
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Share price check' });
+    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(3);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(1);
+    await expectInvestmentSlideFits(page, 'share price fill blanks desktop');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'How should an analyst think?' });
-    await expect(page.locator('.invSlide.is-active .invStep')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(4);
-    await expectInvestmentTeachingTextAtLeast(page, 32, 'analyst habit classroom');
-    await expectInvestmentSlideFits(page, 'analyst habit classroom');
+    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Check 4: what can a share price prove?' });
+    await expect(page.locator('.invSlide.is-active .invYesNoItem')).toHaveCount(3);
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active .invYesNoAnswer.invReveal.is-revealed')).toHaveCount(1);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/market price of one share/i);
+    await expectInvestmentSlideFits(page, 'share price evidence yes no desktop');
+
+    await goToInvestmentSlide(page, { type: 'flow', title: 'Connect the five lesson ideas' });
+    await expect(page.locator('.invSlide.is-active .invStep')).toHaveCount(5);
+    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(5);
+    await expectInvestmentTeachingTextAtLeast(page, 32, 'five idea flow classroom');
+    await expectInvestmentSlideFits(page, 'five idea flow classroom');
+
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Build a careful analyst sentence' });
+    await page.keyboard.press('Space');
+    await expect(page.locator('.invSlide.is-active')).toContainText(/source-dated evidence/);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/possible return, risk and the current share price/i);
+    await expectInvestmentSlideFits(page, 'careful analyst sentence classroom');
 
     const blankSlideNumbers = await page.evaluate(() => (window.INVEST.lesson.slides || [])
       .map((slide, index) => ({ slide, slideNumber: index + 1 }))
@@ -1247,12 +1280,16 @@ test.describe('site smoke', () => {
       await expectInvestmentSlideFits(page, `investment slide ${slideNumber} revealed blanks`);
     }
 
-    for (let slideNumber = 1; slideNumber <= 30; slideNumber += 1) {
+    for (let slideNumber = 1; slideNumber <= 26; slideNumber += 1) {
       await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html') + `?classroom-fit=${slideNumber}#${slideNumber}`);
       await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', String(slideNumber - 1));
       await expectInvestmentSlideFits(page, `investment intro slide ${slideNumber} classroom`);
-      await expectInvestmentTeachingTextAtLeast(page, 32, `investment intro slide ${slideNumber} classroom`);
-      await expectInvestmentCompactTeachingScale(page, `investment intro slide ${slideNumber} classroom`);
+      if (slideNumber !== 4) {
+        await expectInvestmentTeachingTextAtLeast(page, slideNumber === 3 ? 22 : 32, `investment intro slide ${slideNumber} classroom`);
+      }
+      if (slideNumber !== 3 && slideNumber !== 4) {
+        await expectInvestmentCompactTeachingScale(page, `investment intro slide ${slideNumber} classroom`);
+      }
       await expectInvestmentNoUltraBold(page, `investment intro slide ${slideNumber} classroom`);
       await page.evaluate(() => {
         const slide = document.querySelector('.invSlide.is-active');
@@ -1276,15 +1313,15 @@ test.describe('site smoke', () => {
     await expect(page.locator('.handoutSection')).toHaveCount(6);
     await expect(page.locator('.handoutSectionTitle h2')).toHaveText([
       'Source box',
+      'Investment or speculation',
       'Vocabulary',
-      'Company evidence',
-      'Calculation or judgement task',
-      'Misconception check',
+      'Asset, share and share price',
+      'Risk and return',
       'Individual written output'
     ]);
     await expect(page.locator('.handoutDocument')).toContainText(/Investment analysis starter sheet/i);
-    await expect(page.locator('.handoutDocument')).toContainText(/RMB751\.8bn/i);
-    await expect(page.locator('.handoutDataTable tbody tr')).toHaveCount(4);
+    await expect(page.locator('.handoutDocument')).toContainText(/Investment or speculation/i);
+    await expect(page.locator('.handoutDataTable tbody tr')).toHaveCount(3);
     await expect(page.locator('.handoutBlank[data-answer]')).not.toHaveCount(0);
     await page.locator('.handoutAnswerToggle').click();
     await expect(page.locator('.handoutDocument')).toHaveClass(/is-showing-answers/);
@@ -1294,9 +1331,9 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invQuizDeck')).toBeVisible();
     await expect(page.locator('.invQuizQuestion')).toHaveCount(10);
     await expect(page.locator('.invQuizScore')).toHaveText('0/10 answered');
-    await expect(page.locator('.invQuizQuestion').filter({ hasText: /What does investment analysis use before opinion/i })).toHaveCount(1);
-    await expect(page.locator('.invQuizQuestion').filter({ hasText: /What does one point on a share-price graph show/i })).toHaveCount(1);
-    await page.locator('.invQuizQuestion').first().getByLabel('Evidence').check();
+    await expect(page.locator('.invQuizQuestion').filter({ hasText: /Which sentence is investment analysis rather than short-term speculation/i })).toHaveCount(1);
+    await expect(page.locator('.invQuizQuestion').filter({ hasText: /What is a share price/i })).toHaveCount(1);
+    await page.locator('.invQuizQuestion').first().getByLabel('I need evidence about possible return, risk and price before judging.').check();
     await page.getByRole('button', { name: /Mark quiz/i }).click();
     await expect(page.locator('.invQuizScore')).toContainText('/10');
     await expectNoHorizontalOverflow(page);
@@ -1594,7 +1631,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^30-Lesson Course Map$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^30-lesson company knowledge map$/i })).toBeVisible();
     await expect(page.getByText(/Start with investment analysis/i)).toBeVisible();
-    await expect(page.getByText(/using evidence to study companies/i).first()).toBeVisible();
+    await expect(page.getByText(/distinguishing investment analysis from short-term speculation/i).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: /^How lessons are built$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Six exams across the year$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Generator table$/i }).first()).toHaveAttribute('href', '#lesson-generator-table');
@@ -1605,14 +1642,15 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit ticket/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Course entry lesson/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Course-entry concept sorter/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Cold-call sort/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/evidence before opinion/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms li')).toHaveCount(6);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Foundation starter sheet/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/investment or speculation/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Complete five foundation statements/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/investment versus speculation/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms li')).toHaveCount(7);
     await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms')).toContainText(/investment analysis/i);
     await expect(page.locator('.investment-generator-title-zh')).toHaveCount(30);
     await expect(page.locator('.investment-lesson-title-zh')).toHaveCount(30);
-    await expect(page.locator('.investment-term-zh')).toHaveCount(192);
+    await expect(page.locator('.investment-term-zh')).toHaveCount(194);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/什么是投资分析，什么是股票/);
     await expect(page.locator('.investment-generator-table tbody tr').first().locator('.investment-generator-terms')).toContainText(/投资分析/);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(30);
@@ -1621,8 +1659,9 @@ test.describe('site smoke', () => {
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/What is investment analysis, and what is a share/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/什么是投资分析，什么是股票/);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/股价/);
-    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/price movement needs evidence/i);
-    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/evidence-before-opinion rule/i);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/distinguish investment analysis from short-term speculation/i);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/possible return/i);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"]')).toContainText(/share price/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="2"]')).toContainText(/liquidity/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="2"]')).toContainText(/not frictionless/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="3"]')).toContainText(/bid-ask spread/i);
@@ -1682,7 +1721,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('.investment-lesson-formula')).toHaveCount(30);
     await expect(page.locator('.investment-lesson-title-zh')).toHaveCount(30);
-    await expect(page.locator('.investment-term-zh')).toHaveCount(192);
+    await expect(page.locator('.investment-term-zh')).toHaveCount(194);
     await expect(page.getByText(/Start with investment analysis/i)).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson][data-lesson="20"]')).toContainText(/ChinaAMC CSI 300 ETF/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="20"]')).toContainText(/投资组合权重/);
@@ -1702,7 +1741,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/unit-1/lesson-1/index.html'));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
-    await expect(page.locator('.invCounter')).toHaveText('1 / 30');
+    await expect(page.locator('.invCounter')).toHaveText('1 / 26');
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invHeroSlide/);
     await expect(page.getByRole('heading', { name: /^What is investment analysis, and what is a share\?$/i })).toBeVisible();
     await expectInvestmentSlideFits(page, 'hero slide phone');
@@ -1710,7 +1749,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
 
     await page.keyboard.press('ArrowRight');
-    await expect(page.locator('.invCounter')).toHaveText('2 / 30');
+    await expect(page.locator('.invCounter')).toHaveText('2 / 26');
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invPriceChartSlide/);
     await expect(page.getByRole('heading', { name: /^What is investment\?$/i })).toBeVisible();
     await expect(page.locator('.invSlide.is-active .invPriceChartSvg')).toBeVisible();
@@ -1720,19 +1759,23 @@ test.describe('site smoke', () => {
 
     const phoneChecks = [
       { type: 'outcomes', title: 'By the end, you can' },
-      { type: 'compare', title: 'Evidence-based analysis vs weak opinion' },
-      { type: 'discussion', title: 'Check the Tencent source' },
-      { type: 'flow', title: 'Keep the four ideas separate' },
+      { type: 'visualPause', title: 'Speculator and investor race' },
+      { type: 'discussion', title: 'Is this investment or speculation?' },
+      { type: 'compare', title: 'Investment analysis vs speculation' },
       { type: 'term', title: 'Investment analysis' },
+      { type: 'term', title: 'Asset' },
       { type: 'term', title: 'Share' },
-      { type: 'classificationTask', title: 'Check 2: separate the ideas' },
-      { type: 'priceChart', title: 'What is investment?' },
-      { type: 'dataSnapshot', title: 'One company fact is not a judgement' },
-      { type: 'analystBoard', title: 'What can evidence show and not prove?' },
-      { type: 'yesNoCheck', title: 'Check 3: what can the graph prove?' },
-      { type: 'riskRegister', title: 'What makes a claim speculative?' },
-      { type: 'peerTask', title: 'Rewrite weak claims as evidence questions' },
-      { type: 'flow', title: 'How should an analyst think?' },
+      { type: 'discussion', title: 'What does one share mean?' },
+      { type: 'classificationTask', title: 'Check 2: asset, share or not?' },
+      { type: 'term', title: 'Possible return' },
+      { type: 'term', title: 'Risk' },
+      { type: 'compare', title: 'Risk and return belong together' },
+      { type: 'yesNoCheck', title: 'Check 3: risk and return' },
+      { type: 'term', title: 'Share price' },
+      { type: 'answer', title: 'Share price check' },
+      { type: 'yesNoCheck', title: 'Check 4: what can a share price prove?' },
+      { type: 'flow', title: 'Connect the five lesson ideas' },
+      { type: 'peerTask', title: 'Build a careful analyst sentence' },
       { type: 'answer', title: 'Exit ticket' }
     ];
 
@@ -1740,6 +1783,12 @@ test.describe('site smoke', () => {
       const slideNumber = await goToInvestmentSlide(page, match);
       if (match.title === 'Exit ticket') await expect(page.locator('.invSlide.is-active')).toHaveClass(/invExitTicketSlide/);
       await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone`);
+      if (match.type === 'visualPause') {
+        await expect(page.locator('.invSlide.is-active')).toHaveClass(/invVisualPauseSlide/);
+        await expect(page.locator('.invSlide.is-active .invVisualPauseHero img')).toBeVisible();
+        await expect(page.locator('.invSlide.is-active')).toHaveText('');
+        continue;
+      }
       await expectInvestmentTeachingTextAtLeast(page, 24, `investment slide ${slideNumber} phone`);
       await expectInvestmentNoUltraBold(page, `investment slide ${slideNumber} phone`);
       const blankCount = await page.locator('.invSlide.is-active .blank').count();
@@ -1762,14 +1811,11 @@ test.describe('site smoke', () => {
         await expect(page.locator('.invSlide.is-active .invDiscussionAnswer')).toBeVisible();
         await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed discussion`);
       }
-      if (['analystBoard', 'riskRegister', 'classificationTask', 'yesNoCheck'].includes(match.type)) {
+      if (['classificationTask', 'yesNoCheck'].includes(match.type)) {
         await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
           node.classList.add('is-revealed');
           if (node.hasAttribute('hidden')) node.hidden = false;
         }));
-        if (match.type === 'analystBoard') {
-          await expect(page.locator('.invSlide.is-active .invEvidenceBody:visible')).toHaveCount(0);
-        }
         await expectInvestmentSlideFits(page, `investment slide ${slideNumber} phone revealed evidence`);
       }
       await expectNoHorizontalOverflow(page);

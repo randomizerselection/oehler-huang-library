@@ -18,7 +18,12 @@
   }
 
   function photoStyle(photo) {
-    return photo?.objectPosition ? ` style="--photo-position:${escapeHtml(photo.objectPosition)}"` : '';
+    if (!photo) return '';
+    const styles = [];
+    if (photo.objectPosition) styles.push(`--photo-position:${escapeHtml(photo.objectPosition)}`);
+    if (photo.objectFit) styles.push(`--photo-fit:${escapeHtml(photo.objectFit)}`);
+    if (photo.background) styles.push(`--photo-bg:${escapeHtml(photo.background)}`);
+    return styles.length ? ` style="${styles.join(';')}"` : '';
   }
 
   function backgroundStyle(photo) {

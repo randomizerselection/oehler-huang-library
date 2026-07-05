@@ -242,14 +242,14 @@
           "definition": "the gain an investor hopes to earn from an investment."
         },
         {
-          "term": "share price",
-          "zh": "股价",
-          "definition": "the market price of one share at a specific time."
-        },
-        {
           "term": "risk",
           "zh": "风险",
           "definition": "the possibility that results, returns or prices are worse than expected."
+        },
+        {
+          "term": "share price",
+          "zh": "股价",
+          "definition": "the market price of one share at a specific time."
         },
         {
           "term": "short-term stock speculation",
@@ -355,11 +355,10 @@
       "artifactBlueprint": {
         "deckArc": [
           "Hook: use Tencent's frozen share-price graph to ask what makes buying a share investment analysis rather than short-term speculation.",
-          "Objectives: distinguish investment from speculation; define investment analysis; define asset and share; explain risk and return; explain share price.",
-          "Teach cycle 1: separate investment analysis from short-term speculation.",
-          "Teach cycle 2: define investment analysis, asset and share.",
-          "Teach cycle 3: explain possible return and risk together.",
-          "Teach cycle 4: define share price as one share at one time, then rehearse a careful analyst sentence.",
+          "Retrieval: activate everyday ideas about owning something valuable, hoping for a gain, and facing uncertainty.",
+          "Teach: students define investment analysis, asset, share, possible return, risk and share price.",
+          "Evidence practice: use the Tencent price line as a share-price example while separating evidence-based analysis from short-term speculation.",
+          "Output rehearsal: students build one careful analyst sentence using evidence, possible return, risk and share price.",
           "Exit ticket: students complete five foundation statements aligned to the visible objectives."
         ],
         "handoutBlocks": [
@@ -419,7 +418,7 @@
       "formativeAssessment": "Hinge question: choose the correct role of a stock exchange in one trading scenario.",
       "exitTicket": "Complete one company-code-exchange row and name one trading friction.",
       "sequenceRole": "Market infrastructure bridge between one share and real trading.",
-      "retrievalBase": "Lesson 1 investment-analysis purpose, company/share distinction, share price and listed-share identity.",
+      "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
       "newKnowledge": "Stock exchange, listing, stock code, liquidity and the idea that real trading has frictions.",
       "evidenceTask": "Use HKEX examples to identify company, exchange, code, listing and trading friction.",
       "avoidOverlap": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3.",
@@ -494,7 +493,7 @@
         "mustAssess": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
       },
       "cardGenerator": {
-        "retrievalBase": "Lesson 1 investment-analysis purpose, company/share distinction, share price and listed-share identity.",
+        "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
         "newKnowledge": "a stock exchange provides a regulated place where listed securities can be bought and sold; liquidity affects whether trading is easy or difficult.",
         "avoidOverlap": "keep order types, bid, ask, spread and quote-page reading for later use or Lesson 3; keep personal investing advice out of the lesson.",
         "misconception": "every stock-market purchase gives new money to the company, or a stock code is just decoration.",
@@ -547,7 +546,7 @@
       "artifactBlueprint": {
         "deckArc": [
           "Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.",
-          "Retrieval: activate Lesson 1 investment-analysis purpose, company/share distinction, share price and listed-share identity.",
+          "Retrieval: activate Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
           "Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
           "Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.",
           "Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.",

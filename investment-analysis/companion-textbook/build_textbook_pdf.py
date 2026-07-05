@@ -279,11 +279,11 @@ def build_story(markdown: str) -> list:
     story: list = []
 
     cover_blurb = (
-        "Student companion textbook | Unit 1 Lesson 1 | Evidence before opinion"
+        "Student companion textbook | Unit 1 Lesson 1 | Investment, speculation and shares"
     )
     cover_note = (
-        "A first chapter for learning how to separate a company, its listed share, "
-        "its share price, evidence, opinion and risk."
+        "A first chapter for defining investment analysis, assets, shares, "
+        "risk, return and share price before later calculations."
     )
     story.extend(
         [

@@ -52,15 +52,15 @@ Investment-analysis purpose, shares, share prices, exchanges, quote pages, sourc
 **Company:** Tencent
 **Unit:** 1. Market foundations
 **Guiding question:** What is investment analysis, and what is a share?
-**Core claim:** Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.
-**Primary output:** one course promise sentence and one evidence question about a Tencent price movement
-**Formula or formula rule:** no new formula; students read graph direction and identify old/new price points informally before formal percentage work later.
+**Core claim:** Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation.
+**Primary output:** three sentences covering investment analysis, share ownership and risk-return-price judgement
+**Formula or formula rule:** no new formula; students explain concepts in words only.
 
 ### Source box
 
-Record Tencent source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.
+Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence question.
 
-**Expected student work:** A complete dated source record before any judgement.
+**Expected student work:** A complete dated source record plus one question before any judgement.
 
 ### Vocabulary
 
@@ -69,35 +69,36 @@ Record Tencent source title, URL, publication date, accessed date, company/secur
 | investment analysis | 投资分析 | using evidence to study possible return, risk and price before making a judgement. |
 | asset | 资产 | something owned that may have value. |
 | share | 股票 | one unit of ownership in a company. |
-| share price | 股价 | the market price of one share at a specific time. |
+| possible return | 可能回报 | the gain an investor hopes to earn from an investment. |
 | risk | 风险 | the possibility that results, returns or prices are worse than expected. |
+| share price | 股价 | the market price of one share at a specific time. |
 | short-term stock speculation | 投机 / 炒股 | betting mainly on a price movement without enough evidence about value, risk and return; not the course method. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Investment or speculation
 
-Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.
+Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Expected student work:** One corrected statement that asks for evidence about return, risk and share price.
 
-### Calculation or judgement task
+### Asset, share and share price
 
-Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises.
+Separate asset, share and share price, then explain why one share price is only one piece of evidence.
 
-**Expected student work:** one course promise sentence and one evidence question about a Tencent price movement
+**Expected student work:** A completed distinction table for asset, share and share price.
 
 ### Misconception check
 
-Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good.
+Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.
 
 **Expected student work:** A correction sentence that states why the misconception is wrong.
 
 ### Individual written output
 
-Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.
+Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.
 
-**Expected student work:** one course promise sentence and one evidence question about a Tencent price movement
+**Expected student work:** three sentences covering investment analysis, share ownership and risk-return-price judgement
 
 ## Lesson 2: Why do companies need a stock market?
 

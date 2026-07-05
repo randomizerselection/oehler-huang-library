@@ -54,9 +54,9 @@ Investment-analysis purpose, shares, share prices, exchanges, quote pages, sourc
 ## Lesson 1: Tencent
 
 **Guiding question:** What is investment analysis, and what is a share?
-**Core claim:** Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.
+**Core claim:** Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation.
 **Case role:** listed company
-**Primary output:** definition-and-evidence-question - one course promise sentence and one evidence question about a Tencent price movement
+**Primary output:** foundation-definition-output - three sentences covering investment analysis, share ownership and risk-return-price judgement
 **Case review:** keep; Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.
 
 ### Source pack
@@ -75,30 +75,30 @@ Investment-analysis purpose, shares, share prices, exchanges, quote pages, sourc
 
 ### Deck arc
 
-- Hook: start with Tencent and the guiding question, using a concrete source or visual before definitions.
-- Retrieval: activate everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.
-- Teach: make students write the core claim: Investment analysis uses evidence about the company, listed share, price, possible return and risk before opinion.
-- Evidence practice: Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.
-- Output rehearsal: students build one course promise sentence and one evidence question about a Tencent price movement.
-- Exit ticket: students submit Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.
+- Hook: use Tencent's frozen share-price graph to ask what makes buying a share investment analysis rather than short-term speculation.
+- Retrieval: activate everyday ideas about owning something valuable, hoping for a gain, and facing uncertainty.
+- Teach: students define investment analysis, asset, share, possible return, risk and share price.
+- Evidence practice: use the Tencent price line as a share-price example while separating evidence-based analysis from short-term speculation.
+- Output rehearsal: students build one careful analyst sentence using evidence, possible return, risk and share price.
+- Exit ticket: students complete five foundation statements aligned to the visible objectives.
 
 ### Handout/chapter blocks
 
-- **Source box:** Record Tencent source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.
-- **Vocabulary:** Define and use: investment analysis, asset, share, share price, risk, short-term stock speculation.
-- **Company evidence:** Use Tencent as a familiar company, inspect a frozen price graph, identify company, listed share and source date, and ask what information might explain one movement.
-- **Calculation or judgement task:** Separate company, product, share and share price; explain why an analyst needs evidence before opinion; state why this is not short-term speculation; write one question the Tencent graph raises.
-- **Misconception check:** Investment analysis means guessing which share to buy, short-term speculation, chasing a tip or treating a famous company as automatically good.
-- **Individual written output:** Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.
+- **Source box:** Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence question.
+- **Vocabulary:** Define and use: investment analysis, asset, share, possible return, risk, share price and short-term stock speculation.
+- **Investment or speculation:** Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement.
+- **Asset, share and share price:** Separate asset, share and share price, then explain why one share price is only one piece of evidence.
+- **Misconception check:** Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.
+- **Individual written output:** Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.
 
 ### Exam pattern
 
 - Command word: Explain
 - Marks: 4
 - Stimulus: short company evidence extract
-- Calculation: No new calculation; assess evidence reading and judgement.
-- Judgement: Course promise sentence, company/share distinction, first share-price definition, evidence-before-opinion rule, anti-speculation boundary, risk-return rule and one evidence question about a price movement.
-- Shape: Explain using a short company evidence extract; assess one course promise sentence and one evidence question about a Tencent price movement.
+- Calculation: No new calculation; assess concept definitions and simple judgement language.
+- Judgement: Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition.
+- Shape: Explain using a short classroom scenario; assess the five Lesson 1 foundation concepts.
 
 ## Lesson 2: HKEX
 
@@ -125,7 +125,7 @@ Investment-analysis purpose, shares, share prices, exchanges, quote pages, sourc
 ### Deck arc
 
 - Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.
-- Retrieval: activate Lesson 1 investment-analysis purpose, company/share distinction, share price and listed-share identity.
+- Retrieval: activate Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.
 - Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
 - Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.
 - Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.
