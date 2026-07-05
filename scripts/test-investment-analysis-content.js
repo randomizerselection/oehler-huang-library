@@ -8,6 +8,7 @@ const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
 const {
   MATERIAL_TARGETS,
+  loadCourseMap,
   getCourseGeneratorContext,
   getLessonGeneratorContext,
   getLessonMaterialContext,
@@ -25,6 +26,8 @@ const requiredLessonFields = [
   'unit',
   'company',
   'guidingQuestion',
+  'studentHook',
+  'simpleFlow',
   'terms',
   'formulaOrNoFormula',
   'formativeAssessment',
@@ -43,6 +46,10 @@ const requiredLessonFields = [
   'assessmentBlueprint',
   'caseReview',
   'examPattern',
+  'retrievalPractice',
+  'analyseWhy',
+  'investmentAction',
+  'worksheet',
 ];
 const requiredHandoutSectionKeys = [
   'sourceBox',
@@ -58,6 +65,8 @@ const allowedCaseRoles = new Set([
   'fund',
   'comparison case',
   'synthesis case',
+  'financial product',
+  'economic data case',
 ]);
 const allowedCaseReviewStatuses = new Set([
   'keep',
@@ -182,12 +191,34 @@ function validateCourseMapContract() {
     return failures;
   }
 
-  if (!/handout/i.test(courseMap.writtenArtifactRule || '') || !/textbook/i.test(courseMap.writtenArtifactRule || '')) {
-    failures.push('investment-analysis/course-map-data.js: writtenArtifactRule must state the handout/textbook relationship');
+  if (!/(handout|worksheet)/i.test(courseMap.writtenArtifactRule || '') || !/textbook/i.test(courseMap.writtenArtifactRule || '')) {
+    failures.push('investment-analysis/course-map-data.js: writtenArtifactRule must state the worksheet-or-handout/textbook relationship');
   }
 
   if (!/textbook-only/i.test(courseMap.textbookAssembly?.rule || '')) {
     failures.push('investment-analysis/course-map-data.js: textbookAssembly.rule must forbid textbook-only teaching chapters');
+  }
+
+  if (!Array.isArray(courseMap.investmentWorkflow) || courseMap.investmentWorkflow.length < 5) {
+    failures.push('investment-analysis/course-map-data.js: investmentWorkflow must define the practical how-to-invest workflow');
+  } else {
+    for (const step of courseMap.investmentWorkflow) {
+      for (const field of ['title', 'studentAction', 'evidenceCheck', 'decisionOutput']) {
+        if (!isNonEmptyString(step[field])) failures.push(`investment-analysis/course-map-data.js: every investmentWorkflow step needs ${field}`);
+      }
+    }
+  }
+  if (!/consider|watch|avoid/i.test(courseMap.practicalInvestingBoundary || '') || !/evidence/i.test(courseMap.practicalInvestingBoundary || '')) {
+    failures.push('investment-analysis/course-map-data.js: practicalInvestingBoundary must describe evidence-based action choices');
+  }
+
+  if (!Array.isArray(courseMap.simpleLessonStructure) || courseMap.simpleLessonStructure.length !== 4) {
+    failures.push('investment-analysis/course-map-data.js: simpleLessonStructure must define four student-facing steps');
+  } else {
+    const labels = courseMap.simpleLessonStructure.map((step) => step.label).join('|');
+    if (labels !== 'Hook|Key idea|Try it|Decide') {
+      failures.push('investment-analysis/course-map-data.js: simpleLessonStructure must use Hook, Key idea, Try it, Decide');
+    }
   }
 
   const seenLessons = new Set();
@@ -210,6 +241,18 @@ function validateCourseMapContract() {
 
     for (const field of ['company', 'guidingQuestion', 'formulaOrNoFormula', 'formativeAssessment', 'exitTicket', 'retrievalBase', 'newKnowledge', 'evidenceTask', 'misconception', 'studentOutput', 'coreClaim']) {
       if (!isNonEmptyString(lesson[field])) failures.push(`${label}: "${field}" must be a non-empty string`);
+    }
+    if (!isNonEmptyString(lesson.studentHook) || lesson.studentHook.length < 24) {
+      failures.push(`${label}: studentHook must be a concrete, interesting student-facing hook`);
+    }
+    if (!Array.isArray(lesson.simpleFlow) || lesson.simpleFlow.length !== 4) {
+      failures.push(`${label}: simpleFlow must have four steps`);
+    } else {
+      const simpleLabels = lesson.simpleFlow.map((step) => step.label).join('|');
+      if (simpleLabels !== 'Hook|Key idea|Try it|Decide') failures.push(`${label}: simpleFlow must use Hook, Key idea, Try it, Decide`);
+      for (const step of lesson.simpleFlow) {
+        if (!isNonEmptyString(step.text)) failures.push(`${label}: every simpleFlow step needs text`);
+      }
     }
 
     if (!allowedCaseRoles.has(lesson.caseRole)) {
@@ -245,6 +288,48 @@ function validateCourseMapContract() {
     const individualOutput = lesson.handoutSections?.find((section) => section.key === 'individualOutput');
     if (individualOutput?.task !== lesson.studentOutput) {
       failures.push(`${label}: individualOutput handout section must match studentOutput`);
+    }
+
+    const retrievalPractice = lesson.retrievalPractice || {};
+    if (!isNonEmptyString(retrievalPractice.yesNo?.prompt) || !isNonEmptyString(retrievalPractice.yesNo?.answer)) {
+      failures.push(`${label}: retrievalPractice.yesNo must include prompt and answer`);
+    }
+    if (!isNonEmptyString(retrievalPractice.multipleChoice?.prompt) || !Array.isArray(retrievalPractice.multipleChoice?.options) || retrievalPractice.multipleChoice.options.length < 3 || !isNonEmptyString(retrievalPractice.multipleChoice?.answer)) {
+      failures.push(`${label}: retrievalPractice.multipleChoice must include prompt, at least 3 options and answer`);
+    }
+    if (!isNonEmptyString(retrievalPractice.matching?.prompt) || !Array.isArray(retrievalPractice.matching?.pairs) || retrievalPractice.matching.pairs.length < 2) {
+      failures.push(`${label}: retrievalPractice.matching must include prompt and at least 2 pairs`);
+    }
+    if (!isNonEmptyString(retrievalPractice.sourceCheck) || !/source/i.test(retrievalPractice.sourceCheck) || !/date/i.test(retrievalPractice.sourceCheck)) {
+      failures.push(`${label}: retrievalPractice.sourceCheck must require source/date checking`);
+    }
+
+    if (!isNonEmptyString(lesson.analyseWhy?.question) || !/analyse why/i.test(lesson.analyseWhy.question)) {
+      failures.push(`${label}: analyseWhy.question must be a non-empty Analyse why question`);
+    }
+    if (!Array.isArray(lesson.analyseWhy?.chain) || lesson.analyseWhy.chain.length < 3) {
+      failures.push(`${label}: analyseWhy.chain must include evidence/data, concept and investor implication steps`);
+    }
+
+    const action = lesson.investmentAction || {};
+    for (const field of ['title', 'studentAction', 'decisionRule', 'portfolioQuestion', 'classroomOutput']) {
+      if (!isNonEmptyString(action[field])) failures.push(`${label}: investmentAction.${field} must be a non-empty string`);
+    }
+    if (!/consider|watch|avoid|gather more evidence|compare/i.test(`${action.studentAction} ${action.decisionRule} ${action.classroomOutput}`)) {
+      failures.push(`${label}: investmentAction must lead to a practical next action such as consider, watch, avoid, compare or gather more evidence`);
+    }
+
+    const worksheet = lesson.worksheet?.evidenceAndDataAnalysis || {};
+    if (!isNonEmptyString(worksheet.stimulus) || !/source/i.test(worksheet.stimulus) || !/date/i.test(worksheet.stimulus)) {
+      failures.push(`${label}: worksheet.evidenceAndDataAnalysis.stimulus must include case information with source/date expectations`);
+    }
+    const worksheetTypes = new Set(Array.isArray(worksheet.questions) ? worksheet.questions.map((question) => question.type) : []);
+    for (const type of ['identify-define', 'calculate-interpret', 'explain-evidence', 'analyse-why', 'student-judgement']) {
+      if (!worksheetTypes.has(type)) failures.push(`${label}: worksheet.evidenceAndDataAnalysis.questions missing ${type}`);
+    }
+    const judgementQuestion = Array.isArray(worksheet.questions) ? worksheet.questions.find((question) => question.type === 'student-judgement') : null;
+    if (!/next investment action/i.test(judgementQuestion?.prompt || '')) {
+      failures.push(`${label}: worksheet student judgement must require a next investment action`);
     }
 
     const sourcePack = lesson.sourcePack || {};
@@ -331,10 +416,17 @@ function validateCourseMapContract() {
 function validateSyllabusUsesCourseMap() {
   const failures = [];
   const syllabusPath = path.join(courseRoot, 'syllabus.html');
+  const companySyllabusPath = path.join(courseRoot, 'syllabus-company-analysis.html');
   const source = fs.readFileSync(syllabusPath, 'utf8');
+  const companySource = fs.existsSync(companySyllabusPath)
+    ? fs.readFileSync(companySyllabusPath, 'utf8')
+    : '';
 
   if (!/course-map-data\.js/.test(source) || !/course-map-render\.js/.test(source)) {
     failures.push('investment-analysis/syllabus.html: must load course-map-data.js and course-map-render.js');
+  }
+  if (/Personal Finance|personal-finance|course-map-company-analysis-data\.js/.test(source)) {
+    failures.push('investment-analysis/syllabus.html: must not expose the archived personal-finance syllabus or old alternate data source');
   }
   if (!/data-course-map-generator-rows/.test(source)) {
     failures.push('investment-analysis/syllabus.html: generator table must render from the course map data target');
@@ -342,8 +434,24 @@ function validateSyllabusUsesCourseMap() {
   if (!/data-course-map-lesson-grid/.test(source)) {
     failures.push('investment-analysis/syllabus.html: lesson cards must render from the course map data target');
   }
+  if (!/data-investment-workflow/.test(source) || !/Investment action/.test(source)) {
+    failures.push('investment-analysis/syllabus.html: must render the practical investing workflow and investment action column');
+  }
+  if (!/data-simple-lesson-structure/.test(source) || !/Hook, key idea, try it, decide/i.test(source)) {
+    failures.push('investment-analysis/syllabus.html: must render the simple lesson structure');
+  }
   if (/data-syllabus-lesson/.test(source)) {
     failures.push('investment-analysis/syllabus.html: remove static lesson cards; render them from course-map-data.js');
+  }
+  if (!companySource) {
+    failures.push('investment-analysis/syllabus-company-analysis.html: missing legacy company-analysis syllabus page');
+  } else {
+    if (!/course-map-data\.js/.test(companySource) || !/course-map-render\.js/.test(companySource)) {
+      failures.push('investment-analysis/syllabus-company-analysis.html: must load course-map-data.js and course-map-render.js');
+    }
+    if (/Personal Finance|personal-finance|course-map-company-analysis-data\.js/.test(companySource)) {
+      failures.push('investment-analysis/syllabus-company-analysis.html: must not expose the archived personal-finance syllabus or old alternate data source');
+    }
   }
 
   return failures;
@@ -379,12 +487,28 @@ function validateGeneratorContextAccess() {
     }
   }
 
+  const companyAnalysisMap = loadCourseMap('company-analysis');
+  if (!Array.isArray(companyAnalysisMap.lessons) || companyAnalysisMap.lessons.length !== 30) {
+    failures.push('investment-analysis/generator-context.js: company-analysis alias must expose all 30 default lessons');
+  }
+  if (companyAnalysisMap !== courseMap && companyAnalysisMap.courseTitle !== courseMap.courseTitle) {
+    failures.push('investment-analysis/generator-context.js: company-analysis alias must use the standard course map');
+  }
+
   const courseContext = getCourseGeneratorContext(courseMap);
   if (courseContext.contextType !== 'course-generator-index') {
     failures.push('investment-analysis/generator-context.js: course context must identify itself as course-generator-index');
   }
   if (!Array.isArray(courseContext.lessons) || courseContext.lessons.length !== 30) {
     failures.push('investment-analysis/generator-context.js: course context must expose all 30 lessons');
+  }
+
+  const companyAnalysisContext = getCourseGeneratorContext('company-analysis');
+  if (companyAnalysisContext.course.syllabusKey !== 'company-analysis') {
+    failures.push('investment-analysis/generator-context.js: company-analysis course context must expose syllabusKey company-analysis');
+  }
+  if (!Array.isArray(companyAnalysisContext.lessons) || companyAnalysisContext.lessons.length !== 30) {
+    failures.push('investment-analysis/generator-context.js: company-analysis course context must expose all 30 lessons');
   }
 
   for (let lessonNumber = 1; lessonNumber <= 30; lessonNumber += 1) {
@@ -428,8 +552,8 @@ function validateGeneratorContextAccess() {
       'deck',
     ], { cwd: root, encoding: 'utf8' });
     const parsed = JSON.parse(jsonOutput);
-    if (parsed.target !== 'deck' || parsed.lesson.lesson !== 2) {
-      failures.push('scripts/export-investment-generator-context.js: deck JSON output must include target deck and lesson 2');
+    if (parsed.target !== 'deck' || parsed.lesson.lesson !== 2 || parsed.lesson.caseAnchor !== 'HKEX') {
+      failures.push('scripts/export-investment-generator-context.js: deck JSON output must include default company-analysis lesson 2');
     }
 
     const markdownOutput = childProcess.execFileSync(process.execPath, [
@@ -441,8 +565,38 @@ function validateGeneratorContextAccess() {
       '--format',
       'md',
     ], { cwd: root, encoding: 'utf8' });
-    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
-      failures.push('scripts/export-investment-generator-context.js: markdown output must include the lesson and generation rules');
+    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
+      failures.push('scripts/export-investment-generator-context.js: markdown output must include default company-analysis lesson, simple flow, action, retrieval, worksheet, analyse and generation rules');
+    }
+
+    const companyMarkdownOutput = childProcess.execFileSync(process.execPath, [
+      exportScriptPath,
+      '--syllabus',
+      'company-analysis',
+      '--lesson',
+      '2',
+      '--target',
+      'handout',
+      '--format',
+      'md',
+    ], { cwd: root, encoding: 'utf8' });
+    if (!/Lesson 2: HKEX/.test(companyMarkdownOutput) || !/Generation Rules/.test(companyMarkdownOutput)) {
+      failures.push('scripts/export-investment-generator-context.js: company-analysis markdown output must include HKEX lesson and generation rules');
+    }
+
+    try {
+      childProcess.execFileSync(process.execPath, [
+        exportScriptPath,
+        '--syllabus',
+        'personal-finance',
+        '--lesson',
+        '1',
+      ], { cwd: root, encoding: 'utf8', stdio: 'pipe' });
+      failures.push('scripts/export-investment-generator-context.js: personal-finance syllabus selector must not be publicly supported');
+    } catch (error) {
+      if (!/syllabus must be one of default, company-analysis/.test(`${error.stderr || ''}${error.stdout || ''}${error.message}`)) {
+        failures.push('scripts/export-investment-generator-context.js: personal-finance rejection must identify supported public syllabi');
+      }
     }
   } catch (error) {
     failures.push(`scripts/export-investment-generator-context.js: CLI failed: ${error.message}`);
@@ -738,6 +892,32 @@ function validateDiscussionRevealTitles() {
   return failures;
 }
 
+function validateArchivedPersonalFinanceIsNotPublic() {
+  const failures = [];
+  const archivePath = path.join(courseRoot, '_archive', 'personal-finance-course-map-data.js');
+  if (!fs.existsSync(archivePath)) {
+    failures.push('investment-analysis/_archive/personal-finance-course-map-data.js: archived personal-finance syllabus must be preserved internally');
+  }
+
+  const publicFiles = [
+    path.join(root, 'index.html'),
+    path.join(courseRoot, 'index.html'),
+    path.join(courseRoot, 'syllabus.html'),
+    path.join(courseRoot, 'syllabus-company-analysis.html'),
+    path.join(courseRoot, '_template', 'README.md'),
+    path.join(root, 'scripts', 'export-investment-generator-context.js'),
+    path.join(courseRoot, 'generator-context.js'),
+  ];
+  for (const filePath of publicFiles) {
+    const source = fs.readFileSync(filePath, 'utf8');
+    if (/Personal Finance|personal-finance|personal finance/i.test(source)) {
+      failures.push(`${path.relative(root, filePath).replace(/\\/g, '/')}: must not publicly expose the archived personal-finance syllabus`);
+    }
+  }
+
+  return failures;
+}
+
 const failures = [
   ...validateCourseMapContract(),
   ...validateSyllabusUsesCourseMap(),
@@ -746,6 +926,7 @@ const failures = [
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
   ...validateTermRenderer(),
+  ...validateArchivedPersonalFinanceIsNotPublic(),
 ];
 
 if (failures.length > 0) {

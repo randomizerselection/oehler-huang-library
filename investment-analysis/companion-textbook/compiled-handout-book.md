@@ -1,8 +1,10 @@
-# Investment Analysis: Compiled Handout Book
+# Investment Analysis: Company Analysis: Compiled Handout Book
 
-Each lesson handout is the primary written artifact. The textbook is a compiled collection of the 30 handouts with light front matter and unit dividers only.
+Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 30 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.
 
-Educational use only. This classroom book does not provide personal investment advice.
+Students learn a practical investing process: identify what is being bought, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
+
+Educational use only. Students make evidence-based classroom judgements, not personalised financial advice.
 
 ## Contents
 
@@ -49,12 +51,16 @@ Investment-analysis purpose, shares, share prices, exchanges, quote pages, sourc
 
 ## Lesson 1: What is investment analysis, and what is a share?
 
-**Company:** Tencent
+**Case anchor:** Tencent
 **Unit:** 1. Market foundations
 **Guiding question:** What is investment analysis, and what is a share?
+**Student hook:** A famous app company has a moving share price. What would you need to know before buying one share?
 **Core claim:** Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation.
 **Primary output:** three sentences covering investment analysis, share ownership and risk-return-price judgement
 **Formula or formula rule:** no new formula; students explain concepts in words only.
+**Analyse why:** Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share.
+**Practical investing action:** Before considering any share, explain what a share is and separate evidence-based investment analysis from short-term speculation.
+**Decision rule:** Do not consider a share just because the company is famous or the price moved; first state possible return, risk and what evidence is still missing.
 
 ### Source box
 
@@ -76,11 +82,19 @@ Record Tencent source title, URL, accessed date, company/security identifier, gr
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Investment or speculation
+### Evidence and Data Analysis
 
-Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement.
+**Case information:** Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** One corrected statement that asks for evidence about return, risk and share price.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define investment analysis.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one Tencent evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share.
+5. **Judge:** Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Asset, share and share price
 
@@ -102,12 +116,16 @@ Three-sentence foundation output defining investment analysis and a share, then 
 
 ## Lesson 2: Why do companies need a stock market?
 
-**Company:** HKEX
+**Case anchor:** HKEX
 **Unit:** 1. Market foundations
 **Guiding question:** Why do companies need a stock market?
+**Student hook:** Before any trade happens, there is a market behind it. What does that market do?
 **Core claim:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
 **Primary output:** one company-code-exchange match plus one trading-friction sentence
 **Formula or formula rule:** no new formula; students identify company, exchange, code and one trading friction accurately.
+**Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
+**Practical investing action:** Find the exchange, stock code and basic market access information before analysing a listed company.
+**Decision rule:** If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.
 
 ### Source box
 
@@ -126,11 +144,19 @@ Record HKEX source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Use HKEX examples to identify company, exchange, code, listing and trading friction.
+**Case information:** Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define stock exchange.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one HKEX evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
+5. **Judge:** Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -152,12 +178,16 @@ Company-code-exchange match and one sentence explaining why trading through a ma
 
 ## Lesson 3: What can a stock quote tell us, and what is still missing?
 
-**Company:** Alibaba
+**Case anchor:** Alibaba
 **Unit:** 1. Market foundations
 **Guiding question:** What can a stock quote tell us, and what is still missing?
+**Student hook:** A quote page looks like a dashboard. Which numbers actually help an investor?
 **Core claim:** A quote page is a dated market snapshot, not a promise of execution price or investment value.
 **Primary output:** one labelled quote extract, bid-ask spread calculation and quote-limit sentence
 **Formula or formula rule:** bid-ask spread = ask price - bid price; previous close is a read-only field for context.
+**Analyse why:** Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing.
+**Practical investing action:** Read a stock quote as a snapshot: price, date/time, percentage change and what the quote does not prove.
+**Decision rule:** A quote-page move is a prompt for investigation, not a buy or sell reason by itself.
 
 ### Source box
 
@@ -176,11 +206,19 @@ Record Alibaba source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Label a frozen Alibaba quote table and separate proved facts from missing information.
+**Case information:** Use a short Alibaba case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define quote page.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: bid-ask spread = ask price - bid price; previous close is a read-only field for context.
+3. **Explain:** Explain what one Alibaba evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing.
+5. **Judge:** Give your own evidence-based classroom verdict on Alibaba: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -202,12 +240,16 @@ Labelled quote extract, spread calculation and quote-limit sentence.
 
 ## Lesson 4: Does owning shares mean you control the company?
 
-**Company:** Xiaomi
+**Case anchor:** Xiaomi
 **Unit:** 1. Market foundations
 **Guiding question:** Does owning shares mean you control the company?
+**Student hook:** If you buy one share of a phone maker, how much power do you really get?
 **Core claim:** A share is an ownership claim, but control depends on ownership size and shareholder rights.
 **Primary output:** one ownership-percentage calculation and small-holder versus large-holder comparison
 **Formula or formula rule:** ownership % = shares owned / total shares x 100.
+**Analyse why:** Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company.
+**Practical investing action:** Check what owning one share actually gives: economic exposure, possible voting rights and limits on control.
+**Decision rule:** Do not assume that buying a share gives control over the company.
 
 ### Source box
 
@@ -225,11 +267,19 @@ Record Xiaomi source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned.
+**Case information:** Use a short Xiaomi case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define voting rights.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: ownership % = shares owned / total shares x 100.
+3. **Explain:** Explain what one Xiaomi evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company.
+5. **Judge:** Give your own evidence-based classroom verdict on Xiaomi: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -251,12 +301,16 @@ Ownership-percentage calculation and small-holder versus large-holder comparison
 
 ## Lesson 5: How can one analyst collect evidence before judging a share?
 
-**Company:** JD.com
+**Case anchor:** JD.com
 **Unit:** 1. Market foundations
 **Guiding question:** How can one analyst collect evidence before judging a share?
+**Student hook:** A headline says the share moved. Can you build an evidence file before reacting?
 **Core claim:** Useful evidence records source, date, figure, use and limitation before explaining a price movement.
 **Primary output:** one complete evidence-log row plus one limited price-movement explanation
 **Formula or formula rule:** no new formula; students use the chain information -> expectations -> buying/selling pressure -> price movement.
+**Analyse why:** Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share.
+**Practical investing action:** Build an investment evidence log before judging a share: source, date, figure, claim and limitation.
+**Decision rule:** No dated source and no limitation means the judgement is not ready.
 
 ### Source box
 
@@ -274,11 +328,19 @@ Record JD.com source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row.
+**Case information:** Use a short JD.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define evidence log.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one JD.com evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share.
+5. **Judge:** Give your own evidence-based classroom verdict on JD.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -305,12 +367,16 @@ Revenue first, then direct costs, gross margin, operating margin, cash flow and 
 
 ## Lesson 6: Does high revenue mean a company is strong?
 
-**Company:** Meituan
+**Case anchor:** Meituan
 **Unit:** 2. Financial statements
 **Guiding question:** Does high revenue mean a company is strong?
+**Student hook:** A company can sell a lot and still struggle. What is missing from revenue?
 **Core claim:** Revenue shows sales scale, not profit strength or investment quality by itself.
 **Primary output:** one revenue-growth calculation and one limitation sentence
 **Formula or formula rule:** revenue growth = (new revenue - old revenue) / old revenue x 100.
+**Analyse why:** Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong.
+**Practical investing action:** Start company analysis by checking what revenue measures and whether growth is actually useful evidence.
+**Decision rule:** High revenue alone is not strength unless margins, cash, costs and risks are considered later.
 
 ### Source box
 
@@ -328,11 +394,19 @@ Record Meituan source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read Meituan revenue by year or segment and calculate growth from the old base.
+**Case information:** Use a short Meituan case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define revenue.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: revenue growth = (new revenue - old revenue) / old revenue x 100.
+3. **Explain:** Explain what one Meituan evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong.
+5. **Judge:** Give your own evidence-based classroom verdict on Meituan: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -354,12 +428,16 @@ Revenue-growth calculation and limitation sentence.
 
 ## Lesson 7: Can sales rise while costs become a problem?
 
-**Company:** BYD
+**Case anchor:** BYD
 **Unit:** 2. Financial statements
 **Guiding question:** Can sales rise while costs become a problem?
+**Student hook:** Sales can race ahead while costs catch up. Would investors still be happy?
 **Core claim:** Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.
 **Primary output:** one gross-profit and gross-margin calculation with interpretation
 **Formula or formula rule:** gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
+**Analyse why:** Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem.
+**Practical investing action:** Check whether rising sales are being absorbed by direct costs or lower gross profit.
+**Decision rule:** Sales growth is not enough if costs rise faster or margins deteriorate.
 
 ### Source box
 
@@ -377,11 +455,19 @@ Record BYD source title, URL, publication date, accessed date, company/security 
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Use BYD revenue and cost-of-sales figures to calculate gross profit and margin.
+**Case information:** Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define cost of sales.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
+3. **Explain:** Explain what one BYD evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem.
+5. **Judge:** Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -403,12 +489,16 @@ Gross-profit and gross-margin calculation with a margin interpretation.
 
 ## Lesson 8: Which company turns sales into profit more efficiently?
 
-**Company:** CATL
+**Case anchor:** CATL
 **Unit:** 2. Financial statements
 **Guiding question:** Which company turns sales into profit more efficiently?
+**Student hook:** Two battery companies can both grow. Which one keeps more profit from sales?
 **Core claim:** Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.
 **Primary output:** one fair comparison sentence naming metric, direction and percentage-point difference
 **Formula or formula rule:** margin difference = margin A - margin B, measured in percentage points.
+**Analyse why:** Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently.
+**Practical investing action:** Compare how efficiently companies turn sales into profit by using margin evidence.
+**Decision rule:** Prefer a company only when the comparison uses the same metric, time period and source discipline.
 
 ### Source box
 
@@ -426,11 +516,19 @@ Record CATL source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Compare CATL margin data with one aligned company, period or benchmark.
+**Case information:** Use a short CATL case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define operating profit.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: margin difference = margin A - margin B, measured in percentage points.
+3. **Explain:** Explain what one CATL evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently.
+5. **Judge:** Give your own evidence-based classroom verdict on CATL: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -452,12 +550,16 @@ Fair comparison sentence naming metric, direction and percentage-point differenc
 
 ## Lesson 9: Why can a growing company still need cash?
 
-**Company:** Tesla
+**Case anchor:** Tesla
 **Unit:** 2. Financial statements
 **Guiding question:** Why can a growing company still need cash?
+**Student hook:** Growth stories sound exciting. Why might cash still be the problem?
 **Core claim:** Profit and cash flow answer different questions, and growth can still require cash investment.
 **Primary output:** one free-cash-flow calculation and profit-versus-cash explanation
 **Formula or formula rule:** free cash flow = operating cash flow - capital expenditure.
+**Analyse why:** Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash.
+**Practical investing action:** Check whether a growing company also produces or consumes cash.
+**Decision rule:** Growth funded by heavy cash needs may raise investment risk even when revenue looks strong.
 
 ### Source box
 
@@ -475,11 +577,19 @@ Record Tesla source title, URL, publication date, accessed date, company/securit
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read Tesla operating cash flow and capital expenditure from a filed extract.
+**Case information:** Use a short Tesla case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define operating cash flow.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: free cash flow = operating cash flow - capital expenditure.
+3. **Explain:** Explain what one Tesla evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash.
+5. **Judge:** Give your own evidence-based classroom verdict on Tesla: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -501,12 +611,16 @@ Free-cash-flow calculation and profit-versus-cash explanation.
 
 ## Lesson 10: What makes one strong company look stronger than another?
 
-**Company:** TSMC
+**Case anchor:** TSMC
 **Unit:** 2. Financial statements
 **Guiding question:** What makes one strong company look stronger than another?
+**Student hook:** Two excellent companies enter the comparison. What makes one look stronger?
 **Core claim:** A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.
 **Primary output:** one scale-trend-margin-cash comparison paragraph using figures from both sides
 **Formula or formula rule:** compare growth, margin and scale side by side; no single new formula.
+**Analyse why:** Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another.
+**Practical investing action:** Compare two strong companies using the same evidence categories before choosing a stronger investment case.
+**Decision rule:** Do not compare one company using revenue and another using profit unless the judgement explains the mismatch.
 
 ### Source box
 
@@ -524,11 +638,19 @@ Record TSMC source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Build a TSMC comparison table using the same metric categories for both sides.
+**Case information:** Use a short TSMC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define benchmark.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: compare growth, margin and scale side by side; no single new formula.
+3. **Explain:** Explain what one TSMC evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another.
+5. **Judge:** Give your own evidence-based classroom verdict on TSMC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -555,12 +677,16 @@ Capital gains, dividends, market value, EPS, P/E, valuation risk and the basic r
 
 ## Lesson 11: How does a share make or lose money for an investor?
 
-**Company:** Apple
+**Case anchor:** Apple
 **Unit:** 3. Returns and valuation
 **Guiding question:** How does a share make or lose money for an investor?
+**Student hook:** A share can reward or hurt an investor. Where exactly does the return come from?
 **Core claim:** Investor return depends on gain or loss relative to the purchase price, not only the money change.
 **Primary output:** gain, loss and return-percentage calculations
 **Formula or formula rule:** gain = sale price - purchase price; return % = gain / purchase price x 100.
+**Analyse why:** Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor.
+**Practical investing action:** Separate the ways a share can make or lose money: price gain, price loss and later dividend evidence.
+**Decision rule:** A past price gain does not prove a future return.
 
 ### Source box
 
@@ -578,11 +704,19 @@ Record Apple source title, URL, publication date, accessed date, company/securit
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Use an Apple frozen buy/sell price example with dates.
+**Case information:** Use a short Apple case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define capital gain.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: gain = sale price - purchase price; return % = gain / purchase price x 100.
+3. **Explain:** Explain what one Apple evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor.
+5. **Judge:** Give your own evidence-based classroom verdict on Apple: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -604,12 +738,16 @@ Gain, loss and return-percentage calculations.
 
 ## Lesson 12: Why might an investor like dividends?
 
-**Company:** HSBC
+**Case anchor:** HSBC
 **Unit:** 3. Returns and valuation
 **Guiding question:** Why might an investor like dividends?
+**Student hook:** Some investors like cash income. When does a dividend help the case?
 **Core claim:** Dividends add income, but yield and total return depend on the price paid.
 **Primary output:** one dividend-yield calculation and two-investor comparison
 **Formula or formula rule:** dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.
+**Analyse why:** Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends.
+**Practical investing action:** Add dividend evidence to the return picture and check whether income changes the judgement.
+**Decision rule:** A high dividend is not automatically safe; it must be checked against business strength and sustainability.
 
 ### Source box
 
@@ -627,11 +765,19 @@ Record HSBC source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read HSBC dividend announcement or annual-report extract and connect dividend to price paid.
+**Case information:** Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define dividend.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.
+3. **Explain:** Explain what one HSBC evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends.
+5. **Judge:** Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -653,12 +799,16 @@ Dividend-yield calculation and two-investor comparison.
 
 ## Lesson 13: How can one company be worth so much?
 
-**Company:** Nvidia
+**Case anchor:** Nvidia
 **Unit:** 3. Returns and valuation
 **Guiding question:** How can one company be worth so much?
+**Student hook:** How can one company become worth so much money?
 **Core claim:** Market capitalisation combines one-share price and share count; share price alone is not company size.
 **Primary output:** one simplified market-cap calculation and limitation sentence
 **Formula or formula rule:** market capitalisation = share price x shares outstanding.
+**Analyse why:** Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much.
+**Practical investing action:** Use market capitalisation to see how much value investors already place on one company.
+**Decision rule:** A very valuable company still needs evidence that future expectations are reasonable.
 
 ### Source box
 
@@ -676,11 +826,19 @@ Record Nvidia source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Use Nvidia share price and shares outstanding from one frozen source.
+**Case information:** Use a short Nvidia case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define market capitalisation.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: market capitalisation = share price x shares outstanding.
+3. **Explain:** Explain what one Nvidia evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much.
+5. **Judge:** Give your own evidence-based classroom verdict on Nvidia: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -702,12 +860,16 @@ Simplified market-cap calculation and limitation sentence.
 
 ## Lesson 14: When do investors pay a high price for profit?
 
-**Company:** Microsoft
+**Case anchor:** Microsoft
 **Unit:** 3. Returns and valuation
 **Guiding question:** When do investors pay a high price for profit?
+**Student hook:** Would you pay a high price for each dollar of profit?
 **Core claim:** A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.
 **Primary output:** one P/E interpretation giving both optimism and risk as possible meanings
 **Formula or formula rule:** EPS = net profit / shares; P/E = share price / EPS.
+**Analyse why:** Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit.
+**Practical investing action:** Use EPS and P/E to ask how much investors pay for each unit of profit.
+**Decision rule:** A high P/E may be justified or dangerous; it depends on growth, quality and risk evidence.
 
 ### Source box
 
@@ -725,11 +887,19 @@ Record Microsoft source title, URL, publication date, accessed date, company/sec
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Calculate or read Microsoft EPS and P/E from a frozen source.
+**Case information:** Use a short Microsoft case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define EPS.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: EPS = net profit / shares; P/E = share price / EPS.
+3. **Explain:** Explain what one Microsoft evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit.
+5. **Judge:** Give your own evidence-based classroom verdict on Microsoft: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -751,12 +921,16 @@ P/E interpretation giving both optimism and risk as possible meanings.
 
 ## Lesson 15: Can a good company still be too expensive?
 
-**Company:** Toyota
+**Case anchor:** Toyota
 **Unit:** 3. Returns and valuation
 **Guiding question:** Can a good company still be too expensive?
+**Student hook:** Can a company be good but still not worth buying today?
 **Core claim:** A good company only becomes an attractive investment when quality is judged with price and risk.
 **Primary output:** one two-point valuation answer linking quality, possible return, price paid and risk
 **Formula or formula rule:** compare P/E, growth and risk evidence; no new calculation.
+**Analyse why:** Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive.
+**Practical investing action:** Test whether a good company may still be unattractive because the price is too high.
+**Decision rule:** Business quality and investment attractiveness are not the same thing.
 
 ### Source box
 
@@ -774,11 +948,19 @@ Record Toyota source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read Toyota growth, profitability and P/E evidence and classify what each can prove.
+**Case information:** Use a short Toyota case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define cheap or expensive.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: compare P/E, growth and risk evidence; no new calculation.
+3. **Explain:** Explain what one Toyota evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive.
+5. **Judge:** Give your own evidence-based classroom verdict on Toyota: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -805,12 +987,16 @@ Company, sector, regulation, currency, ETF/index-fund and concentration risks.
 
 ## Lesson 16: What could hurt one familiar company?
 
-**Company:** Starbucks
+**Case anchor:** Starbucks
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** What could hurt one familiar company?
+**Student hook:** A familiar brand feels safe. What could still go wrong?
 **Core claim:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
 **Primary output:** one risk to future revenue/profit to price-effect chain
 **Formula or formula rule:** no new formula; build a risk-evidence-effect chain.
+**Analyse why:** Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company.
+**Practical investing action:** List the company-specific risks that could damage future returns even when the brand is familiar.
+**Decision rule:** Familiar products do not remove business risk.
 
 ### Source box
 
@@ -828,11 +1014,19 @@ Record Starbucks source title, URL, publication date, accessed date, company/sec
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Use Starbucks store, demand or margin evidence to identify one company-specific risk.
+**Case information:** Use a short Starbucks case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define company-specific risk.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one Starbucks evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company.
+5. **Judge:** Give your own evidence-based classroom verdict on Starbucks: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -854,12 +1048,16 @@ Risk -> future revenue/profit -> price effect chain.
 
 ## Lesson 17: How can changing tastes affect a sportswear company?
 
-**Company:** Li Ning
+**Case anchor:** Li Ning
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can changing tastes affect a sportswear company?
+**Student hook:** Trends change fast. How can fashion taste become investment risk?
 **Core claim:** The same consumer trend can help one company and hurt another within a sector.
 **Primary output:** one explanation of how the same trend can help one company and hurt another
 **Formula or formula rule:** market share = company sales / sector sales x 100, if suitable data is available.
+**Analyse why:** Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company.
+**Practical investing action:** Check whether changing consumer tastes or sector conditions could weaken the company case.
+**Decision rule:** A popular brand today may not stay popular enough to justify the price.
 
 ### Source box
 
@@ -877,11 +1075,19 @@ Record Li Ning source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Compare Li Ning sales trend with competitor or sector evidence.
+**Case information:** Use a short Li Ning case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define sector.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: market share = company sales / sector sales x 100, if suitable data is available.
+3. **Explain:** Explain what one Li Ning evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company.
+5. **Judge:** Give your own evidence-based classroom verdict on Li Ning: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -903,12 +1109,16 @@ Explanation of how the same trend can help one company and hurt another.
 
 ## Lesson 18: How can government rules affect future profit?
 
-**Company:** Ping An
+**Case anchor:** Ping An
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can government rules affect future profit?
+**Student hook:** A rule change can rewrite a profit story. What should investors check?
 **Core claim:** Regulation can change costs, revenue limits, risk profile and investor expectations.
 **Primary output:** one rule-change classification with future-profit or price link
 **Formula or formula rule:** no new formula; classify possible rule changes by effect.
+**Analyse why:** Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit.
+**Practical investing action:** Identify how rules, capital requirements or government action could change future profit.
+**Decision rule:** Regulation is not background noise; it can change risk and valuation.
 
 ### Source box
 
@@ -926,11 +1136,19 @@ Record Ping An source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Classify a Ping An report extract or regulatory note by likely effect.
+**Case information:** Use a short Ping An case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define regulation.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one Ping An evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit.
+5. **Judge:** Give your own evidence-based classroom verdict on Ping An: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -952,12 +1170,16 @@ Rule-change classification and future-profit or price link.
 
 ## Lesson 19: Why can exchange rates matter to shareholders?
 
-**Company:** Samsung
+**Case anchor:** Samsung
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** Why can exchange rates matter to shareholders?
+**Student hook:** A company can perform well, but currency moves can change the result.
 **Core claim:** Exchange rates can create measurement and return risk for global companies and shareholders.
 **Primary output:** one exchange-rate percentage-change calculation plus investor-risk explanation
 **Formula or formula rule:** exchange-rate change % = (new rate - old rate) / old rate x 100.
+**Analyse why:** Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders.
+**Practical investing action:** Check whether exchange rates could affect reported profit, dividends or shareholder return.
+**Decision rule:** Foreign revenue or listing currency can change the investment result even if operations look stable.
 
 ### Source box
 
@@ -975,11 +1197,19 @@ Record Samsung source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change.
+**Case information:** Use a short Samsung case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define exchange rate.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: exchange-rate change % = (new rate - old rate) / old rate x 100.
+3. **Explain:** Explain what one Samsung evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders.
+5. **Judge:** Give your own evidence-based classroom verdict on Samsung: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1001,12 +1231,16 @@ Exchange-rate percentage change plus investor-risk explanation.
 
 ## Lesson 20: How can one fund hold many companies?
 
-**Company:** ChinaAMC CSI 300 ETF
+**Case anchor:** ChinaAMC CSI 300 ETF
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can one fund hold many companies?
+**Student hook:** Instead of choosing one company, what happens if you buy a basket?
 **Core claim:** Diversification reduces company-specific risk but does not remove market, sector or fund risks.
 **Primary output:** one ETF-versus-single-share comparison with weight, risk reduced and risk remaining
 **Formula or formula rule:** portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.
+**Analyse why:** Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies.
+**Practical investing action:** Use an ETF factsheet to see how one fund spreads exposure across many companies.
+**Decision rule:** Diversification reduces single-company risk but does not remove market risk, fees or concentration.
 
 ### Source box
 
@@ -1025,11 +1259,19 @@ Record ChinaAMC CSI 300 ETF source title, URL, publication date, accessed date, 
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.
+**Case information:** Use a short ChinaAMC CSI 300 ETF case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define ETF.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.
+3. **Explain:** Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies.
+5. **Judge:** Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1056,12 +1298,16 @@ Platform, manufacturing, financial, consumer-brand and global comparison cases.
 
 ## Lesson 21: What makes a platform company attractive or risky?
 
-**Company:** Tencent
+**Case anchor:** Tencent
 **Unit:** 5. Sector case labs
 **Guiding question:** What makes a platform company attractive or risky?
+**Student hook:** Platform companies look powerful. What makes that power durable or risky?
 **Core claim:** Platform network effects can be attractive, but price, competition and regulation still matter.
 **Primary output:** one attraction-risk-price triangle with one evidence point in each corner
 **Formula or formula rule:** combine growth, margin, P/E and risk notes; no single new formula.
+**Analyse why:** Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky.
+**Practical investing action:** Judge whether a platform company has network effects, user strength and risk that justify attention.
+**Decision rule:** Platform size is useful only if it links to monetisation, competition and regulation evidence.
 
 ### Source box
 
@@ -1079,11 +1325,19 @@ Record Tencent source title, URL, publication date, accessed date, company/secur
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Combine Tencent revenue mix, margin evidence and one dated risk note.
+**Case information:** Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define platform business.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: combine growth, margin, P/E and risk notes; no single new formula.
+3. **Explain:** Explain what one Tencent evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky.
+5. **Judge:** Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1105,12 +1359,16 @@ Attraction-risk-price triangle with one evidence point in each corner.
 
 ## Lesson 22: Is BYD attractive because it is strong, or because the price is fair?
 
-**Company:** BYD
+**Case anchor:** BYD
 **Unit:** 5. Sector case labs
 **Guiding question:** Is BYD attractive because it is strong, or because the price is fair?
+**Student hook:** Strength is not the same as a fair price. Which matters more for investors?
 **Core claim:** Operational strength must be separated from fair price and manufacturing-cycle risk.
 **Primary output:** one strength-price-risk evidence matrix separating business strength from investment attractiveness
 **Formula or formula rule:** compare margin and growth; then add price and risk evidence.
+**Analyse why:** Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair.
+**Practical investing action:** Separate BYD business strength from whether the share price is fair.
+**Decision rule:** A strong company can still be a weak investment if expectations and price are too high.
 
 ### Source box
 
@@ -1128,11 +1386,19 @@ Record BYD source title, URL, publication date, accessed date, company/security 
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence.
+**Case information:** Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define vertical integration.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: compare margin and growth; then add price and risk evidence.
+3. **Explain:** Explain what one BYD evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair.
+5. **Judge:** Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1154,12 +1420,16 @@ Strength-price-risk evidence matrix separating business strength from investment
 
 ## Lesson 23: Why is analysing a bank different from analysing a tech company?
 
-**Company:** HSBC
+**Case anchor:** HSBC
 **Unit:** 5. Sector case labs
 **Guiding question:** Why is analysing a bank different from analysing a tech company?
+**Student hook:** Banks are different machines. What makes their evidence different?
 **Core claim:** Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.
 **Primary output:** one bank-evidence exception note explaining why an ordinary metric is insufficient
 **Formula or formula rule:** basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.
+**Analyse why:** Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company.
+**Practical investing action:** Analyse a bank with bank-specific evidence rather than treating it like a normal tech or consumer company.
+**Decision rule:** Banks require attention to capital, loan risk, interest rates and regulation.
 
 ### Source box
 
@@ -1177,11 +1447,19 @@ Record HSBC source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read HSBC results summary and identify one bank-specific evidence item.
+**Case information:** Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define interest margin.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.
+3. **Explain:** Explain what one HSBC evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company.
+5. **Judge:** Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1203,12 +1481,16 @@ Bank-evidence exception note explaining why one ordinary company metric is insuf
 
 ## Lesson 24: How much is a strong brand worth to investors?
 
-**Company:** Anta Sports
+**Case anchor:** Anta Sports
 **Unit:** 5. Sector case labs
 **Guiding question:** How much is a strong brand worth to investors?
+**Student hook:** A brand can make customers pay more. Is that enough for investors?
 **Core claim:** Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.
 **Primary output:** one brand-to-margin evidence map with an inventory or demand limitation
 **Formula or formula rule:** compare revenue growth and margin; no new formula.
+**Analyse why:** Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors.
+**Practical investing action:** Use brand evidence to test whether pricing power and customer loyalty support investment quality.
+**Decision rule:** A strong brand matters only if it protects revenue, margin or cash flow.
 
 ### Source box
 
@@ -1226,11 +1508,19 @@ Record Anta Sports source title, URL, publication date, accessed date, company/s
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence.
+**Case information:** Use a short Anta Sports case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define brand equity.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one Anta Sports evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors.
+5. **Judge:** Give your own evidence-based classroom verdict on Anta Sports: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1252,12 +1542,16 @@ Brand-to-margin evidence map plus one limitation linked to inventory or demand.
 
 ## Lesson 25: How can we compare a global brand with a China/HK brand?
 
-**Company:** Nike
+**Case anchor:** Nike
 **Unit:** 5. Sector case labs
 **Guiding question:** How can we compare a global brand with a China/HK brand?
+**Student hook:** Global brand or China/HK brand: how do we compare fairly?
 **Core claim:** Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.
 **Primary output:** one comparable-company alignment row plus fair comparison paragraph
 **Formula or formula rule:** compare two companies using the same metric set.
+**Analyse why:** Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand.
+**Practical investing action:** Compare a global brand and a China/HK brand using the same quality, price and risk criteria.
+**Decision rule:** A fair comparison needs common metrics and clear caveats about market differences.
 
 ### Source box
 
@@ -1275,11 +1569,19 @@ Record Nike source title, URL, publication date, accessed date, company/security
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Align Nike data with one China/HK brand using the same metric set.
+**Case information:** Use a short Nike case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define multinational.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: compare two companies using the same metric set.
+3. **Explain:** Explain what one Nike evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand.
+5. **Judge:** Give your own evidence-based classroom verdict on Nike: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1306,12 +1608,16 @@ Recovery, operating leverage, app monetisation, debt risk and final quality-pric
 
 ## Lesson 26: Can a restaurant company recover after a difficult period?
 
-**Company:** Haidilao
+**Case anchor:** Haidilao
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Can a restaurant company recover after a difficult period?
+**Student hook:** A restaurant recovers after a difficult period. Is recovery enough?
 **Core claim:** Recovery judgement needs enough evidence across operations, stores, revenue and profitability.
 **Primary output:** one red/amber/green recovery verdict explaining the evidence gap
 **Formula or formula rule:** revenue per store = total revenue / number of stores, if data allows.
+**Analyse why:** Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period.
+**Practical investing action:** Test whether a recovery story is supported by revenue, margin, cash or store evidence.
+**Decision rule:** A rebound from a difficult period is not enough if quality and price are not convincing.
 
 ### Source box
 
@@ -1329,11 +1635,19 @@ Record Haidilao source title, URL, publication date, accessed date, company/secu
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Compare Haidilao store count, revenue or operating recovery evidence across periods.
+**Case information:** Use a short Haidilao case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define turnaround.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: revenue per store = total revenue / number of stores, if data allows.
+3. **Explain:** Explain what one Haidilao evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period.
+5. **Judge:** Give your own evidence-based classroom verdict on Haidilao: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1355,12 +1669,16 @@ Red/amber/green recovery verdict explaining whether the claim needs more evidenc
 
 ## Lesson 27: Why can travel companies rise and fall with the economy?
 
-**Company:** Trip.com
+**Case anchor:** Trip.com
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Why can travel companies rise and fall with the economy?
+**Student hook:** Travel demand can surge or disappear. How does that change investment risk?
 **Core claim:** Cyclical demand can make operating profit move faster than revenue through operating leverage.
 **Primary output:** one operating-leverage chain diagram linking demand, revenue, operating profit and margin
 **Formula or formula rule:** operating margin = operating profit / revenue x 100.
+**Analyse why:** Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy.
+**Practical investing action:** Check how economic cycles and travel demand could make profit rise or fall faster than revenue.
+**Decision rule:** Cyclical upside comes with downside risk when demand weakens.
 
 ### Source box
 
@@ -1378,11 +1696,19 @@ Record Trip.com source title, URL, publication date, accessed date, company/secu
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Compare Trip.com revenue and operating profit before and after a travel-cycle shift.
+**Case information:** Use a short Trip.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define cyclical demand.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: operating margin = operating profit / revenue x 100.
+3. **Explain:** Explain what one Trip.com evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy.
+5. **Judge:** Give your own evidence-based classroom verdict on Trip.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1404,12 +1730,16 @@ Operating-leverage chain diagram linking travel demand, revenue, operating profi
 
 ## Lesson 28: How does a free app turn users into revenue?
 
-**Company:** Kuaishou
+**Case anchor:** Kuaishou
 **Unit:** 6. Synthesis case labs
 **Guiding question:** How does a free app turn users into revenue?
+**Student hook:** Millions of users are impressive. How does that become money?
 **Core claim:** User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.
 **Primary output:** one monetisation ladder plus ARPU calculation and limitation sentence
 **Formula or formula rule:** ARPU = revenue / active users.
+**Analyse why:** Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue.
+**Practical investing action:** Trace how users become revenue and whether ARPU evidence supports the investment case.
+**Decision rule:** More users are not enough unless monetisation, cost and profit evidence improve.
 
 ### Source box
 
@@ -1427,11 +1757,19 @@ Record Kuaishou source title, URL, publication date, accessed date, company/secu
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read Kuaishou active-user and revenue data from one reporting period.
+**Case information:** Use a short Kuaishou case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define active users.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: ARPU = revenue / active users.
+3. **Explain:** Explain what one Kuaishou evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue.
+5. **Judge:** Give your own evidence-based classroom verdict on Kuaishou: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1453,12 +1791,16 @@ Monetisation ladder plus ARPU calculation and limitation sentence about users, r
 
 ## Lesson 29: When does borrowing become a risk for shareholders?
 
-**Company:** Lenovo
+**Case anchor:** Lenovo
 **Unit:** 6. Synthesis case labs
 **Guiding question:** When does borrowing become a risk for shareholders?
+**Student hook:** Borrowing can power growth or increase danger. Where is the line?
 **Core claim:** Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.
 **Primary output:** one leverage benefit-risk note with a simple ratio only if figures are clear
 **Formula or formula rule:** debt-to-equity = total debt / equity, if the data is suitable.
+**Analyse why:** Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders.
+**Practical investing action:** Check whether borrowing supports growth or creates shareholder risk through fixed obligations.
+**Decision rule:** Debt can help returns but can also magnify losses and financial stress.
 
 ### Source box
 
@@ -1476,11 +1818,19 @@ Record Lenovo source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.
+**Case information:** Use a short Lenovo case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define debt.
+2. **Calculate/Interpret:** Use or interpret the lesson formula: debt-to-equity = total debt / equity, if the data is suitable.
+3. **Explain:** Explain what one Lenovo evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders.
+5. **Judge:** Give your own evidence-based classroom verdict on Lenovo: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
@@ -1502,12 +1852,16 @@ Leverage benefit-risk note with a simple ratio only if figures are clear.
 
 ## Lesson 30: Can a steady business still be a bad investment at the wrong price?
 
-**Company:** Costco
+**Case anchor:** Costco
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Can a steady business still be a bad investment at the wrong price?
+**Student hook:** A steady business feels safe. Could the price still make it a bad investment?
 **Core claim:** A quality defensive business can still be a poor investment if the price already assumes too much good news.
-**Primary output:** one final quality-price-risk memo using dated evidence without personal advice
+**Primary output:** one final quality-price-risk memo using dated evidence with dated evidence and caveats
 **Formula or formula rule:** synthesis of growth, margin, P/E and risk; no new formula.
+**Analyse why:** Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price.
+**Practical investing action:** Combine business quality, possible return, price paid, risk and alternatives into one final investment memo.
+**Decision rule:** Never buy only because a company is high quality; price and risk must still be judged.
 
 ### Source box
 
@@ -1525,17 +1879,25 @@ Record Costco source title, URL, publication date, accessed date, company/securi
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
-### Company evidence
+### Evidence and Data Analysis
 
-Combine Costco growth, margin, valuation and risk evidence from dated sources.
+**Case information:** Use a short Costco case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
 
-**Expected student work:** A selected figure, table entry, graph point or source note with a limitation.
+**Questions:**
+
+1. **Identify/Define:** Identify the source date and define defensive business.
+2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
+3. **Explain:** Explain what one Costco evidence point shows and one thing it cannot prove.
+4. **Analyse why:** Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price.
+5. **Judge:** Give your own evidence-based classroom verdict on Costco: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+
+**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
 
 ### Calculation or judgement task
 
-Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice.
+Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives evidence-based classroom judgement.
 
-**Expected student work:** one final quality-price-risk memo using dated evidence without personal advice
+**Expected student work:** one final quality-price-risk memo using dated evidence with dated evidence and caveats
 
 ### Misconception check
 
@@ -1547,4 +1909,4 @@ A steady business is automatically safe or a good investment.
 
 Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice.
 
-**Expected student work:** one final quality-price-risk memo using dated evidence without personal advice
+**Expected student work:** one final quality-price-risk memo using dated evidence with dated evidence and caveats

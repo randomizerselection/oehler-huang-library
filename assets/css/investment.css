@@ -608,6 +608,61 @@ img {
   line-height: 1.32;
 }
 
+.investment-lesson-hook {
+  margin: 0;
+  color: rgba(247, 251, 248, 0.94);
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.38;
+}
+
+.investment-simple-flow {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: simple-step;
+}
+
+.investment-simple-flow li {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid rgba(79, 210, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(4, 13, 16, 0.24);
+}
+
+.investment-simple-flow span {
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.investment-simple-flow p {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.investment-lesson-quick-facts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--inv-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .investment-lesson-focus,
 .investment-lesson-formula,
 .investment-lesson-evidence,
@@ -663,11 +718,75 @@ img {
   line-height: 1.45;
 }
 
+.investment-lesson-generator p,
+.investment-lesson-generator ol {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.investment-lesson-generator ol {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+}
+
+.investment-lesson-action {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 209, 102, 0.32);
+  border-left: 3px solid var(--inv-amber);
+  border-radius: 8px;
+  background: rgba(255, 209, 102, 0.08);
+}
+
+.investment-lesson-action p,
+.investment-lesson-action ul {
+  margin: 0;
+  color: rgba(247, 251, 248, 0.84);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.investment-lesson-action ul {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+}
+
+.investment-lesson-details {
+  display: grid;
+  gap: 10px;
+  margin-top: 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+}
+
+.investment-lesson-details summary {
+  cursor: pointer;
+  color: var(--inv-cyan);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.investment-lesson-details[open] {
+  gap: 12px;
+}
+
+.investment-lesson-details[open] summary {
+  margin-bottom: 10px;
+}
+
 .investment-lesson-terms strong,
 .investment-lesson-formula strong,
 .investment-lesson-evidence strong,
 .investment-lesson-check strong,
-.investment-lesson-generator strong {
+.investment-lesson-generator strong,
+.investment-lesson-action strong,
+.investment-lesson-quick-facts strong {
   color: var(--inv-ink);
   font-weight: 600;
 }

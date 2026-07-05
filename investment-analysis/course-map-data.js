@@ -1,9 +1,10 @@
 (function attachInvestmentCourseMap(global) {
   const courseMap = {
-  "version": 1,
-  "courseTitle": "Investment Analysis",
-  "mapTitle": "30-Lesson Course Map",
-  "writtenArtifactRule": "Each lesson handout is the primary written artifact. The textbook is a compiled collection of the 30 handouts with light front matter and unit dividers only.",
+  "version": 4,
+  "syllabusKey": "company-analysis",
+  "courseTitle": "Investment Analysis: Company Analysis",
+  "mapTitle": "Standard 30-Lesson Company Analysis Course Map",
+  "writtenArtifactRule": "Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 30 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.",
   "handoutContract": [
     {
       "key": "sourceBox",
@@ -17,8 +18,8 @@
     },
     {
       "key": "companyEvidence",
-      "title": "Company evidence",
-      "requirement": "The dated company evidence task named in the course map."
+      "title": "Evidence and Data Analysis",
+      "requirement": "A Section A-style worksheet section with short case information followed by identify, calculate or interpret, explain, analyse why and evidence-based judgement questions."
     },
     {
       "key": "calculationOrJudgement",
@@ -33,7 +34,7 @@
     {
       "key": "individualOutput",
       "title": "Individual written output",
-      "requirement": "The student output that can be assessed in class or in an exam."
+      "requirement": "The student evidence-based judgement or verdict that can be assessed in class or in an exam."
     }
   ],
   "textbookAssembly": {
@@ -83,11 +84,15 @@
       }
     ],
     "rules": [
-      "Treat course-map-data.js as the single source of lesson scope.",
-      "Run sourceFitAudit and caseReview before choosing sources or replacing a company anchor.",
-      "Build the deck, handout, quiz and exam item from the same lesson context so the primary output, misconception and exit ticket stay aligned.",
+      "Treat course-map-data.js as the standard company-analysis lesson scope.",
+      "Use the simple lesson structure for student-facing decks and syllabus cards: Hook, Key idea, Try it, Decide.",
+      "Build every lesson as cumulative knowledge: retrieval practice, new knowledge, evidence and data analysis, analyse-why reasoning and student judgement.",
+      "Use worksheet.evidenceAndDataAnalysis as the source for the lesson worksheet stimulus and Section A-style questions.",
+      "Make every lesson actionable: students must finish by choosing a justified next investment action such as consider, watch, avoid, compare with another choice or gather more evidence.",
+      "Use the investmentWorkflow steps as the course method: know what is being bought, check fit, read business evidence, compare return-risk-price and choose the next action.",
+      "Students may make evidence-based classroom judgements such as attractive, risky, too expensive, incomplete evidence, watch, avoid or consider when justified with dated evidence and caveats.",
       "Freeze source dates and figures before generating classroom materials; do not depend on live prices.",
-      "Do not turn a lesson into personal investment advice, stock tips, market timing or short-term speculation."
+      "Do not turn a lesson into personalised investment advice, stock tips, market timing or unsupported recommendations."
     ]
   },
   "units": [
@@ -209,13 +214,13 @@
       "guidingQuestion": "What is investment analysis, and what is a share?",
       "guidingQuestionZh": "什么是投资分析，什么是股票？",
       "handoutMaterial": "Foundation starter sheet on investment versus speculation, investment analysis, asset, share, possible return, risk and share price.",
-      "formativeAssessment": "Hinge checks: investment or speculation; asset, share or not; risk-return yes/no; share-price evidence limits.",
+      "formativeAssessment": "Hinge checks: investment or speculation; asset, share or not; risk-return yes/no; share-price evidence limits. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete five foundation statements: investment versus speculation, investment analysis, share ownership, risk-return and share price.",
       "sequenceRole": "Course entry lesson for students with no prior investment study.",
       "retrievalBase": "Everyday experience with companies, products, prices and risk in normal life.",
       "newKnowledge": "Investment versus short-term speculation, investment analysis, asset, share, possible return, risk, risk-return trade-off and share price.",
       "evidenceTask": "Use the frozen Tencent 0700.HK price graph only as a hook for the share-price concept and the investment-versus-speculation boundary.",
-      "avoidOverlap": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or personal buy/sell advice yet.",
+      "avoidOverlap": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet.",
       "misconception": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
       "studentOutput": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.",
       "futureReuse": "Creates the first vocabulary base for every later lesson: evidence, investment analysis, asset, share, return, risk and share price.",
@@ -275,8 +280,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Investment or speculation",
-          "task": "Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -296,14 +301,14 @@
       ],
       "examPattern": {
         "checkpoint": 1,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Tencent extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: What is investment analysis, and what is a share?",
-        "mustAssess": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: What is investment analysis, and what is a share?",
+        "mustAssess": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.",
-        "newKnowledge": "investment analysis studies evidence, possible return, risk and price; it is not short-term speculation, tips or personal buy/sell advice; an asset is something owned that may have value; a share is one ownership unit; possible return must be judged with risk; share price means one share at one time.",
+        "newKnowledge": "investment analysis studies evidence, possible return, risk and price; it is not short-term speculation, tips or unsupported personal buy/sell advice; an asset is something owned that may have value; a share is one ownership unit; possible return must be judged with risk; share price means one share at one time.",
         "avoidOverlap": "do not teach quote-page mechanics, percentage change, market capitalisation or valuation ratios yet.",
         "misconception": "investment analysis means learning how to trade on short-term price jumps, guessing what to buy, chasing tips, treating fame as safety, or assuming possible return is guaranteed.",
         "evidenceTask": "use Tencent's frozen 0700.HK price graph as a hook for the share-price definition and the investment-versus-speculation boundary.",
@@ -337,7 +342,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -349,16 +354,20 @@
         "marks": 4,
         "stimulusType": "short company evidence extract",
         "calculationRequirement": "No new calculation; assess concept definitions and simple judgement language.",
-        "judgementRequirement": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition.",
-        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or personal buy/sell advice yet."
+        "judgementRequirement": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A famous app company has a moving share price. What would you need to know before buying one share?",
           "Hook: use Tencent's frozen share-price graph to ask what makes buying a share investment analysis rather than short-term speculation.",
           "Retrieval: activate everyday ideas about owning something valuable, hoping for a gain, and facing uncertainty.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Tencent evidence.",
           "Teach: students define investment analysis, asset, share, possible return, risk and share price.",
           "Evidence practice: use the Tencent price line as a share-price example while separating evidence-based analysis from short-term speculation.",
           "Output rehearsal: students build one careful analyst sentence using evidence, possible return, risk and share price.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Tencent.",
+          "Investment action: students apply the decision rule - Do not consider a share just because the company is famous or the price moved; first state possible return, risk and what evidence is still missing.",
           "Exit ticket: students complete five foundation statements aligned to the visible objectives."
         ],
         "handoutBlocks": [
@@ -376,9 +385,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Investment or speculation",
-            "prompt": "Classify investment-analysis statements versus speculative or weak statements, then correct one weak statement.",
-            "expectedStudentWork": "One corrected statement that asks for evidence about return, risk and share price."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -400,14 +409,121 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a short classroom scenario; assess the five Lesson 1 foundation concepts."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Tencent."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Tencent evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Tencent evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Tencent?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Tencent case.",
+          "pairs": [
+            {
+              "term": "investment analysis",
+              "match": "using evidence to study possible return, risk and price before making a judgement."
+            },
+            {
+              "term": "asset",
+              "match": "something owned that may have value."
+            },
+            {
+              "term": "share",
+              "match": "one unit of ownership in a company."
+            },
+            {
+              "term": "possible return",
+              "match": "the gain an investor hopes to earn from an investment."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Tencent evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define investment analysis."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Tencent evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "First investment-analysis action",
+        "studentAction": "Before considering any share, explain what a share is and separate evidence-based investment analysis from short-term speculation.",
+        "decisionRule": "Do not consider a share just because the company is famous or the price moved; first state possible return, risk and what evidence is still missing.",
+        "portfolioQuestion": "Ask whether the hypothetical investor could accept share-price risk before any company judgement.",
+        "classroomOutput": "Before I would consider Tencent, I need a dated source, a clear share-price snapshot and one risk-return sentence."
+      },
+      "studentHook": "A famous app company has a moving share price. What would you need to know before buying one share?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A famous app company has a moving share price. What would you need to know before buying one share?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation."
+        },
+        {
+          "label": "Try it",
+          "text": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
+        },
+        {
+          "label": "Decide",
+          "text": "Before I would consider Tencent, I need a dated source, a clear share-price snapshot and one risk-return sentence."
+        }
+      ]
     },
     {
       "lesson": 2,
@@ -415,7 +531,7 @@
       "guidingQuestion": "Why do companies need a stock market?",
       "guidingQuestionZh": "公司为什么需要股票市场？",
       "handoutMaterial": "Exchange lookup table, company-code-exchange matching task and a simple trading-friction prompt.",
-      "formativeAssessment": "Hinge question: choose the correct role of a stock exchange in one trading scenario.",
+      "formativeAssessment": "Hinge question: choose the correct role of a stock exchange in one trading scenario. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one company-code-exchange row and name one trading friction.",
       "sequenceRole": "Market infrastructure bridge between one share and real trading.",
       "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
@@ -466,8 +582,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use HKEX examples to identify company, exchange, code, listing and trading friction."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define stock exchange. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one HKEX evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market. 5. Judge: Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -487,10 +603,10 @@
       ],
       "examPattern": {
         "checkpoint": 1,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen HKEX extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why do companies need a stock market?",
-        "mustAssess": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why do companies need a stock market?",
+        "mustAssess": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
@@ -528,7 +644,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -540,16 +656,20 @@
         "marks": 4,
         "stimulusType": "exchange or listing extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.",
-        "mustAvoid": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3."
+        "judgementRequirement": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Before any trade happens, there is a market behind it. What does that market do?",
           "Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new HKEX evidence.",
           "Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
           "Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.",
           "Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.",
+          "Analyse why: students build a data -> concept -> investor implication chain for HKEX.",
+          "Investment action: students apply the decision rule - If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.",
           "Exit ticket: students submit Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
         ],
         "handoutBlocks": [
@@ -567,9 +687,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use HKEX examples to identify company, exchange, code, listing and trading friction.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define stock exchange. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one HKEX evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market. 5. Judge: Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -591,14 +711,121 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Identify and explain using a exchange or listing extract; assess one company-code-exchange match plus one trading-friction sentence."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for HKEX."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using HKEX evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Every market purchase gives new money to the company.",
+          "answer": "No",
+          "explanation": "Correct the misconception using HKEX evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about HKEX?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the HKEX case.",
+          "pairs": [
+            {
+              "term": "stock exchange",
+              "match": "a regulated market where listed securities can be bought and sold."
+            },
+            {
+              "term": "listing",
+              "match": "permission for a company's shares to trade on an exchange."
+            },
+            {
+              "term": "stock code",
+              "match": "the short market identifier used to find a listed security."
+            },
+            {
+              "term": "liquidity",
+              "match": "how easily an asset can be bought or sold without a large price change."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using HKEX evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define stock exchange."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one HKEX evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Market access action",
+        "studentAction": "Find the exchange, stock code and basic market access information before analysing a listed company.",
+        "decisionRule": "If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.",
+        "portfolioQuestion": "Ask whether the investor understands where and how the security trades before comparing returns.",
+        "classroomOutput": "I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Before any trade happens, there is a market behind it. What does that market do?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Before any trade happens, there is a market behind it. What does that market do?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company."
+        },
+        {
+          "label": "Try it",
+          "text": "one company-code-exchange match plus one trading-friction sentence"
+        },
+        {
+          "label": "Decide",
+          "text": "I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 3,
@@ -606,7 +833,7 @@
       "guidingQuestion": "What can a stock quote tell us, and what is still missing?",
       "guidingQuestionZh": "股票报价能告诉我们什么，又缺少什么？",
       "handoutMaterial": "Annotated frozen quote page, bid/ask label task, read-only previous-close field, spread calculation box and quote-limit sentence frame.",
-      "formativeAssessment": "Live label check: students identify bid, ask, volume and the date of the frozen quote.",
+      "formativeAssessment": "Live label check: students identify bid, ask, volume and the date of the frozen quote. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate one bid-ask spread and write what the quote page cannot promise.",
       "sequenceRole": "Market-data reading lesson before ownership and financial evidence deepen.",
       "retrievalBase": "Exchange, listing, code, liquidity and trading friction from Lesson 2.",
@@ -657,8 +884,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Label a frozen Alibaba quote table and separate proved facts from missing information."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Alibaba case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define quote page. 2. Calculate/Interpret: Use or interpret the lesson formula: bid-ask spread = ask price - bid price; previous close is a read-only field for context. 3. Explain: Explain what one Alibaba evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing. 5. Judge: Give your own evidence-based classroom verdict on Alibaba: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -678,10 +905,10 @@
       ],
       "examPattern": {
         "checkpoint": 1,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Alibaba extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: What can a stock quote tell us, and what is still missing?",
-        "mustAssess": "Labelled quote extract, spread calculation and quote-limit sentence."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: What can a stock quote tell us, and what is still missing?",
+        "mustAssess": "Labelled quote extract, spread calculation and quote-limit sentence. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 2 exchange, listing, stock code, liquidity and trading friction.",
@@ -719,7 +946,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -731,16 +958,20 @@
         "marks": 4,
         "stimulusType": "frozen quote page",
         "calculationRequirement": "bid-ask spread = ask price - bid price; previous close is a read-only field for context.",
-        "judgementRequirement": "Labelled quote extract, spread calculation and quote-limit sentence.",
-        "mustAvoid": "Do not make the quote page a valuation lesson."
+        "judgementRequirement": "Labelled quote extract, spread calculation and quote-limit sentence. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not make the quote page a valuation lesson. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A quote page looks like a dashboard. Which numbers actually help an investor?",
           "Hook: start with Alibaba and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 2 exchange, listing, stock code, liquidity and trading friction.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Alibaba evidence.",
           "Teach: make students write the core claim: A quote page is a dated market snapshot, not a promise of execution price or investment value.",
           "Evidence practice: Label a frozen Alibaba quote table and separate proved facts from missing information.",
           "Output rehearsal: students build one labelled quote extract, bid-ask spread calculation and quote-limit sentence.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Alibaba.",
+          "Investment action: students apply the decision rule - A quote-page move is a prompt for investigation, not a buy or sell reason by itself.",
           "Exit ticket: students submit Labelled quote extract, spread calculation and quote-limit sentence."
         ],
         "handoutBlocks": [
@@ -758,9 +989,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Label a frozen Alibaba quote table and separate proved facts from missing information.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Alibaba case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define quote page. 2. Calculate/Interpret: Use or interpret the lesson formula: bid-ask spread = ask price - bid price; previous close is a read-only field for context. 3. Explain: Explain what one Alibaba evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing. 5. Judge: Give your own evidence-based classroom verdict on Alibaba: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -782,14 +1013,121 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a frozen quote page; assess one labelled quote extract, bid-ask spread calculation and quote-limit sentence."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Alibaba."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Alibaba evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A displayed quote guarantees execution at exactly that price.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Alibaba evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Alibaba?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Alibaba case.",
+          "pairs": [
+            {
+              "term": "quote page",
+              "match": "a market snapshot showing price and trading information."
+            },
+            {
+              "term": "volume",
+              "match": "the number of shares traded during a period."
+            },
+            {
+              "term": "bid",
+              "match": "the price buyers are currently willing to pay."
+            },
+            {
+              "term": "ask",
+              "match": "the price sellers are currently asking for."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Alibaba evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Alibaba case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define quote page."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: bid-ask spread = ask price - bid price; previous close is a read-only field for context."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Alibaba evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Alibaba case could change an investor's judgement about what can a stock quote tell us, and what is still missing."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Alibaba: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Quote-page action",
+        "studentAction": "Read a stock quote as a snapshot: price, date/time, percentage change and what the quote does not prove.",
+        "decisionRule": "A quote-page move is a prompt for investigation, not a buy or sell reason by itself.",
+        "portfolioQuestion": "Ask whether a short-term price movement matters for the investor time horizon.",
+        "classroomOutput": "I can use the Alibaba quote to say what changed, what is missing and what evidence I would check next. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A quote page looks like a dashboard. Which numbers actually help an investor?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A quote page looks like a dashboard. Which numbers actually help an investor?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A quote page is a dated market snapshot, not a promise of execution price or investment value."
+        },
+        {
+          "label": "Try it",
+          "text": "one labelled quote extract, bid-ask spread calculation and quote-limit sentence"
+        },
+        {
+          "label": "Decide",
+          "text": "I can use the Alibaba quote to say what changed, what is missing and what evidence I would check next. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 4,
@@ -797,7 +1135,7 @@
       "guidingQuestion": "Does owning shares mean you control the company?",
       "guidingQuestionZh": "持有股票是否意味着控制公司？",
       "handoutMaterial": "Shareholder extract, ownership-percentage calculation grid and small-holder versus large-holder comparison table.",
-      "formativeAssessment": "Pair comparison: one-share holder versus major shareholder, then vote on who has more influence.",
+      "formativeAssessment": "Pair comparison: one-share holder versus major shareholder, then vote on who has more influence. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate one ownership percentage and explain why ownership size matters.",
       "sequenceRole": "Ownership-size lesson that prevents control misconceptions.",
       "retrievalBase": "One ownership unit from Lesson 1 and listed-share identity from Lesson 2.",
@@ -843,8 +1181,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Xiaomi case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define voting rights. 2. Calculate/Interpret: Use or interpret the lesson formula: ownership % = shares owned / total shares x 100. 3. Explain: Explain what one Xiaomi evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company. 5. Judge: Give your own evidence-based classroom verdict on Xiaomi: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -864,10 +1202,10 @@
       ],
       "examPattern": {
         "checkpoint": 1,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Xiaomi extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Does owning shares mean you control the company?",
-        "mustAssess": "Ownership-percentage calculation and small-holder versus large-holder comparison."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Does owning shares mean you control the company?",
+        "mustAssess": "Ownership-percentage calculation and small-holder versus large-holder comparison. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 1 ownership-unit meaning and Lesson 2 listing identity.",
@@ -905,7 +1243,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -917,16 +1255,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "ownership % = shares owned / total shares x 100.",
-        "judgementRequirement": "Ownership-percentage calculation and small-holder versus large-holder comparison.",
-        "mustAvoid": "Avoid detailed corporate governance and board structures."
+        "judgementRequirement": "Ownership-percentage calculation and small-holder versus large-holder comparison. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Avoid detailed corporate governance and board structures. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: If you buy one share of a phone maker, how much power do you really get?",
           "Hook: start with Xiaomi and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 1 ownership-unit meaning and Lesson 2 listing identity.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Xiaomi evidence.",
           "Teach: make students write the core claim: A share is an ownership claim, but control depends on ownership size and shareholder rights.",
           "Evidence practice: Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned.",
           "Output rehearsal: students build one ownership-percentage calculation and small-holder versus large-holder comparison.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Xiaomi.",
+          "Investment action: students apply the decision rule - Do not assume that buying a share gives control over the company.",
           "Exit ticket: students submit Ownership-percentage calculation and small-holder versus large-holder comparison."
         ],
         "handoutBlocks": [
@@ -944,9 +1286,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read a Xiaomi shareholder or share-capital extract and identify total shares and shares owned.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Xiaomi case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define voting rights. 2. Calculate/Interpret: Use or interpret the lesson formula: ownership % = shares owned / total shares x 100. 3. Explain: Explain what one Xiaomi evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company. 5. Judge: Give your own evidence-based classroom verdict on Xiaomi: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -968,14 +1310,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one ownership-percentage calculation and small-holder versus large-holder comparison."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Xiaomi."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Xiaomi evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Owning one share means controlling or owning the whole company.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Xiaomi evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Xiaomi?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Xiaomi case.",
+          "pairs": [
+            {
+              "term": "voting rights",
+              "match": "shareholder rights to vote on certain company decisions."
+            },
+            {
+              "term": "ordinary share",
+              "match": "a standard ownership share in a company."
+            },
+            {
+              "term": "control",
+              "match": "the ability to influence or decide company actions."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Xiaomi evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Xiaomi case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define voting rights."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: ownership % = shares owned / total shares x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Xiaomi evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Xiaomi case could change an investor's judgement about does owning shares mean you control the company."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Xiaomi: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Shareholder-rights action",
+        "studentAction": "Check what owning one share actually gives: economic exposure, possible voting rights and limits on control.",
+        "decisionRule": "Do not assume that buying a share gives control over the company.",
+        "portfolioQuestion": "Ask whether the investor wants ownership exposure, income, control or speculation.",
+        "classroomOutput": "I can explain what a Xiaomi shareholder owns and what one share does not allow them to control. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "If you buy one share of a phone maker, how much power do you really get?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "If you buy one share of a phone maker, how much power do you really get?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A share is an ownership claim, but control depends on ownership size and shareholder rights."
+        },
+        {
+          "label": "Try it",
+          "text": "one ownership-percentage calculation and small-holder versus large-holder comparison"
+        },
+        {
+          "label": "Decide",
+          "text": "I can explain what a Xiaomi shareholder owns and what one share does not allow them to control. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 5,
@@ -983,7 +1428,7 @@
       "guidingQuestion": "How can one analyst collect evidence before judging a share?",
       "guidingQuestionZh": "分析者如何在判断股票前收集证据？",
       "handoutMaterial": "Evidence-log template, source reliability checklist, information-expectations-price chain and what-the-evidence-cannot-prove prompt.",
-      "formativeAssessment": "Source-quality quick check: students flag missing date, URL, figure, limitation or causal link.",
+      "formativeAssessment": "Source-quality quick check: students flag missing date, URL, figure, limitation or causal link. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Submit one complete evidence-log row and one information -> expectations -> price sentence.",
       "sequenceRole": "First checkpoint: source discipline and price-movement explanation before financial statements.",
       "retrievalBase": "Lessons 1-4 company identity, price, exchange source and ownership claims.",
@@ -1029,8 +1474,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short JD.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define evidence log. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one JD.com evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share. 5. Judge: Give your own evidence-based classroom verdict on JD.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1050,10 +1495,10 @@
       ],
       "examPattern": {
         "checkpoint": 1,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen JD.com extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can one analyst collect evidence before judging a share?",
-        "mustAssess": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can one analyst collect evidence before judging a share?",
+        "mustAssess": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 1-4 company identity, price meaning, exchange source and ownership claims.",
@@ -1091,7 +1536,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -1103,16 +1548,20 @@
         "marks": 4,
         "stimulusType": "short company evidence extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price.",
-        "mustAvoid": "Do not add new ratios or recommendations."
+        "judgementRequirement": "Individual evidence-log row plus one limited price-movement explanation using information, expectations and price. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not add new ratios or recommendations. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A headline says the share moved. Can you build an evidence file before reacting?",
           "Hook: start with JD.com and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 1-4 company identity, price meaning, exchange source and ownership claims.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new JD.com evidence.",
           "Teach: make students write the core claim: Useful evidence records source, date, figure, use and limitation before explaining a price movement.",
           "Evidence practice: Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row.",
           "Output rehearsal: students build one complete evidence-log row plus one limited price-movement explanation.",
+          "Analyse why: students build a data -> concept -> investor implication chain for JD.com.",
+          "Investment action: students apply the decision rule - No dated source and no limitation means the judgement is not ready.",
           "Exit ticket: students submit Individual evidence-log row plus one limited price-movement explanation using information, expectations and price."
         ],
         "handoutBlocks": [
@@ -1130,9 +1579,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Convert JD.com investor-relations material and one dated price or news claim into a clean classroom evidence row.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short JD.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define evidence log. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one JD.com evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share. 5. Judge: Give your own evidence-based classroom verdict on JD.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -1154,14 +1603,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Compare using a short company evidence extract; assess one complete evidence-log row plus one limited price-movement explanation."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for JD.com."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using JD.com evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A screenshot or number is enough without source date and limitation, or a price move explains itself without evidence.",
+          "answer": "No",
+          "explanation": "Correct the misconception using JD.com evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about JD.com?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the JD.com case.",
+          "pairs": [
+            {
+              "term": "evidence log",
+              "match": "a structured record of sources, dates, figures and notes."
+            },
+            {
+              "term": "source date",
+              "match": "the date when evidence was published."
+            },
+            {
+              "term": "accessed date",
+              "match": "the date when you used the evidence."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using JD.com evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short JD.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define evidence log."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one JD.com evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the JD.com case could change an investor's judgement about how can one analyst collect evidence before judging a share."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on JD.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Evidence-log action",
+        "studentAction": "Build an investment evidence log before judging a share: source, date, figure, claim and limitation.",
+        "decisionRule": "No dated source and no limitation means the judgement is not ready.",
+        "portfolioQuestion": "Ask whether the evidence is enough for a watch, avoid or gather-more-evidence action.",
+        "classroomOutput": "I can produce a JD.com evidence log and a short next action based on evidence quality. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A headline says the share moved. Can you build an evidence file before reacting?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A headline says the share moved. Can you build an evidence file before reacting?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Useful evidence records source, date, figure, use and limitation before explaining a price movement."
+        },
+        {
+          "label": "Try it",
+          "text": "one complete evidence-log row plus one limited price-movement explanation"
+        },
+        {
+          "label": "Decide",
+          "text": "I can produce a JD.com evidence log and a short next action based on evidence quality. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 6,
@@ -1169,7 +1721,7 @@
       "guidingQuestion": "Does high revenue mean a company is strong?",
       "guidingQuestionZh": "高收入是否意味着公司很强？",
       "handoutMaterial": "Revenue table or segment extract, growth calculation box and revenue-is-not-profit explanation prompt.",
-      "formativeAssessment": "Hinge question: choose whether a figure proves sales, profit, cash or valuation.",
+      "formativeAssessment": "Hinge question: choose whether a figure proves sales, profit, cash or valuation. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate revenue growth and write why revenue alone does not prove profit.",
       "sequenceRole": "Start of financial-statement block: scale before profit.",
       "retrievalBase": "Evidence logging and the rule that evidence is not yet judgement.",
@@ -1215,8 +1767,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read Meituan revenue by year or segment and calculate growth from the old base."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Meituan case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define revenue. 2. Calculate/Interpret: Use or interpret the lesson formula: revenue growth = (new revenue - old revenue) / old revenue x 100. 3. Explain: Explain what one Meituan evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong. 5. Judge: Give your own evidence-based classroom verdict on Meituan: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1236,10 +1788,10 @@
       ],
       "examPattern": {
         "checkpoint": 2,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Meituan extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Does high revenue mean a company is strong?",
-        "mustAssess": "Revenue-growth calculation and limitation sentence."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Does high revenue mean a company is strong?",
+        "mustAssess": "Revenue-growth calculation and limitation sentence. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 5 evidence logging and Lesson 1 rule that evidence is not yet investment judgement.",
@@ -1277,7 +1829,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -1289,16 +1841,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "revenue growth = (new revenue - old revenue) / old revenue x 100.",
-        "judgementRequirement": "Revenue-growth calculation and limitation sentence.",
-        "mustAvoid": "Do not teach gross margin or cash flow yet."
+        "judgementRequirement": "Revenue-growth calculation and limitation sentence. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not teach gross margin or cash flow yet. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A company can sell a lot and still struggle. What is missing from revenue?",
           "Hook: start with Meituan and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 5 evidence logging and Lesson 1 rule that evidence is not yet investment judgement.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Meituan evidence.",
           "Teach: make students write the core claim: Revenue shows sales scale, not profit strength or investment quality by itself.",
           "Evidence practice: Read Meituan revenue by year or segment and calculate growth from the old base.",
           "Output rehearsal: students build one revenue-growth calculation and one limitation sentence.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Meituan.",
+          "Investment action: students apply the decision rule - High revenue alone is not strength unless margins, cash, costs and risks are considered later.",
           "Exit ticket: students submit Revenue-growth calculation and limitation sentence."
         ],
         "handoutBlocks": [
@@ -1316,9 +1872,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read Meituan revenue by year or segment and calculate growth from the old base.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Meituan case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define revenue. 2. Calculate/Interpret: Use or interpret the lesson formula: revenue growth = (new revenue - old revenue) / old revenue x 100. 3. Explain: Explain what one Meituan evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong. 5. Judge: Give your own evidence-based classroom verdict on Meituan: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -1340,14 +1896,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one revenue-growth calculation and one limitation sentence."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Meituan."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Meituan evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: High revenue automatically means strong or profitable.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Meituan evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Meituan?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Meituan case.",
+          "pairs": [
+            {
+              "term": "revenue",
+              "match": "income earned from selling goods or services before costs are deducted."
+            },
+            {
+              "term": "sales growth",
+              "match": "the increase in revenue over time."
+            },
+            {
+              "term": "business model",
+              "match": "how a company earns revenue and delivers value."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Meituan evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Meituan case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define revenue."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: revenue growth = (new revenue - old revenue) / old revenue x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Meituan evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Meituan: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Revenue-check action",
+        "studentAction": "Start company analysis by checking what revenue measures and whether growth is actually useful evidence.",
+        "decisionRule": "High revenue alone is not strength unless margins, cash, costs and risks are considered later.",
+        "portfolioQuestion": "Ask whether the investor is buying growth, profit quality or an uncertain story.",
+        "classroomOutput": "I can say whether Meituan revenue evidence is encouraging, weak or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A company can sell a lot and still struggle. What is missing from revenue?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A company can sell a lot and still struggle. What is missing from revenue?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Revenue shows sales scale, not profit strength or investment quality by itself."
+        },
+        {
+          "label": "Try it",
+          "text": "one revenue-growth calculation and one limitation sentence"
+        },
+        {
+          "label": "Decide",
+          "text": "I can say whether Meituan revenue evidence is encouraging, weak or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 7,
@@ -1355,7 +2014,7 @@
       "guidingQuestion": "Can sales rise while costs become a problem?",
       "guidingQuestionZh": "销售增长时，成本会不会成为问题？",
       "handoutMaterial": "Financial extract table, gross-profit calculation steps, gross-margin calculation grid and margin interpretation line.",
-      "formativeAssessment": "Worked-example check: students choose the correct numerator and denominator for gross margin.",
+      "formativeAssessment": "Worked-example check: students choose the correct numerator and denominator for gross margin. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one gross-margin calculation and explain what the margin shows.",
       "sequenceRole": "Cost layer after revenue.",
       "retrievalBase": "Revenue and missing-cost question from Lesson 6.",
@@ -1401,8 +2060,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use BYD revenue and cost-of-sales figures to calculate gross profit and margin."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cost of sales. 2. Calculate/Interpret: Use or interpret the lesson formula: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100. 3. Explain: Explain what one BYD evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem. 5. Judge: Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1422,10 +2081,10 @@
       ],
       "examPattern": {
         "checkpoint": 2,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen BYD extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Can sales rise while costs become a problem?",
-        "mustAssess": "Gross-profit and gross-margin calculation with a margin interpretation."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Can sales rise while costs become a problem?",
+        "mustAssess": "Gross-profit and gross-margin calculation with a margin interpretation. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 6 revenue and the question of what revenue misses.",
@@ -1463,7 +2122,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -1475,16 +2134,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.",
-        "judgementRequirement": "Gross-profit and gross-margin calculation with a margin interpretation.",
-        "mustAvoid": "Do not introduce operating profit, net profit or free cash flow."
+        "judgementRequirement": "Gross-profit and gross-margin calculation with a margin interpretation. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not introduce operating profit, net profit or free cash flow. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Sales can race ahead while costs catch up. Would investors still be happy?",
           "Hook: start with BYD and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 6 revenue and the question of what revenue misses.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new BYD evidence.",
           "Teach: make students write the core claim: Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.",
           "Evidence practice: Use BYD revenue and cost-of-sales figures to calculate gross profit and margin.",
           "Output rehearsal: students build one gross-profit and gross-margin calculation with interpretation.",
+          "Analyse why: students build a data -> concept -> investor implication chain for BYD.",
+          "Investment action: students apply the decision rule - Sales growth is not enough if costs rise faster or margins deteriorate.",
           "Exit ticket: students submit Gross-profit and gross-margin calculation with a margin interpretation."
         ],
         "handoutBlocks": [
@@ -1502,9 +2165,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use BYD revenue and cost-of-sales figures to calculate gross profit and margin.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cost of sales. 2. Calculate/Interpret: Use or interpret the lesson formula: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100. 3. Explain: Explain what one BYD evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem. 5. Judge: Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -1526,14 +2189,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one gross-profit and gross-margin calculation with interpretation."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for BYD."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using BYD evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Sales growth always means the business is becoming stronger.",
+          "answer": "No",
+          "explanation": "Correct the misconception using BYD evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about BYD?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the BYD case.",
+          "pairs": [
+            {
+              "term": "cost of sales",
+              "match": "direct costs linked to producing or delivering goods and services."
+            },
+            {
+              "term": "gross profit",
+              "match": "revenue left after direct costs are deducted."
+            },
+            {
+              "term": "gross margin",
+              "match": "gross profit as a percentage of revenue."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using BYD evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define cost of sales."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one BYD evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Cost-pressure action",
+        "studentAction": "Check whether rising sales are being absorbed by direct costs or lower gross profit.",
+        "decisionRule": "Sales growth is not enough if costs rise faster or margins deteriorate.",
+        "portfolioQuestion": "Ask whether the investor is being paid for cost and margin risk.",
+        "classroomOutput": "I can use BYD figures to decide whether the cost story needs watch, concern or more evidence."
+      },
+      "studentHook": "Sales can race ahead while costs catch up. Would investors still be happy?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Sales can race ahead while costs catch up. Would investors still be happy?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs."
+        },
+        {
+          "label": "Try it",
+          "text": "one gross-profit and gross-margin calculation with interpretation"
+        },
+        {
+          "label": "Decide",
+          "text": "I can use BYD figures to decide whether the cost story needs watch, concern or more evidence."
+        }
+      ]
     },
     {
       "lesson": 8,
@@ -1541,7 +2307,7 @@
       "guidingQuestion": "Which company turns sales into profit more efficiently?",
       "guidingQuestionZh": "哪家公司更有效地把销售转化为利润？",
       "handoutMaterial": "Aligned comparison table, operating-margin difference calculation and one-sentence comparison scaffold.",
-      "formativeAssessment": "Mini-whiteboard comparison: students identify whether a difference is percentage points or percent.",
+      "formativeAssessment": "Mini-whiteboard comparison: students identify whether a difference is percentage points or percent. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write one fair margin comparison using aligned data.",
       "sequenceRole": "Operating-margin comparison after gross-margin foundations.",
       "retrievalBase": "Gross margin from Lesson 7.",
@@ -1587,8 +2353,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Compare CATL margin data with one aligned company, period or benchmark."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short CATL case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define operating profit. 2. Calculate/Interpret: Use or interpret the lesson formula: margin difference = margin A - margin B, measured in percentage points. 3. Explain: Explain what one CATL evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently. 5. Judge: Give your own evidence-based classroom verdict on CATL: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1608,10 +2374,10 @@
       ],
       "examPattern": {
         "checkpoint": 2,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen CATL extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Which company turns sales into profit more efficiently?",
-        "mustAssess": "Fair comparison sentence naming metric, direction and percentage-point difference."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Which company turns sales into profit more efficiently?",
+        "mustAssess": "Fair comparison sentence naming metric, direction and percentage-point difference. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 7 gross profit and gross margin.",
@@ -1649,7 +2415,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -1661,16 +2427,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "margin difference = margin A - margin B, measured in percentage points.",
-        "judgementRequirement": "Fair comparison sentence naming metric, direction and percentage-point difference.",
-        "mustAvoid": "Do not reteach revenue growth except as contrast to efficiency; do not treat all margins as the same metric."
+        "judgementRequirement": "Fair comparison sentence naming metric, direction and percentage-point difference. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not reteach revenue growth except as contrast to efficiency; do not treat all margins as the same metric. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Two battery companies can both grow. Which one keeps more profit from sales?",
           "Hook: start with CATL and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 7 gross profit and gross margin.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new CATL evidence.",
           "Teach: make students write the core claim: Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.",
           "Evidence practice: Compare CATL margin data with one aligned company, period or benchmark.",
           "Output rehearsal: students build one fair comparison sentence naming metric, direction and percentage-point difference.",
+          "Analyse why: students build a data -> concept -> investor implication chain for CATL.",
+          "Investment action: students apply the decision rule - Prefer a company only when the comparison uses the same metric, time period and source discipline.",
           "Exit ticket: students submit Fair comparison sentence naming metric, direction and percentage-point difference."
         ],
         "handoutBlocks": [
@@ -1688,9 +2458,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Compare CATL margin data with one aligned company, period or benchmark.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short CATL case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define operating profit. 2. Calculate/Interpret: Use or interpret the lesson formula: margin difference = margin A - margin B, measured in percentage points. 3. Explain: Explain what one CATL evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently. 5. Judge: Give your own evidence-based classroom verdict on CATL: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -1712,14 +2482,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Compare using a company data table or report extract; assess one fair comparison sentence naming metric, direction and percentage-point difference."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for CATL."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using CATL evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: The higher-revenue company is automatically more efficient.",
+          "answer": "No",
+          "explanation": "Correct the misconception using CATL evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about CATL?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the CATL case.",
+          "pairs": [
+            {
+              "term": "operating profit",
+              "match": "profit from the company's main operations before some finance and tax items."
+            },
+            {
+              "term": "operating margin",
+              "match": "operating profit as a percentage of revenue."
+            },
+            {
+              "term": "percentage-point difference",
+              "match": "subtraction between two percentages."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using CATL evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short CATL case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define operating profit."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: margin difference = margin A - margin B, measured in percentage points."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one CATL evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on CATL: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Margin-comparison action",
+        "studentAction": "Compare how efficiently companies turn sales into profit by using margin evidence.",
+        "decisionRule": "Prefer a company only when the comparison uses the same metric, time period and source discipline.",
+        "portfolioQuestion": "Ask whether the investor wants a higher-quality business or a cheaper but weaker one.",
+        "classroomOutput": "I can compare CATL margin evidence and state which company looks stronger on efficiency."
+      },
+      "studentHook": "Two battery companies can both grow. Which one keeps more profit from sales?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Two battery companies can both grow. Which one keeps more profit from sales?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Efficiency comparison needs aligned metrics, time periods and percentage-point discipline."
+        },
+        {
+          "label": "Try it",
+          "text": "one fair comparison sentence naming metric, direction and percentage-point difference"
+        },
+        {
+          "label": "Decide",
+          "text": "I can compare CATL margin evidence and state which company looks stronger on efficiency."
+        }
+      ]
     },
     {
       "lesson": 9,
@@ -1727,7 +2600,7 @@
       "guidingQuestion": "Why can a growing company still need cash?",
       "guidingQuestionZh": "为什么成长中的公司仍然可能需要现金？",
       "handoutMaterial": "Cash-flow extract, free-cash-flow calculation desk and profit-versus-cash explanation prompt.",
-      "formativeAssessment": "Card sort: profit signal, cash-flow signal or investment-spending signal.",
+      "formativeAssessment": "Card sort: profit signal, cash-flow signal or investment-spending signal. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate free cash flow and explain why profit and cash can differ.",
       "sequenceRole": "Cash-flow correction after profit and margin.",
       "retrievalBase": "Revenue, profit and margin evidence from Lessons 6-8.",
@@ -1773,8 +2646,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read Tesla operating cash flow and capital expenditure from a filed extract."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Tesla case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define operating cash flow. 2. Calculate/Interpret: Use or interpret the lesson formula: free cash flow = operating cash flow - capital expenditure. 3. Explain: Explain what one Tesla evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash. 5. Judge: Give your own evidence-based classroom verdict on Tesla: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1794,10 +2667,10 @@
       ],
       "examPattern": {
         "checkpoint": 2,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Tesla extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why can a growing company still need cash?",
-        "mustAssess": "Free-cash-flow calculation and profit-versus-cash explanation."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why can a growing company still need cash?",
+        "mustAssess": "Free-cash-flow calculation and profit-versus-cash explanation. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 6-8 revenue, profit and margin evidence.",
@@ -1835,7 +2708,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -1847,16 +2720,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "free cash flow = operating cash flow - capital expenditure.",
-        "judgementRequirement": "Free-cash-flow calculation and profit-versus-cash explanation.",
-        "mustAvoid": "Do not teach a full cash-flow statement or working-capital detail."
+        "judgementRequirement": "Free-cash-flow calculation and profit-versus-cash explanation. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not teach a full cash-flow statement or working-capital detail. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Growth stories sound exciting. Why might cash still be the problem?",
           "Hook: start with Tesla and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 6-8 revenue, profit and margin evidence.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Tesla evidence.",
           "Teach: make students write the core claim: Profit and cash flow answer different questions, and growth can still require cash investment.",
           "Evidence practice: Read Tesla operating cash flow and capital expenditure from a filed extract.",
           "Output rehearsal: students build one free-cash-flow calculation and profit-versus-cash explanation.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Tesla.",
+          "Investment action: students apply the decision rule - Growth funded by heavy cash needs may raise investment risk even when revenue looks strong.",
           "Exit ticket: students submit Free-cash-flow calculation and profit-versus-cash explanation."
         ],
         "handoutBlocks": [
@@ -1874,9 +2751,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read Tesla operating cash flow and capital expenditure from a filed extract.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Tesla case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define operating cash flow. 2. Calculate/Interpret: Use or interpret the lesson formula: free cash flow = operating cash flow - capital expenditure. 3. Explain: Explain what one Tesla evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash. 5. Judge: Give your own evidence-based classroom verdict on Tesla: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -1898,14 +2775,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one free-cash-flow calculation and profit-versus-cash explanation."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Tesla."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Tesla evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Profit means the company has plenty of available cash.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Tesla evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Tesla?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Tesla case.",
+          "pairs": [
+            {
+              "term": "operating cash flow",
+              "match": "cash generated by the company's main business operations."
+            },
+            {
+              "term": "capital expenditure",
+              "match": "cash spent on long-term assets such as factories, equipment or infrastructure."
+            },
+            {
+              "term": "free cash flow",
+              "match": "operating cash flow left after capital expenditure."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Tesla evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Tesla case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define operating cash flow."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: free cash flow = operating cash flow - capital expenditure."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Tesla evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Tesla: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Cash-quality action",
+        "studentAction": "Check whether a growing company also produces or consumes cash.",
+        "decisionRule": "Growth funded by heavy cash needs may raise investment risk even when revenue looks strong.",
+        "portfolioQuestion": "Ask whether the investor can tolerate a company that needs cash before returns arrive.",
+        "classroomOutput": "I can judge whether Tesla growth evidence is supported or weakened by cash-flow evidence. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Growth stories sound exciting. Why might cash still be the problem?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Growth stories sound exciting. Why might cash still be the problem?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Profit and cash flow answer different questions, and growth can still require cash investment."
+        },
+        {
+          "label": "Try it",
+          "text": "one free-cash-flow calculation and profit-versus-cash explanation"
+        },
+        {
+          "label": "Decide",
+          "text": "I can judge whether Tesla growth evidence is supported or weakened by cash-flow evidence. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 10,
@@ -1913,7 +2893,7 @@
       "guidingQuestion": "What makes one strong company look stronger than another?",
       "guidingQuestionZh": "什么让一家强公司看起来比另一家更强？",
       "handoutMaterial": "Side-by-side comparison matrix, same-metric checklist and balanced paragraph planner.",
-      "formativeAssessment": "Comparison audit: students mark whether two figures use the same metric, period and source type.",
+      "formativeAssessment": "Comparison audit: students mark whether two figures use the same metric, period and source type. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write one balanced comparison sentence using a figure from each company.",
       "sequenceRole": "Unit 2 consolidation and first multi-metric comparison checkpoint.",
       "retrievalBase": "Revenue, costs, margins, cash flow and evidence discipline.",
@@ -1959,8 +2939,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Build a TSMC comparison table using the same metric categories for both sides."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short TSMC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define benchmark. 2. Calculate/Interpret: Use or interpret the lesson formula: compare growth, margin and scale side by side; no single new formula. 3. Explain: Explain what one TSMC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another. 5. Judge: Give your own evidence-based classroom verdict on TSMC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -1980,10 +2960,10 @@
       ],
       "examPattern": {
         "checkpoint": 2,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen TSMC extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: What makes one strong company look stronger than another?",
-        "mustAssess": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: What makes one strong company look stronger than another?",
+        "mustAssess": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Unit 2 revenue, costs, margin, cash flow and evidence discipline.",
@@ -2021,7 +3001,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2033,16 +3013,20 @@
         "marks": 6,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "compare growth, margin and scale side by side; no single new formula.",
-        "judgementRequirement": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company.",
-        "mustAvoid": "No new formula; keep it as consolidation and exam preparation."
+        "judgementRequirement": "Scale-trend-margin-cash comparison paragraph using at least one figure from each company. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "No new formula; keep it as consolidation and exam preparation. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Two excellent companies enter the comparison. What makes one look stronger?",
           "Hook: start with TSMC and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Unit 2 revenue, costs, margin, cash flow and evidence discipline.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new TSMC evidence.",
           "Teach: make students write the core claim: A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.",
           "Evidence practice: Build a TSMC comparison table using the same metric categories for both sides.",
           "Output rehearsal: students build one scale-trend-margin-cash comparison paragraph using figures from both sides.",
+          "Analyse why: students build a data -> concept -> investor implication chain for TSMC.",
+          "Investment action: students apply the decision rule - Do not compare one company using revenue and another using profit unless the judgement explains the mismatch.",
           "Exit ticket: students submit Scale-trend-margin-cash comparison paragraph using at least one figure from each company."
         ],
         "handoutBlocks": [
@@ -2060,9 +3044,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Build a TSMC comparison table using the same metric categories for both sides.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short TSMC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define benchmark. 2. Calculate/Interpret: Use or interpret the lesson formula: compare growth, margin and scale side by side; no single new formula. 3. Explain: Explain what one TSMC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another. 5. Judge: Give your own evidence-based classroom verdict on TSMC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -2084,14 +3068,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Compare using a company data table or report extract; assess one scale-trend-margin-cash comparison paragraph using figures from both sides."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for TSMC."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using TSMC evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: One impressive metric proves which company is stronger.",
+          "answer": "No",
+          "explanation": "Correct the misconception using TSMC evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about TSMC?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the TSMC case.",
+          "pairs": [
+            {
+              "term": "benchmark",
+              "match": "a standard or comparison point used to judge performance."
+            },
+            {
+              "term": "trend",
+              "match": "movement in a figure over time."
+            },
+            {
+              "term": "scale",
+              "match": "the size of a company or activity."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using TSMC evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short TSMC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define benchmark."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: compare growth, margin and scale side by side; no single new formula."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one TSMC evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the TSMC case could change an investor's judgement about what makes one strong company look stronger than another."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on TSMC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Comparable-company action",
+        "studentAction": "Compare two strong companies using the same evidence categories before choosing a stronger investment case.",
+        "decisionRule": "Do not compare one company using revenue and another using profit unless the judgement explains the mismatch.",
+        "portfolioQuestion": "Ask whether the investor has a better alternative with similar risk.",
+        "classroomOutput": "I can compare TSMC with another company and justify which evidence is stronger."
+      },
+      "studentHook": "Two excellent companies enter the comparison. What makes one look stronger?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Two excellent companies enter the comparison. What makes one look stronger?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash."
+        },
+        {
+          "label": "Try it",
+          "text": "one scale-trend-margin-cash comparison paragraph using figures from both sides"
+        },
+        {
+          "label": "Decide",
+          "text": "I can compare TSMC with another company and justify which evidence is stronger."
+        }
+      ]
     },
     {
       "lesson": 11,
@@ -2099,7 +3186,7 @@
       "guidingQuestion": "How does a share make or lose money for an investor?",
       "guidingQuestionZh": "股票如何让投资者赚钱或亏钱？",
       "handoutMaterial": "Buy/sell price scenarios, gain/loss calculation table and return-percentage worked-example space.",
-      "formativeAssessment": "Hinge calculation: identify purchase price, sale price, gain/loss and denominator.",
+      "formativeAssessment": "Hinge calculation: identify purchase price, sale price, gain/loss and denominator. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate one return percentage and state whether it is a gain or loss.",
       "sequenceRole": "Start of returns and valuation block: investor outcome from price movement.",
       "retrievalBase": "Lesson 1 first price-graph reading, then formal old-price denominator discipline introduced here.",
@@ -2145,8 +3232,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use an Apple frozen buy/sell price example with dates."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Apple case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define capital gain. 2. Calculate/Interpret: Use or interpret the lesson formula: gain = sale price - purchase price; return % = gain / purchase price x 100. 3. Explain: Explain what one Apple evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor. 5. Judge: Give your own evidence-based classroom verdict on Apple: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -2166,10 +3253,10 @@
       ],
       "examPattern": {
         "checkpoint": 3,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Apple extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How does a share make or lose money for an investor?",
-        "mustAssess": "Gain, loss and return-percentage calculations."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How does a share make or lose money for an investor?",
+        "mustAssess": "Gain, loss and return-percentage calculations. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 1 first price-graph reading; this lesson introduces formal old-price denominator discipline.",
@@ -2207,7 +3294,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2219,16 +3306,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "gain = sale price - purchase price; return % = gain / purchase price x 100.",
-        "judgementRequirement": "Gain, loss and return-percentage calculations.",
-        "mustAvoid": "Keep dividends for Lesson 12 and valuation for Lessons 14-15."
+        "judgementRequirement": "Gain, loss and return-percentage calculations. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Keep dividends for Lesson 12 and valuation for Lessons 14-15. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A share can reward or hurt an investor. Where exactly does the return come from?",
           "Hook: start with Apple and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 1 first price-graph reading; this lesson introduces formal old-price denominator discipline.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Apple evidence.",
           "Teach: make students write the core claim: Investor return depends on gain or loss relative to the purchase price, not only the money change.",
           "Evidence practice: Use an Apple frozen buy/sell price example with dates.",
           "Output rehearsal: students build gain, loss and return-percentage calculations.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Apple.",
+          "Investment action: students apply the decision rule - A past price gain does not prove a future return.",
           "Exit ticket: students submit Gain, loss and return-percentage calculations."
         ],
         "handoutBlocks": [
@@ -2246,9 +3337,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use an Apple frozen buy/sell price example with dates.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Apple case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define capital gain. 2. Calculate/Interpret: Use or interpret the lesson formula: gain = sale price - purchase price; return % = gain / purchase price x 100. 3. Explain: Explain what one Apple evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor. 5. Judge: Give your own evidence-based classroom verdict on Apple: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -2270,14 +3361,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess gain, loss and return-percentage calculations."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Apple."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Apple evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A larger money gain is always the better return, or higher risk guarantees higher return.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Apple evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Apple?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Apple case.",
+          "pairs": [
+            {
+              "term": "capital gain",
+              "match": "profit from selling a share above the purchase price."
+            },
+            {
+              "term": "capital loss",
+              "match": "loss from selling a share below the purchase price."
+            },
+            {
+              "term": "return",
+              "match": "gain or loss compared with the original amount invested."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Apple evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Apple case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define capital gain."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: gain = sale price - purchase price; return % = gain / purchase price x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Apple evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Apple: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Return-source action",
+        "studentAction": "Separate the ways a share can make or lose money: price gain, price loss and later dividend evidence.",
+        "decisionRule": "A past price gain does not prove a future return.",
+        "portfolioQuestion": "Ask whether the investor understands both upside and downside before buying.",
+        "classroomOutput": "I can calculate Apple price return and state what it does not prove. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A share can reward or hurt an investor. Where exactly does the return come from?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A share can reward or hurt an investor. Where exactly does the return come from?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Investor return depends on gain or loss relative to the purchase price, not only the money change."
+        },
+        {
+          "label": "Try it",
+          "text": "gain, loss and return-percentage calculations"
+        },
+        {
+          "label": "Decide",
+          "text": "I can calculate Apple price return and state what it does not prove. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 12,
@@ -2285,7 +3479,7 @@
       "guidingQuestion": "Why might an investor like dividends?",
       "guidingQuestionZh": "投资者为什么可能喜欢股息？",
       "handoutMaterial": "Dividend announcement extract, dividend-yield calculator and two-investor comparison prompt.",
-      "formativeAssessment": "Two-investor check: students decide who has the higher dividend yield and why.",
+      "formativeAssessment": "Two-investor check: students decide who has the higher dividend yield and why. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate one dividend yield and explain why price paid changes the yield.",
       "sequenceRole": "Income-return layer after capital gain.",
       "retrievalBase": "Return from price movement in Lesson 11.",
@@ -2331,8 +3525,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read HSBC dividend announcement or annual-report extract and connect dividend to price paid."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define dividend. 2. Calculate/Interpret: Use or interpret the lesson formula: dividend yield = annual dividend / share price x 100; total return = capital gain + dividends. 3. Explain: Explain what one HSBC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends. 5. Judge: Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -2352,10 +3546,10 @@
       ],
       "examPattern": {
         "checkpoint": 3,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen HSBC extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why might an investor like dividends?",
-        "mustAssess": "Dividend-yield calculation and two-investor comparison."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why might an investor like dividends?",
+        "mustAssess": "Dividend-yield calculation and two-investor comparison. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 11 return from price movement.",
@@ -2393,7 +3587,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2405,16 +3599,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.",
-        "judgementRequirement": "Dividend-yield calculation and two-investor comparison.",
-        "mustAvoid": "Avoid dividend policy, taxation and advanced income strategies."
+        "judgementRequirement": "Dividend-yield calculation and two-investor comparison. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Avoid dividend policy, taxation and advanced income strategies. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Some investors like cash income. When does a dividend help the case?",
           "Hook: start with HSBC and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 11 return from price movement.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new HSBC evidence.",
           "Teach: make students write the core claim: Dividends add income, but yield and total return depend on the price paid.",
           "Evidence practice: Read HSBC dividend announcement or annual-report extract and connect dividend to price paid.",
           "Output rehearsal: students build one dividend-yield calculation and two-investor comparison.",
+          "Analyse why: students build a data -> concept -> investor implication chain for HSBC.",
+          "Investment action: students apply the decision rule - A high dividend is not automatically safe; it must be checked against business strength and sustainability.",
           "Exit ticket: students submit Dividend-yield calculation and two-investor comparison."
         ],
         "handoutBlocks": [
@@ -2432,9 +3630,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read HSBC dividend announcement or annual-report extract and connect dividend to price paid.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define dividend. 2. Calculate/Interpret: Use or interpret the lesson formula: dividend yield = annual dividend / share price x 100; total return = capital gain + dividends. 3. Explain: Explain what one HSBC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends. 5. Judge: Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -2456,14 +3654,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one dividend-yield calculation and two-investor comparison."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for HSBC."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using HSBC evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A higher dividend is always better for every investor.",
+          "answer": "No",
+          "explanation": "Correct the misconception using HSBC evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about HSBC?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the HSBC case.",
+          "pairs": [
+            {
+              "term": "dividend",
+              "match": "profit paid by a company to shareholders."
+            },
+            {
+              "term": "dividend yield",
+              "match": "annual dividend compared with the share price."
+            },
+            {
+              "term": "total return",
+              "match": "return from price change plus dividends."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using HSBC evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define dividend."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: dividend yield = annual dividend / share price x 100; total return = capital gain + dividends."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one HSBC evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Income-return action",
+        "studentAction": "Add dividend evidence to the return picture and check whether income changes the judgement.",
+        "decisionRule": "A high dividend is not automatically safe; it must be checked against business strength and sustainability.",
+        "portfolioQuestion": "Ask whether the investor needs income or long-term growth in the hypothetical profile.",
+        "classroomOutput": "I can use HSBC dividend evidence to decide whether income improves or weakens the case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Some investors like cash income. When does a dividend help the case?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Some investors like cash income. When does a dividend help the case?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Dividends add income, but yield and total return depend on the price paid."
+        },
+        {
+          "label": "Try it",
+          "text": "one dividend-yield calculation and two-investor comparison"
+        },
+        {
+          "label": "Decide",
+          "text": "I can use HSBC dividend evidence to decide whether income improves or weakens the case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 13,
@@ -2471,7 +3772,7 @@
       "guidingQuestion": "How can one company be worth so much?",
       "guidingQuestionZh": "为什么一家公司会有如此高的市值？",
       "handoutMaterial": "Share-price and shares-outstanding fact box, market-cap calculation grid and limitation sentence.",
-      "formativeAssessment": "Misconception check: compare two companies with different share prices and share counts.",
+      "formativeAssessment": "Misconception check: compare two companies with different share prices and share counts. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate simplified market capitalisation and state one limitation.",
       "sequenceRole": "Total company value correction after one-share price.",
       "retrievalBase": "One-share price from Lesson 1 and total shares from Lesson 4.",
@@ -2517,8 +3818,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use Nvidia share price and shares outstanding from one frozen source."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Nvidia case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define market capitalisation. 2. Calculate/Interpret: Use or interpret the lesson formula: market capitalisation = share price x shares outstanding. 3. Explain: Explain what one Nvidia evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much. 5. Judge: Give your own evidence-based classroom verdict on Nvidia: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -2538,10 +3839,10 @@
       ],
       "examPattern": {
         "checkpoint": 3,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Nvidia extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can one company be worth so much?",
-        "mustAssess": "Simplified market-cap calculation and limitation sentence."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can one company be worth so much?",
+        "mustAssess": "Simplified market-cap calculation and limitation sentence. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 1 one-share price and Lesson 4 total shares and ownership percentage.",
@@ -2579,7 +3880,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2591,16 +3892,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "market capitalisation = share price x shares outstanding.",
-        "judgementRequirement": "Simplified market-cap calculation and limitation sentence.",
-        "mustAvoid": "Keep EPS and P/E for Lesson 14; market cap alone is not valuation."
+        "judgementRequirement": "Simplified market-cap calculation and limitation sentence. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Keep EPS and P/E for Lesson 14; market cap alone is not valuation. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: How can one company become worth so much money?",
           "Hook: start with Nvidia and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 1 one-share price and Lesson 4 total shares and ownership percentage.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Nvidia evidence.",
           "Teach: make students write the core claim: Market capitalisation combines one-share price and share count; share price alone is not company size.",
           "Evidence practice: Use Nvidia share price and shares outstanding from one frozen source.",
           "Output rehearsal: students build one simplified market-cap calculation and limitation sentence.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Nvidia.",
+          "Investment action: students apply the decision rule - A very valuable company still needs evidence that future expectations are reasonable.",
           "Exit ticket: students submit Simplified market-cap calculation and limitation sentence."
         ],
         "handoutBlocks": [
@@ -2618,9 +3923,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use Nvidia share price and shares outstanding from one frozen source.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Nvidia case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define market capitalisation. 2. Calculate/Interpret: Use or interpret the lesson formula: market capitalisation = share price x shares outstanding. 3. Explain: Explain what one Nvidia evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much. 5. Judge: Give your own evidence-based classroom verdict on Nvidia: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -2642,14 +3947,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one simplified market-cap calculation and limitation sentence."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Nvidia."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Nvidia evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Higher share price means a bigger company.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Nvidia evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Nvidia?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Nvidia case.",
+          "pairs": [
+            {
+              "term": "market capitalisation",
+              "match": "total market value of a company's equity."
+            },
+            {
+              "term": "shares outstanding",
+              "match": "shares issued and held by investors."
+            },
+            {
+              "term": "mega-cap",
+              "match": "a very large listed company by market value."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Nvidia evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Nvidia case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define market capitalisation."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: market capitalisation = share price x shares outstanding."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Nvidia evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Nvidia: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Size-and-expectations action",
+        "studentAction": "Use market capitalisation to see how much value investors already place on one company.",
+        "decisionRule": "A very valuable company still needs evidence that future expectations are reasonable.",
+        "portfolioQuestion": "Ask whether the investor is paying for proven strength or very high expectations.",
+        "classroomOutput": "I can explain what Nvidia market value suggests and what evidence must support it. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "How can one company become worth so much money?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "How can one company become worth so much money?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Market capitalisation combines one-share price and share count; share price alone is not company size."
+        },
+        {
+          "label": "Try it",
+          "text": "one simplified market-cap calculation and limitation sentence"
+        },
+        {
+          "label": "Decide",
+          "text": "I can explain what Nvidia market value suggests and what evidence must support it. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 14,
@@ -2657,7 +4065,7 @@
       "guidingQuestion": "When do investors pay a high price for profit?",
       "guidingQuestionZh": "投资者什么时候愿意为利润支付高价？",
       "handoutMaterial": "EPS/P/E formula desk, frozen price and earnings facts, and optimism-versus-risk interpretation options.",
-      "formativeAssessment": "Interpretation check: students classify high P/E as optimism, risk or both depending on evidence.",
+      "formativeAssessment": "Interpretation check: students classify high P/E as optimism, risk or both depending on evidence. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write one P/E interpretation with both possible meanings.",
       "sequenceRole": "First valuation-ratio lesson.",
       "retrievalBase": "Market cap, share count and profit evidence from earlier lessons.",
@@ -2703,8 +4111,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Calculate or read Microsoft EPS and P/E from a frozen source."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Microsoft case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define EPS. 2. Calculate/Interpret: Use or interpret the lesson formula: EPS = net profit / shares; P/E = share price / EPS. 3. Explain: Explain what one Microsoft evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit. 5. Judge: Give your own evidence-based classroom verdict on Microsoft: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -2724,10 +4132,10 @@
       ],
       "examPattern": {
         "checkpoint": 3,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Microsoft extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: When do investors pay a high price for profit?",
-        "mustAssess": "P/E interpretation giving both optimism and risk as possible meanings."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: When do investors pay a high price for profit?",
+        "mustAssess": "P/E interpretation giving both optimism and risk as possible meanings. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 13 share count and company value, plus Unit 2 profit evidence.",
@@ -2765,7 +4173,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2777,16 +4185,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "EPS = net profit / shares; P/E = share price / EPS.",
-        "judgementRequirement": "P/E interpretation giving both optimism and risk as possible meanings.",
-        "mustAvoid": "Do not present P/E as a mechanical buy/sell rule."
+        "judgementRequirement": "P/E interpretation giving both optimism and risk as possible meanings. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not present P/E as a mechanical buy/sell rule. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Would you pay a high price for each dollar of profit?",
           "Hook: start with Microsoft and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 13 share count and company value, plus Unit 2 profit evidence.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Microsoft evidence.",
           "Teach: make students write the core claim: A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.",
           "Evidence practice: Calculate or read Microsoft EPS and P/E from a frozen source.",
           "Output rehearsal: students build one P/E interpretation giving both optimism and risk as possible meanings.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Microsoft.",
+          "Investment action: students apply the decision rule - A high P/E may be justified or dangerous; it depends on growth, quality and risk evidence.",
           "Exit ticket: students submit P/E interpretation giving both optimism and risk as possible meanings."
         ],
         "handoutBlocks": [
@@ -2804,9 +4216,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Calculate or read Microsoft EPS and P/E from a frozen source.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Microsoft case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define EPS. 2. Calculate/Interpret: Use or interpret the lesson formula: EPS = net profit / shares; P/E = share price / EPS. 3. Explain: Explain what one Microsoft evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit. 5. Judge: Give your own evidence-based classroom verdict on Microsoft: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -2828,14 +4240,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a company data table or report extract; assess one P/E interpretation giving both optimism and risk as possible meanings."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Microsoft."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Microsoft evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: High P/E is simply good, or simply bad.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Microsoft evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Microsoft?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Microsoft case.",
+          "pairs": [
+            {
+              "term": "EPS",
+              "match": "earnings per share, or net profit divided by shares."
+            },
+            {
+              "term": "P/E ratio",
+              "match": "share price compared with earnings per share."
+            },
+            {
+              "term": "valuation",
+              "match": "judgement of price compared with evidence and expectations."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Microsoft evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Microsoft case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define EPS."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: EPS = net profit / shares; P/E = share price / EPS."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Microsoft evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Microsoft: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Earnings-price action",
+        "studentAction": "Use EPS and P/E to ask how much investors pay for each unit of profit.",
+        "decisionRule": "A high P/E may be justified or dangerous; it depends on growth, quality and risk evidence.",
+        "portfolioQuestion": "Ask whether the investor is comfortable paying today for expected future profit.",
+        "classroomOutput": "I can use Microsoft P/E evidence to write a price-for-profit judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Would you pay a high price for each dollar of profit?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Would you pay a high price for each dollar of profit?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule."
+        },
+        {
+          "label": "Try it",
+          "text": "one P/E interpretation giving both optimism and risk as possible meanings"
+        },
+        {
+          "label": "Decide",
+          "text": "I can use Microsoft P/E evidence to write a price-for-profit judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 15,
@@ -2843,7 +4358,7 @@
       "guidingQuestion": "Can a good company still be too expensive?",
       "guidingQuestionZh": "好公司也可能太贵吗？",
       "handoutMaterial": "Valuation evidence board, quality-price-risk sorter and two-point answer planner.",
-      "formativeAssessment": "Evidence sorter: quality evidence, price evidence, risk evidence or unsupported claim.",
+      "formativeAssessment": "Evidence sorter: quality evidence, price evidence, risk evidence or unsupported claim. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write a two-point answer explaining why quality and price must be judged together.",
       "sequenceRole": "Unit 3 valuation synthesis checkpoint.",
       "retrievalBase": "Return, dividend, market cap, EPS and P/E from Lessons 11-14.",
@@ -2889,8 +4404,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read Toyota growth, profitability and P/E evidence and classify what each can prove."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Toyota case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cheap or expensive. 2. Calculate/Interpret: Use or interpret the lesson formula: compare P/E, growth and risk evidence; no new calculation. 3. Explain: Explain what one Toyota evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive. 5. Judge: Give your own evidence-based classroom verdict on Toyota: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -2910,10 +4425,10 @@
       ],
       "examPattern": {
         "checkpoint": 3,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Toyota extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Can a good company still be too expensive?",
-        "mustAssess": "Two-point valuation answer linking quality, possible return, price paid and risk."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Can a good company still be too expensive?",
+        "mustAssess": "Two-point valuation answer linking quality, possible return, price paid and risk. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 11-14 return, dividend, market capitalisation, EPS and P/E.",
@@ -2951,7 +4466,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -2963,16 +4478,20 @@
         "marks": 6,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Two-point valuation answer linking quality, possible return, price paid and risk.",
-        "mustAvoid": "No new calculation; make writing and judgement the main work."
+        "judgementRequirement": "Two-point valuation answer linking quality, possible return, price paid and risk. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "No new calculation; make writing and judgement the main work. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Can a company be good but still not worth buying today?",
           "Hook: start with Toyota and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 11-14 return, dividend, market capitalisation, EPS and P/E.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Toyota evidence.",
           "Teach: make students write the core claim: A good company only becomes an attractive investment when quality is judged with price and risk.",
           "Evidence practice: Read Toyota growth, profitability and P/E evidence and classify what each can prove.",
           "Output rehearsal: students build one two-point valuation answer linking quality, possible return, price paid and risk.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Toyota.",
+          "Investment action: students apply the decision rule - Business quality and investment attractiveness are not the same thing.",
           "Exit ticket: students submit Two-point valuation answer linking quality, possible return, price paid and risk."
         ],
         "handoutBlocks": [
@@ -2990,9 +4509,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read Toyota growth, profitability and P/E evidence and classify what each can prove.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Toyota case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cheap or expensive. 2. Calculate/Interpret: Use or interpret the lesson formula: compare P/E, growth and risk evidence; no new calculation. 3. Explain: Explain what one Toyota evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive. 5. Judge: Give your own evidence-based classroom verdict on Toyota: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3014,14 +4533,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Assess using a company data table or report extract; assess one two-point valuation answer linking quality, possible return, price paid and risk."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Toyota."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Toyota evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A good company is a good investment at any price.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Toyota evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Toyota?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Toyota case.",
+          "pairs": [
+            {
+              "term": "cheap or expensive",
+              "match": "valuation judgement, not just a low or high share price."
+            },
+            {
+              "term": "expectations",
+              "match": "assumptions about future performance already reflected in price."
+            },
+            {
+              "term": "margin of safety",
+              "match": "room for error between price and estimated value."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Toyota evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Toyota case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define cheap or expensive."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: compare P/E, growth and risk evidence; no new calculation."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Toyota evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Toyota case could change an investor's judgement about can a good company still be too expensive."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Toyota: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Too-expensive action",
+        "studentAction": "Test whether a good company may still be unattractive because the price is too high.",
+        "decisionRule": "Business quality and investment attractiveness are not the same thing.",
+        "portfolioQuestion": "Ask whether the investor would wait for a better price or choose an alternative.",
+        "classroomOutput": "I can write a Toyota valuation-risk note: consider, watch or too expensive."
+      },
+      "studentHook": "Can a company be good but still not worth buying today?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Can a company be good but still not worth buying today?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A good company only becomes an attractive investment when quality is judged with price and risk."
+        },
+        {
+          "label": "Try it",
+          "text": "one two-point valuation answer linking quality, possible return, price paid and risk"
+        },
+        {
+          "label": "Decide",
+          "text": "I can write a Toyota valuation-risk note: consider, watch or too expensive."
+        }
+      ]
     },
     {
       "lesson": 16,
@@ -3029,7 +4651,7 @@
       "guidingQuestion": "What could hurt one familiar company?",
       "guidingQuestionZh": "一家熟悉的公司可能受到什么伤害？",
       "handoutMaterial": "Risk register, company evidence extract and risk -> future profit -> price chain frame.",
-      "formativeAssessment": "Risk-chain check: students complete the missing middle link between risk and price.",
+      "formativeAssessment": "Risk-chain check: students complete the missing middle link between risk and price. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Name one company-specific risk and link it to future revenue or profit.",
       "sequenceRole": "Start of risk block: one-company risk.",
       "retrievalBase": "Lesson 15 rule that price must be judged with risk.",
@@ -3075,8 +4697,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Use Starbucks store, demand or margin evidence to identify one company-specific risk."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Starbucks case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define company-specific risk. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Starbucks evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company. 5. Judge: Give your own evidence-based classroom verdict on Starbucks: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -3096,10 +4718,10 @@
       ],
       "examPattern": {
         "checkpoint": 4,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Starbucks extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: What could hurt one familiar company?",
-        "mustAssess": "Risk -> future revenue/profit -> price effect chain."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: What could hurt one familiar company?",
+        "mustAssess": "Risk -> future revenue/profit -> price effect chain. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 15 valuation rule that price must be judged with risk.",
@@ -3137,7 +4759,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -3149,16 +4771,20 @@
         "marks": 4,
         "stimulusType": "short company evidence extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Risk -> future revenue/profit -> price effect chain.",
-        "mustAvoid": "Do not cover sector, regulation, currency or fund risk yet."
+        "judgementRequirement": "Risk -> future revenue/profit -> price effect chain. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not cover sector, regulation, currency or fund risk yet. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A familiar brand feels safe. What could still go wrong?",
           "Hook: start with Starbucks and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 15 valuation rule that price must be judged with risk.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Starbucks evidence.",
           "Teach: make students write the core claim: A familiar company can still face risks that affect future revenue, profit, expectations and price.",
           "Evidence practice: Use Starbucks store, demand or margin evidence to identify one company-specific risk.",
           "Output rehearsal: students build one risk to future revenue/profit to price-effect chain.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Starbucks.",
+          "Investment action: students apply the decision rule - Familiar products do not remove business risk.",
           "Exit ticket: students submit Risk -> future revenue/profit -> price effect chain."
         ],
         "handoutBlocks": [
@@ -3176,9 +4802,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Use Starbucks store, demand or margin evidence to identify one company-specific risk.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Starbucks case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define company-specific risk. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Starbucks evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company. 5. Judge: Give your own evidence-based classroom verdict on Starbucks: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3200,14 +4826,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a short company evidence extract; assess one risk to future revenue/profit to price-effect chain."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Starbucks."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Starbucks evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A familiar brand is automatically safe.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Starbucks evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Starbucks?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Starbucks case.",
+          "pairs": [
+            {
+              "term": "company-specific risk",
+              "match": "risk caused by one company's decisions or situation."
+            },
+            {
+              "term": "demand risk",
+              "match": "the risk that customers buy less than expected."
+            },
+            {
+              "term": "execution risk",
+              "match": "the risk that a strategy is not carried out successfully."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Starbucks evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Starbucks case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define company-specific risk."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Starbucks evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Starbucks: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Company-risk action",
+        "studentAction": "List the company-specific risks that could damage future returns even when the brand is familiar.",
+        "decisionRule": "Familiar products do not remove business risk.",
+        "portfolioQuestion": "Ask whether the investor can explain the main risk before investing.",
+        "classroomOutput": "I can build a Starbucks risk register and choose one risk to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A familiar brand feels safe. What could still go wrong?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A familiar brand feels safe. What could still go wrong?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A familiar company can still face risks that affect future revenue, profit, expectations and price."
+        },
+        {
+          "label": "Try it",
+          "text": "one risk to future revenue/profit to price-effect chain"
+        },
+        {
+          "label": "Decide",
+          "text": "I can build a Starbucks risk register and choose one risk to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 17,
@@ -3215,7 +4944,7 @@
       "guidingQuestion": "How can changing tastes affect a sportswear company?",
       "guidingQuestionZh": "消费者偏好变化如何影响运动服装公司？",
       "handoutMaterial": "Sector trend snapshot, competitor comparison notes and trend impact sorter.",
-      "formativeAssessment": "Trend impact sort: same trend helps, hurts or has unclear effect on different companies.",
+      "formativeAssessment": "Trend impact sort: same trend helps, hurts or has unclear effect on different companies. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Explain how one consumer trend could help one company and hurt another.",
       "sequenceRole": "External competitive-risk layer.",
       "retrievalBase": "Company-risk chain and revenue/margin evidence.",
@@ -3261,8 +4990,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Compare Li Ning sales trend with competitor or sector evidence."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Li Ning case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define sector. 2. Calculate/Interpret: Use or interpret the lesson formula: market share = company sales / sector sales x 100, if suitable data is available. 3. Explain: Explain what one Li Ning evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company. 5. Judge: Give your own evidence-based classroom verdict on Li Ning: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -3282,10 +5011,10 @@
       ],
       "examPattern": {
         "checkpoint": 4,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Li Ning extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can changing tastes affect a sportswear company?",
-        "mustAssess": "Explanation of how the same trend can help one company and hurt another."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can changing tastes affect a sportswear company?",
+        "mustAssess": "Explanation of how the same trend can help one company and hurt another. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 16 risk chain and Unit 2 revenue/margin evidence.",
@@ -3323,7 +5052,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -3335,16 +5064,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "Optional calculation only if source data is clean: market share = company sales / sector sales x 100, if suitable data is available.",
-        "judgementRequirement": "Explanation of how the same trend can help one company and hurt another.",
-        "mustAvoid": "Do not repeat company-specific risk; make the cause external."
+        "judgementRequirement": "Explanation of how the same trend can help one company and hurt another. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not repeat company-specific risk; make the cause external. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Trends change fast. How can fashion taste become investment risk?",
           "Hook: start with Li Ning and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lesson 16 risk chain and Unit 2 revenue/margin evidence.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Li Ning evidence.",
           "Teach: make students write the core claim: The same consumer trend can help one company and hurt another within a sector.",
           "Evidence practice: Compare Li Ning sales trend with competitor or sector evidence.",
           "Output rehearsal: students build one explanation of how the same trend can help one company and hurt another.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Li Ning.",
+          "Investment action: students apply the decision rule - A popular brand today may not stay popular enough to justify the price.",
           "Exit ticket: students submit Explanation of how the same trend can help one company and hurt another."
         ],
         "handoutBlocks": [
@@ -3362,9 +5095,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Compare Li Ning sales trend with competitor or sector evidence.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Li Ning case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define sector. 2. Calculate/Interpret: Use or interpret the lesson formula: market share = company sales / sector sales x 100, if suitable data is available. 3. Explain: Explain what one Li Ning evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company. 5. Judge: Give your own evidence-based classroom verdict on Li Ning: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3386,14 +5119,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a company data table or report extract; assess one explanation of how the same trend can help one company and hurt another."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Li Ning."
       },
       "caseReview": {
         "status": "review-before-production",
         "reason": "Consumer-trend and competitor evidence must be clean enough for a fair sector comparison.",
         "replacementCandidate": "Xtep or Anta if Li Ning data is not aligned with the chosen trend.",
         "sourceFit": "pending-source-pack-check"
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Li Ning evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A growing sector helps every company equally.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Li Ning evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Li Ning?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Li Ning case.",
+          "pairs": [
+            {
+              "term": "sector",
+              "match": "a group of companies selling similar goods or services."
+            },
+            {
+              "term": "competition",
+              "match": "rivalry between firms for customers and profit."
+            },
+            {
+              "term": "consumer trend",
+              "match": "a change in what customers prefer to buy."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Li Ning evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Li Ning case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define sector."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: market share = company sales / sector sales x 100, if suitable data is available."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Li Ning evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Li Ning case could change an investor's judgement about how can changing tastes affect a sportswear company."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Li Ning: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Sector-risk action",
+        "studentAction": "Check whether changing consumer tastes or sector conditions could weaken the company case.",
+        "decisionRule": "A popular brand today may not stay popular enough to justify the price.",
+        "portfolioQuestion": "Ask whether the investor is overexposed to one consumer trend.",
+        "classroomOutput": "I can judge whether Li Ning sector evidence supports watch, avoid or consider."
+      },
+      "studentHook": "Trends change fast. How can fashion taste become investment risk?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Trends change fast. How can fashion taste become investment risk?"
+        },
+        {
+          "label": "Key idea",
+          "text": "The same consumer trend can help one company and hurt another within a sector."
+        },
+        {
+          "label": "Try it",
+          "text": "one explanation of how the same trend can help one company and hurt another"
+        },
+        {
+          "label": "Decide",
+          "text": "I can judge whether Li Ning sector evidence supports watch, avoid or consider."
+        }
+      ]
     },
     {
       "lesson": 18,
@@ -3401,7 +5237,7 @@
       "guidingQuestion": "How can government rules affect future profit?",
       "guidingQuestionZh": "政府规则如何影响未来利润？",
       "handoutMaterial": "Rule-change scenario cards, effect classification table and regulation-to-profit sentence frame.",
-      "formativeAssessment": "Scenario classification: cost increase, revenue limit, risk reduction or unclear effect.",
+      "formativeAssessment": "Scenario classification: cost increase, revenue limit, risk reduction or unclear effect. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Explain why a profitable company may still face regulation risk.",
       "sequenceRole": "Regulation-risk layer.",
       "retrievalBase": "Risk-evidence-effect chains from Lessons 16-17.",
@@ -3447,8 +5283,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Classify a Ping An report extract or regulatory note by likely effect."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Ping An case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define regulation. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Ping An evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit. 5. Judge: Give your own evidence-based classroom verdict on Ping An: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -3468,10 +5304,10 @@
       ],
       "examPattern": {
         "checkpoint": 4,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Ping An extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can government rules affect future profit?",
-        "mustAssess": "Rule-change classification and future-profit or price link."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can government rules affect future profit?",
+        "mustAssess": "Rule-change classification and future-profit or price link. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 16-17 risk-evidence-effect chains.",
@@ -3509,7 +5345,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -3521,16 +5357,20 @@
         "marks": 4,
         "stimulusType": "short company evidence extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Rule-change classification and future-profit or price link.",
-        "mustAvoid": "Keep it business-focused and non-political."
+        "judgementRequirement": "Rule-change classification and future-profit or price link. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Keep it business-focused and non-political. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A rule change can rewrite a profit story. What should investors check?",
           "Hook: start with Ping An and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 16-17 risk-evidence-effect chains.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Ping An evidence.",
           "Teach: make students write the core claim: Regulation can change costs, revenue limits, risk profile and investor expectations.",
           "Evidence practice: Classify a Ping An report extract or regulatory note by likely effect.",
           "Output rehearsal: students build one rule-change classification with future-profit or price link.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Ping An.",
+          "Investment action: students apply the decision rule - Regulation is not background noise; it can change risk and valuation.",
           "Exit ticket: students submit Rule-change classification and future-profit or price link."
         ],
         "handoutBlocks": [
@@ -3548,9 +5388,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Classify a Ping An report extract or regulatory note by likely effect.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Ping An case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define regulation. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Ping An evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit. 5. Judge: Give your own evidence-based classroom verdict on Ping An: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3572,14 +5412,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a short company evidence extract; assess one rule-change classification with future-profit or price link."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Ping An."
       },
       "caseReview": {
         "status": "review-before-production",
         "reason": "Regulation evidence must stay business-focused and age-appropriate, not political or too technical.",
         "replacementCandidate": "AIA or China Life if Ping An source evidence is too complex.",
         "sourceFit": "pending-source-pack-check"
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Ping An evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Current profit protects a company from rule changes.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Ping An evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Ping An?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Ping An case.",
+          "pairs": [
+            {
+              "term": "regulation",
+              "match": "government rules that affect how a company operates."
+            },
+            {
+              "term": "compliance cost",
+              "match": "the cost of obeying rules and standards."
+            },
+            {
+              "term": "policy risk",
+              "match": "the risk that rule changes reduce future profit."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Ping An evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Ping An case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define regulation."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Ping An evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Ping An case could change an investor's judgement about how can government rules affect future profit."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Ping An: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Regulation-risk action",
+        "studentAction": "Identify how rules, capital requirements or government action could change future profit.",
+        "decisionRule": "Regulation is not background noise; it can change risk and valuation.",
+        "portfolioQuestion": "Ask whether the investor understands the rule risk before comparing returns.",
+        "classroomOutput": "I can explain one Ping An regulation risk and its investor implication. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A rule change can rewrite a profit story. What should investors check?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A rule change can rewrite a profit story. What should investors check?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Regulation can change costs, revenue limits, risk profile and investor expectations."
+        },
+        {
+          "label": "Try it",
+          "text": "one rule-change classification with future-profit or price link"
+        },
+        {
+          "label": "Decide",
+          "text": "I can explain one Ping An regulation risk and its investor implication. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 19,
@@ -3587,7 +5530,7 @@
       "guidingQuestion": "Why can exchange rates matter to shareholders?",
       "guidingQuestionZh": "汇率为什么会影响股东？",
       "handoutMaterial": "Geographic sales or currency-risk extract, exchange-rate change calculator and investor-risk explanation prompt.",
-      "formativeAssessment": "Currency direction check: students decide which figure changes when the exchange rate moves.",
+      "formativeAssessment": "Currency direction check: students decide which figure changes when the exchange rate moves. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Calculate one exchange-rate change and link it to shareholder risk.",
       "sequenceRole": "Global and currency-risk layer.",
       "retrievalBase": "Risk chains and the percentage-change method from Lesson 11.",
@@ -3633,8 +5576,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Samsung case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define exchange rate. 2. Calculate/Interpret: Use or interpret the lesson formula: exchange-rate change % = (new rate - old rate) / old rate x 100. 3. Explain: Explain what one Samsung evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders. 5. Judge: Give your own evidence-based classroom verdict on Samsung: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -3654,10 +5597,10 @@
       ],
       "examPattern": {
         "checkpoint": 4,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Samsung extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why can exchange rates matter to shareholders?",
-        "mustAssess": "Exchange-rate percentage change plus investor-risk explanation."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why can exchange rates matter to shareholders?",
+        "mustAssess": "Exchange-rate percentage change plus investor-risk explanation. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 16-18 risk chains and the percentage-change method from Lesson 11.",
@@ -3695,7 +5638,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -3707,16 +5650,20 @@
         "marks": 4,
         "stimulusType": "company data table or report extract",
         "calculationRequirement": "exchange-rate change % = (new rate - old rate) / old rate x 100.",
-        "judgementRequirement": "Exchange-rate percentage change plus investor-risk explanation.",
-        "mustAvoid": "Do not teach foreign-exchange trading."
+        "judgementRequirement": "Exchange-rate percentage change plus investor-risk explanation. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not teach foreign-exchange trading. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A company can perform well, but currency moves can change the result.",
           "Hook: start with Samsung and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 16-18 risk chains and the percentage-change method from Lesson 11.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Samsung evidence.",
           "Teach: make students write the core claim: Exchange rates can create measurement and return risk for global companies and shareholders.",
           "Evidence practice: Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change.",
           "Output rehearsal: students build one exchange-rate percentage-change calculation plus investor-risk explanation.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Samsung.",
+          "Investment action: students apply the decision rule - Foreign revenue or listing currency can change the investment result even if operations look stable.",
           "Exit ticket: students submit Exchange-rate percentage change plus investor-risk explanation."
         ],
         "handoutBlocks": [
@@ -3734,9 +5681,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Connect Samsung geographic sales or currency-risk note to a frozen exchange-rate change.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Samsung case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define exchange rate. 2. Calculate/Interpret: Use or interpret the lesson formula: exchange-rate change % = (new rate - old rate) / old rate x 100. 3. Explain: Explain what one Samsung evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders. 5. Judge: Give your own evidence-based classroom verdict on Samsung: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3758,14 +5705,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Calculate and explain using a company data table or report extract; assess one exchange-rate percentage-change calculation plus investor-risk explanation."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Samsung."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Samsung evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Foreign sales only create opportunity and not measurement or return risk.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Samsung evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Samsung?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Samsung case.",
+          "pairs": [
+            {
+              "term": "exchange rate",
+              "match": "the price of one currency in terms of another."
+            },
+            {
+              "term": "export exposure",
+              "match": "reliance on sales to customers in other countries."
+            },
+            {
+              "term": "translation effect",
+              "match": "how currency changes affect reported figures."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Samsung evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Samsung case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define exchange rate."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: exchange-rate change % = (new rate - old rate) / old rate x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Samsung evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Samsung: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Currency-risk action",
+        "studentAction": "Check whether exchange rates could affect reported profit, dividends or shareholder return.",
+        "decisionRule": "Foreign revenue or listing currency can change the investment result even if operations look stable.",
+        "portfolioQuestion": "Ask whether currency exposure fits the investor profile and portfolio.",
+        "classroomOutput": "I can add one Samsung currency-risk caveat to an investment judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A company can perform well, but currency moves can change the result.",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A company can perform well, but currency moves can change the result."
+        },
+        {
+          "label": "Key idea",
+          "text": "Exchange rates can create measurement and return risk for global companies and shareholders."
+        },
+        {
+          "label": "Try it",
+          "text": "one exchange-rate percentage-change calculation plus investor-risk explanation"
+        },
+        {
+          "label": "Decide",
+          "text": "I can add one Samsung currency-risk caveat to an investment judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 20,
@@ -3773,7 +5823,7 @@
       "guidingQuestion": "How can one fund hold many companies?",
       "guidingQuestionZh": "一个基金如何持有许多公司？",
       "handoutMaterial": "ETF factsheet reading guide, holdings/risk table and ETF-versus-single-share comparison box.",
-      "formativeAssessment": "Risk-reduction check: students identify which risk diversification reduces and which remains.",
+      "formativeAssessment": "Risk-reduction check: students identify which risk diversification reduces and which remains. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Compare an ETF with one single-company share: one portfolio weight, one risk reduced, one risk remaining.",
       "sequenceRole": "Unit 4 portfolio and fund checkpoint.",
       "retrievalBase": "Risk types from Lessons 16-19 and ownership from Lesson 4.",
@@ -3824,8 +5874,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short ChinaAMC CSI 300 ETF case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define ETF. 2. Calculate/Interpret: Use or interpret the lesson formula: portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending. 3. Explain: Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies. 5. Judge: Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -3845,10 +5895,10 @@
       ],
       "examPattern": {
         "checkpoint": 4,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen ChinaAMC CSI 300 ETF extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can one fund hold many companies?",
-        "mustAssess": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can one fund hold many companies?",
+        "mustAssess": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Lessons 16-19 risk types and Lesson 4 ownership of shares.",
@@ -3886,7 +5936,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -3898,16 +5948,20 @@
         "marks": 4,
         "stimulusType": "ETF factsheet extract",
         "calculationRequirement": "portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.",
-        "judgementRequirement": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence.",
-        "mustAvoid": "Make portfolio weight the main calculation; treat expense ratio as read-only unless extending."
+        "judgementRequirement": "ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Make portfolio weight the main calculation; treat expense ratio as read-only unless extending. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Instead of choosing one company, what happens if you buy a basket?",
           "Hook: start with ChinaAMC CSI 300 ETF and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Lessons 16-19 risk types and Lesson 4 ownership of shares.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new ChinaAMC CSI 300 ETF evidence.",
           "Teach: make students write the core claim: Diversification reduces company-specific risk but does not remove market, sector or fund risks.",
           "Evidence practice: Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.",
           "Output rehearsal: students build one ETF-versus-single-share comparison with weight, risk reduced and risk remaining.",
+          "Analyse why: students build a data -> concept -> investor implication chain for ChinaAMC CSI 300 ETF.",
+          "Investment action: students apply the decision rule - Diversification reduces single-company risk but does not remove market risk, fees or concentration.",
           "Exit ticket: students submit ETF-versus-single-share comparison with one portfolio-weight calculation, one risk reduced, one risk remaining and one risk-return trade-off sentence."
         ],
         "handoutBlocks": [
@@ -3925,9 +5979,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read a China-relevant ETF factsheet and identify holdings, index, cost and remaining risks.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short ChinaAMC CSI 300 ETF case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define ETF. 2. Calculate/Interpret: Use or interpret the lesson formula: portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending. 3. Explain: Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies. 5. Judge: Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -3949,14 +6003,121 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Compare using a ETF factsheet extract; assess one ETF-versus-single-share comparison with weight, risk reduced and risk remaining."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for ChinaAMC CSI 300 ETF."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using ChinaAMC CSI 300 ETF evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Diversification removes all investment risk.",
+          "answer": "No",
+          "explanation": "Correct the misconception using ChinaAMC CSI 300 ETF evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about ChinaAMC CSI 300 ETF?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the ChinaAMC CSI 300 ETF case.",
+          "pairs": [
+            {
+              "term": "ETF",
+              "match": "an exchange-traded fund that can be bought and sold on a stock exchange."
+            },
+            {
+              "term": "index fund",
+              "match": "a fund designed to track a market index rather than pick individual shares."
+            },
+            {
+              "term": "diversification",
+              "match": "spreading investment across different holdings to reduce risk."
+            },
+            {
+              "term": "portfolio weight",
+              "match": "one holding's value as a share of total portfolio value."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using ChinaAMC CSI 300 ETF evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short ChinaAMC CSI 300 ETF case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define ETF."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many companies."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Diversification-action",
+        "studentAction": "Use an ETF factsheet to see how one fund spreads exposure across many companies.",
+        "decisionRule": "Diversification reduces single-company risk but does not remove market risk, fees or concentration.",
+        "portfolioQuestion": "Ask whether the investor should analyse a fund instead of choosing one company.",
+        "classroomOutput": "I can judge whether the ChinaAMC CSI 300 ETF gives useful broad exposure or still needs caution. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Instead of choosing one company, what happens if you buy a basket?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Instead of choosing one company, what happens if you buy a basket?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Diversification reduces company-specific risk but does not remove market, sector or fund risks."
+        },
+        {
+          "label": "Try it",
+          "text": "one ETF-versus-single-share comparison with weight, risk reduced and risk remaining"
+        },
+        {
+          "label": "Decide",
+          "text": "I can judge whether the ChinaAMC CSI 300 ETF gives useful broad exposure or still needs caution. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 21,
@@ -3964,7 +6125,7 @@
       "guidingQuestion": "What makes a platform company attractive or risky?",
       "guidingQuestionZh": "平台公司为什么有吸引力，也为什么有风险？",
       "handoutMaterial": "Platform evidence board, attraction-risk-price triangle and balanced judgement planner.",
-      "formativeAssessment": "Balanced-board check: students place evidence into attraction, risk, price or unsupported claim.",
+      "formativeAssessment": "Balanced-board check: students place evidence into attraction, risk, price or unsupported claim. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one attraction-risk-price triangle for Tencent.",
       "sequenceRole": "First case lab: platform synthesis.",
       "retrievalBase": "Tencent from Lesson 1 plus growth, margin, P/E and risk tools.",
@@ -4010,8 +6171,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Combine Tencent revenue mix, margin evidence and one dated risk note."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define platform business. 2. Calculate/Interpret: Use or interpret the lesson formula: combine growth, margin, P/E and risk notes; no single new formula. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4031,10 +6192,10 @@
       ],
       "examPattern": {
         "checkpoint": 5,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Tencent extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: What makes a platform company attractive or risky?",
-        "mustAssess": "Attraction-risk-price triangle with one evidence point in each corner."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: What makes a platform company attractive or risky?",
+        "mustAssess": "Attraction-risk-price triangle with one evidence point in each corner. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "Tencent familiarity from Lesson 1 plus growth, margin, P/E and risk tools from Units 2-4.",
@@ -4072,7 +6233,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -4084,16 +6245,20 @@
         "marks": 6,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "combine growth, margin, P/E and risk notes; no single new formula.",
-        "judgementRequirement": "Attraction-risk-price triangle with one evidence point in each corner.",
-        "mustAvoid": "Do not reteach share-price meaning or revenue definitions."
+        "judgementRequirement": "Attraction-risk-price triangle with one evidence point in each corner. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not reteach share-price meaning or revenue definitions. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Platform companies look powerful. What makes that power durable or risky?",
           "Hook: start with Tencent and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate Tencent familiarity from Lesson 1 plus growth, margin, P/E and risk tools from Units 2-4.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Tencent evidence.",
           "Teach: make students write the core claim: Platform network effects can be attractive, but price, competition and regulation still matter.",
           "Evidence practice: Combine Tencent revenue mix, margin evidence and one dated risk note.",
           "Output rehearsal: students build one attraction-risk-price triangle with one evidence point in each corner.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Tencent.",
+          "Investment action: students apply the decision rule - Platform size is useful only if it links to monetisation, competition and regulation evidence.",
           "Exit ticket: students submit Attraction-risk-price triangle with one evidence point in each corner."
         ],
         "handoutBlocks": [
@@ -4111,9 +6276,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Combine Tencent revenue mix, margin evidence and one dated risk note.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define platform business. 2. Calculate/Interpret: Use or interpret the lesson formula: combine growth, margin, P/E and risk notes; no single new formula. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -4135,14 +6300,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Assess using a multi-evidence company case extract; assess one attraction-risk-price triangle with one evidence point in each corner."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Tencent."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Tencent evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A large platform with many users is automatically low-risk.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Tencent evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Tencent?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Tencent case.",
+          "pairs": [
+            {
+              "term": "platform business",
+              "match": "a business that connects different user groups."
+            },
+            {
+              "term": "network effects",
+              "match": "when a service becomes more valuable as more people use it."
+            },
+            {
+              "term": "regulatory overhang",
+              "match": "uncertainty caused by possible future rules."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Tencent evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define platform business."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: combine growth, margin, P/E and risk notes; no single new formula."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Tencent evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what makes a platform company attractive or risky."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Platform-quality action",
+        "studentAction": "Judge whether a platform company has network effects, user strength and risk that justify attention.",
+        "decisionRule": "Platform size is useful only if it links to monetisation, competition and regulation evidence.",
+        "portfolioQuestion": "Ask whether the investor is buying durable platform quality or a weak growth story.",
+        "classroomOutput": "I can write a Tencent platform verdict with one strength, one risk and one action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Platform companies look powerful. What makes that power durable or risky?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Platform companies look powerful. What makes that power durable or risky?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Platform network effects can be attractive, but price, competition and regulation still matter."
+        },
+        {
+          "label": "Try it",
+          "text": "one attraction-risk-price triangle with one evidence point in each corner"
+        },
+        {
+          "label": "Decide",
+          "text": "I can write a Tencent platform verdict with one strength, one risk and one action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 22,
@@ -4150,7 +6418,7 @@
       "guidingQuestion": "Is BYD attractive because it is strong, or because the price is fair?",
       "guidingQuestionZh": "比亚迪有吸引力是因为业务强，还是因为价格合理？",
       "handoutMaterial": "Strength-price-risk evidence matrix, manufacturing evidence notes and attractiveness judgement frame.",
-      "formativeAssessment": "Evidence-tagging check: business strength, valuation, risk or missing evidence.",
+      "formativeAssessment": "Evidence-tagging check: business strength, valuation, risk or missing evidence. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one BYD strength-price-risk evidence matrix.",
       "sequenceRole": "Manufacturing case lab: strength versus fair price.",
       "retrievalBase": "BYD margin work and valuation discipline.",
@@ -4196,8 +6464,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define vertical integration. 2. Calculate/Interpret: Use or interpret the lesson formula: compare margin and growth; then add price and risk evidence. 3. Explain: Explain what one BYD evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair. 5. Judge: Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4217,10 +6485,10 @@
       ],
       "examPattern": {
         "checkpoint": 5,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen BYD extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Is BYD attractive because it is strong, or because the price is fair?",
-        "mustAssess": "Strength-price-risk evidence matrix separating business strength from investment attractiveness."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Is BYD attractive because it is strong, or because the price is fair?",
+        "mustAssess": "Strength-price-risk evidence matrix separating business strength from investment attractiveness. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "BYD margin work from Lesson 7 and valuation discipline from Lesson 15.",
@@ -4258,7 +6526,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -4270,16 +6538,20 @@
         "marks": 6,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "compare margin and growth; then add price and risk evidence.",
-        "judgementRequirement": "Strength-price-risk evidence matrix separating business strength from investment attractiveness.",
-        "mustAvoid": "Do not recalculate gross margin from first principles except as retrieval."
+        "judgementRequirement": "Strength-price-risk evidence matrix separating business strength from investment attractiveness. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not recalculate gross margin from first principles except as retrieval. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Strength is not the same as a fair price. Which matters more for investors?",
           "Hook: start with BYD and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate BYD margin work from Lesson 7 and valuation discipline from Lesson 15.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new BYD evidence.",
           "Teach: make students write the core claim: Operational strength must be separated from fair price and manufacturing-cycle risk.",
           "Evidence practice: Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence.",
           "Output rehearsal: students build one strength-price-risk evidence matrix separating business strength from investment attractiveness.",
+          "Analyse why: students build a data -> concept -> investor implication chain for BYD.",
+          "Investment action: students apply the decision rule - A strong company can still be a weak investment if expectations and price are too high.",
           "Exit ticket: students submit Strength-price-risk evidence matrix separating business strength from investment attractiveness."
         ],
         "handoutBlocks": [
@@ -4297,9 +6569,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Tag BYD sales, margin, production or valuation evidence as strength, price or risk evidence.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define vertical integration. 2. Calculate/Interpret: Use or interpret the lesson formula: compare margin and growth; then add price and risk evidence. 3. Explain: Explain what one BYD evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair. 5. Judge: Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -4321,14 +6593,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Assess using a multi-evidence company case extract; assess one strength-price-risk evidence matrix separating business strength from investment attractiveness."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for BYD."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using BYD evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Operational strength equals investment attractiveness.",
+          "answer": "No",
+          "explanation": "Correct the misconception using BYD evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about BYD?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the BYD case.",
+          "pairs": [
+            {
+              "term": "vertical integration",
+              "match": "control over several stages of the supply chain."
+            },
+            {
+              "term": "capacity",
+              "match": "how much a company can produce."
+            },
+            {
+              "term": "cyclicality",
+              "match": "sensitivity to economic cycles and demand changes."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using BYD evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short BYD case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define vertical integration."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: compare margin and growth; then add price and risk evidence."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one BYD evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the BYD case could change an investor's judgement about is BYD attractive because it is strong, or because the price is fair."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on BYD: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Strength-versus-price action",
+        "studentAction": "Separate BYD business strength from whether the share price is fair.",
+        "decisionRule": "A strong company can still be a weak investment if expectations and price are too high.",
+        "portfolioQuestion": "Ask whether another auto or battery choice offers a better risk-return-price trade-off.",
+        "classroomOutput": "I can decide whether BYD is consider, watch or too expensive using strength and price evidence."
+      },
+      "studentHook": "Strength is not the same as a fair price. Which matters more for investors?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Strength is not the same as a fair price. Which matters more for investors?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Operational strength must be separated from fair price and manufacturing-cycle risk."
+        },
+        {
+          "label": "Try it",
+          "text": "one strength-price-risk evidence matrix separating business strength from investment attractiveness"
+        },
+        {
+          "label": "Decide",
+          "text": "I can decide whether BYD is consider, watch or too expensive using strength and price evidence."
+        }
+      ]
     },
     {
       "lesson": 23,
@@ -4336,7 +6711,7 @@
       "guidingQuestion": "Why is analysing a bank different from analysing a tech company?",
       "guidingQuestionZh": "分析银行为什么不同于分析科技公司？",
       "handoutMaterial": "Bank evidence extract, bank-versus-tech exception note and bank-specific risk prompt.",
-      "formativeAssessment": "Company-type check: students decide whether evidence is bank-specific or general company evidence.",
+      "formativeAssessment": "Company-type check: students decide whether evidence is bank-specific or general company evidence. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write one bank-evidence exception note.",
       "sequenceRole": "Financial-company case lab.",
       "retrievalBase": "HSBC dividend work and risk classification.",
@@ -4382,8 +6757,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read HSBC results summary and identify one bank-specific evidence item."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define interest margin. 2. Calculate/Interpret: Use or interpret the lesson formula: basic ratio reading only; avoid advanced bank formulas in Grade 9 decks. 3. Explain: Explain what one HSBC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company. 5. Judge: Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4403,10 +6778,10 @@
       ],
       "examPattern": {
         "checkpoint": 5,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen HSBC extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why is analysing a bank different from analysing a tech company?",
-        "mustAssess": "Bank-evidence exception note explaining why one ordinary company metric is insufficient."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why is analysing a bank different from analysing a tech company?",
+        "mustAssess": "Bank-evidence exception note explaining why one ordinary company metric is insufficient. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "HSBC dividend work from Lesson 12 and risk classification from Unit 4.",
@@ -4444,7 +6819,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -4456,16 +6831,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.",
-        "judgementRequirement": "Bank-evidence exception note explaining why one ordinary company metric is insufficient.",
-        "mustAvoid": "Avoid advanced bank ratios."
+        "judgementRequirement": "Bank-evidence exception note explaining why one ordinary company metric is insufficient. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Avoid advanced bank ratios. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Banks are different machines. What makes their evidence different?",
           "Hook: start with HSBC and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate HSBC dividend work from Lesson 12 and risk classification from Unit 4.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new HSBC evidence.",
           "Teach: make students write the core claim: Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.",
           "Evidence practice: Read HSBC results summary and identify one bank-specific evidence item.",
           "Output rehearsal: students build one bank-evidence exception note explaining why an ordinary metric is insufficient.",
+          "Analyse why: students build a data -> concept -> investor implication chain for HSBC.",
+          "Investment action: students apply the decision rule - Banks require attention to capital, loan risk, interest rates and regulation.",
           "Exit ticket: students submit Bank-evidence exception note explaining why one ordinary company metric is insufficient."
         ],
         "handoutBlocks": [
@@ -4483,9 +6862,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read HSBC results summary and identify one bank-specific evidence item.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define interest margin. 2. Calculate/Interpret: Use or interpret the lesson formula: basic ratio reading only; avoid advanced bank formulas in Grade 9 decks. 3. Explain: Explain what one HSBC evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company. 5. Judge: Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -4507,14 +6886,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a multi-evidence company case extract; assess one bank-evidence exception note explaining why an ordinary metric is insufficient."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for HSBC."
       },
       "caseReview": {
         "status": "review-before-production",
         "reason": "Bank evidence can become too technical; use only clear student-readable interest margin, credit risk or capital-strength evidence.",
         "replacementCandidate": "Standard Chartered if HSBC source extracts do not give a clean bank-specific contrast.",
         "sourceFit": "pending-source-pack-check"
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using HSBC evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Banks can be analysed exactly like technology or consumer firms.",
+          "answer": "No",
+          "explanation": "Correct the misconception using HSBC evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about HSBC?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the HSBC case.",
+          "pairs": [
+            {
+              "term": "interest margin",
+              "match": "the spread between lending income and funding cost."
+            },
+            {
+              "term": "credit risk",
+              "match": "the risk that borrowers do not repay."
+            },
+            {
+              "term": "capital strength",
+              "match": "ability to absorb losses and keep operating."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using HSBC evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short HSBC case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define interest margin."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: basic ratio reading only; avoid advanced bank formulas in Grade 9 decks."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one HSBC evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the HSBC case could change an investor's judgement about why is analysing a bank different from analysing a tech company."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on HSBC: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Financial-company action",
+        "studentAction": "Analyse a bank with bank-specific evidence rather than treating it like a normal tech or consumer company.",
+        "decisionRule": "Banks require attention to capital, loan risk, interest rates and regulation.",
+        "portfolioQuestion": "Ask whether the investor understands the different risk engine before comparing sectors.",
+        "classroomOutput": "I can explain why HSBC needs a different investment checklist. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Banks are different machines. What makes their evidence different?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Banks are different machines. What makes their evidence different?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone."
+        },
+        {
+          "label": "Try it",
+          "text": "one bank-evidence exception note explaining why an ordinary metric is insufficient"
+        },
+        {
+          "label": "Decide",
+          "text": "I can explain why HSBC needs a different investment checklist. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 24,
@@ -4522,7 +7004,7 @@
       "guidingQuestion": "How much is a strong brand worth to investors?",
       "guidingQuestionZh": "强品牌对投资者有多大价值？",
       "handoutMaterial": "Brand-to-margin evidence map, inventory evidence cards and pricing-power limitation sentence.",
-      "formativeAssessment": "Link check: brand evidence -> pricing power or inventory risk -> profit effect.",
+      "formativeAssessment": "Link check: brand evidence -> pricing power or inventory risk -> profit effect. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one brand-to-margin evidence map with one limitation.",
       "sequenceRole": "Consumer-brand case lab.",
       "retrievalBase": "Revenue, margin and competition analysis.",
@@ -4568,8 +7050,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Anta Sports case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define brand equity. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Anta Sports evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors. 5. Judge: Give your own evidence-based classroom verdict on Anta Sports: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4589,10 +7071,10 @@
       ],
       "examPattern": {
         "checkpoint": 5,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Anta Sports extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How much is a strong brand worth to investors?",
-        "mustAssess": "Brand-to-margin evidence map plus one limitation linked to inventory or demand."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How much is a strong brand worth to investors?",
+        "mustAssess": "Brand-to-margin evidence map plus one limitation linked to inventory or demand. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "revenue, margin and competition analysis from Lessons 6-8 and 17.",
@@ -4630,7 +7112,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -4642,16 +7124,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Brand-to-margin evidence map plus one limitation linked to inventory or demand.",
-        "mustAvoid": "Do not repeat generic sector risk unless tied to brand, inventory or pricing power."
+        "judgementRequirement": "Brand-to-margin evidence map plus one limitation linked to inventory or demand. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not repeat generic sector risk unless tied to brand, inventory or pricing power. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A brand can make customers pay more. Is that enough for investors?",
           "Hook: start with Anta Sports and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate revenue, margin and competition analysis from Lessons 6-8 and 17.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Anta Sports evidence.",
           "Teach: make students write the core claim: Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.",
           "Evidence practice: Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence.",
           "Output rehearsal: students build one brand-to-margin evidence map with an inventory or demand limitation.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Anta Sports.",
+          "Investment action: students apply the decision rule - A strong brand matters only if it protects revenue, margin or cash flow.",
           "Exit ticket: students submit Brand-to-margin evidence map plus one limitation linked to inventory or demand."
         ],
         "handoutBlocks": [
@@ -4669,9 +7155,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Classify Anta revenue, margin, brand and inventory notes as support or limitation evidence.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Anta Sports case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define brand equity. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Anta Sports evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors. 5. Judge: Give your own evidence-based classroom verdict on Anta Sports: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -4693,14 +7179,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a multi-evidence company case extract; assess one brand-to-margin evidence map with an inventory or demand limitation."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Anta Sports."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Anta Sports evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A famous brand guarantees high profit and low risk.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Anta Sports evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Anta Sports?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Anta Sports case.",
+          "pairs": [
+            {
+              "term": "brand equity",
+              "match": "value created by a strong brand name and reputation."
+            },
+            {
+              "term": "inventory risk",
+              "match": "risk that unsold goods reduce profit."
+            },
+            {
+              "term": "pricing power",
+              "match": "ability to raise prices without losing too many customers."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Anta Sports evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Anta Sports case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define brand equity."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Anta Sports evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Anta Sports case could change an investor's judgement about how much is a strong brand worth to investors."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Anta Sports: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Brand-value action",
+        "studentAction": "Use brand evidence to test whether pricing power and customer loyalty support investment quality.",
+        "decisionRule": "A strong brand matters only if it protects revenue, margin or cash flow.",
+        "portfolioQuestion": "Ask whether the investor is paying for real brand strength or only a popular name.",
+        "classroomOutput": "I can judge whether Anta brand evidence improves the investment case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A brand can make customers pay more. Is that enough for investors?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A brand can make customers pay more. Is that enough for investors?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Brand strength matters only when it connects to pricing power, margins and inventory or demand limits."
+        },
+        {
+          "label": "Try it",
+          "text": "one brand-to-margin evidence map with an inventory or demand limitation"
+        },
+        {
+          "label": "Decide",
+          "text": "I can judge whether Anta brand evidence improves the investment case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 25,
@@ -4708,7 +7297,7 @@
       "guidingQuestion": "How can we compare a global brand with a China/HK brand?",
       "guidingQuestionZh": "如何比较全球品牌与中国/香港品牌？",
       "handoutMaterial": "Comparable-company metric alignment table, source-date checklist and fair-comparison paragraph frame.",
-      "formativeAssessment": "Fairness audit: students mark whether comparison metrics, dates and currencies are aligned.",
+      "formativeAssessment": "Fairness audit: students mark whether comparison metrics, dates and currencies are aligned. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Submit one comparable-company alignment row and one fair comparison sentence.",
       "sequenceRole": "Comparable-company case checkpoint.",
       "retrievalBase": "Comparison discipline and brand analysis.",
@@ -4754,8 +7343,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Align Nike data with one China/HK brand using the same metric set."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Nike case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define multinational. 2. Calculate/Interpret: Use or interpret the lesson formula: compare two companies using the same metric set. 3. Explain: Explain what one Nike evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand. 5. Judge: Give your own evidence-based classroom verdict on Nike: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4775,10 +7364,10 @@
       ],
       "examPattern": {
         "checkpoint": 5,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Nike extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How can we compare a global brand with a China/HK brand?",
-        "mustAssess": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How can we compare a global brand with a China/HK brand?",
+        "mustAssess": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "comparison discipline from Lesson 10 and brand analysis from Lesson 24.",
@@ -4816,7 +7405,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -4828,16 +7417,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "compare two companies using the same metric set.",
-        "judgementRequirement": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation.",
-        "mustAvoid": "No new metrics; focus on fair comparison method."
+        "judgementRequirement": "Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "No new metrics; focus on fair comparison method. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Global brand or China/HK brand: how do we compare fairly?",
           "Hook: start with Nike and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate comparison discipline from Lesson 10 and brand analysis from Lesson 24.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Nike evidence.",
           "Teach: make students write the core claim: Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.",
           "Evidence practice: Align Nike data with one China/HK brand using the same metric set.",
           "Output rehearsal: students build one comparable-company alignment row plus fair comparison paragraph.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Nike.",
+          "Investment action: students apply the decision rule - A fair comparison needs common metrics and clear caveats about market differences.",
           "Exit ticket: students submit Comparable-company alignment row plus one fair comparison paragraph naming metric, source date and limitation."
         ],
         "handoutBlocks": [
@@ -4855,9 +7448,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Align Nike data with one China/HK brand using the same metric set.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Nike case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define multinational. 2. Calculate/Interpret: Use or interpret the lesson formula: compare two companies using the same metric set. 3. Explain: Explain what one Nike evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand. 5. Judge: Give your own evidence-based classroom verdict on Nike: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -4879,14 +7472,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Compare using a multi-evidence company case extract; assess one comparable-company alignment row plus fair comparison paragraph."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Nike."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Nike evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Different years, currencies or metric definitions can still be compared casually.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Nike evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Nike?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Nike case.",
+          "pairs": [
+            {
+              "term": "multinational",
+              "match": "a company operating across several countries."
+            },
+            {
+              "term": "comparable company",
+              "match": "a similar firm used for comparison."
+            },
+            {
+              "term": "local/global risk",
+              "match": "risk from specific local markets or worldwide exposure."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Nike evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Nike case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define multinational."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: compare two companies using the same metric set."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Nike evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Nike case could change an investor's judgement about how can we compare a global brand with a China/HK brand."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Nike: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Cross-market comparison action",
+        "studentAction": "Compare a global brand and a China/HK brand using the same quality, price and risk criteria.",
+        "decisionRule": "A fair comparison needs common metrics and clear caveats about market differences.",
+        "portfolioQuestion": "Ask whether the investor should choose, watch both, or gather better comparable evidence.",
+        "classroomOutput": "I can compare Nike and Anta and state the better-supported classroom action."
+      },
+      "studentHook": "Global brand or China/HK brand: how do we compare fairly?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Global brand or China/HK brand: how do we compare fairly?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Fair company comparison requires aligned metrics, dates, currencies and local/global risk context."
+        },
+        {
+          "label": "Try it",
+          "text": "one comparable-company alignment row plus fair comparison paragraph"
+        },
+        {
+          "label": "Decide",
+          "text": "I can compare Nike and Anta and state the better-supported classroom action."
+        }
+      ]
     },
     {
       "lesson": 26,
@@ -4894,7 +7590,7 @@
       "guidingQuestion": "Can a restaurant company recover after a difficult period?",
       "guidingQuestionZh": "餐饮公司能否在困难时期后恢复？",
       "handoutMaterial": "Recovery timeline, store-network evidence table and traffic-light evidence-sufficiency verdict.",
-      "formativeAssessment": "Sufficiency check: students decide whether a recovery claim needs one more evidence item.",
+      "formativeAssessment": "Sufficiency check: students decide whether a recovery claim needs one more evidence item. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Give a red/amber/green recovery verdict and justify the evidence gap.",
       "sequenceRole": "Recovery case: evidence sufficiency.",
       "retrievalBase": "Evidence discipline, revenue, margin and valuation/risk judgement.",
@@ -4940,8 +7636,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Compare Haidilao store count, revenue or operating recovery evidence across periods."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Haidilao case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define turnaround. 2. Calculate/Interpret: Use or interpret the lesson formula: revenue per store = total revenue / number of stores, if data allows. 3. Explain: Explain what one Haidilao evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period. 5. Judge: Give your own evidence-based classroom verdict on Haidilao: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -4961,10 +7657,10 @@
       ],
       "examPattern": {
         "checkpoint": 6,
-        "itemType": "evidence interpretation with optional calculation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Haidilao extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Can a restaurant company recover after a difficult period?",
-        "mustAssess": "Red/amber/green recovery verdict explaining whether the claim needs more evidence."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Can a restaurant company recover after a difficult period?",
+        "mustAssess": "Red/amber/green recovery verdict explaining whether the claim needs more evidence. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "evidence discipline, revenue analysis, margin caution and valuation/risk judgement from earlier units.",
@@ -5002,7 +7698,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -5014,16 +7710,20 @@
         "marks": 6,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "Optional calculation only if source data is clean: revenue per store = total revenue / number of stores, if data allows.",
-        "judgementRequirement": "Red/amber/green recovery verdict explaining whether the claim needs more evidence.",
-        "mustAvoid": "Revenue per store is optional and only if data is clean."
+        "judgementRequirement": "Red/amber/green recovery verdict explaining whether the claim needs more evidence. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Revenue per store is optional and only if data is clean. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A restaurant recovers after a difficult period. Is recovery enough?",
           "Hook: start with Haidilao and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate evidence discipline, revenue analysis, margin caution and valuation/risk judgement from earlier units.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Haidilao evidence.",
           "Teach: make students write the core claim: Recovery judgement needs enough evidence across operations, stores, revenue and profitability.",
           "Evidence practice: Compare Haidilao store count, revenue or operating recovery evidence across periods.",
           "Output rehearsal: students build one red/amber/green recovery verdict explaining the evidence gap.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Haidilao.",
+          "Investment action: students apply the decision rule - A rebound from a difficult period is not enough if quality and price are not convincing.",
           "Exit ticket: students submit Red/amber/green recovery verdict explaining whether the claim needs more evidence."
         ],
         "handoutBlocks": [
@@ -5041,9 +7741,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Compare Haidilao store count, revenue or operating recovery evidence across periods.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Haidilao case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define turnaround. 2. Calculate/Interpret: Use or interpret the lesson formula: revenue per store = total revenue / number of stores, if data allows. 3. Explain: Explain what one Haidilao evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period. 5. Judge: Give your own evidence-based classroom verdict on Haidilao: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -5065,14 +7765,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Assess using a multi-evidence company case extract; assess one red/amber/green recovery verdict explaining the evidence gap."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Haidilao."
       },
       "caseReview": {
         "status": "review-before-production",
         "reason": "Recovery evidence needs comparable period data; same-store sales or store-network evidence may be incomplete.",
         "replacementCandidate": "Yum China if Haidilao recovery data is not clean enough.",
         "sourceFit": "pending-source-pack-check"
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Haidilao evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: One recovery figure proves the turnaround is complete.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Haidilao evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Haidilao?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Haidilao case.",
+          "pairs": [
+            {
+              "term": "turnaround",
+              "match": "improvement after a weak period."
+            },
+            {
+              "term": "store network",
+              "match": "the set of locations through which a company serves customers."
+            },
+            {
+              "term": "same-store sales",
+              "match": "sales from stores open in both comparison periods."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Haidilao evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Haidilao case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define turnaround."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: revenue per store = total revenue / number of stores, if data allows."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Haidilao evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Haidilao case could change an investor's judgement about can a restaurant company recover after a difficult period."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Haidilao: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Recovery-action",
+        "studentAction": "Test whether a recovery story is supported by revenue, margin, cash or store evidence.",
+        "decisionRule": "A rebound from a difficult period is not enough if quality and price are not convincing.",
+        "portfolioQuestion": "Ask whether the investor is buying recovery evidence or just hoping for a turnaround.",
+        "classroomOutput": "I can decide whether Haidilao recovery evidence supports consider, watch or avoid."
+      },
+      "studentHook": "A restaurant recovers after a difficult period. Is recovery enough?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A restaurant recovers after a difficult period. Is recovery enough?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Recovery judgement needs enough evidence across operations, stores, revenue and profitability."
+        },
+        {
+          "label": "Try it",
+          "text": "one red/amber/green recovery verdict explaining the evidence gap"
+        },
+        {
+          "label": "Decide",
+          "text": "I can decide whether Haidilao recovery evidence supports consider, watch or avoid."
+        }
+      ]
     },
     {
       "lesson": 27,
@@ -5080,7 +7883,7 @@
       "guidingQuestion": "Why can travel companies rise and fall with the economy?",
       "guidingQuestionZh": "旅游公司为什么会随经济周期起落？",
       "handoutMaterial": "Before/after travel-cycle data table, operating-margin calculation and operating-leverage chain diagram.",
-      "formativeAssessment": "Causal-chain check: travel demand -> revenue -> operating profit -> margin.",
+      "formativeAssessment": "Causal-chain check: travel demand -> revenue -> operating profit -> margin. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete a demand -> revenue -> operating profit -> margin chain diagram.",
       "sequenceRole": "Cyclical-demand case.",
       "retrievalBase": "Margin analysis, sector risk and recovery thinking.",
@@ -5126,8 +7929,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Compare Trip.com revenue and operating profit before and after a travel-cycle shift."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Trip.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cyclical demand. 2. Calculate/Interpret: Use or interpret the lesson formula: operating margin = operating profit / revenue x 100. 3. Explain: Explain what one Trip.com evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy. 5. Judge: Give your own evidence-based classroom verdict on Trip.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -5147,10 +7950,10 @@
       ],
       "examPattern": {
         "checkpoint": 6,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Trip.com extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Why can travel companies rise and fall with the economy?",
-        "mustAssess": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why can travel companies rise and fall with the economy?",
+        "mustAssess": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "margin analysis from Unit 2, sector/cyclical risk from Unit 4 and turnaround thinking from Lesson 26.",
@@ -5188,7 +7991,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -5200,16 +8003,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "operating margin = operating profit / revenue x 100.",
-        "judgementRequirement": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin.",
-        "mustAvoid": "Do not turn this into a macroeconomics lesson."
+        "judgementRequirement": "Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not turn this into a macroeconomics lesson. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Travel demand can surge or disappear. How does that change investment risk?",
           "Hook: start with Trip.com and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate margin analysis from Unit 2, sector/cyclical risk from Unit 4 and turnaround thinking from Lesson 26.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Trip.com evidence.",
           "Teach: make students write the core claim: Cyclical demand can make operating profit move faster than revenue through operating leverage.",
           "Evidence practice: Compare Trip.com revenue and operating profit before and after a travel-cycle shift.",
           "Output rehearsal: students build one operating-leverage chain diagram linking demand, revenue, operating profit and margin.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Trip.com.",
+          "Investment action: students apply the decision rule - Cyclical upside comes with downside risk when demand weakens.",
           "Exit ticket: students submit Operating-leverage chain diagram linking travel demand, revenue, operating profit and margin."
         ],
         "handoutBlocks": [
@@ -5227,9 +8034,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Compare Trip.com revenue and operating profit before and after a travel-cycle shift.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Trip.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define cyclical demand. 2. Calculate/Interpret: Use or interpret the lesson formula: operating margin = operating profit / revenue x 100. 3. Explain: Explain what one Trip.com evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy. 5. Judge: Give your own evidence-based classroom verdict on Trip.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -5251,14 +8058,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a multi-evidence company case extract; assess one operating-leverage chain diagram linking demand, revenue, operating profit and margin."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Trip.com."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Trip.com evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Revenue and profit should move at the same rate.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Trip.com evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Trip.com?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Trip.com case.",
+          "pairs": [
+            {
+              "term": "cyclical demand",
+              "match": "demand that rises and falls with economic conditions."
+            },
+            {
+              "term": "recovery",
+              "match": "return toward earlier activity or profit levels."
+            },
+            {
+              "term": "operating leverage",
+              "match": "profit sensitivity when fixed costs are high."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Trip.com evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Trip.com case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define cyclical demand."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: operating margin = operating profit / revenue x 100."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Trip.com evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Trip.com case could change an investor's judgement about why can travel companies rise and fall with the economy."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Trip.com: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Cyclical-risk action",
+        "studentAction": "Check how economic cycles and travel demand could make profit rise or fall faster than revenue.",
+        "decisionRule": "Cyclical upside comes with downside risk when demand weakens.",
+        "portfolioQuestion": "Ask whether the investor can tolerate cycle risk and wait through weak periods.",
+        "classroomOutput": "I can write a Trip.com cycle-risk action with one indicator to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Travel demand can surge or disappear. How does that change investment risk?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Travel demand can surge or disappear. How does that change investment risk?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Cyclical demand can make operating profit move faster than revenue through operating leverage."
+        },
+        {
+          "label": "Try it",
+          "text": "one operating-leverage chain diagram linking demand, revenue, operating profit and margin"
+        },
+        {
+          "label": "Decide",
+          "text": "I can write a Trip.com cycle-risk action with one indicator to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 28,
@@ -5266,7 +8176,7 @@
       "guidingQuestion": "How does a free app turn users into revenue?",
       "guidingQuestionZh": "免费应用如何把用户转化为收入？",
       "handoutMaterial": "User and revenue metric table, monetisation ladder, ARPU calculation and user-growth limitation prompt.",
-      "formativeAssessment": "Metric check: students identify whether a figure measures users, revenue, ARPU or profit.",
+      "formativeAssessment": "Metric check: students identify whether a figure measures users, revenue, ARPU or profit. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Complete one monetisation ladder and one ARPU limitation sentence.",
       "sequenceRole": "User-monetisation case.",
       "retrievalBase": "Platform thinking and revenue/margin caution.",
@@ -5312,8 +8222,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read Kuaishou active-user and revenue data from one reporting period."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Kuaishou case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define active users. 2. Calculate/Interpret: Use or interpret the lesson formula: ARPU = revenue / active users. 3. Explain: Explain what one Kuaishou evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue. 5. Judge: Give your own evidence-based classroom verdict on Kuaishou: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -5333,10 +8243,10 @@
       ],
       "examPattern": {
         "checkpoint": 6,
-        "itemType": "calculation, interpretation and limitation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Kuaishou extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: How does a free app turn users into revenue?",
-        "mustAssess": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: How does a free app turn users into revenue?",
+        "mustAssess": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "platform thinking from Lesson 21 and revenue/margin caution from Unit 2.",
@@ -5374,7 +8284,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -5386,16 +8296,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "ARPU = revenue / active users.",
-        "judgementRequirement": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit.",
-        "mustAvoid": "Do not reteach all platform-business concepts; focus on users to revenue."
+        "judgementRequirement": "Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Do not reteach all platform-business concepts; focus on users to revenue. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Millions of users are impressive. How does that become money?",
           "Hook: start with Kuaishou and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate platform thinking from Lesson 21 and revenue/margin caution from Unit 2.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Kuaishou evidence.",
           "Teach: make students write the core claim: User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.",
           "Evidence practice: Read Kuaishou active-user and revenue data from one reporting period.",
           "Output rehearsal: students build one monetisation ladder plus ARPU calculation and limitation sentence.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Kuaishou.",
+          "Investment action: students apply the decision rule - More users are not enough unless monetisation, cost and profit evidence improve.",
           "Exit ticket: students submit Monetisation ladder plus ARPU calculation and limitation sentence about users, revenue and profit."
         ],
         "handoutBlocks": [
@@ -5413,9 +8327,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read Kuaishou active-user and revenue data from one reporting period.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Kuaishou case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define active users. 2. Calculate/Interpret: Use or interpret the lesson formula: ARPU = revenue / active users. 3. Explain: Explain what one Kuaishou evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue. 5. Judge: Give your own evidence-based classroom verdict on Kuaishou: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -5437,14 +8351,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a multi-evidence company case extract; assess one monetisation ladder plus ARPU calculation and limitation sentence."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Kuaishou."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Kuaishou evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: More users automatically mean more revenue, higher ARPU or better investment quality.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Kuaishou evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Kuaishou?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Kuaishou case.",
+          "pairs": [
+            {
+              "term": "active users",
+              "match": "people who use a service during a measured period."
+            },
+            {
+              "term": "monetisation",
+              "match": "turning user activity into revenue."
+            },
+            {
+              "term": "ARPU",
+              "match": "average revenue per user."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Kuaishou evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Kuaishou case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define active users."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: ARPU = revenue / active users."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Kuaishou evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Kuaishou case could change an investor's judgement about how does a free app turn users into revenue."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Kuaishou: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Monetisation-action",
+        "studentAction": "Trace how users become revenue and whether ARPU evidence supports the investment case.",
+        "decisionRule": "More users are not enough unless monetisation, cost and profit evidence improve.",
+        "portfolioQuestion": "Ask whether the investor is paying for user growth or proven revenue quality.",
+        "classroomOutput": "I can judge whether Kuaishou user and ARPU evidence is attractive, risky or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Millions of users are impressive. How does that become money?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Millions of users are impressive. How does that become money?"
+        },
+        {
+          "label": "Key idea",
+          "text": "User growth becomes investment evidence only when linked to monetisation, revenue and profit limits."
+        },
+        {
+          "label": "Try it",
+          "text": "one monetisation ladder plus ARPU calculation and limitation sentence"
+        },
+        {
+          "label": "Decide",
+          "text": "I can judge whether Kuaishou user and ARPU evidence is attractive, risky or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 29,
@@ -5452,7 +8469,7 @@
       "guidingQuestion": "When does borrowing become a risk for shareholders?",
       "guidingQuestionZh": "借款什么时候会成为股东风险？",
       "handoutMaterial": "Balance-sheet extract, leverage benefit-risk note and optional debt-to-equity calculation box.",
-      "formativeAssessment": "Benefit/risk sort: borrowing as growth support, fixed obligation or shareholder risk.",
+      "formativeAssessment": "Benefit/risk sort: borrowing as growth support, fixed obligation or shareholder risk. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
       "exitTicket": "Write one leverage benefit-risk note.",
       "sequenceRole": "Debt-risk case before final synthesis.",
       "retrievalBase": "Risk chains and report evidence reading.",
@@ -5498,8 +8515,8 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Lenovo case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define debt. 2. Calculate/Interpret: Use or interpret the lesson formula: debt-to-equity = total debt / equity, if the data is suitable. 3. Explain: Explain what one Lenovo evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders. 5. Judge: Give your own evidence-based classroom verdict on Lenovo: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
@@ -5519,10 +8536,10 @@
       ],
       "examPattern": {
         "checkpoint": 6,
-        "itemType": "evidence interpretation with optional calculation",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Lenovo extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: When does borrowing become a risk for shareholders?",
-        "mustAssess": "Leverage benefit-risk note with a simple ratio only if figures are clear."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: When does borrowing become a risk for shareholders?",
+        "mustAssess": "Leverage benefit-risk note with a simple ratio only if figures are clear. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "risk-evidence-effect chains and earlier evidence reading of company reports.",
@@ -5560,7 +8577,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -5572,16 +8589,20 @@
         "marks": 4,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "Optional calculation only if source data is clean: debt-to-equity = total debt / equity, if the data is suitable.",
-        "judgementRequirement": "Leverage benefit-risk note with a simple ratio only if figures are clear.",
-        "mustAvoid": "Keep advanced solvency and interest coverage optional."
+        "judgementRequirement": "Leverage benefit-risk note with a simple ratio only if figures are clear. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "Keep advanced solvency and interest coverage optional. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: Borrowing can power growth or increase danger. Where is the line?",
           "Hook: start with Lenovo and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate risk-evidence-effect chains and earlier evidence reading of company reports.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Lenovo evidence.",
           "Teach: make students write the core claim: Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.",
           "Evidence practice: Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.",
           "Output rehearsal: students build one leverage benefit-risk note with a simple ratio only if figures are clear.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Lenovo.",
+          "Investment action: students apply the decision rule - Debt can help returns but can also magnify losses and financial stress.",
           "Exit ticket: students submit Leverage benefit-risk note with a simple ratio only if figures are clear."
         ],
         "handoutBlocks": [
@@ -5599,9 +8620,9 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Read Lenovo balance-sheet extract and identify debt, liabilities, equity or financing notes.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Lenovo case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define debt. 2. Calculate/Interpret: Use or interpret the lesson formula: debt-to-equity = total debt / equity, if the data is suitable. 3. Explain: Explain what one Lenovo evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders. 5. Judge: Give your own evidence-based classroom verdict on Lenovo: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
@@ -5623,14 +8644,117 @@
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Explain using a multi-evidence company case extract; assess one leverage benefit-risk note with a simple ratio only if figures are clear."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Lenovo."
       },
       "caseReview": {
         "status": "review-before-production",
         "reason": "Debt evidence must be simple enough for Grade 9 and not depend on advanced solvency analysis.",
         "replacementCandidate": "Xiaomi or another familiar company if Lenovo debt figures are not classroom-clean.",
         "sourceFit": "pending-source-pack-check"
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Lenovo evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: Borrowing is always bad, or harmless if the company is large.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Lenovo evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Lenovo?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Lenovo case.",
+          "pairs": [
+            {
+              "term": "debt",
+              "match": "money a company has borrowed and must repay."
+            },
+            {
+              "term": "liabilities",
+              "match": "obligations a company owes to others."
+            },
+            {
+              "term": "gearing or leverage",
+              "match": "the use of debt in a company's financing."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Lenovo evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Lenovo case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define debt."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Use or interpret the lesson formula: debt-to-equity = total debt / equity, if the data is suitable."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Lenovo evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a risk for shareholders."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Lenovo: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Leverage-risk action",
+        "studentAction": "Check whether borrowing supports growth or creates shareholder risk through fixed obligations.",
+        "decisionRule": "Debt can help returns but can also magnify losses and financial stress.",
+        "portfolioQuestion": "Ask whether leverage risk is acceptable before considering the share.",
+        "classroomOutput": "I can write a Lenovo debt-risk action with one ratio or caveat. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "Borrowing can power growth or increase danger. Where is the line?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "Borrowing can power growth or increase danger. Where is the line?"
+        },
+        {
+          "label": "Key idea",
+          "text": "Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage."
+        },
+        {
+          "label": "Try it",
+          "text": "one leverage benefit-risk note with a simple ratio only if figures are clear"
+        },
+        {
+          "label": "Decide",
+          "text": "I can write a Lenovo debt-risk action with one ratio or caveat. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     },
     {
       "lesson": 30,
@@ -5638,8 +8762,8 @@
       "guidingQuestion": "Can a steady business still be a bad investment at the wrong price?",
       "guidingQuestionZh": "稳定企业在价格错误时仍可能是差投资吗？",
       "handoutMaterial": "Final synthesis memo sheet, evidence-price-risk planner and quality-price-risk verdict space.",
-      "formativeAssessment": "Final evidence audit: students check whether a judgement includes business quality, price and risk.",
-      "exitTicket": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice.",
+      "formativeAssessment": "Final evidence audit: students check whether a judgement includes business quality, price and risk. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
+      "exitTicket": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives evidence-based classroom judgement.",
       "sequenceRole": "Final synthesis: quality, price and risk.",
       "retrievalBase": "Full course: sources, growth, margin, cash, return, valuation, risk, funds and comparison.",
       "newKnowledge": "Defensive business, quality company and valuation risk.",
@@ -5668,7 +8792,7 @@
       ],
       "formulaOrNoFormula": "synthesis of growth, margin, P/E and risk; no new formula.",
       "evidenceSummary": "Costco growth, margin and valuation evidence from dated sources.",
-      "check": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice.",
+      "check": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives evidence-based classroom judgement.",
       "unit": 6,
       "unitTitle": "Synthesis case labs",
       "handoutSections": [
@@ -5684,13 +8808,13 @@
         },
         {
           "key": "companyEvidence",
-          "title": "Company evidence",
-          "task": "Combine Costco growth, margin, valuation and risk evidence from dated sources."
+          "title": "Evidence and Data Analysis",
+          "task": "Case information: Use a short Costco case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define defensive business. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Costco evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price. 5. Judge: Give your own evidence-based classroom verdict on Costco: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
           "title": "Calculation or judgement task",
-          "task": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice."
+          "task": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives evidence-based classroom judgement."
         },
         {
           "key": "misconceptionCheck",
@@ -5705,10 +8829,10 @@
       ],
       "examPattern": {
         "checkpoint": 6,
-        "itemType": "evidence interpretation and judgement paragraph",
+        "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen Costco extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Assess whether students can answer: Can a steady business still be a bad investment at the wrong price?",
-        "mustAssess": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: Can a steady business still be a bad investment at the wrong price?",
+        "mustAssess": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
         "retrievalBase": "the full course: source discipline, growth, margin, cash, returns, valuation, risk, funds and case comparison.",
@@ -5716,13 +8840,13 @@
         "avoidOverlap": "do not add a new formula; this is the final synthesis lesson.",
         "misconception": "a steady business is automatically a safe or good investment.",
         "evidenceTask": "combine Costco growth, margin, valuation and risk evidence from dated sources.",
-        "studentOutput": "a final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal investment advice."
+        "studentOutput": "a final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personalised investment advice."
       },
       "coreClaim": "A quality defensive business can still be a poor investment if the price already assumes too much good news.",
       "caseRole": "synthesis case",
       "primaryOutput": {
         "type": "quality-price-risk-memo",
-        "description": "one final quality-price-risk memo using dated evidence without personal advice"
+        "description": "one final quality-price-risk memo using dated evidence with dated evidence and caveats"
       },
       "sourcePack": {
         "requiredSourceTypes": [
@@ -5746,7 +8870,7 @@
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a personal buy/sell recommendation.",
+          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
           "A single figure or graph cannot prove quality, value and risk at the same time.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
@@ -5758,16 +8882,20 @@
         "marks": 8,
         "stimulusType": "multi-evidence company case extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice.",
-        "mustAvoid": "No new formula; final judgement only."
+        "judgementRequirement": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "mustAvoid": "No new formula; final judgement only. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
+          "Student hook: A steady business feels safe. Could the price still make it a bad investment?",
           "Hook: start with Costco and the guiding question, using a concrete source or visual before definitions.",
           "Retrieval: activate the full course: source discipline, growth, margin, cash, returns, valuation, risk, funds and case comparison.",
+          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Costco evidence.",
           "Teach: make students write the core claim: A quality defensive business can still be a poor investment if the price already assumes too much good news.",
           "Evidence practice: Combine Costco growth, margin, valuation and risk evidence from dated sources.",
-          "Output rehearsal: students build one final quality-price-risk memo using dated evidence without personal advice.",
+          "Output rehearsal: students build one final quality-price-risk memo using dated evidence with dated evidence and caveats.",
+          "Analyse why: students build a data -> concept -> investor implication chain for Costco.",
+          "Investment action: students apply the decision rule - Never buy only because a company is high quality; price and risk must still be judged.",
           "Exit ticket: students submit Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice."
         ],
         "handoutBlocks": [
@@ -5785,15 +8913,15 @@
           },
           {
             "key": "companyEvidence",
-            "title": "Company evidence",
-            "prompt": "Combine Costco growth, margin, valuation and risk evidence from dated sources.",
-            "expectedStudentWork": "A selected figure, table entry, graph point or source note with a limitation."
+            "title": "Evidence and Data Analysis",
+            "prompt": "Case information: Use a short Costco case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define defensive business. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Costco evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price. 5. Judge: Give your own evidence-based classroom verdict on Costco: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
             "title": "Calculation or judgement task",
-            "prompt": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives no personal investment advice.",
-            "expectedStudentWork": "one final quality-price-risk memo using dated evidence without personal advice"
+            "prompt": "Write a final quality-price-risk memo that avoids speculation, balances possible return with risk and gives evidence-based classroom judgement.",
+            "expectedStudentWork": "one final quality-price-risk memo using dated evidence with dated evidence and caveats"
           },
           {
             "key": "misconceptionCheck",
@@ -5805,18 +8933,121 @@
             "key": "individualOutput",
             "title": "Individual written output",
             "prompt": "Final quality-price-risk memo using dated evidence, possible return, price paid and risk without speculation or personal advice.",
-            "expectedStudentWork": "one final quality-price-risk memo using dated evidence without personal advice"
+            "expectedStudentWork": "one final quality-price-risk memo using dated evidence with dated evidence and caveats"
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Assess using a multi-evidence company case extract; assess one final quality-price-risk memo using dated evidence without personal advice."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Costco."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
         "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
         "replacementCandidate": null
-      }
+      },
+      "analyseWhy": {
+        "question": "Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price.",
+        "chain": [
+          "Use one dated evidence or data point from the case.",
+          "Link it to the lesson concept or formula.",
+          "Explain the investor implication for return, risk, price or evidence quality."
+        ],
+        "expectedStudentWork": "A developed chain using Costco evidence, the lesson concept and an investor implication before a classroom verdict."
+      },
+      "retrievalPractice": {
+        "yesNo": {
+          "prompt": "Yes or no: A steady business is automatically safe or a good investment.",
+          "answer": "No",
+          "explanation": "Correct the misconception using Costco evidence and the lesson concept."
+        },
+        "multipleChoice": {
+          "prompt": "Which action best supports a careful judgement about Costco?",
+          "options": [
+            "Check dated source evidence and its limitation before judging.",
+            "Assume the company is attractive because the name is familiar.",
+            "Use one price movement as a complete investment conclusion.",
+            "Ignore risk if the possible return looks high."
+          ],
+          "answer": "Check dated source evidence and its limitation before judging."
+        },
+        "matching": {
+          "prompt": "Match the lesson terms to their meaning before using the Costco case.",
+          "pairs": [
+            {
+              "term": "defensive business",
+              "match": "a business whose demand may be more stable in difficult times."
+            },
+            {
+              "term": "quality company",
+              "match": "a company with strong operations, brand, margins or resilience."
+            },
+            {
+              "term": "valuation risk",
+              "match": "risk that the price already assumes too much good news."
+            }
+          ]
+        },
+        "sourceCheck": "Record the source title, date or accessed date, one key figure and one limitation before using Costco evidence."
+      },
+      "worksheet": {
+        "evidenceAndDataAnalysis": {
+          "title": "Evidence and Data Analysis",
+          "stimulus": "Use a short Costco case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "questions": [
+            {
+              "type": "identify-define",
+              "command": "Identify/Define",
+              "prompt": "Identify the source date and define defensive business."
+            },
+            {
+              "type": "calculate-interpret",
+              "command": "Calculate/Interpret",
+              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+            },
+            {
+              "type": "explain-evidence",
+              "command": "Explain",
+              "prompt": "Explain what one Costco evidence point shows and one thing it cannot prove."
+            },
+            {
+              "type": "analyse-why",
+              "command": "Analyse why",
+              "prompt": "Analyse why the evidence used in the Costco case could change an investor's judgement about can a steady business still be a bad investment at the wrong price."
+            },
+            {
+              "type": "student-judgement",
+              "command": "Judge",
+              "prompt": "Give your own evidence-based classroom verdict on Costco: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+            }
+          ]
+        }
+      },
+      "investmentAction": {
+        "title": "Final-investment-memo action",
+        "studentAction": "Combine business quality, possible return, price paid, risk and alternatives into one final investment memo.",
+        "decisionRule": "Never buy only because a company is high quality; price and risk must still be judged.",
+        "portfolioQuestion": "Ask whether the evidence supports consider, watch, avoid or gather more evidence for the hypothetical profile.",
+        "classroomOutput": "I can write a Costco final memo with dated evidence, caveats and a defensible next action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+      },
+      "studentHook": "A steady business feels safe. Could the price still make it a bad investment?",
+      "simpleFlow": [
+        {
+          "label": "Hook",
+          "text": "A steady business feels safe. Could the price still make it a bad investment?"
+        },
+        {
+          "label": "Key idea",
+          "text": "A quality defensive business can still be a poor investment if the price already assumes too much good news."
+        },
+        {
+          "label": "Try it",
+          "text": "one final quality-price-risk memo using dated evidence with dated evidence and caveats"
+        },
+        {
+          "label": "Decide",
+          "text": "I can write a Costco final memo with dated evidence, caveats and a defensible next action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        }
+      ]
     }
   ],
   "sourceFitAudit": {
@@ -5828,13 +9059,73 @@
       "The case does not duplicate the prior lesson output or weaken the six-unit progression.",
       "Any replacement keeps the same unit role, skill target and assessment blueprint."
     ]
-  }
+  },
+  "practicalInvestingBoundary": "Students learn a practical investing process: identify what is being bought, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.",
+  "investmentWorkflow": [
+    {
+      "step": 1,
+      "title": "Know what you are buying",
+      "studentAction": "Name the product, company, listing, stock code or fund, and explain what ownership or exposure it gives.",
+      "evidenceCheck": "Record source title, publication date or accessed date, exchange, ticker and the figure being used.",
+      "decisionOutput": "I can or cannot explain the investment in plain English."
+    },
+    {
+      "step": 2,
+      "title": "Check whether it fits the investor",
+      "studentAction": "State the goal, time horizon, need for liquidity and risk level before looking at possible return.",
+      "evidenceCheck": "Separate money needed soon from money that could accept market risk in a hypothetical profile.",
+      "decisionOutput": "This could fit, does not fit, or needs a safer product for the profile."
+    },
+    {
+      "step": 3,
+      "title": "Read business evidence",
+      "studentAction": "Use revenue, costs, margins, cash flow, dividends, users or sector evidence to judge business quality.",
+      "evidenceCheck": "Use dated figures and state what each figure can and cannot prove.",
+      "decisionOutput": "The business evidence is improving, weakening, mixed or incomplete."
+    },
+    {
+      "step": 4,
+      "title": "Compare return, risk and price",
+      "studentAction": "Estimate possible sources of return, identify risks, and ask whether the price already reflects good news.",
+      "evidenceCheck": "Use valuation, quote-page, dividend, fund-cost or comparison evidence where the lesson has taught it.",
+      "decisionOutput": "At this price and risk level, the case is attractive, risky, too expensive or not clear enough."
+    },
+    {
+      "step": 5,
+      "title": "Choose the next action",
+      "studentAction": "Write a justified classroom action: consider, watch, avoid, compare with another choice, or gather more evidence.",
+      "evidenceCheck": "Include dated evidence, one caveat and one item to monitor later.",
+      "decisionOutput": "A short investment memo that can be defended without tips or guesswork."
+    }
+  ],
+  "simpleLessonStructure": [
+    {
+      "label": "Hook",
+      "purpose": "Start with a company puzzle, chart or investor dilemma that students can immediately care about.",
+      "studentQuestion": "What is interesting or surprising here?"
+    },
+    {
+      "label": "Key idea",
+      "purpose": "Teach one concept, formula or rule that helps answer the puzzle.",
+      "studentQuestion": "What new idea helps me understand the case?"
+    },
+    {
+      "label": "Try it",
+      "purpose": "Use one short evidence task, calculation, matching check or source check before longer analysis.",
+      "studentQuestion": "Can I use the evidence myself?"
+    },
+    {
+      "label": "Decide",
+      "purpose": "Choose a justified next action: consider, watch, avoid, compare or gather more evidence.",
+      "studentQuestion": "What would a careful investor do next?"
+    }
+  ]
 };
+
+  global.INVEST = global.INVEST || {};
+  global.INVEST.courseMap = courseMap;
 
   if (typeof module === "object" && module.exports) {
     module.exports = courseMap;
   }
-
-  global.INVEST = global.INVEST || {};
-  global.INVEST.courseMap = courseMap;
 })(typeof globalThis !== "undefined" ? globalThis : window);

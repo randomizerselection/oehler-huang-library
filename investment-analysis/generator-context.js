@@ -1,4 +1,9 @@
 (function attachInvestmentGeneratorContext(global) {
+  const SYLLABUS_SOURCES = Object.freeze({
+    default: "./course-map-data.js",
+    "company-analysis": "./course-map-data.js",
+  });
+
   const MATERIAL_TARGETS = Object.freeze({
     deck: {
       label: "Lesson deck",
@@ -11,6 +16,7 @@
         "formativeAssessment",
         "exitTicket",
         "primaryOutput",
+        "investmentAction",
         "artifactBlueprint.deckArc",
       ],
     },
@@ -22,6 +28,7 @@
         "terms",
         "sourcePack",
         "artifactBlueprint.handoutBlocks",
+        "investmentAction",
         "studentOutput",
       ],
     },
@@ -34,6 +41,7 @@
         "formulaOrNoFormula",
         "misconception",
         "exitTicket",
+        "investmentAction",
         "primaryOutput",
       ],
     },
@@ -45,6 +53,7 @@
         "examPattern",
         "sourcePack",
         "primaryOutput",
+        "investmentAction",
         "misconception",
       ],
     },
@@ -55,6 +64,7 @@
         "writtenArtifactRule",
         "textbookAssembly",
         "artifactBlueprint.handoutBlocks",
+        "investmentAction",
         "primaryOutput",
       ],
     },
@@ -62,13 +72,16 @@
 
   const MATERIAL_RULES = Object.freeze({
     deck: [
-      "Use the deck arc as the slide spine: hook, retrieval, teach, practice, output rehearsal and exit ticket.",
-      "Keep visible slide labels student-facing while preserving ILA and retrieval logic in notes.",
-      "Use the source pack to freeze evidence before adding charts, figures or screenshots.",
+        "Use the deck arc as the slide spine: hook, retrieval, teach, practice, output rehearsal and exit ticket.",
+        "Include the lesson investmentAction so students finish with a concrete next action, not only a concept summary.",
+        "Keep visible slide labels student-facing while preserving ILA and retrieval logic in notes.",
+        "Use the source pack to freeze evidence before adding charts, figures or screenshots.",
     ],
     handout: [
       "Use exactly the six handout blocks in order.",
-      "Keep vocabulary, source metadata, evidence task, misconception check and individual output aligned to the deck.",
+        "Build the Evidence and Data Analysis block as a Section A-style worksheet: case information followed by structured questions.",
+        "End the worksheet with the lesson investmentAction: consider, watch, avoid, compare with another choice or gather more evidence.",
+        "Keep vocabulary, source metadata, evidence task, misconception check and individual output aligned to the deck.",
       "Do not add textbook-only teaching content to the lesson handout.",
     ],
     quiz: [
@@ -79,7 +92,7 @@
     exam: [
       "Use the assessment blueprint for command word, marks, stimulus, calculation and judgement.",
       "Use dated source evidence and state what the evidence can and cannot prove.",
-      "Assess the lesson output without asking for personal investment advice.",
+      "Assess the analyse-why chain and the evidence-based classroom judgement, not personal financial advice.",
     ],
     textbook: [
       "Treat the lesson handout as the chapter.",
@@ -88,10 +101,26 @@
     ],
   });
 
-  function loadDefaultCourseMap() {
+  function normaliseSyllabusKey(syllabus = "default") {
+    const key = String(syllabus || "default").toLowerCase();
+    if (!SYLLABUS_SOURCES[key]) {
+      fail(`syllabus must be one of ${Object.keys(SYLLABUS_SOURCES).join(", ")}, got ${syllabus}`);
+    }
+    return key;
+  }
+
+  function loadCourseMap(syllabus = "default") {
+    const key = normaliseSyllabusKey(syllabus);
+    if (key === "default" || key === "company-analysis") {
+      if (global.INVEST && global.INVEST.courseMap) return global.INVEST.courseMap;
+    }
+    if (typeof require === "function") return require(SYLLABUS_SOURCES[key]);
     if (global.INVEST && global.INVEST.courseMap) return global.INVEST.courseMap;
-    if (typeof require === "function") return require("./course-map-data.js");
     return null;
+  }
+
+  function loadDefaultCourseMap() {
+    return loadCourseMap("default");
   }
 
   const defaultCourseMap = loadDefaultCourseMap();
@@ -106,6 +135,7 @@
   }
 
   function getMap(map = defaultCourseMap) {
+    if (typeof map === "string") return getMap(loadCourseMap(map));
     if (!map || !Array.isArray(map.lessons)) {
       fail("course map is missing or does not contain lessons");
     }
@@ -131,6 +161,7 @@
   function baseCourseContext(map) {
     return {
       version: map.version,
+      syllabusKey: map.syllabusKey || "default",
       courseTitle: map.courseTitle,
       mapTitle: map.mapTitle,
       writtenArtifactRule: map.writtenArtifactRule,
@@ -138,6 +169,9 @@
       textbookAssembly: map.textbookAssembly,
       sourceFitAudit: map.sourceFitAudit,
       generatorAccess: map.generatorAccess,
+      practicalInvestingBoundary: map.practicalInvestingBoundary,
+      investmentWorkflow: map.investmentWorkflow,
+      simpleLessonStructure: map.simpleLessonStructure,
     };
   }
 
@@ -147,12 +181,17 @@
       unit: lesson.unit,
       unitTitle: lesson.unitTitle,
       company: lesson.company,
+      caseAnchor: lesson.company,
       caseRole: lesson.caseRole,
       guidingQuestion: lesson.guidingQuestion,
       guidingQuestionZh: lesson.guidingQuestionZh,
       coreClaim: lesson.coreClaim,
       primaryOutput: lesson.primaryOutput,
       caseReview: lesson.caseReview,
+      analyseWhy: lesson.analyseWhy,
+      investmentAction: lesson.investmentAction,
+      studentHook: lesson.studentHook,
+      simpleFlow: lesson.simpleFlow,
       availableTargets: ["lesson", ...Object.keys(MATERIAL_TARGETS)],
     };
   }
@@ -167,6 +206,12 @@
       evidenceTask: brief.evidenceTask,
       studentOutput: brief.studentOutput,
       futureReuse: lesson.futureReuse,
+      studentHook: lesson.studentHook,
+      simpleFlow: lesson.simpleFlow,
+      retrievalPractice: lesson.retrievalPractice,
+      analyseWhy: lesson.analyseWhy,
+      worksheet: lesson.worksheet,
+      investmentAction: lesson.investmentAction,
     };
   }
 
@@ -213,6 +258,7 @@
         coreClaim: lesson.coreClaim,
         caseRole: lesson.caseRole,
         primaryOutput: lesson.primaryOutput,
+        investmentAction: lesson.investmentAction,
         formativeAssessment: lesson.formativeAssessment,
         exitTicket: lesson.exitTicket,
         futureReuse: lesson.futureReuse,
@@ -222,15 +268,19 @@
         formulaOrNoFormula: lesson.formulaOrNoFormula,
         evidenceSummary: lesson.evidenceSummary,
         check: lesson.check,
+        retrievalPractice: lesson.retrievalPractice,
+        analyseWhy: lesson.analyseWhy,
       },
       evidenceContract: {
         evidenceTask: lesson.evidenceTask,
         sourcePack: lesson.sourcePack,
         caseReview: lesson.caseReview,
+        worksheet: lesson.worksheet,
       },
       artifactContract: {
         handoutSections: lesson.handoutSections,
         artifactBlueprint: lesson.artifactBlueprint,
+        worksheet: lesson.worksheet,
       },
       assessmentContract: {
         formativeAssessment: lesson.formativeAssessment,
@@ -273,7 +323,9 @@
   }
 
   const api = {
+    SYLLABUS_SOURCES,
     MATERIAL_TARGETS,
+    loadCourseMap,
     getCourseGeneratorContext,
     getLessonGeneratorContext,
     getLessonMaterialContext,

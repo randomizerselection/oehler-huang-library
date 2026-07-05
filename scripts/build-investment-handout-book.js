@@ -26,6 +26,15 @@ function renderHandoutBlock(lesson, block) {
 
   if (block.key === 'vocabulary') {
     lines.push(line(renderTermTable(lesson.terms)));
+  } else if (block.key === 'companyEvidence' && lesson.worksheet?.evidenceAndDataAnalysis) {
+    const worksheet = lesson.worksheet.evidenceAndDataAnalysis;
+    lines.push(line(`**Case information:** ${worksheet.stimulus}`));
+    lines.push(line());
+    lines.push(line('**Questions:**'));
+    lines.push(line());
+    for (const [index, question] of worksheet.questions.entries()) {
+      lines.push(line(`${index + 1}. **${question.command}:** ${question.prompt}`));
+    }
   } else {
     lines.push(line(block.prompt));
   }
@@ -42,12 +51,18 @@ function renderLessonHandout(lesson) {
   const sections = [];
   sections.push(line(`## Lesson ${lesson.lesson}: ${lesson.guidingQuestion}`));
   sections.push(line());
-  sections.push(line(`**Company:** ${lesson.company}`));
+  sections.push(line(`**Case anchor:** ${lesson.company}`));
   sections.push(line(`**Unit:** ${lesson.unit}. ${lesson.unitTitle}`));
   sections.push(line(`**Guiding question:** ${lesson.guidingQuestion}`));
+  if (lesson.studentHook) sections.push(line(`**Student hook:** ${lesson.studentHook}`));
   sections.push(line(`**Core claim:** ${lesson.coreClaim}`));
   sections.push(line(`**Primary output:** ${lesson.primaryOutput.description}`));
   sections.push(line(`**Formula or formula rule:** ${lesson.formulaOrNoFormula}`));
+  if (lesson.analyseWhy?.question) sections.push(line(`**Analyse why:** ${lesson.analyseWhy.question}`));
+  if (lesson.investmentAction?.studentAction) {
+    sections.push(line(`**Practical investing action:** ${lesson.investmentAction.studentAction}`));
+    sections.push(line(`**Decision rule:** ${lesson.investmentAction.decisionRule}`));
+  }
   sections.push(line());
 
   const handoutBlocks = lesson.artifactBlueprint?.handoutBlocks || lesson.handoutSections;
@@ -63,11 +78,16 @@ function renderBulletList(items) {
   return items.map((item) => `- ${item}`).join('\n');
 }
 
+function sentence(value = '') {
+  return /[.!?]$/.test(value) ? value : `${value}.`;
+}
+
 function renderLessonTeacherBlueprint(lesson) {
   const lines = [];
   lines.push(`## Lesson ${lesson.lesson}: ${lesson.company}`);
   lines.push('');
   lines.push(`**Guiding question:** ${lesson.guidingQuestion}`);
+  if (lesson.studentHook) lines.push(`**Student hook:** ${lesson.studentHook}`);
   lines.push(`**Core claim:** ${lesson.coreClaim}`);
   lines.push(`**Case role:** ${lesson.caseRole}`);
   lines.push(`**Primary output:** ${lesson.primaryOutput.type} - ${lesson.primaryOutput.description}`);
@@ -76,6 +96,14 @@ function renderLessonTeacherBlueprint(lesson) {
     lines.push(`**Replacement candidate:** ${lesson.caseReview.replacementCandidate}`);
   }
   lines.push('');
+  if (Array.isArray(lesson.simpleFlow)) {
+    lines.push('### Simple lesson flow');
+    lines.push('');
+    for (const step of lesson.simpleFlow) {
+      lines.push(`- **${step.label}:** ${step.text}`);
+    }
+    lines.push('');
+  }
   lines.push('### Source pack');
   lines.push('');
   lines.push(renderBulletList(lesson.sourcePack.requiredSourceTypes));
@@ -90,6 +118,43 @@ function renderLessonTeacherBlueprint(lesson) {
   lines.push('');
   lines.push(renderBulletList(lesson.artifactBlueprint.deckArc));
   lines.push('');
+  if (lesson.retrievalPractice) {
+    lines.push('### Retrieval practice');
+    lines.push('');
+    lines.push(`- **Yes/no:** ${lesson.retrievalPractice.yesNo.prompt} Answer: ${sentence(lesson.retrievalPractice.yesNo.answer)}`);
+    lines.push(`- **Multiple choice:** ${lesson.retrievalPractice.multipleChoice.prompt} Answer: ${sentence(lesson.retrievalPractice.multipleChoice.answer)}`);
+    lines.push(`- **Matching/classification:** ${lesson.retrievalPractice.matching.prompt}`);
+    lines.push(`- **Source check:** ${lesson.retrievalPractice.sourceCheck}`);
+    lines.push('');
+  }
+  if (lesson.investmentAction) {
+    lines.push('### Practical investing action');
+    lines.push('');
+    lines.push(`- **Action:** ${lesson.investmentAction.studentAction}`);
+    lines.push(`- **Decision rule:** ${lesson.investmentAction.decisionRule}`);
+    lines.push(`- **Fit check:** ${lesson.investmentAction.portfolioQuestion}`);
+    lines.push(`- **Written action:** ${lesson.investmentAction.classroomOutput}`);
+    lines.push('');
+  }
+  if (lesson.analyseWhy) {
+    lines.push('### Analyse why');
+    lines.push('');
+    lines.push(lesson.analyseWhy.question);
+    lines.push('');
+    lines.push(renderBulletList(lesson.analyseWhy.chain));
+    lines.push('');
+  }
+  if (lesson.worksheet?.evidenceAndDataAnalysis) {
+    const worksheet = lesson.worksheet.evidenceAndDataAnalysis;
+    lines.push('### Evidence and Data Analysis worksheet');
+    lines.push('');
+    lines.push(`**Case information:** ${worksheet.stimulus}`);
+    lines.push('');
+    for (const [index, question] of worksheet.questions.entries()) {
+      lines.push(`${index + 1}. **${question.command}:** ${question.prompt}`);
+    }
+    lines.push('');
+  }
   lines.push('### Handout/chapter blocks');
   lines.push('');
   for (const block of lesson.artifactBlueprint.handoutBlocks) {
@@ -114,6 +179,22 @@ function renderTeacherBlueprint(map = courseMap) {
   lines.push('');
   lines.push('This file is generated from `investment-analysis/course-map-data.js`. Use it to build lesson decks, handouts, handout-book chapters and exam questions from the same contract.');
   lines.push('');
+  if (Array.isArray(map.investmentWorkflow)) {
+    lines.push('## Practical Investing Workflow');
+    lines.push('');
+    for (const step of map.investmentWorkflow) {
+      lines.push(`- **Step ${step.step}: ${step.title}:** ${step.studentAction}`);
+    }
+    lines.push('');
+  }
+  if (Array.isArray(map.simpleLessonStructure)) {
+    lines.push('## Simple Lesson Structure');
+    lines.push('');
+    for (const step of map.simpleLessonStructure) {
+      lines.push(`- **${step.label}:** ${step.purpose}`);
+    }
+    lines.push('');
+  }
   lines.push('## Source-Fit Audit');
   lines.push('');
   lines.push(map.sourceFitAudit.rule);
@@ -122,7 +203,7 @@ function renderTeacherBlueprint(map = courseMap) {
   lines.push('');
   lines.push('## Case Review Table');
   lines.push('');
-  lines.push('| Lesson | Company/Fund | Role | Status | Replacement candidate |');
+  lines.push('| Lesson | Case anchor | Role | Status | Replacement candidate |');
   lines.push('| --- | --- | --- | --- | --- |');
   for (const lesson of map.lessons) {
     lines.push(`| ${lesson.lesson} | ${lesson.company} | ${lesson.caseRole} | ${lesson.caseReview.status} | ${lesson.caseReview.replacementCandidate || ''} |`);
@@ -149,7 +230,11 @@ function renderHandoutBook(map = courseMap) {
   parts.push(line());
   parts.push(line(map.writtenArtifactRule));
   parts.push(line());
-  parts.push(line('Educational use only. This classroom book does not provide personal investment advice.'));
+  if (map.practicalInvestingBoundary) {
+    parts.push(line(map.practicalInvestingBoundary));
+    parts.push(line());
+  }
+  parts.push(line('Educational use only. Students make evidence-based classroom judgements, not personalised financial advice.'));
   parts.push(line());
 
   parts.push(line('## Contents'));

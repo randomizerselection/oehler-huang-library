@@ -3,6 +3,7 @@ const path = require('path');
 
 const {
   MATERIAL_TARGETS,
+  loadCourseMap,
   getCourseGeneratorContext,
   getLessonGeneratorContext,
   getLessonMaterialContext,
@@ -21,6 +22,7 @@ function usage() {
     'Options:',
     '  --lesson <1-30>       Lesson number for lesson/material contexts.',
     '  --target <target>     Context target. Defaults to course without --lesson, lesson with --lesson.',
+    '  --syllabus <key>      default or company-analysis. Defaults to default.',
     '  --format <json|md>    Output format. Defaults to json.',
     '  --out <path>          Write to a file instead of stdout.',
     '  --help                Show this message.',
@@ -34,6 +36,7 @@ function parseArgs(argv) {
     if (arg === '--help' || arg === '-h') options.help = true;
     else if (arg === '--lesson') options.lesson = argv[++index];
     else if (arg === '--target') options.target = argv[++index];
+    else if (arg === '--syllabus') options.syllabus = argv[++index];
     else if (arg === '--format') options.format = argv[++index];
     else if (arg === '--out') options.out = argv[++index];
     else throw new Error(`Unknown argument: ${arg}`);
@@ -43,21 +46,22 @@ function parseArgs(argv) {
 
 function buildContext(options) {
   const target = String(options.target || (options.lesson ? 'lesson' : 'course')).toLowerCase();
+  const courseMap = loadCourseMap(options.syllabus || 'default');
 
-  if (target === 'course') return getCourseGeneratorContext();
+  if (target === 'course') return getCourseGeneratorContext(courseMap);
   if (!options.lesson) throw new Error(`--lesson is required for target "${target}"`);
-  if (target === 'lesson') return getLessonGeneratorContext(options.lesson);
+  if (target === 'lesson') return getLessonGeneratorContext(options.lesson, courseMap);
   if (target === 'all') {
     return {
       schemaVersion: 1,
       contextType: 'lesson-all-generator-context',
-      lesson: getLessonGeneratorContext(options.lesson),
+      lesson: getLessonGeneratorContext(options.lesson, courseMap),
       materials: Object.fromEntries(
-        Object.keys(MATERIAL_TARGETS).map((key) => [key, getLessonMaterialContext(options.lesson, key)])
+        Object.keys(MATERIAL_TARGETS).map((key) => [key, getLessonMaterialContext(options.lesson, key, courseMap)])
       ),
     };
   }
-  return getLessonMaterialContext(options.lesson, target);
+  return getLessonMaterialContext(options.lesson, target, courseMap);
 }
 
 function bulletList(items = []) {
@@ -68,6 +72,43 @@ function renderTerms(terms = []) {
   return terms.map((term) => `- ${term.term}: ${term.definition}`).join('\n');
 }
 
+function sentence(value = '') {
+  return /[.!?]$/.test(value) ? value : `${value}.`;
+}
+
+function renderRetrievalPractice(retrievalPractice = {}) {
+  const lines = [];
+  if (retrievalPractice.yesNo) lines.push(`- Yes/no: ${retrievalPractice.yesNo.prompt} Answer: ${sentence(retrievalPractice.yesNo.answer)}`);
+  if (retrievalPractice.multipleChoice) lines.push(`- Multiple choice: ${retrievalPractice.multipleChoice.prompt} Answer: ${sentence(retrievalPractice.multipleChoice.answer)}`);
+  if (retrievalPractice.matching) lines.push(`- Matching: ${retrievalPractice.matching.prompt}`);
+  if (retrievalPractice.sourceCheck) lines.push(`- Source check: ${retrievalPractice.sourceCheck}`);
+  return lines.join('\n');
+}
+
+function renderWorksheet(worksheet = {}) {
+  const section = worksheet.evidenceAndDataAnalysis;
+  if (!section) return '';
+  return [
+    `**Stimulus:** ${section.stimulus}`,
+    '',
+    ...section.questions.map((question, index) => `${index + 1}. **${question.command}:** ${question.prompt}`),
+  ].join('\n');
+}
+
+function renderInvestmentAction(action = {}) {
+  if (!action.studentAction) return '';
+  return [
+    `- Action: ${action.studentAction}`,
+    `- Decision rule: ${action.decisionRule}`,
+    `- Fit check: ${action.portfolioQuestion}`,
+    `- Written action: ${action.classroomOutput}`,
+  ].join('\n');
+}
+
+function renderSimpleFlow(flow = []) {
+  return flow.map((step) => `- ${step.label}: ${step.text}`).join('\n');
+}
+
 function renderMarkdown(context) {
   if (context.contextType === 'course-generator-index') {
     return [
@@ -75,9 +116,17 @@ function renderMarkdown(context) {
       '',
       context.course.writtenArtifactRule,
       '',
+      '## Practical Investing Workflow',
+      '',
+      ...((context.course.investmentWorkflow || []).map((step) => `- Step ${step.step}: ${step.title} - ${step.studentAction}`)),
+      '',
+      '## Simple Lesson Structure',
+      '',
+      ...((context.course.simpleLessonStructure || []).map((step) => `- ${step.label}: ${step.purpose}`)),
+      '',
       '## Lessons',
       '',
-      ...context.lessons.map((lesson) => `- Lesson ${lesson.lesson}: ${lesson.company} - ${lesson.guidingQuestion}`),
+      ...context.lessons.map((lesson) => `- Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company} - ${lesson.guidingQuestion}`),
       '',
       '## Generation Rules',
       '',
@@ -105,12 +154,17 @@ function renderMarkdown(context) {
   const titlePrefix = context.target ? `${context.materialTarget.label}: ` : '';
 
   return [
-    `# ${titlePrefix}Lesson ${lesson.lesson}: ${lesson.company}`,
+    `# ${titlePrefix}Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company}`,
     '',
     `**Guiding question:** ${lesson.guidingQuestion}`,
     `**Unit:** ${lesson.unit}. ${lesson.unitTitle}`,
     `**Core claim:** ${teaching.coreClaim}`,
     `**Primary output:** ${teaching.primaryOutput.description}`,
+    `**Student hook:** ${context.generatorBrief.studentHook || lesson.studentHook || ''}`,
+    '',
+    '## Simple Lesson Flow',
+    '',
+    renderSimpleFlow(context.generatorBrief.simpleFlow || lesson.simpleFlow || []),
     '',
     '## Generator Brief',
     '',
@@ -120,6 +174,23 @@ function renderMarkdown(context) {
     `- Misconception: ${context.generatorBrief.misconception}`,
     `- Evidence task: ${context.generatorBrief.evidenceTask}`,
     `- Student output: ${context.generatorBrief.studentOutput}`,
+    '',
+    '## Practical Investing Action',
+    '',
+    renderInvestmentAction(context.generatorBrief.investmentAction || teaching.investmentAction || lesson.investmentAction),
+    '',
+    '## Retrieval Practice',
+    '',
+    renderRetrievalPractice(context.generatorBrief.retrievalPractice),
+    '',
+    '## Evidence and Data Analysis Worksheet',
+    '',
+    renderWorksheet(context.generatorBrief.worksheet),
+    '',
+    '## Analyse Why',
+    '',
+    `- Question: ${context.generatorBrief.analyseWhy?.question || lesson.analyseWhy?.question || ''}`,
+    `- Chain: ${(context.generatorBrief.analyseWhy?.chain || lesson.analyseWhy?.chain || []).join(' -> ')}`,
     '',
     '## Terms',
     '',

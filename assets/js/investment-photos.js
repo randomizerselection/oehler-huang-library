@@ -186,6 +186,369 @@ window.INVEST = window.INVEST || {};
       "Global trade and currency exposure can affect returns",
       "Unsplash / Barrett Ward",
       "https://unsplash.com/photos/shipping-containers-stacked-at-a-busy-port-at-sunset-fT4SwA83jH4"
+    ),
+    // First five lesson photo pack (Wikimedia Commons, added 2026-07-05).
+    // Lesson 1: Tencent and the first share-investment question.
+    lesson1TencentBinhaiBuilding01: photo(
+      "lesson-1/tencent-binhai-building-2020.jpg",
+      "Tencent Binhai building in Shenzhen seen from street level.",
+      "Tencent Binhai building, Shenzhen",
+      "Wikimedia Commons / Charlie fong / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Tencent_binghai_building202012.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    lesson1TencentSeafrontSiteVisit03: photo(
+      "lesson-1/tencent-seafront-site-visit-03.jpg",
+      "Tencent Seafront Towers in Shenzhen during a June 2023 site visit.",
+      "Tencent Seafront Towers site visit, Shenzhen",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_03.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit05: photo(
+      "lesson-1/tencent-seafront-site-visit-05.jpg",
+      "Exterior view of Tencent Seafront Towers in Shenzhen.",
+      "Tencent Seafront Towers exterior detail",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_05.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    lesson1TencentSeafrontSiteVisit09: photo(
+      "lesson-1/tencent-seafront-site-visit-09.jpg",
+      "Street-level view of Tencent Seafront Towers and surrounding Shenzhen roads.",
+      "Tencent Seafront Towers from the surrounding street",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_09.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit08: photo(
+      "lesson-1/tencent-seafront-site-visit-08.jpg",
+      "Tencent Seafront Towers photographed beside road access in Shenzhen.",
+      "Tencent Seafront Towers and nearby road access",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_08.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit11: photo(
+      "lesson-1/tencent-seafront-site-visit-11.jpg",
+      "Approach view toward the Tencent Seafront Towers campus.",
+      "Tencent Seafront Towers campus approach",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_11.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit13: photo(
+      "lesson-1/tencent-seafront-site-visit-13.jpg",
+      "Tencent Seafront Towers photographed as company evidence for an investment lesson.",
+      "Tencent Seafront Towers building evidence",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_13.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit25: photo(
+      "lesson-1/tencent-seafront-site-visit-25.jpg",
+      "Tencent Seafront Towers with surrounding site context in Shenzhen.",
+      "Tencent Seafront Towers site context",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_25.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit24: photo(
+      "lesson-1/tencent-seafront-site-visit-24.jpg",
+      "Street-context photograph of Tencent Seafront Towers in Shenzhen.",
+      "Tencent Seafront Towers street context",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_24.jpg"
+    ),
+    lesson1TencentSeafrontSiteVisit26: photo(
+      "lesson-1/tencent-seafront-site-visit-26.jpg",
+      "Vertical exterior view of Tencent Seafront Towers in Shenzhen.",
+      "Tencent Seafront Towers vertical view",
+      "Wikimedia Commons / MEAIYAVT 206 Liowcms / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8C%BA_Nanshan_Binhai_Blvd_%E9%A8%B0%E8%A8%8A%E6%B5%B7%E6%BF%B1%E5%A4%A7%E5%BB%88_Tencent_Seafront_Towers_%E5%8F%83%E8%A7%80_site_visit_June_2023_Px3_26.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    // Lesson 2: HKEX and why a stock market exists.
+    lesson2HkexBuilding01: photo(
+      "lesson-2/hkex-building.jpg",
+      "Hong Kong Exchanges and Clearing building exterior.",
+      "Hong Kong Exchanges and Clearing building",
+      "Wikimedia Commons / Mcy jerry / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:HKeX.JPG"
+    ),
+    lesson2HkexExhibitionHallView1: photo(
+      "lesson-2/hkex-exhibition-hall-view-1.jpg",
+      "View inside the Hong Kong stock exchange exhibition hall.",
+      "HKEX exhibition hall view",
+      "Wikimedia Commons / WiNG / CC BY 3.0",
+      "https://commons.wikimedia.org/wiki/File:HKEX_ExhibitionHallview1.jpg"
+    ),
+    lesson2HkexExhibitionHallView2: photo(
+      "lesson-2/hkex-exhibition-hall-view-2.jpg",
+      "Second view inside the Hong Kong stock exchange exhibition hall.",
+      "HKEX exhibition hall trading context",
+      "Wikimedia Commons / WiNG / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:HKEX_ExhibitionHallview2.jpg"
+    ),
+    lesson2HkexTradeLobby2007: photo(
+      "lesson-2/hkex-trade-lobby-2007.jpg",
+      "Trade lobby at the Hong Kong Exchange in 2007.",
+      "Hong Kong Exchange trade lobby, 2007",
+      "Wikimedia Commons / WiNG / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Hong_Kong_Exchange_Trade_Lobby_2007.jpg"
+    ),
+    lesson2HkexInterior2007: photo(
+      "lesson-2/hkex-exhibition-hall-interior-2007.jpg",
+      "Interior view of the HKEX exhibition hall in 2007.",
+      "HKEX exhibition hall interior, 2007",
+      "Wikimedia Commons / WiNG / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:HKEX_Exhibition_Hall_Interior_2007.jpg"
+    ),
+    lesson2HkexMuseumShareExchange02: photo(
+      "lesson-2/hkex-museum-share-exchange-02.jpg",
+      "Museum display showing Hong Kong share-exchange history.",
+      "HKEX share-exchange display, Hong Kong Museum of History",
+      "Wikimedia Commons / DAIMANdald / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HKMH_%E9%A6%99%E6%B8%AF%E6%AD%B7%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8_HK_Museum_of_History_HKEX_Share_Exchange_March_2017_IX1_02.jpg"
+    ),
+    lesson2HkexMuseumShareExchange01: photo(
+      "lesson-2/hkex-museum-share-exchange-01.jpg",
+      "Historical display about Hong Kong share exchange activity.",
+      "Hong Kong share-exchange history display",
+      "Wikimedia Commons / DAIMANdald / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HKMH_%E9%A6%99%E6%B8%AF%E6%AD%B7%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8_HK_Museum_of_History_HKEX_Share_Exchange_March_2017_IX1_01.jpg"
+    ),
+    lesson2HkexCeremonyStage: photo(
+      "lesson-2/hkex-ceremony-stage.jpg",
+      "Ceremony stage inside Hong Kong Exchanges and Clearing.",
+      "HKEX ceremony stage",
+      "Wikimedia Commons / 384 / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HKEx_Ceremony_Stage.jpg"
+    ),
+    lesson2HkexConnectHall2018: photo(
+      "lesson-2/hkex-connect-hall-interior-2018.jpg",
+      "Interior view of the HKEX Connect Hall in 2018.",
+      "HKEX Connect Hall interior, 2018",
+      "Wikimedia Commons / Wpcpey / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HKEX_CONNECT_HALL_Interior_2018.jpg"
+    ),
+    lesson2HkexForumInterior2018: photo(
+      "lesson-2/hkex-forum-interior-2018.jpg",
+      "Interior forum space at Hong Kong Exchanges and Clearing.",
+      "HKEX forum interior, 2018",
+      "Wikimedia Commons / RISE / CC BY 2.0",
+      "https://commons.wikimedia.org/wiki/File:HKEX_forum_interior_2018.jpg"
+    ),
+    // Lesson 3: Alibaba and quote-page evidence.
+    lesson3AlibabaHeadquarters01: photo(
+      "lesson-3/alibaba-group-headquarters.jpg",
+      "Alibaba Group headquarters building used as company evidence.",
+      "Alibaba Group headquarters",
+      "Wikimedia Commons / Thomas LOMBARD, designed by HASSELL (architects)[1] / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_group_Headquarters.jpg"
+    ),
+    lesson3AlibabaXixiPark: photo(
+      "lesson-3/taobao-city-alibaba-xixi-park.jpg",
+      "Taobao City at Alibaba Xixi Park in Hangzhou.",
+      "Taobao City, Alibaba Xixi Park",
+      "Wikimedia Commons / Danielinblue / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:TaobaoCity_Alibaba_Xixi_Park.jpg"
+    ),
+    lesson3AlibabaBinjiangPark: photo(
+      "lesson-3/alibaba-binjiang-park.jpg",
+      "Alibaba Binjiang Park building exterior.",
+      "Alibaba Binjiang Park",
+      "Wikimedia Commons / Danielinblue, designed by HASSELL (architects)[1] / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Binjiang_Park.jpg"
+    ),
+    lesson3AlibabaXionganOffice: photo(
+      "lesson-3/alibaba-xiongan-provisional-office.jpg",
+      "Alibaba Group provisional office at Xiong'an.",
+      "Alibaba Group provisional office at Xiong'an",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Group_provisional_office_at_Xiong%27an_(20180503164635).jpg"
+    ),
+    lesson3AlibabaHeadquartersCropped: photo(
+      "lesson-3/alibaba-group-headquarters-cropped.jpg",
+      "Cropped view of Alibaba Group headquarters.",
+      "Alibaba Group headquarters cropped view",
+      "Wikimedia Commons / Thomas LOMBARD, designed by HASSELL (architects)[1] / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_group_Headquarters_(cropped).jpg"
+    ),
+    lesson3AlibabaXixiParkPhase4: photo(
+      "lesson-3/alibaba-xixi-park-phase-4.jpg",
+      "Phase 4 buildings at Alibaba Xixi Park.",
+      "Phase 4 of Alibaba Xixi Park",
+      "Wikimedia Commons / Windmemories / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Phase_4_of_Alibaba_Xixi_Park_20200913.jpg"
+    ),
+    lesson3AlibabaWangjingBuilding: photo(
+      "lesson-3/alibaba-building-wangjing.jpg",
+      "Alibaba building at Wangjing photographed from outside.",
+      "Alibaba building at Wangjing",
+      "Wikimedia Commons contributor / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Building_at_Wangjing.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    lesson3AlibabaBinjiangCenter: photo(
+      "lesson-3/alibaba-center-binjiang-hangzhou-2021.jpg",
+      "Alibaba Center in Binjiang, Hangzhou in 2021.",
+      "Alibaba Center in Binjiang, Hangzhou",
+      "Wikimedia Commons / Charlie fong / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Center_in_Binjiang_Hangzhou2021.jpg"
+    ),
+    lesson3AlibabaShenzhenBranch: photo(
+      "lesson-3/alibaba-shenzhen-branch.jpg",
+      "Alibaba Shenzhen Branch building exterior.",
+      "Alibaba Shenzhen Branch",
+      "Wikimedia Commons / Lhzss8 / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Shenzhen_Branch.jpg"
+    ),
+    lesson3AlibabaCuigezhuangOffice: photo(
+      "lesson-3/alibaba-cuigezhuang-office-2024.jpg",
+      "Alibaba Cuigezhuang office building in 2024.",
+      "Alibaba Cuigezhuang office, 2024",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Alibaba_Cuigezhuang_office_(20240304135911).jpg"
+    ),
+    // Lesson 4: Xiaomi, ownership, voting, and control.
+    lesson4XiaomiQingdaoStore: photo(
+      "lesson-4/xiaomi-store-qingdao-lion-mall.jpg",
+      "Xiaomi Store at Qingdao Lion Mall with products and signage.",
+      "Xiaomi Store at Qingdao Lion Mall",
+      "Wikimedia Commons contributor / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Xiaomi_Store_at_Qingdao_Lion_Mall.jpg"
+    ),
+    lesson4XiaomiPortugalStore: photo(
+      "lesson-4/xiaomi-store-portugal.jpg",
+      "Xiaomi retail store in Portugal.",
+      "Xiaomi Store in Portugal",
+      "Wikimedia Commons / Justin Sijbolts / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Xiaomi_Store_Portugal.jpg"
+    ),
+    lesson4XiaomiSuzhouCenterStore: photo(
+      "lesson-4/xiaomi-store-suzhou-center-2022.jpg",
+      "Xiaomi Store at Suzhou Center in 2022.",
+      "Xiaomi Store at Suzhou Center",
+      "Wikimedia Commons / Shwangtianyuan / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Xiaomi_Store_at_Suzhou_Center-20220709.jpg"
+    ),
+    lesson4Xiaomi13TLightbox: photo(
+      "lesson-4/xiaomi-13t-series-lightbox.jpg",
+      "Xiaomi 13T Series lightbox display in a retail setting.",
+      "Xiaomi 13T Series retail lightbox",
+      "Wikimedia Commons / Myrat / CC0",
+      "https://commons.wikimedia.org/wiki/File:Xiaomi_13T_Series_lightbox.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    lesson4XiaomiSu7MaxStore: photo(
+      "lesson-4/xiaomi-su7-max-store-suzhou.jpg",
+      "Xiaomi SU7 Max displayed at a Xiaomi Store in Suzhou.",
+      "Xiaomi SU7 Max at a Xiaomi Store",
+      "Wikimedia Commons / Shwangtianyuan / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Xiaomi_SU7_Max_at_Xiaomi_Store,_AEON_Suzhou_Yuanqu_Hudong-20240413.jpg"
+    ),
+    lesson4XiaomiRedmiStore03: photo(
+      "lesson-4/xiaomi-redmi-store-shenzhen-03.jpg",
+      "Xiaomi Redmi Store in Shenzhen photographed in May 2024.",
+      "Xiaomi Redmi Store, Shenzhen",
+      "Wikimedia Commons / Billingyin FlyingThree300 / CC0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_shop_%E5%B0%8F%E7%B1%B3%E7%B4%85%E7%B1%B3%E5%95%86%E5%BA%97_Xiaomi_Redmi_Store_May_2024_R12S_03.jpg"
+    ),
+    lesson4XiaomiRedmiStore01: photo(
+      "lesson-4/xiaomi-redmi-store-shenzhen-01.jpg",
+      "Entrance area of a Xiaomi Redmi Store in Shenzhen.",
+      "Xiaomi Redmi Store entrance, Shenzhen",
+      "Wikimedia Commons / Billingyin FlyingThree300 / CC0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_shop_%E5%B0%8F%E7%B1%B3%E7%B4%85%E7%B1%B3%E5%95%86%E5%BA%97_Xiaomi_Redmi_Store_May_2024_R12S_01.jpg"
+    ),
+    lesson4XiaomiRedmiStore05: photo(
+      "lesson-4/xiaomi-redmi-store-shenzhen-05.jpg",
+      "Product area inside a Xiaomi Redmi Store in Shenzhen.",
+      "Xiaomi Redmi Store product area",
+      "Wikimedia Commons / Billingyin FlyingThree300 / CC0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_shop_%E5%B0%8F%E7%B1%B3%E7%B4%85%E7%B1%B3%E5%95%86%E5%BA%97_Xiaomi_Redmi_Store_May_2024_R12S_05.jpg"
+    ),
+    lesson4XiaomiRedmiStore04: photo(
+      "lesson-4/xiaomi-redmi-store-shenzhen-04.jpg",
+      "Interior view of a Xiaomi Redmi Store in Shenzhen.",
+      "Xiaomi Redmi Store interior, Shenzhen",
+      "Wikimedia Commons / Billingyin FlyingThree300 / CC0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_shop_%E5%B0%8F%E7%B1%B3%E7%B4%85%E7%B1%B3%E5%95%86%E5%BA%97_Xiaomi_Redmi_Store_May_2024_R12S_04.jpg"
+    ),
+    lesson4XiaomiRedmiStore08: photo(
+      "lesson-4/xiaomi-redmi-store-shenzhen-08.jpg",
+      "Display area of a Xiaomi Redmi Store in Shenzhen.",
+      "Xiaomi Redmi Store display, Shenzhen",
+      "Wikimedia Commons / Billingyin FlyingThree300 / CC0",
+      "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_shop_%E5%B0%8F%E7%B1%B3%E7%B4%85%E7%B1%B3%E5%95%86%E5%BA%97_Xiaomi_Redmi_Store_May_2024_R12S_08.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    // Lesson 5: JD.com and evidence before judgement.
+    lesson5JingdongLogisticsVehicle01: photo(
+      "lesson-5/jingdong-logistics-vehicle-01.jpg",
+      "Jingdong Logistics vehicle photographed in 2025.",
+      "Jingdong Logistics vehicle, 2025",
+      "Wikimedia Commons / LN9267 / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:WE7522(Jingdong_Logistics)_31-03-2025.jpg"
+    ),
+    lesson5JingdongLogisticsVehicle02: photo(
+      "lesson-5/jingdong-logistics-vehicle-02.jpg",
+      "Second Jingdong Logistics vehicle photographed in 2025.",
+      "Jingdong Logistics vehicle evidence",
+      "Wikimedia Commons / LN9267 / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:AB-52-62(Jingdong_Logistics)_09-04-2025.jpg"
+    ),
+    lesson5JdTruckHuaxiaAvenue: photo(
+      "lesson-5/jd-truck-huaxia-avenue-2021.jpg",
+      "JD truck on Huaxia Avenue, useful evidence for logistics activity.",
+      "JD truck on Huaxia Avenue",
+      "Wikimedia Commons / Windmemories / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:20210903_Truck_of_JD_on_Huaxia_Avenue.jpg"
+    ),
+    lesson5JdHeadquartersBlockA: photo(
+      "lesson-5/jd-headquarters-block-a-2021.jpg",
+      "Block A of JD.com headquarters photographed in 2021.",
+      "JD.com headquarters, Block A",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:JD.com_headquarters,_Block_A_(20210309170039).jpg"
+    ),
+    lesson5JdHeadquartersBuilding1Wide: photo(
+      "lesson-5/jd-headquarters-building-1-2024-wide.jpg",
+      "Building 1 at JD.com Headquarters photographed in 2024.",
+      "Building 1, JD.com Headquarters",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Building_1,_JD.com_Headquarters_(20240925134055).jpg"
+    ),
+    lesson5JdHeadquartersBuilding2: photo(
+      "lesson-5/jd-headquarters-building-2-2024.jpg",
+      "Building 2 at JD.com Headquarters photographed in 2024.",
+      "Building 2, JD.com Headquarters",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Building_2,_JD.com_Headquarters_(20240925133013).jpg"
+    ),
+    lesson5JdHeadquartersBuilding1Street: photo(
+      "lesson-5/jd-headquarters-building-1-2024-street.jpg",
+      "Street-level view of Building 1 at JD.com Headquarters.",
+      "JD.com Headquarters street view",
+      "Wikimedia Commons / N509FZ / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Building_1,_JD.com_Headquarters_(20240925133209).jpg"
+    ),
+    lesson5JdFoodDeliveryWorker: photo(
+      "lesson-5/jd-food-delivery-worker-daqing-2025.jpg",
+      "JD.com food delivery worker in Daqing in 2025.",
+      "JD.com food delivery worker in Daqing",
+      "Wikimedia Commons / TurnOnTheNight / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:A_JD.com_food_delivery_worker_in_Daqing_20250601141557.jpg"
+    ),
+    lesson5JdlExpressVehicle: photo(
+      "lesson-5/jdl-express-vehicle-xidawang-lu-2025.jpg",
+      "JDL Express delivery vehicle on Xidawang Lu in 2025.",
+      "JDL Express delivery vehicle",
+      "Wikimedia Commons / TurnOnTheNight / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:JDL_Express_delivery_vehicle_on_Xidawang_Lu_20250308163306.jpg"
+    ),
+    lesson5JdApplianceStore: photo(
+      "lesson-5/jd-appliance-store-suya-road-2025.jpg",
+      "JD Appliance store at Suya Road in 2025.",
+      "JD Appliance store at Suya Road",
+      "Wikimedia Commons / Shwangtianyuan / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:JD_Appliance_store_at_Suya_Road-20250104.jpg",
+      { objectPosition: "center 45%" }
     )
   };
 })();

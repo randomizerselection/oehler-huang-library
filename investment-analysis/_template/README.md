@@ -4,14 +4,15 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../course-map-data.js` before drafting the lesson. It is the course-level source for the real company anchor, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
+Also check `../course-map-data.js` before drafting the lesson. It is the standard course-level source for the company-analysis case anchor, student hook, simple lesson flow, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investing action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
 
 Generator context:
 
-- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new deck.
+- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new company-analysis deck.
+- Use `--syllabus company-analysis` only as an explicit alias for the standard company-analysis syllabus.
 - Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
 - Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
-- The generator context is a contract, not optional background: preserve the `primaryOutput`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+- The generator context is a contract, not optional background: preserve the `studentHook`, `simpleFlow`, `primaryOutput`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
 
 Required files:
 
@@ -21,12 +22,14 @@ Required files:
 
 Classroom rhythm:
 
-1. Case hook.
-2. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
-3. Exactly three bilingual objectives.
-4. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
-5. Output rehearsal using the lesson `primaryOutput`.
-6. Exit ticket, then follow-up quiz.
+1. Student hook from `studentHook`.
+2. Simple visible rhythm from `simpleFlow`: Hook, Key idea, Try it, Decide.
+3. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
+4. Exactly three bilingual objectives.
+5. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
+6. Output rehearsal using the lesson `primaryOutput`.
+7. Practical investing action using the lesson `investmentAction`.
+8. Exit ticket, then follow-up quiz.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
 
@@ -59,16 +62,19 @@ Teaching rhythm:
 
 Syllabus alignment:
 
-- Center each lesson on the real company named in `course-map-data.js` unless the structured course map itself is intentionally revised.
+- Center each lesson on the investment case anchor named in `course-map-data.js` unless the structured course map itself is intentionally revised.
 - Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
+- Keep the visible student structure simple and interesting: use `studentHook` and the four `simpleFlow` steps before adding detailed source, retrieval or exam work.
 - Start from the lesson `coreClaim`, `primaryOutput`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint`; do not invent a separate deck, handout or exam objective.
+- Include the lesson `investmentAction` so students finish by choosing a justified next action such as consider, watch, avoid, compare with another choice or gather more evidence.
 - Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.
 - Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
 - Add concise Simplified Chinese support for important student-facing teaching text as standard: slide titles, term definitions, core prompts/tasks, main answer/reveal text, flow/answer items and quiz prompts/explanations. Do not translate minor source metadata, codes, dates, numeric values, UI chrome or teacher notes unless they carry the concept.
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
 - Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
 - Run the `sourceFitAudit` and check `caseReview` before building a deck; if the source pack fails, replace the company only with a case that preserves the same unit role, skill target and assessment blueprint.
-- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-data.js`: source box, vocabulary, company evidence, calculation or judgement task, misconception check and individual written output.
+- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-data.js`: source box, vocabulary, Evidence and Data Analysis, calculation or judgement task, misconception check and individual written output.
+- The Evidence and Data Analysis block should work like a compact Cambridge Section A-style worksheet: short case information, then identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions.
 - The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
 - Do not turn any unit into a multi-lesson portfolio, report or final project sequence.
