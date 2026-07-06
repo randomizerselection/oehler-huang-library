@@ -808,7 +808,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['priceChart', 'visualPause', 'discussion', 'term', 'quiz', 'answer']
+      ['discussion', 'visualPause', 'compare', 'term', 'classificationTask', 'priceChart', 'yesNoCheck', 'flow', 'exam', 'modelAnswer', 'quiz', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -1122,7 +1122,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['priceChart', 'visualPause', 'discussion', 'term', 'quiz', 'answer']
+      ['discussion', 'visualPause', 'compare', 'term', 'classificationTask', 'priceChart', 'yesNoCheck', 'flow', 'exam', 'modelAnswer', 'quiz', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

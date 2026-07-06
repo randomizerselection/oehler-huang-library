@@ -49,6 +49,7 @@ Teaching rhythm:
 - Make teaching titles student-facing and note-friendly. Use the taught concept, question or exercise label, such as `What is a share price?` or `Exercise 1`, instead of a slogan such as `One share, one price`.
 - `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
 - `discussion.revealTitle` must be a concise answer statement, such as `One share is one ownership unit`, not a vague label such as `Model answer`, `Course rule` or `Bridge`.
+- Hooks should normally begin with a concrete student decision or dilemma, not a chart by default. Use a chart as evidence after students know what question the evidence is meant to answer.
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
 - `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.
@@ -84,6 +85,9 @@ Visual rhythm:
 - Keep each projected slide to one main idea or student action.
 - Do not combine a dense table, chart, photo and prompt on the same slide.
 - Keep section dividers closer to the economics-presentation divider style: simple reset screen, no lesson-map card, no image column.
+- Use visuals like the Economics decks: a hook visual creates a concrete classroom decision, and an image-only `visualPause` directly prepares the next definition, example or evidence-reading task.
+- Every visual should have a purpose in teacher notes: what students observe, what misconception it exposes, and which concept comes next. Remove decorative finance photos when students do not need the image to answer.
+- Charts are evidence-reading surfaces, not automatic openers. Place them after the student has a reason to inspect what the chart can and cannot prove.
 - Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
 - Use `conceptTriad` when students must compare three beginner concepts with definition, purpose, risk level, time horizon and example.
 - Use `compare` when students need a clean two-column contrast with fill-in blanks, such as evidence-based analysis versus weak opinion.

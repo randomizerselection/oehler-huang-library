@@ -212,124 +212,104 @@
       "lesson": 1,
       "company": "Tencent",
       "guidingQuestion": "What is investment analysis, and what is a share?",
-      "guidingQuestionZh": "什么是投资分析，什么是股票？",
-      "handoutMaterial": "Foundation starter sheet on investment versus speculation, investment analysis, asset, share, possible return, risk and share price.",
-      "formativeAssessment": "Hinge checks: investment or speculation; asset, share or not; risk-return yes/no; share-price evidence limits. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
-      "exitTicket": "Complete five foundation statements: investment versus speculation, investment analysis, share ownership, risk-return and share price.",
-      "sequenceRole": "Course entry lesson for students with no prior investment study.",
-      "retrievalBase": "Everyday experience with companies, products, prices and risk in normal life.",
-      "newKnowledge": "Investment versus short-term speculation, investment analysis, asset, share, possible return, risk, risk-return trade-off and share price.",
-      "evidenceTask": "Use the frozen Tencent 0700.HK price graph only as a hook for the share-price concept and the investment-versus-speculation boundary.",
-      "avoidOverlap": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet.",
-      "misconception": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
-      "studentOutput": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.",
-      "futureReuse": "Creates the first vocabulary base for every later lesson: evidence, investment analysis, asset, share, return, risk and share price.",
-      "focus": "Focus: distinguish investment analysis from short-term speculation; define investment analysis, asset and share; explain risk with possible return; explain share price as one share at one time.",
+      "guidingQuestionZh": "????????????????",
+      "handoutMaterial": "Tencent buy-dilemma starter sheet on evidence before judgement, one share, share price evidence and missing evidence.",
+      "formativeAssessment": "Economics-style checks: first yes/no buy reason, familiarity misconception, analysis-versus-weak-reason fill blanks, one-share classification, share-price evidence yes/no check and a 4-mark explanation rehearsal.",
+      "exitTicket": "Complete five statements on evidence, share ownership, share price, familiarity and why one graph cannot prove investment quality.",
+      "sequenceRole": "Course entry lesson that makes investment analysis feel concrete before later technical vocabulary.",
+      "retrievalBase": "Everyday experience with familiar companies, products, first impressions and the need for evidence before making a judgement.",
+      "newKnowledge": "Investment analysis uses evidence before judgement; a share is one unit of ownership in a company; a share price is the market price of one share at one specific time.",
+      "evidenceTask": "Start with the question 'Would you buy one share in Tencent?', then use the frozen Tencent 0700.HK price graph later as one piece of evidence that can show price but cannot prove investment quality by itself.",
+      "avoidOverlap": "No formal asset, possible-return, risk-return, percentage-change, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet.",
+      "misconception": "A student can answer whether to buy one Tencent share just because Tencent is familiar, famous, widely used or because the price line moved.",
+      "studentOutput": "One short paragraph explaining why knowing Tencent is not enough reason to buy one share, using the ideas of evidence, one share and share price limits.",
+      "futureReuse": "Creates the first course habit: ask what evidence is needed before judging a share, and treat price as one useful but limited source.",
+      "focus": "Focus: turn a familiar-company buy opinion into an evidence question; define investment analysis, share and share price; explain why a price graph alone is not enough.",
       "terms": [
         {
           "term": "investment analysis",
-          "zh": "投资分析",
-          "definition": "using evidence to study possible return, risk and price before making a judgement."
-        },
-        {
-          "term": "asset",
-          "zh": "资产",
-          "definition": "something owned that may have value."
+          "zh": "????",
+          "definition": "using evidence before making a judgement."
         },
         {
           "term": "share",
-          "zh": "股票",
+          "zh": "?? / ??",
           "definition": "one unit of ownership in a company."
         },
         {
-          "term": "possible return",
-          "zh": "可能回报",
-          "definition": "the gain an investor hopes to earn from an investment."
-        },
-        {
-          "term": "risk",
-          "zh": "风险",
-          "definition": "the possibility that results, returns or prices are worse than expected."
-        },
-        {
           "term": "share price",
-          "zh": "股价",
+          "zh": "??",
           "definition": "the market price of one share at a specific time."
-        },
-        {
-          "term": "short-term stock speculation",
-          "zh": "投机 / 炒股",
-          "definition": "betting mainly on a price movement without enough evidence about value, risk and return; not the course method."
         }
       ],
       "formulaOrNoFormula": "no new formula; students explain concepts in words only.",
-      "evidenceSummary": "Tencent as a familiar listed-company example and frozen five-year 0700.HK price graph for the share-price hook.",
-      "check": "Distinguish investment analysis from short-term speculation; define investment analysis, asset and share; explain possible return with risk; explain share price.",
+      "evidenceSummary": "Tencent as a familiar listed-company example, real Tencent building visuals for the opening dilemma and a frozen five-year 0700.HK price graph used later as limited evidence.",
+      "check": "Explain why familiarity is not evidence; define investment analysis and share; explain what a share price can and cannot prove.",
       "unit": 1,
       "unitTitle": "Market foundations",
       "handoutSections": [
         {
           "key": "sourceBox",
           "title": "Source box",
-          "task": "Record Tencent company identity, listing or source context, source title, URL, publication date, accessed date, key figures and what the evidence can and cannot prove."
+          "task": "Record Tencent company identity, source title, URL, publication date or accessed date, the share-price graph source and what the evidence can and cannot prove."
         },
         {
           "key": "vocabulary",
           "title": "Vocabulary",
-          "task": "Define and use the lesson terms: investment analysis, asset, share, possible return, risk, share price and short-term stock speculation."
+          "task": "Define and use the three Lesson 1 terms: investment analysis, share and share price."
         },
         {
           "key": "companyEvidence",
           "title": "Evidence and Data Analysis",
-          "task": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+          "task": "Case information: Use a short Tencent case extract with company background, source title, source URL, publication or accessed date, the 0700.HK share-price graph and one limitation. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret what the price graph shows and state what it cannot prove. 3. Explain: Explain why knowing Tencent is not enough reason to buy one share. 4. Analyse why: Analyse why price evidence could change or limit an investor's judgement about Tencent. 5. Judge: Give your own evidence-based classroom verdict on Tencent: incomplete evidence, watch, avoid, consider, compare with another choice or gather more evidence. Then choose the next investment action and justify it with dated evidence and caveats."
         },
         {
           "key": "calculationOrJudgement",
-          "title": "Asset, share and share price",
-          "task": "Separate asset, share and share price, then explain why one share price is only one piece of evidence."
+          "title": "Evidence judgement",
+          "task": "Separate what the Tencent price graph can show from what it cannot prove, then state what evidence is still missing."
         },
         {
           "key": "misconceptionCheck",
           "title": "Misconception check",
-          "task": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed."
+          "task": "Correct the claim: Tencent is familiar, so I would buy one share."
         },
         {
           "key": "individualOutput",
           "title": "Individual written output",
-          "task": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price."
+          "task": "One short paragraph explaining why knowing Tencent is not enough reason to buy one share, using the ideas of evidence, one share and share price limits."
         }
       ],
       "examPattern": {
         "checkpoint": 1,
         "itemType": "Section A-style evidence and data analysis worksheet",
-        "sourceRequirement": "Use a frozen Tencent extract with source title, date, accessed date and at least one figure or evidence statement.",
+        "sourceRequirement": "Use a frozen Tencent extract with source title, date, accessed date and the 0700.HK price graph as one limited evidence source.",
         "task": "Use the worksheet Evidence and Data Analysis section to answer: What is investment analysis, and what is a share?",
-        "mustAssess": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
+        "mustAssess": "Evidence-before-judgement reasoning, investment-analysis definition, share definition, share-price definition and the limit of using one familiar company or one price graph. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
       },
       "cardGenerator": {
-        "retrievalBase": "everyday experience with companies, products, prices and risk; no prior investment vocabulary is assumed.",
-        "newKnowledge": "investment analysis studies evidence, possible return, risk and price; it is not short-term speculation, tips or unsupported personal buy/sell advice; an asset is something owned that may have value; a share is one ownership unit; possible return must be judged with risk; share price means one share at one time.",
-        "avoidOverlap": "do not teach quote-page mechanics, percentage change, market capitalisation or valuation ratios yet.",
-        "misconception": "investment analysis means learning how to trade on short-term price jumps, guessing what to buy, chasing tips, treating fame as safety, or assuming possible return is guaranteed.",
-        "evidenceTask": "use Tencent's frozen 0700.HK price graph as a hook for the share-price definition and the investment-versus-speculation boundary.",
-        "studentOutput": "three foundation sentences defining investment analysis and a share, then explaining why possible return must be judged with risk and share price."
+        "retrievalBase": "everyday experience with familiar companies, products, first impressions and evidence before judgement.",
+        "newKnowledge": "investment analysis uses evidence before judgement; a share is one ownership unit in a company; a share price is one share at one specific time.",
+        "avoidOverlap": "do not formally teach asset, possible return, risk-return, quote-page mechanics, percentage change, market capitalisation or valuation ratios yet.",
+        "misconception": "knowing Tencent, using its products, seeing a famous brand or seeing a price move is enough reason to buy one share.",
+        "evidenceTask": "use the Tencent building image to make the company concrete, then use Tencent's frozen 0700.HK price graph later as one limited evidence source.",
+        "studentOutput": "one short paragraph explaining why knowing Tencent is not enough reason to buy one share, using evidence, one share and share price limits."
       },
-      "coreClaim": "Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation.",
+      "coreClaim": "Investment analysis starts with evidence before judgement; knowing a familiar company or seeing one price graph is not enough reason to buy one share.",
       "caseRole": "listed company",
       "primaryOutput": {
-        "type": "foundation-definition-output",
-        "description": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
+        "type": "first-analyst-paragraph",
+        "description": "one short paragraph explaining why knowing Tencent is not enough reason to buy one share"
       },
       "sourcePack": {
         "requiredSourceTypes": [
-          "official company annual/interim report or investor presentation",
-          "dated market snapshot when price or return is discussed",
+          "official company investor source for company identity",
+          "dated market snapshot when share price is discussed",
           "supporting company or sector source only when required by the evidence task"
         ],
         "preferredSourceOrder": [
           "official company/issuer source",
           "exchange or market-data snapshot",
-          "reputable news/regulator/sector source for risk context"
+          "reputable news/regulator/sector source only when later evidence requires it"
         ],
         "snapshotDateFields": [
           "source title",
@@ -338,12 +318,12 @@
           "accessed date",
           "snapshot date",
           "company/security identifier",
-          "key figures used",
+          "key figure used",
           "evidence limitation"
         ],
         "evidenceLimitations": [
-          "The lesson evidence task cannot by itself prove a unsupported personal unsupported buy/sell recommendation.",
-          "A single figure or graph cannot prove quality, value and risk at the same time.",
+          "A familiar company is not automatically a good investment.",
+          "A single price graph can show price history but cannot prove quality, value or risk by itself.",
           "Source dates and accessed dates must be recorded because investment evidence changes over time."
         ],
         "noLivePriceDependency": true,
@@ -352,114 +332,108 @@
       "assessmentBlueprint": {
         "commandWord": "Explain",
         "marks": 4,
-        "stimulusType": "short company evidence extract",
-        "calculationRequirement": "No new calculation; assess concept definitions and simple judgement language.",
-        "judgementRequirement": "Investment-versus-speculation distinction, investment-analysis definition, asset/share definitions, risk-return explanation and share-price definition. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
-        "mustAvoid": "No percentage-change formula, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
+        "stimulusType": "short company evidence extract with a dated price graph",
+        "calculationRequirement": "No new calculation; assess concept definitions, evidence limits and simple explanation language.",
+        "judgementRequirement": "Students explain why familiarity is not enough, define one share, use share-price evidence carefully and state that more evidence is needed before choosing consider, watch, avoid, compare or gather more evidence.",
+        "mustAvoid": "No formal asset, possible-return, risk-return, percentage-change, quote-page mechanics, market capitalisation, valuation judgement, revenue/profit analysis or unsupported personal buy/sell advice yet. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
-          "Student hook: A famous app company has a moving share price. What would you need to know before buying one share?",
-          "Hook: use Tencent's frozen share-price graph to ask what makes buying a share investment analysis rather than short-term speculation.",
-          "Retrieval: activate everyday ideas about owning something valuable, hoping for a gain, and facing uncertainty.",
-          "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new Tencent evidence.",
-          "Teach: students define investment analysis, asset, share, possible return, risk and share price.",
-          "Evidence practice: use the Tencent price line as a share-price example while separating evidence-based analysis from short-term speculation.",
-          "Output rehearsal: students build one careful analyst sentence using evidence, possible return, risk and share price.",
-          "Analyse why: students build a data -> concept -> investor implication chain for Tencent.",
-          "Investment action: students apply the decision rule - Do not consider a share just because the company is famous or the price moved; first state possible return, risk and what evidence is still missing.",
-          "Exit ticket: students complete five foundation statements aligned to the visible objectives."
+          "Hook: ask students 'Would you buy one share in Tencent?' before definitions or charts.",
+          "Retrieval: activate everyday first impressions about familiar companies and ask what evidence is missing.",
+          "Teach: define investment analysis as using evidence before judgement, then define share and share price.",
+          "Evidence practice: inspect Tencent's frozen price graph as one limited evidence source, separating what it shows from what it cannot prove.",
+          "Output rehearsal: build the explanation chain from familiar company -> one share -> share price evidence -> missing evidence.",
+          "Analyse why: students explain why one piece of Tencent evidence could change or limit a judgement.",
+          "Investment action: choose incomplete evidence, watch, avoid, consider, compare or gather more evidence, with dated evidence and caveats.",
+          "Exit ticket: return to the opening buy question with a careful evidence-before-judgement answer."
         ],
         "handoutBlocks": [
           {
             "key": "sourceBox",
             "title": "Source box",
-            "prompt": "Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence question.",
-            "expectedStudentWork": "A complete dated source record plus one question before any judgement."
+            "prompt": "Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence limitation.",
+            "expectedStudentWork": "A complete dated source record plus one limit before any judgement."
           },
           {
             "key": "vocabulary",
             "title": "Vocabulary",
-            "prompt": "Define and use: investment analysis, asset, share, possible return, risk, share price and short-term stock speculation.",
-            "expectedStudentWork": "English definitions with Chinese support and one short use-in-context check."
+            "prompt": "Define and use: investment analysis, share and share price.",
+            "expectedStudentWork": "Three concise definitions with Chinese support and one use-in-context check."
           },
           {
             "key": "companyEvidence",
             "title": "Evidence and Data Analysis",
-            "prompt": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one Tencent evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share. 5. Judge: Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
-            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
+            "prompt": "Case information: Use a short Tencent case extract with company background, source title, publication or accessed date, the 0700.HK price graph and one limitation. Questions: 1. Identify/Define: Identify the source date and define investment analysis. 2. Calculate/Interpret: Interpret what the graph shows and state what it cannot prove. 3. Explain: Explain why knowing Tencent is not enough reason to buy one share. 4. Analyse why: Analyse why the evidence could change or limit an investor's judgement. 5. Judge: Give your own evidence-based classroom verdict and choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence.",
+            "expectedStudentWork": "Completed Section A-style answers: identify/define, interpret, explain evidence limits, analyse why and one evidence-based classroom verdict."
           },
           {
             "key": "calculationOrJudgement",
-            "title": "Asset, share and share price",
-            "prompt": "Separate asset, share and share price, then explain why one share price is only one piece of evidence.",
-            "expectedStudentWork": "A completed distinction table for asset, share and share price."
+            "title": "Evidence judgement",
+            "prompt": "Separate what the price graph can show from what it cannot prove, then write what evidence is still missing.",
+            "expectedStudentWork": "A completed evidence-limit table or short judgement note."
           },
           {
             "key": "misconceptionCheck",
             "title": "Misconception check",
-            "prompt": "Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
-            "expectedStudentWork": "A correction sentence that states why the misconception is wrong."
+            "prompt": "Correct this claim: Tencent is familiar, so I would buy one share.",
+            "expectedStudentWork": "A correction sentence that replaces familiarity with evidence before judgement."
           },
           {
             "key": "individualOutput",
             "title": "Individual written output",
-            "prompt": "Three-sentence foundation output defining investment analysis and a share, then explaining why possible return must be judged with risk and share price.",
-            "expectedStudentWork": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
+            "prompt": "One short paragraph explaining why knowing Tencent is not enough reason to buy one share, using the ideas of evidence, one share and share price limits.",
+            "expectedStudentWork": "one short paragraph explaining why knowing Tencent is not enough reason to buy one share"
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
-        "examItemShape": "Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Tencent."
+        "examItemShape": "Section A-style case-information stimulus followed by identify/define, interpret, explain, analyse why and evidence-based judgement questions for Tencent."
       },
       "caseReview": {
         "status": "keep",
         "sourceFit": "pending-source-pack-check",
-        "reason": "Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.",
+        "reason": "Tencent fits the entry lesson because students know the company but still need to learn that familiarity is not investment analysis.",
         "replacementCandidate": null
       },
       "analyseWhy": {
-        "question": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share.",
+        "question": "Analyse why the evidence used in the Tencent case could change or limit an investor's judgement about buying one share.",
         "chain": [
           "Use one dated evidence or data point from the case.",
-          "Link it to the lesson concept or formula.",
-          "Explain the investor implication for return, risk, price or evidence quality."
+          "Link it to investment analysis, one share or share price.",
+          "Explain the investor implication for evidence quality, price or missing evidence."
         ],
-        "expectedStudentWork": "A developed chain using Tencent evidence, the lesson concept and an investor implication before a classroom verdict."
+        "expectedStudentWork": "A developed chain using Tencent evidence, a Lesson 1 concept and an investor implication before a classroom verdict."
       },
       "retrievalPractice": {
         "yesNo": {
-          "prompt": "Yes or no: Investment analysis means guessing a short-term price movement, following a tip, treating fame as safety or assuming possible return is guaranteed.",
+          "prompt": "Yes or no: Knowing Tencent is enough reason to buy one share.",
           "answer": "No",
-          "explanation": "Correct the misconception using Tencent evidence and the lesson concept."
+          "explanation": "Correct the misconception by explaining that investment analysis needs dated evidence before judgement."
         },
         "multipleChoice": {
-          "prompt": "Which action best supports a careful judgement about Tencent?",
+          "prompt": "Which action best supports a careful first judgement about Tencent?",
           "options": [
             "Check dated source evidence and its limitation before judging.",
             "Assume the company is attractive because the name is familiar.",
             "Use one price movement as a complete investment conclusion.",
-            "Ignore risk if the possible return looks high."
+            "Treat a product you like as proof that the share is safe."
           ],
           "answer": "Check dated source evidence and its limitation before judging."
         },
         "matching": {
-          "prompt": "Match the lesson terms to their meaning before using the Tencent case.",
+          "prompt": "Match the Lesson 1 terms before using the Tencent case.",
           "pairs": [
             {
               "term": "investment analysis",
-              "match": "using evidence to study possible return, risk and price before making a judgement."
-            },
-            {
-              "term": "asset",
-              "match": "something owned that may have value."
+              "match": "using evidence before making a judgement."
             },
             {
               "term": "share",
               "match": "one unit of ownership in a company."
             },
             {
-              "term": "possible return",
-              "match": "the gain an investor hopes to earn from an investment."
+              "term": "share price",
+              "match": "the market price of one share at a specific time."
             }
           ]
         },
@@ -468,7 +442,7 @@
       "worksheet": {
         "evidenceAndDataAnalysis": {
           "title": "Evidence and Data Analysis",
-          "stimulus": "Use a short Tencent case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "stimulus": "Use a short Tencent case extract with company background, source title, publication or accessed date, the 0700.HK price graph and one limitation.",
           "questions": [
             {
               "type": "identify-define",
@@ -477,51 +451,51 @@
             },
             {
               "type": "calculate-interpret",
-              "command": "Calculate/Interpret",
-              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+              "command": "Interpret",
+              "prompt": "Interpret what the Tencent share-price graph shows and state what it cannot prove."
             },
             {
               "type": "explain-evidence",
               "command": "Explain",
-              "prompt": "Explain what one Tencent evidence point shows and one thing it cannot prove."
+              "prompt": "Explain why knowing Tencent is not enough reason to buy one share."
             },
             {
               "type": "analyse-why",
               "command": "Analyse why",
-              "prompt": "Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis, and what is a share."
+              "prompt": "Analyse why the evidence used in the Tencent case could change or limit an investor's judgement about buying one share."
             },
             {
               "type": "student-judgement",
               "command": "Judge",
-              "prompt": "Give your own evidence-based classroom verdict on Tencent: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+              "prompt": "Give your own evidence-based classroom verdict on Tencent: incomplete evidence, watch, avoid, consider or compare with another choice. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
             }
           ]
         }
       },
       "investmentAction": {
-        "title": "First investment-analysis action",
-        "studentAction": "Before considering any share, explain what a share is and separate evidence-based investment analysis from short-term speculation.",
-        "decisionRule": "Do not consider a share just because the company is famous or the price moved; first state possible return, risk and what evidence is still missing.",
-        "portfolioQuestion": "Ask whether the hypothetical investor could accept share-price risk before any company judgement.",
-        "classroomOutput": "Before I would consider Tencent, I need a dated source, a clear share-price snapshot and one risk-return sentence."
+        "title": "First evidence-before-judgement action",
+        "studentAction": "Before considering one share, state what a share is and what dated evidence is still missing.",
+        "decisionRule": "Do not consider a share just because the company is familiar or the price graph moved; first check dated evidence and its limits.",
+        "portfolioQuestion": "Ask what evidence is still missing before deciding whether to consider, watch, avoid, compare or gather more evidence.",
+        "classroomOutput": "Before I would consider Tencent, I need dated evidence beyond familiarity and one price graph. Next action: gather more evidence or watch."
       },
-      "studentHook": "A famous app company has a moving share price. What would you need to know before buying one share?",
+      "studentHook": "Would you buy one share in Tencent?",
       "simpleFlow": [
         {
           "label": "Hook",
-          "text": "A famous app company has a moving share price. What would you need to know before buying one share?"
+          "text": "Would you buy one share in Tencent?"
         },
         {
           "label": "Key idea",
-          "text": "Investment analysis uses evidence to study possible return, risk and price before judgement; it is not short-term speculation."
+          "text": "Investment analysis uses evidence before judgement; familiarity is not enough."
         },
         {
           "label": "Try it",
-          "text": "three sentences covering investment analysis, share ownership and risk-return-price judgement"
+          "text": "Explain why knowing Tencent is not enough reason to buy one share."
         },
         {
           "label": "Decide",
-          "text": "Before I would consider Tencent, I need a dated source, a clear share-price snapshot and one risk-return sentence."
+          "text": "Choose whether the current evidence means consider, watch, avoid, compare or gather more evidence."
         }
       ]
     },

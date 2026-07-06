@@ -27,6 +27,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Important student-facing teaching text should have concise Simplified Chinese support: main titles, term definitions, core prompts/tasks, main reveal answers, flow/answer items and quiz prompts/explanations. Do not translate source metadata, stock codes, dates, numbers, minor labels, UI chrome or teacher notes unless they carry the concept.
 - Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. The projected pause surface is image-only: no visible title, prompt, caption, credit or explanatory text. Put the teaching bridge in notes or on an adjacent slide.
+- Use visuals as teaching moves. A hook visual should create a concrete student decision; a visual pause should prepare the exact concept that follows; charts should appear when students are ready to read evidence, not automatically as the opener.
 - Keep `section` dividers as simple reset screens: part label, title, optional concise Chinese title and an automatic progress strip. Do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
 
 ## Component Rules
@@ -34,6 +35,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
 - `section`: keep the slide visually closer to the standard economics-presentation divider, with the title doing the work and only a quiet progress strip below it.
 - `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
+- `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
