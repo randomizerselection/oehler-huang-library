@@ -84,10 +84,10 @@ window.INVEST.lesson = {
           {
             type: "terms",
             terms: [
-              { label: "Stock exchange", prompt: "A stock exchange is a regulated market where listed securities can be bought and __________.", answer: "sold" },
-              { label: "Listing", prompt: "Listing is permission for a company's shares to trade on an __________.", answer: "exchange" },
+              { label: "Stock exchange", prompt: "A stock exchange is a regulated trading __________ for investment instruments such as listed shares.", answer: "venue" },
+              { label: "Listing", prompt: "A listing is formal permission for a company's securities to trade on an __________.", answer: "exchange" },
               { label: "Stock code", prompt: "A stock code is the short market __________ used to find a listed security.", answer: "identifier" },
-              { label: "Liquidity", prompt: "Liquidity means how easily an asset can be bought or sold without a large price __________.", answer: "change" }
+              { label: "Liquidity", prompt: "Liquidity is the ability to trade quickly, at low cost and without causing a large price __________.", answer: "change" }
             ]
           }
         ]
@@ -270,7 +270,7 @@ window.INVEST.lesson = {
       title: "Stock exchange",
       term: "Stock exchange",
       termZh: "证券交易所",
-      definition: "A stock exchange is a regulated market where listed securities can be bought and <span class=\"blank invReveal\" data-answer=\"sold\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">sold</span></span>.",
+      definition: "A stock exchange is a regulated trading <span class=\"blank invReveal\" data-answer=\"venue\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">venue</span></span> where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.",
       definitionZh: "证券交易所是一个受监管的市场，上市证券可以在这里买入和卖出。",
       notes: "Keep this definition broad. HKEX is the case, not the only possible exchange."
     },
@@ -341,7 +341,7 @@ window.INVEST.lesson = {
       title: "Listing",
       term: "Listing",
       termZh: "上市",
-      definition: "Listing is permission for a company's shares to trade on an <span class=\"blank invReveal\" data-answer=\"exchange\" style=\"--blank-width:10ch\"><span class=\"invBlankText\">exchange</span></span>.",
+      definition: "A listing is the formal <span class=\"blank invReveal\" data-answer=\"permission\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">permission</span></span> for a company's securities to trade on a stock exchange after the company meets the exchange's requirements.",
       definitionZh: "上市是指公司的股票获准在交易所交易。",
       notes: "Students should not overstate this as a quality guarantee."
     },
@@ -464,7 +464,7 @@ window.INVEST.lesson = {
       title: "Liquidity",
       term: "Liquidity",
       termZh: "流动性",
-      definition: "Liquidity means how easily an asset can be bought or sold without a large price <span class=\"blank invReveal\" data-answer=\"change\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">change</span></span>.",
+      definition: "Liquidity is the ability to trade an asset <span class=\"blank invReveal\" data-answer=\"quickly\" style=\"--blank-width:9ch\"><span class=\"invBlankText\">quickly</span></span>, at relatively low cost and in meaningful quantities without causing a large price change.",
       definitionZh: "流动性指资产买入或卖出的容易程度，以及是否会造成较大价格变化。",
       notes: "The HKEX FAQ odd-lot example supports the basic idea that lower liquidity can affect trading terms."
     },

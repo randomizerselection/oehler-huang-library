@@ -924,35 +924,50 @@
     const photo = slide.visual || slide.photo;
     const revealAnswers = slide.revealAnswers !== false;
     const compactClass = slide.compact ? ' invCompactClassificationSlide' : '';
-    const categories = (slide.categories || []).map((category) => {
+    const itemCount = (slide.items || []).length;
+    const categoryCount = (slide.categories || []).length;
+    const densityClass = itemCount > 6 || slide.dense ? ' is-dense' : ' is-spacious';
+    const categories = (slide.categories || []).map((category, i) => {
       const normalized = typeof category === 'string' ? { title: category } : category || {};
       return `
         <div class="invClassificationCategory">
-          <strong>${escapeHtml(normalized.title || normalized.label || '')}</strong>
-          ${normalized.zhTitle ? `<span lang="zh-Hans">${escapeHtml(normalized.zhTitle)}</span>` : ''}
+          <span class="invClassificationCategoryMark">${i + 1}</span>
+          <div class="invClassificationCategoryText">
+            <strong>${escapeHtml(normalized.title || normalized.label || '')}</strong>
+            ${normalized.zhTitle ? `<span lang="zh-Hans">${escapeHtml(normalized.zhTitle)}</span>` : ''}
+          </div>
           ${normalized.clue ? `<em>${escapeHtml(normalized.clue)}</em>` : ''}
         </div>`;
     }).join('');
     const items = (slide.items || []).map((item, i) => {
       const normalized = normalizeNumberedItem(item, i);
+      const answerSlug = String(normalized.answer || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+      const answerClass = answerSlug ? ` is-answer-${answerSlug}` : '';
       return `
-        <article class="invClassificationItem">
+        <article class="invClassificationItem${answerClass}">
           <div class="invClassificationPrompt">
-            <span>${escapeHtml(normalized.label)}</span>
-            <strong>${escapeHtml(normalized.text)}</strong>
-            ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+            <span class="invClassificationLabel">${escapeHtml(normalized.label)}</span>
+            <div class="invClassificationStatement">
+              <strong>${escapeHtml(normalized.text)}</strong>
+              ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+            </div>
           </div>
           ${(normalized.answer || normalized.reason) ? `
-            <div class="invClassificationResult${revealAnswers ? ' invReveal' : ''}">
-              ${normalized.answer ? `<span>${escapeHtml(normalized.answer)}</span>` : ''}
+            <div class="invClassificationResult${answerClass}${revealAnswers ? ' invReveal' : ''}">
+              ${normalized.answer ? `<span class="invClassificationBadge">${escapeHtml(normalized.answer)}</span>` : ''}
               ${normalized.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}
-              ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
-              ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+              <div class="invClassificationReason">
+                ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
+                ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+              </div>
             </div>` : ''}
         </article>`;
     }).join('');
     const body = `
-      <div class="invClassificationTask${slide.compact ? ' is-compact' : ''}">
+      <div class="invClassificationTask${slide.compact ? ' is-compact' : ''}${densityClass}" style="--classification-count:${itemCount}; --classification-categories:${categoryCount}">
         ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
         ${categories ? `<div class="invClassificationCategories">${categories}</div>` : ''}
         <div class="invClassificationItems">${items}</div>
@@ -965,25 +980,33 @@
     const photo = slide.visual || slide.photo;
     const revealAnswers = slide.revealAnswers !== false;
     const compactClass = slide.compact ? ' invCompactCheckSlide' : '';
+    const itemCount = (slide.items || []).length;
+    const densityClass = itemCount > 6 || slide.dense ? ' is-dense' : ' is-spacious';
     const items = (slide.items || []).map((item, i) => {
       const normalized = normalizeNumberedItem(item, i);
       const answer = yesNoLabel(item?.answer);
+      const answerClass = item?.answer === true ? ' is-yes' : item?.answer === false ? ' is-no' : '';
       return `
         <article class="invYesNoItem">
           <div class="invYesNoStatement">
-            <span>${String(i + 1).padStart(2, '0')}</span>
-            <strong>${escapeHtml(normalized.text)}</strong>
-            ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+            <span class="invYesNoNumber">${String(i + 1).padStart(2, '0')}</span>
+            <div class="invYesNoPromptText">
+              <strong>${escapeHtml(normalized.text)}</strong>
+              ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
+            </div>
           </div>
+          <div class="invYesNoVoteCue"><span>Yes</span><span>No</span></div>
           <div class="invYesNoAnswer${revealAnswers ? ' invReveal' : ''}">
-            <span class="invYesNoBadge"><span>${escapeHtml(answer)}</span>${normalized.answerZh ? `<span lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}</span>
-            ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
-            ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+            <span class="invYesNoBadge${answerClass}"><span>${escapeHtml(answer)}</span>${normalized.answerZh ? `<span lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}</span>
+            <div class="invYesNoReason">
+              ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
+              ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
+            </div>
           </div>
         </article>`;
     }).join('');
     const body = `
-      <div class="invYesNoCheck${slide.compact ? ' is-compact' : ''}">
+      <div class="invYesNoCheck${slide.compact ? ' is-compact' : ''}${densityClass}" style="--yesno-count:${itemCount}">
         ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
         <div class="invYesNoItems">${items}</div>
       </div>`;

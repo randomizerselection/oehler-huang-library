@@ -41,9 +41,9 @@ window.INVEST.lesson = {
       prompt: "Write one-sentence definitions before reveal.",
       promptZh: "先写一句定义，再揭示答案。",
       definitionItems: [
-        { label: "1", term: "Term A", termZh: "术语A", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" },
-        { label: "2", term: "Term B", termZh: "术语B", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" },
-        { label: "3", term: "Term C", termZh: "术语C", answer: "Replace with a full, simple model definition.", answerZh: "替换为完整、简单的参考定义。" }
+        { label: "1", term: "Term A", termZh: "术语A", answer: "Use the CFA-inspired textbook definition from the course overview when the term exists there.", answerZh: "若课程总览已有该术语，请使用其中受CFA启发的教材式定义。" },
+        { label: "2", term: "Term B", termZh: "术语B", answer: "If no overview match exists, write a complete definition with the same precise finance style.", answerZh: "若总览没有匹配术语，请用同样精确的金融表达写出完整定义。" },
+        { label: "3", term: "Term C", termZh: "术语C", answer: "Keep slide blanks on the concept payload, not on filler words or the term itself.", answerZh: "幻灯片填空应放在概念关键词上，而不是填充词或术语本身。" }
       ],
       sharePrompt: "Compare with a partner, then improve one definition.",
       sharePromptZh: "与同伴比较，然后改进一个定义。"

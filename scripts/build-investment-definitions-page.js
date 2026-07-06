@@ -62,13 +62,16 @@ function getCfaSearchText(match) {
 
 function renderDefinitionRows(section, cfaMatchMap, sourceUrl) {
   return section.entries.map((entry) => `
-              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
+              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.definitionZh} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
                 <th scope="row">${escapeHtml(entry.ref)}</th>
                 <td>
                   <strong>${escapeHtml(entry.term)}</strong>
                   <span lang="zh-Hans">${escapeHtml(entry.zh)}</span>
                 </td>
-                <td>${escapeHtml(entry.definition)}</td>
+                <td>
+                  <p class="investment-definition-en">${escapeHtml(entry.definition)}</p>
+                  <p class="investment-definition-zh" lang="zh-Hans">${escapeHtml(entry.definitionZh)}</p>
+                </td>
                 <td>${renderCfaMatchCell(cfaMatchMap.get(entry.term.toLowerCase()), sourceUrl)}</td>
                 <td>${escapeHtml(entry.courseUse)}</td>
               </tr>`).join('');
@@ -91,7 +94,7 @@ function renderDefinitionSections(sections, cfaMatchMap, sourceUrl) {
                 <tr>
                   <th scope="col">Ref</th>
                   <th scope="col">Term</th>
-                  <th scope="col">Textbook definition</th>
+                  <th scope="col">Textbook definition / 中文释义</th>
                   <th scope="col">CFA source definition</th>
                   <th scope="col">Course use</th>
                 </tr>
@@ -257,6 +260,18 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
       width: 26rem;
     }
 
+    .investment-definition-en,
+    .investment-definition-zh {
+      margin: 0;
+    }
+
+    .investment-definition-zh {
+      color: rgba(205, 242, 246, 0.82);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-top: 0.55rem;
+    }
+
     .investment-definition-table strong {
       display: block;
       font-size: 1rem;
@@ -354,7 +369,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
         <div class="investment-eyebrow">Course reference</div>
         <h1>Investment Analysis Definitions</h1>
         <p>
-          Textbook-style definitions for all ${total} key terms used across the 30-lesson company-analysis course, with ${matchedTotal} CFA Program glossary source matches shown beside the classroom wording.
+          Textbook-style definitions for all ${total} key terms used across the 30-lesson company-analysis course, with Chinese translations and ${matchedTotal} CFA Program glossary source matches shown beside the classroom wording.
         </p>
         <div class="investment-actions" aria-label="Definition overview links">
           <a class="investment-action primary" href="#definition-overview">Browse definitions</a>
@@ -393,13 +408,13 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
           <div class="investment-section-kicker">Definition overview</div>
           <h2 id="definition-overview-title">Complete course vocabulary</h2>
         </div>
-        <p>Search by course term, Chinese support, CFA glossary term, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary equivalent remain course-specific.</p>
+        <p>Search by course term, Chinese support, Chinese definition translation, CFA glossary term, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary equivalent remain course-specific.</p>
       </div>
 
       <div class="investment-definition-toolbar" data-definition-toolbar>
         <div class="investment-definition-search">
           <label for="definition-search">Search definitions</label>
-          <input id="definition-search" type="search" placeholder="Search term, Chinese support, lesson or definition" autocomplete="off" data-definition-search />
+          <input id="definition-search" type="search" placeholder="Search term, Chinese translation, lesson or definition" autocomplete="off" data-definition-search />
         </div>
         <div class="investment-definition-filters" aria-label="Filter by unit">
             ${renderUnitFilters(sections)}

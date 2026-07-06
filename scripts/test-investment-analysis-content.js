@@ -173,6 +173,86 @@ function normaliseLineEndings(value) {
   return String(value).replace(/\r\n/g, '\n');
 }
 
+function stripDefinitionMarkup(value) {
+  return String(value || '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const definitionStopWords = new Set([
+  'about',
+  'after',
+  'again',
+  'against',
+  'also',
+  'before',
+  'being',
+  'between',
+  'company',
+  'could',
+  'during',
+  'every',
+  'expected',
+  'future',
+  'having',
+  'including',
+  'investment',
+  'investor',
+  'other',
+  'period',
+  'price',
+  'return',
+  'share',
+  'shares',
+  'showing',
+  'stated',
+  'their',
+  'there',
+  'these',
+  'those',
+  'through',
+  'using',
+  'while',
+  'which',
+  'would',
+]);
+
+function definitionContentWords(value) {
+  return stripDefinitionMarkup(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .map((word) => word.replace(/^-|-$/g, ''))
+    .filter((word) => word.length >= 5 && !definitionStopWords.has(word));
+}
+
+function definitionOverlapCount(expected, actual) {
+  const expectedWords = [...new Set(definitionContentWords(expected))].slice(0, 14);
+  const actualWords = new Set(definitionContentWords(actual));
+  return expectedWords.filter((word) => actualWords.has(word)).length;
+}
+
+function validateDefinitionStyle(failures, label, value) {
+  const text = stripDefinitionMarkup(value);
+  if (text.length < 42 || /^[a-z]/.test(text) || !/[.!?]$/.test(text)) {
+    failures.push(`${label}: definition must be a complete sentence in the CFA-inspired textbook style`);
+  }
+  return text;
+}
+
+function validateDefinitionAlignment(failures, label, term, value, definitionMap, cfaMatchMap) {
+  const text = validateDefinitionStyle(failures, label, value);
+  const entry = definitionMap.get(String(term || '').toLowerCase());
+  if (!entry) return;
+
+  const requiredOverlap = cfaMatchMap.has(String(term || '').toLowerCase()) ? 4 : 3;
+  const overlap = definitionOverlapCount(entry.definition, text);
+  if (overlap < requiredOverlap) {
+    failures.push(`${label}: definition for "${term}" must stay aligned to references/investment-analysis-definitions.md`);
+  }
+}
+
 function includesAllDeckArcPhases(deckArc) {
   if (!Array.isArray(deckArc)) return false;
 
@@ -702,6 +782,12 @@ function validateInvestmentDefinitionsOverview() {
       if (entry.definition.length < 60 || /^[a-z]/.test(entry.definition) || !/[.!?]$/.test(entry.definition)) {
         failures.push(`${label}: definition must be complete textbook-style sentence wording`);
       }
+      if (!hasChineseText(entry.definitionZh) || entry.definitionZh.length < 20) {
+        failures.push(`${label}: missing Chinese definition translation`);
+      }
+      if (term.definition !== entry.definition) {
+        failures.push(`${label}: course-map term definition must match the CFA-aligned textbook definition overview`);
+      }
       if (!isNonEmptyString(entry.courseUse)) {
         failures.push(`${label}: missing course use`);
       }
@@ -720,6 +806,9 @@ function validateInvestmentDefinitionsOverview() {
     : '';
   if (actualHtml !== expectedHtml) {
     failures.push('investment-analysis/definitions.html: generated investment definitions page is missing or out of date');
+  }
+  if (!/Textbook definition \/ 中文释义/.test(actualHtml) || !/投资分析是/.test(actualHtml)) {
+    failures.push('investment-analysis/definitions.html: generated page must show Chinese definition translations');
   }
   if (!/CFA source definition/.test(actualHtml) || !/CFA term: Earnings per share/.test(actualHtml) || !/Open original CFA wording/.test(actualHtml)) {
     failures.push('investment-analysis/definitions.html: generated page must show CFA glossary source matches');
@@ -784,6 +873,58 @@ function validateTermRenderer() {
 
   if (!/class="invTermDefinitionZh"/.test(source)) {
     failures.push('assets/js/investment-deck.js: term slides should render definitionZh inside the definition block');
+  }
+
+  return failures;
+}
+
+function validateInvestmentPresentationDefinitions() {
+  const failures = [];
+  const definitionMap = getInvestmentDefinitionMap();
+  const cfaMatchMap = getInvestmentCfaMatchMap();
+  const slideFiles = findInvestmentSlideFiles(courseRoot)
+    .filter((slideFile) => !slideFile.includes('/_template/'));
+
+  for (const slideFile of slideFiles) {
+    const lesson = readInvestmentLesson(slideFile);
+    for (const [index, slide] of (lesson.slides || []).entries()) {
+      const label = `${slideFile} slide ${index + 1} (${slide.type || 'unknown'}: ${slide.title || slide.term || 'untitled'})`;
+
+      if (slide.type === 'term' && slide.definition) {
+        validateDefinitionAlignment(failures, `${label} term definition`, slide.term || slide.title, slide.definition, definitionMap, cfaMatchMap);
+      }
+
+      if (slide.type === 'peerTask' && slide.taskType === 'definitionRecall') {
+        for (const [itemIndex, item] of (slide.definitionItems || []).entries()) {
+          if (!item.answer) continue;
+          const termKey = String(item.term || '').toLowerCase();
+          const answerText = stripDefinitionMarkup(item.answer);
+          if (!definitionMap.has(termKey) && !/\b(?:is|are|means|refers to)\b/i.test(answerText)) continue;
+          validateDefinitionAlignment(
+            failures,
+            `${label} definitionRecall item ${itemIndex + 1}`,
+            item.term,
+            item.answer,
+            definitionMap,
+            cfaMatchMap,
+          );
+        }
+      }
+
+      if (slide.type === 'conceptTriad') {
+        for (const [conceptIndex, concept] of (slide.concepts || []).entries()) {
+          if (!concept.definition) continue;
+          validateDefinitionAlignment(
+            failures,
+            `${label} concept ${conceptIndex + 1}`,
+            concept.label,
+            concept.definition,
+            definitionMap,
+            cfaMatchMap,
+          );
+        }
+      }
+    }
   }
 
   return failures;
@@ -1063,6 +1204,7 @@ const failures = [
   ...validateGeneratorContextAccess(),
   ...validateInvestmentDefinitionsOverview(),
   ...validateCompiledHandoutBook(),
+  ...validateInvestmentPresentationDefinitions(),
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
   ...validateTermRenderer(),

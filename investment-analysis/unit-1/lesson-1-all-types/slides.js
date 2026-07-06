@@ -329,9 +329,9 @@ window.INVEST.lesson = {
       prompt: "Write one-sentence definitions before reveal.",
       promptZh: "先写一句定义，再揭示答案。",
       definitionItems: [
-        { label: "1", term: "Share", termZh: "股票", answer: "A share is one ownership unit in a company.", answerZh: "一股股票是公司中的一个所有权单位。" },
-        { label: "2", term: "Stock code", termZh: "股票代码", answer: "A stock code identifies a listed security in market data.", answerZh: "股票代码在市场数据中识别一个上市证券。" },
-        { label: "3", term: "Risk", termZh: "风险", answer: "Risk is the chance that the outcome is worse than expected.", answerZh: "风险是结果比预期更差的可能性。" }
+        { label: "1", term: "Share", termZh: "股票", answer: "A share is one ownership unit in a company, giving a claim on equity.", answerZh: "一股股票是公司中的一个所有权单位，并给予对权益的要求权。" },
+        { label: "2", term: "Stock code", termZh: "股票代码", answer: "A stock code is a short market identifier for a listed security.", answerZh: "股票代码是上市证券的简短市场识别码。" },
+        { label: "3", term: "Risk", termZh: "风险", answer: "Risk is the possibility that results, returns or prices are worse than expected.", answerZh: "风险是结果、回报或价格比预期更差的可能性。" }
       ],
       sharePrompt: "Compare one definition and improve the wording.",
       sharePromptZh: "比较一个定义，并改进表达。",
@@ -432,7 +432,7 @@ window.INVEST.lesson = {
         {
           label: "Saving",
           tag: "Safety",
-          definition: "Money kept mainly for safety and access.",
+          definition: "Saving is keeping money mainly for safety, access or future use rather than putting it into a risky asset.",
           definitionZh: "主要为安全和取用方便而保留的钱。",
           purpose: "Keep money available",
           risk: "Lower uncertainty"
@@ -440,7 +440,7 @@ window.INVEST.lesson = {
         {
           label: "Investment",
           tag: "Asset",
-          definition: "Money put into an asset for possible return and risk.",
+          definition: "Investment is putting money into an asset with the aim of earning a future return while accepting the possibility of loss.",
           definitionZh: "投入资产以追求可能回报并承担风险的钱。",
           purpose: "Seek future gain",
           risk: "Value can rise or fall"
@@ -448,7 +448,7 @@ window.INVEST.lesson = {
         {
           label: "Speculation",
           tag: "Price bet",
-          definition: "A short-term bet on price movement with weak analysis.",
+          definition: "Speculation is an attempt to profit from uncertain price movements, usually with weaker evidence, timing or risk-taking.",
           definitionZh: "在分析不足时押注短期价格变化。",
           purpose: "Catch a quick move",
           risk: "High uncertainty"

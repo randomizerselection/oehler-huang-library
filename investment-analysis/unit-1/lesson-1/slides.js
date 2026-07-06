@@ -54,10 +54,10 @@ window.INVEST.lesson = {
             type: "terms",
             terms: [
               { label: "Investment analysis", prompt: "Investment analysis is the process of using source-dated __________ about an asset, business, return, risk and price before a justified investment judgement.", answer: "evidence" },
-              { label: "Investment", prompt: "Investment aims for future __________ while accepting risk.", answer: "return" },
-              { label: "Speculation", prompt: "Speculation often relies on short-term price __________.", answer: "movement" },
-              { label: "Asset", prompt: "An asset is something with __________ that can be owned.", answer: "value" },
-              { label: "Share", prompt: "A share is one unit of __________ in a company.", answer: "ownership" }
+              { label: "Investment", prompt: "Investment puts money into an asset to seek future __________ while accepting possible loss.", answer: "return" },
+              { label: "Speculation", prompt: "Speculation attempts to profit from uncertain price __________, often with weaker evidence.", answer: "movements" },
+              { label: "Asset", prompt: "An asset is something with economic __________ that can be owned or controlled.", answer: "value" },
+              { label: "Share", prompt: "A share is one unit of ownership in a company and gives a claim on part of its __________.", answer: "equity" }
             ]
           }
         ]
@@ -281,13 +281,13 @@ window.INVEST.lesson = {
       title: "Investment or speculation?",
       zhTitle: "投资还是投机？",
       compact: true,
-      prompt: "Vote before reveal.",
-      promptZh: "先投票，再揭示答案。",
+      prompt: "Vote: is this investment analysis?",
+      promptZh: "投票：这属于投资分析吗？",
       items: [
-        { text: "Analysis can still lose money.", zh: "分析后仍然可能亏钱。", answer: true, answerZh: "是", reason: "No certainty.", reasonZh: "没有确定性。" },
-        { text: "A price story can still be speculation.", zh: "价格故事仍可能是投机。", answer: true, answerZh: "是", reason: "Too short-term.", reasonZh: "太短期。" },
-        { text: "Long holding automatically makes analysis.", zh: "长期持有就自动成为分析。", answer: false, answerZh: "否", reason: "Needs evidence.", reasonZh: "需要证据。" },
-        { text: "One price rise is enough for a famous firm.", zh: "知名公司一次涨价就足够。", answer: false, answerZh: "否", reason: "Not enough.", reasonZh: "还不够。" }
+        { text: "Uses source-dated evidence, but admits loss is possible.", zh: "使用有来源和日期的证据，但承认仍可能亏损。", answer: true, answerZh: "是", reason: "Evidence-based, not certain.", reasonZh: "基于证据，但不保证确定。" },
+        { text: "Explains a price rise with one short online story.", zh: "用一个网上短故事解释涨价。", answer: false, answerZh: "否", reason: "Evidence is too thin.", reasonZh: "证据太单薄。" },
+        { text: "Plans to hold for years, but gives no evidence.", zh: "计划持有多年，但没有给证据。", answer: false, answerZh: "否", reason: "Time alone is not analysis.", reasonZh: "时间本身不是分析。" },
+        { text: "Compares return, risk and price before deciding.", zh: "决策前比较回报、风险和价格。", answer: true, answerZh: "是", reason: "This follows the method.", reasonZh: "这符合分析方法。" }
       ],
       notes: "Use this as a quick hinge check before moving into assets."
     },
@@ -315,7 +315,7 @@ window.INVEST.lesson = {
       title: "Asset",
       term: "Asset",
       termZh: "资产",
-      definition: "An asset is something with <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span> that can be owned.",
+      definition: "An asset is something with economic <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span> that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
       definitionZh: "资产是具有价值并且可以被拥有的东西。",
       notes: "Keep this broad: the next slide gives concrete types."
     },
@@ -427,7 +427,7 @@ window.INVEST.lesson = {
       title: "Share",
       term: "Share",
       termZh: "股票 / 股份",
-      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company.",
+      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company, giving the shareholder a claim on part of the company's equity.",
       definitionZh: "一股股票是公司中的一个所有权单位。",
       notes: "Keep the definition simple; dividend policy, voting power and control come later."
     },

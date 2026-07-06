@@ -238,27 +238,27 @@
         {
           "term": "investment analysis",
           "zh": "投资分析",
-          "definition": "using evidence before making an investment judgement."
+          "definition": "Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement."
         },
         {
           "term": "investment",
           "zh": "投资",
-          "definition": "putting money into an asset with the aim of future return while accepting risk."
+          "definition": "Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss."
         },
         {
           "term": "speculation",
           "zh": "投机",
-          "definition": "trying to gain from short-term price movements, often with weaker evidence or higher uncertainty."
+          "definition": "Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence."
         },
         {
           "term": "asset",
           "zh": "资产",
-          "definition": "something with value that can be owned."
+          "definition": "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource."
         },
         {
           "term": "share",
           "zh": "股票 / 股份",
-          "definition": "one unit of ownership in a company."
+          "definition": "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends."
         }
       ],
       "formulaOrNoFormula": "no new formula; students classify concepts, rank risk qualitatively and explain in words only.",
@@ -546,22 +546,22 @@
         {
           "term": "stock exchange",
           "zh": "证券交易所",
-          "definition": "a regulated market where listed securities can be bought and sold."
+          "definition": "A stock exchange is a regulated trading venue where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules."
         },
         {
           "term": "listing",
           "zh": "上市",
-          "definition": "permission for a company's shares to trade on an exchange."
+          "definition": "A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements."
         },
         {
           "term": "stock code",
           "zh": "股票代码",
-          "definition": "the short market identifier used to find a listed security."
+          "definition": "A stock code is the short market identifier used to find a listed security on an exchange or market-data system."
         },
         {
           "term": "liquidity",
           "zh": "流动性",
-          "definition": "how easily an asset can be bought or sold without a large price change."
+          "definition": "Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change."
         }
       ],
       "formulaOrNoFormula": "no new formula; students identify company, exchange, code and one trading friction accurately.",
@@ -848,22 +848,22 @@
         {
           "term": "quote page",
           "zh": "报价页面",
-          "definition": "a market snapshot showing price and trading information."
+          "definition": "A quote page is a market-data snapshot showing information such as the latest price, price movement, bid, ask, volume and security identifier for a listed asset."
         },
         {
           "term": "volume",
           "zh": "成交量",
-          "definition": "the number of shares traded during a period."
+          "definition": "Volume is the number of shares or other securities traded during a stated period, such as a trading day."
         },
         {
           "term": "bid",
           "zh": "买价",
-          "definition": "the price buyers are currently willing to pay."
+          "definition": "The bid is the price at which a buyer, dealer or trader is currently willing to buy a specified quantity of a security."
         },
         {
           "term": "ask",
           "zh": "卖价",
-          "definition": "the price sellers are currently asking for."
+          "definition": "The ask is the price at which a seller, dealer or trader is currently willing to sell an asset, usually for a specified maximum quantity."
         }
       ],
       "formulaOrNoFormula": "bid-ask spread = ask price - bid price; previous close is a read-only field for context.",
@@ -1150,17 +1150,17 @@
         {
           "term": "voting rights",
           "zh": "投票权",
-          "definition": "shareholder rights to vote on certain company decisions."
+          "definition": "Voting rights are shareholder rights to vote on certain company decisions, such as electing directors or approving major corporate actions."
         },
         {
           "term": "ordinary share",
           "zh": "普通股",
-          "definition": "a standard ownership share in a company."
+          "definition": "An ordinary share is a standard equity share in a company that usually carries voting rights and may receive dividends after higher-priority claims are considered."
         },
         {
           "term": "control",
           "zh": "控制权",
-          "definition": "the ability to influence or decide company actions."
+          "definition": "Control is the ability to influence or decide company actions, usually through ownership, voting power, board influence or management authority."
         }
       ],
       "formulaOrNoFormula": "ownership % = shares owned / total shares x 100.",
@@ -1443,17 +1443,17 @@
         {
           "term": "evidence log",
           "zh": "证据记录",
-          "definition": "a structured record of sources, dates, figures and notes."
+          "definition": "An evidence log is a structured record of sources, dates, figures, notes and limitations used to support an investment judgement."
         },
         {
           "term": "source date",
           "zh": "来源日期",
-          "definition": "the date when evidence was published."
+          "definition": "A source date is the date on which evidence was published, reported or measured."
         },
         {
           "term": "accessed date",
           "zh": "访问日期",
-          "definition": "the date when you used the evidence."
+          "definition": "An accessed date is the date on which the analyst viewed or used a source."
         }
       ],
       "formulaOrNoFormula": "no new formula; students use the chain information -> expectations -> buying/selling pressure -> price movement.",
@@ -1736,17 +1736,17 @@
         {
           "term": "revenue",
           "zh": "收入",
-          "definition": "income earned from selling goods or services before costs are deducted."
+          "definition": "Revenue is the amount charged or earned from delivering goods or services in the ordinary activities of a business over a stated period, before expenses are deducted."
         },
         {
           "term": "sales growth",
           "zh": "销售增长",
-          "definition": "the increase in revenue over time."
+          "definition": "Sales growth is the increase in a company's revenue over time, usually measured as a percentage change between two periods."
         },
         {
           "term": "business model",
           "zh": "商业模式",
-          "definition": "how a company earns revenue and delivers value."
+          "definition": "A business model is the way a company creates value, earns revenue, pays costs and turns customer demand into profit or cash flow."
         }
       ],
       "formulaOrNoFormula": "revenue growth = (new revenue - old revenue) / old revenue x 100.",
@@ -2029,17 +2029,17 @@
         {
           "term": "cost of sales",
           "zh": "销售成本",
-          "definition": "direct costs linked to producing or delivering goods and services."
+          "definition": "Cost of sales is the cost directly connected with the goods or services sold in a period; for inventory businesses, it is closely related to cost of goods sold."
         },
         {
           "term": "gross profit",
           "zh": "毛利",
-          "definition": "revenue left after direct costs are deducted."
+          "definition": "Gross profit is revenue or sales minus cost of sales, before operating expenses, financing costs and taxes are deducted."
         },
         {
           "term": "gross margin",
           "zh": "毛利率",
-          "definition": "gross profit as a percentage of revenue."
+          "definition": "Gross margin is gross profit divided by revenue and expressed as a percentage, showing how much of each unit of sales remains after direct costs."
         }
       ],
       "formulaOrNoFormula": "gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.",
@@ -2322,17 +2322,17 @@
         {
           "term": "operating profit",
           "zh": "营业利润",
-          "definition": "profit from the company's main operations before some finance and tax items."
+          "definition": "Operating profit is profit from a company's usual business activities before taxes and before some financing effects are deducted; it is also called operating income."
         },
         {
           "term": "operating margin",
           "zh": "营业利润率",
-          "definition": "operating profit as a percentage of revenue."
+          "definition": "Operating margin is a profitability ratio calculated as operating income or operating profit divided by revenue."
         },
         {
           "term": "percentage-point difference",
           "zh": "百分点差异",
-          "definition": "subtraction between two percentages."
+          "definition": "A percentage-point difference is the arithmetic difference between two percentages, not a percentage change."
         }
       ],
       "formulaOrNoFormula": "margin difference = margin A - margin B, measured in percentage points.",
@@ -2615,17 +2615,17 @@
         {
           "term": "operating cash flow",
           "zh": "经营现金流",
-          "definition": "cash generated by the company's main business operations."
+          "definition": "Operating cash flow is the net amount of cash provided by or used in a company's operating activities during a period."
         },
         {
           "term": "capital expenditure",
           "zh": "资本支出",
-          "definition": "cash spent on long-term assets such as factories, equipment or infrastructure."
+          "definition": "Capital expenditure is spending on physical or long-term fixed assets such as property, factories, equipment, technology infrastructure or stores."
         },
         {
           "term": "free cash flow",
           "zh": "自由现金流",
-          "definition": "operating cash flow left after capital expenditure."
+          "definition": "Free cash flow is cash available to a company's investors after the company has made the investments needed to maintain itself as an ongoing business."
         }
       ],
       "formulaOrNoFormula": "free cash flow = operating cash flow - capital expenditure.",
@@ -2908,17 +2908,17 @@
         {
           "term": "benchmark",
           "zh": "基准",
-          "definition": "a standard or comparison point used to judge performance."
+          "definition": "A benchmark is a standard or point of reference used to evaluate investment, portfolio or company performance."
         },
         {
           "term": "trend",
           "zh": "趋势",
-          "definition": "movement in a figure over time."
+          "definition": "A trend is a longer-term pattern of movement in a particular direction, such as rising, falling or remaining broadly stable."
         },
         {
           "term": "scale",
           "zh": "规模",
-          "definition": "the size of a company or activity."
+          "definition": "Scale is the size of a company or activity, measured by figures such as revenue, users, stores, assets or market value."
         }
       ],
       "formulaOrNoFormula": "compare growth, margin and scale side by side; no single new formula.",
@@ -3201,17 +3201,17 @@
         {
           "term": "capital gain",
           "zh": "资本利得",
-          "definition": "profit from selling a share above the purchase price."
+          "definition": "A capital gain is the profit made when an asset is sold for more than its purchase price."
         },
         {
           "term": "capital loss",
           "zh": "资本损失",
-          "definition": "loss from selling a share below the purchase price."
+          "definition": "A capital loss is the loss made when an asset is sold for less than its purchase price."
         },
         {
           "term": "return",
           "zh": "回报",
-          "definition": "gain or loss compared with the original amount invested."
+          "definition": "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received."
         }
       ],
       "formulaOrNoFormula": "gain = sale price - purchase price; return % = gain / purchase price x 100.",
@@ -3494,17 +3494,17 @@
         {
           "term": "dividend",
           "zh": "股息",
-          "definition": "profit paid by a company to shareholders."
+          "definition": "A dividend is a distribution paid to shareholders based on the number of shares they own, usually in cash or additional shares."
         },
         {
           "term": "dividend yield",
           "zh": "股息收益率",
-          "definition": "annual dividend compared with the share price."
+          "definition": "Dividend yield is the annual dividend per share divided by the share price and expressed as a percentage."
         },
         {
           "term": "total return",
           "zh": "总回报",
-          "definition": "return from price change plus dividends."
+          "definition": "Total return measures price appreciation or loss plus any income received from the investment over the period."
         }
       ],
       "formulaOrNoFormula": "dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.",
@@ -3787,17 +3787,17 @@
         {
           "term": "market capitalisation",
           "zh": "市值",
-          "definition": "total market value of a company's equity."
+          "definition": "Market capitalisation is the total market value of a company's equity, calculated as share price multiplied by shares outstanding."
         },
         {
           "term": "shares outstanding",
           "zh": "已发行股数",
-          "definition": "shares issued and held by investors."
+          "definition": "Shares outstanding are the shares issued by a company and currently held by investors."
         },
         {
           "term": "mega-cap",
           "zh": "超大市值公司",
-          "definition": "a very large listed company by market value."
+          "definition": "A mega-cap company is a listed company with a very large market capitalisation compared with most companies in the market."
         }
       ],
       "formulaOrNoFormula": "market capitalisation = share price x shares outstanding.",
@@ -4080,17 +4080,17 @@
         {
           "term": "EPS",
           "zh": "每股收益",
-          "definition": "earnings per share, or net profit divided by shares."
+          "definition": "EPS, or earnings per share, is the income earned during a period for each ordinary share, usually calculated as profit attributable to ordinary shareholders divided by the share count used in the calculation."
         },
         {
           "term": "P/E ratio",
           "zh": "市盈率",
-          "definition": "share price compared with earnings per share."
+          "definition": "The P/E ratio is the ratio of share price to earnings per share, showing how much investors pay for each unit of current earnings."
         },
         {
           "term": "valuation",
           "zh": "估值",
-          "definition": "judgement of price compared with evidence and expectations."
+          "definition": "Valuation is the process of estimating the value of an asset using variables related to future investment returns or comparisons with similar assets."
         }
       ],
       "formulaOrNoFormula": "EPS = net profit / shares; P/E = share price / EPS.",
@@ -4373,17 +4373,17 @@
         {
           "term": "cheap or expensive",
           "zh": "便宜或昂贵",
-          "definition": "valuation judgement, not just a low or high share price."
+          "definition": "A share is cheap or expensive only in relation to evidence about value, earnings, growth, risk and expectations, not simply because the price per share is low or high."
         },
         {
           "term": "expectations",
           "zh": "预期",
-          "definition": "assumptions about future performance already reflected in price."
+          "definition": "Expectations are assumptions about future performance, risk or growth that investors may already have reflected in the current price."
         },
         {
           "term": "margin of safety",
           "zh": "安全边际",
-          "definition": "room for error between price and estimated value."
+          "definition": "Margin of safety is the room for error between the price paid and a cautious estimate of value."
         }
       ],
       "formulaOrNoFormula": "compare P/E, growth and risk evidence; no new calculation.",
@@ -4666,17 +4666,17 @@
         {
           "term": "company-specific risk",
           "zh": "公司特定风险",
-          "definition": "risk caused by one company's decisions or situation."
+          "definition": "Company-specific risk is non-systematic risk tied to a particular company's operations, reputation, financial position, management or business environment."
         },
         {
           "term": "demand risk",
           "zh": "需求风险",
-          "definition": "the risk that customers buy less than expected."
+          "definition": "Demand risk is the risk that customers buy less than expected, reducing revenue, profit or growth."
         },
         {
           "term": "execution risk",
           "zh": "执行风险",
-          "definition": "the risk that a strategy is not carried out successfully."
+          "definition": "Execution risk is the risk that a company fails to carry out its strategy, project or operational plan successfully."
         }
       ],
       "formulaOrNoFormula": "no new formula; build a risk-evidence-effect chain.",
@@ -4959,17 +4959,17 @@
         {
           "term": "sector",
           "zh": "行业",
-          "definition": "a group of companies selling similar goods or services."
+          "definition": "A sector is a group of related industries or companies that share similar business activities or economic exposures."
         },
         {
           "term": "competition",
           "zh": "竞争",
-          "definition": "rivalry between firms for customers and profit."
+          "definition": "Competition is rivalry between firms for customers, revenue, market share, talent, suppliers or profit."
         },
         {
           "term": "consumer trend",
           "zh": "消费趋势",
-          "definition": "a change in what customers prefer to buy."
+          "definition": "A consumer trend is a change in what customers prefer, buy or avoid over time."
         }
       ],
       "formulaOrNoFormula": "market share = company sales / sector sales x 100, if suitable data is available.",
@@ -5252,17 +5252,17 @@
         {
           "term": "regulation",
           "zh": "监管",
-          "definition": "government rules that affect how a company operates."
+          "definition": "Regulation is a system of government rules and enforcement that affects how companies, markets or investors may behave."
         },
         {
           "term": "compliance cost",
           "zh": "合规成本",
-          "definition": "the cost of obeying rules and standards."
+          "definition": "Compliance cost is the money, time and resources a company spends to obey laws, rules, standards and reporting requirements."
         },
         {
           "term": "policy risk",
           "zh": "政策风险",
-          "definition": "the risk that rule changes reduce future profit."
+          "definition": "Policy risk is the risk that changes in laws, regulation, taxation, subsidies or government priorities reduce future profit or change business prospects."
         }
       ],
       "formulaOrNoFormula": "no new formula; classify possible rule changes by effect.",
@@ -5545,17 +5545,17 @@
         {
           "term": "exchange rate",
           "zh": "汇率",
-          "definition": "the price of one currency in terms of another."
+          "definition": "An exchange rate is the price of one currency expressed in terms of another currency."
         },
         {
           "term": "export exposure",
           "zh": "出口敞口",
-          "definition": "reliance on sales to customers in other countries."
+          "definition": "Export exposure is a company's reliance on sales to customers in other countries or currencies."
         },
         {
           "term": "translation effect",
           "zh": "折算影响",
-          "definition": "how currency changes affect reported figures."
+          "definition": "A translation effect is the change in reported financial figures caused by converting foreign-currency results into the company's reporting currency."
         }
       ],
       "formulaOrNoFormula": "exchange-rate change % = (new rate - old rate) / old rate x 100.",
@@ -5838,22 +5838,22 @@
         {
           "term": "ETF",
           "zh": "交易型开放式指数基金",
-          "definition": "an exchange-traded fund that can be bought and sold on a stock exchange."
+          "definition": "An ETF is an exchange-traded fund, a pooled investment fund that holds a basket of assets and trades on a stock exchange like a share."
         },
         {
           "term": "index fund",
           "zh": "指数基金",
-          "definition": "a fund designed to track a market index rather than pick individual shares."
+          "definition": "An index fund is a fund designed to track the performance of a market index rather than choose individual securities through active stock-picking."
         },
         {
           "term": "diversification",
           "zh": "分散化",
-          "definition": "spreading investment across different holdings to reduce risk."
+          "definition": "Diversification is spreading investment across different holdings, sectors, regions or asset types to reduce dependence on any single source of risk."
         },
         {
           "term": "portfolio weight",
           "zh": "投资组合权重",
-          "definition": "one holding's value as a share of total portfolio value."
+          "definition": "Portfolio weight is the value of one holding divided by the total value of the portfolio and expressed as a percentage."
         }
       ],
       "formulaOrNoFormula": "portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.",
@@ -6140,17 +6140,17 @@
         {
           "term": "platform business",
           "zh": "平台型业务",
-          "definition": "a business that connects different user groups."
+          "definition": "A platform business connects different user groups and creates value by enabling interactions, transactions, content, services or data exchange between them."
         },
         {
           "term": "network effects",
           "zh": "网络效应",
-          "definition": "when a service becomes more valuable as more people use it."
+          "definition": "Network effects occur when a product or service becomes more valuable as more users, buyers, sellers or partners join it."
         },
         {
           "term": "regulatory overhang",
           "zh": "监管不确定性",
-          "definition": "uncertainty caused by possible future rules."
+          "definition": "Regulatory overhang is uncertainty created when possible future regulation may affect a company's operations, valuation or investor confidence."
         }
       ],
       "formulaOrNoFormula": "combine growth, margin, P/E and risk notes; no single new formula.",
@@ -6433,17 +6433,17 @@
         {
           "term": "vertical integration",
           "zh": "垂直整合",
-          "definition": "control over several stages of the supply chain."
+          "definition": "Vertical integration is a strategy in which a company controls more than one stage of its supply chain, such as production, components, distribution or retail."
         },
         {
           "term": "capacity",
           "zh": "产能",
-          "definition": "how much a company can produce."
+          "definition": "Capacity is the maximum amount a company can produce, deliver or serve using its available resources over a period."
         },
         {
           "term": "cyclicality",
           "zh": "周期性",
-          "definition": "sensitivity to economic cycles and demand changes."
+          "definition": "Cyclicality is the sensitivity of a company's sales, profit or valuation to changes in the economic cycle or industry demand cycle."
         }
       ],
       "formulaOrNoFormula": "compare margin and growth; then add price and risk evidence.",
@@ -6726,17 +6726,17 @@
         {
           "term": "interest margin",
           "zh": "利差",
-          "definition": "the spread between lending income and funding cost."
+          "definition": "Interest margin is the spread between interest earned on loans or other earning assets and interest paid on deposits or other funding; net interest margin compares that spread with average earning assets."
         },
         {
           "term": "credit risk",
           "zh": "信用风险",
-          "definition": "the risk that borrowers do not repay."
+          "definition": "Credit risk is the risk of loss caused by a borrower or counterparty failing to make timely payments or by a change in the value of a financial instrument because default risk changes."
         },
         {
           "term": "capital strength",
           "zh": "资本实力",
-          "definition": "ability to absorb losses and keep operating."
+          "definition": "Capital strength is a financial institution's ability to absorb losses and continue operating, supported by equity capital, reserves and regulatory capital ratios."
         }
       ],
       "formulaOrNoFormula": "basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.",
@@ -7019,17 +7019,17 @@
         {
           "term": "brand equity",
           "zh": "品牌权益",
-          "definition": "value created by a strong brand name and reputation."
+          "definition": "Brand equity is the value created by a company's brand name, reputation, customer loyalty and perceived quality."
         },
         {
           "term": "inventory risk",
           "zh": "库存风险",
-          "definition": "risk that unsold goods reduce profit."
+          "definition": "Inventory risk is the risk that unsold or obsolete goods reduce profit through discounting, write-downs, storage costs or lost working capital."
         },
         {
           "term": "pricing power",
           "zh": "定价能力",
-          "definition": "ability to raise prices without losing too many customers."
+          "definition": "Pricing power is the ability to raise prices or maintain high prices without losing too many customers or too much sales volume."
         }
       ],
       "formulaOrNoFormula": "compare revenue growth and margin; no new formula.",
@@ -7312,17 +7312,17 @@
         {
           "term": "multinational",
           "zh": "跨国公司",
-          "definition": "a company operating across several countries."
+          "definition": "A multinational is a company that operates, sells, produces or earns revenue in more than one country."
         },
         {
           "term": "comparable company",
           "zh": "可比公司",
-          "definition": "a similar firm used for comparison."
+          "definition": "A comparable company is a firm with similar business risk, preferably in the same industry, used as a reference point for comparing growth, margins, valuation or risk."
         },
         {
           "term": "local/global risk",
           "zh": "本地/全球风险",
-          "definition": "risk from specific local markets or worldwide exposure."
+          "definition": "Local/global risk is the contrast between risks tied to a specific local market and risks created by worldwide exposure across countries, currencies and regulations."
         }
       ],
       "formulaOrNoFormula": "compare two companies using the same metric set.",
@@ -7605,17 +7605,17 @@
         {
           "term": "turnaround",
           "zh": "经营复苏",
-          "definition": "improvement after a weak period."
+          "definition": "A turnaround is an improvement in a company's performance after a weak period, often involving recovery in sales, profit, cash flow, operations or confidence."
         },
         {
           "term": "store network",
           "zh": "门店网络",
-          "definition": "the set of locations through which a company serves customers."
+          "definition": "A store network is the set of physical locations through which a company reaches customers, sells products or delivers services."
         },
         {
           "term": "same-store sales",
           "zh": "同店销售",
-          "definition": "sales from stores open in both comparison periods."
+          "definition": "Same-store sales are sales from stores that were open in both comparison periods, used to separate existing-store performance from expansion."
         }
       ],
       "formulaOrNoFormula": "revenue per store = total revenue / number of stores, if data allows.",
@@ -7898,17 +7898,17 @@
         {
           "term": "cyclical demand",
           "zh": "周期性需求",
-          "definition": "demand that rises and falls with economic conditions."
+          "definition": "Cyclical demand is demand that rises and falls with economic conditions, consumer confidence, income, travel activity or industry cycles."
         },
         {
           "term": "recovery",
           "zh": "复苏",
-          "definition": "return toward earlier activity or profit levels."
+          "definition": "Recovery is a return toward earlier activity, revenue, profit or demand levels after a weak period or disruption."
         },
         {
           "term": "operating leverage",
           "zh": "经营杠杆",
-          "definition": "profit sensitivity when fixed costs are high."
+          "definition": "Operating leverage is the use of fixed operating costs in a company's cost structure, making profit more sensitive to changes in revenue."
         }
       ],
       "formulaOrNoFormula": "operating margin = operating profit / revenue x 100.",
@@ -8191,17 +8191,17 @@
         {
           "term": "active users",
           "zh": "活跃用户",
-          "definition": "people who use a service during a measured period."
+          "definition": "Active users are people who use a digital service during a measured period, such as daily active users or monthly active users."
         },
         {
           "term": "monetisation",
           "zh": "商业化变现",
-          "definition": "turning user activity into revenue."
+          "definition": "Monetisation is the process of turning user activity, attention, data, subscriptions, advertising or transactions into revenue."
         },
         {
           "term": "ARPU",
           "zh": "每用户平均收入",
-          "definition": "average revenue per user."
+          "definition": "ARPU, or average revenue per user, is revenue divided by the number of users over a stated period."
         }
       ],
       "formulaOrNoFormula": "ARPU = revenue / active users.",
@@ -8484,17 +8484,17 @@
         {
           "term": "debt",
           "zh": "债务",
-          "definition": "money a company has borrowed and must repay."
+          "definition": "Debt is money a company has borrowed and is expected to repay, usually with interest and according to agreed terms."
         },
         {
           "term": "liabilities",
           "zh": "负债",
-          "definition": "obligations a company owes to others."
+          "definition": "Liabilities are present obligations arising from past events that are expected to require an outflow of economic resources; they are claims by creditors and others on a company's resources."
         },
         {
           "term": "gearing or leverage",
           "zh": "负债杠杆",
-          "definition": "the use of debt in a company's financing."
+          "definition": "Gearing or leverage is the use of fixed financing costs, especially debt and interest expense, in a company's capital structure; it can increase both potential shareholder returns and financial risk."
         }
       ],
       "formulaOrNoFormula": "debt-to-equity = total debt / equity, if the data is suitable.",
@@ -8777,17 +8777,17 @@
         {
           "term": "defensive business",
           "zh": "防御型业务",
-          "definition": "a business whose demand may be more stable in difficult times."
+          "definition": "A defensive business is a business whose demand, revenue or profit may be more stable than average during difficult economic conditions."
         },
         {
           "term": "quality company",
           "zh": "优质公司",
-          "definition": "a company with strong operations, brand, margins or resilience."
+          "definition": "A quality company is a company with strong operations, durable advantages, resilient demand, sound finances, good margins or reliable cash generation."
         },
         {
           "term": "valuation risk",
           "zh": "估值风险",
-          "definition": "risk that the price already assumes too much good news."
+          "definition": "Valuation risk is the risk that investment returns disappoint because the price already assumes too much good news or is high relative to evidence."
         }
       ],
       "formulaOrNoFormula": "synthesis of growth, margin, P/E and risk; no new formula.",

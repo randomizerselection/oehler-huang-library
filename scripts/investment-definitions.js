@@ -57,8 +57,9 @@ function parseInvestmentDefinitions(markdown) {
     const cells = splitMarkdownRow(rawLine);
     if (!cells || !currentSection || cells.length < 5) continue;
 
-    const [ref, term, zh, definition, courseUse] = cells;
+    const [ref, term, zh, definition, definitionZhOrCourseUse, maybeCourseUse] = cells;
     if (/^---+$/.test(ref) || /^ref$/i.test(ref)) continue;
+    const hasDefinitionZh = cells.length >= 6;
 
     const lessonMatch = ref.match(/L(\d+)/i);
     const entry = {
@@ -66,7 +67,8 @@ function parseInvestmentDefinitions(markdown) {
       term: cleanText(term),
       zh: cleanText(zh),
       definition: cleanText(definition),
-      courseUse: cleanText(courseUse),
+      definitionZh: hasDefinitionZh ? cleanText(definitionZhOrCourseUse) : '',
+      courseUse: cleanText(hasDefinitionZh ? maybeCourseUse : definitionZhOrCourseUse),
       unit: currentSection.unit,
       lesson: lessonMatch ? Number(lessonMatch[1]) : null,
       sectionId: currentSection.id,

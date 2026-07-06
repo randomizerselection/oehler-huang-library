@@ -70,6 +70,7 @@ Syllabus alignment:
 - Include the lesson `investmentAction` so students finish by choosing a justified next action such as consider, watch, avoid, compare with another choice or gather more evidence.
 - Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.
 - Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
+- Use `references/investment-analysis-definitions.md` as the source for every presentation definition. If a term has a CFA glossary match in `references/investment-analysis-cfa-glossary-matches.json`, preserve that CFA-inspired meaning in the slide wording; if no match exists, write a complete definition in the same precise textbook style.
 - Add concise Simplified Chinese support for important student-facing teaching text as standard: slide titles, term definitions, core prompts/tasks, main answer/reveal text, flow/answer items and quiz prompts/explanations. Do not translate minor source metadata, codes, dates, numeric values, UI chrome or teacher notes unless they carry the concept.
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
 - Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
