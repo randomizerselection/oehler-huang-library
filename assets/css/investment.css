@@ -10710,6 +10710,321 @@ img {
   }
 }
 
+/* Dense yes/no checks: scan-first board for many statements. */
+.invYesNoCheck.is-dense,
+.invCompactCheckSlide .invYesNoCheck.is-dense,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed),
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) {
+  width: min(1320px, 100%) !important;
+  gap: 10px !important;
+}
+
+.invYesNoCheck.is-dense > .invFocusPrompt,
+.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+  gap: 4px !important;
+  padding: 10px 13px !important;
+}
+
+.invYesNoCheck.is-dense > .invFocusPrompt strong,
+.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt strong,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+  font-size: 25px !important;
+  line-height: 1.06 !important;
+}
+
+.invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+  display: block !important;
+  font-size: 17px !important;
+  line-height: 1.1 !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoItems,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-rows: auto auto !important;
+  align-items: start !important;
+  gap: 7px 10px !important;
+  min-height: 0 !important;
+  padding: 9px 10px !important;
+  border-top-width: 5px !important;
+  overflow: hidden !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoStatement,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  grid-template-columns: 32px minmax(0, 1fr) !important;
+  gap: 4px 9px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoNumber,
+.invYesNoCheck.is-dense .invYesNoStatement > span,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 12px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoPromptText,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoPromptText {
+  display: block !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoStatement strong,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+  display: block !important;
+  font-size: 21px !important;
+  line-height: 1.06 !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine {
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 14px !important;
+  line-height: 1.08 !important;
+}
+
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
+  display: none !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoVoteCue,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  align-self: center !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 4px !important;
+  padding-left: 0 !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoVoteCue span,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue span {
+  min-width: 44px !important;
+  padding: 5px 8px !important;
+  font-size: 12px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+  gap: 8px !important;
+  padding: 7px 8px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoBadge,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
+  width: 58px !important;
+  padding: 6px 7px !important;
+  font-size: 12px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoBadge span + span,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
+  font-size: 11px !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoReason,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason {
+  display: grid !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoReason p,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer p,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
+  display: block !important;
+  font-size: 15px !important;
+  line-height: 1.06 !important;
+}
+
+.invYesNoCheck.is-dense .invYesNoReason .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer .invZhLine,
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
+  display: none !important;
+}
+
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+  grid-template-columns: minmax(0, 1fr) 188px !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 9px !important;
+}
+
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+  align-self: stretch !important;
+  align-items: center !important;
+  min-height: 56px !important;
+  padding: 6px !important;
+}
+
+.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason p,
+.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
+  font-size: 14px !important;
+  line-height: 1.04 !important;
+}
+
+@media (max-width: 900px) {
+  .invYesNoCheck.is-dense,
+  .invCompactCheckSlide .invYesNoCheck.is-dense,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed),
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) {
+    gap: 5px !important;
+  }
+
+  .invYesNoCheck.is-dense > .invFocusPrompt,
+  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+    gap: 2px !important;
+    padding: 6px 8px !important;
+  }
+
+  .invYesNoCheck.is-dense > .invFocusPrompt strong,
+  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt strong,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+    font-size: 16px !important;
+    line-height: 1.03 !important;
+  }
+
+  .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+    font-size: 12px !important;
+    line-height: 1.05 !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoItems,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-rows: auto !important;
+    gap: 3px 6px !important;
+    padding: 5px 6px !important;
+    border-top-width: 3px !important;
+  }
+
+  .invYesNoCheck.is-dense:not(:has(.invYesNoAnswer.is-revealed)) .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:not(:has(.invYesNoAnswer.is-revealed)) .invYesNoItem {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoStatement,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    grid-template-columns: 20px minmax(0, 1fr) !important;
+    gap: 2px 6px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoNumber,
+  .invYesNoCheck.is-dense .invYesNoStatement > span,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 8px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoStatement strong,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+    font-size: 13.5px !important;
+    line-height: 1.07 !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine {
+    display: none !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoVoteCue,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
+    display: none !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoAnswer,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    grid-template-columns: 34px !important;
+    align-self: center !important;
+    min-height: 0 !important;
+    gap: 0 !important;
+    padding: 2px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoBadge,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
+    width: 34px !important;
+    padding: 3px 2px !important;
+    font-size: 8px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoBadge span + span,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
+    font-size: 7px !important;
+  }
+
+  .invYesNoCheck.is-dense .invYesNoReason,
+  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason,
+  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason,
+  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason {
+    display: none !important;
+  }
+}
+
 @media (max-width: 900px) {
   .invRankingTask {
     gap: 8px;

@@ -10,6 +10,7 @@
       output: "slides.js",
       requiredFields: [
         "guidingQuestion",
+        "decisionFirst",
         "coreClaim",
         "retrievalBase",
         "newKnowledge",
@@ -27,6 +28,7 @@
         "handoutContract",
         "terms",
         "sourcePack",
+        "decisionFirst",
         "artifactBlueprint.handoutBlocks",
         "investmentAction",
         "studentOutput",
@@ -73,6 +75,7 @@
   const MATERIAL_RULES = Object.freeze({
     deck: [
         "Use the deck arc as the slide spine: hook, retrieval, teach, practice, output rehearsal and exit ticket.",
+        "Preserve the decisionFirst contract: starter dilemma, first judgement, missing evidence, key idea, try it, misconception check and exit judgement.",
         "Include the lesson investmentAction so students finish with a concrete next action, not only a concept summary.",
         "Keep visible slide labels student-facing while preserving ILA and retrieval logic in notes.",
         "Use the source pack to freeze evidence before adding charts, figures or screenshots.",
@@ -171,6 +174,7 @@
       sourceFitAudit: map.sourceFitAudit,
       generatorAccess: map.generatorAccess,
       practicalInvestingBoundary: map.practicalInvestingBoundary,
+      decisionFirstSyllabus: map.decisionFirstSyllabus,
       investmentWorkflow: map.investmentWorkflow,
       simpleLessonStructure: map.simpleLessonStructure,
     };
@@ -187,6 +191,7 @@
       guidingQuestion: lesson.guidingQuestion,
       guidingQuestionZh: lesson.guidingQuestionZh,
       coreClaim: lesson.coreClaim,
+      decisionFirst: lesson.decisionFirst,
       primaryOutput: lesson.primaryOutput,
       caseReview: lesson.caseReview,
       analyseWhy: lesson.analyseWhy,
@@ -209,6 +214,7 @@
       futureReuse: lesson.futureReuse,
       studentHook: lesson.studentHook,
       simpleFlow: lesson.simpleFlow,
+      decisionFirst: lesson.decisionFirst,
       retrievalPractice: lesson.retrievalPractice,
       analyseWhy: lesson.analyseWhy,
       worksheet: lesson.worksheet,
@@ -257,6 +263,7 @@
         sequenceRole: lesson.sequenceRole,
         focus: lesson.focus,
         coreClaim: lesson.coreClaim,
+        decisionFirst: lesson.decisionFirst,
         caseRole: lesson.caseRole,
         primaryOutput: lesson.primaryOutput,
         investmentAction: lesson.investmentAction,

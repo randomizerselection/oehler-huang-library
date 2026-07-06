@@ -2,7 +2,7 @@
 
 Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 30 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.
 
-Students learn a practical investing process: identify what is being bought, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
+Students learn a decision-first investing process: start with a concrete company dilemma, make a first judgement, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid, compare with another choice or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
 
 Vocabulary definitions use the textbook-style overview at `references/investment-analysis-definitions.md`, prioritising CFA Program glossary where course terms overlap.
 
@@ -49,14 +49,14 @@ Educational use only. Students make evidence-based classroom judgements, not per
 
 # Unit 1: Market foundations
 
-Investment-analysis purpose, investment versus speculation, assets, shares, exchanges, quote pages, source discipline and the first price-movement chain.
+Students move from first opinion to market evidence: investment-analysis purpose, assets, shares, exchanges, quote pages, source discipline and the first price-movement explanation.
 
 ## Lesson 1: What is investment analysis?
 
 **Case anchor:** Tencent
 **Unit:** 1. Market foundations
 **Guiding question:** What is investment analysis?
-**Student hook:** Would you buy shares in Tencent?
+**Student hook:** Tencent is familiar. Would you buy shares in it?
 **Core claim:** Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.
 **Primary output:** one exit ticket plus a short explanation of why familiarity with Tencent is not enough reason to buy shares
 **Formula or formula rule:** no new formula; students classify concepts, rank risk qualitatively and explain in words only.
@@ -119,7 +119,7 @@ Complete the exit ticket and write one short Tencent explanation using Lesson 1 
 **Case anchor:** HKEX
 **Unit:** 1. Market foundations
 **Guiding question:** Why do companies need a stock market?
-**Student hook:** Before any trade happens, there is a market behind it. What does that market do?
+**Student hook:** If you buy a share today, who gets the money and why does the market exist?
 **Core claim:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
 **Primary output:** one company-code-exchange match plus one trading-friction sentence
 **Formula or formula rule:** no new formula; students identify company, exchange, code and one trading friction accurately.
@@ -181,7 +181,7 @@ Company-code-exchange match and one sentence explaining why trading through a ma
 **Case anchor:** Alibaba
 **Unit:** 1. Market foundations
 **Guiding question:** What can a stock quote tell us, and what is still missing?
-**Student hook:** A quote page looks like a dashboard. Which numbers actually help an investor?
+**Student hook:** A quote page shows Alibaba's price. Is that enough to decide?
 **Core claim:** A quote page is a dated market snapshot, not a promise of execution price or investment value.
 **Primary output:** one labelled quote extract, bid-ask spread calculation and quote-limit sentence
 **Formula or formula rule:** bid-ask spread = ask price - bid price; previous close is a read-only field for context.
@@ -243,7 +243,7 @@ Labelled quote extract, spread calculation and quote-limit sentence.
 **Case anchor:** Xiaomi
 **Unit:** 1. Market foundations
 **Guiding question:** Does owning shares mean you control the company?
-**Student hook:** If you buy one share of a phone maker, how much power do you really get?
+**Student hook:** If you own one Xiaomi share, do you control Xiaomi?
 **Core claim:** A share is an ownership claim, but control depends on ownership size and shareholder rights.
 **Primary output:** one ownership-percentage calculation and small-holder versus large-holder comparison
 **Formula or formula rule:** ownership % = shares owned / total shares x 100.
@@ -304,7 +304,7 @@ Ownership-percentage calculation and small-holder versus large-holder comparison
 **Case anchor:** JD.com
 **Unit:** 1. Market foundations
 **Guiding question:** How can one analyst collect evidence before judging a share?
-**Student hook:** A headline says the share moved. Can you build an evidence file before reacting?
+**Student hook:** JD.com's price moved. What evidence should an analyst collect before explaining it?
 **Core claim:** Useful evidence records source, date, figure, use and limitation before explaining a price movement.
 **Primary output:** one complete evidence-log row plus one limited price-movement explanation
 **Formula or formula rule:** no new formula; students use the chain information -> expectations -> buying/selling pressure -> price movement.
@@ -363,14 +363,14 @@ Individual evidence-log row plus one limited price-movement explanation using in
 
 # Unit 2: Financial statements
 
-Revenue first, then direct costs, gross margin, operating margin, cash flow and fair comparison.
+Students test business strength claims with financial-statement evidence: revenue, costs, margin, cash flow and fair comparison.
 
 ## Lesson 6: Does high revenue mean a company is strong?
 
 **Case anchor:** Meituan
 **Unit:** 2. Financial statements
 **Guiding question:** Does high revenue mean a company is strong?
-**Student hook:** A company can sell a lot and still struggle. What is missing from revenue?
+**Student hook:** Meituan's revenue is high. Does that mean the company is strong?
 **Core claim:** Revenue shows sales scale, not profit strength or investment quality by itself.
 **Primary output:** one revenue-growth calculation and one limitation sentence
 **Formula or formula rule:** revenue growth = (new revenue - old revenue) / old revenue x 100.
@@ -431,7 +431,7 @@ Revenue-growth calculation and limitation sentence.
 **Case anchor:** BYD
 **Unit:** 2. Financial statements
 **Guiding question:** Can sales rise while costs become a problem?
-**Student hook:** Sales can race ahead while costs catch up. Would investors still be happy?
+**Student hook:** BYD's sales rise. Could costs still make the story weaker?
 **Core claim:** Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.
 **Primary output:** one gross-profit and gross-margin calculation with interpretation
 **Formula or formula rule:** gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
@@ -492,7 +492,7 @@ Gross-profit and gross-margin calculation with a margin interpretation.
 **Case anchor:** CATL
 **Unit:** 2. Financial statements
 **Guiding question:** Which company turns sales into profit more efficiently?
-**Student hook:** Two battery companies can both grow. Which one keeps more profit from sales?
+**Student hook:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
 **Core claim:** Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.
 **Primary output:** one fair comparison sentence naming metric, direction and percentage-point difference
 **Formula or formula rule:** margin difference = margin A - margin B, measured in percentage points.
@@ -553,7 +553,7 @@ Fair comparison sentence naming metric, direction and percentage-point differenc
 **Case anchor:** Tesla
 **Unit:** 2. Financial statements
 **Guiding question:** Why can a growing company still need cash?
-**Student hook:** Growth stories sound exciting. Why might cash still be the problem?
+**Student hook:** Tesla can grow and still need cash. How can that happen?
 **Core claim:** Profit and cash flow answer different questions, and growth can still require cash investment.
 **Primary output:** one free-cash-flow calculation and profit-versus-cash explanation
 **Formula or formula rule:** free cash flow = operating cash flow - capital expenditure.
@@ -614,7 +614,7 @@ Free-cash-flow calculation and profit-versus-cash explanation.
 **Case anchor:** TSMC
 **Unit:** 2. Financial statements
 **Guiding question:** What makes one strong company look stronger than another?
-**Student hook:** Two excellent companies enter the comparison. What makes one look stronger?
+**Student hook:** TSMC looks strong. What makes one strong company look stronger than another?
 **Core claim:** A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.
 **Primary output:** one scale-trend-margin-cash comparison paragraph using figures from both sides
 **Formula or formula rule:** compare growth, margin and scale side by side; no single new formula.
@@ -673,14 +673,14 @@ Scale-trend-margin-cash comparison paragraph using at least one figure from each
 
 # Unit 3: Returns and valuation
 
-Capital gains, dividends, market value, EPS, P/E, valuation risk and the basic risk-return trade-off.
+Students judge return and valuation evidence: capital gains, dividends, market value, EPS, P/E, price risk and the basic risk-return trade-off.
 
 ## Lesson 11: How does a share make or lose money for an investor?
 
 **Case anchor:** Apple
 **Unit:** 3. Returns and valuation
 **Guiding question:** How does a share make or lose money for an investor?
-**Student hook:** A share can reward or hurt an investor. Where exactly does the return come from?
+**Student hook:** Apple's share price changed. How much did the investor really gain or lose?
 **Core claim:** Investor return depends on gain or loss relative to the purchase price, not only the money change.
 **Primary output:** gain, loss and return-percentage calculations
 **Formula or formula rule:** gain = sale price - purchase price; return % = gain / purchase price x 100.
@@ -741,7 +741,7 @@ Gain, loss and return-percentage calculations.
 **Case anchor:** HSBC
 **Unit:** 3. Returns and valuation
 **Guiding question:** Why might an investor like dividends?
-**Student hook:** Some investors like cash income. When does a dividend help the case?
+**Student hook:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
 **Core claim:** Dividends add income, but yield and total return depend on the price paid.
 **Primary output:** one dividend-yield calculation and two-investor comparison
 **Formula or formula rule:** dividend yield = annual dividend / share price x 100; total return = capital gain + dividends.
@@ -802,7 +802,7 @@ Dividend-yield calculation and two-investor comparison.
 **Case anchor:** Nvidia
 **Unit:** 3. Returns and valuation
 **Guiding question:** How can one company be worth so much?
-**Student hook:** How can one company become worth so much money?
+**Student hook:** Nvidia's share price is high. Does that mean it is the biggest company?
 **Core claim:** Market capitalisation combines one-share price and share count; share price alone is not company size.
 **Primary output:** one simplified market-cap calculation and limitation sentence
 **Formula or formula rule:** market capitalisation = share price x shares outstanding.
@@ -863,7 +863,7 @@ Simplified market-cap calculation and limitation sentence.
 **Case anchor:** Microsoft
 **Unit:** 3. Returns and valuation
 **Guiding question:** When do investors pay a high price for profit?
-**Student hook:** Would you pay a high price for each dollar of profit?
+**Student hook:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
 **Core claim:** A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.
 **Primary output:** one P/E interpretation giving both optimism and risk as possible meanings
 **Formula or formula rule:** EPS = net profit / shares; P/E = share price / EPS.
@@ -924,7 +924,7 @@ P/E interpretation giving both optimism and risk as possible meanings.
 **Case anchor:** Toyota
 **Unit:** 3. Returns and valuation
 **Guiding question:** Can a good company still be too expensive?
-**Student hook:** Can a company be good but still not worth buying today?
+**Student hook:** Toyota is a good company. Could it still be too expensive?
 **Core claim:** A good company only becomes an attractive investment when quality is judged with price and risk.
 **Primary output:** one two-point valuation answer linking quality, possible return, price paid and risk
 **Formula or formula rule:** compare P/E, growth and risk evidence; no new calculation.
@@ -983,14 +983,14 @@ Two-point valuation answer linking quality, possible return, price paid and risk
 
 # Unit 4: Risk, portfolios and funds
 
-Company, sector, regulation, currency, ETF/index-fund and concentration risks.
+Students diagnose risk and fit: company, sector, regulation, currency, ETF/index-fund and concentration risks.
 
 ## Lesson 16: What could hurt one familiar company?
 
 **Case anchor:** Starbucks
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** What could hurt one familiar company?
-**Student hook:** A familiar brand feels safe. What could still go wrong?
+**Student hook:** Starbucks is familiar. What could still hurt it?
 **Core claim:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
 **Primary output:** one risk to future revenue/profit to price-effect chain
 **Formula or formula rule:** no new formula; build a risk-evidence-effect chain.
@@ -1051,7 +1051,7 @@ Risk -> future revenue/profit -> price effect chain.
 **Case anchor:** Li Ning
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can changing tastes affect a sportswear company?
-**Student hook:** Trends change fast. How can fashion taste become investment risk?
+**Student hook:** Changing tastes can help one sportswear company and hurt another. How?
 **Core claim:** The same consumer trend can help one company and hurt another within a sector.
 **Primary output:** one explanation of how the same trend can help one company and hurt another
 **Formula or formula rule:** market share = company sales / sector sales x 100, if suitable data is available.
@@ -1112,7 +1112,7 @@ Explanation of how the same trend can help one company and hurt another.
 **Case anchor:** Ping An
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can government rules affect future profit?
-**Student hook:** A rule change can rewrite a profit story. What should investors check?
+**Student hook:** A government rule changes. Why might Ping An shareholders care?
 **Core claim:** Regulation can change costs, revenue limits, risk profile and investor expectations.
 **Primary output:** one rule-change classification with future-profit or price link
 **Formula or formula rule:** no new formula; classify possible rule changes by effect.
@@ -1173,7 +1173,7 @@ Rule-change classification and future-profit or price link.
 **Case anchor:** Samsung
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** Why can exchange rates matter to shareholders?
-**Student hook:** A company can perform well, but currency moves can change the result.
+**Student hook:** Samsung sells globally. Why can exchange rates matter to shareholders?
 **Core claim:** Exchange rates can create measurement and return risk for global companies and shareholders.
 **Primary output:** one exchange-rate percentage-change calculation plus investor-risk explanation
 **Formula or formula rule:** exchange-rate change % = (new rate - old rate) / old rate x 100.
@@ -1234,7 +1234,7 @@ Exchange-rate percentage change plus investor-risk explanation.
 **Case anchor:** ChinaAMC CSI 300 ETF
 **Unit:** 4. Risk, portfolios and funds
 **Guiding question:** How can one fund hold many companies?
-**Student hook:** Instead of choosing one company, what happens if you buy a basket?
+**Student hook:** One ETF holds many companies. Is it automatically safe?
 **Core claim:** Diversification reduces company-specific risk but does not remove market, sector or fund risks.
 **Primary output:** one ETF-versus-single-share comparison with weight, risk reduced and risk remaining
 **Formula or formula rule:** portfolio weight = holding value / total portfolio value x 100; expense ratio and tracking are read-only factsheet fields unless extending.
@@ -1294,14 +1294,14 @@ ETF-versus-single-share comparison with one portfolio-weight calculation, one ri
 
 # Unit 5: Sector case labs
 
-Platform, manufacturing, financial, consumer-brand and global comparison cases.
+Students run sector case labs where attractiveness must be balanced against evidence quality, price, risk and fair comparison.
 
 ## Lesson 21: What makes a platform company attractive or risky?
 
 **Case anchor:** Tencent
 **Unit:** 5. Sector case labs
 **Guiding question:** What makes a platform company attractive or risky?
-**Student hook:** Platform companies look powerful. What makes that power durable or risky?
+**Student hook:** Tencent's platform is huge. Does that make it attractive, risky or both?
 **Core claim:** Platform network effects can be attractive, but price, competition and regulation still matter.
 **Primary output:** one attraction-risk-price triangle with one evidence point in each corner
 **Formula or formula rule:** combine growth, margin, P/E and risk notes; no single new formula.
@@ -1362,7 +1362,7 @@ Attraction-risk-price triangle with one evidence point in each corner.
 **Case anchor:** BYD
 **Unit:** 5. Sector case labs
 **Guiding question:** Is BYD attractive because it is strong, or because the price is fair?
-**Student hook:** Strength is not the same as a fair price. Which matters more for investors?
+**Student hook:** BYD looks strong. Is it attractive because it is strong, or because the price is fair?
 **Core claim:** Operational strength must be separated from fair price and manufacturing-cycle risk.
 **Primary output:** one strength-price-risk evidence matrix separating business strength from investment attractiveness
 **Formula or formula rule:** compare margin and growth; then add price and risk evidence.
@@ -1423,7 +1423,7 @@ Strength-price-risk evidence matrix separating business strength from investment
 **Case anchor:** HSBC
 **Unit:** 5. Sector case labs
 **Guiding question:** Why is analysing a bank different from analysing a tech company?
-**Student hook:** Banks are different machines. What makes their evidence different?
+**Student hook:** HSBC is a company, but is analysing a bank the same as analysing a tech company?
 **Core claim:** Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.
 **Primary output:** one bank-evidence exception note explaining why an ordinary metric is insufficient
 **Formula or formula rule:** basic ratio reading only; avoid advanced bank formulas in Grade 9 decks.
@@ -1484,7 +1484,7 @@ Bank-evidence exception note explaining why one ordinary company metric is insuf
 **Case anchor:** Anta Sports
 **Unit:** 5. Sector case labs
 **Guiding question:** How much is a strong brand worth to investors?
-**Student hook:** A brand can make customers pay more. Is that enough for investors?
+**Student hook:** Anta has a strong brand. How much is that worth to investors?
 **Core claim:** Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.
 **Primary output:** one brand-to-margin evidence map with an inventory or demand limitation
 **Formula or formula rule:** compare revenue growth and margin; no new formula.
@@ -1545,7 +1545,7 @@ Brand-to-margin evidence map plus one limitation linked to inventory or demand.
 **Case anchor:** Nike
 **Unit:** 5. Sector case labs
 **Guiding question:** How can we compare a global brand with a China/HK brand?
-**Student hook:** Global brand or China/HK brand: how do we compare fairly?
+**Student hook:** Nike is global and Anta is China/HK focused. How can we compare them fairly?
 **Core claim:** Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.
 **Primary output:** one comparable-company alignment row plus fair comparison paragraph
 **Formula or formula rule:** compare two companies using the same metric set.
@@ -1604,14 +1604,14 @@ Comparable-company alignment row plus one fair comparison paragraph naming metri
 
 # Unit 6: Synthesis case labs
 
-Recovery, operating leverage, app monetisation, debt risk and final quality-price-risk judgement.
+Students synthesize the course into recovery, operating leverage, monetisation, leverage risk and final quality-price-risk memos.
 
 ## Lesson 26: Can a restaurant company recover after a difficult period?
 
 **Case anchor:** Haidilao
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Can a restaurant company recover after a difficult period?
-**Student hook:** A restaurant recovers after a difficult period. Is recovery enough?
+**Student hook:** Haidilao had a difficult period. Can a restaurant company really recover?
 **Core claim:** Recovery judgement needs enough evidence across operations, stores, revenue and profitability.
 **Primary output:** one red/amber/green recovery verdict explaining the evidence gap
 **Formula or formula rule:** revenue per store = total revenue / number of stores, if data allows.
@@ -1672,7 +1672,7 @@ Red/amber/green recovery verdict explaining whether the claim needs more evidenc
 **Case anchor:** Trip.com
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Why can travel companies rise and fall with the economy?
-**Student hook:** Travel demand can surge or disappear. How does that change investment risk?
+**Student hook:** Travel demand rises. Why might Trip.com's profit rise or fall faster than revenue?
 **Core claim:** Cyclical demand can make operating profit move faster than revenue through operating leverage.
 **Primary output:** one operating-leverage chain diagram linking demand, revenue, operating profit and margin
 **Formula or formula rule:** operating margin = operating profit / revenue x 100.
@@ -1733,7 +1733,7 @@ Operating-leverage chain diagram linking travel demand, revenue, operating profi
 **Case anchor:** Kuaishou
 **Unit:** 6. Synthesis case labs
 **Guiding question:** How does a free app turn users into revenue?
-**Student hook:** Millions of users are impressive. How does that become money?
+**Student hook:** Kuaishou is free to use. How does a free app become investment evidence?
 **Core claim:** User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.
 **Primary output:** one monetisation ladder plus ARPU calculation and limitation sentence
 **Formula or formula rule:** ARPU = revenue / active users.
@@ -1794,7 +1794,7 @@ Monetisation ladder plus ARPU calculation and limitation sentence about users, r
 **Case anchor:** Lenovo
 **Unit:** 6. Synthesis case labs
 **Guiding question:** When does borrowing become a risk for shareholders?
-**Student hook:** Borrowing can power growth or increase danger. Where is the line?
+**Student hook:** Lenovo borrows money. When does borrowing become a shareholder risk?
 **Core claim:** Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.
 **Primary output:** one leverage benefit-risk note with a simple ratio only if figures are clear
 **Formula or formula rule:** debt-to-equity = total debt / equity, if the data is suitable.
@@ -1855,7 +1855,7 @@ Leverage benefit-risk note with a simple ratio only if figures are clear.
 **Case anchor:** Costco
 **Unit:** 6. Synthesis case labs
 **Guiding question:** Can a steady business still be a bad investment at the wrong price?
-**Student hook:** A steady business feels safe. Could the price still make it a bad investment?
+**Student hook:** Costco is steady and high quality. Could it still be a bad investment at the wrong price?
 **Core claim:** A quality defensive business can still be a poor investment if the price already assumes too much good news.
 **Primary output:** one final quality-price-risk memo using dated evidence with dated evidence and caveats
 **Formula or formula rule:** synthesis of growth, margin, P/E and risk; no new formula.

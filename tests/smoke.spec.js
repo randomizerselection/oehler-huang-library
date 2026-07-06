@@ -1082,6 +1082,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Decision-first company analysis$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^30-lesson company knowledge map$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^How lessons are built$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Six exams across the year$/i })).toBeVisible();
@@ -1090,9 +1091,13 @@ test.describe('site smoke', () => {
     await expect(page.getByText(/--syllabus company-analysis/i)).toBeVisible();
     await expect(page.locator('body')).not.toContainText(/course-map-company-analysis-data.js/i);
     await expect(page.locator('body')).not.toContainText(/Personal Finance/i);
-    await expect(page.locator('.investment-generator-table thead')).toContainText(/Lesson title/i);
+    await expect(page.locator('.investment-generator-table thead')).toContainText(/Starter dilemma/i);
+    await expect(page.locator('.investment-generator-table thead')).toContainText(/Missing evidence/i);
+    await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/evidence is still missing/i);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(30);
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('[data-syllabus-lesson]').first()).toBeVisible();
@@ -1105,11 +1110,13 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/syllabus-company-analysis.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Decision-first company analysis$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Hook, key idea, try it, decide$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^A practical investor workflow$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^30-lesson company knowledge map$/i })).toBeVisible();
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Course entry lesson/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/source-dated evidence before judgement/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Tencent/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Practical investing action/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="2"]')).toContainText(/HKEX/i);

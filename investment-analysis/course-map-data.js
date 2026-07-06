@@ -9123,6 +9123,398 @@
   ]
 };
 
+  const decisionFirstSyllabus = {
+    "name": "Decision-first company analysis",
+    "coursePromise": "Students move from first opinion to evidence-based judgement: each lesson begins with a concrete investor dilemma, exposes the missing evidence, teaches one useful idea and finishes with a justified next action.",
+    "lessonContract": [
+      "Starter dilemma: a company-specific question students can answer before definitions.",
+      "First judgement: a quick vote, written reason or ranking that exposes the starting misconception.",
+      "Missing evidence: the exact source, figure, comparison, concept or caveat students need next.",
+      "Key idea: one concept, formula or rule that improves the initial judgement.",
+      "Try it: one short evidence, calculation, classification, matching or source task.",
+      "Misconception check: one explicit wrong shortcut to break before the exit.",
+      "Exit judgement: a short defensible action such as consider, watch, avoid, compare or gather more evidence."
+    ],
+    "generatorRule": "Lesson, handout, quiz and exam generators must preserve the decision-first contract before adding extra examples. Do not turn lessons into topic summaries or broad finance lectures.",
+    "studentFacingRule": "Visible lesson materials should foreground the company dilemma and student judgement. Detailed retrieval, worksheet and source metadata remain available in notes, handouts and generator context.",
+    "assessmentRule": "Every lesson must give the teacher evidence of readiness through a hinge check, classification, calculation, source check, peer comparison, misconception correction or individual written exit."
+  };
+
+  const decisionFirstContracts = {
+    1: {
+      "starterDilemma": "Tencent is familiar. Would you buy shares in it?",
+      "firstJudgementPrompt": "Take a yes/no vote and write one reason before definitions.",
+      "likelyNaiveAnswer": "A familiar company feels like a good investment.",
+      "missingEvidence": "Students need evidence, risk thinking and a correct understanding of what one share gives and does not guarantee.",
+      "keyIdea": "Investment analysis uses source-dated evidence before judgement.",
+      "tryIt": "Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.",
+      "misconceptionCheck": "Familiarity with Tencent is enough reason to buy its shares.",
+      "exitJudgement": "State what evidence is still missing before making any classroom judgement about Tencent shares."
+    },
+    2: {
+      "starterDilemma": "If you buy a share today, who gets the money and why does the market exist?",
+      "firstJudgementPrompt": "Ask students whether a market purchase always funds the company.",
+      "likelyNaiveAnswer": "Buying on the stock market gives new money to the company.",
+      "missingEvidence": "Students need the difference between listing, exchange trading, liquidity and secondary-market ownership transfer.",
+      "keyIdea": "A stock exchange helps listed securities trade, but not every trade gives new money to the company.",
+      "tryIt": "Match company, exchange, stock code and one trading friction using HKEX examples.",
+      "misconceptionCheck": "Every market purchase directly finances the company.",
+      "exitJudgement": "Explain why a stock market matters while naming one friction or limitation before judging a trade."
+    },
+    3: {
+      "starterDilemma": "A quote page shows Alibaba's price. Is that enough to decide?",
+      "firstJudgementPrompt": "Students mark which quote-page items feel useful and which still leave questions.",
+      "likelyNaiveAnswer": "The displayed price tells us whether the share is good or bad.",
+      "missingEvidence": "Students need source date, time, bid/ask or spread context, price movement and business evidence beyond the quote.",
+      "keyIdea": "A quote page is a dated market snapshot, not a promise of value or execution.",
+      "tryIt": "Read one quote snapshot and separate what it tells from what it cannot prove.",
+      "misconceptionCheck": "A current quote is the same thing as investment value.",
+      "exitJudgement": "Write what the quote tells, what is missing and the next evidence to gather before judging Alibaba."
+    },
+    4: {
+      "starterDilemma": "If you own one Xiaomi share, do you control Xiaomi?",
+      "firstJudgementPrompt": "Students vote on what one share gives: ownership, votes, dividends, control or guaranteed profit.",
+      "likelyNaiveAnswer": "Owning shares means controlling the company.",
+      "missingEvidence": "Students need ownership size, voting rights, share class and the difference between a claim and control.",
+      "keyIdea": "A share is an ownership claim, but control depends on rights and ownership size.",
+      "tryIt": "Sort shareholder statements into gives, may give and does not give.",
+      "misconceptionCheck": "Any shareholder can decide what the company does.",
+      "exitJudgement": "Explain what one Xiaomi share gives and what evidence is needed before claiming influence or control."
+    },
+    5: {
+      "starterDilemma": "JD.com's price moved. What evidence should an analyst collect before explaining it?",
+      "firstJudgementPrompt": "Students choose whether a single headline, chart or source log is the best starting point.",
+      "likelyNaiveAnswer": "One story can explain the price movement.",
+      "missingEvidence": "Students need source title, date, figure, use and limitation before explaining price movement.",
+      "keyIdea": "Useful evidence records source, date, figure, use and limitation before judgement.",
+      "tryIt": "Build a short JD.com evidence log and connect one item to one possible price explanation.",
+      "misconceptionCheck": "A confident explanation is enough even without source discipline.",
+      "exitJudgement": "Write one evidence-before-judgement note that says what the evidence can and cannot prove."
+    },
+    6: {
+      "starterDilemma": "Meituan's revenue is high. Does that mean the company is strong?",
+      "firstJudgementPrompt": "Students decide whether high revenue alone is enough and give one reason.",
+      "likelyNaiveAnswer": "High revenue means a strong company.",
+      "missingEvidence": "Students need costs, profit, margin, cash and business model evidence.",
+      "keyIdea": "Revenue shows sales scale, not profit strength or investment quality by itself.",
+      "tryIt": "Interpret a revenue evidence point and identify one thing it cannot prove.",
+      "misconceptionCheck": "Bigger sales automatically mean a better investment.",
+      "exitJudgement": "State whether Meituan evidence is improving, weakening, mixed or incomplete and name what to check next."
+    },
+    7: {
+      "starterDilemma": "BYD's sales rise. Could costs still make the story weaker?",
+      "firstJudgementPrompt": "Students predict whether rising sales always improve profit.",
+      "likelyNaiveAnswer": "More sales should always mean more profit.",
+      "missingEvidence": "Students need direct costs, gross profit and gross margin.",
+      "keyIdea": "Rising sales can hide cost pressure, so gross profit and gross margin matter.",
+      "tryIt": "Calculate or interpret gross margin and explain what changed.",
+      "misconceptionCheck": "Sales growth solves the cost problem automatically.",
+      "exitJudgement": "Write a BYD cost-pressure note with one margin result and one caveat."
+    },
+    8: {
+      "starterDilemma": "Two battery companies sell a lot. Which turns sales into profit more efficiently?",
+      "firstJudgementPrompt": "Students choose the stronger company using only a first glance, then test the choice.",
+      "likelyNaiveAnswer": "The company with larger sales is more efficient.",
+      "missingEvidence": "Students need aligned time periods, margin calculations and percentage-point discipline.",
+      "keyIdea": "Efficiency comparison needs aligned metrics, time periods and margin evidence.",
+      "tryIt": "Compare margins using the same period and explain the efficiency difference.",
+      "misconceptionCheck": "Bigger revenue is the same as better efficiency.",
+      "exitJudgement": "Write one CATL efficiency comparison with dated evidence and one limitation."
+    },
+    9: {
+      "starterDilemma": "Tesla can grow and still need cash. How can that happen?",
+      "firstJudgementPrompt": "Students decide whether profit and cash mean the same thing.",
+      "likelyNaiveAnswer": "If a company is profitable, cash should not be a problem.",
+      "missingEvidence": "Students need operating cash flow, investment spending, timing and growth needs.",
+      "keyIdea": "Profit and cash flow answer different questions.",
+      "tryIt": "Interpret a cash-flow statement item and state what it can and cannot prove.",
+      "misconceptionCheck": "Profit automatically means enough cash.",
+      "exitJudgement": "Write a Tesla cash-flow caution with one figure or caveat and the next evidence to gather."
+    },
+    10: {
+      "starterDilemma": "TSMC looks strong. What makes one strong company look stronger than another?",
+      "firstJudgementPrompt": "Students pick the stronger company from a quick comparison and then list missing fair-comparison checks.",
+      "likelyNaiveAnswer": "The bigger or more famous company is stronger.",
+      "missingEvidence": "Students need scale, trend, margin, cash and aligned dates.",
+      "keyIdea": "A fair strong-company comparison uses aligned evidence, not reputation alone.",
+      "tryIt": "Complete a side-by-side comparison using the same categories and dates.",
+      "misconceptionCheck": "Fame or size is enough for a fair comparison.",
+      "exitJudgement": "Write a TSMC comparison verdict with one strength, one limit and a next action."
+    },
+    11: {
+      "starterDilemma": "Apple's share price changed. How much did the investor really gain or lose?",
+      "firstJudgementPrompt": "Students compare a money gain with a percentage return.",
+      "likelyNaiveAnswer": "The larger money change is always the better return.",
+      "missingEvidence": "Students need purchase price, selling price, percentage return and loss risk.",
+      "keyIdea": "Investor return depends on gain or loss relative to the purchase price.",
+      "tryIt": "Calculate a percentage return and explain the first risk-return trade-off.",
+      "misconceptionCheck": "Higher possible return means guaranteed better result.",
+      "exitJudgement": "Write an Apple return statement that includes possible gain, possible loss and risk."
+    },
+    12: {
+      "starterDilemma": "HSBC pays dividends. Is a high dividend yield enough reason to like it?",
+      "firstJudgementPrompt": "Students rank dividend yield, dividend safety and total return as evidence.",
+      "likelyNaiveAnswer": "A higher dividend yield is automatically better.",
+      "missingEvidence": "Students need price paid, dividend sustainability, total return and business risk.",
+      "keyIdea": "Dividends add income, but yield and total return depend on price and risk.",
+      "tryIt": "Calculate or interpret dividend yield and explain one limitation.",
+      "misconceptionCheck": "Dividends are guaranteed income.",
+      "exitJudgement": "Write an HSBC dividend note that separates income attraction from risk."
+    },
+    13: {
+      "starterDilemma": "Nvidia's share price is high. Does that mean it is the biggest company?",
+      "firstJudgementPrompt": "Students compare two companies using share price alone, then add share count.",
+      "likelyNaiveAnswer": "The company with the higher share price is worth more.",
+      "missingEvidence": "Students need shares outstanding, share price and market capitalisation.",
+      "keyIdea": "Market capitalisation combines one-share price and share count.",
+      "tryIt": "Calculate or interpret market capitalisation and compare company scale.",
+      "misconceptionCheck": "Share price alone measures company size.",
+      "exitJudgement": "Write a Nvidia scale statement that uses market capitalisation and one caveat."
+    },
+    14: {
+      "starterDilemma": "Microsoft trades at a high price for profit. Is that optimism, risk or both?",
+      "firstJudgementPrompt": "Students vote whether a high P/E is good, bad or unclear.",
+      "likelyNaiveAnswer": "A high P/E ratio gives a simple buy or sell answer.",
+      "missingEvidence": "Students need earnings, price, growth expectations and risk context.",
+      "keyIdea": "A P/E ratio can signal expectations, risk or both.",
+      "tryIt": "Interpret a P/E ratio and connect it to expectations and evidence limits.",
+      "misconceptionCheck": "One valuation ratio is a mechanical decision rule.",
+      "exitJudgement": "Write a Microsoft valuation caution with one expectation and one risk."
+    },
+    15: {
+      "starterDilemma": "Toyota is a good company. Could it still be too expensive?",
+      "firstJudgementPrompt": "Students decide whether quality alone is enough, then add price and risk.",
+      "likelyNaiveAnswer": "A good company is automatically a good investment.",
+      "missingEvidence": "Students need quality, valuation, risk and alternative evidence together.",
+      "keyIdea": "A good company only becomes attractive when quality is judged with price and risk.",
+      "tryIt": "Use several evidence cards to classify the case as attractive, risky, too expensive or incomplete.",
+      "misconceptionCheck": "Quality removes valuation risk.",
+      "exitJudgement": "Write a Toyota checkpoint verdict with evidence, caveat and next action."
+    },
+    16: {
+      "starterDilemma": "Starbucks is familiar. What could still hurt it?",
+      "firstJudgementPrompt": "Students list risks before seeing a formal risk register.",
+      "likelyNaiveAnswer": "A familiar brand is a safe investment.",
+      "missingEvidence": "Students need company-specific risk evidence about costs, demand, competition or execution.",
+      "keyIdea": "A familiar company can still face risks that affect future revenue, profit, expectations and price.",
+      "tryIt": "Build a risk register with likelihood, impact and evidence.",
+      "misconceptionCheck": "Brand familiarity removes company-specific risk.",
+      "exitJudgement": "Write a Starbucks risk note with one dated evidence item and one monitor."
+    },
+    17: {
+      "starterDilemma": "Changing tastes can help one sportswear company and hurt another. How?",
+      "firstJudgementPrompt": "Students decide whether a sector trend affects all firms equally.",
+      "likelyNaiveAnswer": "A good trend helps every company in the sector in the same way.",
+      "missingEvidence": "Students need brand position, competition, inventory, pricing and local demand evidence.",
+      "keyIdea": "The same consumer trend can create winners and losers within a sector.",
+      "tryIt": "Classify trend evidence as helpful, harmful or mixed for Li Ning.",
+      "misconceptionCheck": "Sector growth makes every company attractive.",
+      "exitJudgement": "Write a Li Ning sector-risk note with one trend, one company-specific effect and one caveat."
+    },
+    18: {
+      "starterDilemma": "A government rule changes. Why might Ping An shareholders care?",
+      "firstJudgementPrompt": "Students decide whether regulation is outside the investor's analysis.",
+      "likelyNaiveAnswer": "Rules are background information, not investment evidence.",
+      "missingEvidence": "Students need how regulation can change costs, revenue limits, risk profile and expectations.",
+      "keyIdea": "Regulation can change future profit and investor expectations.",
+      "tryIt": "Read a regulation-risk source and identify one business effect and one limitation.",
+      "misconceptionCheck": "Only company decisions matter for shareholders.",
+      "exitJudgement": "Write a Ping An regulation-risk note with source date and one investor implication."
+    },
+    19: {
+      "starterDilemma": "Samsung sells globally. Why can exchange rates matter to shareholders?",
+      "firstJudgementPrompt": "Students judge whether currency changes matter if the company still sells products.",
+      "likelyNaiveAnswer": "Exchange rates are only a travel or banking issue.",
+      "missingEvidence": "Students need currency translation, revenue exposure, costs and shareholder return effects.",
+      "keyIdea": "Exchange rates can create measurement and return risk for global companies.",
+      "tryIt": "Interpret a simple currency scenario and state who benefits or loses.",
+      "misconceptionCheck": "Global sales remove currency risk.",
+      "exitJudgement": "Write a Samsung currency-risk note with one affected figure and one caveat."
+    },
+    20: {
+      "starterDilemma": "One ETF holds many companies. Is it automatically safe?",
+      "firstJudgementPrompt": "Students compare owning one company share with owning a fund basket.",
+      "likelyNaiveAnswer": "Diversification removes risk.",
+      "missingEvidence": "Students need holdings, index exposure, costs, tracking and concentration evidence.",
+      "keyIdea": "A fund can diversify company-specific risk but still carries market, sector and product risks.",
+      "tryIt": "Read a fund factsheet and identify exposure, cost and one remaining risk.",
+      "misconceptionCheck": "Many holdings means no loss is possible.",
+      "exitJudgement": "Write an ETF fit note that says what risk is reduced and what risk remains."
+    },
+    21: {
+      "starterDilemma": "Tencent's platform is huge. Does that make it attractive, risky or both?",
+      "firstJudgementPrompt": "Students write one attraction and one risk before seeing the evidence set.",
+      "likelyNaiveAnswer": "A large platform is automatically attractive.",
+      "missingEvidence": "Students need users, monetisation, margins, regulation, competition and valuation context.",
+      "keyIdea": "A platform can create network strength and concentration risk at the same time.",
+      "tryIt": "Sort platform evidence into attractive, risky and incomplete.",
+      "misconceptionCheck": "User scale alone proves investment quality.",
+      "exitJudgement": "Write a Tencent platform judgement with one attraction, one risk and a next action."
+    },
+    22: {
+      "starterDilemma": "BYD looks strong. Is it attractive because it is strong, or because the price is fair?",
+      "firstJudgementPrompt": "Students choose strength evidence or price evidence as the missing piece.",
+      "likelyNaiveAnswer": "A strong manufacturer is automatically worth buying.",
+      "missingEvidence": "Students need manufacturing strength, margins, growth, valuation and risk together.",
+      "keyIdea": "Strength becomes an investment case only when judged with price and risk.",
+      "tryIt": "Combine one strength metric and one valuation or risk clue.",
+      "misconceptionCheck": "Business strength alone is enough for a buy judgement.",
+      "exitJudgement": "Write a BYD strength-price-risk judgement with a defensible next action."
+    },
+    23: {
+      "starterDilemma": "HSBC is a company, but is analysing a bank the same as analysing a tech company?",
+      "firstJudgementPrompt": "Students sort ordinary company evidence and bank-specific evidence.",
+      "likelyNaiveAnswer": "The same ratios work the same way for all companies.",
+      "missingEvidence": "Students need bank-specific evidence such as interest rates, credit risk, capital, loans and deposits.",
+      "keyIdea": "Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.",
+      "tryIt": "Classify evidence as ordinary-company useful, bank-specific or misleading alone.",
+      "misconceptionCheck": "A bank can be analysed like any ordinary company with no adjustment.",
+      "exitJudgement": "Write an HSBC bank-analysis note with one bank-specific evidence need."
+    },
+    24: {
+      "starterDilemma": "Anta has a strong brand. How much is that worth to investors?",
+      "firstJudgementPrompt": "Students decide whether brand popularity alone is investment evidence.",
+      "likelyNaiveAnswer": "A popular brand must be valuable for shareholders.",
+      "missingEvidence": "Students need pricing power, margins, demand, inventory and competition evidence.",
+      "keyIdea": "Brand strength matters only when it connects to financial evidence and demand limits.",
+      "tryIt": "Link one brand clue to one margin, pricing or inventory implication.",
+      "misconceptionCheck": "Brand liking is the same as investment value.",
+      "exitJudgement": "Write an Anta brand-value note with one financial link and one limitation."
+    },
+    25: {
+      "starterDilemma": "Nike is global and Anta is China/HK focused. How can we compare them fairly?",
+      "firstJudgementPrompt": "Students choose a winner quickly, then list what makes the comparison unfair.",
+      "likelyNaiveAnswer": "The global brand is automatically the stronger investment.",
+      "missingEvidence": "Students need aligned metrics, dates, currencies, markets and risk context.",
+      "keyIdea": "Fair company comparison requires aligned evidence and local/global context.",
+      "tryIt": "Complete a comparison matrix with date, currency and market caveats.",
+      "misconceptionCheck": "A famous global brand always wins the comparison.",
+      "exitJudgement": "Write a Nike-versus-Anta comparison judgement with one fairness caveat."
+    },
+    26: {
+      "starterDilemma": "Haidilao had a difficult period. Can a restaurant company really recover?",
+      "firstJudgementPrompt": "Students decide whether busy stores or brand memory are enough evidence of recovery.",
+      "likelyNaiveAnswer": "If customers return, the company has recovered.",
+      "missingEvidence": "Students need operations, store network, revenue, margins, cash and profitability evidence.",
+      "keyIdea": "Recovery judgement needs enough evidence across operations, stores, revenue and profitability.",
+      "tryIt": "Build a recovery evidence table with improving, weak and incomplete signs.",
+      "misconceptionCheck": "A visible rebound proves a complete recovery.",
+      "exitJudgement": "Write a Haidilao recovery verdict with evidence, caveat and next action."
+    },
+    27: {
+      "starterDilemma": "Travel demand rises. Why might Trip.com's profit rise or fall faster than revenue?",
+      "firstJudgementPrompt": "Students predict whether revenue and profit should move at the same speed.",
+      "likelyNaiveAnswer": "Profit should move roughly the same as revenue.",
+      "missingEvidence": "Students need fixed costs, variable costs, operating leverage and cyclical demand evidence.",
+      "keyIdea": "Cyclical demand can make operating profit move faster than revenue through operating leverage.",
+      "tryIt": "Interpret a revenue-profit change and explain the operating leverage chain.",
+      "misconceptionCheck": "Revenue growth and profit growth are the same thing.",
+      "exitJudgement": "Write a Trip.com cycle-risk note with one operating leverage implication."
+    },
+    28: {
+      "starterDilemma": "Kuaishou is free to use. How does a free app become investment evidence?",
+      "firstJudgementPrompt": "Students decide whether user growth alone is enough evidence.",
+      "likelyNaiveAnswer": "More users automatically mean a better investment.",
+      "missingEvidence": "Students need monetisation, advertising, e-commerce, user engagement, revenue and profit limits.",
+      "keyIdea": "User growth becomes investment evidence only when linked to monetisation and profit limits.",
+      "tryIt": "Map users to revenue streams and identify one missing profitability check.",
+      "misconceptionCheck": "Free-app popularity automatically creates shareholder value.",
+      "exitJudgement": "Write a Kuaishou monetisation note with one evidence link and one caveat."
+    },
+    29: {
+      "starterDilemma": "Lenovo borrows money. When does borrowing become a shareholder risk?",
+      "firstJudgementPrompt": "Students vote whether debt is always good, always bad or depends on evidence.",
+      "likelyNaiveAnswer": "Debt is either automatically dangerous or automatically useful.",
+      "missingEvidence": "Students need debt level, equity, cash flow, obligations and leverage context.",
+      "keyIdea": "Borrowing can fund growth but also raises fixed obligations and shareholder risk.",
+      "tryIt": "Interpret or calculate a debt-risk measure and connect it to one caveat.",
+      "misconceptionCheck": "Debt alone gives a simple good/bad judgement.",
+      "exitJudgement": "Write a Lenovo leverage-risk action with one ratio or caveat and a next step."
+    },
+    30: {
+      "starterDilemma": "Costco is steady and high quality. Could it still be a bad investment at the wrong price?",
+      "firstJudgementPrompt": "Students decide whether quality, price or risk should dominate the final memo.",
+      "likelyNaiveAnswer": "A high-quality defensive business is always a good investment.",
+      "missingEvidence": "Students need the full quality, return, valuation, risk and alternative evidence chain.",
+      "keyIdea": "A quality defensive business can still be a poor investment if the price already assumes too much good news.",
+      "tryIt": "Write the final quality-price-risk memo using dated evidence and caveats.",
+      "misconceptionCheck": "Defensive quality removes price risk.",
+      "exitJudgement": "Write a final Costco memo with a defensible next action: consider, watch, avoid, compare or gather more evidence."
+    }
+  };
+
+  function applyDecisionFirstSyllabus(map) {
+    map.version = 5;
+    map.decisionFirstSyllabus = decisionFirstSyllabus;
+    map.practicalInvestingBoundary = "Students learn a decision-first investing process: start with a concrete company dilemma, make a first judgement, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid, compare with another choice or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.";
+    map.simpleLessonStructure = [
+      {
+        "label": "Hook",
+        "purpose": "Start with a concrete company dilemma that students can answer before definitions.",
+        "studentQuestion": "What would I think at first, and why?"
+      },
+      {
+        "label": "Key idea",
+        "purpose": "Teach one concept, formula or rule that fixes the weakness in the first judgement.",
+        "studentQuestion": "What new idea makes my first answer better?"
+      },
+      {
+        "label": "Try it",
+        "purpose": "Use one short evidence, calculation, classification, matching or source task.",
+        "studentQuestion": "Can I use the evidence myself?"
+      },
+      {
+        "label": "Decide",
+        "purpose": "Write a justified next action: consider, watch, avoid, compare or gather more evidence.",
+        "studentQuestion": "What would a careful investor do next?"
+      }
+    ];
+
+    const rules = map.generatorAccess && Array.isArray(map.generatorAccess.rules)
+      ? map.generatorAccess.rules
+      : [];
+    map.generatorAccess.rules = [
+      ...rules.filter((rule) => !/simple lesson structure/i.test(rule) && !/cumulative knowledge/i.test(rule)),
+      "Use the decisionFirst contract before drafting any lesson: starter dilemma, first judgement, missing evidence, key idea, try it, misconception check and exit judgement.",
+      "Use the simple lesson structure for student-facing decks and syllabus cards: Hook, Key idea, Try it, Decide.",
+      "Build every lesson as a company judgement cycle: first opinion, targeted retrieval, new knowledge, evidence and data analysis, misconception correction, analyse-why reasoning and practical next action."
+    ];
+
+    map.units = map.units.map((unit) => {
+      const summaries = {
+        1: "Students move from first opinion to market evidence: investment-analysis purpose, assets, shares, exchanges, quote pages, source discipline and the first price-movement explanation.",
+        2: "Students test business strength claims with financial-statement evidence: revenue, costs, margin, cash flow and fair comparison.",
+        3: "Students judge return and valuation evidence: capital gains, dividends, market value, EPS, P/E, price risk and the basic risk-return trade-off.",
+        4: "Students diagnose risk and fit: company, sector, regulation, currency, ETF/index-fund and concentration risks.",
+        5: "Students run sector case labs where attractiveness must be balanced against evidence quality, price, risk and fair comparison.",
+        6: "Students synthesize the course into recovery, operating leverage, monetisation, leverage risk and final quality-price-risk memos."
+      };
+      return summaries[unit.unit] ? { ...unit, summary: summaries[unit.unit] } : unit;
+    });
+
+    for (const lesson of map.lessons) {
+      const contract = decisionFirstContracts[lesson.lesson];
+      if (!contract) continue;
+      lesson.decisionFirst = contract;
+      lesson.studentHook = contract.starterDilemma;
+      lesson.simpleFlow = [
+        { "label": "Hook", "text": contract.starterDilemma },
+        { "label": "Key idea", "text": contract.keyIdea },
+        { "label": "Try it", "text": contract.tryIt },
+        { "label": "Decide", "text": contract.exitJudgement }
+      ];
+      lesson.cardGenerator = {
+        ...(lesson.cardGenerator || {}),
+        "studentHook": contract.starterDilemma,
+        "firstJudgementPrompt": contract.firstJudgementPrompt,
+        "missingEvidence": contract.missingEvidence,
+        "exitJudgement": contract.exitJudgement
+      };
+    }
+  }
+
+  applyDecisionFirstSyllabus(courseMap);
+
   global.INVEST = global.INVEST || {};
   global.INVEST.courseMap = courseMap;
 

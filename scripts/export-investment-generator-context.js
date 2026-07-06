@@ -105,6 +105,20 @@ function renderInvestmentAction(action = {}) {
   ].join('\n');
 }
 
+function renderDecisionFirst(decisionFirst = {}) {
+  if (!decisionFirst.starterDilemma) return '';
+  return [
+    `- Starter dilemma: ${decisionFirst.starterDilemma}`,
+    `- First judgement: ${decisionFirst.firstJudgementPrompt}`,
+    `- Likely naive answer: ${decisionFirst.likelyNaiveAnswer}`,
+    `- Missing evidence: ${decisionFirst.missingEvidence}`,
+    `- Key idea: ${decisionFirst.keyIdea}`,
+    `- Try it: ${decisionFirst.tryIt}`,
+    `- Misconception check: ${decisionFirst.misconceptionCheck}`,
+    `- Exit judgement: ${decisionFirst.exitJudgement}`,
+  ].join('\n');
+}
+
 function renderSimpleFlow(flow = []) {
   return flow.map((step) => `- ${step.label}: ${step.text}`).join('\n');
 }
@@ -115,6 +129,12 @@ function renderMarkdown(context) {
       `# ${context.course.courseTitle}: Generator Index`,
       '',
       context.course.writtenArtifactRule,
+      '',
+      '## Decision-First Teaching Model',
+      '',
+      context.course.decisionFirstSyllabus?.coursePromise || '',
+      '',
+      bulletList(context.course.decisionFirstSyllabus?.lessonContract || []),
       '',
       '## Practical Investing Workflow',
       '',
@@ -161,6 +181,10 @@ function renderMarkdown(context) {
     `**Core claim:** ${teaching.coreClaim}`,
     `**Primary output:** ${teaching.primaryOutput.description}`,
     `**Student hook:** ${context.generatorBrief.studentHook || lesson.studentHook || ''}`,
+    '',
+    '## Decision-First Contract',
+    '',
+    renderDecisionFirst(context.generatorBrief.decisionFirst || teaching.decisionFirst || lesson.decisionFirst),
     '',
     '## Simple Lesson Flow',
     '',

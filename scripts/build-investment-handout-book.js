@@ -83,6 +83,20 @@ function renderBulletList(items) {
   return items.map((item) => `- ${item}`).join('\n');
 }
 
+function renderDecisionFirstContract(decisionFirst = {}) {
+  if (!decisionFirst.starterDilemma) return '';
+  return [
+    `- **Starter dilemma:** ${decisionFirst.starterDilemma}`,
+    `- **First judgement:** ${decisionFirst.firstJudgementPrompt}`,
+    `- **Likely naive answer:** ${decisionFirst.likelyNaiveAnswer}`,
+    `- **Missing evidence:** ${decisionFirst.missingEvidence}`,
+    `- **Key idea:** ${decisionFirst.keyIdea}`,
+    `- **Try it:** ${decisionFirst.tryIt}`,
+    `- **Misconception check:** ${decisionFirst.misconceptionCheck}`,
+    `- **Exit judgement:** ${decisionFirst.exitJudgement}`,
+  ].join('\n');
+}
+
 function sentence(value = '') {
   return /[.!?]$/.test(value) ? value : `${value}.`;
 }
@@ -107,6 +121,12 @@ function renderLessonTeacherBlueprint(lesson) {
     for (const step of lesson.simpleFlow) {
       lines.push(`- **${step.label}:** ${step.text}`);
     }
+    lines.push('');
+  }
+  if (lesson.decisionFirst) {
+    lines.push('### Decision-first teaching contract');
+    lines.push('');
+    lines.push(renderDecisionFirstContract(lesson.decisionFirst));
     lines.push('');
   }
   lines.push('### Source pack');
@@ -184,6 +204,14 @@ function renderTeacherBlueprint(map = courseMap) {
   lines.push('');
   lines.push('This file is generated from `investment-analysis/course-map-data.js`. Use it to build lesson decks, handouts, handout-book chapters and exam questions from the same contract.');
   lines.push('');
+  if (map.decisionFirstSyllabus) {
+    lines.push('## Decision-First Teaching Model');
+    lines.push('');
+    lines.push(map.decisionFirstSyllabus.coursePromise);
+    lines.push('');
+    lines.push(renderBulletList(map.decisionFirstSyllabus.lessonContract));
+    lines.push('');
+  }
   if (Array.isArray(map.investmentWorkflow)) {
     lines.push('## Practical Investing Workflow');
     lines.push('');

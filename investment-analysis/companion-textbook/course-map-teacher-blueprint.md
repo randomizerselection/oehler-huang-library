@@ -2,6 +2,18 @@
 
 This file is generated from `investment-analysis/course-map-data.js`. Use it to build lesson decks, handouts, handout-book chapters and exam questions from the same contract.
 
+## Decision-First Teaching Model
+
+Students move from first opinion to evidence-based judgement: each lesson begins with a concrete investor dilemma, exposes the missing evidence, teaches one useful idea and finishes with a justified next action.
+
+- Starter dilemma: a company-specific question students can answer before definitions.
+- First judgement: a quick vote, written reason or ranking that exposes the starting misconception.
+- Missing evidence: the exact source, figure, comparison, concept or caveat students need next.
+- Key idea: one concept, formula or rule that improves the initial judgement.
+- Try it: one short evidence, calculation, classification, matching or source task.
+- Misconception check: one explicit wrong shortcut to break before the exit.
+- Exit judgement: a short defensible action such as consider, watch, avoid, compare or gather more evidence.
+
 ## Practical Investing Workflow
 
 - **Step 1: Know what you are buying:** Name the product, company, listing, stock code or fund, and explain what ownership or exposure it gives.
@@ -12,10 +24,10 @@ This file is generated from `investment-analysis/course-map-data.js`. Use it to 
 
 ## Simple Lesson Structure
 
-- **Hook:** Start with a company puzzle, chart or investor dilemma that students can immediately care about.
-- **Key idea:** Teach one concept, formula or rule that helps answer the puzzle.
-- **Try it:** Use one short evidence task, calculation, matching check or source check before longer analysis.
-- **Decide:** Choose a justified next action: consider, watch, avoid, compare or gather more evidence.
+- **Hook:** Start with a concrete company dilemma that students can answer before definitions.
+- **Key idea:** Teach one concept, formula or rule that fixes the weakness in the first judgement.
+- **Try it:** Use one short evidence, calculation, classification, matching or source task.
+- **Decide:** Write a justified next action: consider, watch, avoid, compare or gather more evidence.
 
 ## Source-Fit Audit
 
@@ -64,12 +76,12 @@ Run this before building a lesson deck or final exam item. Keep the current anch
 
 # Unit 1: Market foundations
 
-Investment-analysis purpose, investment versus speculation, assets, shares, exchanges, quote pages, source discipline and the first price-movement chain.
+Students move from first opinion to market evidence: investment-analysis purpose, assets, shares, exchanges, quote pages, source discipline and the first price-movement explanation.
 
 ## Lesson 1: Tencent
 
 **Guiding question:** What is investment analysis?
-**Student hook:** Would you buy shares in Tencent?
+**Student hook:** Tencent is familiar. Would you buy shares in it?
 **Core claim:** Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.
 **Case role:** listed company
 **Primary output:** foundation-exit-ticket-and-short-explanation - one exit ticket plus a short explanation of why familiarity with Tencent is not enough reason to buy shares
@@ -77,10 +89,21 @@ Investment-analysis purpose, investment versus speculation, assets, shares, exch
 
 ### Simple lesson flow
 
-- **Hook:** Would you buy shares in Tencent?
-- **Key idea:** Investment analysis uses evidence before judgement; speculation relies too much on short-term guesses.
-- **Try it:** Classify assets, rank risk and explain what a share gives.
-- **Decide:** State what evidence is still missing before judging Tencent shares.
+- **Hook:** Tencent is familiar. Would you buy shares in it?
+- **Key idea:** Investment analysis uses source-dated evidence before judgement.
+- **Try it:** Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.
+- **Decide:** State what evidence is still missing before making any classroom judgement about Tencent shares.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Tencent is familiar. Would you buy shares in it?
+- **First judgement:** Take a yes/no vote and write one reason before definitions.
+- **Likely naive answer:** A familiar company feels like a good investment.
+- **Missing evidence:** Students need evidence, risk thinking and a correct understanding of what one share gives and does not guarantee.
+- **Key idea:** Investment analysis uses source-dated evidence before judgement.
+- **Try it:** Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.
+- **Misconception check:** Familiarity with Tencent is enough reason to buy its shares.
+- **Exit judgement:** State what evidence is still missing before making any classroom judgement about Tencent shares.
 
 ### Source pack
 
@@ -160,7 +183,7 @@ Analyse why confusing investment with speculation could weaken a judgement about
 ## Lesson 2: HKEX
 
 **Guiding question:** Why do companies need a stock market?
-**Student hook:** Before any trade happens, there is a market behind it. What does that market do?
+**Student hook:** If you buy a share today, who gets the money and why does the market exist?
 **Core claim:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
 **Case role:** exchange/infrastructure case
 **Primary output:** matching-table - one company-code-exchange match plus one trading-friction sentence
@@ -168,10 +191,21 @@ Analyse why confusing investment with speculation could weaken a judgement about
 
 ### Simple lesson flow
 
-- **Hook:** Before any trade happens, there is a market behind it. What does that market do?
-- **Key idea:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
-- **Try it:** one company-code-exchange match plus one trading-friction sentence
-- **Decide:** I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** If you buy a share today, who gets the money and why does the market exist?
+- **Key idea:** A stock exchange helps listed securities trade, but not every trade gives new money to the company.
+- **Try it:** Match company, exchange, stock code and one trading friction using HKEX examples.
+- **Decide:** Explain why a stock market matters while naming one friction or limitation before judging a trade.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** If you buy a share today, who gets the money and why does the market exist?
+- **First judgement:** Ask students whether a market purchase always funds the company.
+- **Likely naive answer:** Buying on the stock market gives new money to the company.
+- **Missing evidence:** Students need the difference between listing, exchange trading, liquidity and secondary-market ownership transfer.
+- **Key idea:** A stock exchange helps listed securities trade, but not every trade gives new money to the company.
+- **Try it:** Match company, exchange, stock code and one trading friction using HKEX examples.
+- **Misconception check:** Every market purchase directly finances the company.
+- **Exit judgement:** Explain why a stock market matters while naming one friction or limitation before judging a trade.
 
 ### Source pack
 
@@ -253,7 +287,7 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 ## Lesson 3: Alibaba
 
 **Guiding question:** What can a stock quote tell us, and what is still missing?
-**Student hook:** A quote page looks like a dashboard. Which numbers actually help an investor?
+**Student hook:** A quote page shows Alibaba's price. Is that enough to decide?
 **Core claim:** A quote page is a dated market snapshot, not a promise of execution price or investment value.
 **Case role:** listed company
 **Primary output:** quote-label-and-spread-calculation - one labelled quote extract, bid-ask spread calculation and quote-limit sentence
@@ -261,10 +295,21 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 
 ### Simple lesson flow
 
-- **Hook:** A quote page looks like a dashboard. Which numbers actually help an investor?
-- **Key idea:** A quote page is a dated market snapshot, not a promise of execution price or investment value.
-- **Try it:** one labelled quote extract, bid-ask spread calculation and quote-limit sentence
-- **Decide:** I can use the Alibaba quote to say what changed, what is missing and what evidence I would check next. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** A quote page shows Alibaba's price. Is that enough to decide?
+- **Key idea:** A quote page is a dated market snapshot, not a promise of value or execution.
+- **Try it:** Read one quote snapshot and separate what it tells from what it cannot prove.
+- **Decide:** Write what the quote tells, what is missing and the next evidence to gather before judging Alibaba.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** A quote page shows Alibaba's price. Is that enough to decide?
+- **First judgement:** Students mark which quote-page items feel useful and which still leave questions.
+- **Likely naive answer:** The displayed price tells us whether the share is good or bad.
+- **Missing evidence:** Students need source date, time, bid/ask or spread context, price movement and business evidence beyond the quote.
+- **Key idea:** A quote page is a dated market snapshot, not a promise of value or execution.
+- **Try it:** Read one quote snapshot and separate what it tells from what it cannot prove.
+- **Misconception check:** A current quote is the same thing as investment value.
+- **Exit judgement:** Write what the quote tells, what is missing and the next evidence to gather before judging Alibaba.
 
 ### Source pack
 
@@ -346,7 +391,7 @@ Analyse why the evidence used in the Alibaba case could change an investor's jud
 ## Lesson 4: Xiaomi
 
 **Guiding question:** Does owning shares mean you control the company?
-**Student hook:** If you buy one share of a phone maker, how much power do you really get?
+**Student hook:** If you own one Xiaomi share, do you control Xiaomi?
 **Core claim:** A share is an ownership claim, but control depends on ownership size and shareholder rights.
 **Case role:** listed company
 **Primary output:** ownership-percentage-calculation - one ownership-percentage calculation and small-holder versus large-holder comparison
@@ -354,10 +399,21 @@ Analyse why the evidence used in the Alibaba case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** If you buy one share of a phone maker, how much power do you really get?
-- **Key idea:** A share is an ownership claim, but control depends on ownership size and shareholder rights.
-- **Try it:** one ownership-percentage calculation and small-holder versus large-holder comparison
-- **Decide:** I can explain what a Xiaomi shareholder owns and what one share does not allow them to control. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** If you own one Xiaomi share, do you control Xiaomi?
+- **Key idea:** A share is an ownership claim, but control depends on rights and ownership size.
+- **Try it:** Sort shareholder statements into gives, may give and does not give.
+- **Decide:** Explain what one Xiaomi share gives and what evidence is needed before claiming influence or control.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** If you own one Xiaomi share, do you control Xiaomi?
+- **First judgement:** Students vote on what one share gives: ownership, votes, dividends, control or guaranteed profit.
+- **Likely naive answer:** Owning shares means controlling the company.
+- **Missing evidence:** Students need ownership size, voting rights, share class and the difference between a claim and control.
+- **Key idea:** A share is an ownership claim, but control depends on rights and ownership size.
+- **Try it:** Sort shareholder statements into gives, may give and does not give.
+- **Misconception check:** Any shareholder can decide what the company does.
+- **Exit judgement:** Explain what one Xiaomi share gives and what evidence is needed before claiming influence or control.
 
 ### Source pack
 
@@ -439,7 +495,7 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 ## Lesson 5: JD.com
 
 **Guiding question:** How can one analyst collect evidence before judging a share?
-**Student hook:** A headline says the share moved. Can you build an evidence file before reacting?
+**Student hook:** JD.com's price moved. What evidence should an analyst collect before explaining it?
 **Core claim:** Useful evidence records source, date, figure, use and limitation before explaining a price movement.
 **Case role:** listed company
 **Primary output:** evidence-log-row - one complete evidence-log row plus one limited price-movement explanation
@@ -447,10 +503,21 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 
 ### Simple lesson flow
 
-- **Hook:** A headline says the share moved. Can you build an evidence file before reacting?
-- **Key idea:** Useful evidence records source, date, figure, use and limitation before explaining a price movement.
-- **Try it:** one complete evidence-log row plus one limited price-movement explanation
-- **Decide:** I can produce a JD.com evidence log and a short next action based on evidence quality. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** JD.com's price moved. What evidence should an analyst collect before explaining it?
+- **Key idea:** Useful evidence records source, date, figure, use and limitation before judgement.
+- **Try it:** Build a short JD.com evidence log and connect one item to one possible price explanation.
+- **Decide:** Write one evidence-before-judgement note that says what the evidence can and cannot prove.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** JD.com's price moved. What evidence should an analyst collect before explaining it?
+- **First judgement:** Students choose whether a single headline, chart or source log is the best starting point.
+- **Likely naive answer:** One story can explain the price movement.
+- **Missing evidence:** Students need source title, date, figure, use and limitation before explaining price movement.
+- **Key idea:** Useful evidence records source, date, figure, use and limitation before judgement.
+- **Try it:** Build a short JD.com evidence log and connect one item to one possible price explanation.
+- **Misconception check:** A confident explanation is enough even without source discipline.
+- **Exit judgement:** Write one evidence-before-judgement note that says what the evidence can and cannot prove.
 
 ### Source pack
 
@@ -532,12 +599,12 @@ Analyse why the evidence used in the JD.com case could change an investor's judg
 
 # Unit 2: Financial statements
 
-Revenue first, then direct costs, gross margin, operating margin, cash flow and fair comparison.
+Students test business strength claims with financial-statement evidence: revenue, costs, margin, cash flow and fair comparison.
 
 ## Lesson 6: Meituan
 
 **Guiding question:** Does high revenue mean a company is strong?
-**Student hook:** A company can sell a lot and still struggle. What is missing from revenue?
+**Student hook:** Meituan's revenue is high. Does that mean the company is strong?
 **Core claim:** Revenue shows sales scale, not profit strength or investment quality by itself.
 **Case role:** listed company
 **Primary output:** revenue-growth-calculation - one revenue-growth calculation and one limitation sentence
@@ -545,10 +612,21 @@ Revenue first, then direct costs, gross margin, operating margin, cash flow and 
 
 ### Simple lesson flow
 
-- **Hook:** A company can sell a lot and still struggle. What is missing from revenue?
+- **Hook:** Meituan's revenue is high. Does that mean the company is strong?
 - **Key idea:** Revenue shows sales scale, not profit strength or investment quality by itself.
-- **Try it:** one revenue-growth calculation and one limitation sentence
-- **Decide:** I can say whether Meituan revenue evidence is encouraging, weak or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Try it:** Interpret a revenue evidence point and identify one thing it cannot prove.
+- **Decide:** State whether Meituan evidence is improving, weakening, mixed or incomplete and name what to check next.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Meituan's revenue is high. Does that mean the company is strong?
+- **First judgement:** Students decide whether high revenue alone is enough and give one reason.
+- **Likely naive answer:** High revenue means a strong company.
+- **Missing evidence:** Students need costs, profit, margin, cash and business model evidence.
+- **Key idea:** Revenue shows sales scale, not profit strength or investment quality by itself.
+- **Try it:** Interpret a revenue evidence point and identify one thing it cannot prove.
+- **Misconception check:** Bigger sales automatically mean a better investment.
+- **Exit judgement:** State whether Meituan evidence is improving, weakening, mixed or incomplete and name what to check next.
 
 ### Source pack
 
@@ -630,7 +708,7 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 ## Lesson 7: BYD
 
 **Guiding question:** Can sales rise while costs become a problem?
-**Student hook:** Sales can race ahead while costs catch up. Would investors still be happy?
+**Student hook:** BYD's sales rise. Could costs still make the story weaker?
 **Core claim:** Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.
 **Case role:** listed company
 **Primary output:** margin-calculation - one gross-profit and gross-margin calculation with interpretation
@@ -638,10 +716,21 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** Sales can race ahead while costs catch up. Would investors still be happy?
-- **Key idea:** Rising sales can hide cost pressure, so gross profit and gross margin show what remains after direct costs.
-- **Try it:** one gross-profit and gross-margin calculation with interpretation
-- **Decide:** I can use BYD figures to decide whether the cost story needs watch, concern or more evidence.
+- **Hook:** BYD's sales rise. Could costs still make the story weaker?
+- **Key idea:** Rising sales can hide cost pressure, so gross profit and gross margin matter.
+- **Try it:** Calculate or interpret gross margin and explain what changed.
+- **Decide:** Write a BYD cost-pressure note with one margin result and one caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** BYD's sales rise. Could costs still make the story weaker?
+- **First judgement:** Students predict whether rising sales always improve profit.
+- **Likely naive answer:** More sales should always mean more profit.
+- **Missing evidence:** Students need direct costs, gross profit and gross margin.
+- **Key idea:** Rising sales can hide cost pressure, so gross profit and gross margin matter.
+- **Try it:** Calculate or interpret gross margin and explain what changed.
+- **Misconception check:** Sales growth solves the cost problem automatically.
+- **Exit judgement:** Write a BYD cost-pressure note with one margin result and one caveat.
 
 ### Source pack
 
@@ -723,7 +812,7 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 ## Lesson 8: CATL
 
 **Guiding question:** Which company turns sales into profit more efficiently?
-**Student hook:** Two battery companies can both grow. Which one keeps more profit from sales?
+**Student hook:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
 **Core claim:** Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.
 **Case role:** comparison case
 **Primary output:** margin-comparison-sentence - one fair comparison sentence naming metric, direction and percentage-point difference
@@ -731,10 +820,21 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 
 ### Simple lesson flow
 
-- **Hook:** Two battery companies can both grow. Which one keeps more profit from sales?
-- **Key idea:** Efficiency comparison needs aligned metrics, time periods and percentage-point discipline.
-- **Try it:** one fair comparison sentence naming metric, direction and percentage-point difference
-- **Decide:** I can compare CATL margin evidence and state which company looks stronger on efficiency.
+- **Hook:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
+- **Key idea:** Efficiency comparison needs aligned metrics, time periods and margin evidence.
+- **Try it:** Compare margins using the same period and explain the efficiency difference.
+- **Decide:** Write one CATL efficiency comparison with dated evidence and one limitation.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
+- **First judgement:** Students choose the stronger company using only a first glance, then test the choice.
+- **Likely naive answer:** The company with larger sales is more efficient.
+- **Missing evidence:** Students need aligned time periods, margin calculations and percentage-point discipline.
+- **Key idea:** Efficiency comparison needs aligned metrics, time periods and margin evidence.
+- **Try it:** Compare margins using the same period and explain the efficiency difference.
+- **Misconception check:** Bigger revenue is the same as better efficiency.
+- **Exit judgement:** Write one CATL efficiency comparison with dated evidence and one limitation.
 
 ### Source pack
 
@@ -816,7 +916,7 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 ## Lesson 9: Tesla
 
 **Guiding question:** Why can a growing company still need cash?
-**Student hook:** Growth stories sound exciting. Why might cash still be the problem?
+**Student hook:** Tesla can grow and still need cash. How can that happen?
 **Core claim:** Profit and cash flow answer different questions, and growth can still require cash investment.
 **Case role:** listed company
 **Primary output:** free-cash-flow-calculation - one free-cash-flow calculation and profit-versus-cash explanation
@@ -824,10 +924,21 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 
 ### Simple lesson flow
 
-- **Hook:** Growth stories sound exciting. Why might cash still be the problem?
-- **Key idea:** Profit and cash flow answer different questions, and growth can still require cash investment.
-- **Try it:** one free-cash-flow calculation and profit-versus-cash explanation
-- **Decide:** I can judge whether Tesla growth evidence is supported or weakened by cash-flow evidence. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Tesla can grow and still need cash. How can that happen?
+- **Key idea:** Profit and cash flow answer different questions.
+- **Try it:** Interpret a cash-flow statement item and state what it can and cannot prove.
+- **Decide:** Write a Tesla cash-flow caution with one figure or caveat and the next evidence to gather.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Tesla can grow and still need cash. How can that happen?
+- **First judgement:** Students decide whether profit and cash mean the same thing.
+- **Likely naive answer:** If a company is profitable, cash should not be a problem.
+- **Missing evidence:** Students need operating cash flow, investment spending, timing and growth needs.
+- **Key idea:** Profit and cash flow answer different questions.
+- **Try it:** Interpret a cash-flow statement item and state what it can and cannot prove.
+- **Misconception check:** Profit automatically means enough cash.
+- **Exit judgement:** Write a Tesla cash-flow caution with one figure or caveat and the next evidence to gather.
 
 ### Source pack
 
@@ -909,7 +1020,7 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 ## Lesson 10: TSMC
 
 **Guiding question:** What makes one strong company look stronger than another?
-**Student hook:** Two excellent companies enter the comparison. What makes one look stronger?
+**Student hook:** TSMC looks strong. What makes one strong company look stronger than another?
 **Core claim:** A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.
 **Case role:** comparison case
 **Primary output:** comparison-paragraph - one scale-trend-margin-cash comparison paragraph using figures from both sides
@@ -917,10 +1028,21 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 
 ### Simple lesson flow
 
-- **Hook:** Two excellent companies enter the comparison. What makes one look stronger?
-- **Key idea:** A fair strong-company comparison uses aligned evidence about scale, trend, margin and cash.
-- **Try it:** one scale-trend-margin-cash comparison paragraph using figures from both sides
-- **Decide:** I can compare TSMC with another company and justify which evidence is stronger.
+- **Hook:** TSMC looks strong. What makes one strong company look stronger than another?
+- **Key idea:** A fair strong-company comparison uses aligned evidence, not reputation alone.
+- **Try it:** Complete a side-by-side comparison using the same categories and dates.
+- **Decide:** Write a TSMC comparison verdict with one strength, one limit and a next action.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** TSMC looks strong. What makes one strong company look stronger than another?
+- **First judgement:** Students pick the stronger company from a quick comparison and then list missing fair-comparison checks.
+- **Likely naive answer:** The bigger or more famous company is stronger.
+- **Missing evidence:** Students need scale, trend, margin, cash and aligned dates.
+- **Key idea:** A fair strong-company comparison uses aligned evidence, not reputation alone.
+- **Try it:** Complete a side-by-side comparison using the same categories and dates.
+- **Misconception check:** Fame or size is enough for a fair comparison.
+- **Exit judgement:** Write a TSMC comparison verdict with one strength, one limit and a next action.
 
 ### Source pack
 
@@ -1002,12 +1124,12 @@ Analyse why the evidence used in the TSMC case could change an investor's judgem
 
 # Unit 3: Returns and valuation
 
-Capital gains, dividends, market value, EPS, P/E, valuation risk and the basic risk-return trade-off.
+Students judge return and valuation evidence: capital gains, dividends, market value, EPS, P/E, price risk and the basic risk-return trade-off.
 
 ## Lesson 11: Apple
 
 **Guiding question:** How does a share make or lose money for an investor?
-**Student hook:** A share can reward or hurt an investor. Where exactly does the return come from?
+**Student hook:** Apple's share price changed. How much did the investor really gain or lose?
 **Core claim:** Investor return depends on gain or loss relative to the purchase price, not only the money change.
 **Case role:** listed company
 **Primary output:** return-calculation - gain, loss and return-percentage calculations
@@ -1015,10 +1137,21 @@ Capital gains, dividends, market value, EPS, P/E, valuation risk and the basic r
 
 ### Simple lesson flow
 
-- **Hook:** A share can reward or hurt an investor. Where exactly does the return come from?
-- **Key idea:** Investor return depends on gain or loss relative to the purchase price, not only the money change.
-- **Try it:** gain, loss and return-percentage calculations
-- **Decide:** I can calculate Apple price return and state what it does not prove. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Apple's share price changed. How much did the investor really gain or lose?
+- **Key idea:** Investor return depends on gain or loss relative to the purchase price.
+- **Try it:** Calculate a percentage return and explain the first risk-return trade-off.
+- **Decide:** Write an Apple return statement that includes possible gain, possible loss and risk.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Apple's share price changed. How much did the investor really gain or lose?
+- **First judgement:** Students compare a money gain with a percentage return.
+- **Likely naive answer:** The larger money change is always the better return.
+- **Missing evidence:** Students need purchase price, selling price, percentage return and loss risk.
+- **Key idea:** Investor return depends on gain or loss relative to the purchase price.
+- **Try it:** Calculate a percentage return and explain the first risk-return trade-off.
+- **Misconception check:** Higher possible return means guaranteed better result.
+- **Exit judgement:** Write an Apple return statement that includes possible gain, possible loss and risk.
 
 ### Source pack
 
@@ -1100,7 +1233,7 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 ## Lesson 12: HSBC
 
 **Guiding question:** Why might an investor like dividends?
-**Student hook:** Some investors like cash income. When does a dividend help the case?
+**Student hook:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
 **Core claim:** Dividends add income, but yield and total return depend on the price paid.
 **Case role:** listed company
 **Primary output:** dividend-yield-calculation - one dividend-yield calculation and two-investor comparison
@@ -1108,10 +1241,21 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 
 ### Simple lesson flow
 
-- **Hook:** Some investors like cash income. When does a dividend help the case?
-- **Key idea:** Dividends add income, but yield and total return depend on the price paid.
-- **Try it:** one dividend-yield calculation and two-investor comparison
-- **Decide:** I can use HSBC dividend evidence to decide whether income improves or weakens the case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
+- **Key idea:** Dividends add income, but yield and total return depend on price and risk.
+- **Try it:** Calculate or interpret dividend yield and explain one limitation.
+- **Decide:** Write an HSBC dividend note that separates income attraction from risk.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
+- **First judgement:** Students rank dividend yield, dividend safety and total return as evidence.
+- **Likely naive answer:** A higher dividend yield is automatically better.
+- **Missing evidence:** Students need price paid, dividend sustainability, total return and business risk.
+- **Key idea:** Dividends add income, but yield and total return depend on price and risk.
+- **Try it:** Calculate or interpret dividend yield and explain one limitation.
+- **Misconception check:** Dividends are guaranteed income.
+- **Exit judgement:** Write an HSBC dividend note that separates income attraction from risk.
 
 ### Source pack
 
@@ -1193,7 +1337,7 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 ## Lesson 13: Nvidia
 
 **Guiding question:** How can one company be worth so much?
-**Student hook:** How can one company become worth so much money?
+**Student hook:** Nvidia's share price is high. Does that mean it is the biggest company?
 **Core claim:** Market capitalisation combines one-share price and share count; share price alone is not company size.
 **Case role:** listed company
 **Primary output:** market-cap-calculation - one simplified market-cap calculation and limitation sentence
@@ -1201,10 +1345,21 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 
 ### Simple lesson flow
 
-- **Hook:** How can one company become worth so much money?
-- **Key idea:** Market capitalisation combines one-share price and share count; share price alone is not company size.
-- **Try it:** one simplified market-cap calculation and limitation sentence
-- **Decide:** I can explain what Nvidia market value suggests and what evidence must support it. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Nvidia's share price is high. Does that mean it is the biggest company?
+- **Key idea:** Market capitalisation combines one-share price and share count.
+- **Try it:** Calculate or interpret market capitalisation and compare company scale.
+- **Decide:** Write a Nvidia scale statement that uses market capitalisation and one caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Nvidia's share price is high. Does that mean it is the biggest company?
+- **First judgement:** Students compare two companies using share price alone, then add share count.
+- **Likely naive answer:** The company with the higher share price is worth more.
+- **Missing evidence:** Students need shares outstanding, share price and market capitalisation.
+- **Key idea:** Market capitalisation combines one-share price and share count.
+- **Try it:** Calculate or interpret market capitalisation and compare company scale.
+- **Misconception check:** Share price alone measures company size.
+- **Exit judgement:** Write a Nvidia scale statement that uses market capitalisation and one caveat.
 
 ### Source pack
 
@@ -1286,7 +1441,7 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 ## Lesson 14: Microsoft
 
 **Guiding question:** When do investors pay a high price for profit?
-**Student hook:** Would you pay a high price for each dollar of profit?
+**Student hook:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
 **Core claim:** A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.
 **Case role:** listed company
 **Primary output:** pe-interpretation - one P/E interpretation giving both optimism and risk as possible meanings
@@ -1294,10 +1449,21 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 
 ### Simple lesson flow
 
-- **Hook:** Would you pay a high price for each dollar of profit?
-- **Key idea:** A P/E ratio can signal optimism, risk or both; it is not a mechanical buy/sell rule.
-- **Try it:** one P/E interpretation giving both optimism and risk as possible meanings
-- **Decide:** I can use Microsoft P/E evidence to write a price-for-profit judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
+- **Key idea:** A P/E ratio can signal expectations, risk or both.
+- **Try it:** Interpret a P/E ratio and connect it to expectations and evidence limits.
+- **Decide:** Write a Microsoft valuation caution with one expectation and one risk.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
+- **First judgement:** Students vote whether a high P/E is good, bad or unclear.
+- **Likely naive answer:** A high P/E ratio gives a simple buy or sell answer.
+- **Missing evidence:** Students need earnings, price, growth expectations and risk context.
+- **Key idea:** A P/E ratio can signal expectations, risk or both.
+- **Try it:** Interpret a P/E ratio and connect it to expectations and evidence limits.
+- **Misconception check:** One valuation ratio is a mechanical decision rule.
+- **Exit judgement:** Write a Microsoft valuation caution with one expectation and one risk.
 
 ### Source pack
 
@@ -1379,7 +1545,7 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 ## Lesson 15: Toyota
 
 **Guiding question:** Can a good company still be too expensive?
-**Student hook:** Can a company be good but still not worth buying today?
+**Student hook:** Toyota is a good company. Could it still be too expensive?
 **Core claim:** A good company only becomes an attractive investment when quality is judged with price and risk.
 **Case role:** synthesis case
 **Primary output:** two-point-valuation-answer - one two-point valuation answer linking quality, possible return, price paid and risk
@@ -1387,10 +1553,21 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 
 ### Simple lesson flow
 
-- **Hook:** Can a company be good but still not worth buying today?
-- **Key idea:** A good company only becomes an attractive investment when quality is judged with price and risk.
-- **Try it:** one two-point valuation answer linking quality, possible return, price paid and risk
-- **Decide:** I can write a Toyota valuation-risk note: consider, watch or too expensive.
+- **Hook:** Toyota is a good company. Could it still be too expensive?
+- **Key idea:** A good company only becomes attractive when quality is judged with price and risk.
+- **Try it:** Use several evidence cards to classify the case as attractive, risky, too expensive or incomplete.
+- **Decide:** Write a Toyota checkpoint verdict with evidence, caveat and next action.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Toyota is a good company. Could it still be too expensive?
+- **First judgement:** Students decide whether quality alone is enough, then add price and risk.
+- **Likely naive answer:** A good company is automatically a good investment.
+- **Missing evidence:** Students need quality, valuation, risk and alternative evidence together.
+- **Key idea:** A good company only becomes attractive when quality is judged with price and risk.
+- **Try it:** Use several evidence cards to classify the case as attractive, risky, too expensive or incomplete.
+- **Misconception check:** Quality removes valuation risk.
+- **Exit judgement:** Write a Toyota checkpoint verdict with evidence, caveat and next action.
 
 ### Source pack
 
@@ -1472,12 +1649,12 @@ Analyse why the evidence used in the Toyota case could change an investor's judg
 
 # Unit 4: Risk, portfolios and funds
 
-Company, sector, regulation, currency, ETF/index-fund and concentration risks.
+Students diagnose risk and fit: company, sector, regulation, currency, ETF/index-fund and concentration risks.
 
 ## Lesson 16: Starbucks
 
 **Guiding question:** What could hurt one familiar company?
-**Student hook:** A familiar brand feels safe. What could still go wrong?
+**Student hook:** Starbucks is familiar. What could still hurt it?
 **Core claim:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
 **Case role:** listed company
 **Primary output:** risk-chain - one risk to future revenue/profit to price-effect chain
@@ -1485,10 +1662,21 @@ Company, sector, regulation, currency, ETF/index-fund and concentration risks.
 
 ### Simple lesson flow
 
-- **Hook:** A familiar brand feels safe. What could still go wrong?
+- **Hook:** Starbucks is familiar. What could still hurt it?
 - **Key idea:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
-- **Try it:** one risk to future revenue/profit to price-effect chain
-- **Decide:** I can build a Starbucks risk register and choose one risk to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Try it:** Build a risk register with likelihood, impact and evidence.
+- **Decide:** Write a Starbucks risk note with one dated evidence item and one monitor.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Starbucks is familiar. What could still hurt it?
+- **First judgement:** Students list risks before seeing a formal risk register.
+- **Likely naive answer:** A familiar brand is a safe investment.
+- **Missing evidence:** Students need company-specific risk evidence about costs, demand, competition or execution.
+- **Key idea:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
+- **Try it:** Build a risk register with likelihood, impact and evidence.
+- **Misconception check:** Brand familiarity removes company-specific risk.
+- **Exit judgement:** Write a Starbucks risk note with one dated evidence item and one monitor.
 
 ### Source pack
 
@@ -1570,7 +1758,7 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 ## Lesson 17: Li Ning
 
 **Guiding question:** How can changing tastes affect a sportswear company?
-**Student hook:** Trends change fast. How can fashion taste become investment risk?
+**Student hook:** Changing tastes can help one sportswear company and hurt another. How?
 **Core claim:** The same consumer trend can help one company and hurt another within a sector.
 **Case role:** listed company
 **Primary output:** trend-impact-explanation - one explanation of how the same trend can help one company and hurt another
@@ -1579,10 +1767,21 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 
 ### Simple lesson flow
 
-- **Hook:** Trends change fast. How can fashion taste become investment risk?
-- **Key idea:** The same consumer trend can help one company and hurt another within a sector.
-- **Try it:** one explanation of how the same trend can help one company and hurt another
-- **Decide:** I can judge whether Li Ning sector evidence supports watch, avoid or consider.
+- **Hook:** Changing tastes can help one sportswear company and hurt another. How?
+- **Key idea:** The same consumer trend can create winners and losers within a sector.
+- **Try it:** Classify trend evidence as helpful, harmful or mixed for Li Ning.
+- **Decide:** Write a Li Ning sector-risk note with one trend, one company-specific effect and one caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Changing tastes can help one sportswear company and hurt another. How?
+- **First judgement:** Students decide whether a sector trend affects all firms equally.
+- **Likely naive answer:** A good trend helps every company in the sector in the same way.
+- **Missing evidence:** Students need brand position, competition, inventory, pricing and local demand evidence.
+- **Key idea:** The same consumer trend can create winners and losers within a sector.
+- **Try it:** Classify trend evidence as helpful, harmful or mixed for Li Ning.
+- **Misconception check:** Sector growth makes every company attractive.
+- **Exit judgement:** Write a Li Ning sector-risk note with one trend, one company-specific effect and one caveat.
 
 ### Source pack
 
@@ -1664,7 +1863,7 @@ Analyse why the evidence used in the Li Ning case could change an investor's jud
 ## Lesson 18: Ping An
 
 **Guiding question:** How can government rules affect future profit?
-**Student hook:** A rule change can rewrite a profit story. What should investors check?
+**Student hook:** A government rule changes. Why might Ping An shareholders care?
 **Core claim:** Regulation can change costs, revenue limits, risk profile and investor expectations.
 **Case role:** listed company
 **Primary output:** rule-change-classification - one rule-change classification with future-profit or price link
@@ -1673,10 +1872,21 @@ Analyse why the evidence used in the Li Ning case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** A rule change can rewrite a profit story. What should investors check?
-- **Key idea:** Regulation can change costs, revenue limits, risk profile and investor expectations.
-- **Try it:** one rule-change classification with future-profit or price link
-- **Decide:** I can explain one Ping An regulation risk and its investor implication. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** A government rule changes. Why might Ping An shareholders care?
+- **Key idea:** Regulation can change future profit and investor expectations.
+- **Try it:** Read a regulation-risk source and identify one business effect and one limitation.
+- **Decide:** Write a Ping An regulation-risk note with source date and one investor implication.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** A government rule changes. Why might Ping An shareholders care?
+- **First judgement:** Students decide whether regulation is outside the investor's analysis.
+- **Likely naive answer:** Rules are background information, not investment evidence.
+- **Missing evidence:** Students need how regulation can change costs, revenue limits, risk profile and expectations.
+- **Key idea:** Regulation can change future profit and investor expectations.
+- **Try it:** Read a regulation-risk source and identify one business effect and one limitation.
+- **Misconception check:** Only company decisions matter for shareholders.
+- **Exit judgement:** Write a Ping An regulation-risk note with source date and one investor implication.
 
 ### Source pack
 
@@ -1758,7 +1968,7 @@ Analyse why the evidence used in the Ping An case could change an investor's jud
 ## Lesson 19: Samsung
 
 **Guiding question:** Why can exchange rates matter to shareholders?
-**Student hook:** A company can perform well, but currency moves can change the result.
+**Student hook:** Samsung sells globally. Why can exchange rates matter to shareholders?
 **Core claim:** Exchange rates can create measurement and return risk for global companies and shareholders.
 **Case role:** listed company
 **Primary output:** exchange-rate-risk-calculation - one exchange-rate percentage-change calculation plus investor-risk explanation
@@ -1766,10 +1976,21 @@ Analyse why the evidence used in the Ping An case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** A company can perform well, but currency moves can change the result.
-- **Key idea:** Exchange rates can create measurement and return risk for global companies and shareholders.
-- **Try it:** one exchange-rate percentage-change calculation plus investor-risk explanation
-- **Decide:** I can add one Samsung currency-risk caveat to an investment judgement. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Samsung sells globally. Why can exchange rates matter to shareholders?
+- **Key idea:** Exchange rates can create measurement and return risk for global companies.
+- **Try it:** Interpret a simple currency scenario and state who benefits or loses.
+- **Decide:** Write a Samsung currency-risk note with one affected figure and one caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Samsung sells globally. Why can exchange rates matter to shareholders?
+- **First judgement:** Students judge whether currency changes matter if the company still sells products.
+- **Likely naive answer:** Exchange rates are only a travel or banking issue.
+- **Missing evidence:** Students need currency translation, revenue exposure, costs and shareholder return effects.
+- **Key idea:** Exchange rates can create measurement and return risk for global companies.
+- **Try it:** Interpret a simple currency scenario and state who benefits or loses.
+- **Misconception check:** Global sales remove currency risk.
+- **Exit judgement:** Write a Samsung currency-risk note with one affected figure and one caveat.
 
 ### Source pack
 
@@ -1851,7 +2072,7 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 ## Lesson 20: ChinaAMC CSI 300 ETF
 
 **Guiding question:** How can one fund hold many companies?
-**Student hook:** Instead of choosing one company, what happens if you buy a basket?
+**Student hook:** One ETF holds many companies. Is it automatically safe?
 **Core claim:** Diversification reduces company-specific risk but does not remove market, sector or fund risks.
 **Case role:** fund
 **Primary output:** etf-comparison - one ETF-versus-single-share comparison with weight, risk reduced and risk remaining
@@ -1859,10 +2080,21 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** Instead of choosing one company, what happens if you buy a basket?
-- **Key idea:** Diversification reduces company-specific risk but does not remove market, sector or fund risks.
-- **Try it:** one ETF-versus-single-share comparison with weight, risk reduced and risk remaining
-- **Decide:** I can judge whether the ChinaAMC CSI 300 ETF gives useful broad exposure or still needs caution. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** One ETF holds many companies. Is it automatically safe?
+- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+- **Try it:** Read a fund factsheet and identify exposure, cost and one remaining risk.
+- **Decide:** Write an ETF fit note that says what risk is reduced and what risk remains.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** One ETF holds many companies. Is it automatically safe?
+- **First judgement:** Students compare owning one company share with owning a fund basket.
+- **Likely naive answer:** Diversification removes risk.
+- **Missing evidence:** Students need holdings, index exposure, costs, tracking and concentration evidence.
+- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+- **Try it:** Read a fund factsheet and identify exposure, cost and one remaining risk.
+- **Misconception check:** Many holdings means no loss is possible.
+- **Exit judgement:** Write an ETF fit note that says what risk is reduced and what risk remains.
 
 ### Source pack
 
@@ -1944,12 +2176,12 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 
 # Unit 5: Sector case labs
 
-Platform, manufacturing, financial, consumer-brand and global comparison cases.
+Students run sector case labs where attractiveness must be balanced against evidence quality, price, risk and fair comparison.
 
 ## Lesson 21: Tencent
 
 **Guiding question:** What makes a platform company attractive or risky?
-**Student hook:** Platform companies look powerful. What makes that power durable or risky?
+**Student hook:** Tencent's platform is huge. Does that make it attractive, risky or both?
 **Core claim:** Platform network effects can be attractive, but price, competition and regulation still matter.
 **Case role:** synthesis case
 **Primary output:** attraction-risk-price-triangle - one attraction-risk-price triangle with one evidence point in each corner
@@ -1957,10 +2189,21 @@ Platform, manufacturing, financial, consumer-brand and global comparison cases.
 
 ### Simple lesson flow
 
-- **Hook:** Platform companies look powerful. What makes that power durable or risky?
-- **Key idea:** Platform network effects can be attractive, but price, competition and regulation still matter.
-- **Try it:** one attraction-risk-price triangle with one evidence point in each corner
-- **Decide:** I can write a Tencent platform verdict with one strength, one risk and one action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Tencent's platform is huge. Does that make it attractive, risky or both?
+- **Key idea:** A platform can create network strength and concentration risk at the same time.
+- **Try it:** Sort platform evidence into attractive, risky and incomplete.
+- **Decide:** Write a Tencent platform judgement with one attraction, one risk and a next action.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Tencent's platform is huge. Does that make it attractive, risky or both?
+- **First judgement:** Students write one attraction and one risk before seeing the evidence set.
+- **Likely naive answer:** A large platform is automatically attractive.
+- **Missing evidence:** Students need users, monetisation, margins, regulation, competition and valuation context.
+- **Key idea:** A platform can create network strength and concentration risk at the same time.
+- **Try it:** Sort platform evidence into attractive, risky and incomplete.
+- **Misconception check:** User scale alone proves investment quality.
+- **Exit judgement:** Write a Tencent platform judgement with one attraction, one risk and a next action.
 
 ### Source pack
 
@@ -2042,7 +2285,7 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 ## Lesson 22: BYD
 
 **Guiding question:** Is BYD attractive because it is strong, or because the price is fair?
-**Student hook:** Strength is not the same as a fair price. Which matters more for investors?
+**Student hook:** BYD looks strong. Is it attractive because it is strong, or because the price is fair?
 **Core claim:** Operational strength must be separated from fair price and manufacturing-cycle risk.
 **Case role:** synthesis case
 **Primary output:** strength-price-risk-matrix - one strength-price-risk evidence matrix separating business strength from investment attractiveness
@@ -2050,10 +2293,21 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 
 ### Simple lesson flow
 
-- **Hook:** Strength is not the same as a fair price. Which matters more for investors?
-- **Key idea:** Operational strength must be separated from fair price and manufacturing-cycle risk.
-- **Try it:** one strength-price-risk evidence matrix separating business strength from investment attractiveness
-- **Decide:** I can decide whether BYD is consider, watch or too expensive using strength and price evidence.
+- **Hook:** BYD looks strong. Is it attractive because it is strong, or because the price is fair?
+- **Key idea:** Strength becomes an investment case only when judged with price and risk.
+- **Try it:** Combine one strength metric and one valuation or risk clue.
+- **Decide:** Write a BYD strength-price-risk judgement with a defensible next action.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** BYD looks strong. Is it attractive because it is strong, or because the price is fair?
+- **First judgement:** Students choose strength evidence or price evidence as the missing piece.
+- **Likely naive answer:** A strong manufacturer is automatically worth buying.
+- **Missing evidence:** Students need manufacturing strength, margins, growth, valuation and risk together.
+- **Key idea:** Strength becomes an investment case only when judged with price and risk.
+- **Try it:** Combine one strength metric and one valuation or risk clue.
+- **Misconception check:** Business strength alone is enough for a buy judgement.
+- **Exit judgement:** Write a BYD strength-price-risk judgement with a defensible next action.
 
 ### Source pack
 
@@ -2135,7 +2389,7 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 ## Lesson 23: HSBC
 
 **Guiding question:** Why is analysing a bank different from analysing a tech company?
-**Student hook:** Banks are different machines. What makes their evidence different?
+**Student hook:** HSBC is a company, but is analysing a bank the same as analysing a tech company?
 **Core claim:** Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.
 **Case role:** synthesis case
 **Primary output:** bank-exception-note - one bank-evidence exception note explaining why an ordinary metric is insufficient
@@ -2144,10 +2398,21 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 
 ### Simple lesson flow
 
-- **Hook:** Banks are different machines. What makes their evidence different?
+- **Hook:** HSBC is a company, but is analysing a bank the same as analysing a tech company?
 - **Key idea:** Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.
-- **Try it:** one bank-evidence exception note explaining why an ordinary metric is insufficient
-- **Decide:** I can explain why HSBC needs a different investment checklist. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Try it:** Classify evidence as ordinary-company useful, bank-specific or misleading alone.
+- **Decide:** Write an HSBC bank-analysis note with one bank-specific evidence need.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** HSBC is a company, but is analysing a bank the same as analysing a tech company?
+- **First judgement:** Students sort ordinary company evidence and bank-specific evidence.
+- **Likely naive answer:** The same ratios work the same way for all companies.
+- **Missing evidence:** Students need bank-specific evidence such as interest rates, credit risk, capital, loans and deposits.
+- **Key idea:** Banks require bank-specific evidence, so ordinary company metrics can mislead if used alone.
+- **Try it:** Classify evidence as ordinary-company useful, bank-specific or misleading alone.
+- **Misconception check:** A bank can be analysed like any ordinary company with no adjustment.
+- **Exit judgement:** Write an HSBC bank-analysis note with one bank-specific evidence need.
 
 ### Source pack
 
@@ -2229,7 +2494,7 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 ## Lesson 24: Anta Sports
 
 **Guiding question:** How much is a strong brand worth to investors?
-**Student hook:** A brand can make customers pay more. Is that enough for investors?
+**Student hook:** Anta has a strong brand. How much is that worth to investors?
 **Core claim:** Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.
 **Case role:** synthesis case
 **Primary output:** brand-to-margin-map - one brand-to-margin evidence map with an inventory or demand limitation
@@ -2237,10 +2502,21 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 
 ### Simple lesson flow
 
-- **Hook:** A brand can make customers pay more. Is that enough for investors?
-- **Key idea:** Brand strength matters only when it connects to pricing power, margins and inventory or demand limits.
-- **Try it:** one brand-to-margin evidence map with an inventory or demand limitation
-- **Decide:** I can judge whether Anta brand evidence improves the investment case. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Anta has a strong brand. How much is that worth to investors?
+- **Key idea:** Brand strength matters only when it connects to financial evidence and demand limits.
+- **Try it:** Link one brand clue to one margin, pricing or inventory implication.
+- **Decide:** Write an Anta brand-value note with one financial link and one limitation.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Anta has a strong brand. How much is that worth to investors?
+- **First judgement:** Students decide whether brand popularity alone is investment evidence.
+- **Likely naive answer:** A popular brand must be valuable for shareholders.
+- **Missing evidence:** Students need pricing power, margins, demand, inventory and competition evidence.
+- **Key idea:** Brand strength matters only when it connects to financial evidence and demand limits.
+- **Try it:** Link one brand clue to one margin, pricing or inventory implication.
+- **Misconception check:** Brand liking is the same as investment value.
+- **Exit judgement:** Write an Anta brand-value note with one financial link and one limitation.
 
 ### Source pack
 
@@ -2322,7 +2598,7 @@ Analyse why the evidence used in the Anta Sports case could change an investor's
 ## Lesson 25: Nike
 
 **Guiding question:** How can we compare a global brand with a China/HK brand?
-**Student hook:** Global brand or China/HK brand: how do we compare fairly?
+**Student hook:** Nike is global and Anta is China/HK focused. How can we compare them fairly?
 **Core claim:** Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.
 **Case role:** comparison case
 **Primary output:** comparable-company-row - one comparable-company alignment row plus fair comparison paragraph
@@ -2330,10 +2606,21 @@ Analyse why the evidence used in the Anta Sports case could change an investor's
 
 ### Simple lesson flow
 
-- **Hook:** Global brand or China/HK brand: how do we compare fairly?
-- **Key idea:** Fair company comparison requires aligned metrics, dates, currencies and local/global risk context.
-- **Try it:** one comparable-company alignment row plus fair comparison paragraph
-- **Decide:** I can compare Nike and Anta and state the better-supported classroom action.
+- **Hook:** Nike is global and Anta is China/HK focused. How can we compare them fairly?
+- **Key idea:** Fair company comparison requires aligned evidence and local/global context.
+- **Try it:** Complete a comparison matrix with date, currency and market caveats.
+- **Decide:** Write a Nike-versus-Anta comparison judgement with one fairness caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Nike is global and Anta is China/HK focused. How can we compare them fairly?
+- **First judgement:** Students choose a winner quickly, then list what makes the comparison unfair.
+- **Likely naive answer:** The global brand is automatically the stronger investment.
+- **Missing evidence:** Students need aligned metrics, dates, currencies, markets and risk context.
+- **Key idea:** Fair company comparison requires aligned evidence and local/global context.
+- **Try it:** Complete a comparison matrix with date, currency and market caveats.
+- **Misconception check:** A famous global brand always wins the comparison.
+- **Exit judgement:** Write a Nike-versus-Anta comparison judgement with one fairness caveat.
 
 ### Source pack
 
@@ -2415,12 +2702,12 @@ Analyse why the evidence used in the Nike case could change an investor's judgem
 
 # Unit 6: Synthesis case labs
 
-Recovery, operating leverage, app monetisation, debt risk and final quality-price-risk judgement.
+Students synthesize the course into recovery, operating leverage, monetisation, leverage risk and final quality-price-risk memos.
 
 ## Lesson 26: Haidilao
 
 **Guiding question:** Can a restaurant company recover after a difficult period?
-**Student hook:** A restaurant recovers after a difficult period. Is recovery enough?
+**Student hook:** Haidilao had a difficult period. Can a restaurant company really recover?
 **Core claim:** Recovery judgement needs enough evidence across operations, stores, revenue and profitability.
 **Case role:** synthesis case
 **Primary output:** recovery-verdict - one red/amber/green recovery verdict explaining the evidence gap
@@ -2429,10 +2716,21 @@ Recovery, operating leverage, app monetisation, debt risk and final quality-pric
 
 ### Simple lesson flow
 
-- **Hook:** A restaurant recovers after a difficult period. Is recovery enough?
+- **Hook:** Haidilao had a difficult period. Can a restaurant company really recover?
 - **Key idea:** Recovery judgement needs enough evidence across operations, stores, revenue and profitability.
-- **Try it:** one red/amber/green recovery verdict explaining the evidence gap
-- **Decide:** I can decide whether Haidilao recovery evidence supports consider, watch or avoid.
+- **Try it:** Build a recovery evidence table with improving, weak and incomplete signs.
+- **Decide:** Write a Haidilao recovery verdict with evidence, caveat and next action.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Haidilao had a difficult period. Can a restaurant company really recover?
+- **First judgement:** Students decide whether busy stores or brand memory are enough evidence of recovery.
+- **Likely naive answer:** If customers return, the company has recovered.
+- **Missing evidence:** Students need operations, store network, revenue, margins, cash and profitability evidence.
+- **Key idea:** Recovery judgement needs enough evidence across operations, stores, revenue and profitability.
+- **Try it:** Build a recovery evidence table with improving, weak and incomplete signs.
+- **Misconception check:** A visible rebound proves a complete recovery.
+- **Exit judgement:** Write a Haidilao recovery verdict with evidence, caveat and next action.
 
 ### Source pack
 
@@ -2514,7 +2812,7 @@ Analyse why the evidence used in the Haidilao case could change an investor's ju
 ## Lesson 27: Trip.com
 
 **Guiding question:** Why can travel companies rise and fall with the economy?
-**Student hook:** Travel demand can surge or disappear. How does that change investment risk?
+**Student hook:** Travel demand rises. Why might Trip.com's profit rise or fall faster than revenue?
 **Core claim:** Cyclical demand can make operating profit move faster than revenue through operating leverage.
 **Case role:** synthesis case
 **Primary output:** operating-leverage-chain - one operating-leverage chain diagram linking demand, revenue, operating profit and margin
@@ -2522,10 +2820,21 @@ Analyse why the evidence used in the Haidilao case could change an investor's ju
 
 ### Simple lesson flow
 
-- **Hook:** Travel demand can surge or disappear. How does that change investment risk?
+- **Hook:** Travel demand rises. Why might Trip.com's profit rise or fall faster than revenue?
 - **Key idea:** Cyclical demand can make operating profit move faster than revenue through operating leverage.
-- **Try it:** one operating-leverage chain diagram linking demand, revenue, operating profit and margin
-- **Decide:** I can write a Trip.com cycle-risk action with one indicator to monitor. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Try it:** Interpret a revenue-profit change and explain the operating leverage chain.
+- **Decide:** Write a Trip.com cycle-risk note with one operating leverage implication.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Travel demand rises. Why might Trip.com's profit rise or fall faster than revenue?
+- **First judgement:** Students predict whether revenue and profit should move at the same speed.
+- **Likely naive answer:** Profit should move roughly the same as revenue.
+- **Missing evidence:** Students need fixed costs, variable costs, operating leverage and cyclical demand evidence.
+- **Key idea:** Cyclical demand can make operating profit move faster than revenue through operating leverage.
+- **Try it:** Interpret a revenue-profit change and explain the operating leverage chain.
+- **Misconception check:** Revenue growth and profit growth are the same thing.
+- **Exit judgement:** Write a Trip.com cycle-risk note with one operating leverage implication.
 
 ### Source pack
 
@@ -2607,7 +2916,7 @@ Analyse why the evidence used in the Trip.com case could change an investor's ju
 ## Lesson 28: Kuaishou
 
 **Guiding question:** How does a free app turn users into revenue?
-**Student hook:** Millions of users are impressive. How does that become money?
+**Student hook:** Kuaishou is free to use. How does a free app become investment evidence?
 **Core claim:** User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.
 **Case role:** synthesis case
 **Primary output:** monetisation-ladder - one monetisation ladder plus ARPU calculation and limitation sentence
@@ -2615,10 +2924,21 @@ Analyse why the evidence used in the Trip.com case could change an investor's ju
 
 ### Simple lesson flow
 
-- **Hook:** Millions of users are impressive. How does that become money?
-- **Key idea:** User growth becomes investment evidence only when linked to monetisation, revenue and profit limits.
-- **Try it:** one monetisation ladder plus ARPU calculation and limitation sentence
-- **Decide:** I can judge whether Kuaishou user and ARPU evidence is attractive, risky or incomplete. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Kuaishou is free to use. How does a free app become investment evidence?
+- **Key idea:** User growth becomes investment evidence only when linked to monetisation and profit limits.
+- **Try it:** Map users to revenue streams and identify one missing profitability check.
+- **Decide:** Write a Kuaishou monetisation note with one evidence link and one caveat.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Kuaishou is free to use. How does a free app become investment evidence?
+- **First judgement:** Students decide whether user growth alone is enough evidence.
+- **Likely naive answer:** More users automatically mean a better investment.
+- **Missing evidence:** Students need monetisation, advertising, e-commerce, user engagement, revenue and profit limits.
+- **Key idea:** User growth becomes investment evidence only when linked to monetisation and profit limits.
+- **Try it:** Map users to revenue streams and identify one missing profitability check.
+- **Misconception check:** Free-app popularity automatically creates shareholder value.
+- **Exit judgement:** Write a Kuaishou monetisation note with one evidence link and one caveat.
 
 ### Source pack
 
@@ -2700,7 +3020,7 @@ Analyse why the evidence used in the Kuaishou case could change an investor's ju
 ## Lesson 29: Lenovo
 
 **Guiding question:** When does borrowing become a risk for shareholders?
-**Student hook:** Borrowing can power growth or increase danger. Where is the line?
+**Student hook:** Lenovo borrows money. When does borrowing become a shareholder risk?
 **Core claim:** Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.
 **Case role:** synthesis case
 **Primary output:** leverage-benefit-risk-note - one leverage benefit-risk note with a simple ratio only if figures are clear
@@ -2709,10 +3029,21 @@ Analyse why the evidence used in the Kuaishou case could change an investor's ju
 
 ### Simple lesson flow
 
-- **Hook:** Borrowing can power growth or increase danger. Where is the line?
-- **Key idea:** Borrowing can fund growth but also raises shareholder risk through fixed obligations and leverage.
-- **Try it:** one leverage benefit-risk note with a simple ratio only if figures are clear
-- **Decide:** I can write a Lenovo debt-risk action with one ratio or caveat. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Hook:** Lenovo borrows money. When does borrowing become a shareholder risk?
+- **Key idea:** Borrowing can fund growth but also raises fixed obligations and shareholder risk.
+- **Try it:** Interpret or calculate a debt-risk measure and connect it to one caveat.
+- **Decide:** Write a Lenovo leverage-risk action with one ratio or caveat and a next step.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Lenovo borrows money. When does borrowing become a shareholder risk?
+- **First judgement:** Students vote whether debt is always good, always bad or depends on evidence.
+- **Likely naive answer:** Debt is either automatically dangerous or automatically useful.
+- **Missing evidence:** Students need debt level, equity, cash flow, obligations and leverage context.
+- **Key idea:** Borrowing can fund growth but also raises fixed obligations and shareholder risk.
+- **Try it:** Interpret or calculate a debt-risk measure and connect it to one caveat.
+- **Misconception check:** Debt alone gives a simple good/bad judgement.
+- **Exit judgement:** Write a Lenovo leverage-risk action with one ratio or caveat and a next step.
 
 ### Source pack
 
@@ -2794,7 +3125,7 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 ## Lesson 30: Costco
 
 **Guiding question:** Can a steady business still be a bad investment at the wrong price?
-**Student hook:** A steady business feels safe. Could the price still make it a bad investment?
+**Student hook:** Costco is steady and high quality. Could it still be a bad investment at the wrong price?
 **Core claim:** A quality defensive business can still be a poor investment if the price already assumes too much good news.
 **Case role:** synthesis case
 **Primary output:** quality-price-risk-memo - one final quality-price-risk memo using dated evidence with dated evidence and caveats
@@ -2802,10 +3133,21 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 
 ### Simple lesson flow
 
-- **Hook:** A steady business feels safe. Could the price still make it a bad investment?
+- **Hook:** Costco is steady and high quality. Could it still be a bad investment at the wrong price?
 - **Key idea:** A quality defensive business can still be a poor investment if the price already assumes too much good news.
-- **Try it:** one final quality-price-risk memo using dated evidence with dated evidence and caveats
-- **Decide:** I can write a Costco final memo with dated evidence, caveats and a defensible next action. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Try it:** Write the final quality-price-risk memo using dated evidence and caveats.
+- **Decide:** Write a final Costco memo with a defensible next action: consider, watch, avoid, compare or gather more evidence.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** Costco is steady and high quality. Could it still be a bad investment at the wrong price?
+- **First judgement:** Students decide whether quality, price or risk should dominate the final memo.
+- **Likely naive answer:** A high-quality defensive business is always a good investment.
+- **Missing evidence:** Students need the full quality, return, valuation, risk and alternative evidence chain.
+- **Key idea:** A quality defensive business can still be a poor investment if the price already assumes too much good news.
+- **Try it:** Write the final quality-price-risk memo using dated evidence and caveats.
+- **Misconception check:** Defensive quality removes price risk.
+- **Exit judgement:** Write a final Costco memo with a defensible next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Source pack
 

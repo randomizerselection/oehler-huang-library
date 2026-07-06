@@ -4,7 +4,7 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../course-map-data.js` before drafting the lesson. It is the standard course-level source for the company-analysis case anchor, student hook, simple lesson flow, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investing action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
+Also check `../course-map-data.js` before drafting the lesson. It is the standard course-level source for the company-analysis case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investing action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
 
 Generator context:
 
@@ -12,7 +12,7 @@ Generator context:
 - Use `--syllabus company-analysis` only as an explicit alias for the standard company-analysis syllabus.
 - Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
 - Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
-- The generator context is a contract, not optional background: preserve the `studentHook`, `simpleFlow`, `primaryOutput`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
 
 Required files:
 
@@ -22,14 +22,15 @@ Required files:
 
 Classroom rhythm:
 
-1. Student hook from `studentHook`.
-2. Simple visible rhythm from `simpleFlow`: Hook, Key idea, Try it, Decide.
-3. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
-4. Exactly three bilingual objectives.
-5. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
-6. Output rehearsal using the lesson `primaryOutput`.
-7. Practical investing action using the lesson `investmentAction`.
-8. Exit ticket, then follow-up quiz.
+1. Starter dilemma from `decisionFirst.starterDilemma`; this should be the visible student hook.
+2. First judgement from `decisionFirst.firstJudgementPrompt`; capture the quick vote, reason, ranking or classification before teaching.
+3. Simple visible rhythm from `simpleFlow`: Hook, Key idea, Try it, Decide.
+4. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
+5. Exactly three bilingual objectives.
+6. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
+7. Output rehearsal using the lesson `primaryOutput`.
+8. Practical investing action using the lesson `investmentAction`.
+9. Exit ticket, then follow-up quiz.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
 
@@ -66,7 +67,9 @@ Syllabus alignment:
 
 - Center each lesson on the investment case anchor named in `course-map-data.js` unless the structured course map itself is intentionally revised.
 - Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
-- Keep the visible student structure simple and interesting: use `studentHook` and the four `simpleFlow` steps before adding detailed source, retrieval or exam work.
+- Keep the visible student structure simple and interesting: use `decisionFirst`, `studentHook` and the four `simpleFlow` steps before adding detailed source, retrieval or exam work.
+- Use `decisionFirst.missingEvidence` to choose the lesson's first evidence source, calculation, classification or definition; do not begin with a broad topic overview when the contract gives a narrower missing-evidence problem.
+- Use `decisionFirst.misconceptionCheck` and `decisionFirst.exitJudgement` as the minimum assessment thread for the deck, handout and quiz.
 - Start from the lesson `coreClaim`, `primaryOutput`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint`; do not invent a separate deck, handout or exam objective.
 - Include the lesson `investmentAction` so students finish by choosing a justified next action such as consider, watch, avoid, compare with another choice or gather more evidence.
 - Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.

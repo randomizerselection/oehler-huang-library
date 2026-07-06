@@ -63,6 +63,20 @@
     `;
   }
 
+  function renderDecisionFirstModel() {
+    const grid = document.querySelector("[data-decision-first-model]");
+    const model = courseMap && courseMap.decisionFirstSyllabus;
+    if (!grid || !model || !Array.isArray(model.lessonContract)) return;
+
+    grid.innerHTML = model.lessonContract.map((item, index) => `
+      <article class="investment-card">
+        <span class="code">${index + 1}</span>
+        <h3>${escapeHtml(item.split(":")[0])}</h3>
+        <p>${escapeHtml(item)}</p>
+      </article>
+    `).join("");
+  }
+
   function renderInvestmentWorkflow() {
     const grid = document.querySelector("[data-investment-workflow]");
     if (!grid || !courseMap || !Array.isArray(courseMap.investmentWorkflow)) return;
@@ -107,6 +121,22 @@
     `;
   }
 
+  function renderDecisionFirst(lesson) {
+    const decision = lesson.decisionFirst;
+    if (!decision) return "";
+    return `
+      <div class="investment-lesson-action" aria-label="Lesson ${lesson.lesson} decision-first teaching contract">
+        <p><strong>Starter dilemma:</strong> ${escapeHtml(decision.starterDilemma)}</p>
+        <ul>
+          <li><strong>First judgement:</strong> ${escapeHtml(decision.firstJudgementPrompt)}</li>
+          <li><strong>Missing evidence:</strong> ${escapeHtml(decision.missingEvidence)}</li>
+          <li><strong>Misconception check:</strong> ${escapeHtml(decision.misconceptionCheck)}</li>
+          <li><strong>Exit judgement:</strong> ${escapeHtml(decision.exitJudgement)}</li>
+        </ul>
+      </div>
+    `;
+  }
+
   function renderKeyTermsPreview(terms = []) {
     const preview = terms.slice(0, 3).map((term) => term.term).join(", ");
     const extra = terms.length > 3 ? ` + ${terms.length - 3} more` : "";
@@ -120,19 +150,16 @@
     tbody.innerHTML = courseMap.lessons.map((lesson) => `
       <tr>
         <th scope="row">${lesson.lesson}<br><span>${escapeHtml(lesson.company)}</span></th>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.starterDilemma)}</td>
         <td><span class="investment-generator-title">${escapeHtml(lesson.guidingQuestion)}</span><span class="investment-generator-title-zh" lang="zh-Hans">${escapeHtml(lesson.guidingQuestionZh)}</span></td>
-        <td>${renderTermsForTable(lesson.terms)}</td>
-        <td>${escapeHtml(lesson.handoutMaterial)}</td>
-        <td>${escapeHtml(lesson.formativeAssessment)}</td>
-        <td>${escapeHtml(lesson.exitTicket)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.firstJudgementPrompt)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.missingEvidence)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.keyIdea)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.tryIt)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.misconceptionCheck)}</td>
+        <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.exitJudgement)}</td>
         <td>${escapeHtml(lesson.investmentAction && lesson.investmentAction.studentAction)}</td>
-        <td>${escapeHtml(lesson.sequenceRole)}</td>
-        <td>${escapeHtml(lesson.retrievalBase)}</td>
-        <td>${escapeHtml(lesson.newKnowledge)}</td>
-        <td>${escapeHtml(lesson.evidenceTask)}</td>
         <td>${escapeHtml(lesson.avoidOverlap)}</td>
-        <td>${escapeHtml(lesson.misconception)}</td>
-        <td>${escapeHtml(lesson.studentOutput)}</td>
         <td>${escapeHtml(lesson.futureReuse)}</td>
       </tr>
     `).join("");
@@ -148,6 +175,7 @@
         <h3>${escapeHtml(lesson.guidingQuestion)}</h3>
         <p class="investment-lesson-title-zh" lang="zh-Hans">${escapeHtml(lesson.guidingQuestionZh)}</p>
         <p class="investment-lesson-hook">${escapeHtml(lesson.studentHook || lesson.focus)}</p>
+        ${renderDecisionFirst(lesson)}
         ${renderSimpleFlow(lesson)}
         <div class="investment-lesson-quick-facts">
           <span><strong>Key terms:</strong> ${escapeHtml(renderKeyTermsPreview(lesson.terms))}</span>
@@ -161,6 +189,9 @@
           <p class="investment-lesson-formula"><strong>Formula:</strong> ${escapeHtml(lesson.formulaOrNoFormula)}</p>
           <p class="investment-lesson-evidence"><strong>Evidence:</strong> ${escapeHtml(lesson.evidenceSummary)}</p>
           <p class="investment-lesson-check"><strong>Check:</strong> ${escapeHtml(lesson.check)}</p>
+          <p class="investment-lesson-check"><strong>Likely naive answer:</strong> ${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.likelyNaiveAnswer)}</p>
+          <p class="investment-lesson-check"><strong>Key idea:</strong> ${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.keyIdea)}</p>
+          <p class="investment-lesson-check"><strong>Try it:</strong> ${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.tryIt)}</p>
           ${renderRetrievalPractice(lesson)}
           <p class="investment-lesson-check"><strong>Analyse why:</strong> ${escapeHtml(lesson.analyseWhy && lesson.analyseWhy.question)}</p>
           ${renderWorksheet(lesson)}
@@ -185,6 +216,7 @@
   }
 
   function renderCourseMap() {
+    renderDecisionFirstModel();
     renderInvestmentWorkflow();
     renderSimpleLessonStructure();
     renderGeneratorTable();

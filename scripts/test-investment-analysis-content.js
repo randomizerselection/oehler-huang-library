@@ -41,6 +41,7 @@ const requiredLessonFields = [
   'unit',
   'company',
   'guidingQuestion',
+  'decisionFirst',
   'studentHook',
   'simpleFlow',
   'terms',
@@ -376,6 +377,13 @@ function validateCourseMapContract() {
       failures.push('investment-analysis/course-map-data.js: simpleLessonStructure must use Hook, Key idea, Try it, Decide');
     }
   }
+  const decisionModel = courseMap.decisionFirstSyllabus || {};
+  if (!isNonEmptyString(decisionModel.coursePromise) || !/first opinion|evidence-based judgement/i.test(decisionModel.coursePromise)) {
+    failures.push('investment-analysis/course-map-data.js: decisionFirstSyllabus must describe the first-opinion to evidence-based judgement model');
+  }
+  if (!Array.isArray(decisionModel.lessonContract) || decisionModel.lessonContract.length < 7) {
+    failures.push('investment-analysis/course-map-data.js: decisionFirstSyllabus.lessonContract must describe the full lesson contract');
+  }
 
   const seenLessons = new Set();
   for (const lesson of courseMap.lessons) {
@@ -401,6 +409,15 @@ function validateCourseMapContract() {
     if (!isNonEmptyString(lesson.studentHook) || lesson.studentHook.length < 24) {
       failures.push(`${label}: studentHook must be a concrete, interesting student-facing hook`);
     }
+    const decisionFirst = lesson.decisionFirst || {};
+    for (const field of ['starterDilemma', 'firstJudgementPrompt', 'likelyNaiveAnswer', 'missingEvidence', 'keyIdea', 'tryIt', 'misconceptionCheck', 'exitJudgement']) {
+      if (!isNonEmptyString(decisionFirst[field])) {
+        failures.push(`${label}: decisionFirst.${field} must be a non-empty string`);
+      }
+    }
+    if (lesson.studentHook !== decisionFirst.starterDilemma) {
+      failures.push(`${label}: studentHook must match decisionFirst.starterDilemma`);
+    }
     if (!Array.isArray(lesson.simpleFlow) || lesson.simpleFlow.length !== 4) {
       failures.push(`${label}: simpleFlow must have four steps`);
     } else {
@@ -408,6 +425,9 @@ function validateCourseMapContract() {
       if (simpleLabels !== 'Hook|Key idea|Try it|Decide') failures.push(`${label}: simpleFlow must use Hook, Key idea, Try it, Decide`);
       for (const step of lesson.simpleFlow) {
         if (!isNonEmptyString(step.text)) failures.push(`${label}: every simpleFlow step needs text`);
+      }
+      if (lesson.simpleFlow[0]?.text !== decisionFirst.starterDilemma || lesson.simpleFlow[1]?.text !== decisionFirst.keyIdea || lesson.simpleFlow[2]?.text !== decisionFirst.tryIt || lesson.simpleFlow[3]?.text !== decisionFirst.exitJudgement) {
+        failures.push(`${label}: simpleFlow must derive from the decisionFirst contract`);
       }
     }
 
@@ -587,6 +607,9 @@ function validateSyllabusUsesCourseMap() {
   if (!/data-course-map-generator-rows/.test(source)) {
     failures.push('investment-analysis/syllabus.html: generator table must render from the course map data target');
   }
+  if (!/data-decision-first-model/.test(source) || !/Decision-first company analysis/.test(source)) {
+    failures.push('investment-analysis/syllabus.html: must render the decision-first teaching model');
+  }
   if (!/data-course-map-lesson-grid/.test(source)) {
     failures.push('investment-analysis/syllabus.html: lesson cards must render from the course map data target');
   }
@@ -678,6 +701,9 @@ function validateGeneratorContextAccess() {
     if (!isNonEmptyString(lessonContext.teachingContract?.primaryOutput?.description)) {
       failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: missing primary output`);
     }
+    if (!isNonEmptyString(lessonContext.teachingContract?.decisionFirst?.starterDilemma) || !isNonEmptyString(lessonContext.generatorBrief?.decisionFirst?.missingEvidence)) {
+      failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: missing decision-first contract`);
+    }
     if (!Array.isArray(lessonContext.artifactContract?.artifactBlueprint?.handoutBlocks)) {
       failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: missing handout block contract`);
     }
@@ -721,8 +747,8 @@ function validateGeneratorContextAccess() {
       '--format',
       'md',
     ], { cwd: root, encoding: 'utf8' });
-    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
-      failures.push('scripts/export-investment-generator-context.js: markdown output must include default company-analysis lesson, simple flow, action, retrieval, worksheet, analyse and generation rules');
+    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Decision-First Contract/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
+      failures.push('scripts/export-investment-generator-context.js: markdown output must include default company-analysis lesson, decision-first contract, simple flow, action, retrieval, worksheet, analyse and generation rules');
     }
 
     const companyMarkdownOutput = childProcess.execFileSync(process.execPath, [
