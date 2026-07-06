@@ -2473,6 +2473,7 @@ img {
 .invTermSlide,
 .invAnswerSlide,
 .invConceptTriadSlide,
+.invVisualGridSlide,
 .invCompareSlide,
 .invComparisonMatrixSlide,
 .invClassificationTaskSlide,
@@ -2645,6 +2646,27 @@ img {
   max-width: 760px;
   margin-top: 0;
   text-shadow: 0 8px 28px rgba(0, 0, 0, 0.54);
+}
+
+.invTitleOnlySlide.invProminentTitleSlide .invTitleBlock {
+  width: min(980px, 100%);
+  gap: 18px;
+}
+
+.invTitleOnlySlide.invProminentTitleSlide .invTitleBlock h1 {
+  max-width: 940px;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invTitleOnlySlide.invProminentTitleSlide .invZhTitle {
+  max-width: 940px;
+  margin-top: -4px;
+  color: var(--inv-ink);
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.06;
 }
 
 .invTitleOnlySlide .invZhTitle {
@@ -3171,7 +3193,7 @@ img {
 
 .invSortCategories {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--sort-cols, 4), minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -3187,23 +3209,23 @@ img {
 
 .invSortCases {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
 }
 
 .invSortCase {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px;
+  gap: 9px;
   align-items: center;
-  min-height: 58px;
+  min-height: 52px;
   border: 1px solid rgba(152, 184, 188, 0.28);
   border-left: 5px solid rgba(79, 210, 255, 0.48);
   border-radius: var(--inv-radius);
   background:
     linear-gradient(180deg, rgba(18, 35, 41, 0.9), rgba(7, 16, 19, 0.88)),
     rgba(13, 23, 27, 0.86);
-  padding: 8px;
+  padding: 8px 10px;
 }
 
 .invSortCase span {
@@ -3219,7 +3241,9 @@ img {
 
 .invSortCase strong {
   color: var(--inv-ink);
+  font-size: 28px;
   font-weight: 500;
+  line-height: 1.06;
 }
 
 .invQuizSlide .invPanel {
@@ -3553,18 +3577,13 @@ img {
   text-wrap: balance;
 }
 
-.invSectionZh,
-.invSectionSubtitle {
+.invSectionZh {
   max-width: 900px;
   color: var(--inv-muted);
   font-family: var(--inv-text);
   font-size: var(--inv-classroom-text);
   font-weight: 400;
   line-height: 1.2;
-}
-
-.invSectionSubtitle {
-  margin: 0;
 }
 
 .invSectionProgress {
@@ -3678,6 +3697,15 @@ img {
   min-height: 94px;
   padding: 12px 14px;
   gap: 10px;
+}
+
+.invExitTicketSlide .invCheckList {
+  gap: 6px;
+}
+
+.invExitTicketSlide .invCheckItem {
+  min-height: 76px;
+  padding: 9px 12px;
 }
 
 .invCheckNumber {
@@ -4239,6 +4267,7 @@ img {
 .invTermSlide .invSlideBody,
 .invDataSnapshotSlide .invSlideBody,
 .invConceptTriadSlide .invSlideBody,
+.invVisualGridSlide .invSlideBody,
 .invSourceLensSlide .invSlideBody,
 .invQuoteMapSlide .invSlideBody,
 .invComparisonMatrixSlide .invSlideBody,
@@ -4336,6 +4365,7 @@ img {
 
 .invSourceLens,
 .invConceptTriadSlide .invSlideBody > div,
+.invVisualGridWrap,
 .invQuoteMap,
 .invComparisonMatrixSlide .invSlideBody > div,
 .invCatalystTimelineSlide .invSlideBody > div,
@@ -4360,6 +4390,93 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.invVisualGridWrap {
+  display: grid;
+  gap: 14px;
+}
+
+.invVisualGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.invVisualGridCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(152, 184, 188, 0.28);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 35, 41, 0.92), rgba(7, 16, 19, 0.9)),
+    rgba(13, 23, 27, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.invVisualGridImage {
+  aspect-ratio: 4 / 3;
+  background: var(--photo-bg, #05090b);
+}
+
+.invVisualGridSlide:has(.invVisualGridText.is-revealed) .invVisualGridImage {
+  aspect-ratio: 2 / 1;
+}
+
+.invVisualGridImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--photo-fit, cover);
+  object-position: var(--photo-position, center);
+  display: block;
+}
+
+.invVisualGridImageEmpty {
+  background: rgba(79, 210, 255, 0.08);
+}
+
+.invVisualGridText {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+}
+
+.invVisualGridText.invReveal.is-revealed {
+  display: grid;
+}
+
+.invVisualGridText span {
+  width: fit-content;
+  border-radius: calc(var(--inv-radius) - 2px);
+  background: rgba(57, 217, 145, 0.12);
+  color: var(--inv-green);
+  padding: 4px 7px;
+  font-size: var(--inv-ui);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invVisualGridText strong {
+  color: var(--inv-ink);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.invVisualGridText em {
+  color: var(--inv-muted);
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.08;
+}
+
+.invVisualGridText p {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 20px;
+  line-height: 1.12;
 }
 
 .invConceptCard {
@@ -5485,14 +5602,43 @@ img {
   padding: 8px 10px;
 }
 
+.invYesNoAnswer {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+}
+
 .invClassificationResult.invReveal.is-revealed,
 .invYesNoAnswer.invReveal.is-revealed,
 .invDefinitionRecallAnswer.invReveal.is-revealed {
   display: grid;
 }
 
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallRows {
+  gap: 6px;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallRow {
+  min-height: 0;
+  gap: 6px;
+  padding: 8px 10px;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallAnswer {
+  gap: 2px;
+  padding: 6px 8px;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallAnswer strong {
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallAnswer .invZhLine {
+  display: none;
+}
+
 .invClassificationResult > span:first-child,
-.invYesNoAnswer > span:first-child {
+.invYesNoBadge {
   width: fit-content;
   border-radius: calc(var(--inv-radius) - 2px);
   background: rgba(57, 217, 145, 0.16);
@@ -5501,6 +5647,19 @@ img {
   font-size: var(--inv-ui);
   font-weight: 700;
   line-height: 1;
+}
+
+.invYesNoBadge {
+  min-width: 44px;
+  display: inline-grid;
+  justify-items: center;
+  gap: 3px;
+}
+
+.invYesNoBadge span + span {
+  color: rgba(205, 242, 246, 0.9);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .invClassificationResult p,
@@ -5527,6 +5686,57 @@ img {
   display: none;
 }
 
+.invCompactClassificationSlide .invClassificationTask,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
+  width: min(1500px, 100%);
+  gap: 8px;
+}
+
+.invCompactClassificationSlide .invClassificationTask > .invFocusPrompt,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
+  padding: 8px 10px;
+}
+
+.invCompactClassificationSlide .invClassificationTask > .invFocusPrompt strong,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt strong {
+  font-size: 24px;
+  line-height: 1.04;
+}
+
+.invCompactClassificationSlide .invClassificationCategories,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invCompactClassificationSlide .invClassificationItems,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invCompactClassificationSlide .invClassificationItem,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
+  min-height: 0;
+  gap: 6px;
+  padding: 9px;
+}
+
+.invCompactClassificationSlide .invClassificationPrompt strong,
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong {
+  font-size: 22px;
+  line-height: 1.04;
+}
+
+.invCompactClassificationSlide .invClassificationResult p {
+  font-size: 18px;
+  line-height: 1.04;
+}
+
+.invCompactClassificationSlide .invClassificationResult .invZhLine {
+  display: none;
+}
+
 .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
   min-height: 0;
   align-content: start;
@@ -5536,7 +5746,99 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+  padding: 8px 10px;
+}
+
+.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+  font-size: 24px;
+  line-height: 1.04;
+}
+
+.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+  font-size: 22px;
+  line-height: 1.04;
+}
+
 .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
+  display: none;
+}
+
+.invCompactCheckSlide .invYesNoCheck,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) {
+  width: min(1500px, 100%);
+  gap: 8px;
+}
+
+.invCompactCheckSlide .invYesNoCheck > .invFocusPrompt,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+  padding: 8px 10px;
+}
+
+.invCompactCheckSlide .invYesNoCheck > .invFocusPrompt strong,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+  font-size: 24px;
+  line-height: 1.04;
+}
+
+.invCompactCheckSlide .invYesNoItems,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invCompactCheckSlide .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+  min-height: 0;
+  gap: 5px;
+  padding: 9px;
+}
+
+.invCompactCheckSlide .invYesNoStatement,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 4px 8px;
+  align-items: start;
+}
+
+.invCompactCheckSlide .invYesNoStatement > span {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.invCompactCheckSlide .invYesNoStatement strong,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+  font-size: 22px;
+  line-height: 1.04;
+}
+
+.invCompactCheckSlide .invYesNoStatement .invZhLine {
+  grid-column: 2;
+  font-size: 18px;
+  line-height: 1.06;
+}
+
+.invCompactCheckSlide .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  padding: 5px 6px;
+}
+
+.invCompactCheckSlide .invYesNoBadge {
+  min-width: 36px;
+  padding: 4px 7px;
+  font-size: 14px;
+}
+
+.invCompactCheckSlide .invYesNoBadge span + span {
+  font-size: 13px;
+}
+
+.invCompactCheckSlide .invYesNoAnswer p {
   display: none;
 }
 
@@ -5593,6 +5895,14 @@ img {
 .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm {
   border-right: 1px solid rgba(214, 231, 232, 0.12);
   padding-right: 10px;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) > .invFocusPrompt:not(.invReveal) {
+  display: none;
+}
+
+.invDefinitionRecall:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) {
+  grid-template-columns: minmax(150px, 0.25fr) minmax(0, 1fr);
 }
 
 .invDefinitionRecallTerm > span {
@@ -6305,6 +6615,20 @@ img {
     inset: -18px -10px -18px -14px;
   }
 
+  .invTitleOnlySlide.invProminentTitleSlide .invTitleBlock {
+    gap: 14px;
+  }
+
+  .invTitleOnlySlide.invProminentTitleSlide .invTitleBlock h1 {
+    font-size: 46px;
+    line-height: 1.02;
+  }
+
+  .invTitleOnlySlide.invProminentTitleSlide .invZhTitle {
+    font-size: 32px;
+    line-height: 1.08;
+  }
+
   .invPriceChartStage {
     grid-template-rows: auto minmax(0, 1fr) auto;
   }
@@ -6412,6 +6736,10 @@ img {
     display: none;
   }
 
+  .invQuizSlide .invSlideHeader .invZhTitle {
+    display: none;
+  }
+
   .invQuizSlide .invPanel {
     gap: 5px;
     padding: 8px;
@@ -6420,8 +6748,8 @@ img {
   .invQuizSlide .invBigQuestion,
   .invQuizSlide .invChoice {
     min-height: 0;
-    font-size: 18px;
-    line-height: 1.08;
+    font-size: 17px;
+    line-height: 1.06;
   }
 
   .invQuizSlide .invQuizChoices {
@@ -6606,7 +6934,7 @@ img {
   }
 
   .invSortCategories {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--sort-cols, 2), minmax(0, 1fr));
     gap: 6px;
   }
 
@@ -6615,7 +6943,7 @@ img {
   }
 
   .invSortCases {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 6px;
   }
 
@@ -6708,12 +7036,20 @@ img {
   .invTermDefinition {
     border-left: 0;
     border-top: 1px solid rgba(214, 231, 232, 0.12);
+    gap: 8px;
     padding-left: 0;
-    padding-top: 10px;
+    padding-top: 8px;
+  }
+
+  .invTermDefinitionText {
+    font-size: 21px;
+    line-height: 1.08;
   }
 
   .invTermDefinitionZh {
-    padding-top: 12px;
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 1.12;
   }
 
   .invTermGrid {
@@ -6736,8 +7072,7 @@ img {
     font-size: clamp(32px, 9vw, 42px);
   }
 
-  .invSectionZh,
-  .invSectionSubtitle {
+  .invSectionZh {
     font-size: clamp(18px, 5vw, 24px);
   }
 
@@ -6799,6 +7134,19 @@ img {
   .invAnswerSlide .invCheckItem {
     min-height: auto;
     padding: 8px;
+  }
+
+  .invExitTicketSlide .invCheckList {
+    gap: 3px;
+  }
+
+  .invExitTicketSlide .invCheckItem {
+    padding: 5px 7px;
+  }
+
+  .invExitTicketSlide .invCheckText {
+    font-size: 20px;
+    line-height: 1.05;
   }
 
   .invExitTicketSlide .invCheckNumber {
@@ -7098,6 +7446,7 @@ img {
   .invTermSlide .invSlideBody,
   .invDataSnapshotSlide .invSlideBody,
   .invConceptTriadSlide .invSlideBody,
+  .invVisualGridSlide .invSlideBody,
   .invSourceLensSlide .invSlideBody,
   .invQuoteMapSlide .invSlideBody,
   .invComparisonMatrixSlide .invSlideBody,
@@ -7119,6 +7468,59 @@ img {
 
   .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionQuestion .invPromptZh,
   .invDiscussionSlide:has(.invDiscussionAnswer.is-revealed) .invDiscussionAnswer .invPromptZh {
+    display: none;
+  }
+
+  .invVisualGridWrap {
+    gap: 6px;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt {
+    padding: 6px 8px;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt strong {
+    font-size: 20px;
+    line-height: 1.02;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt .invZhLine {
+    display: none;
+  }
+
+  .invVisualGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .invVisualGridImage {
+    aspect-ratio: 2.35 / 1;
+  }
+
+  .invVisualGridSlide:has(.invVisualGridText.is-revealed) .invVisualGridImage {
+    aspect-ratio: 2.35 / 1;
+  }
+
+  .invVisualGridText {
+    gap: 2px;
+    padding: 6px;
+  }
+
+  .invVisualGridText span {
+    padding: 3px 6px;
+    font-size: 13px;
+  }
+
+  .invVisualGridText strong {
+    font-size: 19px;
+    line-height: 1.02;
+  }
+
+  .invVisualGridText em {
+    display: none;
+  }
+
+  .invVisualGridText p {
     display: none;
   }
 
@@ -7585,10 +7987,173 @@ img {
     padding: 4px 5px;
   }
 
+  .invYesNoBadge {
+    min-width: 34px;
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+
+  .invYesNoBadge span + span {
+    font-size: 12px;
+  }
+
   .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult p,
   .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
     font-size: 16px;
     line-height: 1.02;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
+    gap: 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
+    padding: 4px 6px;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt strong,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt strong {
+    font-size: 18px;
+    line-height: 1.02;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategories,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategory {
+    border-top-width: 3px;
+    padding: 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategory strong {
+    font-size: 13px;
+    line-height: 1.02;
+  }
+
+  .invCompactClassificationSlide .invClassificationItems,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationItem,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
+    min-height: 0;
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationPrompt,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 2px 5px;
+    align-items: start;
+  }
+
+  .invCompactClassificationSlide .invClassificationPrompt > span {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .invCompactClassificationSlide .invClassificationPrompt strong,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong {
+    font-size: 15px;
+    line-height: 1.02;
+  }
+
+  .invCompactClassificationSlide .invClassificationResult,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult {
+    grid-template-columns: auto;
+    padding: 3px 4px;
+  }
+
+  .invCompactClassificationSlide .invClassificationResult > span:first-child {
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+
+  .invCompactClassificationSlide .invClassificationResult p,
+  .invCompactClassificationSlide .invClassificationResult .invZhLine {
+    display: none;
+  }
+
+  .invCompactCheckSlide .invYesNoCheck,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) {
+    gap: 4px;
+  }
+
+  .invCompactCheckSlide .invYesNoCheck > .invFocusPrompt,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+    padding: 4px 6px;
+  }
+
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+    display: none;
+  }
+
+  .invCompactCheckSlide .invYesNoCheck > .invFocusPrompt strong,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+    font-size: 17px;
+    line-height: 1.02;
+  }
+
+  .invCompactCheckSlide .invYesNoItems,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .invCompactCheckSlide .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+    min-height: 0;
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .invCompactCheckSlide .invYesNoStatement,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 2px 5px;
+    align-items: start;
+  }
+
+  .invCompactCheckSlide .invYesNoStatement > span {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .invCompactCheckSlide .invYesNoStatement strong,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+    font-size: 15px;
+    line-height: 1.02;
+  }
+
+  .invCompactCheckSlide .invYesNoAnswer,
+  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 3px 4px;
+  }
+
+  .invCompactCheckSlide .invYesNoBadge {
+    min-width: 30px;
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+
+  .invCompactCheckSlide .invYesNoBadge span + span {
+    font-size: 11px;
+  }
+
+  .invCompactCheckSlide .invYesNoAnswer p {
+    display: none;
   }
 
   .invDefinitionRecall > .invFocusPrompt {
@@ -7886,7 +8451,7 @@ img {
   }
 
   .invSortTaskSlide .invSortCategories {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--sort-cols, 4), minmax(0, 1fr));
     gap: 3px;
   }
 
@@ -7898,7 +8463,7 @@ img {
   }
 
   .invSortTaskSlide .invSortCases {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 3px;
   }
 
@@ -7923,6 +8488,43 @@ img {
     display: none;
   }
 
+  .invDefinitionRecallSlide:has(.invDefinitionRecallAnswer.is-revealed) .invTitleBlock h1 {
+    font-size: 30px;
+    line-height: 1.02;
+  }
+
+  .invDefinitionRecallSlide:has(.invDefinitionRecallAnswer.is-revealed) .invSlideHeader .invZhTitle,
+  .invDefinitionRecallSlide:has(.invDefinitionRecallAnswer.is-revealed) .sourceList {
+    display: none;
+  }
+
+  .invDefinitionRecallSlide:has(.invDefinitionRecallAnswer.is-revealed) .invSlideBody {
+    padding-top: 2px;
+  }
+
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) {
+    grid-template-columns: minmax(82px, 0.32fr) minmax(0, 1fr);
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm {
+    border-right: 1px solid rgba(214, 231, 232, 0.12);
+    border-bottom: 0;
+    padding-right: 4px;
+    padding-bottom: 0;
+  }
+
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm > span {
+    display: none;
+  }
+
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallTerm strong,
+  .invDefinitionRecallRow:has(.invDefinitionRecallAnswer.is-revealed) .invDefinitionRecallAnswer strong {
+    font-size: 16px;
+    line-height: 1.02;
+  }
+
   .investment-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
@@ -7943,6 +8545,256 @@ img {
 
   .investment-card {
     min-height: 0;
+  }
+}
+
+/* Economics-style full-screen discussion slides */
+
+.invDiscussionSlide {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 44% 42%, rgba(79, 210, 255, 0.22), rgba(5, 10, 12, 0.94)),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #071013;
+}
+
+.invDiscussionSlide::before {
+  background:
+    linear-gradient(90deg, rgba(3, 10, 14, 0.76), rgba(3, 10, 14, 0.18) 56%, rgba(3, 10, 14, 0.54)),
+    linear-gradient(180deg, rgba(3, 10, 14, 0.08), rgba(3, 10, 14, 0.58));
+  opacity: 1;
+}
+
+.invDiscussionSlide.is-active {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.invDiscussionSlide .invSlideBody {
+  min-height: 0;
+  align-content: center;
+  align-items: center;
+  padding: clamp(36px, 7vh, 92px) clamp(30px, 5.8vw, 112px) clamp(70px, 9vh, 118px);
+}
+
+.invDiscussionStage {
+  width: min(1160px, 82vw);
+  min-height: 0;
+  display: grid;
+  align-items: center;
+}
+
+.invDiscussionPrompt {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.invDiscussionEyebrow {
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(232, 251, 253, 0.92);
+  padding: 7px 11px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.invDiscussionQuestionText {
+  max-width: 24ch;
+  margin: 0;
+  color: #fff;
+  font-family: var(--inv-text);
+  font-size: clamp(42px, 4.55vw, 78px);
+  font-weight: 700;
+  line-height: 1.06;
+  text-wrap: balance;
+  text-shadow: 0 14px 44px rgba(0, 0, 0, 0.62);
+}
+
+.invDiscussionQuestionZh {
+  max-width: 34ch;
+  margin: -2px 0 0;
+  color: rgba(232, 251, 253, 0.9);
+  font-size: clamp(26px, 2.35vw, 40px);
+  font-weight: 600;
+  line-height: 1.42;
+  text-shadow: 0 10px 32px rgba(0, 0, 0, 0.58);
+}
+
+.invDiscussionAnswerButton {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 2px;
+  border: 1px solid rgba(241, 190, 90, 0.48);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(145deg, rgba(241, 190, 90, 0.17), rgba(79, 210, 255, 0.08)),
+    rgba(255, 255, 255, 0.06);
+  color: var(--inv-ink);
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+
+.invDiscussionAnswerButton:hover,
+.invDiscussionAnswerButton:focus-visible {
+  border-color: rgba(241, 190, 90, 0.78);
+  background:
+    linear-gradient(145deg, rgba(241, 190, 90, 0.24), rgba(79, 210, 255, 0.12)),
+    rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.invDiscussionAnswerOverlay.invReveal.is-revealed {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 64px);
+  background: rgba(2, 8, 12, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.invDiscussionAnswerOverlay::before {
+  display: none;
+  content: none;
+}
+
+.invDiscussionAnswerPanel {
+  position: relative;
+  width: min(960px, 100%);
+  display: grid;
+  gap: 16px;
+  border: 1px solid rgba(241, 190, 90, 0.46);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(145deg, rgba(241, 190, 90, 0.14), rgba(79, 210, 255, 0.08)),
+    linear-gradient(180deg, rgba(13, 30, 34, 0.98), rgba(5, 12, 15, 0.98));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  padding: clamp(24px, 3.2vw, 46px);
+}
+
+.invDiscussionAnswerClose {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--inv-ink);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.invDiscussionAnswerHeader {
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.11);
+  color: #fff;
+  padding: 8px 11px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invDiscussionAnswerTitle {
+  max-width: 28ch;
+  color: #fff;
+  font-size: clamp(34px, 3vw, 54px);
+  font-weight: 700;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.invDiscussionAnswerText {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: clamp(28px, 2.35vw, 42px);
+  font-weight: 600;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.invDiscussionAnswerZh {
+  max-width: 44ch;
+  margin: 0;
+  color: rgba(205, 242, 246, 0.9);
+  font-size: clamp(20px, 1.65vw, 30px);
+  font-weight: 500;
+  line-height: 1.34;
+}
+
+@media (max-width: 900px) {
+  .invDiscussionSlide .invSlideBody {
+    align-content: center;
+    padding: 34px 22px 72px;
+  }
+
+  .invDiscussionStage {
+    width: min(100%, 90vw);
+  }
+
+  .invDiscussionPrompt {
+    gap: 12px;
+  }
+
+  .invDiscussionQuestionText {
+    max-width: 21ch;
+    font-size: clamp(30px, 8vw, 50px);
+    line-height: 1.06;
+  }
+
+  .invDiscussionQuestionZh {
+    max-width: 28ch;
+    font-size: clamp(20px, 5vw, 31px);
+    line-height: 1.42;
+  }
+
+  .invDiscussionAnswerButton {
+    padding: 9px 12px;
+    font-size: 15px;
+  }
+
+  .invDiscussionAnswerOverlay.invReveal.is-revealed {
+    padding: 18px;
+  }
+
+  .invDiscussionAnswerPanel {
+    gap: 12px;
+    padding: 22px;
+  }
+
+  .invDiscussionAnswerTitle {
+    max-width: 19ch;
+    font-size: clamp(26px, 7vw, 40px);
+  }
+
+  .invDiscussionAnswerText {
+    max-width: 21ch;
+    font-size: clamp(23px, 6vw, 34px);
+  }
+
+  .invDiscussionAnswerZh {
+    font-size: clamp(17px, 4.5vw, 24px);
   }
 }
 

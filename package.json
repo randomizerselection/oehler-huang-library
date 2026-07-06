@@ -2,6 +2,7 @@
   "name": "oehler-huang-library",
   "scripts": {
     "build:definitions": "node scripts/build-definitions-page.js",
+    "build:investment-definitions": "node scripts/build-investment-definitions-page.js",
     "build:android-data": "node scripts/export-definitions-android.js",
     "test:android-data": "node scripts/test-android-definitions-data.js",
     "test:android-offline": "node scripts/test-android-offline-app.js",

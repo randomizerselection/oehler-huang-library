@@ -38,6 +38,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
+- `visualGrid`: use image-led example cards only when the pictures help students compare or recall concrete categories; keep each label short and avoid decorative image collections.
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
 - `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
 - `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason.

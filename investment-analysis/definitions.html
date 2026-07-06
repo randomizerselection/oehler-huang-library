@@ -1,0 +1,1924 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Textbook-style definitions for the Investment Analysis company-analysis course." />
+  <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
+  <title>Investment Analysis: Company Analysis Definition Overview - Oehler-Huang Library</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/investment.css" />
+  <script src="../assets/js/baidu-analytics.js"></script>
+  <style>
+    .investment-definition-hero .investment-status-panel {
+      min-width: min(32rem, 100%);
+    }
+
+    .investment-definition-toolbar {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .investment-definition-search {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .investment-definition-search label {
+      color: var(--inv-muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .investment-definition-search input {
+      width: 100%;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.78);
+      color: var(--inv-ink);
+      font: inherit;
+      min-height: 2.8rem;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .investment-definition-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .investment-definition-filter {
+      align-items: center;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 8px;
+      color: var(--inv-ink);
+      cursor: pointer;
+      display: inline-flex;
+      font: inherit;
+      font-weight: 800;
+      gap: 0.55rem;
+      min-height: 2.4rem;
+      padding: 0.52rem 0.72rem;
+    }
+
+    .investment-definition-filter b {
+      color: var(--inv-cyan);
+      font-size: 0.82rem;
+    }
+
+    .investment-definition-filter.is-active {
+      border-color: rgba(34, 211, 238, 0.58);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.12) inset;
+    }
+
+    .investment-definition-summary {
+      color: var(--inv-muted);
+      font-weight: 700;
+      min-height: 1.5rem;
+    }
+
+    .investment-definition-unit {
+      scroll-margin-top: 1rem;
+    }
+
+    .investment-definition-table-wrap {
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .investment-definition-table {
+      border-collapse: collapse;
+      min-width: 1240px;
+      width: 100%;
+    }
+
+    .investment-definition-table th,
+    .investment-definition-table td {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 0.85rem 0.9rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .investment-definition-table thead th {
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--inv-muted);
+      font-size: 0.76rem;
+      letter-spacing: 0;
+      position: sticky;
+      text-transform: uppercase;
+      top: 0;
+      z-index: 1;
+    }
+
+    .investment-definition-table tbody th {
+      color: var(--inv-cyan);
+      font-weight: 900;
+      white-space: nowrap;
+      width: 5.5rem;
+    }
+
+    .investment-definition-table td:first-of-type {
+      width: 15rem;
+    }
+
+    .investment-definition-table td:nth-of-type(2) {
+      min-width: 28rem;
+    }
+
+    .investment-definition-table td:nth-of-type(3) {
+      min-width: 24rem;
+      width: 26rem;
+    }
+
+    .investment-definition-table strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .investment-definition-table span[lang='zh-Hans'] {
+      color: var(--inv-muted);
+      display: block;
+      font-size: 0.88rem;
+    }
+
+    .investment-cfa-match {
+      display: grid;
+      gap: 0.34rem;
+    }
+
+    .investment-cfa-match strong {
+      color: var(--inv-ink);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .investment-cfa-match span {
+      color: var(--inv-cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .investment-cfa-match p {
+      margin: 0;
+    }
+
+    .investment-cfa-match b {
+      color: var(--inv-muted);
+    }
+
+    .investment-cfa-match a {
+      color: var(--inv-cyan);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .investment-cfa-match a:hover {
+      text-decoration: underline;
+    }
+
+    .investment-cfa-match.is-unmatched strong {
+      color: var(--inv-muted);
+    }
+
+    .investment-cfa-match.is-unmatched p {
+      color: var(--inv-muted);
+    }
+
+    .investment-definition-empty {
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      border-radius: 8px;
+      color: var(--inv-ink);
+      display: none;
+      padding: 1rem;
+    }
+
+    .investment-definition-empty.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .investment-definition-table {
+        min-width: 980px;
+      }
+
+      .investment-definition-table th,
+      .investment-definition-table td {
+        padding: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body class="investment-home investment-definitions-page">
+  <!-- Generated by scripts/build-investment-definitions-page.js from references/investment-analysis-definitions.md. Do not edit by hand. -->
+  <main class="investment-page">
+    <nav class="investment-nav" aria-label="Investment Analysis definitions navigation">
+      <a class="investment-link" href="../index.html">Main library</a>
+      <div class="investment-nav-links">
+        <a class="investment-link" href="index.html">Course home</a>
+        <a class="investment-link" href="syllabus.html">Syllabus</a>
+        <a class="investment-link" href="unit-1/lesson-1/index.html">Start Lesson 1</a>
+      </div>
+    </nav>
+
+    <header class="investment-hero investment-definition-hero">
+      <div class="investment-hero-copy">
+        <div class="investment-eyebrow">Course reference</div>
+        <h1>Investment Analysis Definitions</h1>
+        <p>
+          Textbook-style definitions for all 95 key terms used across the 30-lesson company-analysis course, with 39 CFA Program glossary source matches shown beside the classroom wording.
+        </p>
+        <div class="investment-actions" aria-label="Definition overview links">
+          <a class="investment-action primary" href="#definition-overview">Browse definitions</a>
+          <a class="investment-action" href="syllabus.html#lesson-generator-table">Lesson map</a>
+          <a class="investment-action" href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">CFA glossary</a>
+          <a class="investment-action" href="../references/investment-analysis-definitions.md">Markdown source</a>
+        </div>
+      </div>
+
+      <div class="investment-status-panel" aria-label="How to use these definitions">
+        <div class="investment-eyebrow">Definition rule</div>
+        <div class="investment-learning-strip">
+          <div class="investment-learning-item">
+            <strong>CFA first</strong>
+            <span>Where a course term overlaps with the CFA Program glossary, use that finance meaning first.</span>
+          </div>
+          <div class="investment-learning-item">
+            <strong>Original source</strong>
+            <span>Matched rows identify the CFA glossary term and link back to the original CFA wording.</span>
+          </div>
+          <div class="investment-learning-item">
+            <strong>Classroom wording</strong>
+            <span>Simplify for Grade 9 only after preserving the CFA-aligned investment or accounting meaning.</span>
+          </div>
+          <div class="investment-learning-item">
+            <strong>Course boundary</strong>
+            <span>Definitions support evidence-based classroom judgement, not personal financial advice.</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="investment-section" id="definition-overview" aria-labelledby="definition-overview-title">
+      <div class="investment-section-head">
+        <div>
+          <div class="investment-section-kicker">Definition overview</div>
+          <h2 id="definition-overview-title">Complete course vocabulary</h2>
+        </div>
+        <p>Search by course term, Chinese support, CFA glossary term, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary equivalent remain course-specific.</p>
+      </div>
+
+      <div class="investment-definition-toolbar" data-definition-toolbar>
+        <div class="investment-definition-search">
+          <label for="definition-search">Search definitions</label>
+          <input id="definition-search" type="search" placeholder="Search term, Chinese support, lesson or definition" autocomplete="off" data-definition-search />
+        </div>
+        <div class="investment-definition-filters" aria-label="Filter by unit">
+            <button class="investment-definition-filter is-active" type="button" data-filter="all" aria-pressed="true">All <b>95</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-1" aria-pressed="false">Unit 1 <b>19</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-2" aria-pressed="false">Unit 2 <b>15</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-3" aria-pressed="false">Unit 3 <b>15</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-4" aria-pressed="false">Unit 4 <b>16</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-5" aria-pressed="false">Unit 5 <b>15</b></button>
+            <button class="investment-definition-filter" type="button" data-filter="unit-6" aria-pressed="false">Unit 6 <b>15</b></button>
+        </div>
+        <p class="investment-definition-summary" aria-live="polite" data-definition-summary>95 definitions shown.</p>
+      </div>
+    </section>
+
+    <p class="investment-definition-empty" data-definition-empty>No definitions match the current search.</p>
+
+
+        <section class="investment-definition-unit" id="unit-1" data-unit-section="unit-1">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 1</div>
+              <h2>Market foundations</h2>
+            </div>
+            <p>19 textbook-style definitions used in Lessons 1-5.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l1 investment analysis 投资分析 investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement. sets the evidence-before-judgement rule for the whole course. ">
+                <th scope="row">U1 L1</th>
+                <td>
+                  <strong>investment analysis</strong>
+                  <span lang="zh-Hans">投资分析</span>
+                </td>
+                <td>Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Sets the evidence-before-judgement rule for the whole course.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l1 investment 投资 investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss. separates careful long-run judgement from guessing. ">
+                <th scope="row">U1 L1</th>
+                <td>
+                  <strong>investment</strong>
+                  <span lang="zh-Hans">投资</span>
+                </td>
+                <td>Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Separates careful long-run judgement from guessing.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l1 speculation 投机 speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence. builds the course boundary against short-term tips and unsupported guesses. ">
+                <th scope="row">U1 L1</th>
+                <td>
+                  <strong>speculation</strong>
+                  <span lang="zh-Hans">投机</span>
+                </td>
+                <td>Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Builds the course boundary against short-term tips and unsupported guesses.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l1 asset 资产 an asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource. gives students the basic category before they compare asset risk. assets related accounting term resources controlled by an enterprise that are expected to bring future economic benefit.">
+                <th scope="row">U1 L1</th>
+                <td>
+                  <strong>asset</strong>
+                  <span lang="zh-Hans">资产</span>
+                </td>
+                <td>An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Assets</strong>
+                    <span>related accounting term</span>
+                    <p><b>Meaning focus:</b> Resources controlled by an enterprise that are expected to bring future economic benefit.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students the basic category before they compare asset risk.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l1 share 股票 / 股份 a share is one unit of ownership in a company, giving the shareholder a claim on part of the company&#39;s equity and, depending on the share class, certain rights such as votes or dividends. defines what students are analysing when they discuss listed companies. ">
+                <th scope="row">U1 L1</th>
+                <td>
+                  <strong>share</strong>
+                  <span lang="zh-Hans">股票 / 股份</span>
+                </td>
+                <td>A share is one unit of ownership in a company, giving the shareholder a claim on part of the company&#39;s equity and, depending on the share class, certain rights such as votes or dividends.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Defines what students are analysing when they discuss listed companies.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l2 stock exchange 证券交易所 a stock exchange is a regulated trading venue where investment instruments such as listed shares, etfs and bonds can be bought and sold under market rules. explains why shares need organised market infrastructure. exchange clear glossary match a regulated venue where investment instruments can be traded.">
+                <th scope="row">U1 L2</th>
+                <td>
+                  <strong>stock exchange</strong>
+                  <span lang="zh-Hans">证券交易所</span>
+                </td>
+                <td>A stock exchange is a regulated trading venue where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Exchange</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A regulated venue where investment instruments can be traded.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Explains why shares need organised market infrastructure.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l2 listing 上市 a listing is the formal permission for a company&#39;s securities to trade on a stock exchange after the company meets the exchange&#39;s requirements. connects companies, exchanges and tradable shares. ">
+                <th scope="row">U1 L2</th>
+                <td>
+                  <strong>listing</strong>
+                  <span lang="zh-Hans">上市</span>
+                </td>
+                <td>A listing is the formal permission for a company&#39;s securities to trade on a stock exchange after the company meets the exchange&#39;s requirements.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Connects companies, exchanges and tradable shares.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l2 stock code 股票代码 a stock code is the short market identifier used to find a listed security on an exchange or market-data system. helps students identify the exact security being analysed. ">
+                <th scope="row">U1 L2</th>
+                <td>
+                  <strong>stock code</strong>
+                  <span lang="zh-Hans">股票代码</span>
+                </td>
+                <td>A stock code is the short market identifier used to find a listed security on an exchange or market-data system.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students identify the exact security being analysed.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l2 liquidity 流动性 liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change. introduces trading friction and why active markets matter. liquidity clear glossary match the ability to trade quickly and easily near fair value, or to meet short-term cash needs.">
+                <th scope="row">U1 L2</th>
+                <td>
+                  <strong>liquidity</strong>
+                  <span lang="zh-Hans">流动性</span>
+                </td>
+                <td>Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Liquidity</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> The ability to trade quickly and easily near fair value, or to meet short-term cash needs.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces trading friction and why active markets matter.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l3 quote page 报价页面 a quote page is a market-data snapshot showing information such as the latest price, price movement, bid, ask, volume and security identifier for a listed asset. teaches students to read price evidence without treating it as a full judgement. ">
+                <th scope="row">U1 L3</th>
+                <td>
+                  <strong>quote page</strong>
+                  <span lang="zh-Hans">报价页面</span>
+                </td>
+                <td>A quote page is a market-data snapshot showing information such as the latest price, price movement, bid, ask, volume and security identifier for a listed asset.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Teaches students to read price evidence without treating it as a full judgement.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l3 volume 成交量 volume is the number of shares or other securities traded during a stated period, such as a trading day. shows how much trading activity sits behind a price movement. ">
+                <th scope="row">U1 L3</th>
+                <td>
+                  <strong>volume</strong>
+                  <span lang="zh-Hans">成交量</span>
+                </td>
+                <td>Volume is the number of shares or other securities traded during a stated period, such as a trading day.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Shows how much trading activity sits behind a price movement.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l3 bid 买价 the bid is the price at which a buyer, dealer or trader is currently willing to buy a specified quantity of a security. introduces one side of the market quote. bid clear glossary match the buy-side price quoted by a dealer or trader for an asset.">
+                <th scope="row">U1 L3</th>
+                <td>
+                  <strong>bid</strong>
+                  <span lang="zh-Hans">买价</span>
+                </td>
+                <td>The bid is the price at which a buyer, dealer or trader is currently willing to buy a specified quantity of a security.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Bid</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> The buy-side price quoted by a dealer or trader for an asset.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces one side of the market quote.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l3 ask 卖价 the ask is the price at which a seller, dealer or trader is currently willing to sell an asset, usually for a specified maximum quantity. introduces the other side of the market quote. ask clear glossary match the sell-side price quoted by a dealer or trader for an asset.">
+                <th scope="row">U1 L3</th>
+                <td>
+                  <strong>ask</strong>
+                  <span lang="zh-Hans">卖价</span>
+                </td>
+                <td>The ask is the price at which a seller, dealer or trader is currently willing to sell an asset, usually for a specified maximum quantity.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Ask</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> The sell-side price quoted by a dealer or trader for an asset.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces the other side of the market quote.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l4 voting rights 投票权 voting rights are shareholder rights to vote on certain company decisions, such as electing directors or approving major corporate actions. clarifies that ownership can include decision rights. ">
+                <th scope="row">U1 L4</th>
+                <td>
+                  <strong>voting rights</strong>
+                  <span lang="zh-Hans">投票权</span>
+                </td>
+                <td>Voting rights are shareholder rights to vote on certain company decisions, such as electing directors or approving major corporate actions.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Clarifies that ownership can include decision rights.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l4 ordinary share 普通股 an ordinary share is a standard equity share in a company that usually carries voting rights and may receive dividends after higher-priority claims are considered. distinguishes normal shareholder ownership from other claims. ordinary shares clear glossary match common equity shares that rank below other equity claims such as preferred equity.">
+                <th scope="row">U1 L4</th>
+                <td>
+                  <strong>ordinary share</strong>
+                  <span lang="zh-Hans">普通股</span>
+                </td>
+                <td>An ordinary share is a standard equity share in a company that usually carries voting rights and may receive dividends after higher-priority claims are considered.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Ordinary shares</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Common equity shares that rank below other equity claims such as preferred equity.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Distinguishes normal shareholder ownership from other claims.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l4 control 控制权 control is the ability to influence or decide company actions, usually through ownership, voting power, board influence or management authority. prevents students from thinking one small share controls a company. ">
+                <th scope="row">U1 L4</th>
+                <td>
+                  <strong>control</strong>
+                  <span lang="zh-Hans">控制权</span>
+                </td>
+                <td>Control is the ability to influence or decide company actions, usually through ownership, voting power, board influence or management authority.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Prevents students from thinking one small share controls a company.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l5 evidence log 证据记录 an evidence log is a structured record of sources, dates, figures, notes and limitations used to support an investment judgement. makes source discipline visible and repeatable. ">
+                <th scope="row">U1 L5</th>
+                <td>
+                  <strong>evidence log</strong>
+                  <span lang="zh-Hans">证据记录</span>
+                </td>
+                <td>An evidence log is a structured record of sources, dates, figures, notes and limitations used to support an investment judgement.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Makes source discipline visible and repeatable.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l5 source date 来源日期 a source date is the date on which evidence was published, reported or measured. helps students judge how current evidence is. ">
+                <th scope="row">U1 L5</th>
+                <td>
+                  <strong>source date</strong>
+                  <span lang="zh-Hans">来源日期</span>
+                </td>
+                <td>A source date is the date on which evidence was published, reported or measured.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students judge how current evidence is.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-1" data-search="u1 l5 accessed date 访问日期 an accessed date is the date on which the analyst viewed or used a source. records when changing online evidence was checked. ">
+                <th scope="row">U1 L5</th>
+                <td>
+                  <strong>accessed date</strong>
+                  <span lang="zh-Hans">访问日期</span>
+                </td>
+                <td>An accessed date is the date on which the analyst viewed or used a source.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Records when changing online evidence was checked.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="investment-definition-unit" id="unit-2" data-unit-section="unit-2">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 2</div>
+              <h2>Financial statements</h2>
+            </div>
+            <p>15 textbook-style definitions used in Lessons 6-10.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l6 revenue 收入 revenue is the amount charged or earned from delivering goods or services in the ordinary activities of a business over a stated period, before expenses are deducted. starts financial-statement analysis with the top line. revenue clear glossary match amounts from ordinary business activity over a stated period, before deducting expenses.">
+                <th scope="row">U2 L6</th>
+                <td>
+                  <strong>revenue</strong>
+                  <span lang="zh-Hans">收入</span>
+                </td>
+                <td>Revenue is the amount charged or earned from delivering goods or services in the ordinary activities of a business over a stated period, before expenses are deducted.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Revenue</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Amounts from ordinary business activity over a stated period, before deducting expenses.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Starts financial-statement analysis with the top line.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l6 sales growth 销售增长 sales growth is the increase in a company&#39;s revenue over time, usually measured as a percentage change between two periods. lets students compare whether demand or business activity is expanding. sales related glossary term sales is generally treated as revenue from goods, while revenue can include goods or services.">
+                <th scope="row">U2 L6</th>
+                <td>
+                  <strong>sales growth</strong>
+                  <span lang="zh-Hans">销售增长</span>
+                </td>
+                <td>Sales growth is the increase in a company&#39;s revenue over time, usually measured as a percentage change between two periods.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Sales</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Sales is generally treated as revenue from goods, while revenue can include goods or services.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Lets students compare whether demand or business activity is expanding.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l6 business model 商业模式 a business model is the way a company creates value, earns revenue, pays costs and turns customer demand into profit or cash flow. links revenue evidence to how the company actually works. ">
+                <th scope="row">U2 L6</th>
+                <td>
+                  <strong>business model</strong>
+                  <span lang="zh-Hans">商业模式</span>
+                </td>
+                <td>A business model is the way a company creates value, earns revenue, pays costs and turns customer demand into profit or cash flow.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links revenue evidence to how the company actually works.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l7 cost of sales 销售成本 cost of sales is the cost directly connected with the goods or services sold in a period; for inventory businesses, it is closely related to cost of goods sold. shows why sales alone do not prove strength. cost of goods sold related accounting term inventory-related cost of goods sold for a period, used as the closest accounting match.">
+                <th scope="row">U2 L7</th>
+                <td>
+                  <strong>cost of sales</strong>
+                  <span lang="zh-Hans">销售成本</span>
+                </td>
+                <td>Cost of sales is the cost directly connected with the goods or services sold in a period; for inventory businesses, it is closely related to cost of goods sold.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Cost of goods sold</strong>
+                    <span>related accounting term</span>
+                    <p><b>Meaning focus:</b> Inventory-related cost of goods sold for a period, used as the closest accounting match.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Shows why sales alone do not prove strength.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l7 gross profit 毛利 gross profit is revenue or sales minus cost of sales, before operating expenses, financing costs and taxes are deducted. measures profit before operating expenses and financing items. gross profit clear glossary match sales remaining after deducting cost of sales.">
+                <th scope="row">U2 L7</th>
+                <td>
+                  <strong>gross profit</strong>
+                  <span lang="zh-Hans">毛利</span>
+                </td>
+                <td>Gross profit is revenue or sales minus cost of sales, before operating expenses, financing costs and taxes are deducted.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Gross profit</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Sales remaining after deducting cost of sales.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Measures profit before operating expenses and financing items.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l7 gross margin 毛利率 gross margin is gross profit divided by revenue and expressed as a percentage, showing how much of each unit of sales remains after direct costs. gives students their first profitability percentage. gross profit margin clear glossary match gross profit expressed relative to revenue.">
+                <th scope="row">U2 L7</th>
+                <td>
+                  <strong>gross margin</strong>
+                  <span lang="zh-Hans">毛利率</span>
+                </td>
+                <td>Gross margin is gross profit divided by revenue and expressed as a percentage, showing how much of each unit of sales remains after direct costs.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Gross profit margin</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Gross profit expressed relative to revenue.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students their first profitability percentage.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l8 operating profit 营业利润 operating profit is profit from a company&#39;s usual business activities before taxes and before some financing effects are deducted; it is also called operating income. focuses attention on the core business rather than one-off items. operating profit clear glossary match profit from usual business activities before tax, also called operating income.">
+                <th scope="row">U2 L8</th>
+                <td>
+                  <strong>operating profit</strong>
+                  <span lang="zh-Hans">营业利润</span>
+                </td>
+                <td>Operating profit is profit from a company&#39;s usual business activities before taxes and before some financing effects are deducted; it is also called operating income.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Operating profit</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Profit from usual business activities before tax, also called operating income.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Focuses attention on the core business rather than one-off items.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l8 operating margin 营业利润率 operating margin is a profitability ratio calculated as operating income or operating profit divided by revenue. helps students compare efficiency across companies or years. operating profit margin clear glossary match operating income or operating profit divided by revenue.">
+                <th scope="row">U2 L8</th>
+                <td>
+                  <strong>operating margin</strong>
+                  <span lang="zh-Hans">营业利润率</span>
+                </td>
+                <td>Operating margin is a profitability ratio calculated as operating income or operating profit divided by revenue.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Operating profit margin</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Operating income or operating profit divided by revenue.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Helps students compare efficiency across companies or years.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l8 percentage-point difference 百分点差异 a percentage-point difference is the arithmetic difference between two percentages, not a percentage change. prevents mistakes when comparing margins. ">
+                <th scope="row">U2 L8</th>
+                <td>
+                  <strong>percentage-point difference</strong>
+                  <span lang="zh-Hans">百分点差异</span>
+                </td>
+                <td>A percentage-point difference is the arithmetic difference between two percentages, not a percentage change.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Prevents mistakes when comparing margins.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l9 operating cash flow 经营现金流 operating cash flow is the net amount of cash provided by or used in a company&#39;s operating activities during a period. separates cash generation from accounting profit. operating cash flow clear glossary match net cash provided by operating activities.">
+                <th scope="row">U2 L9</th>
+                <td>
+                  <strong>operating cash flow</strong>
+                  <span lang="zh-Hans">经营现金流</span>
+                </td>
+                <td>Operating cash flow is the net amount of cash provided by or used in a company&#39;s operating activities during a period.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Operating cash flow</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Net cash provided by operating activities.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Separates cash generation from accounting profit.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l9 capital expenditure 资本支出 capital expenditure is spending on physical or long-term fixed assets such as property, factories, equipment, technology infrastructure or stores. explains why growing companies may need cash. capital expenditure clear glossary match spending on fixed or physical capital.">
+                <th scope="row">U2 L9</th>
+                <td>
+                  <strong>capital expenditure</strong>
+                  <span lang="zh-Hans">资本支出</span>
+                </td>
+                <td>Capital expenditure is spending on physical or long-term fixed assets such as property, factories, equipment, technology infrastructure or stores.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Capital expenditure</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Spending on fixed or physical capital.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Explains why growing companies may need cash.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l9 free cash flow 自由现金流 free cash flow is cash available to a company&#39;s investors after the company has made the investments needed to maintain itself as an ongoing business. introduces cash available after reinvestment needs. free cash flow clear glossary match cash available after the investments needed to keep the company operating.">
+                <th scope="row">U2 L9</th>
+                <td>
+                  <strong>free cash flow</strong>
+                  <span lang="zh-Hans">自由现金流</span>
+                </td>
+                <td>Free cash flow is cash available to a company&#39;s investors after the company has made the investments needed to maintain itself as an ongoing business.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Free cash flow</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Cash available after the investments needed to keep the company operating.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces cash available after reinvestment needs.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l10 benchmark 基准 a benchmark is a standard or point of reference used to evaluate investment, portfolio or company performance. gives students a disciplined comparison point. benchmark clear glossary match a point of reference or comparison for judging performance.">
+                <th scope="row">U2 L10</th>
+                <td>
+                  <strong>benchmark</strong>
+                  <span lang="zh-Hans">基准</span>
+                </td>
+                <td>A benchmark is a standard or point of reference used to evaluate investment, portfolio or company performance.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Benchmark</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A point of reference or comparison for judging performance.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students a disciplined comparison point.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l10 trend 趋势 a trend is a longer-term pattern of movement in a particular direction, such as rising, falling or remaining broadly stable. moves analysis beyond one-year snapshots. trend clear glossary match a long-term pattern of movement in one direction.">
+                <th scope="row">U2 L10</th>
+                <td>
+                  <strong>trend</strong>
+                  <span lang="zh-Hans">趋势</span>
+                </td>
+                <td>A trend is a longer-term pattern of movement in a particular direction, such as rising, falling or remaining broadly stable.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Trend</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A long-term pattern of movement in one direction.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Moves analysis beyond one-year snapshots.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-2" data-search="u2 l10 scale 规模 scale is the size of a company or activity, measured by figures such as revenue, users, stores, assets or market value. helps students compare large and small companies fairly. ">
+                <th scope="row">U2 L10</th>
+                <td>
+                  <strong>scale</strong>
+                  <span lang="zh-Hans">规模</span>
+                </td>
+                <td>Scale is the size of a company or activity, measured by figures such as revenue, users, stores, assets or market value.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students compare large and small companies fairly.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="investment-definition-unit" id="unit-3" data-unit-section="unit-3">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 3</div>
+              <h2>Returns and valuation</h2>
+            </div>
+            <p>15 textbook-style definitions used in Lessons 11-15.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l11 capital gain 资本利得 a capital gain is the profit made when an asset is sold for more than its purchase price. defines one way shareholders can make money. ">
+                <th scope="row">U3 L11</th>
+                <td>
+                  <strong>capital gain</strong>
+                  <span lang="zh-Hans">资本利得</span>
+                </td>
+                <td>A capital gain is the profit made when an asset is sold for more than its purchase price.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Defines one way shareholders can make money.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l11 capital loss 资本损失 a capital loss is the loss made when an asset is sold for less than its purchase price. defines how price movement can hurt investors. ">
+                <th scope="row">U3 L11</th>
+                <td>
+                  <strong>capital loss</strong>
+                  <span lang="zh-Hans">资本损失</span>
+                </td>
+                <td>A capital loss is the loss made when an asset is sold for less than its purchase price.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Defines how price movement can hurt investors.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l11 return 回报 return is the gain or loss earned from an investment over a stated holding period, including price change and any income received. creates the basic measure of investment outcome. holding period return related glossary term return earned by an investor over a specified holding period.">
+                <th scope="row">U3 L11</th>
+                <td>
+                  <strong>return</strong>
+                  <span lang="zh-Hans">回报</span>
+                </td>
+                <td>Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Holding period return</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Return earned by an investor over a specified holding period.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Creates the basic measure of investment outcome.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l12 dividend 股息 a dividend is a distribution paid to shareholders based on the number of shares they own, usually in cash or additional shares. defines the income part of shareholder return. dividend clear glossary match a distribution to shareholders based on the shares they own.">
+                <th scope="row">U3 L12</th>
+                <td>
+                  <strong>dividend</strong>
+                  <span lang="zh-Hans">股息</span>
+                </td>
+                <td>A dividend is a distribution paid to shareholders based on the number of shares they own, usually in cash or additional shares.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Dividend</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A distribution to shareholders based on the shares they own.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Defines the income part of shareholder return.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l12 dividend yield 股息收益率 dividend yield is the annual dividend per share divided by the share price and expressed as a percentage. lets students compare income relative to price. dividend yield clear glossary match annual dividend per share compared with the share price.">
+                <th scope="row">U3 L12</th>
+                <td>
+                  <strong>dividend yield</strong>
+                  <span lang="zh-Hans">股息收益率</span>
+                </td>
+                <td>Dividend yield is the annual dividend per share divided by the share price and expressed as a percentage.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Dividend yield</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Annual dividend per share compared with the share price.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Lets students compare income relative to price.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l12 total return 总回报 total return measures price appreciation or loss plus any income received from the investment over the period. prevents students from looking only at price movement. total return clear glossary match price change plus income received over the period.">
+                <th scope="row">U3 L12</th>
+                <td>
+                  <strong>total return</strong>
+                  <span lang="zh-Hans">总回报</span>
+                </td>
+                <td>Total return measures price appreciation or loss plus any income received from the investment over the period.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Total return</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Price change plus income received over the period.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Prevents students from looking only at price movement.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l13 market capitalisation 市值 market capitalisation is the total market value of a company&#39;s equity, calculated as share price multiplied by shares outstanding. shows how the market values the whole listed company. ">
+                <th scope="row">U3 L13</th>
+                <td>
+                  <strong>market capitalisation</strong>
+                  <span lang="zh-Hans">市值</span>
+                </td>
+                <td>Market capitalisation is the total market value of a company&#39;s equity, calculated as share price multiplied by shares outstanding.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Shows how the market values the whole listed company.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l13 shares outstanding 已发行股数 shares outstanding are the shares issued by a company and currently held by investors. supplies the second part of market-cap calculation. ">
+                <th scope="row">U3 L13</th>
+                <td>
+                  <strong>shares outstanding</strong>
+                  <span lang="zh-Hans">已发行股数</span>
+                </td>
+                <td>Shares outstanding are the shares issued by a company and currently held by investors.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Supplies the second part of market-cap calculation.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l13 mega-cap 超大市值公司 a mega-cap company is a listed company with a very large market capitalisation compared with most companies in the market. gives students a size category for major listed firms. ">
+                <th scope="row">U3 L13</th>
+                <td>
+                  <strong>mega-cap</strong>
+                  <span lang="zh-Hans">超大市值公司</span>
+                </td>
+                <td>A mega-cap company is a listed company with a very large market capitalisation compared with most companies in the market.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Gives students a size category for major listed firms.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l14 eps 每股收益 eps, or earnings per share, is the income earned during a period for each ordinary share, usually calculated as profit attributable to ordinary shareholders divided by the share count used in the calculation. connects profit to one share. earnings per share clear glossary match income earned during a period for each common share.">
+                <th scope="row">U3 L14</th>
+                <td>
+                  <strong>EPS</strong>
+                  <span lang="zh-Hans">每股收益</span>
+                </td>
+                <td>EPS, or earnings per share, is the income earned during a period for each ordinary share, usually calculated as profit attributable to ordinary shareholders divided by the share count used in the calculation.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Earnings per share</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Income earned during a period for each common share.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Connects profit to one share.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l14 p/e ratio 市盈率 the p/e ratio is the ratio of share price to earnings per share, showing how much investors pay for each unit of current earnings. introduces a simple valuation multiple. price to earnings ratio clear glossary match share price divided by earnings per share.">
+                <th scope="row">U3 L14</th>
+                <td>
+                  <strong>P/E ratio</strong>
+                  <span lang="zh-Hans">市盈率</span>
+                </td>
+                <td>The P/E ratio is the ratio of share price to earnings per share, showing how much investors pay for each unit of current earnings.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Price to earnings ratio</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Share price divided by earnings per share.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces a simple valuation multiple.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l14 valuation 估值 valuation is the process of estimating the value of an asset using variables related to future investment returns or comparisons with similar assets. turns price into an evidence-based judgement. valuation clear glossary match estimating asset value using future-return variables or comparisons with similar assets.">
+                <th scope="row">U3 L14</th>
+                <td>
+                  <strong>valuation</strong>
+                  <span lang="zh-Hans">估值</span>
+                </td>
+                <td>Valuation is the process of estimating the value of an asset using variables related to future investment returns or comparisons with similar assets.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Valuation</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Estimating asset value using future-return variables or comparisons with similar assets.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Turns price into an evidence-based judgement.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l15 cheap or expensive 便宜或昂贵 a share is cheap or expensive only in relation to evidence about value, earnings, growth, risk and expectations, not simply because the price per share is low or high. breaks the low-price-equals-cheap misconception. ">
+                <th scope="row">U3 L15</th>
+                <td>
+                  <strong>cheap or expensive</strong>
+                  <span lang="zh-Hans">便宜或昂贵</span>
+                </td>
+                <td>A share is cheap or expensive only in relation to evidence about value, earnings, growth, risk and expectations, not simply because the price per share is low or high.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Breaks the low-price-equals-cheap misconception.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l15 expectations 预期 expectations are assumptions about future performance, risk or growth that investors may already have reflected in the current price. helps explain why good news can already be priced in. ">
+                <th scope="row">U3 L15</th>
+                <td>
+                  <strong>expectations</strong>
+                  <span lang="zh-Hans">预期</span>
+                </td>
+                <td>Expectations are assumptions about future performance, risk or growth that investors may already have reflected in the current price.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps explain why good news can already be priced in.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-3" data-search="u3 l15 margin of safety 安全边际 margin of safety is the room for error between the price paid and a cautious estimate of value. gives students a risk-control idea for valuation. ">
+                <th scope="row">U3 L15</th>
+                <td>
+                  <strong>margin of safety</strong>
+                  <span lang="zh-Hans">安全边际</span>
+                </td>
+                <td>Margin of safety is the room for error between the price paid and a cautious estimate of value.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Gives students a risk-control idea for valuation.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="investment-definition-unit" id="unit-4" data-unit-section="unit-4">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 4</div>
+              <h2>Risk, portfolios and funds</h2>
+            </div>
+            <p>16 textbook-style definitions used in Lessons 16-20.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l16 company-specific risk 公司特定风险 company-specific risk is non-systematic risk tied to a particular company&#39;s operations, reputation, financial position, management or business environment. focuses students on risks that affect one company. company-specific risk clear glossary match idiosyncratic risk tied to one company&#39;s operations, reputation or business environment.">
+                <th scope="row">U4 L16</th>
+                <td>
+                  <strong>company-specific risk</strong>
+                  <span lang="zh-Hans">公司特定风险</span>
+                </td>
+                <td>Company-specific risk is non-systematic risk tied to a particular company&#39;s operations, reputation, financial position, management or business environment.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Company-specific risk</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Idiosyncratic risk tied to one company&#39;s operations, reputation or business environment.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Focuses students on risks that affect one company.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l16 demand risk 需求风险 demand risk is the risk that customers buy less than expected, reducing revenue, profit or growth. links customer behaviour to future business results. ">
+                <th scope="row">U4 L16</th>
+                <td>
+                  <strong>demand risk</strong>
+                  <span lang="zh-Hans">需求风险</span>
+                </td>
+                <td>Demand risk is the risk that customers buy less than expected, reducing revenue, profit or growth.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links customer behaviour to future business results.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l16 execution risk 执行风险 execution risk is the risk that a company fails to carry out its strategy, project or operational plan successfully. shows why plans are not the same as results. ">
+                <th scope="row">U4 L16</th>
+                <td>
+                  <strong>execution risk</strong>
+                  <span lang="zh-Hans">执行风险</span>
+                </td>
+                <td>Execution risk is the risk that a company fails to carry out its strategy, project or operational plan successfully.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Shows why plans are not the same as results.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l17 sector 行业 a sector is a group of related industries or companies that share similar business activities or economic exposures. creates a wider comparison group for company analysis. sector clear glossary match a group of related industries.">
+                <th scope="row">U4 L17</th>
+                <td>
+                  <strong>sector</strong>
+                  <span lang="zh-Hans">行业</span>
+                </td>
+                <td>A sector is a group of related industries or companies that share similar business activities or economic exposures.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Sector</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A group of related industries.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Creates a wider comparison group for company analysis.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l17 competition 竞争 competition is rivalry between firms for customers, revenue, market share, talent, suppliers or profit. explains why strong companies can still face pressure. ">
+                <th scope="row">U4 L17</th>
+                <td>
+                  <strong>competition</strong>
+                  <span lang="zh-Hans">竞争</span>
+                </td>
+                <td>Competition is rivalry between firms for customers, revenue, market share, talent, suppliers or profit.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Explains why strong companies can still face pressure.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l17 consumer trend 消费趋势 a consumer trend is a change in what customers prefer, buy or avoid over time. links changing tastes to company risk. ">
+                <th scope="row">U4 L17</th>
+                <td>
+                  <strong>consumer trend</strong>
+                  <span lang="zh-Hans">消费趋势</span>
+                </td>
+                <td>A consumer trend is a change in what customers prefer, buy or avoid over time.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links changing tastes to company risk.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l18 regulation 监管 regulation is a system of government rules and enforcement that affects how companies, markets or investors may behave. introduces rules as a source of risk and discipline. regulatory risk related glossary term uncertainty about how activity will be regulated or how regulation may change.">
+                <th scope="row">U4 L18</th>
+                <td>
+                  <strong>regulation</strong>
+                  <span lang="zh-Hans">监管</span>
+                </td>
+                <td>Regulation is a system of government rules and enforcement that affects how companies, markets or investors may behave.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Regulatory risk</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Uncertainty about how activity will be regulated or how regulation may change.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces rules as a source of risk and discipline.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l18 compliance cost 合规成本 compliance cost is the money, time and resources a company spends to obey laws, rules, standards and reporting requirements. shows how regulation can reduce profit or change operations. ">
+                <th scope="row">U4 L18</th>
+                <td>
+                  <strong>compliance cost</strong>
+                  <span lang="zh-Hans">合规成本</span>
+                </td>
+                <td>Compliance cost is the money, time and resources a company spends to obey laws, rules, standards and reporting requirements.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Shows how regulation can reduce profit or change operations.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l18 policy risk 政策风险 policy risk is the risk that changes in laws, regulation, taxation, subsidies or government priorities reduce future profit or change business prospects. helps students analyse government-related uncertainty. legislative and regulatory risk related glossary term risk that laws or regulations change in ways that harm company operations or profitability.">
+                <th scope="row">U4 L18</th>
+                <td>
+                  <strong>policy risk</strong>
+                  <span lang="zh-Hans">政策风险</span>
+                </td>
+                <td>Policy risk is the risk that changes in laws, regulation, taxation, subsidies or government priorities reduce future profit or change business prospects.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Legislative and regulatory risk</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Risk that laws or regulations change in ways that harm company operations or profitability.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Helps students analyse government-related uncertainty.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l19 exchange rate 汇率 an exchange rate is the price of one currency expressed in terms of another currency. gives the currency basis for global company analysis. ">
+                <th scope="row">U4 L19</th>
+                <td>
+                  <strong>exchange rate</strong>
+                  <span lang="zh-Hans">汇率</span>
+                </td>
+                <td>An exchange rate is the price of one currency expressed in terms of another currency.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Gives the currency basis for global company analysis.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l19 export exposure 出口敞口 export exposure is a company&#39;s reliance on sales to customers in other countries or currencies. links revenue geography to currency and demand risk. ">
+                <th scope="row">U4 L19</th>
+                <td>
+                  <strong>export exposure</strong>
+                  <span lang="zh-Hans">出口敞口</span>
+                </td>
+                <td>Export exposure is a company&#39;s reliance on sales to customers in other countries or currencies.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links revenue geography to currency and demand risk.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l19 translation effect 折算影响 a translation effect is the change in reported financial figures caused by converting foreign-currency results into the company&#39;s reporting currency. explains why accounts can move when currencies move. ">
+                <th scope="row">U4 L19</th>
+                <td>
+                  <strong>translation effect</strong>
+                  <span lang="zh-Hans">折算影响</span>
+                </td>
+                <td>A translation effect is the change in reported financial figures caused by converting foreign-currency results into the company&#39;s reporting currency.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Explains why accounts can move when currencies move.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l20 etf 交易型开放式指数基金 an etf is an exchange-traded fund, a pooled investment fund that holds a basket of assets and trades on a stock exchange like a share. introduces funds as an alternative to single shares. exchange-traded funds clear glossary match hybrid investment products with fund-like holdings and exchange-traded features.">
+                <th scope="row">U4 L20</th>
+                <td>
+                  <strong>ETF</strong>
+                  <span lang="zh-Hans">交易型开放式指数基金</span>
+                </td>
+                <td>An ETF is an exchange-traded fund, a pooled investment fund that holds a basket of assets and trades on a stock exchange like a share.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Exchange-traded funds</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Hybrid investment products with fund-like holdings and exchange-traded features.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Introduces funds as an alternative to single shares.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l20 index fund 指数基金 an index fund is a fund designed to track the performance of a market index rather than choose individual securities through active stock-picking. shows passive diversification. ">
+                <th scope="row">U4 L20</th>
+                <td>
+                  <strong>index fund</strong>
+                  <span lang="zh-Hans">指数基金</span>
+                </td>
+                <td>An index fund is a fund designed to track the performance of a market index rather than choose individual securities through active stock-picking.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Shows passive diversification.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l20 diversification 分散化 diversification is spreading investment across different holdings, sectors, regions or asset types to reduce dependence on any single source of risk. teaches the main reason one fund can hold many companies. ">
+                <th scope="row">U4 L20</th>
+                <td>
+                  <strong>diversification</strong>
+                  <span lang="zh-Hans">分散化</span>
+                </td>
+                <td>Diversification is spreading investment across different holdings, sectors, regions or asset types to reduce dependence on any single source of risk.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Teaches the main reason one fund can hold many companies.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-4" data-search="u4 l20 portfolio weight 投资组合权重 portfolio weight is the value of one holding divided by the total value of the portfolio and expressed as a percentage. measures concentration in one holding. ">
+                <th scope="row">U4 L20</th>
+                <td>
+                  <strong>portfolio weight</strong>
+                  <span lang="zh-Hans">投资组合权重</span>
+                </td>
+                <td>Portfolio weight is the value of one holding divided by the total value of the portfolio and expressed as a percentage.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Measures concentration in one holding.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="investment-definition-unit" id="unit-5" data-unit-section="unit-5">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 5</div>
+              <h2>Sector case labs</h2>
+            </div>
+            <p>15 textbook-style definitions used in Lessons 21-25.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l21 platform business 平台型业务 a platform business connects different user groups and creates value by enabling interactions, transactions, content, services or data exchange between them. explains why user networks matter for some companies. ">
+                <th scope="row">U5 L21</th>
+                <td>
+                  <strong>platform business</strong>
+                  <span lang="zh-Hans">平台型业务</span>
+                </td>
+                <td>A platform business connects different user groups and creates value by enabling interactions, transactions, content, services or data exchange between them.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Explains why user networks matter for some companies.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l21 network effects 网络效应 network effects occur when a product or service becomes more valuable as more users, buyers, sellers or partners join it. defines a key strength and risk in platform cases. ">
+                <th scope="row">U5 L21</th>
+                <td>
+                  <strong>network effects</strong>
+                  <span lang="zh-Hans">网络效应</span>
+                </td>
+                <td>Network effects occur when a product or service becomes more valuable as more users, buyers, sellers or partners join it.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Defines a key strength and risk in platform cases.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l21 regulatory overhang 监管不确定性 regulatory overhang is uncertainty created when possible future regulation may affect a company&#39;s operations, valuation or investor confidence. links policy uncertainty to valuation. ">
+                <th scope="row">U5 L21</th>
+                <td>
+                  <strong>regulatory overhang</strong>
+                  <span lang="zh-Hans">监管不确定性</span>
+                </td>
+                <td>Regulatory overhang is uncertainty created when possible future regulation may affect a company&#39;s operations, valuation or investor confidence.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links policy uncertainty to valuation.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l22 vertical integration 垂直整合 vertical integration is a strategy in which a company controls more than one stage of its supply chain, such as production, components, distribution or retail. helps analyse manufacturing and supply-chain advantage. ">
+                <th scope="row">U5 L22</th>
+                <td>
+                  <strong>vertical integration</strong>
+                  <span lang="zh-Hans">垂直整合</span>
+                </td>
+                <td>Vertical integration is a strategy in which a company controls more than one stage of its supply chain, such as production, components, distribution or retail.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps analyse manufacturing and supply-chain advantage.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l22 capacity 产能 capacity is the maximum amount a company can produce, deliver or serve using its available resources over a period. connects expansion plans to production limits. ">
+                <th scope="row">U5 L22</th>
+                <td>
+                  <strong>capacity</strong>
+                  <span lang="zh-Hans">产能</span>
+                </td>
+                <td>Capacity is the maximum amount a company can produce, deliver or serve using its available resources over a period.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Connects expansion plans to production limits.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l22 cyclicality 周期性 cyclicality is the sensitivity of a company&#39;s sales, profit or valuation to changes in the economic cycle or industry demand cycle. shows why some businesses rise and fall more sharply. cyclical businesses related glossary term business performance with high sensitivity to business-cycle or industry-cycle influences.">
+                <th scope="row">U5 L22</th>
+                <td>
+                  <strong>cyclicality</strong>
+                  <span lang="zh-Hans">周期性</span>
+                </td>
+                <td>Cyclicality is the sensitivity of a company&#39;s sales, profit or valuation to changes in the economic cycle or industry demand cycle.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Cyclical businesses</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Business performance with high sensitivity to business-cycle or industry-cycle influences.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Shows why some businesses rise and fall more sharply.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l23 interest margin 利差 interest margin is the spread between interest earned on loans or other earning assets and interest paid on deposits or other funding; net interest margin compares that spread with average earning assets. gives students a bank-specific profit driver. net interest margin related banking term bank net interest income compared with average earning assets.">
+                <th scope="row">U5 L23</th>
+                <td>
+                  <strong>interest margin</strong>
+                  <span lang="zh-Hans">利差</span>
+                </td>
+                <td>Interest margin is the spread between interest earned on loans or other earning assets and interest paid on deposits or other funding; net interest margin compares that spread with average earning assets.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Net interest margin</strong>
+                    <span>related banking term</span>
+                    <p><b>Meaning focus:</b> Bank net interest income compared with average earning assets.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students a bank-specific profit driver.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l23 credit risk 信用风险 credit risk is the risk of loss caused by a borrower or counterparty failing to make timely payments or by a change in the value of a financial instrument because default risk changes. explains why bank assets can become losses. credit risk clear glossary match risk that a borrower does not repay principal and interest.">
+                <th scope="row">U5 L23</th>
+                <td>
+                  <strong>credit risk</strong>
+                  <span lang="zh-Hans">信用风险</span>
+                </td>
+                <td>Credit risk is the risk of loss caused by a borrower or counterparty failing to make timely payments or by a change in the value of a financial instrument because default risk changes.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Credit risk</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Risk that a borrower does not repay principal and interest.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Explains why bank assets can become losses.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l23 capital strength 资本实力 capital strength is a financial institution&#39;s ability to absorb losses and continue operating, supported by equity capital, reserves and regulatory capital ratios. helps students judge bank resilience. ">
+                <th scope="row">U5 L23</th>
+                <td>
+                  <strong>capital strength</strong>
+                  <span lang="zh-Hans">资本实力</span>
+                </td>
+                <td>Capital strength is a financial institution&#39;s ability to absorb losses and continue operating, supported by equity capital, reserves and regulatory capital ratios.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students judge bank resilience.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l24 brand equity 品牌权益 brand equity is the value created by a company&#39;s brand name, reputation, customer loyalty and perceived quality. connects non-physical assets to pricing and demand. ">
+                <th scope="row">U5 L24</th>
+                <td>
+                  <strong>brand equity</strong>
+                  <span lang="zh-Hans">品牌权益</span>
+                </td>
+                <td>Brand equity is the value created by a company&#39;s brand name, reputation, customer loyalty and perceived quality.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Connects non-physical assets to pricing and demand.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l24 inventory risk 库存风险 inventory risk is the risk that unsold or obsolete goods reduce profit through discounting, write-downs, storage costs or lost working capital. links product demand to financial pressure. ">
+                <th scope="row">U5 L24</th>
+                <td>
+                  <strong>inventory risk</strong>
+                  <span lang="zh-Hans">库存风险</span>
+                </td>
+                <td>Inventory risk is the risk that unsold or obsolete goods reduce profit through discounting, write-downs, storage costs or lost working capital.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links product demand to financial pressure.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l24 pricing power 定价能力 pricing power is the ability to raise prices or maintain high prices without losing too many customers or too much sales volume. explains a possible advantage of strong brands. ">
+                <th scope="row">U5 L24</th>
+                <td>
+                  <strong>pricing power</strong>
+                  <span lang="zh-Hans">定价能力</span>
+                </td>
+                <td>Pricing power is the ability to raise prices or maintain high prices without losing too many customers or too much sales volume.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Explains a possible advantage of strong brands.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l25 multinational 跨国公司 a multinational is a company that operates, sells, produces or earns revenue in more than one country. supports local-versus-global comparison. ">
+                <th scope="row">U5 L25</th>
+                <td>
+                  <strong>multinational</strong>
+                  <span lang="zh-Hans">跨国公司</span>
+                </td>
+                <td>A multinational is a company that operates, sells, produces or earns revenue in more than one country.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Supports local-versus-global comparison.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l25 comparable company 可比公司 a comparable company is a firm with similar business risk, preferably in the same industry, used as a reference point for comparing growth, margins, valuation or risk. gives students a disciplined peer comparison tool. comparable company clear glossary match a company with similar business risk, usually in the same industry.">
+                <th scope="row">U5 L25</th>
+                <td>
+                  <strong>comparable company</strong>
+                  <span lang="zh-Hans">可比公司</span>
+                </td>
+                <td>A comparable company is a firm with similar business risk, preferably in the same industry, used as a reference point for comparing growth, margins, valuation or risk.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Comparable company</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> A company with similar business risk, usually in the same industry.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students a disciplined peer comparison tool.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-5" data-search="u5 l25 local/global risk 本地/全球风险 local/global risk is the contrast between risks tied to a specific local market and risks created by worldwide exposure across countries, currencies and regulations. frames comparison between domestic and global brands. ">
+                <th scope="row">U5 L25</th>
+                <td>
+                  <strong>local/global risk</strong>
+                  <span lang="zh-Hans">本地/全球风险</span>
+                </td>
+                <td>Local/global risk is the contrast between risks tied to a specific local market and risks created by worldwide exposure across countries, currencies and regulations.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Frames comparison between domestic and global brands.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="investment-definition-unit" id="unit-6" data-unit-section="unit-6">
+          <div class="investment-section-head">
+            <div>
+              <div class="investment-section-kicker">Unit 6</div>
+              <h2>Synthesis case labs</h2>
+            </div>
+            <p>15 textbook-style definitions used in Lessons 26-30.</p>
+          </div>
+
+          <div class="investment-definition-table-wrap">
+            <table class="investment-definition-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Textbook definition</th>
+                  <th scope="col">CFA source definition</th>
+                  <th scope="col">Course use</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l26 turnaround 经营复苏 a turnaround is an improvement in a company&#39;s performance after a weak period, often involving recovery in sales, profit, cash flow, operations or confidence. helps students analyse recovery cases cautiously. ">
+                <th scope="row">U6 L26</th>
+                <td>
+                  <strong>turnaround</strong>
+                  <span lang="zh-Hans">经营复苏</span>
+                </td>
+                <td>A turnaround is an improvement in a company&#39;s performance after a weak period, often involving recovery in sales, profit, cash flow, operations or confidence.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students analyse recovery cases cautiously.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l26 store network 门店网络 a store network is the set of physical locations through which a company reaches customers, sells products or delivers services. connects operating footprint to growth and cost. ">
+                <th scope="row">U6 L26</th>
+                <td>
+                  <strong>store network</strong>
+                  <span lang="zh-Hans">门店网络</span>
+                </td>
+                <td>A store network is the set of physical locations through which a company reaches customers, sells products or delivers services.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Connects operating footprint to growth and cost.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l26 same-store sales 同店销售 same-store sales are sales from stores that were open in both comparison periods, used to separate existing-store performance from expansion. teaches a cleaner retail growth measure. ">
+                <th scope="row">U6 L26</th>
+                <td>
+                  <strong>same-store sales</strong>
+                  <span lang="zh-Hans">同店销售</span>
+                </td>
+                <td>Same-store sales are sales from stores that were open in both comparison periods, used to separate existing-store performance from expansion.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Teaches a cleaner retail growth measure.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l27 cyclical demand 周期性需求 cyclical demand is demand that rises and falls with economic conditions, consumer confidence, income, travel activity or industry cycles. explains why some companies are more exposed to downturns. cyclical companies related glossary term companies whose sales and profits expand and contract with the business cycle.">
+                <th scope="row">U6 L27</th>
+                <td>
+                  <strong>cyclical demand</strong>
+                  <span lang="zh-Hans">周期性需求</span>
+                </td>
+                <td>Cyclical demand is demand that rises and falls with economic conditions, consumer confidence, income, travel activity or industry cycles.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Cyclical companies</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Companies whose sales and profits expand and contract with the business cycle.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Explains why some companies are more exposed to downturns.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l27 recovery 复苏 recovery is a return toward earlier activity, revenue, profit or demand levels after a weak period or disruption. supports judgement about whether improvement is temporary or durable. ">
+                <th scope="row">U6 L27</th>
+                <td>
+                  <strong>recovery</strong>
+                  <span lang="zh-Hans">复苏</span>
+                </td>
+                <td>Recovery is a return toward earlier activity, revenue, profit or demand levels after a weak period or disruption.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Supports judgement about whether improvement is temporary or durable.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l27 operating leverage 经营杠杆 operating leverage is the use of fixed operating costs in a company&#39;s cost structure, making profit more sensitive to changes in revenue. shows why profits can rise or fall faster than sales. operating leverage clear glossary match use of fixed costs in operations.">
+                <th scope="row">U6 L27</th>
+                <td>
+                  <strong>operating leverage</strong>
+                  <span lang="zh-Hans">经营杠杆</span>
+                </td>
+                <td>Operating leverage is the use of fixed operating costs in a company&#39;s cost structure, making profit more sensitive to changes in revenue.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Operating leverage</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Use of fixed costs in operations.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Shows why profits can rise or fall faster than sales.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l28 active users 活跃用户 active users are people who use a digital service during a measured period, such as daily active users or monthly active users. gives app analysis a usage base. ">
+                <th scope="row">U6 L28</th>
+                <td>
+                  <strong>active users</strong>
+                  <span lang="zh-Hans">活跃用户</span>
+                </td>
+                <td>Active users are people who use a digital service during a measured period, such as daily active users or monthly active users.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Gives app analysis a usage base.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l28 monetisation 商业化变现 monetisation is the process of turning user activity, attention, data, subscriptions, advertising or transactions into revenue. explains how free apps can become businesses. ">
+                <th scope="row">U6 L28</th>
+                <td>
+                  <strong>monetisation</strong>
+                  <span lang="zh-Hans">商业化变现</span>
+                </td>
+                <td>Monetisation is the process of turning user activity, attention, data, subscriptions, advertising or transactions into revenue.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Explains how free apps can become businesses.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l28 arpu 每用户平均收入 arpu, or average revenue per user, is revenue divided by the number of users over a stated period. links user scale to revenue quality. ">
+                <th scope="row">U6 L28</th>
+                <td>
+                  <strong>ARPU</strong>
+                  <span lang="zh-Hans">每用户平均收入</span>
+                </td>
+                <td>ARPU, or average revenue per user, is revenue divided by the number of users over a stated period.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Links user scale to revenue quality.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l29 debt 债务 debt is money a company has borrowed and is expected to repay, usually with interest and according to agreed terms. introduces borrowing as both financing and risk. ">
+                <th scope="row">U6 L29</th>
+                <td>
+                  <strong>debt</strong>
+                  <span lang="zh-Hans">债务</span>
+                </td>
+                <td>Debt is money a company has borrowed and is expected to repay, usually with interest and according to agreed terms.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Introduces borrowing as both financing and risk.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l29 liabilities 负债 liabilities are present obligations arising from past events that are expected to require an outflow of economic resources; they are claims by creditors and others on a company&#39;s resources. broadens analysis beyond formal debt. liabilities clear glossary match present obligations expected to require future outflows of economic resources.">
+                <th scope="row">U6 L29</th>
+                <td>
+                  <strong>liabilities</strong>
+                  <span lang="zh-Hans">负债</span>
+                </td>
+                <td>Liabilities are present obligations arising from past events that are expected to require an outflow of economic resources; they are claims by creditors and others on a company&#39;s resources.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Liabilities</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Present obligations expected to require future outflows of economic resources.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Broadens analysis beyond formal debt.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l29 gearing or leverage 负债杠杆 gearing or leverage is the use of fixed financing costs, especially debt and interest expense, in a company&#39;s capital structure; it can increase both potential shareholder returns and financial risk. helps students judge when borrowing becomes dangerous. leverage clear glossary match use of fixed costs in a company&#39;s operating or financing structure.">
+                <th scope="row">U6 L29</th>
+                <td>
+                  <strong>gearing or leverage</strong>
+                  <span lang="zh-Hans">负债杠杆</span>
+                </td>
+                <td>Gearing or leverage is the use of fixed financing costs, especially debt and interest expense, in a company&#39;s capital structure; it can increase both potential shareholder returns and financial risk.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Leverage</strong>
+                    <span>clear glossary match</span>
+                    <p><b>Meaning focus:</b> Use of fixed costs in a company&#39;s operating or financing structure.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Helps students judge when borrowing becomes dangerous.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l30 defensive business 防御型业务 a defensive business is a business whose demand, revenue or profit may be more stable than average during difficult economic conditions. gives students a quality-and-risk category for final synthesis. defensive companies related glossary term companies whose sales and profits have low sensitivity to the business cycle.">
+                <th scope="row">U6 L30</th>
+                <td>
+                  <strong>defensive business</strong>
+                  <span lang="zh-Hans">防御型业务</span>
+                </td>
+                <td>A defensive business is a business whose demand, revenue or profit may be more stable than average during difficult economic conditions.</td>
+                <td>
+                  <div class="investment-cfa-match">
+                    <strong>CFA term: Defensive companies</strong>
+                    <span>related glossary term</span>
+                    <p><b>Meaning focus:</b> Companies whose sales and profits have low sensitivity to the business cycle.</p>
+                    <a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms">Open original CFA wording</a>
+                  </div></td>
+                <td>Gives students a quality-and-risk category for final synthesis.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l30 quality company 优质公司 a quality company is a company with strong operations, durable advantages, resilient demand, sound finances, good margins or reliable cash generation. helps students avoid judging only by price. ">
+                <th scope="row">U6 L30</th>
+                <td>
+                  <strong>quality company</strong>
+                  <span lang="zh-Hans">优质公司</span>
+                </td>
+                <td>A quality company is a company with strong operations, durable advantages, resilient demand, sound finances, good margins or reliable cash generation.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Helps students avoid judging only by price.</td>
+              </tr>
+              <tr class="investment-definition-row" data-unit="unit-6" data-search="u6 l30 valuation risk 估值风险 valuation risk is the risk that investment returns disappoint because the price already assumes too much good news or is high relative to evidence. completes the quality-price-risk judgement. ">
+                <th scope="row">U6 L30</th>
+                <td>
+                  <strong>valuation risk</strong>
+                  <span lang="zh-Hans">估值风险</span>
+                </td>
+                <td>Valuation risk is the risk that investment returns disappoint because the price already assumes too much good news or is high relative to evidence.</td>
+                <td>
+                  <div class="investment-cfa-match is-unmatched">
+                    <strong>No clear CFA match recorded</strong>
+                    <p>Use the course definition for this course-specific term.</p>
+                  </div></td>
+                <td>Completes the quality-price-risk judgement.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+    <footer class="investment-footer">
+      <span>Oehler-Huang Library - independent classroom resources.</span>
+      <span>Educational use only; classroom judgements are not personalised financial advice.</span>
+    </footer>
+  </main>
+
+  <script>
+    window.INVESTMENT_DEFINITION_UNITS = [{"unit":1,"title":"Market foundations","count":19},{"unit":2,"title":"Financial statements","count":15},{"unit":3,"title":"Returns and valuation","count":15},{"unit":4,"title":"Risk, portfolios and funds","count":16},{"unit":5,"title":"Sector case labs","count":15},{"unit":6,"title":"Synthesis case labs","count":15}];
+    (() => {
+      const searchInput = document.querySelector('[data-definition-search]');
+      const filters = Array.from(document.querySelectorAll('[data-filter]'));
+      const rows = Array.from(document.querySelectorAll('.investment-definition-row'));
+      const sections = Array.from(document.querySelectorAll('[data-unit-section]'));
+      const summary = document.querySelector('[data-definition-summary]');
+      const empty = document.querySelector('[data-definition-empty]');
+      let activeFilter = 'all';
+
+      function applyFilters() {
+        const query = (searchInput && searchInput.value || '').trim().toLowerCase();
+        let visibleCount = 0;
+
+        for (const row of rows) {
+          const matchesUnit = activeFilter === 'all' || row.dataset.unit === activeFilter;
+          const matchesSearch = !query || (row.dataset.search || '').includes(query);
+          const isVisible = matchesUnit && matchesSearch;
+          row.hidden = !isVisible;
+          if (isVisible) visibleCount += 1;
+        }
+
+        for (const section of sections) {
+          const visibleRows = section.querySelectorAll('.investment-definition-row:not([hidden])').length;
+          section.hidden = visibleRows === 0;
+        }
+
+        if (summary) summary.textContent = visibleCount + ' definition' + (visibleCount === 1 ? '' : 's') + ' shown.';
+        if (empty) empty.classList.toggle('is-visible', visibleCount === 0);
+      }
+
+      for (const filter of filters) {
+        filter.addEventListener('click', () => {
+          activeFilter = filter.dataset.filter || 'all';
+          for (const item of filters) {
+            const isActive = item === filter;
+            item.classList.toggle('is-active', isActive);
+            item.setAttribute('aria-pressed', String(isActive));
+          }
+          applyFilters();
+        });
+      }
+
+      if (searchInput) searchInput.addEventListener('input', applyFilters);
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>

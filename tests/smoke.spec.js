@@ -660,6 +660,20 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test('@smoke investment definitions page opens and filters rows', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('phone'), 'Phone coverage stays on core course routes.');
+
+    await page.goto(pageUrl('investment-analysis/definitions.html'));
+
+    await expect(page.getByRole('heading', { name: /^Investment Analysis Definitions$/i })).toBeVisible();
+    expect(await page.locator('.investment-definition-row:not([hidden])').count()).toBeGreaterThanOrEqual(95);
+
+    await page.getByRole('searchbox', { name: /Search definitions/i }).fill('margin of safety');
+    await expect(page.locator('.investment-definition-row:not([hidden])')).toHaveCount(1);
+    await expect(page.locator('.investment-definition-row:not([hidden])')).toContainText(/margin of safety/i);
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@smoke representative lesson views load', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Covered by the dedicated responsive smoke test.');
 
@@ -808,13 +822,18 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['discussion', 'visualPause', 'compare', 'term', 'classificationTask', 'priceChart', 'yesNoCheck', 'flow', 'exam', 'modelAnswer', 'quiz', 'answer']
+      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'peerTask', 'classificationTask', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
+    await goToInvestmentSlide(page, { type: 'section' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active.invSectionSlide .invSectionSubtitle')).toHaveCount(0);
+    await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
+
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
-    await page.keyboard.press('Space');
+    await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
+    await page.getByRole('button', { name: /^Show possible answer$/i }).click();
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed').first()).toBeVisible();
     await expectInvestmentSlideFits(page, 'lesson 1 discussion reveal desktop');
 
@@ -899,6 +918,7 @@ test.describe('site smoke', () => {
     const newSlideTypes = [
       { type: 'peerTask', title: 'Recall last lesson', marker: '.invDefinitionRecall' },
       { type: 'conceptTriad', title: 'Compare three beginner ideas', marker: '.invConceptTriad' },
+      { type: 'visualGrid', title: 'Compare examples with pictures', marker: '.invVisualGrid' },
       { type: 'peerTask', title: 'Complete the missing sentence', marker: '.invMissingSentence' },
       { type: 'compare', title: 'Compare two ideas in a T-table', marker: '.invCompareTwoColumn' },
       { type: 'classificationTask', title: 'Classify the evidence habit', marker: '.invClassificationTask' },
@@ -1122,7 +1142,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['discussion', 'visualPause', 'compare', 'term', 'classificationTask', 'priceChart', 'yesNoCheck', 'flow', 'exam', 'modelAnswer', 'quiz', 'answer']
+      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'peerTask', 'classificationTask', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

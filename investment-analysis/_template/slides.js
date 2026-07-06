@@ -13,7 +13,6 @@ window.INVEST.lesson = {
       title: "Lesson title",
       zhTitle: "课程标题",
       subtitle: "Unit X Lesson Y",
-      kicker: "Replace with one short guiding question.",
       visual: window.INVEST.photos?.modernTradingDesk
     },
     {
@@ -91,7 +90,7 @@ window.INVEST.lesson = {
       visual: window.INVEST.photos?.financialAnalysisDesk,
       question: "Ask students to choose, predict, calculate, classify or correct a misconception before revealing the explanation.",
       questionZh: "先让学生选择、预测、计算、分类或纠正误解，再揭示解释。",
-      revealTitle: "Answer: evidence comes before judgement",
+      revealTitle: "Evidence comes before judgement",
       answer: "Reveal a concise model answer only after students commit to an answer.",
       answerZh: "学生先作答后，再揭示简洁的参考答案。",
       notes: "Use the response as a formative decision point: move on, reteach, ask for improvement or collect the written check."
@@ -187,6 +186,44 @@ window.INVEST.lesson = {
       ],
       prompt: "Before reveal, classify one classroom example into the correct concept.",
       promptZh: "揭示前，把一个课堂例子归入正确概念。"
+    },
+    {
+      type: "visualGrid",
+      eyebrow: "Visual examples",
+      title: "Compare examples with pictures",
+      zhTitle: "用图片比较例子",
+      prompt: "Use the pictures to name what is similar and what is different.",
+      promptZh: "利用图片说出相同点和不同点。",
+      cards: [
+        {
+          title: "Example A",
+          zhTitle: "例子A",
+          body: "Short teaching label.",
+          bodyZh: "简短教学标签。",
+          visual: window.INVEST.photos?.assetCashSavings
+        },
+        {
+          title: "Example B",
+          zhTitle: "例子B",
+          body: "Short teaching label.",
+          bodyZh: "简短教学标签。",
+          visual: window.INVEST.photos?.assetPropertyBuilding
+        },
+        {
+          title: "Example C",
+          zhTitle: "例子C",
+          body: "Short teaching label.",
+          bodyZh: "简短教学标签。",
+          visual: window.INVEST.photos?.assetSharesScreen
+        },
+        {
+          title: "Example D",
+          zhTitle: "例子D",
+          body: "Short teaching label.",
+          bodyZh: "简短教学标签。",
+          visual: window.INVEST.photos?.assetCommoditiesPort
+        }
+      ]
     },
     {
       type: "compare",

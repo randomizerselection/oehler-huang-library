@@ -98,6 +98,38 @@ window.INVEST = window.INVEST || {};
       "https://www.pexels.com/photo/marketing-exit-desk-notebook-7414218/",
       { objectPosition: "center 54%" }
     ),
+    assetCashSavings: photo(
+      "../monetary-policy/deposit-into-piggy-bank-savings-account.jpg",
+      "A person deposits coins into a piggy bank as a simple savings asset.",
+      "Cash and savings as a low-risk asset example",
+      "Wikimedia Commons contributor",
+      "Local economics image asset",
+      { objectPosition: "center 52%" }
+    ),
+    assetPropertyBuilding: photo(
+      "hsbc-main-building.jpg",
+      "HSBC Main Building in Hong Kong as a property and building asset example.",
+      "Property and buildings as asset examples",
+      "Wikimedia Commons contributor",
+      "https://commons.wikimedia.org/wiki/File:HSBC_Main_Building,_Hong_Kong.jpg",
+      { objectPosition: "center 48%" }
+    ),
+    assetSharesScreen: photo(
+      "us-stock-market-screen.jpg",
+      "A stock market screen showing listed shares and prices.",
+      "Shares as a financial asset example",
+      "Wikimedia Commons contributor",
+      "Local investment image asset",
+      { objectPosition: "center 48%" }
+    ),
+    assetCommoditiesPort: photo(
+      "shipping-containers-port.jpg",
+      "Shipping containers at a port representing traded physical goods and commodities.",
+      "Commodities and traded goods as asset examples",
+      "Unsplash / Andy Li",
+      "https://unsplash.com/photos/shipping-containers-stacked-at-a-busy-port-at-sunset-fT4SwA83jH4",
+      { objectPosition: "center 50%" }
+    ),
     investorMeetingReport: photo(
       "investor-meeting-report-2021.jpg",
       "Business people review printed charts and a tablet during a meeting.",

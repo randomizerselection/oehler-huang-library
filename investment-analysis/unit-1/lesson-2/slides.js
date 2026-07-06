@@ -203,22 +203,22 @@ window.INVEST.lesson = {
           label: "1",
           term: "Listed share",
           termZh: "上市股票",
-          answer: "A listed share is one ownership unit in a company that can trade on a stock exchange.",
-          answerZh: "上市股票是在证券交易所交易的公司所有权单位。"
+          answer: "One ownership unit that can trade on a stock exchange.",
+          answerZh: "可以在证券交易所交易的一个所有权单位。"
         },
         {
           label: "2",
           term: "Share price",
           termZh: "股价",
-          answer: "A share price is the market price of one share at a specific time.",
-          answerZh: "股价是在特定时间一股股票的市场价格。"
+          answer: "The market price of one share at a specific time.",
+          answerZh: "特定时间一股股票的市场价格。"
         },
         {
           label: "3",
           term: "Evidence before opinion",
           termZh: "先证据后观点",
-          answer: "Investment analysis uses source-backed evidence before making a judgement about a share.",
-          answerZh: "投资分析先使用有来源支持的证据，再对股票作出判断。"
+          answer: "Source-dated evidence about asset, business, return, risk and price before judgement.",
+          answerZh: "判断前使用关于资产、企业、回报、风险和价格的有来源和日期的证据。"
         }
       ],
       sharePrompt: "Improve one definition before we add stock-market knowledge.",

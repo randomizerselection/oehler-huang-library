@@ -2,7 +2,7 @@
   window.INVEST = window.INVEST || {};
 
   const INVEST = window.INVEST;
-  const interactiveSelector = 'a, button, input, textarea, select, label, summary, details, .sourcePanel, .sourceList, .invOverview, .invHandout';
+  const interactiveSelector = 'a, button, input, textarea, select, label, summary, details, .sourcePanel, .sourceList, .invOverview, .invHandout, .invDiscussionAnswerOverlay';
 
   function escapeHtml(value) {
     return String(value ?? '')
@@ -434,7 +434,8 @@
     `).join('');
 
     if (titleOnly) {
-      return slideShell(slide, index, lesson, '', 'invHeroSlide invTitleOnlySlide', photo);
+      const prominentTitleClass = slide.prominentTitle ? ' invProminentTitleSlide' : '';
+      return slideShell(slide, index, lesson, '', `invHeroSlide invTitleOnlySlide${prominentTitleClass}`, photo);
     }
 
     const body = `
@@ -498,7 +499,6 @@
         <div class="invSectionKicker">${escapeHtml(stepLabel)}</div>
         <h1>${html(slide.title || '')}</h1>
         ${slide.zhTitle ? `<div class="invSectionZh" lang="zh-Hans">${escapeHtml(slide.zhTitle)}</div>` : ''}
-        ${slide.subtitle ? `<p class="invSectionSubtitle">${html(slide.subtitle)}</p>` : ''}
         ${sectionProgressMarkup(slide)}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invSectionSlide', null, { hideHeader: true });
@@ -524,18 +524,28 @@
     const photo = slide.visual || slide.photo;
     const questionZh = slide.zh || slide.questionZh || slide.promptZh;
     const body = `
-      <div class="invDiscussionStack">
-        <div class="invPanel invDiscussionQuestion">
-          <div class="invBigQuestion">${html(slide.question || slide.prompt || '')}</div>
-          ${questionZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(questionZh)}</p>` : ''}
+      <div class="invDiscussionStage">
+        <div class="invDiscussionPrompt">
+          ${slide.eyebrow ? `<div class="invDiscussionEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
+          <p class="invDiscussionQuestionText">${html(slide.question || slide.prompt || '')}</p>
+          ${questionZh ? `<p class="invDiscussionQuestionZh" lang="zh-Hans">${escapeHtml(questionZh)}</p>` : ''}
+          ${(slide.answer || slide.note) ? `
+            <button type="button" class="invDiscussionAnswerButton" data-action="show-discussion-answer" aria-haspopup="dialog">
+              <span>Show possible answer</span>
+            </button>` : ''}
         </div>
-        <div class="invNotePanel invReveal invDiscussionAnswer">
-          ${slide.revealTitle ? `<strong>${escapeHtml(slide.revealTitle)}</strong>` : ''}
-          <p>${html(slide.answer || slide.note || '')}</p>
-          ${slide.answerZh ? `<p class="invPromptZh" lang="zh-Hans">${escapeHtml(slide.answerZh)}</p>` : ''}
-        </div>
+        ${(slide.answer || slide.note) ? `
+          <div class="invDiscussionAnswerOverlay invReveal invDiscussionAnswer" role="dialog" aria-modal="true" aria-label="Possible answer">
+            <div class="invDiscussionAnswerPanel">
+              <button type="button" class="invDiscussionAnswerClose" data-action="close-discussion-answer" aria-label="Close possible answer">&times;</button>
+              <div class="invDiscussionAnswerHeader">Possible answer</div>
+              ${slide.revealTitle ? `<strong class="invDiscussionAnswerTitle">${escapeHtml(slide.revealTitle)}</strong>` : ''}
+              <p class="invDiscussionAnswerText">${html(slide.answer || slide.note || '')}</p>
+              ${slide.answerZh ? `<p class="invDiscussionAnswerZh" lang="zh-Hans">${escapeHtml(slide.answerZh)}</p>` : ''}
+            </div>
+          </div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body, 'invDiscussionSlide invContextPhotoSlide', photo);
+    return slideShell(slide, index, lesson, body, 'invDiscussionSlide invContextPhotoSlide', photo, { hideHeader: true });
   }
 
   function renderTerm(slide, index, lesson) {
@@ -642,6 +652,35 @@
         ${slide.prompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
       </div>`;
     return slideShell(slide, index, lesson, body, 'invConceptTriadSlide invContextPhotoSlide', photo);
+  }
+
+  function renderVisualGrid(slide, index, lesson) {
+    const revealCardLabels = Boolean(slide.revealCardLabels || slide.revealCardText);
+    const showCardNumbers = slide.showCardNumbers !== false;
+    const cards = (slide.cards || []).slice(0, 6).map((card, i) => {
+      const photo = card.visual || card.photo;
+      const textClass = `invVisualGridText${revealCardLabels ? ' invReveal' : ''}`;
+      return `
+        <article class="invVisualGridCard">
+          ${photo?.src ? `
+            <div class="invVisualGridImage"${photoStyle(photo)}>
+              <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || '')}" loading="eager" />
+            </div>` : '<div class="invVisualGridImage invVisualGridImageEmpty"></div>'}
+          <div class="${textClass}">
+            ${showCardNumbers ? `<span>${String(i + 1).padStart(2, '0')}</span>` : ''}
+            <strong>${escapeHtml(card.title || '')}</strong>
+            ${card.zhTitle ? `<em lang="zh-Hans">${escapeHtml(card.zhTitle)}</em>` : ''}
+            ${card.body ? `<p>${escapeHtml(card.body)}</p>` : ''}
+            ${card.bodyZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(card.bodyZh)}</p>` : ''}
+          </div>
+        </article>`;
+    }).join('');
+    const body = `
+      <div class="invVisualGridWrap">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
+        <div class="invVisualGrid" data-count="${(slide.cards || []).length}">${cards}</div>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invVisualGridSlide');
   }
 
   function renderSourceLens(slide, index, lesson) {
@@ -884,6 +923,7 @@
   function renderClassificationTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const revealAnswers = slide.revealAnswers !== false;
+    const compactClass = slide.compact ? ' invCompactClassificationSlide' : '';
     const categories = (slide.categories || []).map((category) => {
       const normalized = typeof category === 'string' ? { title: category } : category || {};
       return `
@@ -912,18 +952,19 @@
         </article>`;
     }).join('');
     const body = `
-      <div class="invClassificationTask">
+      <div class="invClassificationTask${slide.compact ? ' is-compact' : ''}">
         ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
         ${categories ? `<div class="invClassificationCategories">${categories}</div>` : ''}
         <div class="invClassificationItems">${items}</div>
         ${slide.sharePrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.sharePrompt)}</strong>${slide.sharePromptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.sharePromptZh)}</div>` : ''}</div>` : ''}
       </div>`;
-    return slideShell(slide, index, lesson, body, 'invClassificationTaskSlide invContextPhotoSlide', photo);
+    return slideShell(slide, index, lesson, body, `invClassificationTaskSlide${compactClass} invContextPhotoSlide`, photo);
   }
 
   function renderYesNoCheck(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const revealAnswers = slide.revealAnswers !== false;
+    const compactClass = slide.compact ? ' invCompactCheckSlide' : '';
     const items = (slide.items || []).map((item, i) => {
       const normalized = normalizeNumberedItem(item, i);
       const answer = yesNoLabel(item?.answer);
@@ -935,19 +976,18 @@
             ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
           </div>
           <div class="invYesNoAnswer${revealAnswers ? ' invReveal' : ''}">
-            <span>${escapeHtml(answer)}</span>
-            ${normalized.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}
+            <span class="invYesNoBadge"><span>${escapeHtml(answer)}</span>${normalized.answerZh ? `<span lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}</span>
             ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
             ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
           </div>
         </article>`;
     }).join('');
     const body = `
-      <div class="invYesNoCheck">
+      <div class="invYesNoCheck${slide.compact ? ' is-compact' : ''}">
         ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
         <div class="invYesNoItems">${items}</div>
       </div>`;
-    return slideShell(slide, index, lesson, body, 'invYesNoCheckSlide invContextPhotoSlide', photo);
+    return slideShell(slide, index, lesson, body, `invYesNoCheckSlide${compactClass} invContextPhotoSlide`, photo);
   }
 
   function renderDefinitionRecall(slide, index, lesson) {
@@ -1016,6 +1056,7 @@
     }).join('');
 
     if (slide.taskType === 'sort') {
+      const categoryCount = Math.max(1, (slide.categories || []).length);
       const categories = (slide.categories || []).map((category) => `<span class="invSortCategory">${escapeHtml(category)}</span>`).join('');
       const cases = (slide.cases || []).map((item) => `
         <div class="invSortCase">
@@ -1027,7 +1068,7 @@
         <div>
           <div class="invPeerBox invSortPeerBox">
             ${steps ? `<div class="invPeerSteps invSortInstructions">${steps}</div>` : ''}
-            <div class="invSortBoard">
+            <div class="invSortBoard" style="--sort-cols:${categoryCount}">
               <div class="invSortCategories">${categories}</div>
               <div class="invSortCases">${cases}</div>
             </div>
@@ -1118,6 +1159,7 @@
     flow: renderFlow,
     dataSnapshot: renderDataSnapshot,
     conceptTriad: renderConceptTriad,
+    visualGrid: renderVisualGrid,
     sourceLens: renderSourceLens,
     quoteMap: renderQuoteMap,
     compare: renderCompare,
@@ -1298,6 +1340,26 @@
     });
 
     document.addEventListener('click', (event) => {
+      const showDiscussionAnswer = event.target.closest('[data-action="show-discussion-answer"]');
+      if (showDiscussionAnswer) {
+        event.preventDefault();
+        event.stopPropagation();
+        const slideNode = showDiscussionAnswer.closest('.invSlide');
+        const answer = slideNode?.querySelector('.invDiscussionAnswer.invReveal:not(.is-revealed)');
+        if (answer) answer.classList.add('is-revealed');
+        return;
+      }
+
+      const closeDiscussionAnswer = event.target.closest('[data-action="close-discussion-answer"]');
+      const discussionBackdrop = event.target.classList.contains('invDiscussionAnswerOverlay') ? event.target : null;
+      if (closeDiscussionAnswer || discussionBackdrop) {
+        event.preventDefault();
+        event.stopPropagation();
+        const answer = (closeDiscussionAnswer || discussionBackdrop).closest('.invDiscussionAnswer');
+        answer?.classList.remove('is-revealed');
+        return;
+      }
+
       const choice = event.target.closest('.invChoice');
       if (!choice) return;
       event.stopPropagation();
@@ -1330,6 +1392,12 @@
         event.preventDefault();
         toggleOverview();
       } else if (event.key === 'Escape') {
+        const openDiscussionAnswer = activeSlide()?.querySelector('.invDiscussionAnswerOverlay.is-revealed');
+        if (openDiscussionAnswer) {
+          event.preventDefault();
+          openDiscussionAnswer.classList.remove('is-revealed');
+          return;
+        }
         toggleOverview(false);
       }
     });

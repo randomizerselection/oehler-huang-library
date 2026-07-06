@@ -90,6 +90,7 @@ Visual rhythm:
 - Charts are evidence-reading surfaces, not automatic openers. Place them after the student has a reason to inspect what the chart can and cannot prove.
 - Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
 - Use `conceptTriad` when students must compare three beginner concepts with definition, purpose, risk level, time horizon and example.
+- Use `visualGrid` when students need to compare concrete examples through pictures, such as asset types. Keep labels short and make each image necessary for the classification or recall task.
 - Use `compare` when students need a clean two-column contrast with fill-in blanks, such as evidence-based analysis versus weak opinion.
 - Use `classificationTask` when students classify cases into taught categories and then reveal the reason.
 - Use `yesNoCheck` when a misconception can be tested as a yes/no vote before the explanation.
@@ -102,6 +103,7 @@ Visual rhythm:
 - Use `exam` with `revealKeywords: true` when students should plan before seeing the keyword scaffold.
 - Use `modelAnswer` with `cueLabel` and `cueText` so the comparison instruction matches the question.
 - Keep landing-page copy student-facing: lesson actions, what students will learn, and clear quiz/data links.
+- For a title-only course or lesson opener that should read as the main classroom title, set `prominentTitle: true` and keep the slide clean; avoid a subtitle unless it adds necessary information.
 
 Typography rhythm:
 

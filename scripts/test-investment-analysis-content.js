@@ -19,6 +19,18 @@ const {
   renderHandoutBook,
   renderTeacherBlueprint,
 } = require('./build-investment-handout-book.js');
+const {
+  sourcePath: investmentDefinitionSourcePath,
+  cfaMatchesPath: investmentDefinitionCfaMatchesPath,
+  htmlOutputPath: investmentDefinitionHtmlPath,
+  getInvestmentDefinitionSections,
+  getInvestmentDefinitionMap,
+  getInvestmentCfaMatches,
+  getInvestmentCfaMatchMap,
+} = require('./investment-definitions.js');
+const {
+  renderDefinitionPage,
+} = require('./build-investment-definitions-page.js');
 
 const vagueRevealTitlePattern = /^(?:answer|possible answer|sample answer|model answer|model sentence|model direction|teacher cue|course rule|analysis boundary|bridge(?: to lesson \d+)?)$/i;
 const requiredLessonFields = [
@@ -605,6 +617,126 @@ function validateGeneratorContextAccess() {
   return failures;
 }
 
+function validateInvestmentDefinitionsOverview() {
+  const failures = [];
+  const sections = getInvestmentDefinitionSections();
+  const entries = sections.flatMap((section) => section.entries);
+  const definitionMap = getInvestmentDefinitionMap();
+  const expectedSource = 'references/investment-analysis-definitions.md';
+  const expectedPage = 'investment-analysis/definitions.html';
+
+  if (courseMap.definitionOverview?.source !== expectedSource) {
+    failures.push('investment-analysis/course-map-data.js: definitionOverview.source must point to references/investment-analysis-definitions.md');
+  }
+  if (courseMap.definitionOverview?.studentPage !== expectedPage) {
+    failures.push('investment-analysis/course-map-data.js: definitionOverview.studentPage must point to investment-analysis/definitions.html');
+  }
+  if (courseMap.definitionOverview?.cfaMatches !== 'references/investment-analysis-cfa-glossary-matches.json') {
+    failures.push('investment-analysis/course-map-data.js: definitionOverview.cfaMatches must point to references/investment-analysis-cfa-glossary-matches.json');
+  }
+  if (courseMap.definitionOverview?.prioritySource !== 'CFA Program glossary' || !/cfainstitute\.org\/programs\/cfa-program\/candidate-resources\/glossary-terms/i.test(courseMap.definitionOverview?.prioritySourceUrl || '')) {
+    failures.push('investment-analysis/course-map-data.js: definitionOverview must record the CFA Program glossary priority source');
+  }
+  if (!/textbook-style/i.test(courseMap.definitionOverview?.rule || '')) {
+    failures.push('investment-analysis/course-map-data.js: definitionOverview.rule must identify the textbook-style definition source');
+  }
+
+  if (!fs.existsSync(investmentDefinitionSourcePath)) {
+    failures.push('references/investment-analysis-definitions.md: missing investment definition overview source');
+    return failures;
+  }
+  if (sections.length !== 6) {
+    failures.push('references/investment-analysis-definitions.md: expected exactly 6 unit sections');
+  }
+  if (entries.length !== definitionMap.size) {
+    failures.push('references/investment-analysis-definitions.md: duplicate definition terms detected');
+  }
+
+  if (!fs.existsSync(investmentDefinitionCfaMatchesPath)) {
+    failures.push('references/investment-analysis-cfa-glossary-matches.json: missing CFA glossary match source');
+  } else {
+    const cfaMatches = getInvestmentCfaMatches();
+    const cfaMatchMap = getInvestmentCfaMatchMap();
+    const cfaMatchedTerms = new Set();
+
+    if (!/cfainstitute\.org\/programs\/cfa-program\/candidate-resources\/glossary-terms/i.test(cfaMatches.sourceUrl || '')) {
+      failures.push('references/investment-analysis-cfa-glossary-matches.json: sourceUrl must point to the CFA Program glossary');
+    }
+    if (!Array.isArray(cfaMatches.matches) || cfaMatches.matches.length < 30) {
+      failures.push('references/investment-analysis-cfa-glossary-matches.json: expected at least 30 clear CFA glossary matches');
+    }
+    if (cfaMatchMap.has('capacity')) {
+      failures.push('references/investment-analysis-cfa-glossary-matches.json: capacity must not be matched because CFA capacity means borrower repayment ability');
+    }
+
+    for (const match of cfaMatches.matches || []) {
+      const key = String(match.term || '').toLowerCase();
+      const label = `references/investment-analysis-cfa-glossary-matches.json term "${match.term || '?'}"`;
+      if (!definitionMap.has(key)) failures.push(`${label}: CFA match term is not present in the definition overview`);
+      if (cfaMatchedTerms.has(key)) failures.push(`${label}: duplicate CFA match term`);
+      cfaMatchedTerms.add(key);
+      if (!isNonEmptyString(match.cfaTerm)) failures.push(`${label}: missing cfaTerm`);
+      if (!isNonEmptyString(match.meaningFocus) || match.meaningFocus.length < 30) failures.push(`${label}: missing course-aligned CFA meaning focus`);
+      if (!isNonEmptyString(match.matchType)) failures.push(`${label}: missing matchType`);
+    }
+  }
+
+  const courseTermKeys = new Set();
+  for (const lesson of courseMap.lessons) {
+    for (const term of lesson.terms || []) {
+      const key = String(term.term || '').toLowerCase();
+      courseTermKeys.add(key);
+      const entry = definitionMap.get(key);
+      const label = `references/investment-analysis-definitions.md term "${term.term}"`;
+
+      if (!entry) {
+        failures.push(`${label}: missing course-map term from definition overview`);
+        continue;
+      }
+      if (entry.ref !== `U${lesson.unit} L${lesson.lesson}`) {
+        failures.push(`${label}: expected ref U${lesson.unit} L${lesson.lesson}, got ${entry.ref}`);
+      }
+      if (!hasChineseText(entry.zh)) {
+        failures.push(`${label}: missing Chinese support`);
+      }
+      if (entry.definition.length < 60 || /^[a-z]/.test(entry.definition) || !/[.!?]$/.test(entry.definition)) {
+        failures.push(`${label}: definition must be complete textbook-style sentence wording`);
+      }
+      if (!isNonEmptyString(entry.courseUse)) {
+        failures.push(`${label}: missing course use`);
+      }
+    }
+  }
+
+  for (const entry of entries) {
+    if (!courseTermKeys.has(entry.term.toLowerCase())) {
+      failures.push(`references/investment-analysis-definitions.md term "${entry.term}": not present in course-map terms`);
+    }
+  }
+
+  const expectedHtml = normaliseLineEndings(renderDefinitionPage(sections));
+  const actualHtml = fs.existsSync(investmentDefinitionHtmlPath)
+    ? normaliseLineEndings(fs.readFileSync(investmentDefinitionHtmlPath, 'utf8'))
+    : '';
+  if (actualHtml !== expectedHtml) {
+    failures.push('investment-analysis/definitions.html: generated investment definitions page is missing or out of date');
+  }
+  if (!/CFA source definition/.test(actualHtml) || !/CFA term: Earnings per share/.test(actualHtml) || !/Open original CFA wording/.test(actualHtml)) {
+    failures.push('investment-analysis/definitions.html: generated page must show CFA glossary source matches');
+  }
+
+  const homeSource = fs.readFileSync(path.join(courseRoot, 'index.html'), 'utf8');
+  const syllabusSource = fs.readFileSync(path.join(courseRoot, 'syllabus.html'), 'utf8');
+  if (!/href="definitions\.html"/.test(homeSource)) {
+    failures.push('investment-analysis/index.html: missing link to definitions.html');
+  }
+  if (!/investment-analysis-definitions\.md/.test(syllabusSource) || !/href="definitions\.html"/.test(syllabusSource)) {
+    failures.push('investment-analysis/syllabus.html: missing definition overview source and page links');
+  }
+
+  return failures;
+}
+
 function validateCompiledHandoutBook() {
   const failures = [];
   const expected = normaliseLineEndings(renderHandoutBook(courseMap));
@@ -778,6 +910,13 @@ function validateImportantChineseSupport() {
           });
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the concept prompt');
           break;
+        case 'visualGrid':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the visual-grid prompt');
+          (slide.cards || []).forEach((card, cardIndex) => {
+            if (card.title) requireChinese(failures, `${label} card ${cardIndex + 1}`, card.zhTitle, 'zhTitle for the visual-grid card');
+            if (card.body) requireChinese(failures, `${label} card ${cardIndex + 1}`, card.bodyZh, 'bodyZh for the visual-grid card');
+          });
+          break;
         case 'sourceLens':
           if (slide.task) requireChinese(failures, label, slide.taskZh, 'taskZh for the source task');
           (slide.checks || []).forEach((check, checkIndex) => {
@@ -922,6 +1061,7 @@ const failures = [
   ...validateCourseMapContract(),
   ...validateSyllabusUsesCourseMap(),
   ...validateGeneratorContextAccess(),
+  ...validateInvestmentDefinitionsOverview(),
   ...validateCompiledHandoutBook(),
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),

@@ -165,6 +165,7 @@
       courseTitle: map.courseTitle,
       mapTitle: map.mapTitle,
       writtenArtifactRule: map.writtenArtifactRule,
+      definitionOverview: map.definitionOverview,
       handoutContract: map.handoutContract,
       textbookAssembly: map.textbookAssembly,
       sourceFitAudit: map.sourceFitAudit,

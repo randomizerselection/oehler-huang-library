@@ -2,10 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const courseMap = require('../investment-analysis/course-map-data.js');
+const { getInvestmentDefinitionMap } = require('./investment-definitions');
 
 const root = path.resolve(__dirname, '..');
 const outputPath = path.join(root, 'investment-analysis', 'companion-textbook', 'compiled-handout-book.md');
 const teacherBlueprintPath = path.join(root, 'investment-analysis', 'companion-textbook', 'course-map-teacher-blueprint.md');
+const investmentDefinitionMap = getInvestmentDefinitionMap();
 
 function line(value = '') {
   return value;
@@ -15,7 +17,10 @@ function renderTermTable(terms) {
   return [
     '| Term | Chinese support | Definition |',
     '| --- | --- | --- |',
-    ...terms.map((term) => `| ${term.term} | ${term.zh} | ${term.definition} |`),
+    ...terms.map((term) => {
+      const textbookDefinition = investmentDefinitionMap.get(String(term.term || '').toLowerCase())?.definition || term.definition;
+      return `| ${term.term} | ${term.zh} | ${textbookDefinition} |`;
+    }),
   ].join('\n');
 }
 
@@ -232,6 +237,10 @@ function renderHandoutBook(map = courseMap) {
   parts.push(line());
   if (map.practicalInvestingBoundary) {
     parts.push(line(map.practicalInvestingBoundary));
+    parts.push(line());
+  }
+  if (map.definitionOverview?.source) {
+    parts.push(line(`Vocabulary definitions use the textbook-style overview at \`${map.definitionOverview.source}\`, prioritising ${map.definitionOverview.prioritySource || 'the course definition source'} where course terms overlap.`));
     parts.push(line());
   }
   parts.push(line('Educational use only. Students make evidence-based classroom judgements, not personalised financial advice.'));

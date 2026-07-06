@@ -4,12 +4,14 @@ Each lesson worksheet is the primary written artifact. The textbook is a compile
 
 Students learn a practical investing process: identify what is being bought, collect dated evidence, compare return, risk, price and alternatives, then make an evidence-based classroom action such as consider, watch, avoid or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
 
+Vocabulary definitions use the textbook-style overview at `references/investment-analysis-definitions.md`, prioritising CFA Program glossary where course terms overlap.
+
 Educational use only. Students make evidence-based classroom judgements, not personalised financial advice.
 
 ## Contents
 
 - Unit 1: Market foundations (Lessons 1-5)
-  - Lesson 1: Tencent - What is investment analysis, and what is a share?
+  - Lesson 1: Tencent - What is investment analysis?
   - Lesson 2: HKEX - Why do companies need a stock market?
   - Lesson 3: Alibaba - What can a stock quote tell us, and what is still missing?
   - Lesson 4: Xiaomi - Does owning shares mean you control the company?
@@ -47,68 +49,70 @@ Educational use only. Students make evidence-based classroom judgements, not per
 
 # Unit 1: Market foundations
 
-Investment-analysis purpose, shares, share prices, exchanges, quote pages, source discipline and the first price-movement chain.
+Investment-analysis purpose, investment versus speculation, assets, shares, exchanges, quote pages, source discipline and the first price-movement chain.
 
-## Lesson 1: What is investment analysis, and what is a share?
+## Lesson 1: What is investment analysis?
 
 **Case anchor:** Tencent
 **Unit:** 1. Market foundations
-**Guiding question:** What is investment analysis, and what is a share?
-**Student hook:** Would you buy one share in Tencent?
-**Core claim:** Investment analysis starts with evidence before judgement; knowing a familiar company or seeing one price graph is not enough reason to buy one share.
-**Primary output:** one short paragraph explaining why knowing Tencent is not enough reason to buy one share
-**Formula or formula rule:** no new formula; students explain concepts in words only.
-**Analyse why:** Analyse why the evidence used in the Tencent case could change or limit an investor's judgement about buying one share.
-**Practical investing action:** Before considering one share, state what a share is and what dated evidence is still missing.
-**Decision rule:** Do not consider a share just because the company is familiar or the price graph moved; first check dated evidence and its limits.
+**Guiding question:** What is investment analysis?
+**Student hook:** Would you buy shares in Tencent?
+**Core claim:** Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.
+**Primary output:** one exit ticket plus a short explanation of why familiarity with Tencent is not enough reason to buy shares
+**Formula or formula rule:** no new formula; students classify concepts, rank risk qualitatively and explain in words only.
+**Analyse why:** Analyse why confusing investment with speculation could weaken a judgement about Tencent shares.
+**Practical investing action:** Before considering Tencent shares, define the asset, name the risk and state what evidence is still missing.
+**Decision rule:** Do not treat familiarity, a short-term price guess or possible dividends as a complete investment case.
 
 ### Source box
 
-Record Tencent source title, URL, accessed date, company/security identifier, graph observation and one evidence limitation.
+Record Tencent company context, visual sources used, asset examples and one evidence limitation.
 
-**Expected student work:** A complete dated source record plus one limit before any judgement.
+**Expected student work:** A dated source/visual record plus one limit before any judgement.
 
 ### Vocabulary
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| investment analysis | ???? | using evidence before making a judgement. |
-| share | ?? / ?? | one unit of ownership in a company. |
-| share price | ?? | the market price of one share at a specific time. |
+| investment analysis | 投资分析 | Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement. |
+| investment | 投资 | Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss. |
+| speculation | 投机 | Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence. |
+| asset | 资产 | An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource. |
+| share | 股票 / 股份 | A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends. |
 
-**Expected student work:** Three concise definitions with Chinese support and one use-in-context check.
+**Expected student work:** Five concise definitions with Chinese support and one use-in-context check.
 
 ### Evidence and Data Analysis
 
-**Case information:** Use a short Tencent case extract with company background, source title, publication or accessed date, the 0700.HK price graph and one limitation.
+**Case information:** Use a short Tencent classroom prompt with company context, source title, source date or accessed date, asset-type visuals and one limitation: familiarity and images are not enough evidence by themselves.
 
 **Questions:**
 
-1. **Identify/Define:** Identify the source date and define investment analysis.
-2. **Interpret:** Interpret what the Tencent share-price graph shows and state what it cannot prove.
-3. **Explain:** Explain why knowing Tencent is not enough reason to buy one share.
-4. **Analyse why:** Analyse why the evidence used in the Tencent case could change or limit an investor's judgement about buying one share.
-5. **Judge:** Give your own evidence-based classroom verdict on Tencent: incomplete evidence, watch, avoid, consider or compare with another choice. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+1. **Identify/Define:** Define investment analysis and asset.
+2. **Interpret:** Interpret a qualitative risk ranking of cash/savings, property, shares and commodities.
+3. **Explain:** Explain why knowing Tencent is not enough reason to buy its shares.
+4. **Analyse why:** Analyse why confusing investment with speculation could weaken a judgement about Tencent shares.
+5. **Judge:** Give your classroom verdict and choose the next investment action: is the current evidence enough, or should the student gather more evidence, watch, compare or avoid? Justify with Lesson 1 terms and caveats.
 
-**Expected student work:** Completed Section A-style answers: identify/define, interpret, explain evidence limits, analyse why and one evidence-based classroom verdict.
+**Expected student work:** Completed Section A-style answers: identify/define, interpret, explain, analyse why and one evidence-based classroom verdict.
 
-### Evidence judgement
+### Risk ranking judgement
 
-Separate what the price graph can show from what it cannot prove, then write what evidence is still missing.
+Rank four asset types by risk and explain why exact risk depends on the asset.
 
-**Expected student work:** A completed evidence-limit table or short judgement note.
+**Expected student work:** A ranked list plus one caveat sentence.
 
 ### Misconception check
 
-Correct this claim: Tencent is familiar, so I would buy one share.
+Correct this claim: Tencent is familiar, so buying its shares is automatically a good investment.
 
-**Expected student work:** A correction sentence that replaces familiarity with evidence before judgement.
+**Expected student work:** A correction sentence that replaces familiarity with evidence, risk and share-ownership thinking.
 
 ### Individual written output
 
-One short paragraph explaining why knowing Tencent is not enough reason to buy one share, using the ideas of evidence, one share and share price limits.
+Complete the exit ticket and write one short Tencent explanation using Lesson 1 terms.
 
-**Expected student work:** one short paragraph explaining why knowing Tencent is not enough reason to buy one share
+**Expected student work:** one exit ticket plus one short explanation using investment analysis, asset, risk and share
 
 ## Lesson 2: Why do companies need a stock market?
 
@@ -133,10 +137,10 @@ Record HKEX source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| stock exchange | 证券交易所 | a regulated market where listed securities can be bought and sold. |
-| listing | 上市 | permission for a company's shares to trade on an exchange. |
-| stock code | 股票代码 | the short market identifier used to find a listed security. |
-| liquidity | 流动性 | how easily an asset can be bought or sold without a large price change. |
+| stock exchange | 证券交易所 | A stock exchange is a regulated trading venue where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules. |
+| listing | 上市 | A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements. |
+| stock code | 股票代码 | A stock code is the short market identifier used to find a listed security on an exchange or market-data system. |
+| liquidity | 流动性 | Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -195,10 +199,10 @@ Record Alibaba source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| quote page | 报价页面 | a market snapshot showing price and trading information. |
-| volume | 成交量 | the number of shares traded during a period. |
-| bid | 买价 | the price buyers are currently willing to pay. |
-| ask | 卖价 | the price sellers are currently asking for. |
+| quote page | 报价页面 | A quote page is a market-data snapshot showing information such as the latest price, price movement, bid, ask, volume and security identifier for a listed asset. |
+| volume | 成交量 | Volume is the number of shares or other securities traded during a stated period, such as a trading day. |
+| bid | 买价 | The bid is the price at which a buyer, dealer or trader is currently willing to buy a specified quantity of a security. |
+| ask | 卖价 | The ask is the price at which a seller, dealer or trader is currently willing to sell an asset, usually for a specified maximum quantity. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -257,9 +261,9 @@ Record Xiaomi source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| voting rights | 投票权 | shareholder rights to vote on certain company decisions. |
-| ordinary share | 普通股 | a standard ownership share in a company. |
-| control | 控制权 | the ability to influence or decide company actions. |
+| voting rights | 投票权 | Voting rights are shareholder rights to vote on certain company decisions, such as electing directors or approving major corporate actions. |
+| ordinary share | 普通股 | An ordinary share is a standard equity share in a company that usually carries voting rights and may receive dividends after higher-priority claims are considered. |
+| control | 控制权 | Control is the ability to influence or decide company actions, usually through ownership, voting power, board influence or management authority. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -318,9 +322,9 @@ Record JD.com source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| evidence log | 证据记录 | a structured record of sources, dates, figures and notes. |
-| source date | 来源日期 | the date when evidence was published. |
-| accessed date | 访问日期 | the date when you used the evidence. |
+| evidence log | 证据记录 | An evidence log is a structured record of sources, dates, figures, notes and limitations used to support an investment judgement. |
+| source date | 来源日期 | A source date is the date on which evidence was published, reported or measured. |
+| accessed date | 访问日期 | An accessed date is the date on which the analyst viewed or used a source. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -384,9 +388,9 @@ Record Meituan source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| revenue | 收入 | income earned from selling goods or services before costs are deducted. |
-| sales growth | 销售增长 | the increase in revenue over time. |
-| business model | 商业模式 | how a company earns revenue and delivers value. |
+| revenue | 收入 | Revenue is the amount charged or earned from delivering goods or services in the ordinary activities of a business over a stated period, before expenses are deducted. |
+| sales growth | 销售增长 | Sales growth is the increase in a company's revenue over time, usually measured as a percentage change between two periods. |
+| business model | 商业模式 | A business model is the way a company creates value, earns revenue, pays costs and turns customer demand into profit or cash flow. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -445,9 +449,9 @@ Record BYD source title, URL, publication date, accessed date, company/security 
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| cost of sales | 销售成本 | direct costs linked to producing or delivering goods and services. |
-| gross profit | 毛利 | revenue left after direct costs are deducted. |
-| gross margin | 毛利率 | gross profit as a percentage of revenue. |
+| cost of sales | 销售成本 | Cost of sales is the cost directly connected with the goods or services sold in a period; for inventory businesses, it is closely related to cost of goods sold. |
+| gross profit | 毛利 | Gross profit is revenue or sales minus cost of sales, before operating expenses, financing costs and taxes are deducted. |
+| gross margin | 毛利率 | Gross margin is gross profit divided by revenue and expressed as a percentage, showing how much of each unit of sales remains after direct costs. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -506,9 +510,9 @@ Record CATL source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| operating profit | 营业利润 | profit from the company's main operations before some finance and tax items. |
-| operating margin | 营业利润率 | operating profit as a percentage of revenue. |
-| percentage-point difference | 百分点差异 | subtraction between two percentages. |
+| operating profit | 营业利润 | Operating profit is profit from a company's usual business activities before taxes and before some financing effects are deducted; it is also called operating income. |
+| operating margin | 营业利润率 | Operating margin is a profitability ratio calculated as operating income or operating profit divided by revenue. |
+| percentage-point difference | 百分点差异 | A percentage-point difference is the arithmetic difference between two percentages, not a percentage change. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -567,9 +571,9 @@ Record Tesla source title, URL, publication date, accessed date, company/securit
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| operating cash flow | 经营现金流 | cash generated by the company's main business operations. |
-| capital expenditure | 资本支出 | cash spent on long-term assets such as factories, equipment or infrastructure. |
-| free cash flow | 自由现金流 | operating cash flow left after capital expenditure. |
+| operating cash flow | 经营现金流 | Operating cash flow is the net amount of cash provided by or used in a company's operating activities during a period. |
+| capital expenditure | 资本支出 | Capital expenditure is spending on physical or long-term fixed assets such as property, factories, equipment, technology infrastructure or stores. |
+| free cash flow | 自由现金流 | Free cash flow is cash available to a company's investors after the company has made the investments needed to maintain itself as an ongoing business. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -628,9 +632,9 @@ Record TSMC source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| benchmark | 基准 | a standard or comparison point used to judge performance. |
-| trend | 趋势 | movement in a figure over time. |
-| scale | 规模 | the size of a company or activity. |
+| benchmark | 基准 | A benchmark is a standard or point of reference used to evaluate investment, portfolio or company performance. |
+| trend | 趋势 | A trend is a longer-term pattern of movement in a particular direction, such as rising, falling or remaining broadly stable. |
+| scale | 规模 | Scale is the size of a company or activity, measured by figures such as revenue, users, stores, assets or market value. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -694,9 +698,9 @@ Record Apple source title, URL, publication date, accessed date, company/securit
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| capital gain | 资本利得 | profit from selling a share above the purchase price. |
-| capital loss | 资本损失 | loss from selling a share below the purchase price. |
-| return | 回报 | gain or loss compared with the original amount invested. |
+| capital gain | 资本利得 | A capital gain is the profit made when an asset is sold for more than its purchase price. |
+| capital loss | 资本损失 | A capital loss is the loss made when an asset is sold for less than its purchase price. |
+| return | 回报 | Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -755,9 +759,9 @@ Record HSBC source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| dividend | 股息 | profit paid by a company to shareholders. |
-| dividend yield | 股息收益率 | annual dividend compared with the share price. |
-| total return | 总回报 | return from price change plus dividends. |
+| dividend | 股息 | A dividend is a distribution paid to shareholders based on the number of shares they own, usually in cash or additional shares. |
+| dividend yield | 股息收益率 | Dividend yield is the annual dividend per share divided by the share price and expressed as a percentage. |
+| total return | 总回报 | Total return measures price appreciation or loss plus any income received from the investment over the period. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -816,9 +820,9 @@ Record Nvidia source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| market capitalisation | 市值 | total market value of a company's equity. |
-| shares outstanding | 已发行股数 | shares issued and held by investors. |
-| mega-cap | 超大市值公司 | a very large listed company by market value. |
+| market capitalisation | 市值 | Market capitalisation is the total market value of a company's equity, calculated as share price multiplied by shares outstanding. |
+| shares outstanding | 已发行股数 | Shares outstanding are the shares issued by a company and currently held by investors. |
+| mega-cap | 超大市值公司 | A mega-cap company is a listed company with a very large market capitalisation compared with most companies in the market. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -877,9 +881,9 @@ Record Microsoft source title, URL, publication date, accessed date, company/sec
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| EPS | 每股收益 | earnings per share, or net profit divided by shares. |
-| P/E ratio | 市盈率 | share price compared with earnings per share. |
-| valuation | 估值 | judgement of price compared with evidence and expectations. |
+| EPS | 每股收益 | EPS, or earnings per share, is the income earned during a period for each ordinary share, usually calculated as profit attributable to ordinary shareholders divided by the share count used in the calculation. |
+| P/E ratio | 市盈率 | The P/E ratio is the ratio of share price to earnings per share, showing how much investors pay for each unit of current earnings. |
+| valuation | 估值 | Valuation is the process of estimating the value of an asset using variables related to future investment returns or comparisons with similar assets. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -938,9 +942,9 @@ Record Toyota source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| cheap or expensive | 便宜或昂贵 | valuation judgement, not just a low or high share price. |
-| expectations | 预期 | assumptions about future performance already reflected in price. |
-| margin of safety | 安全边际 | room for error between price and estimated value. |
+| cheap or expensive | 便宜或昂贵 | A share is cheap or expensive only in relation to evidence about value, earnings, growth, risk and expectations, not simply because the price per share is low or high. |
+| expectations | 预期 | Expectations are assumptions about future performance, risk or growth that investors may already have reflected in the current price. |
+| margin of safety | 安全边际 | Margin of safety is the room for error between the price paid and a cautious estimate of value. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1004,9 +1008,9 @@ Record Starbucks source title, URL, publication date, accessed date, company/sec
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| company-specific risk | 公司特定风险 | risk caused by one company's decisions or situation. |
-| demand risk | 需求风险 | the risk that customers buy less than expected. |
-| execution risk | 执行风险 | the risk that a strategy is not carried out successfully. |
+| company-specific risk | 公司特定风险 | Company-specific risk is non-systematic risk tied to a particular company's operations, reputation, financial position, management or business environment. |
+| demand risk | 需求风险 | Demand risk is the risk that customers buy less than expected, reducing revenue, profit or growth. |
+| execution risk | 执行风险 | Execution risk is the risk that a company fails to carry out its strategy, project or operational plan successfully. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1065,9 +1069,9 @@ Record Li Ning source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| sector | 行业 | a group of companies selling similar goods or services. |
-| competition | 竞争 | rivalry between firms for customers and profit. |
-| consumer trend | 消费趋势 | a change in what customers prefer to buy. |
+| sector | 行业 | A sector is a group of related industries or companies that share similar business activities or economic exposures. |
+| competition | 竞争 | Competition is rivalry between firms for customers, revenue, market share, talent, suppliers or profit. |
+| consumer trend | 消费趋势 | A consumer trend is a change in what customers prefer, buy or avoid over time. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1126,9 +1130,9 @@ Record Ping An source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| regulation | 监管 | government rules that affect how a company operates. |
-| compliance cost | 合规成本 | the cost of obeying rules and standards. |
-| policy risk | 政策风险 | the risk that rule changes reduce future profit. |
+| regulation | 监管 | Regulation is a system of government rules and enforcement that affects how companies, markets or investors may behave. |
+| compliance cost | 合规成本 | Compliance cost is the money, time and resources a company spends to obey laws, rules, standards and reporting requirements. |
+| policy risk | 政策风险 | Policy risk is the risk that changes in laws, regulation, taxation, subsidies or government priorities reduce future profit or change business prospects. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1187,9 +1191,9 @@ Record Samsung source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| exchange rate | 汇率 | the price of one currency in terms of another. |
-| export exposure | 出口敞口 | reliance on sales to customers in other countries. |
-| translation effect | 折算影响 | how currency changes affect reported figures. |
+| exchange rate | 汇率 | An exchange rate is the price of one currency expressed in terms of another currency. |
+| export exposure | 出口敞口 | Export exposure is a company's reliance on sales to customers in other countries or currencies. |
+| translation effect | 折算影响 | A translation effect is the change in reported financial figures caused by converting foreign-currency results into the company's reporting currency. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1248,10 +1252,10 @@ Record ChinaAMC CSI 300 ETF source title, URL, publication date, accessed date, 
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| ETF | 交易型开放式指数基金 | an exchange-traded fund that can be bought and sold on a stock exchange. |
-| index fund | 指数基金 | a fund designed to track a market index rather than pick individual shares. |
-| diversification | 分散化 | spreading investment across different holdings to reduce risk. |
-| portfolio weight | 投资组合权重 | one holding's value as a share of total portfolio value. |
+| ETF | 交易型开放式指数基金 | An ETF is an exchange-traded fund, a pooled investment fund that holds a basket of assets and trades on a stock exchange like a share. |
+| index fund | 指数基金 | An index fund is a fund designed to track the performance of a market index rather than choose individual securities through active stock-picking. |
+| diversification | 分散化 | Diversification is spreading investment across different holdings, sectors, regions or asset types to reduce dependence on any single source of risk. |
+| portfolio weight | 投资组合权重 | Portfolio weight is the value of one holding divided by the total value of the portfolio and expressed as a percentage. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1315,9 +1319,9 @@ Record Tencent source title, URL, publication date, accessed date, company/secur
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| platform business | 平台型业务 | a business that connects different user groups. |
-| network effects | 网络效应 | when a service becomes more valuable as more people use it. |
-| regulatory overhang | 监管不确定性 | uncertainty caused by possible future rules. |
+| platform business | 平台型业务 | A platform business connects different user groups and creates value by enabling interactions, transactions, content, services or data exchange between them. |
+| network effects | 网络效应 | Network effects occur when a product or service becomes more valuable as more users, buyers, sellers or partners join it. |
+| regulatory overhang | 监管不确定性 | Regulatory overhang is uncertainty created when possible future regulation may affect a company's operations, valuation or investor confidence. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1376,9 +1380,9 @@ Record BYD source title, URL, publication date, accessed date, company/security 
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| vertical integration | 垂直整合 | control over several stages of the supply chain. |
-| capacity | 产能 | how much a company can produce. |
-| cyclicality | 周期性 | sensitivity to economic cycles and demand changes. |
+| vertical integration | 垂直整合 | Vertical integration is a strategy in which a company controls more than one stage of its supply chain, such as production, components, distribution or retail. |
+| capacity | 产能 | Capacity is the maximum amount a company can produce, deliver or serve using its available resources over a period. |
+| cyclicality | 周期性 | Cyclicality is the sensitivity of a company's sales, profit or valuation to changes in the economic cycle or industry demand cycle. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1437,9 +1441,9 @@ Record HSBC source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| interest margin | 利差 | the spread between lending income and funding cost. |
-| credit risk | 信用风险 | the risk that borrowers do not repay. |
-| capital strength | 资本实力 | ability to absorb losses and keep operating. |
+| interest margin | 利差 | Interest margin is the spread between interest earned on loans or other earning assets and interest paid on deposits or other funding; net interest margin compares that spread with average earning assets. |
+| credit risk | 信用风险 | Credit risk is the risk of loss caused by a borrower or counterparty failing to make timely payments or by a change in the value of a financial instrument because default risk changes. |
+| capital strength | 资本实力 | Capital strength is a financial institution's ability to absorb losses and continue operating, supported by equity capital, reserves and regulatory capital ratios. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1498,9 +1502,9 @@ Record Anta Sports source title, URL, publication date, accessed date, company/s
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| brand equity | 品牌权益 | value created by a strong brand name and reputation. |
-| inventory risk | 库存风险 | risk that unsold goods reduce profit. |
-| pricing power | 定价能力 | ability to raise prices without losing too many customers. |
+| brand equity | 品牌权益 | Brand equity is the value created by a company's brand name, reputation, customer loyalty and perceived quality. |
+| inventory risk | 库存风险 | Inventory risk is the risk that unsold or obsolete goods reduce profit through discounting, write-downs, storage costs or lost working capital. |
+| pricing power | 定价能力 | Pricing power is the ability to raise prices or maintain high prices without losing too many customers or too much sales volume. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1559,9 +1563,9 @@ Record Nike source title, URL, publication date, accessed date, company/security
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| multinational | 跨国公司 | a company operating across several countries. |
-| comparable company | 可比公司 | a similar firm used for comparison. |
-| local/global risk | 本地/全球风险 | risk from specific local markets or worldwide exposure. |
+| multinational | 跨国公司 | A multinational is a company that operates, sells, produces or earns revenue in more than one country. |
+| comparable company | 可比公司 | A comparable company is a firm with similar business risk, preferably in the same industry, used as a reference point for comparing growth, margins, valuation or risk. |
+| local/global risk | 本地/全球风险 | Local/global risk is the contrast between risks tied to a specific local market and risks created by worldwide exposure across countries, currencies and regulations. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1625,9 +1629,9 @@ Record Haidilao source title, URL, publication date, accessed date, company/secu
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| turnaround | 经营复苏 | improvement after a weak period. |
-| store network | 门店网络 | the set of locations through which a company serves customers. |
-| same-store sales | 同店销售 | sales from stores open in both comparison periods. |
+| turnaround | 经营复苏 | A turnaround is an improvement in a company's performance after a weak period, often involving recovery in sales, profit, cash flow, operations or confidence. |
+| store network | 门店网络 | A store network is the set of physical locations through which a company reaches customers, sells products or delivers services. |
+| same-store sales | 同店销售 | Same-store sales are sales from stores that were open in both comparison periods, used to separate existing-store performance from expansion. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1686,9 +1690,9 @@ Record Trip.com source title, URL, publication date, accessed date, company/secu
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| cyclical demand | 周期性需求 | demand that rises and falls with economic conditions. |
-| recovery | 复苏 | return toward earlier activity or profit levels. |
-| operating leverage | 经营杠杆 | profit sensitivity when fixed costs are high. |
+| cyclical demand | 周期性需求 | Cyclical demand is demand that rises and falls with economic conditions, consumer confidence, income, travel activity or industry cycles. |
+| recovery | 复苏 | Recovery is a return toward earlier activity, revenue, profit or demand levels after a weak period or disruption. |
+| operating leverage | 经营杠杆 | Operating leverage is the use of fixed operating costs in a company's cost structure, making profit more sensitive to changes in revenue. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1747,9 +1751,9 @@ Record Kuaishou source title, URL, publication date, accessed date, company/secu
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| active users | 活跃用户 | people who use a service during a measured period. |
-| monetisation | 商业化变现 | turning user activity into revenue. |
-| ARPU | 每用户平均收入 | average revenue per user. |
+| active users | 活跃用户 | Active users are people who use a digital service during a measured period, such as daily active users or monthly active users. |
+| monetisation | 商业化变现 | Monetisation is the process of turning user activity, attention, data, subscriptions, advertising or transactions into revenue. |
+| ARPU | 每用户平均收入 | ARPU, or average revenue per user, is revenue divided by the number of users over a stated period. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1808,9 +1812,9 @@ Record Lenovo source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| debt | 债务 | money a company has borrowed and must repay. |
-| liabilities | 负债 | obligations a company owes to others. |
-| gearing or leverage | 负债杠杆 | the use of debt in a company's financing. |
+| debt | 债务 | Debt is money a company has borrowed and is expected to repay, usually with interest and according to agreed terms. |
+| liabilities | 负债 | Liabilities are present obligations arising from past events that are expected to require an outflow of economic resources; they are claims by creditors and others on a company's resources. |
+| gearing or leverage | 负债杠杆 | Gearing or leverage is the use of fixed financing costs, especially debt and interest expense, in a company's capital structure; it can increase both potential shareholder returns and financial risk. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 
@@ -1869,9 +1873,9 @@ Record Costco source title, URL, publication date, accessed date, company/securi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| defensive business | 防御型业务 | a business whose demand may be more stable in difficult times. |
-| quality company | 优质公司 | a company with strong operations, brand, margins or resilience. |
-| valuation risk | 估值风险 | risk that the price already assumes too much good news. |
+| defensive business | 防御型业务 | A defensive business is a business whose demand, revenue or profit may be more stable than average during difficult economic conditions. |
+| quality company | 优质公司 | A quality company is a company with strong operations, durable advantages, resilient demand, sound finances, good margins or reliable cash generation. |
+| valuation risk | 估值风险 | Valuation risk is the risk that investment returns disappoint because the price already assumes too much good news or is high relative to evidence. |
 
 **Expected student work:** English definitions with Chinese support and one short use-in-context check.
 

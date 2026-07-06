@@ -1,0 +1,242 @@
+{
+  "sourceTitle": "CFA Program glossary",
+  "sourceUrl": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms",
+  "accessedOn": "2026-07-06",
+  "usageRule": "This file records clear course-term matches to the CFA Program glossary. It identifies the CFA glossary term and gives a short course-aligned meaning note; use sourceUrl to view the original CFA wording.",
+  "matches": [
+    {
+      "term": "asset",
+      "cfaTerm": "Assets",
+      "matchType": "related accounting term",
+      "meaningFocus": "Resources controlled by an enterprise that are expected to bring future economic benefit."
+    },
+    {
+      "term": "stock exchange",
+      "cfaTerm": "Exchange",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A regulated venue where investment instruments can be traded."
+    },
+    {
+      "term": "liquidity",
+      "cfaTerm": "Liquidity",
+      "matchType": "clear glossary match",
+      "meaningFocus": "The ability to trade quickly and easily near fair value, or to meet short-term cash needs."
+    },
+    {
+      "term": "bid",
+      "cfaTerm": "Bid",
+      "matchType": "clear glossary match",
+      "meaningFocus": "The buy-side price quoted by a dealer or trader for an asset."
+    },
+    {
+      "term": "ask",
+      "cfaTerm": "Ask",
+      "matchType": "clear glossary match",
+      "meaningFocus": "The sell-side price quoted by a dealer or trader for an asset."
+    },
+    {
+      "term": "ordinary share",
+      "cfaTerm": "Ordinary shares",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Common equity shares that rank below other equity claims such as preferred equity."
+    },
+    {
+      "term": "revenue",
+      "cfaTerm": "Revenue",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Amounts from ordinary business activity over a stated period, before deducting expenses."
+    },
+    {
+      "term": "sales growth",
+      "cfaTerm": "Sales",
+      "matchType": "related glossary term",
+      "meaningFocus": "Sales is generally treated as revenue from goods, while revenue can include goods or services."
+    },
+    {
+      "term": "cost of sales",
+      "cfaTerm": "Cost of goods sold",
+      "matchType": "related accounting term",
+      "meaningFocus": "Inventory-related cost of goods sold for a period, used as the closest accounting match."
+    },
+    {
+      "term": "gross profit",
+      "cfaTerm": "Gross profit",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Sales remaining after deducting cost of sales."
+    },
+    {
+      "term": "gross margin",
+      "cfaTerm": "Gross profit margin",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Gross profit expressed relative to revenue."
+    },
+    {
+      "term": "operating profit",
+      "cfaTerm": "Operating profit",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Profit from usual business activities before tax, also called operating income."
+    },
+    {
+      "term": "operating margin",
+      "cfaTerm": "Operating profit margin",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Operating income or operating profit divided by revenue."
+    },
+    {
+      "term": "operating cash flow",
+      "cfaTerm": "Operating cash flow",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Net cash provided by operating activities."
+    },
+    {
+      "term": "capital expenditure",
+      "cfaTerm": "Capital expenditure",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Spending on fixed or physical capital."
+    },
+    {
+      "term": "free cash flow",
+      "cfaTerm": "Free cash flow",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Cash available after the investments needed to keep the company operating."
+    },
+    {
+      "term": "benchmark",
+      "cfaTerm": "Benchmark",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A point of reference or comparison for judging performance."
+    },
+    {
+      "term": "trend",
+      "cfaTerm": "Trend",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A long-term pattern of movement in one direction."
+    },
+    {
+      "term": "return",
+      "cfaTerm": "Holding period return",
+      "matchType": "related glossary term",
+      "meaningFocus": "Return earned by an investor over a specified holding period."
+    },
+    {
+      "term": "dividend",
+      "cfaTerm": "Dividend",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A distribution to shareholders based on the shares they own."
+    },
+    {
+      "term": "dividend yield",
+      "cfaTerm": "Dividend yield",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Annual dividend per share compared with the share price."
+    },
+    {
+      "term": "total return",
+      "cfaTerm": "Total return",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Price change plus income received over the period."
+    },
+    {
+      "term": "EPS",
+      "cfaTerm": "Earnings per share",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Income earned during a period for each common share."
+    },
+    {
+      "term": "P/E ratio",
+      "cfaTerm": "Price to earnings ratio",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Share price divided by earnings per share."
+    },
+    {
+      "term": "valuation",
+      "cfaTerm": "Valuation",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Estimating asset value using future-return variables or comparisons with similar assets."
+    },
+    {
+      "term": "company-specific risk",
+      "cfaTerm": "Company-specific risk",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Idiosyncratic risk tied to one company's operations, reputation or business environment."
+    },
+    {
+      "term": "sector",
+      "cfaTerm": "Sector",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A group of related industries."
+    },
+    {
+      "term": "regulation",
+      "cfaTerm": "Regulatory risk",
+      "matchType": "related glossary term",
+      "meaningFocus": "Uncertainty about how activity will be regulated or how regulation may change."
+    },
+    {
+      "term": "policy risk",
+      "cfaTerm": "Legislative and regulatory risk",
+      "matchType": "related glossary term",
+      "meaningFocus": "Risk that laws or regulations change in ways that harm company operations or profitability."
+    },
+    {
+      "term": "ETF",
+      "cfaTerm": "Exchange-traded funds",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Hybrid investment products with fund-like holdings and exchange-traded features."
+    },
+    {
+      "term": "cyclicality",
+      "cfaTerm": "Cyclical businesses",
+      "matchType": "related glossary term",
+      "meaningFocus": "Business performance with high sensitivity to business-cycle or industry-cycle influences."
+    },
+    {
+      "term": "interest margin",
+      "cfaTerm": "Net interest margin",
+      "matchType": "related banking term",
+      "meaningFocus": "Bank net interest income compared with average earning assets."
+    },
+    {
+      "term": "credit risk",
+      "cfaTerm": "Credit risk",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Risk that a borrower does not repay principal and interest."
+    },
+    {
+      "term": "comparable company",
+      "cfaTerm": "Comparable company",
+      "matchType": "clear glossary match",
+      "meaningFocus": "A company with similar business risk, usually in the same industry."
+    },
+    {
+      "term": "cyclical demand",
+      "cfaTerm": "Cyclical companies",
+      "matchType": "related glossary term",
+      "meaningFocus": "Companies whose sales and profits expand and contract with the business cycle."
+    },
+    {
+      "term": "operating leverage",
+      "cfaTerm": "Operating leverage",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Use of fixed costs in operations."
+    },
+    {
+      "term": "liabilities",
+      "cfaTerm": "Liabilities",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Present obligations expected to require future outflows of economic resources."
+    },
+    {
+      "term": "gearing or leverage",
+      "cfaTerm": "Leverage",
+      "matchType": "clear glossary match",
+      "meaningFocus": "Use of fixed costs in a company's operating or financing structure."
+    },
+    {
+      "term": "defensive business",
+      "cfaTerm": "Defensive companies",
+      "matchType": "related glossary term",
+      "meaningFocus": "Companies whose sales and profits have low sensitivity to the business cycle."
+    }
+  ]
+}
