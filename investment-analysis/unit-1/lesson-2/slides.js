@@ -203,22 +203,22 @@ window.INVEST.lesson = {
           label: "1",
           term: "Listed share",
           termZh: "上市股票",
-          answer: "One ownership unit that can trade on a stock exchange.",
-          answerZh: "可以在证券交易所交易的一个所有权单位。"
+          answer: "A listed share is a share that has formal permission to trade on a stock exchange.",
+          answerZh: "上市股票是指已经获得正式许可、可以在证券交易所交易的股票。"
         },
         {
           label: "2",
           term: "Share price",
           termZh: "股价",
-          answer: "The market price of one share at a specific time.",
-          answerZh: "特定时间一股股票的市场价格。"
+          answer: "A share price is the market price of one share at a specific time.",
+          answerZh: "股价是指在特定时间一股股票的市场价格。"
         },
         {
           label: "3",
           term: "Evidence before opinion",
           termZh: "先证据后观点",
-          answer: "Source-dated evidence about asset, business, return, risk and price before judgement.",
-          answerZh: "判断前使用关于资产、企业、回报、风险和价格的有来源和日期的证据。"
+          answer: "Evidence before opinion is the habit of using source-dated evidence about an asset, business, return, risk and price before making a judgement.",
+          answerZh: "先证据后观点是指在作出判断之前，先使用关于资产、业务、回报、风险和价格的带有来源日期的证据。"
         }
       ],
       sharePrompt: "Improve one definition before we add stock-market knowledge.",
@@ -271,7 +271,7 @@ window.INVEST.lesson = {
       term: "Stock exchange",
       termZh: "证券交易所",
       definition: "A stock exchange is a regulated trading <span class=\"blank invReveal\" data-answer=\"venue\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">venue</span></span> where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.",
-      definitionZh: "证券交易所是一个受监管的市场，上市证券可以在这里买入和卖出。",
+      definitionZh: "证券交易所是受监管的交易场所，上市股票、ETF 和债券等投资工具可以在其中按照市场规则买卖。",
       notes: "Keep this definition broad. HKEX is the case, not the only possible exchange."
     },
     {
@@ -342,7 +342,7 @@ window.INVEST.lesson = {
       term: "Listing",
       termZh: "上市",
       definition: "A listing is the formal <span class=\"blank invReveal\" data-answer=\"permission\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">permission</span></span> for a company's securities to trade on a stock exchange after the company meets the exchange's requirements.",
-      definitionZh: "上市是指公司的股票获准在交易所交易。",
+      definitionZh: "上市是指公司证券在满足交易所要求后，获得在证券交易所交易的正式许可。",
       notes: "Students should not overstate this as a quality guarantee."
     },
     {
@@ -351,8 +351,8 @@ window.INVEST.lesson = {
       title: "Stock code",
       term: "Stock code",
       termZh: "股票代码",
-      definition: "A stock code is the short market <span class=\"blank invReveal\" data-answer=\"identifier\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">identifier</span></span> used to find a listed security.",
-      definitionZh: "股票代码是用来查找上市证券的简短市场识别码。",
+      definition: "A stock code is the short market <span class=\"blank invReveal\" data-answer=\"identifier\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">identifier</span></span> used to find a listed security on an exchange or market-data system.",
+      definitionZh: "股票代码是用于在交易所或市场数据系统中查找某一上市证券的简短市场识别代码。",
       notes: "Use Tencent 0700.HK, HSBC 0005.HK and AIA 1299.HK as classroom examples."
     },
     {
@@ -465,7 +465,7 @@ window.INVEST.lesson = {
       term: "Liquidity",
       termZh: "流动性",
       definition: "Liquidity is the ability to trade an asset <span class=\"blank invReveal\" data-answer=\"quickly\" style=\"--blank-width:9ch\"><span class=\"invBlankText\">quickly</span></span>, at relatively low cost and in meaningful quantities without causing a large price change.",
-      definitionZh: "流动性指资产买入或卖出的容易程度，以及是否会造成较大价格变化。",
+      definitionZh: "流动性是指能够较快、以相对较低成本并以有意义的数量交易某项资产，而不会造成较大价格变动的能力。",
       notes: "The HKEX FAQ odd-lot example supports the basic idea that lower liquidity can affect trading terms."
     },
     {

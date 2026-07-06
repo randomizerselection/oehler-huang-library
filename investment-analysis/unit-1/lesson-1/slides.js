@@ -207,7 +207,7 @@ window.INVEST.lesson = {
       term: "Investment analysis",
       termZh: "投资分析",
       definition: "Investment analysis is the process of using <span class=\"blank invReveal\" data-answer=\"source-dated evidence\" style=\"--blank-width:22ch\"><span class=\"invBlankText\">source-dated evidence</span></span> about an asset, business, return, risk and price before making a justified investment judgement.",
-      definitionZh: "投资分析是一个过程：在作出有依据的投资判断前，使用关于资产、企业、回报、风险和价格的有来源和日期的证据。",
+      definitionZh: "投资分析是指在作出有依据的投资判断之前，使用带有来源日期的证据来分析资产、业务、回报、风险和价格的过程。",
       notes: "Use the full textbook-style definition from references/investment-analysis-definitions.md."
     },
     {
@@ -316,7 +316,7 @@ window.INVEST.lesson = {
       term: "Asset",
       termZh: "资产",
       definition: "An asset is something with economic <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span> that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
-      definitionZh: "资产是具有价值并且可以被拥有的东西。",
+      definitionZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。",
       notes: "Keep this broad: the next slide gives concrete types."
     },
     {
@@ -371,25 +371,40 @@ window.INVEST.lesson = {
       notes: "Students should retrieve from the visual grid before revealing the answers."
     },
     {
-      type: "peerTask",
-      taskType: "sort",
+      type: "rankingTask",
       eyebrow: "Student task",
       title: "Rank assets by risk",
       zhTitle: "按风险给资产排序",
-      steps: [
-        { text: "Place each asset from lower risk to higher risk.", zh: "把每种资产从较低风险排到较高风险。" },
-        { text: "Write one reason for the asset you put highest.", zh: "为你排在最高风险的资产写一个理由。" }
+      visual: investmentPhotos.businessChartsPaper,
+      prompt: "Place the asset cards from lower risk to higher risk, then defend the highest-risk choice.",
+      promptZh: "把资产卡片从较低风险排到较高风险，然后为最高风险的选择写出理由。",
+      axis: {
+        low: "Lower risk",
+        lowZh: "较低风险",
+        high: "Higher risk",
+        highZh: "较高风险",
+        note: "Risk means the result may be worse than expected",
+        noteZh: "风险指结果可能比预期更差"
+      },
+      items: [
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄", cue: "Usually more stable, but return may be low.", cueZh: "通常较稳定，但回报可能较低。" },
+        { label: "B", text: "Property", zh: "房产", cue: "Value depends on location, price and liquidity.", cueZh: "价值取决于地点、价格和流动性。" },
+        { label: "C", text: "Shares", zh: "股票", cue: "Company results and expectations can move the price.", cueZh: "公司表现和预期可能推动价格变化。" },
+        { label: "D", text: "Commodities", zh: "大宗商品", cue: "Prices can move sharply with global supply and demand.", cueZh: "价格可能随全球供需大幅波动。" }
       ],
-      categories: ["Lower risk", "Medium risk", "Higher risk"],
-      cases: [
-        { label: "A", text: "Cash and savings" },
-        { label: "B", text: "Property" },
-        { label: "C", text: "Shares" },
-        { label: "D", text: "Commodities" }
+      revealLabel: "One defensible order",
+      revealLabelZh: "一种合理排序",
+      modelOrder: [
+        { rank: "1", label: "A", text: "Cash and savings", zh: "现金和储蓄", reason: "Usually the most stable starting point, though not risk-free.", reasonZh: "通常是较稳定的起点，但并非没有风险。" },
+        { rank: "2", label: "B", text: "Property", zh: "房产", reason: "Can be valuable, but selling quickly and choosing the right location matter.", reasonZh: "可能价值高，但快速出售和地点选择很重要。" },
+        { rank: "3", label: "C", text: "Shares", zh: "股票", reason: "Prices can change as company performance and investor expectations change.", reasonZh: "价格会随公司表现和投资者预期变化。" },
+        { rank: "4", label: "D", text: "Commodities", zh: "大宗商品", reason: "Prices can swing sharply because global supply and demand change.", reasonZh: "全球供需变化可能导致价格大幅波动。" }
       ],
-      sampleAnswer: "One defensible order: cash/savings -> property -> shares -> commodities. The exact risk depends on the specific asset.",
-      sampleAnswerZh: "一种合理排序：现金/储蓄 -> 房产 -> 股票 -> 大宗商品。具体风险取决于具体资产。",
-      notes: "Accept alternative rankings if the reason is coherent; this is about comparative risk thinking."
+      caveat: "This is one reasonable classroom order, not a fixed law.",
+      caveatZh: "这是一种合理的课堂排序，不是固定规律。",
+      writtenCheck: "Write one evidence-based reason for the asset you ranked highest.",
+      writtenCheckZh: "为你排在最高风险的资产写一个基于证据的理由。",
+      notes: "Accept alternative rankings if the reasoning is coherent; students should practise comparative risk thinking, not memorise a fixed order."
     },
     {
       type: "discussion",
@@ -427,9 +442,9 @@ window.INVEST.lesson = {
       title: "Share",
       term: "Share",
       termZh: "股票 / 股份",
-      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company, giving the shareholder a claim on part of the company's equity.",
-      definitionZh: "一股股票是公司中的一个所有权单位。",
-      notes: "Keep the definition simple; dividend policy, voting power and control come later."
+      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
+      definitionZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。",
+      notes: "Keep the rights clause as part of the definition; control detail comes later."
     },
     {
       type: "classificationTask",

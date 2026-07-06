@@ -64,6 +64,7 @@ window.INVEST.lesson = {
               { metric: "answer", value: "Fill-in retrieval, checks, or exit ticket.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "flow", value: "Sequence with reveal blanks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "peerTask", value: "Partner steps or sorting board.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "rankingTask", value: "Ordered low-to-high line with defended reveal.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "definitionRecall", value: "Opening recall with revealed model definitions.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "missingSentence", value: "Sentence-level explanation practice.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "yesNoCheck", value: "Vote yes/no, then reveal the reason.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
@@ -321,6 +322,46 @@ window.INVEST.lesson = {
       ]
     },
     {
+      type: "rankingTask",
+      eyebrow: "type: rankingTask",
+      title: "Rank assets by risk",
+      zhTitle: "按风险给资产排序",
+      visual: investmentPhotos.businessChartsPaper,
+      prompt: "Place the cards from lower risk to higher risk, then defend the highest-risk card.",
+      promptZh: "把卡片从较低风险排到较高风险，然后为最高风险卡片写出理由。",
+      axis: {
+        low: "Lower risk",
+        lowZh: "较低风险",
+        high: "Higher risk",
+        highZh: "较高风险",
+        note: "The order needs a reason",
+        noteZh: "排序需要理由"
+      },
+      items: [
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄", cue: "Usually more stable.", cueZh: "通常较稳定。" },
+        { label: "B", text: "Property", zh: "房产", cue: "Depends on location and liquidity.", cueZh: "取决于地点和流动性。" },
+        { label: "C", text: "Shares", zh: "股票", cue: "Company expectations can change.", cueZh: "公司预期可能变化。" },
+        { label: "D", text: "Commodities", zh: "大宗商品", cue: "Global prices can move sharply.", cueZh: "全球价格可能大幅波动。" }
+      ],
+      revealLabel: "One defensible order",
+      revealLabelZh: "一种合理排序",
+      modelOrder: [
+        { rank: "1", label: "A", text: "Cash and savings", zh: "现金和储蓄", reason: "Usually the most stable starting point.", reasonZh: "通常是较稳定的起点。" },
+        { rank: "2", label: "B", text: "Property", zh: "房产", reason: "Specific price, location and time horizon matter.", reasonZh: "具体价格、地点和时间范围都重要。" },
+        { rank: "3", label: "C", text: "Shares", zh: "股票", reason: "Company results and investor expectations can move the price.", reasonZh: "公司表现和投资者预期可能影响价格。" },
+        { rank: "4", label: "D", text: "Commodities", zh: "大宗商品", reason: "Prices can swing sharply with global supply and demand.", reasonZh: "价格可能随全球供需大幅波动。" }
+      ],
+      caveat: "A different order can be valid if the evidence supports it.",
+      caveatZh: "如果证据支持，不同排序也可以成立。",
+      writtenCheck: "Write one reason for the card you ranked highest.",
+      writtenCheckZh: "为你排在最高风险的卡片写一个理由。",
+      notes: [
+        "Current role: custom ordered-line task for comparative risk or priority ranking.",
+        "Future use: use when students must defend a low-to-high sequence rather than sort cases into categories.",
+        "Review decision: keep rankingTask separate from the sort peerTask."
+      ]
+    },
+    {
       type: "peerTask",
       taskType: "definitionRecall",
       eyebrow: "type: peerTask / definitionRecall",
@@ -329,8 +370,8 @@ window.INVEST.lesson = {
       prompt: "Write one-sentence definitions before reveal.",
       promptZh: "先写一句定义，再揭示答案。",
       definitionItems: [
-        { label: "1", term: "Share", termZh: "股票", answer: "A share is one ownership unit in a company, giving a claim on equity.", answerZh: "一股股票是公司中的一个所有权单位，并给予对权益的要求权。" },
-        { label: "2", term: "Stock code", termZh: "股票代码", answer: "A stock code is a short market identifier for a listed security.", answerZh: "股票代码是上市证券的简短市场识别码。" },
+        { label: "1", term: "Share", termZh: "股票 / 股份", answer: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.", answerZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。" },
+        { label: "2", term: "Stock code", termZh: "股票代码", answer: "A stock code is the short market identifier used to find a listed security on an exchange or market-data system.", answerZh: "股票代码是用于在交易所或市场数据系统中查找某一上市证券的简短市场识别代码。" },
         { label: "3", term: "Risk", termZh: "风险", answer: "Risk is the possibility that results, returns or prices are worse than expected.", answerZh: "风险是结果、回报或价格比预期更差的可能性。" }
       ],
       sharePrompt: "Compare one definition and improve the wording.",
@@ -433,23 +474,23 @@ window.INVEST.lesson = {
           label: "Saving",
           tag: "Safety",
           definition: "Saving is keeping money mainly for safety, access or future use rather than putting it into a risky asset.",
-          definitionZh: "主要为安全和取用方便而保留的钱。",
+          definitionZh: "储蓄是指主要为了安全、方便取用或未来使用而保留资金，而不是把资金投入有风险的资产。",
           purpose: "Keep money available",
           risk: "Lower uncertainty"
         },
         {
           label: "Investment",
           tag: "Asset",
-          definition: "Investment is putting money into an asset with the aim of earning a future return while accepting the possibility of loss.",
-          definitionZh: "投入资产以追求可能回报并承担风险的钱。",
+          definition: "Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss.",
+          definitionZh: "投资是指把资金投入某项资产，以期获得未来回报，例如收入或资本利得，同时接受可能发生损失。",
           purpose: "Seek future gain",
           risk: "Value can rise or fall"
         },
         {
           label: "Speculation",
           tag: "Price bet",
-          definition: "Speculation is an attempt to profit from uncertain price movements, usually with weaker evidence, timing or risk-taking.",
-          definitionZh: "在分析不足时押注短期价格变化。",
+          definition: "Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence.",
+          definitionZh: "投机是指试图从不确定的价格变动中获利，通常比完整证据更依赖预期、时机判断或承担风险。",
           purpose: "Catch a quick move",
           risk: "High uncertainty"
         }

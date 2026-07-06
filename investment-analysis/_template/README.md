@@ -58,6 +58,7 @@ Teaching rhythm:
 - Use `peerTask` with `taskType: "definitionRecall"` for opening recall from earlier Investment lessons, and `taskType: "missingSentence"` when students need to practise one missing link in an evidence-to-judgement explanation.
 - Use `compare` for a simple two-column T-table contrast. Use `comparisonMatrix` instead when students compare choices against three or four shared criteria.
 - Use `classificationTask` for classify-and-justify routines where the revealed reason matters. Use the older sort-style `peerTask` only when the physical sorting board is the main activity.
+- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Do not force these into the older sort-style `peerTask`.
 - Use `yesNoCheck` for misconception votes and borderline judgements where students should commit to yes/no before the reason appears.
 - Do not use deprecated `marketBrief` slides in new decks. They add little teaching value; use `dataSnapshot` for compact figures, `sourceLens` for source validity, `quoteMap` for quote-page fields, or a normal `discussion` for retrieval.
 
@@ -95,6 +96,7 @@ Visual rhythm:
 - Use `compare` when students need a clean two-column contrast with fill-in blanks, such as evidence-based analysis versus weak opinion.
 - Use `classificationTask` when students classify cases into taught categories and then reveal the reason.
 - Use `yesNoCheck` when a misconception can be tested as a yes/no vote before the explanation.
+- Use `rankingTask` when students must order choices on a low-to-high line and defend the sequence with evidence.
 - Use `sourceLens` when students must test whether a source can support a claim: source title, publisher, date, unit, scope and limitation.
 - Use `quoteMap` when students must read a quote page: company, code, exchange, price, date/time and source before making an opinion.
 - Use `comparisonMatrix` when students compare two or three choices against the same criteria such as evidence, possible return, risk and price paid.

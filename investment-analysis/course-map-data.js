@@ -8,10 +8,11 @@
   "definitionOverview": {
     "source": "references/investment-analysis-definitions.md",
     "cfaMatches": "references/investment-analysis-cfa-glossary-matches.json",
+    "textbookDefinitions": "references/investment-analysis-textbook-definitions.json",
     "studentPage": "investment-analysis/definitions.html",
     "prioritySource": "CFA Program glossary",
     "prioritySourceUrl": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms",
-    "rule": "Use the textbook-style definition overview for handouts, textbook chapters, quizzes and assessment wording. Where a course term overlaps with the CFA Program glossary, prioritise the CFA-aligned investment or accounting meaning, then simplify for Grade 9. Use the CFA matches file to show the matched source term and official glossary link. Shorten definitions for slides only when the same meaning is preserved."
+    "rule": "Use the textbook-style definition overview for handouts, textbook chapters, quizzes and assessment wording. Where a course term overlaps with the CFA Program glossary, prioritise the CFA-aligned investment or accounting meaning, then simplify for Grade 9. Use the CFA matches file to show the matched source term and official glossary link, and use the local textbook definitions file as supplementary source support. Shorten definitions for slides only when the same meaning is preserved."
   },
   "handoutContract": [
     {
@@ -95,7 +96,7 @@
       "Treat course-map-data.js as the standard company-analysis lesson scope.",
       "Use the simple lesson structure for student-facing decks and syllabus cards: Hook, Key idea, Try it, Decide.",
       "Build every lesson as cumulative knowledge: retrieval practice, new knowledge, evidence and data analysis, analyse-why reasoning and student judgement.",
-      "Use references/investment-analysis-definitions.md for textbook-style definition wording in handouts, textbook chapters, quizzes and assessment items; where a term overlaps with the CFA Program glossary, prioritise the CFA-aligned meaning before simplifying for Grade 9.",
+      "Use references/investment-analysis-definitions.md for textbook-style definition wording in handouts, textbook chapters, quizzes and assessment items; where a term overlaps with the CFA Program glossary, prioritise the CFA-aligned meaning before simplifying for Grade 9, and use references/investment-analysis-textbook-definitions.json as supplementary textbook-source support.",
       "Use worksheet.evidenceAndDataAnalysis as the source for the lesson worksheet stimulus and Section A-style questions.",
       "Make every lesson actionable: students must finish by choosing a justified next investment action such as consider, watch, avoid, compare with another choice or gather more evidence.",
       "Use the investmentWorkflow steps as the course method: know what is being bought, check fit, read business evidence, compare return-risk-price and choose the next action.",

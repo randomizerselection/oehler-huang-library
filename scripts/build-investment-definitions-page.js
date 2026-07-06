@@ -9,6 +9,8 @@ const {
   getInvestmentDefinitionSections,
   getInvestmentCfaMatches,
   getInvestmentCfaMatchMap,
+  getInvestmentTextbookDefinitions,
+  getInvestmentTextbookDefinitionMap,
 } = require('./investment-definitions');
 
 function escapeHtml(value) {
@@ -60,9 +62,33 @@ function getCfaSearchText(match) {
   return `${match.cfaTerm || ''} ${match.matchType || ''} ${match.meaningFocus || ''}`;
 }
 
-function renderDefinitionRows(section, cfaMatchMap, sourceUrl) {
+function getTextbookSearchText(matches = []) {
+  return matches.map((match) => `${match.sourceTerm || ''} ${match.definition || ''} ${match.source?.shortTitle || ''}`).join(' ');
+}
+
+function renderTextbookDefinitionCell(matches = []) {
+  if (!matches.length) {
+    return `
+                  <div class="investment-textbook-match is-unmatched">
+                    <strong>No local textbook match recorded</strong>
+                    <p>Use the CFA-inspired course definition.</p>
+                  </div>`;
+  }
+
+  return `
+                  <div class="investment-textbook-match-list">
+${matches.map((match) => `
+                    <article class="investment-textbook-match">
+                      <strong>${escapeHtml(match.sourceTerm || match.term)}</strong>
+                      <p>${escapeHtml(match.definition)}</p>
+                      <span>${escapeHtml(match.source?.shortTitle || match.sourceId)}${match.pdfPage ? `, PDF p. ${escapeHtml(match.pdfPage)}` : ''}</span>
+                    </article>`).join('')}
+                  </div>`;
+}
+
+function renderDefinitionRows(section, cfaMatchMap, textbookDefinitionMap, sourceUrl) {
   return section.entries.map((entry) => `
-              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.definitionZh} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
+              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.definitionZh} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))} ${getTextbookSearchText(textbookDefinitionMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
                 <th scope="row">${escapeHtml(entry.ref)}</th>
                 <td>
                   <strong>${escapeHtml(entry.term)}</strong>
@@ -73,11 +99,12 @@ function renderDefinitionRows(section, cfaMatchMap, sourceUrl) {
                   <p class="investment-definition-zh" lang="zh-Hans">${escapeHtml(entry.definitionZh)}</p>
                 </td>
                 <td>${renderCfaMatchCell(cfaMatchMap.get(entry.term.toLowerCase()), sourceUrl)}</td>
+                <td>${renderTextbookDefinitionCell(textbookDefinitionMap.get(entry.term.toLowerCase()))}</td>
                 <td>${escapeHtml(entry.courseUse)}</td>
               </tr>`).join('');
 }
 
-function renderDefinitionSections(sections, cfaMatchMap, sourceUrl) {
+function renderDefinitionSections(sections, cfaMatchMap, textbookDefinitionMap, sourceUrl) {
   return sections.map((section) => `
         <section class="investment-definition-unit" id="unit-${section.unit}" data-unit-section="unit-${section.unit}">
           <div class="investment-section-head">
@@ -96,11 +123,12 @@ function renderDefinitionSections(sections, cfaMatchMap, sourceUrl) {
                   <th scope="col">Term</th>
                   <th scope="col">Textbook definition / 中文释义</th>
                   <th scope="col">CFA source definition</th>
+                  <th scope="col">Local textbook definitions</th>
                   <th scope="col">Course use</th>
                 </tr>
               </thead>
               <tbody>
-${renderDefinitionRows(section, cfaMatchMap, sourceUrl)}
+${renderDefinitionRows(section, cfaMatchMap, textbookDefinitionMap, sourceUrl)}
               </tbody>
             </table>
           </div>
@@ -112,8 +140,11 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
   const frontMatter = parseFrontMatter(markdown);
   const cfaData = getInvestmentCfaMatches();
   const cfaMatchMap = getInvestmentCfaMatchMap();
+  const textbookData = getInvestmentTextbookDefinitions();
+  const textbookDefinitionMap = getInvestmentTextbookDefinitionMap();
   const total = sections.reduce((sum, section) => sum + section.entries.length, 0);
   const matchedTotal = Array.from(cfaMatchMap.keys()).length;
+  const textbookMatchedTotal = Array.from(textbookDefinitionMap.keys()).length;
   const title = frontMatter.title || 'Investment Analysis Definition Overview';
   const cfaSourceUrl = cfaData.sourceUrl || frontMatter.priority_source_url || 'https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms';
   const sectionData = sections.map((section) => ({
@@ -217,7 +248,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
 
     .investment-definition-table {
       border-collapse: collapse;
-      min-width: 1240px;
+      min-width: 1500px;
       width: 100%;
     }
 
@@ -328,6 +359,44 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
       color: var(--inv-muted);
     }
 
+    .investment-textbook-match-list {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .investment-textbook-match {
+      border-left: 3px solid rgba(34, 211, 238, 0.36);
+      display: grid;
+      gap: 0.24rem;
+      padding-left: 0.65rem;
+    }
+
+    .investment-textbook-match strong {
+      color: var(--inv-ink);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .investment-textbook-match p {
+      margin: 0;
+    }
+
+    .investment-textbook-match span {
+      color: var(--inv-muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .investment-textbook-match.is-unmatched {
+      border-left-color: rgba(148, 163, 184, 0.22);
+    }
+
+    .investment-textbook-match.is-unmatched strong,
+    .investment-textbook-match.is-unmatched p {
+      color: var(--inv-muted);
+    }
+
     .investment-definition-empty {
       border: 1px solid rgba(250, 204, 21, 0.35);
       border-radius: 8px;
@@ -342,7 +411,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
 
     @media (max-width: 720px) {
       .investment-definition-table {
-        min-width: 980px;
+        min-width: 1180px;
       }
 
       .investment-definition-table th,
@@ -369,13 +438,14 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
         <div class="investment-eyebrow">Course reference</div>
         <h1>Investment Analysis Definitions</h1>
         <p>
-          Textbook-style definitions for all ${total} key terms used across the 30-lesson company-analysis course, with Chinese translations and ${matchedTotal} CFA Program glossary source matches shown beside the classroom wording.
+          Textbook-style definitions for all ${total} key terms used across the 30-lesson company-analysis course, with Chinese translations, ${matchedTotal} CFA Program glossary source matches and ${textbookMatchedTotal} local textbook source matches shown beside the classroom wording.
         </p>
         <div class="investment-actions" aria-label="Definition overview links">
           <a class="investment-action primary" href="#definition-overview">Browse definitions</a>
           <a class="investment-action" href="syllabus.html#lesson-generator-table">Lesson map</a>
           <a class="investment-action" href="${escapeHtml(cfaSourceUrl)}">CFA glossary</a>
           <a class="investment-action" href="../references/investment-analysis-definitions.md">Markdown source</a>
+          <a class="investment-action" href="../references/investment-analysis-textbook-definitions.json">Textbook sources</a>
         </div>
       </div>
 
@@ -395,8 +465,8 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
             <span>Simplify for Grade 9 only after preserving the CFA-aligned investment or accounting meaning.</span>
           </div>
           <div class="investment-learning-item">
-            <strong>Course boundary</strong>
-            <span>Definitions support evidence-based classroom judgement, not personal financial advice.</span>
+            <strong>Textbook cross-check</strong>
+            <span>Local textbook notes show where major course terms appear in Bodie, Reilly, Damodaran and Feroldi.</span>
           </div>
         </div>
       </div>
@@ -408,7 +478,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
           <div class="investment-section-kicker">Definition overview</div>
           <h2 id="definition-overview-title">Complete course vocabulary</h2>
         </div>
-        <p>Search by course term, Chinese support, Chinese definition translation, CFA glossary term, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary equivalent remain course-specific.</p>
+        <p>Search by course term, Chinese support, Chinese definition translation, CFA glossary term, local textbook source, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary or textbook equivalent remain course-specific.</p>
       </div>
 
       <div class="investment-definition-toolbar" data-definition-toolbar>
@@ -425,7 +495,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
 
     <p class="investment-definition-empty" data-definition-empty>No definitions match the current search.</p>
 
-${renderDefinitionSections(sections, cfaMatchMap, cfaSourceUrl)}
+${renderDefinitionSections(sections, cfaMatchMap, textbookDefinitionMap, cfaSourceUrl)}
 
     <footer class="investment-footer">
       <span>Oehler-Huang Library - independent classroom resources.</span>

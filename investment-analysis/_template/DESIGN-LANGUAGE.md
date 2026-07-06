@@ -42,6 +42,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
 - `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
 - `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason.
+- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Keep the axis explicit and reveal one defensible order, not an absolute law.
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.

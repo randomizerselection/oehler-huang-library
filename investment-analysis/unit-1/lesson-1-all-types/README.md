@@ -16,6 +16,7 @@ Current slide types shown:
 - `answer`
 - `flow`
 - `peerTask`
+- `rankingTask`
 - `peerTask` / `definitionRecall`
 - `peerTask` / `missingSentence`
 - `yesNoCheck`

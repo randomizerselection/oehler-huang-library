@@ -124,6 +124,42 @@ window.INVEST.lesson = {
       notes: "Vary these checks across the lesson: hinge question, sort, mini calculation, source check, misconception correction, peer comparison, cold-call justification or individual written check."
     },
     {
+      type: "rankingTask",
+      eyebrow: "Student task",
+      title: "Rank choices on a risk line",
+      zhTitle: "按风险线给选择排序",
+      visual: window.INVEST.photos?.businessChartsPaper,
+      prompt: "Place the cards from lower risk to higher risk, then defend the highest-risk choice.",
+      promptZh: "把卡片从较低风险排到较高风险，然后为最高风险的选择写出理由。",
+      axis: {
+        low: "Lower risk",
+        lowZh: "较低风险",
+        high: "Higher risk",
+        highZh: "较高风险",
+        note: "The order must be justified, not guessed",
+        noteZh: "排序必须有理由，而不是猜测"
+      },
+      items: [
+        { label: "A", text: "Choice A", zh: "选择A", cue: "Usually more stable.", cueZh: "通常较稳定。" },
+        { label: "B", text: "Choice B", zh: "选择B", cue: "Depends on the exact case.", cueZh: "取决于具体案例。" },
+        { label: "C", text: "Choice C", zh: "选择C", cue: "Can change with expectations.", cueZh: "可能随预期变化。" },
+        { label: "D", text: "Choice D", zh: "选择D", cue: "May move sharply.", cueZh: "可能大幅波动。" }
+      ],
+      revealLabel: "One defensible order",
+      revealLabelZh: "一种合理排序",
+      modelOrder: [
+        { rank: "1", label: "A", text: "Choice A", zh: "选择A", reason: "Use the lowest-risk case only when the reason is explicit.", reasonZh: "只有在理由明确时才作为较低风险案例。" },
+        { rank: "2", label: "B", text: "Choice B", zh: "选择B", reason: "Explain which evidence makes it more or less risky.", reasonZh: "解释哪些证据使它风险更高或更低。" },
+        { rank: "3", label: "C", text: "Choice C", zh: "选择C", reason: "Connect uncertainty to possible worse-than-expected results.", reasonZh: "把不确定性连接到可能低于预期的结果。" },
+        { rank: "4", label: "D", text: "Choice D", zh: "选择D", reason: "Name the evidence that makes this the highest-risk choice.", reasonZh: "指出使它成为最高风险选择的证据。" }
+      ],
+      caveat: "A different order can be valid if the evidence supports it.",
+      caveatZh: "如果证据支持，不同排序也可以成立。",
+      writtenCheck: "Write one evidence-based reason for your highest-risk card.",
+      writtenCheckZh: "为你选择的最高风险卡片写一个基于证据的理由。",
+      notes: "Use rankingTask for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative order."
+    },
+    {
       type: "peerTask",
       taskType: "missingSentence",
       eyebrow: "Pair task",

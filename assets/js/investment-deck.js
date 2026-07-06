@@ -1061,6 +1061,93 @@
     return slideShell(slide, index, lesson, body, 'invPeerTaskSlide invMissingSentenceSlide', photo);
   }
 
+  function renderRankingTask(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const rawItems = slide.items || slide.cases || [];
+    const axis = slide.axis || {};
+    const requestedCount = Number(slide.slotCount || slide.rankCount || rawItems.length || 4);
+    const itemCount = Number.isFinite(requestedCount) ? Math.max(1, requestedCount) : Math.max(1, rawItems.length || 4);
+    const lowLabel = axis.low || slide.lowLabel || 'Lower risk';
+    const lowLabelZh = axis.lowZh || slide.lowLabelZh || '';
+    const highLabel = axis.high || slide.highLabel || 'Higher risk';
+    const highLabelZh = axis.highZh || slide.highLabelZh || '';
+    const axisNote = axis.note || slide.axisNote || 'Risk can change with the exact asset';
+    const axisNoteZh = axis.noteZh || slide.axisNoteZh || '';
+    const normalizeRankingItem = (item, i) => {
+      if (typeof item === 'string') return { label: alphaLabel(i), text: item };
+      return {
+        label: item?.label || alphaLabel(i),
+        rank: item?.rank || String(i + 1),
+        text: item?.text || item?.title || '',
+        zh: item?.zh || item?.textZh || '',
+        cue: item?.cue || item?.hint || '',
+        cueZh: item?.cueZh || item?.hintZh || '',
+        reason: item?.reason || '',
+        reasonZh: item?.reasonZh || '',
+      };
+    };
+    const items = rawItems.map(normalizeRankingItem);
+    const modelOrder = (slide.modelOrder || slide.answerOrder || []).map(normalizeRankingItem);
+    const orderedItems = modelOrder.length ? modelOrder : items;
+    const promptText = slide.prompt || slide.task || 'Rank the cards from lower risk to higher risk.';
+    const promptZh = slide.promptZh || slide.taskZh || '';
+    const slots = Array.from({ length: itemCount }, (_slot, i) => `
+      <div class="invRankingSlot">
+        <span>${String(i + 1).padStart(2, '0')}</span>
+      </div>`).join('');
+    const itemCards = items.map((item) => `
+      <article class="invRankingCard">
+        <span>${escapeHtml(item.label)}</span>
+        <div>
+          <strong>${escapeHtml(item.text)}</strong>
+          ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}
+          ${item.cue ? `<p>${escapeHtml(item.cue)}</p>` : ''}
+          ${item.cueZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.cueZh)}</p>` : ''}
+        </div>
+      </article>`).join('');
+    const answerRows = orderedItems.map((item, i) => `
+      <article class="invRankingOrderItem">
+        <span class="invRankingRank">${escapeHtml(item.rank || String(i + 1))}</span>
+        <div class="invRankingOrderAsset">
+          <strong>${escapeHtml(item.label ? `${item.label}. ${item.text}` : item.text)}</strong>
+          ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}
+        </div>
+        ${item.reason || item.reasonZh ? `<p class="invRankingReason">${escapeHtml(item.reason || '')}${item.reasonZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.reasonZh)}</span>` : ''}</p>` : ''}
+      </article>`).join('');
+    const body = `
+      <div class="invRankingTask" style="--ranking-count:${itemCount}">
+        <div class="invFocusPrompt">
+          <strong>${escapeHtml(promptText)}</strong>
+          ${promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(promptZh)}</div>` : ''}
+        </div>
+        <div class="invRankingBoard">
+          <div class="invRankingAxis">
+            <div>
+              <strong>${escapeHtml(lowLabel)}</strong>
+              ${lowLabelZh ? `<span lang="zh-Hans">${escapeHtml(lowLabelZh)}</span>` : ''}
+            </div>
+            <p>${escapeHtml(axisNote)}${axisNoteZh ? `<span lang="zh-Hans">${escapeHtml(axisNoteZh)}</span>` : ''}</p>
+            <div>
+              <strong>${escapeHtml(highLabel)}</strong>
+              ${highLabelZh ? `<span lang="zh-Hans">${escapeHtml(highLabelZh)}</span>` : ''}
+            </div>
+          </div>
+          <div class="invRankingSlots">${slots}</div>
+          <div class="invRankingCards">${itemCards}</div>
+        </div>
+        <section class="invRankingAnswer invReveal">
+          <div class="invRankingAnswerHead">
+            <span class="invRankingAnswerTitle">${escapeHtml(slide.revealLabel || 'One defensible order')}</span>
+            ${slide.revealLabelZh ? `<span class="invRankingAnswerZh" lang="zh-Hans">${escapeHtml(slide.revealLabelZh)}</span>` : ''}
+          </div>
+          <div class="invRankingOrder">${answerRows}</div>
+          ${slide.caveat ? `<div class="invRankingCaveat"><strong>${escapeHtml(slide.caveat)}</strong>${slide.caveatZh ? `<span lang="zh-Hans">${escapeHtml(slide.caveatZh)}</span>` : ''}</div>` : ''}
+          ${slide.writtenCheck ? `<div class="invRankingWrittenCheck"><strong>${escapeHtml(slide.writtenCheck)}</strong>${slide.writtenCheckZh ? `<span lang="zh-Hans">${escapeHtml(slide.writtenCheckZh)}</span>` : ''}</div>` : ''}
+        </section>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invRankingTaskSlide invContextPhotoSlide', photo);
+  }
+
   function renderPeerTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     if (slide.taskType === 'definitionRecall') return renderDefinitionRecall(slide, index, lesson);
@@ -1194,6 +1281,7 @@
     riskRegister: renderRiskRegister,
     classificationTask: renderClassificationTask,
     yesNoCheck: renderYesNoCheck,
+    rankingTask: renderRankingTask,
     peerTask: renderPeerTask,
     quiz: renderQuiz,
     exam: renderExam,

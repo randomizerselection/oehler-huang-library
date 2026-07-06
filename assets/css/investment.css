@@ -2486,6 +2486,7 @@ img {
 }
 
 .invPeerTaskSlide,
+.invRankingTaskSlide,
 .invDefinitionRecallSlide,
 .invMissingSentenceSlide,
 .invCalculationDeskSlide,
@@ -3244,6 +3245,334 @@ img {
   font-size: 28px;
   font-weight: 500;
   line-height: 1.06;
+}
+
+.invRankingTaskSlide {
+  background:
+    linear-gradient(90deg, rgba(6, 12, 15, 0.95), rgba(6, 12, 15, 0.78) 62%, rgba(6, 12, 15, 0.38)),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #091014;
+}
+
+.invRankingTaskSlide .invSlideBody {
+  padding-top: 2px;
+}
+
+.invRankingTask {
+  width: min(1380px, 100%);
+  display: grid;
+  gap: 12px;
+  align-self: start;
+}
+
+.invRankingTask > .invFocusPrompt {
+  margin-top: 0;
+  border-left-color: var(--type-accent-line);
+  background: rgba(241, 190, 90, 0.11);
+  padding: 12px 16px;
+}
+
+.invRankingTask > .invFocusPrompt strong {
+  display: block;
+  font-size: clamp(24px, 2.25vw, 34px);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invRankingTask > .invFocusPrompt .invZhLine {
+  margin-top: 4px;
+  color: rgba(247, 251, 248, 0.78);
+  font-size: 18px;
+  line-height: 1.18;
+}
+
+.invRankingBoard {
+  display: grid;
+  gap: 12px;
+  border: 1px solid rgba(241, 190, 90, 0.28);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(21, 36, 43, 0.9), rgba(8, 16, 19, 0.9)),
+    rgba(13, 23, 27, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 14px;
+}
+
+.invRankingAxis {
+  display: grid;
+  grid-template-columns: minmax(145px, 0.22fr) minmax(220px, 1fr) minmax(145px, 0.22fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.invRankingAxis > div {
+  display: grid;
+  gap: 3px;
+  border: 1px solid rgba(241, 190, 90, 0.34);
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.08);
+  padding: 9px 12px;
+}
+
+.invRankingAxis > div:last-child {
+  border-color: rgba(238, 108, 101, 0.36);
+  background: rgba(238, 108, 101, 0.09);
+  text-align: right;
+}
+
+.invRankingAxis strong {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.invRankingAxis span {
+  color: rgba(247, 251, 248, 0.68);
+  font-size: 14px;
+  line-height: 1.08;
+}
+
+.invRankingAxis > p {
+  position: relative;
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.invRankingAxis > p::before {
+  content: "";
+  display: block;
+  height: 4px;
+  margin: 0 0 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--inv-amber), var(--inv-red));
+}
+
+.invRankingAxis > p span {
+  display: block;
+  margin-top: 2px;
+}
+
+.invRankingSlots {
+  display: grid;
+  grid-template-columns: repeat(var(--ranking-count, 4), minmax(0, 1fr));
+  gap: 10px;
+}
+
+.invRankingSlot {
+  position: relative;
+  min-height: 104px;
+  border: 2px dashed rgba(241, 190, 90, 0.34);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(241, 190, 90, 0.06), rgba(241, 190, 90, 0.02)),
+    rgba(4, 9, 11, 0.34);
+}
+
+.invRankingSlot span {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 30px;
+  border-radius: var(--inv-radius);
+  background: rgba(241, 190, 90, 0.14);
+  color: var(--inv-amber);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.invRankingCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.invRankingCard {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-height: 96px;
+  border: 1px solid rgba(152, 184, 188, 0.28);
+  border-left: 5px solid rgba(79, 210, 255, 0.5);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 35, 41, 0.94), rgba(7, 16, 19, 0.9)),
+    rgba(13, 23, 27, 0.9);
+  padding: 10px;
+}
+
+.invRankingCard > span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--inv-radius);
+  background: rgba(79, 210, 255, 0.14);
+  color: var(--inv-cyan);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.invRankingCard strong {
+  display: block;
+  color: var(--inv-ink);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.invRankingCard p {
+  margin: 5px 0 0;
+  color: var(--inv-muted);
+  font-size: 15px;
+  line-height: 1.18;
+}
+
+.invRankingCard .invZhLine {
+  color: rgba(247, 251, 248, 0.7);
+  font-size: 16px;
+}
+
+.invRankingAnswer.invReveal.is-revealed {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  border: 1px solid rgba(57, 217, 145, 0.32);
+  border-left: 6px solid rgba(57, 217, 145, 0.7);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(180deg, rgba(14, 42, 34, 0.94), rgba(7, 16, 19, 0.94)),
+    rgba(13, 23, 27, 0.92);
+  padding: 12px;
+}
+
+.invRankingTask:has(.invRankingAnswer.is-revealed) .invRankingBoard {
+  display: none;
+}
+
+.invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt {
+  padding: 10px 14px;
+}
+
+.invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt strong {
+  font-size: 24px;
+  line-height: 1.06;
+}
+
+.invRankingAnswerHead,
+.invRankingOrder {
+  grid-column: 1 / -1;
+}
+
+.invRankingAnswerHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 12px;
+  border-bottom: 1px solid rgba(57, 217, 145, 0.24);
+  padding-bottom: 8px;
+}
+
+.invRankingAnswerTitle {
+  color: var(--inv-green);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.invRankingAnswerZh {
+  color: rgba(247, 251, 248, 0.74);
+  font-size: 17px;
+  line-height: 1.12;
+}
+
+.invRankingOrder {
+  display: grid;
+  grid-template-columns: repeat(var(--ranking-count, 4), minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invRankingOrderItem {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
+  min-height: 154px;
+  border: 1px solid rgba(57, 217, 145, 0.24);
+  border-radius: var(--inv-radius);
+  background: rgba(4, 9, 11, 0.34);
+  padding: 10px;
+}
+
+.invRankingRank {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 34px;
+  border-radius: var(--inv-radius);
+  background: rgba(57, 217, 145, 0.16);
+  color: var(--inv-green);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.invRankingOrderAsset strong {
+  color: var(--inv-ink);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.06;
+}
+
+.invRankingOrderAsset .invZhLine {
+  margin-top: 3px;
+  color: rgba(247, 251, 248, 0.68);
+  font-size: 14px;
+  line-height: 1.08;
+}
+
+.invRankingReason {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.invRankingReason .invZhLine {
+  display: block;
+  margin-top: 4px;
+  color: rgba(247, 251, 248, 0.68);
+  font-size: 13px;
+  line-height: 1.12;
+}
+
+.invRankingCaveat,
+.invRankingWrittenCheck {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(152, 184, 188, 0.24);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 10px 12px;
+}
+
+.invRankingCaveat strong,
+.invRankingWrittenCheck strong {
+  color: var(--inv-ink);
+  font-size: 17px;
+  line-height: 1.12;
+}
+
+.invRankingCaveat span,
+.invRankingWrittenCheck span {
+  color: rgba(247, 251, 248, 0.7);
+  font-size: 14px;
+  line-height: 1.12;
 }
 
 .invQuizSlide .invPanel {
@@ -10079,6 +10408,564 @@ img {
   .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span,
   .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoBadge span + span {
     font-size: 5.5px !important;
+  }
+}
+
+/* Spacious yes/no checks: four-card classroom layout with readable bilingual prompts. */
+.invYesNoCheck.is-spacious,
+.invCompactCheckSlide .invYesNoCheck.is-spacious,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed),
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) {
+  width: min(1320px, 100%) !important;
+  gap: 12px !important;
+}
+
+.invYesNoCheck.is-spacious > .invFocusPrompt,
+.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+  gap: 5px !important;
+  padding: 13px 16px !important;
+}
+
+.invYesNoCheck.is-spacious > .invFocusPrompt strong,
+.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt strong,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+  font-size: 27px !important;
+  line-height: 1.06 !important;
+}
+
+.invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+  font-size: 20px !important;
+  line-height: 1.12 !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoItems,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItems,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItem,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto !important;
+  align-content: stretch !important;
+  gap: 11px !important;
+  min-height: 134px !important;
+  padding: 14px !important;
+  border-top-width: 5px !important;
+  overflow: hidden !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoStatement,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  gap: 5px 11px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoNumber,
+.invYesNoCheck.is-spacious .invYesNoStatement > span,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 14px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoPromptText,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoPromptText {
+  display: block !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoStatement strong,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+  display: block !important;
+  font-size: 24px !important;
+  line-height: 1.08 !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
+  display: block !important;
+  grid-column: auto !important;
+  margin-top: 5px !important;
+  font-size: 17px !important;
+  line-height: 1.12 !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoVoteCue,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  align-self: end !important;
+  display: flex !important;
+  gap: 6px !important;
+  padding-left: 45px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoVoteCue span,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue span {
+  min-width: 54px !important;
+  padding: 6px 10px !important;
+  font-size: 14px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
+.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  grid-template-columns: 64px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  padding: 10px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoBadge,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
+  width: 64px !important;
+  padding: 7px 8px !important;
+  font-size: 14px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoBadge span + span,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
+  font-size: 13px !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoReason p,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer p,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
+  display: block !important;
+  font-size: 20px !important;
+  line-height: 1.08 !important;
+}
+
+.invYesNoCheck.is-spacious .invYesNoReason .invZhLine,
+.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer .invZhLine,
+.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
+  display: block !important;
+  font-size: 15px !important;
+  line-height: 1.08 !important;
+}
+
+@media (max-width: 900px) {
+  .invYesNoCheck.is-spacious,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed),
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) {
+    gap: 7px !important;
+  }
+
+  .invYesNoCheck.is-spacious > .invFocusPrompt,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
+    gap: 3px !important;
+    padding: 8px 10px !important;
+  }
+
+  .invYesNoCheck.is-spacious > .invFocusPrompt strong,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt strong,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
+    font-size: 17px !important;
+    line-height: 1.04 !important;
+  }
+
+  .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+    font-size: 13px !important;
+    line-height: 1.08 !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoItems,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItems,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItem,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 6px !important;
+    min-height: 0 !important;
+    padding: 8px !important;
+    border-top-width: 4px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoStatement,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    grid-template-columns: 24px minmax(0, 1fr) !important;
+    gap: 3px 7px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoNumber,
+  .invYesNoCheck.is-spacious .invYesNoStatement > span,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 9px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoStatement strong,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
+    font-size: 15.5px !important;
+    line-height: 1.05 !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
+    margin-top: 3px !important;
+    font-size: 12px !important;
+    line-height: 1.08 !important;
+  }
+
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
+    display: none !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoVoteCue,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue {
+    display: flex !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    gap: 5px !important;
+    padding-left: 31px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoVoteCue span,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue span {
+    min-width: 46px !important;
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoAnswer,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 5px !important;
+    padding: 4px 5px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoBadge,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
+    width: 42px !important;
+    padding: 5px 4px !important;
+    font-size: 9px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoBadge span + span,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
+    font-size: 8px !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoReason p,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer p,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
+    font-size: 12.5px !important;
+    line-height: 1.05 !important;
+  }
+
+  .invYesNoCheck.is-spacious .invYesNoReason .invZhLine,
+  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer .invZhLine,
+  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .invRankingTask {
+    gap: 8px;
+  }
+
+  .invRankingTask > .invFocusPrompt {
+    padding: 9px 11px;
+  }
+
+  .invRankingTask > .invFocusPrompt strong {
+    font-size: 22px;
+    line-height: 1.04;
+  }
+
+  .invRankingTask > .invFocusPrompt .invZhLine {
+    font-size: 15px;
+    line-height: 1.08;
+  }
+
+  .invRankingBoard {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .invRankingAxis {
+    grid-template-columns: minmax(92px, 0.8fr) minmax(92px, 1fr) minmax(92px, 0.8fr);
+    gap: 6px;
+  }
+
+  .invRankingAxis > div {
+    padding: 6px 7px;
+  }
+
+  .invRankingAxis strong {
+    font-size: 14px;
+  }
+
+  .invRankingAxis span,
+  .invRankingAxis > p span {
+    display: none;
+  }
+
+  .invRankingAxis > p {
+    font-size: 12px;
+    line-height: 1.08;
+  }
+
+  .invRankingSlots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invRankingSlot {
+    min-height: 58px;
+  }
+
+  .invRankingSlot span {
+    top: 6px;
+    left: 6px;
+    width: 30px;
+    height: 24px;
+    font-size: 13px;
+  }
+
+  .invRankingCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invRankingCard {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 6px;
+    min-height: 68px;
+    padding: 6px;
+  }
+
+  .invRankingCard > span {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .invRankingCard strong {
+    font-size: 17px;
+    line-height: 1.04;
+  }
+
+  .invRankingCard p {
+    margin-top: 3px;
+    font-size: 11px;
+    line-height: 1.05;
+  }
+
+  .invRankingCard p:not(.invZhLine) {
+    display: none;
+  }
+
+  .invRankingAnswer.invReveal.is-revealed {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .invRankingAnswerHead {
+    padding-bottom: 5px;
+  }
+
+  .invRankingAnswerTitle {
+    font-size: 18px;
+  }
+
+  .invRankingAnswerZh {
+    font-size: 13px;
+  }
+
+  .invRankingOrder {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .invRankingOrderItem {
+    grid-template-columns: 32px minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 5px;
+    min-height: 0;
+    padding: 5px;
+  }
+
+  .invRankingRank {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .invRankingOrderAsset strong {
+    font-size: 13px;
+    line-height: 1.04;
+  }
+
+  .invRankingOrderAsset .invZhLine {
+    display: none;
+  }
+
+  .invRankingReason {
+    font-size: 12px;
+    line-height: 1.06;
+  }
+
+  .invRankingReason .invZhLine {
+    display: none;
+  }
+
+  .invRankingCaveat,
+  .invRankingWrittenCheck {
+    padding: 6px 7px;
+  }
+
+  .invRankingCaveat strong,
+  .invRankingWrittenCheck strong {
+    font-size: 13px;
+    line-height: 1.06;
+  }
+
+  .invRankingCaveat span,
+  .invRankingWrittenCheck span {
+    font-size: 12px;
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 520px) {
+  .invRankingTaskSlide .invSlideHeader {
+    gap: 8px;
+  }
+
+  .invRankingTaskSlide .invTitleBlock h1 {
+    font-size: 32px;
+    line-height: 1.03;
+  }
+
+  .invRankingTaskSlide .invSlideHeader .invZhTitle,
+  .invRankingTaskSlide .sourceList {
+    display: none;
+  }
+
+  .invRankingTask > .invFocusPrompt strong {
+    font-size: 18px;
+  }
+
+  .invRankingTask > .invFocusPrompt .invZhLine {
+    font-size: 13px;
+  }
+
+  .invRankingAxis > p {
+    display: none;
+  }
+
+  .invRankingAxis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invRankingAxis > div:last-child {
+    text-align: left;
+  }
+
+  .invRankingSlot {
+    min-height: 50px;
+  }
+
+  .invRankingCard {
+    min-height: 58px;
+  }
+
+  .invRankingCard strong {
+    font-size: 15px;
+  }
+
+  .invRankingCard .invZhLine {
+    font-size: 11px;
+  }
+
+  .invRankingAnswer.invReveal.is-revealed {
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt {
+    padding: 4px 6px;
+  }
+
+  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt strong {
+    font-size: 14px;
+    line-height: 1.02;
+  }
+
+  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt .invZhLine {
+    display: none;
+  }
+
+  .invRankingAnswerTitle {
+    font-size: 16px;
+  }
+
+  .invRankingOrderItem {
+    grid-template-columns: 28px minmax(76px, 0.9fr) minmax(0, 1.25fr);
+    padding: 4px;
+  }
+
+  .invRankingReason {
+    font-size: 11px;
+  }
+
+  .invRankingCaveat span,
+  .invRankingWrittenCheck span {
+    display: none;
   }
 }
 

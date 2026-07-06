@@ -6,6 +6,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const sourcePath = path.join(root, 'references', 'investment-analysis-definitions.md');
 const cfaMatchesPath = path.join(root, 'references', 'investment-analysis-cfa-glossary-matches.json');
+const textbookDefinitionsPath = path.join(root, 'references', 'investment-analysis-textbook-definitions.json');
 const htmlOutputPath = path.join(root, 'investment-analysis', 'definitions.html');
 
 function cleanText(value) {
@@ -101,10 +102,34 @@ function getInvestmentCfaMatchMap() {
   return new Map((data.matches || []).map((match) => [String(match.term || '').toLowerCase(), match]));
 }
 
+function getInvestmentTextbookDefinitions() {
+  return JSON.parse(fs.readFileSync(textbookDefinitionsPath, 'utf8'));
+}
+
+function getInvestmentTextbookDefinitionMap() {
+  const data = getInvestmentTextbookDefinitions();
+  const sourceMap = new Map((data.sources || []).map((source) => [source.id, source]));
+  const map = new Map();
+
+  for (const match of data.matches || []) {
+    const key = String(match.term || '').toLowerCase();
+    const source = sourceMap.get(match.sourceId) || {};
+    const entry = {
+      ...match,
+      source,
+    };
+    if (!map.has(key)) map.set(key, []);
+    map.get(key).push(entry);
+  }
+
+  return map;
+}
+
 module.exports = {
   root,
   sourcePath,
   cfaMatchesPath,
+  textbookDefinitionsPath,
   htmlOutputPath,
   parseFrontMatter,
   parseInvestmentDefinitions,
@@ -113,4 +138,6 @@ module.exports = {
   getInvestmentDefinitionMap,
   getInvestmentCfaMatches,
   getInvestmentCfaMatchMap,
+  getInvestmentTextbookDefinitions,
+  getInvestmentTextbookDefinitionMap,
 };

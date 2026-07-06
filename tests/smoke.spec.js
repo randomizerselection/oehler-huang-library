@@ -822,7 +822,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'peerTask', 'classificationTask', 'answer']
+      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'rankingTask', 'peerTask', 'classificationTask', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -920,6 +920,7 @@ test.describe('site smoke', () => {
       { type: 'conceptTriad', title: 'Compare three beginner ideas', marker: '.invConceptTriad' },
       { type: 'visualGrid', title: 'Compare examples with pictures', marker: '.invVisualGrid' },
       { type: 'peerTask', title: 'Complete the missing sentence', marker: '.invMissingSentence' },
+      { type: 'rankingTask', title: 'Rank choices on a risk line', marker: '.invRankingTask' },
       { type: 'compare', title: 'Compare two ideas in a T-table', marker: '.invCompareTwoColumn' },
       { type: 'classificationTask', title: 'Classify the evidence habit', marker: '.invClassificationTask' },
       { type: 'yesNoCheck', title: 'Yes or no: does this prove quality?', marker: '.invYesNoCheck' },
@@ -990,6 +991,12 @@ test.describe('site smoke', () => {
         title: 'Complete the missing explanation sentence',
         selector: '.invMissingSentence > .invFocusPrompt strong',
         text: /Use the first and last step to write the missing analyst sentence/i,
+      },
+      {
+        type: 'rankingTask',
+        title: 'Rank assets by risk',
+        selector: '.invRankingTask > .invFocusPrompt strong',
+        text: /Place the cards from lower risk to higher risk/i,
       },
       {
         type: 'classificationTask',
@@ -1142,7 +1149,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'peerTask', 'classificationTask', 'answer']
+      ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'rankingTask', 'peerTask', 'classificationTask', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

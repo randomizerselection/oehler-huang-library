@@ -14,7 +14,7 @@ created_on: "2026-07-06"
 
 This file is the shared definition source for the Investment Analysis company-analysis course. It expands the shorter slide vocabulary into complete textbook-style definitions for lesson planning, handouts, textbook chapters, quizzes and assessment design.
 
-Priority source rule: where a course term overlaps with the CFA Program glossary, use the CFA-aligned investment and accounting meaning first, then simplify the wording for Grade 9 classroom use. Where no clear CFA glossary equivalent exists, use the course-specific definition from the company-analysis map. Clear CFA glossary matches are recorded in `references/investment-analysis-cfa-glossary-matches.json`; use the official CFA glossary link there for the original source wording.
+Priority source rule: where a course term overlaps with the CFA Program glossary, use the CFA-aligned investment and accounting meaning first, then simplify the wording for Grade 9 classroom use. Where no clear CFA glossary equivalent exists, use the course-specific definition from the company-analysis map. Clear CFA glossary matches are recorded in `references/investment-analysis-cfa-glossary-matches.json`; local textbook source notes are recorded in `references/investment-analysis-textbook-definitions.json`.
 
 Each row contains the course reference, English term, Chinese term support, complete English definition, Chinese definition translation and the main course use. Slide wording may be shortened for display, but handouts and textbook-style materials should preserve the meaning here.
 
