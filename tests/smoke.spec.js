@@ -728,7 +728,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /^Investment course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.getByText(/The Economics course and Investment Analysis course now live on separate course pages/i)).toBeVisible();
     await expect(page.getByText(/Syllabus-led lessons, quizzes, flashcards, handouts and revision materials/i)).toBeVisible();
-    await expect(page.getByText(/A Grade 9 add-on course for learning how to invest/i)).toBeVisible();
+    await expect(page.getByText(/A Grade 9 add-on course for evidence-based investing/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'investment-analysis/unit-1/lesson-1/index.html');
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
@@ -802,13 +802,13 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Syllabus$/i }).first()).toHaveAttribute('href', 'syllabus.html');
     await expect(page.getByRole('link', { name: /^Definitions$/i }).first()).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
     await expect(page.getByText(/one key idea, one evidence task and one justified next action/i)).toBeVisible();
     await expect(page.locator('body')).toContainText(/Know what you are buying/i);
-    await expect(page.locator('body')).toContainText(/Compare return, risk and price/i);
+    await expect(page.locator('body')).toContainText(/Compare return, risk, price and cost/i);
 
     const investmentSlideLinks = page.getByRole('link', { name: /^Slides$/i });
     await expect(investmentSlideLinks).toHaveCount(2);
@@ -821,7 +821,7 @@ test.describe('site smoke', () => {
     await expect(investmentQuizLinks.nth(1)).toHaveAttribute('href', 'unit-1/lesson-2/index.html?view=quiz');
 
     await expect(page.getByText(/Start with evidence/i)).toBeVisible();
-    await expect(page.getByText(/Company Analysis Course Map/i)).toBeVisible();
+    await expect(page.getByText(/Evidence-Based Investing Course Map/i)).toBeVisible();
     await expect(page.locator('a[href*="lesson-1-all-types"]')).toHaveCount(0);
     await expect(page.locator('a[href*="view=print"]')).toHaveCount(0);
     await expect(page.locator('a[href*=".json"]')).toHaveCount(0);
@@ -1103,11 +1103,11 @@ test.describe('site smoke', () => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Decision-first company analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^30-lesson company knowledge map$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Decision-first evidence-based investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^50-lesson evidence-based investing map$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^How lessons are built$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Six exams across the year$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Five exams across the year$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Generator table$/i }).first()).toHaveAttribute('href', '#lesson-generator-table');
     await expect(page.getByText(/The standard structured source is/i)).toBeVisible();
     await expect(page.getByText(/--syllabus company-analysis/i)).toBeVisible();
@@ -1117,11 +1117,11 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Missing evidence/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
-    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
+    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/evidence is still missing/i);
-    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(30);
-    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
+    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
+    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(5);
     await expect(page.locator('[data-syllabus-lesson]').first()).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson]').last()).toBeVisible();
     await expectNoHorizontalOverflow(page);
@@ -1131,18 +1131,18 @@ test.describe('site smoke', () => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage stays on the default syllabus map.');
 
     await page.goto(pageUrl('investment-analysis/syllabus-company-analysis.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Decision-first company analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Decision-first evidence-based investing$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Hook, key idea, try it, decide$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^A practical investor workflow$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^30-lesson company knowledge map$/i })).toBeVisible();
-    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
+    await expect(page.getByRole('heading', { name: /^50-lesson evidence-based investing map$/i })).toBeVisible();
+    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/source-dated evidence before judgement/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Tencent/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Practical investing action/i);
-    await expect(page.locator('[data-syllabus-lesson][data-lesson="2"]')).toContainText(/HKEX/i);
-    await expect(page.locator('[data-syllabus-lesson][data-lesson="20"]')).toContainText(/ChinaAMC CSI 300 ETF/i);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="5"]')).toContainText(/HKEX/i);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="9"]')).toContainText(/ChinaAMC CSI 300 ETF/i);
     await expect(page.locator('body')).not.toContainText(/Personal Finance/i);
     await expect(page.locator('body')).not.toContainText(/course-map-company-analysis-data\.js/i);
     await expectNoHorizontalOverflow(page);
@@ -1152,10 +1152,10 @@ test.describe('site smoke', () => {
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment course map coverage is phone-only.');
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
-    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(30);
-    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
-    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(30);
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
+    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(5);
+    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1167,7 +1167,7 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
     await expect(page.locator('body')).toContainText(/Choose the next action/i);
     await expectNoHorizontalOverflow(page);
 

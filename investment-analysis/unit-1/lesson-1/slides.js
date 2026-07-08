@@ -188,8 +188,8 @@ window.INVEST.lesson = {
       question: "Before seeing the definition, write one sentence: what should investment analysis do?",
       questionZh: "在看到定义前，写一句话：投资分析应该做什么？",
       revealTitle: "Analysis evaluates return, risk and suitability",
-      answer: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
-      answerZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。",
+      answer: "Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+      answerZh: "投资分析 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
       notes: "Students should try a definition before the formal term slide."
     },
     {
@@ -208,8 +208,8 @@ window.INVEST.lesson = {
       title: "Investment analysis",
       term: "Investment analysis",
       termZh: "投资分析",
-      definition: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
-      definitionZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。",
+      definition: "Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+      definitionZh: "投资分析 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
       notes: "Use the full textbook-style definition from references/investment-analysis-definitions.md."
     },
     {

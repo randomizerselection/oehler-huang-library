@@ -211,8 +211,8 @@ window.INVEST.lesson = {
           label: "2",
           term: "Investment analysis",
           termZh: "投资分析",
-          answer: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
-          answerZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。"
+          answer: "Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+          answerZh: "投资分析 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。"
         }
       ],
       sharePrompt: "Bridge: the market route is part of the evidence before judgement.",
@@ -277,8 +277,8 @@ window.INVEST.lesson = {
       title: "Stock exchange",
       term: "Stock exchange",
       termZh: "证券交易所",
-      definition: "A stock exchange is a regulated trading venue where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.",
-      definitionZh: "证券交易所是受监管的交易场所，上市股票、ETF 和债券等投资工具可以在其中按照市场规则买卖。",
+      definition: "Stock exchange is a course concept used to analyse HKEX with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+      definitionZh: "证券交易所 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
       notes: [
         "Students copy the full sentence.",
         "Emphasise regulated market, not a website that gives stock tips."

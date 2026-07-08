@@ -71,6 +71,36 @@
       generatorFit: "Use when students need to separate return components and market-value evidence."
     },
     {
+      id: "keyword-valuation-metrics",
+      label: "Keywords: valuation metrics",
+      description: "Charts and visuals for valuation, EPS, P/E, expectations and valuation-risk vocabulary.",
+      generatorFit: "Use when a slide needs a concrete valuation metric or multiple rather than a generic finance image."
+    },
+    {
+      id: "keyword-portfolio-funds",
+      label: "Keywords: portfolio and funds",
+      description: "ETF, index-fund, diversification and portfolio-construction visuals.",
+      generatorFit: "Use when students compare single-company risk with diversified fund or portfolio exposure."
+    },
+    {
+      id: "keyword-platform-monetisation",
+      label: "Keywords: platforms and monetisation",
+      description: "Platform-user, network-effect, active-user, ARPU and monetisation visuals.",
+      generatorFit: "Use when a generator needs platform business evidence tied to users and revenue per user."
+    },
+    {
+      id: "keyword-banking-credit",
+      label: "Keywords: banking and credit",
+      description: "Banking, credit-risk, leverage, debt, liabilities and capital-strength visuals.",
+      generatorFit: "Use for banking and balance-sheet risk prompts where students need visible debt or credit context."
+    },
+    {
+      id: "keyword-regulation-currency",
+      label: "Keywords: regulation and currency",
+      description: "Regulation, policy-risk, exchange-rate, export-exposure and multinational-risk visuals.",
+      generatorFit: "Use when the image should make external policy, currency or global-risk exposure visible."
+    },
+    {
       id: "keyword-risk-macro",
       label: "Keywords: risk and macro exposure",
       description: "Images for demand risk, consumer trends, cyclicality and related risk vocabulary.",
@@ -100,6 +130,10 @@
       uses: defaults.uses || ["visualPause", "discussion"],
       deckHint: defaults.deckHint || "Use only when the image helps students make or improve an investment judgement."
     }));
+  }
+
+  function entry(key, category, defaults = {}) {
+    return entries(category, [key], defaults)[0];
   }
 
   const archiveEntries = [
@@ -359,11 +393,185 @@
         uses: ["hook", "visualPause", "discussion", "yesNoCheck"],
         deckHint: "Use for demand-risk and consumer-trend prompts where weak traffic should be visible before judgement."
       }
-    )
+    ),
+    entry("keywordValuationExxonMerger", "keyword-valuation-metrics", {
+      lesson: "Lessons 14, 15 and 30",
+      tags: ["valuation", "cheap or expensive", "expectations", "valuation risk"],
+      uses: ["discussion", "sourceLens", "dataSnapshot"],
+      deckHint: "Use when students need a concrete valuation chart before judging whether a price looks cheap or expensive."
+    }),
+    entry("keywordExchangeRatesAmsterdam", "keyword-regulation-currency", {
+      lesson: "Lessons 19 and 25",
+      tags: ["exchange rate", "export exposure", "translation effect", "local/global risk"],
+      uses: ["hook", "visualPause", "discussion", "sourceLens"],
+      deckHint: "Use for currency-risk prompts before students explain exchange-rate exposure."
+    }),
+    entry("keywordVerticalIntegrationOpelLine", "keyword-business-evidence", {
+      lesson: "Lessons 22 and 27",
+      tags: ["vertical integration", "capacity", "capital expenditure", "operating leverage"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect owned production capacity to business strategy and operating risk."
+    }),
+    entry("keywordBrandEquityFlagshipStore", "keyword-business-evidence", {
+      lesson: "Lessons 24 and 26",
+      tags: ["brand equity", "pricing power", "store network", "consumer trend"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect visible brand presence to pricing power and customer demand."
+    }),
+    entry("keywordLeverageRatioGoldman", "keyword-banking-credit", {
+      lesson: "Lesson 29",
+      tags: ["gearing or leverage", "debt", "liabilities", "capital strength"],
+      uses: ["sourceLens", "dataSnapshot", "discussion"],
+      deckHint: "Use when students need to interpret leverage as a ratio rather than only seeing debt as a headline number."
+    }),
+    entry("keywordCreditRiskSubprimeDiagram", "keyword-banking-credit", {
+      lesson: "Lessons 23 and 29",
+      tags: ["credit risk", "debt", "liabilities", "policy risk"],
+      uses: ["sourceLens", "discussion", "yesNoCheck"],
+      deckHint: "Use when students need to trace why weak borrowing quality can become credit risk."
+    }),
+    entry("keywordExportContainersFlickr", "keyword-regulation-currency", {
+      lesson: "Lessons 19 and 25",
+      tags: ["export exposure", "multinational", "local/global risk", "exchange rate"],
+      uses: ["visualPause", "discussion", "sourceLens", "compare"],
+      deckHint: "Use when students connect export activity to currency and global-demand risk."
+    }),
+    entry("keywordTranslationCurrencyRubles", "keyword-regulation-currency", {
+      lesson: "Lessons 19 and 25",
+      tags: ["translation effect", "exchange rate", "multinational", "local/global risk"],
+      uses: ["visualPause", "discussion", "yesNoCheck"],
+      deckHint: "Use as a simple visual cue before explaining why foreign-currency results can translate differently."
+    }),
+    entry("keywordNetworkEffectsTwitterGraph", "keyword-platform-monetisation", {
+      lesson: "Lesson 21",
+      tags: ["network effects", "platform business", "active users", "regulatory overhang"],
+      uses: ["discussion", "sourceLens", "visualPause"],
+      deckHint: "Use when students need to see that a platform can become more valuable as user connections grow."
+    }),
+    entry("keywordRegulatoryOverhangPlatforms", "keyword-regulation-currency", {
+      lesson: "Lessons 18 and 21",
+      tags: ["regulatory overhang", "regulation", "policy risk", "platform business"],
+      uses: ["discussion", "yesNoCheck", "sourceLens"],
+      deckHint: "Use for prompts about whether platform regulation can weigh on an investment case."
+    }),
+    entry("keywordCyclicalityFactoryEmissions", "keyword-risk-macro", {
+      lesson: "Lessons 22 and 27",
+      tags: ["cyclicality", "cyclical demand", "sector", "recovery"],
+      uses: ["visualPause", "discussion", "compare"],
+      deckHint: "Use as a sector-cycle visual before students discuss demand recovery and operating leverage."
+    }),
+    entry("keywordCapitalStrengthFedNy", "keyword-banking-credit", {
+      lesson: "Lesson 23",
+      tags: ["capital strength", "credit risk", "interest margin", "bank"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use to anchor bank-strength and credit-risk discussion in a real financial institution setting."
+    }),
+    entry("keywordPricingPowerDigitalDisplay", "keyword-business-evidence", {
+      lesson: "Lesson 24",
+      tags: ["pricing power", "brand equity", "gross margin", "consumer trend"],
+      uses: ["visualPause", "discussion", "yesNoCheck"],
+      deckHint: "Use when students decide whether a company can raise or maintain prices without losing customers."
+    }),
+    entry("keywordMultinationalGskBuilding", "keyword-regulation-currency", {
+      lesson: "Lesson 25",
+      tags: ["multinational", "local/global risk", "comparable company", "exchange rate"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students distinguish local and global risks for a multinational company."
+    }),
+    entry("keywordTurnaroundStoreClosure", "keyword-risk-macro", {
+      lesson: "Lessons 26 and 27",
+      tags: ["turnaround", "recovery", "store network", "same-store sales"],
+      uses: ["hook", "visualPause", "discussion", "yesNoCheck"],
+      deckHint: "Use for turnaround prompts where students judge whether weak stores can recover."
+    }),
+    entry("keywordActiveUsersSmartphoneGroup", "keyword-platform-monetisation", {
+      lesson: "Lessons 21 and 28",
+      tags: ["active users", "platform business", "network effects", "monetisation"],
+      uses: ["hook", "visualPause", "discussion", "sourceLens"],
+      deckHint: "Use for active-user and platform-business prompts before students judge monetisation potential."
+    }),
+    entry("keywordArpuMobilePaymentQr", "keyword-platform-monetisation", {
+      lesson: "Lesson 28",
+      tags: ["ARPU", "monetisation", "active users", "platform business"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect active users to payment, revenue per user and monetisation."
+    }),
+    entry("keywordDebtClockGermany", "keyword-banking-credit", {
+      lesson: "Lesson 29",
+      tags: ["debt", "liabilities", "gearing or leverage", "leverage risk"],
+      uses: ["hook", "visualPause", "discussion", "yesNoCheck"],
+      deckHint: "Use for debt and leverage prompts before students judge whether borrowing increases risk."
+    }),
+    entry("keywordCashFlowStatementTrust", "keyword-financial-statements", {
+      lesson: "Lessons 5 and 9",
+      tags: ["operating cash flow", "free cash flow", "financial statements", "source date"],
+      uses: ["sourceLens", "dataSnapshot", "discussion"],
+      deckHint: "Use when students need to see that cash-flow evidence comes from a specific statement."
+    }),
+    entry("keywordCentralBankOpenMeeting", "keyword-banking-credit", {
+      lesson: "Lesson 23",
+      tags: ["interest margin", "credit risk", "capital strength", "interest rate"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect bank interest margins and credit risk to central-bank rate context."
+    }),
+    entry("keywordPolicyRiskSubprimeGovernment", "keyword-regulation-currency", {
+      lesson: "Lessons 18 and 23",
+      tags: ["policy risk", "regulation", "credit risk", "company-specific risk"],
+      uses: ["sourceLens", "discussion", "yesNoCheck"],
+      deckHint: "Use for policy-risk prompts where students must decide what the chart can and cannot prove."
+    }),
+    entry("keywordDefensiveUtilityTransmission", "keyword-risk-macro", {
+      lesson: "Lesson 30",
+      tags: ["defensive business", "quality company", "cash flow stability", "risk"],
+      uses: ["hook", "visualPause", "discussion"],
+      deckHint: "Use for defensive-business prompts where students compare stable utility demand with cyclical demand."
+    }),
+    entry("keywordQualityControlUsda", "keyword-business-evidence", {
+      lesson: "Lessons 16, 24 and 30",
+      tags: ["quality company", "execution risk", "brand equity", "pricing power"],
+      uses: ["visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect quality control and execution to company quality."
+    }),
+    entry("keywordPricingPowerSaleSign", "keyword-business-evidence", {
+      lesson: "Lessons 7, 17 and 24",
+      tags: ["pricing power", "gross margin", "consumer trend", "demand risk"],
+      uses: ["hook", "visualPause", "yesNoCheck"],
+      deckHint: "Use when students decide whether discounts signal weak pricing power or a normal retail tactic."
+    }),
+    entry("keywordDebtClockNationalNy", "keyword-banking-credit", {
+      lesson: "Lesson 29",
+      tags: ["debt", "liabilities", "gearing or leverage", "capital strength"],
+      uses: ["visualPause", "discussion", "yesNoCheck"],
+      deckHint: "Use as an alternative debt visual when comparing debt scale and leverage risk."
+    }),
+    entry("keywordBalanceSheetTaxForm", "keyword-financial-statements", {
+      lesson: "Lessons 5 and 29",
+      tags: ["liabilities", "balance sheet", "source date", "evidence log"],
+      uses: ["visualPause", "sourceLens", "discussion"],
+      deckHint: "Use for statement-discipline prompts where students identify what source a figure came from."
+    }),
+    entry("keywordEtfKeyboard", "keyword-portfolio-funds", {
+      lesson: "Lessons 18 and 20",
+      tags: ["ETF", "exchange-traded fund", "index fund", "fund access"],
+      uses: ["hook", "visualPause", "discussion"],
+      deckHint: "Use when introducing exchange-traded funds as a market-traded fund product."
+    }),
+    entry("keywordIndexFundsWallStreetSign", "keyword-portfolio-funds", {
+      lesson: "Lessons 18 and 20",
+      tags: ["index fund", "passive investing", "ETF", "market index"],
+      uses: ["hook", "visualPause", "discussion", "sourceLens"],
+      deckHint: "Use when students connect index funds to broad market exposure rather than picking one company."
+    }),
+    entry("keywordPortfolioDiversificationCards", "keyword-portfolio-funds", {
+      lesson: "Lessons 18 and 20",
+      tags: ["diversification", "portfolio", "risk reduction", "asset allocation"],
+      uses: ["visualPause", "discussion", "classificationTask"],
+      deckHint: "Use when students explain why a diversified portfolio can reduce single-company risk."
+    })
   ];
 
   return {
-    version: "2026-07-07",
+    version: "2026-07-08",
     title: "Investment Analysis Photo Archive",
     generatorPattern: "visual: window.INVEST.photos?.<photoKey>",
     catalogueScript: "assets/js/investment-photos.js",

@@ -6,6 +6,9 @@ const childProcess = require('child_process');
 const root = path.resolve(__dirname, '..');
 const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
+const expectedLessonCount = 50;
+const expectedUnitCount = 5;
+const lessonsPerCheckpoint = 10;
 const {
   MATERIAL_TARGETS,
   loadCourseMap,
@@ -39,6 +42,8 @@ const vagueRevealTitlePattern = /^(?:answer|possible answer|sample answer|model 
 const requiredLessonFields = [
   'lesson',
   'unit',
+  'semester',
+  'caseAnchor',
   'company',
   'guidingQuestion',
   'decisionFirst',
@@ -339,13 +344,38 @@ function validateCourseMapContract() {
     failures.push('investment-analysis/course-map-data.js: sourceFitAudit must define a rule and checks');
   }
 
-  if (!Array.isArray(courseMap.units) || courseMap.units.length !== 6) {
-    failures.push('investment-analysis/course-map-data.js: expected exactly 6 units');
+  if (!Array.isArray(courseMap.units) || courseMap.units.length !== expectedUnitCount) {
+    failures.push(`investment-analysis/course-map-data.js: expected exactly ${expectedUnitCount} units`);
+  } else {
+    for (const unit of courseMap.units) {
+      const label = `investment-analysis/course-map-data.js unit ${unit.unit || '?'}`;
+      const expectedSemester = unit.unit <= 3 ? 1 : 2;
+      const expectedStart = ((unit.unit || 1) - 1) * lessonsPerCheckpoint + 1;
+      const expectedEnd = expectedStart + lessonsPerCheckpoint - 1;
+      if (unit.semester !== expectedSemester) failures.push(`${label}: expected semester ${expectedSemester}, got ${unit.semester}`);
+      if (!Array.isArray(unit.lessons) || unit.lessons[0] !== expectedStart || unit.lessons[1] !== expectedEnd) {
+        failures.push(`${label}: expected lesson range ${expectedStart}-${expectedEnd}`);
+      }
+    }
   }
 
-  if (!Array.isArray(courseMap.lessons) || courseMap.lessons.length !== 30) {
-    failures.push('investment-analysis/course-map-data.js: expected exactly 30 lessons');
+  if (!Array.isArray(courseMap.lessons) || courseMap.lessons.length !== expectedLessonCount) {
+    failures.push(`investment-analysis/course-map-data.js: expected exactly ${expectedLessonCount} lessons`);
     return failures;
+  }
+  if (!Array.isArray(courseMap.examCheckpoints) || courseMap.examCheckpoints.length !== expectedUnitCount) {
+    failures.push(`investment-analysis/course-map-data.js: expected exactly ${expectedUnitCount} exam checkpoints`);
+  } else {
+    for (const checkpoint of courseMap.examCheckpoints) {
+      const label = `investment-analysis/course-map-data.js checkpoint ${checkpoint.checkpoint || '?'}`;
+      const expectedSemester = checkpoint.checkpoint <= 3 ? 1 : 2;
+      const expectedStart = ((checkpoint.checkpoint || 1) - 1) * lessonsPerCheckpoint + 1;
+      const expectedEnd = expectedStart + lessonsPerCheckpoint - 1;
+      if (checkpoint.semester !== expectedSemester) failures.push(`${label}: expected semester ${expectedSemester}, got ${checkpoint.semester}`);
+      if (!Array.isArray(checkpoint.afterLessons) || checkpoint.afterLessons[0] !== expectedStart || checkpoint.afterLessons[1] !== expectedEnd) {
+        failures.push(`${label}: expected afterLessons ${expectedStart}-${expectedEnd}`);
+      }
+    }
   }
 
   if (!/(handout|worksheet)/i.test(courseMap.writtenArtifactRule || '') || !/textbook/i.test(courseMap.writtenArtifactRule || '')) {
@@ -392,15 +422,19 @@ function validateCourseMapContract() {
       if (!(field in lesson)) failures.push(`${label}: missing required field "${field}"`);
     }
 
-    if (!Number.isInteger(lesson.lesson) || lesson.lesson < 1 || lesson.lesson > 30) {
-      failures.push(`${label}: lesson number must be an integer from 1 to 30`);
+    if (!Number.isInteger(lesson.lesson) || lesson.lesson < 1 || lesson.lesson > expectedLessonCount) {
+      failures.push(`${label}: lesson number must be an integer from 1 to ${expectedLessonCount}`);
     }
     if (seenLessons.has(lesson.lesson)) failures.push(`${label}: duplicate lesson number`);
     seenLessons.add(lesson.lesson);
 
-    const expectedUnit = Math.floor((lesson.lesson - 1) / 5) + 1;
+    const expectedUnit = Math.floor((lesson.lesson - 1) / lessonsPerCheckpoint) + 1;
     if (lesson.unit !== expectedUnit) {
       failures.push(`${label}: expected unit ${expectedUnit}, got ${lesson.unit}`);
+    }
+    const expectedSemester = lesson.lesson <= 30 ? 1 : 2;
+    if (lesson.semester !== expectedSemester) {
+      failures.push(`${label}: expected semester ${expectedSemester}, got ${lesson.semester}`);
     }
 
     for (const field of ['company', 'guidingQuestion', 'formulaOrNoFormula', 'formativeAssessment', 'exitTicket', 'retrievalBase', 'newKnowledge', 'evidenceTask', 'misconception', 'studentOutput', 'coreClaim']) {
@@ -569,7 +603,7 @@ function validateCourseMapContract() {
     }
 
     if (lesson.examPattern?.checkpoint !== expectedUnit) {
-      failures.push(`${label}: examPattern checkpoint must match the five-lesson unit`);
+      failures.push(`${label}: examPattern checkpoint must match the ten-lesson unit`);
     }
     for (const field of ['itemType', 'sourceRequirement', 'task', 'mustAssess']) {
       if (!isNonEmptyString(lesson.examPattern?.[field])) failures.push(`${label}: examPattern.${field} must be a non-empty string`);
@@ -580,7 +614,7 @@ function validateCourseMapContract() {
     }
   }
 
-  for (let lessonNumber = 1; lessonNumber <= 30; lessonNumber += 1) {
+  for (let lessonNumber = 1; lessonNumber <= expectedLessonCount; lessonNumber += 1) {
     if (!seenLessons.has(lessonNumber)) {
       failures.push(`investment-analysis/course-map-data.js: missing lesson ${lessonNumber}`);
     }
@@ -607,7 +641,7 @@ function validateSyllabusUsesCourseMap() {
   if (!/data-course-map-generator-rows/.test(source)) {
     failures.push('investment-analysis/syllabus.html: generator table must render from the course map data target');
   }
-  if (!/data-decision-first-model/.test(source) || !/Decision-first company analysis/.test(source)) {
+  if (!/data-decision-first-model/.test(source) || !/Decision-first evidence-based investing/.test(source)) {
     failures.push('investment-analysis/syllabus.html: must render the decision-first teaching model');
   }
   if (!/data-course-map-lesson-grid/.test(source)) {
@@ -667,8 +701,8 @@ function validateGeneratorContextAccess() {
   }
 
   const companyAnalysisMap = loadCourseMap('company-analysis');
-  if (!Array.isArray(companyAnalysisMap.lessons) || companyAnalysisMap.lessons.length !== 30) {
-    failures.push('investment-analysis/generator-context.js: company-analysis alias must expose all 30 default lessons');
+  if (!Array.isArray(companyAnalysisMap.lessons) || companyAnalysisMap.lessons.length !== expectedLessonCount) {
+    failures.push(`investment-analysis/generator-context.js: company-analysis alias must expose all ${expectedLessonCount} default lessons`);
   }
   if (companyAnalysisMap !== courseMap && companyAnalysisMap.courseTitle !== courseMap.courseTitle) {
     failures.push('investment-analysis/generator-context.js: company-analysis alias must use the standard course map');
@@ -678,19 +712,19 @@ function validateGeneratorContextAccess() {
   if (courseContext.contextType !== 'course-generator-index') {
     failures.push('investment-analysis/generator-context.js: course context must identify itself as course-generator-index');
   }
-  if (!Array.isArray(courseContext.lessons) || courseContext.lessons.length !== 30) {
-    failures.push('investment-analysis/generator-context.js: course context must expose all 30 lessons');
+  if (!Array.isArray(courseContext.lessons) || courseContext.lessons.length !== expectedLessonCount) {
+    failures.push(`investment-analysis/generator-context.js: course context must expose all ${expectedLessonCount} lessons`);
   }
 
   const companyAnalysisContext = getCourseGeneratorContext('company-analysis');
   if (companyAnalysisContext.course.syllabusKey !== 'company-analysis') {
     failures.push('investment-analysis/generator-context.js: company-analysis course context must expose syllabusKey company-analysis');
   }
-  if (!Array.isArray(companyAnalysisContext.lessons) || companyAnalysisContext.lessons.length !== 30) {
-    failures.push('investment-analysis/generator-context.js: company-analysis course context must expose all 30 lessons');
+  if (!Array.isArray(companyAnalysisContext.lessons) || companyAnalysisContext.lessons.length !== expectedLessonCount) {
+    failures.push(`investment-analysis/generator-context.js: company-analysis course context must expose all ${expectedLessonCount} lessons`);
   }
 
-  for (let lessonNumber = 1; lessonNumber <= 30; lessonNumber += 1) {
+  for (let lessonNumber = 1; lessonNumber <= expectedLessonCount; lessonNumber += 1) {
     const lessonContext = getLessonGeneratorContext(lessonNumber, courseMap);
     if (lessonContext.contextType !== 'lesson-generator-context') {
       failures.push(`investment-analysis/generator-context.js lesson ${lessonNumber}: wrong lesson context type`);
@@ -729,25 +763,25 @@ function validateGeneratorContextAccess() {
     const jsonOutput = childProcess.execFileSync(process.execPath, [
       exportScriptPath,
       '--lesson',
-      '2',
+      '5',
       '--target',
       'deck',
     ], { cwd: root, encoding: 'utf8' });
     const parsed = JSON.parse(jsonOutput);
-    if (parsed.target !== 'deck' || parsed.lesson.lesson !== 2 || parsed.lesson.caseAnchor !== 'HKEX') {
-      failures.push('scripts/export-investment-generator-context.js: deck JSON output must include default company-analysis lesson 2');
+    if (parsed.target !== 'deck' || parsed.lesson.lesson !== 5 || parsed.lesson.caseAnchor !== 'HKEX') {
+      failures.push('scripts/export-investment-generator-context.js: deck JSON output must include default HKEX market-access lesson');
     }
 
     const markdownOutput = childProcess.execFileSync(process.execPath, [
       exportScriptPath,
       '--lesson',
-      '2',
+      '5',
       '--target',
       'handout',
       '--format',
       'md',
     ], { cwd: root, encoding: 'utf8' });
-    if (!/Lesson 2: HKEX/.test(markdownOutput) || !/Decision-First Contract/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
+    if (!/Lesson 5: HKEX/.test(markdownOutput) || !/Decision-First Contract/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
       failures.push('scripts/export-investment-generator-context.js: markdown output must include default company-analysis lesson, decision-first contract, simple flow, action, retrieval, worksheet, analyse and generation rules');
     }
 
@@ -756,13 +790,13 @@ function validateGeneratorContextAccess() {
       '--syllabus',
       'company-analysis',
       '--lesson',
-      '2',
+      '5',
       '--target',
       'handout',
       '--format',
       'md',
     ], { cwd: root, encoding: 'utf8' });
-    if (!/Lesson 2: HKEX/.test(companyMarkdownOutput) || !/Generation Rules/.test(companyMarkdownOutput)) {
+    if (!/Lesson 5: HKEX/.test(companyMarkdownOutput) || !/Generation Rules/.test(companyMarkdownOutput)) {
       failures.push('scripts/export-investment-generator-context.js: company-analysis markdown output must include HKEX lesson and generation rules');
     }
 
@@ -818,8 +852,8 @@ function validateInvestmentDefinitionsOverview() {
     failures.push('references/investment-analysis-definitions.md: missing investment definition overview source');
     return failures;
   }
-  if (sections.length !== 6) {
-    failures.push('references/investment-analysis-definitions.md: expected exactly 6 unit sections');
+  if (sections.length !== expectedUnitCount) {
+    failures.push(`references/investment-analysis-definitions.md: expected exactly ${expectedUnitCount} unit sections`);
   }
   if (entries.length !== definitionMap.size) {
     failures.push('references/investment-analysis-definitions.md: duplicate definition terms detected');
@@ -925,7 +959,7 @@ function validateInvestmentDefinitionsOverview() {
   if (actualHtml !== expectedHtml) {
     failures.push('investment-analysis/definitions.html: generated investment definitions page is missing or out of date');
   }
-  if (!/Textbook definition \/ 中文释义/.test(actualHtml) || !/投资分析是/.test(actualHtml)) {
+  if (!/Textbook definition \/ 中文定义/.test(actualHtml) || !/投资分析/.test(actualHtml)) {
     failures.push('investment-analysis/definitions.html: generated page must show Chinese definition translations');
   }
   if (!/Local textbook definitions/.test(actualHtml) || !/Bodie\/Kane\/Marcus, Essentials/.test(actualHtml) || !/Damodaran, Little Book/.test(actualHtml)) {
@@ -970,10 +1004,10 @@ function validateCompiledHandoutBook() {
   const sourceBoxes = actual.match(/^### Source box$/gm) || [];
   const blueprintLessonHeadings = actualTeacherBlueprint.match(/^## Lesson \d+:/gm) || [];
 
-  if (lessonHeadings.length !== 30) failures.push('compiled handout book: expected 30 lesson handouts');
-  if (unitHeadings.length !== 6) failures.push('compiled handout book: expected 6 unit dividers');
-  if (sourceBoxes.length !== 30) failures.push('compiled handout book: every lesson handout needs a source box');
-  if (blueprintLessonHeadings.length !== 30) failures.push('teacher blueprint: expected 30 lesson blueprints');
+  if (lessonHeadings.length !== expectedLessonCount) failures.push(`compiled handout book: expected ${expectedLessonCount} lesson handouts`);
+  if (unitHeadings.length !== expectedUnitCount) failures.push(`compiled handout book: expected ${expectedUnitCount} unit dividers`);
+  if (sourceBoxes.length !== expectedLessonCount) failures.push('compiled handout book: every lesson handout needs a source box');
+  if (blueprintLessonHeadings.length !== expectedLessonCount) failures.push(`teacher blueprint: expected ${expectedLessonCount} lesson blueprints`);
   if (!/Case Review Table/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing case review table');
   if (!/Source-Fit Audit/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing source-fit audit');
   if (/^#{1,3}\s+Chapter\b/im.test(actual)) {

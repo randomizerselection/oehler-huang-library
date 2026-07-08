@@ -473,8 +473,8 @@ window.INVEST.lesson = {
         {
           label: "Saving",
           tag: "Safety",
-          definition: "Saving is keeping money mainly for safety, access or future use rather than putting it into a risky asset.",
-          definitionZh: "储蓄是指主要为了安全、方便取用或未来使用而保留资金，而不是把资金投入有风险的资产。",
+          definition: "Saving is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+          definitionZh: "储蓄 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
           purpose: "Keep money available",
           risk: "Lower uncertainty"
         },
@@ -489,8 +489,8 @@ window.INVEST.lesson = {
         {
           label: "Speculation",
           tag: "Price bet",
-          definition: "Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence.",
-          definitionZh: "投机是指试图从不确定的价格变动中获利，通常比完整证据更依赖预期、时机判断或承担风险。",
+          definition: "Speculation is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
+          definitionZh: "投机 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
           purpose: "Catch a quick move",
           risk: "High uncertainty"
         }

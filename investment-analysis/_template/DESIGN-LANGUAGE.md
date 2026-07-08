@@ -63,9 +63,9 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 - The landing page is a student course doorway.
 - Primary action: Start Lesson 1.
-- Secondary actions: 30-lesson course map, quiz and data snapshot.
+- Secondary actions: 50-lesson course map, quiz and data snapshot.
 - Include a short course promise, a "What you will learn" strip and a roadmap card pattern.
-- Use student-facing labels: Lesson, Slides, Quiz, Data snapshot, 30-lesson course map, What you will learn. Avoid internal labels such as dashboard, status panel, internal course or projector system.
+- Use student-facing labels: Lesson, Slides, Quiz, Data snapshot, 50-lesson course map, What you will learn. Avoid internal labels such as dashboard, status panel, internal course or projector system.
 
 ## QA Standard
 

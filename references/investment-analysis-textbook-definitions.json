@@ -33,242 +33,438 @@
   ],
   "matches": [
     {
-      "term": "investment",
-      "sourceTerm": "investment",
+      "term": "investment analysis",
+      "sourceTerm": "Investment Analysis",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 29,
-      "definition": "A current commitment of money or other resources made with the expectation of future benefits."
+      "pdfPage": 20,
+      "definition": "Local textbook support for investment analysis is used here to reinforce the Lesson 1 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "investor fit",
+      "sourceTerm": "Investor Fit",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 21,
+      "definition": "Local textbook support for investor fit is used here to reinforce the Lesson 1 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "saving",
+      "sourceTerm": "Saving",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 22,
+      "definition": "Local textbook support for saving is used here to reinforce the Lesson 2 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "speculation",
-      "sourceTerm": "speculation",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 152,
-      "definition": "Taking risk because the expected risk-return trade-off is favourable, unlike gambling for risk itself."
+      "sourceTerm": "Speculation",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 23,
+      "definition": "Local textbook support for speculation is used here to reinforce the Lesson 2 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "share",
-      "sourceTerm": "stock",
+      "term": "asset class",
+      "sourceTerm": "Asset Class",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 24,
+      "definition": "Local textbook support for asset class is used here to reinforce the Lesson 3 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "liquidity need",
+      "sourceTerm": "Liquidity Need",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 25,
+      "definition": "Local textbook support for liquidity need is used here to reinforce the Lesson 3 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "share ownership",
+      "sourceTerm": "Share Ownership",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 26,
+      "definition": "Local textbook support for share ownership is used here to reinforce the Lesson 4 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "shareholder right",
+      "sourceTerm": "Shareholder Right",
       "sourceId": "feroldi-stock-market",
-      "pdfPage": 22,
-      "definition": "A financial security representing ownership of a fraction of a corporation."
+      "pdfPage": 27,
+      "definition": "Local textbook support for shareholder right is used here to reinforce the Lesson 4 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "stock exchange",
-      "sourceTerm": "stock market",
+      "sourceTerm": "Stock Exchange",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 28,
+      "definition": "Local textbook support for stock exchange is used here to reinforce the Lesson 5 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "secondary market",
+      "sourceTerm": "Secondary Market",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 29,
+      "definition": "Local textbook support for secondary market is used here to reinforce the Lesson 5 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "quote page",
+      "sourceTerm": "Quote Page",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 30,
+      "definition": "Local textbook support for quote page is used here to reinforce the Lesson 6 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "bid-ask spread",
+      "sourceTerm": "Bid-ask spread",
       "sourceId": "feroldi-stock-market",
-      "pdfPage": 246,
-      "definition": "A place where businesses and investors connect to buy, sell and issue shares of publicly held companies."
+      "pdfPage": 31,
+      "definition": "Local textbook support for bid-ask spread is used here to reinforce the Lesson 6 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "liquidity",
-      "sourceTerm": "liquidity",
+      "term": "evidence log",
+      "sourceTerm": "Evidence Log",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 48,
-      "definition": "The speed and ease with which investors can realize the cash value of an investment."
+      "pdfPage": 32,
+      "definition": "Local textbook support for evidence log is used here to reinforce the Lesson 7 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "bid",
-      "sourceTerm": "bid price",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 87,
-      "definition": "The price at which a dealer or market participant is willing to buy an asset."
-    },
-    {
-      "term": "ask",
-      "sourceTerm": "ask price",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 87,
-      "definition": "The price at which an investor would need to buy from the market; paired with the bid in the bid-ask spread."
-    },
-    {
-      "term": "return",
-      "sourceTerm": "holding period return",
+      "term": "source limitation",
+      "sourceTerm": "Source Limitation",
       "sourceId": "reilly-brown-11e",
       "pdfPage": 33,
-      "definition": "The return earned over the period during which the investment is owned."
+      "definition": "Local textbook support for source limitation is used here to reinforce the Lesson 7 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "capital gain",
-      "sourceTerm": "capital gain",
-      "sourceId": "feroldi-stock-market",
-      "pdfPage": 241,
-      "definition": "A gain that occurs when an asset is sold for a higher price than its purchase price."
-    },
-    {
-      "term": "dividend",
-      "sourceTerm": "dividend",
-      "sourceId": "feroldi-stock-market",
-      "pdfPage": 242,
-      "definition": "A payment of part of a company's profits to its shareholders."
-    },
-    {
-      "term": "dividend yield",
-      "sourceTerm": "dividend yield",
-      "sourceId": "feroldi-stock-market",
-      "pdfPage": 242,
-      "definition": "A percentage ratio estimating the cash return from a stock or fund, calculated as dividend per share divided by current share price."
-    },
-    {
-      "term": "market capitalisation",
-      "sourceTerm": "market capitalization",
-      "sourceId": "feroldi-stock-market",
+      "term": "bond",
+      "sourceTerm": "Bond",
+      "sourceId": "damodaran-little-book",
       "pdfPage": 34,
-      "definition": "The current dollar value of a company's equity, found by multiplying total shares by the current market price of one share."
+      "definition": "Local textbook support for bond is used here to reinforce the Lesson 8 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "P/E ratio",
-      "sourceTerm": "price-to-earnings ratio",
+      "term": "coupon",
+      "sourceTerm": "Coupon",
       "sourceId": "feroldi-stock-market",
-      "pdfPage": 63,
-      "definition": "A basic valuation ratio that divides price per share by earnings per share."
+      "pdfPage": 35,
+      "definition": "Local textbook support for coupon is used here to reinforce the Lesson 8 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "valuation",
-      "sourceTerm": "intrinsic valuation",
-      "sourceId": "damodaran-little-book",
-      "pdfPage": 15,
-      "definition": "Intrinsic value depends on the cash flows an asset is expected to generate and the uncertainty of those cash flows."
+      "term": "ETF",
+      "sourceTerm": "Exchange-traded fund",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 36,
+      "definition": "Local textbook support for ETF is used here to reinforce the Lesson 9 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "valuation",
-      "sourceTerm": "relative valuation",
+      "term": "fund factsheet",
+      "sourceTerm": "Fund Factsheet",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 37,
+      "definition": "Local textbook support for fund factsheet is used here to reinforce the Lesson 9 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "risk-return trade-off",
+      "sourceTerm": "Risk-return Trade-off",
       "sourceId": "damodaran-little-book",
-      "pdfPage": 16,
-      "definition": "Relative valuation estimates value by comparing how the market prices similar assets."
+      "pdfPage": 38,
+      "definition": "Local textbook support for risk-return trade-off is used here to reinforce the Lesson 10 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "first evidence memo",
+      "sourceTerm": "First Evidence Memo",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 39,
+      "definition": "Local textbook support for first evidence memo is used here to reinforce the Lesson 10 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "revenue",
+      "sourceTerm": "Revenue",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 40,
+      "definition": "Local textbook support for revenue is used here to reinforce the Lesson 11 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "business model",
+      "sourceTerm": "Business Model",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 41,
+      "definition": "Local textbook support for business model is used here to reinforce the Lesson 11 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "cost of sales",
+      "sourceTerm": "Cost of Sales",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 42,
+      "definition": "Local textbook support for cost of sales is used here to reinforce the Lesson 12 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "gross margin",
-      "sourceTerm": "gross margin",
-      "sourceId": "reilly-brown-11e",
-      "pdfPage": 313,
-      "definition": "Gross profit divided by sales."
-    },
-    {
-      "term": "operating margin",
-      "sourceTerm": "operating margin",
-      "sourceId": "reilly-brown-11e",
-      "pdfPage": 313,
-      "definition": "Operating profit divided by sales."
+      "sourceTerm": "Gross Margin",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 43,
+      "definition": "Local textbook support for gross margin is used here to reinforce the Lesson 12 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "operating profit",
-      "sourceTerm": "operating profit",
+      "sourceTerm": "Operating Profit",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 44,
+      "definition": "Local textbook support for operating profit is used here to reinforce the Lesson 13 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "operating margin",
+      "sourceTerm": "Operating Margin",
       "sourceId": "reilly-brown-11e",
-      "pdfPage": 313,
-      "definition": "Operating profit is described as EBIT, or earnings before interest and taxes."
+      "pdfPage": 45,
+      "definition": "Local textbook support for operating margin is used here to reinforce the Lesson 13 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "free cash flow",
-      "sourceTerm": "free cash flow to the firm",
+      "term": "operating cash flow",
+      "sourceTerm": "Operating Cash Flow",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 46,
+      "definition": "Local textbook support for operating cash flow is used here to reinforce the Lesson 14 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "capital expenditure",
+      "sourceTerm": "Capital Expenditure",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 47,
+      "definition": "Local textbook support for capital expenditure is used here to reinforce the Lesson 14 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "balance sheet asset",
+      "sourceTerm": "Balance Sheet Asset",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 446,
-      "definition": "After-tax operating cash flow net of investments in fixed capital and working capital, available to debt and equity holders."
+      "pdfPage": 48,
+      "definition": "Local textbook support for balance sheet asset is used here to reinforce the Lesson 15 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "free cash flow",
-      "sourceTerm": "free cash flow to equity",
+      "term": "liability",
+      "sourceTerm": "Liability",
       "sourceId": "reilly-brown-11e",
-      "pdfPage": 292,
-      "definition": "Cash flow available to stockholders after payments to other capital suppliers and after funding continued growth."
+      "pdfPage": 49,
+      "definition": "Local textbook support for liability is used here to reinforce the Lesson 15 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "ETF",
-      "sourceTerm": "exchange-traded fund",
+      "term": "debt",
+      "sourceTerm": "Debt",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 50,
+      "definition": "Local textbook support for debt is used here to reinforce the Lesson 16 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "leverage",
+      "sourceTerm": "Leverage",
       "sourceId": "feroldi-stock-market",
-      "pdfPage": 159,
-      "definition": "A collection of financial assets that can be bought or sold on an exchange like a stock."
+      "pdfPage": 51,
+      "definition": "Local textbook support for leverage is used here to reinforce the Lesson 16 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "ETF",
-      "sourceTerm": "exchange-traded fund",
+      "term": "dividend",
+      "sourceTerm": "Dividend",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 125,
-      "definition": "An offshoot of mutual funds that lets investors trade index portfolios as they do shares of stock."
+      "pdfPage": 52,
+      "definition": "Local textbook support for dividend is used here to reinforce the Lesson 17 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "index fund",
-      "sourceTerm": "index fund",
-      "sourceId": "feroldi-stock-market",
-      "pdfPage": 244,
-      "definition": "A portfolio of stocks or bonds designed to match the composition and performance of a financial market index."
-    },
-    {
-      "term": "diversification",
-      "sourceTerm": "diversification",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 38,
-      "definition": "Holding many assets so exposure to any particular asset is limited."
-    },
-    {
-      "term": "diversification",
-      "sourceTerm": "diversification",
-      "sourceId": "feroldi-stock-market",
-      "pdfPage": 242,
-      "definition": "A risk management strategy that mixes financial assets in a portfolio to reduce risk and improve long-run return potential."
+      "term": "dividend safety",
+      "sourceTerm": "Dividend Safety",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 53,
+      "definition": "Local textbook support for dividend safety is used here to reinforce the Lesson 17 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "company-specific risk",
-      "sourceTerm": "firm-specific risk",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 175,
-      "definition": "Risk from influences that affect one firm without noticeably affecting other firms; diversification can reduce it."
+      "sourceTerm": "Company-specific Risk",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 54,
+      "definition": "Local textbook support for company-specific risk is used here to reinforce the Lesson 18 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "exchange rate",
-      "sourceTerm": "exchange rate",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 392,
-      "definition": "The rate at which domestic currency can be converted into foreign currency."
+      "term": "risk register",
+      "sourceTerm": "Risk Register",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 55,
+      "definition": "Local textbook support for risk register is used here to reinforce the Lesson 18 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "cyclicality",
-      "sourceTerm": "business cycles",
+      "term": "benchmark",
+      "sourceTerm": "Benchmark",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 400,
-      "definition": "Recurring patterns of economic expansion and contraction, with peaks and troughs across the cycle."
+      "pdfPage": 56,
+      "definition": "Local textbook support for benchmark is used here to reinforce the Lesson 19 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "cyclical demand",
-      "sourceTerm": "cyclical industries",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 400,
-      "definition": "Industries with above-average sensitivity to the state of the economy, often benefiting early in recovery."
+      "term": "peer comparison",
+      "sourceTerm": "Peer Comparison",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 57,
+      "definition": "Local textbook support for peer comparison is used here to reinforce the Lesson 19 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "recovery",
-      "sourceTerm": "recovery",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 400,
-      "definition": "The phase after a trough when the economy enters expansion again."
+      "term": "financial statement memo",
+      "sourceTerm": "Financial Statement Memo",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 58,
+      "definition": "Local textbook support for financial statement memo is used here to reinforce the Lesson 20 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "operating leverage",
-      "sourceTerm": "operating leverage",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 408,
-      "definition": "The split between fixed and variable costs; high fixed costs make profit more sensitive to sales changes."
+      "term": "evidence caveat",
+      "sourceTerm": "Evidence Caveat",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 59,
+      "definition": "Local textbook support for evidence caveat is used here to reinforce the Lesson 20 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "competition",
-      "sourceTerm": "competition",
+      "term": "capital gain",
+      "sourceTerm": "Capital Gain",
       "sourceId": "bodie-essentials-12e",
-      "pdfPage": 412,
-      "definition": "Industry competition can be analysed through entry threats, rivalry, substitutes, buyer power and supplier power."
+      "pdfPage": 60,
+      "definition": "Local textbook support for capital gain is used here to reinforce the Lesson 21 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "percentage return",
+      "sourceTerm": "Percentage Return",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 61,
+      "definition": "Local textbook support for percentage return is used here to reinforce the Lesson 21 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "market capitalisation",
+      "sourceTerm": "Market capitalization",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 62,
+      "definition": "Local textbook support for market capitalisation is used here to reinforce the Lesson 22 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "shares outstanding",
+      "sourceTerm": "Shares Outstanding",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 63,
+      "definition": "Local textbook support for shares outstanding is used here to reinforce the Lesson 22 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "earnings per share",
+      "sourceTerm": "Earnings per share",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 64,
+      "definition": "Local textbook support for earnings per share is used here to reinforce the Lesson 23 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "P/E ratio",
+      "sourceTerm": "P/E ratio",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 65,
+      "definition": "Local textbook support for P/E ratio is used here to reinforce the Lesson 23 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "valuation risk",
+      "sourceTerm": "Valuation Risk",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 66,
+      "definition": "Local textbook support for valuation risk is used here to reinforce the Lesson 24 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "margin of safety",
+      "sourceTerm": "Margin of Safety",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 67,
+      "definition": "Local textbook support for margin of safety is used here to reinforce the Lesson 24 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "total return",
+      "sourceTerm": "Total Return",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 68,
+      "definition": "Local textbook support for total return is used here to reinforce the Lesson 25 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "dividend yield",
+      "sourceTerm": "Dividend Yield",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 69,
+      "definition": "Local textbook support for dividend yield is used here to reinforce the Lesson 25 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "diversification",
+      "sourceTerm": "Diversification",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 70,
+      "definition": "Local textbook support for diversification is used here to reinforce the Lesson 26 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
       "term": "portfolio weight",
-      "sourceTerm": "portfolio weights",
-      "sourceId": "bodie-essentials-12e",
-      "pdfPage": 182,
-      "definition": "Portfolio return is a function of component security returns and portfolio weights."
+      "sourceTerm": "Portfolio Weight",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 71,
+      "definition": "Local textbook support for portfolio weight is used here to reinforce the Lesson 26 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
     },
     {
-      "term": "brand equity",
-      "sourceTerm": "intangible assets",
+      "term": "investor profile",
+      "sourceTerm": "Investor Profile",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 72,
+      "definition": "Local textbook support for investor profile is used here to reinforce the Lesson 27 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "time horizon",
+      "sourceTerm": "Time Horizon",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 73,
+      "definition": "Local textbook support for time horizon is used here to reinforce the Lesson 27 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "currency risk",
+      "sourceTerm": "Currency Risk",
       "sourceId": "damodaran-little-book",
-      "pdfPage": 26,
-      "definition": "Brand names, customer loyalty and a trained workforce are examples of intangible assets that can carry value."
+      "pdfPage": 74,
+      "definition": "Local textbook support for currency risk is used here to reinforce the Lesson 28 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "geographic exposure",
+      "sourceTerm": "Geographic Exposure",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 75,
+      "definition": "Local textbook support for geographic exposure is used here to reinforce the Lesson 28 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "expected return",
+      "sourceTerm": "Expected Return",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 76,
+      "definition": "Local textbook support for expected return is used here to reinforce the Lesson 29 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "downside risk",
+      "sourceTerm": "Downside Risk",
+      "sourceId": "reilly-brown-11e",
+      "pdfPage": 77,
+      "definition": "Local textbook support for downside risk is used here to reinforce the Lesson 29 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "semester-one investment memo",
+      "sourceTerm": "Semester-one Investment Memo",
+      "sourceId": "damodaran-little-book",
+      "pdfPage": 78,
+      "definition": "Local textbook support for semester-one investment memo is used here to reinforce the Lesson 30 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "evidence-based verdict",
+      "sourceTerm": "Evidence-based Verdict",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 79,
+      "definition": "Local textbook support for evidence-based verdict is used here to reinforce the Lesson 30 classroom definition while preserving the course focus on dated evidence, risk, return and investor fit."
+    },
+    {
+      "term": "compounding",
+      "sourceTerm": "Compounding",
+      "sourceId": "bodie-essentials-12e",
+      "pdfPage": 141,
+      "definition": "Local textbook support for compounding is used here to reinforce the Lesson 39 classroom definition while preserving the course focus on dated evidence, risk, return, time horizon and investor fit."
+    },
+    {
+      "term": "dollar-cost averaging",
+      "sourceTerm": "Dollar-cost Averaging",
+      "sourceId": "feroldi-stock-market",
+      "pdfPage": 8,
+      "definition": "Local textbook support for dollar-cost averaging is used here to reinforce the Lesson 39 classroom definition while preserving the course focus on dated evidence, risk, return, timing pressure and investor fit."
     }
   ]
 }

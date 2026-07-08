@@ -121,7 +121,7 @@ function renderDefinitionSections(sections, cfaMatchMap, textbookDefinitionMap, 
                 <tr>
                   <th scope="col">Ref</th>
                   <th scope="col">Term</th>
-                  <th scope="col">Textbook definition / 中文释义</th>
+                  <th scope="col">Textbook definition / 中文定义</th>
                   <th scope="col">CFA source definition</th>
                   <th scope="col">Local textbook definitions</th>
                   <th scope="col">Course use</th>
@@ -158,7 +158,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Textbook-style definitions for the Investment Analysis company-analysis course." />
+  <meta name="description" content="Textbook-style definitions for the 50-lesson Investment Analysis evidence-based investing course." />
   <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
   <title>${escapeHtml(title)} - Oehler-Huang Library</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
@@ -438,7 +438,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
         <div class="investment-eyebrow">Course reference</div>
         <h1>Investment Analysis Definitions</h1>
         <p>
-          Textbook-style definitions for all ${total} key terms used across the 30-lesson company-analysis course, with Chinese translations, ${matchedTotal} CFA Program glossary source matches and ${textbookMatchedTotal} local textbook source matches shown beside the classroom wording.
+          Textbook-style definitions for all ${total} key terms used across the 50-lesson evidence-based investing course, with Chinese translations, ${matchedTotal} CFA Program glossary source matches and ${textbookMatchedTotal} local textbook source matches shown beside the classroom wording.
         </p>
         <div class="investment-actions" aria-label="Definition overview links">
           <a class="investment-action primary" href="#definition-overview">Browse definitions</a>

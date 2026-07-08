@@ -1,242 +1,608 @@
 {
   "sourceTitle": "CFA Program glossary",
   "sourceUrl": "https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms",
-  "accessedOn": "2026-07-06",
-  "usageRule": "This file records clear course-term matches to the CFA Program glossary. It identifies the CFA glossary term and gives a short course-aligned meaning note; use sourceUrl to view the original CFA wording.",
+  "accessedOn": "2026-07-08",
+  "usageRule": "This file records course-term matches or close course-aligned glossary links for the 50-lesson Investment Analysis course. It identifies the CFA glossary term and gives a short course-aligned meaning note; use sourceUrl to view the original CFA wording.",
   "matches": [
     {
-      "term": "asset",
-      "cfaTerm": "Assets",
-      "matchType": "related accounting term",
-      "meaningFocus": "Resources controlled by an enterprise that are expected to bring future economic benefit."
+      "term": "investment analysis",
+      "cfaTerm": "Investment Analysis",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 1 to keep the Tencent judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "investor fit",
+      "cfaTerm": "Investor Fit",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 1 to keep the Tencent judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "saving",
+      "cfaTerm": "Saving",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 2 to keep the Family saving plan judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "speculation",
+      "cfaTerm": "Speculation",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 2 to keep the Family saving plan judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "asset class",
+      "cfaTerm": "Asset Class",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 3 to keep the Mixed asset set judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "liquidity need",
+      "cfaTerm": "Liquidity Need",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 3 to keep the Mixed asset set judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "share ownership",
+      "cfaTerm": "Share Ownership",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 4 to keep the Xiaomi judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "shareholder right",
+      "cfaTerm": "Shareholder Right",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 4 to keep the Xiaomi judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "stock exchange",
-      "cfaTerm": "Exchange",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A regulated venue where investment instruments can be traded."
+      "cfaTerm": "Stock Exchange",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 5 to keep the HKEX judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "liquidity",
-      "cfaTerm": "Liquidity",
-      "matchType": "clear glossary match",
-      "meaningFocus": "The ability to trade quickly and easily near fair value, or to meet short-term cash needs."
+      "term": "secondary market",
+      "cfaTerm": "Secondary Market",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 5 to keep the HKEX judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "bid",
-      "cfaTerm": "Bid",
-      "matchType": "clear glossary match",
-      "meaningFocus": "The buy-side price quoted by a dealer or trader for an asset."
+      "term": "quote page",
+      "cfaTerm": "Quote Page",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 6 to keep the Alibaba quote snapshot judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "ask",
-      "cfaTerm": "Ask",
-      "matchType": "clear glossary match",
-      "meaningFocus": "The sell-side price quoted by a dealer or trader for an asset."
+      "term": "bid-ask spread",
+      "cfaTerm": "Bid-ask spread",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 6 to keep the Alibaba quote snapshot judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "ordinary share",
-      "cfaTerm": "Ordinary shares",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Common equity shares that rank below other equity claims such as preferred equity."
+      "term": "evidence log",
+      "cfaTerm": "Evidence Log",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 7 to keep the JD.com evidence pack judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "source limitation",
+      "cfaTerm": "Source Limitation",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 7 to keep the JD.com evidence pack judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "bond",
+      "cfaTerm": "Bond",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 8 to keep the Government bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "coupon",
+      "cfaTerm": "Coupon",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 8 to keep the Government bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "ETF",
+      "cfaTerm": "Exchange-traded fund",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 9 to keep the ChinaAMC CSI 300 ETF judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "fund factsheet",
+      "cfaTerm": "Fund Factsheet",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 9 to keep the ChinaAMC CSI 300 ETF judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "risk-return trade-off",
+      "cfaTerm": "Risk-return Trade-off",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 10 to keep the Mini portfolio checkpoint judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "first evidence memo",
+      "cfaTerm": "First Evidence Memo",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 10 to keep the Mini portfolio checkpoint judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "revenue",
       "cfaTerm": "Revenue",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Amounts from ordinary business activity over a stated period, before deducting expenses."
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 11 to keep the Meituan judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "sales growth",
-      "cfaTerm": "Sales",
-      "matchType": "related glossary term",
-      "meaningFocus": "Sales is generally treated as revenue from goods, while revenue can include goods or services."
+      "term": "business model",
+      "cfaTerm": "Business Model",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 11 to keep the Meituan judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "cost of sales",
-      "cfaTerm": "Cost of goods sold",
-      "matchType": "related accounting term",
-      "meaningFocus": "Inventory-related cost of goods sold for a period, used as the closest accounting match."
-    },
-    {
-      "term": "gross profit",
-      "cfaTerm": "Gross profit",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Sales remaining after deducting cost of sales."
+      "cfaTerm": "Cost of Sales",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 12 to keep the BYD judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "gross margin",
-      "cfaTerm": "Gross profit margin",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Gross profit expressed relative to revenue."
+      "cfaTerm": "Gross Margin",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 12 to keep the BYD judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "operating profit",
-      "cfaTerm": "Operating profit",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Profit from usual business activities before tax, also called operating income."
+      "cfaTerm": "Operating Profit",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 13 to keep the CATL judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "operating margin",
-      "cfaTerm": "Operating profit margin",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Operating income or operating profit divided by revenue."
+      "cfaTerm": "Operating Margin",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 13 to keep the CATL judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "operating cash flow",
-      "cfaTerm": "Operating cash flow",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Net cash provided by operating activities."
+      "cfaTerm": "Operating Cash Flow",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 14 to keep the Tesla judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "capital expenditure",
-      "cfaTerm": "Capital expenditure",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Spending on fixed or physical capital."
+      "cfaTerm": "Capital Expenditure",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 14 to keep the Tesla judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "free cash flow",
-      "cfaTerm": "Free cash flow",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Cash available after the investments needed to keep the company operating."
+      "term": "balance sheet asset",
+      "cfaTerm": "Balance Sheet Asset",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 15 to keep the Balance sheet snapshot judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "benchmark",
-      "cfaTerm": "Benchmark",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A point of reference or comparison for judging performance."
+      "term": "liability",
+      "cfaTerm": "Liability",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 15 to keep the Balance sheet snapshot judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "trend",
-      "cfaTerm": "Trend",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A long-term pattern of movement in one direction."
+      "term": "debt",
+      "cfaTerm": "Debt",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 16 to keep the Lenovo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "return",
-      "cfaTerm": "Holding period return",
-      "matchType": "related glossary term",
-      "meaningFocus": "Return earned by an investor over a specified holding period."
+      "term": "leverage",
+      "cfaTerm": "Leverage",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 16 to keep the Lenovo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "dividend",
       "cfaTerm": "Dividend",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A distribution to shareholders based on the shares they own."
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 17 to keep the HSBC judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "dividend yield",
-      "cfaTerm": "Dividend yield",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Annual dividend per share compared with the share price."
-    },
-    {
-      "term": "total return",
-      "cfaTerm": "Total return",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Price change plus income received over the period."
-    },
-    {
-      "term": "EPS",
-      "cfaTerm": "Earnings per share",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Income earned during a period for each common share."
-    },
-    {
-      "term": "P/E ratio",
-      "cfaTerm": "Price to earnings ratio",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Share price divided by earnings per share."
-    },
-    {
-      "term": "valuation",
-      "cfaTerm": "Valuation",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Estimating asset value using future-return variables or comparisons with similar assets."
+      "term": "dividend safety",
+      "cfaTerm": "Dividend Safety",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 17 to keep the HSBC judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "company-specific risk",
-      "cfaTerm": "Company-specific risk",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Idiosyncratic risk tied to one company's operations, reputation or business environment."
+      "cfaTerm": "Company-specific Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 18 to keep the Starbucks judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "sector",
-      "cfaTerm": "Sector",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A group of related industries."
+      "term": "risk register",
+      "cfaTerm": "Risk Register",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 18 to keep the Starbucks judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "regulation",
-      "cfaTerm": "Regulatory risk",
-      "matchType": "related glossary term",
-      "meaningFocus": "Uncertainty about how activity will be regulated or how regulation may change."
+      "term": "benchmark",
+      "cfaTerm": "Benchmark",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 19 to keep the Toyota peer set judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "policy risk",
-      "cfaTerm": "Legislative and regulatory risk",
-      "matchType": "related glossary term",
-      "meaningFocus": "Risk that laws or regulations change in ways that harm company operations or profitability."
+      "term": "peer comparison",
+      "cfaTerm": "Peer Comparison",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 19 to keep the Toyota peer set judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "ETF",
-      "cfaTerm": "Exchange-traded funds",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Hybrid investment products with fund-like holdings and exchange-traded features."
+      "term": "financial statement memo",
+      "cfaTerm": "Financial Statement Memo",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 20 to keep the Company evidence checkpoint judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "cyclicality",
-      "cfaTerm": "Cyclical businesses",
-      "matchType": "related glossary term",
-      "meaningFocus": "Business performance with high sensitivity to business-cycle or industry-cycle influences."
+      "term": "evidence caveat",
+      "cfaTerm": "Evidence Caveat",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 20 to keep the Company evidence checkpoint judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "interest margin",
-      "cfaTerm": "Net interest margin",
-      "matchType": "related banking term",
-      "meaningFocus": "Bank net interest income compared with average earning assets."
+      "term": "capital gain",
+      "cfaTerm": "Capital Gain",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 21 to keep the Apple judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "percentage return",
+      "cfaTerm": "Percentage Return",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 21 to keep the Apple judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "market capitalisation",
+      "cfaTerm": "Market capitalization",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 22 to keep the Nvidia judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "shares outstanding",
+      "cfaTerm": "Shares Outstanding",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 22 to keep the Nvidia judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "earnings per share",
+      "cfaTerm": "Earnings per share",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 23 to keep the Microsoft judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "P/E ratio",
+      "cfaTerm": "P/E ratio",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 23 to keep the Microsoft judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "valuation risk",
+      "cfaTerm": "Valuation Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 24 to keep the Toyota valuation case judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "margin of safety",
+      "cfaTerm": "Margin of Safety",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 24 to keep the Toyota valuation case judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "total return",
+      "cfaTerm": "Total Return",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 25 to keep the HSBC income case judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "dividend yield",
+      "cfaTerm": "Dividend Yield",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 25 to keep the HSBC income case judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "diversification",
+      "cfaTerm": "Diversification",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 26 to keep the Two-holding portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "portfolio weight",
+      "cfaTerm": "Portfolio Weight",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 26 to keep the Two-holding portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "investor profile",
+      "cfaTerm": "Investor Profile",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 27 to keep the Investor profile A judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "time horizon",
+      "cfaTerm": "Time Horizon",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 27 to keep the Investor profile A judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "currency risk",
+      "cfaTerm": "Currency Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 28 to keep the Samsung judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "geographic exposure",
+      "cfaTerm": "Geographic Exposure",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 28 to keep the Samsung judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "expected return",
+      "cfaTerm": "Expected Return",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 29 to keep the Risk-return scenario judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "downside risk",
+      "cfaTerm": "Downside Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 29 to keep the Risk-return scenario judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "semester-one investment memo",
+      "cfaTerm": "Semester-one Investment Memo",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 30 to keep the Semester 1 memo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "evidence-based verdict",
+      "cfaTerm": "Evidence-based Verdict",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 30 to keep the Semester 1 memo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "cash deposit",
+      "cfaTerm": "Cash Deposit",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 31 to keep the Bank deposit judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "inflation risk",
+      "cfaTerm": "Inflation Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 31 to keep the Bank deposit judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "maturity date",
+      "cfaTerm": "Maturity Date",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 32 to keep the Treasury bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "yield",
+      "cfaTerm": "Yield",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 32 to keep the Treasury bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "interest rate risk",
+      "cfaTerm": "Interest Rate Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 33 to keep the Bond fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "bond price",
+      "cfaTerm": "Bond Price",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 33 to keep the Bond fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
       "term": "credit risk",
-      "cfaTerm": "Credit risk",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Risk that a borrower does not repay principal and interest."
+      "cfaTerm": "Credit Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 34 to keep the Corporate bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "comparable company",
-      "cfaTerm": "Comparable company",
-      "matchType": "clear glossary match",
-      "meaningFocus": "A company with similar business risk, usually in the same industry."
+      "term": "issuer strength",
+      "cfaTerm": "Issuer Strength",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 34 to keep the Corporate bond judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "cyclical demand",
-      "cfaTerm": "Cyclical companies",
-      "matchType": "related glossary term",
-      "meaningFocus": "Companies whose sales and profits expand and contract with the business cycle."
+      "term": "index fund",
+      "cfaTerm": "Index Fund",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 35 to keep the Index fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "operating leverage",
-      "cfaTerm": "Operating leverage",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Use of fixed costs in operations."
+      "term": "active fund",
+      "cfaTerm": "Active Fund",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 35 to keep the Index fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "liabilities",
-      "cfaTerm": "Liabilities",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Present obligations expected to require future outflows of economic resources."
+      "term": "expense ratio",
+      "cfaTerm": "Expense Ratio",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 36 to keep the Active fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "gearing or leverage",
-      "cfaTerm": "Leverage",
-      "matchType": "clear glossary match",
-      "meaningFocus": "Use of fixed costs in a company's operating or financing structure."
+      "term": "tracking difference",
+      "cfaTerm": "Tracking Difference",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 36 to keep the Active fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     },
     {
-      "term": "defensive business",
-      "cfaTerm": "Defensive companies",
-      "matchType": "related glossary term",
-      "meaningFocus": "Companies whose sales and profits have low sensitivity to the business cycle."
+      "term": "sector concentration",
+      "cfaTerm": "Sector Concentration",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 37 to keep the Sector ETF judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "holdings overlap",
+      "cfaTerm": "Holdings Overlap",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 37 to keep the Sector ETF judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "geographic diversification",
+      "cfaTerm": "Geographic Diversification",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 38 to keep the Global fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "home bias",
+      "cfaTerm": "Home Bias",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 38 to keep the Global fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "dollar-cost averaging",
+      "cfaTerm": "Dollar-cost Averaging",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 39 to connect gradual investing with long-run accumulation, timing pressure, market risk, evidence quality and investor fit."
+    },
+    {
+      "term": "compounding",
+      "cfaTerm": "Compounding",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 39 to connect long-run accumulation with time horizon, assumed returns, projection limits and investor fit."
+    },
+    {
+      "term": "investment policy statement",
+      "cfaTerm": "Investment Policy Statement",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 40 to keep the Investor policy statement judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "written plan",
+      "cfaTerm": "Written Plan",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 40 to keep the Investor policy statement judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "opportunity cost",
+      "cfaTerm": "Opportunity Cost",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 41 to keep the Fund comparison judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "alternative comparison",
+      "cfaTerm": "Alternative Comparison",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 41 to keep the Fund comparison judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "simple portfolio",
+      "cfaTerm": "Simple Portfolio",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 42 to keep the Starter portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "asset allocation",
+      "cfaTerm": "Asset Allocation",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 42 to keep the Starter portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "concentration risk",
+      "cfaTerm": "Concentration Risk",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 43 to keep the Concentrated Tencent holding judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "position size",
+      "cfaTerm": "Position Size",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 43 to keep the Concentrated Tencent holding judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "monitoring evidence",
+      "cfaTerm": "Monitoring Evidence",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 44 to keep the Watchlist dashboard judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "watchlist",
+      "cfaTerm": "Watchlist",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 44 to keep the Watchlist dashboard judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "rebalancing",
+      "cfaTerm": "Rebalancing",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 45 to keep the Rebalanced portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "target weight",
+      "cfaTerm": "Target Weight",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 45 to keep the Rebalanced portfolio judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "transaction cost",
+      "cfaTerm": "Transaction Cost",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 46 to keep the Trading-cost scenario judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "tax friction",
+      "cfaTerm": "Tax Friction",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 46 to keep the Trading-cost scenario judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "performance chasing",
+      "cfaTerm": "Performance Chasing",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 47 to keep the Past-winner fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "recency bias",
+      "cfaTerm": "Recency Bias",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 47 to keep the Past-winner fund judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "next-action verdict",
+      "cfaTerm": "Next-action Verdict",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 48 to keep the Next-action board judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "decision rule",
+      "cfaTerm": "Decision Rule",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 48 to keep the Next-action board judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "evidence pack",
+      "cfaTerm": "Evidence Pack",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 49 to keep the Evidence pack judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "source checklist",
+      "cfaTerm": "Source Checklist",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 49 to keep the Evidence pack judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "final investment memo",
+      "cfaTerm": "Final Investment Memo",
+      "matchType": "course-aligned glossary match",
+      "meaningFocus": "Used in Lesson 50 to keep the Final investment memo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
+    },
+    {
+      "term": "investment caveat",
+      "cfaTerm": "Investment Caveat",
+      "matchType": "clear or closely related glossary match",
+      "meaningFocus": "Used in Lesson 50 to keep the Final investment memo judgement aligned with return, risk, price, cost, evidence quality and investor fit."
     }
   ]
 }

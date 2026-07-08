@@ -145,17 +145,19 @@
     return map;
   }
 
-  function normaliseLessonNumber(lessonNumber) {
+  function normaliseLessonNumber(lessonNumber, map = defaultCourseMap) {
+    const courseMap = getMap(map);
+    const maxLesson = courseMap.lessons.length;
     const numeric = Number(lessonNumber);
-    if (!Number.isInteger(numeric) || numeric < 1 || numeric > 30) {
-      fail(`lesson must be an integer from 1 to 30, got ${lessonNumber}`);
+    if (!Number.isInteger(numeric) || numeric < 1 || numeric > maxLesson) {
+      fail(`lesson must be an integer from 1 to ${maxLesson}, got ${lessonNumber}`);
     }
     return numeric;
   }
 
   function findLesson(lessonNumber, map = defaultCourseMap) {
     const courseMap = getMap(map);
-    const numeric = normaliseLessonNumber(lessonNumber);
+    const numeric = normaliseLessonNumber(lessonNumber, courseMap);
     const lesson = courseMap.lessons.find((item) => item.lesson === numeric);
     if (!lesson) fail(`lesson ${numeric} does not exist in the course map`);
     return lesson;

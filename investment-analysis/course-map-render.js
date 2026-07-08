@@ -149,7 +149,7 @@
 
     tbody.innerHTML = courseMap.lessons.map((lesson) => `
       <tr>
-        <th scope="row">${lesson.lesson}<br><span>${escapeHtml(lesson.company)}</span></th>
+        <th scope="row">${lesson.lesson}<br><span>${escapeHtml(lesson.caseAnchor || lesson.company)}</span></th>
         <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.starterDilemma)}</td>
         <td><span class="investment-generator-title">${escapeHtml(lesson.guidingQuestion)}</span><span class="investment-generator-title-zh" lang="zh-Hans">${escapeHtml(lesson.guidingQuestionZh)}</span></td>
         <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.firstJudgementPrompt)}</td>
@@ -171,7 +171,7 @@
 
     grid.innerHTML = courseMap.lessons.map((lesson) => `
       <article class="investment-syllabus-lesson" data-syllabus-lesson data-lesson="${lesson.lesson}">
-        <div class="investment-lesson-topline"><span class="code">Lesson ${lesson.lesson}</span><strong>${escapeHtml(lesson.company)}</strong></div>
+        <div class="investment-lesson-topline"><span class="code">Lesson ${lesson.lesson}</span><strong>${escapeHtml(lesson.caseAnchor || lesson.company)}</strong></div>
         <h3>${escapeHtml(lesson.guidingQuestion)}</h3>
         <p class="investment-lesson-title-zh" lang="zh-Hans">${escapeHtml(lesson.guidingQuestionZh)}</p>
         <p class="investment-lesson-hook">${escapeHtml(lesson.studentHook || lesson.focus)}</p>
@@ -206,7 +206,8 @@
           <ul class="investment-lesson-generator" aria-label="Lesson ${lesson.lesson} build contract">
             <li><strong>Core claim:</strong> ${escapeHtml(lesson.coreClaim)}</li>
             <li><strong>Primary output:</strong> ${escapeHtml(lesson.primaryOutput && lesson.primaryOutput.description)}</li>
-            <li><strong>Case role:</strong> ${escapeHtml(lesson.caseRole)}</li>
+            <li><strong>Case anchor:</strong> ${escapeHtml(lesson.caseAnchor || lesson.company)}</li>
+            <li><strong>Case type:</strong> ${escapeHtml(lesson.caseRole)}</li>
             <li><strong>Source pack:</strong> ${escapeHtml((lesson.sourcePack && lesson.sourcePack.requiredSourceTypes || []).join("; "))}</li>
             <li><strong>Assessment:</strong> ${escapeHtml(lesson.assessmentBlueprint && `${lesson.assessmentBlueprint.commandWord}, ${lesson.assessmentBlueprint.marks} marks, ${lesson.assessmentBlueprint.stimulusType}`)}</li>
           </ul>

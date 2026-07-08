@@ -694,6 +694,238 @@ window.INVEST = window.INVEST || {};
       "Wikimedia Commons / G. Edward Johnson / CC BY 4.0",
       "https://commons.wikimedia.org/wiki/File:Empty_store_Loehmanns_Plaza_Rockville_MD_2024-05-25_16-29-42.jpg",
       { objectPosition: "center 48%" }
+    ),
+    keywordValuationExxonMerger: photo(
+      "keywords/valuation-exxon-merger-chart.png",
+      "A chart showing merger valuation data for Exxon Mobil.",
+      "Merger valuation chart for valuation evidence",
+      "Wikimedia Commons via Openverse / Alexeykob / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/w/index.php?curid=18498561",
+      { objectPosition: "center 50%" }
+    ),
+    keywordExchangeRatesAmsterdam: photo(
+      "keywords/exchange-rates-amsterdam-board.jpg",
+      "A currency exchange-rate sign in Amsterdam showing several foreign currency prices.",
+      "Currency exchange-rate board for exchange-rate exposure",
+      "Wikimedia Commons via Openverse / Donald Trung / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/w/index.php?curid=108614336",
+      { objectPosition: "center 50%" }
+    ),
+    keywordVerticalIntegrationOpelLine: photo(
+      "keywords/vertical-integration-opel-assembly-line.jpg",
+      "A car factory assembly line inside the Opel factory in Gliwice, Poland.",
+      "Car assembly line for vertical integration and capacity",
+      "Wikimedia Commons via Openverse / Marek Slusarczyk (Tupungato) / CC BY 3.0",
+      "https://commons.wikimedia.org/w/index.php?curid=116381354",
+      { objectPosition: "center 50%" }
+    ),
+    keywordBrandEquityFlagshipStore: photo(
+      "keywords/brand-equity-flagship-store.jpg",
+      "A flagship customer-service store with service counters and branded signs.",
+      "Flagship customer-service store for brand equity",
+      "Wikimedia Commons via Openverse / LN9267 / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/w/index.php?curid=128686271",
+      { objectPosition: "center 50%" }
+    ),
+    keywordLeverageRatioGoldman: photo(
+      "keywords/leverage-ratio-goldman-chart.png",
+      "A chart of Goldman Sachs leverage ratio from 2003 to 2012.",
+      "Leverage-ratio chart for gearing analysis",
+      "Wikimedia Commons via Openverse / Farcaster / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/w/index.php?curid=47853644",
+      { objectPosition: "center 50%" }
+    ),
+    keywordCreditRiskSubprimeDiagram: photo(
+      "keywords/credit-risk-subprime-crisis-diagram.png",
+      "A diagram showing relationships in the subprime mortgage crisis.",
+      "Subprime crisis diagram for credit-risk chains",
+      "Wikimedia Commons via Openverse / Farcaster / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/w/index.php?curid=11778069",
+      { objectPosition: "center 50%" }
+    ),
+    keywordExportContainersFlickr: photo(
+      "keywords/export-exposure-multicolored-containers.jpg",
+      "Multicoloured shipping containers stacked at a port.",
+      "Container stacks for export exposure and global trade risk",
+      "Flickr via Openverse / Hakan Dahlstrom / CC BY 2.0",
+      "https://www.flickr.com/photos/93755244@N00/3144199355",
+      { objectPosition: "center 50%" }
+    ),
+    keywordTranslationCurrencyRubles: photo(
+      "keywords/translation-effect-foreign-currency-rubles.jpg",
+      "Samples of Soviet ruble banknotes arranged on a surface.",
+      "Foreign currency notes for translation-effect prompts",
+      "Flickr via Openverse / Jorge Lascar / CC BY 2.0",
+      "https://www.flickr.com/photos/8721758@N06/8674923730",
+      { objectPosition: "center 50%" }
+    ),
+    keywordNetworkEffectsTwitterGraph: photo(
+      "keywords/network-effects-twitter-smartphone-graph.jpg",
+      "A network graph labelled around Twitter and smartphone connections.",
+      "Twitter smartphone network graph for network effects",
+      "Flickr via Openverse / Marc_Smith / CC BY 2.0",
+      "https://www.flickr.com/photos/49503165485@N01/5446841851",
+      { objectPosition: "center 50%" }
+    ),
+    keywordRegulatoryOverhangPlatforms: photo(
+      "keywords/regulatory-overhang-platforms.jpg",
+      "An image referencing Facebook, Twitter and Google in a political-regulation context.",
+      "Platform regulation image for regulatory-overhang prompts",
+      "Flickr via Openverse / sfmission.com / CC BY 2.0",
+      "https://www.flickr.com/photos/17281186@N00/33394744952",
+      { objectPosition: "center 50%" }
+    ),
+    keywordCyclicalityFactoryEmissions: photo(
+      "keywords/cyclicality-factory-emissions.jpg",
+      "Factory emissions rising from an industrial site.",
+      "Industrial factory emissions for cyclical-sector prompts",
+      "Flickr via Openverse / Oregon State University / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/33247428@N08/51783941838",
+      { objectPosition: "center 50%" }
+    ),
+    keywordCapitalStrengthFedNy: photo(
+      "keywords/capital-strength-federal-reserve-ny.jpg",
+      "The Federal Reserve Bank of New York building exterior.",
+      "Federal Reserve Bank of New York for bank capital strength context",
+      "Flickr via Openverse / epicharmus / CC BY 2.0",
+      "https://www.flickr.com/photos/8256808@N02/2397309631",
+      { objectPosition: "center 50%" }
+    ),
+    keywordPricingPowerDigitalDisplay: photo(
+      "keywords/pricing-power-digital-price-display.jpg",
+      "A wireless in-store price display at a clothing retailer.",
+      "Digital in-store price display for pricing-power prompts",
+      "Wikimedia Commons via Openverse / Tomwsulcer / CC0 1.0",
+      "https://commons.wikimedia.org/w/index.php?curid=22649102",
+      { objectPosition: "center 50%" }
+    ),
+    keywordMultinationalGskBuilding: photo(
+      "keywords/multinational-gsk-building.jpg",
+      "The exterior of a GSK corporate building.",
+      "GSK building for multinational-company exposure",
+      "Flickr via Openverse / Peter O'Connor aka anemoneprojectors / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/58414938@N00/11187599734",
+      { objectPosition: "center 50%" }
+    ),
+    keywordTurnaroundStoreClosure: photo(
+      "keywords/turnaround-store-closure.jpg",
+      "A closed electronics retail store after employees lost their jobs.",
+      "Store closure for turnaround and recovery analysis",
+      "Flickr via Openverse / infomatique / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/80824546@N00/6896023040",
+      { objectPosition: "center 50%" }
+    ),
+    keywordActiveUsersSmartphoneGroup: photo(
+      "keywords/active-users-smartphone-group.jpg",
+      "A group of diverse people using smartphones.",
+      "Smartphone user group for active users",
+      "Flickr via Openverse / Rawpixel Ltd / CC BY 2.0",
+      "https://www.flickr.com/photos/147875007@N03/45739283592",
+      { objectPosition: "center 50%" }
+    ),
+    keywordArpuMobilePaymentQr: photo(
+      "keywords/arpu-mobile-payment-qr-code.jpg",
+      "A smartphone scanning a QR code for mobile payment.",
+      "Mobile payment QR scan for ARPU and monetisation",
+      "Flickr via Openverse / pr_ip / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/35889705@N04/8693340030",
+      { objectPosition: "center 50%" }
+    ),
+    keywordDebtClockGermany: photo(
+      "keywords/debt-clock-germany.jpg",
+      "A public debt clock showing changing debt figures.",
+      "Debt clock for debt and leverage discussion",
+      "Flickr via Openverse / pthread1981 / CC BY 2.0",
+      "https://www.flickr.com/photos/55043400@N00/5606295895",
+      { objectPosition: "center 50%" }
+    ),
+    keywordCashFlowStatementTrust: photo(
+      "keywords/cash-flow-statement-trust-funds.jpg",
+      "A statement of cash flows page for trust funds.",
+      "Statement of cash flows for financial-statement source work",
+      "Wikimedia Commons via Openverse / Ladyfwr / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/w/index.php?curid=15789950",
+      { objectPosition: "center 50%" }
+    ),
+    keywordCentralBankOpenMeeting: photo(
+      "keywords/central-bank-open-board-meeting.jpg",
+      "Federal Reserve officials seated at an open board meeting.",
+      "Federal Reserve open board meeting for interest-rate context",
+      "Flickr via Openverse / Federalreserve / Public Domain Mark 1.0",
+      "https://www.flickr.com/photos/92618257@N08/26731366111",
+      { objectPosition: "center 50%" }
+    ),
+    keywordPolicyRiskSubprimeGovernment: photo(
+      "keywords/policy-risk-subprime-government-chart.jpg",
+      "A chart linking government policies and the subprime mortgage crisis.",
+      "Government-policy chart for policy-risk discussion",
+      "Flickr via Openverse / deborahgomez / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/151669515@N07/32642468515",
+      { objectPosition: "center 50%" }
+    ),
+    keywordDefensiveUtilityTransmission: photo(
+      "keywords/defensive-utility-transmission-lines-openverse.jpg",
+      "Electric transmission lines carrying power across a utility grid.",
+      "Transmission lines for defensive utility business evidence",
+      "Flickr via Openverse / Chris Hunkeler / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/14913305@N00/8550788014",
+      { objectPosition: "center 50%" }
+    ),
+    keywordQualityControlUsda: photo(
+      "keywords/quality-control-usda-inspection.jpg",
+      "A USDA inspection or quality-control scene in a production setting.",
+      "Inspection scene for quality-company prompts",
+      "Flickr via Openverse / USDAgov / CC BY 2.0",
+      "https://www.flickr.com/photos/41284017@N08/6060417640",
+      { objectPosition: "center 50%" }
+    ),
+    keywordPricingPowerSaleSign: photo(
+      "keywords/pricing-power-sale-discount-sign.jpg",
+      "A sale sign advertising discounts in a shopping mall.",
+      "Sale sign for pricing power and discounting",
+      "Flickr via Openverse / Artem Beliaikin / CC0 1.0",
+      "https://www.flickr.com/photos/157635012@N07/47020307484",
+      { objectPosition: "center 50%" }
+    ),
+    keywordDebtClockNationalNy: photo(
+      "keywords/debt-clock-national-new-york.jpg",
+      "The National Debt Clock in New York showing large debt figures.",
+      "National debt clock for leverage risk",
+      "Flickr via Openverse / Sugarmonster / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/18179822@N00/5190843536",
+      { objectPosition: "center 50%" }
+    ),
+    keywordBalanceSheetTaxForm: photo(
+      "keywords/liabilities-balance-sheet-paperwork.jpg",
+      "A tax or financial form being filled out by hand.",
+      "Financial paperwork for liabilities and statement discipline",
+      "Flickr via Openverse / kenteegardin / CC BY-SA 2.0",
+      "https://www.flickr.com/photos/26373139@N08/5512347305",
+      { objectPosition: "center 50%" }
+    ),
+    keywordEtfKeyboard: photo(
+      "keywords/etf-keyboard-openverse.jpg",
+      "A computer keyboard key labelled ETF.",
+      "ETF keyboard image for exchange-traded fund prompts",
+      "Flickr via Openverse / investmentzen / CC BY 2.0",
+      "https://www.flickr.com/photos/144551102@N07/28789942743",
+      { objectPosition: "center 50%" }
+    ),
+    keywordIndexFundsWallStreetSign: photo(
+      "keywords/index-funds-wall-street-sign.jpg",
+      "A Wall Street street sign used for an index funds image.",
+      "Wall Street sign for index-fund discussion",
+      "Flickr via Openverse / investmentzen / CC BY 2.0",
+      "https://www.flickr.com/photos/144551102@N07/33879334026",
+      { objectPosition: "center 50%" }
+    ),
+    keywordPortfolioDiversificationCards: photo(
+      "keywords/portfolio-diversification-cards.jpg",
+      "A card-style image about diversifying an investment portfolio.",
+      "Portfolio diversification card image for spreading-risk prompts",
+      "Flickr via Openverse / cogdogblog / CC BY 2.0",
+      "https://www.flickr.com/photos/37996646802@N01/6221966664",
+      { objectPosition: "center 50%" }
     )
   };
 })();
