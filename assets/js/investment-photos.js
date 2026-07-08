@@ -219,6 +219,46 @@ window.INVEST = window.INVEST || {};
       "Unsplash / Barrett Ward",
       "https://unsplash.com/photos/shipping-containers-stacked-at-a-busy-port-at-sunset-fT4SwA83jH4"
     ),
+    lesson1ScenarioFinancialDocuments: photo(
+      "lesson-1/scenario-financial-documents-analysis.jpg",
+      "Two people review financial documents with a calculator and laptop on a desk.",
+      "Financial documents checked before an investment judgement",
+      "Pexels / RDNE Stock project",
+      "https://www.pexels.com/photo/white-papers-on-the-table-7821708/",
+      { objectPosition: "center 52%" }
+    ),
+    lesson1ScenarioSmartphoneCandlestick: photo(
+      "lesson-1/scenario-smartphone-candlestick-chart.jpg",
+      "A smartphone displays a stock trading app with candlestick charts.",
+      "Smartphone chart used for a short-term trading decision",
+      "Pexels / StockRadars Co.",
+      "https://www.pexels.com/photo/smartphone-displaying-stock-trading-app-interface-28682345/",
+      { objectPosition: "center 46%" }
+    ),
+    lesson1ScenarioHouseForRent: photo(
+      "lesson-1/scenario-house-for-rent-sign.jpg",
+      "People move near a house for rent sign outside a residential property.",
+      "Rental property sign for a property-investment scenario",
+      "Pexels / Ivan S",
+      "https://www.pexels.com/search/real%20estate%20rent/",
+      { objectPosition: "center 38%" }
+    ),
+    lesson1ScenarioRedMarketLosses: photo(
+      "lesson-1/scenario-smartphone-red-market-losses.jpg",
+      "A smartphone displays a stock market app with red negative price changes.",
+      "Red market screen for a tip-driven speculation scenario",
+      "Pexels / StockRadars Co.",
+      "https://www.pexels.com/photo/smartphone-display-of-stock-market-application-28682350/",
+      { objectPosition: "center 46%" }
+    ),
+    lesson1ScenarioContainerPort: photo(
+      "lesson-1/scenario-container-ships-hamburg-port.jpg",
+      "Large container ships and cranes at Hamburg harbor.",
+      "Container port used for a shipping-company investment scenario",
+      "Pexels / Wolfgang Weiser",
+      "https://www.pexels.com/photo/maersk-line-ships-24896065/",
+      { objectPosition: "center 48%" }
+    ),
     // First five lesson photo pack (Wikimedia Commons, added 2026-07-05).
     // Lesson 1: Tencent and the first share-investment question.
     lesson1TencentBinhaiBuilding01: photo(
@@ -295,6 +335,22 @@ window.INVEST = window.INVEST || {};
       { objectPosition: "center 45%" }
     ),
     // Lesson 2: HKEX and why a stock market exists.
+    lesson2ExchangeSquareHkexSign2019: photo(
+      "lesson-2/exchange-square-hkex-sign-2019.jpg",
+      "HKEX sign at Exchange Square in Central, Hong Kong.",
+      "HKEX sign at Exchange Square, 2019",
+      "Wikimedia Commons / Longshing Ma Hon Wonia / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_shop_sign_%E9%A6%99%E6%B8%AF%E4%BA%A4%E6%98%93%E6%89%80_HKEX_July_2019_SSG_08_Jardine_House.jpg",
+      { objectPosition: "center 45%" }
+    ),
+    lesson2ExchangeSquareCentral2021: photo(
+      "lesson-2/exchange-square-central-2021.jpg",
+      "Exchange Square in Central, Hong Kong, where HKEX is located.",
+      "Exchange Square, Central Hong Kong, 2021",
+      "Wikimedia Commons / Soon Sumia Louam / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_April_2021_SS2_01.jpg",
+      { objectPosition: "center 48%" }
+    ),
     lesson2HkexBuilding01: photo(
       "lesson-2/hkex-building.jpg",
       "Hong Kong Exchanges and Clearing building exterior.",
@@ -581,6 +637,63 @@ window.INVEST = window.INVEST || {};
       "Wikimedia Commons / Shwangtianyuan / CC BY-SA 4.0",
       "https://commons.wikimedia.org/wiki/File:JD_Appliance_store_at_Suya_Road-20250104.jpg",
       { objectPosition: "center 45%" }
+    ),
+    // Syllabus keyword photo pack (Wikimedia Commons, added 2026-07-07).
+    keywordRevenueSalesCheckout: photo(
+      "keywords/revenue-sales-supermarket-checkout.jpg",
+      "Checkout barriers at a Sainsbury's supermarket.",
+      "Supermarket checkout barriers for revenue and sales evidence",
+      "Wikimedia Commons / Cnbrb / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Sainsburys_checkout_barriers_2.jpg",
+      { objectPosition: "center 52%" }
+    ),
+    keywordInventoryWarehouse: photo(
+      "keywords/inventory-warehouse-pallet-racks.jpg",
+      "A modern warehouse with high pallet racks for stored inventory.",
+      "Warehouse pallet racks for inventory and capacity evidence",
+      "Wikimedia Commons / Axisadman / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg",
+      { objectPosition: "center 48%" }
+    ),
+    keywordCashFlowPaymentTerminal: photo(
+      "keywords/operating-cash-flow-payment-terminal.jpg",
+      "A cash register and payment terminal display in a store.",
+      "Payment terminal for operating cash flow evidence",
+      "Wikimedia Commons / Ryan Hodnett / CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Cash_Register-Payment_Terminal_Store_Display_-_Bergen,_Norway_2021-07-30_(01).jpg",
+      { objectPosition: "center 46%" }
+    ),
+    keywordCapitalExpenditureAssemblyLine: photo(
+      "keywords/capital-expenditure-assembly-line.jpg",
+      "Cars moving along an assembly line in a Hyundai factory.",
+      "Car assembly line for capacity and capital expenditure",
+      "Wikimedia Commons / Anonyme / CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+      { objectPosition: "center 50%" }
+    ),
+    keywordDividendCheque: photo(
+      "keywords/dividend-cheque-company-payment.jpg",
+      "Officials hold a large dividend cheque during a formal handover.",
+      "Dividend cheque handover for dividend income",
+      "Wikimedia Commons / Press Information Department / Public domain",
+      "https://commons.wikimedia.org/wiki/File:Monnujan_Sufian_receives_edotco_Bangladesh_dividend_cheque_for_Workers_Welfare_Foundation_2022-09-22_(PID-0020968).jpg",
+      { objectPosition: "center 42%" }
+    ),
+    keywordMarketCapTradingScreen: photo(
+      "keywords/market-cap-trading-screen.jpg",
+      "Trading screens inside the market centre at the Tokyo Stock Exchange.",
+      "Stock exchange screen for market value and market capitalisation",
+      "Wikimedia Commons / ehnmark / CC BY 2.0",
+      "https://commons.wikimedia.org/wiki/File:Market_centre_in_Tokyo_stock_exchange.jpg",
+      { objectPosition: "center 48%" }
+    ),
+    keywordDemandRiskEmptyStore: photo(
+      "keywords/demand-risk-empty-store.jpg",
+      "An empty retail store space in a shopping plaza.",
+      "Empty retail store for demand risk and weak consumer traffic",
+      "Wikimedia Commons / G. Edward Johnson / CC BY 4.0",
+      "https://commons.wikimedia.org/wiki/File:Empty_store_Loehmanns_Plaza_Rockville_MD_2024-05-25_16-29-42.jpg",
+      { objectPosition: "center 48%" }
     )
   };
 })();

@@ -57,7 +57,7 @@ Students move from first opinion to market evidence: investment-analysis purpose
 **Unit:** 1. Market foundations
 **Guiding question:** What is investment analysis?
 **Student hook:** Tencent is familiar. Would you buy shares in it?
-**Core claim:** Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.
+**Core claim:** Investment analysis evaluates potential return, risk and suitability; shares are risky assets, not guaranteed-profit claims on a whole company.
 **Primary output:** one exit ticket plus a short explanation of why familiarity with Tencent is not enough reason to buy shares
 **Formula or formula rule:** no new formula; students classify concepts, rank risk qualitatively and explain in words only.
 **Analyse why:** Analyse why confusing investment with speculation could weaken a judgement about Tencent shares.
@@ -74,13 +74,14 @@ Record Tencent company context, visual sources used, asset examples and one evid
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| investment analysis | 投资分析 | Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement. |
+| investment analysis | 投资分析 | Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor. |
 | investment | 投资 | Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss. |
+| risk | 风险 | Risk is the possibility that results, returns or prices are worse than expected. |
 | speculation | 投机 | Speculation is an attempt to profit from uncertain price movements, usually relying more on expectations, timing or risk-taking than on complete evidence. |
 | asset | 资产 | An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource. |
 | share | 股票 / 股份 | A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends. |
 
-**Expected student work:** Five concise definitions with Chinese support and one use-in-context check.
+**Expected student work:** Six concise definitions with Chinese support and one use-in-context check.
 
 ### Evidence and Data Analysis
 
@@ -121,9 +122,9 @@ Complete the exit ticket and write one short Tencent explanation using Lesson 1 
 **Guiding question:** Why do companies need a stock market?
 **Student hook:** If you buy a share today, who gets the money and why does the market exist?
 **Core claim:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
-**Primary output:** one company-code-exchange match plus one trading-friction sentence
+**Primary output:** one company-code-exchange match plus a corrected money-flow and trading-friction sentence
 **Formula or formula rule:** no new formula; students identify company, exchange, code and one trading friction accurately.
-**Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
+**Analyse why:** Analyse why a stock market still matters even when a secondary-market trade does not automatically give new money to the company.
 **Practical investing action:** Find the exchange, stock code and basic market access information before analysing a listed company.
 **Decision rule:** If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.
 
@@ -146,23 +147,23 @@ Record HKEX source title, URL, publication date, accessed date, company/security
 
 ### Evidence and Data Analysis
 
-**Case information:** Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
+**Case information:** Use a short HKEX case extract with company identity, source title, accessed date, code example, a secondary-market trading scenario and one limitation.
 
 **Questions:**
 
-1. **Identify/Define:** Identify the source date and define stock exchange.
-2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
-3. **Explain:** Explain what one HKEX evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
-5. **Judge:** Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+1. **Identify/Define:** Identify the exchange and stock code, then define stock exchange.
+2. **Calculate/Interpret:** Interpret one market-rule or source-box fact from the case, then classify the scenario as a new share issue or a secondary-market trade.
+3. **Explain:** Explain who receives the money in the scenario and what the company does not automatically receive.
+4. **Analyse why:** Analyse why a stock market still matters for ownership transfer and liquidity even if the company does not receive money from every trade.
+5. **Judge:** Judge whether the case evidence is enough to identify the listed share, then choose the next investment action: gather more evidence, compare with another listed choice, or wait before making any investment judgement.
 
-**Expected student work:** Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict.
+**Expected student work:** Completed answers that classify the trade route, explain money flow, analyse market usefulness and keep investment judgement evidence-based.
 
 ### Calculation or judgement task
 
-Match companies to exchange, code and listing information, then name one reason real trading is not frictionless.
+Match company, exchange and stock code, then complete one sentence explaining why a secondary-market trade does not automatically fund the company.
 
-**Expected student work:** one company-code-exchange match plus one trading-friction sentence
+**Expected student work:** one company-code-exchange match plus a corrected money-flow and trading-friction sentence
 
 ### Misconception check
 
@@ -172,9 +173,9 @@ Every market purchase gives new money to the company.
 
 ### Individual written output
 
-Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.
+Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence.
 
-**Expected student work:** one company-code-exchange match plus one trading-friction sentence
+**Expected student work:** Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence.
 
 ## Lesson 3: What can a stock quote tell us, and what is still missing?
 

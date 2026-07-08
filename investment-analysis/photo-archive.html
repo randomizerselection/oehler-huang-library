@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Searchable local photo archive for Investment Analysis slide decks." />
+  <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
+  <title>Picture Archive - Investment Analysis</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/investment.css" />
+  <link rel="stylesheet" href="../assets/css/investment-photo-archive.css" />
+  <script src="../assets/js/baidu-analytics.js"></script>
+  <script src="../assets/js/investment-photos.js"></script>
+  <script src="photo-archive-data.js"></script>
+  <script src="../assets/js/investment-photo-viewer.js" defer></script>
+</head>
+<body class="investment-home">
+  <main class="investment-page photoArchivePage">
+    <nav class="investment-nav" aria-label="Investment Analysis navigation">
+      <a class="investment-link" href="../index.html">Main library</a>
+      <div class="investment-nav-links">
+        <a class="investment-link" href="index.html#investment-course-map">Lessons</a>
+        <a class="investment-link" href="syllabus.html">Syllabus</a>
+        <a class="investment-link" href="definitions.html">Definitions</a>
+        <a class="investment-link" href="photo-archive.html" aria-current="page">Pictures</a>
+        <a class="investment-link" href="unit-1/lesson-1/index.html">Start Lesson 1</a>
+      </div>
+    </nav>
+
+    <header class="photoArchiveHero">
+      <div>
+        <div class="investment-eyebrow">Investment Analysis</div>
+        <h1>Picture Archive</h1>
+        <p>Local, credited classroom images grouped by lesson purpose so slide decks can reuse stable photo keys.</p>
+      </div>
+      <div class="photoArchivePattern" aria-label="Generator reference pattern">
+        <span>Deck generator pattern</span>
+        <code>visual: window.INVEST.photos?.&lt;photoKey&gt;</code>
+      </div>
+    </header>
+
+    <section class="photoArchiveToolbar" aria-label="Picture archive filters">
+      <div class="photoArchiveSearch">
+        <input type="search" data-photo-search placeholder="Search key, topic, company, lesson or credit" aria-label="Search pictures" />
+        <select data-photo-lesson-select aria-label="Filter by lesson"></select>
+        <select data-photo-use-select aria-label="Filter by slide use"></select>
+        <button type="button" data-photo-reset>Reset</button>
+      </div>
+      <div class="photoArchiveCategories" data-photo-category-list aria-label="Picture categories"></div>
+      <div class="photoArchiveStats" data-photo-stats aria-live="polite"></div>
+    </section>
+
+    <section class="photoArchiveGrid" data-photo-grid aria-label="Picture archive"></section>
+    <p class="photoArchiveEmpty" data-photo-empty hidden>No pictures match the current filters.</p>
+
+    <footer class="investment-footer">
+      <span>Oehler-Huang Library - independent classroom resources.</span>
+      <span>Educational use only; classroom judgements are not personalised financial advice.</span>
+    </footer>
+  </main>
+</body>
+</html>

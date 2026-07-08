@@ -53,7 +53,9 @@ window.INVEST.lesson = {
           {
             type: "terms",
             terms: [
-              { label: "Investment analysis", prompt: "Investment analysis is the process of using source-dated __________ about an asset, business, return, risk and price before a justified investment judgement.", answer: "evidence" },
+              { label: "Investment analysis", prompt: "Investment analysis evaluates an investment opportunity to determine potential return, risk, and __________ for an investor.", answer: "suitability" },
+              { label: "Return", prompt: "Return is the gain or __________ earned from an investment over a stated holding period.", answer: "loss" },
+              { label: "Risk", prompt: "Risk is the possibility that results, returns or prices are worse than __________.", answer: "expected" },
               { label: "Investment", prompt: "Investment puts money into an asset to seek future __________ while accepting possible loss.", answer: "return" },
               { label: "Speculation", prompt: "Speculation attempts to profit from uncertain price __________, often with weaker evidence.", answer: "movements" },
               { label: "Asset", prompt: "An asset is something with economic __________ that can be owned or controlled.", answer: "value" },
@@ -72,7 +74,7 @@ window.INVEST.lesson = {
             cases: [
               { label: "A", text: "Use annual reports and dated evidence.", answer: "Yes" },
               { label: "B", text: "Predict next week's exact share price.", answer: "No" },
-              { label: "C", text: "Compare possible return and risk.", answer: "Yes" },
+              { label: "C", text: "Compare potential return, risk and suitability.", answer: "Yes" },
               { label: "D", text: "Give personal buy or sell tips.", answer: "No" }
             ]
           }
@@ -116,7 +118,7 @@ window.INVEST.lesson = {
           {
             type: "writing",
             question: "Explain why a student cannot decide to buy shares in Tencent only because the company is familiar.",
-            keywords: ["investment analysis", "evidence", "asset", "risk", "share", "not guaranteed"],
+            keywords: ["investment analysis", "evidence", "return", "risk", "suitability", "share", "not guaranteed"],
             lines: 8
           }
         ]
@@ -159,7 +161,7 @@ window.INVEST.lesson = {
       title: "By the end of this lesson, you can",
       zhTitle: "本课结束时，你能够",
       bullets: [
-        "define investment analysis and separate it from speculation",
+        "define investment analysis and explain return, risk and suitability",
         "define an asset and compare simple asset types by risk",
         "explain what buying a share gives and does not guarantee"
       ],
@@ -185,9 +187,9 @@ window.INVEST.lesson = {
       zhTitle: "什么是投资分析？",
       question: "Before seeing the definition, write one sentence: what should investment analysis do?",
       questionZh: "在看到定义前，写一句话：投资分析应该做什么？",
-      revealTitle: "Analysis uses source-dated evidence",
-      answer: "Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement.",
-      answerZh: "投资分析是一个过程：在作出有依据的投资判断前，使用关于资产、企业、回报、风险和价格的有来源和日期的证据。",
+      revealTitle: "Analysis evaluates return, risk and suitability",
+      answer: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
+      answerZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。",
       notes: "Students should try a definition before the formal term slide."
     },
     {
@@ -206,9 +208,41 @@ window.INVEST.lesson = {
       title: "Investment analysis",
       term: "Investment analysis",
       termZh: "投资分析",
-      definition: "Investment analysis is the process of using <span class=\"blank invReveal\" data-answer=\"source-dated evidence\" style=\"--blank-width:22ch\"><span class=\"invBlankText\">source-dated evidence</span></span> about an asset, business, return, risk and price before making a justified investment judgement.",
-      definitionZh: "投资分析是指在作出有依据的投资判断之前，使用带有来源日期的证据来分析资产、业务、回报、风险和价格的过程。",
+      definition: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
+      definitionZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。",
       notes: "Use the full textbook-style definition from references/investment-analysis-definitions.md."
+    },
+    {
+      type: "flow",
+      eyebrow: "Definition breakdown",
+      title: "The definition has three checks",
+      zhTitle: "定义包含三个检查点",
+      steps: [
+        { text: "Potential return: what the investor may gain or lose.", zh: "潜在回报：投资者可能获得或损失什么。" },
+        { text: "Risk: what could be worse than expected.", zh: "风险：哪些结果可能比预期更差。" },
+        { text: "Suitability: whether it fits this investor's goals, time and risk tolerance.", zh: "适合性：它是否符合这位投资者的目标、时间和风险承受能力。" }
+      ],
+      notes: "Keep suitability brief: it is not personalised advice; it explains why the same opportunity may fit one investor but not another."
+    },
+    {
+      type: "term",
+      eyebrow: "Definition",
+      title: "Return",
+      term: "Return",
+      termZh: "回报",
+      definition: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.",
+      definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。",
+      notes: "Use the shared return definition even though the formula comes later in Unit 3."
+    },
+    {
+      type: "term",
+      eyebrow: "Definition",
+      title: "Risk",
+      term: "Risk",
+      termZh: "风险",
+      definition: "Risk is the possibility that results, returns or prices are worse than expected.",
+      definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
+      notes: "Keep risk broad and beginner-friendly. Detailed risk types come later."
     },
     {
       type: "quiz",
@@ -218,78 +252,146 @@ window.INVEST.lesson = {
       question: "Which response is investment analysis?",
       zh: "哪一个回应属于投资分析？",
       choices: [
-        "Use source-dated evidence before judgement",
+        "Evaluate potential return, risk and suitability",
         "Check whether many people know the company",
         "Wait for the share price to rise first",
         "Ask classmates which share may rise"
       ],
       answer: 0,
-      explanation: "The correct response turns a first opinion into a justified investment judgement supported by source-dated evidence.",
-      explanationZh: "正确回应会把第一印象转化为由有来源和日期的证据支持的投资判断。"
+      explanation: "The correct response studies the opportunity, then judges potential return, risk and suitability for an investor.",
+      explanationZh: "正确回应会研究投资机会，再判断它对投资者的潜在回报、风险和适合性。"
     },
     {
-      type: "yesNoCheck",
-      eyebrow: "Course preview",
-      title: "Course boundary: yes or no?",
-      zhTitle: "课程边界：是或否？",
+      type: "classificationTask",
+      eyebrow: "Course method",
+      title: "Classify the analysis focus",
+      zhTitle: "判断分析重点",
       compact: true,
-      prompt: "Vote yes or no: does this belong in an investment analysis course?",
-      promptZh: "投票判断：这是否属于投资分析课程？",
-      items: [
-        { text: "Read dated evidence.", zh: "阅读有日期的证据。", answer: true, answerZh: "是", reason: "Core habit.", reasonZh: "核心习惯。" },
-        { text: "Compare revenue and profit.", zh: "比较收入和利润。", answer: true, answerZh: "是", reason: "Later lessons.", reasonZh: "后续课程。" },
-        { text: "Check cash flow first.", zh: "先检查现金流。", answer: true, answerZh: "是", reason: "Evidence check.", reasonZh: "证据检查。" },
-        { text: "Compare return with risk.", zh: "比较回报和风险。", answer: true, answerZh: "是", reason: "Course habit.", reasonZh: "课程习惯。" },
-        { text: "Compare companies fairly.", zh: "公平比较公司。", answer: true, answerZh: "是", reason: "Fair comparison.", reasonZh: "公平比较。" },
-        { text: "Use one price rise as the main reason.", zh: "把一次涨价作为主要理由。", answer: false, answerZh: "否", reason: "Too thin.", reasonZh: "证据太单薄。" },
-        { text: "Search only for buying evidence.", zh: "只寻找支持买入的证据。", answer: false, answerZh: "否", reason: "Biased search.", reasonZh: "搜索有偏见。" },
-        { text: "Treat online confidence as evidence.", zh: "把网络自信当作证据。", answer: false, answerZh: "否", reason: "Weak source.", reasonZh: "来源薄弱。" },
-        { text: "Use one good headline before price.", zh: "未看价格先用一条好消息判断。", answer: false, answerZh: "否", reason: "Incomplete.", reasonZh: "证据不完整。" },
-        { text: "Use a chart without source/date.", zh: "使用无来源或日期的图表。", answer: false, answerZh: "否", reason: "Source problem.", reasonZh: "来源有问题。" }
+      prompt: "For each statement, choose the main focus: return, risk or suitability.",
+      promptZh: "给每个说法分类：主要是在判断回报、风险，还是适合性。",
+      categories: [
+        { title: "Return", zhTitle: "回报", clue: "gain, loss, income or price change" },
+        { title: "Risk", zhTitle: "风险", clue: "what could be worse than expected" },
+        { title: "Suitability", zhTitle: "适合性", clue: "fit for this investor" }
       ],
-      notes: "This slide makes the course boundary visible without adding a teacher-facing lecture."
+      items: [
+        {
+          label: "A",
+          text: "The share could pay dividends and rise in price over three years.",
+          zh: "这只股票三年内可能支付股息并上涨。",
+          answer: "Return",
+          answerZh: "回报",
+          reason: "The sentence is mostly about possible gain.",
+          reasonZh: "这个说法主要在判断可能收益。"
+        },
+        {
+          label: "B",
+          text: "A new rule or weaker profit could make the share price fall.",
+          zh: "新规定或利润变弱可能使股价下跌。",
+          answer: "Risk",
+          answerZh: "风险",
+          reason: "The sentence is mostly about what could go worse than expected.",
+          reasonZh: "这个说法主要在判断哪些结果可能比预期更差。"
+        },
+        {
+          label: "C",
+          text: "This investor needs the money next year, so a volatile share may not fit.",
+          zh: "这位投资者明年需要用钱，所以波动大的股票可能不适合。",
+          answer: "Suitability",
+          answerZh: "适合性",
+          reason: "The sentence matches the opportunity to the investor's time and needs.",
+          reasonZh: "这个说法把投资机会与投资者的时间和需要进行匹配。"
+        }
+      ],
+      sharePrompt: "Pick one borderline statement and explain why it is mostly one category.",
+      sharePromptZh: "选择一个容易混淆的说法，解释为什么它主要属于某一类。",
+      notes: "Use this to replace the binary boundary check with classification and justification. Accept alternative answers only if students defend the main focus."
     },
     {
       type: "compare",
       eyebrow: "Key distinction",
       title: "Investment or speculation?",
       zhTitle: "投资还是投机？",
-      mode: "fillBlanks",
       leftTitle: "Investment",
       leftTitleZh: "投资",
       rightTitle: "Speculation",
       rightTitleZh: "投机",
       left: [
-        { label: "1", text: "Evidence: checks dated __________ first", answer: "evidence", zh: "证据：先检查有日期的证据" },
-        { label: "2", text: "Horizon: studies longer-term __________", answer: "value", zh: "期限：研究较长期价值" },
-        { label: "3", text: "Risk: weighs return against __________", answer: "risk", zh: "风险：把回报与风险进行权衡" },
-        { label: "4", text: "Decision: gives reasons before __________", answer: "judgement", zh: "决策：先给理由，再作判断" }
+        { label: "1", text: "Putting money into an asset to seek future return while accepting possible loss.", zh: "把钱投入资产以寻求未来回报，同时接受可能亏损。" },
+        { label: "2", text: "Uses evidence about return, risk and suitability before judging.", zh: "判断前使用关于回报、风险和适合性的证据。" }
       ],
       right: [
-        { label: "1", text: "Evidence: uses selected __________", answer: "evidence", zh: "证据：使用被挑选过的证据" },
-        { label: "2", text: "Horizon: chases short-term price __________", answer: "movement", zh: "期限：追逐短期价格变动" },
-        { label: "3", text: "Risk: hopes return will cover __________", answer: "risk", zh: "风险：希望回报能弥补风险" },
-        { label: "4", text: "Decision: starts with a __________", answer: "guess", zh: "决策：从猜测开始" }
+        { label: "1", text: "Trying to profit from uncertain price movements, often over a short time.", zh: "试图从不确定的价格变动中获利，通常时间较短。" },
+        { label: "2", text: "Often starts from a guess, tip or selected evidence.", zh: "常从猜测、消息或被挑选的证据开始。" }
       ],
-      prompt: "Fill the blanks, then explain the difference.",
-      promptZh: "填空后解释区别。",
-      notes: "Do not make speculation sound impossible; make the evidence difference clear."
+      prompt: "Copy the contrast, then use it for the five scenario judgments.",
+      promptZh: "抄下对比，然后用它判断接下来的五个情境。",
+      notes: "This should be a clean T-table reference before the scenario practice, not another fill-in task."
     },
     {
-      type: "yesNoCheck",
-      eyebrow: "Retrieval check",
+      type: "discussion",
+      eyebrow: "Scenario 1",
       title: "Investment or speculation?",
       zhTitle: "投资还是投机？",
-      compact: true,
-      prompt: "Vote: is this investment analysis?",
-      promptZh: "投票：这属于投资分析吗？",
-      items: [
-        { text: "Uses source-dated evidence, but admits loss is possible.", zh: "使用有来源和日期的证据，但承认仍可能亏损。", answer: true, answerZh: "是", reason: "Evidence-based, not certain.", reasonZh: "基于证据，但不保证确定。" },
-        { text: "Explains a price rise with one short online story.", zh: "用一个网上短故事解释涨价。", answer: false, answerZh: "否", reason: "Evidence is too thin.", reasonZh: "证据太单薄。" },
-        { text: "Plans to hold for years, but gives no evidence.", zh: "计划持有多年，但没有给证据。", answer: false, answerZh: "否", reason: "Time alone is not analysis.", reasonZh: "时间本身不是分析。" },
-        { text: "Compares return, risk and price before deciding.", zh: "决策前比较回报、风险和价格。", answer: true, answerZh: "是", reason: "This follows the method.", reasonZh: "这符合分析方法。" }
-      ],
-      notes: "Use this as a quick hinge check before moving into assets."
+      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
+      question: "Maya reads Tencent's annual report, checks profit, risk and price, then considers holding the share for three years. Investment or speculation?",
+      questionZh: "Maya 阅读腾讯年报，检查利润、风险和价格，然后考虑持有这只股票三年。投资还是投机？",
+      revealTitle: "This is investment",
+      answer: "She is using evidence before judgement and has a longer holding period. The return is still not guaranteed.",
+      answerZh: "她在判断前使用证据，并且有较长持有期。但回报仍然不保证。",
+      notes: "Use the annual-report photo as the evidence cue. Ask students to name the evidence and the time horizon."
+    },
+    {
+      type: "discussion",
+      eyebrow: "Scenario 2",
+      title: "Investment or speculation?",
+      zhTitle: "投资还是投机？",
+      visual: investmentPhotos.lesson1ScenarioSmartphoneCandlestick,
+      question: "Leo sees a share jump on a phone chart and buys quickly because he thinks it will rise again before lunch. Investment or speculation?",
+      questionZh: "Leo 在手机图表上看到一只股票上涨，就迅速买入，因为他认为午饭前还会再涨。投资还是投机？",
+      revealTitle: "This is speculation",
+      answer: "The decision chases a short-term price movement and gives no evidence about return, risk or suitability.",
+      answerZh: "这个决策追逐短期价格变动，没有关于回报、风险或适合性的证据。",
+      notes: "The smartphone market chart should cue speed and short-term price chasing."
+    },
+    {
+      type: "discussion",
+      eyebrow: "Scenario 3",
+      title: "Investment or speculation?",
+      zhTitle: "投资还是投机？",
+      visual: investmentPhotos.lesson1ScenarioHouseForRent,
+      question: "A family compares rent, repair costs, location risk and loan payments before buying a small flat to rent out. Investment or speculation?",
+      questionZh: "一个家庭在买小公寓出租前，比较租金、维修成本、地段风险和贷款还款。投资还是投机？",
+      revealTitle: "This is investment",
+      answer: "They compare possible return with risks and costs before deciding. It can still lose money.",
+      answerZh: "他们在决策前比较可能回报、风险和成本。它仍然可能亏损。",
+      notes: "This connects the next section on assets without turning the lesson into property advice."
+    },
+    {
+      type: "discussion",
+      eyebrow: "Scenario 4",
+      title: "Investment or speculation?",
+      zhTitle: "投资还是投机？",
+      visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
+      question: "A student follows an online tip: 'Buy today because everyone is excited.' She checks no source, price or risk. Investment or speculation?",
+      questionZh: "一名学生听从网络消息：“今天买，因为大家都很兴奋。”她没有检查来源、价格或风险。投资还是投机？",
+      revealTitle: "This is speculation",
+      answer: "The decision starts from a tip and confidence, not source-dated evidence or risk-return analysis.",
+      answerZh: "这个决策从消息和自信开始，而不是从有来源日期的证据或风险回报分析开始。",
+      notes: "The trading-app photo should make the online-tip scenario concrete."
+    },
+    {
+      type: "discussion",
+      eyebrow: "Scenario 5",
+      title: "Investment or speculation?",
+      zhTitle: "投资还是投机？",
+      visual: investmentPhotos.lesson1ScenarioContainerPort,
+      question: "An investor studies a shipping company's revenue, fuel costs, demand risk and share price before buying for a two-year plan. Investment or speculation?",
+      questionZh: "一位投资者研究一家航运公司的收入、燃料成本、需求风险和股价，然后按两年计划买入。投资还是投机？",
+      revealTitle: "This is investment",
+      answer: "The judgement uses business evidence, price and risk before a planned holding period. The result is uncertain.",
+      answerZh: "这个判断在计划持有期前使用企业证据、价格和风险。结果仍然不确定。",
+      notes: "Use the port photo to connect a real business setting with risk and return evidence."
     },
     {
       type: "section",
@@ -508,10 +610,11 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "Investment analysis uses source-dated __________ before a justified judgement.", answer: "evidence", zh: "投资分析在作出有依据的判断前使用有来源和日期的证据。" },
+        { prompt: "Investment analysis evaluates potential return, risk and __________.", answer: "suitability", zh: "投资分析评估潜在回报、风险和适合性。" },
         { prompt: "Speculation often chases price __________.", answer: "movement", zh: "投机常常追逐价格变动。" },
         { prompt: "An asset has __________.", answer: "value", zh: "资产具有价值。" },
-        { prompt: "Risk means returns are __________.", answer: "uncertain", zh: "风险意味着回报不确定。" },
+        { prompt: "Return can be a gain or a __________.", answer: "loss", zh: "回报可以是收益，也可以是损失。" },
+        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能比预期更差。" },
         { prompt: "A share is an ownership __________.", answer: "unit", zh: "股票是一个所有权单位。" }
       ],
       notes: "Keep this compact; collect it as the individual readiness check."

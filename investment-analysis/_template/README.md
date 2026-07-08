@@ -118,4 +118,6 @@ Typography rhythm:
 - Keep source panels, captions and deck chrome visually quiet so they do not compete with the teaching surface.
 - Use modern local photos for visual pauses and context backgrounds. `visualPause` slides must project only the picture: no visible title, prompt, caption or credit. Put the teaching bridge in notes or on an adjacent slide.
 - Avoid old stock certificates, archival trading-floor imagery and museum-value photos unless the lesson explicitly teaches historical context.
+- Check `investment-analysis/photo-archive.html` or run `node scripts/export-investment-photo-archive.js --format md` before sourcing new images. The archive groups usable local photos by category, lesson fit, tags and slide use.
+- Use archive keys in decks with `visual: window.INVEST.photos?.<photoKey>` so generated slides keep credits, captions and local paths from `assets/js/investment-photos.js`.
 - Download new high-resolution photos when the catalogue match is weak, resize them to projection quality, and add complete metadata in `assets/js/investment-photos.js`.

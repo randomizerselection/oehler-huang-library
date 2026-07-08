@@ -1,0 +1,1930 @@
+{
+  "created": "2026-07-07",
+  "updated": "2026-07-08",
+  "source": "Wikimedia Commons, Openverse-indexed sources, Flickr, and public-domain providers where available",
+  "purpose": "Investment Analysis syllabus keyword photo pack",
+  "count": 33,
+  "skipped": [
+    {
+      "key": "keywordRegulationSecBuilding",
+      "error": "HTTP 429 for https://upload.wikimedia.org/wikipedia/commons/1/19/U.S._Securities_and_Exchange_Commission_headquarters.JPG"
+    },
+    {
+      "key": "keywordExchangeRateBoard",
+      "error": "HTTP 429 for https://upload.wikimedia.org/wikipedia/commons/9/94/Exchange_rates_sign.jpg"
+    },
+    {
+      "key": "keywordEtfIndexFundAssets",
+      "error": "HTTP 429 for https://upload.wikimedia.org/wikipedia/commons/8/8e/ETFs_by_Assets.png"
+    },
+    {
+      "key": "keywordDiversificationAssetAllocation",
+      "error": "HTTP 429 for https://upload.wikimedia.org/wikipedia/commons/2/21/Asset_allocation.png"
+    },
+    {
+      "key": "keywordPlatformActiveUsersPhones",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordMobilePaymentMonetisation",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordCreditRiskFedMeeting",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordDebtLeverageEvent",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordDefensiveUtilityGrid",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordValuationCapeChart",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordCostRevenueBreakEven",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordFinancialStatementsAnnualReport",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordExportContainersFlickr",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordTranslationCurrencyRubles",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordNetworkEffectsTwitterGraph",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordRegulatoryOverhangPlatforms",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordCyclicalityFactoryEmissions",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordCapitalStrengthFedNy",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordPricingPowerDigitalDisplay",
+      "sourcePlatform": "openverse",
+      "error": "download HTTP 429"
+    },
+    {
+      "key": "keywordMultinationalGskBuilding",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordTurnaroundStoreClosure",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordActiveUsersSmartphoneGroup",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordArpuMobilePaymentQr",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordDebtClockGermany",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordCashFlowStatementTrust",
+      "sourcePlatform": "openverse",
+      "error": "download HTTP 429"
+    },
+    {
+      "key": "keywordFinancialRegulatorSecHq",
+      "sourcePlatform": "openverse",
+      "error": "download HTTP 429"
+    },
+    {
+      "key": "keywordCentralBankOpenMeeting",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordPolicyRiskSubprimeGovernment",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordDefensiveUtilityTransmission",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordQualityControlUsda",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordPricingPowerSaleSign",
+      "sourcePlatform": "openverse",
+      "error": "fetch failed"
+    },
+    {
+      "key": "keywordSubprimeHomeOwnershipChart",
+      "sourcePlatform": "openverse",
+      "error": "HTTP 424"
+    },
+    {
+      "key": "keywordIncomeStatementNetIncomeChart",
+      "sourcePlatform": "openverse",
+      "error": "HTTP 424"
+    },
+    {
+      "key": "keywordPricingPowerRetailSale",
+      "sourcePlatform": "openverse",
+      "error": "no matching Openverse result"
+    },
+    {
+      "key": "keywordEtfIndexFundNyseBanner",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:KraneShares_One_Belt_One_Road_Summit_at_the_New_York_Stock_Exchange.png",
+      "reason": "HTTP 429",
+      "date": "2026-07-08"
+    },
+    {
+      "key": "keywordDiversificationAssetAllocation",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asset_allocation.png",
+      "reason": "HTTP 429",
+      "date": "2026-07-08"
+    },
+    {
+      "key": "keywordPERatioSp500Chart",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:S%26P_500_Shiller_P-E_Ratio.png",
+      "reason": "HTTP 429",
+      "date": "2026-07-08"
+    },
+    {
+      "key": "keywordEpsDividendChart",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GTCO%3Fs_2024_Dividend_charts.png",
+      "reason": "No imageinfo for GTCO?s 2024 Dividend charts.png",
+      "date": "2026-07-08"
+    },
+    {
+      "key": "keywordGrossMarginMarkupChart",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Markup_vs._Gross_Margin_(by_Adri%3Fn_Chiogna)..jpg",
+      "reason": "No imageinfo for Markup vs. Gross Margin (by Adri?n Chiogna)..jpg",
+      "date": "2026-07-08"
+    },
+    {
+      "key": "keywordOperatingMarginFinancialsChart",
+      "sourcePlatform": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Transmeta_Corporation_financials%2C_1996_to_2007.png",
+      "reason": "HTTP 429",
+      "date": "2026-07-08"
+    }
+  ],
+  "items": [
+    {
+      "key": "keywordRevenueSalesCheckout",
+      "file": "revenue-sales-supermarket-checkout.jpg",
+      "commonsFile": "Sainsburys checkout barriers 2.jpg",
+      "caption": "Supermarket checkout barriers for revenue and sales evidence",
+      "alt": "Checkout barriers at a Sainsbury's supermarket.",
+      "credit": "Wikimedia Commons / Cnbrb / CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sainsburys_checkout_barriers_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "terms": [
+        "revenue",
+        "sales growth",
+        "same-store sales",
+        "business model"
+      ],
+      "lesson": "Lessons 6 and 26",
+      "category": "keyword-business-evidence",
+      "path": "assets/images/investment-analysis/keywords/revenue-sales-supermarket-checkout.jpg",
+      "bytes": 533314,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sainsburys_checkout_barriers_2.jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Sainsburys_checkout_barriers_2.jpg",
+      "mappedSyllabusTerms": [
+        "revenue",
+        "sales growth",
+        "same-store sales",
+        "business model"
+      ],
+      "lessonFit": [
+        "Lessons 6 and 26"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 533314,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordInventoryWarehouse",
+      "file": "inventory-warehouse-pallet-racks.jpg",
+      "commonsFile": "Modern warehouse with pallet rack storage system.jpg",
+      "caption": "Warehouse pallet racks for inventory and capacity evidence",
+      "alt": "A modern warehouse with high pallet racks for stored inventory.",
+      "credit": "Wikimedia Commons / Axisadman / CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "terms": [
+        "inventory risk",
+        "cost of sales",
+        "capacity",
+        "store network"
+      ],
+      "lesson": "Lessons 7, 22, 24 and 26",
+      "category": "keyword-business-evidence",
+      "path": "assets/images/investment-analysis/keywords/inventory-warehouse-pallet-racks.jpg",
+      "bytes": 634265,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Modern_warehouse_with_pallet_rack_storage_system.jpg",
+      "mappedSyllabusTerms": [
+        "inventory risk",
+        "cost of sales",
+        "capacity",
+        "store network"
+      ],
+      "lessonFit": [
+        "Lessons 7, 22, 24 and 26"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 634265,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordCashFlowPaymentTerminal",
+      "file": "operating-cash-flow-payment-terminal.jpg",
+      "commonsFile": "Cash Register-Payment Terminal Store Display - Bergen, Norway 2021-07-30 (01).jpg",
+      "caption": "Payment terminal for operating cash flow evidence",
+      "alt": "A cash register and payment terminal display in a store.",
+      "credit": "Wikimedia Commons / Ryan Hodnett / CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cash_Register-Payment_Terminal_Store_Display_-_Bergen,_Norway_2021-07-30_(01).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "terms": [
+        "operating cash flow",
+        "free cash flow",
+        "cash receipts",
+        "sales"
+      ],
+      "lesson": "Lesson 9",
+      "category": "keyword-financial-statements",
+      "path": "assets/images/investment-analysis/keywords/operating-cash-flow-payment-terminal.jpg",
+      "bytes": 524804,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cash_Register-Payment_Terminal_Store_Display_-_Bergen,_Norway_2021-07-30_(01).jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Cash_Register-Payment_Terminal_Store_Display_-_Bergen,_Norway_2021-07-30_(01).jpg",
+      "mappedSyllabusTerms": [
+        "operating cash flow",
+        "free cash flow",
+        "cash receipts",
+        "sales"
+      ],
+      "lessonFit": [
+        "Lesson 9"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 524804,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordCapitalExpenditureAssemblyLine",
+      "file": "capital-expenditure-assembly-line.jpg",
+      "commonsFile": "Hyundai car assembly line.jpg",
+      "caption": "Car assembly line for capacity and capital expenditure",
+      "alt": "Cars moving along an assembly line in a Hyundai factory.",
+      "credit": "Wikimedia Commons / Anonyme / CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "terms": [
+        "capital expenditure",
+        "capacity",
+        "vertical integration",
+        "cyclicality"
+      ],
+      "lesson": "Lessons 9, 22 and 27",
+      "category": "keyword-business-evidence",
+      "path": "assets/images/investment-analysis/keywords/capital-expenditure-assembly-line.jpg",
+      "bytes": 564098,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+      "mappedSyllabusTerms": [
+        "capital expenditure",
+        "capacity",
+        "vertical integration",
+        "cyclicality"
+      ],
+      "lessonFit": [
+        "Lessons 9, 22 and 27"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 564098,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordDividendCheque",
+      "file": "dividend-cheque-company-payment.jpg",
+      "commonsFile": "Monnujan Sufian receives edotco Bangladesh dividend cheque for Workers Welfare Foundation 2022-09-22 (PID-0020968).jpg",
+      "caption": "Dividend cheque handover for dividend income",
+      "alt": "Officials hold a large dividend cheque during a formal handover.",
+      "credit": "Wikimedia Commons / Press Information Department / Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Monnujan_Sufian_receives_edotco_Bangladesh_dividend_cheque_for_Workers_Welfare_Foundation_2022-09-22_(PID-0020968).jpg",
+      "license": "Public domain",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+      "terms": [
+        "dividend",
+        "dividend yield",
+        "total return"
+      ],
+      "lesson": "Lesson 12",
+      "category": "keyword-return-valuation",
+      "path": "assets/images/investment-analysis/keywords/dividend-cheque-company-payment.jpg",
+      "bytes": 382943,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monnujan_Sufian_receives_edotco_Bangladesh_dividend_cheque_for_Workers_Welfare_Foundation_2022-09-22_(PID-0020968).jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Monnujan_Sufian_receives_edotco_Bangladesh_dividend_cheque_for_Workers_Welfare_Foundation_2022-09-22_(PID-0020968).jpg",
+      "mappedSyllabusTerms": [
+        "dividend",
+        "dividend yield",
+        "total return"
+      ],
+      "lessonFit": [
+        "Lesson 12"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 382943,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordMarketCapTradingScreen",
+      "file": "market-cap-trading-screen.jpg",
+      "commonsFile": "Market centre in Tokyo stock exchange.jpg",
+      "caption": "Stock exchange screen for market value and market capitalisation",
+      "alt": "Trading screens inside the market centre at the Tokyo Stock Exchange.",
+      "credit": "Wikimedia Commons / ehnmark / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Market_centre_in_Tokyo_stock_exchange.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "terms": [
+        "market capitalisation",
+        "shares outstanding",
+        "mega-cap",
+        "market value"
+      ],
+      "lesson": "Lesson 13",
+      "category": "keyword-return-valuation",
+      "path": "assets/images/investment-analysis/keywords/market-cap-trading-screen.jpg",
+      "bytes": 205670,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Market_centre_in_Tokyo_stock_exchange.jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Market_centre_in_Tokyo_stock_exchange.jpg",
+      "mappedSyllabusTerms": [
+        "market capitalisation",
+        "shares outstanding",
+        "mega-cap",
+        "market value"
+      ],
+      "lessonFit": [
+        "Lesson 13"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 205670,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordDemandRiskEmptyStore",
+      "file": "demand-risk-empty-store.jpg",
+      "commonsFile": "Empty store Loehmanns Plaza Rockville MD 2024-05-25 16-29-42.jpg",
+      "caption": "Empty retail store for demand risk and weak consumer traffic",
+      "alt": "An empty retail store space in a shopping plaza.",
+      "credit": "Wikimedia Commons / G. Edward Johnson / CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Empty_store_Loehmanns_Plaza_Rockville_MD_2024-05-25_16-29-42.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "terms": [
+        "demand risk",
+        "consumer trend",
+        "cyclical demand",
+        "same-store sales"
+      ],
+      "lesson": "Lessons 16, 17, 26 and 27",
+      "category": "keyword-risk-macro",
+      "path": "assets/images/investment-analysis/keywords/demand-risk-empty-store.jpg",
+      "bytes": 403979,
+      "resize": "existing local file",
+      "downloadedFrom": "previous run",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empty_store_Loehmanns_Plaza_Rockville_MD_2024-05-25_16-29-42.jpg",
+      "originalSourceUrl": "https://commons.wikimedia.org/wiki/File:Empty_store_Loehmanns_Plaza_Rockville_MD_2024-05-25_16-29-42.jpg",
+      "mappedSyllabusTerms": [
+        "demand risk",
+        "consumer trend",
+        "cyclical demand",
+        "same-store sales"
+      ],
+      "lessonFit": [
+        "Lessons 16, 17, 26 and 27"
+      ],
+      "sourcePlatform": "Wikimedia Commons",
+      "width": null,
+      "height": null,
+      "dimensions": null,
+      "byteSize": 403979,
+      "downloadedVia": "previous run"
+    },
+    {
+      "key": "keywordValuationExxonMerger",
+      "file": "valuation-exxon-merger-chart.png",
+      "path": "assets/images/investment-analysis/keywords/valuation-exxon-merger-chart.png",
+      "caption": "Merger valuation chart for valuation evidence",
+      "alt": "A chart showing merger valuation data for Exxon Mobil.",
+      "category": "keyword-valuation-metrics",
+      "terms": [
+        "valuation",
+        "cheap or expensive",
+        "expectations",
+        "valuation risk"
+      ],
+      "lesson": "Lessons 14, 15 and 30",
+      "uses": [
+        "discussion",
+        "sourceLens",
+        "dataSnapshot"
+      ],
+      "deckHint": "Use when students need a concrete valuation chart before judging whether a price looks cheap or expensive.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=18498561",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Exxon_Mobil_merger_valuation.png",
+      "credit": "wikimedia / Alexeykob / BY-SA 3.0",
+      "creator": "Alexeykob",
+      "creatorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Alexeykob&action=edit&redlink=1",
+      "license": "by-sa",
+      "licenseVersion": "3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "attribution": "\"File:Exxon Mobil merger valuation.png\" by Alexeykob is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+      "width": 1269,
+      "height": 709,
+      "bytes": 37650,
+      "resize": "1269x709->1269x709",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Exxon_Mobil_merger_valuation.png",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=18498561",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=18498561",
+      "mappedSyllabusTerms": [
+        "valuation",
+        "cheap or expensive",
+        "expectations",
+        "valuation risk"
+      ],
+      "lessonFit": [
+        "Lessons 14, 15 and 30"
+      ],
+      "dimensions": {
+        "width": 1269,
+        "height": 709
+      },
+      "byteSize": 37650,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Exxon_Mobil_merger_valuation.png"
+    },
+    {
+      "key": "keywordExchangeRatesAmsterdam",
+      "file": "exchange-rates-amsterdam-board.jpg",
+      "path": "assets/images/investment-analysis/keywords/exchange-rates-amsterdam-board.jpg",
+      "caption": "Currency exchange-rate board for exchange-rate exposure",
+      "alt": "A currency exchange-rate sign in Amsterdam showing several foreign currency prices.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "exchange rate",
+        "export exposure",
+        "translation effect",
+        "local/global risk"
+      ],
+      "lesson": "Lessons 19 and 25",
+      "uses": [
+        "hook",
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use for currency-risk prompts before students explain exchange-rate exposure.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=108614336",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Currency_exchange_rates_sign%2C_Amsterdam_%282021%29_02.jpg",
+      "credit": "wikimedia / Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International.(Want to use this image?)Original publication 📤: --Donald Trung 『徵國單』 (No Fake News 💬) (WikiProject Numismatics 💴) (Articles 📚) 14:01, 15 August 2021 (UTC) / BY-SA 4.0",
+      "creator": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International.(Want to use this image?)Original publication 📤: --Donald Trung 『徵國單』 (No Fake News 💬) (WikiProject Numismatics 💴) (Articles 📚) 14:01, 15 August 2021 (UTC)",
+      "creatorUrl": "https://commons.wikimedia.org/wiki/User:Donald_Trung",
+      "license": "by-sa",
+      "licenseVersion": "4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "\"Currency exchange rates sign, Amsterdam (2021) 02\" by Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International.(Want to use this image?)Original publication 📤: --Donald Trung 『徵國單』 (No Fake News 💬) (WikiProject Numismatics 💴) (Articles 📚) 14:01, 15 August 2021 (UTC) is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+      "width": 1920,
+      "height": 1081,
+      "bytes": 479107,
+      "resize": "5344x3008->1920x1081",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/0/04/Currency_exchange_rates_sign%2C_Amsterdam_%282021%29_02.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=108614336",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=108614336",
+      "mappedSyllabusTerms": [
+        "exchange rate",
+        "export exposure",
+        "translation effect",
+        "local/global risk"
+      ],
+      "lessonFit": [
+        "Lessons 19 and 25"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1081
+      },
+      "byteSize": 479107,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/0/04/Currency_exchange_rates_sign%2C_Amsterdam_%282021%29_02.jpg"
+    },
+    {
+      "key": "keywordVerticalIntegrationOpelLine",
+      "file": "vertical-integration-opel-assembly-line.jpg",
+      "path": "assets/images/investment-analysis/keywords/vertical-integration-opel-assembly-line.jpg",
+      "caption": "Car assembly line for vertical integration and capacity",
+      "alt": "A car factory assembly line inside the Opel factory in Gliwice, Poland.",
+      "category": "keyword-business-evidence",
+      "terms": [
+        "vertical integration",
+        "capacity",
+        "capital expenditure",
+        "operating leverage"
+      ],
+      "lesson": "Lessons 22 and 27",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students connect owned production capacity to business strategy and operating risk.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=116381354",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/001_Car_factory_assembly_line_-_Opel_factory_in_Gliwice%2C_Poland.jpg",
+      "credit": "wikimedia / Marek Ślusarczyk (Tupungato) Photo portfolio / BY 3.0",
+      "creator": "Marek Ślusarczyk (Tupungato) Photo portfolio",
+      "creatorUrl": "https://commons.wikimedia.org/wiki/User:Tupungato",
+      "license": "by",
+      "licenseVersion": "3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "attribution": "\"001 Car factory assembly line - Opel factory in Gliwice, Poland\" by Marek Ślusarczyk (Tupungato) Photo portfolio is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/.",
+      "width": 1920,
+      "height": 1280,
+      "bytes": 457630,
+      "resize": "5076x3383->1920x1280",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/2/29/001_Car_factory_assembly_line_-_Opel_factory_in_Gliwice%2C_Poland.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=116381354",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=116381354",
+      "mappedSyllabusTerms": [
+        "vertical integration",
+        "capacity",
+        "capital expenditure",
+        "operating leverage"
+      ],
+      "lessonFit": [
+        "Lessons 22 and 27"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1280
+      },
+      "byteSize": 457630,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/2/29/001_Car_factory_assembly_line_-_Opel_factory_in_Gliwice%2C_Poland.jpg"
+    },
+    {
+      "key": "keywordBrandEquityFlagshipStore",
+      "file": "brand-equity-flagship-store.jpg",
+      "path": "assets/images/investment-analysis/keywords/brand-equity-flagship-store.jpg",
+      "caption": "Flagship customer-service store for brand equity",
+      "alt": "A flagship customer-service store with service counters and branded signs.",
+      "category": "keyword-business-evidence",
+      "terms": [
+        "brand equity",
+        "pricing power",
+        "store network",
+        "consumer trend"
+      ],
+      "lesson": "Lessons 24 and 26",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students connect visible brand presence to pricing power and customer demand.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=128686271",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Macau_Pass_Dynasty_District_Flagship_Store_Customer_Service_Center_13-02-2023%282%29.jpg",
+      "credit": "wikimedia / LN9267 / BY-SA 4.0",
+      "creator": "LN9267",
+      "creatorUrl": "https://commons.wikimedia.org/wiki/User:LN9267",
+      "license": "by-sa",
+      "licenseVersion": "4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "\"Macau Pass Dynasty District Flagship Store Customer Service Center 13-02-2023(2)\" by LN9267 is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 532512,
+      "resize": "4032x3024->1920x1440",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Macau_Pass_Dynasty_District_Flagship_Store_Customer_Service_Center_13-02-2023%282%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=128686271",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=128686271",
+      "mappedSyllabusTerms": [
+        "brand equity",
+        "pricing power",
+        "store network",
+        "consumer trend"
+      ],
+      "lessonFit": [
+        "Lessons 24 and 26"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "byteSize": 532512,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Macau_Pass_Dynasty_District_Flagship_Store_Customer_Service_Center_13-02-2023%282%29.jpg"
+    },
+    {
+      "key": "keywordLeverageRatioGoldman",
+      "file": "leverage-ratio-goldman-chart.png",
+      "path": "assets/images/investment-analysis/keywords/leverage-ratio-goldman-chart.png",
+      "caption": "Leverage-ratio chart for gearing analysis",
+      "alt": "A chart of Goldman Sachs leverage ratio from 2003 to 2012.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "gearing or leverage",
+        "debt",
+        "liabilities",
+        "capital strength"
+      ],
+      "lesson": "Lesson 29",
+      "uses": [
+        "sourceLens",
+        "dataSnapshot",
+        "discussion"
+      ],
+      "deckHint": "Use when students need to interpret leverage as a ratio rather than only seeing debt as a headline number.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=47853644",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Goldman_Sachs_-_Leverage_Ratio_2003-2012.png",
+      "credit": "wikimedia / Farcaster / BY-SA 3.0",
+      "creator": "Farcaster",
+      "creatorUrl": "https://en.wikipedia.org/wiki/User:Farcaster",
+      "license": "by-sa",
+      "licenseVersion": "3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "attribution": "\"Goldman Sachs - Leverage Ratio 2003-2012\" by Farcaster is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+      "width": 960,
+      "height": 720,
+      "bytes": 20115,
+      "resize": "960x720->960x720",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Goldman_Sachs_-_Leverage_Ratio_2003-2012.png",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=47853644",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=47853644",
+      "mappedSyllabusTerms": [
+        "gearing or leverage",
+        "debt",
+        "liabilities",
+        "capital strength"
+      ],
+      "lessonFit": [
+        "Lesson 29"
+      ],
+      "dimensions": {
+        "width": 960,
+        "height": 720
+      },
+      "byteSize": 20115,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Goldman_Sachs_-_Leverage_Ratio_2003-2012.png"
+    },
+    {
+      "key": "keywordCreditRiskSubprimeDiagram",
+      "file": "credit-risk-subprime-crisis-diagram.png",
+      "path": "assets/images/investment-analysis/keywords/credit-risk-subprime-crisis-diagram.png",
+      "caption": "Subprime crisis diagram for credit-risk chains",
+      "alt": "A diagram showing relationships in the subprime mortgage crisis.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "credit risk",
+        "debt",
+        "liabilities",
+        "policy risk"
+      ],
+      "lesson": "Lessons 23 and 29",
+      "uses": [
+        "sourceLens",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use when students need to trace why weak borrowing quality can become credit risk.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=11778069",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Subprime_Crisis_Diagram_-_X1.png",
+      "credit": "wikimedia / Farcaster (talk) 05:18, 10 October 2008 (UTC) / BY-SA 3.0",
+      "creator": "Farcaster (talk) 05:18, 10 October 2008 (UTC)",
+      "creatorUrl": "https://en.wikipedia.org/wiki/User:Farcaster",
+      "license": "by-sa",
+      "licenseVersion": "3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "attribution": "\"File:Subprime Crisis Diagram - X1.png\" by Farcaster (talk) 05:18, 10 October 2008 (UTC) is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+      "width": 960,
+      "height": 720,
+      "bytes": 26904,
+      "resize": "960x720->960x720",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/1/13/Subprime_Crisis_Diagram_-_X1.png",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=11778069",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=11778069",
+      "mappedSyllabusTerms": [
+        "credit risk",
+        "debt",
+        "liabilities",
+        "policy risk"
+      ],
+      "lessonFit": [
+        "Lessons 23 and 29"
+      ],
+      "dimensions": {
+        "width": 960,
+        "height": 720
+      },
+      "byteSize": 26904,
+      "downloadedVia": "https://upload.wikimedia.org/wikipedia/commons/1/13/Subprime_Crisis_Diagram_-_X1.png"
+    },
+    {
+      "key": "keywordExportContainersFlickr",
+      "file": "export-exposure-multicolored-containers.jpg",
+      "path": "assets/images/investment-analysis/keywords/export-exposure-multicolored-containers.jpg",
+      "caption": "Container stacks for export exposure and global trade risk",
+      "alt": "Multicoloured shipping containers stacked at a port.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "export exposure",
+        "multinational",
+        "local/global risk",
+        "exchange rate"
+      ],
+      "lesson": "Lessons 19 and 25",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens",
+        "compare"
+      ],
+      "deckHint": "Use when students connect export activity to currency and global-demand risk.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/93755244@N00/3144199355",
+      "originalImageUrl": "https://live.staticflickr.com/3121/3144199355_d478f8c316_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/eab6b31a-e019-45f4-91ef-50516c39a5db/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/eab6b31a-e019-45f4-91ef-50516c39a5db/thumb/",
+      "credit": "flickr / Håkan Dahlström / BY 2.0",
+      "creator": "Håkan Dahlström",
+      "creatorUrl": "https://www.flickr.com/photos/93755244@N00",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"Multicolored containers\" by Håkan Dahlström is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 400,
+      "bytes": 73397,
+      "resize": "600x400->600x400",
+      "sourceUrl": "https://www.flickr.com/photos/93755244@N00/3144199355",
+      "originalSourceUrl": "https://www.flickr.com/photos/93755244@N00/3144199355",
+      "mappedSyllabusTerms": [
+        "export exposure",
+        "multinational",
+        "local/global risk",
+        "exchange rate"
+      ],
+      "lessonFit": [
+        "Lessons 19 and 25"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "byteSize": 73397
+    },
+    {
+      "key": "keywordTranslationCurrencyRubles",
+      "file": "translation-effect-foreign-currency-rubles.jpg",
+      "path": "assets/images/investment-analysis/keywords/translation-effect-foreign-currency-rubles.jpg",
+      "caption": "Foreign currency notes for translation-effect prompts",
+      "alt": "Samples of Soviet ruble banknotes arranged on a surface.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "translation effect",
+        "exchange rate",
+        "multinational",
+        "local/global risk"
+      ],
+      "lesson": "Lessons 19 and 25",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use as a simple visual cue before explaining why foreign-currency results can translate differently.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/8721758@N06/8674923730",
+      "originalImageUrl": "https://live.staticflickr.com/8543/8674923730_b62fba441d_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/bfa691a7-a096-440a-a1b4-27c89f544326/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/bfa691a7-a096-440a-a1b4-27c89f544326/thumb/",
+      "credit": "flickr / Jorge Lascar / BY 2.0",
+      "creator": "Jorge Lascar",
+      "creatorUrl": "https://www.flickr.com/photos/8721758@N06",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"Samples of Soviet Rubles\" by Jorge Lascar is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 398,
+      "bytes": 51963,
+      "resize": "600x398->600x398",
+      "sourceUrl": "https://www.flickr.com/photos/8721758@N06/8674923730",
+      "originalSourceUrl": "https://www.flickr.com/photos/8721758@N06/8674923730",
+      "mappedSyllabusTerms": [
+        "translation effect",
+        "exchange rate",
+        "multinational",
+        "local/global risk"
+      ],
+      "lessonFit": [
+        "Lessons 19 and 25"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 398
+      },
+      "byteSize": 51963
+    },
+    {
+      "key": "keywordNetworkEffectsTwitterGraph",
+      "file": "network-effects-twitter-smartphone-graph.jpg",
+      "path": "assets/images/investment-analysis/keywords/network-effects-twitter-smartphone-graph.jpg",
+      "caption": "Twitter smartphone network graph for network effects",
+      "alt": "A network graph labelled around Twitter and smartphone connections.",
+      "category": "keyword-platform-monetisation",
+      "terms": [
+        "network effects",
+        "platform business",
+        "active users",
+        "regulatory overhang"
+      ],
+      "lesson": "Lesson 21",
+      "uses": [
+        "discussion",
+        "sourceLens",
+        "visualPause"
+      ],
+      "deckHint": "Use when students need to see that a platform can become more valuable as user connections grow.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/49503165485@N01/5446841851",
+      "originalImageUrl": "https://live.staticflickr.com/4120/5446841851_017cac3f9d_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/96de0bb8-6acf-464f-bef7-5b01ff9c67ca/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/96de0bb8-6acf-464f-bef7-5b01ff9c67ca/thumb/",
+      "credit": "flickr / Marc_Smith / BY 2.0",
+      "creator": "Marc_Smith",
+      "creatorUrl": "https://www.flickr.com/photos/49503165485@N01",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"20110214-NodeXL-Twitter-smartphone\" by Marc_Smith is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 449,
+      "bytes": 34898,
+      "resize": "600x449->600x449",
+      "sourceUrl": "https://www.flickr.com/photos/49503165485@N01/5446841851",
+      "originalSourceUrl": "https://www.flickr.com/photos/49503165485@N01/5446841851",
+      "mappedSyllabusTerms": [
+        "network effects",
+        "platform business",
+        "active users",
+        "regulatory overhang"
+      ],
+      "lessonFit": [
+        "Lesson 21"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 449
+      },
+      "byteSize": 34898
+    },
+    {
+      "key": "keywordRegulatoryOverhangPlatforms",
+      "file": "regulatory-overhang-platforms.jpg",
+      "path": "assets/images/investment-analysis/keywords/regulatory-overhang-platforms.jpg",
+      "caption": "Platform regulation image for regulatory-overhang prompts",
+      "alt": "An image referencing Facebook, Twitter and Google in a political-regulation context.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "regulatory overhang",
+        "regulation",
+        "policy risk",
+        "platform business"
+      ],
+      "lesson": "Lessons 18 and 21",
+      "uses": [
+        "discussion",
+        "yesNoCheck",
+        "sourceLens"
+      ],
+      "deckHint": "Use for prompts about whether platform regulation can weigh on an investment case.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/17281186@N00/33394744952",
+      "originalImageUrl": "https://live.staticflickr.com/2950/33394744952_2b2832d4d9_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/a4eb474a-ab9c-4664-aa8d-a326566771d3/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/a4eb474a-ab9c-4664-aa8d-a326566771d3/thumb/",
+      "credit": "flickr / sfmission.com / BY 2.0",
+      "creator": "sfmission.com",
+      "creatorUrl": "https://www.flickr.com/photos/17281186@N00",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"Facebook, Twitter and Google manipulation by Donald Trump's Election Operatives Raises New Questions\" by sfmission.com is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 449,
+      "bytes": 63184,
+      "resize": "600x449->600x449",
+      "sourceUrl": "https://www.flickr.com/photos/17281186@N00/33394744952",
+      "originalSourceUrl": "https://www.flickr.com/photos/17281186@N00/33394744952",
+      "mappedSyllabusTerms": [
+        "regulatory overhang",
+        "regulation",
+        "policy risk",
+        "platform business"
+      ],
+      "lessonFit": [
+        "Lessons 18 and 21"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 449
+      },
+      "byteSize": 63184
+    },
+    {
+      "key": "keywordCyclicalityFactoryEmissions",
+      "file": "cyclicality-factory-emissions.jpg",
+      "path": "assets/images/investment-analysis/keywords/cyclicality-factory-emissions.jpg",
+      "caption": "Industrial factory emissions for cyclical-sector prompts",
+      "alt": "Factory emissions rising from an industrial site.",
+      "category": "keyword-risk-macro",
+      "terms": [
+        "cyclicality",
+        "cyclical demand",
+        "sector",
+        "recovery"
+      ],
+      "lesson": "Lessons 22 and 27",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "compare"
+      ],
+      "deckHint": "Use as a sector-cycle visual before students discuss demand recovery and operating leverage.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/33247428@N08/51783941838",
+      "originalImageUrl": "https://live.staticflickr.com/65535/51783941838_8c80ecef17_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/e709c96d-cf47-403f-a679-1b85df963f02/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/e709c96d-cf47-403f-a679-1b85df963f02/thumb/",
+      "credit": "flickr / Oregon State University / BY-SA 2.0",
+      "creator": "Oregon State University",
+      "creatorUrl": "https://www.flickr.com/photos/33247428@N08",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"Factory emissions\" by Oregon State University is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 375,
+      "bytes": 29212,
+      "resize": "600x375->600x375",
+      "sourceUrl": "https://www.flickr.com/photos/33247428@N08/51783941838",
+      "originalSourceUrl": "https://www.flickr.com/photos/33247428@N08/51783941838",
+      "mappedSyllabusTerms": [
+        "cyclicality",
+        "cyclical demand",
+        "sector",
+        "recovery"
+      ],
+      "lessonFit": [
+        "Lessons 22 and 27"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 375
+      },
+      "byteSize": 29212
+    },
+    {
+      "key": "keywordCapitalStrengthFedNy",
+      "file": "capital-strength-federal-reserve-ny.jpg",
+      "path": "assets/images/investment-analysis/keywords/capital-strength-federal-reserve-ny.jpg",
+      "caption": "Federal Reserve Bank of New York for bank capital strength context",
+      "alt": "The Federal Reserve Bank of New York building exterior.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "capital strength",
+        "credit risk",
+        "interest margin",
+        "bank"
+      ],
+      "lesson": "Lesson 23",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use to anchor bank-strength and credit-risk discussion in a real financial institution setting.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/8256808@N02/2397309631",
+      "originalImageUrl": "https://live.staticflickr.com/2239/2397309631_424a79a9e9_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/26d3b621-496e-45a2-9206-9d7666453f6d/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/26d3b621-496e-45a2-9206-9d7666453f6d/thumb/",
+      "credit": "flickr / epicharmus / BY 2.0",
+      "creator": "epicharmus",
+      "creatorUrl": "https://www.flickr.com/photos/8256808@N02",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"Federal Reserve Bank of New York Building panorama\" by epicharmus is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 239,
+      "bytes": 39985,
+      "resize": "600x239->600x239",
+      "sourceUrl": "https://www.flickr.com/photos/8256808@N02/2397309631",
+      "originalSourceUrl": "https://www.flickr.com/photos/8256808@N02/2397309631",
+      "mappedSyllabusTerms": [
+        "capital strength",
+        "credit risk",
+        "interest margin",
+        "bank"
+      ],
+      "lessonFit": [
+        "Lesson 23"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 239
+      },
+      "byteSize": 39985
+    },
+    {
+      "key": "keywordPricingPowerDigitalDisplay",
+      "file": "pricing-power-digital-price-display.jpg",
+      "path": "assets/images/investment-analysis/keywords/pricing-power-digital-price-display.jpg",
+      "caption": "Digital in-store price display for pricing-power prompts",
+      "alt": "A wireless in-store price display at a clothing retailer.",
+      "category": "keyword-business-evidence",
+      "terms": [
+        "pricing power",
+        "brand equity",
+        "gross margin",
+        "consumer trend"
+      ],
+      "lesson": "Lesson 24",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use when students decide whether a company can raise or maintain prices without losing customers.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=22649102",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Wireless_in-store_price_display_at_a_clothing_retailer_in_NJ.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/54f928a3-2a9e-40b8-bbd0-8970ddefcd5c/thumb/",
+      "downloadedVia": "original",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/0/05/Wireless_in-store_price_display_at_a_clothing_retailer_in_NJ.jpg",
+      "credit": "wikimedia / Tomwsulcer / CC0 1.0",
+      "creator": "Tomwsulcer",
+      "creatorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Tomwsulcer&action=edit&redlink=1",
+      "license": "cc0",
+      "licenseVersion": "1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+      "attribution": "\"Wireless in-store price display at a clothing retailer in NJ\" by Tomwsulcer is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en/.",
+      "width": 591,
+      "height": 702,
+      "bytes": 98609,
+      "resize": "591x702->591x702",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=22649102",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=22649102",
+      "mappedSyllabusTerms": [
+        "pricing power",
+        "brand equity",
+        "gross margin",
+        "consumer trend"
+      ],
+      "lessonFit": [
+        "Lesson 24"
+      ],
+      "dimensions": {
+        "width": 591,
+        "height": 702
+      },
+      "byteSize": 98609
+    },
+    {
+      "key": "keywordMultinationalGskBuilding",
+      "file": "multinational-gsk-building.jpg",
+      "path": "assets/images/investment-analysis/keywords/multinational-gsk-building.jpg",
+      "caption": "GSK building for multinational-company exposure",
+      "alt": "The exterior of a GSK corporate building.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "multinational",
+        "local/global risk",
+        "comparable company",
+        "exchange rate"
+      ],
+      "lesson": "Lesson 25",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students distinguish local and global risks for a multinational company.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/58414938@N00/11187599734",
+      "originalImageUrl": "https://live.staticflickr.com/5546/11187599734_3f12363ea8_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/95802743-cc9a-42e2-b8e1-7cc1338c2fff/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/95802743-cc9a-42e2-b8e1-7cc1338c2fff/thumb/",
+      "credit": "flickr / Peter O'Connor aka anemoneprojectors / BY-SA 2.0",
+      "creator": "Peter O'Connor aka anemoneprojectors",
+      "creatorUrl": "https://www.flickr.com/photos/58414938@N00",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"GOC Kew to Osterley 085: GSK\" by Peter O'Connor aka anemoneprojectors is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 449,
+      "bytes": 42940,
+      "resize": "600x449->600x449",
+      "sourceUrl": "https://www.flickr.com/photos/58414938@N00/11187599734",
+      "originalSourceUrl": "https://www.flickr.com/photos/58414938@N00/11187599734",
+      "mappedSyllabusTerms": [
+        "multinational",
+        "local/global risk",
+        "comparable company",
+        "exchange rate"
+      ],
+      "lessonFit": [
+        "Lesson 25"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 449
+      },
+      "byteSize": 42940
+    },
+    {
+      "key": "keywordTurnaroundStoreClosure",
+      "file": "turnaround-store-closure.jpg",
+      "path": "assets/images/investment-analysis/keywords/turnaround-store-closure.jpg",
+      "caption": "Store closure for turnaround and recovery analysis",
+      "alt": "A closed electronics retail store after employees lost their jobs.",
+      "category": "keyword-risk-macro",
+      "terms": [
+        "turnaround",
+        "recovery",
+        "store network",
+        "same-store sales"
+      ],
+      "lesson": "Lessons 26 and 27",
+      "uses": [
+        "hook",
+        "visualPause",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use for turnaround prompts where students judge whether weak stores can recover.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/80824546@N00/6896023040",
+      "originalImageUrl": "https://live.staticflickr.com/7262/6896023040_9ee1d11dfa_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/43580df6-0199-433f-b813-a83fee495af4/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/43580df6-0199-433f-b813-a83fee495af4/thumb/",
+      "credit": "flickr / infomatique / BY-SA 2.0",
+      "creator": "infomatique",
+      "creatorUrl": "https://www.flickr.com/photos/80824546@N00",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"Peats 'World Of Electronics' - 75 Employees Lose Their Jobs\" by infomatique is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 400,
+      "bytes": 51971,
+      "resize": "600x400->600x400",
+      "sourceUrl": "https://www.flickr.com/photos/80824546@N00/6896023040",
+      "originalSourceUrl": "https://www.flickr.com/photos/80824546@N00/6896023040",
+      "mappedSyllabusTerms": [
+        "turnaround",
+        "recovery",
+        "store network",
+        "same-store sales"
+      ],
+      "lessonFit": [
+        "Lessons 26 and 27"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "byteSize": 51971
+    },
+    {
+      "key": "keywordActiveUsersSmartphoneGroup",
+      "file": "active-users-smartphone-group.jpg",
+      "path": "assets/images/investment-analysis/keywords/active-users-smartphone-group.jpg",
+      "caption": "Smartphone user group for active users",
+      "alt": "A group of diverse people using smartphones.",
+      "category": "keyword-platform-monetisation",
+      "terms": [
+        "active users",
+        "platform business",
+        "network effects",
+        "monetisation"
+      ],
+      "lesson": "Lessons 21 and 28",
+      "uses": [
+        "hook",
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use for active-user and platform-business prompts before students judge monetisation potential.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/147875007@N03/45739283592",
+      "originalImageUrl": "https://live.staticflickr.com/4901/45739283592_cbc1696237_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/4ae28c27-5431-489c-bc0e-a00d5475ca35/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/4ae28c27-5431-489c-bc0e-a00d5475ca35/thumb/",
+      "credit": "flickr / Rawpixel Ltd / BY 2.0",
+      "creator": "Rawpixel Ltd",
+      "creatorUrl": "https://www.flickr.com/photos/147875007@N03",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"Group of diverse people using smartphones\" by Rawpixel Ltd is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 417,
+      "bytes": 72325,
+      "resize": "600x417->600x417",
+      "sourceUrl": "https://www.flickr.com/photos/147875007@N03/45739283592",
+      "originalSourceUrl": "https://www.flickr.com/photos/147875007@N03/45739283592",
+      "mappedSyllabusTerms": [
+        "active users",
+        "platform business",
+        "network effects",
+        "monetisation"
+      ],
+      "lessonFit": [
+        "Lessons 21 and 28"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 417
+      },
+      "byteSize": 72325
+    },
+    {
+      "key": "keywordArpuMobilePaymentQr",
+      "file": "arpu-mobile-payment-qr-code.jpg",
+      "path": "assets/images/investment-analysis/keywords/arpu-mobile-payment-qr-code.jpg",
+      "caption": "Mobile payment QR scan for ARPU and monetisation",
+      "alt": "A smartphone scanning a QR code for mobile payment.",
+      "category": "keyword-platform-monetisation",
+      "terms": [
+        "ARPU",
+        "monetisation",
+        "active users",
+        "platform business"
+      ],
+      "lesson": "Lesson 28",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students connect active users to payment, revenue per user and monetisation.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/35889705@N04/8693340030",
+      "originalImageUrl": "https://live.staticflickr.com/8397/8693340030_12520e2d01_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/7ffda635-87a0-4e41-8dc1-05b2eddbc4ae/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/7ffda635-87a0-4e41-8dc1-05b2eddbc4ae/thumb/",
+      "credit": "flickr / pr_ip / BY-SA 2.0",
+      "creator": "pr_ip",
+      "creatorUrl": "https://www.flickr.com/photos/35889705@N04",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"Mobile Payment: QR-code scan (300 dpi)\" by pr_ip is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 337,
+      "bytes": 22079,
+      "resize": "600x337->600x337",
+      "sourceUrl": "https://www.flickr.com/photos/35889705@N04/8693340030",
+      "originalSourceUrl": "https://www.flickr.com/photos/35889705@N04/8693340030",
+      "mappedSyllabusTerms": [
+        "ARPU",
+        "monetisation",
+        "active users",
+        "platform business"
+      ],
+      "lessonFit": [
+        "Lesson 28"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 337
+      },
+      "byteSize": 22079
+    },
+    {
+      "key": "keywordDebtClockGermany",
+      "file": "debt-clock-germany.jpg",
+      "path": "assets/images/investment-analysis/keywords/debt-clock-germany.jpg",
+      "caption": "Debt clock for debt and leverage discussion",
+      "alt": "A public debt clock showing changing debt figures.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "debt",
+        "liabilities",
+        "gearing or leverage",
+        "leverage risk"
+      ],
+      "lesson": "Lesson 29",
+      "uses": [
+        "hook",
+        "visualPause",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use for debt and leverage prompts before students judge whether borrowing increases risk.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/55043400@N00/5606295895",
+      "originalImageUrl": "https://live.staticflickr.com/5142/5606295895_65d21753ed_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/0a97a1b3-52a8-445c-96bf-7472f89fd138/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/0a97a1b3-52a8-445c-96bf-7472f89fd138/thumb/",
+      "credit": "flickr / pthread1981 / BY 2.0",
+      "creator": "pthread1981",
+      "creatorUrl": "https://www.flickr.com/photos/55043400@N00",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"German Debt Clock\" by pthread1981 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 398,
+      "bytes": 26832,
+      "resize": "600x398->600x398",
+      "sourceUrl": "https://www.flickr.com/photos/55043400@N00/5606295895",
+      "originalSourceUrl": "https://www.flickr.com/photos/55043400@N00/5606295895",
+      "mappedSyllabusTerms": [
+        "debt",
+        "liabilities",
+        "gearing or leverage",
+        "leverage risk"
+      ],
+      "lessonFit": [
+        "Lesson 29"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 398
+      },
+      "byteSize": 26832
+    },
+    {
+      "key": "keywordCashFlowStatementTrust",
+      "file": "cash-flow-statement-trust-funds.jpg",
+      "path": "assets/images/investment-analysis/keywords/cash-flow-statement-trust-funds.jpg",
+      "caption": "Statement of cash flows for financial-statement source work",
+      "alt": "A statement of cash flows page for trust funds.",
+      "category": "keyword-financial-statements",
+      "terms": [
+        "operating cash flow",
+        "free cash flow",
+        "financial statements",
+        "source date"
+      ],
+      "lesson": "Lessons 5 and 9",
+      "uses": [
+        "sourceLens",
+        "dataSnapshot",
+        "discussion"
+      ],
+      "deckHint": "Use when students need to see that cash-flow evidence comes from a specific statement.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "wikimedia",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=15789950",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/11_Statement_Cash_Flows_Trust_Funds.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/10202359-bafa-4631-9b5c-e2a5660674c4/thumb/",
+      "downloadedVia": "original",
+      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/c/c4/11_Statement_Cash_Flows_Trust_Funds.jpg",
+      "credit": "wikimedia / Ladyfwr / BY-SA 3.0",
+      "creator": "Ladyfwr",
+      "creatorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Ladyfwr&action=edit&redlink=1",
+      "license": "by-sa",
+      "licenseVersion": "3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "attribution": "\"File:11 Statement Cash Flows Trust Funds.jpg\" by Ladyfwr is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+      "width": 931,
+      "height": 1389,
+      "bytes": 180085,
+      "resize": "931x1389->931x1389",
+      "sourceUrl": "https://commons.wikimedia.org/w/index.php?curid=15789950",
+      "originalSourceUrl": "https://commons.wikimedia.org/w/index.php?curid=15789950",
+      "mappedSyllabusTerms": [
+        "operating cash flow",
+        "free cash flow",
+        "financial statements",
+        "source date"
+      ],
+      "lessonFit": [
+        "Lessons 5 and 9"
+      ],
+      "dimensions": {
+        "width": 931,
+        "height": 1389
+      },
+      "byteSize": 180085
+    },
+    {
+      "key": "keywordCentralBankOpenMeeting",
+      "file": "central-bank-open-board-meeting.jpg",
+      "path": "assets/images/investment-analysis/keywords/central-bank-open-board-meeting.jpg",
+      "caption": "Federal Reserve open board meeting for interest-rate context",
+      "alt": "Federal Reserve officials seated at an open board meeting.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "interest margin",
+        "credit risk",
+        "capital strength",
+        "interest rate"
+      ],
+      "lesson": "Lesson 23",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students connect bank interest margins and credit risk to central-bank rate context.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/92618257@N08/26731366111",
+      "originalImageUrl": "https://live.staticflickr.com/7023/26731366111_efd007641f_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/b9068140-f030-476a-bb6d-bef221bdd70c/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/b9068140-f030-476a-bb6d-bef221bdd70c/thumb/",
+      "credit": "flickr / Federalreserve / PDM 1.0",
+      "creator": "Federalreserve",
+      "creatorUrl": "https://www.flickr.com/photos/92618257@N08",
+      "license": "pdm",
+      "licenseVersion": "1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution": "\"May 3, 2016 Open Board Meeting: _DSC1408\" by Federalreserve is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+      "width": 600,
+      "height": 400,
+      "bytes": 43522,
+      "resize": "600x400->600x400",
+      "sourceUrl": "https://www.flickr.com/photos/92618257@N08/26731366111",
+      "originalSourceUrl": "https://www.flickr.com/photos/92618257@N08/26731366111",
+      "mappedSyllabusTerms": [
+        "interest margin",
+        "credit risk",
+        "capital strength",
+        "interest rate"
+      ],
+      "lessonFit": [
+        "Lesson 23"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "byteSize": 43522
+    },
+    {
+      "key": "keywordPolicyRiskSubprimeGovernment",
+      "file": "policy-risk-subprime-government-chart.jpg",
+      "path": "assets/images/investment-analysis/keywords/policy-risk-subprime-government-chart.jpg",
+      "caption": "Government-policy chart for policy-risk discussion",
+      "alt": "A chart linking government policies and the subprime mortgage crisis.",
+      "category": "keyword-regulation-currency",
+      "terms": [
+        "policy risk",
+        "regulation",
+        "credit risk",
+        "company-specific risk"
+      ],
+      "lesson": "Lessons 18 and 23",
+      "uses": [
+        "sourceLens",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use for policy-risk prompts where students must decide what the chart can and cannot prove.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/151669515@N07/32642468515",
+      "originalImageUrl": "https://live.staticflickr.com/756/32642468515_bf40bdab66_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/c509e9fe-9fbf-4432-aed3-45e2429d2dbc/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/c509e9fe-9fbf-4432-aed3-45e2429d2dbc/thumb/",
+      "credit": "flickr / deborahgomez / BY-SA 2.0",
+      "creator": "deborahgomez",
+      "creatorUrl": "https://www.flickr.com/photos/151669515@N07",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"Government policies and the subprime mortgage crisis\" by deborahgomez is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 303,
+      "height": 1024,
+      "bytes": 72656,
+      "resize": "303x1024->303x1024",
+      "sourceUrl": "https://www.flickr.com/photos/151669515@N07/32642468515",
+      "originalSourceUrl": "https://www.flickr.com/photos/151669515@N07/32642468515",
+      "mappedSyllabusTerms": [
+        "policy risk",
+        "regulation",
+        "credit risk",
+        "company-specific risk"
+      ],
+      "lessonFit": [
+        "Lessons 18 and 23"
+      ],
+      "dimensions": {
+        "width": 303,
+        "height": 1024
+      },
+      "byteSize": 72656
+    },
+    {
+      "key": "keywordDefensiveUtilityTransmission",
+      "file": "defensive-utility-transmission-lines-openverse.jpg",
+      "path": "assets/images/investment-analysis/keywords/defensive-utility-transmission-lines-openverse.jpg",
+      "caption": "Transmission lines for defensive utility business evidence",
+      "alt": "Electric transmission lines carrying power across a utility grid.",
+      "category": "keyword-risk-macro",
+      "terms": [
+        "defensive business",
+        "quality company",
+        "cash flow stability",
+        "risk"
+      ],
+      "lesson": "Lesson 30",
+      "uses": [
+        "hook",
+        "visualPause",
+        "discussion"
+      ],
+      "deckHint": "Use for defensive-business prompts where students compare stable utility demand with cyclical demand.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/14913305@N00/8550788014",
+      "originalImageUrl": "https://live.staticflickr.com/8252/8550788014_d25d516fbd_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/6afb54c6-a0cd-4131-a278-b8faab71be7b/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/6afb54c6-a0cd-4131-a278-b8faab71be7b/thumb/",
+      "credit": "flickr / Chris Hunkeler / BY-SA 2.0",
+      "creator": "Chris Hunkeler",
+      "creatorUrl": "https://www.flickr.com/photos/14913305@N00",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"Transmission Lines\" by Chris Hunkeler is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 399,
+      "bytes": 28050,
+      "resize": "600x399->600x399",
+      "sourceUrl": "https://www.flickr.com/photos/14913305@N00/8550788014",
+      "originalSourceUrl": "https://www.flickr.com/photos/14913305@N00/8550788014",
+      "mappedSyllabusTerms": [
+        "defensive business",
+        "quality company",
+        "cash flow stability",
+        "risk"
+      ],
+      "lessonFit": [
+        "Lesson 30"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 399
+      },
+      "byteSize": 28050
+    },
+    {
+      "key": "keywordQualityControlUsda",
+      "file": "quality-control-usda-inspection.jpg",
+      "path": "assets/images/investment-analysis/keywords/quality-control-usda-inspection.jpg",
+      "caption": "Inspection scene for quality-company prompts",
+      "alt": "A USDA inspection or quality-control scene in a production setting.",
+      "category": "keyword-business-evidence",
+      "terms": [
+        "quality company",
+        "execution risk",
+        "brand equity",
+        "pricing power"
+      ],
+      "lesson": "Lessons 16, 24 and 30",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "sourceLens"
+      ],
+      "deckHint": "Use when students connect quality control and execution to company quality.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/41284017@N08/6060417640",
+      "originalImageUrl": "https://live.staticflickr.com/6074/6060417640_bf40ec52a7_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/90822d6d-3b33-4843-ad1c-87c4e832c099/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/90822d6d-3b33-4843-ad1c-87c4e832c099/thumb/",
+      "credit": "flickr / USDAgov / BY 2.0",
+      "creator": "USDAgov",
+      "creatorUrl": "https://www.flickr.com/photos/41284017@N08",
+      "license": "by",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "attribution": "\"201107120-RD-LSC-0117\" by USDAgov is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "width": 600,
+      "height": 398,
+      "bytes": 42972,
+      "resize": "600x398->600x398",
+      "sourceUrl": "https://www.flickr.com/photos/41284017@N08/6060417640",
+      "originalSourceUrl": "https://www.flickr.com/photos/41284017@N08/6060417640",
+      "mappedSyllabusTerms": [
+        "quality company",
+        "execution risk",
+        "brand equity",
+        "pricing power"
+      ],
+      "lessonFit": [
+        "Lessons 16, 24 and 30"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 398
+      },
+      "byteSize": 42972
+    },
+    {
+      "key": "keywordPricingPowerSaleSign",
+      "file": "pricing-power-sale-discount-sign.jpg",
+      "path": "assets/images/investment-analysis/keywords/pricing-power-sale-discount-sign.jpg",
+      "caption": "Sale sign for pricing power and discounting",
+      "alt": "A sale sign advertising discounts in a shopping mall.",
+      "category": "keyword-business-evidence",
+      "terms": [
+        "pricing power",
+        "gross margin",
+        "consumer trend",
+        "demand risk"
+      ],
+      "lesson": "Lessons 7, 17 and 24",
+      "uses": [
+        "hook",
+        "visualPause",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use when students decide whether discounts signal weak pricing power or a normal retail tactic.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/157635012@N07/47020307484",
+      "originalImageUrl": "https://live.staticflickr.com/65535/47020307484_736cac6d69_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/c87abba8-3e52-4780-9475-16d385e143db/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/c87abba8-3e52-4780-9475-16d385e143db/thumb/",
+      "credit": "flickr / Artem Beliaikin / CC0 1.0",
+      "creator": "Artem Beliaikin",
+      "creatorUrl": "https://www.flickr.com/photos/157635012@N07",
+      "license": "cc0",
+      "licenseVersion": "1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "\"Sale sign in the shopping mall. Discount tag. Bangkok.\" by Artem Beliaikin is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "width": 600,
+      "height": 400,
+      "bytes": 48208,
+      "resize": "600x400->600x400",
+      "sourceUrl": "https://www.flickr.com/photos/157635012@N07/47020307484",
+      "originalSourceUrl": "https://www.flickr.com/photos/157635012@N07/47020307484",
+      "mappedSyllabusTerms": [
+        "pricing power",
+        "gross margin",
+        "consumer trend",
+        "demand risk"
+      ],
+      "lessonFit": [
+        "Lessons 7, 17 and 24"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "byteSize": 48208
+    },
+    {
+      "key": "keywordDebtClockNationalNy",
+      "file": "debt-clock-national-new-york.jpg",
+      "path": "assets/images/investment-analysis/keywords/debt-clock-national-new-york.jpg",
+      "caption": "National debt clock for leverage risk",
+      "alt": "The National Debt Clock in New York showing large debt figures.",
+      "category": "keyword-banking-credit",
+      "terms": [
+        "debt",
+        "liabilities",
+        "gearing or leverage",
+        "capital strength"
+      ],
+      "lesson": "Lesson 29",
+      "uses": [
+        "visualPause",
+        "discussion",
+        "yesNoCheck"
+      ],
+      "deckHint": "Use as an alternative debt visual when comparing debt scale and leverage risk.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/18179822@N00/5190843536",
+      "originalImageUrl": "https://live.staticflickr.com/1308/5190843536_0c8d0af890_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/3c74bcc0-acbb-4a4b-b9a8-91001a3c2677/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/3c74bcc0-acbb-4a4b-b9a8-91001a3c2677/thumb/",
+      "credit": "flickr / Sugarmonster / BY-SA 2.0",
+      "creator": "Sugarmonster",
+      "creatorUrl": "https://www.flickr.com/photos/18179822@N00",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"National Debt Clock - New York\" by Sugarmonster is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 400,
+      "bytes": 46917,
+      "resize": "600x400->600x400",
+      "sourceUrl": "https://www.flickr.com/photos/18179822@N00/5190843536",
+      "originalSourceUrl": "https://www.flickr.com/photos/18179822@N00/5190843536",
+      "mappedSyllabusTerms": [
+        "debt",
+        "liabilities",
+        "gearing or leverage",
+        "capital strength"
+      ],
+      "lessonFit": [
+        "Lesson 29"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "byteSize": 46917
+    },
+    {
+      "key": "keywordBalanceSheetTaxForm",
+      "file": "liabilities-balance-sheet-paperwork.jpg",
+      "path": "assets/images/investment-analysis/keywords/liabilities-balance-sheet-paperwork.jpg",
+      "caption": "Financial paperwork for liabilities and statement discipline",
+      "alt": "A tax or financial form being filled out by hand.",
+      "category": "keyword-financial-statements",
+      "terms": [
+        "liabilities",
+        "balance sheet",
+        "source date",
+        "evidence log"
+      ],
+      "lesson": "Lessons 5 and 29",
+      "uses": [
+        "visualPause",
+        "sourceLens",
+        "discussion"
+      ],
+      "deckHint": "Use for statement-discipline prompts where students identify what source a figure came from.",
+      "objectPosition": "center 50%",
+      "sourcePlatform": "flickr",
+      "source": "https://www.flickr.com/photos/26373139@N08/5512347305",
+      "originalImageUrl": "https://live.staticflickr.com/5292/5512347305_20dda91167_b.jpg",
+      "thumbnailUrl": "https://api.openverse.org/v1/images/6393171c-18d6-459e-addd-0f380484603e/thumb/",
+      "downloadedVia": "openverse-thumbnail",
+      "downloadedFrom": "https://api.openverse.org/v1/images/6393171c-18d6-459e-addd-0f380484603e/thumb/",
+      "credit": "flickr / kenteegardin / BY-SA 2.0",
+      "creator": "kenteegardin",
+      "creatorUrl": "https://www.flickr.com/photos/26373139@N08",
+      "license": "by-sa",
+      "licenseVersion": "2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "attribution": "\"IRS 1040 Tax Form Being Filled Out\" by kenteegardin is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+      "width": 600,
+      "height": 413,
+      "bytes": 31978,
+      "resize": "600x413->600x413",
+      "sourceUrl": "https://www.flickr.com/photos/26373139@N08/5512347305",
+      "originalSourceUrl": "https://www.flickr.com/photos/26373139@N08/5512347305",
+      "mappedSyllabusTerms": [
+        "liabilities",
+        "balance sheet",
+        "source date",
+        "evidence log"
+      ],
+      "lessonFit": [
+        "Lessons 5 and 29"
+      ],
+      "dimensions": {
+        "width": 600,
+        "height": 413
+      },
+      "byteSize": 31978
+    }
+  ],
+  "sourcePolicyReferences": [
+    "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+    "https://commons.wikimedia.org/wiki/Commons:Licensing",
+    "https://www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits",
+    "https://www.pexels.com/license/",
+    "https://help.unsplash.com/en/collections/1463188-unsplash-license"
+  ],
+  "sourceAccessNotes": [
+    "Openverse, Wikimedia Commons, Flickr-origin open media and government/public-domain records were usable from the local CLI.",
+    "Pexels web search returned a JavaScript/browser challenge from the local CLI, so no Pexels item was registered without a verified source URL.",
+    "Unsplash API search requires a client id and returned 401 from the local CLI, so no Unsplash item was registered without a verified source URL."
+  ]
+}

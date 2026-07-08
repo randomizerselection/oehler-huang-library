@@ -1,0 +1,373 @@
+.photoArchivePage {
+  --photo-card-min: 310px;
+}
+
+.photoArchiveHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 26px;
+  align-items: end;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background:
+    linear-gradient(90deg, rgba(4, 9, 11, 0.92), rgba(4, 9, 11, 0.62)),
+    url("../images/investment-analysis/financial-analysis-desk-2024.jpg") center 54% / cover;
+  box-shadow: var(--inv-shadow);
+  padding: clamp(26px, 6vw, 62px);
+}
+
+.photoArchiveHero h1 {
+  max-width: 13ch;
+  margin: 8px 0 0;
+  font-size: clamp(48px, 7vw, 86px);
+  font-weight: 600;
+  line-height: 0.98;
+}
+
+.photoArchiveHero p {
+  max-width: 48rem;
+  margin: 16px 0 0;
+  color: rgba(247, 251, 248, 0.9);
+  font-size: clamp(18px, 2.1vw, 24px);
+  line-height: 1.35;
+}
+
+.photoArchivePattern {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(79, 210, 255, 0.26);
+  border-radius: var(--inv-radius);
+  background: rgba(5, 12, 15, 0.72);
+  padding: 18px;
+}
+
+.photoArchivePattern span {
+  color: var(--inv-cyan);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.photoArchivePattern code,
+.photoArchiveCode code {
+  min-width: 0;
+  color: rgba(247, 251, 248, 0.92);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.photoArchiveToolbar {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.photoArchiveSearch {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(170px, 220px) minmax(170px, 220px) auto;
+  gap: 10px;
+}
+
+.photoArchiveSearch input,
+.photoArchiveSearch select {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--inv-ink);
+  padding: 9px 12px;
+  font-size: 15px;
+}
+
+.photoArchiveSearch select option {
+  color: #081215;
+}
+
+.photoArchiveSearch button,
+.photoArchiveCode button {
+  min-height: 44px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--inv-ink);
+  padding: 9px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.photoArchiveSearch button:hover,
+.photoArchiveCode button:hover {
+  border-color: var(--inv-line-strong);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.photoArchiveCategories,
+.photoArchiveChips,
+.photoArchiveUses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.photoArchiveFilter {
+  min-height: 36px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(16, 27, 32, 0.82);
+  color: var(--inv-muted);
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.photoArchiveFilter span {
+  color: var(--inv-cyan);
+  margin-left: 6px;
+}
+
+.photoArchiveFilter.is-active {
+  border-color: rgba(57, 217, 145, 0.58);
+  background: rgba(57, 217, 145, 0.12);
+  color: var(--inv-ink);
+}
+
+.photoArchiveStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--inv-muted);
+  font-size: 13px;
+}
+
+.photoArchiveStats strong,
+.photoArchiveStats span {
+  border: 1px solid rgba(79, 210, 255, 0.18);
+  border-radius: var(--inv-radius);
+  background: rgba(5, 12, 15, 0.58);
+  padding: 7px 9px;
+}
+
+.photoArchiveStats strong {
+  color: var(--inv-green);
+}
+
+.photoArchiveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--photo-card-min)), 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.photoArchiveCard {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 220px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(16, 27, 32, 0.82);
+}
+
+.photoArchiveImage {
+  min-width: 0;
+  min-height: 0;
+  background: #05090b;
+}
+
+.photoArchiveImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoArchiveMissing {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--inv-red);
+  font-size: 14px;
+}
+
+.photoArchiveBody {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 11px;
+  padding: 16px;
+}
+
+.photoArchiveTopline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.photoArchiveTopline span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.photoArchiveTopline span:last-child {
+  color: var(--inv-amber);
+  text-align: right;
+}
+
+.photoArchiveCard h2 {
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.photoArchiveCard p {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.photoArchiveChips span,
+.photoArchiveUses span {
+  border-radius: var(--inv-radius);
+  padding: 5px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.photoArchiveChips span {
+  border: 1px solid rgba(79, 210, 255, 0.22);
+  color: var(--inv-muted);
+  background: rgba(79, 210, 255, 0.06);
+}
+
+.photoArchiveUses span {
+  border: 1px solid rgba(57, 217, 145, 0.24);
+  color: rgba(247, 251, 248, 0.9);
+  background: rgba(57, 217, 145, 0.08);
+}
+
+.photoArchiveHint {
+  border-left: 3px solid var(--inv-amber);
+  padding-left: 10px;
+}
+
+.photoArchiveMeta {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 13px;
+}
+
+.photoArchiveMeta div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.photoArchiveMeta dt {
+  color: var(--inv-dim);
+  font-weight: 700;
+}
+
+.photoArchiveMeta dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.photoArchiveMeta a {
+  color: var(--inv-cyan);
+  text-decoration: none;
+}
+
+.photoArchiveCode {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(79, 210, 255, 0.16);
+  border-radius: var(--inv-radius);
+  background: rgba(5, 12, 15, 0.58);
+  padding: 8px;
+}
+
+.photoArchiveCode button {
+  min-height: 36px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.photoArchiveEmpty {
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  margin-top: 22px;
+  padding: 18px;
+  color: var(--inv-muted);
+  background: rgba(16, 27, 32, 0.82);
+}
+
+@media (max-width: 900px) {
+  .photoArchiveHero,
+  .photoArchiveSearch {
+    grid-template-columns: 1fr;
+  }
+
+  .photoArchiveHero {
+    padding: 24px;
+  }
+
+  .photoArchiveHero h1 {
+    max-width: 100%;
+    font-size: 46px;
+  }
+
+  .photoArchivePattern {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .photoArchivePage {
+    --photo-card-min: 260px;
+  }
+
+  .photoArchiveHero h1 {
+    font-size: 38px;
+  }
+
+  .photoArchiveCard {
+    grid-template-rows: 190px minmax(0, 1fr);
+  }
+
+  .photoArchiveTopline,
+  .photoArchiveCode {
+    grid-template-columns: 1fr;
+  }
+
+  .photoArchiveTopline {
+    display: grid;
+  }
+
+  .photoArchiveTopline span:last-child {
+    text-align: left;
+  }
+
+  .photoArchiveMeta div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

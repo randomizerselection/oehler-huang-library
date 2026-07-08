@@ -82,7 +82,7 @@ Students move from first opinion to market evidence: investment-analysis purpose
 
 **Guiding question:** What is investment analysis?
 **Student hook:** Tencent is familiar. Would you buy shares in it?
-**Core claim:** Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.
+**Core claim:** Investment analysis evaluates potential return, risk and suitability; shares are risky assets, not guaranteed-profit claims on a whole company.
 **Case role:** listed company
 **Primary output:** foundation-exit-ticket-and-short-explanation - one exit ticket plus a short explanation of why familiarity with Tencent is not enough reason to buy shares
 **Case review:** keep; Tencent fits the entry lesson because students know the company but need to learn that familiarity is not investment analysis.
@@ -90,7 +90,7 @@ Students move from first opinion to market evidence: investment-analysis purpose
 ### Simple lesson flow
 
 - **Hook:** Tencent is familiar. Would you buy shares in it?
-- **Key idea:** Investment analysis uses source-dated evidence before judgement.
+- **Key idea:** Investment analysis evaluates potential return, risk and suitability for an investor.
 - **Try it:** Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.
 - **Decide:** State what evidence is still missing before making any classroom judgement about Tencent shares.
 
@@ -100,7 +100,7 @@ Students move from first opinion to market evidence: investment-analysis purpose
 - **First judgement:** Take a yes/no vote and write one reason before definitions.
 - **Likely naive answer:** A familiar company feels like a good investment.
 - **Missing evidence:** Students need evidence, risk thinking and a correct understanding of what one share gives and does not guarantee.
-- **Key idea:** Investment analysis uses source-dated evidence before judgement.
+- **Key idea:** Investment analysis evaluates potential return, risk and suitability for an investor.
 - **Try it:** Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.
 - **Misconception check:** Familiarity with Tencent is enough reason to buy its shares.
 - **Exit judgement:** State what evidence is still missing before making any classroom judgement about Tencent shares.
@@ -124,11 +124,11 @@ Students move from first opinion to market evidence: investment-analysis purpose
 
 - Hook: ask students 'Would you buy shares in Tencent?' before definitions.
 - Retrieval: activate first opinions about familiar companies and ask what analysis should do.
-- Teach: define investment analysis as using evidence before judgement.
+- Teach: define investment analysis as evaluating potential return, risk and suitability.
 - Evidence practice: use Tencent and asset visuals to separate evidence, familiarity, investment and speculation.
 - Output rehearsal: define asset, recall four asset types, rank them by risk and explain why the ranking is not fixed.
 - Company practice: define a share as one ownership unit and classify what a share gives, may give and does not guarantee.
-- Exit ticket: complete concise blanks on analysis, speculation, asset, risk and share.
+- Exit ticket: complete concise blanks on analysis, speculation, asset, return, risk and share.
 
 ### Retrieval practice
 
@@ -165,7 +165,7 @@ Analyse why confusing investment with speculation could weaken a judgement about
 ### Handout/chapter blocks
 
 - **Source box:** Record Tencent company context, visual sources used, asset examples and one evidence limitation.
-- **Vocabulary:** Define and use: investment analysis, investment, speculation, asset and share.
+- **Vocabulary:** Define and use: investment analysis, investment, risk, speculation, asset and share.
 - **Evidence and Data Analysis:** Case information: Use a short Tencent classroom prompt and asset-type visuals. Questions: 1. Identify/Define: Define investment analysis and asset. 2. Calculate/Interpret: Interpret a qualitative risk ranking. 3. Explain: Explain why familiarity with Tencent is not enough reason to buy shares. 4. Analyse why: Analyse why confusing investment with speculation weakens judgement. 5. Judge: Give a classroom verdict and choose the next action: gather evidence, watch, compare or avoid.
 - **Risk ranking judgement:** Rank four asset types by risk and explain why exact risk depends on the asset.
 - **Misconception check:** Correct this claim: Tencent is familiar, so buying its shares is automatically a good investment.
@@ -186,7 +186,7 @@ Analyse why confusing investment with speculation could weaken a judgement about
 **Student hook:** If you buy a share today, who gets the money and why does the market exist?
 **Core claim:** A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
 **Case role:** exchange/infrastructure case
-**Primary output:** matching-table - one company-code-exchange match plus one trading-friction sentence
+**Primary output:** matching-table - one company-code-exchange match plus a corrected money-flow and trading-friction sentence
 **Case review:** keep; Current anchor fits the unit role and teaching question; replace only if the source-pack audit fails before deck production.
 
 ### Simple lesson flow
@@ -223,21 +223,21 @@ Analyse why confusing investment with speculation could weaken a judgement about
 
 ### Deck arc
 
-- Student hook: Before any trade happens, there is a market behind it. What does that market do?
-- Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.
+- Student hook: If you buy one share of 0700.HK from another investor today, does Tencent automatically receive new money?
+- Hook: start with the money-flow misconception before definitions, using a concrete HKEX visual as evidence context.
 - Retrieval: activate Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.
 - Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new HKEX evidence.
 - Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.
-- Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.
-- Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.
-- Analyse why: students build a data -> concept -> investor implication chain for HKEX.
-- Investment action: students apply the decision rule - If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.
-- Exit ticket: students submit Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.
+- Evidence practice: Use HKEX examples to identify company, exchange, code, source date, secondary-market route and trading friction.
+- Output rehearsal: students build one company-code-exchange source box plus one secondary-market money-flow sentence.
+- Analyse why: students explain why the market still matters for ownership transfer and liquidity even when the company does not receive money from every trade.
+- Investment boundary: students apply the decision rule - A code and exchange identify the security, but they do not prove investment quality.
+- Exit ticket: students correct the starter answer and name one friction or limitation before judging a trade.
 
 ### Retrieval practice
 
 - **Yes/no:** Yes or no: Every market purchase gives new money to the company. Answer: No.
-- **Multiple choice:** Which action best supports a careful judgement about HKEX? Answer: Check dated source evidence and its limitation before judging.
+- **Multiple choice:** Which action best supports a careful Lesson 2 answer? Answer: Identify the company, exchange, stock code, source date and limitation before judging.
 - **Matching/classification:** Match the lesson terms to their meaning before using the HKEX case.
 - **Source check:** Record the source title, date or accessed date, one key figure and one limitation before using HKEX evidence.
 
@@ -246,34 +246,34 @@ Analyse why confusing investment with speculation could weaken a judgement about
 - **Action:** Find the exchange, stock code and basic market access information before analysing a listed company.
 - **Decision rule:** If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.
 - **Fit check:** Ask whether the investor understands where and how the security trades before comparing returns.
-- **Written action:** I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence.
+- **Written action:** I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: gather more evidence before any investment judgement.
 
 ### Analyse why
 
-Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
+Analyse why a stock market still matters even when a secondary-market trade does not automatically give new money to the company.
 
-- Use one dated evidence or data point from the case.
-- Link it to the lesson concept or formula.
-- Explain the investor implication for return, risk, price or evidence quality.
+- Use one dated HKEX source or market-rule fact from the case.
+- Link it to exchange trading, liquidity or trading friction.
+- Explain the implication for ownership transfer, market access or evidence quality.
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.
+**Case information:** Use a short HKEX case extract with company identity, source title, accessed date, code example, a secondary-market trading scenario and one limitation.
 
-1. **Identify/Define:** Identify the source date and define stock exchange.
-2. **Calculate/Interpret:** Interpret one figure or evidence statement from the case and state what it can and cannot prove.
-3. **Explain:** Explain what one HKEX evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.
-5. **Judge:** Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+1. **Identify/Define:** Identify the exchange and stock code, then define stock exchange.
+2. **Calculate/Interpret:** Interpret one market-rule or source-box fact from the case, then classify the scenario as a new share issue or a secondary-market trade.
+3. **Explain:** Explain who receives the money in the scenario and what the company does not automatically receive.
+4. **Analyse why:** Analyse why a stock market still matters for ownership transfer and liquidity even if the company does not receive money from every trade.
+5. **Judge:** Judge whether the case evidence is enough to identify the listed share, then choose the next investment action: gather more evidence, compare with another listed choice, or wait before making any investment judgement.
 
 ### Handout/chapter blocks
 
 - **Source box:** Record HKEX source title, URL, publication date, accessed date, company/security identifier, key figures and limitation.
 - **Vocabulary:** Define and use: stock exchange, listing, stock code, liquidity.
-- **Evidence and Data Analysis:** Case information: Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define stock exchange. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one HKEX evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market. 5. Judge: Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-- **Calculation or judgement task:** Match companies to exchange, code and listing information, then name one reason real trading is not frictionless.
+- **Evidence and Data Analysis:** Case information: Use a short HKEX case extract with company identity, source title, accessed date, code example and one limitation. Questions: 1. Identify/Define: Identify the exchange and define stock exchange. 2. Classify: Decide whether the scenario is new share issue or secondary-market trade. 3. Explain: Explain who receives the money in the scenario. 4. Analyse why: Analyse why a stock market still matters for investors and companies. 5. Judge: State whether the evidence is enough to identify the listed share, and name what evidence is still missing before any investment judgement.
+- **Calculation or judgement task:** Match company, exchange and stock code, then complete one sentence explaining why a secondary-market trade does not automatically fund the company.
 - **Misconception check:** Every market purchase gives new money to the company.
-- **Individual written output:** Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.
+- **Individual written output:** Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence.
 
 ### Exam pattern
 
@@ -281,7 +281,7 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 - Marks: 4
 - Stimulus: exchange or listing extract
 - Calculation: No new calculation; assess evidence reading and judgement.
-- Judgement: Company-code-exchange match and one sentence explaining why trading through a market is not frictionless. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.
+- Judgement: Students must revise the opening money-flow judgement, explain the difference between a company issuing shares and investors trading existing shares, and name one trading friction. Do not require a personal buy/sell recommendation.
 - Shape: Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for HKEX.
 
 ## Lesson 3: Alibaba

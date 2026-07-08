@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review investment analysis, investment versus speculation, assets, risk and shares.",
+  description: "Review investment analysis, return, risk, suitability, assets and shares.",
   questions: [
     {
       id: "investment-analysis-definition",
@@ -10,14 +10,14 @@ window.INVEST.quiz = {
       prompt: "Which response is investment analysis?",
       zh: "哪一个回应属于投资分析？",
       choices: [
-        "Use source-dated evidence before judgement",
+        "Evaluate potential return, risk and suitability",
         "Check whether many people know the company",
         "Wait for the share price to rise first",
         "Ask classmates which share may rise"
       ],
       answer: 0,
-      explanation: "The correct response turns a first opinion into a justified investment judgement supported by source-dated evidence.",
-      explanationZh: "正确回应会把第一印象转化为由有来源和日期的证据支持的投资判断。"
+      explanation: "Investment analysis evaluates an opportunity's potential return, risk and suitability for an investor.",
+      explanationZh: "投资分析评估一个机会对投资者的潜在回报、风险和适合性。"
     },
     {
       id: "investment-speculation",
@@ -26,7 +26,7 @@ window.INVEST.quiz = {
       zh: "哪一个行为最接近投机？",
       choices: [
         "Reading a dated annual report before judging",
-        "Comparing risk and possible return",
+        "Comparing risk and potential return",
         "Buying only because the price rose this morning",
         "Checking whether a company pays dividends"
       ],
@@ -109,8 +109,8 @@ window.INVEST.quiz = {
         "Assets never carry risk"
       ],
       answer: 0,
-      explanation: "The opening question needs investment analysis: evidence, risk, return and the meaning of a share.",
-      explanationZh: "开头问题需要投资分析：证据、风险、回报以及股票的含义。"
+      explanation: "The opening question needs investment analysis: evidence, potential return, risk, suitability and the meaning of a share.",
+      explanationZh: "开头问题需要投资分析：证据、潜在回报、风险、适合性以及股票的含义。"
     }
   ]
 };

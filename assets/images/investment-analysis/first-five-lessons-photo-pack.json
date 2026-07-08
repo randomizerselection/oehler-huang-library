@@ -477,6 +477,56 @@
       "originalHeight": 3712
     },
     {
+      "lesson": 2,
+      "key": "lesson2ExchangeSquareHkexSign2019",
+      "file": "lesson-2/exchange-square-hkex-sign-2019.jpg",
+      "query": "HK Central Exchange Square HKEX shop sign July 2019 SSG 08 Jardine House",
+      "must": [
+        "HKEX",
+        "Exchange Square",
+        "Central"
+      ],
+      "caption": "HKEX sign at Exchange Square, 2019",
+      "alt": "HKEX sign at Exchange Square in Central, Hong Kong.",
+      "commonsTitle": "File:HK ?? Central ???? Exchange Square shop sign ????? HKEX July 2019 SSG 08 Jardine House.jpg",
+      "path": "assets/images/investment-analysis/lesson-2/exchange-square-hkex-sign-2019.jpg",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 844680,
+      "credit": "Wikimedia Commons / Longshing Ma Hon Wonia",
+      "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_shop_sign_%E9%A6%99%E6%B8%AF%E4%BA%A4%E6%98%93%E6%89%80_HKEX_July_2019_SSG_08_Jardine_House.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadedFrom": "https://commons.wikimedia.org/wiki/Special:Redirect/file/HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_shop_sign_%E9%A6%99%E6%B8%AF%E4%BA%A4%E6%98%93%E6%89%80_HKEX_July_2019_SSG_08_Jardine_House.jpg?width=1920",
+      "originalWidth": 3264,
+      "originalHeight": 2448
+    },
+    {
+      "lesson": 2,
+      "key": "lesson2ExchangeSquareCentral2021",
+      "file": "lesson-2/exchange-square-central-2021.jpg",
+      "query": "HK Central Exchange Square April 2021 SS2 01",
+      "must": [
+        "Exchange Square",
+        "Central",
+        "Hong Kong"
+      ],
+      "caption": "Exchange Square, Central Hong Kong, 2021",
+      "alt": "Exchange Square in Central, Hong Kong, where HKEX is located.",
+      "commonsTitle": "File:HK ?? Central ???? Exchange Square April 2021 SS2 01.jpg",
+      "path": "assets/images/investment-analysis/lesson-2/exchange-square-central-2021.jpg",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 914751,
+      "credit": "Wikimedia Commons / Soon Sumia Louam",
+      "source": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_April_2021_SS2_01.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "downloadedFrom": "https://commons.wikimedia.org/wiki/Special:Redirect/file/HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_April_2021_SS2_01.jpg?width=1920",
+      "originalWidth": 4128,
+      "originalHeight": 3096
+    },
+    {
       "lesson": 3,
       "key": "lesson3AlibabaHeadquarters01",
       "file": "lesson-3/alibaba-group-headquarters.jpg",

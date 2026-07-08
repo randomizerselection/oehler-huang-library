@@ -9,40 +9,40 @@ window.INVEST.lesson = {
     sources: [
       {
         label: "HKEX homepage",
-        note: "Used for the official exchange context and source-box habit.",
-        date: "Accessed 2 July 2026",
+        note: "Used for official exchange context and the market-infrastructure source habit.",
+        date: "Accessed 6 July 2026",
         url: "https://www.hkex.com.hk/?sc_lang=en"
       },
       {
         label: "HKEX List with HKEX FAQ",
-        note: "Used for listing context and the stock-code allocation reference.",
-        date: "Accessed 2 July 2026",
+        note: "Used for listing, IPO, primary and secondary listing context, and stock-code allocation.",
+        date: "Accessed 6 July 2026",
         url: "https://www.hkex.com.hk/Global/Exchange/FAQ/List-with-HKEX?sc_lang=en"
       },
       {
-        label: "HKEX Securities Market Operations FAQ",
-        note: "Used for simple trading-friction examples: board lots, odd lots, trading system and liquidity language.",
-        date: "Accessed 2 July 2026",
-        url: "https://www.hkex.com.hk/Global/Exchange/FAQ/Securities-Market/Trading/Securities-Market-Operations?sc_lang=en"
-      },
-      {
         label: "HKEX Securities Market Trading Hours",
-        note: "Used to show that real trading happens inside market rules and time windows.",
-        date: "Updated 16 September 2017; accessed 2 July 2026",
+        note: "Used to show that exchange trading happens inside market sessions and rules.",
+        date: "Accessed 6 July 2026",
         url: "https://www.hkex.com.hk/Services/Trading-hours-and-Severe-Weather-Arrangements/Trading-Hours/Securities-Market?sc_lang=en"
       },
       {
-        label: "HKEX Equities Quote pages",
-        note: "Used as frozen classroom stock-code examples for Tencent 0700, HSBC 0005, AIA 1299 and HKEX 0388.",
-        date: "Accessed 2 July 2026",
-        url: "https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sc_lang=en&sym=700"
+        label: "HKEX Securities Market Operations FAQ",
+        note: "Used for simple friction examples: board lots, odd lots, price spreads and liquidity.",
+        date: "Accessed 6 July 2026",
+        url: "https://www.hkex.com.hk/Global/Exchange/FAQ/Securities-Market/Trading/Securities-Market-Operations?sc_lang=en"
+      },
+      {
+        label: "Wikimedia Commons Exchange Square visuals",
+        note: "Used for the updated HKEX visual evidence in the opener and market-location slides.",
+        date: "Downloaded 6 July 2026",
+        url: "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_shop_sign_%E9%A6%99%E6%B8%AF%E4%BA%A4%E6%98%93%E6%89%80_HKEX_July_2019_SSG_08_Jardine_House.jpg"
       }
     ]
   },
   handout: {
-    title: "Stock market infrastructure sheet",
+    title: "Who gets the money when a share trades?",
     subtitle: "Unit 1 Lesson 2: Why do companies need a stock market?",
-    description: "Use HKEX as the exchange case. Match company, stock code and exchange, then explain why trading through a market is useful but not frictionless.",
+    description: "Use HKEX examples to separate company fundraising from investor-to-investor trading, then explain why exchange trading is useful but still has friction.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -51,27 +51,14 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "1",
-        title: "Source box",
-        instruction: "Record the HKEX source before using the examples.",
+        title: "Starter judgement",
+        instruction: "Answer before definitions. Improve this answer at the end.",
         blocks: [
-          {
-            type: "facts",
-            items: [
-              { label: "Exchange case", value: "HKEX" },
-              { label: "Source title", value: "HKEX website and FAQs" },
-              { label: "Accessed date", value: "2 Jul 2026" },
-              { label: "Example security", value: "Tencent Holdings Limited" },
-              { label: "Example stock code", value: "0700.HK / 00700" },
-              { label: "Exchange", value: "Hong Kong Stock Exchange" },
-              { label: "Evidence limit", value: "A code identifies a security; it does not prove investment quality." }
-            ]
-          },
           {
             type: "prompts",
             prompts: [
-              { label: "URL", prompt: "Write the HKEX source title or URL.", lines: 1 },
-              { label: "Identifier", prompt: "Record one company and its stock code.", lines: 1 },
-              { label: "Limitation", prompt: "What can the code or exchange source not prove by itself?", lines: 2 }
+              { label: "First answer", prompt: "If you buy one share of 0700.HK from another investor today, who gets your money?", lines: 3 },
+              { label: "Reason", prompt: "Why do you think so?", lines: 2 }
             ]
           }
         ]
@@ -79,190 +66,210 @@ window.INVEST.lesson = {
       {
         label: "2",
         title: "Vocabulary",
-        instruction: "Complete the four Lesson 2 definitions.",
+        instruction: "Complete the terms that answer the starter question.",
         blocks: [
           {
             type: "terms",
             terms: [
-              { label: "Stock exchange", prompt: "A stock exchange is a regulated trading __________ for investment instruments such as listed shares.", answer: "venue" },
-              { label: "Listing", prompt: "A listing is formal permission for a company's securities to trade on an __________.", answer: "exchange" },
-              { label: "Stock code", prompt: "A stock code is the short market __________ used to find a listed security.", answer: "identifier" },
-              { label: "Liquidity", prompt: "Liquidity is the ability to trade quickly, at low cost and without causing a large price __________.", answer: "change" }
+              { label: "Stock exchange", prompt: "A stock exchange is a regulated __________ where listed securities can be bought and sold.", answer: "market" },
+              { label: "Listing", prompt: "Listing means a company's shares have permission to __________ on an exchange.", answer: "trade" },
+              { label: "Stock code", prompt: "A stock code is a short __________ used to find a listed security.", answer: "identifier" },
+              { label: "Liquidity", prompt: "Liquidity means an asset can be bought or sold more __________ without a large price change.", answer: "easily" }
             ]
           }
         ]
       },
       {
         label: "3",
-        title: "Company evidence",
-        instruction: "Use HKEX examples to identify company, exchange, code, listing and friction.",
+        title: "Primary or secondary?",
+        instruction: "Decide whether the company receives new money.",
         blocks: [
           {
-            type: "prompts",
-            prompts: [
-              { label: "Company", prompt: "Name the company in one HKEX example.", lines: 1 },
-              { label: "Code", prompt: "Write the stock code that identifies the listed share.", lines: 1 },
-              { label: "Exchange", prompt: "Which exchange does the example trade on?", lines: 1 },
-              { label: "Friction", prompt: "Name one reason market trading is not frictionless.", lines: 2 }
+            type: "table",
+            columns: ["Situation", "Who sells the shares?", "Does the company usually receive new money?"],
+            rows: [
+              ["IPO / new share issue", "", ""],
+              ["Investor buys listed shares from another investor", "", ""]
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "Calculation or judgement task",
-        instruction: "No new formula. Match the market identifiers accurately.",
+        title: "HKEX source box",
+        instruction: "Record the market identity before making an investment judgement.",
         blocks: [
           {
-            type: "table",
-            columns: ["Company", "Stock code", "Exchange"],
-            rows: [
-              { metric: "Tencent Holdings Limited", value: "0700.HK / 00700", shows: "Hong Kong Stock Exchange", limits: "", showsLines: 0, limitLines: 1 },
-              { metric: "HSBC Holdings plc", value: "0005.HK / 00005", shows: "Hong Kong Stock Exchange", limits: "", showsLines: 0, limitLines: 1 },
-              { metric: "AIA Group Limited", value: "1299.HK / 01299", shows: "Hong Kong Stock Exchange", limits: "", showsLines: 0, limitLines: 1 },
-              { metric: "Hong Kong Exchanges and Clearing Limited", value: "0388.HK / 00388", shows: "Hong Kong Stock Exchange", limits: "", showsLines: 0, limitLines: 1 }
+            type: "facts",
+            items: [
+              { label: "Exchange case", value: "HKEX" },
+              { label: "Example company", value: "Tencent Holdings Limited" },
+              { label: "Example code", value: "0700.HK / 00700" },
+              { label: "Source habit", value: "Company, exchange, code, source title, accessed date, limitation" },
+              { label: "Limitation", value: "A code identifies a security; it does not prove investment quality." }
             ]
           }
         ]
       },
       {
         label: "5",
-        title: "Misconception check",
-        instruction: "Correct the claim using primary and secondary market language.",
+        title: "Friction register",
+        instruction: "Markets reduce friction. They do not remove every problem.",
         blocks: [
           {
-            type: "sentence",
-            label: "Weak claim",
-            prompt: "Every market purchase gives new money to the company. Why is this not always correct?",
-            keywords: ["listed share", "exchange", "secondary market", "investor", "company"],
-            lines: 4
+            type: "table",
+            columns: ["Friction", "Why it matters"],
+            rows: [
+              ["Trading hours", ""],
+              ["Board lots or odd lots", ""],
+              ["Low liquidity", ""],
+              ["Price spread or transaction cost", ""]
+            ]
           }
         ]
       },
       {
         label: "6",
-        title: "Individual written output",
-        instruction: "Submit one matched row and one trading-friction sentence.",
+        title: "Exit answer",
+        instruction: "Return to the starter and use the lesson terms.",
         blocks: [
           {
             type: "writing",
-            question: "Complete one company-code-exchange match and explain why trading through a market is not frictionless.",
-            keywords: ["company", "stock code", "exchange", "listing", "liquidity", "trading friction"],
+            question: "Explain why a stock market matters, while making clear why every market purchase does not automatically finance the company.",
+            keywords: ["stock exchange", "listing", "stock code", "secondary market", "liquidity", "friction"],
             lines: 8
           }
         ]
       }
     ],
-    sources: "HKEX source pack: HKEX homepage, List with HKEX FAQ, Securities Market Operations FAQ, Securities Market Trading Hours and HKEX Equities Quote pages, accessed 2 Jul 2026. Frozen classroom source records only; no personal investment recommendation."
+    sources: "HKEX homepage, List with HKEX FAQ, Securities Market Trading Hours, and Securities Market Operations FAQ, accessed 6 Jul 2026. Exchange Square visuals: Wikimedia Commons / Longshing Ma Hon Wonia and Soon Sumia Louam, CC BY-SA 4.0. Classroom example only; not personal investment advice."
   },
   slides: [
     {
-      type: "hero",
-      eyebrow: "Unit 1 Lesson 2",
-      title: "Why do companies need a stock market?",
-      zhTitle: "公司为什么需要股票市场？",
-      subtitle: "HKEX case",
-      kicker: "A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
-      visual: investmentPhotos.marketScreen,
+      type: "discussion",
+      eyebrow: "Starter",
+      title: "Who gets the money?",
+      zhTitle: "谁收到这笔钱？",
+      question: "If you buy one share of 0700.HK from another investor today, does Tencent automatically receive new money?",
+      questionZh: "如果你今天从另一位投资者手中买入一股 0700.HK，腾讯会自动收到新资金吗？",
+      revealTitle: "A market trade is not always company fundraising",
+      answer: "Usually, a normal market purchase transfers ownership from one investor to another. The company raises new money mainly when it issues shares, such as in an IPO or another new share issue.",
+      answerZh: "通常，普通市场交易是投资者之间转让所有权。公司主要在发行新股时筹集新资金，例如 IPO 或再次发行新股。",
+      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019,
       notes: [
-        "Connect directly from Lesson 1: students know company, listed share and share price; now they ask where listed shares trade.",
-        "Keep this lesson on market infrastructure. Do not teach bid, ask, spread, order types or quote-page interpretation."
+        "Take the yes/no vote before defining any term.",
+        "Let the likely wrong answer stay visible as the puzzle the lesson must solve."
       ]
     },
     {
-      type: "discussion",
-      eyebrow: "Case hook",
-      title: "HKEX is market infrastructure",
-      zhTitle: "港交所是市场基础设施",
-      subtitle: "Recover the case before definitions.",
-      ticker: "HKEX source",
-      question: "Before reveal, circle the exchange, one listed share code and the source date.",
-      questionZh: "揭示前，圈出交易所、一个上市股票代码和来源日期。",
-      sourceStamp: "HKEX website and FAQs | accessed 2 Jul 2026",
-      visual: investmentPhotos.financialAnalysisDesk,
-      revealTitle: "HKEX is market infrastructure",
-      answer: "HKEX is the exchange where listed shares can trade. A stock code identifies a listed share; it is not a quality signal or investment recommendation.",
-      answerZh: "港交所是上市股票可以交易的交易所。股票代码识别上市股票，但不是质量信号或投资建议。",
-      sourceFacts: [
-        { label: "Exchange case", value: "HKEX", note: "香港交易所" },
-        { label: "Example code", value: "0700.HK / 00700", note: "腾讯上市股票" },
-        { label: "Source date", value: "Accessed 2 Jul 2026", note: "冻结课堂来源" }
+      type: "outcomes",
+      eyebrow: "Objectives",
+      title: "By the end of this lesson, you can",
+      zhTitle: "本课结束时，你能够",
+      bullets: [
+        "define stock exchange, listing, stock code and liquidity",
+        "match a company to its exchange and stock code using a source box",
+        "explain why exchange trading matters without claiming every trade funds the company"
       ],
-      notes: "Use this as a question-first hook. Students record source details in the handout, but the projected slide should teach the infrastructure idea."
+      zhBullets: [
+        "定义证券交易所、上市、股票代码和流动性",
+        "用来源框把公司、交易所和股票代码配对",
+        "解释交易所交易为什么重要，同时不误说每笔交易都给公司融资"
+      ],
+      phases: ["Define", "Match", "Explain"]
     },
     {
       type: "peerTask",
       taskType: "definitionRecall",
       eyebrow: "Retrieval",
-      title: "What did Lesson 1 give us?",
-      zhTitle: "第1课给了我们什么？",
-      prompt: "Write one-sentence definitions before reveal.",
-      promptZh: "先写一句定义，再揭示答案。",
+      title: "Lesson 1 terms you need today",
+      zhTitle: "今天需要用到的第一课术语",
+      prompt: "Write the missing idea first, then reveal and correct.",
+      promptZh: "先写出缺失的概念，再揭示答案并修改。",
       definitionItems: [
         {
           label: "1",
-          term: "Listed share",
-          termZh: "上市股票",
-          answer: "A listed share is a share that has formal permission to trade on a stock exchange.",
-          answerZh: "上市股票是指已经获得正式许可、可以在证券交易所交易的股票。"
-        },
-        {
-          label: "2",
-          term: "Share price",
-          termZh: "股价",
-          answer: "A share price is the market price of one share at a specific time.",
-          answerZh: "股价是指在特定时间一股股票的市场价格。"
-        },
-        {
-          label: "3",
-          term: "Evidence before opinion",
-          termZh: "先证据后观点",
-          answer: "Evidence before opinion is the habit of using source-dated evidence about an asset, business, return, risk and price before making a judgement.",
-          answerZh: "先证据后观点是指在作出判断之前，先使用关于资产、业务、回报、风险和价格的带有来源日期的证据。"
+          term: "Share",
+          termZh: "股票",
+          answer: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
+          answerZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。"
         }
       ],
-      sharePrompt: "Improve one definition before we add stock-market knowledge.",
-      sharePromptZh: "在加入股票市场知识前，改进一个定义。",
-      notes: "Use this as the retrieval diagnostic. If students miss share versus company, reteach before continuing."
+      sharePrompt: "Bridge: if a share is ownership, a market needs a way to transfer that ownership.",
+      sharePromptZh: "衔接：如果股票代表所有权，市场就需要一种转让所有权的方式。"
     },
     {
-      type: "outcomes",
-      eyebrow: "Objectives",
-      title: "By the end, you can",
-      zhTitle: "本节课结束时，你能够",
-      phases: ["Define", "Match", "Explain"],
-      bullets: [
-        "define exchange, listing, code and liquidity in order",
-        "build the company-code-exchange knowledge chain",
-        "explain why market trading still has friction"
+      type: "peerTask",
+      taskType: "definitionRecall",
+      eyebrow: "Retrieval",
+      title: "Evidence before judgement",
+      zhTitle: "先证据，后判断",
+      prompt: "Recall the course method before we use the market example.",
+      promptZh: "在使用市场例子前，先回忆本课程的方法。",
+      definitionItems: [
+        {
+          label: "2",
+          term: "Investment analysis",
+          termZh: "投资分析",
+          answer: "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor.",
+          answerZh: "投资分析是评估一个投资机会的过程，用来判断它对某位投资者的潜在回报、风险和适合性。"
+        }
       ],
-      zhBullets: [
-        "按顺序定义交易所、上市、代码和流动性",
-        "构建公司-代码-交易所知识链",
-        "解释为什么市场交易仍有摩擦"
+      sharePrompt: "Bridge: the market route is part of the evidence before judgement.",
+      sharePromptZh: "衔接：市场路径是判断前证据的一部分。"
+    },
+    {
+      type: "peerTask",
+      taskType: "definitionRecall",
+      eyebrow: "Retrieval",
+      title: "What kind of thing is a share?",
+      zhTitle: "股票属于什么？",
+      prompt: "Recall the asset category before we discuss trading.",
+      promptZh: "讨论交易前，先回忆资产类别。",
+      definitionItems: [
+        {
+          label: "3",
+          term: "Asset",
+          termZh: "资产",
+          answer: "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
+          answerZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。"
+        }
       ],
-      notes: "Exactly three objectives aligned to the primary output."
+      sharePrompt: "Bridge: if a share is an asset, the market is the route through which that asset can change hands.",
+      sharePromptZh: "衔接：如果股票是一种资产，市场就是它转手的路径。"
     },
     {
       type: "section",
       eyebrow: "Part 1",
-      part: "1",
-      title: "Knowledge step 1: a market lets listed shares trade",
-      zhTitle: "知识步骤1：市场让上市股票交易",
-      notes: "Cycle 1: retrieve listed-share identity, attempt the exchange role, reveal the definition and core claim."
+      title: "Market purpose",
+      zhTitle: "市场的作用",
+      subtitle: "First separate company fundraising from investor trading",
+      notes: "This section answers who gets the money before adding more vocabulary."
+    },
+    {
+      type: "visualPause",
+      title: "Exchange Square",
+      visual: investmentPhotos.lesson2ExchangeSquareCentral2021,
+      notes: [
+        "Let students identify that a market is an institution with rules, location, systems and participants.",
+        "Prompt silently: what job must this institution do?"
+      ]
     },
     {
       type: "discussion",
-      eyebrow: "Try first",
-      title: "What problem does a market solve?",
-      zhTitle: "市场解决什么问题？",
-      visual: investmentPhotos.investorMeetingReport,
-      question: "If one student wants to buy a listed share and another wants to sell it, what problem does an exchange help solve?",
-      zh: "如果一个学生想买上市股票，另一个学生想卖，交易所帮助解决什么问题？",
-      revealTitle: "A market helps buyers and sellers meet under rules",
-      answer: "A stock exchange gives listed securities a regulated place to trade, so buyers and sellers do not have to find each other privately.",
-      answerZh: "证券交易所为上市证券提供受监管的交易场所，使买方和卖方不必私下寻找对方。",
-      notes: "Avoid implying perfect trading. The next section introduces frictions."
+      eyebrow: "Market problem",
+      title: "What problem does a stock market solve?",
+      zhTitle: "股票市场解决什么问题？",
+      question: "If thousands of investors want to buy or sell the same listed share, what would be difficult without an organised market?",
+      questionZh: "如果成千上万的投资者想买卖同一只上市股票，没有有组织的市场会有什么困难？",
+      revealTitle: "The market makes transfer possible under rules",
+      answer: "Investors would need to find each other, agree on price, follow rules, settle the trade and record ownership. A stock exchange reduces those problems by organising trading in listed securities.",
+      answerZh: "投资者需要互相找到对方、商定价格、遵守规则、完成结算并记录所有权。证券交易所通过组织上市证券交易来减少这些困难。",
+      visual: investmentPhotos.lesson2HkexBuilding01,
+      notes: [
+        "Accept simple answers: find a buyer, find a seller, know the price, follow rules.",
+        "Do not yet use liquidity as the first definition; let students feel the problem first."
+      ]
     },
     {
       type: "term",
@@ -270,70 +277,119 @@ window.INVEST.lesson = {
       title: "Stock exchange",
       term: "Stock exchange",
       termZh: "证券交易所",
-      definition: "A stock exchange is a regulated trading <span class=\"blank invReveal\" data-answer=\"venue\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">venue</span></span> where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.",
+      definition: "A stock exchange is a regulated trading venue where investment instruments such as listed shares, ETFs and bonds can be bought and sold under market rules.",
       definitionZh: "证券交易所是受监管的交易场所，上市股票、ETF 和债券等投资工具可以在其中按照市场规则买卖。",
-      notes: "Keep this definition broad. HKEX is the case, not the only possible exchange."
+      notes: [
+        "Students copy the full sentence.",
+        "Emphasise regulated market, not a website that gives stock tips."
+      ]
     },
     {
       type: "compare",
-      eyebrow: "Key idea",
-      title: "Primary issue vs secondary trade",
-      zhTitle: "一级发行与二级交易",
-      leftTitle: "Primary issue",
-      leftTitleZh: "一级发行",
-      rightTitle: "Secondary-market trade",
-      rightTitleZh: "二级市场交易",
+      eyebrow: "Do not mix these up",
+      title: "Primary issue vs secondary-market trade",
+      zhTitle: "一级发行与二级市场交易",
+      leftTitle: "Company raises money",
+      leftTitleZh: "公司筹资",
+      rightTitle: "Investors trade with each other",
+      rightTitleZh: "投资者之间交易",
       left: [
-        { label: "1", text: "The company sells new shares.", zh: "公司出售新股票。" },
-        { label: "2", text: "Money can go to the company.", zh: "资金可以进入公司。" }
+        {
+          label: "A",
+          text: "A company issues new shares, such as in an IPO or another share issue.",
+          zh: "公司发行新股，例如 IPO 或再次发行。"
+        },
+        {
+          label: "B",
+          text: "The company can receive new capital, after costs and rules.",
+          zh: "扣除成本并遵守规则后，公司可以获得新资本。"
+        }
       ],
       right: [
-        { label: "1", text: "One investor sells to another investor.", zh: "一个投资者卖给另一个投资者。" },
-        { label: "2", text: "The company does not automatically receive new money.", zh: "公司不会自动收到新资金。" }
+        {
+          label: "C",
+          text: "One investor buys existing listed shares from another investor.",
+          zh: "一位投资者从另一位投资者手中买入已上市股票。"
+        },
+        {
+          label: "D",
+          text: "Ownership changes hands; the company does not automatically receive new money.",
+          zh: "所有权转手；公司不会自动收到新资金。"
+        }
       ],
-      prompt: "Which side can give new money to the company?",
-      promptZh: "哪一边可能给公司带来新资金？",
-      notes: "This is the Lesson 2 core claim from the course map. Keep the contrast simple: primary issue can fund the company; secondary-market trade can be investor to investor."
+      prompt: "Starter correction: Which side describes a normal market purchase today?",
+      promptZh: "修正开场问题：今天普通的市场买入属于哪一边？",
+      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Hinge check",
+      title: "Does the company get the money?",
+      zhTitle: "公司会收到这笔钱吗？",
+      prompt: "Vote first. Reveal only after students give a reason.",
+      promptZh: "先投票。学生说出理由后再揭示。",
+      items: [
+        {
+          text: "A company can raise money when it issues new shares.",
+          zh: "公司发行新股时可以筹集资金。",
+          answer: true,
+          answerZh: "是",
+          reason: "That is a primary issue or fundraising event.",
+          reasonZh: "这是一级发行或筹资事件。"
+        },
+        {
+          text: "A normal market purchase from another investor automatically gives new money to the company.",
+          zh: "从另一位投资者手中进行普通市场买入，会自动给公司新资金。",
+          answer: false,
+          answerZh: "否",
+          reason: "It usually transfers existing shares between investors.",
+          reasonZh: "这通常是在投资者之间转让已有股票。"
+        },
+        {
+          text: "The stock market can still matter even when the company does not receive money from every trade.",
+          zh: "即使公司不是每笔交易都收到钱，股票市场仍然重要。",
+          answer: true,
+          answerZh: "是",
+          reason: "It helps investors transfer ownership and can make future fundraising more attractive.",
+          reasonZh: "它帮助投资者转让所有权，也可能使未来融资更有吸引力。"
+        }
+      ],
+      visual: investmentPhotos.lesson2HkexConnectHall2018
     },
     {
       type: "quiz",
-      eyebrow: "Hinge check",
-      title: "Check 1: what is the exchange role?",
-      zhTitle: "检查1：交易所的作用是什么？",
-      visual: investmentPhotos.tabletFinancialChart,
-      question: "Which statement best describes HKEX in this lesson?",
-      zh: "哪一句最能描述本课中的 HKEX？",
+      eyebrow: "Quick check",
+      title: "Who receives the money?",
+      zhTitle: "谁收到钱？",
+      question: "An investor buys listed Tencent shares from another investor on HKEX. What is the safest statement?",
+      zh: "一位投资者在港交所从另一位投资者手中买入已上市的腾讯股票。最稳妥的说法是什么？",
       choices: [
-        "It guarantees every listed share is a good investment.",
-        "It is a regulated market infrastructure where listed securities can trade.",
-        "It removes every trading cost and friction.",
-        "It gives new money to the company every time an investor buys from another investor."
+        "The trade transfers ownership between investors.",
+        "Tencent automatically receives all the purchase money.",
+        "The stock code proves Tencent is a good investment.",
+        "No market rules are involved."
       ],
-      answer: 1,
-      explanation: "Correct: HKEX is market infrastructure. It helps trading happen, but it does not guarantee quality or remove all frictions.",
-      explanationZh: "正确：HKEX 是市场基础设施。它帮助交易发生，但不保证投资质量，也不消除所有摩擦。",
-      notes: "Use responses to catch the two target misconceptions: guaranteed good investment and every trade funds the company."
+      answer: 0,
+      explanation: "A secondary-market trade normally transfers existing shares between investors. It is not the same as a new share issue.",
+      explanationZh: "二级市场交易通常是在投资者之间转让已有股票，不等于新股发行。",
+      visual: investmentPhotos.lesson2ExchangeSquareCentral2021
     },
     {
       type: "section",
       eyebrow: "Part 2",
-      part: "2",
-      title: "Knowledge step 2: listing and code make a share findable",
-      zhTitle: "知识步骤2：上市和代码让股票可查找",
-      notes: "Cycle 2: identify how a listed share is found in market data."
+      title: "Listing and codes",
+      zhTitle: "上市与代码",
+      subtitle: "A market needs a precise way to identify what is trading",
+      notes: "This section turns the institution into a source-box habit."
     },
     {
-      type: "discussion",
-      eyebrow: "Retrieve",
-      title: "Why is the code useful?",
-      zhTitle: "代码为什么有用？",
-      visual: investmentPhotos.smartphoneMarketChart,
-      question: "If you only search 'Tencent', what confusion might happen? How does 0700.HK help?",
-      zh: "如果只搜索“腾讯”，可能会产生什么混淆？0700.HK 如何帮助？",
-      revealTitle: "A code identifies one listed security",
-      answer: "A company name can be broad. A stock code helps an analyst find one listed security in a market data source.",
-      answerZh: "公司名称可能很宽泛。股票代码帮助分析者在市场数据来源中找到一个上市证券。",
-      notes: "Keep this to identifier discipline, not quote-page reading."
+      type: "visualPause",
+      title: "HKEX Connect Hall",
+      visual: investmentPhotos.lesson2HkexConnectHall2018,
+      notes: [
+        "Use this as a reset: students should now ask what exactly is allowed to trade here.",
+        "Keep the slide quiet; move to the listing definition next."
+      ]
     },
     {
       type: "term",
@@ -341,9 +397,12 @@ window.INVEST.lesson = {
       title: "Listing",
       term: "Listing",
       termZh: "上市",
-      definition: "A listing is the formal <span class=\"blank invReveal\" data-answer=\"permission\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">permission</span></span> for a company's securities to trade on a stock exchange after the company meets the exchange's requirements.",
+      definition: "A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements.",
       definitionZh: "上市是指公司证券在满足交易所要求后，获得在证券交易所交易的正式许可。",
-      notes: "Students should not overstate this as a quality guarantee."
+      notes: [
+        "Keep this simple. Do not go into full listing requirements.",
+        "Connect to the question: a listed share can trade after the listing event."
+      ]
     },
     {
       type: "term",
@@ -351,112 +410,163 @@ window.INVEST.lesson = {
       title: "Stock code",
       term: "Stock code",
       termZh: "股票代码",
-      definition: "A stock code is the short market <span class=\"blank invReveal\" data-answer=\"identifier\" style=\"--blank-width:12ch\"><span class=\"invBlankText\">identifier</span></span> used to find a listed security on an exchange or market-data system.",
+      definition: "A stock code is the short market identifier used to find a listed security on an exchange or market-data system.",
       definitionZh: "股票代码是用于在交易所或市场数据系统中查找某一上市证券的简短市场识别代码。",
-      notes: "Use Tencent 0700.HK, HSBC 0005.HK and AIA 1299.HK as classroom examples."
+      notes: [
+        "Use 0700.HK as the class example.",
+        "Make clear that a code identifies the security; it is not evidence that the share is good value."
+      ]
     },
     {
       type: "flow",
-      eyebrow: "Try first",
-      title: "How does a share become findable?",
-      zhTitle: "股票如何变得可查找？",
-      visual: investmentPhotos.financeChartWhiteboard,
+      eyebrow: "Source habit",
+      title: "Find the listed share",
+      zhTitle: "找到上市股票",
       flowStyle: "sequence",
       steps: [
-        { text: "A company applies for __________.", answer: "listing", zh: "公司申请上市。" },
-        { text: "The exchange gives market __________.", answer: "access", zh: "交易所提供市场准入。" },
-        { text: "A stock __________ helps analysts find the security.", answer: "code", zh: "股票代码帮助分析者找到证券。" },
-        { text: "The code must be recorded with the source and __________.", answer: "date", zh: "代码必须和来源及日期一起记录。" }
+        {
+          text: "Company: Tencent Holdings Limited",
+          zh: "公司：腾讯控股有限公司"
+        },
+        {
+          text: "Exchange: HKEX / Hong Kong Stock Exchange",
+          zh: "交易所：港交所 / 香港联合交易所"
+        },
+        {
+          text: "Stock code: 0700.HK / 00700",
+          zh: "股票代码：0700.HK / 00700"
+        },
+        {
+          text: "Source box: title, URL, accessed date, limitation",
+          zh: "来源框：标题、网址、访问日期、局限"
+        }
       ],
-      notes: "This is a source habit flow, not a full IPO process."
+      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019,
+      notes: [
+        "This is a source-box routine, not an instruction to buy Tencent.",
+        "Students copy the route on the handout."
+      ]
+    },
+    {
+      type: "dataSnapshot",
+      eyebrow: "HKEX source box",
+      title: "Identifier first, judgement later",
+      zhTitle: "先识别，再判断",
+      focusMetrics: [
+        { label: "Company", value: "Tencent" },
+        { label: "Exchange", value: "HKEX" },
+        { label: "Code", value: "0700.HK" }
+      ],
+      note: "These facts identify the listed security. They do not yet tell us whether the price is attractive, the business is strong, or the risk is acceptable.",
+      noteZh: "这些事实只能识别上市证券，还不能说明价格是否有吸引力、企业是否强、风险是否可接受。",
+      task: "Write one sentence that starts: A stock code helps me find the share, but it does not prove...",
+      taskZh: "写一句话：股票代码帮助我找到股票，但它不能证明……",
+      visual: investmentPhotos.lesson2HkexBuilding01
     },
     {
       type: "peerTask",
-      eyebrow: "Practice check",
-      title: "Match company, code and exchange",
-      zhTitle: "匹配公司、代码和交易所",
       taskType: "sort",
-      categories: ["Tencent", "HSBC", "AIA", "HKEX"],
+      eyebrow: "Try it",
+      title: "Match the market identity",
+      zhTitle: "配对市场身份",
       steps: [
-        { text: "Match each company to its HKEX classroom code.", zh: "把每家公司与课堂中的 HKEX 代码匹配。" },
-        { text: "Write the exchange for one matched row.", zh: "为其中一行写出交易所。" },
-        { text: "Add one source limitation before you judge anything.", zh: "判断前添加一个来源局限性。" }
+        {
+          text: "Sort each card under Company, Exchange, Code, or Limitation.",
+          zh: "把每张卡片分到公司、交易所、代码或局限。"
+        },
+        {
+          text: "Use the finished sort to build one source-box sentence.",
+          zh: "用完成的分类写一个来源框句子。"
+        }
       ],
+      categories: ["Company", "Exchange", "Code", "Limitation"],
       cases: [
-        { label: "A", text: "0700.HK / 00700" },
-        { label: "B", text: "0005.HK / 00005" },
-        { label: "C", text: "1299.HK / 01299" },
-        { label: "D", text: "0388.HK / 00388" }
+        { label: "A", text: "Tencent Holdings Limited" },
+        { label: "B", text: "HKEX" },
+        { label: "C", text: "0700.HK" },
+        { label: "D", text: "Does not prove investment quality" },
+        { label: "E", text: "AIA Group Limited" },
+        { label: "F", text: "1299.HK" },
+        { label: "G", text: "Hong Kong Stock Exchange" },
+        { label: "H", text: "Need date and source before judgement" }
       ],
-      sampleAnswer: "Tencent - 0700.HK - Hong Kong Stock Exchange. This code identifies a listed share, but it does not prove the share is a good investment.",
-      sampleAnswerZh: "腾讯 - 0700.HK - 香港交易所。这个代码识别一只上市股票，但不能证明它是好投资。",
-      notes: "The individual written check is one company-code-exchange row plus one limitation."
+      sampleAnswer: "Tencent Holdings Limited trades on HKEX under 0700.HK; the code identifies the security but does not prove it is a good investment.",
+      sampleAnswerZh: "腾讯控股在港交所以 0700.HK 交易；代码识别证券，但不能证明它是好投资。",
+      visual: investmentPhotos.lesson2HkexForumInterior2018
     },
     {
       type: "classificationTask",
-      eyebrow: "Hinge check",
-      title: "Check 2: classify the code claim",
-      zhTitle: "检查2：给代码说法分类",
-      prompt: "Classify each claim after finding a stock code.",
-      promptZh: "找到股票代码后，给每个说法分类。",
+      eyebrow: "Misconception sort",
+      title: "What can a stock code prove?",
+      zhTitle: "股票代码能证明什么？",
+      prompt: "Classify each claim.",
+      promptZh: "判断每个说法属于哪一类。",
       categories: [
         { title: "Identifier", zhTitle: "识别信息", clue: "helps find the security" },
         { title: "Overclaim", zhTitle: "过度推断", clue: "claims too much" },
-        { title: "Source habit", zhTitle: "来源习惯", clue: "keeps evidence dated" }
+        { title: "Source habit", zhTitle: "来源习惯", clue: "records evidence before judgement" }
       ],
       items: [
         {
           label: "A",
-          text: "The code helps identify one listed security in a market source.",
-          zh: "代码帮助在市场来源中识别一个上市证券。",
+          text: "0700.HK helps us find Tencent in market data.",
+          zh: "0700.HK 帮助我们在市场数据中找到腾讯。",
           answer: "Identifier",
           answerZh: "识别信息",
-          reason: "A code is useful for finding the security accurately.",
-          reasonZh: "代码有助于准确找到证券。"
+          reason: "It identifies the listed security.",
+          reasonZh: "它识别上市证券。"
         },
         {
           label: "B",
-          text: "The code proves the share is a good investment.",
-          zh: "代码证明这只股票是好投资。",
+          text: "A stock code proves the share is a good investment.",
+          zh: "股票代码证明这只股票是好投资。",
           answer: "Overclaim",
           answerZh: "过度推断",
-          reason: "A code does not prove quality, value, risk or return.",
-          reasonZh: "代码不能证明质量、价值、风险或回报。"
+          reason: "A code is not valuation evidence.",
+          reasonZh: "代码不是估值证据。"
         },
         {
           label: "C",
-          text: "The code should be recorded with the source and date.",
-          zh: "代码应与来源和日期一起记录。",
+          text: "Record the source title and accessed date.",
+          zh: "记录来源标题和访问日期。",
           answer: "Source habit",
           answerZh: "来源习惯",
-          reason: "Dated records make later evidence checks possible.",
-          reasonZh: "带日期的记录让后续证据检查成为可能。"
+          reason: "This makes the evidence checkable.",
+          reasonZh: "这让证据可以被核查。"
+        },
+        {
+          label: "D",
+          text: "The exchange name helps identify the market where trading occurs.",
+          zh: "交易所名称帮助识别交易发生的市场。",
+          answer: "Identifier",
+          answerZh: "识别信息",
+          reason: "Market identity is part of the security record.",
+          reasonZh: "市场身份是证券记录的一部分。"
         }
       ],
-      sharePrompt: "Defend one classification with a reason.",
-      sharePromptZh: "用理由说明一个分类。",
-      notes: "This is the formative decision point before moving to liquidity and friction."
+      sharePrompt: "Rule: identify the security before judging the investment.",
+      sharePromptZh: "规则：先识别证券，再判断投资。",
+      visual: investmentPhotos.lesson2HkexMuseumShareExchange01
     },
     {
       type: "section",
       eyebrow: "Part 3",
-      part: "3",
-      title: "Knowledge step 3: liquidity affects trading ease",
-      zhTitle: "知识步骤3：流动性影响交易难易度",
-      notes: "Cycle 3: show that an exchange helps trading, but trading still has rules, time windows, liquidity and costs."
+      title: "Liquidity and friction",
+      zhTitle: "流动性与摩擦",
+      subtitle: "Markets help trading, but trading is not magic",
+      notes: "This section makes the lesson more analytical than a definition list."
     },
     {
       type: "discussion",
-      eyebrow: "Try first",
-      title: "Why is trading not frictionless?",
-      zhTitle: "为什么交易不是无摩擦的？",
-      visual: investmentPhotos.businessChartsPaper,
-      question: "If a market exists, why might buying or selling still not be instant, free or exactly at the price you hoped for?",
-      zh: "即使有市场，为什么买卖仍可能不是即时、免费或按你希望的价格完成？",
+      eyebrow: "Friction question",
+      title: "Why is trading still not frictionless?",
+      zhTitle: "为什么交易仍然不是零摩擦？",
+      question: "If an exchange helps buyers and sellers meet, why might a real trade still be slower, costlier or harder than a beginner expects?",
+      questionZh: "如果交易所帮助买卖双方相遇，为什么真实交易仍可能比初学者想象的更慢、更贵或更难？",
       revealTitle: "Markets reduce friction; they do not erase it",
-      answer: "Trading still depends on rules, trading hours, trading units, available buyers or sellers, costs and price movement.",
-      answerZh: "交易仍取决于规则、交易时段、交易单位、可用买方或卖方、成本和价格变化。",
-      notes: "Keep this at a simple friction level. Avoid bid/ask/spread and order types."
+      answer: "A real trade happens inside rules: trading hours, order types, trading units, available buyers and sellers, spreads and costs. More liquidity usually makes trading easier, but it does not remove risk.",
+      answerZh: "真实交易受到规则限制：交易时段、订单类型、交易单位、买卖双方数量、买卖差价和成本。流动性越高通常越容易交易，但不会消除风险。",
+      visual: investmentPhotos.lesson2HkexTradeLobby2007
     },
     {
       type: "term",
@@ -464,114 +574,59 @@ window.INVEST.lesson = {
       title: "Liquidity",
       term: "Liquidity",
       termZh: "流动性",
-      definition: "Liquidity is the ability to trade an asset <span class=\"blank invReveal\" data-answer=\"quickly\" style=\"--blank-width:9ch\"><span class=\"invBlankText\">quickly</span></span>, at relatively low cost and in meaningful quantities without causing a large price change.",
+      definition: "Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change.",
       definitionZh: "流动性是指能够较快、以相对较低成本并以有意义的数量交易某项资产，而不会造成较大价格变动的能力。",
-      notes: "The HKEX FAQ odd-lot example supports the basic idea that lower liquidity can affect trading terms."
+      notes: [
+        "Connect to market usefulness: more possible buyers and sellers can reduce trading difficulty.",
+        "Do not imply that liquid assets are automatically safe."
+      ]
     },
     {
       type: "dataSnapshot",
-      eyebrow: "Evidence",
-      title: "Three trading facts",
-      zhTitle: "三个交易事实",
-      visual: investmentPhotos.financialAnalysisDesk,
-      sourceStamp: "HKEX FAQs and trading-hours pages | accessed 2 Jul 2026",
+      eyebrow: "Market rules",
+      title: "Trading happens inside rules",
+      zhTitle: "交易发生在规则之内",
       focusMetrics: [
-        { label: "Market", value: "Regulated trading place" },
-        { label: "Code", value: "Short identifier" },
-        { label: "Friction", value: "Rules, time, units, liquidity" }
+        { label: "Session", value: "9:30-12:00" },
+        { label: "Session", value: "13:00-16:00" },
+        { label: "Unit", value: "Board lot" }
       ],
-      task: "Explain why a market helps but trading still has friction.",
-      taskZh: "解释市场为什么有帮助，但交易仍有摩擦。",
-      note: "HKEX sources identify where shares trade; they do not prove investment quality.",
-      noteZh: "HKEX 来源识别股票在哪里交易；不能证明投资质量。",
-      notes: "Exactly three metrics, with limitation language."
+      note: "HKEX securities trading uses defined sessions, and Hong Kong listed securities trade in board lots. Rules like these are normal market infrastructure.",
+      noteZh: "港交所证券交易有规定交易时段，香港上市证券以每手为交易单位。这些规则是正常的市场基础设施。",
+      task: "Name one rule that could matter before an investor tries to trade.",
+      taskZh: "说出一个投资者交易前需要注意的规则。",
+      visual: investmentPhotos.lesson2HkexConnectHall2018
     },
     {
       type: "riskRegister",
       eyebrow: "Friction register",
-      title: "What can make trading less easy?",
-      zhTitle: "什么会让交易不那么容易？",
-      visual: investmentPhotos.shippingPort,
-      revealEffects: true,
-      effectLabel: "Why it matters",
+      title: "What can make trading harder?",
+      zhTitle: "什么会让交易更困难？",
       table: [
-        ["Friction", "Investor question", "Likely effect"],
-        ["Trading hours", "Is the market open now?", "Trading happens inside market time windows."],
-        ["Trading unit", "Can I trade the exact amount easily?", "Some quantities may be harder to match."],
-        ["Liquidity", "Are there enough buyers and sellers?", "Thin trading can make the price harder to achieve."],
-        ["Costs and rules", "What rules or costs apply?", "The final result can differ from the simple plan."]
+        ["Friction", "Student question", "Likely effect"],
+        ["Trading hours", "Is the market open now?", "You may need to wait for the next session."],
+        ["Board lot", "Can I buy exactly the number of shares I want?", "Trading units can shape order size."],
+        ["Low liquidity", "Are there enough buyers and sellers near my price?", "The trade may move price or take longer."],
+        ["Spread and costs", "What is the gap between buy and sell prices?", "The cost of entering or exiting can be higher."]
       ],
-      prompt: "Choose one friction and complete: market helps because..., but trading is not frictionless because...",
-      promptZh: "选择一个摩擦，完成句子：市场有帮助，因为……但交易不是无摩擦的，因为……",
-      answer: "A good answer names the exchange role and one specific friction without giving investment advice.",
-      notes: "This is the lesson's trading-friction prompt."
-    },
-    {
-      type: "yesNoCheck",
-      eyebrow: "Hinge check",
-      title: "Check 3: secondary-market misconception",
-      zhTitle: "检查3：二级市场误解",
-      prompt: "Vote yes or no before reveal. Which statements are safe?",
-      promptZh: "揭示前先投票：哪些说法是稳妥的？",
-      items: [
-        {
-          text: "Every market purchase gives new money to the company.",
-          zh: "每一次市场购买都会给公司带来新资金。",
-          answer: false,
-          answerZh: "否",
-          reason: "A secondary-market trade can be investor to investor.",
-          reasonZh: "二级市场交易可以是投资者之间的交易。"
-        },
-        {
-          text: "A stock exchange helps listed shares trade under rules.",
-          zh: "证券交易所帮助上市股票在规则下交易。",
-          answer: true,
-          answerZh: "是",
-          reason: "That is the core exchange role in this lesson.",
-          reasonZh: "这是本课中交易所的核心作用。"
-        },
-        {
-          text: "A stock exchange removes all risk and friction.",
-          zh: "证券交易所消除所有风险和摩擦。",
-          answer: false,
-          answerZh: "否",
-          reason: "Trading can still involve time, units, liquidity, price movement and costs.",
-          reasonZh: "交易仍可能涉及时间、交易单位、流动性、价格变化和成本。"
-        }
-      ],
-      notes: "This should be correct before the output rehearsal."
-    },
-    {
-      type: "section",
-      eyebrow: "Part 4",
-      part: "4",
-      title: "Use the knowledge chain in one output",
-      zhTitle: "在一个输出中使用知识链",
-      notes: "Cycle 4: assemble the company-code-exchange match and friction sentence."
-    },
-    {
-      type: "flow",
-      eyebrow: "Output rehearsal",
-      title: "Build the matching-table answer",
-      zhTitle: "构建匹配表答案",
-      visual: investmentPhotos.financeChartWhiteboard,
-      flowStyle: "sequence",
-      steps: [
-        { text: "Company: __________ Holdings Limited.", answer: "Tencent", zh: "公司：腾讯控股有限公司。" },
-        { text: "Stock code: __________.HK / HKEX 00700.", answer: "0700", zh: "股票代码：0700.HK / 港交所 00700。" },
-        { text: "Exchange: Hong Kong Stock __________.", answer: "Exchange", zh: "交易所：香港交易所。" },
-        { text: "Limitation: a code identifies the share; it does not prove investment __________.", answer: "quality", zh: "局限性：代码识别股票，但不能证明投资质量。" }
-      ],
-      notes: "Students can use another matched row from the handout if they prefer."
+      effectLabel: "Why it matters",
+      revealEffects: true,
+      prompt: "Best one-sentence rule:",
+      answer: "Check the market route and the trading friction before judging a share.",
+      promptZh: "最佳一句话规则：判断股票前，先检查市场路径和交易摩擦。",
+      visual: investmentPhotos.smartphoneMarketChart
     },
     {
       type: "peerTask",
       taskType: "missingSentence",
-      eyebrow: "Output rehearsal",
-      title: "Complete the trading-friction sentence",
-      zhTitle: "完成交易摩擦句",
-      prompt: "Use the knowledge chain to complete the missing link.",
-      promptZh: "用知识链完成缺失环节。",
+      eyebrow: "Build the sentence",
+      title: "Market usefulness with a limit",
+      zhTitle: "市场有用，但有边界",
+      prompt: "Complete the missing sentence so it avoids the common overclaim.",
+      promptZh: "补全缺失句子，避免常见的过度推断。",
+      missingSentenceStep: 3,
+      missingSentenceAnswer: "does not automatically give new money to the company",
+      missingSentenceAnswerZh: "不会自动给公司带来新资金",
       steps: [
         {
           label: "1",
@@ -580,36 +635,125 @@ window.INVEST.lesson = {
         },
         {
           label: "2",
-          text: "Trading is not frictionless because __________.",
-          zh: "交易不是无摩擦的，因为________。",
-          answer: "price, time, trading units, liquidity or costs can still matter"
+          text: "This can improve liquidity because buyers and sellers have an organised market.",
+          zh: "这可以提高流动性，因为买卖双方有组织化市场。"
         },
         {
           label: "3",
-          text: "A strong output names one specific friction without giving advice.",
-          zh: "强输出会说出一个具体摩擦，但不提供投资建议。"
+          text: "But a normal secondary-market trade __________.",
+          zh: "但是普通二级市场交易__________。"
+        },
+        {
+          label: "4",
+          text: "So an analyst records the company, exchange, code, source date and trading friction before judging.",
+          zh: "因此，分析者在判断前记录公司、交易所、代码、来源日期和交易摩擦。"
         }
       ],
-      missingSentenceStep: 2,
-      missingSentenceAnswer: "price, time, trading units, liquidity or costs can still matter",
-      missingSentenceAnswerZh: "价格、时间、交易单位、流动性或成本仍然重要",
-      sharePrompt: "Improve the sentence by naming one specific friction.",
-      sharePromptZh: "通过说出一个具体摩擦来改进句子。",
-      notes: "This model sentence is deliberately broad and avoids bid/ask/spread mechanics."
+      sharePrompt: "Read the four sentences aloud as one exit explanation.",
+      sharePromptZh: "把四句话连起来读成一个出口解释。",
+      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019
+    },
+    {
+      type: "flow",
+      eyebrow: "Final route",
+      title: "Answer the starter question",
+      zhTitle: "回答开场问题",
+      flowStyle: "sequence",
+      steps: [
+        {
+          text: "Identify: Tencent Holdings Limited, 0700.HK, HKEX",
+          zh: "识别：腾讯控股、0700.HK、港交所"
+        },
+        {
+          text: "Classify the trade: new share issue or secondary-market trade?",
+          zh: "分类交易：新股发行还是二级市场交易？"
+        },
+        {
+          text: "If it is secondary-market trading, money goes to the seller, not automatically to the company.",
+          zh: "如果是二级市场交易，资金给卖方，而不是自动给公司。"
+        },
+        {
+          text: "Add the market reason: exchange trading can improve liquidity, but rules and friction still matter.",
+          zh: "补充市场理由：交易所交易可以提高流动性，但规则和摩擦仍然重要。"
+        }
+      ],
+      visual: investmentPhotos.lesson2ExchangeSquareCentral2021
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Exit misconception check",
+      title: "Ready to judge the trade?",
+      zhTitle: "准备好判断这笔交易了吗？",
+      prompt: "Use yes/no plus one reason. Reveal after each reason.",
+      promptZh: "用是/否加一个理由。每个理由说完后再揭示。",
+      compact: true,
+      items: [
+        {
+          text: "The stock exchange helps listed securities trade.",
+          zh: "证券交易所帮助上市证券交易。",
+          answer: true,
+          answerZh: "是",
+          reason: "That is the basic market function.",
+          reasonZh: "这是基本市场功能。"
+        },
+        {
+          text: "A stock code is enough evidence to decide whether to buy.",
+          zh: "股票代码足以作为是否买入的证据。",
+          answer: false,
+          answerZh: "否",
+          reason: "It identifies the security but does not value it.",
+          reasonZh: "它识别证券，但不进行估值。"
+        },
+        {
+          text: "Liquidity means easy trading with no risk.",
+          zh: "流动性意味着容易交易且没有风险。",
+          answer: false,
+          answerZh: "否",
+          reason: "Liquidity describes ease of trading; price and investment risk remain.",
+          reasonZh: "流动性描述交易便利度；价格和投资风险仍然存在。"
+        },
+        {
+          text: "A market trade can matter even if the company is not receiving new money from that exact trade.",
+          zh: "即使公司没有从该笔交易收到新资金，市场交易仍然重要。",
+          answer: true,
+          answerZh: "是",
+          reason: "It supports transfer of ownership and liquidity.",
+          reasonZh: "它支持所有权转让和流动性。"
+        }
+      ],
+      visual: investmentPhotos.lesson2HkexInterior2007
     },
     {
       type: "answer",
       eyebrow: "Exit ticket",
-      title: "Exit ticket",
-      zhTitle: "离堂小测",
-      mode: "fillBlanks",
+      title: "Exit ticket: fix the first answer",
+      zhTitle: "出口题：修正第一答案",
       items: [
-        { prompt: "A stock exchange is a regulated market where listed securities can be bought and __________.", answer: "sold", zh: "证券交易所是上市证券可以买入和卖出的受监管市场。" },
-        { prompt: "A stock code is a short market __________.", answer: "identifier", zh: "股票代码是简短的市场识别码。" },
-        { prompt: "Secondary-market trades do not automatically give new money to the __________.", answer: "company", zh: "二级市场交易不会自动给公司带来新资金。" },
-        { prompt: "One trading friction is rules, time, trading units, costs or __________.", answer: "liquidity", zh: "一个交易摩擦是规则、时间、交易单位、成本或流动性。" }
+        {
+          prompt: "A stock exchange is a regulated market where listed securities can be bought and ________.",
+          answer: "sold",
+          zh: "证券交易所是一个受监管的市场，上市证券可以在这里买入和________。"
+        },
+        {
+          prompt: "A stock code helps identify a security, but it does not prove investment ________.",
+          answer: "quality",
+          zh: "股票代码帮助识别证券，但不能证明投资________。"
+        },
+        {
+          prompt: "When one investor buys existing listed shares from another investor, the company does not automatically receive new ________.",
+          answer: "money",
+          zh: "当一位投资者从另一位投资者手中买入已有上市股票时，公司不会自动收到新________。"
+        },
+        {
+          prompt: "A good Lesson 2 judgement names the exchange, stock code, source date and one trading ________.",
+          answer: "friction",
+          zh: "好的第二课判断会写出交易所、股票代码、来源日期和一个交易________。"
+        }
       ],
-      notes: "Collect the handout output: one company-code-exchange row and one sentence explaining why trading through a market is not frictionless."
+      notes: [
+        "Collect or cold-call two exit answers.",
+        "The strongest answers should explicitly correct the starter misconception."
+      ]
     }
   ]
 };

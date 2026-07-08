@@ -802,12 +802,32 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Syllabus$/i }).first()).toHaveAttribute('href', 'syllabus.html');
+    await expect(page.getByRole('link', { name: /^Definitions$/i }).first()).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
-    await expect(page.getByRole('link', { name: /^Lesson 1 handout$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=print');
-    await expect(page.getByRole('link', { name: /^Lesson 1 quiz$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
+    await expect(page.getByText(/one key idea, one evidence task and one justified next action/i)).toBeVisible();
+    await expect(page.locator('body')).toContainText(/Know what you are buying/i);
+    await expect(page.locator('body')).toContainText(/Compare return, risk and price/i);
+
+    const investmentSlideLinks = page.getByRole('link', { name: /^Slides$/i });
+    await expect(investmentSlideLinks).toHaveCount(2);
+    await expect(investmentSlideLinks.nth(0)).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
+    await expect(investmentSlideLinks.nth(1)).toHaveAttribute('href', 'unit-1/lesson-2/index.html');
+
+    const investmentQuizLinks = page.getByRole('link', { name: /^Quiz$/i });
+    await expect(investmentQuizLinks).toHaveCount(2);
+    await expect(investmentQuizLinks.nth(0)).toHaveAttribute('href', 'unit-1/lesson-1/index.html?view=quiz');
+    await expect(investmentQuizLinks.nth(1)).toHaveAttribute('href', 'unit-1/lesson-2/index.html?view=quiz');
+
     await expect(page.getByText(/Start with evidence/i)).toBeVisible();
     await expect(page.getByText(/Company Analysis Course Map/i)).toBeVisible();
+    await expect(page.locator('a[href*="lesson-1-all-types"]')).toHaveCount(0);
+    await expect(page.locator('a[href*="view=print"]')).toHaveCount(0);
+    await expect(page.locator('a[href*=".json"]')).toHaveCount(0);
+    await expect(page.locator('body')).not.toContainText(/Slide type/i);
+    await expect(page.locator('body')).not.toContainText(/Data snapshot/i);
+    await expect(page.locator('body')).not.toContainText(/generator-ready/i);
     await expect(page.locator('body')).not.toContainText(/Personal Finance Investment Analysis/i);
     await expectNoHorizontalOverflow(page);
 
@@ -881,13 +901,15 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
     await expect(page.locator('.invCounter')).toHaveText(/1 \/ \d+/);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/If you buy one share of 0700\.HK/i);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /exchange-square-hkex-sign-2019\.jpg/);
     await expectInvestmentSlideFits(page, 'lesson 2 first slide desktop');
 
     const lessonSummary = await expectInvestmentRepresentativeSlidesFit(
       page,
       lessonPath,
       'lesson 2 desktop',
-      ['discussion', 'term', 'peerTask', 'dataSnapshot', 'riskRegister', 'answer']
+      ['discussion', 'visualPause', 'term', 'compare', 'quiz', 'peerTask', 'classificationTask', 'dataSnapshot', 'riskRegister', 'yesNoCheck', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 2 has quiz data').toBeGreaterThan(0);
 
@@ -1145,7 +1167,8 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Investment Analysis Add-on Course$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment Analysis: Company Analysis$/i })).toBeVisible();
+    await expect(page.locator('body')).toContainText(/Choose the next action/i);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath));
@@ -1175,12 +1198,13 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl(lessonPath));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
     await expect(page.locator('.invCounter')).toHaveText(/1 \/ \d+/);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/If you buy one share of 0700\.HK/i);
     await expectInvestmentSlideFits(page, 'lesson 2 first slide phone');
     await expectInvestmentRepresentativeSlidesFit(
       page,
       lessonPath,
       'lesson 2 phone',
-      ['discussion', 'term', 'peerTask', 'dataSnapshot', 'riskRegister', 'answer']
+      ['discussion', 'visualPause', 'term', 'compare', 'quiz', 'peerTask', 'classificationTask', 'dataSnapshot', 'riskRegister', 'yesNoCheck', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

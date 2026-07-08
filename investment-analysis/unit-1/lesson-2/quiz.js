@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 2 Quiz",
-  description: "Review why companies need a stock market, how HKEX helps listed shares trade, what stock codes and listings mean, and why real trading is not frictionless.",
+  description: "Check whether students can explain why a stock market exists, identify a listed share, and avoid the misconception that every market purchase gives new money to the company.",
   questions: [
     {
       id: "stock-exchange-role",
@@ -11,73 +11,88 @@ window.INVEST.quiz = {
       zh: "证券交易所是什么？",
       choices: [
         "A regulated market where listed securities can be bought and sold",
+        "A guarantee that every share price will rise",
         "A company product catalogue",
-        "A guarantee that all shares will rise",
-        "A personal investment adviser"
+        "A private investment adviser"
       ],
       answer: 0,
-      explanation: "A stock exchange provides a regulated market for trading listed securities.",
-      explanationZh: "证券交易所为上市证券的买卖提供受监管的市场。"
+      explanation: "A stock exchange organises trading in listed securities under market rules.",
+      explanationZh: "证券交易所在市场规则下组织上市证券交易。"
     },
     {
-      id: "listing",
+      id: "listing-definition",
       type: "multipleChoice",
-      prompt: "What does listing mean in this lesson?",
-      zh: "本课中的“上市”是什么意思？",
+      prompt: "In this lesson, what does listing mean?",
+      zh: "本课中，“上市”是什么意思？",
       choices: [
-        "Permission for a company's shares to trade on an exchange",
-        "A company's total revenue",
-        "A rule that every trade gives new money to the company",
-        "A private class opinion"
+        "A company's securities have permission to trade on an exchange",
+        "The company has no investment risk",
+        "Every trade gives new money to the company",
+        "The company must be the largest business in its industry"
       ],
       answer: 0,
-      explanation: "Listing gives a company's shares permission to trade on an exchange.",
-      explanationZh: "上市意味着公司的股票获准在交易所交易。"
+      explanation: "Listing is about permission to trade on an exchange after meeting market rules.",
+      explanationZh: "上市指在满足市场规则后获准在交易所交易。"
     },
     {
-      id: "stock-code",
+      id: "stock-code-purpose",
       type: "multipleChoice",
-      prompt: "What is a stock code used for?",
-      zh: "股票代码有什么用途？",
+      prompt: "What is the main purpose of a stock code such as 0700.HK?",
+      zh: "像 0700.HK 这样的股票代码主要有什么作用？",
       choices: [
-        "Finding a listed security in market data",
-        "Proving the share is a good investment",
-        "Replacing a source date",
-        "Avoiding all trading friction"
+        "It identifies a listed security in market data.",
+        "It proves the share is good value.",
+        "It removes all trading friction.",
+        "It replaces the need for a source date."
       ],
       answer: 0,
-      explanation: "A stock code is the short identifier used to find a listed security.",
-      explanationZh: "股票代码是用来查找上市证券的简短识别码。"
+      explanation: "A stock code is an identifier. It is not proof of investment quality.",
+      explanationZh: "股票代码是识别码，不是投资质量的证明。"
     },
     {
-      id: "hkex-source-box",
+      id: "secondary-market-money",
       type: "multipleChoice",
-      prompt: "Which source-box entry is strongest before judging an HKEX example?",
-      zh: "在判断 HKEX 例子之前，哪一个来源框记录最强？",
+      prompt: "An investor buys existing listed shares from another investor on HKEX. What should we not assume?",
+      zh: "一位投资者在港交所从另一位投资者手中买入已有上市股票。我们不应该假设什么？",
       choices: [
-        "HKEX source title, URL, accessed date, company/security identifier and limitation",
+        "That the company automatically receives new money from this trade",
+        "That ownership can change hands",
+        "That the trade happens through a market",
+        "That the share can have a stock code"
+      ],
+      answer: 0,
+      explanation: "A normal secondary-market trade transfers existing shares between investors.",
+      explanationZh: "普通二级市场交易是在投资者之间转让已有股票。"
+    },
+    {
+      id: "primary-issue",
+      type: "multipleChoice",
+      prompt: "Which situation is most clearly company fundraising?",
+      zh: "哪种情况最明显属于公司筹资？",
+      choices: [
+        "The company issues new shares, such as in an IPO.",
+        "One investor sells existing shares to another investor.",
+        "A student recognises the company name.",
+        "A stock code appears on a quote page."
+      ],
+      answer: 0,
+      explanation: "A new share issue can raise capital for the company. A secondary-market trade usually pays the selling investor.",
+      explanationZh: "新股发行可以为公司筹集资本；二级市场交易通常是买方向卖方付款。"
+    },
+    {
+      id: "source-box",
+      type: "multipleChoice",
+      prompt: "Which source-box record is strongest before judging an HKEX example?",
+      zh: "判断港交所例子前，哪种来源框记录最强？",
+      choices: [
+        "Company, exchange, stock code, source title, accessed date and limitation",
         "Only the company logo",
         "Only whether the price looks high",
-        "Only a friend's trading tip"
+        "Only a friend's trading opinion"
       ],
       answer: 0,
-      explanation: "Lesson 2 continues the Lesson 1 source habit: record source, date, identifier and limitation before judgement.",
-      explanationZh: "第2课延续第1课的来源习惯：判断前记录来源、日期、识别代码和局限性。"
-    },
-    {
-      id: "secondary-market",
-      type: "multipleChoice",
-      prompt: "If one investor buys listed shares from another investor on the market, what should we be careful not to assume?",
-      zh: "如果一个投资者在市场上从另一个投资者手中买入上市股票，我们不应该假设什么？",
-      choices: [
-        "That the company automatically receives new money from that trade",
-        "That an exchange helps trading happen",
-        "That the share has a stock code",
-        "That the trade needs a market"
-      ],
-      answer: 0,
-      explanation: "Secondary-market trades help shares change hands, but they do not automatically give new money to the company.",
-      explanationZh: "二级市场交易帮助股票换手，但不会自动给公司带来新资金。"
+      explanation: "Lesson 2 continues the source habit: identify the security and record the source before judging.",
+      explanationZh: "第二课延续来源习惯：先识别证券并记录来源，再作判断。"
     },
     {
       id: "liquidity-definition",
@@ -86,55 +101,52 @@ window.INVEST.quiz = {
       zh: "流动性描述什么？",
       choices: [
         "How easily an asset can be bought or sold without a large price change",
-        "How many products a company sells",
         "Whether a company is famous",
-        "The exact future share price"
+        "The exact future share price",
+        "How many products the company sells"
       ],
       answer: 0,
-      explanation: "Liquidity is about ease of trading without a large price change.",
-      explanationZh: "流动性指买卖资产是否容易，以及是否会造成较大价格变化。"
+      explanation: "Liquidity is about ease of trading, not a guarantee of profit or safety.",
+      explanationZh: "流动性关于交易便利度，不保证盈利或安全。"
     },
     {
       id: "trading-friction",
       type: "multipleChoice",
-      prompt: "Which example shows that real trading is not frictionless?",
-      zh: "哪一个例子说明真实交易并非没有摩擦？",
+      prompt: "Which example shows trading friction?",
+      zh: "哪一个例子体现了交易摩擦？",
       choices: [
-        "Trading happens through rules, market hours, trading units and available buyers or sellers.",
-        "A stock code exists.",
-        "A company has a name.",
-        "A student recognises the brand."
+        "Trading hours, board lots, spreads, costs or limited buyers and sellers",
+        "A company has a familiar brand",
+        "A share has a stock code",
+        "A student likes the product"
       ],
       answer: 0,
-      explanation: "Rules, time windows, trading units, liquidity and costs can all make trading less than perfectly frictionless.",
-      explanationZh: "规则、交易时段、交易单位、流动性和成本都会让交易并非完全无摩擦。"
+      explanation: "Markets reduce friction, but real trading still happens inside rules and costs.",
+      explanationZh: "市场减少摩擦，但真实交易仍受规则和成本影响。"
     },
     {
-      id: "stock-exchange-blank",
-      type: "fillBlank",
-      prompt: "A stock exchange is a regulated market where listed securities can be bought and ________.",
-      zh: "证券交易所是一个受监管的市场，上市证券可以在这里买入和________。",
-      acceptedAnswers: ["sold", "sell"],
-      explanation: "Bought and sold is the key phrase.",
-      explanationZh: "关键词是“买入和卖出”。"
+      id: "market-importance",
+      type: "multipleChoice",
+      prompt: "Why can a stock market matter even when a company does not receive money from every trade?",
+      zh: "即使公司不是每笔交易都收到钱，股票市场为什么仍然重要？",
+      choices: [
+        "It helps investors transfer ownership and can improve liquidity.",
+        "It guarantees every investor will earn a return.",
+        "It removes the need to check sources.",
+        "It proves the company is undervalued."
+      ],
+      answer: 0,
+      explanation: "Secondary-market trading can support ownership transfer and liquidity, but it does not guarantee returns.",
+      explanationZh: "二级市场交易支持所有权转让和流动性，但不保证收益。"
     },
     {
-      id: "stock-code-blank",
+      id: "exit-sentence",
       type: "fillBlank",
-      prompt: "A stock code is a short market ________ used to find a listed security.",
-      zh: "股票代码是用来查找上市证券的简短市场________。",
-      acceptedAnswers: ["identifier", "id", "code"],
-      explanation: "Identifier is the precise definition word.",
-      explanationZh: "“识别码”是定义中的精确词。"
-    },
-    {
-      id: "output-blank",
-      type: "fillBlank",
-      prompt: "The Lesson 2 output is one company-code-exchange match plus one trading-________ sentence.",
-      zh: "第2课输出是一条公司-代码-交易所匹配，加上一句交易________句子。",
-      acceptedAnswers: ["friction"],
-      explanation: "The written output must name one reason trading through a market is not frictionless.",
-      explanationZh: "书面输出必须说明一个市场交易并非无摩擦的原因。"
+      prompt: "A normal secondary-market trade transfers existing shares between investors; it does not automatically give new money to the ________.",
+      zh: "普通二级市场交易是在投资者之间转让已有股票；它不会自动给________带来新资金。",
+      acceptedAnswers: ["company", "firm", "business"],
+      explanation: "The company raises new money mainly through issuing new shares, not through every later market trade.",
+      explanationZh: "公司主要通过发行新股筹集新资金，而不是通过之后的每一笔市场交易。"
     }
   ]
 };

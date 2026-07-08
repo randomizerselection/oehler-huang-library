@@ -224,27 +224,32 @@
       "guidingQuestion": "What is investment analysis?",
       "guidingQuestionZh": "什么是投资分析？",
       "handoutMaterial": "Tencent starter sheet on investment analysis, investment versus speculation, asset types, asset risk and what buying a share means.",
-      "formativeAssessment": "Economics-style checks: first Tencent buy discussion, investment-analysis definition attempt, easy MCQ, 10-statement course boundary yes/no check, investment/speculation comparison, asset-type recall, asset-risk sort and share-ownership classification.",
-      "exitTicket": "Complete five concise fill blanks on investment analysis, speculation, asset value, risk and share ownership.",
+      "formativeAssessment": "Economics-style checks: first Tencent buy discussion, investment-analysis definition attempt, return-risk-suitability breakdown, easy MCQ, course boundary yes/no check, investment/speculation comparison, asset-type recall, asset-risk sort and share-ownership classification.",
+      "exitTicket": "Complete concise fill blanks on investment analysis, speculation, asset value, return, risk and share ownership.",
       "sequenceRole": "Course entry lesson that introduces the method of investment analysis and the foundation vocabulary of assets and shares.",
       "retrievalBase": "Everyday experience with familiar companies, simple owned things with value, first impressions, risk and short-term guesses.",
-      "newKnowledge": "Investment analysis uses evidence before judgement; investment differs from speculation; an asset has value and can be owned; asset types have different risks; a share is one unit of ownership in a company and does not guarantee profit.",
+      "newKnowledge": "Investment analysis evaluates an opportunity's potential return, risk and suitability for an investor; investment differs from speculation; risk means results, returns or prices may be worse than expected; an asset has value and can be owned; asset types have different risks; a share is one unit of ownership in a company and does not guarantee profit.",
       "evidenceTask": "Start with the question 'Would you buy shares in Tencent?', then use local company and asset visuals to decide what evidence and concepts are needed before a careful judgement.",
       "avoidOverlap": "Do not teach quote-page mechanics, percentage change, market capitalisation, valuation ratios, revenue/profit analysis, cash-flow analysis or personal buy/sell recommendations yet. Keep risk ranking qualitative and introductory.",
       "misconception": "A student can decide to buy Tencent shares because the company is familiar; speculation is the same as investment; all assets have the same risk; a share means owning the whole company or guaranteed profit.",
       "studentOutput": "A compact exit ticket plus one short explanation of why familiarity with Tencent is not enough without evidence, asset-risk thinking and a correct understanding of shares.",
       "futureReuse": "Creates the first course habits: ask for evidence before judgement, distinguish investment from speculation, treat shares as risky assets and avoid guaranteed-profit thinking.",
-      "focus": "Focus: define investment analysis; separate investment from speculation; define assets and simple asset types; rank asset risk cautiously; define a share as one ownership unit.",
+      "focus": "Focus: define investment analysis; explain return, risk and suitability; separate investment from speculation; define assets and simple asset types; rank asset risk cautiously; define a share as one ownership unit.",
       "terms": [
         {
           "term": "investment analysis",
           "zh": "投资分析",
-          "definition": "Investment analysis is the process of using source-dated evidence about an asset, business, return, risk and price before making a justified investment judgement."
+          "definition": "Investment analysis is the process of evaluating an investment opportunity to determine its potential return, risk, and suitability for an investor."
         },
         {
           "term": "investment",
           "zh": "投资",
           "definition": "Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss."
+        },
+        {
+          "term": "risk",
+          "zh": "风险",
+          "definition": "Risk is the possibility that results, returns or prices are worse than expected."
         },
         {
           "term": "speculation",
@@ -276,7 +281,7 @@
         {
           "key": "vocabulary",
           "title": "Vocabulary",
-          "task": "Define and use the five Lesson 1 terms: investment analysis, investment, speculation, asset and share."
+          "task": "Define and use the six Lesson 1 terms: investment analysis, investment, risk, speculation, asset and share."
         },
         {
           "key": "companyEvidence",
@@ -308,13 +313,13 @@
       },
       "cardGenerator": {
         "retrievalBase": "everyday experience with familiar companies, owned things with value, simple risk differences and short-term price guesses.",
-        "newKnowledge": "investment analysis uses evidence before judgement; investment differs from speculation; assets have value and can be owned; asset risk differs; a share is one ownership unit in a company.",
+        "newKnowledge": "investment analysis evaluates potential return, risk and suitability; investment differs from speculation; risk means results, returns or prices may be worse than expected; assets have value and can be owned; asset risk differs; a share is one ownership unit in a company.",
         "avoidOverlap": "do not teach quote-page mechanics, percentage change, market capitalisation, valuation ratios, revenue/profit analysis or cash-flow analysis yet.",
         "misconception": "familiarity with Tencent is enough reason to buy; speculation and investment are the same; all assets have the same risk; shares guarantee profit.",
         "evidenceTask": "use Tencent and asset visuals to move from first opinion to evidence questions, asset classification and share-ownership classification.",
         "studentOutput": "a compact exit ticket and one short explanation using investment analysis, asset risk and share ownership."
       },
-      "coreClaim": "Investment analysis uses evidence before judgement; shares are risky assets, not guaranteed-profit claims on a whole company.",
+      "coreClaim": "Investment analysis evaluates potential return, risk and suitability; shares are risky assets, not guaranteed-profit claims on a whole company.",
       "caseRole": "listed company",
       "primaryOutput": {
         "type": "foundation-exit-ticket-and-short-explanation",
@@ -361,11 +366,11 @@
         "deckArc": [
           "Hook: ask students 'Would you buy shares in Tencent?' before definitions.",
           "Retrieval: activate first opinions about familiar companies and ask what analysis should do.",
-          "Teach: define investment analysis as using evidence before judgement.",
+          "Teach: define investment analysis as evaluating potential return, risk and suitability.",
           "Evidence practice: use Tencent and asset visuals to separate evidence, familiarity, investment and speculation.",
           "Output rehearsal: define asset, recall four asset types, rank them by risk and explain why the ranking is not fixed.",
           "Company practice: define a share as one ownership unit and classify what a share gives, may give and does not guarantee.",
-          "Exit ticket: complete concise blanks on analysis, speculation, asset, risk and share."
+          "Exit ticket: complete concise blanks on analysis, speculation, asset, return, risk and share."
         ],
         "handoutBlocks": [
           {
@@ -377,8 +382,8 @@
           {
             "key": "vocabulary",
             "title": "Vocabulary",
-            "prompt": "Define and use: investment analysis, investment, speculation, asset and share.",
-            "expectedStudentWork": "Five concise definitions with Chinese support and one use-in-context check."
+            "prompt": "Define and use: investment analysis, investment, risk, speculation, asset and share.",
+            "expectedStudentWork": "Six concise definitions with Chinese support and one use-in-context check."
           },
           {
             "key": "companyEvidence",
@@ -451,6 +456,10 @@
               "match": "aiming for future return while accepting risk."
             },
             {
+              "term": "risk",
+              "match": "the possibility that results, returns or prices are worse than expected."
+            },
+            {
               "term": "speculation",
               "match": "chasing short-term price movement with weaker evidence."
             },
@@ -514,7 +523,7 @@
         },
         {
           "label": "Key idea",
-          "text": "Investment analysis uses evidence before judgement; speculation relies too much on short-term guesses."
+          "text": "Investment analysis evaluates potential return, risk and suitability; speculation relies too much on short-term guesses."
         },
         {
           "label": "Try it",
@@ -531,16 +540,16 @@
       "company": "HKEX",
       "guidingQuestion": "Why do companies need a stock market?",
       "guidingQuestionZh": "公司为什么需要股票市场？",
-      "handoutMaterial": "Exchange lookup table, company-code-exchange matching task and a simple trading-friction prompt.",
-      "formativeAssessment": "Hinge question: choose the correct role of a stock exchange in one trading scenario. Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice.",
-      "exitTicket": "Complete one company-code-exchange row and name one trading friction.",
+      "handoutMaterial": "Starter judgement, primary-versus-secondary trade table, HKEX source box, company-code-exchange match and friction register.",
+      "formativeAssessment": "Opening yes/no vote on who receives the money, primary-versus-secondary hinge check, stock-code overclaim sort, source-box match and friction sentence.",
+      "exitTicket": "Fix the starter answer: explain who gets the money in a secondary-market trade and name one reason the market still matters.",
       "sequenceRole": "Market infrastructure bridge between one share and real trading.",
       "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
-      "newKnowledge": "Stock exchange, listing, stock code, liquidity and the idea that real trading has frictions.",
-      "evidenceTask": "Use HKEX examples to identify company, exchange, code, listing and trading friction.",
+      "newKnowledge": "Stock exchange, listing, stock code, liquidity, primary issue, secondary-market trade and the idea that real trading has frictions.",
+      "evidenceTask": "Use HKEX examples to identify company, exchange, code, source date, secondary-market route and one trading friction.",
       "avoidOverlap": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3.",
       "misconception": "Every market purchase gives new money to the company.",
-      "studentOutput": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.",
+      "studentOutput": "Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence.",
       "futureReuse": "Supports quote-page reading, ETF trading context and all source checks.",
       "focus": "Focus: market infrastructure, liquidity and why real buying and selling has friction.",
       "terms": [
@@ -584,12 +593,12 @@
         {
           "key": "companyEvidence",
           "title": "Evidence and Data Analysis",
-          "task": "Case information: Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define stock exchange. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one HKEX evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market. 5. Judge: Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+          "task": "Case information: Use a short HKEX case extract with company identity, source title, accessed date, code example and one limitation. Questions: 1. Identify/Define: Identify the exchange and define stock exchange. 2. Classify: Decide whether the scenario is new share issue or secondary-market trade. 3. Explain: Explain who receives the money in the scenario. 4. Analyse why: Analyse why a stock market still matters for investors and companies. 5. Judge: State whether the evidence is enough to identify the listed share, and name what evidence is still missing before any investment judgement."
         },
         {
           "key": "calculationOrJudgement",
           "title": "Calculation or judgement task",
-          "task": "Match companies to exchange, code and listing information, then name one reason real trading is not frictionless."
+          "task": "Match company, exchange and stock code, then complete one sentence explaining why a secondary-market trade does not automatically fund the company."
         },
         {
           "key": "misconceptionCheck",
@@ -599,29 +608,29 @@
         {
           "key": "individualOutput",
           "title": "Individual written output",
-          "task": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+          "task": "Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence."
         }
       ],
       "examPattern": {
         "checkpoint": 1,
         "itemType": "Section A-style evidence and data analysis worksheet",
         "sourceRequirement": "Use a frozen HKEX extract with source title, date, accessed date and at least one figure or evidence statement.",
-        "task": "Use the worksheet Evidence and Data Analysis section to answer: Why do companies need a stock market?",
-        "mustAssess": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless. Include one analyse-why chain and one evidence-based classroom verdict. It must also assess whether the student can choose a justified next investment action."
+        "task": "Use the worksheet Evidence and Data Analysis section to answer: If you buy a share today, who gets the money and why does the market exist?",
+        "mustAssess": "Company-code-exchange match, primary-versus-secondary trade classification, one sentence explaining who receives the money, and one analyse-why chain explaining why market liquidity and friction matter. It must not require a personal buy/sell recommendation."
       },
       "cardGenerator": {
         "retrievalBase": "Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
         "newKnowledge": "a stock exchange provides a regulated place where listed securities can be bought and sold; liquidity affects whether trading is easy or difficult.",
         "avoidOverlap": "keep order types, bid, ask, spread and quote-page reading for later use or Lesson 3; keep personal investing advice out of the lesson.",
         "misconception": "every stock-market purchase gives new money to the company, or a stock code is just decoration.",
-        "evidenceTask": "use HKEX examples to identify company, exchange, stock code, listing and a simple trading friction.",
-        "studentOutput": "a company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+        "evidenceTask": "use HKEX examples to identify company, exchange, stock code, source date, secondary-market route and a simple trading friction.",
+        "studentOutput": "a revised answer to the opening money-flow question plus a company-code-exchange match and one trading-friction sentence."
       },
       "coreClaim": "A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
       "caseRole": "exchange/infrastructure case",
       "primaryOutput": {
         "type": "matching-table",
-        "description": "one company-code-exchange match plus one trading-friction sentence"
+        "description": "one company-code-exchange match plus a corrected money-flow and trading-friction sentence"
       },
       "sourcePack": {
         "requiredSourceTypes": [
@@ -657,21 +666,21 @@
         "marks": 4,
         "stimulusType": "exchange or listing extract",
         "calculationRequirement": "No new calculation; assess evidence reading and judgement.",
-        "judgementRequirement": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless. Students may make their own evidence-based classroom judgement with caveats. The answer should choose a next investment action and justify it with dated evidence and caveats.",
+        "judgementRequirement": "Students must revise the opening money-flow judgement, explain the difference between a company issuing shares and investors trading existing shares, and name one trading friction. Do not require a personal buy/sell recommendation.",
         "mustAvoid": "Keep order types, bid, ask, spread and quote-page interpretation for later use or Lesson 3. Avoid stock tips, live-price dependence, market timing and unsupported personalised recommendations."
       },
       "artifactBlueprint": {
         "deckArc": [
-          "Student hook: Before any trade happens, there is a market behind it. What does that market do?",
-          "Hook: start with HKEX and the guiding question, using a concrete source or visual before definitions.",
+          "Student hook: If you buy one share of 0700.HK from another investor today, does Tencent automatically receive new money?",
+          "Hook: start with the money-flow misconception before definitions, using a concrete HKEX visual as evidence context.",
           "Retrieval: activate Lesson 1 investment-analysis purpose, investment-versus-speculation boundary, share ownership, risk-return and share price.",
           "Retrieval practice: yes/no misconception check, multiple-choice knowledge check and matching/classification practice before new HKEX evidence.",
           "Teach: make students write the core claim: A stock exchange helps listed shares trade, but secondary-market trades do not automatically give new money to the company.",
-          "Evidence practice: Use HKEX examples to identify company, exchange, code, listing and trading friction.",
-          "Output rehearsal: students build one company-code-exchange match plus one trading-friction sentence.",
-          "Analyse why: students build a data -> concept -> investor implication chain for HKEX.",
-          "Investment action: students apply the decision rule - If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.",
-          "Exit ticket: students submit Company-code-exchange match and one sentence explaining why trading through a market is not frictionless."
+          "Evidence practice: Use HKEX examples to identify company, exchange, code, source date, secondary-market route and trading friction.",
+          "Output rehearsal: students build one company-code-exchange source box plus one secondary-market money-flow sentence.",
+          "Analyse why: students explain why the market still matters for ownership transfer and liquidity even when the company does not receive money from every trade.",
+          "Investment boundary: students apply the decision rule - A code and exchange identify the security, but they do not prove investment quality.",
+          "Exit ticket: students correct the starter answer and name one friction or limitation before judging a trade."
         ],
         "handoutBlocks": [
           {
@@ -689,14 +698,14 @@
           {
             "key": "companyEvidence",
             "title": "Evidence and Data Analysis",
-            "prompt": "Case information: Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate. Questions: 1. Identify/Define: Identify the source date and define stock exchange. 2. Calculate/Interpret: Interpret one figure or evidence statement from the case and state what it can and cannot prove. 3. Explain: Explain what one HKEX evidence point shows and one thing it cannot prove. 4. Analyse why: Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market. 5. Judge: Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.",
-            "expectedStudentWork": "Completed Section A-style answers: identify/define, calculate or interpret, explain evidence, analyse why and one evidence-based classroom verdict."
+            "prompt": "Case information: Use a short HKEX case extract with company identity, source title, accessed date, code example and one limitation. Questions: 1. Identify/Define: Identify the exchange and define stock exchange. 2. Classify: Decide whether the scenario is new share issue or secondary-market trade. 3. Explain: Explain who receives the money in the scenario. 4. Analyse why: Analyse why a stock market still matters for investors and companies. 5. Judge: State whether the evidence is enough to identify the listed share, and name what evidence is still missing before any investment judgement.",
+            "expectedStudentWork": "Completed answers that classify the trade route, explain money flow, analyse market usefulness and keep investment judgement evidence-based."
           },
           {
             "key": "calculationOrJudgement",
             "title": "Calculation or judgement task",
-            "prompt": "Match companies to exchange, code and listing information, then name one reason real trading is not frictionless.",
-            "expectedStudentWork": "one company-code-exchange match plus one trading-friction sentence"
+            "prompt": "Match company, exchange and stock code, then complete one sentence explaining why a secondary-market trade does not automatically fund the company.",
+            "expectedStudentWork": "one company-code-exchange match plus a corrected money-flow and trading-friction sentence"
           },
           {
             "key": "misconceptionCheck",
@@ -707,8 +716,8 @@
           {
             "key": "individualOutput",
             "title": "Individual written output",
-            "prompt": "Company-code-exchange match and one sentence explaining why trading through a market is not frictionless.",
-            "expectedStudentWork": "one company-code-exchange match plus one trading-friction sentence"
+            "prompt": "Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence.",
+            "expectedStudentWork": "Revised answer to the opening question plus a company-code-exchange source box and one trading-friction sentence."
           }
         ],
         "chapterOutput": "Use this lesson handout as the textbook chapter; do not add separate textbook-only teaching content.",
@@ -721,13 +730,13 @@
         "replacementCandidate": null
       },
       "analyseWhy": {
-        "question": "Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market.",
+        "question": "Analyse why a stock market still matters even when a secondary-market trade does not automatically give new money to the company.",
         "chain": [
-          "Use one dated evidence or data point from the case.",
-          "Link it to the lesson concept or formula.",
-          "Explain the investor implication for return, risk, price or evidence quality."
+          "Use one dated HKEX source or market-rule fact from the case.",
+          "Link it to exchange trading, liquidity or trading friction.",
+          "Explain the implication for ownership transfer, market access or evidence quality."
         ],
-        "expectedStudentWork": "A developed chain using HKEX evidence, the lesson concept and an investor implication before a classroom verdict."
+        "expectedStudentWork": "A developed chain using HKEX evidence, the lesson concept and a clear limit: market access helps trading but does not by itself prove investment quality."
       },
       "retrievalPractice": {
         "yesNo": {
@@ -736,14 +745,14 @@
           "explanation": "Correct the misconception using HKEX evidence and the lesson concept."
         },
         "multipleChoice": {
-          "prompt": "Which action best supports a careful judgement about HKEX?",
+          "prompt": "Which action best supports a careful Lesson 2 answer?",
           "options": [
-            "Check dated source evidence and its limitation before judging.",
+            "Identify the company, exchange, stock code, source date and limitation before judging.",
             "Assume the company is attractive because the name is familiar.",
             "Use one price movement as a complete investment conclusion.",
             "Ignore risk if the possible return looks high."
           ],
-          "answer": "Check dated source evidence and its limitation before judging."
+          "answer": "Identify the company, exchange, stock code, source date and limitation before judging."
         },
         "matching": {
           "prompt": "Match the lesson terms to their meaning before using the HKEX case.",
@@ -771,42 +780,42 @@
       "worksheet": {
         "evidenceAndDataAnalysis": {
           "title": "Evidence and Data Analysis",
-          "stimulus": "Use a short HKEX case extract with company background, source title, publication or accessed date, key figures and one limitation. Include a table, chart, quote-page item, report extract or factsheet detail where appropriate.",
+          "stimulus": "Use a short HKEX case extract with company identity, source title, accessed date, code example, a secondary-market trading scenario and one limitation.",
           "questions": [
             {
               "type": "identify-define",
               "command": "Identify/Define",
-              "prompt": "Identify the source date and define stock exchange."
+              "prompt": "Identify the exchange and stock code, then define stock exchange."
             },
             {
               "type": "calculate-interpret",
               "command": "Calculate/Interpret",
-              "prompt": "Interpret one figure or evidence statement from the case and state what it can and cannot prove."
+              "prompt": "Interpret one market-rule or source-box fact from the case, then classify the scenario as a new share issue or a secondary-market trade."
             },
             {
               "type": "explain-evidence",
               "command": "Explain",
-              "prompt": "Explain what one HKEX evidence point shows and one thing it cannot prove."
+              "prompt": "Explain who receives the money in the scenario and what the company does not automatically receive."
             },
             {
               "type": "analyse-why",
               "command": "Analyse why",
-              "prompt": "Analyse why the evidence used in the HKEX case could change an investor's judgement about why do companies need a stock market."
+              "prompt": "Analyse why a stock market still matters for ownership transfer and liquidity even if the company does not receive money from every trade."
             },
             {
               "type": "student-judgement",
               "command": "Judge",
-              "prompt": "Give your own evidence-based classroom verdict on HKEX: attractive, risky, too expensive, incomplete evidence, watch, avoid or consider. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats."
+              "prompt": "Judge whether the case evidence is enough to identify the listed share, then choose the next investment action: gather more evidence, compare with another listed choice, or wait before making any investment judgement."
             }
           ]
         }
       },
       "investmentAction": {
-        "title": "Market access action",
+        "title": "Market-route action",
         "studentAction": "Find the exchange, stock code and basic market access information before analysing a listed company.",
         "decisionRule": "If the listing, code, trading venue or liquidity is unclear, the investment cannot be judged properly yet.",
         "portfolioQuestion": "Ask whether the investor understands where and how the security trades before comparing returns.",
-        "classroomOutput": "I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: choose consider, watch, avoid, compare with another choice or gather more evidence."
+        "classroomOutput": "I can identify the market route for HKEX-related shares and one friction that could affect buying or selling. Next action: gather more evidence before any investment judgement."
       },
       "studentHook": "Before any trade happens, there is a market behind it. What does that market do?",
       "simpleFlow": [
@@ -9146,7 +9155,7 @@
       "firstJudgementPrompt": "Take a yes/no vote and write one reason before definitions.",
       "likelyNaiveAnswer": "A familiar company feels like a good investment.",
       "missingEvidence": "Students need evidence, risk thinking and a correct understanding of what one share gives and does not guarantee.",
-      "keyIdea": "Investment analysis uses source-dated evidence before judgement.",
+      "keyIdea": "Investment analysis evaluates potential return, risk and suitability for an investor.",
       "tryIt": "Classify asset types, rank risk cautiously and sort what a share gives, may give and does not give.",
       "misconceptionCheck": "Familiarity with Tencent is enough reason to buy its shares.",
       "exitJudgement": "State what evidence is still missing before making any classroom judgement about Tencent shares."
