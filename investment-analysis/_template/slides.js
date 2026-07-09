@@ -54,14 +54,24 @@ window.INVEST.lesson = {
       title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
       bullets: [
-        "objective one",
-        "objective two",
-        "objective three"
+        "define the key term",
+        "use the evidence source",
+        "write the next action"
       ],
       zhBullets: [
-        "完成第一个学习目标。",
-        "完成第二个学习目标。",
-        "完成第三个学习目标。"
+        "定义关键词。",
+        "使用证据来源。",
+        "写出下一步行动。"
+      ],
+      highlights: [
+        ["key term"],
+        ["evidence source"],
+        ["next action"]
+      ],
+      zhHighlights: [
+        ["关键词"],
+        ["证据来源"],
+        ["下一步行动"]
       ]
     },
     {
@@ -81,6 +91,17 @@ window.INVEST.lesson = {
         "The projected slide is image-only: no visible title, prompt, caption or credit.",
         "Put the observation/retrieval question and the next teaching bridge in these notes, or on the slide before/after the pause."
       ]
+    },
+    {
+      type: "term",
+      eyebrow: "Definition",
+      title: "Key term",
+      term: "Key term",
+      termZh: "关键词",
+      definition: "A key term is the precise concept students must use when writing an evidence-based investment judgement.",
+      definitionBlanks: ["precise concept"],
+      definitionZh: "关键词是学生在写出基于证据的投资判断时必须使用的准确概念。",
+      notes: "Keep definition text canonical and put the projected fill-in answer in definitionBlanks."
     },
     {
       type: "discussion",
@@ -140,10 +161,10 @@ window.INVEST.lesson = {
         noteZh: "排序必须有理由，而不是猜测"
       },
       items: [
-        { label: "A", text: "Choice A", zh: "选择A", cue: "Usually more stable.", cueZh: "通常较稳定。" },
-        { label: "B", text: "Choice B", zh: "选择B", cue: "Depends on the exact case.", cueZh: "取决于具体案例。" },
-        { label: "C", text: "Choice C", zh: "选择C", cue: "Can change with expectations.", cueZh: "可能随预期变化。" },
-        { label: "D", text: "Choice D", zh: "选择D", cue: "May move sharply.", cueZh: "可能大幅波动。" }
+        { label: "A", text: "Choice A", zh: "选择A" },
+        { label: "B", text: "Choice B", zh: "选择B" },
+        { label: "C", text: "Choice C", zh: "选择C" },
+        { label: "D", text: "Choice D", zh: "选择D" }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -270,14 +291,14 @@ window.INVEST.lesson = {
       leftTitle: "Evidence-based analysis",
       leftTitleZh: "基于证据的分析",
       left: [
-        { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的来源开始。" },
-        { label: "2", text: "Names a possible __________.", answer: "risk", zh: "说出一个可能的风险。" }
+        { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的__________开始。", answerZh: "来源" },
+        { label: "2", text: "Names a possible __________.", answer: "risk", zh: "说出一个可能的__________。", answerZh: "风险" }
       ],
       rightTitle: "Weak opinion",
       rightTitleZh: "薄弱观点",
       right: [
-        { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人熟悉度开始。" },
-        { label: "2", text: "Ignores the __________ paid.", answer: "price", zh: "忽视支付的价格。" }
+        { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人__________开始。", answerZh: "熟悉度" },
+        { label: "2", text: "Ignores the __________ paid.", answer: "price", zh: "忽视支付的__________。", answerZh: "价格" }
       ],
       prompt: "Fill the blanks, then explain which side is stronger.",
       promptZh: "填空后，解释哪一边更有说服力。"

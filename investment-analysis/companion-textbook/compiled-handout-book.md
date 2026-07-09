@@ -75,7 +75,7 @@ Students build the first investing vocabulary, compare asset types, read market 
 **Case anchor:** Tencent
 **Unit:** 1. Foundations, assets and market access
 **Guiding question:** What is investment analysis?
-**Student hook:** Tencent is familiar. Would you buy shares in it?
+**Student hook:** Would you buy shares in Tencent? Give one reason.
 **Core claim:** Investment analysis judges potential return, risk and suitability before action.
 **Primary output:** one Tencent judgement with dated evidence, caveat and next action
 **Formula or formula rule:** no new formula; students classify evidence needs and explain in words only.
@@ -93,8 +93,12 @@ Record the Tencent source title, source date or accessed date, key figure and on
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| investment analysis | 投资分析 | Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| investor fit | 投资者适合度 | Investor fit is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| investment analysis | 投资分析 | Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision. |
+| investor fit | 投资者适合度 | Investor fit is the degree to which an investment matches an investor's goal, time horizon, liquidity need and risk tolerance. |
+| return | 回报 | Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received. |
+| risk | 风险 | Risk is the possibility that results, returns or prices are worse than expected. |
+| asset | 资产 | An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource. |
+| share | 股票 / 股份 | A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends. |
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 
@@ -153,8 +157,9 @@ Record the Family saving plan source title, source date or accessed date, key fi
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| saving | 储蓄 | Saving is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| speculation | 投机 | Speculation is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| saving | 储蓄 | Saving is keeping money safe and available for future use, usually with lower risk and lower expected return than investing. |
+| investment | 投资 | Investment is putting money into an asset to seek future return while accepting possible loss. |
+| speculation | 投机 | Speculation is trying to profit from uncertain price movements, often over a short time and with weaker evidence than investment analysis requires. |
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 
@@ -333,8 +338,11 @@ Record the HKEX source title, source date or accessed date, key figure and one l
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| stock exchange | 证券交易所 | Stock exchange is a course concept used to analyse HKEX with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| secondary market | 二级市场 | Secondary market is a course concept used to analyse HKEX with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| stock exchange | 证券交易所 | A stock exchange is a regulated market where listed securities can be bought and sold under published trading rules. |
+| secondary market | 二级市场 | A secondary market is the market where investors buy and sell existing securities with each other after they have been issued. |
+| listing | 上市 | A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements. |
+| stock code | 股票代码 | A stock code is the short market identifier used to find a listed security on an exchange or market-data system. |
+| liquidity | 流动性 | Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change. |
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 
@@ -395,6 +403,7 @@ Record the Alibaba quote snapshot source title, source date or accessed date, ke
 | --- | --- | --- |
 | quote page | 报价页面 | Quote page is a course concept used to analyse Alibaba quote snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
 | bid-ask spread | 买卖价差 | Bid-ask spread is a course concept used to analyse Alibaba quote snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| share price | 股价 | A share price is the market price of one share at a specific time. |
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 

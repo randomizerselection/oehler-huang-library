@@ -53,7 +53,7 @@ Teaching rhythm:
 - Hooks should normally begin with a concrete student decision or dilemma, not a chart by default. Use a chart as evidence after students know what question the evidence is meant to answer.
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
-- `term` definitions should blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined.
+- `term` definitions should use `definitionBlanks` to blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined. Keep the English `definition` text canonical and unmarked so validators, handouts and recall checks read the same wording.
 - `term` slides should show the term, English definition and Chinese definition only; keep extra related terms out of the projected definition block.
 - `peerTask` slides should end with an individual written check even when students compare with a partner.
 - Use `peerTask` with `taskType: "definitionRecall"` for opening recall from earlier Investment lessons, and `taskType: "missingSentence"` when students need to practise one missing link in an evidence-to-judgement explanation.

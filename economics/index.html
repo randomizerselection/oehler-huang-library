@@ -37,8 +37,19 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(86,216,255,.12), rgba(255,255,255,.035) 42%, rgba(255,209,102,.07)),
-        var(--bg-1);
+        linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78) 52%, rgba(7,17,31,.32)),
+        linear-gradient(0deg, rgba(7,17,31,.88), rgba(7,17,31,.1) 58%),
+        url("../assets/images/macro-aims/china-national-bureau-statistics.jpg") center 42% / cover;
+      box-shadow: 0 24px 70px rgba(0,0,0,.32);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .hero-inner {
@@ -48,6 +59,7 @@
       grid-template-columns: minmax(0, 1fr);
       gap: 1.7rem;
       align-items: start;
+      min-height: min(560px, calc(100svh - 118px));
       padding: clamp(24px, 4.4vw, 54px);
     }
 
@@ -163,8 +175,15 @@
 
     .button.primary {
       border-color: rgba(255,209,102,.52);
-      background: linear-gradient(135deg, rgba(255,209,102,.28), rgba(126,240,181,.12));
-      color: #fff;
+      background: var(--green);
+      color: #06131b;
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
+      border-color: rgba(156,247,201,.82);
+      background: #9cf7c9;
+      color: #06131b;
     }
 
     .section {

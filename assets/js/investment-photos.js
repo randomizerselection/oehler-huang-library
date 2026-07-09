@@ -122,6 +122,14 @@ window.INVEST = window.INVEST || {};
       "Local investment image asset",
       { objectPosition: "center 48%" }
     ),
+    assetShareCertificate: photo(
+      "../supply-side-policy/stock-certificate.jpg",
+      "A printed stock certificate representing ownership of company shares.",
+      "Share certificate as evidence of share ownership",
+      "Wikimedia Commons / Museum of Vojvodinian Slovaks",
+      "https://commons.wikimedia.org/wiki/File:Stock_certificate.jpg",
+      { objectFit: "contain", background: "#ead8bf" }
+    ),
     assetCommoditiesPort: photo(
       "shipping-containers-port.jpg",
       "Shipping containers at a port representing traded physical goods and commodities.",

@@ -88,7 +88,7 @@ img {
 .investment-page {
   width: min(1240px, calc(100% - 44px));
   margin: 0 auto;
-  padding: 16px 0 46px;
+  padding: 18px 0 52px;
 }
 
 .investment-nav {
@@ -126,7 +126,7 @@ img {
   justify-content: center;
   border: 1px solid var(--inv-line);
   border-radius: var(--inv-radius);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--inv-ink);
   padding: 9px 13px;
   font-size: 15px;
@@ -172,15 +172,15 @@ img {
 
 .investment-hero {
   position: relative;
-  min-height: min(620px, calc(100svh - 112px));
+  min-height: min(660px, calc(100svh - 112px));
   overflow: hidden;
   display: grid;
   align-content: end;
   border: 1px solid var(--inv-line);
   border-radius: var(--inv-radius);
   background:
-    linear-gradient(90deg, rgba(4, 9, 11, 0.9), rgba(4, 9, 11, 0.62) 48%, rgba(4, 9, 11, 0.18)),
-    linear-gradient(0deg, rgba(4, 9, 11, 0.88), rgba(4, 9, 11, 0.08) 54%),
+    linear-gradient(90deg, rgba(4, 9, 11, 0.96), rgba(4, 9, 11, 0.72) 48%, rgba(4, 9, 11, 0.2)),
+    linear-gradient(0deg, rgba(4, 9, 11, 0.92), rgba(4, 9, 11, 0.08) 58%),
     url("../images/investment-analysis/trading-desk-laptops-2025.jpg") center 58% / cover;
   box-shadow: var(--inv-shadow);
 }
@@ -204,7 +204,7 @@ img {
 
 .investment-hero-copy {
   padding-top: 72px;
-  padding-bottom: 18px;
+  padding-bottom: 22px;
 }
 
 .investment-status-panel {
@@ -229,7 +229,7 @@ img {
   max-width: 11ch;
   margin: 0;
   color: var(--inv-ink);
-  font-size: 86px;
+  font-size: 92px;
   font-weight: 600;
   line-height: 0.98;
   text-wrap: balance;
@@ -261,11 +261,12 @@ img {
   gap: 7px;
   border: 1px solid rgba(79, 210, 255, 0.28);
   border-radius: var(--inv-radius);
-  background: rgba(4, 13, 16, 0.46);
+  background: rgba(4, 13, 16, 0.58);
   color: var(--inv-muted);
   padding: 8px 11px;
   font-size: 14px;
   line-height: 1.15;
+  backdrop-filter: blur(10px);
 }
 
 .investment-hero-facts strong {
@@ -279,6 +280,7 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 2px solid var(--inv-cyan);
   margin-top: 12px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
 }
 
 .investment-learning-item {
@@ -288,7 +290,8 @@ img {
   gap: 8px;
   padding: 16px 18px 15px;
   border-bottom: 1px solid rgba(79, 210, 255, 0.42);
-  background: rgba(6, 12, 15, 0.58);
+  background: rgba(6, 12, 15, 0.68);
+  backdrop-filter: blur(10px);
 }
 
 .investment-learning-item + .investment-learning-item {
@@ -350,6 +353,8 @@ img {
 }
 
 .investment-card {
+  position: relative;
+  overflow: hidden;
   display: grid;
   align-content: start;
   gap: 12px;
@@ -358,6 +363,24 @@ img {
   border-radius: var(--inv-radius);
   background: rgba(16, 27, 32, 0.82);
   padding: 22px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
+  transition: transform 160ms var(--inv-ease), border-color 160ms var(--inv-ease), background 160ms var(--inv-ease);
+}
+
+.investment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--inv-cyan), var(--inv-green), var(--inv-amber));
+  opacity: 0.62;
+}
+
+.investment-card:hover,
+.investment-card:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(79, 210, 255, 0.38);
+  background: rgba(21, 36, 43, 0.86);
 }
 
 .investment-card.is-data {
@@ -1313,6 +1336,9 @@ img {
 .invContextPhotoSlide .invEvidence,
 .invContextPhotoSlide .invRiskItem,
 .invContextPhotoSlide .invCalcBox,
+.invContextPhotoSlide .invObjective,
+.invContextPhotoSlide .invTermBox,
+.invContextPhotoSlide .invCheckItem,
 .invContextPhotoSlide .invPeerBox,
 .invContextPhotoSlide .invExamBox,
 .invContextPhotoSlide .invModelCue,
@@ -2150,6 +2176,9 @@ img {
 .invContextPhotoSlide .invEvidence,
 .invContextPhotoSlide .invRiskItem,
 .invContextPhotoSlide .invCalcBox,
+.invContextPhotoSlide .invObjective,
+.invContextPhotoSlide .invTermBox,
+.invContextPhotoSlide .invCheckItem,
 .invContextPhotoSlide .invPeerBox,
 .invContextPhotoSlide .invExamBox,
 .invContextPhotoSlide .invModelCue,
@@ -3345,9 +3374,9 @@ img {
 }
 
 .invRankingTask {
-  width: min(1380px, 100%);
+  width: min(1420px, 100%);
   display: grid;
-  gap: 12px;
+  gap: 14px;
   align-self: start;
 }
 
@@ -3360,7 +3389,7 @@ img {
 
 .invRankingTask > .invFocusPrompt strong {
   display: block;
-  font-size: clamp(24px, 2.25vw, 34px);
+  font-size: clamp(29px, 2.6vw, 42px);
   font-weight: 600;
   line-height: 1.08;
 }
@@ -3368,20 +3397,20 @@ img {
 .invRankingTask > .invFocusPrompt .invZhLine {
   margin-top: 4px;
   color: rgba(247, 251, 248, 0.78);
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.18;
 }
 
 .invRankingBoard {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   border: 1px solid rgba(241, 190, 90, 0.28);
   border-radius: var(--inv-radius);
   background:
     linear-gradient(180deg, rgba(21, 36, 43, 0.9), rgba(8, 16, 19, 0.9)),
     rgba(13, 23, 27, 0.9);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  padding: 14px;
+  padding: 12px;
 }
 
 .invRankingAxis {
@@ -3407,14 +3436,14 @@ img {
 }
 
 .invRankingAxis strong {
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 700;
   line-height: 1.05;
 }
 
 .invRankingAxis span {
   color: rgba(247, 251, 248, 0.68);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.08;
 }
 
@@ -3422,7 +3451,7 @@ img {
   position: relative;
   margin: 0;
   color: var(--inv-muted);
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.2;
   text-align: center;
 }
@@ -3444,12 +3473,12 @@ img {
 .invRankingSlots {
   display: grid;
   grid-template-columns: repeat(var(--ranking-count, 4), minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .invRankingSlot {
   position: relative;
-  min-height: 104px;
+  min-height: 60px;
   border: 2px dashed rgba(241, 190, 90, 0.34);
   border-radius: var(--inv-radius);
   background:
@@ -3463,24 +3492,24 @@ img {
   left: 8px;
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 30px;
+  width: 40px;
+  height: 34px;
   border-radius: var(--inv-radius);
   background: rgba(241, 190, 90, 0.14);
   color: var(--inv-amber);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .invRankingCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
 }
 
 .invRankingCard {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-columns: 46px minmax(0, 1fr);
   align-items: start;
   gap: 10px;
   min-height: 96px;
@@ -3490,39 +3519,39 @@ img {
   background:
     linear-gradient(180deg, rgba(18, 35, 41, 0.94), rgba(7, 16, 19, 0.9)),
     rgba(13, 23, 27, 0.9);
-  padding: 10px;
+  padding: 12px;
 }
 
 .invRankingCard > span {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--inv-radius);
   background: rgba(79, 210, 255, 0.14);
   color: var(--inv-cyan);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .invRankingCard strong {
   display: block;
   color: var(--inv-ink);
-  font-size: 27px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 1.04;
 }
 
 .invRankingCard p {
-  margin: 5px 0 0;
+  margin: 7px 0 0;
   color: var(--inv-muted);
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.18;
 }
 
 .invRankingCard .invZhLine {
   color: rgba(247, 251, 248, 0.7);
-  font-size: 16px;
+  font-size: 21px;
 }
 
 .invRankingAnswer.invReveal.is-revealed {
@@ -3543,7 +3572,7 @@ img {
 }
 
 .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt {
-  padding: 10px 14px;
+  display: none;
 }
 
 .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt strong {
@@ -3568,14 +3597,14 @@ img {
 
 .invRankingAnswerTitle {
   color: var(--inv-green);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.08;
 }
 
 .invRankingAnswerZh {
   color: rgba(247, 251, 248, 0.74);
-  font-size: 17px;
+  font-size: 20px;
   line-height: 1.12;
 }
 
@@ -3610,7 +3639,7 @@ img {
 
 .invRankingOrderAsset strong {
   color: var(--inv-ink);
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.06;
 }
@@ -3618,14 +3647,14 @@ img {
 .invRankingOrderAsset .invZhLine {
   margin-top: 3px;
   color: rgba(247, 251, 248, 0.68);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.08;
 }
 
 .invRankingReason {
   margin: 0;
   color: var(--inv-muted);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.2;
 }
 
@@ -3633,7 +3662,7 @@ img {
   display: block;
   margin-top: 4px;
   color: rgba(247, 251, 248, 0.68);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.12;
 }
 
@@ -3650,14 +3679,14 @@ img {
 .invRankingCaveat strong,
 .invRankingWrittenCheck strong {
   color: var(--inv-ink);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.12;
 }
 
 .invRankingCaveat span,
 .invRankingWrittenCheck span {
   color: rgba(247, 251, 248, 0.7);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.12;
 }
 
@@ -3857,6 +3886,14 @@ img {
 
 .invObjective strong {
   align-self: end;
+}
+
+.invObjectiveKeyword {
+  color: var(--inv-green);
+  text-decoration: underline;
+  text-decoration-color: rgba(57, 217, 145, 0.52);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.12em;
 }
 
 .invObjectiveGrid[data-count="5"] {
@@ -5531,6 +5568,96 @@ img {
 .invFlow-sequence .invStep {
   min-height: 240px;
   padding: 18px;
+}
+
+.invFlow-definitionChecks {
+  width: min(1360px, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 1.7vw, 28px);
+  align-items: stretch;
+}
+
+.invFlow-definitionChecks .invStep {
+  --check-accent: rgba(79, 210, 255, 0.72);
+  position: relative;
+  grid-template-columns: 1fr;
+  align-content: stretch;
+  align-items: start;
+  gap: clamp(12px, 1.1vw, 18px);
+  min-height: clamp(286px, 32vh, 372px);
+  overflow: hidden;
+  border-left-width: 1px;
+  border-top: 7px solid var(--check-accent);
+  padding: clamp(26px, 2.2vw, 36px);
+  background:
+    linear-gradient(180deg, rgba(214, 231, 232, 0.08), rgba(7, 17, 20, 0.9)),
+    rgba(9, 19, 22, 0.92);
+}
+
+.invFlow-definitionChecks .invStep:nth-child(2) {
+  --check-accent: rgba(238, 108, 101, 0.78);
+}
+
+.invFlow-definitionChecks .invStep:nth-child(3) {
+  --check-accent: rgba(57, 217, 145, 0.78);
+}
+
+.invFlow-definitionChecks .invStep::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--check-accent) 18%, transparent));
+  pointer-events: none;
+}
+
+.invFlow-definitionChecks .invStepNum {
+  position: absolute;
+  top: clamp(16px, 1.4vw, 24px);
+  right: clamp(18px, 1.8vw, 30px);
+  z-index: 0;
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(214, 231, 232, 0.12);
+  font-size: clamp(74px, 7vw, 124px);
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.invFlow-definitionChecks .invStepTitle,
+.invFlow-definitionChecks .invStepText,
+.invFlow-definitionChecks .invZhLine {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.invFlow-definitionChecks .invStepTitle {
+  max-width: 9ch;
+  color: #f5fbfb;
+  font-size: clamp(36px, 3.1vw, 52px);
+  line-height: 0.98;
+}
+
+.invFlow-definitionChecks .invStepText {
+  max-width: 17ch;
+  color: rgba(232, 244, 244, 0.88);
+  font-family: var(--inv-text);
+  font-size: clamp(24px, 1.65vw, 31px);
+  line-height: 1.14;
+}
+
+.invFlow-definitionChecks .invZhLine {
+  display: block;
+  align-self: end;
+  margin-top: auto;
+  border-top: 1px solid rgba(214, 231, 232, 0.16);
+  padding-top: clamp(12px, 1vw, 16px);
+  color: rgba(223, 238, 238, 0.86);
+  font-size: clamp(20px, 1.45vw, 27px);
+  line-height: 1.2;
 }
 
 .invPeerTaskSlide .invPeerBox {
@@ -7220,6 +7347,59 @@ img {
 
   .invFlow .invZhLine {
     display: none;
+  }
+
+  .invFlow-definitionChecks {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .invFlow-definitionChecks .invStep {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 4px 8px;
+    min-height: 0;
+    border-top-width: 1px;
+    border-left: 5px solid var(--check-accent);
+    padding: 8px 10px;
+  }
+
+  .invFlow-definitionChecks .invStep::after {
+    display: none;
+  }
+
+  .invFlow-definitionChecks .invStepNum {
+    position: static;
+    z-index: 1;
+    grid-row: 1 / span 3;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--inv-radius);
+    background: var(--check-accent);
+    color: #04110c;
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  .invFlow-definitionChecks .invStepTitle {
+    max-width: none;
+    font-size: 22px;
+    line-height: 1.02;
+  }
+
+  .invFlow-definitionChecks .invStepText {
+    max-width: none;
+    font-size: 18px;
+    line-height: 1.08;
+  }
+
+  .invFlow-definitionChecks .invZhLine {
+    display: block;
+    grid-column: 2;
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+    font-size: 15px;
+    line-height: 1.1;
   }
 
   .invCalcBox {
@@ -8950,23 +9130,21 @@ img {
   }
 
   .investment-nav {
-    display: flex;
-    grid-template-columns: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
   .investment-nav-links {
-    display: flex;
-    flex: 0 0 auto;
-    flex-wrap: nowrap;
+    display: contents;
   }
 
   .investment-link {
-    flex: 0 0 auto;
-    width: auto;
-    white-space: nowrap;
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
   }
 
   .investment-actions {
@@ -9098,6 +9276,31 @@ img {
   text-shadow: 0 10px 32px rgba(0, 0, 0, 0.58);
 }
 
+.invLongDiscussionSlide .invSlideBody {
+  padding-top: clamp(30px, 5.4vh, 72px);
+  padding-bottom: clamp(60px, 7vh, 96px);
+}
+
+.invLongDiscussionSlide .invDiscussionStage {
+  width: min(1240px, 86vw);
+}
+
+.invLongDiscussionSlide .invDiscussionPrompt {
+  gap: 15px;
+}
+
+.invLongDiscussionSlide .invDiscussionQuestionText {
+  max-width: 36ch;
+  font-size: clamp(36px, 3.2vw, 58px);
+  line-height: 1.08;
+}
+
+.invLongDiscussionSlide .invDiscussionQuestionZh {
+  max-width: 44ch;
+  font-size: clamp(21px, 1.75vw, 32px);
+  line-height: 1.34;
+}
+
 .invDiscussionAnswerButton {
   width: fit-content;
   display: inline-flex;
@@ -9129,9 +9332,11 @@ img {
 }
 
 .invDiscussionAnswerOverlay.invReveal.is-revealed {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 20;
+  width: auto;
+  max-width: none;
   display: grid;
   place-items: center;
   padding: clamp(20px, 4vw, 64px);
@@ -9241,6 +9446,30 @@ img {
     line-height: 1.42;
   }
 
+  .invLongDiscussionSlide .invSlideBody {
+    padding: 28px 18px 64px;
+  }
+
+  .invLongDiscussionSlide .invDiscussionStage {
+    width: min(100%, 94vw);
+  }
+
+  .invLongDiscussionSlide .invDiscussionPrompt {
+    gap: 10px;
+  }
+
+  .invLongDiscussionSlide .invDiscussionQuestionText {
+    max-width: 30ch;
+    font-size: clamp(24px, 6.4vw, 36px);
+    line-height: 1.08;
+  }
+
+  .invLongDiscussionSlide .invDiscussionQuestionZh {
+    max-width: 34ch;
+    font-size: clamp(16px, 4.2vw, 22px);
+    line-height: 1.36;
+  }
+
   .invDiscussionAnswerButton {
     padding: 9px 12px;
     font-size: 15px;
@@ -9277,7 +9506,7 @@ img {
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
   width: min(1280px, 100%) !important;
   display: grid !important;
-  gap: 10px !important;
+  gap: 12px !important;
 }
 
 .invClassificationTask > .invFocusPrompt,
@@ -9285,14 +9514,14 @@ img {
 .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
   display: grid !important;
   gap: 4px !important;
-  padding: 10px 13px !important;
+  padding: 12px 15px !important;
   border-left: 5px solid var(--type-accent-line) !important;
 }
 
 .invClassificationTask > .invFocusPrompt strong,
 .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt strong,
 .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt strong {
-  font-size: 25px !important;
+  font-size: 30px !important;
   font-weight: 650 !important;
   line-height: 1.06 !important;
 }
@@ -9303,7 +9532,7 @@ img {
   display: block !important;
   margin: 0 !important;
   color: var(--inv-muted) !important;
-  font-size: 19px !important;
+  font-size: 22px !important;
   line-height: 1.08 !important;
 }
 
@@ -9318,7 +9547,7 @@ img {
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 8px !important;
+  gap: 10px !important;
 }
 
 .invClassificationCategory,
@@ -9328,7 +9557,7 @@ img {
   gap: 3px 8px !important;
   align-items: start !important;
   min-height: 0 !important;
-  padding: 8px 10px !important;
+  padding: 10px 12px !important;
   overflow: hidden !important;
   border: 1px solid rgba(152, 184, 188, 0.2) !important;
   border-top: 4px solid var(--type-accent-line) !important;
@@ -9360,7 +9589,7 @@ img {
 .invClassificationCategory strong,
 .invCompactClassificationSlide .invClassificationCategory strong {
   color: var(--inv-ink) !important;
-  font-size: 20px !important;
+  font-size: 23px !important;
   font-weight: 700 !important;
   line-height: 1.02 !important;
 }
@@ -9368,7 +9597,7 @@ img {
 .invClassificationCategory span[lang],
 .invCompactClassificationSlide .invClassificationCategory span[lang] {
   color: var(--inv-muted) !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   line-height: 1.04 !important;
 }
 
@@ -9377,7 +9606,7 @@ img {
   grid-column: 2 !important;
   margin: 0 !important;
   color: rgba(205, 242, 246, 0.72) !important;
-  font-size: 13px !important;
+  font-size: 16px !important;
   font-style: normal !important;
   line-height: 1.05 !important;
 }
@@ -9387,8 +9616,8 @@ img {
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 8px !important;
+  grid-template-columns: repeat(var(--classification-item-cols, 3), minmax(0, 1fr)) !important;
+  gap: 10px !important;
   align-items: stretch !important;
 }
 
@@ -9403,9 +9632,9 @@ img {
   display: grid !important;
   grid-template-rows: auto auto !important;
   align-content: start !important;
-  gap: 7px !important;
+  gap: 9px !important;
   min-height: 0 !important;
-  padding: 10px !important;
+  padding: 14px !important;
   overflow: hidden !important;
   border: 1px solid rgba(152, 184, 188, 0.2) !important;
   border-left: 5px solid var(--type-accent-line) !important;
@@ -9420,8 +9649,8 @@ img {
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt {
   display: grid !important;
-  grid-template-columns: 28px minmax(0, 1fr) !important;
-  gap: 4px 8px !important;
+  grid-template-columns: 32px minmax(0, 1fr) !important;
+  gap: 5px 10px !important;
   align-items: start !important;
 }
 
@@ -9430,13 +9659,13 @@ img {
 .invCompactClassificationSlide .invClassificationPrompt > span {
   display: grid !important;
   place-items: center !important;
-  width: 28px !important;
-  height: 28px !important;
+  width: 32px !important;
+  height: 32px !important;
   padding: 0 !important;
   border-radius: calc(var(--inv-radius) - 2px) !important;
   background: rgba(57, 217, 145, 0.14) !important;
   color: var(--inv-green) !important;
-  font-size: 13px !important;
+  font-size: 15px !important;
   font-weight: 850 !important;
   line-height: 1 !important;
 }
@@ -9452,7 +9681,7 @@ img {
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong {
   color: var(--inv-ink) !important;
-  font-size: 22px !important;
+  font-size: 27px !important;
   font-weight: 650 !important;
   line-height: 1.04 !important;
 }
@@ -9463,7 +9692,7 @@ img {
   display: block !important;
   margin: 0 !important;
   color: var(--inv-muted) !important;
-  font-size: 16px !important;
+  font-size: 19px !important;
   line-height: 1.06 !important;
 }
 
@@ -9482,7 +9711,7 @@ img {
     "answerzh reason" !important;
   align-items: start !important;
   gap: 3px 8px !important;
-  padding: 8px !important;
+  padding: 10px !important;
   border: 1px solid rgba(57, 217, 145, 0.2) !important;
   border-radius: calc(var(--inv-radius) - 2px) !important;
   background: rgba(57, 217, 145, 0.06) !important;
@@ -9548,7 +9777,7 @@ img {
   display: block !important;
   margin: 0 !important;
   color: var(--inv-ink) !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-weight: 550 !important;
   line-height: 1.05 !important;
 }
@@ -9559,7 +9788,7 @@ img {
   display: block !important;
   margin: 0 !important;
   color: var(--inv-muted) !important;
-  font-size: 13px !important;
+  font-size: 15px !important;
   line-height: 1.05 !important;
 }
 
@@ -9738,6 +9967,13 @@ img {
   .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationReason .invZhLine {
     display: none !important;
   }
+}
+
+.invClassificationResult.invReveal:not(.is-revealed),
+.invCompactClassificationSlide .invClassificationResult.invReveal:not(.is-revealed),
+.invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult.invReveal:not(.is-revealed),
+.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult.invReveal:not(.is-revealed) {
+  display: none !important;
 }
 
 /* Final yes/no check reset: balanced vote cards with in-flow reveal answers. */
@@ -11428,6 +11664,205 @@ img {
   .invRankingWrittenCheck span {
     display: none;
   }
+}
+
+/* Outcomes slide: classroom projection polish */
+
+.invOutcomesSlide .invSlideHeader {
+  padding-bottom: clamp(12px, 1.8vh, 20px);
+}
+
+.invOutcomesSlide .invTitleBlock h1 {
+  font-size: clamp(48px, 4.8vw, 76px);
+  line-height: 1.02;
+}
+
+.invOutcomesSlide .invZhTitle {
+  max-width: 900px;
+  color: rgba(205, 242, 246, 0.9);
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.08;
+}
+
+.invOutcomesSlide .invSlideBody {
+  align-content: start;
+  padding-top: clamp(56px, 8vh, 88px);
+}
+
+.invOutcomesSlide .invObjectiveGrid {
+  width: min(1280px, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 1.8vw, 28px);
+  align-items: stretch;
+}
+
+.invOutcomesSlide .invObjective {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(250px, 31vh, 330px);
+  border: 1px solid rgba(79, 210, 255, 0.32);
+  border-top: 5px solid rgba(79, 210, 255, 0.82);
+  border-left: 1px solid rgba(79, 210, 255, 0.32);
+  background:
+    linear-gradient(180deg, rgba(17, 37, 43, 0.94), rgba(6, 16, 19, 0.9)),
+    rgba(8, 20, 24, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 18px 48px rgba(0, 0, 0, 0.24);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(12px, 1.3vw, 18px);
+  align-content: stretch;
+  padding: clamp(22px, 2.2vw, 32px);
+}
+
+.invOutcomesSlide .invObjective:not(:last-child)::before {
+  display: none;
+}
+
+.invOutcomesSlide .invObjective::after {
+  left: clamp(22px, 2.2vw, 32px);
+  right: clamp(22px, 2.2vw, 32px);
+  top: clamp(22px, 2.2vw, 32px);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(79, 210, 255, 0.98), rgba(57, 217, 145, 0.44), transparent);
+}
+
+.invOutcomesSlide .invObjectiveStep {
+  z-index: -1;
+  top: auto;
+  right: clamp(14px, 1.8vw, 24px);
+  bottom: clamp(8px, 1.2vw, 18px);
+  color: rgba(205, 242, 246, 0.1);
+  font-size: clamp(72px, 7vw, 118px);
+  font-weight: 700;
+}
+
+.invOutcomesSlide .invObjectivePhase {
+  position: relative;
+  z-index: 1;
+  border-color: rgba(241, 190, 90, 0.46);
+  background: rgba(241, 190, 90, 0.12);
+  color: rgba(255, 211, 126, 0.96);
+  font-size: clamp(13px, 0.95vw, 15px);
+  letter-spacing: 0.06em;
+  padding: 8px 10px;
+}
+
+.invOutcomesSlide .invObjective strong {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  max-width: 98%;
+  font-size: clamp(30px, 2.45vw, 42px);
+  font-weight: 600;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.invOutcomesSlide .invObjective strong::before {
+  width: 56px;
+  height: 4px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(79, 210, 255, 0.98);
+}
+
+.invOutcomesSlide .invObjectiveZh {
+  position: relative;
+  z-index: 1;
+  max-width: 98%;
+  color: rgba(205, 242, 246, 0.88);
+  font-size: clamp(20px, 1.7vw, 28px);
+  font-weight: 500;
+  line-height: 1.14;
+}
+
+.invOutcomesSlide .invObjectiveKeyword {
+  color: var(--inv-green);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.16em;
+}
+
+@media (max-width: 900px) {
+  .invOutcomesSlide .invSlideHeader {
+    padding-bottom: 8px;
+  }
+
+  .invOutcomesSlide .invTitleBlock h1 {
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .invOutcomesSlide .invZhTitle {
+    font-size: clamp(20px, 5.4vw, 28px);
+  }
+
+  .invOutcomesSlide .invSlideBody {
+    align-content: start;
+    padding-top: 8px;
+  }
+
+  .invOutcomesSlide .invObjectiveGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .invOutcomesSlide .invObjective {
+    min-height: 0;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    column-gap: 10px;
+    row-gap: 4px;
+    align-content: center;
+    padding: 10px 12px;
+  }
+
+  .invOutcomesSlide .invObjective::after,
+  .invOutcomesSlide .invObjective strong::before {
+    display: none;
+  }
+
+  .invOutcomesSlide .invObjectiveStep {
+    display: block;
+    position: static;
+    z-index: 1;
+    grid-row: 1 / span 3;
+    align-self: center;
+    justify-self: center;
+    color: rgba(79, 210, 255, 0.72);
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .invOutcomesSlide .invObjectivePhase,
+  .invOutcomesSlide .invObjective strong,
+  .invOutcomesSlide .invObjectiveZh {
+    grid-column: 2;
+  }
+
+  .invOutcomesSlide .invObjectivePhase {
+    display: inline-flex;
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .invOutcomesSlide .invObjective strong {
+    font-size: clamp(20px, 5.2vw, 26px);
+    line-height: 1.05;
+  }
+
+  .invOutcomesSlide .invObjectiveZh {
+    font-size: clamp(13px, 3.7vw, 17px);
+    line-height: 1.1;
+  }
+}
+
+.invContextPhotoSlide {
+  background:
+    linear-gradient(90deg, rgba(6, 12, 15, 0.96), rgba(6, 12, 15, 0.84) 58%, rgba(6, 12, 15, 0.48)),
+    linear-gradient(0deg, rgba(6, 12, 15, 0.96), rgba(6, 12, 15, 0.46)),
+    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+    #091014;
 }
 
 @media print {

@@ -66,8 +66,9 @@ body.business-home::after {
   padding-top: 28px;
   color: var(--business-mist-text);
   background:
-    radial-gradient(circle at 84% 4%, rgba(184, 132, 22, .22), transparent 24rem),
-    linear-gradient(135deg, var(--business-desk-black) 0%, var(--business-deep-petrol) 100%);
+    linear-gradient(90deg, rgba(16, 22, 29, .96), rgba(16, 22, 29, .82) 50%, rgba(11, 54, 64, .42)),
+    linear-gradient(0deg, rgba(16, 22, 29, .96), rgba(16, 22, 29, .24) 58%),
+    url("../images/investment-analysis/stock-report-calculator-2021.jpg") center 58% / cover;
 }
 
 .business-nav {
@@ -130,6 +131,7 @@ body.business-home::after {
   grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
   gap: clamp(1.25rem, 3.4vw, 3.25rem);
   align-items: center;
+  min-height: min(560px, calc(100svh - 96px));
   padding: clamp(28px, 5vw, 58px) 0 clamp(28px, 4vw, 44px);
   border-bottom: 1px solid rgba(244, 239, 230, .18);
 }
@@ -228,9 +230,10 @@ body.business-home::after {
   border: 1px solid var(--business-line);
   border-top: 5px solid var(--business-green);
   border-radius: 8px;
-  background: var(--business-surface);
+  background: rgba(255, 253, 248, .96);
   padding: clamp(18px, 2.6vw, 26px);
   box-shadow: var(--business-shadow);
+  backdrop-filter: blur(8px);
 }
 
 .business-case-panel h2 {
@@ -328,6 +331,14 @@ body.business-home::after {
   background: var(--business-surface);
   padding: 1rem;
   box-shadow: var(--business-shadow-sm);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.business-paper-card:hover,
+.business-paper-card:focus-within {
+  transform: translateY(-2px);
+  border-color: var(--business-line-strong);
+  box-shadow: var(--business-shadow);
 }
 
 .business-paper-card:nth-child(2) {
@@ -798,6 +809,7 @@ body.business-home::after {
   }
 
   .business-hero {
+    min-height: 0;
     gap: 14px;
     padding: 18px 0 20px;
   }
@@ -838,6 +850,19 @@ body.business-home::after {
 
   .business-case-panel h2 {
     font-size: clamp(23px, 6vw, 31px);
+  }
+
+  .business-case-panel p {
+    font-size: 14px;
+    line-height: 1.38;
+  }
+
+  .business-case-points {
+    display: none;
+  }
+
+  .business-case-note {
+    display: none;
   }
 
   .business-section,

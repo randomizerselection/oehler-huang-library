@@ -1030,6 +1030,10 @@ function validateTermRenderer() {
     failures.push('assets/js/investment-deck.js: term slides should render definitionZh inside the definition block');
   }
 
+  if (!/applyDefinitionBlanks/.test(source) || !/definitionBlanks/.test(source)) {
+    failures.push('assets/js/investment-deck.js: term slides should support definitionBlanks for projected fill-in definitions');
+  }
+
   return failures;
 }
 
@@ -1053,6 +1057,19 @@ function validateInvestmentPresentationDefinitions() {
           slide.definitionZh,
           definitionMap,
         );
+
+        if (slideFile === 'investment-analysis/unit-1/lesson-1/slides.js') {
+          const blanks = Array.isArray(slide.definitionBlanks) ? slide.definitionBlanks : [];
+          if (!blanks.length) {
+            failures.push(`${label}: Lesson 1 definition slides must declare definitionBlanks`);
+          }
+          for (const blank of blanks) {
+            const search = typeof blank === 'string' ? blank : (blank.text || blank.answer || '');
+            if (search && !String(slide.definition).includes(search)) {
+              failures.push(`${label}: definitionBlank "${search}" must appear in the canonical definition text`);
+            }
+          }
+        }
       }
 
       if (slide.type === 'peerTask' && slide.taskType === 'definitionRecall') {
@@ -1213,7 +1230,9 @@ function validateImportantChineseSupport() {
           if (slide.axis?.note) requireChinese(failures, label, slide.axis.noteZh, 'noteZh for the ranking axis');
           (slide.items || slide.cases || []).forEach((item, itemIndex) => {
             if (item.text || item.title) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh || item.textZh, 'Chinese support for the ranking card');
-            if (item.cue || item.hint) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.cueZh || item.hintZh, 'cueZh for the ranking card');
+            if (item.cue || item.hint) {
+              failures.push(`${label} item ${itemIndex + 1}: ranking cards must not include pre-reveal cue or hint text`);
+            }
           });
           (slide.modelOrder || slide.answerOrder || []).forEach((item, itemIndex) => {
             if (item.text || item.title) requireChinese(failures, `${label} model item ${itemIndex + 1}`, item.zh || item.textZh, 'Chinese support for the model ranking item');
@@ -1260,6 +1279,15 @@ function validateImportantChineseSupport() {
               const zh = Array.isArray(item) ? item[3] : item.zh;
               requireChinese(failures, `${label} item ${itemIndex + 1}`, zh, 'Chinese support for the compare item');
             }
+            if (slide.mode === 'fillBlanks' && item?.answer) {
+              if (!String(item.text || item.prompt || '').includes('__________')) {
+                failures.push(`${label} item ${itemIndex + 1}: fill-blank compare item must include an English blank marker`);
+              }
+              if (!String(item.zh || '').includes('__________')) {
+                failures.push(`${label} item ${itemIndex + 1}: fill-blank compare item must include a Chinese blank marker`);
+              }
+              requireChinese(failures, `${label} item ${itemIndex + 1}`, item.answerZh, 'answerZh for the compare blank');
+            }
           });
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the compare task');
           break;
@@ -1268,6 +1296,18 @@ function validateImportantChineseSupport() {
           break;
         case 'classificationTask':
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the classification task');
+          if (
+            slideFile === 'investment-analysis/unit-1/lesson-1/slides.js'
+            && slide.title === 'For each statement, choose the main focus: return, risk or suitability.'
+          ) {
+            const categoryOrder = (slide.categories || []).map((category) => (
+              typeof category === 'string' ? category : (category.title || category.label || '')
+            )).filter(Boolean);
+            const answerOrder = (slide.items || []).map((item) => item.answer || '').filter(Boolean);
+            if (categoryOrder.length && answerOrder.slice(0, categoryOrder.length).join('|') === categoryOrder.join('|')) {
+              failures.push(`${label}: answer order must not mirror the category order`);
+            }
+          }
           (slide.items || []).forEach((item, itemIndex) => {
             if (item.text || item.prompt) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh, 'Chinese support for the classification case');
             if (item.reason) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.reasonZh, 'reasonZh for the classification reason');

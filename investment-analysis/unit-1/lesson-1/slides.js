@@ -53,13 +53,13 @@ window.INVEST.lesson = {
           {
             type: "terms",
             terms: [
-              { label: "Investment analysis", prompt: "Investment analysis evaluates an investment opportunity to determine potential return, risk, and __________ for an investor.", answer: "suitability" },
-              { label: "Return", prompt: "Return is the gain or __________ earned from an investment over a stated holding period.", answer: "loss" },
+              { label: "Investment analysis", prompt: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and __________ before making a decision.", answer: "suitability" },
+              { label: "Return", prompt: "Return is the gain or __________ earned from an investment over a stated holding period, including price change and any income received.", answer: "loss" },
               { label: "Risk", prompt: "Risk is the possibility that results, returns or prices are worse than __________.", answer: "expected" },
-              { label: "Investment", prompt: "Investment puts money into an asset to seek future __________ while accepting possible loss.", answer: "return" },
-              { label: "Speculation", prompt: "Speculation attempts to profit from uncertain price __________, often with weaker evidence.", answer: "movements" },
-              { label: "Asset", prompt: "An asset is something with economic __________ that can be owned or controlled.", answer: "value" },
-              { label: "Share", prompt: "A share is one unit of ownership in a company and gives a claim on part of its __________.", answer: "equity" }
+              { label: "Investment", prompt: "Investment is putting money into an asset to seek future __________ while accepting possible loss.", answer: "return" },
+              { label: "Speculation", prompt: "Speculation is trying to profit from uncertain price __________, often over a short time and with weaker evidence than investment analysis requires.", answer: "movements" },
+              { label: "Asset", prompt: "An asset is something with economic __________ that can be owned or controlled, such as cash, property, a bond, a share or a business resource.", answer: "value" },
+              { label: "Share", prompt: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's __________ and, depending on the share class, certain rights such as votes or dividends.", answer: "equity" }
             ]
           }
         ]
@@ -144,11 +144,11 @@ window.INVEST.lesson = {
       eyebrow: "Starter",
       title: "Would you buy shares in Tencent?",
       zhTitle: "你会买腾讯股票吗？",
-      question: "Tencent is familiar. Would you buy shares in Tencent? Give one reason.",
-      questionZh: "腾讯很熟悉。你会买腾讯股票吗？给出一个理由。",
-      revealTitle: "A first reason is not analysis yet",
-      answer: "A first answer is useful because it shows what evidence is missing. Familiarity is a starting point, not a final investment judgement.",
-      answerZh: "第一反应有用，因为它能显示还缺少哪些证据。熟悉只是起点，不是最终投资判断。",
+      question: "Would you buy shares in Tencent? Give one reason.",
+      questionZh: "你会买腾讯股票吗？给出一个理由。",
+      revealTitle: "Not yet: check the evidence first",
+      answer: "Not yet. A familiar company is not enough. First check evidence on potential return, risk, price and investor fit.",
+      answerZh: "还不能。熟悉公司还不够。先检查潜在回报、风险、价格和投资者适合度的证据。",
       visual: investmentPhotos.lesson1TencentBinhaiBuilding01,
       notes: [
         "Take a quick yes/no vote.",
@@ -158,17 +158,28 @@ window.INVEST.lesson = {
     {
       type: "outcomes",
       eyebrow: "Objectives",
-      title: "By the end of this lesson, you can",
+      title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
+      visual: investmentPhotos.financeChartWhiteboard,
       bullets: [
-        "define investment analysis and explain return, risk and suitability",
-        "define an asset and compare simple asset types by risk",
-        "explain what buying a share gives and does not guarantee"
+        "define investment analysis: return, risk, fit",
+        "classify assets by risk",
+        "explain what one share gives"
       ],
       zhBullets: [
-        "定义投资分析，并把它与投机区分开",
-        "定义资产，并按风险比较简单资产类型",
-        "解释买入一股股票得到什么、不能保证什么"
+        "定义投资分析：回报、风险、适合性",
+        "按风险区分资产",
+        "解释一股股票能给什么"
+      ],
+      highlights: [
+        ["investment analysis", "return", "risk", "fit"],
+        ["assets", "risk"],
+        ["one share"]
+      ],
+      zhHighlights: [
+        ["投资分析", "回报", "风险", "适合性"],
+        ["风险", "资产"],
+        ["一股股票"]
       ],
       phases: ["Define", "Compare", "Explain"]
     },
@@ -185,11 +196,12 @@ window.INVEST.lesson = {
       eyebrow: "Try first",
       title: "What is investment analysis?",
       zhTitle: "什么是投资分析？",
-      question: "Before seeing the definition, write one sentence: what should investment analysis do?",
-      questionZh: "在看到定义前，写一句话：投资分析应该做什么？",
-      revealTitle: "Analysis evaluates return, risk and suitability",
-      answer: "Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
-      answerZh: "投资分析 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
+      question: "What is investment analysis?",
+      questionZh: "什么是投资分析？",
+      visual: investmentPhotos.stockReportCalculator,
+      revealTitle: "It checks evidence before action",
+      answer: "Investment analysis checks evidence before deciding: possible return, risk, price and whether the investment fits the investor.",
+      answerZh: "投资分析是在行动前检查证据：可能回报、风险、价格，以及这项投资是否适合投资者。",
       notes: "Students should try a definition before the formal term slide."
     },
     {
@@ -208,8 +220,10 @@ window.INVEST.lesson = {
       title: "Investment analysis",
       term: "Investment analysis",
       termZh: "投资分析",
-      definition: "Investment analysis is a course concept used to analyse Tencent with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
-      definitionZh: "投资分析 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
+      visual: investmentPhotos.investorChartScreens,
+      definition: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
+      definitionBlanks: ["potential return"],
+      definitionZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。",
       notes: "Use the full textbook-style definition from references/investment-analysis-definitions.md."
     },
     {
@@ -217,10 +231,27 @@ window.INVEST.lesson = {
       eyebrow: "Definition breakdown",
       title: "The definition has three checks",
       zhTitle: "定义包含三个检查点",
+      visual: investmentPhotos.investorMeetingReport,
+      flowStyle: "definitionChecks",
       steps: [
-        { text: "Potential return: what the investor may gain or lose.", zh: "潜在回报：投资者可能获得或损失什么。" },
-        { text: "Risk: what could be worse than expected.", zh: "风险：哪些结果可能比预期更差。" },
-        { text: "Suitability: whether it fits this investor's goals, time and risk tolerance.", zh: "适合性：它是否符合这位投资者的目标、时间和风险承受能力。" }
+        {
+          label: "01",
+          title: "Potential return",
+          text: "What the investor may gain or lose.",
+          zh: "潜在回报：可能赚多少或亏多少。"
+        },
+        {
+          label: "02",
+          title: "Risk",
+          text: "What could be worse than expected.",
+          zh: "风险：结果可能比预期更差。"
+        },
+        {
+          label: "03",
+          title: "Suitability",
+          text: "Whether it fits this investor's goals, time and risk tolerance.",
+          zh: "适合性：是否符合目标、时间和风险承受能力。"
+        }
       ],
       notes: "Keep suitability brief: it is not personalised advice; it explains why the same opportunity may fit one investor but not another."
     },
@@ -230,7 +261,9 @@ window.INVEST.lesson = {
       title: "Return",
       term: "Return",
       termZh: "回报",
+      visual: investmentPhotos.marketScreen,
       definition: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.",
+      definitionBlanks: ["gain or loss"],
       definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。",
       notes: "Use the shared return definition even though the formula comes later in Unit 3."
     },
@@ -240,7 +273,9 @@ window.INVEST.lesson = {
       title: "Risk",
       term: "Risk",
       termZh: "风险",
+      visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
       definition: "Risk is the possibility that results, returns or prices are worse than expected.",
+      definitionBlanks: ["worse than expected"],
       definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
       notes: "Keep risk broad and beginner-friendly. Detailed risk types come later."
     },
@@ -251,24 +286,24 @@ window.INVEST.lesson = {
       zhTitle: "什么是投资分析？",
       question: "Which response is investment analysis?",
       zh: "哪一个回应属于投资分析？",
+      visual: investmentPhotos.financeChartWhiteboard,
       choices: [
-        "Evaluate potential return, risk and suitability",
-        "Check whether many people know the company",
-        "Wait for the share price to rise first",
-        "Ask classmates which share may rise"
+        "Evaluate dated evidence on return, risk, price and fit",
+        "Use Tencent's reputation as evidence that the share is suitable",
+        "Treat a lower recent price as a sign the return is attractive",
+        "Read one positive source and make it the main reason to buy"
       ],
       answer: 0,
-      explanation: "The correct response studies the opportunity, then judges potential return, risk and suitability for an investor.",
-      explanationZh: "正确回应会研究投资机会，再判断它对投资者的潜在回报、风险和适合性。"
+      explanation: "The correct response combines dated evidence with return, risk, price and fit. The other choices use one clue, but not a full investment analysis.",
+      explanationZh: "正确回应会把有日期的证据与回报、风险、价格和适合性结合起来。其他选项只使用一个线索，不是完整的投资分析。"
     },
     {
       type: "classificationTask",
       eyebrow: "Course method",
-      title: "Classify the analysis focus",
-      zhTitle: "判断分析重点",
+      title: "For each statement, choose the main focus: return, risk or suitability.",
+      zhTitle: "给每个说法分类：主要是在判断回报、风险，还是适合性。",
+      visual: investmentPhotos.annualReports,
       compact: true,
-      prompt: "For each statement, choose the main focus: return, risk or suitability.",
-      promptZh: "给每个说法分类：主要是在判断回报、风险，还是适合性。",
       categories: [
         { title: "Return", zhTitle: "回报", clue: "gain, loss, income or price change" },
         { title: "Risk", zhTitle: "风险", clue: "what could be worse than expected" },
@@ -277,15 +312,6 @@ window.INVEST.lesson = {
       items: [
         {
           label: "A",
-          text: "The share could pay dividends and rise in price over three years.",
-          zh: "这只股票三年内可能支付股息并上涨。",
-          answer: "Return",
-          answerZh: "回报",
-          reason: "The sentence is mostly about possible gain.",
-          reasonZh: "这个说法主要在判断可能收益。"
-        },
-        {
-          label: "B",
           text: "A new rule or weaker profit could make the share price fall.",
           zh: "新规定或利润变弱可能使股价下跌。",
           answer: "Risk",
@@ -294,13 +320,22 @@ window.INVEST.lesson = {
           reasonZh: "这个说法主要在判断哪些结果可能比预期更差。"
         },
         {
-          label: "C",
+          label: "B",
           text: "This investor needs the money next year, so a volatile share may not fit.",
           zh: "这位投资者明年需要用钱，所以波动大的股票可能不适合。",
           answer: "Suitability",
           answerZh: "适合性",
           reason: "The sentence matches the opportunity to the investor's time and needs.",
           reasonZh: "这个说法把投资机会与投资者的时间和需要进行匹配。"
+        },
+        {
+          label: "C",
+          text: "The share could pay dividends and rise in price over three years.",
+          zh: "这只股票三年内可能支付股息并上涨。",
+          answer: "Return",
+          answerZh: "回报",
+          reason: "The sentence is mostly about possible gain.",
+          reasonZh: "这个说法主要在判断可能收益。"
         }
       ],
       sharePrompt: "Pick one borderline statement and explain why it is mostly one category.",
@@ -312,21 +347,23 @@ window.INVEST.lesson = {
       eyebrow: "Key distinction",
       title: "Investment or speculation?",
       zhTitle: "投资还是投机？",
+      mode: "fillBlanks",
+      visual: investmentPhotos.speculatorInvestorRace,
       leftTitle: "Investment",
       leftTitleZh: "投资",
       rightTitle: "Speculation",
       rightTitleZh: "投机",
       left: [
-        { label: "1", text: "Putting money into an asset to seek future return while accepting possible loss.", zh: "把钱投入资产以寻求未来回报，同时接受可能亏损。" },
-        { label: "2", text: "Uses evidence about return, risk and suitability before judging.", zh: "判断前使用关于回报、风险和适合性的证据。" }
+        { label: "1", text: "Putting money into an __________ to seek future return while accepting possible loss.", answer: "asset", zh: "把钱投入__________以寻求未来回报，同时接受可能亏损。", answerZh: "资产" },
+        { label: "2", text: "Uses evidence about return, risk and __________ before judging.", answer: "suitability", zh: "判断前使用关于回报、风险和__________的证据。", answerZh: "适合性" }
       ],
       right: [
-        { label: "1", text: "Trying to profit from uncertain price movements, often over a short time.", zh: "试图从不确定的价格变动中获利，通常时间较短。" },
-        { label: "2", text: "Often starts from a guess, tip or selected evidence.", zh: "常从猜测、消息或被挑选的证据开始。" }
+        { label: "1", text: "Trying to profit from uncertain price __________, often over a short time.", answer: "movements", zh: "试图从不确定的价格__________中获利，通常时间较短。", answerZh: "变动" },
+        { label: "2", text: "Often starts from a guess, tip or selected __________.", answer: "evidence", zh: "常从猜测、消息或被挑选的__________开始。", answerZh: "证据" }
       ],
-      prompt: "Copy the contrast, then use it for the five scenario judgments.",
-      promptZh: "抄下对比，然后用它判断接下来的五个情境。",
-      notes: "This should be a clean T-table reference before the scenario practice, not another fill-in task."
+      prompt: "Fill the blanks, then use the contrast for the five scenario judgments.",
+      promptZh: "先补全空格，然后用这个对比判断接下来的五个情境。",
+      notes: "Use this as a quick retrieval check before scenario practice. Reveal the blanks, then ask students to apply the contrast."
     },
     {
       type: "discussion",
@@ -417,7 +454,8 @@ window.INVEST.lesson = {
       title: "Asset",
       term: "Asset",
       termZh: "资产",
-      definition: "An asset is something with economic <span class=\"blank invReveal\" data-answer=\"value\" style=\"--blank-width:8ch\"><span class=\"invBlankText\">value</span></span> that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
+      definition: "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
+      definitionBlanks: ["value"],
       definitionZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。",
       notes: "Keep this broad: the next slide gives concrete types."
     },
@@ -444,7 +482,7 @@ window.INVEST.lesson = {
         {
           title: "Shares",
           zhTitle: "股票",
-          visual: investmentPhotos.assetSharesScreen
+          visual: investmentPhotos.assetShareCertificate
         },
         {
           title: "Commodities",
@@ -460,6 +498,7 @@ window.INVEST.lesson = {
       eyebrow: "Retrieval check",
       title: "Recall four asset types",
       zhTitle: "回忆四种资产类型",
+      visual: investmentPhotos.assetCashSavings,
       prompt: "Without looking at notes, write down four types of assets.",
       promptZh: "不看笔记，写下四种资产类型。",
       definitionItems: [
@@ -478,8 +517,8 @@ window.INVEST.lesson = {
       title: "Rank assets by risk",
       zhTitle: "按风险给资产排序",
       visual: investmentPhotos.businessChartsPaper,
-      prompt: "Place the asset cards from lower risk to higher risk, then defend the highest-risk choice.",
-      promptZh: "把资产卡片从较低风险排到较高风险，然后为最高风险的选择写出理由。",
+      prompt: "Rank the cards from lower risk to higher risk.",
+      promptZh: "把卡片从较低风险排到较高风险。",
       axis: {
         low: "Lower risk",
         lowZh: "较低风险",
@@ -489,10 +528,10 @@ window.INVEST.lesson = {
         noteZh: "风险指结果可能比预期更差"
       },
       items: [
-        { label: "A", text: "Cash and savings", zh: "现金和储蓄", cue: "Usually more stable, but return may be low.", cueZh: "通常较稳定，但回报可能较低。" },
-        { label: "B", text: "Property", zh: "房产", cue: "Value depends on location, price and liquidity.", cueZh: "价值取决于地点、价格和流动性。" },
-        { label: "C", text: "Shares", zh: "股票", cue: "Company results and expectations can move the price.", cueZh: "公司表现和预期可能推动价格变化。" },
-        { label: "D", text: "Commodities", zh: "大宗商品", cue: "Prices can move sharply with global supply and demand.", cueZh: "价格可能随全球供需大幅波动。" }
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄" },
+        { label: "B", text: "Property", zh: "房产" },
+        { label: "C", text: "Shares", zh: "股票" },
+        { label: "D", text: "Commodities", zh: "大宗商品" }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -513,6 +552,7 @@ window.INVEST.lesson = {
       eyebrow: "Reveal",
       title: "There is no perfect risk ranking",
       zhTitle: "风险排序没有唯一答案",
+      visual: investmentPhotos.keywordPortfolioDiversificationCards,
       question: "Why might two reasonable students rank the same asset types differently?",
       questionZh: "为什么两个合理的学生可能会给同样的资产类型排出不同顺序？",
       revealTitle: "Risk depends on the exact asset",
@@ -544,7 +584,9 @@ window.INVEST.lesson = {
       title: "Share",
       term: "Share",
       termZh: "股票 / 股份",
-      definition: "A share is one unit of <span class=\"blank invReveal\" data-answer=\"ownership\" style=\"--blank-width:11ch\"><span class=\"invBlankText\">ownership</span></span> in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
+      visual: investmentPhotos.assetSharesScreen,
+      definition: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
+      definitionBlanks: ["ownership"],
       definitionZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。",
       notes: "Keep the rights clause as part of the definition; control detail comes later."
     },
@@ -553,6 +595,7 @@ window.INVEST.lesson = {
       eyebrow: "Check",
       title: "What does a share give?",
       zhTitle: "一股股票给你什么？",
+      visual: investmentPhotos.shareholderMeeting,
       compact: true,
       prompt: "Classify each statement.",
       promptZh: "给每个说法分类。",
@@ -609,6 +652,7 @@ window.INVEST.lesson = {
       title: "Exit ticket",
       zhTitle: "离堂小测",
       mode: "fillBlanks",
+      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit11,
       items: [
         { prompt: "Investment analysis evaluates potential return, risk and __________.", answer: "suitability", zh: "投资分析评估潜在回报、风险和适合性。" },
         { prompt: "Speculation often chases price __________.", answer: "movement", zh: "投机常常追逐价格变动。" },

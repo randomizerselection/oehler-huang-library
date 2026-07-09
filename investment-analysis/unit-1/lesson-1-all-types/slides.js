@@ -233,7 +233,7 @@ window.INVEST.lesson = {
       term: "Share price",
       termZh: "股价",
       definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
-      definitionZh: "股价是在特定时间一股股票的市场价格。",
+      definitionZh: "股价是在特定时间一股股票的市场交易价格。",
       notes: [
         "Current role: one term, one definition, optional revealed blank.",
         "Future use: use for definitions students should copy exactly.",
@@ -338,10 +338,10 @@ window.INVEST.lesson = {
         noteZh: "排序需要理由"
       },
       items: [
-        { label: "A", text: "Cash and savings", zh: "现金和储蓄", cue: "Usually more stable.", cueZh: "通常较稳定。" },
-        { label: "B", text: "Property", zh: "房产", cue: "Depends on location and liquidity.", cueZh: "取决于地点和流动性。" },
-        { label: "C", text: "Shares", zh: "股票", cue: "Company expectations can change.", cueZh: "公司预期可能变化。" },
-        { label: "D", text: "Commodities", zh: "大宗商品", cue: "Global prices can move sharply.", cueZh: "全球价格可能大幅波动。" }
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄" },
+        { label: "B", text: "Property", zh: "房产" },
+        { label: "C", text: "Shares", zh: "股票" },
+        { label: "D", text: "Commodities", zh: "大宗商品" }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -473,24 +473,24 @@ window.INVEST.lesson = {
         {
           label: "Saving",
           tag: "Safety",
-          definition: "Saving is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
-          definitionZh: "储蓄 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
+          definition: "Saving is keeping money safe and available for future use, usually with lower risk and lower expected return than investing.",
+          definitionZh: "储蓄是把钱安全地保留下来以备将来使用，通常风险较低，预期回报也低于投资。",
           purpose: "Keep money available",
           risk: "Lower uncertainty"
         },
         {
           label: "Investment",
           tag: "Asset",
-          definition: "Investment is the act of putting money into an asset with the aim of earning a future return, such as income or capital gain, while accepting the possibility of loss.",
-          definitionZh: "投资是指把资金投入某项资产，以期获得未来回报，例如收入或资本利得，同时接受可能发生损失。",
+          definition: "Investment is putting money into an asset to seek future return while accepting possible loss.",
+          definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。",
           purpose: "Seek future gain",
           risk: "Value can rise or fall"
         },
         {
           label: "Speculation",
           tag: "Price bet",
-          definition: "Speculation is a course concept used to analyse Family saving plan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action.",
-          definitionZh: "投机 是本课用于投资分析的概念，帮助学生结合证据、风险、回报、价格、成本或投资者适合度，作出有理由的课堂判断。",
+          definition: "Speculation is trying to profit from uncertain price movements, often over a short time and with weaker evidence than investment analysis requires.",
+          definitionZh: "投机是试图从不确定的价格变动中获利，通常时间较短，所依据的证据弱于投资分析所要求的证据。",
           purpose: "Catch a quick move",
           risk: "High uncertainty"
         }
@@ -510,14 +510,14 @@ window.INVEST.lesson = {
       leftTitle: "Evidence-based analysis",
       leftTitleZh: "基于证据的分析",
       left: [
-        { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的来源开始。" },
-        { label: "2", text: "Checks return, risk and __________.", answer: "price", zh: "检查回报、风险和价格。" }
+        { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的__________开始。", answerZh: "来源" },
+        { label: "2", text: "Checks return, risk and __________.", answer: "price", zh: "检查回报、风险和__________。", answerZh: "价格" }
       ],
       rightTitle: "Weak opinion",
       rightTitleZh: "薄弱观点",
       right: [
-        { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人熟悉度开始。" },
-        { label: "2", text: "Ignores what the investor __________.", answer: "pays", zh: "忽视投资者支付了什么。" }
+        { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人__________开始。", answerZh: "熟悉度" },
+        { label: "2", text: "Ignores what the investor __________.", answer: "pays", zh: "忽视投资者__________了什么。", answerZh: "支付" }
       ],
       prompt: "Fill the blanks, then explain which side is stronger.",
       promptZh: "填空后，解释哪一边更有说服力。",

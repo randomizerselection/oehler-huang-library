@@ -101,7 +101,7 @@ Students build the first investing vocabulary, compare asset types, read market 
 ## Lesson 1: Tencent
 
 **Guiding question:** What is investment analysis?
-**Student hook:** Tencent is familiar. Would you buy shares in it?
+**Student hook:** Would you buy shares in Tencent? Give one reason.
 **Core claim:** Investment analysis judges potential return, risk and suitability before action.
 **Case role:** listed company
 **Primary output:** evidence-based-next-action-judgement - one Tencent judgement with dated evidence, caveat and next action
@@ -109,14 +109,14 @@ Students build the first investing vocabulary, compare asset types, read market 
 
 ### Simple lesson flow
 
-- **Hook:** Tencent is familiar. Would you buy shares in it?
+- **Hook:** Would you buy shares in Tencent? Give one reason.
 - **Key idea:** Investment analysis judges potential return, risk and suitability before action.
 - **Try it:** Classify the missing evidence before making a Tencent judgement.
 - **Decide:** Write a Tencent next-action judgement using evidence, caveat and fit.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** Tencent is familiar. Would you buy shares in it?
+- **Starter dilemma:** Would you buy shares in Tencent? Give one reason.
 - **First judgement:** Students make a first judgement about Tencent before the key idea is taught.
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Tencent.
@@ -141,7 +141,7 @@ Students build the first investing vocabulary, compare asset types, read market 
 
 ### Deck arc
 
-- Hook: start with Tencent is familiar. Would you buy shares in it?
+- Hook: start with Would you buy shares in Tencent? Give one reason.
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
 - Teach: Investment analysis judges potential return, risk and suitability before action.
 - Evidence practice: Classify the missing evidence before making a Tencent judgement.
@@ -184,7 +184,7 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 ### Handout/chapter blocks
 
 - **Source box:** Record the Tencent source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: investment analysis, investor fit.
+- **Vocabulary:** Define and use the lesson terms: investment analysis, investor fit, return, risk, asset, share.
 - **Evidence and Data Analysis:** Use a short Tencent case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Classify the missing evidence before making a Tencent judgement.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
@@ -285,7 +285,7 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 ### Handout/chapter blocks
 
 - **Source box:** Record the Family saving plan source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: saving, speculation.
+- **Vocabulary:** Define and use the lesson terms: saving, investment, speculation.
 - **Evidence and Data Analysis:** Use a short Family saving plan case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Sort actions into saving, investing and speculation with a reason.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
@@ -588,7 +588,7 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 ### Handout/chapter blocks
 
 - **Source box:** Record the HKEX source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: stock exchange, secondary market.
+- **Vocabulary:** Define and use the lesson terms: stock exchange, secondary market, listing, stock code, liquidity.
 - **Evidence and Data Analysis:** Use a short HKEX case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Match company, exchange, stock code and one market friction.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
@@ -689,7 +689,7 @@ Analyse why the evidence used in the Alibaba quote snapshot case could change an
 ### Handout/chapter blocks
 
 - **Source box:** Record the Alibaba quote snapshot source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: quote page, bid-ask spread.
+- **Vocabulary:** Define and use the lesson terms: quote page, bid-ask spread, share price.
 - **Evidence and Data Analysis:** Use a short Alibaba quote snapshot case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Read one quote snapshot and separate what it tells from what it cannot prove.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.

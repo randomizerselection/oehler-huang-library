@@ -29,15 +29,35 @@
     }
 
     .hero {
+      position: relative;
+      overflow: hidden;
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 24px;
       align-items: end;
-      border-bottom: 1px solid var(--line);
-      padding: 18px 0 24px;
+      min-height: min(520px, calc(100svh - 128px));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78) 48%, rgba(7,17,31,.42)),
+        linear-gradient(0deg, rgba(7,17,31,.9), rgba(7,17,31,.16) 58%),
+        url("assets/images/investment-analysis/finance-chart-whiteboard-2021.jpg") center 48% / cover;
+      padding: clamp(24px, 5vw, 54px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.32);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .eyebrow {
+      position: relative;
+      z-index: 1;
       display: inline-flex;
       align-items: center;
       gap: .55rem;
@@ -60,6 +80,8 @@
     }
 
     .hero h1 {
+      position: relative;
+      z-index: 1;
       grid-column: 1;
       grid-row: 2;
       max-width: 16ch;
@@ -80,6 +102,8 @@
     }
 
     .lead {
+      position: relative;
+      z-index: 1;
       grid-column: 1;
       grid-row: 3;
       max-width: 46rem;
@@ -90,6 +114,8 @@
     }
 
     .author-line {
+      position: relative;
+      z-index: 1;
       grid-column: 2;
       grid-row: 3 / 5;
       display: grid;
@@ -104,6 +130,8 @@
     }
 
     .hero-metrics {
+      position: relative;
+      z-index: 1;
       grid-column: 1;
       grid-row: 4;
       display: grid;
@@ -113,10 +141,11 @@
     }
 
     .hero-metric {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,.16);
       border-radius: 8px;
-      background: rgba(255,255,255,.04);
+      background: rgba(6,14,24,.58);
       padding: 12px;
+      backdrop-filter: blur(10px);
     }
 
     .hero-metric strong,
@@ -207,11 +236,21 @@
         rgba(7,17,31,.54);
       padding: clamp(20px, 3vw, 28px);
       box-shadow: 0 16px 36px rgba(0,0,0,.2);
+      transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    }
+
+    .course-entry-card:hover,
+    .course-entry-card:focus-within {
+      transform: translateY(-2px);
+      border-color: rgba(86,216,255,.34);
+      background:
+        linear-gradient(145deg, rgba(86,216,255,.11), rgba(255,255,255,.04) 48%, rgba(255,209,102,.07)),
+        rgba(7,17,31,.62);
     }
 
     .course-entry-media {
       position: relative;
-      height: 96px;
+      height: 118px;
       margin: calc(-1 * clamp(20px, 3vw, 28px)) calc(-1 * clamp(20px, 3vw, 28px)) 4px;
       overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,.12);
@@ -223,6 +262,13 @@
       height: 100%;
       object-fit: cover;
       opacity: .78;
+      transition: transform .28s var(--ease), opacity .28s var(--ease);
+    }
+
+    .course-entry-card:hover .course-entry-media img,
+    .course-entry-card:focus-within .course-entry-media img {
+      opacity: .9;
+      transform: scale(1.035);
     }
 
     .course-entry-media::after {
@@ -322,6 +368,13 @@
       color: #06131b;
     }
 
+    .course-link.primary:hover,
+    .course-link.primary:focus-visible {
+      background: #9cf7c9;
+      border-color: rgba(156,247,201,.82);
+      color: #06131b;
+    }
+
     .support-links {
       display: flex;
       flex-wrap: wrap;
@@ -354,7 +407,8 @@
       .hero {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding-top: 4px;
+        min-height: 0;
+        padding: 22px;
       }
 
       .eyebrow,

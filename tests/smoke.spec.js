@@ -279,6 +279,31 @@ async function expectInvestmentSlideFits(page, label = 'investment slide') {
   expect(metrics.slideRight, `${label}: slide stays inside stage horizontally`).toBeLessThanOrEqual(metrics.stageRight + 2);
 }
 
+async function expectInvestmentDiscussionPromptInsideBody(page, label = 'investment discussion prompt') {
+  const metrics = await page.evaluate(() => {
+    const slide = document.querySelector('.invSlide.is-active');
+    const body = slide?.querySelector('.invSlideBody');
+    const prompt = slide?.querySelector('.invDiscussionPrompt');
+
+    if (!slide || !body || !prompt) return { missing: true };
+
+    const bodyRect = body.getBoundingClientRect();
+    const promptRect = prompt.getBoundingClientRect();
+
+    return {
+      missing: false,
+      promptTop: promptRect.top,
+      promptBottom: promptRect.bottom,
+      bodyTop: bodyRect.top,
+      bodyBottom: bodyRect.bottom,
+    };
+  });
+
+  expect(metrics.missing, `${label}: active discussion prompt exists`).toBe(false);
+  expect(metrics.promptTop, `${label}: prompt does not overflow above body`).toBeGreaterThanOrEqual(metrics.bodyTop - 1);
+  expect(metrics.promptBottom, `${label}: prompt does not overflow below body`).toBeLessThanOrEqual(metrics.bodyBottom + 1);
+}
+
 async function expectInvestmentVisualPauseImageOnly(page, label = 'investment visual pause') {
   await expect(page.locator('.invSlide.is-active.invVisualPauseSlide')).toBeVisible();
   await expect(page.locator('.invSlide.is-active .invVisualPauseHero img')).toBeVisible();
@@ -335,6 +360,32 @@ async function revealInvestmentSlide(page) {
       node.classList.add('is-revealed');
     });
   });
+}
+
+async function expectInvestmentClassificationPartialReveal(page, expectedVisibleCount, label) {
+  const state = await page.locator('.invSlide.is-active .invClassificationResult').evaluateAll((nodes) => {
+    const isVisible = (node) => {
+      const style = window.getComputedStyle(node);
+      const rect = node.getBoundingClientRect();
+      return style.display !== 'none'
+        && style.visibility !== 'hidden'
+        && Number(style.opacity) !== 0
+        && rect.width > 0
+        && rect.height > 0;
+    };
+
+    return {
+      total: nodes.length,
+      revealed: nodes.filter((node) => node.classList.contains('is-revealed')).length,
+      visible: nodes.filter(isVisible).length,
+      visibleUnrevealed: nodes.filter((node) => !node.classList.contains('is-revealed') && isVisible(node)).length,
+    };
+  });
+
+  expect(state.total, `${label}: classification answers exist`).toBeGreaterThan(expectedVisibleCount);
+  expect(state.revealed, `${label}: revealed answer count`).toBe(expectedVisibleCount);
+  expect(state.visible, `${label}: visible answer count`).toBe(expectedVisibleCount);
+  expect(state.visibleUnrevealed, `${label}: unrevealed answers stay hidden`).toBe(0);
 }
 
 async function getInvestmentLessonSummary(page, preferredTypes = []) {
@@ -851,11 +902,35 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/Would you buy shares in Tencent\? Give one reason\./i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/Tencent is familiar/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
     await page.getByRole('button', { name: /^Show possible answer$/i }).click();
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed').first()).toBeVisible();
+    const overlayBox = await page.locator('.invSlide.is-active .invDiscussionAnswerOverlay.is-revealed').evaluate((node) => {
+      const rect = node.getBoundingClientRect();
+      return {
+        top: rect.top,
+        left: rect.left,
+        right: rect.right,
+        bottom: rect.bottom,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    });
+    expect(overlayBox.top, 'discussion answer overlay covers viewport top').toBeLessThanOrEqual(1);
+    expect(overlayBox.left, 'discussion answer overlay covers viewport left').toBeLessThanOrEqual(1);
+    expect(overlayBox.right, 'discussion answer overlay covers viewport right').toBeGreaterThanOrEqual(overlayBox.width - 1);
+    expect(overlayBox.bottom, 'discussion answer overlay covers viewport bottom').toBeGreaterThanOrEqual(overlayBox.height - 1);
     await expectInvestmentSlideFits(page, 'lesson 1 discussion reveal desktop');
+
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'Investment or speculation?', occurrence: 1 }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toHaveClass(/invLongDiscussionSlide/);
+    await expectInvestmentDiscussionPromptInsideBody(page, 'lesson 1 scenario discussion projector');
+    await expectInvestmentSlideFits(page, 'lesson 1 scenario discussion projector');
+    await page.setViewportSize({ width: 1920, height: 1080 });
 
     await goToInvestmentSlide(page, { type: 'term' }, lessonPath);
     if (await page.locator('.invSlide.is-active .blank').count()) {
@@ -873,6 +948,25 @@ test.describe('site smoke', () => {
       await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeVisible();
     }
     await expectInvestmentSlideFits(page, 'lesson 1 quiz interaction desktop');
+
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Rank assets by risk' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invRankingCard p:not(.invZhLine)')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invRankingAnswer.invReveal.is-revealed')).toHaveCount(0);
+    const rankingCardFont = await page.locator('.invSlide.is-active .invRankingCard strong').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
+    expect(rankingCardFont, 'lesson 1 ranking card text is large enough for projection').toBeGreaterThanOrEqual(32);
+    await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector');
+    await revealInvestmentSlide(page);
+    await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector revealed');
+
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'What does a share give?' }, lessonPath);
+    await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial');
+    await page.keyboard.press('ArrowRight');
+    await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal');
+    await page.keyboard.press('ArrowRight');
+    await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal');
+    await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal projector');
+    await page.setViewportSize({ width: 1920, height: 1080 });
 
     await page.goto(pageUrl(lessonPath) + '?view=print');
     await expect(page.locator('body')).toHaveClass(/investment-handout/);
@@ -1048,6 +1142,12 @@ test.describe('site smoke', () => {
         node.classList.add('is-revealed');
         if (node.hasAttribute('hidden')) node.hidden = false;
       }));
+      if (match.type === 'rankingTask') {
+        await expect(page.locator('.invSlide.is-active .invRankingAnswer.is-revealed')).toBeVisible();
+        await expect(page.locator('.invSlide.is-active .invRankingBoard')).toBeHidden();
+        await expectInvestmentSlideFits(page, `gallery ${match.type} slide ${slideNumber} revealed keeps answer`);
+        continue;
+      }
       await expect(prompt).toBeVisible();
       await expect(prompt).toContainText(match.text);
       await expectInvestmentSlideFits(page, `gallery ${match.type} slide ${slideNumber} revealed keeps prompt`);
@@ -1118,7 +1218,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Would you buy shares in Tencent\? Give one reason\./i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(5);
@@ -1137,7 +1237,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^A practical investor workflow$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^50-lesson evidence-based investing map$/i })).toBeVisible();
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Tencent is familiar/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Would you buy shares in Tencent\? Give one reason\./i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Tencent/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Practical investing action/i);
@@ -1181,6 +1281,13 @@ test.describe('site smoke', () => {
       'lesson 1 phone',
       ['discussion', 'visualPause', 'term', 'quiz', 'yesNoCheck', 'compare', 'visualGrid', 'rankingTask', 'peerTask', 'classificationTask', 'answer']
     );
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'What does a share give?' }, lessonPath);
+    await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial phone');
+    await page.keyboard.press('ArrowRight');
+    await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal phone');
+    await page.keyboard.press('ArrowRight');
+    await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal phone');
+    await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal phone');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath) + '?view=quiz');
