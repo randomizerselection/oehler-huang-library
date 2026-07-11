@@ -104,7 +104,7 @@ Students build the first investing vocabulary, compare asset types, read market 
 **Student hook:** Would you buy shares in Tencent? Give one reason.
 **Core claim:** Investment analysis judges potential return, risk and suitability before action.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Tencent judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.
 **Case review:** keep; Tencent fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -112,18 +112,18 @@ Students build the first investing vocabulary, compare asset types, read market 
 - **Hook:** Would you buy shares in Tencent? Give one reason.
 - **Key idea:** Investment analysis judges potential return, risk and suitability before action.
 - **Try it:** Classify the missing evidence before making a Tencent judgement.
-- **Decide:** Write a Tencent next-action judgement using evidence, caveat and fit.
+- **Decide:** Write a Tencent judgement that identifies missing return, risk, price and fit evidence and chooses gather more evidence.
 
 ### Decision-first teaching contract
 
 - **Starter dilemma:** Would you buy shares in Tencent? Give one reason.
 - **First judgement:** Students make a first judgement about Tencent before the key idea is taught.
-- **Likely naive answer:** One attractive clue is enough to choose an investment action.
-- **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Tencent.
+- **Likely naive answer:** A familiar and successful company is automatically a suitable investment.
+- **Missing evidence:** Students need dated evidence on potential return, risk, price, source limitations and investor fit for Tencent.
 - **Key idea:** Investment analysis judges potential return, risk and suitability before action.
 - **Try it:** Classify the missing evidence before making a Tencent judgement.
-- **Misconception check:** A familiar or attractive example is automatically a suitable investment.
-- **Exit judgement:** Write a Tencent next-action judgement using evidence, caveat and fit.
+- **Misconception check:** A familiar company is automatically a suitable investment.
+- **Exit judgement:** Write a Tencent judgement that identifies missing return, risk, price and fit evidence and chooses gather more evidence.
 
 ### Source pack
 
@@ -146,7 +146,7 @@ Students build the first investing vocabulary, compare asset types, read market 
 - Teach: Investment analysis judges potential return, risk and suitability before action.
 - Evidence practice: Classify the missing evidence before making a Tencent judgement.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
-- Exit ticket: Write a Tencent next-action judgement using evidence, caveat and fit.
+- Exit ticket: Write a Tencent judgement that identifies missing return, risk, price and fit evidence and chooses gather more evidence.
 
 ### Retrieval practice
 
@@ -160,11 +160,11 @@ Students build the first investing vocabulary, compare asset types, read market 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Tencent.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Tencent next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Tencent case could change an investor's judgement about what is investment analysis?
+Analyse why the evidence used in the Tencent case could change an investor's judgement about the Tencent investment case
 
 - dated evidence or source detail
 - Investment analysis judges potential return, risk and suitability before action.
@@ -178,17 +178,17 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 1. **Identify/Define:** Identify the source date and define investment analysis.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify evidence needs and explain in words only.
 3. **Explain:** Explain what one Tencent evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what is investment analysis?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about the Tencent investment case.
 5. **Judge:** Give your own evidence-based classroom verdict on Tencent. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
 
 - **Source box:** Record the Tencent source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: investment analysis, investor fit, return, risk, asset, share.
+- **Vocabulary:** Define and use the lesson terms: investment analysis, return, risk, investor fit.
 - **Evidence and Data Analysis:** Use a short Tencent case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Classify the missing evidence before making a Tencent judgement.
-- **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
-- **Individual written output:** Write a short Tencent judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
+- **Misconception check:** Correct the shortcut: A familiar company is automatically a suitable investment.
+- **Individual written output:** Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.
 
 ### Exam pattern
 
@@ -202,29 +202,29 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 ## Lesson 2: Family saving plan
 
 **Guiding question:** How are saving, investing and speculation different?
-**Student hook:** A family has money left over. Should it save, invest or speculate?
+**Student hook:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
 **Core claim:** Saving protects short-term needs, while investing accepts risk for possible future return.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Family saving plan judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 **Case review:** keep; Family saving plan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
 
-- **Hook:** A family has money left over. Should it save, invest or speculate?
+- **Hook:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
 - **Key idea:** Saving protects short-term needs, while investing accepts risk for possible future return.
-- **Try it:** Sort actions into saving, investing and speculation with a reason.
-- **Decide:** Write a Family saving plan next-action judgement using evidence, caveat and fit.
+- **Try it:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
+- **Decide:** Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A family has money left over. Should it save, invest or speculate?
+- **Starter dilemma:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
 - **First judgement:** Students make a first judgement about Family saving plan before the key idea is taught.
-- **Likely naive answer:** One attractive clue is enough to choose an investment action.
-- **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Family saving plan.
+- **Likely naive answer:** Investing is always better than saving because possible return is higher.
+- **Missing evidence:** Students need the purpose, time horizon, liquidity need, ability to accept loss and evidence quality for each part of the family money.
 - **Key idea:** Saving protects short-term needs, while investing accepts risk for possible future return.
-- **Try it:** Sort actions into saving, investing and speculation with a reason.
-- **Misconception check:** A familiar or attractive example is automatically a suitable investment.
-- **Exit judgement:** Write a Family saving plan next-action judgement using evidence, caveat and fit.
+- **Try it:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
+- **Misconception check:** Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.
+- **Exit judgement:** Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Source pack
 
@@ -242,12 +242,12 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 
 ### Deck arc
 
-- Hook: start with A family has money left over. Should it save, invest or speculate?
+- Hook: start with Should the family save, invest or speculate with all HK$30,000? Give one reason.
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
 - Teach: Saving protects short-term needs, while investing accepts risk for possible future return.
-- Evidence practice: Sort actions into saving, investing and speculation with a reason.
+- Evidence practice: Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
-- Exit ticket: Write a Family saving plan next-action judgement using evidence, caveat and fit.
+- Exit ticket: Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Retrieval practice
 
@@ -261,11 +261,11 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Family saving plan.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Family saving plan next-action judgement with dated evidence and one caveat.
+- **Written action:** Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 
 ### Analyse why
 
-Analyse why the evidence used in the Family saving plan case could change an investor's judgement about how are saving, investing and speculation different?
+Analyse why the evidence used in the Family saving plan case could change an investor's judgement about the family saving decision
 
 - dated evidence or source detail
 - Saving protects short-term needs, while investing accepts risk for possible future return.
@@ -277,9 +277,9 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 **Case information:** Use a short Family saving plan case extract with source title, publication or accessed date, key figures and one limitation.
 
 1. **Identify/Define:** Identify the source date and define saving.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify choices by goal, risk and time horizon.
+2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss.
 3. **Explain:** Explain what one Family saving plan evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how are saving, investing and speculation different?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about the family saving decision.
 5. **Judge:** Give your own evidence-based classroom verdict on Family saving plan. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -287,16 +287,16 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 - **Source box:** Record the Family saving plan source title, source date or accessed date, key figure and one limitation before judging.
 - **Vocabulary:** Define and use the lesson terms: saving, investment, speculation.
 - **Evidence and Data Analysis:** Use a short Family saving plan case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
-- **Calculation or judgement task:** Sort actions into saving, investing and speculation with a reason.
-- **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
-- **Individual written output:** Write a short Family saving plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
+- **Calculation or judgement task:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
+- **Misconception check:** Correct the shortcut: Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.
+- **Individual written output:** Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 
 ### Exam pattern
 
 - Command word: Analyse why
 - Marks: 6
 - Stimulus: short Family saving plan source extract with key figures and limitation
-- Calculation: no new formula; students classify choices by goal, risk and time horizon.
+- Calculation: no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss.
 - Judgement: Students must justify consider, watch, avoid, compare with another choice or gather more evidence using dated evidence and caveats.
 - Shape: Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Family saving plan.
 
@@ -306,7 +306,7 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 **Student hook:** Cash, property, bonds and shares all have value. Are they the same kind of risk?
 **Core claim:** Different asset classes have different liquidity, risk and return patterns.
 **Case role:** comparison case
-**Primary output:** evidence-based-next-action-judgement - one Mixed asset set judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Mixed asset set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Mixed asset set fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -362,11 +362,11 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Mixed asset set.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Mixed asset set next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Mixed asset set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Mixed asset set case could change an investor's judgement about what kinds of assets can an investor own?
+Analyse why the evidence used in the Mixed asset set case could change an investor's judgement about Mixed asset set case
 
 - dated evidence or source detail
 - Different asset classes have different liquidity, risk and return patterns.
@@ -377,16 +377,16 @@ Analyse why the evidence used in the Mixed asset set case could change an invest
 
 **Case information:** Use a short Mixed asset set case extract with source title, publication or accessed date, key figures and one limitation.
 
-1. **Identify/Define:** Identify the source date and define asset class.
+1. **Identify/Define:** Identify the source date and define asset.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students rank asset types qualitatively and explain caveats.
 3. **Explain:** Explain what one Mixed asset set evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what kinds of assets can an investor own?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Mixed asset set case.
 5. **Judge:** Give your own evidence-based classroom verdict on Mixed asset set. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
 
 - **Source box:** Record the Mixed asset set source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: asset class, liquidity need.
+- **Vocabulary:** Define and use the lesson terms: asset, asset class, liquidity need.
 - **Evidence and Data Analysis:** Use a short Mixed asset set case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Rank a mixed asset set by liquidity and risk with one caveat.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
@@ -407,7 +407,7 @@ Analyse why the evidence used in the Mixed asset set case could change an invest
 **Student hook:** If you own one Xiaomi share, do you control Xiaomi?
 **Core claim:** A share is an ownership claim, but control depends on rights and ownership size.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Xiaomi judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Xiaomi judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Xiaomi fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -463,11 +463,11 @@ Analyse why the evidence used in the Mixed asset set case could change an invest
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Xiaomi.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Xiaomi next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Xiaomi judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Xiaomi case could change an investor's judgement about what does owning one share actually give?
+Analyse why the evidence used in the Xiaomi case could change an investor's judgement about Xiaomi case
 
 - dated evidence or source detail
 - A share is an ownership claim, but control depends on rights and ownership size.
@@ -478,16 +478,16 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 
 **Case information:** Use a short Xiaomi case extract with source title, publication or accessed date, key figures and one limitation.
 
-1. **Identify/Define:** Identify the source date and define share ownership.
+1. **Identify/Define:** Identify the source date and define share.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: ownership % = shares owned / total shares x 100.
 3. **Explain:** Explain what one Xiaomi evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what does owning one share actually give?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Xiaomi case.
 5. **Judge:** Give your own evidence-based classroom verdict on Xiaomi. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
 
 - **Source box:** Record the Xiaomi source title, source date or accessed date, key figure and one limitation before judging.
-- **Vocabulary:** Define and use the lesson terms: share ownership, shareholder right.
+- **Vocabulary:** Define and use the lesson terms: share, share ownership, shareholder right.
 - **Evidence and Data Analysis:** Use a short Xiaomi case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Sort shareholder statements into gives, may give and does not give.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
@@ -508,7 +508,7 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 **Student hook:** If you buy a share today, who gets the money and why does the market exist?
 **Core claim:** An exchange helps listed securities trade, but secondary trades do not always fund the company.
 **Case role:** exchange/infrastructure case
-**Primary output:** evidence-based-next-action-judgement - one HKEX judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short HKEX judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; HKEX fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -564,11 +564,11 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HKEX.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a HKEX next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short HKEX judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the HKEX case could change an investor's judgement about why do investors need organised markets?
+Analyse why the evidence used in the HKEX case could change an investor's judgement about HKEX case
 
 - dated evidence or source detail
 - An exchange helps listed securities trade, but secondary trades do not always fund the company.
@@ -582,7 +582,7 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 1. **Identify/Define:** Identify the source date and define stock exchange.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students identify company, exchange, code and one trading friction accurately.
 3. **Explain:** Explain what one HKEX evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why do investors need organised markets?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about HKEX case.
 5. **Judge:** Give your own evidence-based classroom verdict on HKEX. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -609,7 +609,7 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 **Student hook:** A quote page shows Alibaba's price. Is that enough to decide?
 **Core claim:** A quote page is a dated market snapshot, not a promise of value or execution.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Alibaba quote snapshot judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Alibaba quote snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Alibaba quote snapshot fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -665,11 +665,11 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Alibaba quote snapshot.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Alibaba quote snapshot next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Alibaba quote snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Alibaba quote snapshot case could change an investor's judgement about what can a quote page tell us?
+Analyse why the evidence used in the Alibaba quote snapshot case could change an investor's judgement about Alibaba quote snapshot case
 
 - dated evidence or source detail
 - A quote page is a dated market snapshot, not a promise of value or execution.
@@ -683,7 +683,7 @@ Analyse why the evidence used in the Alibaba quote snapshot case could change an
 1. **Identify/Define:** Identify the source date and define quote page.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: bid-ask spread = ask price - bid price.
 3. **Explain:** Explain what one Alibaba quote snapshot evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what can a quote page tell us?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Alibaba quote snapshot case.
 5. **Judge:** Give your own evidence-based classroom verdict on Alibaba quote snapshot. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -710,7 +710,7 @@ Analyse why the evidence used in the Alibaba quote snapshot case could change an
 **Student hook:** JD.com's price moved. Which source would you trust first?
 **Core claim:** Useful evidence records source, date, figure, use and limitation before judgement.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one JD.com evidence pack judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short JD.com evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; JD.com evidence pack fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -766,11 +766,11 @@ Analyse why the evidence used in the Alibaba quote snapshot case could change an
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for JD.com evidence pack.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a JD.com evidence pack next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short JD.com evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the JD.com evidence pack case could change an investor's judgement about how should an analyst record evidence before judging?
+Analyse why the evidence used in the JD.com evidence pack case could change an investor's judgement about JD.com evidence pack case
 
 - dated evidence or source detail
 - Useful evidence records source, date, figure, use and limitation before judgement.
@@ -784,7 +784,7 @@ Analyse why the evidence used in the JD.com evidence pack case could change an i
 1. **Identify/Define:** Identify the source date and define evidence log.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students use the chain information -> expectation -> action -> possible price movement.
 3. **Explain:** Explain what one JD.com evidence pack evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how should an analyst record evidence before judging?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about JD.com evidence pack case.
 5. **Judge:** Give your own evidence-based classroom verdict on JD.com evidence pack. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -811,7 +811,7 @@ Analyse why the evidence used in the JD.com evidence pack case could change an i
 **Student hook:** A bond promises payments. Does that make it risk-free?
 **Core claim:** A bond is a lending claim, not ownership, and still has interest-rate and credit risk.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Government bond judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Government bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Government bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -867,11 +867,11 @@ Analyse why the evidence used in the JD.com evidence pack case could change an i
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Government bond.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Government bond next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Government bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Government bond case could change an investor's judgement about how is a bond different from a share?
+Analyse why the evidence used in the Government bond case could change an investor's judgement about Government bond case
 
 - dated evidence or source detail
 - A bond is a lending claim, not ownership, and still has interest-rate and credit risk.
@@ -885,7 +885,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 1. **Identify/Define:** Identify the source date and define bond.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: coupon income = coupon rate x face value.
 3. **Explain:** Explain what one Government bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how is a bond different from a share?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Government bond case.
 5. **Judge:** Give your own evidence-based classroom verdict on Government bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -912,7 +912,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 **Student hook:** One ETF holds many companies. Is it automatically safe?
 **Core claim:** A fund can diversify company-specific risk but still carries market, sector and product risks.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one ChinaAMC CSI 300 ETF judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; ChinaAMC CSI 300 ETF fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -968,11 +968,11 @@ Analyse why the evidence used in the Government bond case could change an invest
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for ChinaAMC CSI 300 ETF.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a ChinaAMC CSI 300 ETF next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about how can one fund hold many investments?
+Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about ChinaAMC CSI 300 ETF case
 
 - dated evidence or source detail
 - A fund can diversify company-specific risk but still carries market, sector and product risks.
@@ -986,7 +986,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 1. **Identify/Define:** Identify the source date and define ETF.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: portfolio weight = holding value / total portfolio value x 100.
 3. **Explain:** Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how can one fund hold many investments?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about ChinaAMC CSI 300 ETF case.
 5. **Judge:** Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1013,7 +1013,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 **Student hook:** You can choose cash, a bond, a share or a fund. What evidence is still missing?
 **Core claim:** A first judgement must connect product, evidence, risk, return and investor fit.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Mini portfolio checkpoint judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Mini portfolio checkpoint fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1069,11 +1069,11 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Mini portfolio checkpoint.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Mini portfolio checkpoint next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Mini portfolio checkpoint case could change an investor's judgement about what evidence is enough for a first investment judgement?
+Analyse why the evidence used in the Mini portfolio checkpoint case could change an investor's judgement about Mini portfolio checkpoint case
 
 - dated evidence or source detail
 - A first judgement must connect product, evidence, risk, return and investor fit.
@@ -1087,7 +1087,7 @@ Analyse why the evidence used in the Mini portfolio checkpoint case could change
 1. **Identify/Define:** Identify the source date and define risk-return trade-off.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students synthesise the Unit 1 evidence chain.
 3. **Explain:** Explain what one Mini portfolio checkpoint evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what evidence is enough for a first investment judgement?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Mini portfolio checkpoint case.
 5. **Judge:** Give your own evidence-based classroom verdict on Mini portfolio checkpoint. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1119,7 +1119,7 @@ Students use revenue, margin, cash-flow, balance-sheet, dividend, risk and compa
 **Student hook:** Meituan's revenue is high. Does that mean the company is strong?
 **Core claim:** Revenue shows sales scale, not profit strength or investment quality by itself.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Meituan judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Meituan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Meituan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1175,11 +1175,11 @@ Students use revenue, margin, cash-flow, balance-sheet, dividend, risk and compa
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Meituan.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Meituan next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Meituan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Meituan case could change an investor's judgement about does high revenue mean a company is strong?
+Analyse why the evidence used in the Meituan case could change an investor's judgement about Meituan case
 
 - dated evidence or source detail
 - Revenue shows sales scale, not profit strength or investment quality by itself.
@@ -1193,7 +1193,7 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 1. **Identify/Define:** Identify the source date and define revenue.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: revenue growth = (new revenue - old revenue) / old revenue x 100.
 3. **Explain:** Explain what one Meituan evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about does high revenue mean a company is strong?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Meituan case.
 5. **Judge:** Give your own evidence-based classroom verdict on Meituan. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1220,7 +1220,7 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 **Student hook:** BYD's sales rise. Could costs still make the story weaker?
 **Core claim:** Rising sales can hide cost pressure, so gross profit and gross margin matter.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one BYD judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short BYD judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; BYD fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1276,11 +1276,11 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for BYD.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a BYD next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short BYD judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the BYD case could change an investor's judgement about can sales rise while costs become a problem?
+Analyse why the evidence used in the BYD case could change an investor's judgement about BYD case
 
 - dated evidence or source detail
 - Rising sales can hide cost pressure, so gross profit and gross margin matter.
@@ -1294,7 +1294,7 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 1. **Identify/Define:** Identify the source date and define cost of sales.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
 3. **Explain:** Explain what one BYD evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about can sales rise while costs become a problem?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about BYD case.
 5. **Judge:** Give your own evidence-based classroom verdict on BYD. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1321,7 +1321,7 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 **Student hook:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
 **Core claim:** Efficiency comparison needs aligned metrics, time periods and margin evidence.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one CATL judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short CATL judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; CATL fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1377,11 +1377,11 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for CATL.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a CATL next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short CATL judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the CATL case could change an investor's judgement about which company turns sales into profit more efficiently?
+Analyse why the evidence used in the CATL case could change an investor's judgement about CATL case
 
 - dated evidence or source detail
 - Efficiency comparison needs aligned metrics, time periods and margin evidence.
@@ -1395,7 +1395,7 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 1. **Identify/Define:** Identify the source date and define operating profit.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: operating margin = operating profit / revenue x 100.
 3. **Explain:** Explain what one CATL evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about which company turns sales into profit more efficiently?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about CATL case.
 5. **Judge:** Give your own evidence-based classroom verdict on CATL. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1422,7 +1422,7 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 **Student hook:** Tesla can grow and still need cash. How can that happen?
 **Core claim:** Profit and cash flow answer different questions.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Tesla judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Tesla judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Tesla fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1478,11 +1478,11 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Tesla.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Tesla next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Tesla judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Tesla case could change an investor's judgement about why can a growing company still need cash?
+Analyse why the evidence used in the Tesla case could change an investor's judgement about Tesla case
 
 - dated evidence or source detail
 - Profit and cash flow answer different questions.
@@ -1496,7 +1496,7 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 1. **Identify/Define:** Identify the source date and define operating cash flow.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: free cash flow = operating cash flow - capital expenditure.
 3. **Explain:** Explain what one Tesla evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why can a growing company still need cash?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Tesla case.
 5. **Judge:** Give your own evidence-based classroom verdict on Tesla. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1523,7 +1523,7 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 **Student hook:** A company reports assets and liabilities. Which side should an investor check first?
 **Core claim:** A balance sheet helps students see resources, obligations and equity claims.
 **Case role:** economic data case
-**Primary output:** evidence-based-next-action-judgement - one Balance sheet snapshot judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Balance sheet snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Balance sheet snapshot fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1579,11 +1579,11 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Balance sheet snapshot.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Balance sheet snapshot next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Balance sheet snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Balance sheet snapshot case could change an investor's judgement about what does a balance sheet add to company analysis?
+Analyse why the evidence used in the Balance sheet snapshot case could change an investor's judgement about Balance sheet snapshot case
 
 - dated evidence or source detail
 - A balance sheet helps students see resources, obligations and equity claims.
@@ -1597,7 +1597,7 @@ Analyse why the evidence used in the Balance sheet snapshot case could change an
 1. **Identify/Define:** Identify the source date and define balance sheet asset.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: equity = assets - liabilities.
 3. **Explain:** Explain what one Balance sheet snapshot evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what does a balance sheet add to company analysis?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Balance sheet snapshot case.
 5. **Judge:** Give your own evidence-based classroom verdict on Balance sheet snapshot. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1624,7 +1624,7 @@ Analyse why the evidence used in the Balance sheet snapshot case could change an
 **Student hook:** Lenovo borrows money. When does borrowing become a shareholder risk?
 **Core claim:** Borrowing can fund growth but also raises fixed obligations and shareholder risk.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Lenovo judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Lenovo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Lenovo fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1680,11 +1680,11 @@ Analyse why the evidence used in the Balance sheet snapshot case could change an
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Lenovo.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Lenovo next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Lenovo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Lenovo case could change an investor's judgement about when does borrowing become a shareholder risk?
+Analyse why the evidence used in the Lenovo case could change an investor's judgement about Lenovo case
 
 - dated evidence or source detail
 - Borrowing can fund growth but also raises fixed obligations and shareholder risk.
@@ -1698,7 +1698,7 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 1. **Identify/Define:** Identify the source date and define debt.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: debt-to-equity = total debt / equity, if the data is suitable.
 3. **Explain:** Explain what one Lenovo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about when does borrowing become a shareholder risk?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Lenovo case.
 5. **Judge:** Give your own evidence-based classroom verdict on Lenovo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1725,7 +1725,7 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 **Student hook:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
 **Core claim:** Dividends add income, but yield and total return depend on price and risk.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one HSBC judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short HSBC judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; HSBC fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1781,11 +1781,11 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HSBC.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a HSBC next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short HSBC judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the HSBC case could change an investor's judgement about why might an investor like dividends?
+Analyse why the evidence used in the HSBC case could change an investor's judgement about HSBC case
 
 - dated evidence or source detail
 - Dividends add income, but yield and total return depend on price and risk.
@@ -1799,7 +1799,7 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 1. **Identify/Define:** Identify the source date and define dividend.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: dividend yield = annual dividend / share price x 100.
 3. **Explain:** Explain what one HSBC evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why might an investor like dividends?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about HSBC case.
 5. **Judge:** Give your own evidence-based classroom verdict on HSBC. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1826,7 +1826,7 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 **Student hook:** Starbucks is familiar. What could still hurt it?
 **Core claim:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Starbucks judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Starbucks judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Starbucks fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1882,11 +1882,11 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Starbucks.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Starbucks next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Starbucks judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Starbucks case could change an investor's judgement about what could hurt one familiar company?
+Analyse why the evidence used in the Starbucks case could change an investor's judgement about Starbucks case
 
 - dated evidence or source detail
 - A familiar company can still face risks that affect future revenue, profit, expectations and price.
@@ -1900,7 +1900,7 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 1. **Identify/Define:** Identify the source date and define company-specific risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; build a risk-evidence-effect chain.
 3. **Explain:** Explain what one Starbucks evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what could hurt one familiar company?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Starbucks case.
 5. **Judge:** Give your own evidence-based classroom verdict on Starbucks. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -1927,7 +1927,7 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 **Student hook:** Toyota looks strong. What makes a comparison unfair?
 **Core claim:** Fair comparison requires aligned metrics, dates, currencies and business context.
 **Case role:** comparison case
-**Primary output:** evidence-based-next-action-judgement - one Toyota peer set judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Toyota peer set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Toyota peer set fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -1983,11 +1983,11 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Toyota peer set.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Toyota peer set next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Toyota peer set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Toyota peer set case could change an investor's judgement about how can a company comparison be fair?
+Analyse why the evidence used in the Toyota peer set case could change an investor's judgement about Toyota peer set case
 
 - dated evidence or source detail
 - Fair comparison requires aligned metrics, dates, currencies and business context.
@@ -2001,7 +2001,7 @@ Analyse why the evidence used in the Toyota peer set case could change an invest
 1. **Identify/Define:** Identify the source date and define benchmark.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: compare the same metric over the same period; no single new formula.
 3. **Explain:** Explain what one Toyota peer set evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how can a company comparison be fair?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Toyota peer set case.
 5. **Judge:** Give your own evidence-based classroom verdict on Toyota peer set. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2028,7 +2028,7 @@ Analyse why the evidence used in the Toyota peer set case could change an invest
 **Student hook:** A company has growth, debt and risk evidence. What should change your view?
 **Core claim:** A company judgement improves when evidence is connected across revenue, margin, cash, debt and risk.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Company evidence checkpoint judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Company evidence checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Company evidence checkpoint fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2084,11 +2084,11 @@ Analyse why the evidence used in the Toyota peer set case could change an invest
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Company evidence checkpoint.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Company evidence checkpoint next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Company evidence checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Company evidence checkpoint case could change an investor's judgement about how do financial statements change an investment judgement?
+Analyse why the evidence used in the Company evidence checkpoint case could change an investor's judgement about Company evidence checkpoint case
 
 - dated evidence or source detail
 - A company judgement improves when evidence is connected across revenue, margin, cash, debt and risk.
@@ -2102,7 +2102,7 @@ Analyse why the evidence used in the Company evidence checkpoint case could chan
 1. **Identify/Define:** Identify the source date and define financial statement memo.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students combine statement evidence into a written judgement.
 3. **Explain:** Explain what one Company evidence checkpoint evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how do financial statements change an investment judgement?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Company evidence checkpoint case.
 5. **Judge:** Give your own evidence-based classroom verdict on Company evidence checkpoint. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2134,7 +2134,7 @@ Students connect investor return, valuation, diversification, profile fit and ri
 **Student hook:** Apple's share price changed. How much did the investor really gain or lose?
 **Core claim:** Investor return depends on gain or loss relative to the purchase price.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Apple judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Apple judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Apple fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2190,11 +2190,11 @@ Students connect investor return, valuation, diversification, profile fit and ri
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Apple.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Apple next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Apple judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Apple case could change an investor's judgement about how does a share make or lose money for an investor?
+Analyse why the evidence used in the Apple case could change an investor's judgement about Apple case
 
 - dated evidence or source detail
 - Investor return depends on gain or loss relative to the purchase price.
@@ -2208,7 +2208,7 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 1. **Identify/Define:** Identify the source date and define capital gain.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: gain = sale price - purchase price; return % = gain / purchase price x 100.
 3. **Explain:** Explain what one Apple evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how does a share make or lose money for an investor?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Apple case.
 5. **Judge:** Give your own evidence-based classroom verdict on Apple. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2235,7 +2235,7 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 **Student hook:** Nvidia's share price is high. Does that mean it is the biggest company?
 **Core claim:** Market capitalisation combines one-share price and share count.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Nvidia judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Nvidia judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Nvidia fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2291,11 +2291,11 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Nvidia.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Nvidia next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Nvidia judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Nvidia case could change an investor's judgement about how can one company be worth so much?
+Analyse why the evidence used in the Nvidia case could change an investor's judgement about Nvidia case
 
 - dated evidence or source detail
 - Market capitalisation combines one-share price and share count.
@@ -2309,7 +2309,7 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 1. **Identify/Define:** Identify the source date and define market capitalisation.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: market capitalisation = share price x shares outstanding.
 3. **Explain:** Explain what one Nvidia evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how can one company be worth so much?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Nvidia case.
 5. **Judge:** Give your own evidence-based classroom verdict on Nvidia. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2336,7 +2336,7 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 **Student hook:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
 **Core claim:** A P/E ratio can signal expectations, risk or both.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Microsoft judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Microsoft judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Microsoft fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2392,11 +2392,11 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Microsoft.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Microsoft next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Microsoft judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Microsoft case could change an investor's judgement about when do investors pay a high price for profit?
+Analyse why the evidence used in the Microsoft case could change an investor's judgement about Microsoft case
 
 - dated evidence or source detail
 - A P/E ratio can signal expectations, risk or both.
@@ -2410,7 +2410,7 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 1. **Identify/Define:** Identify the source date and define earnings per share.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: EPS = net profit / shares; P/E = share price / EPS.
 3. **Explain:** Explain what one Microsoft evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about when do investors pay a high price for profit?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Microsoft case.
 5. **Judge:** Give your own evidence-based classroom verdict on Microsoft. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2437,7 +2437,7 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 **Student hook:** Toyota is a good company. Could it still be too expensive?
 **Core claim:** A good company only becomes attractive when quality is judged with price and risk.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Toyota valuation case judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Toyota valuation case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Toyota valuation case fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2493,11 +2493,11 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Toyota valuation case.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Toyota valuation case next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Toyota valuation case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Toyota valuation case case could change an investor's judgement about can a good company still be too expensive?
+Analyse why the evidence used in the Toyota valuation case case could change an investor's judgement about Toyota valuation case case
 
 - dated evidence or source detail
 - A good company only becomes attractive when quality is judged with price and risk.
@@ -2511,7 +2511,7 @@ Analyse why the evidence used in the Toyota valuation case case could change an 
 1. **Identify/Define:** Identify the source date and define valuation risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: compare P/E, growth and risk evidence; no new calculation.
 3. **Explain:** Explain what one Toyota valuation case evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about can a good company still be too expensive?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Toyota valuation case case.
 5. **Judge:** Give your own evidence-based classroom verdict on Toyota valuation case. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2538,7 +2538,7 @@ Analyse why the evidence used in the Toyota valuation case case could change an 
 **Student hook:** A dividend looks attractive. What if the share price falls?
 **Core claim:** Total return combines price movement and income received.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one HSBC income case judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short HSBC income case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; HSBC income case fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2594,11 +2594,11 @@ Analyse why the evidence used in the Toyota valuation case case could change an 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HSBC income case.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a HSBC income case next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short HSBC income case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the HSBC income case case could change an investor's judgement about how should income and price change be combined?
+Analyse why the evidence used in the HSBC income case case could change an investor's judgement about HSBC income case case
 
 - dated evidence or source detail
 - Total return combines price movement and income received.
@@ -2612,7 +2612,7 @@ Analyse why the evidence used in the HSBC income case case could change an inves
 1. **Identify/Define:** Identify the source date and define total return.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: total return = capital gain or loss + dividends.
 3. **Explain:** Explain what one HSBC income case evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how should income and price change be combined?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about HSBC income case case.
 5. **Judge:** Give your own evidence-based classroom verdict on HSBC income case. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2639,7 +2639,7 @@ Analyse why the evidence used in the HSBC income case case could change an inves
 **Student hook:** Two holdings feel safer than one. What risk remains?
 **Core claim:** Diversification can reduce company-specific risk but does not remove market risk.
 **Case role:** comparison case
-**Primary output:** evidence-based-next-action-judgement - one Two-holding portfolio judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Two-holding portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Two-holding portfolio fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2695,11 +2695,11 @@ Analyse why the evidence used in the HSBC income case case could change an inves
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Two-holding portfolio.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Two-holding portfolio next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Two-holding portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Two-holding portfolio case could change an investor's judgement about how does diversification change risk?
+Analyse why the evidence used in the Two-holding portfolio case could change an investor's judgement about Two-holding portfolio case
 
 - dated evidence or source detail
 - Diversification can reduce company-specific risk but does not remove market risk.
@@ -2713,7 +2713,7 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 1. **Identify/Define:** Identify the source date and define diversification.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: portfolio weight = holding value / total portfolio value x 100.
 3. **Explain:** Explain what one Two-holding portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how does diversification change risk?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Two-holding portfolio case.
 5. **Judge:** Give your own evidence-based classroom verdict on Two-holding portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2740,7 +2740,7 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 **Student hook:** Two students choose the same fund. Could one choice still be unsuitable?
 **Core claim:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Investor profile A judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Investor profile A fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2796,11 +2796,11 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Investor profile A.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Investor profile A next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Investor profile A case could change an investor's judgement about why can the same investment fit one person but not another?
+Analyse why the evidence used in the Investor profile A case could change an investor's judgement about Investor profile A case
 
 - dated evidence or source detail
 - Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
@@ -2814,7 +2814,7 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 1. **Identify/Define:** Identify the source date and define investor profile.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match product risk to investor profile.
 3. **Explain:** Explain what one Investor profile A evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why can the same investment fit one person but not another?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Investor profile A case.
 5. **Judge:** Give your own evidence-based classroom verdict on Investor profile A. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2841,7 +2841,7 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 **Student hook:** Samsung sells globally. Why can exchange rates matter to shareholders?
 **Core claim:** Exchange rates can create measurement and return risk for global companies.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Samsung judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Samsung judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Samsung fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2897,11 +2897,11 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Samsung.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Samsung next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Samsung judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Samsung case could change an investor's judgement about why can exchange rates matter to shareholders?
+Analyse why the evidence used in the Samsung case could change an investor's judgement about Samsung case
 
 - dated evidence or source detail
 - Exchange rates can create measurement and return risk for global companies.
@@ -2915,7 +2915,7 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 1. **Identify/Define:** Identify the source date and define currency risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: exchange-rate change % = (new rate - old rate) / old rate x 100.
 3. **Explain:** Explain what one Samsung evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why can exchange rates matter to shareholders?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Samsung case.
 5. **Judge:** Give your own evidence-based classroom verdict on Samsung. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -2942,7 +2942,7 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 **Student hook:** One choice has a higher possible return. Is it automatically better?
 **Core claim:** Expected return must be judged with downside risk and investor fit.
 **Case role:** economic data case
-**Primary output:** evidence-based-next-action-judgement - one Risk-return scenario judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Risk-return scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Risk-return scenario fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -2998,11 +2998,11 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Risk-return scenario.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Risk-return scenario next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Risk-return scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Risk-return scenario case could change an investor's judgement about how should possible return be compared with downside risk?
+Analyse why the evidence used in the Risk-return scenario case could change an investor's judgement about Risk-return scenario case
 
 - dated evidence or source detail
 - Expected return must be judged with downside risk and investor fit.
@@ -3016,7 +3016,7 @@ Analyse why the evidence used in the Risk-return scenario case could change an i
 1. **Identify/Define:** Identify the source date and define expected return.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students compare return clues with possible downside.
 3. **Explain:** Explain what one Risk-return scenario evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how should possible return be compared with downside risk?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Risk-return scenario case.
 5. **Judge:** Give your own evidence-based classroom verdict on Risk-return scenario. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3043,7 +3043,7 @@ Analyse why the evidence used in the Risk-return scenario case could change an i
 **Student hook:** You have company, price, return and fit evidence. What is still not enough?
 **Core claim:** A defensible memo uses dated evidence, caveats and a practical next action.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Semester 1 memo judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Semester 1 memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Semester 1 memo fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3099,11 +3099,11 @@ Analyse why the evidence used in the Risk-return scenario case could change an i
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Semester 1 memo.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Semester 1 memo next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Semester 1 memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Semester 1 memo case could change an investor's judgement about what should a first-semester investment memo include?
+Analyse why the evidence used in the Semester 1 memo case could change an investor's judgement about Semester 1 memo case
 
 - dated evidence or source detail
 - A defensible memo uses dated evidence, caveats and a practical next action.
@@ -3117,7 +3117,7 @@ Analyse why the evidence used in the Semester 1 memo case could change an invest
 1. **Identify/Define:** Identify the source date and define semester-one investment memo.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of return, valuation, risk and investor fit; no new formula.
 3. **Explain:** Explain what one Semester 1 memo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what should a first-semester investment memo include?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Semester 1 memo case.
 5. **Judge:** Give your own evidence-based classroom verdict on Semester 1 memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3149,7 +3149,7 @@ Students broaden the course beyond single shares by analysing cash, bonds, funds
 **Student hook:** A deposit earns less than shares. Why might it still fit?
 **Core claim:** Cash and deposits protect liquidity but can lose purchasing power to inflation.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Bank deposit judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Bank deposit judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Bank deposit fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3205,11 +3205,11 @@ Students broaden the course beyond single shares by analysing cash, bonds, funds
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Bank deposit.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Bank deposit next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Bank deposit judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Bank deposit case could change an investor's judgement about when is cash or a deposit the better choice?
+Analyse why the evidence used in the Bank deposit case could change an investor's judgement about Bank deposit case
 
 - dated evidence or source detail
 - Cash and deposits protect liquidity but can lose purchasing power to inflation.
@@ -3223,7 +3223,7 @@ Analyse why the evidence used in the Bank deposit case could change an investor'
 1. **Identify/Define:** Identify the source date and define cash deposit.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: real return = nominal return - inflation rate, as a simple classroom approximation.
 3. **Explain:** Explain what one Bank deposit evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about when is cash or a deposit the better choice?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Bank deposit case.
 5. **Judge:** Give your own evidence-based classroom verdict on Bank deposit. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3250,7 +3250,7 @@ Analyse why the evidence used in the Bank deposit case could change an investor'
 **Student hook:** Two bonds pay different yields. Which one is actually safer?
 **Core claim:** Bond yield must be read with maturity, issuer and price risk.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Treasury bond judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Treasury bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Treasury bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3306,11 +3306,11 @@ Analyse why the evidence used in the Bank deposit case could change an investor'
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Treasury bond.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Treasury bond next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Treasury bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Treasury bond case could change an investor's judgement about what do maturity and yield tell a bond investor?
+Analyse why the evidence used in the Treasury bond case could change an investor's judgement about Treasury bond case
 
 - dated evidence or source detail
 - Bond yield must be read with maturity, issuer and price risk.
@@ -3324,7 +3324,7 @@ Analyse why the evidence used in the Treasury bond case could change an investor
 1. **Identify/Define:** Identify the source date and define maturity date.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: current yield = annual coupon / bond price x 100, if the data is suitable.
 3. **Explain:** Explain what one Treasury bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what do maturity and yield tell a bond investor?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Treasury bond case.
 5. **Judge:** Give your own evidence-based classroom verdict on Treasury bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3351,7 +3351,7 @@ Analyse why the evidence used in the Treasury bond case could change an investor
 **Student hook:** Interest rates rise. Why might an existing bond fund fall?
 **Core claim:** Bond prices and interest rates usually move in opposite directions.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Bond fund judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Bond fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Bond fund fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3407,11 +3407,11 @@ Analyse why the evidence used in the Treasury bond case could change an investor
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Bond fund.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Bond fund next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Bond fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Bond fund case could change an investor's judgement about why do bond prices move when interest rates change?
+Analyse why the evidence used in the Bond fund case could change an investor's judgement about Bond fund case
 
 - dated evidence or source detail
 - Bond prices and interest rates usually move in opposite directions.
@@ -3425,7 +3425,7 @@ Analyse why the evidence used in the Bond fund case could change an investor's j
 1. **Identify/Define:** Identify the source date and define interest rate risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students explain the inverse price-rate direction.
 3. **Explain:** Explain what one Bond fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why do bond prices move when interest rates change?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Bond fund case.
 5. **Judge:** Give your own evidence-based classroom verdict on Bond fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3452,7 +3452,7 @@ Analyse why the evidence used in the Bond fund case could change an investor's j
 **Student hook:** A corporate bond pays more. Is the extra yield free money?
 **Core claim:** Higher yield can compensate for higher credit risk, but it does not remove default risk.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Corporate bond judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Corporate bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Corporate bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3508,11 +3508,11 @@ Analyse why the evidence used in the Bond fund case could change an investor's j
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Corporate bond.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Corporate bond next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Corporate bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Corporate bond case could change an investor's judgement about how can credit risk affect bond investors?
+Analyse why the evidence used in the Corporate bond case could change an investor's judgement about Corporate bond case
 
 - dated evidence or source detail
 - Higher yield can compensate for higher credit risk, but it does not remove default risk.
@@ -3526,7 +3526,7 @@ Analyse why the evidence used in the Corporate bond case could change an investo
 1. **Identify/Define:** Identify the source date and define credit risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: yield spread = corporate bond yield - safer benchmark yield.
 3. **Explain:** Explain what one Corporate bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how can credit risk affect bond investors?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Corporate bond case.
 5. **Judge:** Give your own evidence-based classroom verdict on Corporate bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3553,7 +3553,7 @@ Analyse why the evidence used in the Corporate bond case could change an investo
 **Student hook:** One fund tracks an index and another chooses stocks. Which evidence matters?
 **Core claim:** Index funds aim to track a market, while active funds try to beat a benchmark.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Index fund judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Index fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Index fund fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3609,11 +3609,11 @@ Analyse why the evidence used in the Corporate bond case could change an investo
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Index fund.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Index fund next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Index fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Index fund case could change an investor's judgement about how is an index fund different from active stock picking?
+Analyse why the evidence used in the Index fund case could change an investor's judgement about Index fund case
 
 - dated evidence or source detail
 - Index funds aim to track a market, while active funds try to beat a benchmark.
@@ -3627,7 +3627,7 @@ Analyse why the evidence used in the Index fund case could change an investor's 
 1. **Identify/Define:** Identify the source date and define index fund.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students compare objective, benchmark and evidence.
 3. **Explain:** Explain what one Index fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how is an index fund different from active stock picking?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Index fund case.
 5. **Judge:** Give your own evidence-based classroom verdict on Index fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3654,7 +3654,7 @@ Analyse why the evidence used in the Index fund case could change an investor's 
 **Student hook:** A fund fee looks small. How can it still affect returns?
 **Core claim:** Fees reduce investor return and must be compared with performance evidence and risk.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Active fund judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Active fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Active fund fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3710,11 +3710,11 @@ Analyse why the evidence used in the Index fund case could change an investor's 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Active fund.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Active fund next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Active fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Active fund case could change an investor's judgement about how much do fund costs matter?
+Analyse why the evidence used in the Active fund case could change an investor's judgement about Active fund case
 
 - dated evidence or source detail
 - Fees reduce investor return and must be compared with performance evidence and risk.
@@ -3728,7 +3728,7 @@ Analyse why the evidence used in the Active fund case could change an investor's
 1. **Identify/Define:** Identify the source date and define expense ratio.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: annual fund cost = invested amount x expense ratio.
 3. **Explain:** Explain what one Active fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how much do fund costs matter?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Active fund case.
 5. **Judge:** Give your own evidence-based classroom verdict on Active fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3755,7 +3755,7 @@ Analyse why the evidence used in the Active fund case could change an investor's
 **Student hook:** A fund owns many shares. Why might it still be risky?
 **Core claim:** Many holdings can still share the same sector, theme or exposure.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Sector ETF judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Sector ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Sector ETF fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3811,11 +3811,11 @@ Analyse why the evidence used in the Active fund case could change an investor's
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Sector ETF.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Sector ETF next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Sector ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Sector ETF case could change an investor's judgement about can a diversified fund still be concentrated?
+Analyse why the evidence used in the Sector ETF case could change an investor's judgement about Sector ETF case
 
 - dated evidence or source detail
 - Many holdings can still share the same sector, theme or exposure.
@@ -3829,7 +3829,7 @@ Analyse why the evidence used in the Sector ETF case could change an investor's 
 1. **Identify/Define:** Identify the source date and define sector concentration.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: top-holdings weight = sum of largest holding weights.
 3. **Explain:** Explain what one Sector ETF evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about can a diversified fund still be concentrated?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Sector ETF case.
 5. **Judge:** Give your own evidence-based classroom verdict on Sector ETF. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3856,7 +3856,7 @@ Analyse why the evidence used in the Sector ETF case could change an investor's 
 **Student hook:** A global fund sounds diversified. Which countries dominate it?
 **Core claim:** Geographic diversification reduces some local risk but can leave home bias or currency exposure.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Global fund judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Global fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Global fund fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -3912,11 +3912,11 @@ Analyse why the evidence used in the Sector ETF case could change an investor's 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Global fund.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Global fund next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Global fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Global fund case could change an investor's judgement about how does geography change portfolio risk?
+Analyse why the evidence used in the Global fund case could change an investor's judgement about Global fund case
 
 - dated evidence or source detail
 - Geographic diversification reduces some local risk but can leave home bias or currency exposure.
@@ -3930,7 +3930,7 @@ Analyse why the evidence used in the Global fund case could change an investor's
 1. **Identify/Define:** Identify the source date and define geographic diversification.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: region weight = region holding value / portfolio value x 100.
 3. **Explain:** Explain what one Global fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how does geography change portfolio risk?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Global fund case.
 5. **Judge:** Give your own evidence-based classroom verdict on Global fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -3957,7 +3957,7 @@ Analyse why the evidence used in the Global fund case could change an investor's
 **Student hook:** Should an investor rely on one perfect purchase, or build a long-run plan over time?
 **Core claim:** Compounding can make long-run accumulation grow as returns build on earlier returns, while gradual investing can reduce timing pressure without guaranteeing profit.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Monthly investment plan judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Monthly investment plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Monthly investment plan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4013,7 +4013,7 @@ Analyse why the evidence used in the Global fund case could change an investor's
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Monthly investment plan.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Monthly investment plan next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Monthly investment plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
@@ -4058,7 +4058,7 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 **Student hook:** A product looks exciting. What rule should stop a careless decision?
 **Core claim:** A written plan protects the decision process before emotion or news takes over.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Investor policy statement judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Investor policy statement fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4114,11 +4114,11 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Investor policy statement.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Investor policy statement next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Investor policy statement case could change an investor's judgement about what rules should guide an investor before choosing products?
+Analyse why the evidence used in the Investor policy statement case could change an investor's judgement about Investor policy statement case
 
 - dated evidence or source detail
 - A written plan protects the decision process before emotion or news takes over.
@@ -4132,7 +4132,7 @@ Analyse why the evidence used in the Investor policy statement case could change
 1. **Identify/Define:** Identify the source date and define investment policy statement.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students write rules that constrain later choices.
 3. **Explain:** Explain what one Investor policy statement evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what rules should guide an investor before choosing products?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Investor policy statement case.
 5. **Judge:** Give your own evidence-based classroom verdict on Investor policy statement. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4164,7 +4164,7 @@ Students compare alternatives, build and monitor a simple portfolio, control con
 **Student hook:** Two funds both look reasonable. What makes the comparison fair?
 **Core claim:** Fair comparison uses the same dates, metrics, risk categories and investor profile.
 **Case role:** comparison case
-**Primary output:** evidence-based-next-action-judgement - one Fund comparison judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Fund comparison judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Fund comparison fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4220,11 +4220,11 @@ Students compare alternatives, build and monitor a simple portfolio, control con
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Fund comparison.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Fund comparison next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Fund comparison judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Fund comparison case could change an investor's judgement about how should two investment choices be compared?
+Analyse why the evidence used in the Fund comparison case could change an investor's judgement about Fund comparison case
 
 - dated evidence or source detail
 - Fair comparison uses the same dates, metrics, risk categories and investor profile.
@@ -4238,7 +4238,7 @@ Analyse why the evidence used in the Fund comparison case could change an invest
 1. **Identify/Define:** Identify the source date and define opportunity cost.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: compare return, risk, cost and fit side by side; no single new formula.
 3. **Explain:** Explain what one Fund comparison evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how should two investment choices be compared?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Fund comparison case.
 5. **Judge:** Give your own evidence-based classroom verdict on Fund comparison. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4265,7 +4265,7 @@ Analyse why the evidence used in the Fund comparison case could change an invest
 **Student hook:** A portfolio has cash, bonds, funds and one share. What is each holding doing?
 **Core claim:** A portfolio should connect each holding to goal, risk and evidence.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Starter portfolio judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Starter portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Starter portfolio fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4321,11 +4321,11 @@ Analyse why the evidence used in the Fund comparison case could change an invest
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Starter portfolio.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Starter portfolio next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Starter portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Starter portfolio case could change an investor's judgement about how can a simple portfolio be built from evidence?
+Analyse why the evidence used in the Starter portfolio case could change an investor's judgement about Starter portfolio case
 
 - dated evidence or source detail
 - A portfolio should connect each holding to goal, risk and evidence.
@@ -4339,7 +4339,7 @@ Analyse why the evidence used in the Starter portfolio case could change an inve
 1. **Identify/Define:** Identify the source date and define simple portfolio.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: asset allocation weight = asset-class value / total portfolio value x 100.
 3. **Explain:** Explain what one Starter portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how can a simple portfolio be built from evidence?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Starter portfolio case.
 5. **Judge:** Give your own evidence-based classroom verdict on Starter portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4366,7 +4366,7 @@ Analyse why the evidence used in the Starter portfolio case could change an inve
 **Student hook:** Tencent is familiar and large in the portfolio. Is that comfort or concentration risk?
 **Core claim:** Position size controls how much one holding can affect the whole portfolio.
 **Case role:** listed company
-**Primary output:** evidence-based-next-action-judgement - one Concentrated Tencent holding judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Concentrated Tencent holding judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Concentrated Tencent holding fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4422,11 +4422,11 @@ Analyse why the evidence used in the Starter portfolio case could change an inve
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Concentrated Tencent holding.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Concentrated Tencent holding next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Concentrated Tencent holding judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Concentrated Tencent holding case could change an investor's judgement about when is one holding too large?
+Analyse why the evidence used in the Concentrated Tencent holding case could change an investor's judgement about Concentrated Tencent holding case
 
 - dated evidence or source detail
 - Position size controls how much one holding can affect the whole portfolio.
@@ -4440,7 +4440,7 @@ Analyse why the evidence used in the Concentrated Tencent holding case could cha
 1. **Identify/Define:** Identify the source date and define concentration risk.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: position size = holding value / total portfolio value x 100.
 3. **Explain:** Explain what one Concentrated Tencent holding evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about when is one holding too large?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Concentrated Tencent holding case.
 5. **Judge:** Give your own evidence-based classroom verdict on Concentrated Tencent holding. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4467,7 +4467,7 @@ Analyse why the evidence used in the Concentrated Tencent holding case could cha
 **Student hook:** A watch decision is not doing nothing. What should be watched?
 **Core claim:** Monitoring tracks the evidence that could change a judgement later.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Watchlist dashboard judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Watchlist dashboard judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Watchlist dashboard fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4523,11 +4523,11 @@ Analyse why the evidence used in the Concentrated Tencent holding case could cha
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Watchlist dashboard.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Watchlist dashboard next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Watchlist dashboard judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Watchlist dashboard case could change an investor's judgement about what should an investor monitor after deciding to watch?
+Analyse why the evidence used in the Watchlist dashboard case could change an investor's judgement about Watchlist dashboard case
 
 - dated evidence or source detail
 - Monitoring tracks the evidence that could change a judgement later.
@@ -4541,7 +4541,7 @@ Analyse why the evidence used in the Watchlist dashboard case could change an in
 1. **Identify/Define:** Identify the source date and define monitoring evidence.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students define evidence triggers and review dates.
 3. **Explain:** Explain what one Watchlist dashboard evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what should an investor monitor after deciding to watch?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Watchlist dashboard case.
 5. **Judge:** Give your own evidence-based classroom verdict on Watchlist dashboard. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4568,7 +4568,7 @@ Analyse why the evidence used in the Watchlist dashboard case could change an in
 **Student hook:** One holding rises a lot. Should the portfolio be left alone?
 **Core claim:** Rebalancing can restore target weights but must consider costs and evidence.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Rebalanced portfolio judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Rebalanced portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Rebalanced portfolio fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4624,11 +4624,11 @@ Analyse why the evidence used in the Watchlist dashboard case could change an in
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Rebalanced portfolio.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Rebalanced portfolio next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Rebalanced portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Rebalanced portfolio case could change an investor's judgement about why might a portfolio need rebalancing?
+Analyse why the evidence used in the Rebalanced portfolio case could change an investor's judgement about Rebalanced portfolio case
 
 - dated evidence or source detail
 - Rebalancing can restore target weights but must consider costs and evidence.
@@ -4642,7 +4642,7 @@ Analyse why the evidence used in the Rebalanced portfolio case could change an i
 1. **Identify/Define:** Identify the source date and define rebalancing.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: weight gap = current weight - target weight.
 3. **Explain:** Explain what one Rebalanced portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why might a portfolio need rebalancing?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Rebalanced portfolio case.
 5. **Judge:** Give your own evidence-based classroom verdict on Rebalanced portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4669,7 +4669,7 @@ Analyse why the evidence used in the Rebalanced portfolio case could change an i
 **Student hook:** A trade looks profitable before costs. What changes after friction?
 **Core claim:** Transaction costs and tax friction can reduce or reverse an expected benefit.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - one Trading-cost scenario judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Trading-cost scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Trading-cost scenario fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4725,11 +4725,11 @@ Analyse why the evidence used in the Rebalanced portfolio case could change an i
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Trading-cost scenario.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Trading-cost scenario next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Trading-cost scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Trading-cost scenario case could change an investor's judgement about how do costs and taxes affect a decision?
+Analyse why the evidence used in the Trading-cost scenario case could change an investor's judgement about Trading-cost scenario case
 
 - dated evidence or source detail
 - Transaction costs and tax friction can reduce or reverse an expected benefit.
@@ -4743,7 +4743,7 @@ Analyse why the evidence used in the Trading-cost scenario case could change an 
 1. **Identify/Define:** Identify the source date and define transaction cost.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: net gain = gross gain - transaction costs - tax estimate.
 3. **Explain:** Explain what one Trading-cost scenario evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how do costs and taxes affect a decision?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Trading-cost scenario case.
 5. **Judge:** Give your own evidence-based classroom verdict on Trading-cost scenario. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4770,7 +4770,7 @@ Analyse why the evidence used in the Trading-cost scenario case could change an 
 **Student hook:** Last year's best fund looks obvious. Why might that be a trap?
 **Core claim:** Recent performance is evidence, but it can mislead if risk, luck and valuation are ignored.
 **Case role:** fund
-**Primary output:** evidence-based-next-action-judgement - one Past-winner fund judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Past-winner fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Past-winner fund fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4826,11 +4826,11 @@ Analyse why the evidence used in the Trading-cost scenario case could change an 
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Past-winner fund.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Past-winner fund next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Past-winner fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Past-winner fund case could change an investor's judgement about why can chasing recent performance be dangerous?
+Analyse why the evidence used in the Past-winner fund case could change an investor's judgement about Past-winner fund case
 
 - dated evidence or source detail
 - Recent performance is evidence, but it can mislead if risk, luck and valuation are ignored.
@@ -4844,7 +4844,7 @@ Analyse why the evidence used in the Past-winner fund case could change an inves
 1. **Identify/Define:** Identify the source date and define performance chasing.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify behaviour and evidence quality.
 3. **Explain:** Explain what one Past-winner fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about why can chasing recent performance be dangerous?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Past-winner fund case.
 5. **Judge:** Give your own evidence-based classroom verdict on Past-winner fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4871,7 +4871,7 @@ Analyse why the evidence used in the Past-winner fund case could change an inves
 **Student hook:** The evidence is mixed. Which next action is most defensible?
 **Core claim:** The next action should match evidence strength, risk, fit and missing information.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Next-action board judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Next-action board judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Next-action board fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -4927,11 +4927,11 @@ Analyse why the evidence used in the Past-winner fund case could change an inves
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Next-action board.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Next-action board next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Next-action board judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Next-action board case could change an investor's judgement about how should an investor choose watch, avoid, consider or compare?
+Analyse why the evidence used in the Next-action board case could change an investor's judgement about Next-action board case
 
 - dated evidence or source detail
 - The next action should match evidence strength, risk, fit and missing information.
@@ -4945,7 +4945,7 @@ Analyse why the evidence used in the Next-action board case could change an inve
 1. **Identify/Define:** Identify the source date and define next-action verdict.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students use a decision rule rather than a tip.
 3. **Explain:** Explain what one Next-action board evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how should an investor choose watch, avoid, consider or compare?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Next-action board case.
 5. **Judge:** Give your own evidence-based classroom verdict on Next-action board. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -4972,7 +4972,7 @@ Analyse why the evidence used in the Next-action board case could change an inve
 **Student hook:** A final answer sounds confident. Which source check could still weaken it?
 **Core claim:** A final evidence pack must record source date, figure, use, limitation and missing evidence.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Evidence pack judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Evidence pack fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -5028,11 +5028,11 @@ Analyse why the evidence used in the Next-action board case could change an inve
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Evidence pack.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Evidence pack next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Evidence pack case could change an investor's judgement about what evidence must be checked before a final memo?
+Analyse why the evidence used in the Evidence pack case could change an investor's judgement about Evidence pack case
 
 - dated evidence or source detail
 - A final evidence pack must record source date, figure, use, limitation and missing evidence.
@@ -5046,7 +5046,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 1. **Identify/Define:** Identify the source date and define evidence pack.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students audit evidence completeness and source quality.
 3. **Explain:** Explain what one Evidence pack evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about what evidence must be checked before a final memo?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Evidence pack case.
 5. **Judge:** Give your own evidence-based classroom verdict on Evidence pack. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks
@@ -5073,7 +5073,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 **Student hook:** A careful investor has to choose a defensible next action. What belongs in the final memo?
 **Core claim:** The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
 **Case role:** synthesis case
-**Primary output:** evidence-based-next-action-judgement - one Final investment memo judgement with dated evidence, caveat and next action
+**Primary output:** evidence-based-next-action-judgement - Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Final investment memo fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
@@ -5129,11 +5129,11 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Final investment memo.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** I can write a Final investment memo next-action judgement with dated evidence and one caveat.
+- **Written action:** Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
 ### Analyse why
 
-Analyse why the evidence used in the Final investment memo case could change an investor's judgement about how do students write a final evidence-based investment memo?
+Analyse why the evidence used in the Final investment memo case could change an investor's judgement about Final investment memo case
 
 - dated evidence or source detail
 - The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
@@ -5147,7 +5147,7 @@ Analyse why the evidence used in the Final investment memo case could change an 
 1. **Identify/Define:** Identify the source date and define final investment memo.
 2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of product, return, risk, cost, fit and evidence; no new formula.
 3. **Explain:** Explain what one Final investment memo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about how do students write a final evidence-based investment memo?.
+4. **Analyse why:** Analyse why this evidence could change the judgement about Final investment memo case.
 5. **Judge:** Give your own evidence-based classroom verdict on Final investment memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
 ### Handout/chapter blocks

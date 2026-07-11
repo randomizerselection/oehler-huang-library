@@ -1397,6 +1397,143 @@ function validateDiscussionRevealTitles() {
   return failures;
 }
 
+function validateActiveLessonAlignment() {
+  const failures = [];
+  const homepagePath = path.join(courseRoot, 'index.html');
+  const homepageSource = fs.readFileSync(homepagePath, 'utf8');
+  const activeLessons = [1, 2];
+
+  const expectedTerms = new Map([
+    [1, ['investment analysis', 'return', 'risk', 'investor fit']],
+    [2, ['saving', 'investment', 'speculation']],
+    [3, ['asset', 'asset class', 'liquidity need']],
+    [4, ['share', 'share ownership', 'shareholder right']],
+    [5, ['stock exchange', 'secondary market', 'listing', 'stock code', 'liquidity']],
+  ]);
+
+  for (const [lessonNumber, terms] of expectedTerms) {
+    const lesson = courseMap.lessons.find((entry) => entry.lesson === lessonNumber);
+    const actualTerms = (lesson?.terms || []).map((entry) => String(entry.term || '').toLowerCase());
+    if (JSON.stringify(actualTerms) !== JSON.stringify(terms)) {
+      failures.push(`investment-analysis/course-map-data.js lesson ${lessonNumber}: expected term ownership ${terms.join(', ')}`);
+    }
+  }
+
+  for (const lessonNumber of activeLessons) {
+    const mapLesson = courseMap.lessons.find((entry) => entry.lesson === lessonNumber);
+    const lessonDir = path.join(courseRoot, 'unit-1', `lesson-${lessonNumber}`);
+    const slidePath = path.join(lessonDir, 'slides.js');
+    const quizPath = path.join(lessonDir, 'quiz.js');
+    const indexPath = path.join(lessonDir, 'index.html');
+    const slideRelative = path.relative(root, slidePath).replace(/\\/g, '/');
+    const quizRelative = path.relative(root, quizPath).replace(/\\/g, '/');
+
+    for (const requiredPath of [slidePath, quizPath, indexPath]) {
+      if (!fs.existsSync(requiredPath)) {
+        failures.push(`${path.relative(root, requiredPath).replace(/\\/g, '/')}: active lesson file is missing`);
+      }
+    }
+    if (!fs.existsSync(slidePath) || !fs.existsSync(quizPath) || !fs.existsSync(indexPath) || !mapLesson) continue;
+
+    const lesson = readInvestmentLesson(slideRelative);
+    const quiz = readInvestmentQuiz(quizRelative);
+    const slideSource = fs.readFileSync(slidePath, 'utf8');
+    const indexSource = fs.readFileSync(indexPath, 'utf8');
+    const label = `investment-analysis/unit-1/lesson-${lessonNumber}`;
+
+    if (!String(lesson.meta?.lessonLabel || '').includes(`Unit 1 Lesson ${lessonNumber}`) || !String(lesson.meta?.lessonLabel || '').includes(mapLesson.guidingQuestion)) {
+      failures.push(`${label}/slides.js: lessonLabel must include the canonical lesson number and guiding question`);
+    }
+    if (!indexSource.includes(mapLesson.guidingQuestion)) {
+      failures.push(`${label}/index.html: metadata must include the canonical guiding question`);
+    }
+
+    const openingDiscussion = (lesson.slides || []).find((slide) => slide.type === 'discussion');
+    if (openingDiscussion?.question !== mapLesson.studentHook) {
+      failures.push(`${label}/slides.js: opening discussion question must match courseMap.studentHook`);
+    }
+
+    const outcomes = (lesson.slides || []).filter((slide) => slide.type === 'outcomes');
+    if (outcomes.length !== 1 || outcomes[0].bullets?.length !== 3 || outcomes[0].zhBullets?.length !== 3) {
+      failures.push(`${label}/slides.js: active lesson must have exactly one outcomes slide with exactly three bilingual objectives`);
+    }
+
+    const slideTerms = (lesson.slides || [])
+      .filter((slide) => slide.type === 'term')
+      .map((slide) => String(slide.term || slide.title || '').toLowerCase());
+    const mapTerms = mapLesson.terms.map((entry) => String(entry.term || '').toLowerCase());
+    if (JSON.stringify(slideTerms) !== JSON.stringify(mapTerms)) {
+      failures.push(`${label}/slides.js: term slides must match canonical lesson term ownership and order`);
+    }
+
+    if (!Array.isArray(lesson.handout?.sections) || lesson.handout.sections.length !== 6) {
+      failures.push(`${label}/slides.js: handout must contain exactly six sections`);
+    }
+    const handoutOutput = lesson.handout?.sections?.[5]?.blocks?.find((block) => block.type === 'writing')?.question;
+    if (handoutOutput !== mapLesson.studentOutput) {
+      failures.push(`${label}/slides.js: final handout writing question must match courseMap.studentOutput`);
+    }
+
+    if (!Array.isArray(quiz.questions) || quiz.questions.length !== 10) {
+      failures.push(`${label}/quiz.js: active lesson quiz must contain exactly ten questions`);
+    }
+    if (!String(quiz.title || '').includes(`Lesson ${lessonNumber}`)) {
+      failures.push(`${label}/quiz.js: quiz title must identify the active lesson number`);
+    }
+
+    if (!homepageSource.includes(mapLesson.guidingQuestion)) {
+      failures.push(`investment-analysis/index.html: active Lesson ${lessonNumber} card must use the canonical guiding question`);
+    }
+    const activeHref = `unit-1/lesson-${lessonNumber}/index.html`;
+    if (!homepageSource.includes(activeHref)) {
+      failures.push(`investment-analysis/index.html: missing active Lesson ${lessonNumber} route ${activeHref}`);
+    }
+
+    if (lessonNumber === 1 && /Investment or speculation\?|Rank assets by risk|What does a share give\?|Types of assets/i.test(slideSource)) {
+      failures.push(`${label}/slides.js: Lesson 1 must not retain substantive Lessons 2-4 teaching`);
+    }
+    if (lessonNumber === 2 && /HKEX|0700\.HK|stock exchange|secondary market|trading friction/i.test(`${slideSource}\n${fs.readFileSync(quizPath, 'utf8')}\n${indexSource}`)) {
+      failures.push(`${label}: active Lesson 2 must not retain archived HKEX market-infrastructure content`);
+    }
+  }
+
+  const archiveDirs = [
+    'lesson-1-archive-2026-07-11-before-course-realignment',
+    'lesson-2-archive-hkex-2026-07-11',
+  ];
+  for (const archiveDir of archiveDirs) {
+    const archivePath = path.join(courseRoot, 'unit-1', archiveDir);
+    for (const fileName of ['README.md', 'index.html', 'slides.js', 'quiz.js']) {
+      if (!fs.existsSync(path.join(archivePath, fileName))) {
+        failures.push(`investment-analysis/unit-1/${archiveDir}/${fileName}: required lesson archive file is missing`);
+      }
+    }
+    if (homepageSource.includes(archiveDir)) {
+      failures.push(`investment-analysis/index.html: archived route ${archiveDir} must not appear in student navigation`);
+    }
+  }
+  if (!fs.existsSync(path.join(courseRoot, 'unit-1', archiveDirs[0], 'tencent-price-data.js'))) {
+    failures.push(`investment-analysis/unit-1/${archiveDirs[0]}/tencent-price-data.js: Lesson 1 archive must preserve its local data file`);
+  }
+
+  for (const lesson of courseMap.lessons) {
+    if (!isNonEmptyString(lesson.judgementFocus)) {
+      failures.push(`investment-analysis/course-map-data.js lesson ${lesson.lesson}: judgementFocus must be a non-empty grammatical phrase`);
+    }
+    if (/\babout\s+(?:what|how|why|when|which|does|can)\b.*\?/i.test(lesson.analyseWhy?.question || '')) {
+      failures.push(`investment-analysis/course-map-data.js lesson ${lesson.lesson}: analyseWhy question contains an embedded guiding question`);
+    }
+  }
+
+  const lesson2 = readInvestmentLesson('investment-analysis/unit-1/lesson-2/slides.js');
+  const lesson2SourceUrls = (lesson2.meta?.sources || []).map((source) => source.url || '').join('\n');
+  if (!/ifec\.org\.hk/i.test(lesson2SourceUrls) || !/hkma\.gov\.hk/i.test(lesson2SourceUrls)) {
+    failures.push('investment-analysis/unit-1/lesson-2/slides.js: replacement lesson must cite current official IFEC and HKMA guidance');
+  }
+
+  return failures;
+}
+
 function validateArchivedPersonalFinanceIsNotPublic() {
   const failures = [];
   const archivePath = path.join(courseRoot, '_archive', 'personal-finance-course-map-data.js');
@@ -1432,6 +1569,7 @@ const failures = [
   ...validateInvestmentPresentationDefinitions(),
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
+  ...validateActiveLessonAlignment(),
   ...validateTermRenderer(),
   ...validateArchivedPersonalFinanceIsNotPublic(),
 ];

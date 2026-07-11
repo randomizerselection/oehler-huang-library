@@ -5,26 +5,26 @@ const investmentPhotos = window.INVEST.photos || {};
 window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment Analysis",
-    lessonLabel: "Unit 1 Lesson 1: Investment analysis, assets and shares",
+    lessonLabel: "Unit 1 Lesson 1: What is investment analysis?",
     sources: [
       {
         label: "Tencent investor relations",
-        note: "Used for company identity and the opening classroom investment question.",
-        date: "Accessed 26 June 2026",
+        note: "Used only for company identity and the opening classroom judgement; the page does not prove that Tencent is a suitable investment.",
+        date: "Accessed 11 July 2026",
         url: "https://www.tencent.com/en-us/investors.html"
       },
       {
-        label: "Local investment visual pack",
-        note: "Used for classroom visuals on analysis, assets, asset types and shares.",
-        date: "Compiled July 2026",
-        url: "assets/images/investment-analysis/"
+        label: "Hong Kong Monetary Authority: Investment Services",
+        note: "Supports the lesson habit of checking potential return, risk, possible loss, investment horizon and suitability before acting.",
+        date: "Page revised 7 January 2026; accessed 11 July 2026",
+        url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
       }
     ]
   },
   handout: {
-    title: "Investment analysis, assets and shares",
+    title: "What is investment analysis?",
     subtitle: "Unit 1 Lesson 1",
-    description: "Use the Tencent question to define investment analysis, separate investment from speculation, classify assets, and explain what buying a share means.",
+    description: "Use the Tencent question to move from familiarity and first opinion to a judgement based on evidence, potential return, risk and investor fit.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -34,13 +34,13 @@ window.INVEST.lesson = {
       {
         label: "1",
         title: "Opening judgement",
-        instruction: "Answer before the lesson, then improve your answer at the end.",
+        instruction: "Answer before definitions. Return to this answer at the end.",
         blocks: [
           {
             type: "prompts",
             prompts: [
-              { label: "Initial answer", prompt: "Would you buy shares in Tencent? Give one reason.", lines: 3 },
-              { label: "Better question", prompt: "What evidence would you need before deciding?", lines: 3 }
+              { label: "First answer", prompt: "Would you buy shares in Tencent? Give one reason.", lines: 3 },
+              { label: "Missing evidence", prompt: "What would you need to know before making a careful judgement?", lines: 4 }
             ]
           }
         ]
@@ -48,83 +48,80 @@ window.INVEST.lesson = {
       {
         label: "2",
         title: "Vocabulary",
-        instruction: "Complete the Lesson 1 definitions.",
+        instruction: "Complete the four Lesson 1 definitions.",
         blocks: [
           {
             type: "terms",
             terms: [
-              { label: "Investment analysis", prompt: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and __________ before making a decision.", answer: "suitability" },
-              { label: "Return", prompt: "Return is the gain or __________ earned from an investment over a stated holding period, including price change and any income received.", answer: "loss" },
+              { label: "Investment analysis", prompt: "Investment analysis evaluates an opportunity with evidence to judge potential return, risk and __________ before a decision.", answer: "suitability" },
+              { label: "Return", prompt: "Return is the gain or __________ earned over a stated holding period.", answer: "loss" },
               { label: "Risk", prompt: "Risk is the possibility that results, returns or prices are worse than __________.", answer: "expected" },
-              { label: "Investment", prompt: "Investment is putting money into an asset to seek future __________ while accepting possible loss.", answer: "return" },
-              { label: "Speculation", prompt: "Speculation is trying to profit from uncertain price __________, often over a short time and with weaker evidence than investment analysis requires.", answer: "movements" },
-              { label: "Asset", prompt: "An asset is something with economic __________ that can be owned or controlled, such as cash, property, a bond, a share or a business resource.", answer: "value" },
-              { label: "Share", prompt: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's __________ and, depending on the share class, certain rights such as votes or dividends.", answer: "equity" }
+              { label: "Investor fit", prompt: "Investor fit checks goal, time horizon, liquidity need and risk __________.", answer: "tolerance" }
             ]
           }
         ]
       },
       {
         label: "3",
-        title: "Course boundaries",
-        instruction: "Decide what belongs in this course.",
+        title: "Evidence check",
+        instruction: "Classify what each question is mainly checking.",
         blocks: [
           {
             type: "cases",
             cases: [
-              { label: "A", text: "Use annual reports and dated evidence.", answer: "Yes" },
-              { label: "B", text: "Predict next week's exact share price.", answer: "No" },
-              { label: "C", text: "Compare potential return, risk and suitability.", answer: "Yes" },
-              { label: "D", text: "Give personal buy or sell tips.", answer: "No" }
+              { label: "A", text: "How could the investment gain or lose value?", answer: "Potential return" },
+              { label: "B", text: "What could be worse than expected?", answer: "Risk" },
+              { label: "C", text: "Does this match the investor's goal and time horizon?", answer: "Investor fit" },
+              { label: "D", text: "Who published the information, and when?", answer: "Evidence quality" }
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "Assets",
-        instruction: "List and rank asset types.",
+        title: "Tencent source box",
+        instruction: "Record the source before using it.",
         blocks: [
           {
-            type: "prompts",
-            prompts: [
-              { label: "Four asset types", prompt: "Write four asset types from memory.", lines: 4 },
-              { label: "Risk ranking", prompt: "Rank cash/savings, property, shares and commodities from lower to higher risk. Explain one choice.", lines: 4 }
+            type: "facts",
+            items: [
+              { label: "Source title", value: "Tencent investor relations" },
+              { label: "Accessed", value: "11 July 2026" },
+              { label: "Useful for", value: "Company identity and official investor information" },
+              { label: "Cannot prove", value: "Future return, risk level, price attractiveness or investor fit" }
             ]
           }
         ]
       },
       {
         label: "5",
-        title: "Shares",
-        instruction: "Separate what a share gives from what it does not guarantee.",
+        title: "Misconception check",
+        instruction: "Correct the weak shortcut.",
         blocks: [
           {
-            type: "cases",
-            cases: [
-              { label: "A", text: "One unit of ownership", answer: "Share gives this" },
-              { label: "B", text: "Possible dividends", answer: "May give this" },
-              { label: "C", text: "Guaranteed profit", answer: "Does not give this" },
-              { label: "D", text: "Control of the whole company", answer: "Does not give this" }
+            type: "prompts",
+            prompts: [
+              { label: "Weak claim", prompt: "Tencent is familiar, so buying its shares must be suitable.", lines: 2 },
+              { label: "Correction", prompt: "Explain why familiarity is not enough evidence.", lines: 4 }
             ]
           }
         ]
       },
       {
         label: "6",
-        title: "Exit answer",
-        instruction: "Return to the Tencent question using the key terms.",
+        title: "Exit judgement",
+        instruction: "Improve the opening answer with the Lesson 1 method.",
         blocks: [
           {
             type: "writing",
-            question: "Explain why a student cannot decide to buy shares in Tencent only because the company is familiar.",
-            keywords: ["investment analysis", "evidence", "return", "risk", "suitability", "share", "not guaranteed"],
+            question: "Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.",
+            keywords: ["investment analysis", "evidence", "potential return", "risk", "investor fit", "gather more evidence"],
             lines: 8
           }
         ]
       }
     ],
-    sources: "Tencent company identity: Tencent investor relations, accessed 26 Jun 2026. Visuals are local classroom assets. This lesson is a classroom analysis exercise, not personal investment advice."
+    sources: "Tencent investor relations and HKMA Investment Services, accessed 11 Jul 2026. Classroom analysis only; not personal investment advice."
   },
   slides: [
     {
@@ -135,24 +132,24 @@ window.INVEST.lesson = {
       prominentTitle: true,
       visual: investmentPhotos.financialAnalysisDesk,
       notes: [
-        "Title-only hero in the Economics style: no visible prompt, task, or extra teaching text.",
-        "Teacher bridge: move straight to the Tencent starter question on the next slide."
+        "Keep this as a clean title screen.",
+        "Move directly to the Tencent judgement before teaching definitions."
       ]
     },
     {
       type: "discussion",
-      eyebrow: "Starter",
+      eyebrow: "First judgement",
       title: "Would you buy shares in Tencent?",
       zhTitle: "你会买腾讯股票吗？",
       question: "Would you buy shares in Tencent? Give one reason.",
       questionZh: "你会买腾讯股票吗？给出一个理由。",
-      revealTitle: "Not yet: check the evidence first",
-      answer: "Not yet. A familiar company is not enough. First check evidence on potential return, risk, price and investor fit.",
-      answerZh: "还不能。熟悉公司还不够。先检查潜在回报、风险、价格和投资者适合度的证据。",
+      revealTitle: "Familiarity is not enough evidence",
+      answer: "Do not decide yet. A familiar company name does not show the potential return, risk, price paid or fit for a particular investor.",
+      answerZh: "先不要作决定。熟悉的公司名称并不能说明潜在回报、风险、支付价格，或是否适合某位投资者。",
       visual: investmentPhotos.lesson1TencentBinhaiBuilding01,
       notes: [
-        "Take a quick yes/no vote.",
-        "Do not correct students yet; capture the reasons so later definitions answer a real classroom need."
+        "Take a vote and collect reasons before reveal.",
+        "Treat every reason as diagnostic evidence for what the class thinks investment analysis means."
       ]
     },
     {
@@ -162,536 +159,289 @@ window.INVEST.lesson = {
       zhTitle: "本课结束时，你能够",
       visual: investmentPhotos.financeChartWhiteboard,
       bullets: [
-        "define investment analysis: return, risk, fit",
-        "classify assets by risk",
-        "explain what one share gives"
+        "define investment analysis using evidence, return, risk and suitability",
+        "classify the missing evidence in a first investment opinion",
+        "write a careful next action without giving a stock tip"
       ],
       zhBullets: [
-        "定义投资分析：回报、风险、适合性",
-        "按风险区分资产",
-        "解释一股股票能给什么"
-      ],
-      highlights: [
-        ["investment analysis", "return", "risk", "fit"],
-        ["assets", "risk"],
-        ["one share"]
-      ],
-      zhHighlights: [
-        ["投资分析", "回报", "风险", "适合性"],
-        ["风险", "资产"],
-        ["一股股票"]
-      ],
-      phases: ["Define", "Compare", "Explain"]
+        "用证据、回报、风险和适合性定义投资分析",
+        "给初步投资观点中缺少的证据分类",
+        "写出谨慎的下一步行动，而不是给出股票提示"
+      ]
     },
     {
       type: "section",
       eyebrow: "Part 1",
-      title: "Investment analysis",
-      zhTitle: "投资分析",
-      subtitle: "From opinion to evidence before judgement",
-      notes: "Section 1 establishes the method and the course boundary."
+      title: "Evidence before judgement",
+      zhTitle: "先看证据，再作判断",
+      notes: "Retrieval -> first attempt -> definition -> hinge check."
     },
     {
       type: "discussion",
       eyebrow: "Try first",
-      title: "What is investment analysis?",
-      zhTitle: "什么是投资分析？",
-      question: "What is investment analysis?",
-      questionZh: "什么是投资分析？",
-      visual: investmentPhotos.stockReportCalculator,
-      revealTitle: "It checks evidence before action",
-      answer: "Investment analysis checks evidence before deciding: possible return, risk, price and whether the investment fits the investor.",
-      answerZh: "投资分析是在行动前检查证据：可能回报、风险、价格，以及这项投资是否适合投资者。",
-      notes: "Students should try a definition before the formal term slide."
+      title: "What is missing from the first opinion?",
+      zhTitle: "初步观点缺少什么？",
+      question: "A student says, 'Tencent is famous, so its shares are a good investment.' What evidence is missing?",
+      questionZh: "一名学生说：‘腾讯很有名，所以它的股票是好投资。’这个观点缺少什么证据？",
+      revealTitle: "The opinion is missing return, risk and fit evidence",
+      answer: "The student needs dated evidence about possible return, what could go wrong, the price paid and whether the investment fits the investor's goal and constraints.",
+      answerZh: "学生需要带日期的证据，说明可能的回报、可能出现的问题、支付价格，以及这项投资是否符合投资者的目标和限制。",
+      visual: investmentPhotos.lesson1ScenarioFinancialDocuments
     },
     {
-      type: "visualPause",
-      title: "Visual pause: investment analysis",
+      type: "term",
+      eyebrow: "Key definition",
+      title: "Investment analysis",
+      term: "Investment analysis",
+      termZh: "投资分析",
+      keywordVisuals: [
+        { label: "Evidence before judgement", labelZh: "先看证据再判断", visual: investmentPhotos.financialAnalysisDesk }
+      ],
+      definition: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
+      definitionBlanks: ["potential return, risk and suitability"],
+      definitionZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。"
+    },
+    {
+      type: "flow",
+      eyebrow: "Course method",
+      title: "Three checks improve the first opinion",
+      zhTitle: "三个检查改进初步观点",
       visual: investmentPhotos.businessChartsPaper,
-      notes: [
-        "Image-only bridge before the definition.",
-        "Ask silently: what evidence is being marked before making a judgement?",
-        "Bridge: investment analysis is an evidence habit."
+      flowStyle: "sequence",
+      steps: [
+        { text: "Potential return: how could value or income change?", zh: "潜在回报：价值或收入可能如何变化？", visual: investmentPhotos.keywordDividendCheque },
+        { text: "Risk: what could be worse than expected?", zh: "风险：什么结果可能比预期更差？", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
+        { text: "Investor fit: does it match the goal and constraints?", zh: "投资者适合度：它是否符合目标和限制？", visual: investmentPhotos.investorMeetingReport }
       ]
     },
     {
       type: "term",
-      eyebrow: "Definition",
-      title: "Investment analysis",
-      term: "Investment analysis",
-      termZh: "投资分析",
-      visual: investmentPhotos.investorChartScreens,
-      keywordVisuals: [
-        { label: "Evidence before action", labelZh: "行动前看证据", visual: investmentPhotos.stockReportCalculator }
-      ],
-      definition: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
-      definitionBlanks: ["potential return"],
-      definitionZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。",
-      notes: "Use the full textbook-style definition from references/investment-analysis-definitions.md."
-    },
-    {
-      type: "flow",
-      eyebrow: "Definition breakdown",
-      title: "The definition has three checks",
-      zhTitle: "定义包含三个检查点",
-      visual: investmentPhotos.investorMeetingReport,
-      flowStyle: "definitionChecks",
-      steps: [
-        {
-          label: "01",
-          title: "Potential return",
-          visual: investmentPhotos.keywordDividendCheque,
-          visualLabel: "Return",
-          visualLabelZh: "回报",
-          text: "What the investor may gain or lose.",
-          zh: "潜在回报：可能赚多少或亏多少。"
-        },
-        {
-          label: "02",
-          title: "Risk",
-          visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
-          visualLabel: "Risk",
-          visualLabelZh: "风险",
-          text: "What could be worse than expected.",
-          zh: "风险：结果可能比预期更差。"
-        },
-        {
-          label: "03",
-          title: "Suitability",
-          visual: investmentPhotos.investorMeetingReport,
-          visualLabel: "Suitability",
-          visualLabelZh: "适合性",
-          text: "Whether it fits this investor's goals, time and risk tolerance.",
-          zh: "适合性：是否符合目标、时间和风险承受能力。"
-        }
-      ],
-      notes: "Keep suitability brief: it is not personalised advice; it explains why the same opportunity may fit one investor but not another."
-    },
-    {
-      type: "term",
-      eyebrow: "Definition",
+      eyebrow: "Check 1",
       title: "Return",
       term: "Return",
       termZh: "回报",
-      visual: investmentPhotos.marketScreen,
       keywordVisuals: [
         { label: "Gain, loss or income", labelZh: "收益、损失或收入", visual: investmentPhotos.keywordDividendCheque }
       ],
       definition: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.",
       definitionBlanks: ["gain or loss"],
-      definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。",
-      notes: "Use the shared return definition even though the formula comes later in Unit 3."
+      definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。"
     },
     {
       type: "term",
-      eyebrow: "Definition",
+      eyebrow: "Check 2",
       title: "Risk",
       term: "Risk",
       termZh: "风险",
-      visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
       keywordVisuals: [
-        { label: "Worse than expected", labelZh: "比预期更差", visual: investmentPhotos.keywordDemandRiskEmptyStore }
+        { label: "Worse than expected", labelZh: "比预期更差", visual: investmentPhotos.lesson1ScenarioRedMarketLosses }
       ],
       definition: "Risk is the possibility that results, returns or prices are worse than expected.",
       definitionBlanks: ["worse than expected"],
-      definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
-      notes: "Keep risk broad and beginner-friendly. Detailed risk types come later."
+      definitionZh: "风险是结果、回报或价格比预期更差的可能性。"
     },
     {
-      type: "quiz",
-      eyebrow: "Retrieval check",
-      title: "What is investment analysis?",
-      zhTitle: "什么是投资分析？",
-      question: "Which response is investment analysis?",
-      zh: "哪一个回应属于投资分析？",
-      visual: investmentPhotos.financeChartWhiteboard,
-      choices: [
-        "Evaluate dated evidence on return, risk, price and fit",
-        "Use Tencent's reputation as evidence that the share is suitable",
-        "Treat a lower recent price as a sign the return is attractive",
-        "Read one positive source and make it the main reason to buy"
+      type: "term",
+      eyebrow: "Check 3",
+      title: "Investor fit",
+      term: "Investor fit",
+      termZh: "投资者适合度",
+      keywordVisuals: [
+        { label: "Goal and constraints", labelZh: "目标与限制", visual: investmentPhotos.investorMeetingReport }
       ],
-      answer: 0,
-      explanation: "The correct response combines dated evidence with return, risk, price and fit. The other choices use one clue, but not a full investment analysis.",
-      explanationZh: "正确回应会把有日期的证据与回报、风险、价格和适合性结合起来。其他选项只使用一个线索，不是完整的投资分析。"
+      definition: "Investor fit is the degree to which an investment matches an investor's goal, time horizon, liquidity need and risk tolerance.",
+      definitionBlanks: ["goal, time horizon, liquidity need and risk tolerance"],
+      definitionZh: "投资者适合度是指一项投资与投资者目标、投资期限、流动性需求和风险承受能力的匹配程度。"
     },
     {
       type: "classificationTask",
-      eyebrow: "Course method",
-      title: "For each statement, choose the main focus: return, risk or suitability.",
-      zhTitle: "给每个说法分类：主要是在判断回报、风险，还是适合性。",
-      visual: investmentPhotos.annualReports,
+      eyebrow: "Practice check",
+      title: "Classify evidence",
+      zhTitle: "证据分类",
       compact: true,
+      prompt: "For each question, choose the main check: potential return, risk or investor fit.",
+      promptZh: "给每个问题选择主要检查：潜在回报、风险或投资者适合度。",
       categories: [
-        { title: "Return", zhTitle: "回报", clue: "gain, loss, income or price change", visual: investmentPhotos.keywordDividendCheque },
-        { title: "Risk", zhTitle: "风险", clue: "what could be worse than expected", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
-        { title: "Suitability", zhTitle: "适合性", clue: "fit for this investor", visual: investmentPhotos.investorMeetingReport }
+        { title: "Potential return", zhTitle: "潜在回报", clue: "gain, loss or income", visual: investmentPhotos.keywordDividendCheque },
+        { title: "Risk", zhTitle: "风险", clue: "worse than expected", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
+        { title: "Investor fit", zhTitle: "投资者适合度", clue: "goal and constraints", visual: investmentPhotos.investorMeetingReport }
       ],
       items: [
-        {
-          label: "A",
-          text: "A new rule or weaker profit could make the share price fall.",
-          zh: "新规定或利润变弱可能使股价下跌。",
-          answer: "Risk",
-          answerZh: "风险",
-          reason: "The sentence is mostly about what could go worse than expected.",
-          reasonZh: "这个说法主要在判断哪些结果可能比预期更差。"
-        },
-        {
-          label: "B",
-          text: "This investor needs the money next year, so a volatile share may not fit.",
-          zh: "这位投资者明年需要用钱，所以波动大的股票可能不适合。",
-          answer: "Suitability",
-          answerZh: "适合性",
-          reason: "The sentence matches the opportunity to the investor's time and needs.",
-          reasonZh: "这个说法把投资机会与投资者的时间和需要进行匹配。"
-        },
-        {
-          label: "C",
-          text: "The share could pay dividends and rise in price over three years.",
-          zh: "这只股票三年内可能支付股息并上涨。",
-          answer: "Return",
-          answerZh: "回报",
-          reason: "The sentence is mostly about possible gain.",
-          reasonZh: "这个说法主要在判断可能收益。"
-        }
+        { label: "A", text: "Could weaker demand reduce future profit?", zh: "需求减弱会不会降低未来利润？", answer: "Risk", answerZh: "风险", reason: "It asks what could make the result worse.", reasonZh: "它询问什么会使结果变差。" },
+        { label: "B", text: "Could dividends or a higher future price create a gain?", zh: "股息或未来更高的价格会不会带来收益？", answer: "Potential return", answerZh: "潜在回报", reason: "It asks how the investor could gain or lose.", reasonZh: "它询问投资者可能如何获得收益或损失。" },
+        { label: "C", text: "Is the money needed again in six months?", zh: "这笔钱是否在六个月后就需要使用？", answer: "Investor fit", answerZh: "投资者适合度", reason: "It checks the investor's time horizon and liquidity need.", reasonZh: "它检查投资者的投资期限和流动性需求。" }
       ],
-      sharePrompt: "Pick one borderline statement and explain why it is mostly one category.",
-      sharePromptZh: "选择一个容易混淆的说法，解释为什么它主要属于某一类。",
-      notes: "Use this to replace the binary boundary check with classification and justification. Accept alternative answers only if students defend the main focus."
+      sharePrompt: "Defend one classification using the definition.",
+      sharePromptZh: "用定义说明一个分类的理由。"
     },
     {
-      type: "compare",
-      eyebrow: "Key distinction",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      mode: "fillBlanks",
-      visual: investmentPhotos.speculatorInvestorRace,
-      leftVisual: investmentPhotos.stockReportCalculator,
-      leftVisualLabel: "Evidence habit",
-      leftVisualLabelZh: "证据习惯",
-      rightVisual: investmentPhotos.lesson1ScenarioSmartphoneCandlestick,
-      rightVisualLabel: "Price chase",
-      rightVisualLabelZh: "追逐价格",
-      leftTitle: "Investment",
-      leftTitleZh: "投资",
-      rightTitle: "Speculation",
-      rightTitleZh: "投机",
-      left: [
-        { label: "1", text: "Putting money into an __________ to seek future return while accepting possible loss.", answer: "asset", zh: "把钱投入__________以寻求未来回报，同时接受可能亏损。", answerZh: "资产" },
-        { label: "2", text: "Uses evidence about return, risk and __________ before judging.", answer: "suitability", zh: "判断前使用关于回报、风险和__________的证据。", answerZh: "适合性" }
+      type: "rankingTask",
+      eyebrow: "Evidence priority",
+      title: "Rank the evidence checks",
+      zhTitle: "排列证据检查",
+      visual: investmentPhotos.businessChartsPaper,
+      prompt: "Rank the four cards from check first to check last.",
+      promptZh: "把四张卡从最先检查排到最后检查。",
+      axis: {
+        low: "Check first",
+        lowZh: "最先检查",
+        high: "Check last",
+        highZh: "最后检查"
+      },
+      items: [
+        { label: "A", text: "Source title and date", zh: "来源标题和日期", visual: investmentPhotos.lesson1ScenarioFinancialDocuments },
+        { label: "B", text: "Potential return evidence", zh: "潜在回报证据", visual: investmentPhotos.keywordDividendCheque },
+        { label: "C", text: "Risk evidence", zh: "风险证据", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
+        { label: "D", text: "Investor-fit evidence", zh: "投资者适合度证据", visual: investmentPhotos.investorMeetingReport }
       ],
-      right: [
-        { label: "1", text: "Trying to profit from uncertain price __________, often over a short time.", answer: "movements", zh: "试图从不确定的价格__________中获利，通常时间较短。", answerZh: "变动" },
-        { label: "2", text: "Often starts from a guess, tip or selected __________.", answer: "evidence", zh: "常从猜测、消息或被挑选的__________开始。", answerZh: "证据" }
+      revealLabel: "One defensible order",
+      revealLabelZh: "一种合理顺序",
+      modelOrder: [
+        { rank: "1", label: "A", text: "Source title and date", zh: "来源标题和日期", reason: "Confirm what the evidence is before using it.", reasonZh: "使用证据前先确认它是什么。" },
+        { rank: "2", label: "C", text: "Risk evidence", zh: "风险证据", reason: "Identify what could make the outcome worse.", reasonZh: "识别什么可能使结果变差。" },
+        { rank: "3", label: "B", text: "Potential return evidence", zh: "潜在回报证据", reason: "Then compare possible gain and loss.", reasonZh: "然后比较可能的收益和损失。" },
+        { rank: "4", label: "D", text: "Investor-fit evidence", zh: "投资者适合度证据", reason: "Finish by testing the case against the investor's constraints.", reasonZh: "最后用投资者的限制检查这个案例。" }
       ],
-      prompt: "Fill the blanks, then use the contrast for the five scenario judgments.",
-      promptZh: "先补全空格，然后用这个对比判断接下来的五个情境。",
-      notes: "Use this as a quick retrieval check before scenario practice. Reveal the blanks, then ask students to apply the contrast."
+      notes: "After reveal, ask one student to defend why the first card should be checked before the Tencent judgement."
     },
     {
-      type: "discussion",
-      eyebrow: "Scenario 1",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
-      question: "Maya reads Tencent's annual report, checks profit, risk and price, then considers holding the share for three years. Investment or speculation?",
-      questionZh: "Maya 阅读腾讯年报，检查利润、风险和价格，然后考虑持有这只股票三年。投资还是投机？",
-      revealTitle: "This is investment",
-      answer: "She is using evidence before judgement and has a longer holding period. The return is still not guaranteed.",
-      answerZh: "她在判断前使用证据，并且有较长持有期。但回报仍然不保证。",
-      notes: "Use the annual-report photo as the evidence cue. Ask students to name the evidence and the time horizon."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Scenario 2",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      visual: investmentPhotos.lesson1ScenarioSmartphoneCandlestick,
-      question: "Leo sees a share jump on a phone chart and buys quickly because he thinks it will rise again before lunch. Investment or speculation?",
-      questionZh: "Leo 在手机图表上看到一只股票上涨，就迅速买入，因为他认为午饭前还会再涨。投资还是投机？",
-      revealTitle: "This is speculation",
-      answer: "The decision chases a short-term price movement and gives no evidence about return, risk or suitability.",
-      answerZh: "这个决策追逐短期价格变动，没有关于回报、风险或适合性的证据。",
-      notes: "The smartphone market chart should cue speed and short-term price chasing."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Scenario 3",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      visual: investmentPhotos.lesson1ScenarioHouseForRent,
-      question: "A family compares rent, repair costs, location risk and loan payments before buying a small flat to rent out. Investment or speculation?",
-      questionZh: "一个家庭在买小公寓出租前，比较租金、维修成本、地段风险和贷款还款。投资还是投机？",
-      revealTitle: "This is investment",
-      answer: "They compare possible return with risks and costs before deciding. It can still lose money.",
-      answerZh: "他们在决策前比较可能回报、风险和成本。它仍然可能亏损。",
-      notes: "This connects the next section on assets without turning the lesson into property advice."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Scenario 4",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
-      question: "A student follows an online tip: 'Buy today because everyone is excited.' She checks no source, price or risk. Investment or speculation?",
-      questionZh: "一名学生听从网络消息：“今天买，因为大家都很兴奋。”她没有检查来源、价格或风险。投资还是投机？",
-      revealTitle: "This is speculation",
-      answer: "The decision starts from a tip and confidence, not source-dated evidence or risk-return analysis.",
-      answerZh: "这个决策从消息和自信开始，而不是从有来源日期的证据或风险回报分析开始。",
-      notes: "The trading-app photo should make the online-tip scenario concrete."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Scenario 5",
-      title: "Investment or speculation?",
-      zhTitle: "投资还是投机？",
-      visual: investmentPhotos.lesson1ScenarioContainerPort,
-      question: "An investor studies a shipping company's revenue, fuel costs, demand risk and share price before buying for a two-year plan. Investment or speculation?",
-      questionZh: "一位投资者研究一家航运公司的收入、燃料成本、需求风险和股价，然后按两年计划买入。投资还是投机？",
-      revealTitle: "This is investment",
-      answer: "The judgement uses business evidence, price and risk before a planned holding period. The result is uncertain.",
-      answerZh: "这个判断在计划持有期前使用企业证据、价格和风险。结果仍然不确定。",
-      notes: "Use the port photo to connect a real business setting with risk and return evidence."
+      type: "quiz",
+      eyebrow: "Hinge question",
+      title: "Which response is investment analysis?",
+      zhTitle: "哪一个回应属于投资分析？",
+      question: "Which student is using investment analysis?",
+      zh: "哪一名学生正在使用投资分析？",
+      choices: [
+        "A: Tencent is famous, so I would buy.",
+        "B: The price fell, so it must be cheap.",
+        "C: I need dated evidence on return, risk, price and fit before deciding.",
+        "D: My friends like the company, so the risk is low."
+      ],
+      answer: 2,
+      explanation: "Investment analysis checks dated evidence, potential return, risk, price and investor fit before action.",
+      explanationZh: "投资分析会在行动前检查带日期的证据、潜在回报、风险、价格和投资者适合度。"
     },
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Assets",
-      zhTitle: "资产",
-      subtitle: "What can be owned, and how risky might it be?",
-      notes: "Section 2 gives students the vocabulary needed before shares."
+      title: "Use sources carefully",
+      zhTitle: "谨慎使用来源",
+      notes: "Retrieve the three checks, inspect a source, then correct the overclaim."
     },
     {
       type: "visualPause",
-      title: "Visual pause: asset",
-      visual: investmentPhotos.assetPropertyBuilding,
+      eyebrow: "Look first",
+      title: "Tencent evidence needs a source",
+      visual: investmentPhotos.lesson1TencentBinhaiBuilding01,
       notes: [
-        "Image-only bridge before the asset definition.",
-        "Ask silently: why might a building count as an asset?",
-        "Bridge: an asset has value and can be owned."
+        "Image only. Ask: what does this picture prove, and what can it not prove?",
+        "Bridge to the source lens: company identity is evidence, but not the whole investment case."
       ]
     },
     {
-      type: "term",
-      eyebrow: "Definition",
-      title: "Asset",
-      term: "Asset",
-      termZh: "资产",
-      keywordVisuals: [
-        { label: "Owned economic value", labelZh: "可拥有的经济价值", visual: investmentPhotos.assetPropertyBuilding }
+      type: "sourceLens",
+      eyebrow: "Source check",
+      title: "What can Tencent investor relations prove?",
+      zhTitle: "腾讯投资者关系页面能证明什么？",
+      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit03,
+      revealAnswers: true,
+      metaItems: [
+        { label: "Source", value: "Tencent investor relations" },
+        { label: "Accessed", value: "11 July 2026" }
       ],
-      definition: "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
-      definitionBlanks: ["value"],
-      definitionZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。",
-      notes: "Keep this broad: the next slide gives concrete types."
+      checks: [
+        { label: "Useful", prompt: "What can an official company source help verify?", zh: "公司官方来源可以帮助核实什么？", answer: "Company identity, reports and official investor information.", answerZh: "公司身份、报告和官方投资者信息。" },
+        { label: "Limit", prompt: "What can this page not prove by itself?", zh: "这个页面单独不能证明什么？", answer: "It cannot prove future return, low risk, an attractive price or investor fit.", answerZh: "它不能证明未来回报、低风险、价格有吸引力或投资者适合度。" }
+      ],
+      task: "Write one source-backed fact and one limitation before judging Tencent.",
+      taskZh: "在判断腾讯之前，写出一个有来源支持的事实和一个局限。"
     },
     {
-      type: "visualGrid",
-      eyebrow: "Asset types",
-      title: "Types of assets",
-      zhTitle: "资产类型",
-      prompt: "Which assets do you see here?",
-      promptZh: "你在这里看到了哪些资产？",
-      revealCardLabels: true,
-      showCardNumbers: false,
-      cards: [
-        {
-          title: "Cash and savings",
-          zhTitle: "现金和储蓄",
-          visual: investmentPhotos.assetCashSavings
-        },
-        {
-          title: "Property",
-          zhTitle: "房产",
-          visual: investmentPhotos.assetPropertyBuilding
-        },
-        {
-          title: "Shares",
-          zhTitle: "股票",
-          visual: investmentPhotos.assetShareCertificate
-        },
-        {
-          title: "Commodities",
-          zhTitle: "大宗商品",
-          visual: investmentPhotos.assetCommoditiesPort
-        }
-      ],
-      notes: "Let students identify the assets visually first. Reveal only the category labels after they have guessed."
-    },
-    {
-      type: "peerTask",
-      taskType: "definitionRecall",
-      eyebrow: "Retrieval check",
-      title: "Recall four asset types",
-      zhTitle: "回忆四种资产类型",
-      visual: investmentPhotos.assetCashSavings,
-      prompt: "Without looking at notes, write down four types of assets.",
-      promptZh: "不看笔记，写下四种资产类型。",
-      definitionItems: [
-        { label: "1", term: "Type 1", termZh: "类型1", answer: "cash and savings", answerZh: "现金和储蓄" },
-        { label: "2", term: "Type 2", termZh: "类型2", answer: "property", answerZh: "房产" },
-        { label: "3", term: "Type 3", termZh: "类型3", answer: "shares", answerZh: "股票" },
-        { label: "4", term: "Type 4", termZh: "类型4", answer: "commodities", answerZh: "大宗商品" }
-      ],
-      sharePrompt: "Check with a partner, then add one risk next to each asset type.",
-      sharePromptZh: "与同伴核对，然后在每种资产旁写一个风险。",
-      notes: "Students should retrieve from the visual grid before revealing the answers."
-    },
-    {
-      type: "rankingTask",
-      eyebrow: "Student task",
-      title: "Rank assets by risk",
-      zhTitle: "按风险给资产排序",
-      visual: investmentPhotos.businessChartsPaper,
-      prompt: "Rank the cards from lower risk to higher risk.",
-      promptZh: "把卡片从较低风险排到较高风险。",
-      axis: {
-        low: "Lower risk",
-        lowZh: "较低风险",
-        high: "Higher risk",
-        highZh: "较高风险",
-        note: "Risk means the result may be worse than expected",
-        noteZh: "风险指结果可能比预期更差"
-      },
+      type: "yesNoCheck",
+      eyebrow: "Misconception check",
+      title: "Can one clue settle the investment case?",
+      zhTitle: "一个线索能决定整个投资判断吗？",
+      prompt: "Vote yes or no before revealing each reason.",
+      promptZh: "先投票判断是或否，再揭示每个理由。",
       items: [
-        { label: "A", text: "Cash and savings", zh: "现金和储蓄", visual: investmentPhotos.assetCashSavings },
-        { label: "B", text: "Property", zh: "房产", visual: investmentPhotos.assetPropertyBuilding },
-        { label: "C", text: "Shares", zh: "股票", visual: investmentPhotos.assetShareCertificate },
-        { label: "D", text: "Commodities", zh: "大宗商品", visual: investmentPhotos.assetCommoditiesPort }
-      ],
-      revealLabel: "One defensible order",
-      revealLabelZh: "一种合理排序",
-      modelOrder: [
-        { rank: "1", label: "A", text: "Cash and savings", zh: "现金和储蓄", reason: "Usually the most stable starting point, though not risk-free.", reasonZh: "通常是较稳定的起点，但并非没有风险。" },
-        { rank: "2", label: "B", text: "Property", zh: "房产", reason: "Can be valuable, but selling quickly and choosing the right location matter.", reasonZh: "可能价值高，但快速出售和地点选择很重要。" },
-        { rank: "3", label: "C", text: "Shares", zh: "股票", reason: "Prices can change as company performance and investor expectations change.", reasonZh: "价格会随公司表现和投资者预期变化。" },
-        { rank: "4", label: "D", text: "Commodities", zh: "大宗商品", reason: "Prices can swing sharply because global supply and demand change.", reasonZh: "全球供需变化可能导致价格大幅波动。" }
-      ],
-      caveat: "This is one reasonable classroom order, not a fixed law.",
-      caveatZh: "这是一种合理的课堂排序，不是固定规律。",
-      writtenCheck: "Write one evidence-based reason for the asset you ranked highest.",
-      writtenCheckZh: "为你排在最高风险的资产写一个基于证据的理由。",
-      notes: "Accept alternative rankings if the reasoning is coherent; students should practise comparative risk thinking, not memorise a fixed order."
+        { text: "An official source is useful evidence.", zh: "官方来源是有用的证据。", answer: true, answerZh: "是", reason: "It can verify specific facts when its date and limits are recorded.", reasonZh: "记录日期和局限后，它可以核实具体事实。" },
+        { text: "Tencent's large size proves its shares are suitable for every investor.", zh: "腾讯规模大，证明其股票适合每一位投资者。", answer: false, answerZh: "否", reason: "Suitability depends on the investor's goal, horizon, liquidity need and risk tolerance.", reasonZh: "适合性取决于投资者的目标、期限、流动性需求和风险承受能力。" },
+        { text: "If evidence is incomplete, gathering more evidence is a valid next action.", zh: "如果证据不完整，收集更多证据是合理的下一步行动。", answer: true, answerZh: "是", reason: "A careful analyst does not force a buy or avoid verdict from weak evidence.", reasonZh: "谨慎的分析者不会用薄弱证据强行作出买入或回避判断。" }
+      ]
     },
     {
-      type: "discussion",
-      eyebrow: "Reveal",
-      title: "There is no perfect risk ranking",
-      zhTitle: "风险排序没有唯一答案",
-      visual: investmentPhotos.keywordPortfolioDiversificationCards,
-      question: "Why might two reasonable students rank the same asset types differently?",
-      questionZh: "为什么两个合理的学生可能会给同样的资产类型排出不同顺序？",
-      revealTitle: "Risk depends on the exact asset",
-      answer: "Asset type matters, but the specific example also matters: the country, company, price paid, time horizon and source evidence can all change the risk.",
-      answerZh: "资产类型重要，但具体例子也重要：国家、公司、支付价格、时间范围和来源证据都会改变风险。",
-      notes: "This reveal prevents students from treating the risk ranking as a fixed law."
+      type: "compare",
+      eyebrow: "Improve the claim",
+      title: "Evidence-based analysis or weak opinion?",
+      zhTitle: "基于证据的分析，还是薄弱观点？",
+      mode: "fillBlanks",
+      leftTitle: "Evidence-based analysis",
+      leftTitleZh: "基于证据的分析",
+      leftVisual: investmentPhotos.lesson1ScenarioFinancialDocuments,
+      left: [
+        { label: "1", text: "Records the source and __________.", answer: "date", zh: "记录来源和__________。", answerZh: "日期" },
+        { label: "2", text: "Checks return, risk and investor __________.", answer: "fit", zh: "检查回报、风险和投资者__________。", answerZh: "适合度" }
+      ],
+      rightTitle: "Weak opinion",
+      rightTitleZh: "薄弱观点",
+      rightVisual: investmentPhotos.modernTradingDesk,
+      right: [
+        { label: "1", text: "Uses company __________ as the main evidence.", answer: "familiarity", zh: "把公司__________当作主要证据。", answerZh: "熟悉度" },
+        { label: "2", text: "Forces a decision while evidence is __________.", answer: "incomplete", zh: "在证据__________时强行作决定。", answerZh: "不完整" }
+      ],
+      prompt: "Fill the blanks, then explain which side improves the Tencent judgement.",
+      promptZh: "填空，然后解释哪一边能改进腾讯判断。"
     },
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Shares",
-      zhTitle: "股票",
-      subtitle: "What do you buy when you buy one share?",
-      notes: "Section 3 returns to the Tencent question with the asset vocabulary ready."
+      title: "Improve the first answer",
+      zhTitle: "改进最初答案",
+      notes: "Retrieve -> rehearse -> individual exit."
     },
     {
-      type: "visualPause",
-      title: "Visual pause: share",
-      visual: investmentPhotos.shareholderMeeting,
-      notes: [
-        "Image-only bridge before the share definition.",
-        "Ask silently: what might shareholders have a claim to, and what do they not control?",
-        "Bridge: a share is an ownership unit, not the whole company."
-      ]
+      type: "peerTask",
+      taskType: "missingSentence",
+      eyebrow: "Output rehearsal",
+      title: "Complete the evidence-to-action chain",
+      zhTitle: "补全从证据到行动的链条",
+      prompt: "Write the missing sentence that links incomplete evidence to the next action.",
+      promptZh: "写出缺少的句子，把不完整证据与下一步行动连接起来。",
+      steps: [
+        { label: "1", text: "Tencent is familiar, but familiarity is not enough evidence.", zh: "腾讯很熟悉，但熟悉度不是充分证据。" },
+        { label: "2", text: "__________", answer: "The judgement still needs dated return, risk, price and investor-fit evidence.", zh: "这个判断仍需要带日期的回报、风险、价格和投资者适合度证据。" },
+        { label: "3", text: "Therefore, the next action is to gather more evidence.", zh: "因此，下一步行动是收集更多证据。" }
+      ],
+      missingSentenceStep: 2,
+      missingSentenceAnswer: "The judgement still needs dated return, risk, price and investor-fit evidence.",
+      missingSentenceAnswerZh: "这个判断仍需要带日期的回报、风险、价格和投资者适合度证据。",
+      sharePrompt: "Read the full chain aloud and check that the action follows the evidence.",
+      sharePromptZh: "朗读完整链条，并检查行动是否由证据推导出来。"
     },
     {
-      type: "term",
-      eyebrow: "Definition",
-      title: "Share",
-      term: "Share",
-      termZh: "股票 / 股份",
-      visual: investmentPhotos.assetSharesScreen,
-      keywordVisuals: [
-        { label: "Ownership unit", labelZh: "所有权单位", visual: investmentPhotos.assetShareCertificate }
-      ],
-      definition: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
-      definitionBlanks: ["ownership"],
-      definitionZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。",
-      notes: "Keep the rights clause as part of the definition; control detail comes later."
-    },
-    {
-      type: "classificationTask",
-      eyebrow: "Check",
-      title: "What does a share give?",
-      zhTitle: "一股股票给你什么？",
-      visual: investmentPhotos.shareholderMeeting,
-      compact: true,
-      prompt: "Classify each statement.",
-      promptZh: "给每个说法分类。",
-      categories: [
-        { title: "Gives", zhTitle: "会得到", clue: "part of the definition" },
-        { title: "May give", zhTitle: "可能得到", clue: "depends on the company" },
-        { title: "Does not give", zhTitle: "不会得到", clue: "wrong or guaranteed too strongly" }
-      ],
-      items: [
-        {
-          label: "A",
-          text: "One ownership unit in the company.",
-          zh: "公司中的一个所有权单位。",
-          answer: "Gives",
-          answerZh: "会得到",
-          reason: "That is the definition of a share.",
-          reasonZh: "这就是股票的定义。"
-        },
-        {
-          label: "B",
-          text: "Possible future dividends.",
-          zh: "未来可能获得股息。",
-          answer: "May give",
-          answerZh: "可能得到",
-          reason: "Dividends depend on company decisions.",
-          reasonZh: "股息取决于公司决定。"
-        },
-        {
-          label: "C",
-          text: "Guaranteed profit.",
-          zh: "保证利润。",
-          answer: "Does not give",
-          answerZh: "不会得到",
-          reason: "Share prices and dividends can disappoint.",
-          reasonZh: "股价和股息都可能令人失望。"
-        },
-        {
-          label: "D",
-          text: "Ownership of the whole company.",
-          zh: "拥有整家公司。",
-          answer: "Does not give",
-          answerZh: "不会得到",
-          reason: "One share is only one ownership unit.",
-          reasonZh: "一股只是一个所有权单位。"
-        }
-      ],
-      sharePrompt: "Return to Tencent: what would you need to know before buying a share?",
-      sharePromptZh: "回到腾讯：买入股票前你需要知道什么？",
-      notes: "Use this to correct the whole-company and guaranteed-profit misconceptions."
+      type: "discussion",
+      eyebrow: "Return to the dilemma",
+      title: "What should the careful next action be?",
+      zhTitle: "谨慎的下一步行动应该是什么？",
+      question: "After this lesson, should the class say buy, avoid or gather more evidence about Tencent? Why?",
+      questionZh: "学完本课后，班级应该说买入、回避，还是收集更多腾讯证据？为什么？",
+      revealTitle: "Gather more evidence before choosing an investment action",
+      answer: "Gather more evidence. The class has company identity and a method, but not enough dated evidence about return, risk, price and fit to defend a buy or avoid judgement.",
+      answerZh: "收集更多证据。班级已经知道公司身份和分析方法，但还没有足够的带日期的回报、风险、价格和适合度证据来支持买入或回避判断。",
+      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit09
     },
     {
       type: "answer",
       eyebrow: "Exit ticket",
-      title: "Exit ticket",
-      zhTitle: "离堂小测",
+      title: "Submit the improved Tencent judgement",
+      zhTitle: "提交改进后的腾讯判断",
       mode: "fillBlanks",
-      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit11,
       items: [
-        { prompt: "Investment analysis evaluates potential return, risk and __________.", answer: "suitability", zh: "投资分析评估潜在回报、风险和__________。", answerZh: "适合性" },
-        { prompt: "Speculation often chases price __________.", answer: "movement", zh: "投机常常追逐价格__________。", answerZh: "变动" },
-        { prompt: "An asset has __________.", answer: "value", zh: "资产具有__________。", answerZh: "价值" },
-        { prompt: "Return can be a gain or a __________.", answer: "loss", zh: "回报可以是收益，也可以是__________。", answerZh: "损失" },
-        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能比__________更差。", answerZh: "预期" },
-        { prompt: "A share is an ownership __________.", answer: "unit", zh: "股票是一个所有权__________。", answerZh: "单位" }
+        { prompt: "Investment analysis uses __________ before making a decision.", answer: "evidence", zh: "投资分析在作出决定前使用__________。", answerZh: "证据" },
+        { prompt: "The three checks are potential return, risk and investor __________.", answer: "fit", zh: "三个检查是潜在回报、风险和投资者__________。", answerZh: "适合度" },
+        { prompt: "When the evidence is incomplete, a defensible next action is to __________.", answer: "gather more evidence", zh: "当证据不完整时，合理的下一步行动是__________。", answerZh: "收集更多证据" }
       ],
-      notes: "Keep this compact; collect it as the individual readiness check."
+      notes: "Collect the final answer individually and use it to decide whether Lesson 2 retrieval can begin with the four key terms or needs reteaching."
     }
   ]
 };

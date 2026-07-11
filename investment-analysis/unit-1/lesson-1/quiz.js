@@ -2,115 +2,151 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Review investment analysis, return, risk, suitability, assets and shares.",
+  description: "Check whether students can define investment analysis, classify evidence needs and choose a careful next action.",
   questions: [
     {
       id: "investment-analysis-definition",
       type: "multipleChoice",
-      prompt: "Which response is investment analysis?",
-      zh: "哪一个回应属于投资分析？",
+      prompt: "Which response best describes investment analysis?",
+      zh: "哪一个回应最准确地描述投资分析？",
       choices: [
-        "Evaluate potential return, risk and suitability",
-        "Check whether many people know the company",
-        "Wait for the share price to rise first",
-        "Ask classmates which share may rise"
+        "Using evidence to judge potential return, risk and suitability before deciding",
+        "Buying a familiar company before checking the evidence",
+        "Predicting next week's exact share price",
+        "Following the most confident opinion"
       ],
       answer: 0,
-      explanation: "Investment analysis evaluates an opportunity's potential return, risk and suitability for an investor.",
-      explanationZh: "投资分析评估一个机会对投资者的潜在回报、风险和适合性。"
+      explanation: "Investment analysis evaluates an opportunity with evidence before a decision.",
+      explanationZh: "投资分析是在作出决定前利用证据评估投资机会。"
     },
     {
-      id: "investment-speculation",
-      type: "multipleChoice",
-      prompt: "Which action is closest to speculation?",
-      zh: "哪一个行为最接近投机？",
-      choices: [
-        "Reading a dated annual report before judging",
-        "Comparing risk and potential return",
-        "Buying only because the price rose this morning",
-        "Checking whether a company pays dividends"
-      ],
-      answer: 2,
-      explanation: "Speculation often focuses on short-term price movement rather than evidence-based judgement.",
-      explanationZh: "投机常常关注短期价格变动，而不是基于证据的判断。"
-    },
-    {
-      id: "asset-definition",
+      id: "return-definition",
       type: "fillBlank",
-      prompt: "An asset is something with ________ that can be owned.",
-      zh: "资产是具有________并且可以被拥有的东西。",
-      acceptedAnswers: ["value"],
-      explanation: "Assets have value; different assets carry different risks.",
-      explanationZh: "资产具有价值；不同资产有不同风险。"
+      prompt: "Return is the gain or ________ earned over a stated holding period.",
+      zh: "回报是在某一持有期间获得的收益或________。",
+      acceptedAnswers: ["loss", "损失"],
+      explanation: "Return includes both gains and losses, plus relevant income and price change.",
+      explanationZh: "回报包括收益和损失，以及相关收入和价格变动。"
     },
     {
-      id: "asset-type",
+      id: "risk-definition",
       type: "multipleChoice",
-      prompt: "Which item is an asset type from the lesson?",
-      zh: "哪一项是本课学到的资产类型？",
+      prompt: "What is risk in this lesson?",
+      zh: "本课中的风险是什么？",
       choices: [
-        "Cash and savings",
-        "A classroom opinion",
-        "A company slogan",
-        "A random prediction"
+        "The possibility that results, returns or prices are worse than expected",
+        "A guarantee that an investment loses all its value",
+        "The same thing as a low share price",
+        "A reason to avoid every investment"
       ],
       answer: 0,
-      explanation: "Cash and savings are one simple asset type.",
-      explanationZh: "现金和储蓄是一种简单资产类型。"
+      explanation: "Risk concerns outcomes that may be worse than expected; it is not a guaranteed loss.",
+      explanationZh: "风险指结果可能比预期更差，并不等于保证发生损失。"
     },
     {
-      id: "risk-ranking",
+      id: "investor-fit",
       type: "multipleChoice",
-      prompt: "Why can asset risk rankings differ?",
-      zh: "为什么资产风险排序可能不同？",
+      prompt: "Which question mainly checks investor fit?",
+      zh: "哪一个问题主要检查投资者适合度？",
       choices: [
-        "Because the exact asset, price, time and evidence matter",
-        "Because all assets always have the same risk",
-        "Because cash is always more risky than every share",
-        "Because risk disappears if the company is famous"
+        "Does the investment match the investor's goal, time horizon and liquidity need?",
+        "Is the company famous?",
+        "Did the price rise yesterday?",
+        "Do classmates like the company?"
       ],
       answer: 0,
-      explanation: "Asset type matters, but the specific example and evidence also matter.",
-      explanationZh: "资产类型重要，但具体例子和证据也重要。"
+      explanation: "Investor fit matches the investment to the investor's goal and constraints.",
+      explanationZh: "投资者适合度把投资与投资者的目标和限制相匹配。"
     },
     {
-      id: "share-definition",
-      type: "fillBlank",
-      prompt: "A share is one unit of ________ in a company.",
-      zh: "一股股票是公司中的一个________单位。",
-      acceptedAnswers: ["ownership"],
-      explanation: "A share is one ownership unit, not the whole company.",
-      explanationZh: "一股股票是一个所有权单位，不是整家公司。"
-    },
-    {
-      id: "share-gives",
+      id: "return-check",
       type: "multipleChoice",
-      prompt: "What might a share give, depending on the company?",
-      zh: "股票可能带来什么，取决于公司情况？",
+      prompt: "Which question is mainly about potential return?",
+      zh: "哪一个问题主要关于潜在回报？",
       choices: [
-        "Possible dividends",
-        "Guaranteed profit",
-        "Control of the whole company",
-        "A risk-free return"
+        "How could dividends or a future price change create a gain or loss?",
+        "Who published the source?",
+        "Is the money needed in six months?",
+        "What could reduce future profit?"
       ],
       answer: 0,
-      explanation: "Some shares may pay dividends, but dividends are not guaranteed.",
-      explanationZh: "有些股票可能支付股息，但股息不是保证的。"
+      explanation: "Potential return asks how an investor might gain or lose over the holding period.",
+      explanationZh: "潜在回报询问投资者在持有期间可能如何获得收益或损失。"
     },
     {
-      id: "tencent-decision",
+      id: "risk-check",
       type: "multipleChoice",
-      prompt: "Why is Tencent being familiar not enough reason to buy shares?",
-      zh: "为什么熟悉腾讯不足以成为买入股票的理由？",
+      prompt: "Which question is mainly about risk?",
+      zh: "哪一个问题主要关于风险？",
       choices: [
-        "Familiarity is not evidence about value, risk or return",
-        "Familiar companies cannot have shares",
-        "Shares always guarantee profit",
-        "Assets never carry risk"
+        "What could make Tencent's result worse than expected?",
+        "How familiar is the company name?",
+        "How many classmates voted yes?",
+        "What colour is the company logo?"
       ],
       answer: 0,
-      explanation: "The opening question needs investment analysis: evidence, potential return, risk, suitability and the meaning of a share.",
-      explanationZh: "开头问题需要投资分析：证据、潜在回报、风险、适合性以及股票的含义。"
+      explanation: "A risk question identifies what could make the outcome worse than expected.",
+      explanationZh: "风险问题识别什么可能使结果比预期更差。"
+    },
+    {
+      id: "source-date",
+      type: "multipleChoice",
+      prompt: "Why should an analyst record the source date?",
+      zh: "为什么分析者应该记录来源日期？",
+      choices: [
+        "To judge how current the evidence is",
+        "To guarantee that the claim is correct",
+        "To remove the need for a limitation",
+        "To prove the share price will rise"
+      ],
+      answer: 0,
+      explanation: "A date helps judge whether evidence is current, but it does not remove the need to check limits.",
+      explanationZh: "日期帮助判断证据是否及时，但不能代替对局限的检查。"
+    },
+    {
+      id: "source-limit",
+      type: "multipleChoice",
+      prompt: "What can Tencent investor relations not prove by itself?",
+      zh: "腾讯投资者关系页面单独不能证明什么？",
+      choices: [
+        "That Tencent is suitable for every investor",
+        "That the source belongs to Tencent",
+        "That official investor information exists",
+        "That Tencent is a company"
+      ],
+      answer: 0,
+      explanation: "An official company source can verify facts, but it cannot prove universal suitability.",
+      explanationZh: "公司官方来源可以核实事实，但不能证明它普遍适合所有投资者。"
+    },
+    {
+      id: "familiarity-misconception",
+      type: "multipleChoice",
+      prompt: "Why is company familiarity a weak reason to invest?",
+      zh: "为什么熟悉公司是一个薄弱的投资理由？",
+      choices: [
+        "Familiarity does not establish return, risk, price or investor fit",
+        "Familiar companies cannot issue shares",
+        "Familiar companies never publish reports",
+        "Familiarity always means high risk"
+      ],
+      answer: 0,
+      explanation: "Familiarity may start a question, but it is not evidence for the full investment case.",
+      explanationZh: "熟悉度可以引出问题，但不是完整投资判断的证据。"
+    },
+    {
+      id: "next-action",
+      type: "multipleChoice",
+      prompt: "The Tencent evidence is incomplete. What is the most defensible next action?",
+      zh: "腾讯证据不完整。最合理的下一步行动是什么？",
+      choices: [
+        "Gather more dated evidence",
+        "Buy because the company is familiar",
+        "Avoid because one risk exists",
+        "Copy the class majority"
+      ],
+      answer: 0,
+      explanation: "Incomplete evidence supports gathering more evidence, not forcing a buy or avoid verdict.",
+      explanationZh: "证据不完整时应收集更多证据，而不是强行作出买入或回避判断。"
     }
   ]
 };

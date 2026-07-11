@@ -469,9 +469,10 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/landing.css" />
   <script src="assets/js/baidu-analytics.js"></script>
 </head>
-<body class="bg-ambient">
+<body class="bg-ambient library-home landing-page">
   <form name="quiz-submissions" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="quiz-submissions" />
     <input type="hidden" name="attemptId" />
@@ -491,6 +492,19 @@
   </form>
 
   <main class="site">
+    <nav class="landing-nav" aria-label="Library navigation">
+      <a class="landing-brand" href="index.html" aria-current="page">
+        <span class="landing-brand-mark" aria-hidden="true">OH</span>
+        <span>Oehler-Huang Library</span>
+      </a>
+      <div class="landing-nav-links">
+        <a class="landing-nav-link" href="economics/index.html">Economics</a>
+        <a class="landing-nav-link" href="investment-analysis/index.html">Investment Analysis</a>
+        <a class="landing-nav-link" href="definitions.html">Definitions</a>
+        <a class="landing-nav-link" href="pedagogy.html">Teaching</a>
+      </div>
+    </nav>
+
     <header class="hero">
       <div class="eyebrow">Course directory</div>
       <h1>
@@ -500,6 +514,10 @@
       <p class="lead">
         Choose a course page to open the full lesson sequence, maps, quizzes, handouts and review materials.
       </p>
+      <div class="hero-actions" aria-label="Library shortcuts">
+        <a class="landing-button primary" href="#course-entry-title">Choose a course</a>
+        <a class="landing-button" href="definitions.html">Browse definitions</a>
+      </div>
       <div class="author-line" aria-label="Teacher and school">
         <img class="author-avatar" src="assets/images/profile/samuel-oehler-huang.jpg" alt="Samuel Oehler-Huang" loading="lazy" />
         <span><strong>Samuel Oehler-Huang</strong></span>
@@ -531,7 +549,7 @@
       </div>
 
       <div class="course-entry-grid" aria-label="Course entry points">
-        <article class="course-entry-card">
+        <article class="course-entry-card economics-entry">
           <div class="course-entry-media" aria-hidden="true">
             <img src="assets/images/macro-aims/china-national-bureau-statistics.jpg" alt="" loading="lazy" />
           </div>
@@ -551,7 +569,7 @@
           </div>
         </article>
 
-        <article class="course-entry-card">
+        <article class="course-entry-card investment-entry">
           <div class="course-entry-media" aria-hidden="true">
             <img src="assets/images/investment-analysis/investor-chart-screens-2026.jpg" alt="" loading="lazy" />
           </div>

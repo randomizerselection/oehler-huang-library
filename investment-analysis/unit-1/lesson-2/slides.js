@@ -5,44 +5,32 @@ const investmentPhotos = window.INVEST.photos || {};
 window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment Analysis",
-    lessonLabel: "Unit 1 Lesson 2: Why do companies need a stock market?",
+    lessonLabel: "Unit 1 Lesson 2: How are saving, investing and speculation different?",
     sources: [
       {
-        label: "HKEX homepage",
-        note: "Used for official exchange context and the market-infrastructure source habit.",
-        date: "Accessed 6 July 2026",
-        url: "https://www.hkex.com.hk/?sc_lang=en"
+        label: "IFEC: Building an investment portfolio",
+        note: "Supports the distinction between money needed for short-term purchases and long-term investment, and the checks for time horizon, liquidity needs, possible loss and get-rich-quick risk.",
+        date: "Published 1 April 2016; accessed 11 July 2026",
+        url: "https://www.ifec.org.hk/web/en/moneyessentials/financial-planning/building-an-investment-portfolio.page"
       },
       {
-        label: "HKEX List with HKEX FAQ",
-        note: "Used for listing, IPO, primary and secondary listing context, and stock-code allocation.",
-        date: "Accessed 6 July 2026",
-        url: "https://www.hkex.com.hk/Global/Exchange/FAQ/List-with-HKEX?sc_lang=en"
+        label: "Hong Kong Monetary Authority: Investment Services",
+        note: "Supports checking objectives, investment horizon, product risks, possible loss and suitability before making an investment decision.",
+        date: "Page revised 7 January 2026; accessed 11 July 2026",
+        url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
       },
       {
-        label: "HKEX Securities Market Trading Hours",
-        note: "Used to show that exchange trading happens inside market sessions and rules.",
-        date: "Accessed 6 July 2026",
-        url: "https://www.hkex.com.hk/Services/Trading-hours-and-Severe-Weather-Arrangements/Trading-Hours/Securities-Market?sc_lang=en"
-      },
-      {
-        label: "HKEX Securities Market Operations FAQ",
-        note: "Used for simple friction examples: board lots, odd lots, price spreads and liquidity.",
-        date: "Accessed 6 July 2026",
-        url: "https://www.hkex.com.hk/Global/Exchange/FAQ/Securities-Market/Trading/Securities-Market-Operations?sc_lang=en"
-      },
-      {
-        label: "Wikimedia Commons Exchange Square visuals",
-        note: "Used for the updated HKEX visual evidence in the opener and market-location slides.",
-        date: "Downloaded 6 July 2026",
-        url: "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%AD%E7%92%B0_Central_%E4%BA%A4%E6%98%93%E5%BB%A3%E5%A0%B4_Exchange_Square_shop_sign_%E9%A6%99%E6%B8%AF%E4%BA%A4%E6%98%93%E6%89%80_HKEX_July_2019_SSG_08_Jardine_House.jpg"
+        label: "Frozen family classroom profile",
+        note: "Teacher-created hypothetical profile: HK$30,000 total, HK$12,000 needed in six months and HK$18,000 not needed for at least five years. No live rates or named products are used.",
+        date: "Frozen 11 July 2026",
+        url: "Local classroom scenario"
       }
     ]
   },
   handout: {
-    title: "Who gets the money when a share trades?",
-    subtitle: "Unit 1 Lesson 2: Why do companies need a stock market?",
-    description: "Use HKEX examples to separate company fundraising from investor-to-investor trading, then explain why exchange trading is useful but still has friction.",
+    title: "Saving, investing and speculation",
+    subtitle: "Unit 1 Lesson 2",
+    description: "Use a family money decision to separate short-term saving, long-term investing and weak-evidence speculation.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -51,14 +39,14 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "1",
-        title: "Starter judgement",
-        instruction: "Answer before definitions. Improve this answer at the end.",
+        title: "First judgement",
+        instruction: "Decide before the definitions, then improve the decision at the end.",
         blocks: [
           {
             type: "prompts",
             prompts: [
-              { label: "First answer", prompt: "If you buy one share of 0700.HK from another investor today, who gets your money?", lines: 3 },
-              { label: "Reason", prompt: "Why do you think so?", lines: 2 }
+              { label: "Decision", prompt: "A family has HK$30,000. Should it save, invest or speculate with all of the money?", lines: 3 },
+              { label: "Missing information", prompt: "What do you need to know before deciding?", lines: 4 }
             ]
           }
         ]
@@ -66,694 +54,407 @@ window.INVEST.lesson = {
       {
         label: "2",
         title: "Vocabulary",
-        instruction: "Complete the terms that answer the starter question.",
+        instruction: "Complete and use the three lesson definitions.",
         blocks: [
           {
             type: "terms",
             terms: [
-              { label: "Stock exchange", prompt: "A stock exchange is a regulated __________ where listed securities can be bought and sold.", answer: "market" },
-              { label: "Listing", prompt: "Listing means a company's shares have permission to __________ on an exchange.", answer: "trade" },
-              { label: "Stock code", prompt: "A stock code is a short __________ used to find a listed security.", answer: "identifier" },
-              { label: "Liquidity", prompt: "Liquidity means an asset can be bought or sold more __________ without a large price change.", answer: "easily" }
+              { label: "Saving", prompt: "Saving keeps money safe and __________ for future use.", answer: "available" },
+              { label: "Investment", prompt: "Investment seeks future return while accepting possible __________.", answer: "loss" },
+              { label: "Speculation", prompt: "Speculation tries to profit from uncertain price movements, often over a __________ time.", answer: "short" }
             ]
           }
         ]
       },
       {
         label: "3",
-        title: "Primary or secondary?",
-        instruction: "Decide whether the company receives new money.",
+        title: "Family evidence box",
+        instruction: "Record the purpose and time horizon for each part of the money.",
         blocks: [
           {
             type: "table",
-            columns: ["Situation", "Who sells the shares?", "Does the company usually receive new money?"],
+            columns: ["Amount", "When needed", "Can accept possible loss?", "First category"],
             rows: [
-              ["IPO / new share issue", "", ""],
-              ["Investor buys listed shares from another investor", "", ""]
+              ["HK$12,000", "Six months", "No", ""],
+              ["HK$18,000", "At least five years", "Possibly, after checking risk and fit", ""],
+              ["Rumour-led one-week price bet", "One week", "High uncertainty and weak evidence", ""]
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "HKEX source box",
-        instruction: "Record the market identity before making an investment judgement.",
+        title: "Classification task",
+        instruction: "Classify each action and explain the deciding evidence.",
         blocks: [
           {
-            type: "facts",
-            items: [
-              { label: "Exchange case", value: "HKEX" },
-              { label: "Example company", value: "Tencent Holdings Limited" },
-              { label: "Example code", value: "0700.HK / 00700" },
-              { label: "Source habit", value: "Company, exchange, code, source title, accessed date, limitation" },
-              { label: "Limitation", value: "A code identifies a security; it does not prove investment quality." }
+            type: "cases",
+            cases: [
+              { label: "A", text: "Keep school-fee money ready for use in six months.", answer: "Saving" },
+              { label: "B", text: "Put long-term surplus into a researched asset while accepting possible loss.", answer: "Investing" },
+              { label: "C", text: "Bet all HK$30,000 on a one-week price rumour.", answer: "Speculation" },
+              { label: "D", text: "Wait and gather more evidence before choosing an investment.", answer: "Careful next action" }
             ]
           }
         ]
       },
       {
         label: "5",
-        title: "Friction register",
-        instruction: "Markets reduce friction. They do not remove every problem.",
+        title: "Misconception check",
+        instruction: "Correct both shortcuts.",
         blocks: [
           {
-            type: "table",
-            columns: ["Friction", "Why it matters"],
-            rows: [
-              ["Trading hours", ""],
-              ["Board lots or odd lots", ""],
-              ["Low liquidity", ""],
-              ["Price spread or transaction cost", ""]
+            type: "prompts",
+            prompts: [
+              { label: "Shortcut 1", prompt: "Investing is always better than saving because the expected return is higher.", lines: 3 },
+              { label: "Shortcut 2", prompt: "A fast price gain based on a rumour is the same as investment analysis.", lines: 3 }
             ]
           }
         ]
       },
       {
         label: "6",
-        title: "Exit answer",
-        instruction: "Return to the starter and use the lesson terms.",
+        title: "Final family decision",
+        instruction: "Use the evidence to choose a defensible next action for each part of the money.",
         blocks: [
           {
             type: "writing",
-            question: "Explain why a stock market matters, while making clear why every market purchase does not automatically finance the company.",
-            keywords: ["stock exchange", "listing", "stock code", "secondary market", "liquidity", "friction"],
-            lines: 8
+            question: "Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.",
+            keywords: ["saving", "investment", "speculation", "time horizon", "liquidity need", "possible loss", "evidence"],
+            lines: 10
           }
         ]
       }
     ],
-    sources: "HKEX homepage, List with HKEX FAQ, Securities Market Trading Hours, and Securities Market Operations FAQ, accessed 6 Jul 2026. Exchange Square visuals: Wikimedia Commons / Longshing Ma Hon Wonia and Soon Sumia Louam, CC BY-SA 4.0. Classroom example only; not personal investment advice."
+    sources: "IFEC Building an Investment Portfolio and HKMA Investment Services, accessed 11 Jul 2026. Family figures are a frozen hypothetical classroom profile; no live rate or product recommendation is used."
   },
   slides: [
     {
-      type: "discussion",
-      eyebrow: "Starter",
-      title: "Who gets the money?",
-      zhTitle: "谁收到这笔钱？",
-      question: "If you buy one share of 0700.HK from another investor today, does Tencent automatically receive new money?",
-      questionZh: "如果你今天从另一位投资者手中买入一股 0700.HK，腾讯会自动收到新资金吗？",
-      revealTitle: "A market trade is not always company fundraising",
-      answer: "Usually, a normal market purchase transfers ownership from one investor to another. The company raises new money mainly when it issues shares, such as in an IPO or another new share issue.",
-      answerZh: "通常，普通市场交易是投资者之间转让所有权。公司主要在发行新股时筹集新资金，例如 IPO 或再次发行新股。",
-      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019,
+      type: "hero",
+      eyebrow: "Unit 1 Lesson 2",
+      title: "Saving, investing or speculating?",
+      zhTitle: "储蓄、投资，还是投机？",
+      prominentTitle: true,
+      visual: investmentPhotos.assetCashSavings,
       notes: [
-        "Take the yes/no vote before defining any term.",
-        "Let the likely wrong answer stay visible as the puzzle the lesson must solve."
+        "Keep the title screen simple.",
+        "Move immediately to the family decision before defining the three categories."
+      ]
+    },
+    {
+      type: "discussion",
+      eyebrow: "First judgement",
+      title: "What should the family do with HK$30,000?",
+      zhTitle: "这个家庭应该如何处理30,000港元？",
+      question: "Should the family save, invest or speculate with all HK$30,000? Give one reason.",
+      questionZh: "这个家庭应该把全部30,000港元用于储蓄、投资，还是投机？给出一个理由。",
+      revealTitle: "The purpose and time horizon must come first",
+      answer: "Do not choose one action for all the money yet. First find out when each part is needed, whether it must stay available and whether possible loss can be accepted.",
+      answerZh: "先不要把全部资金都归入同一种行动。首先要知道每一部分资金何时需要、是否必须保持可用，以及是否能够承受可能的损失。",
+      visual: investmentPhotos.investorMeetingReport,
+      notes: [
+        "Take a save/invest/speculate vote before showing the family facts.",
+        "Listen for the Lesson 1 checks: evidence, risk and investor fit."
       ]
     },
     {
       type: "outcomes",
       eyebrow: "Objectives",
-      title: "By the end of this lesson, you can",
+      title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
+      visual: investmentPhotos.businessChartsPaper,
       bullets: [
-        "define stock exchange, listing, stock code and liquidity",
-        "match a company to its exchange and stock code using a source box",
-        "explain why exchange trading matters without claiming every trade funds the company"
+        "define saving, investment and speculation",
+        "classify choices using purpose, time horizon, liquidity and possible loss",
+        "write a justified family next action without recommending a product"
       ],
       zhBullets: [
-        "定义证券交易所、上市、股票代码和流动性",
-        "用来源框把公司、交易所和股票代码配对",
-        "解释交易所交易为什么重要，同时不误说每笔交易都给公司融资"
-      ],
-      phases: ["Define", "Match", "Explain"]
+        "定义储蓄、投资和投机",
+        "根据用途、期限、流动性和可能损失给选择分类",
+        "写出有理由的家庭下一步行动，而不推荐具体产品"
+      ]
     },
     {
       type: "peerTask",
       taskType: "definitionRecall",
-      eyebrow: "Retrieval",
-      title: "Lesson 1 terms you need today",
-      zhTitle: "今天需要用到的第一课术语",
-      prompt: "Write the missing idea first, then reveal and correct.",
-      promptZh: "先写出缺失的概念，再揭示答案并修改。",
+      eyebrow: "Lesson 1 retrieval",
+      title: "Recall three checks before choosing",
+      zhTitle: "选择前回忆三个检查",
+      prompt: "Without notes, complete the definitions that the family decision needs.",
+      promptZh: "不看笔记，补全家庭决策需要的定义。",
       definitionItems: [
-        {
-          label: "1",
-          term: "Share",
-          termZh: "股票",
-          answer: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
-          answerZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。"
-        }
+        { label: "1", term: "Investment analysis", termZh: "投资分析", answer: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.", answerZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。" },
+        { label: "2", term: "Return", termZh: "回报", answer: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.", answerZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。" },
+        { label: "3", term: "Risk", termZh: "风险", answer: "Risk is the possibility that results, returns or prices are worse than expected.", answerZh: "风险是结果、回报或价格比预期更差的可能性。" }
       ],
-      sharePrompt: "Bridge: if a share is ownership, a market needs a way to transfer that ownership.",
-      sharePromptZh: "衔接：如果股票代表所有权，市场就需要一种转让所有权的方式。"
-    },
-    {
-      type: "peerTask",
-      taskType: "definitionRecall",
-      eyebrow: "Retrieval",
-      title: "Evidence before judgement",
-      zhTitle: "先证据，后判断",
-      prompt: "Recall the course method before we use the market example.",
-      promptZh: "在使用市场例子前，先回忆本课程的方法。",
-      definitionItems: [
-        {
-          label: "2",
-          term: "Investment analysis",
-          termZh: "投资分析",
-          answer: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
-          answerZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。"
-        }
-      ],
-      sharePrompt: "Bridge: the market route is part of the evidence before judgement.",
-      sharePromptZh: "衔接：市场路径是判断前证据的一部分。"
-    },
-    {
-      type: "peerTask",
-      taskType: "definitionRecall",
-      eyebrow: "Retrieval",
-      title: "What kind of thing is a share?",
-      zhTitle: "股票属于什么？",
-      prompt: "Recall the asset category before we discuss trading.",
-      promptZh: "讨论交易前，先回忆资产类别。",
-      definitionItems: [
-        {
-          label: "3",
-          term: "Asset",
-          termZh: "资产",
-          answer: "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
-          answerZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。"
-        }
-      ],
-      sharePrompt: "Bridge: if a share is an asset, the market is the route through which that asset can change hands.",
-      sharePromptZh: "衔接：如果股票是一种资产，市场就是它转手的路径。"
+      sharePrompt: "Explain which definition matters most when money is needed in six months.",
+      sharePromptZh: "解释当资金在六个月后就需要时，哪一个定义最重要。"
     },
     {
       type: "section",
       eyebrow: "Part 1",
-      title: "Market purpose",
-      zhTitle: "市场的作用",
-      subtitle: "First separate company fundraising from investor trading",
-      notes: "This section answers who gets the money before adding more vocabulary."
+      title: "Three different actions",
+      zhTitle: "三种不同的行动",
+      notes: "Retrieve -> define -> classify -> correct."
     },
     {
       type: "visualPause",
-      title: "Exchange Square",
-      visual: investmentPhotos.lesson2ExchangeSquareCentral2021,
+      eyebrow: "Look first",
+      title: "Money kept available for a near-term need",
+      visual: investmentPhotos.assetCashSavings,
       notes: [
-        "Let students identify that a market is an institution with rules, location, systems and participants.",
-        "Prompt silently: what job must this institution do?"
-      ]
-    },
-    {
-      type: "discussion",
-      eyebrow: "Market problem",
-      title: "What problem does a stock market solve?",
-      zhTitle: "股票市场解决什么问题？",
-      question: "If thousands of investors want to buy or sell the same listed share, what would be difficult without an organised market?",
-      questionZh: "如果成千上万的投资者想买卖同一只上市股票，没有有组织的市场会有什么困难？",
-      revealTitle: "The market makes transfer possible under rules",
-      answer: "Investors would need to find each other, agree on price, follow rules, settle the trade and record ownership. A stock exchange reduces those problems by organising trading in listed securities.",
-      answerZh: "投资者需要互相找到对方、商定价格、遵守规则、完成结算并记录所有权。证券交易所通过组织上市证券交易来减少这些困难。",
-      visual: investmentPhotos.lesson2HkexBuilding01,
-      notes: [
-        "Accept simple answers: find a buyer, find a seller, know the price, follow rules.",
-        "Do not yet use liquidity as the first definition; let students feel the problem first."
+        "Image only. Ask what purpose this money might have.",
+        "Bridge to the saving definition without naming a product or live rate."
       ]
     },
     {
       type: "term",
-      eyebrow: "Key term",
-      title: "Stock exchange",
-      term: "Stock exchange",
-      termZh: "证券交易所",
-      definition: "A stock exchange is a regulated market where listed securities can be bought and sold under published trading rules.",
-      definitionZh: "证券交易所是一个受监管的市场，上市证券可以按照公开交易规则在其中买卖。",
-      notes: [
-        "Students copy the full sentence.",
-        "Emphasise regulated market, not a website that gives stock tips."
-      ]
+      eyebrow: "Definition",
+      title: "Saving",
+      term: "Saving",
+      termZh: "储蓄",
+      keywordVisuals: [
+        { label: "Safe and available", labelZh: "安全且可用", visual: investmentPhotos.assetCashSavings }
+      ],
+      definition: "Saving is keeping money safe and available for future use, usually with lower risk and lower expected return than investing.",
+      definitionBlanks: ["safe and available"],
+      definitionZh: "储蓄是把钱安全地保留下来以备将来使用，通常风险较低，预期回报也低于投资。"
     },
     {
-      type: "compare",
-      eyebrow: "Do not mix these up",
-      title: "Primary issue vs secondary-market trade",
-      zhTitle: "一级发行与二级市场交易",
-      leftTitle: "Company raises money",
-      leftTitleZh: "公司筹资",
-      rightTitle: "Investors trade with each other",
-      rightTitleZh: "投资者之间交易",
-      left: [
-        {
-          label: "A",
-          text: "A company issues new shares, such as in an IPO or another share issue.",
-          zh: "公司发行新股，例如 IPO 或再次发行。"
-        },
-        {
-          label: "B",
-          text: "The company can receive new capital, after costs and rules.",
-          zh: "扣除成本并遵守规则后，公司可以获得新资本。"
-        }
+      type: "term",
+      eyebrow: "Definition",
+      title: "Investment",
+      term: "Investment",
+      termZh: "投资",
+      keywordVisuals: [
+        { label: "Future return with possible loss", labelZh: "寻求未来回报并接受可能损失", visual: investmentPhotos.financialAnalysisDesk }
       ],
-      right: [
-        {
-          label: "C",
-          text: "One investor buys existing listed shares from another investor.",
-          zh: "一位投资者从另一位投资者手中买入已上市股票。"
-        },
-        {
-          label: "D",
-          text: "Ownership changes hands; the company does not automatically receive new money.",
-          zh: "所有权转手；公司不会自动收到新资金。"
-        }
-      ],
-      prompt: "Starter correction: Which side describes a normal market purchase today?",
-      promptZh: "修正开场问题：今天普通的市场买入属于哪一边？",
-      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019
+      definition: "Investment is putting money into an asset to seek future return while accepting possible loss.",
+      definitionBlanks: ["future return while accepting possible loss"],
+      definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。"
     },
     {
-      type: "yesNoCheck",
-      eyebrow: "Hinge check",
-      title: "Does the company get the money?",
-      zhTitle: "公司会收到这笔钱吗？",
-      prompt: "Vote first. Reveal only after students give a reason.",
-      promptZh: "先投票。学生说出理由后再揭示。",
+      type: "term",
+      eyebrow: "Definition",
+      title: "Speculation",
+      term: "Speculation",
+      termZh: "投机",
+      keywordVisuals: [
+        { label: "Short-term uncertain price bet", labelZh: "短期不确定价格押注", visual: investmentPhotos.smartphoneMarketChart }
+      ],
+      definition: "Speculation is trying to profit from uncertain price movements, often over a short time and with weaker evidence than investment analysis requires.",
+      definitionBlanks: ["uncertain price movements"],
+      definitionZh: "投机是试图从不确定的价格变动中获利，通常时间较短，所依据的证据弱于投资分析所要求的证据。"
+    },
+    {
+      type: "conceptTriad",
+      eyebrow: "Concept map",
+      title: "Separate the three actions",
+      zhTitle: "区分三种行动",
+      visual: investmentPhotos.businessChartsPaper,
+      revealDetails: true,
+      concepts: [
+        { label: "Saving", tag: "Needed soon", definition: "Saving is keeping money safe and available for future use, usually with lower risk and lower expected return than investing.", definitionZh: "储蓄是把钱安全地保留下来以备将来使用，通常风险较低，预期回报也低于投资。" },
+        { label: "Investment", tag: "Longer-term return", definition: "Investment is putting money into an asset to seek future return while accepting possible loss.", definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。" },
+        { label: "Speculation", tag: "Weak-evidence price bet", definition: "Speculation is trying to profit from uncertain price movements, often over a short time and with weaker evidence than investment analysis requires.", definitionZh: "投机是试图从不确定的价格变动中获利，通常时间较短，所依据的证据弱于投资分析所要求的证据。" }
+      ],
+      prompt: "Before reveal, classify one family action into the correct concept.",
+      promptZh: "揭示前，把一个家庭行动归入正确概念。"
+    },
+    {
+      type: "classificationTask",
+      eyebrow: "Practice check",
+      title: "Saving, investing or speculation?",
+      zhTitle: "储蓄、投资，还是投机？",
+      prompt: "Classify each action, then defend the deciding evidence.",
+      promptZh: "给每个行动分类，然后说明决定性证据。",
+      categories: [
+        { title: "Saving", zhTitle: "储蓄", clue: "safe, available, needed soon" },
+        { title: "Investing", zhTitle: "投资", clue: "future return, evidence, possible loss" },
+        { title: "Speculation", zhTitle: "投机", clue: "short-term price bet, weak evidence" }
+      ],
       items: [
-        {
-          text: "A company can raise money when it issues new shares.",
-          zh: "公司发行新股时可以筹集资金。",
-          answer: true,
-          answerZh: "是",
-          reason: "That is a primary issue or fundraising event.",
-          reasonZh: "这是一级发行或筹资事件。"
-        },
-        {
-          text: "A normal market purchase from another investor automatically gives new money to the company.",
-          zh: "从另一位投资者手中进行普通市场买入，会自动给公司新资金。",
-          answer: false,
-          answerZh: "否",
-          reason: "It usually transfers existing shares between investors.",
-          reasonZh: "这通常是在投资者之间转让已有股票。"
-        },
-        {
-          text: "The stock market can still matter even when the company does not receive money from every trade.",
-          zh: "即使公司不是每笔交易都收到钱，股票市场仍然重要。",
-          answer: true,
-          answerZh: "是",
-          reason: "It helps investors transfer ownership and can make future fundraising more attractive.",
-          reasonZh: "它帮助投资者转让所有权，也可能使未来融资更有吸引力。"
-        }
+        { label: "A", text: "Keep school-fee money ready for use in six months.", zh: "把六个月后要用的学费资金保持为随时可用。", answer: "Saving", answerZh: "储蓄", reason: "The money is needed soon and should remain available.", reasonZh: "这笔钱很快就需要使用，并且应保持可用。" },
+        { label: "B", text: "Use researched long-term surplus to seek future return while accepting possible loss.", zh: "把经过研究的长期余钱用于寻求未来回报，同时接受可能损失。", answer: "Investing", answerZh: "投资", reason: "The action uses evidence, a longer horizon and accepts risk.", reasonZh: "这个行动使用证据、较长期限并接受风险。" },
+        { label: "C", text: "Bet all the money on a one-week price rumour.", zh: "根据一周价格传闻押上全部资金。", answer: "Speculation", answerZh: "投机", reason: "The action seeks a short-term price gain from weak evidence.", reasonZh: "这个行动依据薄弱证据追求短期价格收益。" }
       ],
-      visual: investmentPhotos.lesson2HkexConnectHall2018
-    },
-    {
-      type: "quiz",
-      eyebrow: "Quick check",
-      title: "Who receives the money?",
-      zhTitle: "谁收到钱？",
-      question: "An investor buys listed Tencent shares from another investor on HKEX. What is the safest statement?",
-      zh: "一位投资者在港交所从另一位投资者手中买入已上市的腾讯股票。最稳妥的说法是什么？",
-      choices: [
-        "The trade transfers ownership between investors.",
-        "Tencent automatically receives all the purchase money.",
-        "The stock code proves Tencent is a good investment.",
-        "No market rules are involved."
-      ],
-      answer: 0,
-      explanation: "A secondary-market trade normally transfers existing shares between investors. It is not the same as a new share issue.",
-      explanationZh: "二级市场交易通常是在投资者之间转让已有股票，不等于新股发行。",
-      visual: investmentPhotos.lesson2ExchangeSquareCentral2021
+      sharePrompt: "Name the purpose, time horizon and possible loss in one case.",
+      sharePromptZh: "说出一个案例中的用途、期限和可能损失。"
     },
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Listing and codes",
-      zhTitle: "上市与代码",
-      subtitle: "A market needs a precise way to identify what is trading",
-      notes: "This section turns the institution into a source-box habit."
-    },
-    {
-      type: "visualPause",
-      title: "HKEX Connect Hall",
-      visual: investmentPhotos.lesson2HkexConnectHall2018,
-      notes: [
-        "Use this as a reset: students should now ask what exactly is allowed to trade here.",
-        "Keep the slide quiet; move to the listing definition next."
-      ]
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Listing",
-      term: "Listing",
-      termZh: "上市",
-      definition: "A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements.",
-      definitionZh: "上市是指公司证券在满足交易所要求后，获得在证券交易所交易的正式许可。",
-      notes: [
-        "Keep this simple. Do not go into full listing requirements.",
-        "Connect to the question: a listed share can trade after the listing event."
-      ]
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Stock code",
-      term: "Stock code",
-      termZh: "股票代码",
-      definition: "A stock code is the short market identifier used to find a listed security on an exchange or market-data system.",
-      definitionZh: "股票代码是用于在交易所或市场数据系统中查找某一上市证券的简短市场识别代码。",
-      notes: [
-        "Use 0700.HK as the class example.",
-        "Make clear that a code identifies the security; it is not evidence that the share is good value."
-      ]
-    },
-    {
-      type: "flow",
-      eyebrow: "Source habit",
-      title: "Find the listed share",
-      zhTitle: "找到上市股票",
-      flowStyle: "sequence",
-      steps: [
-        {
-          text: "Company: Tencent Holdings Limited",
-          zh: "公司：腾讯控股有限公司"
-        },
-        {
-          text: "Exchange: HKEX / Hong Kong Stock Exchange",
-          zh: "交易所：港交所 / 香港联合交易所"
-        },
-        {
-          text: "Stock code: 0700.HK / 00700",
-          zh: "股票代码：0700.HK / 00700"
-        },
-        {
-          text: "Source box: title, URL, accessed date, limitation",
-          zh: "来源框：标题、网址、访问日期、局限"
-        }
-      ],
-      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019,
-      notes: [
-        "This is a source-box routine, not an instruction to buy Tencent.",
-        "Students copy the route on the handout."
-      ]
+      title: "Fit the action to the money",
+      zhTitle: "让行动符合资金用途",
+      notes: "Retrieve the definitions, reveal the profile, apply the decision rule, check sources."
     },
     {
       type: "dataSnapshot",
-      eyebrow: "HKEX source box",
-      title: "Identifier first, judgement later",
-      zhTitle: "先识别，再判断",
+      eyebrow: "Frozen classroom profile",
+      title: "One family, three facts",
+      zhTitle: "一个家庭，三个事实",
+      visual: investmentPhotos.investorMeetingReport,
+      sourceStamp: "Teacher-created profile | Frozen 11 Jul 2026 | No live rates",
       focusMetrics: [
-        { label: "Company", value: "Tencent" },
-        { label: "Exchange", value: "HKEX" },
-        { label: "Code", value: "0700.HK" }
+        { label: "Total money", value: "HK$30,000" },
+        { label: "Needed in six months", value: "HK$12,000" },
+        { label: "Not needed for 5+ years", value: "HK$18,000" }
       ],
-      note: "These facts identify the listed security. They do not yet tell us whether the price is attractive, the business is strong, or the risk is acceptable.",
-      noteZh: "这些事实只能识别上市证券，还不能说明价格是否有吸引力、企业是否强、风险是否可接受。",
-      task: "Write one sentence that starts: A stock code helps me find the share, but it does not prove...",
-      taskZh: "写一句话：股票代码帮助我找到股票，但它不能证明……",
-      visual: investmentPhotos.lesson2HkexBuilding01
+      task: "For each amount, identify the purpose, time horizon, liquidity need and ability to accept loss.",
+      taskZh: "对每一笔金额，识别用途、期限、流动性需求和承受损失的能力。"
     },
     {
-      type: "peerTask",
-      taskType: "sort",
-      eyebrow: "Try it",
-      title: "Match the market identity",
-      zhTitle: "配对市场身份",
+      type: "flow",
+      eyebrow: "Decision rule",
+      title: "Purpose and time horizon come before action",
+      zhTitle: "用途和期限先于行动",
+      visual: investmentPhotos.businessChartsPaper,
+      flowStyle: "sequence",
       steps: [
-        {
-          text: "Sort each card under Company, Exchange, Code, or Limitation.",
-          zh: "把每张卡片分到公司、交易所、代码或局限。"
-        },
-        {
-          text: "Use the finished sort to build one source-box sentence.",
-          zh: "用完成的分类写一个来源框句子。"
-        }
-      ],
-      categories: ["Company", "Exchange", "Code", "Limitation"],
-      cases: [
-        { label: "A", text: "Tencent Holdings Limited" },
-        { label: "B", text: "HKEX" },
-        { label: "C", text: "0700.HK" },
-        { label: "D", text: "Does not prove investment quality" },
-        { label: "E", text: "AIA Group Limited" },
-        { label: "F", text: "1299.HK" },
-        { label: "G", text: "Hong Kong Stock Exchange" },
-        { label: "H", text: "Need date and source before judgement" }
-      ],
-      sampleAnswer: "Tencent Holdings Limited trades on HKEX under 0700.HK; the code identifies the security but does not prove it is a good investment.",
-      sampleAnswerZh: "腾讯控股在港交所以 0700.HK 交易；代码识别证券，但不能证明它是好投资。",
-      visual: investmentPhotos.lesson2HkexForumInterior2018
+        { text: "Needed soon and must stay available -> save", zh: "很快需要并且必须保持可用 -> 储蓄", visual: investmentPhotos.assetCashSavings },
+        { text: "Long-term surplus and possible loss accepted -> consider investing after research", zh: "长期余钱并能承受可能损失 -> 研究后考虑投资", visual: investmentPhotos.financialAnalysisDesk },
+        { text: "Short-term rumour and weak evidence -> reject as speculation", zh: "短期传闻且证据薄弱 -> 作为投机予以拒绝", visual: investmentPhotos.smartphoneMarketChart }
+      ]
     },
     {
-      type: "classificationTask",
-      eyebrow: "Misconception sort",
-      title: "What can a stock code prove?",
-      zhTitle: "股票代码能证明什么？",
-      prompt: "Classify each claim.",
-      promptZh: "判断每个说法属于哪一类。",
-      categories: [
-        { title: "Identifier", zhTitle: "识别信息", clue: "helps find the security" },
-        { title: "Overclaim", zhTitle: "过度推断", clue: "claims too much" },
-        { title: "Source habit", zhTitle: "来源习惯", clue: "records evidence before judgement" }
+      type: "compare",
+      eyebrow: "Time-horizon check",
+      title: "Money needed soon or long-term surplus?",
+      zhTitle: "近期需要的资金，还是长期余钱？",
+      mode: "fillBlanks",
+      leftTitle: "Needed in six months",
+      leftTitleZh: "六个月后需要",
+      left: [
+        { label: "1", text: "High need for ready __________.", answer: "cash", zh: "对随时可用的__________需求高。", answerZh: "现金" },
+        { label: "2", text: "Possible loss could block the family __________.", answer: "goal", zh: "可能损失会阻碍家庭__________。", answerZh: "目标" }
       ],
+      rightTitle: "Not needed for five years",
+      rightTitleZh: "五年内不需要",
+      right: [
+        { label: "1", text: "Longer time to face market __________.", answer: "changes", zh: "有更长时间面对市场__________。", answerZh: "变化" },
+        { label: "2", text: "Investment still requires evidence and possible-loss __________.", answer: "acceptance", zh: "投资仍需要证据和对可能损失的__________。", answerZh: "接受" }
+      ],
+      prompt: "Fill the blanks, then explain why the two amounts should not receive the same action.",
+      promptZh: "填空，然后解释为什么两笔资金不应采用同一种行动。"
+    },
+    {
+      type: "sourceLens",
+      eyebrow: "Official guidance",
+      title: "What does IFEC guidance add?",
+      zhTitle: "投委会指引增加了什么？",
+      visual: investmentPhotos.financialAnalysisDesk,
+      revealAnswers: true,
+      metaItems: [
+        { label: "Source", value: "IFEC: Building an investment portfolio" },
+        { label: "Published/accessed", value: "1 Apr 2016 / 11 Jul 2026" }
+      ],
+      checks: [
+        { label: "Use", prompt: "Which investor-fit factors does the guidance identify?", zh: "该指引识别了哪些投资者适合度因素？", answer: "Purpose, investment time horizon, liquidity needs, financial resources and risk tolerance.", answerZh: "用途、投资期限、流动性需求、财务资源和风险承受能力。" },
+        { label: "Limit", prompt: "What does the guidance not decide for this family?", zh: "该指引不能替这个家庭决定什么？", answer: "It does not choose a named product or guarantee a return.", answerZh: "它不选择具体产品，也不保证回报。" }
+      ],
+      task: "Use one source point to improve the family decision, then state one limitation.",
+      taskZh: "用一个来源要点改进家庭决策，然后说明一个局限。"
+    },
+    {
+      type: "yesNoCheck",
+      eyebrow: "Borderline vote",
+      title: "Does the label alone settle the case?",
+      zhTitle: "仅凭标签能决定案例吗？",
+      prompt: "Vote yes or no before revealing the reason.",
+      promptZh: "先投票判断是或否，再揭示理由。",
       items: [
-        {
-          label: "A",
-          text: "0700.HK helps us find Tencent in market data.",
-          zh: "0700.HK 帮助我们在市场数据中找到腾讯。",
-          answer: "Identifier",
-          answerZh: "识别信息",
-          reason: "It identifies the listed security.",
-          reasonZh: "它识别上市证券。"
-        },
-        {
-          label: "B",
-          text: "A stock code proves the share is a good investment.",
-          zh: "股票代码证明这只股票是好投资。",
-          answer: "Overclaim",
-          answerZh: "过度推断",
-          reason: "A code is not valuation evidence.",
-          reasonZh: "代码不是估值证据。"
-        },
-        {
-          label: "C",
-          text: "Record the source title and accessed date.",
-          zh: "记录来源标题和访问日期。",
-          answer: "Source habit",
-          answerZh: "来源习惯",
-          reason: "This makes the evidence checkable.",
-          reasonZh: "这让证据可以被核查。"
-        },
-        {
-          label: "D",
-          text: "The exchange name helps identify the market where trading occurs.",
-          zh: "交易所名称帮助识别交易发生的市场。",
-          answer: "Identifier",
-          answerZh: "识别信息",
-          reason: "Market identity is part of the security record.",
-          reasonZh: "市场身份是证券记录的一部分。"
-        }
-      ],
-      sharePrompt: "Rule: identify the security before judging the investment.",
-      sharePromptZh: "规则：先识别证券，再判断投资。",
-      visual: investmentPhotos.lesson2HkexMuseumShareExchange01
+        { text: "Investing is automatically better than saving because its expected return may be higher.", zh: "投资的预期回报可能更高，所以投资一定比储蓄更好。", answer: false, answerZh: "否", reason: "Money needed soon may require safety and availability more than possible return.", reasonZh: "近期需要的资金可能更需要安全和可用性，而不是可能的回报。" },
+        { text: "Long-term surplus may be considered for investment after risk and fit checks.", zh: "经过风险和适合度检查后，长期余钱可以考虑用于投资。", answer: true, answerZh: "是", reason: "The longer horizon may allow risk, but it does not remove the need for evidence.", reasonZh: "较长期限可能允许承受风险，但不能取消证据要求。" },
+        { text: "A one-week rumour-led price bet uses the same evidence standard as investment analysis.", zh: "根据传闻进行一周价格押注，与投资分析使用相同的证据标准。", answer: false, answerZh: "否", reason: "The short horizon and weak evidence make it speculation, not analysis.", reasonZh: "短期期限和薄弱证据使它属于投机，而不是分析。" }
+      ]
     },
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Liquidity and friction",
-      zhTitle: "流动性与摩擦",
-      subtitle: "Markets help trading, but trading is not magic",
-      notes: "This section makes the lesson more analytical than a definition list."
-    },
-    {
-      type: "discussion",
-      eyebrow: "Friction question",
-      title: "Why is trading still not frictionless?",
-      zhTitle: "为什么交易仍然不是零摩擦？",
-      question: "If an exchange helps buyers and sellers meet, why might a real trade still be slower, costlier or harder than a beginner expects?",
-      questionZh: "如果交易所帮助买卖双方相遇，为什么真实交易仍可能比初学者想象的更慢、更贵或更难？",
-      revealTitle: "Markets reduce friction; they do not erase it",
-      answer: "A real trade happens inside rules: trading hours, order types, trading units, available buyers and sellers, spreads and costs. More liquidity usually makes trading easier, but it does not remove risk.",
-      answerZh: "真实交易受到规则限制：交易时段、订单类型、交易单位、买卖双方数量、买卖差价和成本。流动性越高通常越容易交易，但不会消除风险。",
-      visual: investmentPhotos.lesson2HkexTradeLobby2007
-    },
-    {
-      type: "term",
-      eyebrow: "Key term",
-      title: "Liquidity",
-      term: "Liquidity",
-      termZh: "流动性",
-      definition: "Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change.",
-      definitionZh: "流动性是指能够较快、以相对较低成本并以有意义的数量交易某项资产，而不会造成较大价格变动的能力。",
-      notes: [
-        "Connect to market usefulness: more possible buyers and sellers can reduce trading difficulty.",
-        "Do not imply that liquid assets are automatically safe."
-      ]
-    },
-    {
-      type: "dataSnapshot",
-      eyebrow: "Market rules",
-      title: "Trading happens inside rules",
-      zhTitle: "交易发生在规则之内",
-      focusMetrics: [
-        { label: "Session", value: "9:30-12:00" },
-        { label: "Session", value: "13:00-16:00" },
-        { label: "Unit", value: "Board lot" }
-      ],
-      note: "HKEX securities trading uses defined sessions, and Hong Kong listed securities trade in board lots. Rules like these are normal market infrastructure.",
-      noteZh: "港交所证券交易有规定交易时段，香港上市证券以每手为交易单位。这些规则是正常的市场基础设施。",
-      task: "Name one rule that could matter before an investor tries to trade.",
-      taskZh: "说出一个投资者交易前需要注意的规则。",
-      visual: investmentPhotos.lesson2HkexConnectHall2018
-    },
-    {
-      type: "riskRegister",
-      eyebrow: "Friction register",
-      title: "What can make trading harder?",
-      zhTitle: "什么会让交易更困难？",
-      table: [
-        ["Friction", "Student question", "Likely effect"],
-        ["Trading hours", "Is the market open now?", "You may need to wait for the next session."],
-        ["Board lot", "Can I buy exactly the number of shares I want?", "Trading units can shape order size."],
-        ["Low liquidity", "Are there enough buyers and sellers near my price?", "The trade may move price or take longer."],
-        ["Spread and costs", "What is the gap between buy and sell prices?", "The cost of entering or exiting can be higher."]
-      ],
-      effectLabel: "Why it matters",
-      revealEffects: true,
-      prompt: "Best one-sentence rule:",
-      answer: "Check the market route and the trading friction before judging a share.",
-      promptZh: "最佳一句话规则：判断股票前，先检查市场路径和交易摩擦。",
-      visual: investmentPhotos.smartphoneMarketChart
+      title: "Choose the family next action",
+      zhTitle: "选择家庭的下一步行动",
+      notes: "Misconception correction -> output rehearsal -> individual exit."
     },
     {
       type: "peerTask",
       taskType: "missingSentence",
-      eyebrow: "Build the sentence",
-      title: "Market usefulness with a limit",
-      zhTitle: "市场有用，但有边界",
-      prompt: "Complete the missing sentence so it avoids the common overclaim.",
-      promptZh: "补全缺失句子，避免常见的过度推断。",
-      missingSentenceStep: 3,
-      missingSentenceAnswer: "does not automatically give new money to the company",
-      missingSentenceAnswerZh: "不会自动给公司带来新资金",
+      eyebrow: "Output rehearsal",
+      title: "Complete the family decision chain",
+      zhTitle: "补全家庭决策链条",
+      prompt: "Write the missing sentence that connects the family facts to different actions.",
+      promptZh: "写出缺少的句子，把家庭事实与不同的行动连接起来。",
       steps: [
-        {
-          label: "1",
-          text: "A stock exchange helps listed shares trade under rules.",
-          zh: "证券交易所帮助上市股票在规则下交易。"
-        },
-        {
-          label: "2",
-          text: "This can improve liquidity because buyers and sellers have an organised market.",
-          zh: "这可以提高流动性，因为买卖双方有组织化市场。"
-        },
-        {
-          label: "3",
-          text: "But a normal secondary-market trade __________.",
-          zh: "但是普通二级市场交易__________。"
-        },
-        {
-          label: "4",
-          text: "So an analyst records the company, exchange, code, source date and trading friction before judging.",
-          zh: "因此，分析者在判断前记录公司、交易所、代码、来源日期和交易摩擦。"
-        }
+        { label: "1", text: "HK$12,000 is needed in six months and must remain available.", zh: "12,000港元在六个月后需要使用，并且必须保持可用。" },
+        { label: "2", text: "__________", answer: "The HK$18,000 has a longer horizon, but investment still requires evidence and acceptance of possible loss.", zh: "18,000港元有较长期限，但投资仍需要证据并接受可能损失。" },
+        { label: "3", text: "Therefore, save the near-term money, research the long-term surplus and reject the rumour-led bet.", zh: "因此，储蓄近期资金，研究长期余钱，并拒绝传闻驱动的押注。" }
       ],
-      sharePrompt: "Read the four sentences aloud as one exit explanation.",
-      sharePromptZh: "把四句话连起来读成一个出口解释。",
-      visual: investmentPhotos.lesson2ExchangeSquareHkexSign2019
+      missingSentenceStep: 2,
+      missingSentenceAnswer: "The HK$18,000 has a longer horizon, but investment still requires evidence and acceptance of possible loss.",
+      missingSentenceAnswerZh: "18,000港元有较长期限，但投资仍需要证据并接受可能损失。",
+      sharePrompt: "Check that every action follows the purpose, horizon and evidence.",
+      sharePromptZh: "检查每一个行动是否由用途、期限和证据推导出来。"
     },
     {
-      type: "flow",
-      eyebrow: "Final route",
-      title: "Answer the starter question",
-      zhTitle: "回答开场问题",
-      flowStyle: "sequence",
-      steps: [
-        {
-          text: "Identify: Tencent Holdings Limited, 0700.HK, HKEX",
-          zh: "识别：腾讯控股、0700.HK、港交所"
-        },
-        {
-          text: "Classify the trade: new share issue or secondary-market trade?",
-          zh: "分类交易：新股发行还是二级市场交易？"
-        },
-        {
-          text: "If it is secondary-market trading, money goes to the seller, not automatically to the company.",
-          zh: "如果是二级市场交易，资金给卖方，而不是自动给公司。"
-        },
-        {
-          text: "Add the market reason: exchange trading can improve liquidity, but rules and friction still matter.",
-          zh: "补充市场理由：交易所交易可以提高流动性，但规则和摩擦仍然重要。"
-        }
+      type: "classificationTask",
+      eyebrow: "Final practice",
+      title: "Allocate the family money by purpose",
+      zhTitle: "按用途分配家庭资金",
+      prompt: "Place each case in the most defensible next-action category.",
+      promptZh: "把每个案例放入最合理的下一步行动类别。",
+      categories: [
+        { title: "Save", zhTitle: "储蓄", clue: "needed soon, must stay available" },
+        { title: "Consider investing", zhTitle: "考虑投资", clue: "long-term surplus, research first" },
+        { title: "Reject speculation", zhTitle: "拒绝投机", clue: "rumour-led short-term bet" }
       ],
-      visual: investmentPhotos.lesson2ExchangeSquareCentral2021
-    },
-    {
-      type: "yesNoCheck",
-      eyebrow: "Exit misconception check",
-      title: "Ready to judge the trade?",
-      zhTitle: "准备好判断这笔交易了吗？",
-      prompt: "Use yes/no plus one reason. Reveal after each reason.",
-      promptZh: "用是/否加一个理由。每个理由说完后再揭示。",
-      compact: true,
       items: [
-        {
-          text: "The stock exchange helps listed securities trade.",
-          zh: "证券交易所帮助上市证券交易。",
-          answer: true,
-          answerZh: "是",
-          reason: "That is the basic market function.",
-          reasonZh: "这是基本市场功能。"
-        },
-        {
-          text: "A stock code is enough evidence to decide whether to buy.",
-          zh: "股票代码足以作为是否买入的证据。",
-          answer: false,
-          answerZh: "否",
-          reason: "It identifies the security but does not value it.",
-          reasonZh: "它识别证券，但不进行估值。"
-        },
-        {
-          text: "Liquidity means easy trading with no risk.",
-          zh: "流动性意味着容易交易且没有风险。",
-          answer: false,
-          answerZh: "否",
-          reason: "Liquidity describes ease of trading; price and investment risk remain.",
-          reasonZh: "流动性描述交易便利度；价格和投资风险仍然存在。"
-        },
-        {
-          text: "A market trade can matter even if the company is not receiving new money from that exact trade.",
-          zh: "即使公司没有从该笔交易收到新资金，市场交易仍然重要。",
-          answer: true,
-          answerZh: "是",
-          reason: "It supports transfer of ownership and liquidity.",
-          reasonZh: "它支持所有权转让和流动性。"
-        }
+        { label: "A", text: "HK$12,000 for a bill due in six months", zh: "六个月后到期账单所需的12,000港元", answer: "Save", answerZh: "储蓄", reason: "The family needs safety and ready access.", reasonZh: "家庭需要安全和随时可用。" },
+        { label: "B", text: "HK$18,000 not needed for at least five years", zh: "至少五年内不需要的18,000港元", answer: "Consider investing", answerZh: "考虑投资", reason: "Only the long-term surplus can move to researched investment consideration.", reasonZh: "只有长期余钱可以进入经过研究的投资考虑。" },
+        { label: "C", text: "All HK$30,000 on a one-week rumour", zh: "根据一周传闻押上全部30,000港元", answer: "Reject speculation", answerZh: "拒绝投机", reason: "The action combines a short horizon, weak evidence and excessive exposure.", reasonZh: "这个行动结合了短期期限、薄弱证据和过度风险暴露。" }
       ],
-      visual: investmentPhotos.lesson2HkexInterior2007
+      sharePrompt: "Write one caveat: the lesson classifies the action, not a named financial product.",
+      sharePromptZh: "写出一个局限：本课给行动分类，而不是推荐具体金融产品。"
+    },
+    {
+      type: "quiz",
+      eyebrow: "Hinge question",
+      title: "Which family decision uses the lesson rule?",
+      zhTitle: "哪一个家庭决定使用了本课规则？",
+      question: "Which decision is most defensible from the frozen facts?",
+      zh: "根据冻结的事实，哪一个决定最合理？",
+      choices: [
+        "Invest all HK$30,000 because investing has possible return.",
+        "Save all HK$30,000 because investment always loses money.",
+        "Save the HK$12,000, research whether the HK$18,000 fits a long-term investment and reject the rumour-led bet.",
+        "Use all HK$30,000 for the one-week rumour because the time horizon is short."
+      ],
+      answer: 2,
+      explanation: "The decision matches each amount to its purpose, time horizon, liquidity need, evidence and possible loss.",
+      explanationZh: "这个决定把每笔资金与其用途、期限、流动性需求、证据和可能损失相匹配。"
+    },
+    {
+      type: "discussion",
+      eyebrow: "Return to the dilemma",
+      title: "What should the family do next?",
+      zhTitle: "这个家庭下一步应该做什么？",
+      question: "Give one action for the HK$12,000, one action for the HK$18,000 and one verdict on the rumour-led bet.",
+      questionZh: "分别给12,000港元和18,000港元一个行动，并对传闻驱动的押注作出判断。",
+      revealTitle: "Match each action to purpose, horizon and evidence",
+      answer: "Save the HK$12,000 needed in six months. Gather evidence before considering whether the HK$18,000 long-term surplus fits an investment. Reject the one-week rumour-led bet as speculation.",
+      answerZh: "储蓄六个月后需要的12,000港元。先收集证据，再考虑18,000港元长期余钱是否适合投资。拒绝基于一周传闻的押注，把它视为投机。",
+      visual: investmentPhotos.investorMeetingReport
     },
     {
       type: "answer",
       eyebrow: "Exit ticket",
-      title: "Exit ticket: fix the first answer",
-      zhTitle: "出口题：修正第一答案",
+      title: "Submit the family decision",
+      zhTitle: "提交家庭决策",
+      mode: "fillBlanks",
       items: [
-        {
-          prompt: "A stock exchange is a regulated market where listed securities can be bought and ________.",
-          answer: "sold",
-          zh: "证券交易所是一个受监管的市场，上市证券可以在这里买入和________。"
-        },
-        {
-          prompt: "A stock code helps identify a security, but it does not prove investment ________.",
-          answer: "quality",
-          zh: "股票代码帮助识别证券，但不能证明投资________。"
-        },
-        {
-          prompt: "When one investor buys existing listed shares from another investor, the company does not automatically receive new ________.",
-          answer: "money",
-          zh: "当一位投资者从另一位投资者手中买入已有上市股票时，公司不会自动收到新________。"
-        },
-        {
-          prompt: "A good Lesson 2 judgement names the exchange, stock code, source date and one trading ________.",
-          answer: "friction",
-          zh: "好的第二课判断会写出交易所、股票代码、来源日期和一个交易________。"
-        }
+        { prompt: "Money needed soon and kept available belongs in __________.", answer: "saving", zh: "近期需要并保持可用的资金属于__________。", answerZh: "储蓄" },
+        { prompt: "Long-term surplus may be considered for __________ after evidence and risk checks.", answer: "investment", zh: "经过证据和风险检查后，长期余钱可以考虑用于__________。", answerZh: "投资" },
+        { prompt: "A weak-evidence one-week price bet is __________.", answer: "speculation", zh: "依据薄弱证据进行一周价格押注属于__________。", answerZh: "投机" }
       ],
-      notes: [
-        "Collect or cold-call two exit answers.",
-        "The strongest answers should explicitly correct the starter misconception."
-      ]
+      notes: "Collect individually. The next lesson should retrieve purpose, time horizon, liquidity need and possible loss before introducing asset classes."
     }
   ]
 };

@@ -1,3 +1,4 @@
+// Archived 11 July 2026 before course realignment.
 window.INVEST = window.INVEST || {};
 window.INVEST.marketData = window.INVEST.marketData || {};
 

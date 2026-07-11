@@ -2,151 +2,151 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 2 Quiz",
-  description: "Check whether students can explain why a stock market exists, identify a listed share, and avoid the misconception that every market purchase gives new money to the company.",
+  description: "Check whether students can distinguish saving, investing and speculation using purpose, time horizon, liquidity, evidence and possible loss.",
   questions: [
     {
-      id: "stock-exchange-role",
+      id: "saving-definition",
       type: "multipleChoice",
-      prompt: "What is a stock exchange?",
-      zh: "证券交易所是什么？",
+      prompt: "Which statement best defines saving?",
+      zh: "哪一个说法最准确地定义储蓄？",
       choices: [
-        "A regulated market where listed securities can be bought and sold",
-        "A guarantee that every share price will rise",
-        "A company product catalogue",
-        "A private investment adviser"
+        "Keeping money safe and available for future use",
+        "Trying to profit from a one-week price rumour",
+        "Putting all money into an asset regardless of risk",
+        "Guaranteeing a higher return than investing"
       ],
       answer: 0,
-      explanation: "A stock exchange organises trading in listed securities under market rules.",
-      explanationZh: "证券交易所在市场规则下组织上市证券交易。"
+      explanation: "Saving prioritises safety and availability for future use.",
+      explanationZh: "储蓄优先考虑未来使用所需的安全性和可用性。"
     },
     {
-      id: "listing-definition",
-      type: "multipleChoice",
-      prompt: "In this lesson, what does listing mean?",
-      zh: "本课中，“上市”是什么意思？",
-      choices: [
-        "A company's securities have permission to trade on an exchange",
-        "The company has no investment risk",
-        "Every trade gives new money to the company",
-        "The company must be the largest business in its industry"
-      ],
-      answer: 0,
-      explanation: "Listing is about permission to trade on an exchange after meeting market rules.",
-      explanationZh: "上市指在满足市场规则后获准在交易所交易。"
-    },
-    {
-      id: "stock-code-purpose",
-      type: "multipleChoice",
-      prompt: "What is the main purpose of a stock code such as 0700.HK?",
-      zh: "像 0700.HK 这样的股票代码主要有什么作用？",
-      choices: [
-        "It identifies a listed security in market data.",
-        "It proves the share is good value.",
-        "It removes all trading friction.",
-        "It replaces the need for a source date."
-      ],
-      answer: 0,
-      explanation: "A stock code is an identifier. It is not proof of investment quality.",
-      explanationZh: "股票代码是识别码，不是投资质量的证明。"
-    },
-    {
-      id: "secondary-market-money",
-      type: "multipleChoice",
-      prompt: "An investor buys existing listed shares from another investor on HKEX. What should we not assume?",
-      zh: "一位投资者在港交所从另一位投资者手中买入已有上市股票。我们不应该假设什么？",
-      choices: [
-        "That the company automatically receives new money from this trade",
-        "That ownership can change hands",
-        "That the trade happens through a market",
-        "That the share can have a stock code"
-      ],
-      answer: 0,
-      explanation: "A normal secondary-market trade transfers existing shares between investors.",
-      explanationZh: "普通二级市场交易是在投资者之间转让已有股票。"
-    },
-    {
-      id: "primary-issue",
-      type: "multipleChoice",
-      prompt: "Which situation is most clearly company fundraising?",
-      zh: "哪种情况最明显属于公司筹资？",
-      choices: [
-        "The company issues new shares, such as in an IPO.",
-        "One investor sells existing shares to another investor.",
-        "A student recognises the company name.",
-        "A stock code appears on a quote page."
-      ],
-      answer: 0,
-      explanation: "A new share issue can raise capital for the company. A secondary-market trade usually pays the selling investor.",
-      explanationZh: "新股发行可以为公司筹集资本；二级市场交易通常是买方向卖方付款。"
-    },
-    {
-      id: "source-box",
-      type: "multipleChoice",
-      prompt: "Which source-box record is strongest before judging an HKEX example?",
-      zh: "判断港交所例子前，哪种来源框记录最强？",
-      choices: [
-        "Company, exchange, stock code, source title, accessed date and limitation",
-        "Only the company logo",
-        "Only whether the price looks high",
-        "Only a friend's trading opinion"
-      ],
-      answer: 0,
-      explanation: "Lesson 2 continues the source habit: identify the security and record the source before judging.",
-      explanationZh: "第二课延续来源习惯：先识别证券并记录来源，再作判断。"
-    },
-    {
-      id: "liquidity-definition",
-      type: "multipleChoice",
-      prompt: "What does liquidity describe?",
-      zh: "流动性描述什么？",
-      choices: [
-        "How easily an asset can be bought or sold without a large price change",
-        "Whether a company is famous",
-        "The exact future share price",
-        "How many products the company sells"
-      ],
-      answer: 0,
-      explanation: "Liquidity is about ease of trading, not a guarantee of profit or safety.",
-      explanationZh: "流动性关于交易便利度，不保证盈利或安全。"
-    },
-    {
-      id: "trading-friction",
-      type: "multipleChoice",
-      prompt: "Which example shows trading friction?",
-      zh: "哪一个例子体现了交易摩擦？",
-      choices: [
-        "Trading hours, board lots, spreads, costs or limited buyers and sellers",
-        "A company has a familiar brand",
-        "A share has a stock code",
-        "A student likes the product"
-      ],
-      answer: 0,
-      explanation: "Markets reduce friction, but real trading still happens inside rules and costs.",
-      explanationZh: "市场减少摩擦，但真实交易仍受规则和成本影响。"
-    },
-    {
-      id: "market-importance",
-      type: "multipleChoice",
-      prompt: "Why can a stock market matter even when a company does not receive money from every trade?",
-      zh: "即使公司不是每笔交易都收到钱，股票市场为什么仍然重要？",
-      choices: [
-        "It helps investors transfer ownership and can improve liquidity.",
-        "It guarantees every investor will earn a return.",
-        "It removes the need to check sources.",
-        "It proves the company is undervalued."
-      ],
-      answer: 0,
-      explanation: "Secondary-market trading can support ownership transfer and liquidity, but it does not guarantee returns.",
-      explanationZh: "二级市场交易支持所有权转让和流动性，但不保证收益。"
-    },
-    {
-      id: "exit-sentence",
+      id: "investment-definition",
       type: "fillBlank",
-      prompt: "A normal secondary-market trade transfers existing shares between investors; it does not automatically give new money to the ________.",
-      zh: "普通二级市场交易是在投资者之间转让已有股票；它不会自动给________带来新资金。",
-      acceptedAnswers: ["company", "firm", "business"],
-      explanation: "The company raises new money mainly through issuing new shares, not through every later market trade.",
-      explanationZh: "公司主要通过发行新股筹集新资金，而不是通过之后的每一笔市场交易。"
+      prompt: "Investment seeks future return while accepting possible ________.",
+      zh: "投资寻求未来回报，同时接受可能的________。",
+      acceptedAnswers: ["loss", "损失"],
+      explanation: "Investment accepts possible loss; return is not guaranteed.",
+      explanationZh: "投资接受可能损失；回报并不保证。"
+    },
+    {
+      id: "speculation-definition",
+      type: "multipleChoice",
+      prompt: "Which action is closest to speculation?",
+      zh: "哪一个行动最接近投机？",
+      choices: [
+        "Betting on a one-week price rumour with weak evidence",
+        "Keeping bill money available for six months",
+        "Checking risk and fit before a long-term investment",
+        "Recording an official source and its date"
+      ],
+      answer: 0,
+      explanation: "A short-term price bet based on weak evidence fits the lesson definition of speculation.",
+      explanationZh: "基于薄弱证据的短期价格押注符合本课对投机的定义。"
+    },
+    {
+      id: "near-term-money",
+      type: "multipleChoice",
+      prompt: "The family needs HK$12,000 in six months. Which first action is most defensible?",
+      zh: "家庭在六个月后需要12,000港元。哪一个初步行动最合理？",
+      choices: [
+        "Keep it saved and available",
+        "Use it for a one-week price bet",
+        "Accept any possible loss for higher return",
+        "Ignore when the money is needed"
+      ],
+      answer: 0,
+      explanation: "Near-term money with a high liquidity need should remain safe and available.",
+      explanationZh: "流动性需求高的近期资金应保持安全和可用。"
+    },
+    {
+      id: "long-term-surplus",
+      type: "multipleChoice",
+      prompt: "What should happen before the HK$18,000 long-term surplus is invested?",
+      zh: "在把18,000港元长期余钱用于投资之前，应该做什么？",
+      choices: [
+        "Check evidence, risk, possible loss and investor fit",
+        "Follow the first rumour",
+        "Assume a long horizon guarantees profit",
+        "Choose the product with the most exciting advert"
+      ],
+      answer: 0,
+      explanation: "A longer horizon allows consideration, not an automatic investment decision.",
+      explanationZh: "较长期限允许进行考虑，但不等于自动作出投资决定。"
+    },
+    {
+      id: "liquidity-need",
+      type: "multipleChoice",
+      prompt: "What does a high liquidity need mean in this family case?",
+      zh: "在这个家庭案例中，高流动性需求意味着什么？",
+      choices: [
+        "The money must be readily available",
+        "The money should face more price risk",
+        "The money cannot be saved",
+        "The money has no purpose"
+      ],
+      answer: 0,
+      explanation: "Liquidity need concerns how readily the family must be able to use the money.",
+      explanationZh: "流动性需求关注家庭需要多容易地使用这笔钱。"
+    },
+    {
+      id: "higher-return-shortcut",
+      type: "multipleChoice",
+      prompt: "Why is 'investing is always better than saving' incorrect?",
+      zh: "为什么“投资总是比储蓄更好”是不正确的？",
+      choices: [
+        "The right action depends on purpose, horizon, liquidity and possible loss",
+        "Saving always earns a higher return",
+        "Investment never produces a return",
+        "Time horizon does not matter"
+      ],
+      answer: 0,
+      explanation: "Possible return is only one factor; near-term purpose and liquidity can make saving the better fit.",
+      explanationZh: "可能回报只是一个因素；近期用途和流动性可能使储蓄更适合。"
+    },
+    {
+      id: "source-guidance",
+      type: "multipleChoice",
+      prompt: "Which factor is supported by the IFEC source used in the lesson?",
+      zh: "本课使用的投委会来源支持哪一个因素？",
+      choices: [
+        "Investment time horizon and liquidity needs matter",
+        "Every long-term investment makes a profit",
+        "A rumour is enough evidence",
+        "One product fits every family"
+      ],
+      answer: 0,
+      explanation: "The IFEC guidance highlights time horizon, liquidity needs, resources and risk tolerance.",
+      explanationZh: "投委会指引强调投资期限、流动性需求、财务资源和风险承受能力。"
+    },
+    {
+      id: "source-limitation",
+      type: "multipleChoice",
+      prompt: "What can the official guidance not decide for the family?",
+      zh: "官方指引不能替这个家庭决定什么？",
+      choices: [
+        "A named product that is guaranteed to be suitable",
+        "That time horizon matters",
+        "That possible loss should be considered",
+        "That investment decisions need evidence"
+      ],
+      answer: 0,
+      explanation: "General guidance supports the method but does not choose or guarantee a named product.",
+      explanationZh: "一般指引支持分析方法，但不会选择或保证某个具体产品。"
+    },
+    {
+      id: "family-final-decision",
+      type: "multipleChoice",
+      prompt: "Which final family decision best uses the lesson evidence?",
+      zh: "哪一个家庭最终决定最符合本课证据？",
+      choices: [
+        "Save the HK$12,000, research the HK$18,000 before considering investment, and reject the rumour-led bet",
+        "Invest all HK$30,000 immediately",
+        "Save all HK$30,000 because investment always fails",
+        "Use all HK$30,000 for the rumour because the possible return is high"
+      ],
+      answer: 0,
+      explanation: "The answer matches each amount to purpose, horizon, liquidity, evidence and possible loss.",
+      explanationZh: "这个答案把每笔资金与用途、期限、流动性、证据和可能损失相匹配。"
     }
   ]
 };

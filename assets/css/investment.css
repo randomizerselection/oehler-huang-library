@@ -10061,6 +10061,32 @@ img {
   line-height: 1.05 !important;
 }
 
+@media (min-width: 901px) and (max-height: 800px) {
+  .invCompactClassificationSlide .invClassificationTask,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
+    gap: 7px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategories,
+  .invCompactClassificationSlide .invClassificationItems {
+    gap: 7px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategory {
+    padding: 7px 9px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationCategoryVisual {
+    height: 48px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationItem,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
+    gap: 6px !important;
+    padding: 10px !important;
+  }
+}
+
 @media (max-width: 900px) {
   .invClassificationTask,
   .invCompactClassificationSlide .invClassificationTask,

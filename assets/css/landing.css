@@ -1,0 +1,711 @@
+/* Shared visual layer for the library directory and course doorway pages. */
+
+.landing-page {
+  --landing-page-max: 1240px;
+  --landing-radius: 14px;
+  --landing-radius-small: 10px;
+  --landing-border: rgba(255, 255, 255, 0.14);
+  --landing-border-strong: rgba(255, 255, 255, 0.25);
+  --landing-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+
+.landing-page::before {
+  background:
+    linear-gradient(180deg, rgba(86, 216, 255, 0.05), transparent 30%),
+    linear-gradient(135deg, #07111f, #0b1b2a 52%, #07111f);
+}
+
+.landing-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+  border: 1px solid var(--landing-border);
+  border-radius: var(--landing-radius-small);
+  background: rgba(7, 17, 31, 0.88);
+  padding: 8px 10px 8px 14px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.landing-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  color: #f7fbff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.landing-brand-mark {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(86, 216, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(86, 216, 255, 0.1);
+  color: #8be6ff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.landing-nav-links {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.landing-nav-link {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: rgba(235, 244, 255, 0.76);
+  padding: 8px 11px;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.landing-nav-link:hover,
+.landing-nav-link:focus-visible,
+.landing-nav-link.is-current {
+  border-color: rgba(86, 216, 255, 0.24);
+  background: rgba(86, 216, 255, 0.09);
+  color: #f7fbff;
+  outline: none;
+}
+
+.landing-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #f7fbff;
+  padding: 11px 15px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.landing-button:hover,
+.landing-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(86, 216, 255, 0.48);
+  background: rgba(86, 216, 255, 0.12);
+  outline: none;
+}
+
+.landing-button.primary {
+  border-color: rgba(126, 240, 181, 0.72);
+  background: #7ef0b5;
+  color: #06131b;
+}
+
+/* Library directory */
+
+.library-home .site,
+.economics-home .site {
+  width: min(var(--landing-page-max), calc(100% - 44px));
+  padding-top: 18px;
+}
+
+.library-home .hero {
+  min-height: min(610px, calc(100svh - 116px));
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  grid-template-rows: auto auto auto 1fr auto;
+  align-items: start;
+  gap: 14px 34px;
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background:
+    linear-gradient(90deg, rgba(4, 13, 25, 0.97), rgba(4, 13, 25, 0.78) 52%, rgba(4, 13, 25, 0.3)),
+    linear-gradient(0deg, rgba(4, 13, 25, 0.94), rgba(4, 13, 25, 0.08) 62%),
+    url("../images/investment-analysis/finance-chart-whiteboard-2021.jpg") center 48% / cover;
+  padding: clamp(30px, 5vw, 64px);
+  box-shadow: var(--landing-shadow);
+}
+
+.library-home .hero::before {
+  content: "Two courses. One clear starting point.";
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 2 / 4;
+  align-self: end;
+  max-width: 12ch;
+  border-top: 2px solid var(--cyan);
+  color: rgba(245, 248, 255, 0.9);
+  padding-top: 16px;
+  font-size: clamp(26px, 2.5vw, 38px);
+  font-weight: 650;
+  line-height: 1.08;
+}
+
+.library-home .hero .eyebrow { grid-column: 1; grid-row: 1; }
+
+.library-home .hero h1 {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 12ch;
+  font-size: clamp(56px, 6.4vw, 88px);
+  font-weight: 780;
+  line-height: 0.98;
+}
+
+.library-home .hero h1 span { background: none; color: #f7fbff; }
+.library-home .hero h1 span:last-child { color: var(--cyan); }
+
+.library-home .lead {
+  grid-column: 1;
+  grid-row: 3;
+  max-width: 34ch;
+  color: rgba(245, 248, 255, 0.88);
+  font-size: clamp(21px, 2vw, 28px);
+}
+
+.library-home .hero-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  grid-column: 1;
+  grid-row: 4;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.library-home .hero-metrics { grid-column: 1; grid-row: 5; min-width: 0; }
+
+.library-home .hero-metric {
+  min-height: 84px;
+  border-radius: 9px;
+  background: rgba(5, 16, 29, 0.68);
+}
+
+.library-home .author-line {
+  grid-column: 2;
+  grid-row: 5;
+  align-self: center;
+  margin: 0;
+}
+
+.library-home .section { margin-top: 42px; }
+
+.library-home .section-head {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+  padding-bottom: 18px;
+}
+
+.library-home .section h2 {
+  font-size: clamp(40px, 4.3vw, 60px);
+  font-weight: 720;
+}
+
+.library-home .course-entry-grid { gap: 20px; }
+
+.library-home .course-entry-card {
+  min-height: 440px;
+  gap: 12px;
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background: rgba(9, 24, 39, 0.82);
+  padding: 26px;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.22);
+}
+
+.library-home .course-entry-card::before { height: 4px; background: var(--cyan); }
+.library-home .course-entry-card.investment-entry::before { background: var(--green); }
+
+.library-home .course-entry-media {
+  height: 178px;
+  margin: -26px -26px 8px;
+}
+
+.library-home .course-entry-media img { opacity: 0.72; }
+
+.library-home .course-entry-card h3 {
+  max-width: 18ch;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+}
+
+.library-home .course-tags li { border-radius: 6px; font-weight: 750; }
+.library-home .course-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.library-home .course-link.primary {
+  grid-column: 1 / -1;
+  min-height: 48px;
+}
+
+/* Economics doorway */
+
+.economics-home .hero {
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background:
+    linear-gradient(90deg, rgba(5, 15, 28, 0.97), rgba(5, 15, 28, 0.8) 52%, rgba(5, 15, 28, 0.25)),
+    linear-gradient(0deg, rgba(5, 15, 28, 0.9), rgba(5, 15, 28, 0.04) 58%),
+    url("../images/macro-aims/china-national-bureau-statistics.jpg") center 42% / cover;
+  box-shadow: var(--landing-shadow);
+}
+
+.economics-home .hero-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  grid-template-rows: auto auto 1fr auto;
+  gap: 18px 36px;
+  min-height: min(610px, calc(100svh - 116px));
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.economics-home .hero-copy { grid-column: 1; grid-row: 1; }
+
+.economics-home .hero h1 {
+  max-width: 12ch;
+  font-size: clamp(58px, 7vw, 96px);
+  font-weight: 760;
+  line-height: 0.96;
+}
+
+.economics-home .hero h1 span { background: none; color: #f7fbff; }
+.economics-home .hero h1 span:last-child { color: var(--cyan); }
+
+.economics-home .hero .lead {
+  max-width: 30ch;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.28;
+}
+
+.economics-home .economics-hero-stats {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / 4;
+  align-self: end;
+  border-top: 3px solid var(--cyan);
+  background: rgba(5, 16, 29, 0.72);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.economics-home .economics-hero-stats span {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 74px;
+  border: 1px solid rgba(86, 216, 255, 0.18);
+  border-top: 0;
+  color: rgba(219, 231, 246, 0.76);
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.economics-home .economics-hero-stats strong {
+  color: #f7fbff;
+  font-size: 28px;
+  font-weight: 760;
+  line-height: 1;
+}
+
+.economics-home .hero-actions { grid-column: 1; grid-row: 2; }
+.economics-home .author-line { grid-column: 1; grid-row: 4; }
+.economics-home .section { margin-top: 46px; }
+.economics-home .section-head { border-bottom-color: var(--landing-border); }
+
+.economics-home .section h2 {
+  max-width: 17ch;
+  font-size: clamp(40px, 4.8vw, 66px);
+  font-weight: 720;
+}
+
+.economics-home .course-roadmap { display: grid; gap: 14px; }
+
+.economics-home .unit-step {
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background: rgba(9, 24, 39, 0.7);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+}
+
+.economics-home .lesson-card {
+  border-radius: var(--landing-radius-small);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Investment Analysis doorway */
+
+.investment-home.landing-page {
+  --landing-border: rgba(214, 231, 232, 0.17);
+  --landing-border-strong: rgba(214, 231, 232, 0.3);
+  background: linear-gradient(180deg, #071013, #091418 44%, #060b0e);
+}
+
+.investment-home .investment-page {
+  width: min(var(--landing-page-max), calc(100% - 44px));
+  padding-top: 18px;
+}
+
+.investment-home .landing-nav { background: rgba(6, 15, 18, 0.9); }
+
+.investment-home .investment-nav {
+  min-height: 58px;
+  margin-bottom: 14px;
+}
+
+.investment-home .investment-nav > .investment-link {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 14px;
+}
+
+.investment-home .investment-nav > .investment-link::before {
+  content: "IA";
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(79, 210, 255, 0.36);
+  border-radius: 8px;
+  background: rgba(79, 210, 255, 0.09);
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.investment-home .investment-nav-links { gap: 6px; }
+
+.investment-home .investment-nav-links .investment-link {
+  min-height: 38px;
+  border-color: transparent;
+  background: transparent;
+  color: rgba(247, 251, 248, 0.76);
+  padding: 8px 11px;
+  font-size: 13px;
+}
+
+.investment-home .investment-nav-links .investment-link:hover,
+.investment-home .investment-nav-links .investment-link:focus-visible {
+  border-color: rgba(79, 210, 255, 0.22);
+  background: rgba(79, 210, 255, 0.08);
+}
+
+.investment-home .investment-nav-links .investment-link:last-child {
+  border-color: rgba(57, 217, 145, 0.55);
+  background: rgba(57, 217, 145, 0.12);
+  color: var(--inv-ink);
+}
+
+.investment-home .investment-hero {
+  min-height: min(710px, calc(100svh - 116px));
+  grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.75fr);
+  align-content: stretch;
+  align-items: end;
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background:
+    linear-gradient(90deg, rgba(4, 10, 12, 0.98), rgba(4, 10, 12, 0.75) 55%, rgba(4, 10, 12, 0.25)),
+    linear-gradient(0deg, rgba(4, 10, 12, 0.94), rgba(4, 10, 12, 0.04) 62%),
+    url("../images/investment-analysis/trading-desk-laptops-2025.jpg") center 55% / cover;
+  box-shadow: var(--landing-shadow);
+}
+
+.investment-home .investment-hero-copy {
+  width: auto;
+  padding: clamp(42px, 6vw, 72px);
+}
+
+.investment-home .investment-hero h1 {
+  max-width: 9ch;
+  font-size: clamp(64px, 7vw, 94px);
+  line-height: 0.94;
+}
+
+.investment-home .investment-hero-copy > p {
+  max-width: 39rem;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.3;
+}
+
+.investment-home .investment-action {
+  min-height: 46px;
+  border-radius: 9px;
+  padding: 11px 15px;
+}
+
+.investment-home .investment-status-panel {
+  width: auto;
+  margin: 0 clamp(30px, 4vw, 48px) clamp(38px, 5vw, 56px) 0;
+  border: 1px solid rgba(79, 210, 255, 0.25);
+  border-top: 3px solid var(--inv-cyan);
+  background: rgba(5, 14, 17, 0.78);
+  padding: 20px;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.investment-home .investment-learning-strip {
+  grid-template-columns: 1fr;
+  border-top: 0;
+  margin-top: 12px;
+  box-shadow: none;
+}
+
+.investment-home .investment-learning-item {
+  min-height: 0;
+  border: 0;
+  border-top: 1px solid rgba(79, 210, 255, 0.2);
+  background: transparent;
+  padding: 15px 0;
+}
+
+.investment-home .investment-learning-item + .investment-learning-item { border-left: 0; }
+.investment-home .investment-section { margin-top: 52px; }
+
+.investment-home .investment-section-head {
+  border-bottom-color: var(--landing-border);
+  padding-bottom: 22px;
+}
+
+.investment-home .investment-section h2 {
+  max-width: 18ch;
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 600;
+}
+
+.investment-home .investment-overview-card,
+.investment-home .investment-card {
+  border-color: var(--landing-border);
+  border-radius: var(--landing-radius);
+  background: rgba(14, 29, 34, 0.82);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+}
+
+.investment-home .investment-overview-card {
+  gap: 24px;
+  padding: clamp(24px, 3.5vw, 36px);
+}
+
+.investment-home .investment-overview-main {
+  border-left: 3px solid var(--inv-cyan);
+  padding-left: 20px;
+}
+
+.investment-home .investment-overview-list { gap: 11px; }
+
+.investment-home .investment-overview-list li {
+  border-left: 0;
+  border-top: 1px solid rgba(214, 231, 232, 0.12);
+  padding: 11px 0 0;
+}
+
+.investment-home .investment-semester-card,
+.investment-home .investment-overview-zh {
+  border-radius: 10px;
+  background: rgba(3, 12, 15, 0.34);
+}
+
+.investment-home .investment-card-grid { gap: 18px; margin-top: 22px; }
+
+.investment-home .investment-card {
+  min-height: 244px;
+  padding: 26px;
+}
+
+.investment-home .investment-card.is-featured {
+  background:
+    linear-gradient(145deg, rgba(79, 210, 255, 0.09), rgba(14, 29, 34, 0.86) 58%, rgba(57, 217, 145, 0.06)),
+    rgba(14, 29, 34, 0.82);
+}
+
+.investment-home .investment-card h3 {
+  max-width: 19ch;
+  font-size: clamp(25px, 2.4vw, 32px);
+}
+
+@media (max-width: 900px) {
+  .landing-nav { align-items: flex-start; flex-wrap: wrap; }
+
+  .landing-nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .library-home .hero,
+  .economics-home .hero-inner,
+  .investment-home .investment-hero { grid-template-columns: 1fr; }
+
+  .library-home .hero::before { display: none; }
+
+  .library-home .hero .eyebrow,
+  .library-home .hero h1,
+  .library-home .lead,
+  .library-home .hero-actions,
+  .library-home .hero-metrics,
+  .library-home .author-line,
+  .economics-home .hero-copy,
+  .economics-home .economics-hero-stats,
+  .economics-home .hero-actions,
+  .economics-home .author-line { grid-column: 1; grid-row: auto; }
+
+  .economics-home .economics-hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-self: auto;
+  }
+
+  .economics-home .economics-hero-stats span { grid-template-columns: 1fr; }
+
+  .investment-home .investment-status-panel { margin: 0 28px 28px; }
+}
+
+@media (max-width: 640px) {
+  .library-home .site,
+  .economics-home .site,
+  .investment-home .investment-page {
+    width: min(100% - 24px, var(--landing-page-max));
+    padding-top: 12px;
+  }
+
+  .landing-nav { min-height: 0; margin-bottom: 10px; padding: 8px; }
+  .landing-brand { width: 100%; }
+
+  .landing-nav-link {
+    min-height: 36px;
+    padding-inline: 9px;
+    font-size: 12px;
+  }
+
+  .landing-nav-links {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .library-home .hero,
+  .economics-home .hero-inner { min-height: 0; padding: 26px 22px; }
+
+  .library-home .hero h1,
+  .economics-home .hero h1,
+  .investment-home .investment-hero h1 { font-size: clamp(48px, 15vw, 62px); }
+
+  .library-home .hero-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .library-home .hero-metric { min-height: 0; }
+  .library-home .author-line { margin-top: 4px; }
+
+  .library-home .section-head,
+  .investment-home .investment-section-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .library-home .course-entry-grid { grid-template-columns: 1fr; }
+
+  .library-home .course-entry-card { min-height: 0; padding: 21px; }
+
+  .library-home .course-entry-media {
+    height: 150px;
+    margin: -21px -21px 6px;
+  }
+
+  .library-home .course-actions { grid-template-columns: 1fr; }
+  .library-home .course-link.primary { grid-column: auto; }
+
+  .economics-home .economics-hero-stats { grid-template-columns: 1fr; }
+
+  .economics-home .economics-hero-stats span {
+    grid-template-columns: 58px 1fr;
+    min-height: 60px;
+  }
+
+  .economics-home .hero-actions .button { width: 100%; }
+
+  .investment-home .investment-hero { min-height: 0; }
+  .investment-home .investment-hero-copy { padding: 34px 22px 24px; }
+  .investment-home .investment-status-panel { margin: 0 18px 18px; padding: 18px; }
+
+  .investment-home .investment-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .investment-home .investment-nav > .investment-link {
+    width: auto;
+  }
+
+  .investment-home .investment-nav-links {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .investment-home .investment-nav-links .investment-link {
+    width: auto;
+    flex: 1 1 92px;
+  }
+
+  .investment-home .investment-nav-links .investment-link:last-child {
+    flex-basis: 100%;
+  }
+
+  .investment-home .investment-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .investment-home .investment-action.primary { grid-column: 1 / -1; }
+
+  .investment-home .investment-hero-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .investment-home .investment-overview-card { grid-template-columns: 1fr; padding: 22px; }
+  .investment-home .investment-card-grid { grid-template-columns: 1fr; }
+
+  .investment-home .investment-card.is-featured,
+  .investment-home .investment-card.is-data { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-page *,
+  .landing-page *::before,
+  .landing-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

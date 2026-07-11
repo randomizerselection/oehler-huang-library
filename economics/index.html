@@ -961,9 +961,10 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/landing.css" />
   <script src="../assets/js/baidu-analytics.js"></script>
 </head>
-<body class="bg-ambient">
+<body class="bg-ambient economics-home landing-page">
   <form name="quiz-submissions" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="quiz-submissions" />
     <input type="hidden" name="attemptId" />
@@ -983,17 +984,35 @@
   </form>
 
   <main class="site">
+    <nav class="landing-nav" aria-label="Course navigation">
+      <a class="landing-brand" href="../index.html">
+        <span class="landing-brand-mark" aria-hidden="true">OH</span>
+        <span>Oehler-Huang Library</span>
+      </a>
+      <div class="landing-nav-links">
+        <a class="landing-nav-link is-current" href="index.html" aria-current="page">Economics</a>
+        <a class="landing-nav-link" href="../investment-analysis/index.html">Investment Analysis</a>
+        <a class="landing-nav-link" href="../definitions.html">Definitions</a>
+        <a class="landing-nav-link" href="../pedagogy.html">Teaching</a>
+      </div>
+    </nav>
+
     <header class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <div class="eyebrow">IGCSE Economics Lesson Library</div>
+          <div class="eyebrow">Cambridge IGCSE 0455</div>
           <h1>
-            <span>Oehler-Huang</span>
-            <span>Library</span>
+            <span>IGCSE</span>
+            <span>Economics</span>
           </h1>
           <p class="lead">
             Classroom-tested lessons, quizzes, handouts, and review materials.
           </p>
+        </div>
+        <div class="economics-hero-stats" aria-label="Economics course summary">
+          <span><strong>2</strong> active units</span>
+          <span><strong>4</strong> study modes</span>
+          <span><strong>0455</strong> syllabus</span>
         </div>
         <div class="hero-actions" aria-label="Featured links">
           <a class="button primary" href="#course-map">Review lessons</a>
@@ -1016,6 +1035,7 @@
           <h2 id="materials-title">IGCSE Economics Lesson Library</h2>
           <p class="section-title-zh" lang="zh-Hans">IGCSE经济学课程库</p>
         </div>
+        <p class="section-intro">Choose a unit, then open the classroom slides, printable handout, quiz or flashcards.</p>
       </div>
 
       <div class="course-roadmap">

@@ -151,10 +151,10 @@
     ];
 
     const lessonSpecs = [
-      { n: 1, anchor: "Tencent", role: "listed company", q: "What is investment analysis?", hook: "Would you buy shares in Tencent? Give one reason.", idea: "Investment analysis judges potential return, risk and suitability before action.", tryIt: "Classify the missing evidence before making a Tencent judgement.", terms: [["investment analysis", "投资分析"], ["investor fit", "投资者适合度"], ["return", "回报"], ["risk", "风险"], ["asset", "资产"], ["share", "股票 / 股份"]], formula: "no new formula; students classify evidence needs and explain in words only." },
-      { n: 2, anchor: "Family saving plan", role: "financial product", q: "How are saving, investing and speculation different?", hook: "A family has money left over. Should it save, invest or speculate?", idea: "Saving protects short-term needs, while investing accepts risk for possible future return.", tryIt: "Sort actions into saving, investing and speculation with a reason.", terms: [["saving", "储蓄"], ["investment", "投资"], ["speculation", "投机"]], formula: "no new formula; students classify choices by goal, risk and time horizon." },
-      { n: 3, anchor: "Mixed asset set", role: "comparison case", q: "What kinds of assets can an investor own?", hook: "Cash, property, bonds and shares all have value. Are they the same kind of risk?", idea: "Different asset classes have different liquidity, risk and return patterns.", tryIt: "Rank a mixed asset set by liquidity and risk with one caveat.", terms: [["asset class", "资产类别"], ["liquidity need", "流动性需求"]], formula: "no new formula; students rank asset types qualitatively and explain caveats." },
-      { n: 4, anchor: "Xiaomi", role: "listed company", q: "What does owning one share actually give?", hook: "If you own one Xiaomi share, do you control Xiaomi?", idea: "A share is an ownership claim, but control depends on rights and ownership size.", tryIt: "Sort shareholder statements into gives, may give and does not give.", terms: [["share ownership", "股票所有权"], ["shareholder right", "股东权利"]], formula: "ownership % = shares owned / total shares x 100." },
+      { n: 1, anchor: "Tencent", role: "listed company", q: "What is investment analysis?", judgementFocus: "the Tencent investment case", hook: "Would you buy shares in Tencent? Give one reason.", idea: "Investment analysis judges potential return, risk and suitability before action.", tryIt: "Classify the missing evidence before making a Tencent judgement.", naive: "A familiar and successful company is automatically a suitable investment.", missing: "Students need dated evidence on potential return, risk, price, source limitations and investor fit for Tencent.", misconception: "A familiar company is automatically a suitable investment.", exit: "Write a Tencent judgement that identifies missing return, risk, price and fit evidence and chooses gather more evidence.", studentOutput: "Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.", terms: [["investment analysis", "投资分析"], ["return", "回报"], ["risk", "风险"], ["investor fit", "投资者适合度"]], formula: "no new formula; students classify evidence needs and explain in words only." },
+      { n: 2, anchor: "Family saving plan", role: "financial product", q: "How are saving, investing and speculation different?", judgementFocus: "the family saving decision", hook: "Should the family save, invest or speculate with all HK$30,000? Give one reason.", idea: "Saving protects short-term needs, while investing accepts risk for possible future return.", tryIt: "Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.", naive: "Investing is always better than saving because possible return is higher.", missing: "Students need the purpose, time horizon, liquidity need, ability to accept loss and evidence quality for each part of the family money.", misconception: "Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.", exit: "Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.", studentOutput: "Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.", terms: [["saving", "储蓄"], ["investment", "投资"], ["speculation", "投机"]], formula: "no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss." },
+      { n: 3, anchor: "Mixed asset set", role: "comparison case", q: "What kinds of assets can an investor own?", hook: "Cash, property, bonds and shares all have value. Are they the same kind of risk?", idea: "Different asset classes have different liquidity, risk and return patterns.", tryIt: "Rank a mixed asset set by liquidity and risk with one caveat.", terms: [["asset", "资产"], ["asset class", "资产类别"], ["liquidity need", "流动性需求"]], formula: "no new formula; students rank asset types qualitatively and explain caveats." },
+      { n: 4, anchor: "Xiaomi", role: "listed company", q: "What does owning one share actually give?", hook: "If you own one Xiaomi share, do you control Xiaomi?", idea: "A share is an ownership claim, but control depends on rights and ownership size.", tryIt: "Sort shareholder statements into gives, may give and does not give.", terms: [["share", "股票 / 股份"], ["share ownership", "股票所有权"], ["shareholder right", "股东权利"]], formula: "ownership % = shares owned / total shares x 100." },
       { n: 5, anchor: "HKEX", role: "exchange/infrastructure case", q: "Why do investors need organised markets?", hook: "If you buy a share today, who gets the money and why does the market exist?", idea: "An exchange helps listed securities trade, but secondary trades do not always fund the company.", tryIt: "Match company, exchange, stock code and one market friction.", terms: [["stock exchange", "证券交易所"], ["secondary market", "二级市场"], ["listing", "上市"], ["stock code", "股票代码"], ["liquidity", "流动性"]], formula: "no new formula; students identify company, exchange, code and one trading friction accurately." },
       { n: 6, anchor: "Alibaba quote snapshot", role: "listed company", q: "What can a quote page tell us?", hook: "A quote page shows Alibaba's price. Is that enough to decide?", idea: "A quote page is a dated market snapshot, not a promise of value or execution.", tryIt: "Read one quote snapshot and separate what it tells from what it cannot prove.", terms: [["quote page", "报价页面"], ["bid-ask spread", "买卖价差"], ["share price", "股价"]], formula: "bid-ask spread = ask price - bid price." },
       { n: 7, anchor: "JD.com evidence pack", role: "listed company", q: "How should an analyst record evidence before judging?", hook: "JD.com's price moved. Which source would you trust first?", idea: "Useful evidence records source, date, figure, use and limitation before judgement.", tryIt: "Build one evidence-log row and state one limitation.", terms: [["evidence log", "证据记录"], ["source limitation", "来源局限"]], formula: "no new formula; students use the chain information -> expectation -> action -> possible price movement." },
@@ -301,7 +301,7 @@
         {
           key: "individualOutput",
           title: "Individual written output",
-          task: `Write a short ${spec.anchor} judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.`
+          task: spec.studentOutput || `Write a short ${spec.anchor} judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.`
         }
       ];
     }
@@ -334,13 +334,13 @@
         keyIdea: spec.idea,
         tryIt: spec.tryIt,
         misconceptionCheck: spec.misconception || "A familiar or attractive example is automatically a suitable investment.",
-        exitJudgement: `Write a ${spec.anchor} next-action judgement using evidence, caveat and fit.`
+        exitJudgement: spec.exit || `Write a ${spec.anchor} next-action judgement using evidence, caveat and fit.`
       };
       const handoutSections = handoutSectionsFor(spec, terms);
       const handoutBlocks = blueprintBlocksFor(handoutSections);
       const studentOutput = handoutSections.find((section) => section.key === "individualOutput").task;
       const formula = spec.formula || "no new formula; students interpret evidence and explain the judgement in words.";
-      const topic = spec.topic || spec.q.toLowerCase();
+      const judgementFocus = spec.judgementFocus || spec.topic || `${spec.anchor} case`;
 
       return {
         lesson: spec.n,
@@ -349,9 +349,10 @@
         company: spec.anchor,
         guidingQuestion: spec.q,
         guidingQuestionZh: `课程问题：${spec.q}`,
-        handoutMaterial: `${spec.anchor} worksheet on ${topic}`,
+        judgementFocus,
+        handoutMaterial: `${spec.anchor} worksheet on ${judgementFocus}`,
         formativeAssessment: `First judgement, retrieval check, source-date check, ${spec.tryIt.toLowerCase()} and an individual next-action sentence.`,
-        exitTicket: `Complete a short ${spec.anchor} exit judgement using one evidence point, one caveat and one next action.`,
+        exitTicket: `Complete the lesson exit judgement: ${decisionFirst.exitJudgement}`,
         sequenceRole: `Lesson ${spec.n} in Semester ${semester}, Unit ${unit}: ${unitInfo.title}.`,
         retrievalBase: spec.n === 1
           ? "Everyday familiarity with companies, saving choices, risk and first impressions."
@@ -393,7 +394,7 @@
         caseRole: spec.role,
         primaryOutput: {
           type: "evidence-based-next-action-judgement",
-          description: `one ${spec.anchor} judgement with dated evidence, caveat and next action`
+          description: studentOutput
         },
         sourcePack: makeSourcePack(spec),
         assessmentBlueprint: {
@@ -424,7 +425,7 @@
           replacementCandidate: null
         },
         analyseWhy: {
-          question: `Analyse why the evidence used in the ${spec.anchor} case could change an investor's judgement about ${topic}`,
+          question: `Analyse why the evidence used in the ${spec.anchor} case could change an investor's judgement about ${judgementFocus}`,
           chain: [
             "dated evidence or source detail",
             spec.idea,
@@ -478,7 +479,7 @@
               {
                 type: "analyse-why",
                 command: "Analyse why",
-                prompt: `Analyse why this evidence could change the judgement about ${topic}.`
+                prompt: `Analyse why this evidence could change the judgement about ${judgementFocus}.`
               },
               {
                 type: "student-judgement",
@@ -493,7 +494,7 @@
           studentAction: `Choose consider, watch, avoid, compare with another choice or gather more evidence for ${spec.anchor}.`,
           decisionRule: "The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.",
           portfolioQuestion: "Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.",
-          classroomOutput: `I can write a ${spec.anchor} next-action judgement with dated evidence and one caveat.`
+          classroomOutput: studentOutput
         },
         studentHook: decisionFirst.starterDilemma,
         simpleFlow: [
@@ -506,7 +507,7 @@
       };
     }
 
-    map.version = 6;
+    map.version = 7;
     map.syllabusKey = "company-analysis";
     map.courseTitle = "Investment Analysis: Evidence-Based Investing";
     map.mapTitle = "Standard 50-Lesson Evidence-Based Investing Course Map";
