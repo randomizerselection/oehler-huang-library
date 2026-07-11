@@ -232,6 +232,9 @@ window.INVEST.lesson = {
       title: "Share price",
       term: "Share price",
       termZh: "股价",
+      keywordVisuals: [
+        { label: "One share at one time", labelZh: "特定时间的一股股票", visual: investmentPhotos.assetSharesScreen }
+      ],
       definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
       definitionZh: "股价是在特定时间一股股票的市场交易价格。",
       notes: [
@@ -247,9 +250,9 @@ window.INVEST.lesson = {
       zhTitle: "回忆检查",
       mode: "fillBlanks",
       items: [
-        { prompt: "Evidence comes before __________.", answer: "opinion", zh: "先看证据，再形成观点。" },
-        { prompt: "A share is one unit of __________.", answer: "ownership", zh: "一股股票是一个所有权单位。" },
-        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能低于预期。" }
+        { prompt: "Evidence comes before __________.", answer: "opinion", zh: "先看证据，再形成__________。", answerZh: "观点" },
+        { prompt: "A share is one unit of __________.", answer: "ownership", zh: "一股股票是一个__________单位。", answerZh: "所有权" },
+        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能低于__________。", answerZh: "预期" }
       ],
       notes: [
         "Current role: fill-in retrieval or short answer list.",
@@ -265,10 +268,10 @@ window.INVEST.lesson = {
       visual: investmentPhotos.financeChartWhiteboard,
       flowStyle: "sequence",
       steps: [
-        { text: "New information changes __________.", answer: "expectations", zh: "新信息会改变预期。" },
-        { text: "Expectations affect buyers and __________.", answer: "sellers", zh: "预期会影响买方和卖方。" },
-        { text: "Buying and selling can move the share __________.", answer: "price", zh: "买卖力量可能推动股价变化。" },
-        { text: "The analyst checks evidence before __________.", answer: "judgement", zh: "分析者先核查证据，再作判断。" }
+        { text: "New information changes __________.", answer: "expectations", zh: "新信息会改变预期。", visual: investmentPhotos.annualReports, visualLabel: "Information", visualLabelZh: "信息" },
+        { text: "Expectations affect buyers and __________.", answer: "sellers", zh: "预期会影响买方和卖方。", visual: investmentPhotos.investorChartScreens, visualLabel: "Expectations", visualLabelZh: "预期" },
+        { text: "Buying and selling can move the share __________.", answer: "price", zh: "买卖力量可能推动股价变化。", visual: investmentPhotos.marketScreen, visualLabel: "Price movement", visualLabelZh: "价格变动" },
+        { text: "The analyst checks evidence before __________.", answer: "judgement", zh: "分析者先核查证据，再作判断。", visual: investmentPhotos.stockReportCalculator, visualLabel: "Judgement", visualLabelZh: "判断" }
       ],
       notes: [
         "Current role: sequence with revealed blanks.",
@@ -338,10 +341,10 @@ window.INVEST.lesson = {
         noteZh: "排序需要理由"
       },
       items: [
-        { label: "A", text: "Cash and savings", zh: "现金和储蓄" },
-        { label: "B", text: "Property", zh: "房产" },
-        { label: "C", text: "Shares", zh: "股票" },
-        { label: "D", text: "Commodities", zh: "大宗商品" }
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄", visual: investmentPhotos.assetCashSavings },
+        { label: "B", text: "Property", zh: "房产", visual: investmentPhotos.assetPropertyBuilding },
+        { label: "C", text: "Shares", zh: "股票", visual: investmentPhotos.assetShareCertificate },
+        { label: "D", text: "Commodities", zh: "大宗商品", visual: investmentPhotos.assetCommoditiesPort }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -509,12 +512,18 @@ window.INVEST.lesson = {
       mode: "fillBlanks",
       leftTitle: "Evidence-based analysis",
       leftTitleZh: "基于证据的分析",
+      leftVisual: investmentPhotos.annualReports,
+      leftVisualLabel: "Source evidence",
+      leftVisualLabelZh: "来源证据",
       left: [
         { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的__________开始。", answerZh: "来源" },
         { label: "2", text: "Checks return, risk and __________.", answer: "price", zh: "检查回报、风险和__________。", answerZh: "价格" }
       ],
       rightTitle: "Weak opinion",
       rightTitleZh: "薄弱观点",
+      rightVisual: investmentPhotos.modernTradingDesk,
+      rightVisualLabel: "Unsupported view",
+      rightVisualLabelZh: "缺少证据的观点",
       right: [
         { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人__________开始。", answerZh: "熟悉度" },
         { label: "2", text: "Ignores what the investor __________.", answer: "pays", zh: "忽视投资者__________了什么。", answerZh: "支付" }
@@ -535,9 +544,9 @@ window.INVEST.lesson = {
       prompt: "Classify each case using the categories already taught.",
       promptZh: "用已经学过的类别给每个案例分类。",
       categories: [
-        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure" },
-        { title: "Risk", zhTitle: "风险", clue: "what could go worse" },
-        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support" }
+        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure", visual: investmentPhotos.annualReports },
+        { title: "Risk", zhTitle: "风险", clue: "what could go worse", visual: investmentPhotos.keywordDemandRiskEmptyStore },
+        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support", visual: investmentPhotos.modernTradingDesk }
       ],
       items: [
         { label: "A", text: "Uses a dated annual-report figure.", zh: "使用带日期的年报数据。", answer: "Evidence", answerZh: "证据", reason: "It names a source-backed fact.", reasonZh: "它说出了有来源支持的事实。" },
@@ -821,10 +830,10 @@ window.INVEST.lesson = {
       zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
-        { prompt: "The slide type I would keep is __________.", answer: "name one type", zh: "我会保留的幻灯片类型是……" },
-        { prompt: "The slide type I would edit first is __________.", answer: "name one type", zh: "我会优先修改的幻灯片类型是……" },
-        { prompt: "The slide type I may replace or delete is __________.", answer: "name one type", zh: "我可能替换或删除的幻灯片类型是……" },
-        { prompt: "One rule for future decks is __________.", answer: "write a rule", zh: "未来课件的一条规则是……" }
+        { prompt: "The slide type I would keep is __________.", answer: "name one type", zh: "我会保留的幻灯片类型是__________。", answerZh: "说出一个类型" },
+        { prompt: "The slide type I would edit first is __________.", answer: "name one type", zh: "我会优先修改的幻灯片类型是__________。", answerZh: "说出一个类型" },
+        { prompt: "The slide type I may replace or delete is __________.", answer: "name one type", zh: "我可能替换或删除的幻灯片类型是__________。", answerZh: "说出一个类型" },
+        { prompt: "One rule for future decks is __________.", answer: "write a rule", zh: "未来课件的一条规则是__________。", answerZh: "写一条规则" }
       ],
       notes: [
         "Current role: answer type becomes an exit ticket when the title includes Exit ticket.",

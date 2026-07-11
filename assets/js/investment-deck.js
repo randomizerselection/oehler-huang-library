@@ -44,6 +44,33 @@
       </figure>`;
   }
 
+  function keywordVisualMarkup(item, fallbackLabel = '', fallbackZh = '', className = '') {
+    if (!item) return '';
+    const photo = item.src ? item : (item.visual || item.photo);
+    if (!photo?.src) return '';
+    const label = item.src
+      ? fallbackLabel
+      : (item.label || item.title || item.visualLabel || fallbackLabel || photo.caption || photo.alt || '');
+    const labelZh = item.src
+      ? fallbackZh
+      : (item.labelZh || item.zhTitle || item.titleZh || item.visualLabelZh || fallbackZh || '');
+    return `
+      <figure class="invKeywordVisual ${escapeHtml(className)}"${photoStyle(photo)}>
+        <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || label || '')}" loading="eager" />
+        ${(label || labelZh) ? `
+          <figcaption>
+            ${label ? `<strong>${escapeHtml(label)}</strong>` : ''}
+            ${labelZh ? `<span lang="zh-Hans">${escapeHtml(labelZh)}</span>` : ''}
+          </figcaption>` : ''}
+      </figure>`;
+  }
+
+  function keywordVisualListMarkup(items, className = '') {
+    const list = Array.isArray(items) ? items : (items ? [items] : []);
+    const visuals = list.map((item) => keywordVisualMarkup(item)).filter(Boolean).join('');
+    return visuals ? `<div class="invKeywordVisualList ${escapeHtml(className)}">${visuals}</div>` : '';
+  }
+
   function sourceMarkup(sources) {
     if (!sources || !sources.length) return '';
     return `
@@ -582,11 +609,13 @@
 
   function renderTerm(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
+    const keywordVisuals = keywordVisualListMarkup(slide.keywordVisuals || slide.keywordVisual, 'invTermVisuals');
     const termBox = `
       <div class="invTermBox">
         <div class="invTermHeaderBlock">
           <div class="invTermWord">${escapeHtml(slide.term || slide.title)}</div>
           ${slide.termZh ? `<div class="invTermZh" lang="zh-Hans">${escapeHtml(slide.termZh)}</div>` : ''}
+          ${keywordVisuals}
         </div>
         <div class="invTermDefinition">
           <div class="invTermDefinitionText">${applyDefinitionBlanks(slide.definition || '', slide.definitionBlanks)}</div>
@@ -600,15 +629,20 @@
   function renderAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const isExitTicket = /exit ticket/i.test(slide.title || '');
-    const items = (slide.items || []).map((item, i) => `
-      <div class="invCheckItem">
-        <span class="invCheckNumber">${i + 1}</span>
-        <span class="invCheckText">
-          ${fillBlankMarkup(item.prompt, item.answer)}
-          ${item.zh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</div>` : ''}
-        </span>
-      </div>
-    `).join('');
+    const items = (slide.items || []).map((item, i) => {
+      const zhMarkup = item.zh && item.answerZh
+        ? fillBlankMarkup(item.zh, item.answerZh)
+        : escapeHtml(item.zh || '');
+      return `
+        <div class="invCheckItem">
+          <span class="invCheckNumber">${i + 1}</span>
+          <span class="invCheckText">
+            ${fillBlankMarkup(item.prompt, item.answer)}
+            ${item.zh ? `<div class="invZhLine" lang="zh-Hans">${zhMarkup}</div>` : ''}
+          </span>
+        </div>
+      `;
+    }).join('');
     const body = `<div class="invCheckList${isExitTicket ? ' invExitList' : ''}">${items}</div>`;
     return slideShell(slide, index, lesson, body, `${isExitTicket ? 'invAnswerSlide invExitTicketSlide' : 'invAnswerSlide'}${photo ? ' invContextPhotoSlide' : ''}`, photo);
   }
@@ -622,9 +656,12 @@
       const bodyText = rawStep?.body || step.text;
       const textMarkup = title
         ? `
+          ${keywordVisualMarkup(rawStep?.visual || rawStep?.photo, rawStep?.visualLabel || title, rawStep?.visualLabelZh || rawStep?.titleZh || '', 'invStepVisual')}
           <strong class="invStepTitle">${escapeHtml(title)}</strong>
           ${bodyText ? `<span class="invStepText">${fillBlankMarkup(bodyText, step.answer)}</span>` : ''}`
-        : `<strong>${fillBlankMarkup(step.text, step.answer)}</strong>`;
+        : `
+          ${keywordVisualMarkup(rawStep?.visual || rawStep?.photo, rawStep?.visualLabel || step.text, rawStep?.visualLabelZh || '', 'invStepVisual')}
+          <strong>${fillBlankMarkup(step.text, step.answer)}</strong>`;
       return `
         <div class="invStep">
           <span class="invStepNum">${escapeHtml(step.label || i + 1)}</span>
@@ -934,9 +971,10 @@
   function renderCompare(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const mode = slide.mode || 'list';
-    const renderColumn = (title, titleZh, items = []) => `
+    const renderColumn = (title, titleZh, items = [], visual, visualLabel, visualLabelZh) => `
       <section class="invCompareColumn">
         <h2>${escapeHtml(title || '')}${titleZh ? `<span lang="zh-Hans">${escapeHtml(titleZh)}</span>` : ''}</h2>
+        ${keywordVisualMarkup(visual, visualLabel || title, visualLabelZh || titleZh, 'invCompareVisual')}
         <div class="invCompareList">
           ${(items || []).map((item, i) => {
             const normalized = normalizeNumberedItem(item, i);
@@ -959,8 +997,8 @@
     const body = `
       <div class="invCompareTwoColumn">
         <div class="invCompareColumns">
-          ${renderColumn(slide.leftTitle, slide.leftTitleZh, slide.left)}
-          ${renderColumn(slide.rightTitle, slide.rightTitleZh, slide.right)}
+          ${renderColumn(slide.leftTitle, slide.leftTitleZh, slide.left, slide.leftVisual || slide.leftPhoto, slide.leftVisualLabel, slide.leftVisualLabelZh)}
+          ${renderColumn(slide.rightTitle, slide.rightTitleZh, slide.right, slide.rightVisual || slide.rightPhoto, slide.rightVisualLabel, slide.rightVisualLabelZh)}
         </div>
         ${slide.prompt ? `<div class="invFocusPrompt${promptClass}"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
       </div>`;
@@ -984,6 +1022,7 @@
             <strong>${escapeHtml(normalized.title || normalized.label || '')}</strong>
             ${normalized.zhTitle ? `<span lang="zh-Hans">${escapeHtml(normalized.zhTitle)}</span>` : ''}
           </div>
+          ${keywordVisualMarkup(normalized.visual || normalized.photo, normalized.visualLabel || normalized.title || normalized.label, normalized.visualLabelZh || normalized.zhTitle, 'invClassificationCategoryVisual')}
           ${normalized.clue ? `<em>${escapeHtml(normalized.clue)}</em>` : ''}
         </div>`;
     }).join('');
@@ -1132,6 +1171,9 @@
         cueZh: item?.cueZh || item?.hintZh || '',
         reason: item?.reason || '',
         reasonZh: item?.reasonZh || '',
+        visual: item?.visual || item?.photo || null,
+        visualLabel: item?.visualLabel || item?.title || item?.text || '',
+        visualLabelZh: item?.visualLabelZh || item?.zh || item?.textZh || '',
       };
     };
     const items = rawItems.map(normalizeRankingItem);
@@ -1146,6 +1188,7 @@
     const itemCards = items.map((item) => `
       <article class="invRankingCard">
         <span>${escapeHtml(item.label)}</span>
+        ${keywordVisualMarkup(item.visual, item.visualLabel || item.text, item.visualLabelZh || item.zh, 'invRankingVisual')}
         <div>
           <strong>${escapeHtml(item.text)}</strong>
           ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}

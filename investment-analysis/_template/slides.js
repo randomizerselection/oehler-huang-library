@@ -98,6 +98,9 @@ window.INVEST.lesson = {
       title: "Key term",
       term: "Key term",
       termZh: "关键词",
+      keywordVisuals: [
+        { label: "Visible keyword image", labelZh: "关键词配图", visual: window.INVEST.photos?.stockReportCalculator }
+      ],
       definition: "A key term is the precise concept students must use when writing an evidence-based investment judgement.",
       definitionBlanks: ["precise concept"],
       definitionZh: "关键词是学生在写出基于证据的投资判断时必须使用的准确概念。",
@@ -124,9 +127,9 @@ window.INVEST.lesson = {
       visual: window.INVEST.photos?.stockReportCalculator,
       flowStyle: "sequence",
       steps: [
-        { text: "First key link uses a __________.", answer: "blank", zh: "第一步使用一个关键空格。" },
-        { text: "Second key link changes __________.", answer: "something", zh: "第二步说明发生了什么变化。" },
-        { text: "Third key link affects the __________.", answer: "outcome", zh: "第三步连接到结果。" }
+        { text: "First key link uses a __________.", answer: "blank", zh: "第一步使用一个关键空格。", visual: window.INVEST.photos?.annualReports, visualLabel: "Source evidence", visualLabelZh: "来源证据" },
+        { text: "Second key link changes __________.", answer: "something", zh: "第二步说明发生了什么变化。", visual: window.INVEST.photos?.keywordDemandRiskEmptyStore, visualLabel: "Change or risk", visualLabelZh: "变化或风险" },
+        { text: "Third key link affects the __________.", answer: "outcome", zh: "第三步连接到结果。", visual: window.INVEST.photos?.keywordDividendCheque, visualLabel: "Outcome", visualLabelZh: "结果" }
       ]
     },
     {
@@ -161,10 +164,10 @@ window.INVEST.lesson = {
         noteZh: "排序必须有理由，而不是猜测"
       },
       items: [
-        { label: "A", text: "Choice A", zh: "选择A" },
-        { label: "B", text: "Choice B", zh: "选择B" },
-        { label: "C", text: "Choice C", zh: "选择C" },
-        { label: "D", text: "Choice D", zh: "选择D" }
+        { label: "A", text: "Choice A", zh: "选择A", visual: window.INVEST.photos?.assetCashSavings },
+        { label: "B", text: "Choice B", zh: "选择B", visual: window.INVEST.photos?.assetPropertyBuilding },
+        { label: "C", text: "Choice C", zh: "选择C", visual: window.INVEST.photos?.assetShareCertificate },
+        { label: "D", text: "Choice D", zh: "选择D", visual: window.INVEST.photos?.assetCommoditiesPort }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -290,12 +293,18 @@ window.INVEST.lesson = {
       mode: "fillBlanks",
       leftTitle: "Evidence-based analysis",
       leftTitleZh: "基于证据的分析",
+      leftVisual: window.INVEST.photos?.annualReports,
+      leftVisualLabel: "Source evidence",
+      leftVisualLabelZh: "来源证据",
       left: [
         { label: "1", text: "Starts with a dated __________.", answer: "source", zh: "从带日期的__________开始。", answerZh: "来源" },
         { label: "2", text: "Names a possible __________.", answer: "risk", zh: "说出一个可能的__________。", answerZh: "风险" }
       ],
       rightTitle: "Weak opinion",
       rightTitleZh: "薄弱观点",
+      rightVisual: window.INVEST.photos?.modernTradingDesk,
+      rightVisualLabel: "Unsupported view",
+      rightVisualLabelZh: "缺少证据的观点",
       right: [
         { label: "1", text: "Starts with personal __________.", answer: "familiarity", zh: "从个人__________开始。", answerZh: "熟悉度" },
         { label: "2", text: "Ignores the __________ paid.", answer: "price", zh: "忽视支付的__________。", answerZh: "价格" }
@@ -311,9 +320,9 @@ window.INVEST.lesson = {
       prompt: "Classify each case using the taught categories.",
       promptZh: "用已学类别给每个案例分类。",
       categories: [
-        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure" },
-        { title: "Risk", zhTitle: "风险", clue: "what could go worse" },
-        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support" }
+        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure", visual: window.INVEST.photos?.annualReports },
+        { title: "Risk", zhTitle: "风险", clue: "what could go worse", visual: window.INVEST.photos?.keywordDemandRiskEmptyStore },
+        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support", visual: window.INVEST.photos?.modernTradingDesk }
       ],
       items: [
         { label: "A", text: "Uses a dated annual-report figure.", zh: "使用带日期的年报数据。", answer: "Evidence", answerZh: "证据", reason: "It names a source-backed fact.", reasonZh: "它说出了有来源支持的事实。" },
@@ -498,9 +507,9 @@ window.INVEST.lesson = {
       zhTitle: "回忆并提交本课输出",
       mode: "fillBlanks",
       items: [
-        { prompt: "The key term or rule I must remember is __________.", answer: "lesson target", zh: "我必须记住的关键词或规则是……" },
-        { prompt: "The evidence, formula or source habit I used was __________.", answer: "lesson skill", zh: "我使用的证据、公式或来源习惯是……" },
-        { prompt: "My individual output answers the question: __________.", answer: "guiding question", zh: "我的个人输出回答的问题是……" }
+        { prompt: "The key term or rule I must remember is __________.", answer: "lesson target", zh: "我必须记住的关键词或规则是__________。", answerZh: "本课目标" },
+        { prompt: "The evidence, formula or source habit I used was __________.", answer: "lesson skill", zh: "我使用的证据、公式或来源习惯是__________。", answerZh: "本课技能" },
+        { prompt: "My individual output answers the question: __________.", answer: "guiding question", zh: "我的个人输出回答的问题是__________。", answerZh: "引导问题" }
       ],
       notes: "Replace these placeholders with the lesson exitTicket and primaryOutput. The final check should be individual, collectable and aligned with the follow-up quiz; do not force a generic limitation sentence when the lesson output is a calculation, classification or source log."
     }

@@ -221,6 +221,9 @@ window.INVEST.lesson = {
       term: "Investment analysis",
       termZh: "投资分析",
       visual: investmentPhotos.investorChartScreens,
+      keywordVisuals: [
+        { label: "Evidence before action", labelZh: "行动前看证据", visual: investmentPhotos.stockReportCalculator }
+      ],
       definition: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
       definitionBlanks: ["potential return"],
       definitionZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。",
@@ -237,18 +240,27 @@ window.INVEST.lesson = {
         {
           label: "01",
           title: "Potential return",
+          visual: investmentPhotos.keywordDividendCheque,
+          visualLabel: "Return",
+          visualLabelZh: "回报",
           text: "What the investor may gain or lose.",
           zh: "潜在回报：可能赚多少或亏多少。"
         },
         {
           label: "02",
           title: "Risk",
+          visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
+          visualLabel: "Risk",
+          visualLabelZh: "风险",
           text: "What could be worse than expected.",
           zh: "风险：结果可能比预期更差。"
         },
         {
           label: "03",
           title: "Suitability",
+          visual: investmentPhotos.investorMeetingReport,
+          visualLabel: "Suitability",
+          visualLabelZh: "适合性",
           text: "Whether it fits this investor's goals, time and risk tolerance.",
           zh: "适合性：是否符合目标、时间和风险承受能力。"
         }
@@ -262,6 +274,9 @@ window.INVEST.lesson = {
       term: "Return",
       termZh: "回报",
       visual: investmentPhotos.marketScreen,
+      keywordVisuals: [
+        { label: "Gain, loss or income", labelZh: "收益、损失或收入", visual: investmentPhotos.keywordDividendCheque }
+      ],
       definition: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.",
       definitionBlanks: ["gain or loss"],
       definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。",
@@ -274,6 +289,9 @@ window.INVEST.lesson = {
       term: "Risk",
       termZh: "风险",
       visual: investmentPhotos.lesson1ScenarioRedMarketLosses,
+      keywordVisuals: [
+        { label: "Worse than expected", labelZh: "比预期更差", visual: investmentPhotos.keywordDemandRiskEmptyStore }
+      ],
       definition: "Risk is the possibility that results, returns or prices are worse than expected.",
       definitionBlanks: ["worse than expected"],
       definitionZh: "风险是结果、回报或价格比预期更差的可能性。",
@@ -305,9 +323,9 @@ window.INVEST.lesson = {
       visual: investmentPhotos.annualReports,
       compact: true,
       categories: [
-        { title: "Return", zhTitle: "回报", clue: "gain, loss, income or price change" },
-        { title: "Risk", zhTitle: "风险", clue: "what could be worse than expected" },
-        { title: "Suitability", zhTitle: "适合性", clue: "fit for this investor" }
+        { title: "Return", zhTitle: "回报", clue: "gain, loss, income or price change", visual: investmentPhotos.keywordDividendCheque },
+        { title: "Risk", zhTitle: "风险", clue: "what could be worse than expected", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
+        { title: "Suitability", zhTitle: "适合性", clue: "fit for this investor", visual: investmentPhotos.investorMeetingReport }
       ],
       items: [
         {
@@ -349,6 +367,12 @@ window.INVEST.lesson = {
       zhTitle: "投资还是投机？",
       mode: "fillBlanks",
       visual: investmentPhotos.speculatorInvestorRace,
+      leftVisual: investmentPhotos.stockReportCalculator,
+      leftVisualLabel: "Evidence habit",
+      leftVisualLabelZh: "证据习惯",
+      rightVisual: investmentPhotos.lesson1ScenarioSmartphoneCandlestick,
+      rightVisualLabel: "Price chase",
+      rightVisualLabelZh: "追逐价格",
       leftTitle: "Investment",
       leftTitleZh: "投资",
       rightTitle: "Speculation",
@@ -454,6 +478,9 @@ window.INVEST.lesson = {
       title: "Asset",
       term: "Asset",
       termZh: "资产",
+      keywordVisuals: [
+        { label: "Owned economic value", labelZh: "可拥有的经济价值", visual: investmentPhotos.assetPropertyBuilding }
+      ],
       definition: "An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource.",
       definitionBlanks: ["value"],
       definitionZh: "资产是指具有经济价值、可以被拥有或控制的东西，例如现金、房产、债券、股票或企业资源。",
@@ -528,10 +555,10 @@ window.INVEST.lesson = {
         noteZh: "风险指结果可能比预期更差"
       },
       items: [
-        { label: "A", text: "Cash and savings", zh: "现金和储蓄" },
-        { label: "B", text: "Property", zh: "房产" },
-        { label: "C", text: "Shares", zh: "股票" },
-        { label: "D", text: "Commodities", zh: "大宗商品" }
+        { label: "A", text: "Cash and savings", zh: "现金和储蓄", visual: investmentPhotos.assetCashSavings },
+        { label: "B", text: "Property", zh: "房产", visual: investmentPhotos.assetPropertyBuilding },
+        { label: "C", text: "Shares", zh: "股票", visual: investmentPhotos.assetShareCertificate },
+        { label: "D", text: "Commodities", zh: "大宗商品", visual: investmentPhotos.assetCommoditiesPort }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理排序",
@@ -585,6 +612,9 @@ window.INVEST.lesson = {
       term: "Share",
       termZh: "股票 / 股份",
       visual: investmentPhotos.assetSharesScreen,
+      keywordVisuals: [
+        { label: "Ownership unit", labelZh: "所有权单位", visual: investmentPhotos.assetShareCertificate }
+      ],
       definition: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.",
       definitionBlanks: ["ownership"],
       definitionZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。",
@@ -654,12 +684,12 @@ window.INVEST.lesson = {
       mode: "fillBlanks",
       visual: investmentPhotos.lesson1TencentSeafrontSiteVisit11,
       items: [
-        { prompt: "Investment analysis evaluates potential return, risk and __________.", answer: "suitability", zh: "投资分析评估潜在回报、风险和适合性。" },
-        { prompt: "Speculation often chases price __________.", answer: "movement", zh: "投机常常追逐价格变动。" },
-        { prompt: "An asset has __________.", answer: "value", zh: "资产具有价值。" },
-        { prompt: "Return can be a gain or a __________.", answer: "loss", zh: "回报可以是收益，也可以是损失。" },
-        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能比预期更差。" },
-        { prompt: "A share is an ownership __________.", answer: "unit", zh: "股票是一个所有权单位。" }
+        { prompt: "Investment analysis evaluates potential return, risk and __________.", answer: "suitability", zh: "投资分析评估潜在回报、风险和__________。", answerZh: "适合性" },
+        { prompt: "Speculation often chases price __________.", answer: "movement", zh: "投机常常追逐价格__________。", answerZh: "变动" },
+        { prompt: "An asset has __________.", answer: "value", zh: "资产具有__________。", answerZh: "价值" },
+        { prompt: "Return can be a gain or a __________.", answer: "loss", zh: "回报可以是收益，也可以是__________。", answerZh: "损失" },
+        { prompt: "Risk means results may be worse than __________.", answer: "expected", zh: "风险意味着结果可能比__________更差。", answerZh: "预期" },
+        { prompt: "A share is an ownership __________.", answer: "unit", zh: "股票是一个所有权__________。", answerZh: "单位" }
       ],
       notes: "Keep this compact; collect it as the individual readiness check."
     }

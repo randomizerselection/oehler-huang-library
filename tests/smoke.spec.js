@@ -930,6 +930,21 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invLongDiscussionSlide/);
     await expectInvestmentDiscussionPromptInsideBody(page, 'lesson 1 scenario discussion projector');
     await expectInvestmentSlideFits(page, 'lesson 1 scenario discussion projector');
+
+    await goToInvestmentSlide(page, { type: 'flow', title: 'The definition has three checks' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
+    await expectInvestmentSlideFits(page, 'lesson 1 definition checks keyword visuals projector');
+
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Investment or speculation?' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCompareVisual img')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invCompareVisual img').first()).toBeVisible();
+    await expectInvestmentSlideFits(page, 'lesson 1 compare keyword visuals projector');
+
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'For each statement, choose the main focus: return, risk or suitability.' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invClassificationCategoryVisual img')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invClassificationCategoryVisual img').first()).toBeVisible();
+    await expectInvestmentSlideFits(page, 'lesson 1 classification keyword visuals projector');
     await page.setViewportSize({ width: 1920, height: 1080 });
 
     await goToInvestmentSlide(page, { type: 'term' }, lessonPath);
@@ -939,6 +954,7 @@ test.describe('site smoke', () => {
       await page.keyboard.press('Space');
       await expectInvestmentBlankRevealedVisualState(page, 'lesson 1 term revealed blank');
     }
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveCount(1);
     await expectInvestmentSlideFits(page, 'lesson 1 term interaction desktop');
 
     await goToInvestmentSlide(page, { type: 'quiz' }, lessonPath);
@@ -953,10 +969,14 @@ test.describe('site smoke', () => {
     await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Rank assets by risk' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invRankingCard p:not(.invZhLine)')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invRankingAnswer.invReveal.is-revealed')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invRankingVisual img')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invRankingVisual img').first()).toBeVisible();
     const rankingCardFont = await page.locator('.invSlide.is-active .invRankingCard strong').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
     expect(rankingCardFont, 'lesson 1 ranking card text is large enough for projection').toBeGreaterThanOrEqual(32);
     await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector');
     await revealInvestmentSlide(page);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Rank the cards from lower risk to higher risk/i);
     await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector revealed');
 
     await goToInvestmentSlide(page, { type: 'classificationTask', title: 'What does a share give?' }, lessonPath);
@@ -966,6 +986,19 @@ test.describe('site smoke', () => {
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal');
     await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal projector');
+
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Exit ticket' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(6);
+    await expect(page.locator('.invSlide.is-active .invCheckItem .blank')).toHaveCount(12);
+    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank')).toHaveCount(6);
+    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank').first()).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invCheckItem .blank').first()).not.toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket bilingual blanks projector');
+    await revealInvestmentSlide(page);
+    await expect(page.locator('.invSlide.is-active .invCheckItem .blank.is-revealed')).toHaveCount(12);
+    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank.is-revealed')).toHaveCount(6);
+    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket bilingual blanks projector revealed');
+
     await page.setViewportSize({ width: 1920, height: 1080 });
 
     await page.goto(pageUrl(lessonPath) + '?view=print');
@@ -1840,6 +1873,39 @@ test.describe('site smoke', () => {
           }
           if (slide.zhTitle !== '离堂小测') {
             failures.push(`${slideFile} slide ${index + 1}: Exit ticket title must include zhTitle`);
+          }
+        }
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  test('investment answer fill-blank slides keep blanks in both languages', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'investment-analysis'), root)
+      .filter((slideFile) => !slideFile.includes('archive'));
+    const failures = [];
+
+    for (const slideFile of slideFiles) {
+      const lesson = readLesson(slideFile);
+      if (!lesson?.slides) continue;
+
+      for (const [slideIndex, slide] of (lesson.slides || []).entries()) {
+        if (slide.type !== 'answer' || slide.mode !== 'fillBlanks') continue;
+
+        for (const [itemIndex, item] of (slide.items || []).entries()) {
+          if (!String(item.prompt || '').includes('__________')) continue;
+
+          const label = `${slideFile} slide ${slideIndex + 1} item ${itemIndex + 1}`;
+          if (!item.zh) {
+            failures.push(`${label}: missing zh prompt`);
+            continue;
+          }
+          if (!String(item.zh).includes('__________')) {
+            failures.push(`${label}: zh prompt must include a blank`);
+          }
+          if (!item.answerZh) {
+            failures.push(`${label}: missing answerZh`);
           }
         }
       }
