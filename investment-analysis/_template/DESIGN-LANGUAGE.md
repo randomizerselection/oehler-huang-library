@@ -7,6 +7,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Name the course clearly: Investment and Financial Decision-Making.
 - Keep the Analyst Desk feeling through restrained dark surfaces, precise borders, cyan section labels, green action states and amber task emphasis.
 - Use modern real local course images when an image helps the student understand the lesson. Prefer high-resolution photos from the last few years, resize them to roughly a 1920-2560px long edge, and keep accurate `alt`, `caption`, `credit` and `source` metadata.
+- Match every monetary figure to the case country or transaction market: use `CNY` for mainland China family scenarios, `HKD` only for Hong Kong-listed securities or Hong Kong transactions, `USD` for United States cases, and the corresponding currency elsewhere. Use `人民币`, `港元` or `美元` in Chinese support.
 - Do not use remote images, decorative illustrations, gradient blobs, abstract background ornaments, old stock certificates, archive trading-floor photos, museum-value artifacts, or visuals that make the lesson feel historical unless the slide is explicitly about history.
 - Treat every screen as one student-facing action or idea.
 
@@ -51,7 +52,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
 - `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
 - `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason.
-- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Keep the axis explicit and reveal one defensible order, not an absolute law.
+- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Keep the axis explicit and reveal one defensible order, not an absolute law. Use `axis.showNote: false` when the end labels already make the axis meaning complete.
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.

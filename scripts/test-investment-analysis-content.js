@@ -1471,6 +1471,7 @@ function validateActiveLessonAlignment() {
     const lesson = readInvestmentLesson(slideRelative);
     const quiz = readInvestmentQuiz(quizRelative);
     const slideSource = fs.readFileSync(slidePath, 'utf8');
+    const quizSource = fs.readFileSync(quizPath, 'utf8');
     const indexSource = fs.readFileSync(indexPath, 'utf8');
     const label = `investment-analysis/unit-1/lesson-${lessonNumber}`;
 
@@ -1512,6 +1513,10 @@ function validateActiveLessonAlignment() {
     }
     if (!String(quiz.title || '').includes(`Lesson ${lessonNumber}`)) {
       failures.push(`${label}/quiz.js: quiz title must identify the active lesson number`);
+    }
+
+    if (!/CNY/.test(slideSource) || /HK\$|HKD|港元/.test(`${slideSource}\n${quizSource}`)) {
+      failures.push(`${label}: mainland China family amounts must use CNY and 人民币, not HKD or 港元`);
     }
 
     if (lessonNumber === 1 && /What is investment analysis\?|Tencent|share price|stock exchange|saving, investing or speculation/i.test(slideSource)) {
@@ -1566,6 +1571,11 @@ function validateActiveLessonAlignment() {
   const lesson1SourceUrls = (lesson1.meta?.sources || []).map((source) => source.url || '').join('\n');
   if (!/investor\.gov/i.test(lesson1SourceUrls) || !/ifec\.org\.hk/i.test(lesson1SourceUrls)) {
     failures.push('investment-analysis/unit-1/lesson-1/slides.js: replacement lesson must cite official Investor.gov and IFEC guidance');
+  }
+
+  const templateGuidance = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');
+  if (!/CNY/.test(templateGuidance) || !/HKD/.test(templateGuidance) || !/USD/.test(templateGuidance)) {
+    failures.push('investment-analysis/_template/README.md: missing country- and transaction-matched currency guidance');
   }
 
   return failures;

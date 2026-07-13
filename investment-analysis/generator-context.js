@@ -167,6 +167,7 @@
       syllabusKey: map.syllabusKey || "default",
       courseTitle: map.courseTitle,
       mapTitle: map.mapTitle,
+      currencyRule: map.currencyRule,
       writtenArtifactRule: map.writtenArtifactRule,
       definitionOverview: map.definitionOverview,
       handoutContract: map.handoutContract,
@@ -228,6 +229,7 @@
       : [];
     return [
       ...rules,
+      ...(map.currencyRule ? [map.currencyRule] : []),
       "Use this generated context instead of copying lesson scope by hand.",
     ];
   }

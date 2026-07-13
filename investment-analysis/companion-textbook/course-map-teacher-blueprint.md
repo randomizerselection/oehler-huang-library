@@ -202,29 +202,29 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 ## Lesson 2: Family saving plan
 
 **Guiding question:** How are saving, investing and speculation different?
-**Student hook:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
+**Student hook:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 **Core claim:** Saving protects short-term needs, while investing accepts risk for possible future return.
 **Case role:** financial product
-**Primary output:** evidence-based-next-action-judgement - Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
+**Primary output:** evidence-based-next-action-judgement - Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 **Case review:** keep; Family saving plan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
 ### Simple lesson flow
 
-- **Hook:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
+- **Hook:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 - **Key idea:** Saving protects short-term needs, while investing accepts risk for possible future return.
 - **Try it:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
-- **Decide:** Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
+- **Decide:** Save the CNY 12,000 needed soon, gather evidence before considering the CNY 18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
+- **Starter dilemma:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 - **First judgement:** Students make a first judgement about Family saving plan before the key idea is taught.
 - **Likely naive answer:** Investing is always better than saving because possible return is higher.
 - **Missing evidence:** Students need the purpose, time horizon, liquidity need, ability to accept loss and evidence quality for each part of the family money.
 - **Key idea:** Saving protects short-term needs, while investing accepts risk for possible future return.
 - **Try it:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
 - **Misconception check:** Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.
-- **Exit judgement:** Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
+- **Exit judgement:** Save the CNY 12,000 needed soon, gather evidence before considering the CNY 18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Source pack
 
@@ -242,12 +242,12 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 
 ### Deck arc
 
-- Hook: start with Should the family save, invest or speculate with all HK$30,000? Give one reason.
+- Hook: start with Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
 - Teach: Saving protects short-term needs, while investing accepts risk for possible future return.
 - Evidence practice: Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
-- Exit ticket: Save the HK$12,000 needed soon, gather evidence before considering the HK$18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
+- Exit ticket: Save the CNY 12,000 needed soon, gather evidence before considering the CNY 18,000 long-term surplus for investment, and reject the rumour-led bet as speculation.
 
 ### Retrieval practice
 
@@ -261,7 +261,7 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 - **Action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Family saving plan.
 - **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
 - **Fit check:** Ask whether this choice fits the hypothetical investor's goal, time horizon, liquidity need and risk tolerance.
-- **Written action:** Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
+- **Written action:** Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 
 ### Analyse why
 
@@ -289,7 +289,7 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 - **Evidence and Data Analysis:** Use a short Family saving plan case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
 - **Calculation or judgement task:** Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
 - **Misconception check:** Correct the shortcut: Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.
-- **Individual written output:** Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
+- **Individual written output:** Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 
 ### Exam pattern
 

@@ -20,8 +20,8 @@ window.INVEST.lesson = {
         url: "https://www.ifec.org.hk/web/en/moneyessentials/financial-planning/building-an-investment-portfolio.page"
       },
       {
-        label: "Frozen family goal board",
-        note: "Teacher-created hypothetical goals used only for classroom classification. The figures are not a recommendation or a real family plan.",
+        label: "Frozen mainland China family goal board",
+        note: "Teacher-created hypothetical mainland China goals used only for classroom classification. The figures are not a recommendation or a real family plan.",
         date: "Frozen 13 July 2026",
         url: "Local classroom scenario"
       }
@@ -45,7 +45,7 @@ window.INVEST.lesson = {
           {
             type: "prompts",
             prompts: [
-              { label: "First judgement", prompt: "A family can spend HK$50,000 now or set it aside for future goals. What could justify waiting?", lines: 3 },
+              { label: "First judgement", prompt: "A family can spend CNY 50,000 now or set it aside for future goals. What could justify waiting?", lines: 3 },
               { label: "Missing evidence", prompt: "What must the family know before deciding whether investment could help?", lines: 4 }
             ]
           }
@@ -75,10 +75,10 @@ window.INVEST.lesson = {
             type: "table",
             columns: ["Goal", "Amount", "When needed", "Could a loss damage the goal?"],
             rows: [
-              ["University fees", "HK$180,000", "6 years", "Yes, if the amount is below target when fees are due"],
-              ["Home deposit", "HK$400,000", "10 years", "Yes, but the date has some flexibility"],
+              ["University fees", "CNY 180,000", "6 years", "Yes, if the amount is below target when fees are due"],
+              ["Home deposit", "CNY 400,000", "10 years", "Yes, but the date has some flexibility"],
               ["Retirement income", "Not fixed yet", "30 years", "Yes, but the horizon is long"],
-              ["Medical bill", "HK$25,000", "4 months", "Yes, and access is urgent"]
+              ["Medical bill", "CNY 25,000", "4 months", "Yes, and access is urgent"]
             ]
           }
         ]
@@ -127,7 +127,7 @@ window.INVEST.lesson = {
         ]
       }
     ],
-    sources: "Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. Goal figures are a frozen hypothetical classroom profile; this is not personal investment advice."
+    sources: "Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. Goal figures are a frozen hypothetical mainland China classroom profile; this is not personal investment advice."
   },
   slides: [
     {
@@ -139,7 +139,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Keep this as a clean title screen.",
-        "Move directly to the HK$50,000 judgement before teaching any definition."
+        "Move directly to the CNY 50,000 judgement before teaching any definition."
       ]
     },
     {
@@ -147,8 +147,8 @@ window.INVEST.lesson = {
       eyebrow: "First judgement",
       title: "Spend now or wait for a future goal?",
       zhTitle: "现在花掉，还是为未来目标等待？",
-      question: "A family can spend HK$50,000 now or set it aside for future goals. What could justify waiting?",
-      questionZh: "一个家庭可以现在花掉50,000港元，也可以把钱留给未来目标。什么理由可以说明等待是合理的？",
+      question: "A family can spend CNY 50,000 now or set it aside for future goals. What could justify waiting?",
+      questionZh: "一个家庭可以现在花掉50,000元人民币，也可以把钱留给未来目标。什么理由可以说明等待是合理的？",
       revealTitle: "A future goal may justify waiting, but it does not settle the investment decision",
       answer: "Waiting may move money toward an important future goal. Before investing, the family must still identify the goal, when the money is needed, whether it must remain available and what loss could damage the goal.",
       answerZh: "等待可以让资金用于重要的未来目标。但在投资前，家庭仍必须明确目标、何时需要资金、资金是否必须保持可用，以及什么样的损失会损害目标。",
@@ -301,31 +301,32 @@ window.INVEST.lesson = {
     },
     {
       type: "comparisonMatrix",
-      eyebrow: "Compare the extremes",
-      title: "Why do a medical bill and retirement need different decisions?",
-      zhTitle: "为什么医疗账单和退休目标需要不同的决策？",
+      eyebrow: "Predict, then compare",
+      title: "Medical bill or retirement: what changes?",
+      zhTitle: "医疗账单与退休目标：什么不同？",
       visual: investmentPhotos.investorMeetingReport,
       revealCells: true,
       cornerLabel: "Constraint",
       columns: [
-        { label: "Medical bill", note: "HK$25k" },
+        { label: "Medical bill", note: "CNY 25k" },
         { label: "Retirement income", note: "amount not fixed" }
       ],
       rows: [
-        { label: "When needed", values: ["4 months", "30 years"] },
-        { label: "Access need", values: ["Urgent and fixed", "Not needed soon"] },
-        { label: "If a loss occurs", values: ["The bill may not be paid", "The long-term goal may fall short"] },
-        { label: "First implication", values: ["Keep this money available", "Investment may be considered after more checks"] }
+        { label: "Horizon", values: ["4 months", "30 years"] },
+        { label: "Access", values: ["Urgent", "Not soon"] },
+        { label: "Loss effect", values: ["Bill unpaid", "Goal shortfall"] },
+        { label: "First decision", values: ["Keep available", "Consider after checks"] }
       ],
-      prompt: "Predict the two implications, then explain which constraint creates the difference.",
-      promptZh: "先预测两种影响，再解释是哪一个限制条件造成了差异。",
-      notes: "Use this worked contrast before students classify all four goals on the next slide. The figures are frozen hypothetical classroom data."
+      notes: [
+        "Students predict the cells before reveal, then explain which constraint creates the difference.",
+        "Use this worked contrast before students classify the other three goals on the next slide. The figures are frozen hypothetical classroom data."
+      ]
     },
     {
       type: "classificationTask",
       eyebrow: "Evidence task",
-      title: "Match each goal to why investment may or may not help",
-      zhTitle: "把每个目标与投资可能有帮助或没有帮助的理由相匹配",
+      title: "Classify whether investment may help",
+      zhTitle: "判断投资是否可能有帮助",
       prompt: "Medical bill is the worked example. Classify the other three goals, then defend one.",
       promptZh: "医疗账单是示例。给其余三个目标分类，然后说明一个理由。",
       categories: [
@@ -335,29 +336,11 @@ window.INVEST.lesson = {
       ],
       items: [
         { label: "A", text: "Retirement income in 30 years; target not fixed.", zh: "三十年后的退休收入；目标金额未定。", answer: "Conditions needed", answerZh: "需要条件", reason: "The long horizon helps, but target and loss capacity are missing.", reasonZh: "长期限有利，但仍缺目标金额和损失承受能力。" },
-        { label: "C", text: "HK$400,000 home deposit in 10 years; date flexible.", zh: "十年后的400,000港元首付；日期灵活。", answer: "May help", answerZh: "可能有帮助", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
-        { label: "D", text: "HK$180,000 university fees in 6 years; date fixed.", zh: "六年后的180,000港元学费；日期固定。", answer: "Conditions needed", answerZh: "需要条件", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
+        { label: "C", text: "CNY 400k home deposit; 10 years; flexible date.", zh: "40万元人民币首付；十年；日期灵活。", answer: "May help", answerZh: "可能有帮助", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
+        { label: "D", text: "CNY 180k university fees; 6 years; fixed date.", zh: "18万元人民币学费；六年；日期固定。", answer: "Conditions needed", answerZh: "需要条件", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
       ],
       sharePrompt: "Use goal, horizon and possible loss in one justification.",
       sharePromptZh: "在一个理由中使用目标、期限和可能损失。"
-    },
-    {
-      type: "sourceLens",
-      eyebrow: "Official guidance",
-      title: "What can introductory guidance establish?",
-      zhTitle: "入门指引能够说明什么？",
-      visual: investmentPhotos.financialAnalysisDesk,
-      revealAnswers: true,
-      metaItems: [
-        { label: "Source", value: "Investor.gov: Introduction to Investing" },
-        { label: "Accessed", value: "13 July 2026" }
-      ],
-      checks: [
-        { label: "Use", prompt: "What general relationship does the source support?", zh: "该来源支持什么一般关系？", answer: "Investing seeks return over time, all investments involve risk, and time horizon should be connected to the goal.", answerZh: "投资在一段时间内寻求回报，所有投资都涉及风险，而且投资期限应与目标相联系。" },
-        { label: "Limit", prompt: "What can the source not decide for this family?", zh: "该来源不能替这个家庭决定什么？", answer: "It cannot choose a product, set the family's priorities or guarantee that a goal will be reached.", answerZh: "它不能选择产品、设定家庭优先级，也不能保证目标一定实现。" }
-      ],
-      task: "Write one source-supported reason to invest and one family-specific fact still needed.",
-      taskZh: "写出一个有来源支持的投资理由，以及一个仍然需要的家庭具体事实。"
     },
     {
       type: "rankingTask",
@@ -366,26 +349,29 @@ window.INVEST.lesson = {
       zhTitle: "家庭必须先回答哪些问题？",
       visual: investmentPhotos.businessChartsPaper,
       prompt: "Order the cards.",
+      promptZh: "排列卡片。",
       axis: {
         low: "Ask first",
-        lowZh: "最先提问",
+        lowZh: "先问",
         high: "Ask later",
-        highZh: "较后提问",
-        note: "Goal constraints before products"
+        highZh: "后问",
+        note: "Goal constraints before products",
+        noteZh: "先目标限制，后产品",
+        showNote: false
       },
       items: [
-        { label: "A", text: "Purpose of the money", zh: "这笔钱的用途" },
-        { label: "B", text: "Highest recent product return", zh: "产品近期最高回报" },
-        { label: "C", text: "Date the money is needed", zh: "需要资金的日期" },
-        { label: "D", text: "Loss that would damage the goal", zh: "会损害目标的损失" }
+        { label: "A", text: "Money purpose", zh: "资金用途" },
+        { label: "B", text: "Recent product return", zh: "产品近期回报" },
+        { label: "C", text: "Date needed", zh: "需要日期" },
+        { label: "D", text: "Goal-damaging loss", zh: "损害目标的损失" }
       ],
       revealLabel: "One defensible order",
       revealLabelZh: "一种合理顺序",
       modelOrder: [
-        { rank: "1", label: "A", text: "Purpose of the money", zh: "这笔钱的用途", reason: "The purpose defines the decision problem.", reasonZh: "用途界定了决策问题。" },
-        { rank: "2", label: "C", text: "Date the money is needed", zh: "需要资金的日期", reason: "The date sets the time horizon.", reasonZh: "日期确定投资期限。" },
-        { rank: "3", label: "D", text: "Loss that would damage the goal", zh: "会损害目标的损失", reason: "The family must know the consequence of uncertainty.", reasonZh: "家庭必须知道不确定性的后果。" },
-        { rank: "4", label: "B", text: "Highest recent product return", zh: "产品近期最高回报", reason: "Product comparison comes only after the goal constraints are clear.", reasonZh: "只有目标限制明确后，才能比较产品。" }
+        { rank: "1", label: "A", text: "Money purpose", zh: "资金用途", reason: "The purpose defines the decision problem.", reasonZh: "用途界定了决策问题。" },
+        { rank: "2", label: "C", text: "Date needed", zh: "需要日期", reason: "The date sets the time horizon.", reasonZh: "日期确定投资期限。" },
+        { rank: "3", label: "D", text: "Goal-damaging loss", zh: "损害目标的损失", reason: "The family must know the consequence of uncertainty.", reasonZh: "家庭必须知道不确定性的后果。" },
+        { rank: "4", label: "B", text: "Recent product return", zh: "产品近期回报", reason: "Product comparison comes only after the goal constraints are clear.", reasonZh: "只有目标限制明确后，才能比较产品。" }
       ],
       notes: "After reveal, ask why the product question belongs last."
     },

@@ -32,8 +32,8 @@ window.INVEST.lesson = {
         url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
       },
       {
-        label: "Frozen three-goal family profile",
-        note: "Teacher-created hypothetical education, home and retirement goals. No live rates, named products or personal recommendations are used.",
+        label: "Frozen mainland China three-goal family profile",
+        note: "Teacher-created hypothetical mainland China education, home and retirement goals. No live rates, named products or personal recommendations are used.",
         date: "Frozen 13 July 2026",
         url: "Local classroom scenario"
       }
@@ -87,8 +87,8 @@ window.INVEST.lesson = {
             type: "table",
             columns: ["Goal", "Amount", "When needed", "Date flexibility", "Liquidity need"],
             rows: [
-              ["University", "HK$240,000", "3 years", "Low", "High as the start date approaches"],
-              ["Home deposit", "HK$500,000", "8 years", "Up to 2 years", "Medium"],
+              ["University", "CNY 240,000", "3 years", "Low", "High as the start date approaches"],
+              ["Home deposit", "CNY 500,000", "8 years", "Up to 2 years", "Medium"],
               ["Retirement", "Target not fixed", "30 years", "Retirement date range not fixed", "Low now; later withdrawals not yet specified"]
             ]
           }
@@ -138,7 +138,7 @@ window.INVEST.lesson = {
         ]
       }
     ],
-    sources: "Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. Goal figures are a frozen hypothetical classroom profile; this is not personal investment advice."
+    sources: "Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. Goal figures are a frozen hypothetical mainland China classroom profile; this is not personal investment advice."
   },
   slides: [
     {
@@ -314,14 +314,14 @@ window.INVEST.lesson = {
       title: "Education, home and retirement",
       zhTitle: "教育、住房和退休",
       visual: investmentPhotos.investorMeetingReport,
-      sourceStamp: "Teacher-created family profile | Frozen 13 Jul 2026 | No live rates or products",
+      sourceStamp: "Teacher-created mainland China family profile | Frozen 13 Jul 2026 | No live rates or products",
       focusMetrics: [
-        { label: "University", value: "HK$240k | 3 years | fixed start" },
-        { label: "Home deposit", value: "HK$500k | 8 years | 2-year flexibility" },
-        { label: "Retirement", value: "30 years | target and withdrawals not fixed" }
+        { label: "University", value: "CNY 240k | 3y fixed" },
+        { label: "Home deposit", value: "CNY 500k | 8y ±2y" },
+        { label: "Retirement", value: "30y | target/withdrawals open" }
       ],
-      task: "Classify each goal by horizon and liquidity need, then identify one missing suitability fact.",
-      taskZh: "根据期限和流动性需求给每个目标分类，然后识别一个缺少的适合度事实。"
+      task: "Classify horizon and liquidity. Add one suitability fact.",
+      taskZh: "按期限和流动性分类，再补一项适合度事实。"
     },
     {
       type: "classificationTask",

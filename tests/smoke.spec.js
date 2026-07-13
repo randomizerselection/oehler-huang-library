@@ -895,7 +895,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'compare', 'exam']
+      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -904,7 +904,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/A family can spend HK\$50,000 now or set it aside for future goals\. What could justify waiting\?/i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/A family can spend CNY 50,000 now or set it aside for future goals\. What could justify waiting\?/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/product/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
@@ -937,7 +937,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
     await expectInvestmentSlideFits(page, 'lesson 1 goal flow projector');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify whether investment may help' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invClassificationCategory')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(3);
     await expectInvestmentSlideFits(page, 'lesson 1 family-goal classification projector');
@@ -964,6 +964,7 @@ test.describe('site smoke', () => {
     await page.setViewportSize({ width: 1366, height: 768 });
     await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Which questions must the family answer first?' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invRankingCard p:not(.invZhLine)')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invRankingAxis > p')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invRankingAnswer.invReveal.is-revealed')).toHaveCount(0);
     const rankingCardFont = await page.locator('.invSlide.is-active .invRankingCard strong').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
     expect(rankingCardFont, 'lesson 1 ranking card text is large enough for projection').toBeGreaterThanOrEqual(32);
@@ -973,7 +974,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Order the cards/i);
     await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector revealed');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify whether investment may help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal');
@@ -1313,7 +1314,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/A family can spend HK\$50,000 now or set it aside for future goals/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/A family can spend CNY 50,000 now or set it aside for future goals/i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/goal, time horizon/i);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
@@ -1377,9 +1378,9 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'compare', 'exam']
+      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify whether investment may help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial phone');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal phone');

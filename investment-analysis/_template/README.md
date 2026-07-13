@@ -34,6 +34,8 @@ Classroom rhythm:
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
 
+Use ISO currency codes that match the case. Use `CNY` for mainland China family scenarios, `HKD` only for Hong Kong-listed securities or Hong Kong transactions, `USD` for United States cases, and the corresponding local or transaction currency elsewhere. In Chinese support, name the currency as `人民币`, `港元` or `美元` rather than copying the English code.
+
 ILA and continuous retrieval:
 
 - Treat ILA as integrated learning and assessment: checks are part of teaching, not a separate test at the end.
@@ -59,7 +61,7 @@ Teaching rhythm:
 - Use `peerTask` with `taskType: "definitionRecall"` for opening recall from earlier Investment lessons, and `taskType: "missingSentence"` when students need to practise one missing link in an evidence-to-judgement explanation.
 - Use `compare` for a simple two-column T-table contrast. Use `comparisonMatrix` instead when students compare choices against three or four shared criteria.
 - Use `classificationTask` for classify-and-justify routines where the revealed reason matters. Use the older sort-style `peerTask` only when the physical sorting board is the main activity.
-- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Do not force these into the older sort-style `peerTask`.
+- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Do not force these into the older sort-style `peerTask`. Set `axis.showNote: false` when the title and axis-end labels already define the order and an extra axis note would be redundant.
 - Use `yesNoCheck` for misconception votes and borderline judgements where students should commit to yes/no before the reason appears.
 - Do not use deprecated `marketBrief` slides in new decks. They add little teaching value; use `dataSnapshot` for compact figures, `sourceLens` for source validity, `quoteMap` for quote-page fields, or a normal `discussion` for retrieval.
 

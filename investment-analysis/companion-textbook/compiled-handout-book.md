@@ -137,9 +137,9 @@ Write a Tencent next-action judgement using one source detail, one missing evide
 **Case anchor:** Family saving plan
 **Unit:** 1. Foundations, assets and market access
 **Guiding question:** How are saving, investing and speculation different?
-**Student hook:** Should the family save, invest or speculate with all HK$30,000? Give one reason.
+**Student hook:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 **Core claim:** Saving protects short-term needs, while investing accepts risk for possible future return.
-**Primary output:** Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
+**Primary output:** Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 **Formula or formula rule:** no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss.
 **Analyse why:** Analyse why the evidence used in the Family saving plan case could change an investor's judgement about the family saving decision
 **Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Family saving plan.
@@ -189,7 +189,7 @@ Correct the shortcut: Investing is always better than saving, and a rumour-led p
 
 ### Individual written output
 
-Explain why the HK$12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
+Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 

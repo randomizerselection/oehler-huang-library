@@ -1160,6 +1160,7 @@
     const highLabelZh = axis.highZh || slide.highLabelZh || '';
     const axisNote = axis.note || slide.axisNote || 'Risk can change with the exact asset';
     const axisNoteZh = axis.noteZh || slide.axisNoteZh || '';
+    const showAxisNote = axis.showNote !== false && slide.showAxisNote !== false;
     const normalizeRankingItem = (item, i) => {
       if (typeof item === 'string') return { label: alphaLabel(i), text: item };
       return {
@@ -1215,7 +1216,7 @@
               <strong>${escapeHtml(lowLabel)}</strong>
               ${lowLabelZh ? `<span lang="zh-Hans">${escapeHtml(lowLabelZh)}</span>` : ''}
             </div>
-            <p>${escapeHtml(axisNote)}${axisNoteZh ? `<span lang="zh-Hans">${escapeHtml(axisNoteZh)}</span>` : ''}</p>
+            ${showAxisNote ? `<p>${escapeHtml(axisNote)}${axisNoteZh ? `<span lang="zh-Hans">${escapeHtml(axisNoteZh)}</span>` : ''}</p>` : ''}
             <div>
               <strong>${escapeHtml(highLabel)}</strong>
               ${highLabelZh ? `<span lang="zh-Hans">${escapeHtml(highLabelZh)}</span>` : ''}

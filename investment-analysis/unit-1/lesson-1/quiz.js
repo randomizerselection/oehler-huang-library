@@ -49,7 +49,7 @@ window.INVEST.quiz = {
       prompt: "Which description is a complete financial goal?",
       zh: "哪一个描述是完整的财务目标？",
       choices: [
-        "HK$180,000 for university fees in six years, with high priority",
+        "CNY 180,000 for university fees in six years, with high priority",
         "Make more money",
         "Buy an investment product soon",
         "Choose a high return"

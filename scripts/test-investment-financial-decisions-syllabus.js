@@ -25,6 +25,22 @@ check(nonEmpty(map.courseIntroduction), 'course introduction is missing');
 check(Array.isArray(map.units) && map.units.length === 6, 'expected exactly six units');
 check(Array.isArray(map.lessons) && map.lessons.length === 50, 'expected exactly fifty lessons');
 check(Array.isArray(map.examCheckpoints) && map.examCheckpoints.length === 6, 'expected six unit checkpoints');
+check(/CNY/.test(map.currencyRule || '') && /HKD/.test(map.currencyRule || '') && /USD/.test(map.currencyRule || ''), 'currency rule must map mainland China, Hong Kong and United States cases to CNY, HKD and USD');
+
+function lessonByAnchor(pattern) {
+  return map.lessons.find((lesson) => pattern.test(lesson.caseAnchor || ''));
+}
+
+const mainlandFamilyCurrencyPattern = /HK\$|HKD|港元/;
+const openingFamilyCase = lessonByAnchor(/^Family goal board$/i);
+const windfallCase = lessonByAnchor(/^Family windfall$/i);
+const alibabaQuoteCase = lessonByAnchor(/^Alibaba quote snapshot$/i);
+const nvidiaScaleCase = lessonByAnchor(/^Nvidia and peer scale case$/i);
+
+check(openingFamilyCase && /CNY 50,000/.test(JSON.stringify(openingFamilyCase)) && !mainlandFamilyCurrencyPattern.test(JSON.stringify(openingFamilyCase)), 'opening mainland China family case must use CNY, not HKD');
+check(windfallCase && /CNY 500,000/.test(JSON.stringify(windfallCase)) && !mainlandFamilyCurrencyPattern.test(JSON.stringify(windfallCase)), 'mainland China family windfall case must use CNY, not HKD');
+check(alibabaQuoteCase && /HKEX/.test(alibabaQuoteCase.studentHook) && /Hong Kong-listed/.test(alibabaQuoteCase.studentHook) && /HKD 82/.test(alibabaQuoteCase.studentHook), 'Alibaba quote case must identify its HKEX context before using HKD');
+check(nvidiaScaleCase && /USD 500/.test(nvidiaScaleCase.studentHook) && /USD 100/.test(nvidiaScaleCase.studentHook) && !/HK\$|HKD/.test(nvidiaScaleCase.studentHook), 'United States Nvidia comparison must use USD, not HKD');
 
 const expectedUnits = [
   [1, 'Personal Investment Foundations', 1, 8],
@@ -156,6 +172,8 @@ const defaultGeneratorMap = generator.loadCourseMap('default');
 check(defaultGeneratorMap.syllabusKey === 'financial-decisions', 'default generator selector must load the active financial-decisions map');
 const courseContext = generator.getCourseGeneratorContext('financial-decisions');
 check(courseContext.course.courseTitle === map.courseTitle, 'course generator context title does not match the candidate map');
+check(courseContext.course.currencyRule === map.currencyRule, 'course generator context must expose the currency rule');
+check(courseContext.generationRules.includes(map.currencyRule), 'generation rules must include the country- and transaction-matched currency rule');
 check(courseContext.lessons.length === 50, 'course generator context must expose fifty active lesson summaries');
 const lessonContext = generator.getLessonMaterialContext(50, 'deck', generatorMap);
 check(lessonContext.lesson.guidingQuestion === map.lessons[49].guidingQuestion, 'lesson 50 deck context does not match the active map');
@@ -180,6 +198,7 @@ check(cli.status === 0, `financial-decisions CLI export failed: ${cli.stderr || 
 check(/Why do people and families invest\?/.test(cli.stdout), 'CLI export is missing the first candidate guiding question');
 check(/Decision-First Contract/.test(cli.stdout), 'CLI export is missing the decision-first contract');
 check(/Generation Rules/.test(cli.stdout), 'CLI export is missing generation rules');
+check(/CNY/.test(cli.stdout) && /HKD/.test(cli.stdout) && /USD/.test(cli.stdout), 'CLI export is missing the country- and transaction-matched currency rule');
 
 if (failures.length) {
   console.error('Investment and Financial Decision-Making syllabus validation failed:');
