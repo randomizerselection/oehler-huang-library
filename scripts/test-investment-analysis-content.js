@@ -1615,6 +1615,11 @@ function validateActiveLessonAlignment() {
     if (openingDiscussion?.question !== mapLesson.studentHook) {
       failures.push(`${label}/slides.js: opening discussion question must match courseMap.studentHook`);
     }
+    const openingQuestion = String(openingDiscussion?.question || '');
+    const openingQuestionMarks = (openingQuestion.match(/\?/g) || []).length;
+    if (openingQuestion.length > 120 || openingQuestionMarks !== 1) {
+      failures.push(`${label}/slides.js: opening hook must be one short question of no more than 120 characters`);
+    }
 
     const outcomes = (lesson.slides || []).filter((slide) => slide.type === 'outcomes');
     if (outcomes.length !== 1 || outcomes[0].bullets?.length !== 3 || outcomes[0].zhBullets?.length !== 3) {

@@ -22,7 +22,7 @@ Required files:
 
 Classroom rhythm:
 
-1. Starter dilemma from `decisionFirst.starterDilemma`; this should be the visible student hook.
+1. Starter dilemma from `decisionFirst.starterDilemma`; this should be one short, visible student question that provokes an immediate judgement or discussion. Keep statistics, instructions and explanation off the hook screen.
 2. First judgement from `decisionFirst.firstJudgementPrompt`; capture the quick vote, reason, ranking or classification before teaching.
 3. Simple visible rhythm from `simpleFlow`: Hook, Key idea, Try it, Decide.
 4. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
@@ -58,7 +58,7 @@ Teaching rhythm:
 
 - Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
 - Make teaching titles student-facing and note-friendly. Use the taught concept, question or exercise label, such as `What is a share price?` or `Exercise 1`, instead of a slogan such as `One share, one price`.
-- `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
+- `discussion` slides must ask a real student-answerable question. A lesson-opening hook must contain only one short question; move context, choices and explanation into notes, the handout or the reveal. Do not use the prompt to display the answer.
 - `discussion.revealTitle` must be a concise answer statement, such as `One share is one ownership unit`, not a vague label such as `Model answer`, `Course rule` or `Bridge`.
 - Hooks should normally begin with a concrete student decision or dilemma, not a chart by default. Use a chart as evidence after students know what question the evidence is meant to answer.
 - `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Use a concise academic topic or question students can copy into notebooks, such as `Investment and return` or `What is investment?`. Name the knowledge in the section; do not use an activity instruction, slogan, transition or full teaching claim. Do not add photos, prompt cards or manual roadmap lists.

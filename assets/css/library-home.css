@@ -40,6 +40,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(270px, 0.65fr);
+  grid-template-rows: auto;
   gap: clamp(34px, 5vw, 72px);
   align-items: stretch;
   min-height: 330px;

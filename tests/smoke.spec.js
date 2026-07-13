@@ -680,6 +680,15 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
     await expect(page.locator('.course-entry-media img')).toHaveCount(2);
     await expect(page.locator('.course-title-zh')).toHaveText(['IGCSE经济学课程', '投资与财务决策']);
+    const heroLayout = await page.locator('.hero').evaluate((hero) => {
+      const styles = getComputedStyle(hero);
+      return {
+        height: hero.getBoundingClientRect().height,
+        rows: styles.gridTemplateRows.trim().split(/\s+/),
+      };
+    });
+    expect(heroLayout.rows).toHaveLength(1);
+    expect(heroLayout.height).toBeLessThan(520);
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expect(page.locator('a[href^="lessons/"]')).toHaveCount(0);
@@ -929,7 +938,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/NBS reported 2025 nationwide per-capita disposable income of CNY 43,377.*CNY 50,000.*future goal/i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText('A family has CNY 50,000 but no stated goal. What should it do next?');
     await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/product/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
@@ -957,7 +966,7 @@ test.describe('site smoke', () => {
     await expectInvestmentDiscussionPromptInsideBody(page, 'lesson 1 scenario discussion projector');
     await expectInvestmentSlideFits(page, 'lesson 1 scenario discussion projector');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Connect present money to a future goal' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'flow', title: 'Check the goal before considering investment' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
     await expectInvestmentSlideFits(page, 'lesson 1 goal flow projector');
@@ -987,7 +996,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 quiz interaction desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'quiz', title: 'What should the family know first?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'quiz', title: 'Start with the goal before comparing investments' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invQuizChoices .invChoice')).toHaveCount(4);
     await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Before comparing investment choices/i);
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
@@ -1029,8 +1038,8 @@ test.describe('site smoke', () => {
     await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal');
     await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal projector');
 
-    await goToInvestmentSlide(page, { type: 'exam', title: 'Submit one reason and one condition' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invExamBox h3')).toContainText(/Choose retirement, a home deposit or university fees/i);
+    await goToInvestmentSlide(page, { type: 'exam', title: 'Choose and justify the next step' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invExamBox h3')).toContainText(/Select: keep available.*need more information.*consider investing/i);
     await expect(page.locator('.invSlide.is-active .invKeyword')).toHaveCount(5);
     await expect(page.locator('.invSlide.is-active .invKeyword.is-revealed')).toHaveCount(0);
     await expectInvestmentSlideFits(page, 'lesson 1 exit ticket individual output projector');
@@ -1440,7 +1449,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/A family can spend CNY 50,000 now or set it aside for future goals/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/CNY 50,000 but no stated goal.*What should it do next/i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/goal, time horizon/i);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);

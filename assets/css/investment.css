@@ -13101,6 +13101,10 @@ img {
 }
 
 @media (min-width: 901px) and (max-height: 800px) {
+  .invFlowSlide .invStepVisual {
+    height: 74px;
+  }
+
   .invEvidenceSimulator {
     gap: 7px;
   }

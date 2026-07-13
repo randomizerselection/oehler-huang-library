@@ -29,7 +29,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
 - Start from the syllabus `decisionFirst` contract: a concrete starter dilemma, a first judgement, the missing evidence, one key idea, one practice task, a misconception check and an exit judgement.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. The projected pause surface is image-only: no visible title, prompt, caption, credit or explanatory text. Put the teaching bridge in notes or on an adjacent slide.
-- Use visuals as teaching moves. A hook visual should create a concrete student decision; a visual pause should prepare the exact concept that follows; charts should appear when students are ready to read evidence, not automatically as the opener.
+- Use visuals as teaching moves. A hook visual should support one short question that creates a concrete student decision; keep statistics, instructions and explanations off the initial hook screen. A visual pause should prepare the exact concept that follows; charts should appear when students are ready to read evidence, not automatically as the opener.
 - Keep `section` dividers as simple reset screens: part label, concise academic title, optional concise Chinese title and an automatic progress strip. The title should name the section's knowledge domain, concept, relationship or academic question in roughly one to six words so students can copy it into notebooks. Do not use an activity instruction, slogan, transition or full teaching claim, and do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
 
 ## Component Rules
@@ -44,7 +44,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 - Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
 - `section`: keep the slide visually closer to the standard economics-presentation divider, with a notebook-ready academic topic such as `Investment and return` doing the work and only a quiet progress strip below it.
-- `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
+- `discussion`: ask a real question first. For the lesson hook, show exactly one short question and nothing else beyond the visual and reveal control. Do not display the model explanation as the initial prompt.
 - `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.

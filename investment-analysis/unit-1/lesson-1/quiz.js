@@ -2,7 +2,7 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Check whether students can define investment, return and financial goal, then connect a family goal to a reason and a condition.",
+  description: "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
   questions: [
     {
       id: "investment-definition",
@@ -76,17 +76,17 @@ window.INVEST.quiz = {
     {
       id: "medical-goal",
       type: "multipleChoice",
-      prompt: "Why may investment not help with a medical bill due in four months?",
-      zh: "为什么投资可能无法帮助支付四个月后到期的医疗账单？",
+      prompt: "What is the best next step for CNY 25,000 needed for a medical bill in four months?",
+      zh: "四个月后支付医疗账单所需的25,000元人民币，最佳下一步是什么？",
       choices: [
-        "The money must remain available soon, and a loss or delay could block the goal",
-        "Medical goals never require money",
-        "All investments need exactly thirty years",
-        "A short horizon guarantees a gain"
+        "Keep it available because a loss or delay could leave the bill unpaid",
+        "Consider investing because every goal needs the highest possible return",
+        "Choose an investment before checking when the bill is due",
+        "Need more information because the purpose and date are unknown"
       ],
       answer: 0,
-      explanation: "A near-term, urgent goal creates a high need for access and little room for loss.",
-      explanationZh: "近期且紧急的目标对资金使用有较高需求，几乎没有承受损失的空间。"
+      explanation: "Choose ‘Keep available.’ The goal is near-term and urgent, so the money must be accessible and has little room for loss.",
+      explanationZh: "选择“保持资金可用”。该目标近期且紧急，因此资金必须可以使用，几乎没有承受损失的空间。"
     },
     {
       id: "retirement-condition",
@@ -100,8 +100,8 @@ window.INVEST.quiz = {
         "A list of classmates' opinions"
       ],
       answer: 0,
-      explanation: "A long horizon may support investment consideration, but it does not remove the need for a target and loss check.",
-      explanationZh: "较长期限可能支持考虑投资，但不会消除目标金额和损失检查的需要。"
+      explanation: "Choose ‘Need more information.’ A long horizon may support investment consideration, but the target amount and loss capacity are still missing.",
+      explanationZh: "选择“需要更多信息”。较长期限可能支持考虑投资，但仍缺少目标金额和损失承受能力。"
     },
     {
       id: "misconception",
@@ -136,17 +136,17 @@ window.INVEST.quiz = {
     {
       id: "exit-judgement",
       type: "multipleChoice",
-      prompt: "Which answer includes both a reason to invest and a condition to check first?",
-      zh: "哪一个答案同时包括投资理由和必须先检查的条件？",
+      prompt: "Which answer states a clear next step and justifies it with evidence?",
+      zh: "哪一个答案说明了清晰的下一步，并用证据加以说明？",
       choices: [
-        "Invest to seek future return for a stated goal, but first check when the money is needed and what loss could damage the goal.",
+        "Consider investing for the stated long-term goal because urgent access is not needed; first check what loss could delay the goal.",
         "Invest because returns are always positive.",
         "Choose the most popular investment before setting a goal.",
         "Avoid every investment because loss is possible."
       ],
       answer: 0,
-      explanation: "The answer connects a future goal to return and qualifies the decision with horizon and loss conditions.",
-      explanationZh: "该答案把未来目标与回报联系起来，并用期限和损失条件限定决定。"
+      explanation: "The answer names the next step, connects it to the goal and gives access and loss conditions.",
+      explanationZh: "该答案说明了下一步，把它与目标联系起来，并给出资金使用和损失条件。"
     }
   ]
 };
