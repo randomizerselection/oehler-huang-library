@@ -2,151 +2,151 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 2 Quiz",
-  description: "Check whether students can distinguish saving, investing and speculation using purpose, time horizon, liquidity, evidence and possible loss.",
+  description: "Check whether students can classify goals by time horizon and liquidity need, then explain suitability without choosing a product first.",
   questions: [
     {
-      id: "saving-definition",
+      id: "time-horizon-definition",
       type: "multipleChoice",
-      prompt: "Which statement best defines saving?",
-      zh: "哪一个说法最准确地定义储蓄？",
+      prompt: "What is time horizon?",
+      zh: "什么是投资期限？",
       choices: [
-        "Keeping money safe and available for future use",
-        "Trying to profit from a one-week price rumour",
-        "Putting all money into an asset regardless of risk",
-        "Guaranteeing a higher return than investing"
+        "The period before invested money is expected to be needed",
+        "The number of products a family owns",
+        "The return earned last year",
+        "The date on which a product becomes popular"
       ],
       answer: 0,
-      explanation: "Saving prioritises safety and availability for future use.",
-      explanationZh: "储蓄优先考虑未来使用所需的安全性和可用性。"
+      explanation: "Time horizon measures the period before the invested money is expected to be needed for the goal.",
+      explanationZh: "投资期限衡量预计需要为目标使用已投资资金之前的时间。"
     },
     {
-      id: "investment-definition",
+      id: "liquidity-definition",
       type: "fillBlank",
-      prompt: "Investment seeks future return while accepting possible ________.",
-      zh: "投资寻求未来回报，同时接受可能的________。",
-      acceptedAnswers: ["loss", "损失"],
-      explanation: "Investment accepts possible loss; return is not guaranteed.",
-      explanationZh: "投资接受可能损失；回报并不保证。"
+      prompt: "Liquidity need is the need to access money quickly without accepting a large loss or ________.",
+      zh: "流动性需求是无需承受重大损失或________即可快速取用资金的需要。",
+      acceptedAnswers: ["delay", "延迟"],
+      explanation: "Liquidity need concerns reliable access without a large loss or delay.",
+      explanationZh: "流动性需求涉及无需承受重大损失或延迟即可可靠取用资金。"
     },
     {
-      id: "speculation-definition",
+      id: "suitability-definition",
       type: "multipleChoice",
-      prompt: "Which action is closest to speculation?",
-      zh: "哪一个行动最接近投机？",
+      prompt: "Which factors belong in the Lesson 2 definition of suitability?",
+      zh: "哪些因素属于第二课的适合度定义？",
       choices: [
-        "Betting on a one-week price rumour with weak evidence",
-        "Keeping bill money available for six months",
-        "Checking risk and fit before a long-term investment",
-        "Recording an official source and its date"
+        "Goal, horizon, liquidity need and ability to accept loss",
+        "Product popularity, logo and advertising",
+        "Last week's price change only",
+        "The opinions of other families"
       ],
       answer: 0,
-      explanation: "A short-term price bet based on weak evidence fits the lesson definition of speculation.",
-      explanationZh: "基于薄弱证据的短期价格押注符合本课对投机的定义。"
+      explanation: "Suitability tests whether an investment matches the person's goal and constraints.",
+      explanationZh: "适合度检查投资是否与个人目标和限制相匹配。"
     },
     {
-      id: "near-term-money",
+      id: "education-horizon",
       type: "multipleChoice",
-      prompt: "The family needs HK$12,000 in six months. Which first action is most defensible?",
-      zh: "家庭在六个月后需要12,000港元。哪一个初步行动最合理？",
+      prompt: "Which goal has the shortest horizon in the frozen profile?",
+      zh: "冻结资料中哪一个目标的期限最短？",
       choices: [
-        "Keep it saved and available",
-        "Use it for a one-week price bet",
-        "Accept any possible loss for higher return",
-        "Ignore when the money is needed"
+        "University fees beginning in three years",
+        "A home deposit in eight years",
+        "Retirement in thirty years",
+        "All three have the same horizon"
       ],
       answer: 0,
-      explanation: "Near-term money with a high liquidity need should remain safe and available.",
-      explanationZh: "流动性需求高的近期资金应保持安全和可用。"
+      explanation: "Three years is the shortest period before the money is expected to be needed.",
+      explanationZh: "三年是预计需要资金前最短的时间。"
     },
     {
-      id: "long-term-surplus",
+      id: "home-flexibility",
       type: "multipleChoice",
-      prompt: "What should happen before the HK$18,000 long-term surplus is invested?",
-      zh: "在把18,000港元长期余钱用于投资之前，应该做什么？",
+      prompt: "Why does the home goal differ from the university goal?",
+      zh: "为什么住房目标与大学目标不同？",
       choices: [
-        "Check evidence, risk, possible loss and investor fit",
-        "Follow the first rumour",
-        "Assume a long horizon guarantees profit",
-        "Choose the product with the most exciting advert"
+        "It has a longer horizon and up to two years of date flexibility",
+        "It guarantees a higher return",
+        "It has no target amount",
+        "It requires money sooner"
       ],
       answer: 0,
-      explanation: "A longer horizon allows consideration, not an automatic investment decision.",
-      explanationZh: "较长期限允许进行考虑，但不等于自动作出投资决定。"
+      explanation: "The home goal is planned for eight years and its date can move, so its constraints differ from the fixed three-year education goal.",
+      explanationZh: "住房目标计划在八年后且日期可以调整，因此其限制不同于固定三年的教育目标。"
     },
     {
-      id: "liquidity-need",
+      id: "retirement-missing-evidence",
       type: "multipleChoice",
-      prompt: "What does a high liquidity need mean in this family case?",
-      zh: "在这个家庭案例中，高流动性需求意味着什么？",
+      prompt: "Which important facts are missing for the retirement goal?",
+      zh: "退休目标缺少哪些重要事实？",
       choices: [
-        "The money must be readily available",
-        "The money should face more price risk",
-        "The money cannot be saved",
-        "The money has no purpose"
+        "The target amount, later withdrawal needs and ability to accept loss",
+        "Whether retirement is a future goal",
+        "Whether thirty years is longer than three years",
+        "Whether investment can involve return"
       ],
       answer: 0,
-      explanation: "Liquidity need concerns how readily the family must be able to use the money.",
-      explanationZh: "流动性需求关注家庭需要多容易地使用这笔钱。"
+      explanation: "A long horizon alone is not enough to establish suitability.",
+      explanationZh: "仅凭较长期限不足以确定适合度。"
     },
     {
-      id: "higher-return-shortcut",
+      id: "highest-return-misconception",
       type: "multipleChoice",
-      prompt: "Why is 'investing is always better than saving' incorrect?",
-      zh: "为什么“投资总是比储蓄更好”是不正确的？",
+      prompt: "Why does the investment with the highest possible return not fit every goal?",
+      zh: "为什么可能回报最高的投资并不适合每一个目标？",
       choices: [
-        "The right action depends on purpose, horizon, liquidity and possible loss",
-        "Saving always earns a higher return",
-        "Investment never produces a return",
-        "Time horizon does not matter"
+        "Goals have different horizons, liquidity needs and consequences of loss",
+        "High possible return always means low risk",
+        "Every family has the same goal",
+        "Suitability depends only on recent performance"
       ],
       answer: 0,
-      explanation: "Possible return is only one factor; near-term purpose and liquidity can make saving the better fit.",
-      explanationZh: "可能回报只是一个因素；近期用途和流动性可能使储蓄更适合。"
+      explanation: "Return cannot establish suitability without the goal constraints.",
+      explanationZh: "如果没有目标限制，回报不能确定适合度。"
     },
     {
-      id: "source-guidance",
+      id: "liquidity-ranking",
       type: "multipleChoice",
-      prompt: "Which factor is supported by the IFEC source used in the lesson?",
-      zh: "本课使用的投委会来源支持哪一个因素？",
+      prompt: "Which goal has the highest current liquidity need in the frozen profile?",
+      zh: "冻结资料中哪一个目标的当前流动性需求最高？",
       choices: [
-        "Investment time horizon and liquidity needs matter",
-        "Every long-term investment makes a profit",
-        "A rumour is enough evidence",
-        "One product fits every family"
+        "University in three years with a fixed start date",
+        "Retirement in thirty years",
+        "Home deposit in eight years with date flexibility",
+        "All three have identical liquidity needs"
       ],
       answer: 0,
-      explanation: "The IFEC guidance highlights time horizon, liquidity needs, resources and risk tolerance.",
-      explanationZh: "投委会指引强调投资期限、流动性需求、财务资源和风险承受能力。"
+      explanation: "The earliest fixed payment date creates the strongest current need for reliable access.",
+      explanationZh: "最早且固定的付款日期形成最强的当前可靠取用资金需要。"
     },
     {
-      id: "source-limitation",
+      id: "source-limit",
       type: "multipleChoice",
-      prompt: "What can the official guidance not decide for the family?",
-      zh: "官方指引不能替这个家庭决定什么？",
+      prompt: "What can official time-horizon guidance not decide for the family?",
+      zh: "官方投资期限指引不能替家庭决定什么？",
       choices: [
-        "A named product that is guaranteed to be suitable",
-        "That time horizon matters",
-        "That possible loss should be considered",
-        "That investment decisions need evidence"
+        "A named product and whether its possible loss is acceptable for this family",
+        "That the period before a goal matters",
+        "That risk tolerance affects choices",
+        "That goals can have different horizons"
       ],
       answer: 0,
-      explanation: "General guidance supports the method but does not choose or guarantee a named product.",
-      explanationZh: "一般指引支持分析方法，但不会选择或保证某个具体产品。"
+      explanation: "General guidance supports a method; family-specific suitability still requires evidence.",
+      explanationZh: "一般指引支持一种方法；家庭具体的适合度仍需要证据。"
     },
     {
-      id: "family-final-decision",
+      id: "goal-comparison",
       type: "multipleChoice",
-      prompt: "Which final family decision best uses the lesson evidence?",
-      zh: "哪一个家庭最终决定最符合本课证据？",
+      prompt: "Which explanation best shows why two goals require different investment choices?",
+      zh: "哪一个解释最能说明为什么两个目标需要不同的投资选择？",
       choices: [
-        "Save the HK$12,000, research the HK$18,000 before considering investment, and reject the rumour-led bet",
-        "Invest all HK$30,000 immediately",
-        "Save all HK$30,000 because investment always fails",
-        "Use all HK$30,000 for the rumour because the possible return is high"
+        "University money is needed sooner on a fixed date, while retirement money has a longer horizon and lower current access need; each choice must match its goal and loss capacity.",
+        "Retirement is later, so any investment is suitable.",
+        "University is expensive, so it needs the highest possible return.",
+        "The same family should use one identical choice for all money."
       ],
       answer: 0,
-      explanation: "The answer matches each amount to purpose, horizon, liquidity, evidence and possible loss.",
-      explanationZh: "这个答案把每笔资金与用途、期限、流动性、证据和可能损失相匹配。"
+      explanation: "The answer compares horizon and liquidity need, then keeps the judgement conditional on suitability evidence.",
+      explanationZh: "该答案比较期限和流动性需求，并使判断以适合度证据为条件。"
     }
   ]
 };

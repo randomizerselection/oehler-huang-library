@@ -4,7 +4,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 ## Identity
 
-- Name the course clearly: Investment Analysis.
+- Name the course clearly: Investment and Financial Decision-Making.
 - Keep the Analyst Desk feeling through restrained dark surfaces, precise borders, cyan section labels, green action states and amber task emphasis.
 - Use modern real local course images when an image helps the student understand the lesson. Prefer high-resolution photos from the last few years, resize them to roughly a 1920-2560px long edge, and keep accurate `alt`, `caption`, `credit` and `source` metadata.
 - Do not use remote images, decorative illustrations, gradient blobs, abstract background ornaments, old stock certificates, archive trading-floor photos, museum-value artifacts, or visuals that make the lesson feel historical unless the slide is explicitly about history.
@@ -32,6 +32,14 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Keep `section` dividers as simple reset screens: part label, title, optional concise Chinese title and an automatic progress strip. Do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
 
 ## Component Rules
+
+### Visual presentation contract
+
+- Give every slide type one dominant visual signal: cyan for concepts and sources, green for mechanisms and judgements, amber for student tasks and output, and red only for risk or correction states. Apply the signal through a restrained edge, label or active state rather than recolouring the whole slide.
+- Keep content cards on one shared surface system: quiet translucent fill, precise border, one accent edge and consistent corner radius. Do not stack several decorative borders, shadows or competing accent colours on one card.
+- On desktop, place the teaching move in the upper-middle zone and use the remaining space as deliberate breathing room. Do not stretch short content to fill the slide.
+- On phones, compact the course controls before shrinking teaching text. Dense comparison types may use an internal horizontal snap row so each card remains readable; the page and slide itself must never gain horizontal overflow.
+- A reveal should strengthen hierarchy: the attempt remains identifiable, while the revealed answer becomes the clearest accented surface. Do not make the whole slide denser merely because an answer is visible.
 
 - Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
 - `section`: keep the slide visually closer to the standard economics-presentation divider, with the title doing the work and only a quiet progress strip below it.
@@ -62,10 +70,13 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 ## Landing Pages
 
 - The landing page is a student course doorway.
-- Primary action: Start Lesson 1.
-- Secondary actions: 50-lesson course map, quiz and data snapshot.
-- Include a short course promise, a "What you will learn" strip and a roadmap card pattern.
-- Use student-facing labels: Lesson, Slides, Quiz, Data snapshot, 50-lesson course map, What you will learn. Avoid internal labels such as dashboard, status panel, internal course or projector system.
+- Use a factual course description of no more than two short paragraphs. State level, length, subject coverage and the no-advice boundary directly.
+- Keep navigation to the main course routes. Use one primary action and no more than one secondary action in the hero.
+- Present the six-unit sequence once. Do not repeat it in a status panel, promise strip, metric panel or second overview card.
+- Use a compact resource list for the syllabus, definitions and picture archive. Keep archived materials as a quiet text link.
+- Do not link to an existing lesson deck from the landing page until that deck matches the active syllabus sequence.
+- Keep generator tables, source contracts, formula banks and teaching-method details behind progressive disclosure on the syllabus page.
+- Avoid oversized decorative hero images, profile blocks, repeated statistics and multiple rows of button-like links.
 
 ## QA Standard
 

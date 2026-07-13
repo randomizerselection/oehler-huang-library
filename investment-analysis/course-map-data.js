@@ -1,3 +1,4 @@
+// Archived company-analysis syllabus retained for historical lesson maintenance.
 (function attachInvestmentCourseMap(global) {
   const courseMap = {
   "version": 4,
@@ -59,7 +60,7 @@
   "generatorAccess": {
     "canonicalSource": "investment-analysis/course-map-data.js",
     "contextModule": "investment-analysis/generator-context.js",
-    "cli": "node scripts/export-investment-generator-context.js --lesson <1-50> --target lesson",
+    "cli": "node scripts/export-investment-generator-context.js --syllabus company-analysis --lesson <1-50> --target lesson",
     "targets": [
       {
         "key": "lesson",
@@ -93,7 +94,7 @@
       }
     ],
     "rules": [
-      "Treat course-map-data.js as the standard 50-lesson evidence-based investing course scope.",
+      "Treat course-map-data.js as the archived 50-lesson company-analysis course scope.",
       "Use the decisionFirst contract before drafting any lesson: starter dilemma, first judgement, missing evidence, key idea, try it, misconception check and exit judgement.",
       "Use the simple lesson structure for student-facing decks and syllabus cards: Hook, Key idea, Try it, Decide.",
       "Build every lesson as an evidence-based investing judgement cycle: first opinion, targeted retrieval, new knowledge, evidence and data analysis, misconception correction, analyse-why reasoning and practical next action.",
@@ -510,7 +511,7 @@
     map.version = 7;
     map.syllabusKey = "company-analysis";
     map.courseTitle = "Investment Analysis: Evidence-Based Investing";
-    map.mapTitle = "Standard 50-Lesson Evidence-Based Investing Course Map";
+    map.mapTitle = "Archived 50-Lesson Evidence-Based Investing Course Map";
     map.writtenArtifactRule = "Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.";
     map.definitionOverview.rule = "Use the textbook-style definition overview for handouts, textbook chapters, quizzes and assessment wording. Where a course term overlaps with the CFA Program glossary, prioritise the CFA-aligned investment or accounting meaning, then simplify for Grade 9.";
     map.textbookAssembly.rule = "Do not write separate textbook-only teaching chapters; compile the handout sequence with a cover, contents page and five unit dividers.";
@@ -520,9 +521,9 @@
       "Unit divider",
       "Lesson handouts 1-50"
     ];
-    map.generatorAccess.cli = "node scripts/export-investment-generator-context.js --lesson <1-50> --target lesson";
+    map.generatorAccess.cli = "node scripts/export-investment-generator-context.js --syllabus company-analysis --lesson <1-50> --target lesson";
     map.generatorAccess.rules = [
-      "Treat course-map-data.js as the standard 50-lesson evidence-based investing course scope.",
+      "Treat course-map-data.js as the archived 50-lesson company-analysis course scope.",
       "Use the decisionFirst contract before drafting any lesson: starter dilemma, first judgement, missing evidence, key idea, try it, misconception check and exit judgement.",
       "Use the simple lesson structure for student-facing decks and syllabus cards: Hook, Key idea, Try it, Decide.",
       "Build every lesson as an evidence-based investing judgement cycle: first opinion, targeted retrieval, new knowledge, evidence and data analysis, misconception correction, analyse-why reasoning and practical next action.",

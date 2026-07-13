@@ -669,12 +669,12 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Select a course$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Cambridge IGCSE Economics \(0455\)$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /^Teaching philosophy \/ 教学理念$/i })).toHaveAttribute('href', 'pedagogy.html');
+    await expect(page.getByRole('link', { name: /^Teaching$/i })).toHaveAttribute('href', 'pedagogy.html');
     await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Investment course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
-    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'investment-analysis/unit-1/lesson-1/index.html');
+    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expect(page.locator('a[href^="lessons/"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
@@ -758,7 +758,7 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('index.html'));
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('link', { name: /^Investment course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
@@ -778,29 +778,28 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Select a course$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('link', { name: /^Investment course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.getByText(/The Economics course and Investment Analysis course now live on separate course pages/i)).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.getByText(/Open a course to view its syllabus, lessons and student resources/i)).toBeVisible();
     await expect(page.getByText(/Syllabus-led lessons, quizzes, flashcards, handouts and revision materials/i)).toBeVisible();
-    await expect(page.getByText(/A Grade 9 add-on course for evidence-based investing/i)).toBeVisible();
+    await expect(page.getByText(/A Grade 9 course connecting family investment goals with products, markets, company analysis, portfolios and finance-career foundations/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
-    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'investment-analysis/unit-1/lesson-1/index.html');
+    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
     await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Teaching$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
     await expect(page.locator('link[href="../assets/css/landing.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /^Investment Analysis$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
+    await expect(page.getByRole('link', { name: /^Investment & Finance$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
     await expect(page.getByRole('link', { name: /^Course directory$/i })).toHaveAttribute('href', '../index.html');
     await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', '../definitions.html');
     await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toHaveAttribute('href', '../pedagogy.html');
     await expect(page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i })).toBeVisible();
-    await expect(page.getByRole('img', { name: /Samuel Oehler-Huang/i })).toBeVisible();
-    await expect(page.getByText(/Economics teacher, Suzhou Foreign Language School/i)).toBeVisible();
+    await expect(page.locator('.hero .author-line')).toHaveCount(0);
     await expect(page.getByText(/Not endorsed by Cambridge International Education/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /Slide view/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toBeVisible();
@@ -860,22 +859,22 @@ test.describe('site smoke', () => {
     await expect(page.locator('link[href="../assets/css/landing.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.getByRole('link', { name: /^Economics$/i })).toHaveAttribute('href', '../economics/index.html');
-    await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Syllabus$/i }).first()).toHaveAttribute('href', 'syllabus.html');
     await expect(page.getByRole('link', { name: /^Definitions$/i }).first()).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i }).first()).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
-    await expect(page.getByText(/one key idea, one evidence task and one justified next action/i)).toBeVisible();
-    await expect(page.locator('body')).toContainText(/Know what you are buying/i);
-    await expect(page.locator('body')).toContainText(/Compare return, risk, price and cost/i);
+    await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
+    await expect(page.getByText(/The course teaches students to set investment goals, compare asset classes, understand stock markets, analyse companies and portfolios, and evaluate family investment cases/i)).toBeVisible();
+    await expect(page.locator('body')).toContainText(/Personal Investment Foundations/i);
+    await expect(page.locator('body')).toContainText(/Analysing Companies/i);
 
-    await expect(page.locator('.investment-card-action.primary[href="unit-1/lesson-1/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.investment-card-action.primary[href="unit-1/lesson-2/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.investment-card-action[href="unit-1/lesson-1/index.html?view=quiz"]')).toHaveCount(1);
-    await expect(page.locator('.investment-card-action[href="unit-1/lesson-2/index.html?view=quiz"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list article')).toHaveCount(2);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html?view=quiz"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html?view=quiz"]')).toHaveCount(1);
 
-    await expect(page.getByText(/Start with evidence/i)).toBeVisible();
-    await expect(page.getByText(/Evidence-Based Investing Course Map/i)).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Course materials$/i })).toBeVisible();
+    await expect(page.locator('.investment-resource-list a[href="syllabus.html"]')).toContainText(/Units, lesson questions and assessments/i);
     await expect(page.locator('a[href*="lesson-1-all-types"]')).toHaveCount(0);
     await expect(page.locator('a[href*="view=print"]')).toHaveCount(0);
     await expect(page.locator('a[href*=".json"]')).toHaveCount(0);
@@ -896,7 +895,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['discussion', 'visualPause', 'term', 'flow', 'quiz', 'yesNoCheck', 'compare', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'answer']
+      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'compare', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -905,8 +904,8 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/Would you buy shares in Tencent\? Give one reason\./i);
-    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/Tencent is familiar/i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/A family can spend HK\$50,000 now or set it aside for future goals\. What could justify waiting\?/i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/product/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
     await page.getByRole('button', { name: /^Show possible answer$/i }).click();
@@ -929,24 +928,19 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 discussion reveal desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'discussion', title: 'What is missing from the first opinion?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'What is missing from ‘invest to make more money’?' }, lessonPath);
     await expectInvestmentDiscussionPromptInsideBody(page, 'lesson 1 scenario discussion projector');
     await expectInvestmentSlideFits(page, 'lesson 1 scenario discussion projector');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Three checks improve the first opinion' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'flow', title: 'Connect present money to a future goal' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
-    await expectInvestmentSlideFits(page, 'lesson 1 definition checks keyword visuals projector');
+    await expectInvestmentSlideFits(page, 'lesson 1 goal flow projector');
 
-    await goToInvestmentSlide(page, { type: 'compare', title: 'Evidence-based analysis or weak opinion?' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invCompareVisual img')).toHaveCount(2);
-    await expect(page.locator('.invSlide.is-active .invCompareVisual img').first()).toBeVisible();
-    await expectInvestmentSlideFits(page, 'lesson 1 compare keyword visuals projector');
-
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify evidence' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invClassificationCategoryVisual img')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invClassificationCategoryVisual img').first()).toBeVisible();
-    await expectInvestmentSlideFits(page, 'lesson 1 classification keyword visuals projector');
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invClassificationCategory')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(3);
+    await expectInvestmentSlideFits(page, 'lesson 1 family-goal classification projector');
     await page.setViewportSize({ width: 1920, height: 1080 });
 
     await goToInvestmentSlide(page, { type: 'term' }, lessonPath);
@@ -968,20 +962,18 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 quiz interaction desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Rank the evidence checks' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Which questions must the family answer first?' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invRankingCard p:not(.invZhLine)')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invRankingAnswer.invReveal.is-revealed')).toHaveCount(0);
-    await expect(page.locator('.invSlide.is-active .invRankingVisual img')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .invRankingVisual img').first()).toBeVisible();
     const rankingCardFont = await page.locator('.invSlide.is-active .invRankingCard strong').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
     expect(rankingCardFont, 'lesson 1 ranking card text is large enough for projection').toBeGreaterThanOrEqual(32);
     await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector');
     await revealInvestmentSlide(page);
     await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Rank the four cards from check first to check last/i);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Order the cards/i);
     await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector revealed');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify evidence' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal');
@@ -989,17 +981,14 @@ test.describe('site smoke', () => {
     await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal');
     await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal projector');
 
-    await goToInvestmentSlide(page, { type: 'answer', title: 'Submit the improved Tencent judgement' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invCheckItem .blank')).toHaveCount(6);
-    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank').first()).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invCheckItem .blank').first()).not.toHaveClass(/is-revealed/);
-    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket bilingual blanks projector');
+    await goToInvestmentSlide(page, { type: 'exam', title: 'Submit one reason and one condition' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invExamBox h3')).toContainText(/Choose one goal from the family goal board/i);
+    await expect(page.locator('.invSlide.is-active .invKeyword')).toHaveCount(5);
+    await expect(page.locator('.invSlide.is-active .invKeyword.is-revealed')).toHaveCount(0);
+    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket individual output projector');
     await revealInvestmentSlide(page);
-    await expect(page.locator('.invSlide.is-active .invCheckItem .blank.is-revealed')).toHaveCount(6);
-    await expect(page.locator('.invSlide.is-active .invCheckItem .invZhLine .blank.is-revealed')).toHaveCount(3);
-    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket bilingual blanks projector revealed');
+    await expect(page.locator('.invSlide.is-active .invKeyword.is-revealed')).toHaveCount(5);
+    await expectInvestmentSlideFits(page, 'lesson 1 exit ticket individual output projector revealed');
 
     await page.setViewportSize({ width: 1920, height: 1080 });
 
@@ -1030,15 +1019,14 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-deck/);
     await expect(page.locator('.invSlide.is-active')).toHaveAttribute('data-idx', '0');
     await expect(page.locator('.invCounter')).toHaveText(/1 \/ \d+/);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Saving, investing or speculating\?/i);
-    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /deposit-into-piggy-bank-savings-account\.jpg/);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/How do goals change investment decisions\?/i);
     await expectInvestmentSlideFits(page, 'lesson 2 first slide desktop');
 
     const lessonSummary = await expectInvestmentRepresentativeSlidesFit(
       page,
       lessonPath,
       'lesson 2 desktop',
-      ['discussion', 'visualPause', 'term', 'conceptTriad', 'compare', 'quiz', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'answer']
+      ['discussion', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 2 has quiz data').toBeGreaterThan(0);
 
@@ -1142,6 +1130,37 @@ test.describe('site smoke', () => {
 
     const galleryPath = 'investment-analysis/unit-1/lesson-1-all-types/index.html';
     await page.goto(pageUrl(galleryPath));
+    const galleryTypes = await page.evaluate(() => [...new Set((window.INVEST?.lesson?.slides || []).map((slide) => slide.type))]);
+    expect(galleryTypes).toEqual(expect.arrayContaining([
+      'hero',
+      'priceChart',
+      'outcomes',
+      'section',
+      'visualPause',
+      'discussion',
+      'term',
+      'answer',
+      'flow',
+      'peerTask',
+      'rankingTask',
+      'quiz',
+      'dataSnapshot',
+      'conceptTriad',
+      'visualGrid',
+      'compare',
+      'classificationTask',
+      'yesNoCheck',
+      'sourceLens',
+      'quoteMap',
+      'comparisonMatrix',
+      'catalystTimeline',
+      'calculationDesk',
+      'analystBoard',
+      'riskRegister',
+      'judgementFrame',
+      'exam',
+      'modelAnswer',
+    ]));
     const galleryVisualPauseSlide = await goToInvestmentSlide(
       page,
       { type: 'visualPause', title: 'Look before the explanation' },
@@ -1149,6 +1168,19 @@ test.describe('site smoke', () => {
     );
     await expectInvestmentVisualPauseImageOnly(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
     await expectInvestmentSlideFits(page, `gallery visualPause slide ${galleryVisualPauseSlide}`);
+
+    const visualGridSlideNumber = await goToInvestmentSlide(
+      page,
+      { type: 'visualGrid', title: 'Compare concrete assets with pictures' },
+      galleryPath
+    );
+    await expect(page.locator('.invSlide.is-active .invVisualGrid')).toBeVisible();
+    await expectInvestmentSlideFits(page, `gallery visualGrid slide ${visualGridSlideNumber}`);
+    await page.evaluate(() => document.querySelectorAll('.invSlide.is-active .invReveal').forEach((node) => {
+      node.classList.add('is-revealed');
+      if (node.hasAttribute('hidden')) node.hidden = false;
+    }));
+    await expectInvestmentSlideFits(page, `gallery visualGrid slide ${visualGridSlideNumber} revealed`);
 
     const revealPromptChecks = [
       {
@@ -1264,27 +1296,32 @@ test.describe('site smoke', () => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Decision-first evidence-based investing$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^50-lesson evidence-based investing map$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^How lessons are built$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Five exams across the year$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Generator table$/i }).first()).toHaveAttribute('href', '#lesson-generator-table');
-    await expect(page.getByText(/The standard structured source is/i)).toBeVisible();
-    await expect(page.getByText(/--syllabus company-analysis/i)).toBeVisible();
-    await expect(page.locator('body')).not.toContainText(/course-map-company-analysis-data.js/i);
-    await expect(page.locator('body')).not.toContainText(/Personal Finance/i);
+    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Six units, fifty taught lessons$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Course outcomes$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Fifty investment decisions$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Six cumulative unit outputs$/i })).toBeVisible();
+    await expect(page.locator('details.investment-teaching-disclosure:not([open])')).toHaveCount(1);
+    await expect(page.locator('details#lesson-generator-table:not([open])')).toHaveCount(1);
+    await expect(page.locator('details#generator-access:not([open])')).toHaveCount(1);
+    await expect(page.locator('#decision-first-model h2')).toBeHidden();
+    await expect(page.locator('#generator-access .investment-section-head > p')).toBeHidden();
+    await expect(page.locator('body')).toContainText(/--syllabus financial-decisions/i);
+    await expect(page.locator('body')).not.toContainText(/--syllabus company-analysis/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Starter dilemma/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Missing evidence/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Would you buy shares in Tencent\? Give one reason\./i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/A family can spend HK\$50,000 now or set it aside for future goals/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/goal, time horizon/i);
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
-    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(5);
+    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('[data-syllabus-lesson]').first()).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson]').last()).toBeVisible();
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="1"] .investment-lesson-routes a')).toHaveCount(3);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="2"] .investment-lesson-routes a')).toHaveCount(3);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="3"] .investment-lesson-routes')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1292,18 +1329,19 @@ test.describe('site smoke', () => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage stays on the default syllabus map.');
 
     await page.goto(pageUrl('investment-analysis/syllabus-company-analysis.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Archived: Investment Analysis — Evidence-Based Investing$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Decision-first evidence-based investing$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Hook, key idea, try it, decide$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^A practical investor workflow$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^50-lesson evidence-based investing map$/i })).toBeVisible();
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Would you buy shares in Tencent\? Give one reason\./i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated source evidence/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/dated evidence on potential return, risk, price, source limitations and investor fit/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Tencent/i);
     await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/Practical investing action/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="5"]')).toContainText(/HKEX/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="9"]')).toContainText(/ChinaAMC CSI 300 ETF/i);
+    await expect(page.locator('body')).toContainText(/Archived 13 July 2026/i);
     await expect(page.locator('body')).not.toContainText(/Personal Finance/i);
     await expect(page.locator('body')).not.toContainText(/course-map-company-analysis-data\.js/i);
     await expectNoHorizontalOverflow(page);
@@ -1313,9 +1351,9 @@ test.describe('site smoke', () => {
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment course map coverage is phone-only.');
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i })).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
-    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(5);
+    await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expectNoHorizontalOverflow(page);
   });
@@ -1327,9 +1365,8 @@ test.describe('site smoke', () => {
     const lessonPath = 'investment-analysis/unit-1/lesson-1/index.html';
 
     await page.goto(pageUrl('investment-analysis/index.html'));
-    await expect(page.getByRole('heading', { name: /^Investment Analysis$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Investment Analysis: Evidence-Based Investing$/i })).toBeVisible();
-    await expect(page.locator('body')).toContainText(/Choose the next action/i);
+    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i }).first()).toBeVisible();
+    await expect(page.locator('body')).toContainText(/set investment goals, compare asset classes, understand stock markets/i);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath));
@@ -1340,9 +1377,9 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['discussion', 'visualPause', 'term', 'flow', 'quiz', 'yesNoCheck', 'compare', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'answer']
+      ['discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'sourceLens', 'compare', 'exam']
     );
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify evidence' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to why investment may or may not help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial phone');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal phone');
@@ -1366,13 +1403,13 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl(lessonPath));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
     await expect(page.locator('.invCounter')).toHaveText(/1 \/ \d+/);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Saving, investing or speculating\?/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/How do goals change investment decisions\?/i);
     await expectInvestmentSlideFits(page, 'lesson 2 first slide phone');
     await expectInvestmentRepresentativeSlidesFit(
       page,
       lessonPath,
       'lesson 2 phone',
-      ['discussion', 'visualPause', 'term', 'conceptTriad', 'compare', 'quiz', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'answer']
+      ['discussion', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

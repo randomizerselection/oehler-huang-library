@@ -1,15 +1,15 @@
-# Investment Analysis Lesson Template
+# Investment and Financial Decision-Making Lesson Template
 
 Use this folder as the starting point for future `investment-analysis/unit-x/lesson-y/` decks.
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../course-map-data.js` before drafting the lesson. It is the standard course-level source for the company-analysis case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 analyst question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investing action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, exam pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source.
+Also check `../course-map-financial-decisions-data.js` before drafting the lesson. It is the active course-level source for the family, product, market or company case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 guiding question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investment action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, checkpoint pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source. The former company-analysis route remains in `../course-map-data.js` for archive maintenance only.
 
 Generator context:
 
-- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new company-analysis deck.
-- Use `--syllabus company-analysis` only as an explicit alias for the standard company-analysis syllabus.
+- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new active-course deck.
+- The default and `--syllabus financial-decisions` selectors load the active course. Use `--syllabus company-analysis` only when maintaining an archived lesson.
 - Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
 - Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
 - The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
@@ -65,7 +65,7 @@ Teaching rhythm:
 
 Syllabus alignment:
 
-- Center each lesson on the investment case anchor named in `course-map-data.js` unless the structured course map itself is intentionally revised.
+- Center each lesson on the investment case anchor named in `course-map-financial-decisions-data.js` unless the structured course map itself is intentionally revised.
 - Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
 - Keep the visible student structure simple and interesting: use `decisionFirst`, `studentHook` and the four `simpleFlow` steps before adding detailed source, retrieval or exam work.
 - Use `decisionFirst.missingEvidence` to choose the lesson's first evidence source, calculation, classification or definition; do not begin with a broad topic overview when the contract gives a narrower missing-evidence problem.
@@ -77,9 +77,9 @@ Syllabus alignment:
 - Use `references/investment-analysis-definitions.md` as the source for every presentation definition. If a term has a CFA glossary match in `references/investment-analysis-cfa-glossary-matches.json`, preserve that CFA-inspired meaning in the slide wording; if no match exists, write a complete definition in the same precise textbook style.
 - Add concise Simplified Chinese support for important student-facing teaching text as standard: slide titles, term definitions, core prompts/tasks, main answer/reveal text, flow/answer items and quiz prompts/explanations. Do not translate minor source metadata, codes, dates, numeric values, UI chrome or teacher notes unless they carry the concept.
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
-- Record company name, stock code or listing, source title, source URL, publication date, accessed date, key figures and what the evidence can and cannot prove.
+- Record the relevant product, market, company or family-case label; source title; source URL; publication date; accessed date; key figures; and what the evidence can and cannot prove. Add stock code or listing details when a listed company is used.
 - Run the `sourceFitAudit` and check `caseReview` before building a deck; if the source pack fails, replace the company only with a case that preserves the same unit role, skill target and assessment blueprint.
-- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-data.js`: source box, vocabulary, Evidence and Data Analysis, calculation or judgement task, misconception check and individual written output.
+- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-financial-decisions-data.js`: source box, vocabulary, Evidence and Data Analysis, calculation or judgement task, misconception check and individual written output.
 - The Evidence and Data Analysis block should work like a compact Cambridge Section A-style worksheet: short case information, then identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions.
 - The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.

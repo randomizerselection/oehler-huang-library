@@ -6,6 +6,7 @@ const childProcess = require('child_process');
 const root = path.resolve(__dirname, '..');
 const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
+const financialDecisionCourseMap = require('../investment-analysis/course-map-financial-decisions-data.js');
 const expectedLessonCount = 50;
 const expectedUnitCount = 5;
 const lessonsPerCheckpoint = 10;
@@ -632,8 +633,8 @@ function validateSyllabusUsesCourseMap() {
     ? fs.readFileSync(companySyllabusPath, 'utf8')
     : '';
 
-  if (!/course-map-data\.js/.test(source) || !/course-map-render\.js/.test(source)) {
-    failures.push('investment-analysis/syllabus.html: must load course-map-data.js and course-map-render.js');
+  if (!/course-map-financial-decisions-data\.js/.test(source) || !/course-map-render\.js/.test(source)) {
+    failures.push('investment-analysis/syllabus.html: must load the active financial-decisions map and shared renderer');
   }
   if (/Personal Finance|personal-finance|course-map-company-analysis-data\.js/.test(source)) {
     failures.push('investment-analysis/syllabus.html: must not expose the archived personal-finance syllabus or old alternate data source');
@@ -641,7 +642,7 @@ function validateSyllabusUsesCourseMap() {
   if (!/data-course-map-generator-rows/.test(source)) {
     failures.push('investment-analysis/syllabus.html: generator table must render from the course map data target');
   }
-  if (!/data-decision-first-model/.test(source) || !/Decision-first evidence-based investing/.test(source)) {
+  if (!/data-decision-first-model/.test(source) || !/Decision-first investment learning/.test(source)) {
     failures.push('investment-analysis/syllabus.html: must render the decision-first teaching model');
   }
   if (!/data-course-map-lesson-grid/.test(source)) {
@@ -664,6 +665,9 @@ function validateSyllabusUsesCourseMap() {
     }
     if (/Personal Finance|personal-finance|course-map-company-analysis-data\.js/.test(companySource)) {
       failures.push('investment-analysis/syllabus-company-analysis.html: must not expose the archived personal-finance syllabus or old alternate data source');
+    }
+    if (!/Archived: Investment Analysis/.test(companySource) || !/href="syllabus\.html"/.test(companySource)) {
+      failures.push('investment-analysis/syllabus-company-analysis.html: must identify itself as archived and link to the current syllabus');
     }
   }
 
@@ -762,6 +766,8 @@ function validateGeneratorContextAccess() {
   try {
     const jsonOutput = childProcess.execFileSync(process.execPath, [
       exportScriptPath,
+      '--syllabus',
+      'company-analysis',
       '--lesson',
       '5',
       '--target',
@@ -774,6 +780,8 @@ function validateGeneratorContextAccess() {
 
     const markdownOutput = childProcess.execFileSync(process.execPath, [
       exportScriptPath,
+      '--syllabus',
+      'company-analysis',
       '--lesson',
       '5',
       '--target',
@@ -782,7 +790,7 @@ function validateGeneratorContextAccess() {
       'md',
     ], { cwd: root, encoding: 'utf8' });
     if (!/Lesson 5: HKEX/.test(markdownOutput) || !/Decision-First Contract/.test(markdownOutput) || !/Simple Lesson Flow/.test(markdownOutput) || !/Practical Investing Action/.test(markdownOutput) || !/Retrieval Practice/.test(markdownOutput) || !/Evidence and Data Analysis Worksheet/.test(markdownOutput) || !/Analyse Why/.test(markdownOutput) || !/Generation Rules/.test(markdownOutput)) {
-      failures.push('scripts/export-investment-generator-context.js: markdown output must include default company-analysis lesson, decision-first contract, simple flow, action, retrieval, worksheet, analyse and generation rules');
+      failures.push('scripts/export-investment-generator-context.js: archived company-analysis output must preserve the full lesson contract');
     }
 
     const companyMarkdownOutput = childProcess.execFileSync(process.execPath, [
@@ -1040,23 +1048,41 @@ function validateTermRenderer() {
 function validateInvestmentPresentationDefinitions() {
   const failures = [];
   const definitionMap = getInvestmentDefinitionMap();
+  const activeFinancialDefinitionMap = new Map(
+    financialDecisionCourseMap.lessons
+      .filter((lesson) => lesson.lesson <= 2)
+      .flatMap((lesson) => lesson.terms || [])
+      .map((entry) => [String(entry.term || '').toLowerCase(), entry]),
+  );
   const slideFiles = findInvestmentSlideFiles(courseRoot)
     .filter((slideFile) => !slideFile.includes('/_template/'));
 
   for (const slideFile of slideFiles) {
     const lesson = readInvestmentLesson(slideFile);
+    const usesActiveFinancialDefinitions = /^investment-analysis\/unit-1\/lesson-[12]\/slides\.js$/.test(slideFile);
     for (const [index, slide] of (lesson.slides || []).entries()) {
       const label = `${slideFile} slide ${index + 1} (${slide.type || 'unknown'}: ${slide.title || slide.term || 'untitled'})`;
 
       if (slide.type === 'term' && slide.definition) {
-        validateOverviewDefinition(
-          failures,
-          `${label} term definition`,
-          slide.term || slide.title,
-          slide.definition,
-          slide.definitionZh,
-          definitionMap,
-        );
+        const termKey = String(slide.term || slide.title || '').toLowerCase();
+        const activeEntry = usesActiveFinancialDefinitions ? activeFinancialDefinitionMap.get(termKey) : null;
+        if (activeEntry) {
+          if (normaliseDefinitionText(slide.definition) !== normaliseDefinitionText(activeEntry.definition)) {
+            failures.push(`${label}: English definition for "${activeEntry.term}" must exactly match course-map-financial-decisions-data.js`);
+          }
+          if (!hasChineseText(slide.definitionZh)) {
+            failures.push(`${label}: missing full Chinese definition translation`);
+          }
+        } else {
+          validateOverviewDefinition(
+            failures,
+            `${label} term definition`,
+            slide.term || slide.title,
+            slide.definition,
+            slide.definitionZh,
+            definitionMap,
+          );
+        }
 
         if (slideFile === 'investment-analysis/unit-1/lesson-1/slides.js') {
           const blanks = Array.isArray(slide.definitionBlanks) ? slide.definitionBlanks : [];
@@ -1082,16 +1108,26 @@ function validateInvestmentPresentationDefinitions() {
         for (const [itemIndex, item] of (slide.definitionItems || []).entries()) {
           if (!item.answer) continue;
           const termKey = String(item.term || '').toLowerCase();
-          if (!definitionMap.has(termKey) && !requiresDefinitionStyle) continue;
-          validateOverviewDefinition(
-            failures,
-            `${label} definitionRecall item ${itemIndex + 1}`,
-            item.term,
-            item.answer,
-            item.answerZh,
-            definitionMap,
-            { fallbackStyle: requiresDefinitionStyle },
-          );
+          const activeEntry = usesActiveFinancialDefinitions ? activeFinancialDefinitionMap.get(termKey) : null;
+          if (activeEntry) {
+            if (normaliseDefinitionText(item.answer) !== normaliseDefinitionText(activeEntry.definition)) {
+              failures.push(`${label} definitionRecall item ${itemIndex + 1}: English definition for "${activeEntry.term}" must exactly match course-map-financial-decisions-data.js`);
+            }
+            if (!hasChineseText(item.answerZh)) {
+              failures.push(`${label} definitionRecall item ${itemIndex + 1}: missing full Chinese definition translation`);
+            }
+          } else {
+            if (!definitionMap.has(termKey) && !requiresDefinitionStyle) continue;
+            validateOverviewDefinition(
+              failures,
+              `${label} definitionRecall item ${itemIndex + 1}`,
+              item.term,
+              item.answer,
+              item.answerZh,
+              definitionMap,
+              { fallbackStyle: requiresDefinitionStyle },
+            );
+          }
         }
       }
 
@@ -1404,23 +1440,20 @@ function validateActiveLessonAlignment() {
   const activeLessons = [1, 2];
 
   const expectedTerms = new Map([
-    [1, ['investment analysis', 'return', 'risk', 'investor fit']],
-    [2, ['saving', 'investment', 'speculation']],
-    [3, ['asset', 'asset class', 'liquidity need']],
-    [4, ['share', 'share ownership', 'shareholder right']],
-    [5, ['stock exchange', 'secondary market', 'listing', 'stock code', 'liquidity']],
+    [1, ['investment', 'return', 'financial goal']],
+    [2, ['time horizon', 'liquidity need', 'suitability']],
   ]);
 
   for (const [lessonNumber, terms] of expectedTerms) {
-    const lesson = courseMap.lessons.find((entry) => entry.lesson === lessonNumber);
+    const lesson = financialDecisionCourseMap.lessons.find((entry) => entry.lesson === lessonNumber);
     const actualTerms = (lesson?.terms || []).map((entry) => String(entry.term || '').toLowerCase());
     if (JSON.stringify(actualTerms) !== JSON.stringify(terms)) {
-      failures.push(`investment-analysis/course-map-data.js lesson ${lessonNumber}: expected term ownership ${terms.join(', ')}`);
+      failures.push(`investment-analysis/course-map-financial-decisions-data.js lesson ${lessonNumber}: expected term ownership ${terms.join(', ')}`);
     }
   }
 
   for (const lessonNumber of activeLessons) {
-    const mapLesson = courseMap.lessons.find((entry) => entry.lesson === lessonNumber);
+    const mapLesson = financialDecisionCourseMap.lessons.find((entry) => entry.lesson === lessonNumber);
     const lessonDir = path.join(courseRoot, 'unit-1', `lesson-${lessonNumber}`);
     const slidePath = path.join(lessonDir, 'slides.js');
     const quizPath = path.join(lessonDir, 'quiz.js');
@@ -1481,19 +1514,17 @@ function validateActiveLessonAlignment() {
       failures.push(`${label}/quiz.js: quiz title must identify the active lesson number`);
     }
 
-    if (!homepageSource.includes(mapLesson.guidingQuestion)) {
-      failures.push(`investment-analysis/index.html: active Lesson ${lessonNumber} card must use the canonical guiding question`);
-    }
-    const activeHref = `unit-1/lesson-${lessonNumber}/index.html`;
-    if (!homepageSource.includes(activeHref)) {
-      failures.push(`investment-analysis/index.html: missing active Lesson ${lessonNumber} route ${activeHref}`);
-    }
-
-    if (lessonNumber === 1 && /Investment or speculation\?|Rank assets by risk|What does a share give\?|Types of assets/i.test(slideSource)) {
-      failures.push(`${label}/slides.js: Lesson 1 must not retain substantive Lessons 2-4 teaching`);
+    if (lessonNumber === 1 && /What is investment analysis\?|Tencent|share price|stock exchange|saving, investing or speculation/i.test(slideSource)) {
+      failures.push(`${label}/slides.js: Lesson 1 must not retain archived company-analysis or saving-versus-speculation teaching`);
     }
     if (lessonNumber === 2 && /HKEX|0700\.HK|stock exchange|secondary market|trading friction/i.test(`${slideSource}\n${fs.readFileSync(quizPath, 'utf8')}\n${indexSource}`)) {
       failures.push(`${label}: active Lesson 2 must not retain archived HKEX market-infrastructure content`);
+    }
+  }
+
+  for (const lessonNumber of activeLessons) {
+    if (!homepageSource.includes(`unit-1/lesson-${lessonNumber}/index.html`)) {
+      failures.push(`investment-analysis/index.html: missing current Lesson ${lessonNumber} route`);
     }
   }
 
@@ -1529,6 +1560,12 @@ function validateActiveLessonAlignment() {
   const lesson2SourceUrls = (lesson2.meta?.sources || []).map((source) => source.url || '').join('\n');
   if (!/ifec\.org\.hk/i.test(lesson2SourceUrls) || !/hkma\.gov\.hk/i.test(lesson2SourceUrls)) {
     failures.push('investment-analysis/unit-1/lesson-2/slides.js: replacement lesson must cite current official IFEC and HKMA guidance');
+  }
+
+  const lesson1 = readInvestmentLesson('investment-analysis/unit-1/lesson-1/slides.js');
+  const lesson1SourceUrls = (lesson1.meta?.sources || []).map((source) => source.url || '').join('\n');
+  if (!/investor\.gov/i.test(lesson1SourceUrls) || !/ifec\.org\.hk/i.test(lesson1SourceUrls)) {
+    failures.push('investment-analysis/unit-1/lesson-1/slides.js: replacement lesson must cite official Investor.gov and IFEC guidance');
   }
 
   return failures;

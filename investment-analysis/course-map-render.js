@@ -182,6 +182,13 @@
           <span><strong>Formula/check:</strong> ${escapeHtml(lesson.formulaOrNoFormula)}</span>
         </div>
         ${renderInvestmentAction(lesson)}
+        ${lesson.publishedRoutes ? `
+          <nav class="investment-lesson-routes" aria-label="Lesson ${lesson.lesson} materials">
+            <a href="${escapeHtml(lesson.publishedRoutes.slides)}">Slides</a>
+            <a href="${escapeHtml(lesson.publishedRoutes.quiz)}">Quiz</a>
+            <a href="${escapeHtml(lesson.publishedRoutes.handout)}">Handout</a>
+          </nav>
+        ` : ""}
         <details class="investment-lesson-details">
           <summary>Show retrieval, worksheet and generator details</summary>
           <p class="investment-lesson-focus">${escapeHtml(lesson.focus)}</p>

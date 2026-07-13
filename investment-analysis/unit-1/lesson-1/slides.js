@@ -4,27 +4,33 @@ const investmentPhotos = window.INVEST.photos || {};
 
 window.INVEST.lesson = {
   meta: {
-    courseLabel: "Investment Analysis",
-    lessonLabel: "Unit 1 Lesson 1: What is investment analysis?",
+    courseLabel: "Investment and Financial Decision-Making",
+    lessonLabel: "Unit 1 Lesson 1: Why do people and families invest?",
     sources: [
       {
-        label: "Tencent investor relations",
-        note: "Used only for company identity and the opening classroom judgement; the page does not prove that Tencent is a suitable investment.",
-        date: "Accessed 11 July 2026",
-        url: "https://www.tencent.com/en-us/investors.html"
+        label: "Investor.gov: Introduction to Investing",
+        note: "Supports the factual distinction between investing for future return and the possibility of loss, and links investment choices to goals and time horizon.",
+        date: "Accessed 13 July 2026",
+        url: "https://www.investor.gov/introduction-investing"
       },
       {
-        label: "Hong Kong Monetary Authority: Investment Services",
-        note: "Supports the lesson habit of checking potential return, risk, possible loss, investment horizon and suitability before acting.",
-        date: "Page revised 7 January 2026; accessed 11 July 2026",
-        url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
+        label: "IFEC: Building an investment portfolio",
+        note: "Supports beginning with purpose, investment time horizon, liquidity needs, financial resources and risk tolerance rather than a named product.",
+        date: "Published 1 April 2016; accessed 13 July 2026",
+        url: "https://www.ifec.org.hk/web/en/moneyessentials/financial-planning/building-an-investment-portfolio.page"
+      },
+      {
+        label: "Frozen family goal board",
+        note: "Teacher-created hypothetical goals used only for classroom classification. The figures are not a recommendation or a real family plan.",
+        date: "Frozen 13 July 2026",
+        url: "Local classroom scenario"
       }
     ]
   },
   handout: {
-    title: "What is investment analysis?",
+    title: "Why do people and families invest?",
     subtitle: "Unit 1 Lesson 1",
-    description: "Use the Tencent question to move from familiarity and first opinion to a judgement based on evidence, potential return, risk and investor fit.",
+    description: "Use a family goal board to decide when waiting and investing may help a future goal, and when the money should remain available instead.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -33,14 +39,14 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "1",
-        title: "Opening judgement",
-        instruction: "Answer before definitions. Return to this answer at the end.",
+        title: "Opening decision",
+        instruction: "Make a first judgement before the definitions, then return to it at the end.",
         blocks: [
           {
             type: "prompts",
             prompts: [
-              { label: "First answer", prompt: "Would you buy shares in Tencent? Give one reason.", lines: 3 },
-              { label: "Missing evidence", prompt: "What would you need to know before making a careful judgement?", lines: 4 }
+              { label: "First judgement", prompt: "A family can spend HK$50,000 now or set it aside for future goals. What could justify waiting?", lines: 3 },
+              { label: "Missing evidence", prompt: "What must the family know before deciding whether investment could help?", lines: 4 }
             ]
           }
         ]
@@ -48,47 +54,47 @@ window.INVEST.lesson = {
       {
         label: "2",
         title: "Vocabulary",
-        instruction: "Complete the four Lesson 1 definitions.",
+        instruction: "Complete the three Lesson 1 definitions.",
         blocks: [
           {
             type: "terms",
             terms: [
-              { label: "Investment analysis", prompt: "Investment analysis evaluates an opportunity with evidence to judge potential return, risk and __________ before a decision.", answer: "suitability" },
-              { label: "Return", prompt: "Return is the gain or __________ earned over a stated holding period.", answer: "loss" },
-              { label: "Risk", prompt: "Risk is the possibility that results, returns or prices are worse than __________.", answer: "expected" },
-              { label: "Investor fit", prompt: "Investor fit checks goal, time horizon, liquidity need and risk __________.", answer: "tolerance" }
+              { label: "Investment", prompt: "Investment puts money into an asset to seek future return while accepting possible __________.", answer: "loss" },
+              { label: "Return", prompt: "Return is the gain or loss over a stated period, including price change and __________.", answer: "income" },
+              { label: "Financial goal", prompt: "A financial goal states a future use, amount, priority and time __________.", answer: "horizon" }
             ]
           }
         ]
       },
       {
         label: "3",
-        title: "Evidence check",
-        instruction: "Classify what each question is mainly checking.",
+        title: "Evidence and Data Analysis",
+        instruction: "Read the frozen goal board before deciding whether investment may help.",
         blocks: [
           {
-            type: "cases",
-            cases: [
-              { label: "A", text: "How could the investment gain or lose value?", answer: "Potential return" },
-              { label: "B", text: "What could be worse than expected?", answer: "Risk" },
-              { label: "C", text: "Does this match the investor's goal and time horizon?", answer: "Investor fit" },
-              { label: "D", text: "Who published the information, and when?", answer: "Evidence quality" }
+            type: "table",
+            columns: ["Goal", "Amount", "When needed", "Could a loss damage the goal?"],
+            rows: [
+              ["University fees", "HK$180,000", "6 years", "Yes, if the amount is below target when fees are due"],
+              ["Home deposit", "HK$400,000", "10 years", "Yes, but the date has some flexibility"],
+              ["Retirement income", "Not fixed yet", "30 years", "Yes, but the horizon is long"],
+              ["Medical bill", "HK$25,000", "4 months", "Yes, and access is urgent"]
             ]
           }
         ]
       },
       {
         label: "4",
-        title: "Tencent source box",
-        instruction: "Record the source before using it.",
+        title: "Classification judgement",
+        instruction: "Match each goal to the most defensible reason investment may or may not help.",
         blocks: [
           {
-            type: "facts",
-            items: [
-              { label: "Source title", value: "Tencent investor relations" },
-              { label: "Accessed", value: "11 July 2026" },
-              { label: "Useful for", value: "Company identity and official investor information" },
-              { label: "Cannot prove", value: "Future return, risk level, price attractiveness or investor fit" }
+            type: "cases",
+            cases: [
+              { label: "A", text: "University fees in six years", answer: "Investment may help, but the fixed date and possible loss must be checked" },
+              { label: "B", text: "Home deposit in ten years with some flexibility", answer: "Investment may help because the horizon is longer, but loss could still delay the goal" },
+              { label: "C", text: "Retirement income in thirty years", answer: "Investment may help a long-term goal, but the target and ability to accept loss are still missing" },
+              { label: "D", text: "Medical bill in four months", answer: "Investment may not help because the money must remain available soon" }
             ]
           }
         ]
@@ -96,60 +102,60 @@ window.INVEST.lesson = {
       {
         label: "5",
         title: "Misconception check",
-        instruction: "Correct the weak shortcut.",
+        instruction: "Correct the shortcut with evidence from the goal board.",
         blocks: [
           {
             type: "prompts",
             prompts: [
-              { label: "Weak claim", prompt: "Tencent is familiar, so buying its shares must be suitable.", lines: 2 },
-              { label: "Correction", prompt: "Explain why familiarity is not enough evidence.", lines: 4 }
+              { label: "Weak claim", prompt: "Investing is simply a way to make more money.", lines: 2 },
+              { label: "Correction", prompt: "Explain why goal, time horizon, access need and possible loss must be checked first.", lines: 4 }
             ]
           }
         ]
       },
       {
         label: "6",
-        title: "Exit judgement",
-        instruction: "Improve the opening answer with the Lesson 1 method.",
+        title: "Individual output",
+        instruction: "Use the lesson definitions and one condition from the goal board.",
         blocks: [
           {
             type: "writing",
-            question: "Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.",
-            keywords: ["investment analysis", "evidence", "potential return", "risk", "investor fit", "gather more evidence"],
+            question: "Write one reason to invest and one condition that must be checked first.",
+            keywords: ["future goal", "return", "time horizon", "liquidity", "possible loss"],
             lines: 8
           }
         ]
       }
     ],
-    sources: "Tencent investor relations and HKMA Investment Services, accessed 11 Jul 2026. Classroom analysis only; not personal investment advice."
+    sources: "Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. Goal figures are a frozen hypothetical classroom profile; this is not personal investment advice."
   },
   slides: [
     {
       type: "hero",
       eyebrow: "Unit 1 Lesson 1",
-      title: "What is investment analysis?",
-      zhTitle: "什么是投资分析？",
+      title: "Why do people and families invest?",
+      zhTitle: "人们和家庭为什么投资？",
       prominentTitle: true,
-      visual: investmentPhotos.financialAnalysisDesk,
+      visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Keep this as a clean title screen.",
-        "Move directly to the Tencent judgement before teaching definitions."
+        "Move directly to the HK$50,000 judgement before teaching any definition."
       ]
     },
     {
       type: "discussion",
       eyebrow: "First judgement",
-      title: "Would you buy shares in Tencent?",
-      zhTitle: "你会买腾讯股票吗？",
-      question: "Would you buy shares in Tencent? Give one reason.",
-      questionZh: "你会买腾讯股票吗？给出一个理由。",
-      revealTitle: "Familiarity is not enough evidence",
-      answer: "Do not decide yet. A familiar company name does not show the potential return, risk, price paid or fit for a particular investor.",
-      answerZh: "先不要作决定。熟悉的公司名称并不能说明潜在回报、风险、支付价格，或是否适合某位投资者。",
-      visual: investmentPhotos.lesson1TencentBinhaiBuilding01,
+      title: "Spend now or wait for a future goal?",
+      zhTitle: "现在花掉，还是为未来目标等待？",
+      question: "A family can spend HK$50,000 now or set it aside for future goals. What could justify waiting?",
+      questionZh: "一个家庭可以现在花掉50,000港元，也可以把钱留给未来目标。什么理由可以说明等待是合理的？",
+      revealTitle: "A future goal may justify waiting, but it does not settle the investment decision",
+      answer: "Waiting may move money toward an important future goal. Before investing, the family must still identify the goal, when the money is needed, whether it must remain available and what loss could damage the goal.",
+      answerZh: "等待可以让资金用于重要的未来目标。但在投资前，家庭仍必须明确目标、何时需要资金、资金是否必须保持可用，以及什么样的损失会损害目标。",
+      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
-        "Take a vote and collect reasons before reveal.",
-        "Treat every reason as diagnostic evidence for what the class thinks investment analysis means."
+        "Take spend/wait votes before revealing the answer.",
+        "Collect students' reasons as diagnostic evidence; do not correct them until after the vote."
       ]
     },
     {
@@ -157,291 +163,317 @@ window.INVEST.lesson = {
       eyebrow: "Objectives",
       title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
-      visual: investmentPhotos.financeChartWhiteboard,
+      visual: investmentPhotos.businessChartsPaper,
       bullets: [
-        "define investment analysis using evidence, return, risk and suitability",
-        "classify the missing evidence in a first investment opinion",
-        "write a careful next action without giving a stock tip"
+        "Define and use investment, return, financial goal.",
+        "Match four family goals to the reason investment may or may not help.",
+        "Write one reason to invest and one condition that must be checked first."
       ],
       zhBullets: [
-        "用证据、回报、风险和适合性定义投资分析",
-        "给初步投资观点中缺少的证据分类",
-        "写出谨慎的下一步行动，而不是给出股票提示"
+        "定义并使用投资、回报和财务目标。",
+        "把四个家庭目标与投资可能有帮助或没有帮助的理由相匹配。",
+        "写出一个投资理由和一个必须先检查的条件。"
       ]
     },
     {
       type: "section",
       eyebrow: "Part 1",
-      title: "Evidence before judgement",
-      zhTitle: "先看证据，再作判断",
-      notes: "Retrieval -> first attempt -> definition -> hinge check."
+      title: "A future return comes with uncertainty",
+      zhTitle: "未来回报伴随不确定性",
+      notes: "First attempt -> define -> connect -> hinge check."
     },
     {
       type: "discussion",
       eyebrow: "Try first",
-      title: "What is missing from the first opinion?",
-      zhTitle: "初步观点缺少什么？",
-      question: "A student says, 'Tencent is famous, so its shares are a good investment.' What evidence is missing?",
-      questionZh: "一名学生说：‘腾讯很有名，所以它的股票是好投资。’这个观点缺少什么证据？",
-      revealTitle: "The opinion is missing return, risk and fit evidence",
-      answer: "The student needs dated evidence about possible return, what could go wrong, the price paid and whether the investment fits the investor's goal and constraints.",
-      answerZh: "学生需要带日期的证据，说明可能的回报、可能出现的问题、支付价格，以及这项投资是否符合投资者的目标和限制。",
-      visual: investmentPhotos.lesson1ScenarioFinancialDocuments
+      title: "What is missing from ‘invest to make more money’?",
+      zhTitle: "“投资就是为了赚更多钱”缺少了什么？",
+      question: "A student says, ‘Investing is simply a way to make more money.’ What does this answer leave out?",
+      questionZh: "一名学生说：“投资只是赚更多钱的一种方式。”这个回答遗漏了什么？",
+      revealTitle: "The shortcut ignores the goal and the possibility of loss",
+      answer: "Investment seeks future return, but the return can be a gain or a loss. A careful decision also identifies the financial goal, the time horizon and the need to access the money.",
+      answerZh: "投资寻求未来回报，但回报可能是收益，也可能是损失。谨慎的决定还要明确财务目标、投资期限以及使用资金的需要。",
+      visual: investmentPhotos.assetCashSavings
     },
     {
       type: "term",
       eyebrow: "Key definition",
-      title: "Investment analysis",
-      term: "Investment analysis",
-      termZh: "投资分析",
+      title: "Investment",
+      term: "Investment",
+      termZh: "投资",
       keywordVisuals: [
-        { label: "Evidence before judgement", labelZh: "先看证据再判断", visual: investmentPhotos.financialAnalysisDesk }
+        { label: "Future return with possible loss", labelZh: "寻求未来回报并接受可能损失", visual: investmentPhotos.financialAnalysisDesk }
       ],
-      definition: "Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision.",
-      definitionBlanks: ["potential return, risk and suitability"],
-      definitionZh: "投资分析是利用证据评估投资机会的过程，在作出决定前判断其潜在回报、风险和适合性。"
+      definition: "Investment is putting money into an asset to seek future return while accepting possible loss.",
+      definitionBlanks: ["asset", "future return", "possible loss"],
+      definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。"
     },
     {
       type: "flow",
-      eyebrow: "Course method",
-      title: "Three checks improve the first opinion",
-      zhTitle: "三个检查改进初步观点",
+      eyebrow: "Why invest?",
+      title: "Connect present money to a future goal",
+      zhTitle: "把现在的资金与未来目标连接起来",
       visual: investmentPhotos.businessChartsPaper,
       flowStyle: "sequence",
       steps: [
-        { text: "Potential return: how could value or income change?", zh: "潜在回报：价值或收入可能如何变化？", visual: investmentPhotos.keywordDividendCheque },
-        { text: "Risk: what could be worse than expected?", zh: "风险：什么结果可能比预期更差？", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
-        { text: "Investor fit: does it match the goal and constraints?", zh: "投资者适合度：它是否符合目标和限制？", visual: investmentPhotos.investorMeetingReport }
+        { text: "Set aside money that is not needed __________", answer: "now", zh: "留出现在不需要使用的资金", visual: investmentPhotos.assetCashSavings },
+        { text: "Name the future goal and its time __________", answer: "horizon", zh: "明确未来目标及其投资期限", visual: investmentPhotos.lesson1ScenarioHouseForRent },
+        { text: "Use an asset to seek return while accepting possible __________", answer: "loss", zh: "利用资产寻求回报，同时接受可能损失", visual: investmentPhotos.financialAnalysisDesk }
       ]
     },
     {
       type: "term",
-      eyebrow: "Check 1",
+      eyebrow: "Key definition",
       title: "Return",
       term: "Return",
       termZh: "回报",
       keywordVisuals: [
-        { label: "Gain, loss or income", labelZh: "收益、损失或收入", visual: investmentPhotos.keywordDividendCheque }
+        { label: "Gain, loss, price change and income", labelZh: "收益、损失、价格变化和收入", visual: investmentPhotos.keywordDividendCheque }
       ],
-      definition: "Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received.",
-      definitionBlanks: ["gain or loss"],
-      definitionZh: "回报是投资在某一持有期间获得的收益或损失，包括价格变动和收到的任何收入。"
+      definition: "Return is the gain or loss from an investment over a stated period, including price change and income.",
+      definitionBlanks: ["gain or loss", "stated period", "price change and income"],
+      definitionZh: "回报是投资在规定期间内的收益或损失，包括价格变化和收入。"
     },
     {
-      type: "term",
-      eyebrow: "Check 2",
-      title: "Risk",
-      term: "Risk",
-      termZh: "风险",
-      keywordVisuals: [
-        { label: "Worse than expected", labelZh: "比预期更差", visual: investmentPhotos.lesson1ScenarioRedMarketLosses }
-      ],
-      definition: "Risk is the possibility that results, returns or prices are worse than expected.",
-      definitionBlanks: ["worse than expected"],
-      definitionZh: "风险是结果、回报或价格比预期更差的可能性。"
-    },
-    {
-      type: "term",
-      eyebrow: "Check 3",
-      title: "Investor fit",
-      term: "Investor fit",
-      termZh: "投资者适合度",
-      keywordVisuals: [
-        { label: "Goal and constraints", labelZh: "目标与限制", visual: investmentPhotos.investorMeetingReport }
-      ],
-      definition: "Investor fit is the degree to which an investment matches an investor's goal, time horizon, liquidity need and risk tolerance.",
-      definitionBlanks: ["goal, time horizon, liquidity need and risk tolerance"],
-      definitionZh: "投资者适合度是指一项投资与投资者目标、投资期限、流动性需求和风险承受能力的匹配程度。"
-    },
-    {
-      type: "classificationTask",
-      eyebrow: "Practice check",
-      title: "Classify evidence",
-      zhTitle: "证据分类",
-      compact: true,
-      prompt: "For each question, choose the main check: potential return, risk or investor fit.",
-      promptZh: "给每个问题选择主要检查：潜在回报、风险或投资者适合度。",
-      categories: [
-        { title: "Potential return", zhTitle: "潜在回报", clue: "gain, loss or income", visual: investmentPhotos.keywordDividendCheque },
-        { title: "Risk", zhTitle: "风险", clue: "worse than expected", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
-        { title: "Investor fit", zhTitle: "投资者适合度", clue: "goal and constraints", visual: investmentPhotos.investorMeetingReport }
-      ],
+      type: "yesNoCheck",
+      eyebrow: "Check the idea",
+      title: "Does every future goal justify investment?",
+      zhTitle: "每个未来目标都能说明投资是合理的吗？",
+      prompt: "Vote yes or no before revealing each reason.",
+      promptZh: "先投票判断是或否，再揭示每个理由。",
       items: [
-        { label: "A", text: "Could weaker demand reduce future profit?", zh: "需求减弱会不会降低未来利润？", answer: "Risk", answerZh: "风险", reason: "It asks what could make the result worse.", reasonZh: "它询问什么会使结果变差。" },
-        { label: "B", text: "Could dividends or a higher future price create a gain?", zh: "股息或未来更高的价格会不会带来收益？", answer: "Potential return", answerZh: "潜在回报", reason: "It asks how the investor could gain or lose.", reasonZh: "它询问投资者可能如何获得收益或损失。" },
-        { label: "C", text: "Is the money needed again in six months?", zh: "这笔钱是否在六个月后就需要使用？", answer: "Investor fit", answerZh: "投资者适合度", reason: "It checks the investor's time horizon and liquidity need.", reasonZh: "它检查投资者的投资期限和流动性需求。" }
-      ],
-      sharePrompt: "Defend one classification using the definition.",
-      sharePromptZh: "用定义说明一个分类的理由。"
-    },
-    {
-      type: "rankingTask",
-      eyebrow: "Evidence priority",
-      title: "Rank the evidence checks",
-      zhTitle: "排列证据检查",
-      visual: investmentPhotos.businessChartsPaper,
-      prompt: "Rank the four cards from check first to check last.",
-      promptZh: "把四张卡从最先检查排到最后检查。",
-      axis: {
-        low: "Check first",
-        lowZh: "最先检查",
-        high: "Check last",
-        highZh: "最后检查"
-      },
-      items: [
-        { label: "A", text: "Source title and date", zh: "来源标题和日期", visual: investmentPhotos.lesson1ScenarioFinancialDocuments },
-        { label: "B", text: "Potential return evidence", zh: "潜在回报证据", visual: investmentPhotos.keywordDividendCheque },
-        { label: "C", text: "Risk evidence", zh: "风险证据", visual: investmentPhotos.lesson1ScenarioRedMarketLosses },
-        { label: "D", text: "Investor-fit evidence", zh: "投资者适合度证据", visual: investmentPhotos.investorMeetingReport }
-      ],
-      revealLabel: "One defensible order",
-      revealLabelZh: "一种合理顺序",
-      modelOrder: [
-        { rank: "1", label: "A", text: "Source title and date", zh: "来源标题和日期", reason: "Confirm what the evidence is before using it.", reasonZh: "使用证据前先确认它是什么。" },
-        { rank: "2", label: "C", text: "Risk evidence", zh: "风险证据", reason: "Identify what could make the outcome worse.", reasonZh: "识别什么可能使结果变差。" },
-        { rank: "3", label: "B", text: "Potential return evidence", zh: "潜在回报证据", reason: "Then compare possible gain and loss.", reasonZh: "然后比较可能的收益和损失。" },
-        { rank: "4", label: "D", text: "Investor-fit evidence", zh: "投资者适合度证据", reason: "Finish by testing the case against the investor's constraints.", reasonZh: "最后用投资者的限制检查这个案例。" }
-      ],
-      notes: "After reveal, ask one student to defend why the first card should be checked before the Tencent judgement."
+        { text: "A possible return is guaranteed to be positive.", zh: "可能的回报一定是正数。", answer: false, answerZh: "否", reason: "Return includes both gain and loss.", reasonZh: "回报包括收益和损失。" },
+        { text: "A longer future goal may give investment more time to work through uncertainty.", zh: "较长期的未来目标可能给投资更多时间应对不确定性。", answer: true, answerZh: "是", reason: "A longer horizon may support consideration of investment, although it does not remove risk.", reasonZh: "较长期限可能支持考虑投资，但不会消除风险。" },
+        { text: "Money needed urgently in four months should be judged only by its possible return.", zh: "四个月后急需的资金只应根据可能回报来判断。", answer: false, answerZh: "否", reason: "The need for fast access and the damage from loss are essential conditions.", reasonZh: "快速取用资金的需要以及损失带来的影响是关键条件。" }
+      ]
     },
     {
       type: "quiz",
       eyebrow: "Hinge question",
-      title: "Which response is investment analysis?",
-      zhTitle: "哪一个回应属于投资分析？",
-      question: "Which student is using investment analysis?",
-      zh: "哪一名学生正在使用投资分析？",
+      title: "Which statement uses the full definition?",
+      zhTitle: "哪一个陈述使用了完整定义？",
+      question: "Which statement best explains investment?",
+      zh: "哪一个陈述最准确地解释了投资？",
       choices: [
-        "A: Tencent is famous, so I would buy.",
-        "B: The price fell, so it must be cheap.",
-        "C: I need dated evidence on return, risk, price and fit before deciding.",
-        "D: My friends like the company, so the risk is low."
+        "Investment guarantees that saved money grows.",
+        "Investment puts money into an asset to seek future return while accepting possible loss.",
+        "Investment is any decision to delay spending.",
+        "Investment is suitable whenever a goal is expensive."
       ],
-      answer: 2,
-      explanation: "Investment analysis checks dated evidence, potential return, risk, price and investor fit before action.",
-      explanationZh: "投资分析会在行动前检查带日期的证据、潜在回报、风险、价格和投资者适合度。"
+      answer: 1,
+      explanation: "Investment seeks future return through an asset, but possible loss remains.",
+      explanationZh: "投资通过资产寻求未来回报，但仍存在可能损失。"
     },
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Use sources carefully",
-      zhTitle: "谨慎使用来源",
-      notes: "Retrieve the three checks, inspect a source, then correct the overclaim."
+      title: "Start with the family goal",
+      zhTitle: "从家庭目标开始",
+      notes: "Look -> define -> inspect frozen evidence -> classify -> check the source."
     },
     {
-      type: "visualPause",
-      eyebrow: "Look first",
-      title: "Tencent evidence needs a source",
-      visual: investmentPhotos.lesson1TencentBinhaiBuilding01,
+      type: "discussion",
+      eyebrow: "Try first",
+      title: "What turns a future wish into a usable financial goal?",
+      zhTitle: "什么能把未来愿望变成可用的财务目标？",
+      question: "‘We want a better future’ is too vague for an investment decision. Which details would make the goal usable?",
+      questionZh: "“我们想要更好的未来”对投资决策来说太模糊。哪些细节能使这个目标变得可用？",
+      revealTitle: "A usable goal states the purpose, amount, priority and time horizon",
+      answer: "The family must name what the money is for, how much is needed, how important the goal is and when the money is required.",
+      answerZh: "家庭必须说明资金用途、所需金额、目标的重要程度以及何时需要这笔钱。",
+      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
-        "Image only. Ask: what does this picture prove, and what can it not prove?",
-        "Bridge to the source lens: company identity is evidence, but not the whole investment case."
+        "Students list details before the possible answer is shown.",
+        "Use their answers to decide whether the financial-goal definition can be taught immediately or needs one more example."
       ]
     },
     {
+      type: "term",
+      eyebrow: "Key definition",
+      title: "Financial goal",
+      term: "Financial goal",
+      termZh: "财务目标",
+      keywordVisuals: [
+        { label: "Use, amount, priority and horizon", labelZh: "用途、金额、优先级和期限", visual: investmentPhotos.lesson1ScenarioFinancialDocuments }
+      ],
+      definition: "A financial goal is a stated future use of money with an amount, priority and time horizon.",
+      definitionBlanks: ["future use of money", "amount", "priority", "time horizon"],
+      definitionZh: "财务目标是对资金未来用途的明确说明，并包括金额、优先级和投资期限。"
+    },
+    {
+      type: "comparisonMatrix",
+      eyebrow: "Compare the extremes",
+      title: "Why do a medical bill and retirement need different decisions?",
+      zhTitle: "为什么医疗账单和退休目标需要不同的决策？",
+      visual: investmentPhotos.investorMeetingReport,
+      revealCells: true,
+      cornerLabel: "Constraint",
+      columns: [
+        { label: "Medical bill", note: "HK$25k" },
+        { label: "Retirement income", note: "amount not fixed" }
+      ],
+      rows: [
+        { label: "When needed", values: ["4 months", "30 years"] },
+        { label: "Access need", values: ["Urgent and fixed", "Not needed soon"] },
+        { label: "If a loss occurs", values: ["The bill may not be paid", "The long-term goal may fall short"] },
+        { label: "First implication", values: ["Keep this money available", "Investment may be considered after more checks"] }
+      ],
+      prompt: "Predict the two implications, then explain which constraint creates the difference.",
+      promptZh: "先预测两种影响，再解释是哪一个限制条件造成了差异。",
+      notes: "Use this worked contrast before students classify all four goals on the next slide. The figures are frozen hypothetical classroom data."
+    },
+    {
+      type: "classificationTask",
+      eyebrow: "Evidence task",
+      title: "Match each goal to why investment may or may not help",
+      zhTitle: "把每个目标与投资可能有帮助或没有帮助的理由相匹配",
+      prompt: "Medical bill is the worked example. Classify the other three goals, then defend one.",
+      promptZh: "医疗账单是示例。给其余三个目标分类，然后说明一个理由。",
+      categories: [
+        { title: "May help", zhTitle: "可能有帮助", clue: "longer horizon; money not needed soon" },
+        { title: "Conditions needed", zhTitle: "需要条件", clue: "date, amount or loss still matters" },
+        { title: "May not help", zhTitle: "可能没有帮助", clue: "urgent access is essential" }
+      ],
+      items: [
+        { label: "A", text: "Retirement income in 30 years; target not fixed.", zh: "三十年后的退休收入；目标金额未定。", answer: "Conditions needed", answerZh: "需要条件", reason: "The long horizon helps, but target and loss capacity are missing.", reasonZh: "长期限有利，但仍缺目标金额和损失承受能力。" },
+        { label: "C", text: "HK$400,000 home deposit in 10 years; date flexible.", zh: "十年后的400,000港元首付；日期灵活。", answer: "May help", answerZh: "可能有帮助", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
+        { label: "D", text: "HK$180,000 university fees in 6 years; date fixed.", zh: "六年后的180,000港元学费；日期固定。", answer: "Conditions needed", answerZh: "需要条件", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
+      ],
+      sharePrompt: "Use goal, horizon and possible loss in one justification.",
+      sharePromptZh: "在一个理由中使用目标、期限和可能损失。"
+    },
+    {
       type: "sourceLens",
-      eyebrow: "Source check",
-      title: "What can Tencent investor relations prove?",
-      zhTitle: "腾讯投资者关系页面能证明什么？",
-      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit03,
+      eyebrow: "Official guidance",
+      title: "What can introductory guidance establish?",
+      zhTitle: "入门指引能够说明什么？",
+      visual: investmentPhotos.financialAnalysisDesk,
       revealAnswers: true,
       metaItems: [
-        { label: "Source", value: "Tencent investor relations" },
-        { label: "Accessed", value: "11 July 2026" }
+        { label: "Source", value: "Investor.gov: Introduction to Investing" },
+        { label: "Accessed", value: "13 July 2026" }
       ],
       checks: [
-        { label: "Useful", prompt: "What can an official company source help verify?", zh: "公司官方来源可以帮助核实什么？", answer: "Company identity, reports and official investor information.", answerZh: "公司身份、报告和官方投资者信息。" },
-        { label: "Limit", prompt: "What can this page not prove by itself?", zh: "这个页面单独不能证明什么？", answer: "It cannot prove future return, low risk, an attractive price or investor fit.", answerZh: "它不能证明未来回报、低风险、价格有吸引力或投资者适合度。" }
+        { label: "Use", prompt: "What general relationship does the source support?", zh: "该来源支持什么一般关系？", answer: "Investing seeks return over time, all investments involve risk, and time horizon should be connected to the goal.", answerZh: "投资在一段时间内寻求回报，所有投资都涉及风险，而且投资期限应与目标相联系。" },
+        { label: "Limit", prompt: "What can the source not decide for this family?", zh: "该来源不能替这个家庭决定什么？", answer: "It cannot choose a product, set the family's priorities or guarantee that a goal will be reached.", answerZh: "它不能选择产品、设定家庭优先级，也不能保证目标一定实现。" }
       ],
-      task: "Write one source-backed fact and one limitation before judging Tencent.",
-      taskZh: "在判断腾讯之前，写出一个有来源支持的事实和一个局限。"
+      task: "Write one source-supported reason to invest and one family-specific fact still needed.",
+      taskZh: "写出一个有来源支持的投资理由，以及一个仍然需要的家庭具体事实。"
+    },
+    {
+      type: "rankingTask",
+      eyebrow: "Evidence priority",
+      title: "Which questions must the family answer first?",
+      zhTitle: "家庭必须先回答哪些问题？",
+      visual: investmentPhotos.businessChartsPaper,
+      prompt: "Order the cards.",
+      axis: {
+        low: "Ask first",
+        lowZh: "最先提问",
+        high: "Ask later",
+        highZh: "较后提问",
+        note: "Goal constraints before products"
+      },
+      items: [
+        { label: "A", text: "Purpose of the money", zh: "这笔钱的用途" },
+        { label: "B", text: "Highest recent product return", zh: "产品近期最高回报" },
+        { label: "C", text: "Date the money is needed", zh: "需要资金的日期" },
+        { label: "D", text: "Loss that would damage the goal", zh: "会损害目标的损失" }
+      ],
+      revealLabel: "One defensible order",
+      revealLabelZh: "一种合理顺序",
+      modelOrder: [
+        { rank: "1", label: "A", text: "Purpose of the money", zh: "这笔钱的用途", reason: "The purpose defines the decision problem.", reasonZh: "用途界定了决策问题。" },
+        { rank: "2", label: "C", text: "Date the money is needed", zh: "需要资金的日期", reason: "The date sets the time horizon.", reasonZh: "日期确定投资期限。" },
+        { rank: "3", label: "D", text: "Loss that would damage the goal", zh: "会损害目标的损失", reason: "The family must know the consequence of uncertainty.", reasonZh: "家庭必须知道不确定性的后果。" },
+        { rank: "4", label: "B", text: "Highest recent product return", zh: "产品近期最高回报", reason: "Product comparison comes only after the goal constraints are clear.", reasonZh: "只有目标限制明确后，才能比较产品。" }
+      ],
+      notes: "After reveal, ask why the product question belongs last."
     },
     {
       type: "yesNoCheck",
       eyebrow: "Misconception check",
-      title: "Can one clue settle the investment case?",
-      zhTitle: "一个线索能决定整个投资判断吗？",
-      prompt: "Vote yes or no before revealing each reason.",
-      promptZh: "先投票判断是或否，再揭示每个理由。",
+      title: "Is investing simply a way to make more money?",
+      zhTitle: "投资只是赚更多钱的一种方式吗？",
+      prompt: "Judge each correction before revealing the explanation.",
+      promptZh: "先判断每个修正，再揭示解释。",
       items: [
-        { text: "An official source is useful evidence.", zh: "官方来源是有用的证据。", answer: true, answerZh: "是", reason: "It can verify specific facts when its date and limits are recorded.", reasonZh: "记录日期和局限后，它可以核实具体事实。" },
-        { text: "Tencent's large size proves its shares are suitable for every investor.", zh: "腾讯规模大，证明其股票适合每一位投资者。", answer: false, answerZh: "否", reason: "Suitability depends on the investor's goal, horizon, liquidity need and risk tolerance.", reasonZh: "适合性取决于投资者的目标、期限、流动性需求和风险承受能力。" },
-        { text: "If evidence is incomplete, gathering more evidence is a valid next action.", zh: "如果证据不完整，收集更多证据是合理的下一步行动。", answer: true, answerZh: "是", reason: "A careful analyst does not force a buy or avoid verdict from weak evidence.", reasonZh: "谨慎的分析者不会用薄弱证据强行作出买入或回避判断。" }
+        { text: "The statement is incomplete because return can be a gain or a loss.", zh: "该陈述不完整，因为回报可能是收益，也可能是损失。", answer: true, answerZh: "是", reason: "Possible loss is part of the definition of investment.", reasonZh: "可能损失是投资定义的一部分。" },
+        { text: "A high possible return makes an investment suitable for every goal.", zh: "较高的可能回报使投资适合每一个目标。", answer: false, answerZh: "否", reason: "Goal, horizon, access need and possible loss still differ.", reasonZh: "目标、期限、资金使用需要和可能损失仍然不同。" },
+        { text: "A family may invest to move resources toward a future goal while accepting uncertainty.", zh: "家庭可以通过投资把资源用于未来目标，同时接受不确定性。", answer: true, answerZh: "是", reason: "This connects the reason for investing to both a goal and risk.", reasonZh: "这把投资理由同时与目标和风险联系起来。" }
       ]
-    },
-    {
-      type: "compare",
-      eyebrow: "Improve the claim",
-      title: "Evidence-based analysis or weak opinion?",
-      zhTitle: "基于证据的分析，还是薄弱观点？",
-      mode: "fillBlanks",
-      leftTitle: "Evidence-based analysis",
-      leftTitleZh: "基于证据的分析",
-      leftVisual: investmentPhotos.lesson1ScenarioFinancialDocuments,
-      left: [
-        { label: "1", text: "Records the source and __________.", answer: "date", zh: "记录来源和__________。", answerZh: "日期" },
-        { label: "2", text: "Checks return, risk and investor __________.", answer: "fit", zh: "检查回报、风险和投资者__________。", answerZh: "适合度" }
-      ],
-      rightTitle: "Weak opinion",
-      rightTitleZh: "薄弱观点",
-      rightVisual: investmentPhotos.modernTradingDesk,
-      right: [
-        { label: "1", text: "Uses company __________ as the main evidence.", answer: "familiarity", zh: "把公司__________当作主要证据。", answerZh: "熟悉度" },
-        { label: "2", text: "Forces a decision while evidence is __________.", answer: "incomplete", zh: "在证据__________时强行作决定。", answerZh: "不完整" }
-      ],
-      prompt: "Fill the blanks, then explain which side improves the Tencent judgement.",
-      promptZh: "填空，然后解释哪一边能改进腾讯判断。"
     },
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Improve the first answer",
-      zhTitle: "改进最初答案",
-      notes: "Retrieve -> rehearse -> individual exit."
+      title: "Turn evidence into a conditional judgement",
+      zhTitle: "把证据转化为有条件的判断",
+      notes: "Rehearse -> assess -> return to the first judgement -> submit."
     },
     {
       type: "peerTask",
       taskType: "missingSentence",
       eyebrow: "Output rehearsal",
-      title: "Complete the evidence-to-action chain",
-      zhTitle: "补全从证据到行动的链条",
-      prompt: "Write the missing sentence that links incomplete evidence to the next action.",
-      promptZh: "写出缺少的句子，把不完整证据与下一步行动连接起来。",
+      title: "Complete the family reasoning",
+      zhTitle: "补全家庭推理",
+      prompt: "Add the missing sentence so the reasoning has a reason and a condition.",
+      promptZh: "补全句子，使推理包含理由和条件。",
       steps: [
-        { label: "1", text: "Tencent is familiar, but familiarity is not enough evidence.", zh: "腾讯很熟悉，但熟悉度不是充分证据。" },
-        { label: "2", text: "__________", answer: "The judgement still needs dated return, risk, price and investor-fit evidence.", zh: "这个判断仍需要带日期的回报、风险、价格和投资者适合度证据。" },
-        { label: "3", text: "Therefore, the next action is to gather more evidence.", zh: "因此，下一步行动是收集更多证据。" }
+        { label: "1", text: "The family has a future goal and does not need this money now.", zh: "家庭有未来目标，现在不需要这笔钱。" },
+        { label: "2", text: "__________", answer: "Investment may seek return for the goal, but the family must first check horizon, access and possible loss.", zh: "投资可为目标寻求回报，但家庭必须先检查期限、资金使用和可能损失。" },
+        { label: "3", text: "Therefore, define the goal conditions before comparing products.", zh: "因此，比较产品前先明确目标条件。" }
       ],
       missingSentenceStep: 2,
-      missingSentenceAnswer: "The judgement still needs dated return, risk, price and investor-fit evidence.",
-      missingSentenceAnswerZh: "这个判断仍需要带日期的回报、风险、价格和投资者适合度证据。",
-      sharePrompt: "Read the full chain aloud and check that the action follows the evidence.",
-      sharePromptZh: "朗读完整链条，并检查行动是否由证据推导出来。"
+      missingSentenceAnswer: "Investment may seek return for the goal, but the family must first check horizon, access and possible loss.",
+      missingSentenceAnswerZh: "投资可为目标寻求回报，但家庭必须先检查期限、资金使用和可能损失。",
+      sharePrompt: "Underline the reason once; the condition twice.",
+      sharePromptZh: "理由画一条线；条件画两条线。"
+    },
+    {
+      type: "compare",
+      eyebrow: "Improve the answer",
+      title: "Weak reason or conditional judgement?",
+      zhTitle: "薄弱理由，还是有条件的判断？",
+      mode: "fillBlanks",
+      leftTitle: "Weak reason",
+      leftTitleZh: "薄弱理由",
+      left: [
+        { label: "1", text: "Says only that investing makes more __________.", answer: "money", zh: "只说投资能赚更多__________。", answerZh: "钱" },
+        { label: "2", text: "Ignores the goal, horizon and possible __________.", answer: "loss", zh: "忽略目标、期限和可能的__________。", answerZh: "损失" }
+      ],
+      rightTitle: "Conditional judgement",
+      rightTitleZh: "有条件的判断",
+      right: [
+        { label: "1", text: "Links the financial goal to possible __________.", answer: "return", zh: "把财务目标与可能的__________联系起来。", answerZh: "回报" },
+        { label: "2", text: "Uses ‘but’ to add a condition about horizon, access or __________.", answer: "loss", zh: "用“但是”补充关于期限、资金使用或__________的条件。", answerZh: "损失" }
+      ],
+      prompt: "Complete the contrast, then explain why the right-hand answer is more defensible.",
+      promptZh: "完成对比，然后解释为什么右侧答案更有说服力。"
     },
     {
       type: "discussion",
       eyebrow: "Return to the dilemma",
-      title: "What should the careful next action be?",
-      zhTitle: "谨慎的下一步行动应该是什么？",
-      question: "After this lesson, should the class say buy, avoid or gather more evidence about Tencent? Why?",
-      questionZh: "学完本课后，班级应该说买入、回避，还是收集更多腾讯证据？为什么？",
-      revealTitle: "Gather more evidence before choosing an investment action",
-      answer: "Gather more evidence. The class has company identity and a method, but not enough dated evidence about return, risk, price and fit to defend a buy or avoid judgement.",
-      answerZh: "收集更多证据。班级已经知道公司身份和分析方法，但还没有足够的带日期的回报、风险、价格和适合度证据来支持买入或回避判断。",
-      visual: investmentPhotos.lesson1TencentSeafrontSiteVisit09
+      title: "What could justify waiting?",
+      zhTitle: "什么理由可以说明等待是合理的？",
+      question: "Revise the opening answer: give one reason the family might invest and one condition it must check first.",
+      questionZh: "修改开场答案：给出一个家庭可能投资的理由，以及一个必须先检查的条件。",
+      revealTitle: "Link the future goal to return, then qualify the judgement",
+      answer: "The family might invest money that is not needed now to seek future return for an important financial goal. It must first check when the money is needed, whether it must remain available and what loss would damage the goal.",
+      answerZh: "家庭可以投资现在不需要使用的资金，为重要财务目标寻求未来回报。它必须先检查何时需要资金、资金是否必须保持可用，以及什么样的损失会损害目标。",
+      visual: investmentPhotos.investorMeetingReport
     },
     {
-      type: "answer",
+      type: "exam",
       eyebrow: "Exit ticket",
-      title: "Submit the improved Tencent judgement",
-      zhTitle: "提交改进后的腾讯判断",
-      mode: "fillBlanks",
-      items: [
-        { prompt: "Investment analysis uses __________ before making a decision.", answer: "evidence", zh: "投资分析在作出决定前使用__________。", answerZh: "证据" },
-        { prompt: "The three checks are potential return, risk and investor __________.", answer: "fit", zh: "三个检查是潜在回报、风险和投资者__________。", answerZh: "适合度" },
-        { prompt: "When the evidence is incomplete, a defensible next action is to __________.", answer: "gather more evidence", zh: "当证据不完整时，合理的下一步行动是__________。", answerZh: "收集更多证据" }
-      ],
-      notes: "Collect the final answer individually and use it to decide whether Lesson 2 retrieval can begin with the four key terms or needs reteaching."
+      title: "Submit one reason and one condition",
+      zhTitle: "提交一个理由和一个条件",
+      revealKeywords: true,
+      prompt: "Choose one goal from the family goal board. Write one reason investment may help and one condition that must be checked before it could be considered. [4]",
+      zh: "从家庭目标板中选择一个目标。写出投资可能有帮助的一个理由，以及在考虑投资前必须检查的一个条件。[4]",
+      keywords: ["financial goal", "future return", "because", "however", "time horizon / access / possible loss"],
+      notes: [
+        "Collect the response individually before revealing the keyword check.",
+        "Lesson 2 will compare goals by time horizon, liquidity need and suitability."
+      ]
     }
   ]
 };

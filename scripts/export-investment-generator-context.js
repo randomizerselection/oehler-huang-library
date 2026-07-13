@@ -22,7 +22,7 @@ function usage() {
     'Options:',
     '  --lesson <1-50>       Lesson number for lesson/material contexts.',
     '  --target <target>     Context target. Defaults to course without --lesson, lesson with --lesson.',
-    '  --syllabus <key>      default or company-analysis. Defaults to default.',
+    '  --syllabus <key>      default/financial-decisions (active) or company-analysis (archived).',
     '  --format <json|md>    Output format. Defaults to json.',
     '  --out <path>          Write to a file instead of stdout.',
     '  --help                Show this message.',

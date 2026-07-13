@@ -1,7 +1,8 @@
 (function attachInvestmentGeneratorContext(global) {
   const SYLLABUS_SOURCES = Object.freeze({
-    default: "./course-map-data.js",
+    default: "./course-map-financial-decisions-data.js",
     "company-analysis": "./course-map-data.js",
+    "financial-decisions": "./course-map-financial-decisions-data.js",
   });
 
   const MATERIAL_TARGETS = Object.freeze({
@@ -114,9 +115,6 @@
 
   function loadCourseMap(syllabus = "default") {
     const key = normaliseSyllabusKey(syllabus);
-    if (key === "default" || key === "company-analysis") {
-      if (global.INVEST && global.INVEST.courseMap) return global.INVEST.courseMap;
-    }
     if (typeof require === "function") return require(SYLLABUS_SOURCES[key]);
     if (global.INVEST && global.INVEST.courseMap) return global.INVEST.courseMap;
     return null;

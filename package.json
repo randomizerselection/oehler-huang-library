@@ -8,6 +8,7 @@
     "test:android-offline": "node scripts/test-android-offline-app.js",
     "test:grading": "node scripts/test-grading-workflow.js",
     "test:investment-content": "node scripts/test-investment-analysis-content.js",
+    "test:investment-financial-decisions": "node scripts/test-investment-financial-decisions-syllabus.js",
     "test:investment-photo-archive": "node scripts/test-investment-photo-archive.js",
     "build:investment-handout-book": "node scripts/build-investment-handout-book.js",
     "export:investment-generator-context": "node scripts/export-investment-generator-context.js",

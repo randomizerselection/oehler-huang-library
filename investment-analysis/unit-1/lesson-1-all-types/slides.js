@@ -84,6 +84,7 @@ window.INVEST.lesson = {
             rows: [
               { metric: "dataSnapshot", value: "Three metrics plus a student evidence task.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "conceptTriad", value: "Compare three related concepts.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
+              { metric: "visualGrid", value: "Compare concrete examples through purposeful images.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "compare", value: "Two-column T-table for clean contrasts.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "classificationTask", value: "Classify cases and reveal reasons.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "sourceLens", value: "Source metadata and source checks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
@@ -502,6 +503,49 @@ window.INVEST.lesson = {
         "Current role: three-way comparison with reveal details.",
         "Future use: use for closely related concepts students confuse.",
         "Review decision: decide whether the detail reveal is too dense."
+      ]
+    },
+    {
+      type: "visualGrid",
+      eyebrow: "type: visualGrid",
+      title: "Compare concrete assets with pictures",
+      zhTitle: "用图片比较具体资产",
+      prompt: "Name what each asset is, then compare liquidity and uncertainty.",
+      promptZh: "说出每种资产是什么，然后比较流动性和不确定性。",
+      cards: [
+        {
+          title: "Cash savings",
+          zhTitle: "现金储蓄",
+          body: "Usually liquid, with lower uncertainty.",
+          bodyZh: "通常流动性较强，不确定性较低。",
+          visual: investmentPhotos.assetCashSavings
+        },
+        {
+          title: "Property",
+          zhTitle: "房地产",
+          body: "A physical asset that can take time to sell.",
+          bodyZh: "一种出售可能需要时间的实物资产。",
+          visual: investmentPhotos.assetPropertyBuilding
+        },
+        {
+          title: "Shares",
+          zhTitle: "股票",
+          body: "Tradable ownership whose market price can change quickly.",
+          bodyZh: "可交易的所有权单位，市场价格可能快速变化。",
+          visual: investmentPhotos.assetSharesScreen
+        },
+        {
+          title: "Commodities",
+          zhTitle: "大宗商品",
+          body: "Prices respond to supply, demand and expectations.",
+          bodyZh: "价格会对供给、需求和预期作出反应。",
+          visual: investmentPhotos.assetCommoditiesPort
+        }
+      ],
+      notes: [
+        "Current role: image-led comparison of concrete categories.",
+        "Future use: keep only when the pictures help students distinguish the examples.",
+        "Review decision: remove decorative image grids that do not support a comparison."
       ]
     },
     {

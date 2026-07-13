@@ -2,151 +2,151 @@ window.INVEST = window.INVEST || {};
 
 window.INVEST.quiz = {
   title: "Unit 1 Lesson 1 Quiz",
-  description: "Check whether students can define investment analysis, classify evidence needs and choose a careful next action.",
+  description: "Check whether students can define investment, return and financial goal, then connect a family goal to a reason and a condition.",
   questions: [
     {
-      id: "investment-analysis-definition",
+      id: "investment-definition",
       type: "multipleChoice",
-      prompt: "Which response best describes investment analysis?",
-      zh: "哪一个回应最准确地描述投资分析？",
+      prompt: "Which statement correctly defines investment?",
+      zh: "哪一个陈述正确定义了投资？",
       choices: [
-        "Using evidence to judge potential return, risk and suitability before deciding",
-        "Buying a familiar company before checking the evidence",
-        "Predicting next week's exact share price",
-        "Following the most confident opinion"
+        "Putting money into an asset to seek future return while accepting possible loss",
+        "Keeping all money unchanged until it is spent",
+        "Guaranteeing that money grows faster than prices",
+        "Choosing the product with the highest recent return"
       ],
       answer: 0,
-      explanation: "Investment analysis evaluates an opportunity with evidence before a decision.",
-      explanationZh: "投资分析是在作出决定前利用证据评估投资机会。"
+      explanation: "Investment seeks future return through an asset while retaining the possibility of loss.",
+      explanationZh: "投资通过资产寻求未来回报，同时仍存在可能损失。"
     },
     {
       id: "return-definition",
       type: "fillBlank",
-      prompt: "Return is the gain or ________ earned over a stated holding period.",
-      zh: "回报是在某一持有期间获得的收益或________。",
+      prompt: "Return is the gain or ________ from an investment over a stated period.",
+      zh: "回报是投资在规定期间内的收益或________。",
       acceptedAnswers: ["loss", "损失"],
-      explanation: "Return includes both gains and losses, plus relevant income and price change.",
-      explanationZh: "回报包括收益和损失，以及相关收入和价格变动。"
+      explanation: "Return can be positive or negative and includes price change and income.",
+      explanationZh: "回报可以为正，也可以为负，并包括价格变化和收入。"
     },
     {
-      id: "risk-definition",
+      id: "return-components",
       type: "multipleChoice",
-      prompt: "What is risk in this lesson?",
-      zh: "本课中的风险是什么？",
+      prompt: "Which pair is included in the Lesson 1 definition of return?",
+      zh: "哪一组内容包含在第一课的回报定义中？",
       choices: [
-        "The possibility that results, returns or prices are worse than expected",
-        "A guarantee that an investment loses all its value",
-        "The same thing as a low share price",
-        "A reason to avoid every investment"
+        "Price change and income",
+        "Goal priority and age",
+        "Budget and tax",
+        "Product name and popularity"
       ],
       answer: 0,
-      explanation: "Risk concerns outcomes that may be worse than expected; it is not a guaranteed loss.",
-      explanationZh: "风险指结果可能比预期更差，并不等于保证发生损失。"
+      explanation: "The course definition includes price change and income over a stated period.",
+      explanationZh: "课程定义包括规定期间内的价格变化和收入。"
     },
     {
-      id: "investor-fit",
+      id: "financial-goal-definition",
       type: "multipleChoice",
-      prompt: "Which question mainly checks investor fit?",
-      zh: "哪一个问题主要检查投资者适合度？",
+      prompt: "Which description is a complete financial goal?",
+      zh: "哪一个描述是完整的财务目标？",
       choices: [
-        "Does the investment match the investor's goal, time horizon and liquidity need?",
-        "Is the company famous?",
-        "Did the price rise yesterday?",
-        "Do classmates like the company?"
+        "HK$180,000 for university fees in six years, with high priority",
+        "Make more money",
+        "Buy an investment product soon",
+        "Choose a high return"
       ],
       answer: 0,
-      explanation: "Investor fit matches the investment to the investor's goal and constraints.",
-      explanationZh: "投资者适合度把投资与投资者的目标和限制相匹配。"
+      explanation: "A financial goal states a future use, amount, priority and time horizon.",
+      explanationZh: "财务目标说明资金的未来用途、金额、优先级和投资期限。"
     },
     {
-      id: "return-check",
+      id: "why-invest",
       type: "multipleChoice",
-      prompt: "Which question is mainly about potential return?",
-      zh: "哪一个问题主要关于潜在回报？",
+      prompt: "Which is the strongest reason a family might invest?",
+      zh: "哪一个是家庭可能投资的最有力理由？",
       choices: [
-        "How could dividends or a future price change create a gain or loss?",
-        "Who published the source?",
-        "Is the money needed in six months?",
-        "What could reduce future profit?"
+        "To seek future return for a stated long-term goal while accepting possible loss",
+        "To guarantee that every goal is reached",
+        "To avoid identifying when the money is needed",
+        "To copy a product chosen by another family"
       ],
       answer: 0,
-      explanation: "Potential return asks how an investor might gain or lose over the holding period.",
-      explanationZh: "潜在回报询问投资者在持有期间可能如何获得收益或损失。"
+      explanation: "The reason links investment to a stated goal, future return and possible loss.",
+      explanationZh: "该理由把投资与明确目标、未来回报和可能损失联系起来。"
     },
     {
-      id: "risk-check",
+      id: "medical-goal",
       type: "multipleChoice",
-      prompt: "Which question is mainly about risk?",
-      zh: "哪一个问题主要关于风险？",
+      prompt: "Why may investment not help with a medical bill due in four months?",
+      zh: "为什么投资可能无法帮助支付四个月后到期的医疗账单？",
       choices: [
-        "What could make Tencent's result worse than expected?",
-        "How familiar is the company name?",
-        "How many classmates voted yes?",
-        "What colour is the company logo?"
+        "The money must remain available soon, and a loss or delay could block the goal",
+        "Medical goals never require money",
+        "All investments need exactly thirty years",
+        "A short horizon guarantees a gain"
       ],
       answer: 0,
-      explanation: "A risk question identifies what could make the outcome worse than expected.",
-      explanationZh: "风险问题识别什么可能使结果比预期更差。"
+      explanation: "A near-term, urgent goal creates a high need for access and little room for loss.",
+      explanationZh: "近期且紧急的目标对资金使用有较高需求，几乎没有承受损失的空间。"
     },
     {
-      id: "source-date",
+      id: "retirement-condition",
       type: "multipleChoice",
-      prompt: "Why should an analyst record the source date?",
-      zh: "为什么分析者应该记录来源日期？",
+      prompt: "A retirement goal is thirty years away. Which condition is still missing?",
+      zh: "退休目标在三十年后。仍然缺少哪一个条件？",
       choices: [
-        "To judge how current the evidence is",
-        "To guarantee that the claim is correct",
-        "To remove the need for a limitation",
-        "To prove the share price will rise"
+        "The target amount and the family's ability to accept loss",
+        "Proof that every return will be positive",
+        "A promise to choose one product today",
+        "A list of classmates' opinions"
       ],
       answer: 0,
-      explanation: "A date helps judge whether evidence is current, but it does not remove the need to check limits.",
-      explanationZh: "日期帮助判断证据是否及时，但不能代替对局限的检查。"
+      explanation: "A long horizon may support investment consideration, but it does not remove the need for a target and loss check.",
+      explanationZh: "较长期限可能支持考虑投资，但不会消除目标金额和损失检查的需要。"
+    },
+    {
+      id: "misconception",
+      type: "multipleChoice",
+      prompt: "Why is ‘investing is simply a way to make more money’ incomplete?",
+      zh: "为什么“投资只是赚更多钱的一种方式”是不完整的？",
+      choices: [
+        "It ignores the financial goal, time horizon, access need and possible loss",
+        "It contains too many financial conditions",
+        "It proves that investment is saving",
+        "It explains the family goal fully"
+      ],
+      answer: 0,
+      explanation: "A careful investment decision begins with the goal and its constraints, not return alone.",
+      explanationZh: "谨慎的投资决定从目标及其限制开始，而不是只看回报。"
     },
     {
       id: "source-limit",
       type: "multipleChoice",
-      prompt: "What can Tencent investor relations not prove by itself?",
-      zh: "腾讯投资者关系页面单独不能证明什么？",
+      prompt: "What can general investor guidance not decide for a family?",
+      zh: "一般投资者指引不能替家庭决定什么？",
       choices: [
-        "That Tencent is suitable for every investor",
-        "That the source belongs to Tencent",
-        "That official investor information exists",
-        "That Tencent is a company"
+        "Its exact priorities, product choice and whether a particular loss is acceptable",
+        "That investment involves risk",
+        "That goals have time horizons",
+        "That evidence should be checked"
       ],
       answer: 0,
-      explanation: "An official company source can verify facts, but it cannot prove universal suitability.",
-      explanationZh: "公司官方来源可以核实事实，但不能证明它普遍适合所有投资者。"
+      explanation: "General guidance supports a method, but family-specific priorities and constraints still require evidence.",
+      explanationZh: "一般指引支持一种方法，但家庭具体的优先级和限制仍需要证据。"
     },
     {
-      id: "familiarity-misconception",
+      id: "exit-judgement",
       type: "multipleChoice",
-      prompt: "Why is company familiarity a weak reason to invest?",
-      zh: "为什么熟悉公司是一个薄弱的投资理由？",
+      prompt: "Which answer includes both a reason to invest and a condition to check first?",
+      zh: "哪一个答案同时包括投资理由和必须先检查的条件？",
       choices: [
-        "Familiarity does not establish return, risk, price or investor fit",
-        "Familiar companies cannot issue shares",
-        "Familiar companies never publish reports",
-        "Familiarity always means high risk"
+        "Invest to seek future return for a stated goal, but first check when the money is needed and what loss could damage the goal.",
+        "Invest because returns are always positive.",
+        "Choose the most popular product before setting a goal.",
+        "Avoid every investment because loss is possible."
       ],
       answer: 0,
-      explanation: "Familiarity may start a question, but it is not evidence for the full investment case.",
-      explanationZh: "熟悉度可以引出问题，但不是完整投资判断的证据。"
-    },
-    {
-      id: "next-action",
-      type: "multipleChoice",
-      prompt: "The Tencent evidence is incomplete. What is the most defensible next action?",
-      zh: "腾讯证据不完整。最合理的下一步行动是什么？",
-      choices: [
-        "Gather more dated evidence",
-        "Buy because the company is familiar",
-        "Avoid because one risk exists",
-        "Copy the class majority"
-      ],
-      answer: 0,
-      explanation: "Incomplete evidence supports gathering more evidence, not forcing a buy or avoid verdict.",
-      explanationZh: "证据不完整时应收集更多证据，而不是强行作出买入或回避判断。"
+      explanation: "The answer connects a future goal to return and qualifies the decision with horizon and loss conditions.",
+      explanationZh: "该答案把未来目标与回报联系起来，并用期限和损失条件限定决定。"
     }
   ]
 };

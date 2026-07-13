@@ -25,6 +25,254 @@
   --inv-caption: 12px;
 }
 
+/* Simplified active syllabus */
+
+.simplified-syllabus .investment-page {
+  width: min(1120px, calc(100% - 40px));
+}
+
+.simplified-syllabus .investment-nav {
+  margin-bottom: 16px;
+}
+
+.simplified-syllabus .investment-hero {
+  min-height: 0;
+  display: block;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(10, 22, 30, 0.84);
+  box-shadow: none;
+}
+
+.simplified-syllabus .investment-hero::after {
+  display: none;
+}
+
+.simplified-syllabus .investment-hero-copy {
+  width: min(100%, 920px);
+  padding: clamp(30px, 5vw, 56px);
+}
+
+.simplified-syllabus .investment-hero h1 {
+  max-width: 15ch;
+  font-size: clamp(46px, 7vw, 72px);
+  line-height: 1;
+}
+
+.simplified-syllabus .investment-hero-copy > p {
+  max-width: 760px;
+  margin-top: 18px;
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.48;
+}
+
+.simplified-syllabus .investment-hero-copy > .investment-boundary-note {
+  max-width: 720px;
+  color: var(--inv-muted);
+  font-size: 15px;
+}
+
+.simplified-syllabus .investment-hero-copy > .investment-course-subtitle {
+  margin-top: 14px;
+  color: var(--inv-cyan);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.simplified-syllabus .investment-section {
+  margin-top: 38px;
+}
+
+.simplified-syllabus .investment-section-head {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  gap: 24px;
+}
+
+.simplified-syllabus .investment-section h2 {
+  font-size: clamp(34px, 4vw, 46px);
+}
+
+.simplified-syllabus .investment-syllabus-unit-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.simplified-syllabus .investment-syllabus-unit,
+.simplified-syllabus .investment-card {
+  min-height: 0;
+  background: rgba(16, 27, 32, 0.62);
+  box-shadow: none;
+}
+
+.investment-outcome-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 18px 0 0;
+  border-top: 1px solid var(--inv-line);
+  padding: 0;
+  list-style: none;
+  counter-reset: outcome;
+}
+
+.investment-outcome-list li {
+  position: relative;
+  border-bottom: 1px solid var(--inv-line);
+  padding: 17px 18px 17px 42px;
+  color: var(--inv-muted);
+  font-size: 15px;
+  line-height: 1.5;
+  counter-increment: outcome;
+}
+
+.investment-outcome-list li:nth-child(odd) {
+  border-right: 1px solid var(--inv-line);
+}
+
+.investment-outcome-list li::before {
+  content: counter(outcome, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 0;
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.investment-disclosure {
+  margin-top: 28px;
+  border: 1px solid var(--inv-line);
+  border-radius: var(--inv-radius);
+  background: rgba(10, 22, 30, 0.54);
+}
+
+.investment-disclosure > summary {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+  padding: 18px 20px;
+  color: var(--inv-ink);
+  list-style: none;
+}
+
+.investment-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.investment-disclosure > summary::after {
+  content: "+";
+  justify-self: end;
+  grid-column: 3;
+  color: var(--inv-cyan);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.investment-disclosure[open] > summary::after {
+  content: "−";
+}
+
+.investment-disclosure > summary span {
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.investment-disclosure > summary strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.investment-disclosure-content {
+  border-top: 1px solid var(--inv-line);
+  padding: 0 20px 22px;
+}
+
+.investment-disclosure-content > .investment-section:first-child {
+  margin-top: 22px;
+}
+
+.simplified-syllabus .investment-author-disclosure {
+  background: rgba(4, 13, 16, 0.34);
+}
+
+.simplified-syllabus .investment-syllabus-lesson-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.simplified-syllabus .investment-syllabus-lesson {
+  gap: 10px;
+  padding: 18px;
+  background: rgba(16, 27, 32, 0.62);
+}
+
+.simplified-syllabus .investment-syllabus-lesson > .investment-lesson-action,
+.simplified-syllabus .investment-syllabus-lesson > .investment-simple-flow {
+  display: none;
+}
+
+.simplified-syllabus .investment-lesson-hook {
+  font-size: 16px;
+}
+
+.simplified-syllabus .investment-lesson-details summary {
+  font-weight: 650;
+}
+
+.simplified-syllabus .investment-syllabus-reference-grid {
+  gap: 10px;
+}
+
+.simplified-syllabus .investment-footer a {
+  color: var(--inv-cyan);
+}
+
+@media (max-width: 760px) {
+  .simplified-syllabus .investment-page {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .simplified-syllabus .investment-hero-copy {
+    padding: 24px;
+  }
+
+  .simplified-syllabus .investment-section-head,
+  .simplified-syllabus .investment-syllabus-unit-grid,
+  .simplified-syllabus .investment-syllabus-lesson-grid,
+  .investment-outcome-list {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-outcome-list li:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .investment-disclosure > summary {
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+  }
+
+  .investment-disclosure > summary span {
+    grid-column: 1;
+  }
+
+  .investment-disclosure > summary strong {
+    grid-column: 1;
+  }
+
+  .investment-disclosure > summary::after {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .investment-disclosure-content {
+    padding: 0 14px 16px;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -761,6 +1009,37 @@ img {
   color: var(--inv-muted);
   font-size: 13px;
   line-height: 1.45;
+}
+
+.investment-lesson-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.investment-lesson-routes a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--inv-line);
+  border-radius: 7px;
+  padding: 7px 11px;
+  color: var(--inv-ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.investment-lesson-routes a:first-child {
+  border-color: rgba(57, 217, 145, 0.45);
+  background: rgba(57, 217, 145, 0.09);
+}
+
+.investment-lesson-routes a:hover,
+.investment-lesson-routes a:focus-visible {
+  border-color: var(--inv-line-strong);
+  background: rgba(79, 210, 255, 0.08);
 }
 
 .investment-lesson-focus,
@@ -12302,5 +12581,466 @@ img {
     border: 0;
     background: #fff;
     color: #111;
+  }
+}
+
+/* Shared slide-type presentation system (July 2026)
+   This final screen layer keeps every renderer visually related while preserving
+   the more specific layout and reveal rules above. */
+@media screen {
+  .invSlide {
+    --inv-slide-accent: var(--inv-cyan);
+    --inv-slide-accent-soft: rgba(79, 210, 255, 0.12);
+    --inv-slide-accent-line: rgba(79, 210, 255, 0.48);
+    position: relative;
+  }
+
+  .invFlowSlide,
+  .invDataSnapshotSlide,
+  .invConceptTriadSlide,
+  .invVisualGridSlide,
+  .invCompareSlide,
+  .invClassificationTaskSlide,
+  .invSourceLensSlide,
+  .invQuoteMapSlide,
+  .invComparisonMatrixSlide,
+  .invAnalystBoardSlide,
+  .invJudgementFrameSlide,
+  .invAnswerSlide {
+    --inv-slide-accent: var(--inv-green);
+    --inv-slide-accent-soft: rgba(57, 217, 145, 0.12);
+    --inv-slide-accent-line: rgba(57, 217, 145, 0.5);
+  }
+
+  .invPeerTaskSlide,
+  .invRankingTaskSlide,
+  .invQuizSlide,
+  .invCatalystTimelineSlide,
+  .invCalculationDeskSlide,
+  .invExamSlide,
+  .invModelAnswerSlide {
+    --inv-slide-accent: var(--inv-amber);
+    --inv-slide-accent-soft: rgba(241, 190, 90, 0.12);
+    --inv-slide-accent-line: rgba(241, 190, 90, 0.52);
+  }
+
+  .invRiskRegisterSlide {
+    --inv-slide-accent: var(--inv-red);
+    --inv-slide-accent-soft: rgba(238, 108, 101, 0.12);
+    --inv-slide-accent-line: rgba(238, 108, 101, 0.54);
+  }
+
+  .invSlide:not(.invVisualPauseSlide)::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    inset: 0 auto auto 0;
+    width: clamp(96px, 14vw, 220px);
+    height: 3px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--inv-slide-accent), transparent);
+    opacity: 0.88;
+    pointer-events: none;
+  }
+
+  .invSlide :is(.invEyebrow, .invDiscussionEyebrow, .invSectionKicker) {
+    color: var(--inv-slide-accent);
+  }
+
+  .invSlide:not(.invVisualPauseSlide):not(.invSectionSlide):not(.invDiscussionSlide) .invEyebrow {
+    border-left: 4px solid var(--inv-slide-accent);
+    background: linear-gradient(90deg, var(--inv-slide-accent-soft), transparent 86%);
+    padding: 4px 9px;
+  }
+
+  .invSlideHeader {
+    position: relative;
+  }
+
+  .invSlide:not(.invVisualPauseSlide):not(.invTitleOnlySlide) .invSlideHeader::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: clamp(56px, 8vw, 112px);
+    height: 2px;
+    background: var(--inv-slide-accent);
+    opacity: 0.82;
+  }
+
+  .invContextPhotoSlide {
+    background:
+      linear-gradient(90deg, rgba(5, 12, 15, 0.97), rgba(5, 12, 15, 0.84) 58%, rgba(5, 12, 15, 0.54)),
+      linear-gradient(0deg, rgba(5, 12, 15, 0.97), rgba(5, 12, 15, 0.42)),
+      var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
+      #091014;
+  }
+
+  .invSlide :is(
+    .invPanel,
+    .invMarketCard,
+    .invObjective,
+    .invTermBox,
+    .invCheckItem,
+    .invStep,
+    .invPeerBox,
+    .invRankingCard,
+    .invDataFocusCard,
+    .invDataTask,
+    .invConceptCard,
+    .invVisualGridCard,
+    .invCompareColumn,
+    .invClassificationCategory,
+    .invClassificationItem,
+    .invYesNoItem,
+    .invSourceCard,
+    .invQuoteField,
+    .invCompareMatrixCell,
+    .invCatalystEvent,
+    .invCalcBox,
+    .invEvidence,
+    .invRiskItem,
+    .invJudgementStage,
+    .invExamBox,
+    .invModelCue,
+    .invModelPoint
+  ) {
+    border-radius: 12px;
+  }
+
+  .invSlide :is(.invFocusPrompt, .invDataTask, .invExamBox, .invModelCue) {
+    border-left-color: var(--inv-slide-accent);
+    background:
+      linear-gradient(90deg, var(--inv-slide-accent-soft), rgba(8, 19, 23, 0.88) 58%),
+      rgba(8, 19, 23, 0.9);
+  }
+
+  .invPriceChartOverlay {
+    border: 1px solid rgba(79, 210, 255, 0.28);
+    border-left: 4px solid var(--inv-cyan);
+    border-radius: 14px;
+    background: rgba(4, 12, 15, 0.9);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(12px);
+  }
+
+  .invOutcomesSlide .invObjectiveStep {
+    font-weight: 600;
+  }
+
+  .invDiscussionQuestionText {
+    max-width: 20ch;
+    font-size: var(--inv-classroom-title);
+    font-weight: 600;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .invDiscussionAnswerButton {
+    min-height: 48px;
+    border-color: rgba(241, 190, 90, 0.58);
+    background: rgba(241, 190, 90, 0.14);
+    color: #ffe0a1;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  }
+
+  .invTermBox {
+    border-top: 4px solid var(--inv-cyan);
+  }
+
+  .invCheckList,
+  .invPeerBox,
+  .invDefinitionRecall,
+  .invMissingSentence,
+  .invRankingTask,
+  .invDataSimple,
+  .invConceptTriad,
+  .invVisualGridWrap,
+  .invCompareTwoColumn,
+  .invClassificationTask,
+  .invYesNoCheck,
+  .invSourceLens,
+  .invQuoteMap,
+  .invCompareMatrix,
+  .invCatalystTimeline,
+  .invCalcDesk,
+  .invEvidenceGrid,
+  .invRiskGrid,
+  .invJudgementFrame,
+  .invExamBox,
+  .invModelFrame {
+    width: min(100%, 1320px);
+    margin-inline: auto;
+  }
+
+  .invFlow .invStep,
+  .invDataFocusCard,
+  .invConceptCard,
+  .invVisualGridCard,
+  .invCompareColumn,
+  .invClassificationItem,
+  .invYesNoItem,
+  .invSourceCard,
+  .invQuoteField,
+  .invCatalystEvent,
+  .invEvidence,
+  .invJudgementStage {
+    border-top-color: var(--inv-slide-accent-line);
+  }
+
+  .invVisualGridImage {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .invVisualGridImage img {
+    transition: transform 220ms var(--inv-ease), filter 220ms var(--inv-ease);
+  }
+
+  .invVisualGridCard:hover .invVisualGridImage img,
+  .invVisualGridCard:focus-within .invVisualGridImage img {
+    transform: scale(1.025);
+    filter: saturate(1.08) contrast(1.04);
+  }
+
+  .invChoice {
+    transition: border-color 150ms var(--inv-ease), background 150ms var(--inv-ease), transform 150ms var(--inv-ease);
+  }
+
+  .invChoice:hover,
+  .invChoice:focus-visible {
+    transform: translateX(3px);
+    border-color: var(--inv-slide-accent-line);
+    background: var(--inv-slide-accent-soft);
+  }
+
+  .invReveal.is-revealed:is(
+    .invClassificationResult,
+    .invYesNoAnswer,
+    .invSourceAnswer,
+    .invCatalystEffect,
+    .invJudgementAnswer,
+    .invDefinitionRecallAnswer,
+    .invNotePanel,
+    .invMarkNote
+  ) {
+    border-color: var(--inv-slide-accent-line);
+    box-shadow: inset 4px 0 0 var(--inv-slide-accent), 0 12px 32px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .invTopbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand controls"
+      "modes modes";
+    gap: 5px 8px;
+    padding: 5px 6px;
+  }
+
+  .invBrand {
+    grid-area: brand;
+    font-size: 14px;
+  }
+
+  .invControls {
+    grid-area: controls;
+    flex-wrap: nowrap;
+  }
+
+  .invModeTabs {
+    grid-area: modes;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .invModeTabs::-webkit-scrollbar,
+  .invConceptTriad::-webkit-scrollbar,
+  .invVisualGrid::-webkit-scrollbar,
+  .invClassificationItems::-webkit-scrollbar,
+  .invYesNoItems::-webkit-scrollbar {
+    display: none;
+  }
+
+  .invModeTabs a,
+  .invControls .invButton {
+    min-height: 32px;
+    flex: 0 0 auto;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .invSlide:not(.invVisualPauseSlide)::after {
+    width: 96px;
+  }
+
+  .invSlideBody {
+    padding-top: 10px;
+  }
+
+  .invOutcomesSlide .invObjective strong {
+    font-size: clamp(24px, 6.2vw, 28px);
+  }
+
+  .invOutcomesSlide .invObjectiveZh {
+    font-size: clamp(18px, 4.7vw, 21px);
+  }
+
+  .invDiscussionQuestionText {
+    max-width: 16ch;
+    font-size: clamp(30px, 8.2vw, 38px);
+    line-height: 1.06;
+  }
+
+  .invDiscussionQuestionZh {
+    max-width: 19ch;
+    font-size: clamp(21px, 5.6vw, 26px);
+    line-height: 1.18;
+  }
+
+  .invConceptTriad,
+  .invVisualGrid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(86%, 320px);
+    grid-template-columns: none;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+    padding: 1px 14% 8px 1px;
+  }
+
+  .invConceptCard,
+  .invVisualGridCard {
+    scroll-snap-align: start;
+  }
+
+  .invConceptCard strong,
+  .invVisualGridText strong {
+    font-size: 24px;
+  }
+
+  .invConceptDefinition,
+  .invVisualGridText span,
+  .invVisualGridText p {
+    font-size: 20px;
+    line-height: 1.18;
+  }
+
+  .invConceptCard > .invZhLine,
+  .invVisualGridText .invZhLine {
+    font-size: 18px;
+    line-height: 1.18;
+  }
+
+  .invSlide.invClassificationTaskSlide .invClassificationItems,
+  .invSlide.invClassificationTaskSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems,
+  .invSlide.invYesNoCheckSlide .invYesNoItems,
+  .invSlide.invYesNoCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: min(84%, 310px) !important;
+    grid-template-columns: none !important;
+    gap: 8px !important;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+    padding: 1px 15% 6px 1px;
+  }
+
+  .invClassificationItem,
+  .invYesNoItem {
+    min-width: 0;
+    border-radius: 12px !important;
+    scroll-snap-align: start;
+  }
+
+  .invClassificationPrompt strong,
+  .invYesNoStatement strong {
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+  }
+
+  .invClassificationPrompt .invZhLine,
+  .invYesNoStatement .invZhLine {
+    font-size: 17px !important;
+    line-height: 1.14 !important;
+  }
+
+  .invClassificationCategories {
+    gap: 5px;
+  }
+
+  .invClassificationCategory {
+    min-width: 0;
+    padding: 6px;
+  }
+
+  .invClassificationCategory strong {
+    font-size: 15px;
+    line-height: 1.05;
+  }
+
+  .invExitList {
+    gap: 8px;
+  }
+
+  .invExitList .invCheckItem {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .invExitList .blank {
+    max-width: 100%;
+  }
+
+  .invExitTicketSlide .invBlankGroup {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    margin-top: 4px;
+  }
+
+  .invExitTicketSlide .invBlankGroup .blank {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .invExitTicketSlide .invBlankText {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .invExitTicketSlide .blank.is-revealed .invBlankText {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+  }
+
+  .invTermSlide .invTermDefinition .invBlankGroup {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    margin-block: 4px;
+  }
+
+  .invTermSlide .invTermDefinition .blank {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+    white-space: normal;
+  }
+
+  .invTermSlide .invTermDefinition .invBlankText {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
