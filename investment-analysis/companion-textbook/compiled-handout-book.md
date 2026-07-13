@@ -2,7 +2,7 @@
 
 Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.
 
-Students learn a decision-first investing process: start with a concrete company, product, fund, portfolio or investor-profile dilemma, make a first judgement, collect dated evidence, compare return, compounding, risk, price, cost, time horizon and fit, then make an evidence-based classroom action such as consider, watch, avoid, compare with another choice or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
+Students learn a decision-first investing process: start with a concrete company, security, fund, portfolio or investor-profile dilemma, make a first judgement, collect dated evidence, compare return, compounding, risk, price, cost, time horizon and fit, then make an evidence-based classroom action such as consider, watch, avoid, compare with another choice or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
 
 Vocabulary definitions use the textbook-style overview at `references/investment-analysis-definitions.md`, prioritising CFA Program glossary where course terms overlap.
 
@@ -53,7 +53,7 @@ Educational use only. Students make evidence-based classroom judgements, not per
   - Lesson 37: Sector ETF - Can a diversified fund still be concentrated?
   - Lesson 38: Global fund - How does geography change portfolio risk?
   - Lesson 39: Monthly investment plan - How do compounding and gradual investing affect long-run accumulation?
-  - Lesson 40: Investor policy statement - What rules should guide an investor before choosing products?
+  - Lesson 40: Investor policy statement - What rules should guide an investor before choosing investments?
 - Unit 5: Portfolio decision process, monitoring and final memo (Lessons 41-50)
   - Lesson 41: Fund comparison - How should two investment choices be compared?
   - Lesson 42: Starter portfolio - How can a simple portfolio be built from evidence?
@@ -565,7 +565,7 @@ Write a short Government bond judgement with dated evidence, one caveat and a ne
 **Unit:** 1. Foundations, assets and market access
 **Guiding question:** How can one fund hold many investments?
 **Student hook:** One ETF holds many companies. Is it automatically safe?
-**Core claim:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+**Core claim:** A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 **Primary output:** Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Formula or formula rule:** portfolio weight = holding value / total portfolio value x 100.
 **Analyse why:** Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about ChinaAMC CSI 300 ETF case
@@ -625,7 +625,7 @@ Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and
 **Unit:** 1. Foundations, assets and market access
 **Guiding question:** What evidence is enough for a first investment judgement?
 **Student hook:** You can choose cash, a bond, a share or a fund. What evidence is still missing?
-**Core claim:** A first judgement must connect product, evidence, risk, return and investor fit.
+**Core claim:** A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 **Primary output:** Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Formula or formula rule:** no new formula; students synthesise the Unit 1 evidence chain.
 **Analyse why:** Analyse why the evidence used in the Mini portfolio checkpoint case could change an investor's judgement about Mini portfolio checkpoint case
@@ -1657,7 +1657,7 @@ Write a short Two-holding portfolio judgement with dated evidence, one caveat an
 **Student hook:** Two students choose the same fund. Could one choice still be unsuitable?
 **Core claim:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
 **Primary output:** Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students match product risk to investor profile.
+**Formula or formula rule:** no new formula; students match investment risk to investor profile.
 **Analyse why:** Analyse why the evidence used in the Investor profile A case could change an investor's judgement about Investor profile A case
 **Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Investor profile A.
 **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
@@ -1684,7 +1684,7 @@ Record the Investor profile A source title, source date or accessed date, key fi
 **Questions:**
 
 1. **Identify/Define:** Identify the source date and define investor profile.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match product risk to investor profile.
+2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match investment risk to investor profile.
 3. **Explain:** Explain what one Investor profile A evidence point shows and one thing it cannot prove.
 4. **Analyse why:** Analyse why this evidence could change the judgement about Investor profile A case.
 5. **Judge:** Give your own evidence-based classroom verdict on Investor profile A. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
@@ -1693,7 +1693,7 @@ Record the Investor profile A source title, source date or accessed date, key fi
 
 ### Calculation or judgement task
 
-Match investor profiles to suitable and unsuitable product choices.
+Match investor profiles to suitable and unsuitable investment choices.
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 
@@ -2434,12 +2434,12 @@ Write a short Monthly investment plan judgement with dated evidence, one caveat 
 
 **Expected student work:** A concise written response that uses the lesson concept and evidence.
 
-## Lesson 40: What rules should guide an investor before choosing products?
+## Lesson 40: What rules should guide an investor before choosing investments?
 
 **Case anchor:** Investor policy statement
 **Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** What rules should guide an investor before choosing products?
-**Student hook:** A product looks exciting. What rule should stop a careless decision?
+**Guiding question:** What rules should guide an investor before choosing investments?
+**Student hook:** An investment looks exciting. What rule should stop a careless decision?
 **Core claim:** A written plan protects the decision process before emotion or news takes over.
 **Primary output:** Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Formula or formula rule:** no new formula; students write rules that constrain later choices.
@@ -3045,9 +3045,9 @@ Write a short Evidence pack judgement with dated evidence, one caveat and a next
 **Unit:** 5. Portfolio decision process, monitoring and final memo
 **Guiding question:** How do students write a final evidence-based investment memo?
 **Student hook:** A careful investor has to choose a defensible next action. What belongs in the final memo?
-**Core claim:** The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+**Core claim:** The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 **Primary output:** Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** synthesis of product, return, risk, cost, fit and evidence; no new formula.
+**Formula or formula rule:** synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
 **Analyse why:** Analyse why the evidence used in the Final investment memo case could change an investor's judgement about Final investment memo case
 **Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Final investment memo.
 **Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
@@ -3074,7 +3074,7 @@ Record the Final investment memo source title, source date or accessed date, key
 **Questions:**
 
 1. **Identify/Define:** Identify the source date and define final investment memo.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of product, return, risk, cost, fit and evidence; no new formula.
+2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
 3. **Explain:** Explain what one Final investment memo evidence point shows and one thing it cannot prove.
 4. **Analyse why:** Analyse why this evidence could change the judgement about Final investment memo case.
 5. **Judge:** Give your own evidence-based classroom verdict on Final investment memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.

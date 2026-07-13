@@ -889,7 +889,7 @@
 
   function renderEvidenceSimulator(slide, index, lesson) {
     const facts = (slide.facts || []).slice(0, 4);
-    const verdicts = (slide.verdicts || []).slice(0, 3);
+    const decisionOptions = (slide.decisionOptions || slide.verdicts || []).slice(0, 3);
     const conclusion = slide.conclusion || {};
     const factMarkup = facts.map((fact, factIndex) => `
       <article class="invEvidenceFact" data-fact-index="${factIndex}" data-fact-label="${escapeHtml(fact.label || `Evidence ${factIndex + 1}`)}" aria-expanded="false">
@@ -904,19 +904,16 @@
         </div>
         <span class="invEvidenceFactStatus">Hidden</span>
       </article>`).join('');
-    const verdictMarkup = verdicts.map((verdict) => `
-      <button
-        class="invEvidenceVerdict"
-        type="button"
-        data-verdict="${escapeHtml(verdict.id || verdict.label || '')}"
-        data-verdict-label="${escapeHtml(verdict.label || '')}"
-        data-verdict-label-zh="${escapeHtml(verdict.labelZh || '')}"
-        data-tone="${escapeHtml(verdict.tone || 'neutral')}"
-        aria-pressed="false"
-      >
-        <strong>${escapeHtml(verdict.label || '')}</strong>
-        ${verdict.labelZh ? `<span lang="zh-Hans">${escapeHtml(verdict.labelZh)}</span>` : ''}
-      </button>`).join('');
+    const decisionMarkup = decisionOptions.map((option, optionIndex) => `
+      <article class="invEvidenceDecisionOption" data-tone="${escapeHtml(option.tone || 'neutral')}">
+        <span class="invEvidenceDecisionNumber" aria-hidden="true">${optionIndex + 1}</span>
+        <div class="invEvidenceDecisionText">
+          <strong>${escapeHtml(option.label || '')}</strong>
+          ${option.labelZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(option.labelZh)}</span>` : ''}
+          ${option.detail ? `<p>${escapeHtml(option.detail)}</p>` : ''}
+          ${option.detailZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(option.detailZh)}</p>` : ''}
+        </div>
+      </article>`).join('');
     const body = `
       <div class="invEvidenceSimulator" data-stage="0" data-conclusion="false" data-fact-count="${facts.length}">
         <div class="invEvidenceStarter">
@@ -924,29 +921,21 @@
           <strong>${html(slide.prompt || '')}</strong>
           ${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}
         </div>
-        <div class="invEvidenceWorkspace">
-          <section class="invEvidenceBoard" aria-label="Evidence to reveal">
-            <div class="invEvidencePanelHead">
-              <strong>${escapeHtml(slide.evidenceLabel || 'Evidence to reveal')}</strong>
-              <span class="invEvidenceProgress">0 / ${facts.length} facts</span>
-            </div>
-            <div class="invEvidenceFacts">${factMarkup}</div>
-          </section>
-          <section class="invEvidenceDecision" aria-label="Class judgement">
-            <div class="invEvidencePanelHead">
-              <strong>${escapeHtml(slide.voteLabel || 'Class judgement')}</strong>
-              <span>Vote, reveal, vote again</span>
-            </div>
-            <div class="invEvidenceVerdicts">${verdictMarkup}</div>
-            <div class="invEvidenceCurrent" aria-live="polite">
-              <span>Current class vote</span>
-              <strong class="invEvidenceCurrentText">Vote before the first fact.</strong>
-              <small class="invEvidenceCurrentZh" lang="zh-Hans">先在第一条证据出现前投票。</small>
-            </div>
-            <div class="invEvidenceHistory" aria-label="Class vote history"></div>
-          </section>
-        </div>
-        <div class="invEvidenceConclusion" data-verdict="${escapeHtml(conclusion.verdict || '')}" hidden>
+        <section class="invEvidenceDecisionGuide" aria-label="Three possible next steps">
+          <div class="invEvidencePanelHead">
+            <strong>${escapeHtml(slide.decisionLabel || 'Choose one after each clue')}</strong>
+            <span>Students show 1, 2 or 3</span>
+          </div>
+          <div class="invEvidenceDecisionOptions">${decisionMarkup}</div>
+        </section>
+        <section class="invEvidenceBoard" aria-label="Clues to reveal">
+          <div class="invEvidencePanelHead">
+            <strong>${escapeHtml(slide.evidenceLabel || 'Clues to reveal')}</strong>
+            <span class="invEvidenceProgress">0 / ${facts.length} clues</span>
+          </div>
+          <div class="invEvidenceFacts">${factMarkup}</div>
+        </section>
+        <div class="invEvidenceConclusion" data-verdict="${escapeHtml(conclusion.verdict || '')}" data-tone="${escapeHtml(conclusion.tone || 'positive')}" hidden>
           <span>${escapeHtml(slide.conclusionLabel || 'Strongest final judgement')}</span>
           <strong>${escapeHtml(conclusion.label || '')}</strong>
           ${conclusion.labelZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(conclusion.labelZh)}</span>` : ''}
@@ -954,9 +943,9 @@
           ${conclusion.textZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(conclusion.textZh)}</p>` : ''}
         </div>
         <div class="invEvidenceControls">
-          <button class="invEvidenceAction" type="button" data-action="reveal-evidence">Reveal evidence 1</button>
+          <button class="invEvidenceAction" type="button" data-action="reveal-evidence">Reveal next clue</button>
           <button class="invEvidenceReset" type="button" data-action="reset-evidence">Reset</button>
-          <span>${escapeHtml(slide.instruction || 'Record the class vote again after every new fact.')}</span>
+          <span>${escapeHtml(slide.instruction || 'Students show 1, 2 or 3. The teacher clicks only Reveal next clue.')}</span>
         </div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invEvidenceSimulatorSlide');
@@ -1510,37 +1499,22 @@
     });
   }
 
-  function clearEvidenceVerdict(simulator, message = 'Vote again after the new evidence.') {
-    simulator.querySelectorAll('.invEvidenceVerdict').forEach((button) => {
-      button.classList.remove('is-selected');
-      button.setAttribute('aria-pressed', 'false');
-    });
-    const current = simulator.querySelector('.invEvidenceCurrent');
-    const currentText = simulator.querySelector('.invEvidenceCurrentText');
-    const currentZh = simulator.querySelector('.invEvidenceCurrentZh');
-    if (current) delete current.dataset.tone;
-    if (currentText) currentText.textContent = message;
-    if (currentZh) currentZh.textContent = message.startsWith('Vote before')
-      ? '先在第一条证据出现前投票。'
-      : '新证据出现后，请再次投票。';
-  }
-
   function updateEvidenceAction(simulator) {
     const stage = Number(simulator.dataset.stage || 0);
     const factCount = Number(simulator.dataset.factCount || 0);
     const conclusionShown = simulator.dataset.conclusion === 'true';
     const action = simulator.querySelector('[data-action="reveal-evidence"]');
     const progress = simulator.querySelector('.invEvidenceProgress');
-    if (progress) progress.textContent = `${stage} / ${factCount} facts`;
+    if (progress) progress.textContent = `${stage} / ${factCount} clues`;
     if (!action) return;
     if (stage < factCount) {
-      action.textContent = `Reveal evidence ${stage + 1}`;
+      action.textContent = 'Reveal next clue';
       action.disabled = false;
     } else if (!conclusionShown) {
-      action.textContent = 'Reveal conclusion';
+      action.textContent = 'Show class conclusion';
       action.disabled = false;
     } else {
-      action.textContent = 'Conclusion revealed';
+      action.textContent = 'Conclusion shown';
       action.disabled = true;
     }
   }
@@ -1559,9 +1533,6 @@
     });
     const conclusion = simulator.querySelector('.invEvidenceConclusion');
     if (conclusion) conclusion.hidden = true;
-    const history = simulator.querySelector('.invEvidenceHistory');
-    if (history) history.replaceChildren();
-    clearEvidenceVerdict(simulator, 'Vote before the first fact.');
     updateEvidenceAction(simulator);
   }
 
@@ -1577,7 +1548,6 @@
       if (value) value.hidden = false;
       if (status) status.textContent = 'Revealed';
       simulator.dataset.stage = String(stage + 1);
-      clearEvidenceVerdict(simulator);
       updateEvidenceAction(simulator);
       return;
     }
@@ -1589,40 +1559,6 @@
       if (conclusion) conclusion.hidden = false;
       updateEvidenceAction(simulator);
     }
-  }
-
-  function recordEvidenceVerdict(simulator, selectedButton) {
-    simulator.querySelectorAll('.invEvidenceVerdict').forEach((button) => {
-      const selected = button === selectedButton;
-      button.classList.toggle('is-selected', selected);
-      button.setAttribute('aria-pressed', String(selected));
-    });
-
-    const label = selectedButton.dataset.verdictLabel || selectedButton.textContent.trim();
-    const labelZh = selectedButton.dataset.verdictLabelZh || '';
-    const tone = selectedButton.dataset.tone || 'neutral';
-    const current = simulator.querySelector('.invEvidenceCurrent');
-    const currentText = simulator.querySelector('.invEvidenceCurrentText');
-    const currentZh = simulator.querySelector('.invEvidenceCurrentZh');
-    if (current) current.dataset.tone = tone;
-    if (currentText) currentText.textContent = label;
-    if (currentZh) currentZh.textContent = labelZh;
-
-    const stage = Number(simulator.dataset.stage || 0);
-    const facts = [...simulator.querySelectorAll('.invEvidenceFact')];
-    const stageLabel = stage === 0
-      ? 'Start'
-      : `After ${facts[stage - 1]?.dataset.factLabel || `evidence ${stage}`}`;
-    const history = simulator.querySelector('.invEvidenceHistory');
-    if (!history) return;
-    let chip = history.querySelector(`[data-stage="${stage}"]`);
-    if (!chip) {
-      chip = document.createElement('span');
-      chip.dataset.stage = String(stage);
-      history.append(chip);
-    }
-    chip.dataset.tone = tone;
-    chip.textContent = `${stageLabel}: ${label}`;
   }
 
   function mountLesson(lesson, target = document.body) {
@@ -1802,15 +1738,6 @@
         event.stopPropagation();
         const simulator = evidenceReset.closest('.invEvidenceSimulator');
         if (simulator) resetEvidenceSimulator(simulator);
-        return;
-      }
-
-      const evidenceVerdict = event.target.closest('.invEvidenceVerdict');
-      if (evidenceVerdict) {
-        event.preventDefault();
-        event.stopPropagation();
-        const simulator = evidenceVerdict.closest('.invEvidenceSimulator');
-        if (simulator) recordEvidenceVerdict(simulator, evidenceVerdict);
         return;
       }
 

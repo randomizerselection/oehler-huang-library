@@ -15,7 +15,7 @@ window.INVEST.lesson = {
       },
       {
         label: "IFEC: Building an investment portfolio",
-        note: "Supports beginning with purpose, investment time horizon, liquidity needs, financial resources and risk tolerance rather than a named product.",
+        note: "Supports beginning with purpose, investment time horizon, liquidity needs, financial resources and risk tolerance rather than a particular investment.",
         date: "Published 1 April 2016; accessed 13 July 2026",
         url: "https://www.ifec.org.hk/web/en/moneyessentials/financial-planning/building-an-investment-portfolio.page"
       },
@@ -36,7 +36,7 @@ window.INVEST.lesson = {
   handout: {
     title: "Why do people and families invest?",
     subtitle: "Unit 1 Lesson 1",
-    description: "Use a family goal table to decide when waiting and investing may help a future goal, and when the money should remain available instead.",
+    description: "Use a family goal table to decide whether to keep money available, gather more information or consider investing.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -86,7 +86,7 @@ window.INVEST.lesson = {
       {
         label: "3",
         title: "Evidence and Data Analysis",
-        instruction: "Read the family goal table before deciding whether investment may help.",
+        instruction: "Read the family goal table before choosing the next step for each goal.",
         blocks: [
           {
             type: "table",
@@ -103,15 +103,15 @@ window.INVEST.lesson = {
       {
         label: "4",
         title: "Classification judgement",
-        instruction: "Match each goal to the most defensible reason investment may or may not help.",
+        instruction: "Classify each goal as keep available, need more information or consider investing.",
         blocks: [
           {
             type: "cases",
             cases: [
-              { label: "A", text: "University fees in six years", answer: "Investment may help, but the fixed date and possible loss must be checked" },
-              { label: "B", text: "Home deposit in ten years with some flexibility", answer: "Investment may help because the horizon is longer, but loss could still delay the goal" },
-              { label: "C", text: "Retirement income in thirty years", answer: "Investment may help a long-term goal, but the target and ability to accept loss are still missing" },
-              { label: "D", text: "Medical bill in four months", answer: "Investment may not help because the money must remain available soon" }
+              { label: "A", text: "University fees in six years", answer: "Need more information: the fixed date and possible loss must be checked" },
+              { label: "B", text: "Home deposit in ten years with some flexibility", answer: "Consider investing after checks: the horizon is longer, but loss could still delay the goal" },
+              { label: "C", text: "Retirement income in thirty years", answer: "Need more information: the target and ability to accept loss are still missing" },
+              { label: "D", text: "Medical bill in four months", answer: "Keep available: the money is needed soon" }
             ]
           }
         ]
@@ -184,12 +184,12 @@ window.INVEST.lesson = {
       visual: investmentPhotos.businessChartsPaper,
       bullets: [
         "Define and use investment, return, financial goal.",
-        "Match four family goals to the reason investment may or may not help.",
+        "Choose whether to keep money available, gather more information or consider investing for four family goals.",
         "Write one reason to invest and one condition that must be checked first."
       ],
       zhBullets: [
         "定义并使用投资、回报和财务目标。",
-        "把四个家庭目标与投资可能有帮助或没有帮助的理由相匹配。",
+        "为四个家庭目标选择保持资金可用、收集更多信息或考虑投资。",
         "写出一个投资理由和一个必须先检查的条件。"
       ]
     },
@@ -320,12 +320,12 @@ window.INVEST.lesson = {
     {
       type: "evidenceSimulator",
       eyebrow: "Whole-class simulation",
-      title: "Can investment help before the evidence is known?",
-      zhTitle: "在了解证据之前，能判断投资是否有帮助吗？",
-      prompt: "A family can set aside CNY 50,000. Vote now, then vote again after each fact appears.",
-      promptZh: "一个家庭可以留出50,000元人民币。现在先投票，然后在每条信息出现后再次投票。",
-      evidenceLabel: "Family-goal evidence",
-      voteLabel: "Could investment help this goal?",
+      title: "What should the family do as each clue appears?",
+      zhTitle: "随着每条线索出现，家庭应该怎么做？",
+      prompt: "A family has CNY 50,000. After each clue, ask the class to choose 1, 2 or 3.",
+      promptZh: "一个家庭有50,000元人民币。每条线索出现后，请全班选择1、2或3。",
+      evidenceLabel: "Family-goal clues",
+      decisionLabel: "Choose one after each clue",
       facts: [
         {
           label: "Purpose and amount",
@@ -352,42 +352,45 @@ window.INVEST.lesson = {
           valueZh: "损失可能导致医疗账单无法支付"
         }
       ],
-      verdicts: [
-        { id: "may-help", label: "Investment may help", labelZh: "投资可能有帮助", tone: "positive" },
-        { id: "conditions-needed", label: "Conditions needed", labelZh: "需要更多条件", tone: "caution" },
-        { id: "may-not-help", label: "Investment may not help", labelZh: "投资可能没有帮助", tone: "negative" }
+      decisionOptions: [
+        { id: "keep-available", label: "Keep available", labelZh: "保持资金可用", detail: "Use this when the money is needed soon.", detailZh: "资金很快要使用时，选择此项。", tone: "caution" },
+        { id: "more-information", label: "Need more information", labelZh: "需要更多信息", detail: "Use this when the amount, date or possible loss is unclear.", detailZh: "金额、日期或可能损失不清楚时，选择此项。", tone: "neutral" },
+        { id: "consider-investing", label: "Consider investing", labelZh: "可考虑投资", detail: "Use this for a later goal with no urgent access need; check risk first.", detailZh: "目标较远且无需紧急使用资金时可选择；先检查风险。", tone: "positive" }
       ],
       conclusion: {
-        verdict: "may-not-help",
-        label: "Investment may not help this medical-bill goal",
-        labelZh: "投资可能不适合这一医疗账单目标",
-        text: "The CNY 25,000 is needed in four months, access is urgent and a loss could leave the bill unpaid. Money for this goal should remain available; the rest of the CNY 50,000 needs separate goal evidence before it can be judged.",
-        textZh: "这25,000元人民币将在四个月后使用，取用资金十分紧迫，而且损失可能导致账单无法支付。用于这一目标的资金应保持可用；剩余资金必须根据其他目标的证据另行判断。"
+        verdict: "keep-available",
+        tone: "caution",
+        label: "Keep CNY 25,000 available",
+        labelZh: "保留25,000元人民币以便使用",
+        text: "The CNY 25,000 is needed in four months. A loss could leave the bill unpaid, so this amount should remain available. Judge the remaining CNY 25,000 separately.",
+        textZh: "25,000元人民币四个月后就要使用。损失可能导致账单无法支付，因此这笔钱应保持可用。剩余25,000元人民币须另行判断。"
       },
-      instruction: "Record the class vote before any facts, after each fact and once more before revealing the conclusion.",
+      conclusionLabel: "Best next step",
+      instruction: "Students show 1, 2 or 3 with their fingers. The teacher clicks only Reveal next clue.",
       notes: [
-        "This is teacher-led. Ask for a whole-class vote before revealing any evidence.",
-        "Reveal one fact only, ask one student to justify whether the judgement should change, then record the new vote.",
-        "After the fourth fact, take a final vote before revealing the conclusion.",
+        "This is teacher-led. Students show 1, 2 or 3; there is no on-screen vote to record.",
+        "Reveal one clue, ask one student to justify whether the class should change its choice, then reveal the next clue.",
+        "After the fourth clue, ask for a final choice before showing the conclusion.",
         "Keep the conclusion limited to the medical-bill portion. Do not infer that the rest of the CNY 50,000 should be invested."
       ]
     },
     {
       type: "classificationTask",
+      compact: true,
       eyebrow: "Evidence task",
-      title: "Classify whether investment may help",
-      zhTitle: "判断投资是否可能有帮助",
-      prompt: "Medical bill is the worked example. Classify the other three goals, then defend one.",
-      promptZh: "医疗账单是示例。给其余三个目标分类，然后说明一个理由。",
+      title: "Choose the next step for each goal",
+      zhTitle: "为每个目标选择下一步",
+      prompt: "Medical bill is the worked example. Choose the next step for the other three goals, then defend one.",
+      promptZh: "医疗账单是示例。为其余三个目标选择下一步，然后说明一个理由。",
       categories: [
-        { title: "May help", zhTitle: "可能有帮助", clue: "longer horizon; money not needed soon" },
-        { title: "Conditions needed", zhTitle: "需要条件", clue: "date, amount or loss still matters" },
-        { title: "May not help", zhTitle: "可能没有帮助", clue: "urgent access is essential" }
+        { title: "Keep available", zhTitle: "保持资金可用", clue: "money needed soon; loss would damage the goal" },
+        { title: "Need more information", zhTitle: "需要更多信息", clue: "amount, date or loss capacity is missing" },
+        { title: "Consider investing", zhTitle: "可考虑投资", clue: "longer horizon; urgent access not needed" }
       ],
       items: [
-        { label: "A", text: "Retirement income in 30 years; target not fixed.", zh: "三十年后的退休收入；目标金额未定。", answer: "Conditions needed", answerZh: "需要条件", reason: "The long horizon helps, but target and loss capacity are missing.", reasonZh: "长期限有利，但仍缺目标金额和损失承受能力。" },
-        { label: "C", text: "CNY 400k home deposit; 10 years; flexible date.", zh: "40万元人民币首付；十年；日期灵活。", answer: "May help", answerZh: "可能有帮助", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
-        { label: "D", text: "CNY 180k university fees; 6 years; fixed date.", zh: "18万元人民币学费；六年；日期固定。", answer: "Conditions needed", answerZh: "需要条件", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
+        { label: "A", text: "Retirement income in 30 years; target not fixed.", zh: "三十年后的退休收入；目标金额未定。", answer: "Need more information", answerZh: "需要更多信息", reason: "The long horizon helps, but target and loss capacity are missing.", reasonZh: "长期限有利，但仍缺目标金额和损失承受能力。" },
+        { label: "C", text: "CNY 400k home deposit; 10 years; flexible date.", zh: "40万元人民币首付；十年；日期灵活。", answer: "Consider investing", answerZh: "可考虑投资", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
+        { label: "D", text: "CNY 180k university fees; 6 years; fixed date.", zh: "18万元人民币学费；六年；日期固定。", answer: "Need more information", answerZh: "需要更多信息", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
       ],
       sharePrompt: "Use goal, horizon and possible loss in one justification.",
       sharePromptZh: "在一个理由中使用目标、期限和可能损失。"
@@ -398,18 +401,18 @@ window.INVEST.lesson = {
       title: "What should the family know first?",
       zhTitle: "家庭首先应该了解什么？",
       visual: investmentPhotos.businessChartsPaper,
-      question: "Before comparing investment products, what should the family know?",
-      zh: "在比较投资产品之前，家庭应该了解什么？",
+      question: "Before comparing investment choices, what should the family know?",
+      zh: "在比较投资选择之前，家庭应该了解什么？",
       choices: [
         "What the money is for, when it is needed and what would happen if some were lost.",
-        "Which product earned the highest return last month.",
-        "Which product is most popular with other families.",
-        "Which product has the lowest current price."
+        "Which investment earned the highest return last month.",
+        "Which investment is most popular with other families.",
+        "Which investment has the lowest current price."
       ],
       answer: 0,
-      explanation: "Start with the family's needs: what the money is for, when it is needed and what a loss would mean. Only then should the family compare products and returns.",
-      explanationZh: "先了解家庭的需要：资金用途、何时需要这笔钱，以及损失会带来什么后果。然后再比较产品和回报。",
-      notes: "Students answer individually. If many choose B, C or D, revisit the rule: understand the family's needs before comparing products."
+      explanation: "Start with the family's needs: what the money is for, when it is needed and what a loss would mean. Only then should the family compare investment choices and returns.",
+      explanationZh: "先了解家庭的需要：资金用途、何时需要这笔钱，以及损失会带来什么后果。然后再比较投资选择和回报。",
+      notes: "Students answer individually. If many choose B, C or D, revisit the rule: understand the family's needs before comparing investment choices."
     },
     {
       type: "yesNoCheck",
@@ -442,7 +445,7 @@ window.INVEST.lesson = {
       steps: [
         { label: "1", text: "The family has a future goal and does not need this money now.", zh: "家庭有未来目标，现在不需要这笔钱。" },
         { label: "2", text: "__________", answer: "Investment may seek return for the goal, but the family must first check horizon, access and possible loss.", zh: "投资可为目标寻求回报，但家庭必须先检查期限、资金使用和可能损失。" },
-        { label: "3", text: "Therefore, define the goal conditions before comparing products.", zh: "因此，比较产品前先明确目标条件。" }
+        { label: "3", text: "Therefore, define the goal conditions before comparing investment choices.", zh: "因此，比较投资选择前先明确目标条件。" }
       ],
       missingSentenceStep: 2,
       missingSentenceAnswer: "Investment may seek return for the goal, but the family must first check horizon, access and possible loss.",
@@ -489,9 +492,9 @@ window.INVEST.lesson = {
       title: "Submit one reason and one condition",
       zhTitle: "提交一个理由和一个条件",
       revealKeywords: true,
-      prompt: "Choose retirement income, a home deposit or university fees from the earlier activity. Write one reason investment may help and one condition the family must check first. [4]",
-      zh: "从前面的活动中选择退休收入、住房首付或大学学费。写出投资可能有帮助的一个理由，以及家庭必须先检查的一个条件。[4]",
-      keywords: ["financial goal", "future return", "because", "however", "time horizon / access / possible loss"],
+      prompt: "Choose retirement, a home deposit or university fees. Give one reason the family could consider investing and one condition it must check. [4]",
+      zh: "选择退休、住房首付或大学学费。写出家庭可考虑投资的一个理由和必须检查的一个条件。[4]",
+      keywords: ["financial goal", "future return", "because", "however", "horizon / access / loss"],
       notes: [
         "Collect the response individually before revealing the keyword check.",
         "Lesson 2 will compare goals by time horizon, liquidity need and suitability."

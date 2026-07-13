@@ -6,7 +6,7 @@ This file is generated from `investment-analysis/course-map-data.js`. Use it to 
 
 Students move from first opinion to evidence-based judgement: each lesson begins with a concrete investor dilemma, exposes the missing evidence, teaches one useful idea and finishes with a justified next action.
 
-- Starter dilemma: a company, product, fund, portfolio or investor-profile question students can answer before definitions.
+- Starter dilemma: a company, security, fund, portfolio or investor-profile question students can answer before definitions.
 - First judgement: a quick vote, written reason or ranking that exposes the starting misconception.
 - Missing evidence: the exact source, figure, comparison, concept or caveat students need next.
 - Key idea: one concept, formula or rule that improves the initial judgement.
@@ -16,7 +16,7 @@ Students move from first opinion to evidence-based judgement: each lesson begins
 
 ## Practical Investing Workflow
 
-- **Step 1: Know what you are buying:** Name the company, product, fund, bond, cash choice, portfolio holding or investor profile, and explain the ownership, lending claim or exposure.
+- **Step 1: Know what you are buying:** Name the company, security, fund, bond, cash choice, portfolio holding or investor profile, and explain the ownership, lending claim or exposure.
 - **Step 2: Check whether it fits the investor:** State the goal, time horizon, need for liquidity and risk level before looking at possible return or compound-growth projections.
 - **Step 3: Read evidence:** Use company statements, quote pages, bond terms, fund factsheets, costs, risks, users or sector evidence to judge the case.
 - **Step 4: Compare return, compounding, risk, price and cost:** Estimate possible sources of return, identify whether compounding matters over the time horizon, identify risks and costs, and ask whether the price already reflects good news.
@@ -24,7 +24,7 @@ Students move from first opinion to evidence-based judgement: each lesson begins
 
 ## Simple Lesson Structure
 
-- **Hook:** Start with a concrete company, product, fund, portfolio or investor-profile dilemma that students can answer before definitions.
+- **Hook:** Start with a concrete company, security, fund, portfolio or investor-profile dilemma that students can answer before definitions.
 - **Key idea:** Teach one concept, formula or rule that fixes the weakness in the first judgement.
 - **Try it:** Use one short evidence, calculation, classification, matching or source task.
 - **Decide:** Write a justified next action: consider, watch, avoid, compare or gather more evidence.
@@ -44,13 +44,13 @@ Run this before building a lesson deck or final exam item. Keep the current case
 | Lesson | Case anchor | Role | Status | Replacement candidate |
 | --- | --- | --- | --- | --- |
 | 1 | Tencent | listed company | keep |  |
-| 2 | Family saving plan | financial product | keep |  |
+| 2 | Family saving plan | family decision case | keep |  |
 | 3 | Mixed asset set | comparison case | keep |  |
 | 4 | Xiaomi | listed company | keep |  |
 | 5 | HKEX | exchange/infrastructure case | keep |  |
 | 6 | Alibaba quote snapshot | listed company | keep |  |
 | 7 | JD.com evidence pack | listed company | keep |  |
-| 8 | Government bond | financial product | keep |  |
+| 8 | Government bond | fixed-income security | keep |  |
 | 9 | ChinaAMC CSI 300 ETF | fund | keep |  |
 | 10 | Mini portfolio checkpoint | synthesis case | keep |  |
 | 11 | Meituan | listed company | keep |  |
@@ -69,26 +69,26 @@ Run this before building a lesson deck or final exam item. Keep the current case
 | 24 | Toyota valuation case | listed company | keep |  |
 | 25 | HSBC income case | listed company | keep |  |
 | 26 | Two-holding portfolio | comparison case | keep |  |
-| 27 | Investor profile A | financial product | keep |  |
+| 27 | Investor profile A | mock investor profile | keep |  |
 | 28 | Samsung | listed company | keep |  |
 | 29 | Risk-return scenario | economic data case | keep |  |
 | 30 | Semester 1 memo | synthesis case | keep |  |
-| 31 | Bank deposit | financial product | keep |  |
-| 32 | Treasury bond | financial product | keep |  |
+| 31 | Bank deposit | deposit product | keep |  |
+| 32 | Treasury bond | fixed-income security | keep |  |
 | 33 | Bond fund | fund | keep |  |
-| 34 | Corporate bond | financial product | keep |  |
+| 34 | Corporate bond | fixed-income security | keep |  |
 | 35 | Index fund | fund | keep |  |
 | 36 | Active fund | fund | keep |  |
 | 37 | Sector ETF | fund | keep |  |
 | 38 | Global fund | fund | keep |  |
-| 39 | Monthly investment plan | financial product | keep |  |
+| 39 | Monthly investment plan | investment strategy | keep |  |
 | 40 | Investor policy statement | synthesis case | keep |  |
 | 41 | Fund comparison | comparison case | keep |  |
 | 42 | Starter portfolio | synthesis case | keep |  |
 | 43 | Concentrated Tencent holding | listed company | keep |  |
 | 44 | Watchlist dashboard | synthesis case | keep |  |
 | 45 | Rebalanced portfolio | synthesis case | keep |  |
-| 46 | Trading-cost scenario | financial product | keep |  |
+| 46 | Trading-cost scenario | cost scenario | keep |  |
 | 47 | Past-winner fund | fund | keep |  |
 | 48 | Next-action board | synthesis case | keep |  |
 | 49 | Evidence pack | synthesis case | keep |  |
@@ -128,11 +128,11 @@ Students build the first investing vocabulary, compare asset types, read market 
 ### Source pack
 
 - dated source extract for Tencent
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -204,7 +204,7 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 **Guiding question:** How are saving, investing and speculation different?
 **Student hook:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
 **Core claim:** Saving protects short-term needs, while investing accepts risk for possible future return.
-**Case role:** financial product
+**Case role:** family decision case
 **Primary output:** evidence-based-next-action-judgement - Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
 **Case review:** keep; Family saving plan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -229,11 +229,11 @@ Analyse why the evidence used in the Tencent case could change an investor's jud
 ### Source pack
 
 - dated source extract for Family saving plan
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -330,11 +330,11 @@ Analyse why the evidence used in the Family saving plan case could change an inv
 ### Source pack
 
 - dated source extract for Mixed asset set
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -431,11 +431,11 @@ Analyse why the evidence used in the Mixed asset set case could change an invest
 ### Source pack
 
 - dated source extract for Xiaomi
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -532,11 +532,11 @@ Analyse why the evidence used in the Xiaomi case could change an investor's judg
 ### Source pack
 
 - dated source extract for HKEX
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -633,11 +633,11 @@ Analyse why the evidence used in the HKEX case could change an investor's judgem
 ### Source pack
 
 - dated source extract for Alibaba quote snapshot
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -734,11 +734,11 @@ Analyse why the evidence used in the Alibaba quote snapshot case could change an
 ### Source pack
 
 - dated source extract for JD.com evidence pack
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -810,7 +810,7 @@ Analyse why the evidence used in the JD.com evidence pack case could change an i
 **Guiding question:** How is a bond different from a share?
 **Student hook:** A bond promises payments. Does that make it risk-free?
 **Core claim:** A bond is a lending claim, not ownership, and still has interest-rate and credit risk.
-**Case role:** financial product
+**Case role:** fixed-income security
 **Primary output:** evidence-based-next-action-judgement - Write a short Government bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Government bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -835,11 +835,11 @@ Analyse why the evidence used in the JD.com evidence pack case could change an i
 ### Source pack
 
 - dated source extract for Government bond
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -910,7 +910,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 
 **Guiding question:** How can one fund hold many investments?
 **Student hook:** One ETF holds many companies. Is it automatically safe?
-**Core claim:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+**Core claim:** A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 **Case role:** fund
 **Primary output:** evidence-based-next-action-judgement - Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; ChinaAMC CSI 300 ETF fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
@@ -918,7 +918,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 ### Simple lesson flow
 
 - **Hook:** One ETF holds many companies. Is it automatically safe?
-- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 - **Try it:** Read a fund factsheet and identify exposure, cost and one remaining risk.
 - **Decide:** Write a ChinaAMC CSI 300 ETF next-action judgement using evidence, caveat and fit.
 
@@ -928,7 +928,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 - **First judgement:** Students make a first judgement about ChinaAMC CSI 300 ETF before the key idea is taught.
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for ChinaAMC CSI 300 ETF.
-- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and product risks.
+- **Key idea:** A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 - **Try it:** Read a fund factsheet and identify exposure, cost and one remaining risk.
 - **Misconception check:** A familiar or attractive example is automatically a suitable investment.
 - **Exit judgement:** Write a ChinaAMC CSI 300 ETF next-action judgement using evidence, caveat and fit.
@@ -936,11 +936,11 @@ Analyse why the evidence used in the Government bond case could change an invest
 ### Source pack
 
 - dated source extract for ChinaAMC CSI 300 ETF
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -951,7 +951,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 
 - Hook: start with One ETF holds many companies. Is it automatically safe?
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
-- Teach: A fund can diversify company-specific risk but still carries market, sector and product risks.
+- Teach: A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 - Evidence practice: Read a fund factsheet and identify exposure, cost and one remaining risk.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
 - Exit ticket: Write a ChinaAMC CSI 300 ETF next-action judgement using evidence, caveat and fit.
@@ -975,7 +975,7 @@ Analyse why the evidence used in the Government bond case could change an invest
 Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about ChinaAMC CSI 300 ETF case
 
 - dated evidence or source detail
-- A fund can diversify company-specific risk but still carries market, sector and product risks.
+- A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
 - investor implication for return, risk, price or fit
 - defensible next action
 
@@ -1011,7 +1011,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 
 **Guiding question:** What evidence is enough for a first investment judgement?
 **Student hook:** You can choose cash, a bond, a share or a fund. What evidence is still missing?
-**Core claim:** A first judgement must connect product, evidence, risk, return and investor fit.
+**Core claim:** A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 **Case role:** synthesis case
 **Primary output:** evidence-based-next-action-judgement - Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Mini portfolio checkpoint fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
@@ -1019,7 +1019,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 ### Simple lesson flow
 
 - **Hook:** You can choose cash, a bond, a share or a fund. What evidence is still missing?
-- **Key idea:** A first judgement must connect product, evidence, risk, return and investor fit.
+- **Key idea:** A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 - **Try it:** Write a first evidence memo with one action and one caveat.
 - **Decide:** Write a Mini portfolio checkpoint next-action judgement using evidence, caveat and fit.
 
@@ -1029,7 +1029,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 - **First judgement:** Students make a first judgement about Mini portfolio checkpoint before the key idea is taught.
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Mini portfolio checkpoint.
-- **Key idea:** A first judgement must connect product, evidence, risk, return and investor fit.
+- **Key idea:** A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 - **Try it:** Write a first evidence memo with one action and one caveat.
 - **Misconception check:** A familiar or attractive example is automatically a suitable investment.
 - **Exit judgement:** Write a Mini portfolio checkpoint next-action judgement using evidence, caveat and fit.
@@ -1037,11 +1037,11 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 ### Source pack
 
 - dated source extract for Mini portfolio checkpoint
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1052,7 +1052,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 
 - Hook: start with You can choose cash, a bond, a share or a fund. What evidence is still missing?
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
-- Teach: A first judgement must connect product, evidence, risk, return and investor fit.
+- Teach: A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 - Evidence practice: Write a first evidence memo with one action and one caveat.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
 - Exit ticket: Write a Mini portfolio checkpoint next-action judgement using evidence, caveat and fit.
@@ -1076,7 +1076,7 @@ Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an i
 Analyse why the evidence used in the Mini portfolio checkpoint case could change an investor's judgement about Mini portfolio checkpoint case
 
 - dated evidence or source detail
-- A first judgement must connect product, evidence, risk, return and investor fit.
+- A first judgement must connect the investment choice, evidence, risk, return and investor fit.
 - investor implication for return, risk, price or fit
 - defensible next action
 
@@ -1143,11 +1143,11 @@ Students use revenue, margin, cash-flow, balance-sheet, dividend, risk and compa
 ### Source pack
 
 - dated source extract for Meituan
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1244,11 +1244,11 @@ Analyse why the evidence used in the Meituan case could change an investor's jud
 ### Source pack
 
 - dated source extract for BYD
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1345,11 +1345,11 @@ Analyse why the evidence used in the BYD case could change an investor's judgeme
 ### Source pack
 
 - dated source extract for CATL
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1446,11 +1446,11 @@ Analyse why the evidence used in the CATL case could change an investor's judgem
 ### Source pack
 
 - dated source extract for Tesla
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1547,11 +1547,11 @@ Analyse why the evidence used in the Tesla case could change an investor's judge
 ### Source pack
 
 - dated source extract for Balance sheet snapshot
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1648,11 +1648,11 @@ Analyse why the evidence used in the Balance sheet snapshot case could change an
 ### Source pack
 
 - dated source extract for Lenovo
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1749,11 +1749,11 @@ Analyse why the evidence used in the Lenovo case could change an investor's judg
 ### Source pack
 
 - dated source extract for HSBC
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1850,11 +1850,11 @@ Analyse why the evidence used in the HSBC case could change an investor's judgem
 ### Source pack
 
 - dated source extract for Starbucks
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -1951,11 +1951,11 @@ Analyse why the evidence used in the Starbucks case could change an investor's j
 ### Source pack
 
 - dated source extract for Toyota peer set
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2052,11 +2052,11 @@ Analyse why the evidence used in the Toyota peer set case could change an invest
 ### Source pack
 
 - dated source extract for Company evidence checkpoint
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2158,11 +2158,11 @@ Students connect investor return, valuation, diversification, profile fit and ri
 ### Source pack
 
 - dated source extract for Apple
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2259,11 +2259,11 @@ Analyse why the evidence used in the Apple case could change an investor's judge
 ### Source pack
 
 - dated source extract for Nvidia
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2360,11 +2360,11 @@ Analyse why the evidence used in the Nvidia case could change an investor's judg
 ### Source pack
 
 - dated source extract for Microsoft
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2461,11 +2461,11 @@ Analyse why the evidence used in the Microsoft case could change an investor's j
 ### Source pack
 
 - dated source extract for Toyota valuation case
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2562,11 +2562,11 @@ Analyse why the evidence used in the Toyota valuation case case could change an 
 ### Source pack
 
 - dated source extract for HSBC income case
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2663,11 +2663,11 @@ Analyse why the evidence used in the HSBC income case case could change an inves
 ### Source pack
 
 - dated source extract for Two-holding portfolio
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2739,7 +2739,7 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 **Guiding question:** Why can the same investment fit one person but not another?
 **Student hook:** Two students choose the same fund. Could one choice still be unsuitable?
 **Core claim:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
-**Case role:** financial product
+**Case role:** mock investor profile
 **Primary output:** evidence-based-next-action-judgement - Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Investor profile A fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -2747,7 +2747,7 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 
 - **Hook:** Two students choose the same fund. Could one choice still be unsuitable?
 - **Key idea:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
-- **Try it:** Match investor profiles to suitable and unsuitable product choices.
+- **Try it:** Match investor profiles to suitable and unsuitable investment choices.
 - **Decide:** Write a Investor profile A next-action judgement using evidence, caveat and fit.
 
 ### Decision-first teaching contract
@@ -2757,18 +2757,18 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Investor profile A.
 - **Key idea:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
-- **Try it:** Match investor profiles to suitable and unsuitable product choices.
+- **Try it:** Match investor profiles to suitable and unsuitable investment choices.
 - **Misconception check:** A familiar or attractive example is automatically a suitable investment.
 - **Exit judgement:** Write a Investor profile A next-action judgement using evidence, caveat and fit.
 
 ### Source pack
 
 - dated source extract for Investor profile A
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2780,7 +2780,7 @@ Analyse why the evidence used in the Two-holding portfolio case could change an 
 - Hook: start with Two students choose the same fund. Could one choice still be unsuitable?
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
 - Teach: Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
-- Evidence practice: Match investor profiles to suitable and unsuitable product choices.
+- Evidence practice: Match investor profiles to suitable and unsuitable investment choices.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
 - Exit ticket: Write a Investor profile A next-action judgement using evidence, caveat and fit.
 
@@ -2812,7 +2812,7 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 **Case information:** Use a short Investor profile A case extract with source title, publication or accessed date, key figures and one limitation.
 
 1. **Identify/Define:** Identify the source date and define investor profile.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match product risk to investor profile.
+2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match investment risk to investor profile.
 3. **Explain:** Explain what one Investor profile A evidence point shows and one thing it cannot prove.
 4. **Analyse why:** Analyse why this evidence could change the judgement about Investor profile A case.
 5. **Judge:** Give your own evidence-based classroom verdict on Investor profile A. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
@@ -2822,7 +2822,7 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 - **Source box:** Record the Investor profile A source title, source date or accessed date, key figure and one limitation before judging.
 - **Vocabulary:** Define and use the lesson terms: investor profile, time horizon.
 - **Evidence and Data Analysis:** Use a short Investor profile A case extract with source title, date, key figures and one limitation. Identify the source, interpret one figure, explain what it can and cannot prove, analyse why it changes the judgement and choose a next investment action.
-- **Calculation or judgement task:** Match investor profiles to suitable and unsuitable product choices.
+- **Calculation or judgement task:** Match investor profiles to suitable and unsuitable investment choices.
 - **Misconception check:** Correct the shortcut: one attractive clue is enough for an investment decision.
 - **Individual written output:** Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 
@@ -2831,7 +2831,7 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 - Command word: Analyse why
 - Marks: 6
 - Stimulus: short Investor profile A source extract with key figures and limitation
-- Calculation: no new formula; students match product risk to investor profile.
+- Calculation: no new formula; students match investment risk to investor profile.
 - Judgement: Students must justify consider, watch, avoid, compare with another choice or gather more evidence using dated evidence and caveats.
 - Shape: Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Investor profile A.
 
@@ -2865,11 +2865,11 @@ Analyse why the evidence used in the Investor profile A case could change an inv
 ### Source pack
 
 - dated source extract for Samsung
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -2966,11 +2966,11 @@ Analyse why the evidence used in the Samsung case could change an investor's jud
 ### Source pack
 
 - dated source extract for Risk-return scenario
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3067,11 +3067,11 @@ Analyse why the evidence used in the Risk-return scenario case could change an i
 ### Source pack
 
 - dated source extract for Semester 1 memo
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3148,7 +3148,7 @@ Students broaden the course beyond single shares by analysing cash, bonds, funds
 **Guiding question:** When is cash or a deposit the better choice?
 **Student hook:** A deposit earns less than shares. Why might it still fit?
 **Core claim:** Cash and deposits protect liquidity but can lose purchasing power to inflation.
-**Case role:** financial product
+**Case role:** deposit product
 **Primary output:** evidence-based-next-action-judgement - Write a short Bank deposit judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Bank deposit fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -3173,11 +3173,11 @@ Students broaden the course beyond single shares by analysing cash, bonds, funds
 ### Source pack
 
 - dated source extract for Bank deposit
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3249,7 +3249,7 @@ Analyse why the evidence used in the Bank deposit case could change an investor'
 **Guiding question:** What do maturity and yield tell a bond investor?
 **Student hook:** Two bonds pay different yields. Which one is actually safer?
 **Core claim:** Bond yield must be read with maturity, issuer and price risk.
-**Case role:** financial product
+**Case role:** fixed-income security
 **Primary output:** evidence-based-next-action-judgement - Write a short Treasury bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Treasury bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -3274,11 +3274,11 @@ Analyse why the evidence used in the Bank deposit case could change an investor'
 ### Source pack
 
 - dated source extract for Treasury bond
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3375,11 +3375,11 @@ Analyse why the evidence used in the Treasury bond case could change an investor
 ### Source pack
 
 - dated source extract for Bond fund
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3451,7 +3451,7 @@ Analyse why the evidence used in the Bond fund case could change an investor's j
 **Guiding question:** How can credit risk affect bond investors?
 **Student hook:** A corporate bond pays more. Is the extra yield free money?
 **Core claim:** Higher yield can compensate for higher credit risk, but it does not remove default risk.
-**Case role:** financial product
+**Case role:** fixed-income security
 **Primary output:** evidence-based-next-action-judgement - Write a short Corporate bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Corporate bond fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -3476,11 +3476,11 @@ Analyse why the evidence used in the Bond fund case could change an investor's j
 ### Source pack
 
 - dated source extract for Corporate bond
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3577,11 +3577,11 @@ Analyse why the evidence used in the Corporate bond case could change an investo
 ### Source pack
 
 - dated source extract for Index fund
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3678,11 +3678,11 @@ Analyse why the evidence used in the Index fund case could change an investor's 
 ### Source pack
 
 - dated source extract for Active fund
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3779,11 +3779,11 @@ Analyse why the evidence used in the Active fund case could change an investor's
 ### Source pack
 
 - dated source extract for Sector ETF
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3880,11 +3880,11 @@ Analyse why the evidence used in the Sector ETF case could change an investor's 
 ### Source pack
 
 - dated source extract for Global fund
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -3956,7 +3956,7 @@ Analyse why the evidence used in the Global fund case could change an investor's
 **Guiding question:** How do compounding and gradual investing affect long-run accumulation?
 **Student hook:** Should an investor rely on one perfect purchase, or build a long-run plan over time?
 **Core claim:** Compounding can make long-run accumulation grow as returns build on earlier returns, while gradual investing can reduce timing pressure without guaranteeing profit.
-**Case role:** financial product
+**Case role:** investment strategy
 **Primary output:** evidence-based-next-action-judgement - Write a short Monthly investment plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Monthly investment plan fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -3981,11 +3981,11 @@ Analyse why the evidence used in the Global fund case could change an investor's
 ### Source pack
 
 - dated source extract for Monthly investment plan
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4054,8 +4054,8 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 
 ## Lesson 40: Investor policy statement
 
-**Guiding question:** What rules should guide an investor before choosing products?
-**Student hook:** A product looks exciting. What rule should stop a careless decision?
+**Guiding question:** What rules should guide an investor before choosing investments?
+**Student hook:** An investment looks exciting. What rule should stop a careless decision?
 **Core claim:** A written plan protects the decision process before emotion or news takes over.
 **Case role:** synthesis case
 **Primary output:** evidence-based-next-action-judgement - Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
@@ -4063,14 +4063,14 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 
 ### Simple lesson flow
 
-- **Hook:** A product looks exciting. What rule should stop a careless decision?
+- **Hook:** An investment looks exciting. What rule should stop a careless decision?
 - **Key idea:** A written plan protects the decision process before emotion or news takes over.
 - **Try it:** Write simple plan rules for goal, risk, liquidity, evidence and action.
 - **Decide:** Write a Investor policy statement next-action judgement using evidence, caveat and fit.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A product looks exciting. What rule should stop a careless decision?
+- **Starter dilemma:** An investment looks exciting. What rule should stop a careless decision?
 - **First judgement:** Students make a first judgement about Investor policy statement before the key idea is taught.
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Investor policy statement.
@@ -4082,11 +4082,11 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 ### Source pack
 
 - dated source extract for Investor policy statement
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4095,7 +4095,7 @@ Analyse why the evidence used in the Monthly investment plan case could change a
 
 ### Deck arc
 
-- Hook: start with A product looks exciting. What rule should stop a careless decision?
+- Hook: start with An investment looks exciting. What rule should stop a careless decision?
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
 - Teach: A written plan protects the decision process before emotion or news takes over.
 - Evidence practice: Write simple plan rules for goal, risk, liquidity, evidence and action.
@@ -4188,11 +4188,11 @@ Students compare alternatives, build and monitor a simple portfolio, control con
 ### Source pack
 
 - dated source extract for Fund comparison
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4289,11 +4289,11 @@ Analyse why the evidence used in the Fund comparison case could change an invest
 ### Source pack
 
 - dated source extract for Starter portfolio
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4390,11 +4390,11 @@ Analyse why the evidence used in the Starter portfolio case could change an inve
 ### Source pack
 
 - dated source extract for Concentrated Tencent holding
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4491,11 +4491,11 @@ Analyse why the evidence used in the Concentrated Tencent holding case could cha
 ### Source pack
 
 - dated source extract for Watchlist dashboard
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4592,11 +4592,11 @@ Analyse why the evidence used in the Watchlist dashboard case could change an in
 ### Source pack
 
 - dated source extract for Rebalanced portfolio
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4668,7 +4668,7 @@ Analyse why the evidence used in the Rebalanced portfolio case could change an i
 **Guiding question:** How do costs and taxes affect a decision?
 **Student hook:** A trade looks profitable before costs. What changes after friction?
 **Core claim:** Transaction costs and tax friction can reduce or reverse an expected benefit.
-**Case role:** financial product
+**Case role:** cost scenario
 **Primary output:** evidence-based-next-action-judgement - Write a short Trading-cost scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Trading-cost scenario fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
 
@@ -4693,11 +4693,11 @@ Analyse why the evidence used in the Rebalanced portfolio case could change an i
 ### Source pack
 
 - dated source extract for Trading-cost scenario
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4794,11 +4794,11 @@ Analyse why the evidence used in the Trading-cost scenario case could change an 
 ### Source pack
 
 - dated source extract for Past-winner fund
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4895,11 +4895,11 @@ Analyse why the evidence used in the Past-winner fund case could change an inves
 ### Source pack
 
 - dated source extract for Next-action board
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -4996,11 +4996,11 @@ Analyse why the evidence used in the Next-action board case could change an inve
 ### Source pack
 
 - dated source extract for Evidence pack
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -5071,7 +5071,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 
 **Guiding question:** How do students write a final evidence-based investment memo?
 **Student hook:** A careful investor has to choose a defensible next action. What belongs in the final memo?
-**Core claim:** The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+**Core claim:** The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 **Case role:** synthesis case
 **Primary output:** evidence-based-next-action-judgement - Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
 **Case review:** keep; Final investment memo fits this lesson because it makes the key idea concrete while preserving the evidence-before-action boundary.
@@ -5079,7 +5079,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 ### Simple lesson flow
 
 - **Hook:** A careful investor has to choose a defensible next action. What belongs in the final memo?
-- **Key idea:** The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+- **Key idea:** The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 - **Try it:** Write the final memo with dated evidence and a defensible classroom action.
 - **Decide:** Write a Final investment memo next-action judgement using evidence, caveat and fit.
 
@@ -5089,7 +5089,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 - **First judgement:** Students make a first judgement about Final investment memo before the key idea is taught.
 - **Likely naive answer:** One attractive clue is enough to choose an investment action.
 - **Missing evidence:** Students need dated source evidence, risk, return, price and investor-fit context for Final investment memo.
-- **Key idea:** The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+- **Key idea:** The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 - **Try it:** Write the final memo with dated evidence and a defensible classroom action.
 - **Misconception check:** A familiar or attractive example is automatically a suitable investment.
 - **Exit judgement:** Write a Final investment memo next-action judgement using evidence, caveat and fit.
@@ -5097,11 +5097,11 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 ### Source pack
 
 - dated source extract for Final investment memo
-- teacher-provided case or product snapshot with source title and accessed date
+- teacher-provided case, security or fund snapshot with source title and accessed date
 - supporting visual, table, factsheet or statement extract where relevant
 
 **Preferred source order:** official issuer, fund, exchange or company source -> reputable market, regulator or financial education source -> teacher-built classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or product identifier, key figure used, evidence limitation
+**Snapshot fields:** source title, source URL or local asset path, publication date if available, accessed date, case anchor, security, fund or investment identifier, key figure used, evidence limitation
 
 **Evidence limitations:**
 - A single source cannot prove that an investment is suitable.
@@ -5112,7 +5112,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 
 - Hook: start with A careful investor has to choose a defensible next action. What belongs in the final memo?
 - Retrieval: activate source discipline and the previous risk-return-fit chain.
-- Teach: The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+- Teach: The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 - Evidence practice: Write the final memo with dated evidence and a defensible classroom action.
 - Output rehearsal: students draft the evidence-caveat-next-action sentence.
 - Exit ticket: Write a Final investment memo next-action judgement using evidence, caveat and fit.
@@ -5136,7 +5136,7 @@ Analyse why the evidence used in the Evidence pack case could change an investor
 Analyse why the evidence used in the Final investment memo case could change an investor's judgement about Final investment memo case
 
 - dated evidence or source detail
-- The final memo combines product, evidence, return, risk, fit, alternatives, caveats and next action.
+- The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
 - investor implication for return, risk, price or fit
 - defensible next action
 
@@ -5145,7 +5145,7 @@ Analyse why the evidence used in the Final investment memo case could change an 
 **Case information:** Use a short Final investment memo case extract with source title, publication or accessed date, key figures and one limitation.
 
 1. **Identify/Define:** Identify the source date and define final investment memo.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of product, return, risk, cost, fit and evidence; no new formula.
+2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
 3. **Explain:** Explain what one Final investment memo evidence point shows and one thing it cannot prove.
 4. **Analyse why:** Analyse why this evidence could change the judgement about Final investment memo case.
 5. **Judge:** Give your own evidence-based classroom verdict on Final investment memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
@@ -5164,6 +5164,6 @@ Analyse why the evidence used in the Final investment memo case could change an 
 - Command word: Analyse why
 - Marks: 6
 - Stimulus: short Final investment memo source extract with key figures and limitation
-- Calculation: synthesis of product, return, risk, cost, fit and evidence; no new formula.
+- Calculation: synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
 - Judgement: Students must justify consider, watch, avoid, compare with another choice or gather more evidence using dated evidence and caveats.
 - Shape: Section A-style case-information stimulus followed by identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions for Final investment memo.

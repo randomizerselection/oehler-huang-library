@@ -499,33 +499,33 @@ window.INVEST.lesson = {
     {
       type: "evidenceSimulator",
       eyebrow: "Teacher-led simulation",
-      title: "Update a judgement as evidence arrives",
-      zhTitle: "随着证据出现更新判断",
-      prompt: "A family has money set aside for a future goal. Vote now, then vote again after each fact appears.",
-      promptZh: "一个家庭为未来目标留出了一笔钱。现在先投票，然后在每条信息出现后再次投票。",
-      evidenceLabel: "Goal evidence",
-      voteLabel: "Could investment help?",
+      title: "Reveal clues, then choose the next step",
+      zhTitle: "揭示线索，然后选择下一步",
+      prompt: "After each clue, ask the class to choose 1, 2 or 3.",
+      promptZh: "每条线索出现后，请全班选择1、2或3。",
+      evidenceLabel: "Goal clues",
+      decisionLabel: "Choose one after each clue",
       facts: [
         { label: "Purpose and amount", labelZh: "用途和金额", value: "University fees · CNY 180,000", valueZh: "大学学费·180,000元人民币" },
         { label: "Time horizon", labelZh: "时间期限", value: "The fees are due in six years", valueZh: "学费将在六年后支付" },
         { label: "Access need", labelZh: "资金使用需要", value: "The payment date is fixed", valueZh: "付款日期是固定的" },
         { label: "Possible loss", labelZh: "可能的损失", value: "A loss near the date could block the goal", valueZh: "临近日期的损失可能阻碍目标实现" }
       ],
-      verdicts: [
-        { id: "may-help", label: "Investment may help", labelZh: "投资可能有帮助", tone: "positive" },
-        { id: "conditions-needed", label: "Conditions needed", labelZh: "需要更多条件", tone: "caution" },
-        { id: "may-not-help", label: "Investment may not help", labelZh: "投资可能没有帮助", tone: "negative" }
+      decisionOptions: [
+        { id: "keep-available", label: "Keep available", labelZh: "保持资金可用", detail: "Use this when the money is needed soon.", detailZh: "资金很快要使用时，选择此项。", tone: "caution" },
+        { id: "more-information", label: "Need more information", labelZh: "需要更多信息", detail: "Use this when the amount, date or possible loss is unclear.", detailZh: "金额、日期或可能损失不清楚时，选择此项。", tone: "neutral" },
+        { id: "consider-investing", label: "Consider investing", labelZh: "可考虑投资", detail: "Use this for a later goal with no urgent access need; check risk first.", detailZh: "目标较远且无需紧急使用资金时可选择；先检查风险。", tone: "positive" }
       ],
       conclusion: {
-        verdict: "conditions-needed",
+        verdict: "more-information",
         tone: "caution",
-        label: "Investment may help, but conditions are still needed",
-        labelZh: "投资可能有帮助，但仍需要更多条件",
+        label: "Need more information before deciding",
+        labelZh: "决定之前需要更多信息",
         text: "Six years gives the family time, but the fixed payment date and possible loss must be checked before investment could be considered.",
         textZh: "六年期限给了家庭一定时间，但在考虑投资之前，仍必须检查固定付款日期和可能损失的影响。"
       },
-      instruction: "Record the whole-class verdict after every reveal and take one final vote before showing the conclusion.",
-      notes: "Use this only as a teacher-led whole-class simulation. Keep evidence hidden until students commit to a verdict."
+      instruction: "Students show 1, 2 or 3 with their fingers. The teacher clicks only Reveal next clue.",
+      notes: "Use this only as a teacher-led whole-class simulation. Reveal one clue at a time and ask students to justify any change of choice."
     },
     {
       type: "catalystTimeline",

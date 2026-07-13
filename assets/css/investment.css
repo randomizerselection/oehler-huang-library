@@ -25,6 +25,205 @@
   --inv-caption: 12px;
 }
 
+/* Simplified evidence simulator: one teacher control, three verbal class choices */
+
+.invEvidenceDecisionGuide {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(152, 184, 188, 0.22);
+  border-radius: 14px;
+  background: rgba(7, 17, 20, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 10px 12px;
+}
+
+.invEvidenceDecisionOptions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invEvidenceDecisionOption {
+  min-width: 0;
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  border: 1px solid rgba(152, 184, 188, 0.24);
+  border-top: 3px solid rgba(152, 184, 188, 0.42);
+  border-radius: 10px;
+  background: rgba(10, 23, 27, 0.88);
+  padding: 9px 10px;
+}
+
+.invEvidenceDecisionOption[data-tone="caution"] {
+  border-top-color: var(--inv-amber);
+}
+
+.invEvidenceDecisionOption[data-tone="positive"] {
+  border-top-color: var(--inv-green);
+}
+
+.invEvidenceDecisionNumber {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(79, 210, 255, 0.13);
+  color: var(--inv-cyan);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.invEvidenceDecisionText {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.invEvidenceDecisionText strong {
+  color: var(--inv-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.invEvidenceDecisionText > .invZhLine,
+.invEvidenceDecisionText > p {
+  margin: 0;
+}
+
+.invEvidenceDecisionText > .invZhLine {
+  font-size: 12px;
+  line-height: 1.05;
+}
+
+.invEvidenceDecisionText > p {
+  margin-top: 3px;
+  color: var(--inv-muted);
+  font-size: 12px;
+  line-height: 1.12;
+}
+
+.invEvidenceDecisionText > p.invZhLine {
+  margin-top: 0;
+  font-size: 10px;
+}
+
+.invEvidenceFacts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.invEvidenceAction {
+  min-height: 46px;
+  border-color: rgba(79, 210, 255, 0.72);
+  background: rgba(79, 210, 255, 0.18);
+  font-size: 16px;
+}
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .invEvidenceDecisionGuide {
+    gap: 4px;
+    padding: 5px 7px;
+  }
+
+  .invEvidenceDecisionOptions {
+    gap: 5px;
+  }
+
+  .invEvidenceDecisionOption {
+    min-height: 56px;
+    grid-template-columns: 25px minmax(0, 1fr);
+    gap: 5px;
+    padding: 5px 7px;
+  }
+
+  .invEvidenceDecisionNumber {
+    width: 23px;
+    height: 23px;
+    border-radius: 7px;
+    font-size: 11px;
+  }
+
+  .invEvidenceDecisionText strong {
+    font-size: 12px;
+  }
+
+  .invEvidenceDecisionText > .invZhLine,
+  .invEvidenceDecisionText > p {
+    font-size: 9px;
+    line-height: 1.02;
+  }
+
+  .invEvidenceDecisionText > p.invZhLine {
+    font-size: 8px;
+  }
+
+  .invEvidenceAction {
+    min-height: 34px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .invEvidenceDecisionGuide {
+    gap: 4px;
+    padding: 5px 6px;
+  }
+
+  .invEvidenceDecisionOptions {
+    gap: 4px;
+  }
+
+  .invEvidenceDecisionOption {
+    min-height: 58px;
+    grid-template-columns: 19px minmax(0, 1fr);
+    gap: 4px;
+    padding: 5px 4px;
+  }
+
+  .invEvidenceDecisionNumber {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    font-size: 9px;
+  }
+
+  .invEvidenceDecisionText strong {
+    font-size: 9px;
+  }
+
+  .invEvidenceDecisionText > .invZhLine,
+  .invEvidenceDecisionText > p {
+    font-size: 7px;
+    line-height: 1.03;
+  }
+
+  .invEvidenceDecisionText > p {
+    margin-top: 1px;
+  }
+
+  .invEvidenceDecisionText > p.invZhLine {
+    font-size: 6px;
+  }
+
+  .invEvidenceFacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invEvidenceSimulator.is-conclusion-visible .invEvidenceDecisionGuide {
+    display: none;
+  }
+
+  .invEvidenceAction {
+    min-height: 32px;
+    font-size: 11px;
+  }
+}
+
 /* Simplified active syllabus */
 
 .simplified-syllabus .investment-page {
@@ -6364,12 +6563,12 @@ img {
 .invCompactClassificationSlide .invClassificationTask,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
   width: min(1500px, 100%);
-  gap: 8px;
+  gap: 4px;
 }
 
 .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
-  padding: 8px 10px;
+  padding: 5px 8px;
 }
 
 .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt strong,
@@ -6382,6 +6581,19 @@ img {
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+}
+
+.invCompactClassificationSlide .invClassificationCategory {
+  padding: 5px 8px;
+}
+
+.invCompactClassificationSlide .invClassificationCategory strong {
+  font-size: 20px;
+}
+
+.invCompactClassificationSlide .invClassificationCategory em {
+  font-size: 14px;
+  line-height: 1.05;
 }
 
 .invCompactClassificationSlide .invClassificationItems,
@@ -9972,16 +10184,31 @@ img {
 @media (min-width: 901px) and (max-height: 800px) {
   .invCompactClassificationSlide .invClassificationTask,
   .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) {
-    gap: 7px !important;
+    gap: 5px !important;
   }
 
   .invCompactClassificationSlide .invClassificationCategories,
   .invCompactClassificationSlide .invClassificationItems {
-    gap: 7px !important;
+    gap: 6px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt {
+    padding: 8px 10px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt strong,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt strong {
+    font-size: 26px !important;
+  }
+
+  .invCompactClassificationSlide .invClassificationTask > .invFocusPrompt .invZhLine,
+  .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) > .invFocusPrompt .invZhLine {
+    font-size: 18px !important;
   }
 
   .invCompactClassificationSlide .invClassificationCategory {
-    padding: 7px 9px !important;
+    padding: 6px 8px !important;
   }
 
   .invCompactClassificationSlide .invClassificationCategoryVisual {
@@ -9990,8 +10217,8 @@ img {
 
   .invCompactClassificationSlide .invClassificationItem,
   .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
-    gap: 6px !important;
-    padding: 10px !important;
+    gap: 5px !important;
+    padding: 8px !important;
   }
 }
 
@@ -12452,6 +12679,10 @@ img {
   border-left-color: var(--inv-red);
 }
 
+.invEvidenceConclusion[data-tone="caution"] {
+  border-left-color: var(--inv-amber);
+}
+
 .invEvidenceConclusion > span:first-child {
   grid-row: 1 / span 4;
   align-self: center;
@@ -12464,6 +12695,10 @@ img {
 
 .invEvidenceConclusion[data-verdict="may-not-help"] > span:first-child {
   color: #ffaaa4;
+}
+
+.invEvidenceConclusion[data-tone="caution"] > span:first-child {
+  color: #ffda8d;
 }
 
 .invEvidenceConclusion > strong {
@@ -12549,7 +12784,7 @@ img {
   }
 
   .invEvidenceSimulator {
-    gap: 6px;
+    gap: 2px;
   }
 
   .invEvidenceStarter,
@@ -12628,8 +12863,18 @@ img {
     font-size: 15px;
   }
 
+  .invEvidenceConclusion {
+    grid-template-columns: minmax(145px, 0.28fr) minmax(0, 1fr);
+    gap: 1px 10px;
+    padding-block: 3px;
+  }
+
+  .invEvidenceConclusion > p {
+    line-height: 1.02;
+  }
+
   .invEvidenceConclusion > p.invZhLine {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .invEvidenceControls {
@@ -12666,7 +12911,7 @@ img {
   }
 
   .invEvidenceSimulator {
-    gap: 5px;
+    gap: 4px;
   }
 
   .invEvidenceStarter {
@@ -12792,10 +13037,14 @@ img {
     display: none;
   }
 
+  .invEvidenceSimulator.is-conclusion-visible .invEvidenceDecision {
+    display: none;
+  }
+
   .invEvidenceConclusion {
     grid-template-columns: 78px minmax(0, 1fr);
     gap: 2px 7px;
-    padding: 6px 7px;
+    padding: 4px 6px;
   }
 
   .invEvidenceConclusion > span:first-child {
@@ -12821,12 +13070,163 @@ img {
 
   .invEvidenceAction,
   .invEvidenceReset {
-    min-height: 32px;
+    min-height: 30px;
     font-size: 10px;
     padding: 5px 7px;
   }
 
   .invEvidenceControls > span {
     display: none;
+  }
+}
+
+/* Keep the simplified simulator overrides after the legacy vote styles. */
+
+.invEvidenceConclusion > span.invZhLine {
+  font-size: 14px;
+  line-height: 1.05;
+}
+
+@media (min-width: 901px) {
+  .invEvidenceFacts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .invEvidenceAction {
+    min-height: 46px;
+    border-color: rgba(79, 210, 255, 0.72);
+    background: rgba(79, 210, 255, 0.18);
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .invEvidenceSimulator {
+    gap: 7px;
+  }
+
+  .invEvidenceStarter {
+    padding: 9px 12px;
+  }
+
+  .invEvidenceStarter > strong {
+    font-size: 20px;
+  }
+
+  .invEvidenceStarter > .invZhLine {
+    font-size: 14px;
+  }
+
+  .invEvidenceDecisionGuide,
+  .invEvidenceBoard {
+    gap: 7px;
+    padding: 9px 10px;
+  }
+
+  .invEvidenceDecisionOptions,
+  .invEvidenceFacts {
+    gap: 7px;
+  }
+
+  .invEvidenceDecisionOption {
+    min-height: 80px;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px 9px;
+  }
+
+  .invEvidenceDecisionNumber {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .invEvidenceDecisionText strong {
+    font-size: 17px;
+  }
+
+  .invEvidenceDecisionText > .invZhLine {
+    font-size: 12px;
+  }
+
+  .invEvidenceDecisionText > p {
+    font-size: 12px;
+    line-height: 1.08;
+  }
+
+  .invEvidenceDecisionText > p.invZhLine {
+    font-size: 10px;
+  }
+
+  .invEvidencePanelHead strong {
+    font-size: 16px;
+  }
+
+  .invEvidencePanelHead span,
+  .invEvidenceProgress {
+    font-size: 10px;
+  }
+
+  .invEvidenceFact {
+    min-height: 94px;
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 9px;
+  }
+
+  .invEvidenceFactNumber {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .invEvidenceFactText > strong {
+    font-size: 15px;
+  }
+
+  .invEvidenceFactText > .invZhLine,
+  .invEvidenceFactValue > .invZhLine {
+    font-size: 11px;
+  }
+
+  .invEvidenceFactValue p {
+    font-size: 15px;
+  }
+
+  .invEvidenceFactStatus {
+    font-size: 9px;
+  }
+
+  .invEvidenceConclusion > strong {
+    font-size: 18px;
+  }
+
+  .invEvidenceConclusion > p {
+    font-size: 14px;
+  }
+
+  .invEvidenceConclusion > p.invZhLine {
+    font-size: 10px;
+  }
+
+  .invEvidenceSimulator.is-conclusion-visible .invEvidenceDecisionGuide {
+    display: none;
+  }
+
+  .invEvidenceAction {
+    min-height: 34px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .invEvidenceConclusion > span.invZhLine {
+    font-size: 9px;
+  }
+
+  .invEvidenceAction {
+    min-height: 32px;
+    font-size: 11px;
   }
 }

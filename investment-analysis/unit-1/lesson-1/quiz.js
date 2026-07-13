@@ -13,7 +13,7 @@ window.INVEST.quiz = {
         "Putting money into an asset to seek future return while accepting possible loss",
         "Keeping all money unchanged until it is spent",
         "Guaranteeing that money grows faster than prices",
-        "Choosing the product with the highest recent return"
+        "Choosing the investment with the highest recent return"
       ],
       answer: 0,
       explanation: "Investment seeks future return through an asset while retaining the possibility of loss.",
@@ -37,7 +37,7 @@ window.INVEST.quiz = {
         "Price change and income",
         "Goal priority and age",
         "Budget and tax",
-        "Product name and popularity"
+        "Investment name and popularity"
       ],
       answer: 0,
       explanation: "The course definition includes price change and income over a stated period.",
@@ -51,7 +51,7 @@ window.INVEST.quiz = {
       choices: [
         "CNY 180,000 for university fees in six years, with high priority",
         "Make more money",
-        "Buy an investment product soon",
+        "Choose an investment soon",
         "Choose a high return"
       ],
       answer: 0,
@@ -67,7 +67,7 @@ window.INVEST.quiz = {
         "To seek future return for a stated long-term goal while accepting possible loss",
         "To guarantee that every goal is reached",
         "To avoid identifying when the money is needed",
-        "To copy a product chosen by another family"
+        "To copy an investment chosen by another family"
       ],
       answer: 0,
       explanation: "The reason links investment to a stated goal, future return and possible loss.",
@@ -96,7 +96,7 @@ window.INVEST.quiz = {
       choices: [
         "The target amount and the family's ability to accept loss",
         "Proof that every return will be positive",
-        "A promise to choose one product today",
+        "A promise to choose one investment today",
         "A list of classmates' opinions"
       ],
       answer: 0,
@@ -124,7 +124,7 @@ window.INVEST.quiz = {
       prompt: "What can general investor guidance not decide for a family?",
       zh: "一般投资者指引不能替家庭决定什么？",
       choices: [
-        "Its exact priorities, product choice and whether a particular loss is acceptable",
+        "Its exact priorities, investment choice and whether a particular loss is acceptable",
         "That investment involves risk",
         "That goals have time horizons",
         "That evidence should be checked"
@@ -141,7 +141,7 @@ window.INVEST.quiz = {
       choices: [
         "Invest to seek future return for a stated goal, but first check when the money is needed and what loss could damage the goal.",
         "Invest because returns are always positive.",
-        "Choose the most popular product before setting a goal.",
+        "Choose the most popular investment before setting a goal.",
         "Avoid every investment because loss is possible."
       ],
       answer: 0,

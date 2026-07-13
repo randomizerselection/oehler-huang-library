@@ -56,6 +56,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.
+- `evidenceSimulator`: use for a teacher-led progressive evidence case. Show no more than four locked clues and three plain next-step choices. Students show 1, 2 or 3 verbally or with fingers; the teacher uses one reveal control and does not record votes on screen. Keep every revealed clue visible when the final model conclusion appears, and never turn the result into a numerical suitability score or real product recommendation.
 - `catalystTimeline`: show up to four events linking information to expectations or price movement; use `revealEffects: true` so students avoid overclaiming causation.
 - `judgementFrame`: use four stages: evidence, return, risk and price paid; reveal answers only after students draft the balanced judgement.
 - `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.

@@ -87,7 +87,12 @@ const allowedCaseRoles = new Set([
   'fund',
   'comparison case',
   'synthesis case',
-  'financial product',
+  'family decision case',
+  'fixed-income security',
+  'mock investor profile',
+  'deposit product',
+  'investment strategy',
+  'cost scenario',
   'economic data case',
 ]);
 const allowedCaseReviewStatuses = new Set([
@@ -1330,6 +1335,25 @@ function validateImportantChineseSupport() {
         case 'comparisonMatrix':
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the comparison task');
           break;
+        case 'evidenceSimulator':
+          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the evidence-simulator prompt');
+          if (!Array.isArray(slide.facts) || slide.facts.length === 0 || slide.facts.length > 4) {
+            failures.push(`${label}: evidenceSimulator must contain one to four progressive facts`);
+          }
+          if (!Array.isArray(slide.decisionOptions) || slide.decisionOptions.length !== 3) {
+            failures.push(`${label}: evidenceSimulator must contain exactly three plain decision options`);
+          }
+          (slide.facts || []).forEach((fact, factIndex) => {
+            if (fact.label) requireChinese(failures, `${label} fact ${factIndex + 1}`, fact.labelZh, 'labelZh for the evidence fact');
+            if (fact.value) requireChinese(failures, `${label} fact ${factIndex + 1}`, fact.valueZh, 'valueZh for the revealed evidence');
+          });
+          (slide.decisionOptions || []).forEach((option, optionIndex) => {
+            if (option.label) requireChinese(failures, `${label} decision option ${optionIndex + 1}`, option.labelZh, 'labelZh for the decision option');
+            if (option.detail) requireChinese(failures, `${label} decision option ${optionIndex + 1}`, option.detailZh, 'detailZh for the decision option');
+          });
+          if (slide.conclusion?.label) requireChinese(failures, label, slide.conclusion.labelZh, 'labelZh for the simulator conclusion');
+          if (slide.conclusion?.text) requireChinese(failures, label, slide.conclusion.textZh, 'textZh for the simulator conclusion');
+          break;
         case 'classificationTask':
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the classification task');
           if (
@@ -1437,8 +1461,10 @@ function validateAcademicSectionTitles() {
   const failures = [];
   const instructionalOpening = /^(?:start|turn|classify|explain|complete|choose|use|build|read|look|write|create)\b/i;
 
-  for (const lessonNumber of [1, 2]) {
-    const relativePath = `investment-analysis/unit-1/lesson-${lessonNumber}/slides.js`;
+  const publishedLessons = (financialDecisionCourseMap.lessons || []).filter((lesson) => lesson.publishedRoutes?.handout && lesson.publishedRoutes?.slides);
+  for (const mapLesson of publishedLessons) {
+    const lessonNumber = mapLesson.lesson;
+    const relativePath = `investment-analysis/${mapLesson.publishedRoutes.slides.replace(/index\.html$/, 'slides.js')}`;
     const lesson = readInvestmentLesson(relativePath);
     const sections = (lesson.slides || []).filter((slide) => slide.type === 'section');
 

@@ -27,7 +27,7 @@ window.INVEST.lesson = {
       },
       {
         label: "Hong Kong Monetary Authority: Investment Services",
-        note: "Supports checking objectives, investment horizon, product risk, possible loss and suitability before making an investment decision.",
+        note: "Supports checking objectives, investment horizon, investment risk, possible loss and suitability before making an investment decision.",
         date: "Page revised 7 January 2026; accessed 13 July 2026",
         url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
       },
@@ -39,7 +39,7 @@ window.INVEST.lesson = {
       },
       {
         label: "Frozen mainland China three-goal family profile",
-        note: "Combines real NBS national spending figures with hypothetical mainland China education, home and retirement goals. No live rates, named products or personal recommendations are used.",
+        note: "Combines real NBS national spending figures with hypothetical mainland China education, home and retirement goals. No live rates, named investments or personal recommendations are used.",
         date: "Frozen 13 July 2026",
         url: "Local classroom scenario"
       }
@@ -124,7 +124,7 @@ window.INVEST.lesson = {
               { label: "A", text: "University in three years", answer: "Shortest horizon; highest near-term liquidity need" },
               { label: "B", text: "Home deposit in eight years with some flexibility", answer: "Medium horizon; medium liquidity need" },
               { label: "C", text: "Retirement in thirty years", answer: "Longest horizon; lowest current liquidity need, but later withdrawals are unknown" },
-              { label: "D", text: "The product with the highest possible return", answer: "Cannot be judged as suitable without knowing the goal, timing, access need and possible loss" }
+              { label: "D", text: "The investment with the highest possible return", answer: "Cannot be judged as suitable without knowing the goal, timing, access need and possible loss" }
             ]
           }
         ]
@@ -132,7 +132,7 @@ window.INVEST.lesson = {
       {
         label: "5",
         title: "Misconception check",
-        instruction: "Correct the product-first shortcut.",
+        instruction: "Correct the choice-before-goal shortcut.",
         blocks: [
           {
             type: "prompts",
@@ -185,7 +185,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Take same/different votes before reveal.",
-        "Listen for students who choose a product before comparing when the money is needed, access needs and possible loss."
+        "Listen for students who choose an investment before comparing when the money is needed, access needs and possible loss."
       ]
     },
     {
@@ -308,17 +308,17 @@ window.INVEST.lesson = {
       eyebrow: "Hinge question",
       title: "Which question comes first?",
       zhTitle: "哪一个问题应先提出？",
-      question: "Before comparing investment products for university money, which question should the family answer first?",
-      zh: "在比较大学资金的投资产品前，家庭应先回答哪一个问题？",
+      question: "Before comparing investment choices for university money, which question should the family answer first?",
+      zh: "在比较大学资金的投资选择前，家庭应先回答哪一个问题？",
       choices: [
-        "Which product had the highest return last year?",
+        "Which investment had the highest return last year?",
         "When is the money required, and how much loss or delay can the goal accept?",
-        "Which product is most popular online?",
+        "Which investment is most popular online?",
         "How often can the price be checked?"
       ],
       answer: 1,
-      explanation: "Time horizon, liquidity need and the consequence of loss define the suitability problem before products are compared.",
-      explanationZh: "在比较产品前，投资期限、流动性需求和损失后果界定了适合度问题。"
+      explanation: "Time horizon, liquidity need and the consequence of loss define the suitability problem before investment choices are compared.",
+      explanationZh: "在比较投资选择前，投资期限、流动性需求和损失后果界定了适合度问题。"
     },
     {
       type: "section",
@@ -330,7 +330,7 @@ window.INVEST.lesson = {
     {
       type: "dataSnapshot",
       eyebrow: "Grounded scenario",
-      title: "National averages are not family targets",
+      title: "National averages are not family goals",
       zhTitle: "全国平均数不是家庭目标金额",
       visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       sourceStamp: "National Bureau of Statistics of China | 2025 household expenditure | Published 20 Jan 2026",
@@ -339,8 +339,8 @@ window.INVEST.lesson = {
         { label: "Residence per person", value: "CNY 6,397" },
         { label: "Education/culture per person", value: "CNY 3,489" }
       ],
-      task: "Why can these real national averages not set the mock family's university, home or retirement target?",
-      taskZh: "为什么这些真实的全国平均数不能直接确定假设家庭的大学、住房或退休目标金额？",
+      task: "Why can these averages not set this family's three goals?",
+      taskZh: "为什么这些平均数不能确定这个家庭的三个目标？",
       note: "The figures give context. The family still needs its own amount, date, access need and loss consequences.",
       noteZh: "这些数据提供背景。家庭仍需明确自己的金额、日期、资金使用需求和损失后果。"
     },
@@ -350,7 +350,7 @@ window.INVEST.lesson = {
       title: "Education, home and retirement",
       zhTitle: "教育、住房和退休",
       visual: investmentPhotos.investorMeetingReport,
-      sourceStamp: "Teacher-created mainland China family profile | Frozen 13 Jul 2026 | No live rates or products",
+      sourceStamp: "Teacher-created mainland China family profile | Frozen 13 Jul 2026 | No live rates or named investments",
       focusMetrics: [
         { label: "University", value: "CNY 240k | 3y fixed" },
         { label: "Home deposit", value: "CNY 500k | 8y ±2y" },
@@ -405,8 +405,8 @@ window.INVEST.lesson = {
         { rank: "2", label: "C", text: "Home deposit in eight years", zh: "八年后购房首付", reason: "The goal is later and has some date flexibility, but access will still matter.", reasonZh: "目标时间较晚且日期有一定灵活性，但资金使用仍然重要。" },
         { rank: "3", label: "A", text: "Retirement in thirty years", zh: "三十年后退休", reason: "The money is not needed soon, although later withdrawal needs still require planning.", reasonZh: "近期不需要这笔钱，但以后提取资金的需要仍需规划。" }
       ],
-      caveat: "This ranks access need from the frozen facts; it does not choose a product.",
-      caveatZh: "该排序只依据冻结事实判断资金使用需要，并不选择产品。"
+      caveat: "This ranks access need from the frozen facts; it does not choose an investment.",
+      caveatZh: "该排序只依据冻结事实判断资金使用需要，并不选择投资。"
     },
     {
       type: "compare",
@@ -442,7 +442,7 @@ window.INVEST.lesson = {
       ],
       checks: [
         { label: "Use", prompt: "What relationship does the guidance support?", zh: "该指引支持什么关系？", answer: "The period before a goal and a person's ability to accept risk affect which broad investment choices may be appropriate.", answerZh: "目标前的时间长度以及个人承受风险的能力，会影响哪些广义投资选择可能合适。" },
-        { label: "Limit", prompt: "What does the guidance not decide for the frozen family?", zh: "该指引不能替冻结家庭决定什么？", answer: "It does not choose a named product, define the family's priorities or supply missing loss-capacity evidence.", answerZh: "它不选择具体产品，不设定家庭优先级，也不提供缺少的损失承受能力证据。" }
+        { label: "Limit", prompt: "What does the guidance not decide for the frozen family?", zh: "该指引不能替冻结家庭决定什么？", answer: "It does not choose a named investment, define the family's priorities or supply missing loss-capacity evidence.", answerZh: "它不选择具体投资，不设定家庭优先级，也不提供缺少的损失承受能力证据。" }
       ],
       task: "Use one source point to improve the university-versus-retirement comparison, then state one limitation.",
       taskZh: "用一个来源要点改进大学目标与退休目标的比较，然后说明一个局限。"
@@ -450,14 +450,14 @@ window.INVEST.lesson = {
     {
       type: "yesNoCheck",
       eyebrow: "Misconception check",
-      title: "Does the highest possible return fit every goal?",
+      title: "Does highest return fit every goal?",
       zhTitle: "最高的可能回报适合每一个目标吗？",
       prompt: "Vote yes or no before revealing each reason.",
       promptZh: "先投票判断是或否，再揭示每个理由。",
       items: [
-        { text: "A high possible return can make a choice unsuitable when the money is needed soon.", zh: "当资金很快需要使用时，较高的可能回报也可能使选择不适合。", answer: true, answerZh: "是", reason: "The possible loss or delay may damage the near-term goal.", reasonZh: "可能损失或延迟可能损害近期目标。" },
-        { text: "A thirty-year horizon means the family can accept unlimited loss.", zh: "三十年的期限意味着家庭可以承受无限损失。", answer: false, answerZh: "否", reason: "A long horizon does not replace evidence about target amount and ability to accept loss.", reasonZh: "较长期限不能替代目标金额和承受损失能力的证据。" },
-        { text: "Suitability can differ for the same person because different goals have different constraints.", zh: "同一个人的适合度可能因不同目标具有不同限制而不同。", answer: true, answerZh: "是", reason: "Goal, horizon and liquidity need can differ across portions of the same family's money.", reasonZh: "同一家庭不同部分资金的目标、期限和流动性需求可能不同。" }
+        { text: "High possible return may not fit money needed soon.", zh: "较高的可能回报未必适合很快需要的资金。", answer: true, answerZh: "是", reason: "A loss or delay could damage the near-term goal.", reasonZh: "损失或延迟可能损害近期目标。" },
+        { text: "A thirty-year horizon allows unlimited loss.", zh: "三十年的期限允许无限损失。", answer: false, answerZh: "否", reason: "The family must still know the target and what loss it can accept.", reasonZh: "家庭仍须明确目标金额及能承受的损失。" },
+        { text: "One family may need different choices for different goals.", zh: "同一个家庭的不同目标可能需要不同选择。", answer: true, answerZh: "是", reason: "The timing and need for access may differ for each goal.", reasonZh: "每个目标的时间和资金使用需求可能不同。" }
       ]
     },
     {
@@ -498,7 +498,7 @@ window.INVEST.lesson = {
       keywords: ["financial goal", "time horizon", "liquidity need", "possible loss", "suitability", "conditional judgement"],
       notes: [
         "Students should compare the frozen facts and identify missing evidence.",
-        "Do not reward a named product recommendation without the goal analysis."
+        "Do not reward a named investment recommendation without the goal analysis."
       ]
     },
     {
