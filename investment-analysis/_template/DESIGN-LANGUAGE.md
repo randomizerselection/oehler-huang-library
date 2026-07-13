@@ -30,7 +30,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - Start from the syllabus `decisionFirst` contract: a concrete starter dilemma, a first judgement, the missing evidence, one key idea, one practice task, a misconception check and an exit judgement.
 - Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. The projected pause surface is image-only: no visible title, prompt, caption, credit or explanatory text. Put the teaching bridge in notes or on an adjacent slide.
 - Use visuals as teaching moves. A hook visual should create a concrete student decision; a visual pause should prepare the exact concept that follows; charts should appear when students are ready to read evidence, not automatically as the opener.
-- Keep `section` dividers as simple reset screens: part label, title, optional concise Chinese title and an automatic progress strip. Do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
+- Keep `section` dividers as simple reset screens: part label, concise academic title, optional concise Chinese title and an automatic progress strip. The title should name the section's knowledge domain, concept, relationship or academic question in roughly one to six words so students can copy it into notebooks. Do not use an activity instruction, slogan, transition or full teaching claim, and do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
 
 ## Component Rules
 
@@ -43,7 +43,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - A reveal should strengthen hierarchy: the attempt remains identifiable, while the revealed answer becomes the clearest accented surface. Do not make the whole slide denser merely because an answer is visible.
 
 - Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
-- `section`: keep the slide visually closer to the standard economics-presentation divider, with the title doing the work and only a quiet progress strip below it.
+- `section`: keep the slide visually closer to the standard economics-presentation divider, with a notebook-ready academic topic such as `Investment and return` doing the work and only a quiet progress strip below it.
 - `discussion`: ask a real question first. Do not display the model explanation as the initial prompt.
 - `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
@@ -51,8 +51,8 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 - `visualGrid`: use image-led example cards only when the pictures help students compare or recall concrete categories; keep each label short and avoid decorative image collections.
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
 - `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
-- `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason.
-- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Keep the axis explicit and reveal one defensible order, not an absolute law. Use `axis.showNote: false` when the end labels already make the axis meaning complete.
+- `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason. Present three or four statements in one full-width vertical voting board. Make Yes and No real buttons: a click scores the committed choice and reveals the verdict and reason inside the same row; deck reveal controls remain the teacher-led fallback. Do not use a repeated-card grid or horizontal carousel.
+- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Present three to five options as one vertical decision ladder with a rank blank beside each, then replace it with one defensible ordered model and reasons. Do not combine empty slots with a card grid or use a horizontal carousel. Use `axis.showNote: false` when the end labels already make the axis meaning complete.
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.

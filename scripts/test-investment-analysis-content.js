@@ -1433,6 +1433,36 @@ function validateDiscussionRevealTitles() {
   return failures;
 }
 
+function validateAcademicSectionTitles() {
+  const failures = [];
+  const instructionalOpening = /^(?:start|turn|classify|explain|complete|choose|use|build|read|look|write|create)\b/i;
+
+  for (const lessonNumber of [1, 2]) {
+    const relativePath = `investment-analysis/unit-1/lesson-${lessonNumber}/slides.js`;
+    const lesson = readInvestmentLesson(relativePath);
+    const sections = (lesson.slides || []).filter((slide) => slide.type === 'section');
+
+    for (const [index, section] of sections.entries()) {
+      const title = String(section.title || '').trim();
+      const wordCount = title.split(/\s+/).filter(Boolean).length;
+      if (!title || wordCount > 6 || instructionalOpening.test(title)) {
+        failures.push(`${relativePath} section ${index + 1}: use a concise academic knowledge title of one to six words, not an activity instruction`);
+      }
+      if (!String(section.zhTitle || '').trim()) {
+        failures.push(`${relativePath} section ${index + 1}: concise Chinese section title is missing`);
+      }
+    }
+  }
+
+  const templateReadme = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');
+  const designLanguage = fs.readFileSync(path.join(courseRoot, '_template', 'DESIGN-LANGUAGE.md'), 'utf8');
+  if (!/concise academic topic/i.test(templateReadme) || !/copy (?:it )?into notebooks/i.test(`${templateReadme}\n${designLanguage}`)) {
+    failures.push('investment-analysis/_template: missing notebook-ready academic section-title guidance');
+  }
+
+  return failures;
+}
+
 function validateActiveLessonAlignment() {
   const failures = [];
   const homepagePath = path.join(courseRoot, 'index.html');
@@ -1616,6 +1646,7 @@ const failures = [
   ...validateInvestmentPresentationDefinitions(),
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
+  ...validateAcademicSectionTitles(),
   ...validateActiveLessonAlignment(),
   ...validateTermRenderer(),
   ...validateArchivedPersonalFinanceIsNotPublic(),

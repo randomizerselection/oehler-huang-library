@@ -1,0 +1,278 @@
+/* Economics doorway: prioritise published classroom material and useful actions. */
+
+.economics-home .site {
+  width: min(1180px, calc(100% - 44px));
+  padding-top: 18px;
+}
+
+.economics-home .hero,
+.economics-home.simplified-landing .hero {
+  min-height: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg, rgba(5, 15, 28, 0.98), rgba(5, 15, 28, 0.93) 56%, rgba(5, 15, 28, 0.74)),
+    url("../images/macro-aims/china-national-bureau-statistics.jpg") center 45% / cover;
+  box-shadow: 0 28px 76px rgba(0, 0, 0, 0.27);
+}
+
+.economics-home .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.economics-home .hero::after {
+  display: none;
+}
+
+.economics-home .hero-inner,
+.economics-home.simplified-landing .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 370px);
+  gap: clamp(32px, 5vw, 66px);
+  align-items: center;
+  min-height: 350px;
+  padding: clamp(34px, 5vw, 58px);
+}
+
+.economics-home .hero-copy {
+  min-width: 0;
+}
+
+.economics-home .hero h1,
+.economics-home.simplified-landing .hero h1 {
+  max-width: 11ch;
+  margin-top: 14px;
+  font-size: clamp(52px, 6.8vw, 82px);
+  font-weight: 780;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+}
+
+.economics-home .hero h1 span {
+  padding: 0;
+  background: none;
+  color: #f7fbff;
+}
+
+.economics-home .hero h1 span:last-child {
+  margin-top: 0.08em;
+  background: linear-gradient(100deg, var(--cyan), #9eeadf 70%, var(--green));
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.economics-home .hero .lead,
+.economics-home.simplified-landing .hero .lead {
+  max-width: 38rem;
+  margin-top: 22px;
+  color: rgba(225, 236, 248, 0.78);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+}
+
+.economics-home .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.economics-home .hero-actions .button {
+  min-height: 46px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.economics-home .hero-actions .button.primary {
+  border-color: rgba(86, 216, 255, 0.65);
+  background: var(--cyan);
+  color: #06131b;
+}
+
+.economics-home .hero-actions .button.primary:hover,
+.economics-home .hero-actions .button.primary:focus-visible {
+  border-color: #a6edff;
+  background: #8ce7ff;
+}
+
+.economics-priority-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(86, 216, 255, 0.46);
+  border-radius: 16px;
+  background: rgba(4, 14, 25, 0.72);
+  padding: clamp(21px, 3vw, 28px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.economics-priority-label {
+  margin-bottom: 5px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.economics-priority-panel a {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 14px;
+  text-decoration: none;
+  transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+}
+
+.economics-priority-panel a:hover,
+.economics-priority-panel a:focus-visible {
+  transform: translateX(3px);
+  border-color: rgba(86, 216, 255, 0.36);
+  background: rgba(86, 216, 255, 0.08);
+  outline: none;
+}
+
+.economics-priority-panel a > span {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.economics-priority-panel strong {
+  color: #f7fbff;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.economics-priority-panel small {
+  color: rgba(195, 211, 230, 0.68);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.economics-home .section {
+  margin-top: 38px;
+}
+
+.economics-home .section-head {
+  margin-bottom: 22px;
+  border-bottom-color: rgba(255, 255, 255, 0.11);
+  padding-bottom: 20px;
+}
+
+.economics-home .section-kicker {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.economics-home .section h2 {
+  font-size: clamp(38px, 4.4vw, 58px);
+  font-weight: 720;
+}
+
+.economics-home .section-intro {
+  color: rgba(195, 211, 230, 0.72);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.economics-home .course-roadmap {
+  gap: 18px;
+}
+
+.economics-home .unit-step.is-empty {
+  display: none;
+}
+
+.economics-home .unit-step.is-live {
+  scroll-margin-top: 18px;
+}
+
+.economics-home .unit-step.is-live .unit-content {
+  border-color: rgba(86, 216, 255, 0.18);
+  background: rgba(9, 24, 39, 0.72);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+}
+
+.economics-home .unit-summary {
+  padding: clamp(18px, 2.5vw, 25px);
+}
+
+.economics-home .unit-topics {
+  padding: 0 clamp(18px, 2.5vw, 25px) clamp(18px, 2.5vw, 25px);
+}
+
+@media (max-width: 820px) {
+  .economics-home .hero-inner,
+  .economics-home.simplified-landing .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .economics-home .hero h1,
+  .economics-home.simplified-landing .hero h1 {
+    max-width: none;
+  }
+
+  .economics-priority-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .economics-priority-label {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .economics-home .site {
+    width: min(100% - 24px, 1180px);
+    padding-top: 12px;
+  }
+
+  .economics-home .hero,
+  .economics-home.simplified-landing .hero {
+    border-radius: 18px;
+  }
+
+  .economics-home .hero-inner,
+  .economics-home.simplified-landing .hero-inner {
+    padding: 26px 22px;
+  }
+
+  .economics-home .hero h1,
+  .economics-home.simplified-landing .hero h1 {
+    font-size: clamp(46px, 14vw, 60px);
+  }
+
+  .economics-home .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .economics-priority-panel {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .economics-priority-label {
+    grid-column: 1;
+  }
+}

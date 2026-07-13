@@ -78,9 +78,9 @@ window.INVEST.lesson = {
       type: "section",
       eyebrow: "Part 1",
       part: "1",
-      title: "Replace with the first lesson part",
-      zhTitle: "替换为第一部分标题",
-      notes: "Keep section dividers simple. Each taught section after this starts with brief retrieval from retrievalBase or earlier course concepts, then moves through attempt, reveal/teach, formative check and improvement."
+      title: "Replace with a concise academic topic",
+      zhTitle: "替换为简洁的学术主题",
+      notes: "Name the knowledge students should copy into their notebooks, such as Investment and return or What is investment? Do not use an activity instruction, slogan or transition. Each taught section then starts with brief retrieval and moves through attempt, reveal or teaching, formative check and improvement."
     },
     {
       type: "visualPause",
@@ -153,8 +153,8 @@ window.INVEST.lesson = {
       title: "Rank choices on a risk line",
       zhTitle: "按风险线给选择排序",
       visual: window.INVEST.photos?.businessChartsPaper,
-      prompt: "Place the cards from lower risk to higher risk, then defend the highest-risk choice.",
-      promptZh: "把卡片从较低风险排到较高风险，然后为最高风险的选择写出理由。",
+      prompt: "Assign ranks 1–4 from lower to higher risk, then defend rank 4.",
+      promptZh: "按风险从低到高标出1至4，然后为第4位写出理由。",
       axis: {
         low: "Lower risk",
         lowZh: "较低风险",
@@ -181,6 +181,7 @@ window.INVEST.lesson = {
       caveatZh: "如果证据支持，不同排序也可以成立。",
       writtenCheck: "Write one evidence-based reason for your highest-risk card.",
       writtenCheckZh: "为你选择的最高风险卡片写一个基于证据的理由。",
+      notes: "Use three to five concise options. Students assign each option a rank in one vertical decision ladder; reveal one defensible sequence with a reason for every position.",
       notes: "Use rankingTask for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative order."
     },
     {
@@ -343,7 +344,8 @@ window.INVEST.lesson = {
         { text: "A stock code proves the share is a good investment.", zh: "股票代码能证明这只股票是好投资。", answer: false, answerZh: "否", reason: "A code identifies the security; it is not a quality signal.", reasonZh: "代码识别证券，但不是质量信号。" },
         { text: "A dated source is useful evidence.", zh: "带日期的来源是有用证据。", answer: true, answerZh: "是", reason: "The date helps judge whether the evidence is current.", reasonZh: "日期帮助判断证据是否及时。" },
         { text: "One source can prove the full investment case.", zh: "一个来源能证明完整投资判断。", answer: false, answerZh: "否", reason: "A judgement still needs return, risk, price and limits.", reasonZh: "判断仍需要回报、风险、价格和局限。" }
-      ]
+      ],
+      notes: "Use three or four concise statements. Students click Yes or No to score the choice and reveal that row's verdict and reason; the shared reveal controls remain available for teacher-led voting."
     },
     {
       type: "sourceLens",

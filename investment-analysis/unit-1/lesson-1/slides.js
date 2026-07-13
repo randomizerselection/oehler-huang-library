@@ -178,9 +178,9 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 1",
-      title: "A future return comes with uncertainty",
-      zhTitle: "未来回报伴随不确定性",
-      notes: "First attempt -> define -> connect -> hinge check."
+      title: "Investment and return",
+      zhTitle: "投资与回报",
+      notes: "Identify missing knowledge -> define investment and return -> connect the concepts -> check understanding."
     },
     {
       type: "discussion",
@@ -266,9 +266,9 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Start with the family goal",
-      zhTitle: "从家庭目标开始",
-      notes: "Look -> define -> inspect frozen evidence -> classify -> check the source."
+      title: "Financial goals and time horizons",
+      zhTitle: "财务目标与期限",
+      notes: "Attempt -> define financial goal -> compare horizons -> classify goals -> prioritise evidence."
     },
     {
       type: "discussion",
@@ -343,37 +343,23 @@ window.INVEST.lesson = {
       sharePromptZh: "在一个理由中使用目标、期限和可能损失。"
     },
     {
-      type: "rankingTask",
-      eyebrow: "Evidence priority",
-      title: "Which questions must the family answer first?",
-      zhTitle: "家庭必须先回答哪些问题？",
+      type: "quiz",
+      eyebrow: "Quick check",
+      title: "What should the family know first?",
+      zhTitle: "家庭首先应该了解什么？",
       visual: investmentPhotos.businessChartsPaper,
-      prompt: "Order the cards.",
-      promptZh: "排列卡片。",
-      axis: {
-        low: "Ask first",
-        lowZh: "先问",
-        high: "Ask later",
-        highZh: "后问",
-        note: "Goal constraints before products",
-        noteZh: "先目标限制，后产品",
-        showNote: false
-      },
-      items: [
-        { label: "A", text: "Money purpose", zh: "资金用途" },
-        { label: "B", text: "Recent product return", zh: "产品近期回报" },
-        { label: "C", text: "Date needed", zh: "需要日期" },
-        { label: "D", text: "Goal-damaging loss", zh: "损害目标的损失" }
+      question: "Before comparing investment products, what should the family know?",
+      zh: "在比较投资产品之前，家庭应该了解什么？",
+      choices: [
+        "What the money is for, when it is needed and what would happen if some were lost.",
+        "Which product earned the highest return last month.",
+        "Which product is most popular with other families.",
+        "Which product has the lowest current price."
       ],
-      revealLabel: "One defensible order",
-      revealLabelZh: "一种合理顺序",
-      modelOrder: [
-        { rank: "1", label: "A", text: "Money purpose", zh: "资金用途", reason: "The purpose defines the decision problem.", reasonZh: "用途界定了决策问题。" },
-        { rank: "2", label: "C", text: "Date needed", zh: "需要日期", reason: "The date sets the time horizon.", reasonZh: "日期确定投资期限。" },
-        { rank: "3", label: "D", text: "Goal-damaging loss", zh: "损害目标的损失", reason: "The family must know the consequence of uncertainty.", reasonZh: "家庭必须知道不确定性的后果。" },
-        { rank: "4", label: "B", text: "Recent product return", zh: "产品近期回报", reason: "Product comparison comes only after the goal constraints are clear.", reasonZh: "只有目标限制明确后，才能比较产品。" }
-      ],
-      notes: "After reveal, ask why the product question belongs last."
+      answer: 0,
+      explanation: "Start with the family's needs: what the money is for, when it is needed and what a loss would mean. Only then should the family compare products and returns.",
+      explanationZh: "先了解家庭的需要：资金用途、何时需要这笔钱，以及损失会带来什么后果。然后再比较产品和回报。",
+      notes: "Students answer individually. If many choose B, C or D, revisit the rule: understand the family's needs before comparing products."
     },
     {
       type: "yesNoCheck",
@@ -391,9 +377,9 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Turn evidence into a conditional judgement",
-      zhTitle: "把证据转化为有条件的判断",
-      notes: "Rehearse -> assess -> return to the first judgement -> submit."
+      title: "Investment reasoning and judgement",
+      zhTitle: "投资推理与判断",
+      notes: "Build the reasoning chain -> compare judgements -> revise the first answer -> submit."
     },
     {
       type: "peerTask",

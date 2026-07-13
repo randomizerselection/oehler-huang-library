@@ -331,8 +331,8 @@ window.INVEST.lesson = {
       title: "Rank assets by risk",
       zhTitle: "按风险给资产排序",
       visual: investmentPhotos.businessChartsPaper,
-      prompt: "Place the cards from lower risk to higher risk, then defend the highest-risk card.",
-      promptZh: "把卡片从较低风险排到较高风险，然后为最高风险卡片写出理由。",
+      prompt: "Assign ranks 1–4 from lower to higher risk, then defend rank 4.",
+      promptZh: "按风险从低到高标出1至4，然后为第4位写出理由。",
       axis: {
         low: "Lower risk",
         lowZh: "较低风险",

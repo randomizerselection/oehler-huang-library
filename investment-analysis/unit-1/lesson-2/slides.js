@@ -205,8 +205,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 1",
-      title: "Goal constraints come before products",
-      zhTitle: "目标限制先于产品",
+      title: "Time horizon, liquidity and suitability",
+      zhTitle: "投资期限、流动性与适合度",
       notes: "Try first -> define horizon -> define access -> define fit -> hinge check."
     },
     {
@@ -304,8 +304,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Classify three family goals",
-      zhTitle: "给三个家庭目标分类",
+      title: "Comparing financial goals",
+      zhTitle: "比较财务目标",
       notes: "Read frozen evidence -> classify horizon -> rank access need -> compare -> check guidance."
     },
     {
@@ -427,8 +427,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Explain a different choice without naming a product",
-      zhTitle: "不提具体产品，解释为什么选择不同",
+      title: "Suitability reasoning and judgement",
+      zhTitle: "适合度推理与判断",
       notes: "Rehearse -> assess -> revise judgement -> submit."
     },
     {

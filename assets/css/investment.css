@@ -3645,390 +3645,6 @@ img {
   line-height: 1.06;
 }
 
-.invRankingTaskSlide {
-  background:
-    linear-gradient(90deg, rgba(6, 12, 15, 0.95), rgba(6, 12, 15, 0.78) 62%, rgba(6, 12, 15, 0.38)),
-    var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
-    #091014;
-}
-
-.invRankingTaskSlide .invSlideBody {
-  padding-top: 2px;
-}
-
-.invRankingTask {
-  width: min(1420px, 100%);
-  display: grid;
-  gap: 14px;
-  align-self: start;
-}
-
-.invRankingTask > .invFocusPrompt {
-  margin-top: 0;
-  border-left-color: var(--type-accent-line);
-  background: rgba(241, 190, 90, 0.11);
-  padding: 12px 16px;
-}
-
-.invRankingTask > .invFocusPrompt strong {
-  display: block;
-  font-size: clamp(29px, 2.6vw, 42px);
-  font-weight: 600;
-  line-height: 1.08;
-}
-
-.invRankingTask > .invFocusPrompt .invZhLine {
-  margin-top: 4px;
-  color: rgba(247, 251, 248, 0.78);
-  font-size: 22px;
-  line-height: 1.18;
-}
-
-.invRankingBoard {
-  display: grid;
-  gap: 10px;
-  border: 1px solid rgba(241, 190, 90, 0.28);
-  border-radius: var(--inv-radius);
-  background:
-    linear-gradient(180deg, rgba(21, 36, 43, 0.9), rgba(8, 16, 19, 0.9)),
-    rgba(13, 23, 27, 0.9);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  padding: 12px;
-}
-
-.invRankingAxis {
-  display: grid;
-  grid-template-columns: minmax(145px, 0.22fr) minmax(220px, 1fr) minmax(145px, 0.22fr);
-  align-items: center;
-  gap: 12px;
-}
-
-.invRankingAxis > div {
-  display: grid;
-  gap: 3px;
-  border: 1px solid rgba(241, 190, 90, 0.34);
-  border-radius: var(--inv-radius);
-  background: rgba(241, 190, 90, 0.08);
-  padding: 9px 12px;
-}
-
-.invRankingAxis > div:last-child {
-  border-color: rgba(238, 108, 101, 0.36);
-  background: rgba(238, 108, 101, 0.09);
-  text-align: right;
-}
-
-.invRankingAxis strong {
-  font-size: 23px;
-  font-weight: 700;
-  line-height: 1.05;
-}
-
-.invRankingAxis span {
-  color: rgba(247, 251, 248, 0.68);
-  font-size: 18px;
-  line-height: 1.08;
-}
-
-.invRankingAxis > p {
-  position: relative;
-  margin: 0;
-  color: var(--inv-muted);
-  font-size: 19px;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.invRankingAxis > p::before {
-  content: "";
-  display: block;
-  height: 4px;
-  margin: 0 0 8px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--inv-amber), var(--inv-red));
-}
-
-.invRankingAxis > p span {
-  display: block;
-  margin-top: 2px;
-}
-
-.invRankingSlots {
-  display: grid;
-  grid-template-columns: repeat(var(--ranking-count, 4), minmax(0, 1fr));
-  gap: 8px;
-}
-
-.invRankingSlot {
-  position: relative;
-  min-height: 60px;
-  border: 2px dashed rgba(241, 190, 90, 0.34);
-  border-radius: var(--inv-radius);
-  background:
-    linear-gradient(180deg, rgba(241, 190, 90, 0.06), rgba(241, 190, 90, 0.02)),
-    rgba(4, 9, 11, 0.34);
-}
-
-.invRankingSlot span {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 34px;
-  border-radius: var(--inv-radius);
-  background: rgba(241, 190, 90, 0.14);
-  color: var(--inv-amber);
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.invRankingCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-}
-
-.invRankingCards:has(.invRankingVisual) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.invRankingCard {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  align-items: start;
-  gap: 10px;
-  min-height: 96px;
-  border: 1px solid rgba(152, 184, 188, 0.28);
-  border-left: 5px solid rgba(79, 210, 255, 0.5);
-  border-radius: var(--inv-radius);
-  background:
-    linear-gradient(180deg, rgba(18, 35, 41, 0.94), rgba(7, 16, 19, 0.9)),
-    rgba(13, 23, 27, 0.9);
-  padding: 12px;
-}
-
-.invTermBox:has(.invTermVisuals) {
-  min-height: 384px;
-  grid-template-columns: minmax(230px, 0.32fr) minmax(0, 1fr);
-  padding: 20px;
-}
-
-.invRankingCard:has(.invRankingVisual) {
-  grid-template-columns: 34px 58px minmax(0, 1fr);
-  align-items: stretch;
-  gap: 8px;
-  min-height: 86px;
-  padding: 8px;
-}
-
-.invRankingCard:has(.invRankingVisual) > span {
-  grid-column: 1;
-}
-
-.invRankingCard:has(.invRankingVisual) .invRankingVisual {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  width: 58px;
-  height: 58px;
-  align-self: center;
-}
-
-.invRankingCard:has(.invRankingVisual) > div {
-  grid-column: 3;
-  align-self: center;
-}
-
-.invRankingCard:has(.invRankingVisual) strong {
-  font-size: 32px;
-  line-height: 1.02;
-}
-
-.invRankingCard:has(.invRankingVisual) .invZhLine {
-  font-size: 16px;
-  line-height: 1.04;
-}
-
-.invRankingCard > span {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--inv-radius);
-  background: rgba(79, 210, 255, 0.14);
-  color: var(--inv-cyan);
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.invRankingCard strong {
-  display: block;
-  color: var(--inv-ink);
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.04;
-}
-
-.invRankingCard p {
-  margin: 7px 0 0;
-  color: var(--inv-muted);
-  font-size: 20px;
-  line-height: 1.18;
-}
-
-.invRankingCard .invZhLine {
-  color: rgba(247, 251, 248, 0.7);
-  font-size: 21px;
-}
-
-.invRankingAnswer.invReveal.is-revealed {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  border: 1px solid rgba(57, 217, 145, 0.32);
-  border-left: 6px solid rgba(57, 217, 145, 0.7);
-  border-radius: var(--inv-radius);
-  background:
-    linear-gradient(180deg, rgba(14, 42, 34, 0.94), rgba(7, 16, 19, 0.94)),
-    rgba(13, 23, 27, 0.92);
-  padding: 10px;
-}
-
-.invRankingTask:has(.invRankingAnswer.is-revealed) .invRankingBoard {
-  display: none;
-}
-
-.invRankingTask:has(.invRankingAnswer.is-revealed) {
-  gap: 8px;
-}
-
-.invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt {
-  display: grid;
-  gap: 4px;
-  padding: 6px 10px;
-  background: rgba(241, 190, 90, 0.08);
-}
-
-.invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt strong {
-  font-size: 24px;
-  line-height: 1.06;
-}
-
-.invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-  display: none;
-}
-
-.invRankingAnswerHead,
-.invRankingOrder {
-  grid-column: 1 / -1;
-}
-
-.invRankingAnswerHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px 12px;
-  border-bottom: 1px solid rgba(57, 217, 145, 0.24);
-  padding-bottom: 8px;
-}
-
-.invRankingAnswerTitle {
-  color: var(--inv-green);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.08;
-}
-
-.invRankingAnswerZh {
-  color: rgba(247, 251, 248, 0.74);
-  font-size: 20px;
-  line-height: 1.12;
-}
-
-.invRankingOrder {
-  display: grid;
-  grid-template-columns: repeat(var(--ranking-count, 4), minmax(0, 1fr));
-  gap: 8px;
-}
-
-.invRankingOrderItem {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  gap: 6px;
-  min-height: 146px;
-  border: 1px solid rgba(57, 217, 145, 0.24);
-  border-radius: var(--inv-radius);
-  background: rgba(4, 9, 11, 0.34);
-  padding: 8px;
-}
-
-.invRankingRank {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 34px;
-  border-radius: var(--inv-radius);
-  background: rgba(57, 217, 145, 0.16);
-  color: var(--inv-green);
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.invRankingOrderAsset strong {
-  color: var(--inv-ink);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.06;
-}
-
-.invRankingOrderAsset .invZhLine {
-  margin-top: 3px;
-  color: rgba(247, 251, 248, 0.68);
-  font-size: 16px;
-  line-height: 1.08;
-}
-
-.invRankingReason {
-  margin: 0;
-  color: var(--inv-muted);
-  font-size: 17px;
-  line-height: 1.2;
-}
-
-.invRankingReason .invZhLine {
-  display: block;
-  margin-top: 4px;
-  color: rgba(247, 251, 248, 0.68);
-  font-size: 15px;
-  line-height: 1.12;
-}
-
-.invRankingCaveat,
-.invRankingWrittenCheck {
-  display: grid;
-  gap: 4px;
-  border: 1px solid rgba(152, 184, 188, 0.24);
-  border-radius: var(--inv-radius);
-  background: rgba(255, 255, 255, 0.045);
-  padding: 10px 12px;
-}
-
-.invRankingCaveat strong,
-.invRankingWrittenCheck strong {
-  color: var(--inv-ink);
-  font-size: 19px;
-  line-height: 1.12;
-}
-
-.invRankingCaveat span,
-.invRankingWrittenCheck span {
-  color: rgba(247, 251, 248, 0.7);
-  font-size: 16px;
-  line-height: 1.12;
-}
-
 .invQuizSlide .invPanel {
   display: grid;
   gap: 18px;
@@ -5359,17 +4975,6 @@ img {
 }
 
 .invClassificationCategoryVisual figcaption {
-  display: none;
-}
-
-.invRankingVisual {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr);
-  height: 74px;
-  min-height: 0;
-}
-
-.invRankingVisual figcaption {
   display: none;
 }
 
@@ -10550,1467 +10155,14 @@ img {
   display: none !important;
 }
 
-/* Final yes/no check reset: balanced vote cards with in-flow reveal answers. */
-.invYesNoCheck,
-.invCompactCheckSlide .invYesNoCheck,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed),
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) {
-  width: min(1240px, 100%) !important;
-  display: grid !important;
-  gap: 10px !important;
-}
-
-.invYesNoCheck > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck > .invFocusPrompt,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-  display: grid !important;
-  gap: 4px !important;
-  padding: 11px 13px !important;
-  border-left: 5px solid var(--type-accent-line) !important;
-}
-
-.invYesNoCheck > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck > .invFocusPrompt strong,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-  font-size: 25px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck > .invFocusPrompt .invZhLine,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-  display: block !important;
-  font-size: 19px !important;
-  line-height: 1.08 !important;
-}
-
-.invYesNoItems,
-.invCompactCheckSlide .invYesNoItems,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 10px !important;
-  align-items: stretch !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  gap: 6px !important;
-}
-
-.invYesNoItem,
-.invCompactCheckSlide .invYesNoItem,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-  display: grid !important;
-  grid-template-rows: auto auto;
-  align-content: start !important;
-  gap: 8px !important;
-  min-height: 0 !important;
-  padding: 10px !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(152, 184, 188, 0.18) !important;
-  border-top: 4px solid var(--type-accent-line) !important;
-  border-left-width: 1px !important;
-  border-radius: var(--inv-radius) !important;
-  background: rgba(8, 18, 22, 0.76) !important;
-}
-
-.invYesNoStatement,
-.invCompactCheckSlide .invYesNoStatement,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-  display: grid !important;
-  grid-template-columns: 30px minmax(0, 1fr) !important;
-  gap: 5px 9px !important;
-  align-items: start !important;
-}
-
-.invYesNoNumber,
-.invYesNoStatement > span,
-.invCompactCheckSlide .invYesNoStatement > span,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement > span {
-  display: grid !important;
-  place-items: center !important;
-  width: 30px !important;
-  height: 30px !important;
-  padding: 0 !important;
-  border-radius: calc(var(--inv-radius) - 2px) !important;
-  background: rgba(57, 217, 145, 0.14) !important;
-  color: var(--inv-green) !important;
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-}
-
-.invYesNoPromptText {
-  min-width: 0 !important;
-  display: grid !important;
-  gap: 4px !important;
-}
-
-.invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoStatement strong,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-  color: var(--inv-ink) !important;
-  font-size: 21px !important;
-  font-weight: 650 !important;
-  line-height: 1.05 !important;
-}
-
-.invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoStatement .invZhLine,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-  display: block !important;
-  margin: 0 !important;
-  color: var(--inv-muted) !important;
-  font-size: 17px !important;
-  line-height: 1.08 !important;
-}
-
-.invYesNoVoteCue,
-.invCompactCheckSlide .invYesNoVoteCue {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 5px !important;
-  padding-left: 39px !important;
-}
-
-.invYesNoVoteCue span,
-.invCompactCheckSlide .invYesNoVoteCue span {
-  min-width: 44px !important;
-  padding: 5px 8px !important;
-  border: 1px solid rgba(152, 184, 188, 0.28) !important;
-  border-radius: calc(var(--inv-radius) - 2px) !important;
-  color: rgba(205, 242, 246, 0.82) !important;
-  font-size: 13px !important;
-  font-weight: 750 !important;
-  line-height: 1 !important;
-  text-align: center !important;
-}
-
-.invYesNoAnswer.invReveal:not(.is-revealed) {
-  display: none !important;
-}
-
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoVoteCue,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoVoteCue {
-  display: none !important;
-}
-
-.invYesNoAnswer,
-.invCompactCheckSlide .invYesNoAnswer,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-  grid-template-columns: 54px minmax(0, 1fr) !important;
-  align-items: start !important;
-  gap: 8px !important;
-  padding: 8px !important;
-  border: 1px solid rgba(57, 217, 145, 0.2) !important;
-  border-radius: calc(var(--inv-radius) - 2px) !important;
-  background: rgba(57, 217, 145, 0.06) !important;
-}
-
-.invYesNoAnswer.invReveal.is-revealed,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer.invReveal.is-revealed {
-  display: grid !important;
-}
-
-.invYesNoBadge,
-.invCompactCheckSlide .invYesNoBadge {
-  width: 54px !important;
-  min-width: 0 !important;
-  display: grid !important;
-  justify-items: center !important;
-  gap: 2px !important;
-  padding: 6px 7px !important;
-  border-radius: calc(var(--inv-radius) - 3px) !important;
-  background: rgba(57, 217, 145, 0.18) !important;
-  color: var(--inv-green) !important;
-  font-size: 13px !important;
-  font-weight: 850 !important;
-  line-height: 1 !important;
-}
-
-.invYesNoBadge.is-no,
-.invCompactCheckSlide .invYesNoBadge.is-no {
-  background: rgba(241, 190, 90, 0.18) !important;
-  color: var(--inv-amber) !important;
-}
-
-.invYesNoBadge span + span,
-.invCompactCheckSlide .invYesNoBadge span + span {
-  color: rgba(205, 242, 246, 0.92) !important;
-  font-size: 12px !important;
-  font-weight: 750 !important;
-}
-
-.invYesNoReason,
-.invCompactCheckSlide .invYesNoReason {
-  min-width: 0 !important;
-  display: grid !important;
-  gap: 2px !important;
-}
-
-.invYesNoReason p,
-.invCompactCheckSlide .invYesNoAnswer p,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-  display: block !important;
-  margin: 0 !important;
-  color: var(--inv-ink) !important;
-  font-size: 18px !important;
-  font-weight: 550 !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoReason .invZhLine,
-.invCompactCheckSlide .invYesNoAnswer .invZhLine,
-.invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
-  display: block !important;
-  color: var(--inv-muted) !important;
-  font-size: 15px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck.is-dense,
-.invCompactCheckSlide .invYesNoCheck.is-dense,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) {
-  gap: 7px !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt {
-  padding: 7px 10px !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt strong {
-  font-size: 20px !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine {
-  font-size: 15px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-  gap: 5px !important;
-  padding: 6px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-  grid-template-columns: 22px minmax(0, 1fr) !important;
-  gap: 3px 5px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoNumber,
-.invYesNoCheck.is-dense .invYesNoStatement > span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
-  width: 22px !important;
-  height: 22px !important;
-  font-size: 10px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong {
-  font-size: 14px !important;
-  line-height: 1.02 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine {
-  font-size: 11px !important;
-  line-height: 1.04 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoVoteCue,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
-  gap: 3px !important;
-  padding-left: 27px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoVoteCue span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue span {
-  min-width: 32px !important;
-  padding: 3px 5px !important;
-  font-size: 10px !important;
-}
-
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-.invYesNoCheck.is-dense .invYesNoReason .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason .invZhLine {
-  display: none !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-  grid-template-columns: 36px minmax(0, 1fr) !important;
-  gap: 4px !important;
-  padding: 4px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoBadge,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
-  width: 36px !important;
-  padding: 4px !important;
-  font-size: 10px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoBadge span + span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
-  font-size: 9px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoReason p,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer p,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-  font-size: 12px !important;
-  line-height: 1.02 !important;
-}
-
-@media (max-width: 900px) {
-  .invYesNoCheck,
-  .invCompactCheckSlide .invYesNoCheck,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed),
-  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) {
-    gap: 5px !important;
-  }
-
-  .invYesNoCheck > .invFocusPrompt,
-  .invCompactCheckSlide .invYesNoCheck > .invFocusPrompt,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-    gap: 2px !important;
-    padding: 5px 7px !important;
-    border-left-width: 4px !important;
-  }
-
-  .invYesNoCheck > .invFocusPrompt strong,
-  .invCompactCheckSlide .invYesNoCheck > .invFocusPrompt strong,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-    font-size: 16px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoCheck > .invFocusPrompt .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck > .invFocusPrompt .invZhLine,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-    font-size: 13px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoItems,
-  .invCompactCheckSlide .invYesNoItems,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 4px !important;
-  }
-
-  .invYesNoItem,
-  .invCompactCheckSlide .invYesNoItem,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    gap: 4px !important;
-    padding: 5px !important;
-    border-top-width: 3px !important;
-  }
-
-  .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoStatement,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-template-columns: 19px minmax(0, 1fr) !important;
-    gap: 2px 4px !important;
-  }
-
-  .invYesNoNumber,
-  .invYesNoStatement > span,
-  .invCompactCheckSlide .invYesNoStatement > span {
-    width: 19px !important;
-    height: 19px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoStatement strong,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-    font-size: 11.5px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoStatement .invZhLine,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-    font-size: 10px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoVoteCue,
-  .invCompactCheckSlide .invYesNoVoteCue {
-    gap: 2px !important;
-    padding-left: 23px !important;
-  }
-
-  .invYesNoVoteCue span,
-  .invCompactCheckSlide .invYesNoVoteCue span {
-    min-width: 27px !important;
-    padding: 3px 4px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoAnswer,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-template-columns: 31px minmax(0, 1fr) !important;
-    gap: 3px !important;
-    padding: 3px !important;
-  }
-
-  .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoBadge {
-    width: 31px !important;
-    padding: 3px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoBadge span + span {
-    font-size: 7px !important;
-  }
-
-  .invYesNoReason p,
-  .invCompactCheckSlide .invYesNoAnswer p,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-    font-size: 10px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invYesNoReason .invZhLine,
-  .invCompactCheckSlide .invYesNoAnswer .invZhLine,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
-    display: none !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 3px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
-  .invYesNoCheck.is-dense .invYesNoVoteCue,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
-    display: none !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem {
-    gap: 2px !important;
-    padding: 3px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement {
-    grid-template-columns: 15px minmax(0, 1fr) !important;
-    gap: 2px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoNumber,
-  .invYesNoCheck.is-dense .invYesNoStatement > span,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
-    width: 15px !important;
-    height: 15px !important;
-    font-size: 7px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong {
-    font-size: 9px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-template-columns: 25px minmax(0, 1fr) !important;
-    gap: 2px !important;
-    padding: 2px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
-    width: 25px !important;
-    padding: 2px !important;
-    font-size: 7px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
-    font-size: 6px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoReason p,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer p {
-    font-size: 7.5px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .invYesNoItem,
-  .invCompactCheckSlide .invYesNoItem,
-  .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    overflow: visible !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItems,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: 1fr !important;
-    gap: 5px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItem,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) auto !important;
-    grid-template-rows: auto auto !important;
-    gap: 4px 7px !important;
-    align-items: center !important;
-    padding: 6px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 22px minmax(0, 1fr) !important;
-    gap: 2px 6px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoNumber,
-  .invYesNoCheck.is-spacious .invYesNoStatement > span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
-    width: 22px !important;
-    height: 22px !important;
-    font-size: 9px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong {
-    font-size: 14px !important;
-    line-height: 1.04 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine {
-    font-size: 11.5px !important;
-    line-height: 1.04 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoVoteCue,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    align-self: center !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 2px !important;
-    padding-left: 0 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoVoteCue span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue span {
-    min-width: 30px !important;
-    padding: 3px 5px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
-    grid-template-columns: 36px minmax(0, 1fr) !important;
-    gap: 5px !important;
-    padding: 4px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
-    width: 36px !important;
-    padding: 4px !important;
-    font-size: 9px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
-    font-size: 8px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoReason p,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer p {
-    font-size: 11px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: 1fr !important;
-    gap: 3px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) 88px !important;
-    grid-template-rows: auto !important;
-    align-items: start !important;
-    gap: 4px !important;
-    padding: 3px 4px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 16px minmax(0, 1fr) !important;
-    gap: 2px 4px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong {
-    font-size: 9.5px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 25px minmax(0, 1fr) !important;
-    gap: 2px !important;
-    padding: 2px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: 1fr !important;
-    gap: 4px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    gap: 3px 6px !important;
-    padding: 4px 5px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-template-columns: 20px minmax(0, 1fr) !important;
-    gap: 2px 5px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoNumber,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 8px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-    font-size: 12.5px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-    font-size: 10.2px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-template-columns: 32px minmax(0, 1fr) !important;
-    gap: 4px !important;
-    padding: 3px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
-    width: 32px !important;
-    padding: 3px !important;
-    font-size: 8px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
-    font-size: 7px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoReason p,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-    font-size: 9.5px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 4px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: auto auto !important;
-    gap: 2px !important;
-    padding: 3px 4px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 16px minmax(0, 1fr) !important;
-    gap: 2px 4px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 25px !important;
-    gap: 0 !important;
-    padding: 2px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) 29px !important;
-    grid-template-rows: auto !important;
-    align-items: start !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason {
-    display: none !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 3px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) 25px !important;
-    grid-template-rows: auto !important;
-    gap: 2px !important;
-    padding: 3px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-template-columns: 14px minmax(0, 1fr) !important;
-    gap: 2px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoNumber,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
-    width: 14px !important;
-    height: 14px !important;
-    font-size: 6.5px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-    font-size: 8px !important;
-    line-height: 1.02 !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 22px !important;
-    gap: 0 !important;
-    padding: 2px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoBadge {
-    width: 22px !important;
-    padding: 2px !important;
-    font-size: 6px !important;
-  }
-
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoBadge span + span {
-    font-size: 5.5px !important;
-  }
-}
-
-/* Spacious yes/no checks: four-card classroom layout with readable bilingual prompts. */
-.invYesNoCheck.is-spacious,
-.invCompactCheckSlide .invYesNoCheck.is-spacious,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed),
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) {
-  width: min(1320px, 100%) !important;
-  gap: 12px !important;
-}
-
-.invYesNoCheck.is-spacious > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-  gap: 5px !important;
-  padding: 13px 16px !important;
-}
-
-.invYesNoCheck.is-spacious > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt strong,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-  font-size: 27px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-  font-size: 20px !important;
-  line-height: 1.12 !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItems,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 12px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItem,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-  grid-template-columns: 1fr !important;
-  grid-template-rows: auto auto !important;
-  align-content: stretch !important;
-  gap: 11px !important;
-  min-height: 134px !important;
-  padding: 14px !important;
-  border-top-width: 5px !important;
-  overflow: hidden !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-  grid-column: auto !important;
-  grid-row: auto !important;
-  grid-template-columns: 34px minmax(0, 1fr) !important;
-  gap: 5px 11px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoNumber,
-.invYesNoCheck.is-spacious .invYesNoStatement > span,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
-  width: 34px !important;
-  height: 34px !important;
-  font-size: 14px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoPromptText,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoPromptText {
-  display: block !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-  display: block !important;
-  font-size: 24px !important;
-  line-height: 1.08 !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-  display: block !important;
-  grid-column: auto !important;
-  margin-top: 5px !important;
-  font-size: 17px !important;
-  line-height: 1.12 !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoVoteCue,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue {
-  grid-column: auto !important;
-  grid-row: auto !important;
-  align-self: end !important;
-  display: flex !important;
-  gap: 6px !important;
-  padding-left: 45px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoVoteCue span,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue span {
-  min-width: 54px !important;
-  padding: 6px 10px !important;
-  font-size: 14px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-  grid-column: auto !important;
-  grid-row: auto !important;
-  grid-template-columns: 64px minmax(0, 1fr) !important;
-  gap: 10px !important;
-  padding: 10px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoBadge,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
-  width: 64px !important;
-  padding: 7px 8px !important;
-  font-size: 14px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoBadge span + span,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
-  font-size: 13px !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoReason p,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer p,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-  display: block !important;
-  font-size: 20px !important;
-  line-height: 1.08 !important;
-}
-
-.invYesNoCheck.is-spacious .invYesNoReason .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer .invZhLine,
-.invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
-  display: block !important;
-  font-size: 15px !important;
-  line-height: 1.08 !important;
-}
-
-@media (max-width: 900px) {
-  .invYesNoCheck.is-spacious,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed),
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) {
-    gap: 7px !important;
-  }
-
-  .invYesNoCheck.is-spacious > .invFocusPrompt,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-    gap: 3px !important;
-    padding: 8px 10px !important;
-  }
-
-  .invYesNoCheck.is-spacious > .invFocusPrompt strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt strong,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-    font-size: 17px !important;
-    line-height: 1.04 !important;
-  }
-
-  .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious > .invFocusPrompt .invZhLine,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-    font-size: 13px !important;
-    line-height: 1.08 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItems,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: 1fr !important;
-    gap: 6px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoItem,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto !important;
-    gap: 6px !important;
-    min-height: 0 !important;
-    padding: 8px !important;
-    border-top-width: 4px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    grid-template-columns: 24px minmax(0, 1fr) !important;
-    gap: 3px 7px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoNumber,
-  .invYesNoCheck.is-spacious .invYesNoStatement > span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement > span {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 9px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement strong,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-    font-size: 15.5px !important;
-    line-height: 1.05 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoStatement .invZhLine,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-    margin-top: 3px !important;
-    font-size: 12px !important;
-    line-height: 1.08 !important;
-  }
-
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-    display: none !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoVoteCue,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue {
-    display: flex !important;
-    grid-column: auto !important;
-    grid-row: auto !important;
-    gap: 5px !important;
-    padding-left: 31px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoVoteCue span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoVoteCue span {
-    min-width: 46px !important;
-    padding: 5px 8px !important;
-    font-size: 10px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    grid-template-columns: 42px minmax(0, 1fr) !important;
-    gap: 5px !important;
-    padding: 4px 5px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge {
-    width: 42px !important;
-    padding: 5px 4px !important;
-    font-size: 9px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoBadge span + span {
-    font-size: 8px !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoReason p,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer p,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-    font-size: 12.5px !important;
-    line-height: 1.05 !important;
-  }
-
-  .invYesNoCheck.is-spacious .invYesNoReason .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-spacious .invYesNoAnswer .invZhLine,
-  .invYesNoCheck.is-spacious:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
-    display: none !important;
-  }
-}
-
-/* Dense yes/no checks: scan-first board for many statements. */
-.invYesNoCheck.is-dense,
-.invCompactCheckSlide .invYesNoCheck.is-dense,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed),
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) {
-  width: min(1320px, 100%) !important;
-  gap: 10px !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-  gap: 4px !important;
-  padding: 10px 13px !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt strong,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-  font-size: 25px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-  display: block !important;
-  font-size: 17px !important;
-  line-height: 1.1 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 8px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto !important;
-  grid-template-rows: auto auto !important;
-  align-items: start !important;
-  gap: 7px 10px !important;
-  min-height: 0 !important;
-  padding: 9px 10px !important;
-  border-top-width: 5px !important;
-  overflow: hidden !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  grid-template-columns: 32px minmax(0, 1fr) !important;
-  gap: 4px 9px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoNumber,
-.invYesNoCheck.is-dense .invYesNoStatement > span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
-  width: 32px !important;
-  height: 32px !important;
-  font-size: 12px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoPromptText,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoPromptText {
-  display: block !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-  display: block !important;
-  font-size: 21px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine {
-  display: block !important;
-  margin-top: 4px !important;
-  font-size: 14px !important;
-  line-height: 1.08 !important;
-}
-
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement .invZhLine {
-  display: none !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoVoteCue,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  align-self: center !important;
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 4px !important;
-  padding-left: 0 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoVoteCue span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue span {
-  min-width: 44px !important;
-  padding: 5px 8px !important;
-  font-size: 12px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-  grid-column: 1 / -1 !important;
-  grid-row: 2 !important;
-  grid-template-columns: 58px minmax(0, 1fr) !important;
-  gap: 8px !important;
-  padding: 7px 8px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoBadge,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
-  width: 58px !important;
-  padding: 6px 7px !important;
-  font-size: 12px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoBadge span + span,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
-  font-size: 11px !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoReason,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason {
-  display: grid !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoReason p,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer p,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-  display: block !important;
-  font-size: 15px !important;
-  line-height: 1.06 !important;
-}
-
-.invYesNoCheck.is-dense .invYesNoReason .invZhLine,
-.invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer .invZhLine,
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer .invZhLine {
-  display: none !important;
-}
-
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-  grid-template-columns: minmax(0, 1fr) 188px !important;
-  grid-template-rows: auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  padding: 8px 9px !important;
-}
-
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  grid-template-columns: 58px minmax(0, 1fr) !important;
-  align-self: stretch !important;
-  align-items: center !important;
-  min-height: 56px !important;
-  padding: 6px !important;
-}
-
-.invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason p,
-.invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer p {
-  font-size: 14px !important;
-  line-height: 1.04 !important;
-}
-
-@media (max-width: 900px) {
-  .invYesNoCheck.is-dense,
-  .invCompactCheckSlide .invYesNoCheck.is-dense,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed),
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) {
-    gap: 5px !important;
-  }
-
-  .invYesNoCheck.is-dense > .invFocusPrompt,
-  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt {
-    gap: 2px !important;
-    padding: 6px 8px !important;
-  }
-
-  .invYesNoCheck.is-dense > .invFocusPrompt strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt strong,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt strong {
-    font-size: 16px !important;
-    line-height: 1.03 !important;
-  }
-
-  .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-dense > .invFocusPrompt .invZhLine,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-    font-size: 12px !important;
-    line-height: 1.05 !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItems,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItems {
-    grid-template-columns: 1fr !important;
-    gap: 4px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoItem,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) auto !important;
-    grid-template-rows: auto !important;
-    gap: 3px 6px !important;
-    padding: 5px 6px !important;
-    border-top-width: 3px !important;
-  }
-
-  .invYesNoCheck.is-dense:not(:has(.invYesNoAnswer.is-revealed)) .invYesNoItem,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:not(:has(.invYesNoAnswer.is-revealed)) .invYesNoItem {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 20px minmax(0, 1fr) !important;
-    gap: 2px 6px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoNumber,
-  .invYesNoCheck.is-dense .invYesNoStatement > span,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement > span {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement strong,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoStatement strong {
-    font-size: 13.5px !important;
-    line-height: 1.07 !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoStatement .invZhLine,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoStatement .invZhLine {
-    display: none !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoVoteCue,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoVoteCue {
-    display: none !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoAnswer,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoAnswer {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    grid-template-columns: 34px !important;
-    align-self: center !important;
-    min-height: 0 !important;
-    gap: 0 !important;
-    padding: 2px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoBadge,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge {
-    width: 34px !important;
-    padding: 3px 2px !important;
-    font-size: 8px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoBadge span + span,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoBadge span + span {
-    font-size: 7px !important;
-  }
-
-  .invYesNoCheck.is-dense .invYesNoReason,
-  .invCompactCheckSlide .invYesNoCheck.is-dense .invYesNoReason,
-  .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason,
-  .invCompactCheckSlide .invYesNoCheck.is-dense:has(.invYesNoAnswer.is-revealed) .invYesNoReason {
-    display: none !important;
-  }
-}
 
 @media (max-width: 900px) {
   .invTermVisuals,
   .invStepVisual,
   .invCompareVisual,
   .invClassificationCategoryVisual,
-  .invCompactClassificationSlide .invClassificationCategoryVisual,
-  .invRankingVisual {
+  .invCompactClassificationSlide .invClassificationCategoryVisual {
     display: none !important;
-  }
-
-  .invRankingCard:has(.invRankingVisual) {
-    grid-template-columns: 32px minmax(0, 1fr);
-  }
-
-  .invRankingCards:has(.invRankingVisual) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .invRankingCard:has(.invRankingVisual) > div {
-    grid-column: 2;
-  }
-
-  .invRankingCard:has(.invRankingVisual) strong {
-    font-size: 17px !important;
-    line-height: 1.04 !important;
-  }
-
-  .invRankingCard:has(.invRankingVisual) .invZhLine {
-    font-size: 11px !important;
-    line-height: 1.05 !important;
   }
 
   .invCompareColumn:has(.invCompareVisual) {
@@ -12057,263 +10209,6 @@ img {
     overflow-wrap: anywhere;
   }
 
-  .invRankingTask {
-    gap: 8px;
-  }
-
-  .invRankingTask > .invFocusPrompt {
-    padding: 9px 11px;
-  }
-
-  .invRankingTask > .invFocusPrompt strong {
-    font-size: 22px;
-    line-height: 1.04;
-  }
-
-  .invRankingTask > .invFocusPrompt .invZhLine {
-    font-size: 15px;
-    line-height: 1.08;
-  }
-
-  .invRankingBoard {
-    gap: 8px;
-    padding: 9px;
-  }
-
-  .invRankingAxis {
-    grid-template-columns: minmax(92px, 0.8fr) minmax(92px, 1fr) minmax(92px, 0.8fr);
-    gap: 6px;
-  }
-
-  .invRankingAxis > div {
-    padding: 6px 7px;
-  }
-
-  .invRankingAxis strong {
-    font-size: 14px;
-  }
-
-  .invRankingAxis span,
-  .invRankingAxis > p span {
-    display: none;
-  }
-
-  .invRankingAxis > p {
-    font-size: 12px;
-    line-height: 1.08;
-  }
-
-  .invRankingSlots {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .invRankingSlot {
-    min-height: 58px;
-  }
-
-  .invRankingSlot span {
-    top: 6px;
-    left: 6px;
-    width: 30px;
-    height: 24px;
-    font-size: 13px;
-  }
-
-  .invRankingCards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .invRankingCard {
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 6px;
-    min-height: 68px;
-    padding: 6px;
-  }
-
-  .invRankingCard > span {
-    width: 30px;
-    height: 30px;
-    font-size: 15px;
-  }
-
-  .invRankingCard strong {
-    font-size: 17px;
-    line-height: 1.04;
-  }
-
-  .invRankingCard p {
-    margin-top: 3px;
-    font-size: 11px;
-    line-height: 1.05;
-  }
-
-  .invRankingCard p:not(.invZhLine) {
-    display: none;
-  }
-
-  .invRankingAnswer.invReveal.is-revealed {
-    grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 8px;
-  }
-
-  .invRankingAnswerHead {
-    padding-bottom: 5px;
-  }
-
-  .invRankingAnswerTitle {
-    font-size: 18px;
-  }
-
-  .invRankingAnswerZh {
-    font-size: 13px;
-  }
-
-  .invRankingOrder {
-    grid-template-columns: 1fr;
-    gap: 5px;
-  }
-
-  .invRankingOrderItem {
-    grid-template-columns: 32px minmax(0, 0.9fr) minmax(0, 1.1fr);
-    grid-template-rows: auto;
-    align-items: center;
-    gap: 5px;
-    min-height: 0;
-    padding: 5px;
-  }
-
-  .invRankingRank {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-  }
-
-  .invRankingOrderAsset strong {
-    font-size: 13px;
-    line-height: 1.04;
-  }
-
-  .invRankingOrderAsset .invZhLine {
-    display: none;
-  }
-
-  .invRankingReason {
-    font-size: 12px;
-    line-height: 1.06;
-  }
-
-  .invRankingReason .invZhLine {
-    display: none;
-  }
-
-  .invRankingCaveat,
-  .invRankingWrittenCheck {
-    padding: 6px 7px;
-  }
-
-  .invRankingCaveat strong,
-  .invRankingWrittenCheck strong {
-    font-size: 13px;
-    line-height: 1.06;
-  }
-
-  .invRankingCaveat span,
-  .invRankingWrittenCheck span {
-    font-size: 12px;
-    line-height: 1.05;
-  }
-}
-
-@media (max-width: 520px) {
-  .invRankingTaskSlide .invSlideHeader {
-    gap: 8px;
-  }
-
-  .invRankingTaskSlide .invTitleBlock h1 {
-    font-size: 32px;
-    line-height: 1.03;
-  }
-
-  .invRankingTaskSlide .invSlideHeader .invZhTitle,
-  .invRankingTaskSlide .sourceList {
-    display: none;
-  }
-
-  .invRankingTask > .invFocusPrompt strong {
-    font-size: 18px;
-  }
-
-  .invRankingTask > .invFocusPrompt .invZhLine {
-    font-size: 13px;
-  }
-
-  .invRankingAxis > p {
-    display: none;
-  }
-
-  .invRankingAxis {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .invRankingAxis > div:last-child {
-    text-align: left;
-  }
-
-  .invRankingSlot {
-    min-height: 50px;
-  }
-
-  .invRankingCard {
-    min-height: 58px;
-  }
-
-  .invRankingCard strong {
-    font-size: 15px;
-  }
-
-  .invRankingCard .invZhLine {
-    font-size: 11px;
-  }
-
-  .invRankingAnswer.invReveal.is-revealed {
-    gap: 5px;
-    padding: 6px;
-  }
-
-  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt {
-    display: grid;
-    padding: 4px 6px;
-  }
-
-  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt strong {
-    font-size: 14px;
-    line-height: 1.02;
-  }
-
-  .invRankingTask:has(.invRankingAnswer.is-revealed) > .invFocusPrompt .invZhLine {
-    display: none;
-  }
-
-  .invRankingAnswerTitle {
-    font-size: 16px;
-  }
-
-  .invRankingOrderItem {
-    grid-template-columns: 28px minmax(76px, 0.9fr) minmax(0, 1.25fr);
-    padding: 4px;
-  }
-
-  .invRankingReason {
-    font-size: 11px;
-  }
-
-  .invRankingCaveat span,
-  .invRankingWrittenCheck span {
-    display: none;
-  }
 }
 
 /* Outcomes slide: classroom projection polish */
@@ -12684,7 +10579,6 @@ img {
     .invCheckItem,
     .invStep,
     .invPeerBox,
-    .invRankingCard,
     .invDataFocusCard,
     .invDataTask,
     .invConceptCard,
@@ -12752,7 +10646,6 @@ img {
   .invPeerBox,
   .invDefinitionRecall,
   .invMissingSentence,
-  .invRankingTask,
   .invDataSimple,
   .invConceptTriad,
   .invVisualGridWrap,
@@ -13042,5 +10935,1122 @@ img {
     min-width: 0;
     white-space: normal;
     overflow-wrap: anywhere;
+  }
+}
+
+/* Yes/no checks use a single scan-first voting board, not a card grid. */
+.invYesNoCheckSlide .invSlideBody {
+  align-content: start;
+  padding-top: 8px;
+}
+
+.invVoteBoard {
+  width: min(1320px, 100%);
+  display: grid;
+  gap: 12px;
+  margin-inline: auto;
+}
+
+.invVoteInstruction {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border-block: 1px solid rgba(57, 217, 145, 0.24);
+  background: linear-gradient(90deg, rgba(57, 217, 145, 0.1), rgba(8, 19, 23, 0.34) 72%);
+  padding: 10px 14px;
+}
+
+.invVoteInstruction > span {
+  border-radius: 999px;
+  background: var(--type-accent);
+  color: #06120f;
+  padding: 7px 11px;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.invVoteInstruction > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.invVoteInstruction strong {
+  color: var(--inv-ink);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invVoteInstruction .invZhLine {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 18px;
+  line-height: 1.08;
+}
+
+.invVoteRows {
+  display: grid;
+  border-block: 1px solid rgba(152, 184, 188, 0.24);
+  background: rgba(7, 16, 19, 0.52);
+}
+
+.invVoteRow {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 160px;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(152, 184, 188, 0.2);
+  background: linear-gradient(90deg, rgba(57, 217, 145, 0.035), transparent 44%);
+}
+
+.invVoteRow:last-child {
+  border-bottom: 0;
+}
+
+.invVoteNumber {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(57, 217, 145, 0.42);
+  border-radius: 50%;
+  color: var(--type-accent);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.invVoteStatement {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.invVoteStatement strong {
+  color: var(--inv-ink);
+  font-family: var(--inv-text);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invVoteStatement .invZhLine {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 19px;
+  line-height: 1.12;
+}
+
+.invVoteChoices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.invVoteChoice {
+  appearance: none;
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  place-items: center;
+  min-height: 58px;
+  border: 1px solid rgba(152, 184, 188, 0.34);
+  border-radius: 999px;
+  background: rgba(11, 25, 29, 0.72);
+  color: rgba(219, 242, 244, 0.86);
+  font-family: var(--inv-text);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 5px 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.invVoteChoice:hover {
+  border-color: rgba(57, 217, 145, 0.7);
+  background: rgba(57, 217, 145, 0.12);
+  color: var(--inv-ink);
+  transform: translateY(-1px);
+}
+
+.invVoteChoice:focus-visible {
+  outline: 3px solid rgba(79, 210, 255, 0.78);
+  outline-offset: 2px;
+}
+
+.invVoteChoice.is-selected {
+  border-color: rgba(135, 174, 252, 0.76);
+  background: rgba(135, 174, 252, 0.18);
+}
+
+.invVoteChoice.is-correct {
+  border-color: rgba(57, 217, 145, 0.76);
+  background: rgba(57, 217, 145, 0.16);
+}
+
+.invVoteChoice.is-wrong {
+  border-color: rgba(238, 108, 101, 0.82);
+  background: rgba(238, 108, 101, 0.17);
+}
+
+.invVoteChoices small {
+  color: var(--inv-muted);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.invVoteAnswer.invReveal:not(.is-revealed) {
+  display: none;
+}
+
+.invVoteAnswer,
+.invVoteAnswer.invReveal.is-revealed {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  border-left: 3px solid var(--type-accent-line);
+  background: rgba(57, 217, 145, 0.06);
+  padding: 10px 12px;
+}
+
+.invVoteRow:has(.invVoteAnswer.is-revealed) {
+  grid-template-columns: 48px minmax(0, 0.9fr) minmax(390px, 1.1fr);
+}
+
+.invVoteRow:has(.invVoteAnswer.is-revealed) .invVoteChoices {
+  display: none;
+}
+
+.invVoteRow.is-correct .invVoteAnswer {
+  border-left-color: rgba(57, 217, 145, 0.88);
+  background: rgba(57, 217, 145, 0.11);
+}
+
+.invVoteRow.is-wrong .invVoteAnswer {
+  border-left-color: rgba(238, 108, 101, 0.9);
+  background: rgba(238, 108, 101, 0.1);
+}
+
+.invVoteVerdict {
+  display: grid;
+  gap: 3px;
+  place-items: center;
+  min-height: 52px;
+  border-radius: 8px;
+  background: rgba(57, 217, 145, 0.18);
+  color: var(--inv-green);
+  font-size: 14px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.invVoteVerdict.is-no {
+  background: rgba(241, 190, 90, 0.18);
+  color: var(--inv-amber);
+}
+
+.invVoteVerdict small {
+  color: rgba(219, 242, 244, 0.9);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.invVoteReason {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.invVoteReason p {
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: 19px;
+  font-weight: 550;
+  line-height: 1.08;
+}
+
+.invVoteReason .invZhLine {
+  color: var(--inv-muted);
+  font-size: 15px;
+  line-height: 1.08;
+}
+
+.invVoteBoard.is-dense {
+  gap: 8px;
+}
+
+.invVoteBoard.is-dense .invVoteRow {
+  grid-template-columns: 38px minmax(0, 1fr) 136px;
+  gap: 10px;
+  padding: 9px 12px;
+}
+
+.invVoteBoard.is-dense .invVoteRow:has(.invVoteAnswer.is-revealed) {
+  grid-template-columns: 38px minmax(0, 0.9fr) minmax(320px, 1.1fr);
+}
+
+.invVoteBoard.is-dense .invVoteNumber {
+  width: 34px;
+  height: 34px;
+  font-size: 11px;
+}
+
+.invVoteBoard.is-dense .invVoteStatement strong {
+  font-size: 20px;
+}
+
+.invVoteBoard.is-dense .invVoteStatement .invZhLine {
+  font-size: 15px;
+}
+
+.invVoteBoard.is-dense .invVoteChoice {
+  min-height: 44px;
+  font-size: 12px;
+}
+
+.invVoteBoard.is-dense .invVoteAnswer {
+  grid-template-columns: 52px minmax(0, 1fr);
+  padding: 7px 9px;
+}
+
+.invVoteBoard.is-dense .invVoteVerdict {
+  min-height: 42px;
+  font-size: 12px;
+}
+
+.invVoteBoard.is-dense .invVoteReason p {
+  font-size: 15px;
+}
+
+.invVoteBoard.is-dense .invVoteReason .invZhLine {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .invYesNoCheckSlide .invSlideBody {
+    padding-top: 5px;
+  }
+
+  .invVoteBoard,
+  .invVoteBoard.is-dense {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .invVoteInstruction {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px;
+    padding: 6px 8px;
+  }
+
+  .invVoteInstruction > span {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+
+  .invVoteInstruction strong {
+    font-size: 16px;
+    line-height: 1.04;
+  }
+
+  .invVoteInstruction .invZhLine {
+    font-size: 12px;
+    line-height: 1.06;
+  }
+
+  .invVoteRow,
+  .invVoteBoard.is-dense .invVoteRow {
+    grid-template-columns: 26px minmax(0, 1fr) 84px;
+    gap: 6px;
+    padding: 7px 6px;
+  }
+
+  .invVoteRow:has(.invVoteAnswer.is-revealed),
+  .invVoteBoard.is-dense .invVoteRow:has(.invVoteAnswer.is-revealed) {
+    grid-template-columns: 26px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .invVoteNumber,
+  .invVoteBoard.is-dense .invVoteNumber {
+    width: 24px;
+    height: 24px;
+    font-size: 9px;
+  }
+
+  .invVoteStatement,
+  .invVoteBoard.is-dense .invVoteStatement {
+    gap: 3px;
+  }
+
+  .invVoteStatement strong,
+  .invVoteBoard.is-dense .invVoteStatement strong {
+    font-size: 15.5px;
+    line-height: 1.06;
+  }
+
+  .invVoteStatement .invZhLine,
+  .invVoteBoard.is-dense .invVoteStatement .invZhLine {
+    font-size: 11.5px;
+    line-height: 1.08;
+  }
+
+  .invVoteChoices {
+    gap: 4px;
+  }
+
+  .invVoteChoice,
+  .invVoteBoard.is-dense .invVoteChoice {
+    min-height: 36px;
+    font-size: 10px;
+  }
+
+  .invVoteChoices small {
+    font-size: 8px;
+  }
+
+  .invVoteAnswer,
+  .invVoteAnswer.invReveal.is-revealed,
+  .invVoteBoard.is-dense .invVoteAnswer {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px;
+    padding: 5px 6px;
+  }
+
+  .invVoteVerdict,
+  .invVoteBoard.is-dense .invVoteVerdict {
+    min-height: 34px;
+    font-size: 9px;
+  }
+
+  .invVoteVerdict small {
+    font-size: 8px;
+  }
+
+  .invVoteReason p,
+  .invVoteBoard.is-dense .invVoteReason p {
+    font-size: 12.5px;
+    line-height: 1.06;
+  }
+
+  .invVoteReason .invZhLine,
+  .invVoteBoard.is-dense .invVoteReason .invZhLine {
+    display: none;
+  }
+}
+
+/* Ranking tasks use one ordered decision ladder, not slots plus a card grid. */
+.invRankingTaskSlide .invSlideBody {
+  align-content: start;
+  padding-top: 4px;
+}
+
+.invPriorityTask {
+  width: min(1320px, 100%);
+  display: grid;
+  gap: 10px;
+  margin-inline: auto;
+}
+
+.invPriorityPrompt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border-block: 1px solid rgba(241, 190, 90, 0.3);
+  background: linear-gradient(90deg, rgba(241, 190, 90, 0.11), rgba(8, 19, 23, 0.34) 72%);
+  padding: 9px 14px;
+}
+
+.invPriorityPrompt > span {
+  border-radius: 999px;
+  background: var(--inv-amber);
+  color: #171006;
+  padding: 7px 11px;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.invPriorityPrompt > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.invPriorityPrompt strong {
+  color: var(--inv-ink);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invPriorityPrompt .invZhLine {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 18px;
+  line-height: 1.08;
+}
+
+.invPriorityAttempt {
+  display: grid;
+  border-block: 1px solid rgba(152, 184, 188, 0.24);
+  background: rgba(7, 16, 19, 0.54);
+}
+
+.invPriorityScale {
+  display: grid;
+  grid-template-columns: minmax(170px, auto) minmax(160px, 1fr) minmax(170px, auto);
+  gap: 14px;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(152, 184, 188, 0.2);
+  background: rgba(241, 190, 90, 0.045);
+}
+
+.invPriorityEndpoint {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.invPriorityEndpoint.is-last {
+  direction: rtl;
+  text-align: right;
+}
+
+.invPriorityEndpoint > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(241, 190, 90, 0.16);
+  color: var(--inv-amber);
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.invPriorityEndpoint.is-last > span {
+  background: rgba(238, 108, 101, 0.16);
+  color: var(--inv-red);
+}
+
+.invPriorityEndpoint > div {
+  display: grid;
+  gap: 2px;
+  direction: ltr;
+}
+
+.invPriorityEndpoint strong {
+  color: var(--inv-ink);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.04;
+}
+
+.invPriorityEndpoint small {
+  color: var(--inv-muted);
+  font-size: 14px;
+  line-height: 1.05;
+}
+
+.invPriorityScaleLine {
+  display: grid;
+  gap: 4px;
+  place-items: center;
+}
+
+.invPriorityScaleLine > span {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--inv-amber), rgba(241, 190, 90, 0.35) 50%, var(--inv-red));
+}
+
+.invPriorityScaleNote {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 14px;
+  line-height: 1.06;
+  text-align: center;
+}
+
+.invPriorityScaleNote small {
+  font-size: 12px;
+}
+
+.invPriorityOptions {
+  display: grid;
+}
+
+.invPriorityOption {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 72px;
+  gap: 12px;
+  align-items: center;
+  min-height: 68px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(152, 184, 188, 0.2);
+  background: linear-gradient(90deg, rgba(241, 190, 90, 0.025), transparent 48%);
+}
+
+.invPriorityOption.has-visual {
+  grid-template-columns: 42px 58px minmax(0, 1fr) 72px;
+}
+
+.invPriorityOption:last-child {
+  border-bottom: 0;
+}
+
+.invPriorityOptionLabel {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(79, 210, 255, 0.13);
+  color: var(--inv-cyan);
+  font-size: 17px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.invPriorityVisual {
+  width: 54px;
+  height: 54px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.invPriorityVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.invPriorityVisual figcaption {
+  display: none;
+}
+
+.invPriorityOptionText {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.invPriorityOptionText strong {
+  color: var(--inv-ink);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.06;
+}
+
+.invPriorityOptionText p {
+  margin: 0;
+  color: var(--inv-muted);
+  font-size: 16px;
+  line-height: 1.08;
+}
+
+.invPriorityOptionText .invZhLine {
+  font-size: 18px;
+}
+
+.invPriorityOptionText p .invZhLine {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.invPriorityRankBlank {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 6px;
+  place-content: center;
+  align-items: center;
+  min-height: 44px;
+  border: 1px dashed rgba(241, 190, 90, 0.48);
+  border-radius: 999px;
+  background: rgba(241, 190, 90, 0.055);
+  color: var(--inv-amber);
+}
+
+.invPriorityRankBlank strong {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.invPriorityRankBlank small {
+  color: var(--inv-muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.invPriorityModel.invReveal:not(.is-revealed) {
+  display: none;
+}
+
+.invPriorityModel,
+.invPriorityModel.invReveal.is-revealed {
+  display: grid;
+  border-block: 1px solid rgba(57, 217, 145, 0.3);
+  background: rgba(7, 20, 17, 0.62);
+}
+
+.invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityAttempt {
+  display: none;
+}
+
+.invPriorityTask:has(.invPriorityModel.is-revealed) {
+  gap: 8px;
+}
+
+.invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt {
+  padding-block: 7px;
+}
+
+.invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt strong {
+  font-size: 22px;
+}
+
+.invPriorityModelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(57, 217, 145, 0.22);
+}
+
+.invPriorityModelHead strong {
+  color: var(--inv-green);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.05;
+}
+
+.invPriorityModelHead span {
+  color: var(--inv-muted);
+  font-size: 17px;
+  line-height: 1.08;
+}
+
+.invPriorityModelRows {
+  display: grid;
+}
+
+.invPriorityModelRow {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 42px minmax(250px, 0.9fr) minmax(0, 1.1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(152, 184, 188, 0.18);
+}
+
+.invPriorityModelRow:last-child {
+  border-bottom: 0;
+}
+
+.invPriorityModelRank {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(57, 217, 145, 0.16);
+  color: var(--inv-green);
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.invPriorityModelQuestion {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.invPriorityModelQuestion > span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: rgba(79, 210, 255, 0.13);
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.invPriorityModelQuestion strong {
+  color: var(--inv-ink);
+  font-size: 21px;
+  font-weight: 650;
+  line-height: 1.05;
+}
+
+.invPriorityModelQuestion .invZhLine {
+  margin: 3px 0 0;
+  color: var(--inv-muted);
+  font-size: 15px;
+  line-height: 1.07;
+}
+
+.invPriorityModelReason {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  border-left: 3px solid rgba(57, 217, 145, 0.46);
+  background: rgba(57, 217, 145, 0.045);
+  padding: 7px 10px;
+}
+
+.invPriorityModelReason p {
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.08;
+}
+
+.invPriorityModelReason .invZhLine {
+  color: var(--inv-muted);
+  font-size: 14px;
+}
+
+.invPriorityChecks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px 14px 10px;
+  border-top: 1px solid rgba(57, 217, 145, 0.2);
+}
+
+.invPriorityChecks > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  padding: 7px 9px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.invPriorityChecks strong {
+  color: var(--inv-ink);
+  font-size: 15px;
+  line-height: 1.08;
+}
+
+.invPriorityChecks span {
+  color: var(--inv-muted);
+  font-size: 13px;
+  line-height: 1.08;
+}
+
+@media (max-width: 900px) {
+  .invRankingTaskSlide .invSlideHeader {
+    gap: 8px;
+  }
+
+  .invRankingTaskSlide .invTitleBlock h1 {
+    font-size: 32px;
+    line-height: 1.03;
+  }
+
+  .invRankingTaskSlide .invSlideHeader .invZhTitle,
+  .invRankingTaskSlide .sourceList {
+    display: none;
+  }
+
+  .invRankingTaskSlide .invSlideBody {
+    padding-top: 3px;
+  }
+
+  .invPriorityTask {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .invPriorityPrompt {
+    gap: 7px;
+    padding: 6px 8px;
+  }
+
+  .invPriorityPrompt > span {
+    padding: 5px 7px;
+    font-size: 8.5px;
+  }
+
+  .invPriorityPrompt strong,
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt strong {
+    font-size: 15px;
+    line-height: 1.04;
+  }
+
+  .invPriorityPrompt .invZhLine {
+    font-size: 11px;
+    line-height: 1.06;
+  }
+
+  .invPriorityScale {
+    grid-template-columns: minmax(86px, auto) minmax(36px, 1fr) minmax(86px, auto);
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .invPriorityEndpoint {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .invPriorityEndpoint > span {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+
+  .invPriorityEndpoint strong {
+    font-size: 12px;
+  }
+
+  .invPriorityEndpoint small {
+    font-size: 9px;
+  }
+
+  .invPriorityScaleLine {
+    gap: 2px;
+  }
+
+  .invPriorityScaleLine > span {
+    height: 2px;
+  }
+
+  .invPriorityScaleNote {
+    font-size: 8.5px;
+  }
+
+  .invPriorityScaleNote small {
+    display: none;
+  }
+
+  .invPriorityOption,
+  .invPriorityOption.has-visual {
+    grid-template-columns: 24px minmax(0, 1fr) 48px;
+    gap: 6px;
+    min-height: 0;
+    padding: 7px 6px;
+  }
+
+  .invPriorityOptionLabel {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+
+  .invPriorityVisual {
+    display: none;
+  }
+
+  .invPriorityOptionText strong {
+    font-size: 15.5px;
+    line-height: 1.05;
+  }
+
+  .invPriorityOptionText p {
+    font-size: 10px;
+  }
+
+  .invPriorityOptionText .invZhLine {
+    font-size: 11.5px;
+    line-height: 1.06;
+  }
+
+  .invPriorityRankBlank {
+    gap: 3px;
+    min-height: 32px;
+  }
+
+  .invPriorityRankBlank strong {
+    font-size: 15px;
+  }
+
+  .invPriorityRankBlank small {
+    font-size: 8px;
+  }
+
+  .invPriorityTask:has(.invPriorityModel.is-revealed) {
+    gap: 4px;
+  }
+
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt {
+    padding-block: 5px;
+  }
+
+  .invPriorityModelHead {
+    gap: 4px 8px;
+    padding: 6px 8px;
+  }
+
+  .invPriorityModelHead strong {
+    font-size: 16px;
+  }
+
+  .invPriorityModelHead span {
+    font-size: 11px;
+  }
+
+  .invPriorityModelRow {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 4px 6px;
+    align-items: start;
+    padding: 5px 6px;
+  }
+
+  .invPriorityModelRank {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .invPriorityModelQuestion {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .invPriorityModelQuestion > span {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    font-size: 8px;
+  }
+
+  .invPriorityModelQuestion strong {
+    font-size: 13px;
+    line-height: 1.04;
+  }
+
+  .invPriorityModelQuestion .invZhLine {
+    display: none;
+  }
+
+  .invPriorityModelReason {
+    grid-column: 2;
+    gap: 0;
+    padding: 4px 6px;
+  }
+
+  .invPriorityModelReason p {
+    font-size: 11px;
+    line-height: 1.04;
+  }
+
+  .invPriorityModelReason .invZhLine {
+    display: none;
+  }
+
+  .invPriorityChecks {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 4px 6px 6px;
+  }
+
+  .invPriorityChecks > div {
+    padding: 4px 6px;
+  }
+
+  .invPriorityChecks strong {
+    font-size: 10.5px;
+    line-height: 1.04;
+  }
+
+  .invPriorityChecks span {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt {
+    padding: 5px 10px;
+  }
+
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt > span {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt strong {
+    font-size: 19px;
+    line-height: 1.03;
+  }
+
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityPrompt .invZhLine,
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityModelQuestion .invZhLine,
+  .invPriorityTask:has(.invPriorityModel.is-revealed) .invPriorityModelReason .invZhLine {
+    display: none;
+  }
+
+  .invPriorityModelHead {
+    padding: 6px 10px;
+  }
+
+  .invPriorityModelHead strong {
+    font-size: 20px;
+  }
+
+  .invPriorityModelHead span {
+    font-size: 14px;
+  }
+
+  .invPriorityModelRow {
+    padding: 6px 10px;
+  }
+
+  .invPriorityModelQuestion strong {
+    font-size: 18px;
+  }
+
+  .invPriorityModelReason {
+    padding: 5px 8px;
+  }
+
+  .invPriorityModelReason p {
+    font-size: 15px;
+    line-height: 1.05;
   }
 }

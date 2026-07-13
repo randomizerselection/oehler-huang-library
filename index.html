@@ -8,471 +8,11 @@
   <title>Oehler-Huang Library</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/theme.css" />
-  <style>
-    :root {
-      --page-max: 1120px;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-y: auto;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .site {
-      width: min(var(--page-max), calc(100% - 44px));
-      margin: 0 auto;
-      padding: 22px 0 46px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: end;
-      min-height: min(520px, calc(100svh - 128px));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 8px;
-      background:
-        linear-gradient(90deg, rgba(7,17,31,.96), rgba(7,17,31,.78) 48%, rgba(7,17,31,.42)),
-        linear-gradient(0deg, rgba(7,17,31,.9), rgba(7,17,31,.16) 58%),
-        url("assets/images/investment-analysis/finance-chart-whiteboard-2021.jpg") center 48% / cover;
-      padding: clamp(24px, 5vw, 54px);
-      box-shadow: 0 24px 70px rgba(0,0,0,.32);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      grid-column: 1;
-      grid-row: 1;
-      margin-bottom: .7rem;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .hero h1 {
-      position: relative;
-      z-index: 1;
-      grid-column: 1;
-      grid-row: 2;
-      max-width: 16ch;
-      margin: 0;
-      font-size: 62px;
-      font-weight: 900;
-      line-height: 1.04;
-      letter-spacing: 0;
-      text-wrap: balance;
-    }
-
-    .hero h1 span {
-      display: block;
-      background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      position: relative;
-      z-index: 1;
-      grid-column: 1;
-      grid-row: 3;
-      max-width: 46rem;
-      margin: 1.15rem 0 0;
-      color: var(--ink);
-      font-size: 25px;
-      line-height: 1.3;
-    }
-
-    .author-line {
-      position: relative;
-      z-index: 1;
-      grid-column: 2;
-      grid-row: 3 / 5;
-      display: grid;
-      grid-template-columns: 58px minmax(0, 1fr);
-      gap: .35rem .85rem;
-      align-items: center;
-      max-width: 46rem;
-      margin-top: 1.5rem;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.45;
-    }
-
-    .hero-metrics {
-      position: relative;
-      z-index: 1;
-      grid-column: 1;
-      grid-row: 4;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(104px, 1fr));
-      gap: 10px;
-      min-width: min(100%, 420px);
-    }
-
-    .hero-metric {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 8px;
-      background: rgba(6,14,24,.58);
-      padding: 12px;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-metric strong,
-    .hero-metric span {
-      display: block;
-    }
-
-    .hero-metric strong {
-      color: var(--ink);
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    .hero-metric span {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      line-height: 1.25;
-      text-transform: uppercase;
-    }
-
-    .author-avatar {
-      grid-row: 1 / 3;
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .section {
-      margin-top: 28px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 16px;
-    }
-
-    .section-kicker {
-      margin-bottom: .45rem;
-      color: var(--cyan);
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .section h2 {
-      margin: 0;
-      color: var(--ink);
-      font-size: 42px;
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-
-    .section-intro {
-      max-width: 31rem;
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .course-entry-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .course-entry-card {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      align-content: start;
-      gap: 14px;
-      min-width: 0;
-      min-height: 330px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 8px;
-      background:
-        linear-gradient(145deg, rgba(86,216,255,.08), rgba(255,255,255,.03) 48%, rgba(255,209,102,.055)),
-        rgba(7,17,31,.54);
-      padding: clamp(20px, 3vw, 28px);
-      box-shadow: 0 16px 36px rgba(0,0,0,.2);
-      transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-    }
-
-    .course-entry-card:hover,
-    .course-entry-card:focus-within {
-      transform: translateY(-2px);
-      border-color: rgba(86,216,255,.34);
-      background:
-        linear-gradient(145deg, rgba(86,216,255,.11), rgba(255,255,255,.04) 48%, rgba(255,209,102,.07)),
-        rgba(7,17,31,.62);
-    }
-
-    .course-entry-media {
-      position: relative;
-      height: 118px;
-      margin: calc(-1 * clamp(20px, 3vw, 28px)) calc(-1 * clamp(20px, 3vw, 28px)) 4px;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      background: #0b1725;
-    }
-
-    .course-entry-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .78;
-      transition: transform .28s var(--ease), opacity .28s var(--ease);
-    }
-
-    .course-entry-card:hover .course-entry-media img,
-    .course-entry-card:focus-within .course-entry-media img {
-      opacity: .9;
-      transform: scale(1.035);
-    }
-
-    .course-entry-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7,17,31,0), rgba(7,17,31,.58));
-    }
-
-    .course-entry-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyan), var(--green), var(--gold));
-      opacity: .85;
-    }
-
-    .course-entry-card h3 {
-      margin: 0;
-      color: var(--ink);
-      font-size: 34px;
-      line-height: 1.08;
-      letter-spacing: 0;
-      text-wrap: balance;
-    }
-
-    .course-entry-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .course-title-zh {
-      color: var(--ink-dim);
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    .course-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 2px 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .course-tags li {
-      border: 1px solid rgba(86,216,255,.24);
-      border-radius: 999px;
-      background: rgba(86,216,255,.08);
-      color: var(--ink-dim);
-      padding: .32rem .55rem;
-      font-size: 12px;
-      font-weight: 850;
-    }
-
-    .course-actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .course-link {
-      display: inline-flex;
-      min-height: 42px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 8px;
-      background: rgba(255,255,255,.045);
-      color: var(--ink);
-      padding: 9px 12px;
-      font-size: .88rem;
-      font-weight: 850;
-      line-height: 1.12;
-      text-align: center;
-      text-decoration: none;
-      transition: border-color .18s var(--ease), background .18s var(--ease), transform .18s var(--ease);
-    }
-
-    .course-link:hover,
-    .course-link:focus-visible {
-      border-color: rgba(86,216,255,.55);
-      background: rgba(86,216,255,.12);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .course-link.primary {
-      background: var(--green);
-      border-color: rgba(126,240,181,.68);
-      color: #06131b;
-    }
-
-    .course-link.primary:hover,
-    .course-link.primary:focus-visible {
-      background: #9cf7c9;
-      border-color: rgba(156,247,201,.82);
-      color: #06131b;
-    }
-
-    .support-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .support-links .course-link {
-      min-width: 190px;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border-top: 1px solid var(--line);
-      margin-top: 34px;
-      padding-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    @media (max-width: 760px) {
-      .site {
-        width: min(100% - 28px, var(--page-max));
-        padding-top: 14px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        min-height: 0;
-        padding: 22px;
-      }
-
-      .eyebrow,
-      .hero h1,
-      .lead,
-      .author-line,
-      .hero-metrics {
-        grid-column: 1;
-        grid-row: auto;
-      }
-
-      .hero h1 {
-        font-size: 46px;
-      }
-
-      .lead {
-        font-size: 20px;
-      }
-
-      .hero-metrics {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        min-width: 0;
-      }
-
-      .hero-metric {
-        padding: 10px 8px;
-      }
-
-      .hero-metric strong {
-        font-size: 23px;
-      }
-
-      .hero-metric span {
-        font-size: 10px;
-      }
-
-      .section h2 {
-        font-size: 34px;
-      }
-
-      .section-head,
-      .course-entry-grid,
-      .footer {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .course-entry-card {
-        min-height: 0;
-      }
-
-      .course-entry-media {
-        height: 116px;
-      }
-
-      .course-entry-card h3 {
-        font-size: 30px;
-      }
-    }
-  </style>
   <link rel="stylesheet" href="assets/css/landing.css" />
+  <link rel="stylesheet" href="assets/css/library-home.css" />
   <script src="assets/js/baidu-analytics.js"></script>
 </head>
-<body class="bg-ambient library-home landing-page simplified-landing">
+<body class="bg-ambient library-home landing-page">
   <form name="quiz-submissions" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="quiz-submissions" />
     <input type="hidden" name="attemptId" />
@@ -506,11 +46,26 @@
     </nav>
 
     <header class="hero">
-      <div class="eyebrow">Course directory</div>
-      <h1>Oehler-Huang Library</h1>
-      <p class="lead">
-        Course materials for Cambridge IGCSE Economics (0455) and the Grade 9 Investment and Financial Decision-Making course.
-      </p>
+      <div class="hero-copy">
+        <div class="eyebrow">Independent classroom resources</div>
+        <h1>Oehler-Huang <span>Library</span></h1>
+        <p class="lead">
+          Two connected courses for understanding economies and making evidence-based financial decisions.
+        </p>
+      </div>
+      <aside class="hero-guide" aria-label="Choose a course by learning goal">
+        <span class="hero-guide-label">Choose by learning goal</span>
+        <a class="hero-guide-link economics-guide" href="economics/index.html">
+          <span class="hero-guide-mark" aria-hidden="true">E</span>
+          <span><strong>Understand economies</strong><small>Cambridge IGCSE Economics (0455)</small></span>
+          <span class="hero-guide-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="hero-guide-link investment-guide" href="investment-analysis/index.html">
+          <span class="hero-guide-mark" aria-hidden="true">I</span>
+          <span><strong>Evaluate financial decisions</strong><small>Investment &amp; Finance</small></span>
+          <span class="hero-guide-arrow" aria-hidden="true">→</span>
+        </a>
+      </aside>
     </header>
 
     <section class="section" aria-labelledby="course-entry-title">
@@ -524,31 +79,55 @@
 
       <div class="course-entry-grid" aria-label="Course entry points">
         <article class="course-entry-card economics-entry">
-          <div class="section-kicker">Exam course</div>
-          <h3>Cambridge IGCSE Economics (0455)</h3>
-          <p class="course-title-zh" lang="zh-Hans">IGCSE经济学课程</p>
-          <p>Syllabus-led lessons, quizzes, flashcards, handouts and revision materials for Cambridge IGCSE Economics.</p>
-          <div class="course-actions">
-            <a class="course-link primary" href="economics/index.html">Economics course</a>
-            <a class="course-link" href="definitions.html">Key definitions / 核心定义</a>
+          <div class="course-entry-media">
+            <img src="assets/images/monetary-policy/visual-pause-shipping-containers-port.jpg" alt="Containers and cranes at a busy international port." />
+            <span class="course-type">Exam course</span>
+          </div>
+          <div class="course-entry-content">
+            <div class="course-heading">
+              <h3>Cambridge IGCSE Economics (0455)</h3>
+              <p class="course-title-zh" lang="zh-Hans">IGCSE经济学课程</p>
+            </div>
+            <p>Syllabus-led lessons, quizzes, flashcards, handouts and revision materials for Cambridge IGCSE Economics.</p>
+            <ul class="course-tags" aria-label="Economics course features">
+              <li>Core concepts</li>
+              <li>Exam practice</li>
+              <li>Revision</li>
+            </ul>
+            <div class="course-actions">
+              <a class="course-link primary" href="economics/index.html">Economics course <span class="course-arrow" aria-hidden="true">→</span></a>
+              <a class="course-link" href="definitions.html">Key definitions / 核心定义</a>
+            </div>
           </div>
         </article>
 
         <article class="course-entry-card investment-entry">
-          <div class="section-kicker">Investment course</div>
-          <h3>Investment and Financial Decision-Making</h3>
-          <p class="course-title-zh" lang="zh-Hans">投资与财务决策</p>
-          <p>A Grade 9 course connecting family investment goals with products, markets, company analysis, portfolios and finance-career foundations.</p>
-          <div class="course-actions">
-            <a class="course-link primary" href="investment-analysis/index.html">Investment &amp; Finance course</a>
-            <a class="course-link" href="investment-analysis/syllabus.html">Syllabus</a>
+          <div class="course-entry-media">
+            <img src="assets/images/investment-analysis/business-charts-paper-2021.jpg" alt="A student reviews printed business charts and evidence." />
+            <span class="course-type">Grade 9 course</span>
+          </div>
+          <div class="course-entry-content">
+            <div class="course-heading">
+              <h3>Investment and Financial Decision-Making</h3>
+              <p class="course-title-zh" lang="zh-Hans">投资与财务决策</p>
+            </div>
+            <p>A Grade 9 course connecting family investment goals with products, markets, company analysis, portfolios and finance-career foundations.</p>
+            <ul class="course-tags" aria-label="Investment course features">
+              <li>Company analysis</li>
+              <li>Portfolios</li>
+              <li>Financial decisions</li>
+            </ul>
+            <div class="course-actions">
+              <a class="course-link primary" href="investment-analysis/index.html">Investment &amp; Finance course <span class="course-arrow" aria-hidden="true">→</span></a>
+              <a class="course-link" href="investment-analysis/syllabus.html">Syllabus</a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
     <footer class="footer">
-      <span>Samuel Oehler-Huang · Suzhou Foreign Language School</span>
+      <span>Samuel Oehler-Huang <span aria-hidden="true">·</span> Suzhou Foreign Language School</span>
       <span>Independent classroom resources; not endorsed by Cambridge International Education.</span>
     </footer>
   </main>

@@ -1068,24 +1068,26 @@
     const revealAnswers = slide.revealAnswers !== false;
     const compactClass = slide.compact ? ' invCompactCheckSlide' : '';
     const itemCount = (slide.items || []).length;
-    const densityClass = itemCount > 6 || slide.dense ? ' is-dense' : ' is-spacious';
+    const densityClass = itemCount > 4 || slide.dense ? ' is-dense' : ' is-spacious';
     const items = (slide.items || []).map((item, i) => {
       const normalized = normalizeNumberedItem(item, i);
       const answer = yesNoLabel(item?.answer);
+      const answerValue = item?.answer === true ? 'yes' : item?.answer === false ? 'no' : '';
       const answerClass = item?.answer === true ? ' is-yes' : item?.answer === false ? ' is-no' : '';
       return `
-        <article class="invYesNoItem">
-          <div class="invYesNoStatement">
-            <span class="invYesNoNumber">${String(i + 1).padStart(2, '0')}</span>
-            <div class="invYesNoPromptText">
-              <strong>${escapeHtml(normalized.text)}</strong>
-              ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
-            </div>
+        <article class="invVoteRow" data-answer="${answerValue}">
+          <span class="invVoteNumber" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+          <div class="invVoteStatement">
+            <strong>${escapeHtml(normalized.text)}</strong>
+            ${normalized.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.zh)}</p>` : ''}
           </div>
-          <div class="invYesNoVoteCue"><span>Yes</span><span>No</span></div>
-          <div class="invYesNoAnswer${revealAnswers ? ' invReveal' : ''}">
-            <span class="invYesNoBadge${answerClass}"><span>${escapeHtml(answer)}</span>${normalized.answerZh ? `<span lang="zh-Hans">${escapeHtml(normalized.answerZh)}</span>` : ''}</span>
-            <div class="invYesNoReason">
+          <div class="invVoteChoices" role="group" aria-label="Vote yes or no">
+            <button class="invVoteChoice" type="button" data-vote="yes" aria-pressed="false"><span>Yes</span><small lang="zh-Hans">是</small></button>
+            <button class="invVoteChoice" type="button" data-vote="no" aria-pressed="false"><span>No</span><small lang="zh-Hans">否</small></button>
+          </div>
+          <div class="invVoteAnswer${revealAnswers ? ' invReveal' : ' is-revealed'}" tabindex="-1" aria-live="polite">
+            <span class="invVoteVerdict${answerClass}"><span>${escapeHtml(answer)}</span>${normalized.answerZh ? `<small lang="zh-Hans">${escapeHtml(normalized.answerZh)}</small>` : ''}</span>
+            <div class="invVoteReason">
               ${normalized.reason ? `<p>${escapeHtml(normalized.reason)}</p>` : ''}
               ${normalized.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(normalized.reasonZh)}</p>` : ''}
             </div>
@@ -1093,9 +1095,9 @@
         </article>`;
     }).join('');
     const body = `
-      <div class="invYesNoCheck${slide.compact ? ' is-compact' : ''}${densityClass}" style="--yesno-count:${itemCount}">
-        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
-        <div class="invYesNoItems">${items}</div>
+      <div class="invVoteBoard${slide.compact ? ' is-compact' : ''}${densityClass}" style="--vote-count:${itemCount}">
+        ${slide.prompt ? `<div class="invVoteInstruction"><span>Vote first</span><div><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}</div></div>` : ''}
+        <div class="invVoteRows">${items}</div>
       </div>`;
     return slideShell(slide, index, lesson, body, `invYesNoCheckSlide${compactClass} invContextPhotoSlide`, photo);
   }
@@ -1180,59 +1182,67 @@
     const items = rawItems.map(normalizeRankingItem);
     const modelOrder = (slide.modelOrder || slide.answerOrder || []).map(normalizeRankingItem);
     const orderedItems = modelOrder.length ? modelOrder : items;
-    const promptText = slide.prompt || slide.task || 'Rank the cards from lower risk to higher risk.';
+    const promptText = slide.prompt || slide.task || 'Assign each option a rank, then defend the order.';
     const promptZh = slide.promptZh || slide.taskZh || '';
-    const slots = Array.from({ length: itemCount }, (_slot, i) => `
-      <div class="invRankingSlot">
-        <span>${String(i + 1).padStart(2, '0')}</span>
-      </div>`).join('');
-    const itemCards = items.map((item) => `
-      <article class="invRankingCard">
-        <span>${escapeHtml(item.label)}</span>
-        ${keywordVisualMarkup(item.visual, item.visualLabel || item.text, item.visualLabelZh || item.zh, 'invRankingVisual')}
-        <div>
+    const itemRows = items.map((item) => `
+      <article class="invPriorityOption${item.visual ? ' has-visual' : ''}">
+        <span class="invPriorityOptionLabel">${escapeHtml(item.label)}</span>
+        ${keywordVisualMarkup(item.visual, item.visualLabel || item.text, item.visualLabelZh || item.zh, 'invPriorityVisual')}
+        <div class="invPriorityOptionText">
           <strong>${escapeHtml(item.text)}</strong>
           ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}
+          ${item.cue ? `<p>${escapeHtml(item.cue)}${item.cueZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.cueZh)}</span>` : ''}</p>` : ''}
         </div>
+        <span class="invPriorityRankBlank" aria-label="Assign a rank from 1 to ${itemCount}"><strong>?</strong><small>1–${itemCount}</small></span>
       </article>`).join('');
     const answerRows = orderedItems.map((item, i) => `
-      <article class="invRankingOrderItem">
-        <span class="invRankingRank">${escapeHtml(item.rank || String(i + 1))}</span>
-        <div class="invRankingOrderAsset">
-          <strong>${escapeHtml(item.label ? `${item.label}. ${item.text}` : item.text)}</strong>
-          ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}
+      <article class="invPriorityModelRow">
+        <span class="invPriorityModelRank">${escapeHtml(item.rank || String(i + 1))}</span>
+        <div class="invPriorityModelQuestion">
+          ${item.label ? `<span>${escapeHtml(item.label)}</span>` : ''}
+          <div>
+            <strong>${escapeHtml(item.text)}</strong>
+            ${item.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</p>` : ''}
+          </div>
         </div>
-        ${item.reason || item.reasonZh ? `<p class="invRankingReason">${escapeHtml(item.reason || '')}${item.reasonZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.reasonZh)}</span>` : ''}</p>` : ''}
+        ${item.reason || item.reasonZh ? `<div class="invPriorityModelReason"><p>${escapeHtml(item.reason || '')}</p>${item.reasonZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(item.reasonZh)}</p>` : ''}</div>` : ''}
       </article>`).join('');
     const body = `
-      <div class="invRankingTask" style="--ranking-count:${itemCount}">
-        <div class="invFocusPrompt">
-          <strong>${escapeHtml(promptText)}</strong>
-          ${promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(promptZh)}</div>` : ''}
+      <div class="invPriorityTask" style="--priority-count:${itemCount}">
+        <div class="invPriorityPrompt">
+          <span>Set the order</span>
+          <div>
+            <strong>${escapeHtml(promptText)}</strong>
+            ${promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(promptZh)}</p>` : ''}
+          </div>
         </div>
-        <div class="invRankingBoard">
-          <div class="invRankingAxis">
-            <div>
-              <strong>${escapeHtml(lowLabel)}</strong>
-              ${lowLabelZh ? `<span lang="zh-Hans">${escapeHtml(lowLabelZh)}</span>` : ''}
+        <div class="invPriorityAttempt">
+          <div class="invPriorityScale">
+            <div class="invPriorityEndpoint is-first">
+              <span>1</span>
+              <div><strong>${escapeHtml(lowLabel)}</strong>${lowLabelZh ? `<small lang="zh-Hans">${escapeHtml(lowLabelZh)}</small>` : ''}</div>
             </div>
-            ${showAxisNote ? `<p>${escapeHtml(axisNote)}${axisNoteZh ? `<span lang="zh-Hans">${escapeHtml(axisNoteZh)}</span>` : ''}</p>` : ''}
-            <div>
-              <strong>${escapeHtml(highLabel)}</strong>
-              ${highLabelZh ? `<span lang="zh-Hans">${escapeHtml(highLabelZh)}</span>` : ''}
+            <div class="invPriorityScaleLine">
+              <span aria-hidden="true"></span>
+              ${showAxisNote ? `<p class="invPriorityScaleNote">${escapeHtml(axisNote)}${axisNoteZh ? `<small lang="zh-Hans">${escapeHtml(axisNoteZh)}</small>` : ''}</p>` : ''}
+            </div>
+            <div class="invPriorityEndpoint is-last">
+              <span>${itemCount}</span>
+              <div><strong>${escapeHtml(highLabel)}</strong>${highLabelZh ? `<small lang="zh-Hans">${escapeHtml(highLabelZh)}</small>` : ''}</div>
             </div>
           </div>
-          <div class="invRankingSlots">${slots}</div>
-          <div class="invRankingCards">${itemCards}</div>
+          <div class="invPriorityOptions">${itemRows}</div>
         </div>
-        <section class="invRankingAnswer invReveal">
-          <div class="invRankingAnswerHead">
-            <span class="invRankingAnswerTitle">${escapeHtml(slide.revealLabel || 'One defensible order')}</span>
-            ${slide.revealLabelZh ? `<span class="invRankingAnswerZh" lang="zh-Hans">${escapeHtml(slide.revealLabelZh)}</span>` : ''}
+        <section class="invPriorityModel invReveal">
+          <div class="invPriorityModelHead">
+            <strong>${escapeHtml(slide.revealLabel || 'One defensible order')}</strong>
+            ${slide.revealLabelZh ? `<span lang="zh-Hans">${escapeHtml(slide.revealLabelZh)}</span>` : ''}
           </div>
-          <div class="invRankingOrder">${answerRows}</div>
-          ${slide.caveat ? `<div class="invRankingCaveat"><strong>${escapeHtml(slide.caveat)}</strong>${slide.caveatZh ? `<span lang="zh-Hans">${escapeHtml(slide.caveatZh)}</span>` : ''}</div>` : ''}
-          ${slide.writtenCheck ? `<div class="invRankingWrittenCheck"><strong>${escapeHtml(slide.writtenCheck)}</strong>${slide.writtenCheckZh ? `<span lang="zh-Hans">${escapeHtml(slide.writtenCheckZh)}</span>` : ''}</div>` : ''}
+          <div class="invPriorityModelRows">${answerRows}</div>
+          ${slide.caveat || slide.writtenCheck ? `<div class="invPriorityChecks">
+            ${slide.caveat ? `<div><strong>${escapeHtml(slide.caveat)}</strong>${slide.caveatZh ? `<span lang="zh-Hans">${escapeHtml(slide.caveatZh)}</span>` : ''}</div>` : ''}
+            ${slide.writtenCheck ? `<div><strong>${escapeHtml(slide.writtenCheck)}</strong>${slide.writtenCheckZh ? `<span lang="zh-Hans">${escapeHtml(slide.writtenCheckZh)}</span>` : ''}</div>` : ''}
+          </div>` : ''}
         </section>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invRankingTaskSlide invContextPhotoSlide', photo);
@@ -1561,6 +1571,36 @@
         return;
       }
 
+      const voteChoice = event.target.closest('.invVoteChoice');
+      if (voteChoice) {
+        event.preventDefault();
+        event.stopPropagation();
+        const row = voteChoice.closest('.invVoteRow');
+        const correctVote = row?.dataset.answer;
+        const selectedVote = voteChoice.dataset.vote;
+        if (!row || !correctVote) return;
+
+        row.classList.remove('is-correct', 'is-wrong');
+        row.classList.add(selectedVote === correctVote ? 'is-correct' : 'is-wrong');
+        row.querySelectorAll('.invVoteChoice').forEach((button) => {
+          const isSelected = button === voteChoice;
+          const isCorrect = button.dataset.vote === correctVote;
+          button.classList.toggle('is-selected', isSelected);
+          button.classList.toggle('is-correct', isCorrect);
+          button.classList.toggle('is-wrong', isSelected && !isCorrect);
+          button.setAttribute('aria-pressed', String(isSelected));
+        });
+
+        const answer = row.querySelector('.invVoteAnswer');
+        if (answer) {
+          answer.classList.add('is-revealed');
+          answer.hidden = false;
+          answer.setAttribute('aria-label', `${selectedVote === correctVote ? 'Correct' : 'Incorrect'}. ${answer.textContent.trim()}`);
+          answer.focus({ preventScroll: true });
+        }
+        return;
+      }
+
       const choice = event.target.closest('.invChoice');
       if (!choice) return;
       event.stopPropagation();
@@ -1579,7 +1619,7 @@
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.target.closest('input, textarea, select')) return;
+      if (event.target.closest('input, textarea, select, button, a, [contenteditable="true"]')) return;
       if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') {
         event.preventDefault();
         advance();

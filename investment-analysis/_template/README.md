@@ -53,7 +53,7 @@ Teaching rhythm:
 - `discussion` slides must ask a real student-answerable question. Do not use them to display the answer as the opening prompt.
 - `discussion.revealTitle` must be a concise answer statement, such as `One share is one ownership unit`, not a vague label such as `Model answer`, `Course rule` or `Bridge`.
 - Hooks should normally begin with a concrete student decision or dilemma, not a chart by default. Use a chart as evidence after students know what question the evidence is meant to answer.
-- `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Do not add photos, prompt cards or manual roadmap lists.
+- `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Use a concise academic topic or question students can copy into notebooks, such as `Investment and return` or `What is investment?`. Name the knowledge in the section; do not use an activity instruction, slogan, transition or full teaching claim. Do not add photos, prompt cards or manual roadmap lists.
 - `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
 - `term` definitions should use `definitionBlanks` to blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined. Keep the English `definition` text canonical and unmarked so validators, handouts and recall checks read the same wording.
 - `term` slides should show the term, English definition and Chinese definition only; keep extra related terms out of the projected definition block.
@@ -61,8 +61,8 @@ Teaching rhythm:
 - Use `peerTask` with `taskType: "definitionRecall"` for opening recall from earlier Investment lessons, and `taskType: "missingSentence"` when students need to practise one missing link in an evidence-to-judgement explanation.
 - Use `compare` for a simple two-column T-table contrast. Use `comparisonMatrix` instead when students compare choices against three or four shared criteria.
 - Use `classificationTask` for classify-and-justify routines where the revealed reason matters. Use the older sort-style `peerTask` only when the physical sorting board is the main activity.
-- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Do not force these into the older sort-style `peerTask`. Set `axis.showNote: false` when the title and axis-end labels already define the order and an extra axis note would be redundant.
-- Use `yesNoCheck` for misconception votes and borderline judgements where students should commit to yes/no before the reason appears.
+- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Show three to five options in one vertical decision ladder with a blank rank beside each; reveal one defensible sequence and its reasons in the same reading direction. Do not use empty landing slots, a separate card grid or a horizontal phone carousel. Set `axis.showNote: false` when the end labels already define the order.
+- Use `yesNoCheck` for misconception votes and borderline judgements where students should commit to yes/no before the reason appears. Keep it to three or four short statements shown as one vertical voting board; students click Yes or No to score the choice and reveal that row's reason, while the normal reveal controls remain available for teacher-led voting. Split longer checks instead of recreating a card grid or phone carousel.
 - Do not use deprecated `marketBrief` slides in new decks. They add little teaching value; use `dataSnapshot` for compact figures, `sourceLens` for source validity, `quoteMap` for quote-page fields, or a normal `discussion` for retrieval.
 
 Syllabus alignment:
@@ -100,8 +100,8 @@ Visual rhythm:
 - Use `visualGrid` when students need to compare concrete examples through pictures, such as asset types. Keep labels short and make each image necessary for the classification or recall task.
 - Use `compare` when students need a clean two-column contrast with fill-in blanks, such as evidence-based analysis versus weak opinion.
 - Use `classificationTask` when students classify cases into taught categories and then reveal the reason.
-- Use `yesNoCheck` when a misconception can be tested as a yes/no vote before the explanation.
-- Use `rankingTask` when students must order choices on a low-to-high line and defend the sequence with evidence.
+- Use `yesNoCheck` when a misconception can be tested as a yes/no vote before the explanation. Each full-width row should be easy to scan; clicking a choice scores it and lets the verdict and reason replace the vote choices.
+- Use `rankingTask` when students must assign ranks to choices on a low-to-high line and defend the sequence with evidence. Keep the attempt and revealed model as single-column reading surfaces.
 - Use `sourceLens` when students must test whether a source can support a claim: source title, publisher, date, unit, scope and limitation.
 - Use `quoteMap` when students must read a quote page: company, code, exchange, price, date/time and source before making an opinion.
 - Use `comparisonMatrix` when students compare two or three choices against the same criteria such as evidence, possible return, risk and price paid.
