@@ -27,6 +27,7 @@
       output: "print handout",
       requiredFields: [
         "handoutContract",
+        "groundedScenario",
         "terms",
         "sourcePack",
         "decisionFirst",
@@ -83,6 +84,8 @@
     ],
     handout: [
       "Use exactly the six handout blocks in order.",
+        "Begin with a short grounded scenario that includes at least one real, dated, source-backed figure or statement and clearly labels every mock or anonymised detail.",
+        "Reuse the same scenario evidence in a projected lesson activity and the handout Evidence and Data Analysis task; state what the evidence cannot prove.",
         "Build the Evidence and Data Analysis block as a Section A-style worksheet: case information followed by structured questions.",
         "End the worksheet with the lesson investmentAction: consider, watch, avoid, compare with another choice or gather more evidence.",
         "Keep vocabulary, source metadata, evidence task, misconception check and individual output aligned to the deck.",
@@ -170,6 +173,7 @@
       currencyRule: map.currencyRule,
       writtenArtifactRule: map.writtenArtifactRule,
       definitionOverview: map.definitionOverview,
+      groundedScenarioContract: map.groundedScenarioContract,
       handoutContract: map.handoutContract,
       textbookAssembly: map.textbookAssembly,
       sourceFitAudit: map.sourceFitAudit,
@@ -194,6 +198,7 @@
       coreClaim: lesson.coreClaim,
       decisionFirst: lesson.decisionFirst,
       primaryOutput: lesson.primaryOutput,
+      groundedScenario: lesson.groundedScenario,
       caseReview: lesson.caseReview,
       analyseWhy: lesson.analyseWhy,
       investmentAction: lesson.investmentAction,
@@ -219,6 +224,7 @@
       retrievalPractice: lesson.retrievalPractice,
       analyseWhy: lesson.analyseWhy,
       worksheet: lesson.worksheet,
+      groundedScenario: lesson.groundedScenario,
       investmentAction: lesson.investmentAction,
     };
   }
@@ -283,6 +289,7 @@
       },
       evidenceContract: {
         evidenceTask: lesson.evidenceTask,
+        groundedScenario: lesson.groundedScenario,
         sourcePack: lesson.sourcePack,
         caseReview: lesson.caseReview,
         worksheet: lesson.worksheet,

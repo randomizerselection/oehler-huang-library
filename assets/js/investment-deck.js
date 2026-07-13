@@ -177,6 +177,25 @@
   }
 
   function renderHandoutBlock(block) {
+    if (block.type === 'scenario') {
+      const facts = (block.realData || []).map((item) => `
+        <div class="handoutFact">
+          <span>${escapeHtml(item.label || 'Source-backed evidence')}</span>
+          <strong>${escapeHtml(item.value || '')}</strong>
+          ${item.source ? `<em>${escapeHtml(item.source)}</em>` : ''}
+        </div>
+      `).join('');
+      return `
+        <div class="handoutScenario">
+          <h3>${escapeHtml(block.title || 'Grounded scenario')}</h3>
+          <p>${escapeHtml(block.context || '')}</p>
+          ${facts ? `<div class="handoutFactGrid">${facts}</div>` : ''}
+          ${block.fictionalElement ? `<p><strong>Mock or anonymised element:</strong> ${escapeHtml(block.fictionalElement)}</p>` : ''}
+          ${block.lessonUse ? `<p><strong>Use in this lesson:</strong> ${escapeHtml(block.lessonUse)}</p>` : ''}
+          ${block.limitation ? `<p><strong>Limitation:</strong> ${escapeHtml(block.limitation)}</p>` : ''}
+        </div>`;
+    }
+
     if (block.type === 'facts') {
       return `
         <div class="handoutFactGrid">
@@ -222,13 +241,17 @@
             <tr>${(block.columns || []).map((column) => `<th>${escapeHtml(column)}</th>`).join('')}</tr>
           </thead>
           <tbody>
-            ${(block.rows || []).map((row) => `
-              <tr>
-                <td><strong>${escapeHtml(row.metric)}</strong><br><span>${escapeHtml(row.value)}</span></td>
-                <td>${escapeHtml(row.shows || '')}${row.showsLines ? handoutLines(row.showsLines) : ''}</td>
-                <td>${escapeHtml(row.limits || '')}${row.limitLines ? handoutLines(row.limitLines) : ''}</td>
-              </tr>
-            `).join('')}
+            ${(block.rows || []).map((row) => {
+              if (Array.isArray(row)) {
+                return `<tr>${row.map((cell, index) => `<td>${index === 0 ? `<strong>${escapeHtml(cell)}</strong>` : escapeHtml(cell)}</td>`).join('')}</tr>`;
+              }
+              return `
+                <tr>
+                  <td><strong>${escapeHtml(row.metric)}</strong><br><span>${escapeHtml(row.value)}</span></td>
+                  <td>${escapeHtml(row.shows || '')}${row.showsLines ? handoutLines(row.showsLines) : ''}</td>
+                  <td>${escapeHtml(row.limits || '')}${row.limitLines ? handoutLines(row.limitLines) : ''}</td>
+                </tr>`;
+            }).join('')}
           </tbody>
         </table>`;
     }
@@ -864,6 +887,81 @@
     return slideShell(slide, index, lesson, body, 'invComparisonMatrixSlide invContextPhotoSlide', photo);
   }
 
+  function renderEvidenceSimulator(slide, index, lesson) {
+    const facts = (slide.facts || []).slice(0, 4);
+    const verdicts = (slide.verdicts || []).slice(0, 3);
+    const conclusion = slide.conclusion || {};
+    const factMarkup = facts.map((fact, factIndex) => `
+      <article class="invEvidenceFact" data-fact-index="${factIndex}" data-fact-label="${escapeHtml(fact.label || `Evidence ${factIndex + 1}`)}" aria-expanded="false">
+        <span class="invEvidenceFactNumber">${String(factIndex + 1).padStart(2, '0')}</span>
+        <div class="invEvidenceFactText">
+          <strong>${escapeHtml(fact.label || `Evidence ${factIndex + 1}`)}</strong>
+          ${fact.labelZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(fact.labelZh)}</span>` : ''}
+          <div class="invEvidenceFactValue" hidden>
+            <p>${escapeHtml(fact.value || '')}</p>
+            ${fact.valueZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(fact.valueZh)}</p>` : ''}
+          </div>
+        </div>
+        <span class="invEvidenceFactStatus">Hidden</span>
+      </article>`).join('');
+    const verdictMarkup = verdicts.map((verdict) => `
+      <button
+        class="invEvidenceVerdict"
+        type="button"
+        data-verdict="${escapeHtml(verdict.id || verdict.label || '')}"
+        data-verdict-label="${escapeHtml(verdict.label || '')}"
+        data-verdict-label-zh="${escapeHtml(verdict.labelZh || '')}"
+        data-tone="${escapeHtml(verdict.tone || 'neutral')}"
+        aria-pressed="false"
+      >
+        <strong>${escapeHtml(verdict.label || '')}</strong>
+        ${verdict.labelZh ? `<span lang="zh-Hans">${escapeHtml(verdict.labelZh)}</span>` : ''}
+      </button>`).join('');
+    const body = `
+      <div class="invEvidenceSimulator" data-stage="0" data-conclusion="false" data-fact-count="${facts.length}">
+        <div class="invEvidenceStarter">
+          <span>${escapeHtml(slide.promptLabel || 'Starting information')}</span>
+          <strong>${html(slide.prompt || '')}</strong>
+          ${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}
+        </div>
+        <div class="invEvidenceWorkspace">
+          <section class="invEvidenceBoard" aria-label="Evidence to reveal">
+            <div class="invEvidencePanelHead">
+              <strong>${escapeHtml(slide.evidenceLabel || 'Evidence to reveal')}</strong>
+              <span class="invEvidenceProgress">0 / ${facts.length} facts</span>
+            </div>
+            <div class="invEvidenceFacts">${factMarkup}</div>
+          </section>
+          <section class="invEvidenceDecision" aria-label="Class judgement">
+            <div class="invEvidencePanelHead">
+              <strong>${escapeHtml(slide.voteLabel || 'Class judgement')}</strong>
+              <span>Vote, reveal, vote again</span>
+            </div>
+            <div class="invEvidenceVerdicts">${verdictMarkup}</div>
+            <div class="invEvidenceCurrent" aria-live="polite">
+              <span>Current class vote</span>
+              <strong class="invEvidenceCurrentText">Vote before the first fact.</strong>
+              <small class="invEvidenceCurrentZh" lang="zh-Hans">先在第一条证据出现前投票。</small>
+            </div>
+            <div class="invEvidenceHistory" aria-label="Class vote history"></div>
+          </section>
+        </div>
+        <div class="invEvidenceConclusion" data-verdict="${escapeHtml(conclusion.verdict || '')}" hidden>
+          <span>${escapeHtml(slide.conclusionLabel || 'Strongest final judgement')}</span>
+          <strong>${escapeHtml(conclusion.label || '')}</strong>
+          ${conclusion.labelZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(conclusion.labelZh)}</span>` : ''}
+          ${conclusion.text ? `<p>${html(conclusion.text)}</p>` : ''}
+          ${conclusion.textZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(conclusion.textZh)}</p>` : ''}
+        </div>
+        <div class="invEvidenceControls">
+          <button class="invEvidenceAction" type="button" data-action="reveal-evidence">Reveal evidence 1</button>
+          <button class="invEvidenceReset" type="button" data-action="reset-evidence">Reset</button>
+          <span>${escapeHtml(slide.instruction || 'Record the class vote again after every new fact.')}</span>
+        </div>
+      </div>`;
+    return slideShell(slide, index, lesson, body, 'invEvidenceSimulatorSlide');
+  }
+
   function renderCatalystTimeline(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const revealEffects = Boolean(slide.revealEffects);
@@ -1374,6 +1472,7 @@
     quoteMap: renderQuoteMap,
     compare: renderCompare,
     comparisonMatrix: renderComparisonMatrix,
+    evidenceSimulator: renderEvidenceSimulator,
     catalystTimeline: renderCatalystTimeline,
     judgementFrame: renderJudgementFrame,
     analystBoard: renderAnalystBoard,
@@ -1409,6 +1508,121 @@
         _sectionTitles: sectionTitles,
       };
     });
+  }
+
+  function clearEvidenceVerdict(simulator, message = 'Vote again after the new evidence.') {
+    simulator.querySelectorAll('.invEvidenceVerdict').forEach((button) => {
+      button.classList.remove('is-selected');
+      button.setAttribute('aria-pressed', 'false');
+    });
+    const current = simulator.querySelector('.invEvidenceCurrent');
+    const currentText = simulator.querySelector('.invEvidenceCurrentText');
+    const currentZh = simulator.querySelector('.invEvidenceCurrentZh');
+    if (current) delete current.dataset.tone;
+    if (currentText) currentText.textContent = message;
+    if (currentZh) currentZh.textContent = message.startsWith('Vote before')
+      ? '先在第一条证据出现前投票。'
+      : '新证据出现后，请再次投票。';
+  }
+
+  function updateEvidenceAction(simulator) {
+    const stage = Number(simulator.dataset.stage || 0);
+    const factCount = Number(simulator.dataset.factCount || 0);
+    const conclusionShown = simulator.dataset.conclusion === 'true';
+    const action = simulator.querySelector('[data-action="reveal-evidence"]');
+    const progress = simulator.querySelector('.invEvidenceProgress');
+    if (progress) progress.textContent = `${stage} / ${factCount} facts`;
+    if (!action) return;
+    if (stage < factCount) {
+      action.textContent = `Reveal evidence ${stage + 1}`;
+      action.disabled = false;
+    } else if (!conclusionShown) {
+      action.textContent = 'Reveal conclusion';
+      action.disabled = false;
+    } else {
+      action.textContent = 'Conclusion revealed';
+      action.disabled = true;
+    }
+  }
+
+  function resetEvidenceSimulator(simulator) {
+    simulator.dataset.stage = '0';
+    simulator.dataset.conclusion = 'false';
+    simulator.classList.remove('is-conclusion-visible');
+    simulator.querySelectorAll('.invEvidenceFact').forEach((fact) => {
+      fact.classList.remove('is-revealed');
+      fact.setAttribute('aria-expanded', 'false');
+      const value = fact.querySelector('.invEvidenceFactValue');
+      const status = fact.querySelector('.invEvidenceFactStatus');
+      if (value) value.hidden = true;
+      if (status) status.textContent = 'Hidden';
+    });
+    const conclusion = simulator.querySelector('.invEvidenceConclusion');
+    if (conclusion) conclusion.hidden = true;
+    const history = simulator.querySelector('.invEvidenceHistory');
+    if (history) history.replaceChildren();
+    clearEvidenceVerdict(simulator, 'Vote before the first fact.');
+    updateEvidenceAction(simulator);
+  }
+
+  function revealNextEvidence(simulator) {
+    const stage = Number(simulator.dataset.stage || 0);
+    const facts = [...simulator.querySelectorAll('.invEvidenceFact')];
+    if (stage < facts.length) {
+      const fact = facts[stage];
+      fact.classList.add('is-revealed');
+      fact.setAttribute('aria-expanded', 'true');
+      const value = fact.querySelector('.invEvidenceFactValue');
+      const status = fact.querySelector('.invEvidenceFactStatus');
+      if (value) value.hidden = false;
+      if (status) status.textContent = 'Revealed';
+      simulator.dataset.stage = String(stage + 1);
+      clearEvidenceVerdict(simulator);
+      updateEvidenceAction(simulator);
+      return;
+    }
+
+    if (simulator.dataset.conclusion !== 'true') {
+      simulator.dataset.conclusion = 'true';
+      simulator.classList.add('is-conclusion-visible');
+      const conclusion = simulator.querySelector('.invEvidenceConclusion');
+      if (conclusion) conclusion.hidden = false;
+      updateEvidenceAction(simulator);
+    }
+  }
+
+  function recordEvidenceVerdict(simulator, selectedButton) {
+    simulator.querySelectorAll('.invEvidenceVerdict').forEach((button) => {
+      const selected = button === selectedButton;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+
+    const label = selectedButton.dataset.verdictLabel || selectedButton.textContent.trim();
+    const labelZh = selectedButton.dataset.verdictLabelZh || '';
+    const tone = selectedButton.dataset.tone || 'neutral';
+    const current = simulator.querySelector('.invEvidenceCurrent');
+    const currentText = simulator.querySelector('.invEvidenceCurrentText');
+    const currentZh = simulator.querySelector('.invEvidenceCurrentZh');
+    if (current) current.dataset.tone = tone;
+    if (currentText) currentText.textContent = label;
+    if (currentZh) currentZh.textContent = labelZh;
+
+    const stage = Number(simulator.dataset.stage || 0);
+    const facts = [...simulator.querySelectorAll('.invEvidenceFact')];
+    const stageLabel = stage === 0
+      ? 'Start'
+      : `After ${facts[stage - 1]?.dataset.factLabel || `evidence ${stage}`}`;
+    const history = simulator.querySelector('.invEvidenceHistory');
+    if (!history) return;
+    let chip = history.querySelector(`[data-stage="${stage}"]`);
+    if (!chip) {
+      chip = document.createElement('span');
+      chip.dataset.stage = String(stage);
+      history.append(chip);
+    }
+    chip.dataset.tone = tone;
+    chip.textContent = `${stageLabel}: ${label}`;
   }
 
   function mountLesson(lesson, target = document.body) {
@@ -1468,6 +1682,8 @@
       slides: [...document.querySelectorAll('.invSlide')],
       notesVisible: false,
     };
+
+    document.querySelectorAll('.invEvidenceSimulator').forEach(resetEvidenceSimulator);
 
     function activeSlide() {
       return state.slides[state.index];
@@ -1568,6 +1784,33 @@
         event.stopPropagation();
         const answer = (closeDiscussionAnswer || discussionBackdrop).closest('.invDiscussionAnswer');
         answer?.classList.remove('is-revealed');
+        return;
+      }
+
+      const evidenceReveal = event.target.closest('[data-action="reveal-evidence"]');
+      if (evidenceReveal) {
+        event.preventDefault();
+        event.stopPropagation();
+        const simulator = evidenceReveal.closest('.invEvidenceSimulator');
+        if (simulator) revealNextEvidence(simulator);
+        return;
+      }
+
+      const evidenceReset = event.target.closest('[data-action="reset-evidence"]');
+      if (evidenceReset) {
+        event.preventDefault();
+        event.stopPropagation();
+        const simulator = evidenceReset.closest('.invEvidenceSimulator');
+        if (simulator) resetEvidenceSimulator(simulator);
+        return;
+      }
+
+      const evidenceVerdict = event.target.closest('.invEvidenceVerdict');
+      if (evidenceVerdict) {
+        event.preventDefault();
+        event.stopPropagation();
+        const simulator = evidenceVerdict.closest('.invEvidenceSimulator');
+        if (simulator) recordEvidenceVerdict(simulator, evidenceVerdict);
         return;
       }
 

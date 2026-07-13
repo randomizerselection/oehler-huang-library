@@ -1463,6 +1463,79 @@ function validateAcademicSectionTitles() {
   return failures;
 }
 
+function validateGroundedHandoutScenarios() {
+  const failures = [];
+  const contract = financialDecisionCourseMap.groundedScenarioContract || {};
+
+  for (const field of ['rule', 'realEvidence', 'fictionalFrame', 'lessonUse', 'limitation']) {
+    if (!isNonEmptyString(contract[field])) {
+      failures.push(`investment-analysis/course-map-financial-decisions-data.js: groundedScenarioContract.${field} must be a non-empty string`);
+    }
+  }
+
+  for (const mapLesson of financialDecisionCourseMap.lessons || []) {
+    const label = `investment-analysis/course-map-financial-decisions-data.js lesson ${mapLesson.lesson || '?'}`;
+    const scenario = mapLesson.groundedScenario || {};
+    for (const field of ['requirement', 'realEvidence', 'fictionalFrame', 'lessonUse', 'limitation']) {
+      if (!isNonEmptyString(scenario[field])) failures.push(`${label}: groundedScenario.${field} must be a non-empty string`);
+    }
+    if (!/real|source-backed/i.test(scenario.realEvidence || '') || !/date/i.test(scenario.realEvidence || '')) {
+      failures.push(`${label}: groundedScenario.realEvidence must require real, dated, source-backed evidence`);
+    }
+    if (!/mock|anonym/i.test(scenario.fictionalFrame || '')) {
+      failures.push(`${label}: groundedScenario.fictionalFrame must label mock or anonymised details`);
+    }
+    if (!String(scenario.lessonUse || '').includes(mapLesson.evidenceTask) || !String(scenario.lessonUse || '').includes(mapLesson.studentOutput)) {
+      failures.push(`${label}: groundedScenario.lessonUse must connect the same scenario to the lesson evidence task and student output`);
+    }
+    const sourceBox = (mapLesson.handoutSections || []).find((section) => section.key === 'sourceBox');
+    if (!/scenario/i.test(sourceBox?.title || '') || !/real|source-backed/i.test(sourceBox?.task || '') || !/mock|anonym/i.test(sourceBox?.task || '')) {
+      failures.push(`${label}: sourceBox must begin with a grounded scenario and distinguish real evidence from mock or anonymised details`);
+    }
+    if (!/grounded/i.test(mapLesson.worksheet?.evidenceAndDataAnalysis?.stimulus || '') || !/source-backed/i.test(mapLesson.worksheet?.evidenceAndDataAnalysis?.stimulus || '')) {
+      failures.push(`${label}: worksheet stimulus must reuse the grounded source-backed scenario`);
+    }
+  }
+
+  for (const lessonNumber of [1, 2]) {
+    const relativePath = `investment-analysis/unit-1/lesson-${lessonNumber}/slides.js`;
+    const lesson = readInvestmentLesson(relativePath);
+    const firstSection = lesson.handout?.sections?.[0];
+    const scenario = (firstSection?.blocks || []).find((block) => block.type === 'scenario');
+    const label = `investment-analysis/unit-1/lesson-${lessonNumber}/slides.js`;
+    if (!scenario) {
+      failures.push(`${label}: first handout section must contain a grounded scenario block`);
+      continue;
+    }
+    for (const field of ['context', 'fictionalElement', 'lessonUse', 'limitation']) {
+      if (!isNonEmptyString(scenario[field])) failures.push(`${label}: handout scenario.${field} must be a non-empty string`);
+    }
+    if (!Array.isArray(scenario.realData) || scenario.realData.length === 0) {
+      failures.push(`${label}: handout scenario needs at least one realData item`);
+    } else {
+      const slideText = JSON.stringify(lesson.slides || []);
+      for (const [index, item] of scenario.realData.entries()) {
+        if (!isNonEmptyString(item.label) || !isNonEmptyString(item.value) || !isNonEmptyString(item.source)) {
+          failures.push(`${label}: handout scenario realData item ${index + 1} needs label, value and source`);
+        }
+        if (isNonEmptyString(item.value) && !slideText.includes(item.value)) {
+          failures.push(`${label}: realData value "${item.value}" must be reused in a projected lesson activity`);
+        }
+      }
+    }
+    const externalSourceUrls = (lesson.meta?.sources || []).map((source) => source.url || '').filter((url) => /^https?:/i.test(url));
+    if (externalSourceUrls.length === 0) failures.push(`${label}: grounded scenario needs an external source URL`);
+  }
+
+  const templateReadme = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');
+  const templateSlides = fs.readFileSync(path.join(courseRoot, '_template', 'slides.js'), 'utf8');
+  if (!/Grounded handout scenario/i.test(templateReadme) || !/type: "scenario"/.test(templateSlides)) {
+    failures.push('investment-analysis/_template: grounded scenario guidance and scaffold are required');
+  }
+
+  return failures;
+}
+
 function validateActiveLessonAlignment() {
   const failures = [];
   const homepagePath = path.join(courseRoot, 'index.html');
@@ -1647,6 +1720,7 @@ const failures = [
   ...validateImportantChineseSupport(),
   ...validateDiscussionRevealTitles(),
   ...validateAcademicSectionTitles(),
+  ...validateGroundedHandoutScenarios(),
   ...validateActiveLessonAlignment(),
   ...validateTermRenderer(),
   ...validateArchivedPersonalFinanceIsNotPublic(),

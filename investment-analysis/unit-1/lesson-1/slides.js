@@ -20,8 +20,14 @@ window.INVEST.lesson = {
         url: "https://www.ifec.org.hk/web/en/moneyessentials/financial-planning/building-an-investment-portfolio.page"
       },
       {
-        label: "Frozen mainland China family goal board",
-        note: "Teacher-created hypothetical mainland China goals used only for classroom classification. The figures are not a recommendation or a real family plan.",
+        label: "National Bureau of Statistics of China: Households' Income and Consumption Expenditure in 2025",
+        note: "Reports nationwide per-capita disposable income of CNY 43,377 in 2025. The lesson uses this as a scale benchmark, not as evidence about the hypothetical family's income or suitability.",
+        date: "Published 20 January 2026; accessed 13 July 2026",
+        url: "https://www.stats.gov.cn/english/PressRelease/202601/t20260120_1962356.html"
+      },
+      {
+        label: "Teacher-created family goal table",
+        note: "Combines the real NBS benchmark with hypothetical mainland China goals for classroom classification. The family, CNY 50,000 decision and goal figures are not a recommendation or a real family plan.",
         date: "Frozen 13 July 2026",
         url: "Local classroom scenario"
       }
@@ -30,7 +36,7 @@ window.INVEST.lesson = {
   handout: {
     title: "Why do people and families invest?",
     subtitle: "Unit 1 Lesson 1",
-    description: "Use a family goal board to decide when waiting and investing may help a future goal, and when the money should remain available instead.",
+    description: "Use a family goal table to decide when waiting and investing may help a future goal, and when the money should remain available instead.",
     meta: [
       { label: "Name", value: "" },
       { label: "Class", value: "" },
@@ -39,13 +45,24 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "1",
-        title: "Opening decision",
-        instruction: "Make a first judgement before the definitions, then return to it at the end.",
+        title: "Grounded scenario and opening decision",
+        instruction: "Use the real benchmark and clearly labelled mock decision to make a first judgement, then return to it at the end.",
         blocks: [
+          {
+            type: "scenario",
+            title: "Real data, mock family decision",
+            context: "China's National Bureau of Statistics reported nationwide per-capita disposable income of CNY 43,377 in 2025. A hypothetical family has CNY 50,000 available after current commitments and is deciding whether to spend it now or keep some for future goals.",
+            realData: [
+              { label: "2025 nationwide per-capita disposable income", value: "CNY 43,377", source: "National Bureau of Statistics of China, published 20 Jan 2026" }
+            ],
+            fictionalElement: "The family, its CNY 50,000 and the four goal amounts are hypothetical classroom details.",
+            lessonUse: "Use the benchmark to recognise that this is a significant decision, then classify the goals by timing, access need and possible loss.",
+            limitation: "A national per-capita figure does not show this family's income, current commitments, priorities or ability to accept loss."
+          },
           {
             type: "prompts",
             prompts: [
-              { label: "First judgement", prompt: "A family can spend CNY 50,000 now or set it aside for future goals. What could justify waiting?", lines: 3 },
+              { label: "First judgement", prompt: "What could justify keeping some of the CNY 50,000 for a future goal?", lines: 3 },
               { label: "Missing evidence", prompt: "What must the family know before deciding whether investment could help?", lines: 4 }
             ]
           }
@@ -69,7 +86,7 @@ window.INVEST.lesson = {
       {
         label: "3",
         title: "Evidence and Data Analysis",
-        instruction: "Read the frozen goal board before deciding whether investment may help.",
+        instruction: "Read the family goal table before deciding whether investment may help.",
         blocks: [
           {
             type: "table",
@@ -102,7 +119,7 @@ window.INVEST.lesson = {
       {
         label: "5",
         title: "Misconception check",
-        instruction: "Correct the shortcut with evidence from the goal board.",
+        instruction: "Correct the shortcut with evidence from the family goal table.",
         blocks: [
           {
             type: "prompts",
@@ -116,7 +133,7 @@ window.INVEST.lesson = {
       {
         label: "6",
         title: "Individual output",
-        instruction: "Use the lesson definitions and one condition from the goal board.",
+        instruction: "Use the lesson definitions and one condition from the family goal table.",
         blocks: [
           {
             type: "writing",
@@ -127,7 +144,7 @@ window.INVEST.lesson = {
         ]
       }
     ],
-    sources: "Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. Goal figures are a frozen hypothetical mainland China classroom profile; this is not personal investment advice."
+    sources: "National Bureau of Statistics of China, Households' Income and Consumption Expenditure in 2025, published 20 Jan 2026; Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. The NBS income figure is real and dated; the family and goal figures are hypothetical classroom details. This is not personal investment advice."
   },
   slides: [
     {
@@ -147,14 +164,15 @@ window.INVEST.lesson = {
       eyebrow: "First judgement",
       title: "Spend now or wait for a future goal?",
       zhTitle: "现在花掉，还是为未来目标等待？",
-      question: "A family can spend CNY 50,000 now or set it aside for future goals. What could justify waiting?",
-      questionZh: "一个家庭可以现在花掉50,000元人民币，也可以把钱留给未来目标。什么理由可以说明等待是合理的？",
+      question: "China's NBS reported 2025 nationwide per-capita disposable income of CNY 43,377. A hypothetical family has CNY 50,000 available after current commitments. What could justify keeping some for a future goal?",
+      questionZh: "中国国家统计局报告，2025年全国居民人均可支配收入为43,377元人民币。一个假设家庭在满足当前开支后有50,000元人民币可用。有什么理由支持将其中一部分留给未来目标？",
       revealTitle: "A future goal may justify waiting, but it does not settle the investment decision",
-      answer: "Waiting may move money toward an important future goal. Before investing, the family must still identify the goal, when the money is needed, whether it must remain available and what loss could damage the goal.",
-      answerZh: "等待可以让资金用于重要的未来目标。但在投资前，家庭仍必须明确目标、何时需要资金、资金是否必须保持可用，以及什么样的损失会损害目标。",
+      answer: "The national figure shows that CNY 50,000 is substantial compared with one annual benchmark, but it cannot tell this family what to do. A future goal may justify keeping some money. Before investing, the family must still identify the goal, when the money is needed, whether it must remain available and what loss could damage the goal.",
+      answerZh: "全国数据表明，50,000元人民币与一个年度基准相比数额较大，但它不能决定这个家庭该怎么做。未来目标可能是保留部分资金的理由。在投资前，家庭仍必须明确目标、何时需要资金、资金是否必须保持可用，以及什么样的损失会损害目标。",
       visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
         "Take spend/wait votes before revealing the answer.",
+        "Ask what the NBS figure helps show and what it cannot show about this family.",
         "Collect students' reasons as diagnostic evidence; do not correct them until after the vote."
       ]
     },
@@ -300,26 +318,58 @@ window.INVEST.lesson = {
       definitionZh: "财务目标是对资金未来用途的明确说明，并包括金额、优先级和投资期限。"
     },
     {
-      type: "comparisonMatrix",
-      eyebrow: "Predict, then compare",
-      title: "Medical bill or retirement: what changes?",
-      zhTitle: "医疗账单与退休目标：什么不同？",
-      visual: investmentPhotos.investorMeetingReport,
-      revealCells: true,
-      cornerLabel: "Constraint",
-      columns: [
-        { label: "Medical bill", note: "CNY 25k" },
-        { label: "Retirement income", note: "amount not fixed" }
+      type: "evidenceSimulator",
+      eyebrow: "Whole-class simulation",
+      title: "Can investment help before the evidence is known?",
+      zhTitle: "在了解证据之前，能判断投资是否有帮助吗？",
+      prompt: "A family can set aside CNY 50,000. Vote now, then vote again after each fact appears.",
+      promptZh: "一个家庭可以留出50,000元人民币。现在先投票，然后在每条信息出现后再次投票。",
+      evidenceLabel: "Family-goal evidence",
+      voteLabel: "Could investment help this goal?",
+      facts: [
+        {
+          label: "Purpose and amount",
+          labelZh: "用途和金额",
+          value: "Medical bill · CNY 25,000",
+          valueZh: "医疗账单·25,000元人民币"
+        },
+        {
+          label: "Time horizon",
+          labelZh: "时间期限",
+          value: "The bill is due in four months",
+          valueZh: "账单将在四个月后到期"
+        },
+        {
+          label: "Access need",
+          labelZh: "资金使用需要",
+          value: "The money must be available when the bill is due",
+          valueZh: "账单到期时必须能够使用这笔钱"
+        },
+        {
+          label: "Possible loss",
+          labelZh: "可能的损失",
+          value: "A loss could leave the medical bill unpaid",
+          valueZh: "损失可能导致医疗账单无法支付"
+        }
       ],
-      rows: [
-        { label: "Horizon", values: ["4 months", "30 years"] },
-        { label: "Access", values: ["Urgent", "Not soon"] },
-        { label: "Loss effect", values: ["Bill unpaid", "Goal shortfall"] },
-        { label: "First decision", values: ["Keep available", "Consider after checks"] }
+      verdicts: [
+        { id: "may-help", label: "Investment may help", labelZh: "投资可能有帮助", tone: "positive" },
+        { id: "conditions-needed", label: "Conditions needed", labelZh: "需要更多条件", tone: "caution" },
+        { id: "may-not-help", label: "Investment may not help", labelZh: "投资可能没有帮助", tone: "negative" }
       ],
+      conclusion: {
+        verdict: "may-not-help",
+        label: "Investment may not help this medical-bill goal",
+        labelZh: "投资可能不适合这一医疗账单目标",
+        text: "The CNY 25,000 is needed in four months, access is urgent and a loss could leave the bill unpaid. Money for this goal should remain available; the rest of the CNY 50,000 needs separate goal evidence before it can be judged.",
+        textZh: "这25,000元人民币将在四个月后使用，取用资金十分紧迫，而且损失可能导致账单无法支付。用于这一目标的资金应保持可用；剩余资金必须根据其他目标的证据另行判断。"
+      },
+      instruction: "Record the class vote before any facts, after each fact and once more before revealing the conclusion.",
       notes: [
-        "Students predict the cells before reveal, then explain which constraint creates the difference.",
-        "Use this worked contrast before students classify the other three goals on the next slide. The figures are frozen hypothetical classroom data."
+        "This is teacher-led. Ask for a whole-class vote before revealing any evidence.",
+        "Reveal one fact only, ask one student to justify whether the judgement should change, then record the new vote.",
+        "After the fourth fact, take a final vote before revealing the conclusion.",
+        "Keep the conclusion limited to the medical-bill portion. Do not infer that the rest of the CNY 50,000 should be invested."
       ]
     },
     {
@@ -439,8 +489,8 @@ window.INVEST.lesson = {
       title: "Submit one reason and one condition",
       zhTitle: "提交一个理由和一个条件",
       revealKeywords: true,
-      prompt: "Choose one goal from the family goal board. Write one reason investment may help and one condition that must be checked before it could be considered. [4]",
-      zh: "从家庭目标板中选择一个目标。写出投资可能有帮助的一个理由，以及在考虑投资前必须检查的一个条件。[4]",
+      prompt: "Choose retirement income, a home deposit or university fees from the earlier activity. Write one reason investment may help and one condition the family must check first. [4]",
+      zh: "从前面的活动中选择退休收入、住房首付或大学学费。写出投资可能有帮助的一个理由，以及家庭必须先检查的一个条件。[4]",
       keywords: ["financial goal", "future return", "because", "however", "time horizon / access / possible loss"],
       notes: [
         "Collect the response individually before revealing the keyword check.",

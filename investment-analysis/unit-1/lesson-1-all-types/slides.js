@@ -695,6 +695,40 @@ window.INVEST.lesson = {
       ]
     },
     {
+      type: "evidenceSimulator",
+      eyebrow: "type: evidenceSimulator",
+      title: "Update the class judgement as evidence arrives",
+      zhTitle: "随着证据出现更新全班判断",
+      prompt: "A family has money set aside for a future goal. Vote before the evidence, then revise the class judgement after each reveal.",
+      promptZh: "一个家庭为未来目标留出了一笔钱。先在证据出现前投票，然后在每次揭示后修改全班判断。",
+      evidenceLabel: "Progressive evidence",
+      voteLabel: "Could investment help?",
+      facts: [
+        { label: "Purpose and amount", labelZh: "用途和金额", value: "Home deposit · CNY 400,000", valueZh: "住房首付·400,000元人民币" },
+        { label: "Time horizon", labelZh: "时间期限", value: "The goal is ten years away", valueZh: "目标将在十年后实现" },
+        { label: "Access need", labelZh: "资金使用需要", value: "The date has some flexibility", valueZh: "日期具有一定灵活性" },
+        { label: "Possible loss", labelZh: "可能的损失", value: "A loss could delay the purchase", valueZh: "损失可能推迟购房" }
+      ],
+      verdicts: [
+        { id: "may-help", label: "Investment may help", labelZh: "投资可能有帮助", tone: "positive" },
+        { id: "conditions-needed", label: "Conditions needed", labelZh: "需要更多条件", tone: "caution" },
+        { id: "may-not-help", label: "Investment may not help", labelZh: "投资可能没有帮助", tone: "negative" }
+      ],
+      conclusion: {
+        verdict: "may-help",
+        tone: "positive",
+        label: "Investment may help after the family checks the remaining conditions",
+        labelZh: "家庭检查其余条件后，投资可能有帮助",
+        text: "The longer, flexible horizon supports considering investment, but the family must still judge the consequence of loss and how much must remain available.",
+        textZh: "较长且灵活的期限支持考虑投资，但家庭仍必须判断损失后果以及需要保持可用的资金金额。"
+      },
+      notes: [
+        "Current role: teacher-led progressive-evidence simulation with repeated whole-class votes.",
+        "Future use: use when each new fact should change or qualify a judgement.",
+        "Review decision: keep the prompt, revealed facts and conclusion visible together on classroom screens."
+      ]
+    },
+    {
       type: "catalystTimeline",
       eyebrow: "type: catalystTimeline",
       title: "Connect information to expectations",

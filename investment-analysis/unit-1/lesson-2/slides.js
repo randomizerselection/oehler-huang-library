@@ -32,8 +32,14 @@ window.INVEST.lesson = {
         url: "https://www.hkma.gov.hk/eng/smart-consumers/investment-services/"
       },
       {
+        label: "National Bureau of Statistics of China: Households' Income and Consumption Expenditure in 2025",
+        note: "Reports 2025 nationwide per-capita consumption expenditure of CNY 29,476, including CNY 6,397 for residence and CNY 3,489 for education, culture and recreation. These averages provide context, not family goal estimates.",
+        date: "Published 20 January 2026; accessed 13 July 2026",
+        url: "https://www.stats.gov.cn/english/PressRelease/202601/t20260120_1962356.html"
+      },
+      {
         label: "Frozen mainland China three-goal family profile",
-        note: "Teacher-created hypothetical mainland China education, home and retirement goals. No live rates, named products or personal recommendations are used.",
+        note: "Combines real NBS national spending figures with hypothetical mainland China education, home and retirement goals. No live rates, named products or personal recommendations are used.",
         date: "Frozen 13 July 2026",
         url: "Local classroom scenario"
       }
@@ -51,9 +57,22 @@ window.INVEST.lesson = {
     sections: [
       {
         label: "1",
-        title: "Opening decision",
-        instruction: "Make a judgement before the new definitions, then revise it at the end.",
+        title: "Grounded scenario and opening decision",
+        instruction: "Use the real national averages and clearly labelled mock goals to make a judgement, then revise it at the end.",
         blocks: [
+          {
+            type: "scenario",
+            title: "Real data, mock family goals",
+            context: "China's National Bureau of Statistics reported nationwide per-capita consumption expenditure of CNY 29,476 in 2025, including CNY 6,397 for residence and CNY 3,489 for education, culture and recreation. A hypothetical family is planning university costs in three years, a home deposit in eight years and retirement in thirty years.",
+            realData: [
+              { label: "Total consumption per person", value: "CNY 29,476", source: "National Bureau of Statistics of China, 2025" },
+              { label: "Residence per person", value: "CNY 6,397", source: "National Bureau of Statistics of China, 2025" },
+              { label: "Education, culture and recreation per person", value: "CNY 3,489", source: "National Bureau of Statistics of China, 2025" }
+            ],
+            fictionalElement: "The family, its CNY 240,000 university target, CNY 500,000 home-deposit target and retirement details are hypothetical classroom data.",
+            lessonUse: "Explain why national averages cannot set one family's target, then compare the three goals by when the money is needed, access need and possible loss.",
+            limitation: "The national categories are annual per-capita averages; they are not university-cost, home-deposit or retirement estimates for this family."
+          },
           {
             type: "prompts",
             prompts: [
@@ -81,7 +100,7 @@ window.INVEST.lesson = {
       {
         label: "3",
         title: "Evidence and Data Analysis",
-        instruction: "Read the frozen goal facts and classify each horizon and access need.",
+        instruction: "Use the grounded scenario and mock goal facts to classify each horizon and access need.",
         blocks: [
           {
             type: "table",
@@ -105,7 +124,7 @@ window.INVEST.lesson = {
               { label: "A", text: "University in three years", answer: "Shortest horizon; highest near-term liquidity need" },
               { label: "B", text: "Home deposit in eight years with some flexibility", answer: "Medium horizon; medium liquidity need" },
               { label: "C", text: "Retirement in thirty years", answer: "Longest horizon; lowest current liquidity need, but later withdrawals are unknown" },
-              { label: "D", text: "The product with the highest possible return", answer: "Cannot be classified as suitable without the goal constraints" }
+              { label: "D", text: "The product with the highest possible return", answer: "Cannot be judged as suitable without knowing the goal, timing, access need and possible loss" }
             ]
           }
         ]
@@ -138,7 +157,7 @@ window.INVEST.lesson = {
         ]
       }
     ],
-    sources: "Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. Goal figures are a frozen hypothetical mainland China classroom profile; this is not personal investment advice."
+    sources: "National Bureau of Statistics of China, Households' Income and Consumption Expenditure in 2025, published 20 Jan 2026; Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. The NBS spending figures are real and dated; the family and goal figures are hypothetical classroom details. This is not personal investment advice."
   },
   slides: [
     {
@@ -160,13 +179,13 @@ window.INVEST.lesson = {
       zhTitle: "三年与三十年",
       question: "Should money for university in three years be invested like retirement money needed in thirty years?",
       questionZh: "三年后用于大学的资金，是否应该像三十年后才需要的退休资金一样投资？",
-      revealTitle: "The goal constraints are different",
+      revealTitle: "Different goals need different decisions",
       answer: "Not automatically. University money has a shorter time horizon and a higher need for reliable access on a known date. Retirement money has a longer horizon, but its target, later withdrawals and ability to accept loss still need evidence.",
       answerZh: "不应该自动采用相同方式。大学资金的投资期限更短，而且在已知日期可靠取用资金的需要更高。退休资金期限更长，但目标金额、以后提取资金的安排和承受损失能力仍需要证据。",
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Take same/different votes before reveal.",
-        "Listen for students who choose a product before naming the goal constraints."
+        "Listen for students who choose a product before comparing when the money is needed, access needs and possible loss."
       ]
     },
     {
@@ -307,6 +326,23 @@ window.INVEST.lesson = {
       title: "Comparing financial goals",
       zhTitle: "比较财务目标",
       notes: "Read frozen evidence -> classify horizon -> rank access need -> compare -> check guidance."
+    },
+    {
+      type: "dataSnapshot",
+      eyebrow: "Grounded scenario",
+      title: "National averages are not family targets",
+      zhTitle: "全国平均数不是家庭目标金额",
+      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
+      sourceStamp: "National Bureau of Statistics of China | 2025 household expenditure | Published 20 Jan 2026",
+      focusMetrics: [
+        { label: "Total spending per person", value: "CNY 29,476" },
+        { label: "Residence per person", value: "CNY 6,397" },
+        { label: "Education/culture per person", value: "CNY 3,489" }
+      ],
+      task: "Why can these real national averages not set the mock family's university, home or retirement target?",
+      taskZh: "为什么这些真实的全国平均数不能直接确定假设家庭的大学、住房或退休目标金额？",
+      note: "The figures give context. The family still needs its own amount, date, access need and loss consequences.",
+      noteZh: "这些数据提供背景。家庭仍需明确自己的金额、日期、资金使用需求和损失后果。"
     },
     {
       type: "dataSnapshot",

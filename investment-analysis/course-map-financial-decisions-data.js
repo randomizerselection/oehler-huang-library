@@ -157,7 +157,7 @@
   ];
 
   const lessonSpecs = [
-    { anchor: "Family goal board", role: "mock mainland China family profile", q: "Why do people and families invest?", zh: "人们和家庭为什么投资？", hook: "A family can spend CNY 50,000 now or set it aside for future goals. What could justify waiting?", core: "People invest to move resources toward future goals while accepting uncertainty and possible loss.", terms: ["investment", "return", "financialGoal"], formula: "No new formula; classify goals by purpose, amount and time horizon.", task: "Match four family goals to the reason investment may or may not help.", naive: "Investing is simply a way to make more money.", need: "Students need the goal, time horizon, liquidity need and possible loss before judging whether investment is appropriate.", output: "Write one reason to invest and one condition that must be checked first.", avoid: "Do not introduce budgeting, consumer finance or specific product recommendations in the opening lesson." },
+    { anchor: "Family goal table", role: "mock mainland China family profile", q: "Why do people and families invest?", zh: "人们和家庭为什么投资？", hook: "China's NBS reported 2025 nationwide per-capita disposable income of CNY 43,377. A hypothetical family has CNY 50,000 available after current commitments. What could justify keeping some for a future goal?", core: "People invest to move resources toward future goals while accepting uncertainty and possible loss.", terms: ["investment", "return", "financialGoal"], formula: "No new formula; classify goals by purpose, amount and time horizon.", task: "Match four family goals to the reason investment may or may not help.", naive: "Investing is simply a way to make more money.", need: "Students need the goal, time horizon, liquidity need and possible loss before judging whether investment is appropriate.", output: "Write one reason to invest and one condition that must be checked first.", avoid: "Do not introduce budgeting, consumer finance or specific product recommendations in the opening lesson." },
     { anchor: "Three family goals", role: "mock family profile", q: "How do goals change investment decisions?", zh: "财务目标如何改变投资决策？", hook: "Should money for university in three years be invested like retirement money needed in thirty years?", core: "An investment decision must begin with the goal, time horizon and liquidity need rather than the product.", terms: ["timeHorizon", "liquidityNeed", "suitability"], formula: "No new formula; rank goals by horizon and access need.", task: "Classify education, home and retirement goals by horizon and liquidity need.", naive: "The investment with the highest possible return fits every goal.", need: "Students need when the money is required, how flexible the date is and what loss would damage the goal.", output: "Explain why two goals require different investment choices.", avoid: "Do not teach product selection before students can define the goal constraints." },
     { anchor: "Short-term and long-term money", role: "comparison case", q: "How are saving, investing and speculation different?", zh: "储蓄、投资和投机有什么区别？", hook: "A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?", core: "Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.", terms: ["saving", "investment", "speculation"], formula: "No new formula; classify choices by purpose, horizon, evidence and possible loss.", task: "Sort six actions as saving, investing or speculation and justify one borderline case.", naive: "Any purchase of shares is investing and any bank deposit is always the best choice.", need: "Students need the purpose, time horizon, evidence quality and loss consequences for each action.", output: "Correct one mistaken classification using the four decision criteria.", avoid: "Treat speculation only as a weak method to reject, not a parallel course topic." },
     { anchor: "Monthly investment projection", role: "calculation case", q: "How does compounding build wealth over time?", zh: "复利如何随时间积累财富？", hook: "Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?", core: "Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.", terms: ["compounding", "futureValue", "contribution"], formula: "Future value of one amount = starting amount x (1 + assumed return)^years; regular-contribution tables may be teacher-provided.", task: "Compare two frozen projections with different start dates and label every assumption.", naive: "A compound-growth projection shows what the investor will definitely receive.", need: "Students need the starting amount, contribution pattern, assumed return, time and whether fees are included.", output: "Explain why an earlier start changes the projection and state one limitation.", avoid: "Do not present assumed returns as promises or teach advanced annuity algebra." },
@@ -262,8 +262,15 @@
       : "Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.";
     const studentOutput = spec.output.replace(/[.]?$/, ".");
     const actionSentence = "Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.";
+    const groundedScenario = {
+      requirement: "Open the handout with a short scenario that combines real, dated evidence with a clearly labelled mock or anonymised decision.",
+      realEvidence: "Use at least one source-backed figure or statement with its source title and evidence date.",
+      fictionalFrame: "Label every invented amount, profile detail or decision as mock, hypothetical or anonymised.",
+      lessonUse: "Reuse the same scenario evidence in the lesson task: " + spec.task + " Then use it again in the individual output: " + studentOutput,
+      limitation: "State what the real evidence cannot show about the mock profile or future investment result."
+    };
     const handoutSections = [
-      { key: "sourceBox", title: "Source box", task: "Record the " + spec.anchor + " source title, date, accessed date, key figures and one limitation." },
+      { key: "sourceBox", title: "Grounded scenario and source box", task: "Read a short scenario combining at least one real, dated figure or statement with clearly labelled mock or anonymised details. Record the " + spec.anchor + " source title, evidence date, accessed date, key figure or statement and one limitation." },
       { key: "vocabulary", title: "Vocabulary", task: "Define and use: " + terms.map(function termName(item) { return item.term; }).join(", ") + "." },
       { key: "companyEvidence", title: "Evidence and Data Analysis", task: spec.task },
       { key: "calculationOrJudgement", title: "Calculation or judgement task", task: spec.formula },
@@ -325,6 +332,7 @@
       simpleFlow: simpleFlow,
       formativeAssessment: "First judgement, targeted retrieval, evidence task, misconception correction and individual exit output.",
       exitTicket: studentOutput,
+      groundedScenario: groundedScenario,
       handoutMaterial: spec.anchor + " worksheet with source box, vocabulary, evidence task, calculation or judgement, misconception check and individual output.",
       handoutSections: handoutSections,
       primaryOutput: { type: "evidence-based-investment-decision", description: studentOutput },
@@ -346,7 +354,7 @@
       },
       worksheet: {
         evidenceAndDataAnalysis: {
-          stimulus: "A frozen " + spec.anchor + " evidence pack with source title, date, key figures or statements and one stated limitation.",
+          stimulus: "A short grounded " + spec.anchor + " scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.",
           questions: [
             { command: "Identify", prompt: "Identify one relevant fact from the evidence pack." },
             { command: "Calculate or interpret", prompt: spec.formula },
@@ -428,7 +436,7 @@
   });
 
   const courseMap = {
-    version: 1,
+    version: 2,
     syllabusKey: "financial-decisions",
     courseTitle: "Investment and Financial Decision-Making",
     mapTitle: "50-Lesson Personal Wealth, Markets and Analysis Course Map",
@@ -436,15 +444,22 @@
     courseIntroduction: "Investment is not simply choosing a stock. It begins with understanding what the money is for, when it will be needed, what risk can be accepted and which evidence is still missing. Students learn to make informed investment decisions, contribute thoughtfully to family discussions, understand stock markets, analyse companies and portfolios, and explore the tools and responsibilities of finance professionals.",
     coursePromise: "Students move from family goal to investor profile, product choice, market understanding, security analysis and portfolio decision, then communicate a justified next action with evidence and limits.",
     writtenArtifactRule: "Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and six unit dividers only.",
+    groundedScenarioContract: {
+      rule: "Every lesson handout begins with a short grounded scenario that is used in the lesson, not a decorative statistic or an entirely fictional case.",
+      realEvidence: "Include at least one dated, source-backed figure or statement that materially informs the student task.",
+      fictionalFrame: "Mock or anonymised family, investor and company details are allowed only when clearly labelled and separated from the real evidence.",
+      lessonUse: "Reuse the same scenario and evidence in at least one projected lesson activity and in the handout's Evidence and Data Analysis work.",
+      limitation: "State what the source-backed evidence cannot prove about the mock case or future outcome."
+    },
     definitionOverview: {
       source: "references/investment-analysis-definitions.md",
       studentPage: "investment-analysis/definitions.html",
       rule: "Reuse the shared textbook-style investment definitions where they match. Add and validate the new family-investment, market and career terms before lesson production."
     },
     handoutContract: [
-      { key: "sourceBox", title: "Source box", requirement: "Case anchor, profile or product context, source title, URL, publication date, accessed date, key figures and limitation." },
+      { key: "sourceBox", title: "Grounded scenario and source box", requirement: "A short scenario with at least one real, dated, source-backed figure or statement; clearly labelled mock or anonymised details; source title, URL, publication date, accessed date, key evidence and limitation." },
       { key: "vocabulary", title: "Vocabulary", requirement: "All lesson terms with English definition and concise Simplified Chinese support." },
-      { key: "companyEvidence", title: "Evidence and Data Analysis", requirement: "A short frozen case followed by identify, calculate or interpret, explain, analyse why and judge tasks." },
+      { key: "companyEvidence", title: "Evidence and Data Analysis", requirement: "Reuse the grounded scenario in a short frozen case followed by identify, calculate or interpret, explain, analyse why and judge tasks." },
       { key: "calculationOrJudgement", title: "Calculation or judgement task", requirement: "The lesson formula, product comparison, evidence interpretation or decision rule." },
       { key: "misconceptionCheck", title: "Misconception check", requirement: "One explicit investment shortcut or misconception the handout corrects." },
       { key: "individualOutput", title: "Individual written output", requirement: "A goal, product, market, company, portfolio or family-strategy output that can be assessed." }
@@ -470,6 +485,7 @@
         "Treat this file as the canonical Investment and Financial Decision-Making syllabus.",
         "Preserve the progression family goal -> investor profile -> product choice -> market understanding -> security analysis -> portfolio decision.",
         "Build every lesson around a first judgement, missing evidence, one focused key idea, an evidence task, misconception correction and a justified next action.",
+        "Begin every handout with a short grounded scenario: at least one real, dated, source-backed figure or statement plus clearly labelled mock or anonymised details, and reuse it in the lesson task.",
         "Use mock or anonymised family profiles and frozen evidence; never require real family account data.",
         "Keep personal relevance investment-centred. Do not add budgeting, payslips, consumer credit, insurance administration, tax administration or general banking units.",
         "Do not give personalised buy, sell or hold advice, stock tips, market-timing rules or short-term speculation tasks."

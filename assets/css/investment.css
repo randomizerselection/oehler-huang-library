@@ -6976,6 +6976,30 @@ img {
   gap: 10px;
 }
 
+.handoutScenario {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #9fb4b7;
+  border-left: 4px solid #274b50;
+  border-radius: 5px;
+  background: #f4f8f8;
+  padding: 10px;
+}
+
+.handoutScenario h3,
+.handoutScenario p {
+  margin: 0;
+}
+
+.handoutScenario h3 {
+  color: #19383d;
+  font-size: 16px;
+}
+
+.handoutScenario p {
+  line-height: 1.45;
+}
+
 .handoutFactGrid,
 .handoutCases,
 .handoutTermList,
@@ -10453,6 +10477,7 @@ img {
 
   .handoutHeader,
   .handoutSection,
+  .handoutScenario,
   .handoutFact,
   .handoutCase,
   .handoutTermItem,
@@ -12052,5 +12077,756 @@ img {
   .invPriorityModelReason p {
     font-size: 15px;
     line-height: 1.05;
+  }
+}
+
+/* Teacher-led progressive evidence simulator */
+
+.invEvidenceSimulatorSlide {
+  --inv-slide-accent: var(--inv-green);
+  --inv-slide-accent-soft: rgba(57, 217, 145, 0.12);
+  --inv-slide-accent-line: rgba(57, 217, 145, 0.5);
+}
+
+.invEvidenceSimulatorSlide .invTitleBlock h1 {
+  font-size: clamp(38px, 3.6vw, 60px);
+}
+
+.invEvidenceSimulatorSlide .invSlideBody {
+  align-content: center;
+  padding-top: 10px;
+}
+
+.invEvidenceSimulator {
+  width: min(100%, 1360px);
+  margin-inline: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.invEvidenceStarter,
+.invEvidenceBoard,
+.invEvidenceDecision,
+.invEvidenceConclusion {
+  min-width: 0;
+  border: 1px solid rgba(152, 184, 188, 0.22);
+  border-radius: 14px;
+  background: rgba(7, 17, 20, 0.92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.invEvidenceStarter {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.25fr) minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: center;
+  border-left: 5px solid var(--inv-amber);
+  padding: 12px 16px;
+}
+
+.invEvidenceStarter > span {
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(241, 190, 90, 0.12);
+  color: #ffda8d;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.invEvidenceStarter > strong {
+  color: var(--inv-ink);
+  font-size: clamp(20px, 1.65vw, 28px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.invEvidenceStarter > .invZhLine {
+  margin: 0;
+  font-size: clamp(15px, 1.15vw, 19px);
+  line-height: 1.1;
+}
+
+.invEvidenceWorkspace {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(330px, 0.72fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.invEvidenceBoard,
+.invEvidenceDecision {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  padding: 12px;
+}
+
+.invEvidencePanelHead {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.invEvidencePanelHead strong {
+  color: var(--inv-ink);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.invEvidencePanelHead span,
+.invEvidenceProgress {
+  color: var(--inv-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.invEvidenceFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.invEvidenceFact {
+  position: relative;
+  min-width: 0;
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: start;
+  overflow: hidden;
+  border: 1px solid rgba(152, 184, 188, 0.2);
+  border-top: 3px solid rgba(152, 184, 188, 0.28);
+  border-radius: 11px;
+  background: rgba(10, 23, 27, 0.82);
+  padding: 10px;
+  transition: border-color 170ms var(--inv-ease), background 170ms var(--inv-ease), box-shadow 170ms var(--inv-ease);
+}
+
+.invEvidenceFact.is-revealed {
+  border-color: rgba(57, 217, 145, 0.42);
+  border-top-color: var(--inv-green);
+  background: rgba(57, 217, 145, 0.08);
+  box-shadow: inset 0 1px 0 rgba(57, 217, 145, 0.08);
+}
+
+.invEvidenceFactNumber {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(79, 210, 255, 0.1);
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.invEvidenceFactText {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.invEvidenceFactText > strong {
+  color: var(--inv-ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.invEvidenceFactText > .invZhLine,
+.invEvidenceFactValue > .invZhLine {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.08;
+}
+
+.invEvidenceFactValue {
+  display: grid;
+  gap: 2px;
+  margin-top: 5px;
+}
+
+.invEvidenceFactValue[hidden] {
+  display: none;
+}
+
+.invEvidenceFactValue p {
+  margin: 0;
+  color: var(--inv-ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.invEvidenceFactStatus {
+  align-self: start;
+  border-radius: 999px;
+  background: rgba(152, 184, 188, 0.1);
+  color: var(--inv-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 5px 7px;
+  text-transform: uppercase;
+}
+
+.invEvidenceFact.is-revealed .invEvidenceFactStatus {
+  background: rgba(57, 217, 145, 0.14);
+  color: var(--inv-green);
+}
+
+.invEvidenceVerdicts {
+  display: grid;
+  gap: 7px;
+}
+
+.invEvidenceVerdict {
+  min-width: 0;
+  min-height: 50px;
+  display: grid;
+  gap: 2px;
+  justify-items: start;
+  border: 1px solid rgba(152, 184, 188, 0.24);
+  border-left: 4px solid rgba(152, 184, 188, 0.4);
+  border-radius: 10px;
+  background: rgba(10, 23, 27, 0.88);
+  color: var(--inv-ink);
+  padding: 8px 11px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.invEvidenceVerdict strong {
+  font-size: 16px;
+  line-height: 1.05;
+}
+
+.invEvidenceVerdict span {
+  color: var(--inv-muted);
+  font-size: 12px;
+  line-height: 1.05;
+}
+
+.invEvidenceVerdict:hover,
+.invEvidenceVerdict:focus-visible {
+  border-color: rgba(79, 210, 255, 0.62);
+  background: rgba(79, 210, 255, 0.1);
+  outline: none;
+}
+
+.invEvidenceVerdict.is-selected {
+  border-color: var(--inv-cyan);
+  border-left-color: var(--inv-cyan);
+  background: rgba(79, 210, 255, 0.14);
+  box-shadow: 0 0 0 2px rgba(79, 210, 255, 0.08);
+}
+
+.invEvidenceVerdict.is-selected[data-tone="positive"] {
+  border-color: var(--inv-green);
+  border-left-color: var(--inv-green);
+  background: rgba(57, 217, 145, 0.13);
+}
+
+.invEvidenceVerdict.is-selected[data-tone="caution"] {
+  border-color: var(--inv-amber);
+  border-left-color: var(--inv-amber);
+  background: rgba(241, 190, 90, 0.13);
+}
+
+.invEvidenceVerdict.is-selected[data-tone="negative"] {
+  border-color: var(--inv-red);
+  border-left-color: var(--inv-red);
+  background: rgba(238, 108, 101, 0.13);
+}
+
+.invEvidenceCurrent {
+  display: grid;
+  gap: 2px;
+  border-left: 4px solid var(--inv-cyan);
+  border-radius: 10px;
+  background: rgba(79, 210, 255, 0.08);
+  padding: 8px 10px;
+}
+
+.invEvidenceCurrent[data-tone="positive"] {
+  border-left-color: var(--inv-green);
+}
+
+.invEvidenceCurrent[data-tone="caution"] {
+  border-left-color: var(--inv-amber);
+}
+
+.invEvidenceCurrent[data-tone="negative"] {
+  border-left-color: var(--inv-red);
+}
+
+.invEvidenceCurrent > span {
+  color: var(--inv-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.invEvidenceCurrent > strong {
+  color: var(--inv-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.invEvidenceCurrent > small {
+  color: var(--inv-muted);
+  font-size: 12px;
+  line-height: 1.05;
+}
+
+.invEvidenceHistory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 23px;
+}
+
+.invEvidenceHistory:empty::before {
+  content: "Vote history will appear here.";
+  color: rgba(152, 184, 188, 0.66);
+  font-size: 11px;
+}
+
+.invEvidenceHistory > span {
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(152, 184, 188, 0.22);
+  border-radius: 999px;
+  color: var(--inv-muted);
+  font-size: 10px;
+  line-height: 1;
+  padding: 5px 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.invEvidenceHistory > span[data-tone="positive"] {
+  border-color: rgba(57, 217, 145, 0.42);
+  color: var(--inv-green);
+}
+
+.invEvidenceHistory > span[data-tone="caution"] {
+  border-color: rgba(241, 190, 90, 0.42);
+  color: #ffda8d;
+}
+
+.invEvidenceHistory > span[data-tone="negative"] {
+  border-color: rgba(238, 108, 101, 0.42);
+  color: #ffaaa4;
+}
+
+.invEvidenceConclusion {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.36fr) minmax(0, 1fr);
+  gap: 3px 16px;
+  border-left: 5px solid var(--inv-green);
+  padding: 11px 15px;
+}
+
+.invEvidenceConclusion[hidden] {
+  display: none;
+}
+
+.invEvidenceConclusion[data-verdict="may-not-help"] {
+  border-left-color: var(--inv-red);
+}
+
+.invEvidenceConclusion > span:first-child {
+  grid-row: 1 / span 4;
+  align-self: center;
+  color: var(--inv-green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.invEvidenceConclusion[data-verdict="may-not-help"] > span:first-child {
+  color: #ffaaa4;
+}
+
+.invEvidenceConclusion > strong {
+  color: var(--inv-ink);
+  font-size: 20px;
+  line-height: 1.05;
+}
+
+.invEvidenceConclusion > .invZhLine,
+.invEvidenceConclusion > p {
+  margin: 0;
+}
+
+.invEvidenceConclusion > p {
+  color: var(--inv-ink);
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.invEvidenceConclusion > p.invZhLine {
+  color: var(--inv-muted);
+  font-size: 12px;
+}
+
+.invEvidenceControls {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(170px, auto) minmax(90px, auto) minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.invEvidenceAction,
+.invEvidenceReset {
+  min-height: 42px;
+  border: 1px solid rgba(79, 210, 255, 0.46);
+  border-radius: 10px;
+  background: rgba(79, 210, 255, 0.12);
+  color: var(--inv-ink);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.invEvidenceAction:hover,
+.invEvidenceAction:focus-visible,
+.invEvidenceReset:hover,
+.invEvidenceReset:focus-visible {
+  border-color: var(--inv-cyan);
+  background: rgba(79, 210, 255, 0.2);
+  outline: none;
+}
+
+.invEvidenceAction:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.invEvidenceReset {
+  border-color: rgba(152, 184, 188, 0.28);
+  background: rgba(152, 184, 188, 0.08);
+  color: var(--inv-muted);
+}
+
+.invEvidenceControls > span {
+  color: var(--inv-muted);
+  font-size: 12px;
+  line-height: 1.1;
+}
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .invEvidenceSimulatorSlide .invTitleBlock h1 {
+    font-size: 34px;
+  }
+
+  .invEvidenceSimulatorSlide .invZhTitle {
+    font-size: 19px;
+  }
+
+  .invEvidenceSimulatorSlide .invSlideBody {
+    padding-top: 0;
+  }
+
+  .invEvidenceSimulator {
+    gap: 6px;
+  }
+
+  .invEvidenceStarter,
+  .invEvidenceBoard,
+  .invEvidenceDecision,
+  .invEvidenceConclusion {
+    padding: 7px 9px;
+  }
+
+  .invEvidenceStarter > strong {
+    font-size: 18px;
+  }
+
+  .invEvidenceStarter > .invZhLine {
+    font-size: 13px;
+  }
+
+  .invEvidenceWorkspace,
+  .invEvidenceFacts,
+  .invEvidenceVerdicts {
+    gap: 5px;
+  }
+
+  .invEvidenceBoard,
+  .invEvidenceDecision {
+    gap: 5px;
+  }
+
+  .invEvidenceFact {
+    min-height: 74px;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .invEvidenceFactNumber {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .invEvidenceFactText > strong,
+  .invEvidenceVerdict strong {
+    font-size: 13px;
+  }
+
+  .invEvidenceFactText > .invZhLine,
+  .invEvidenceFactValue > .invZhLine,
+  .invEvidenceVerdict span {
+    font-size: 10px;
+  }
+
+  .invEvidenceFactValue p,
+  .invEvidenceCurrent > strong,
+  .invEvidenceConclusion > p {
+    font-size: 12px;
+  }
+
+  .invEvidenceFactStatus,
+  .invEvidenceCurrent > span,
+  .invEvidenceCurrent > small,
+  .invEvidenceHistory > span {
+    font-size: 9px;
+  }
+
+  .invEvidenceVerdict {
+    min-height: 36px;
+    padding: 5px 7px;
+  }
+
+  .invEvidenceCurrent {
+    padding: 5px 7px;
+  }
+
+  .invEvidenceConclusion > strong {
+    font-size: 15px;
+  }
+
+  .invEvidenceConclusion > p.invZhLine {
+    font-size: 10px;
+  }
+
+  .invEvidenceControls {
+    grid-template-columns: 150px 72px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .invEvidenceAction,
+  .invEvidenceReset {
+    min-height: 32px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .invEvidenceControls > span {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .invEvidenceSimulatorSlide .invTitleBlock h1 {
+    font-size: clamp(24px, 6.8vw, 34px);
+    line-height: 1.02;
+  }
+
+  .invEvidenceSimulatorSlide .invZhTitle {
+    font-size: clamp(14px, 4vw, 19px);
+    line-height: 1.04;
+  }
+
+  .invEvidenceSimulatorSlide .invSlideBody {
+    align-content: start;
+    padding-top: 0;
+  }
+
+  .invEvidenceSimulator {
+    gap: 5px;
+  }
+
+  .invEvidenceStarter {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 2px 7px;
+    padding: 6px 7px;
+  }
+
+  .invEvidenceStarter > span {
+    font-size: 8px;
+  }
+
+  .invEvidenceStarter > strong {
+    font-size: 14px;
+  }
+
+  .invEvidenceStarter > .invZhLine {
+    font-size: 10px;
+  }
+
+  .invEvidenceWorkspace {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .invEvidenceBoard,
+  .invEvidenceDecision {
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .invEvidencePanelHead strong {
+    font-size: 12px;
+  }
+
+  .invEvidencePanelHead span,
+  .invEvidenceProgress {
+    font-size: 8px;
+  }
+
+  .invEvidenceFacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .invEvidenceFact {
+    min-height: 60px;
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 4px;
+    padding: 5px;
+  }
+
+  .invEvidenceFactNumber {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    font-size: 8px;
+  }
+
+  .invEvidenceFactText > strong {
+    font-size: 11px;
+  }
+
+  .invEvidenceFactText > .invZhLine,
+  .invEvidenceFactValue > .invZhLine {
+    font-size: 8px;
+  }
+
+  .invEvidenceFactValue {
+    margin-top: 2px;
+  }
+
+  .invEvidenceFactValue p {
+    font-size: 10px;
+  }
+
+  .invEvidenceFactStatus {
+    display: none;
+  }
+
+  .invEvidenceVerdicts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .invEvidenceVerdict {
+    min-height: 44px;
+    justify-items: center;
+    border-left-width: 1px;
+    padding: 5px 3px;
+    text-align: center;
+  }
+
+  .invEvidenceVerdict strong {
+    font-size: 10px;
+  }
+
+  .invEvidenceVerdict span {
+    font-size: 8px;
+  }
+
+  .invEvidenceCurrent {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 2px 6px;
+    padding: 5px 7px;
+  }
+
+  .invEvidenceCurrent > span {
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 8px;
+  }
+
+  .invEvidenceCurrent > strong {
+    font-size: 11px;
+  }
+
+  .invEvidenceCurrent > small {
+    font-size: 9px;
+  }
+
+  .invEvidenceHistory {
+    display: none;
+  }
+
+  .invEvidenceConclusion {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 2px 7px;
+    padding: 6px 7px;
+  }
+
+  .invEvidenceConclusion > span:first-child {
+    font-size: 8px;
+  }
+
+  .invEvidenceConclusion > strong {
+    font-size: 12px;
+  }
+
+  .invEvidenceConclusion > p {
+    font-size: 10px;
+  }
+
+  .invEvidenceConclusion > p.invZhLine {
+    font-size: 8px;
+  }
+
+  .invEvidenceControls {
+    grid-template-columns: minmax(0, 1fr) 72px;
+    gap: 4px;
+  }
+
+  .invEvidenceAction,
+  .invEvidenceReset {
+    min-height: 32px;
+    font-size: 10px;
+    padding: 5px 7px;
+  }
+
+  .invEvidenceControls > span {
+    display: none;
   }
 }

@@ -6,6 +6,94 @@ window.INVEST.lesson = {
     lessonLabel: "Unit X Lesson Y: Lesson title",
     sources: []
   },
+  handout: {
+    title: "Lesson title",
+    subtitle: "Unit X Lesson Y",
+    description: "Use a short grounded scenario and the lesson evidence to complete one investment judgement.",
+    meta: [
+      { label: "Name", value: "" },
+      { label: "Class", value: "" },
+      { label: "Date", value: "" }
+    ],
+    sections: [
+      {
+        label: "1",
+        title: "Grounded scenario and source box",
+        instruction: "Read the real, dated evidence and the clearly labelled mock or anonymised decision.",
+        blocks: [
+          {
+            type: "scenario",
+            title: "Real evidence, mock or anonymised decision",
+            context: "Replace with a two- or three-sentence scenario that combines the source-backed evidence with the lesson decision.",
+            realData: [
+              { label: "Dated source-backed figure", value: "Replace with value and unit", source: "Source title | evidence date" }
+            ],
+            fictionalElement: "Identify every invented or anonymised profile detail.",
+            lessonUse: "State the exact slide activity and handout task that use this evidence.",
+            limitation: "State what the real evidence cannot prove about the case or future result."
+          }
+        ]
+      },
+      {
+        label: "2",
+        title: "Vocabulary",
+        instruction: "Complete and use the lesson definitions.",
+        blocks: [
+          {
+            type: "terms",
+            terms: [
+              { label: "Term A", prompt: "Replace with a definition containing one conceptual __________.", answer: "blank" }
+            ]
+          }
+        ]
+      },
+      {
+        label: "3",
+        title: "Evidence and Data Analysis",
+        instruction: "Use the grounded scenario to identify or interpret evidence, explain its meaning and make a judgement.",
+        blocks: [
+          {
+            type: "table",
+            columns: ["Evidence", "Value", "What it may show", "What it cannot show"],
+            rows: [
+              ["Source-backed item", "Value and unit", "Replace with a focused interpretation", "Replace with one limitation"]
+            ]
+          }
+        ]
+      },
+      {
+        label: "4",
+        title: "Calculation or judgement task",
+        instruction: "Apply the lesson formula or decision rule to the scenario.",
+        blocks: [
+          { type: "writing", question: "Replace with the lesson calculation, interpretation or judgement task.", lines: 6 }
+        ]
+      },
+      {
+        label: "5",
+        title: "Misconception check",
+        instruction: "Correct one explicit investment shortcut using the scenario evidence.",
+        blocks: [
+          {
+            type: "prompts",
+            prompts: [
+              { label: "Weak claim", prompt: "Replace with the lesson misconception.", lines: 2 },
+              { label: "Correction", prompt: "Correct it using one source-backed fact and the lesson concept.", lines: 4 }
+            ]
+          }
+        ]
+      },
+      {
+        label: "6",
+        title: "Individual written output",
+        instruction: "Complete the lesson primary output independently.",
+        blocks: [
+          { type: "writing", question: "Replace with the exact course-map studentOutput.", lines: 8 }
+        ]
+      }
+    ],
+    sources: "List the scenario source title, publication or evidence date, accessed date and limitation. Label mock or anonymised details."
+  },
   slides: [
     {
       type: "hero",
@@ -407,6 +495,37 @@ window.INVEST.lesson = {
       ],
       prompt: "Choose the stronger case only after filling every criterion.",
       promptZh: "填完每个标准后，再选择更强的案例。"
+    },
+    {
+      type: "evidenceSimulator",
+      eyebrow: "Teacher-led simulation",
+      title: "Update a judgement as evidence arrives",
+      zhTitle: "随着证据出现更新判断",
+      prompt: "A family has money set aside for a future goal. Vote now, then vote again after each fact appears.",
+      promptZh: "一个家庭为未来目标留出了一笔钱。现在先投票，然后在每条信息出现后再次投票。",
+      evidenceLabel: "Goal evidence",
+      voteLabel: "Could investment help?",
+      facts: [
+        { label: "Purpose and amount", labelZh: "用途和金额", value: "University fees · CNY 180,000", valueZh: "大学学费·180,000元人民币" },
+        { label: "Time horizon", labelZh: "时间期限", value: "The fees are due in six years", valueZh: "学费将在六年后支付" },
+        { label: "Access need", labelZh: "资金使用需要", value: "The payment date is fixed", valueZh: "付款日期是固定的" },
+        { label: "Possible loss", labelZh: "可能的损失", value: "A loss near the date could block the goal", valueZh: "临近日期的损失可能阻碍目标实现" }
+      ],
+      verdicts: [
+        { id: "may-help", label: "Investment may help", labelZh: "投资可能有帮助", tone: "positive" },
+        { id: "conditions-needed", label: "Conditions needed", labelZh: "需要更多条件", tone: "caution" },
+        { id: "may-not-help", label: "Investment may not help", labelZh: "投资可能没有帮助", tone: "negative" }
+      ],
+      conclusion: {
+        verdict: "conditions-needed",
+        tone: "caution",
+        label: "Investment may help, but conditions are still needed",
+        labelZh: "投资可能有帮助，但仍需要更多条件",
+        text: "Six years gives the family time, but the fixed payment date and possible loss must be checked before investment could be considered.",
+        textZh: "六年期限给了家庭一定时间，但在考虑投资之前，仍必须检查固定付款日期和可能损失的影响。"
+      },
+      instruction: "Record the whole-class verdict after every reveal and take one final vote before showing the conclusion.",
+      notes: "Use this only as a teacher-led whole-class simulation. Keep evidence hidden until students commit to a verdict."
     },
     {
       type: "catalystTimeline",

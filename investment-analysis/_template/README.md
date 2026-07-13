@@ -12,7 +12,7 @@ Generator context:
 - The default and `--syllabus financial-decisions` selectors load the active course. Use `--syllabus company-analysis` only when maintaining an archived lesson.
 - Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
 - Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
-- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `groundedScenario`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
 
 Required files:
 
@@ -33,6 +33,14 @@ Classroom rhythm:
 9. Exit ticket, then follow-up quiz.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
+
+Grounded handout scenario:
+
+- Begin every handout with a short data-based scenario that is used in the lesson. It must not be an entirely fictional case or a decorative statistic.
+- Include at least one real, dated, source-backed figure or statement that materially informs the student task. Show the source title and evidence date.
+- Mock or anonymised family, investor and company details are allowed, but label them clearly and keep them distinct from the real evidence.
+- Reuse the same scenario evidence in at least one projected lesson activity and in the handout's Evidence and Data Analysis work.
+- State one limitation: what the real evidence cannot prove about the mock case or a future investment result.
 
 Use ISO currency codes that match the case. Use `CNY` for mainland China family scenarios, `HKD` only for Hong Kong-listed securities or Hong Kong transactions, `USD` for United States cases, and the corresponding local or transaction currency elsewhere. In Chinese support, name the currency as `人民币`, `港元` or `美元` rather than copying the English code.
 
@@ -81,8 +89,8 @@ Syllabus alignment:
 - Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
 - Record the relevant product, market, company or family-case label; source title; source URL; publication date; accessed date; key figures; and what the evidence can and cannot prove. Add stock code or listing details when a listed company is used.
 - Run the `sourceFitAudit` and check `caseReview` before building a deck; if the source pack fails, replace the company only with a case that preserves the same unit role, skill target and assessment blueprint.
-- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-financial-decisions-data.js`: source box, vocabulary, Evidence and Data Analysis, calculation or judgement task, misconception check and individual written output.
-- The Evidence and Data Analysis block should work like a compact Cambridge Section A-style worksheet: short case information, then identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions.
+- Build the lesson handout from the six `artifactBlueprint.handoutBlocks` in `course-map-financial-decisions-data.js`: grounded scenario and source box, vocabulary, Evidence and Data Analysis, calculation or judgement task, misconception check and individual written output.
+- The Evidence and Data Analysis block should reuse the grounded scenario and work like a compact Cambridge Section A-style worksheet: short case information, then identify/define, calculate or interpret, explain, analyse why and evidence-based judgement questions.
 - The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
 - Do not turn any unit into a multi-lesson portfolio, report or final project sequence.

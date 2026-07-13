@@ -920,7 +920,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'compare', 'exam']
+      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -929,7 +929,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 section divider desktop');
 
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/A family can spend CNY 50,000 now or set it aside for future goals\. What could justify waiting\?/i);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText(/NBS reported 2025 nationwide per-capita disposable income of CNY 43,377.*CNY 50,000.*future goal/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/product/i);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
@@ -987,24 +987,13 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 quiz interaction desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'rankingTask', title: 'Which questions must the family answer first?' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invPriorityOption')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .invPriorityRankBlank')).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .invPriorityScaleNote')).toHaveCount(0);
-    await expect(page.locator('.invSlide.is-active .invPriorityModel.invReveal.is-revealed')).toHaveCount(0);
-    const rankingOptionFont = await page.locator('.invSlide.is-active .invPriorityOptionText strong').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
-    expect(rankingOptionFont, 'lesson 1 ranking option text is large enough for projection').toBeGreaterThanOrEqual(27);
-    const rankingRowLeftEdges = await page.locator('.invSlide.is-active .invPriorityOption').evaluateAll((rows) => (
-      rows.map((row) => Math.round(row.getBoundingClientRect().left))
-    ));
-    expect(new Set(rankingRowLeftEdges).size, 'ranking task uses one vertical decision ladder').toBe(1);
-    await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector');
-    await revealInvestmentSlide(page);
-    await expect(page.locator('.invSlide.is-active .invPriorityPrompt')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invPriorityPrompt')).toContainText(/Assign ranks 1–4/i);
-    await expect(page.locator('.invSlide.is-active .invPriorityModel.is-revealed')).toBeVisible();
-    await expect(page.locator('.invSlide.is-active .invPriorityAttempt')).toBeHidden();
-    await expectInvestmentSlideFits(page, 'lesson 1 ranking task projector revealed');
+    await goToInvestmentSlide(page, { type: 'quiz', title: 'What should the family know first?' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invQuizChoices .invChoice')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Before comparing investment products/i);
+    await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
+    await page.locator('.invSlide.is-active .invQuizChoices .invChoice').first().click();
+    await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toContainText(/Start with the family's needs/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 goal-first hinge check projector');
 
     await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify whether investment may help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial');
@@ -1015,7 +1004,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal projector');
 
     await goToInvestmentSlide(page, { type: 'exam', title: 'Submit one reason and one condition' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .invExamBox h3')).toContainText(/Choose one goal from the family goal board/i);
+    await expect(page.locator('.invSlide.is-active .invExamBox h3')).toContainText(/Choose retirement income, a home deposit or university fees/i);
     await expect(page.locator('.invSlide.is-active .invKeyword')).toHaveCount(5);
     await expect(page.locator('.invSlide.is-active .invKeyword.is-revealed')).toHaveCount(0);
     await expectInvestmentSlideFits(page, 'lesson 1 exit ticket individual output projector');
@@ -1029,6 +1018,8 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-handout/);
     await expect(page.locator('.handoutDocument')).toBeVisible();
     expect(await page.locator('.handoutSection').count(), 'lesson 1 handout sections render').toBeGreaterThan(0);
+    await expect(page.locator('.handoutScenario')).toContainText(/CNY 43,377/);
+    await expect(page.locator('.handoutDataTable')).toContainText(/University fees/);
     if (await page.locator('.handoutAnswerToggle').count()) {
       await page.locator('.handoutAnswerToggle').click();
       await expect(page.locator('.handoutDocument')).toHaveClass(/is-showing-answers/);
@@ -1076,6 +1067,8 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toHaveClass(/investment-handout/);
     await expect(page.locator('.handoutDocument')).toBeVisible();
     expect(await page.locator('.handoutSection').count(), 'lesson 2 handout sections render').toBeGreaterThan(0);
+    await expect(page.locator('.handoutScenario')).toContainText(/CNY 29,476/);
+    await expect(page.locator('.handoutDataTable')).toContainText(/University/);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath) + '?view=quiz');
@@ -1461,7 +1454,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'rankingTask', 'peerTask', 'classificationTask', 'compare', 'exam']
+      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'comparisonMatrix', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
     await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify whether investment may help' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial phone');
@@ -1470,6 +1463,11 @@ test.describe('site smoke', () => {
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 2, 'lesson 1 share classification second reveal phone');
     await expectInvestmentSlideFits(page, 'lesson 1 share classification partial reveal phone');
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=print');
+    await expect(page.locator('.handoutScenario')).toContainText(/CNY 43,377/);
+    await expect(page.locator('.handoutDataTable')).toContainText(/University fees/);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath) + '?view=quiz');
@@ -1495,6 +1493,11 @@ test.describe('site smoke', () => {
       'lesson 2 phone',
       ['section', 'discussion', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=print');
+    await expect(page.locator('.handoutScenario')).toContainText(/CNY 29,476/);
+    await expect(page.locator('.handoutDataTable')).toContainText(/University/);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath) + '?view=quiz');
