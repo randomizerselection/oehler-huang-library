@@ -4,7 +4,7 @@ Use this folder as the starting point for future `investment-analysis/unit-x/les
 
 Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
 
-Also check `../course-map-financial-decisions-data.js` before drafting the lesson. It is the active course-level source for the family, investment-choice, market or company case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 guiding question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investment action, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, checkpoint pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source. The former company-analysis route remains in `../course-map-data.js` for archive maintenance only.
+Also check `../course-map-financial-decisions-data.js` before drafting the lesson. It is the active course-level source for the family, investment-choice, market or company case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 guiding question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investment action, required `stockMarketGame` core lab, worksheet Evidence and Data Analysis section, source pack, handout blocks, assessment blueprint, checkpoint pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source. The former company-analysis route remains in `../course-map-data.js` for archive maintenance only.
 
 Generator context:
 
@@ -12,7 +12,7 @@ Generator context:
 - The default and `--syllabus financial-decisions` selectors load the active course. Use `--syllabus company-analysis` only when maintaining an archived lesson.
 - Use `--target deck`, `--target handout`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
 - Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
-- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `groundedScenario`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `groundedScenario`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `stockMarketGame`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
 
 Required files:
 
@@ -28,8 +28,8 @@ Classroom rhythm:
 4. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
 5. Exactly three bilingual objectives.
 6. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
-7. Output rehearsal using the lesson `primaryOutput`.
-8. Practical investing action using the lesson `investmentAction`.
+7. Required SMG core lab using the lesson `stockMarketGame.studentAction` as the main application and evidence task; replace compatible generic practice instead of appending another activity.
+8. Output rehearsal and individual exit judgement using the same SMG evidence and the lesson `primaryOutput`.
 9. Exit ticket, then follow-up quiz.
 
 Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
@@ -85,6 +85,9 @@ Syllabus alignment:
 - Use `decisionFirst.misconceptionCheck` and `decisionFirst.exitJudgement` as the minimum assessment thread for the deck, handout and quiz.
 - Start from the lesson `coreClaim`, `primaryOutput`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint`; do not invent a separate deck, handout or exam objective.
 - Include the lesson `investmentAction` so students finish by choosing a justified next action such as consider, watch, avoid, compare with another choice or gather more evidence.
+- Treat the lesson `stockMarketGame.studentAction` as required core work, not an optional extension. Allocate roughly 35-50% of the lesson to that application and reuse its evidence in the individual exit and unit output.
+- Capture the required SMG portfolio, watchlist, transaction, quote or benchmark snapshot at the start of the lesson. Do not make the deck, handout or assessment depend on live prices remaining unchanged.
+- Add one concise team evidence row and one individual exit judgement. Do not generate a duplicate SMG worksheet, log or homework stream beside the lesson artifact.
 - Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.
 - Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
 - Use `references/investment-analysis-definitions.md` as the source for every presentation definition. If a term has a CFA glossary match in `references/investment-analysis-cfa-glossary-matches.json`, preserve that CFA-inspired meaning in the slide wording; if no match exists, write a complete definition in the same precise textbook style.
@@ -101,7 +104,7 @@ Syllabus alignment:
 - Preserve the Passport safeguards exactly: broad time and priority bands only, a plausible future-self goal as an alternative, no real family financial figures, no named products and no required public sharing of personal goals.
 - The textbook is the compiled sequence of lesson handouts only; do not add separate textbook-only teaching chapters.
 - One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
-- Do not turn any unit into a multi-lesson portfolio, report or final project sequence.
+- The required year-long SMG portfolio and its six cumulative unit outputs are the deliberate exception to the normal ban on invented multi-lesson projects. Do not add a second portfolio, report or final-project sequence beside them.
 
 Visual rhythm:
 

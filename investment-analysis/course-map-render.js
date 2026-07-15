@@ -77,6 +77,18 @@
     `;
   }
 
+  function renderStockMarketGameLesson(lesson) {
+    const smg = lesson.stockMarketGame;
+    if (!smg || smg.required !== true) return "";
+    return `
+      <div class="investment-lesson-smg${smg.milestone ? " is-milestone" : ""}" data-smg-core-lab${smg.milestone ? " data-smg-milestone" : ""} aria-label="Lesson ${lesson.lesson} SMG core lab">
+        <div class="investment-lesson-smg-label"><span>SMG core lab</span><strong>${smg.milestone ? "Summative milestone" : "Required formative lab"}</strong></div>
+        <p>${escapeHtml(smg.studentAction)}</p>
+        ${smg.milestone ? `<p class="investment-lesson-smg-evidence"><strong>Milestone evidence:</strong> ${escapeHtml(smg.requiredEvidence)}</p>` : ""}
+      </div>
+    `;
+  }
+
   function renderDecisionFirstModel() {
     const grid = document.querySelector("[data-decision-first-model]");
     const model = courseMap && courseMap.decisionFirstSyllabus;
@@ -116,6 +128,37 @@
         <h3>${escapeHtml(step.label)}</h3>
         <p>${escapeHtml(step.purpose)}</p>
         <p><strong>Student question:</strong> ${escapeHtml(step.studentQuestion)}</p>
+      </article>
+    `).join("");
+  }
+
+  function renderStockMarketGamePhases() {
+    const grid = document.querySelector("[data-stock-market-game-phases]");
+    const integration = courseMap && courseMap.stockMarketGameIntegration;
+    if (!grid || !integration || !Array.isArray(integration.phases)) return;
+
+    grid.innerHTML = integration.phases.map((phase) => `
+      <article class="investment-card">
+        <span class="code">Lessons ${escapeHtml(phase.lessons.join("-"))}</span>
+        <h3>${escapeHtml(phase.officialStage)}</h3>
+        <p>${escapeHtml(phase.coursePurpose)}</p>
+        <p><strong>Evidence:</strong> ${escapeHtml(phase.requiredEvidence)}</p>
+      </article>
+    `).join("");
+  }
+
+  function renderStockMarketGameUnitEvidence() {
+    const grid = document.querySelector("[data-stock-market-game-unit-evidence]");
+    const integration = courseMap && courseMap.stockMarketGameIntegration;
+    if (!grid || !integration || !Array.isArray(integration.unitEvidence)) return;
+
+    grid.innerHTML = integration.unitEvidence.map((item) => `
+      <article class="investment-card">
+        <span class="code">Unit ${escapeHtml(item.unit)} · Lessons ${escapeHtml(item.lessons.join("-"))}</span>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p><strong>Team:</strong> ${escapeHtml(item.teamEvidence)}</p>
+        <p><strong>Individual:</strong> ${escapeHtml(item.individualEvidence)}</p>
+        <p><strong>Assessment:</strong> ${escapeHtml(item.assessmentUse)}</p>
       </article>
     `).join("");
   }
@@ -173,6 +216,7 @@
         <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.misconceptionCheck)}</td>
         <td>${escapeHtml(lesson.decisionFirst && lesson.decisionFirst.exitJudgement)}</td>
         <td>${escapeHtml(lesson.investmentAction && lesson.investmentAction.studentAction)}</td>
+        <td>${escapeHtml(lesson.stockMarketGame && lesson.stockMarketGame.studentAction)}</td>
         <td>${escapeHtml(lesson.avoidOverlap)}</td>
         <td>${escapeHtml(lesson.futureReuse)}</td>
       </tr>
@@ -197,6 +241,7 @@
         </div>
         ${renderInvestmentAction(lesson)}
         ${renderPassportCheckpoint(lesson)}
+        ${renderStockMarketGameLesson(lesson)}
         ${lesson.publishedRoutes ? `
           <nav class="investment-lesson-routes" aria-label="Lesson ${lesson.lesson} materials">
             <a href="${escapeHtml(lesson.publishedRoutes.slides)}">Slides</a>
@@ -242,6 +287,8 @@
     renderDecisionFirstModel();
     renderInvestmentWorkflow();
     renderSimpleLessonStructure();
+    renderStockMarketGamePhases();
+    renderStockMarketGameUnitEvidence();
     renderGeneratorTable();
     renderLessonCards();
   }

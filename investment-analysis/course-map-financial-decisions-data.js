@@ -148,12 +148,12 @@
   };
 
   const units = [
-    { unit: 1, semester: 1, lessons: [1, 8], title: "Personal Investment Foundations", summary: "Students connect family goals, time, inflation, compounding and risk to a written investment plan before comparing investment choices.", unitOutput: "A goals-and-time-horizon investment plan for a mock family." },
-    { unit: 2, semester: 1, lessons: [9, 17], title: "Investment Choices for Families", summary: "Students compare cash, fixed-income securities, shares and funds, then combine knowledge of these choices with fees, diversification and suitable investing methods.", unitOutput: "An investment-choice comparison memo for three mock family goals." },
-    { unit: 3, semester: 1, lessons: [18, 26], title: "How Markets Work", summary: "Students trace securities from issue to settlement, read market evidence and explain prices, returns, indices and news without drifting into short-term speculation.", unitOutput: "A market-evidence memo explaining one price or return judgement." },
-    { unit: 4, semester: 2, lessons: [27, 35], title: "Analysing Companies", summary: "Students use ethical source discipline, business models, financial statements, comparisons, risks and valuation to write a balanced junior analyst memo.", unitOutput: "A junior company-analysis memo using dated evidence and caveats." },
-    { unit: 5, semester: 2, lessons: [36, 43], title: "Portfolios and Investor Behaviour", summary: "Students construct, compare, monitor and rebalance portfolios while recognising concentration, currency, market and behavioural risks.", unitOutput: "A portfolio review with weights, risks, review triggers and a justified next action." },
-    { unit: 6, semester: 2, lessons: [44, 50], title: "Family Investment Decisions and Careers", summary: "Students apply the course to education, housing, retirement and windfall cases, identify unsafe offers, explore careers and defend a final family strategy.", unitOutput: "A family investment strategy and junior analyst presentation." }
+    { unit: 1, semester: 1, lessons: [1, 8], title: "Personal Investment Foundations", summary: "Students connect family goals, time, inflation, compounding and risk to a written investment plan before comparing investment choices.", unitOutput: "A team SMG investment policy plus an individual goal-horizon-risk decision charter." },
+    { unit: 2, semester: 1, lessons: [9, 17], title: "Investment Choices for Families", summary: "Students compare cash, fixed-income securities, shares and funds, then combine knowledge of these choices with fees, diversification and suitable investing methods.", unitOutput: "An SMG portfolio-construction and investment-choice memo." },
+    { unit: 3, semester: 1, lessons: [18, 26], title: "How Markets Work", summary: "Students trace securities from issue to settlement, read market evidence and explain prices, returns, indices and news without drifting into short-term speculation.", unitOutput: "An SMG transaction, quote, return and benchmark evidence memo." },
+    { unit: 4, semester: 2, lessons: [27, 35], title: "Analysing Companies", summary: "Students use ethical source discipline, business models, financial statements, comparisons, risks and valuation to write a balanced junior analyst memo.", unitOutput: "A junior company-analysis memo on an SMG holding or watchlist candidate." },
+    { unit: 5, semester: 2, lessons: [36, 43], title: "Portfolios and Investor Behaviour", summary: "Students construct, compare, monitor and rebalance portfolios while recognising concentration, currency, market and behavioural risks.", unitOutput: "An SMG portfolio review and evidence-based rebalance decision." },
+    { unit: 6, semester: 2, lessons: [44, 50], title: "Family Investment Decisions and Careers", summary: "Students apply the course to education, housing, retirement and windfall cases, identify unsafe offers, explore careers and defend a final family strategy.", unitOutput: "A final SMG portfolio evaluation linked to a family strategy and team presentation." }
   ];
 
   const lessonSpecs = [
@@ -655,6 +655,154 @@
     return ["mock family or investor profile", "teacher-frozen investment, market or economic evidence", "official or regulator investor-education source"];
   }
 
+  const stockMarketGamePhases = [
+    {
+      phase: 1,
+      lessons: [1, 8],
+      officialStage: "Understanding SMG and Before You Invest",
+      coursePurpose: "Form teams, learn the national and local rules, rotate defined roles, open the team journal and write an evidence-based investment policy before any order is entered.",
+      defaultStudentAction: "Apply each lesson's concept to the team purpose, rules, policy or pre-launch watchlist; do not trade before the Lesson 8 launch gate.",
+      requiredEvidence: "Roster, role record, completed rules quiz, team investment policy and individual Unit 1 checkpoint.",
+      officialResources: ["program-guides/SMG_Advisor_Guide_2022.pdf", "high-school-lessons/00_Understanding_SMG_Grades_9-12.pdf", "rules-and-platform/SMG_National_Rules_Handout.pdf", "rules-and-platform/SMG_Rules_Quiz.pdf", "rules-and-platform/SMG_Team_Roles.pdf"]
+    },
+    {
+      phase: 2,
+      lessons: [9, 17],
+      officialStage: "Selecting Your Investments",
+      coursePurpose: "Compare eligible investment choices, research candidates and justify every trade, watch or no-trade decision against the approved team plan.",
+      defaultStudentAction: "Apply each lesson's investment-choice criteria to the portfolio or an eligible candidate and record the resulting evidence or decision.",
+      requiredEvidence: "Research worksheet, proposal author, team decision, transaction note or no-trade reason and review trigger.",
+      officialResources: ["program-guides/SMG_Essentials_Workbook.pdf", "high-school-lessons/04_Diversification_Grades_9-12.pdf", "high-school-lessons/05_Stock_Research_Guide_and_Worksheet.pdf", "high-school-lessons/06_What_Is_Risk_Grades_9-12.pdf", "rules-and-platform/SMG_How_to_Trade_Stocks.pdf"]
+    },
+    {
+      phase: 3,
+      lessons: [18, 26],
+      officialStage: "Selecting and Tracking Your Investments",
+      coursePurpose: "Use the live team portfolio to understand issuance, exchanges, order entry, quotes, price change, return, benchmarks and market information.",
+      defaultStudentAction: "Apply each lesson's market concept to a platform page, transaction, price move, return or benchmark result.",
+      requiredEvidence: "Platform-page annotation, transaction check, dated price or news evidence, benchmark comparison and one limitation.",
+      officialResources: ["student-handouts/SMG_Understanding_Stock_Quotes.pdf", "high-school-lessons/03_Ticker_Symbols_and_Stock_Quotes_Grades_9-12.pdf", "high-school-lessons/07_What_Causes_Stock_Prices_to_Change_Grades_9-12.pdf", "rules-and-platform/SMG_Portfolio_Rankings_Guide.pdf"]
+    },
+    {
+      phase: 4,
+      lessons: [27, 35],
+      officialStage: "Tracking Your Investments",
+      coursePurpose: "Apply ethical company analysis to one holding or watchlist candidate and replace unsupported portfolio stories with dated business and financial evidence.",
+      defaultStudentAction: "Apply each lesson's company-analysis method to one holding or watchlist candidate and record what would maintain or change the team decision.",
+      requiredEvidence: "Source log, company evidence note, risk or valuation caveat and junior analyst memo linked to a holding or candidate.",
+      officialResources: ["high-school-lessons/05_Stock_Research_Guide_and_Worksheet.pdf", "high-school-lessons/08_Buy_Sell_or_Hold_Grades_9-12.pdf"]
+    },
+    {
+      phase: 5,
+      lessons: [36, 43],
+      officialStage: "Tracking Your Investments",
+      coursePurpose: "Review allocation, concentration, currency exposure, remaining risk, rebalancing, monitoring triggers and behavioural mistakes using the active portfolio.",
+      defaultStudentAction: "Apply each lesson's portfolio method to current allocation, benchmark and evidence, then choose hold, research, trade, rebalance or no action under the course rules.",
+      requiredEvidence: "Cumulative portfolio review, weights, benchmark, risk check, decision, evidence owner and review trigger.",
+      officialResources: ["program-guides/SMG_Essentials_Workbook.pdf", "high-school-lessons/08_Buy_Sell_or_Hold_Grades_9-12.pdf", "rules-and-platform/SMG_Portfolio_Rankings_Guide.pdf"]
+    },
+    {
+      phase: 6,
+      lessons: [44, 50],
+      officialStage: "Reflections",
+      coursePurpose: "Evaluate the strategy rather than celebrate rank, connect results to long-horizon family goals and defend a final evidence-based portfolio judgement.",
+      defaultStudentAction: "Apply each lesson's family-decision, safety or career concept to the portfolio and add evidence to the final team evaluation and individual reflection.",
+      requiredEvidence: "Final portfolio evaluation, benchmark-aware reflection, team presentation and an individual account of contribution and changed thinking.",
+      officialResources: ["high-school-lessons/09_Investment_Strategy_Reflection_Grades_9-12.pdf", "program-guides/SMG_Essentials_Workbook.pdf"]
+    }
+  ];
+
+  const stockMarketGameMilestones = {
+    1: "Create teams of three to five where practicable, roster every student on exactly one portfolio, assign the first roles and open individual journals.",
+    3: "Read the live national rules and advisor-account local rules, complete the official rules quiz and sign the course's long-only participation agreement.",
+    7: "Complete the official Before You Invest checks on companies, stocks, ticker symbols and quote fields, then research one eligible candidate without entering an order.",
+    8: "Approve the team investment policy, then complete one successful long stock buy of at least 10 shares at the transition into Unit 2; every student records their contribution to the proposal.",
+    15: "Audit whether the portfolio is genuinely diversified and propose one evidence-based improvement or justified no-change decision.",
+    17: "Complete the first formal portfolio-fit review against the team's goals, horizon, risk limits and permitted choices.",
+    21: "Annotate one eligible security's quote page before any new order is approved.",
+    25: "Compare team performance with the applicable platform benchmark without treating rank as proof of decision quality.",
+    35: "Submit a junior analyst memo connected to one holding or watchlist candidate.",
+    36: "Record the portfolio's current asset allocation and compare it with the approved team plan.",
+    41: "Complete the formal rebalance decision using target weights, transaction costs and evidence.",
+    43: "Audit one team decision for FOMO, recency bias or performance chasing and revise the process if needed.",
+    48: "Re-check current national and local rules, account security and unsafe-offer boundaries before the final portfolio period.",
+    50: "Submit the final team portfolio evaluation and an individual reflection proving personal participation, evidence use and changed judgement."
+  };
+
+  const stockMarketGameLessonActions = {
+    1: "Form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.",
+    2: "Turn the team purpose into explicit goal, time-horizon and liquidity rules that will govern later portfolio decisions.",
+    3: "Classify proposed team actions as saving, investing or speculation, complete the official rules quiz and sign the course's long-only participation agreement.",
+    4: "Use a frozen contribution-and-return scenario to project how the team's starting capital could compound, then label every assumption and limitation.",
+    5: "Calculate the approximate real return of a frozen portfolio or benchmark scenario and explain the effect on the team's purchasing-power goal.",
+    6: "Place one watchlist candidate and the team's cash position on a risk-possible-return map, including one downside that the map cannot quantify.",
+    7: "Set team risk-tolerance and risk-capacity limits, complete the official company-stock-ticker-quote checks and research one eligible candidate without trading.",
+    8: "Approve the team investment policy and first evidence-backed proposal, then complete the qualifying long stock purchase when the teacher opens the launch gate.",
+    9: "Set and justify the portfolio's cash reserve by explaining which money should remain liquid rather than being invested immediately.",
+    10: "Compare the portfolio with a teacher-frozen bond alternative; if the platform does not permit that bond, record the comparison as a paper allocation rather than a trade.",
+    11: "Explain what ownership of one current holding or eligible watchlist share gives the team and what it does not give.",
+    12: "Test whether an eligible fund or teacher-frozen ETF candidate would broaden the portfolio's exposures, then identify one risk that remains.",
+    13: "Compare an index-tracking and actively managed fund candidate by objective, benchmark, cost, holdings and evidence quality.",
+    14: "Use the current platform or local fee schedule to calculate how transaction or fund costs would affect one proposed portfolio action.",
+    15: "Audit the live portfolio by company, sector and geography, then approve one diversification improvement or a justified no-change decision.",
+    16: "Model regular contributions versus one lump-sum contribution in a side scenario and state why this projection is not a promised platform result.",
+    17: "Complete the formal portfolio-fit review against the approved goal, horizon, liquidity need, risk limits, costs and permitted choices.",
+    18: "Use a dated filing or official company source to explain why one holding or watchlist company issued shares and what the issue financed.",
+    19: "Classify one team transaction as a secondary-market trade and contrast it with the company's primary-market issuance.",
+    20: "Trace one order from proposal through submission, execution and settlement, recording the actual platform status at each available stage.",
+    21: "Annotate the quote page for one eligible security before any new order is approved, including price, change, volume and time stamp.",
+    22: "Explain one material price move in a holding or watchlist candidate using dated evidence, an alternative explanation and one limitation.",
+    23: "Compare market capitalisation and share price for two eligible candidates and correct the claim that the lower-priced share is the cheaper company.",
+    24: "Calculate total return for one holding or frozen candidate, including distributions where relevant, and distinguish it from price return.",
+    25: "Compare the team's return with the applicable platform benchmark over the same period and explain why rank does not prove decision quality.",
+    26: "Audit one market-news item used by the team for source quality, date, material evidence, uncertainty and possible conflict.",
+    27: "Apply the course ethics and conflict check to a team source, recommendation or proposed action before it enters the evidence record.",
+    28: "Write a concise business-model note for one holding or watchlist candidate: customer, value offered, revenue driver and main vulnerability.",
+    29: "Extract one revenue, cost and profit trend from a holding or candidate's income statement and state how it affects the team judgement.",
+    30: "Use balance-sheet evidence to assess one holding or candidate's liquidity, debt or financial resilience without relying on a single ratio.",
+    31: "Compare profit with operating cash flow for one holding or candidate and record why the difference matters to the portfolio decision.",
+    32: "Compare one holding or candidate with a relevant peer using the same dated measures and explain one limit of the comparison.",
+    33: "Add two qualitative risks and one disconfirming indicator to the monitoring record for a holding or watchlist candidate.",
+    34: "Make a cautious valuation judgement for one holding or candidate using at least one comparison measure, assumptions and an explicit caveat.",
+    35: "Submit the junior analyst memo on one SMG holding or watchlist candidate and connect its evidence to a hold, research, trade or no-trade decision.",
+    36: "Calculate the live portfolio's asset and security weights and compare them with the approved team policy.",
+    37: "Identify the portfolio's largest company, sector and factor concentrations and decide which concentration is most avoidable.",
+    38: "Map the geographic and currency exposures behind the portfolio's listings, revenues or funds and identify one mismatch with the team goal.",
+    39: "Separate company-specific risks from market-wide risks in the portfolio and explain which risks diversification cannot remove.",
+    40: "Compare a current share holding, an eligible fund and a teacher-frozen bond alternative against the same team objective and constraints.",
+    41: "Complete the formal rebalance decision using current weights, target ranges, transaction costs, dated evidence and a justified action or no action.",
+    42: "Build the team's monitoring dashboard with benchmark, cash, weights, decision thesis, disconfirming evidence and dated review triggers.",
+    43: "Audit one team decision for FOMO, recency bias or performance chasing and revise the decision process before any related order.",
+    44: "Stress-test the current portfolio against a mock education goal and state which holding, risk or liquidity feature would need reconsideration.",
+    45: "Stress-test the current portfolio against a near-term house-deposit goal and explain why the same allocation may become unsuitable.",
+    46: "Stress-test the current portfolio against a long-horizon retirement goal and identify which evidence supports or weakens its suitability.",
+    47: "Apply a mock windfall to the team strategy, choosing an immediate, staged or no-investment action with a decision pause and evidence plan.",
+    48: "Re-check live national and local rules, account security and unsafe-offer red flags before the final portfolio period.",
+    49: "Map the team's research, portfolio, compliance, data-entry and reporting work to real investment careers and their ethical responsibilities.",
+    50: "Defend the final portfolio against its goal and benchmark, evaluate the decision process and submit an individual reflection on contribution and changed judgement."
+  };
+
+  function getStockMarketGameLessonIntegration(lesson) {
+    const phase = stockMarketGamePhases.find(function findPhase(item) {
+      return lesson >= item.lessons[0] && lesson <= item.lessons[1];
+    });
+    const milestone = Boolean(stockMarketGameMilestones[lesson]);
+    return {
+      required: true,
+      central: true,
+      phase: phase.phase,
+      officialStage: phase.officialStage,
+      studentAction: stockMarketGameLessonActions[lesson],
+      requiredEvidence: phase.requiredEvidence,
+      officialResources: phase.officialResources,
+      milestone: milestone,
+      integrationLevel: milestone ? "summative course milestone" : "required formative course lab",
+      lessonUse: "Use as the lesson's main application and evidence task, replacing compatible generic practice rather than being appended as an extra activity.",
+      requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+      dataRule: "Use a portfolio, watchlist, transaction, quote or benchmark snapshot captured at the start of the lesson so the task remains stable while the platform continues to move."
+    };
+  }
+
   function lessonFromSpec(spec, index) {
     const lesson = index + 1;
     const unit = getUnit(lesson);
@@ -720,6 +868,7 @@
       misconception: spec.naive,
       studentOutput: studentOutput,
       passportCheckpoint: passportCheckpoint,
+      stockMarketGame: getStockMarketGameLessonIntegration(lesson),
       futureReuse: unitReuse[unit.unit],
       focus: "Focus: " + spec.q + " Case anchor: " + spec.anchor + ".",
       objectives: [
@@ -844,13 +993,89 @@
   });
 
   const courseMap = {
-    version: 3,
+    version: 6,
     syllabusKey: "financial-decisions",
     courseTitle: "Investment and Financial Decision-Making",
     mapTitle: "50-Lesson Personal Wealth, Markets and Analysis Course Map",
     currencyRule: "Use ISO currency codes that match the case: CNY for mainland China family scenarios, HKD for Hong Kong-listed securities or Hong Kong transactions, USD for United States cases, and the corresponding local or transaction currency for other countries. In Chinese support, name 人民币, 港元 or 美元 as appropriate.",
-    courseIntroduction: "Investment is not simply choosing a stock. It begins with understanding what the money is for, when it will be needed, what risk can be accepted and which evidence is still missing. Students learn to make informed investment decisions, contribute thoughtfully to family discussions, understand stock markets, analyse companies and portfolios, and explore the tools and responsibilities of finance professionals.",
-    coursePromise: "Students move from family goal to investor profile, investment choice, market understanding, security analysis and portfolio decision, then communicate a justified next action with evidence and limits.",
+    courseIntroduction: "Investment is not simply choosing a stock. It begins with understanding what the money is for, when it will be needed, what risk can be accepted and which evidence is still missing. The Stock Market Game is the course's required laboratory: every lesson applies its investment concept to the team's policy, watchlist, portfolio, transactions, evidence or benchmark. Students learn to make informed investment decisions, contribute thoughtfully to family discussions, understand stock markets, analyse companies and portfolios, and explore the tools and responsibilities of finance professionals.",
+    coursePromise: "Students move from family goal to investor profile, investment choice, market understanding, security analysis and portfolio decision. In every lesson they test that learning in a shared Stock Market Game portfolio and communicate a justified next action with evidence and limits.",
+    stockMarketGameIntegration: {
+      status: "required for every enrolled student",
+      role: "core course laboratory and assessment spine",
+      provider: "SIFMA Foundation",
+      program: "The Stock Market Game",
+      courseStart: "2026-09-01",
+      session: "Use the registered 2026-2027 full-academic-year session and the exact dates displayed in the advisor account; official registration guidance says dates and competition conditions vary by program.",
+      officialSequence: ["Understanding SMG", "Before You Invest", "Selecting Your Investments", "Tracking Your Investments", "Reflections"],
+      nationalMinimum: "A team is not listed in rankings until it completes at least one successful buy or short-sell transaction. National rules require stock and mutual-fund buy orders and stock short-sell orders to contain at least 10 shares. This platform threshold is not sufficient evidence of individual course participation.",
+      courseMinimum: "Every student must belong to exactly one team, understand the rules, rotate roles, contribute research and decisions, maintain individual evidence and complete a final reflection. Team rank or return never substitutes for this evidence.",
+      teamModel: {
+        recommendedSize: "3-5 students per portfolio where class numbers permit",
+        rosterRule: "Roster every enrolled student on exactly one SMG portfolio and retain an advisor copy of the team list.",
+        roles: ["Director", "Researcher", "Portfolio Coordinator", "Data Entry Coordinator", "Lead Reporter"],
+        rotationRule: "Rotate roles every two course weeks. Teams with fewer than five students may combine roles, but the proposal author and order checker should be different students where team size permits; no rotation may expose team passwords."
+      },
+      launchGate: {
+        timing: "After Lesson 8 and at the transition into Unit 2.",
+        readiness: ["Every student is rostered.", "National and local rules have been read.", "The official rules quiz is complete.", "The official company, stock, ticker-symbol and quote checks are complete.", "The team investment policy is approved.", "A dated research note supports the proposed order."],
+        qualifyingAction: "Complete one successful teacher-approved long stock buy of at least 10 shares, subject to any stricter local rule. Every student records their contribution to the team proposal."
+      },
+      classroomRules: [
+        "Long-only: no short selling, short covering or strategy tasks based on profiting from price falls.",
+        "No margin or borrowing, even if the platform account displays buying power above the starting cash balance.",
+        "No order without a dated evidence record, named proposal author, team decision, decision reason and review trigger.",
+        "Check the live national rules and the advisor account's local rules before the first order and again before the final portfolio period; the stricter rule governs.",
+        "Keep team credentials private and enter orders only through the assigned Data Entry Coordinator under teacher supervision.",
+        "Do not grade rank, raw return or a single winning trade; assess research, reasoning, rule compliance, collaboration, monitoring and reflection."
+      ],
+      lessonRoutine: [
+        "Capture the portfolio, watchlist, transaction, quote or benchmark snapshot needed for the lesson.",
+        "Apply the lesson's concept to a real team decision, holding, candidate, platform process or portfolio result.",
+        "Choose hold, research, trade, rebalance or no action when the evidence calls for a decision.",
+        "Add one concise team evidence row and complete the individual exit judgement."
+      ],
+      operatingModel: {
+        lessonTimeShare: "Allocate roughly 35-50% of every lesson to the SMG core lab; scale the exact minutes to the timetable and give milestone lessons the larger share.",
+        integrationRule: "The SMG core lab is the lesson's main application and evidence task. It replaces compatible generic case practice rather than being appended after the lesson.",
+        lessonEvidenceCadence: "Every lesson produces one concise team evidence row and one individual exit judgement. The six unit outputs curate this evidence rather than asking students to reproduce it.",
+        summativeCadence: "Fourteen named lessons are summative SMG milestones; the other thirty-six are required formative course labs that build the same portfolio evidence trail.",
+        individualEvidenceCadence: "Every student contributes through rotating roles and an individual exit judgement in every lesson, then curates one personal checkpoint per unit plus the final reflection.",
+        tradingCadence: "After the required first qualifying purchase, there is no trade quota. A justified hold or no-trade decision counts equally when evidence or portfolio fit does not support action.",
+        workloadRule: "SMG work is the application layer of the course, not a second parallel homework course. Reuse the same evidence in the lesson output and unit assessment.",
+        snapshotRule: "Capture the required platform evidence at the start of the lesson and use that frozen snapshot for teaching, writing and assessment so live price movement cannot destabilise the task."
+      },
+      decisionLogFields: [
+        { key: "date", label: "Decision date", requirement: "Use the date the evidence was reviewed." },
+        { key: "student", label: "Student and role", requirement: "Name the responsible student and current team role." },
+        { key: "evidence", label: "Dated evidence", requirement: "Record source, date, one material figure or claim and one limitation." },
+        { key: "proposal", label: "Proposed action", requirement: "Choose hold, research, buy, sell, rebalance or no trade." },
+        { key: "fit", label: "Plan and risk fit", requirement: "Explain how the proposal fits the team goal, horizon, risk limits and course rules." },
+        { key: "teamDecision", label: "Team decision", requirement: "Record the decision, dissent if material and the student who checked the order." },
+        { key: "platformResult", label: "Platform result", requirement: "Record not entered, pending, executed or rejected; never treat submission as execution." },
+        { key: "reviewTrigger", label: "Review trigger", requirement: "State the date, evidence or threshold that requires reconsideration." }
+      ],
+      unitEvidence: [
+        { unit: 1, lessons: [1, 8], title: "SMG investment policy", teamEvidence: "Roster, role schedule, rules check, goal-horizon-risk rules, investment policy and approved first proposal.", individualEvidence: "Curate the strongest Unit 1 exit judgements into a personal goal-horizon-risk decision charter.", assessmentUse: "This is the Personal Investment Foundations unit output." },
+        { unit: 2, lessons: [9, 17], title: "SMG portfolio construction", teamEvidence: "Cash rule, asset-choice comparisons, cost check, diversification audit and formal portfolio-fit review.", individualEvidence: "Defend one chosen investment criterion and one rejected portfolio alternative using the lesson evidence trail.", assessmentUse: "This is the SMG portfolio-construction and investment-choice memo." },
+        { unit: 3, lessons: [18, 26], title: "SMG market evidence", teamEvidence: "Issuance note, transaction trace, quote annotation, price explanation, return calculation and benchmark comparison.", individualEvidence: "Explain one transaction, price or return judgement with dated evidence and a limitation.", assessmentUse: "This is the SMG transaction, quote, return and benchmark evidence memo." },
+        { unit: 4, lessons: [27, 35], title: "SMG company analysis", teamEvidence: "Ethics check, source log, business model, statements, peer comparison, risks and valuation evidence for a holding or candidate.", individualEvidence: "Author or critically review one balanced company judgement and its portfolio implication.", assessmentUse: "This is the junior company-analysis memo on an SMG holding or watchlist candidate." },
+        { unit: 5, lessons: [36, 43], title: "SMG portfolio review", teamEvidence: "Weights, concentration, geographic and currency exposure, remaining risk, alternatives, rebalance, dashboard and behaviour audit.", individualEvidence: "Defend the rebalance or no-rebalance decision and specify a dated review trigger.", assessmentUse: "This is the SMG portfolio review and evidence-based rebalance decision." },
+        { unit: 6, lessons: [44, 50], title: "SMG final evaluation", teamEvidence: "Three goal stress tests, windfall decision, rules and security re-check, career reflection and final benchmark-aware portfolio defence.", individualEvidence: "Explain personal contribution, one changed judgement and one process improvement using evidence from the year.", assessmentUse: "This is the final SMG portfolio evaluation linked to a family strategy and team presentation; InvestWrite may be offered separately but is not required." }
+      ],
+      individualParticipationEvidence: [
+        "Completed rules quiz and signed course participation agreement.",
+        "Role-rotation record showing meaningful work in more than one role.",
+        "One dated individual exit judgement from every lesson, curated into one checkpoint in each of the six units.",
+        "At least one authored investment proposal and one authored monitoring or no-trade note.",
+        "Final individual reflection explaining contribution, evidence use, benchmark-aware results and one judgement that changed."
+      ],
+      assessmentRule: "SMG evidence is the required application evidence for every lesson and the assessment spine for all six unit outputs. Scores reward evidence quality, concept use, decision reasoning, monitoring, rule compliance and reflection, not portfolio rank or short-term return.",
+      officialResourceDirectory: "investment-analysis/references/stock-market-game/README.md",
+      officialResourceManifest: "investment-analysis/references/stock-market-game/official-sources.json",
+      implementationGuide: "investment-analysis/stock-market-game-integration.md",
+      phases: stockMarketGamePhases
+    },
     personalPassportPilot: {
       title: "My Future Investor Passport",
       titleZh: "我的未来投资者护照",
@@ -927,6 +1152,11 @@
         "Build every lesson around a first judgement, missing evidence, one focused key idea, an evidence task, misconception correction and a justified next action.",
         "Begin every handout with a short grounded scenario: at least one real, dated, source-backed figure or statement plus clearly labelled mock or anonymised details, and reuse it in the lesson task.",
         "For Lessons 1-8, end the deck with the five-minute My Future Investor Passport checkpoint from passportCheckpoint; keep the mock case as the formal assessed output and assign only unfinished Passport work as homework.",
+        "Use every lesson's stockMarketGame field as the main application and evidence task. The 14 named milestones are summative; the other 36 lesson labs are required formative work that builds the same portfolio evidence trail.",
+        "Make the SMG lab replace compatible generic case practice rather than appending a separate activity or homework stream. Capture one concise team evidence row and one individual exit judgement per lesson, then curate them into the unit output.",
+        "Freeze the required portfolio, watchlist, transaction, quote or benchmark snapshot at the start of the lesson so generators never depend on a live price remaining unchanged.",
+        "Apply the course's stricter SMG rules: long-only, no margin, no short selling, evidence before every order and grades based on process rather than rank or return.",
+        "After the first qualifying purchase, do not impose a trade quota; a justified hold or no-trade decision is an equally valid evidence-based output.",
         "Use mock or anonymised family profiles and frozen evidence; never require real family account data.",
         "Keep personal relevance investment-centred. Do not add budgeting, payslips, consumer credit, insurance administration, tax administration or general banking units.",
         "Do not give personalised buy, sell or hold advice, stock tips, market-timing rules or short-term speculation tasks."

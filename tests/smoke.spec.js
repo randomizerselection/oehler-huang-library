@@ -1447,6 +1447,13 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Six units, fifty taught lessons$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Course outcomes$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Every student participates in The Stock Market Game$/i })).toBeVisible();
+    await expect(page.locator('[data-stock-market-game-phases] .investment-card')).toHaveCount(6);
+    await expect(page.locator('[data-stock-market-game-unit-evidence] .investment-card')).toHaveCount(6);
+    await expect(page.locator('#stock-market-game')).toContainText(/First trade after Lesson 8/i);
+    await expect(page.locator('#stock-market-game')).toContainText(/Process, not rank or return/i);
+    await expect(page.locator('#stock-market-game')).toContainText(/SMG is the main application/i);
+    await expect(page.locator('#stock-market-game')).toContainText(/One evidence trail, six assessed outputs/i);
     await expect(page.getByRole('heading', { name: /^Fifty investment decisions$/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /^Six cumulative unit outputs$/i })).toBeVisible();
     await expect(page.locator('details.investment-teaching-disclosure:not([open])')).toHaveCount(1);
@@ -1460,6 +1467,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Missing evidence/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
+    await expect(page.locator('.investment-generator-table thead')).toContainText(/SMG core lab/i);
     await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/CNY 50,000 but no stated goal.*What should it do next/i);
     await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/goal, time horizon/i);
@@ -1467,6 +1475,10 @@ test.describe('site smoke', () => {
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('[data-syllabus-lesson]').first()).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson]').last()).toBeVisible();
+    await expect(page.locator('[data-smg-core-lab]')).toHaveCount(50);
+    await expect(page.locator('[data-smg-milestone]')).toHaveCount(14);
+    await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/SMG core lab[\s\S]*Summative milestone[\s\S]*Form the SMG team/i);
+    await expect(page.locator('[data-syllabus-lesson]').last()).toContainText(/SMG core lab[\s\S]*Summative milestone[\s\S]*Defend the final portfolio/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="1"] .investment-lesson-routes a')).toHaveCount(3);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="2"] .investment-lesson-routes a')).toHaveCount(3);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="3"] .investment-lesson-routes')).toHaveCount(0);

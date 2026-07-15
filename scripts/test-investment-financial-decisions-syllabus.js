@@ -5,6 +5,8 @@ const { spawnSync } = require('child_process');
 const root = path.resolve(__dirname, '..');
 const mapPath = path.join(root, 'investment-analysis', 'course-map-financial-decisions-data.js');
 const pagePath = path.join(root, 'investment-analysis', 'syllabus.html');
+const smgGuidePath = path.join(root, 'investment-analysis', 'stock-market-game-integration.md');
+const lessonTemplatePath = path.join(root, 'investment-analysis', '_template', 'README.md');
 const homePath = path.join(root, 'investment-analysis', 'index.html');
 const passportPath = path.join(root, 'investment-analysis', 'unit-1', 'passport.html');
 const passportRenderPath = path.join(root, 'investment-analysis', 'unit-1', 'passport-render.js');
@@ -124,6 +126,28 @@ expectedUnits.forEach(([number, title, first, last], index) => {
   check(unit && nonEmpty(unit.summary) && nonEmpty(unit.unitOutput), `unit ${number} needs a summary and unit output`);
 });
 
+const smg = map.stockMarketGameIntegration;
+check(smg && smg.status === 'required for every enrolled student', 'Stock Market Game participation must be required for every enrolled student');
+check(smg && smg.role === 'core course laboratory and assessment spine', 'Stock Market Game must be the course laboratory and assessment spine');
+check(smg && smg.courseStart === '2026-09-01', 'Stock Market Game integration must use the 1 September 2026 course start');
+check(smg && Array.isArray(smg.officialSequence) && smg.officialSequence.join('|') === 'Understanding SMG|Before You Invest|Selecting Your Investments|Tracking Your Investments|Reflections', 'Stock Market Game official sequence is incomplete');
+check(smg && Array.isArray(smg.phases) && smg.phases.length === 6, 'Stock Market Game integration must define six course phases');
+check(smg && /at least 10 shares/i.test(smg.nationalMinimum) && /not sufficient evidence of individual course participation/i.test(smg.nationalMinimum), 'Stock Market Game national minimum must be separated from individual course participation');
+check(smg && /After Lesson 8/i.test(smg.launchGate && smg.launchGate.timing) && /long stock buy of at least 10 shares/i.test(smg.launchGate && smg.launchGate.qualifyingAction), 'Stock Market Game launch gate must require the controlled first trade after Lesson 8');
+check(smg && Array.isArray(smg.classroomRules) && smg.classroomRules.some((rule) => /Long-only/i.test(rule)) && smg.classroomRules.some((rule) => /No margin/i.test(rule)), 'Stock Market Game classroom rules must be long-only and prohibit margin');
+check(smg && smg.operatingModel && /35-50% of every lesson/i.test(smg.operatingModel.lessonTimeShare), 'Stock Market Game operating model must reserve a substantial share of every lesson');
+check(smg && /main application and evidence task/i.test(smg.operatingModel && smg.operatingModel.integrationRule), 'Stock Market Game must replace compatible generic practice');
+check(smg && /Every lesson produces one concise team evidence row/i.test(smg.operatingModel && smg.operatingModel.lessonEvidenceCadence), 'Stock Market Game operating model must define an every-lesson evidence cadence');
+check(smg && /Fourteen named lessons are summative/i.test(smg.operatingModel && smg.operatingModel.summativeCadence), 'Stock Market Game operating model must separate summative milestones from formative labs');
+check(smg && /frozen snapshot/i.test(smg.operatingModel && smg.operatingModel.snapshotRule), 'Stock Market Game operating model must freeze lesson evidence');
+check(smg && /no trade quota/i.test(smg.operatingModel && smg.operatingModel.tradingCadence), 'Stock Market Game operating model must allow evidence-based hold and no-trade decisions');
+check(smg && Array.isArray(smg.decisionLogFields) && smg.decisionLogFields.length === 8, 'Stock Market Game decision log must define eight concise fields');
+check(smg && Array.isArray(smg.unitEvidence) && smg.unitEvidence.length === 6, 'Stock Market Game integration must define one evidence checkpoint per unit');
+check(smg && smg.phases.every((phase) => Array.isArray(phase.officialResources) && phase.officialResources.length >= 2), 'Every Stock Market Game phase must point to official local resources');
+check(smg && Array.isArray(smg.individualParticipationEvidence) && smg.individualParticipationEvidence.length >= 5, 'Stock Market Game integration needs individual participation evidence');
+check(smg && /not portfolio rank or short-term return/i.test(smg.assessmentRule), 'Stock Market Game assessment must not reward rank or return');
+check(smg && smg.officialResourceDirectory === 'investment-analysis/references/stock-market-game/README.md', 'Stock Market Game official resource directory is missing');
+
 const requiredLessonFields = [
   'lesson',
   'unit',
@@ -186,7 +210,18 @@ map.lessons.forEach((lesson, index) => {
   check(lesson.assessmentBlueprint && nonEmpty(lesson.assessmentBlueprint.judgementRequirement), `${label} is missing the assessment judgement`);
   check(lesson.artifactBlueprint && lesson.artifactBlueprint.deckArc.length === 6, `${label} must define a six-stage deck arc`);
   check(lesson.investmentAction && nonEmpty(lesson.investmentAction.studentAction), `${label} is missing a practical investment action`);
+  check(lesson.stockMarketGame && lesson.stockMarketGame.required === true, `${label} is missing its required Stock Market Game action`);
+  check(lesson.stockMarketGame && lesson.stockMarketGame.central === true, `${label} must use Stock Market Game as a central course lab`);
+  check(lesson.stockMarketGame && Number.isInteger(lesson.stockMarketGame.phase) && lesson.stockMarketGame.phase === lesson.unit, `${label} Stock Market Game phase must match its unit`);
+  check(lesson.stockMarketGame && nonEmpty(lesson.stockMarketGame.officialStage) && nonEmpty(lesson.stockMarketGame.studentAction) && nonEmpty(lesson.stockMarketGame.requiredEvidence), `${label} has incomplete Stock Market Game guidance`);
+  check(lesson.stockMarketGame && ['summative course milestone', 'required formative course lab'].includes(lesson.stockMarketGame.integrationLevel), `${label} has an invalid Stock Market Game integration level`);
+  check(lesson.stockMarketGame && nonEmpty(lesson.stockMarketGame.lessonUse), `${label} is missing Stock Market Game workload guidance`);
+  check(lesson.stockMarketGame && nonEmpty(lesson.stockMarketGame.requiredOutput) && nonEmpty(lesson.stockMarketGame.dataRule), `${label} is missing Stock Market Game evidence or snapshot guidance`);
 });
+
+check(map.lessons.filter((lesson) => lesson.stockMarketGame.milestone).length === 14, 'Stock Market Game integration must use exactly fourteen required milestones');
+check(new Set(map.lessons.map((lesson) => lesson.stockMarketGame.studentAction)).size === 50, 'Every lesson must have a distinct Stock Market Game core-lab action');
+check(map.units.every((unit) => /SMG/i.test(unit.unitOutput)), 'Every unit output must be explicitly built around Stock Market Game evidence');
 
 const publicScope = [
   ...map.units.map((unit) => `${unit.title} ${unit.summary}`),
@@ -220,7 +255,36 @@ if (fs.existsSync(pagePath)) {
   check(/data-course-map-generator-rows/.test(page), 'syllabus page must render the generator table');
   check(/data-course-map-lesson-grid/.test(page), 'syllabus page must render lesson cards');
   check(/unit-1\/passport\.html/.test(page), 'syllabus page must link the Unit 1 Passport');
+  check(/id="stock-market-game"/.test(page), 'syllabus page must expose the required Stock Market Game section');
+  check(/Every student participates in The Stock Market Game/.test(page), 'syllabus page must state required participation');
+  check(/First trade after Lesson 8/.test(page), 'syllabus page must state the controlled first-trade gate');
+  check(/Process, not rank or return/.test(page), 'syllabus page must state the Stock Market Game assessment rule');
+  check(/data-stock-market-game-phases/.test(page), 'syllabus page must render the six Stock Market Game phases');
+  check(/data-stock-market-game-unit-evidence/.test(page), 'syllabus page must render the six Stock Market Game evidence checkpoints');
+  check(/SMG is the main application/.test(page), 'syllabus page must state the every-lesson Stock Market Game model');
+  check(/One evidence trail, six assessed outputs/.test(page), 'syllabus page must state the cumulative Stock Market Game evidence model');
+  check(/stock-market-game-integration\.md/.test(page), 'syllabus page must link the Stock Market Game implementation guide');
+  check(/references\/stock-market-game\/README\.md/.test(page), 'syllabus page must link the official Stock Market Game archive');
   check(/No budgeting, payslips, consumer credit/.test(page), 'syllabus page must state the rejected general-finance boundary');
+}
+
+check(fs.existsSync(smgGuidePath), 'Stock Market Game implementation guide is missing');
+if (fs.existsSync(smgGuidePath)) {
+  const guide = fs.readFileSync(smgGuidePath, 'utf8');
+  check(/Every lesson has a required, concept-specific SMG application/i.test(guide), 'Stock Market Game guide must define the every-lesson core lab');
+  check(/roughly 35-50% of each lesson/i.test(guide), 'Stock Market Game guide must define a substantial lesson-time share');
+  check(/there is no trading quota/i.test(guide), 'Stock Market Game guide must allow evidence-based hold and no-trade decisions');
+  check(/## Six assessed SMG outputs/.test(guide), 'Stock Market Game guide must map unit evidence');
+  check(/## Fourteen required milestones/.test(guide), 'Stock Market Game guide must identify the milestone set');
+  check(/Every other lesson has a required formative SMG core lab/i.test(guide), 'Stock Market Game guide must make all non-milestone labs required');
+}
+
+check(fs.existsSync(lessonTemplatePath), 'investment lesson template guidance is missing');
+if (fs.existsSync(lessonTemplatePath)) {
+  const template = fs.readFileSync(lessonTemplatePath, 'utf8');
+  check(/Required SMG core lab using the lesson `stockMarketGame\.studentAction` as the main application/i.test(template), 'lesson template must build the required Stock Market Game core lab into the classroom rhythm');
+  check(/roughly 35-50% of the lesson/i.test(template), 'lesson template must reserve a substantial lesson-time share for Stock Market Game application');
+  check(/year-long SMG portfolio.*deliberate exception/i.test(template), 'lesson template must preserve the cumulative Stock Market Game portfolio sequence');
 }
 
 check(fs.existsSync(homePath), 'investment course landing page is missing');
@@ -228,7 +292,9 @@ if (fs.existsSync(homePath)) {
   const home = fs.readFileSync(homePath, 'utf8');
   check(/class="investment-home landing-page simplified-landing"/.test(home), 'investment landing page must use the simplified layout');
   check(/Learn how goals, risk, markets, companies and portfolios shape evidence-based investment decisions for families\./.test(home), 'investment landing page must use the current goal-first course introduction');
+  check(/The Stock Market Game is the course laboratory: every lesson applies its key idea/i.test(home), 'investment landing page must foreground the every-lesson Stock Market Game laboratory');
   check(/unit-1\/passport\.html/.test(home), 'investment landing page must link the Unit 1 Passport');
+  check(/stock-market-game-integration\.md/.test(home), 'investment landing page must expose the required Stock Market Game guide');
   check(!/investment-status-panel|investment-card-grid/.test(home), 'investment landing page still contains a duplicated status panel or card grid');
 }
 
@@ -281,6 +347,8 @@ const courseContext = generator.getCourseGeneratorContext('financial-decisions')
 check(courseContext.course.courseTitle === map.courseTitle, 'course generator context title does not match the candidate map');
 check(courseContext.course.currencyRule === map.currencyRule, 'course generator context must expose the currency rule');
 check(courseContext.course.personalPassportPilot.bookletRoute === passport.bookletRoute, 'course generator context must expose the Passport pilot');
+check(courseContext.course.stockMarketGameIntegration.status === 'required for every enrolled student', 'course generator context must expose required Stock Market Game participation');
+check(courseContext.lessons.every((lesson) => lesson.stockMarketGame && lesson.stockMarketGame.required === true), 'course generator context must expose every lesson Stock Market Game action');
 check(courseContext.generationRules.includes(map.currencyRule), 'generation rules must include the country- and transaction-matched currency rule');
 check(courseContext.lessons.length === 50, 'course generator context must expose fifty active lesson summaries');
 const lessonContext = generator.getLessonMaterialContext(50, 'deck', generatorMap);
@@ -288,6 +356,7 @@ check(lessonContext.lesson.guidingQuestion === map.lessons[49].guidingQuestion, 
 const passportLessonContext = generator.getLessonMaterialContext(1, 'deck', generatorMap);
 check(passportLessonContext.lesson.passportCheckpoint.title === 'My future goals', 'lesson 1 generator context must expose its Passport checkpoint');
 check(passportLessonContext.requiredInputs.artifactContract.personalPassportPilot.bookletRoute === passport.bookletRoute, 'lesson artifact contract must expose the shared Passport route');
+check(passportLessonContext.lesson.stockMarketGame.phase === 1, 'lesson generator context must expose the Lesson 1 Stock Market Game phase');
 const nonPassportLessonContext = generator.getLessonMaterialContext(9, 'deck', generatorMap);
 check(nonPassportLessonContext.lesson.passportCheckpoint === null, 'lesson 9 generator context must remain outside the Passport pilot');
 

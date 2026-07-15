@@ -1,0 +1,230 @@
+{
+  "program": "The Stock Market Game",
+  "publisher": "SIFMA Foundation",
+  "accessed": "2026-07-15",
+  "officialPages": [
+    "https://www.stockmarketgame.org/",
+    "https://www.stockmarketgame.org/starthere.html",
+    "https://www.stockmarketgame.org/teacherTraining.html",
+    "https://www.stockmarketgame.org/studentHandOut.html",
+    "https://www.stockmarketgame.org/rotg.html",
+    "https://www.stockmarketgame.org/rankings_b.html",
+    "https://www.stockmarketgame.org/acctsum_b.html",
+    "https://www.stockmarketgame.org/register.html",
+    "https://www.stockmarketgame.org/investwrite.html",
+    "https://www.stockmarketgame.org/impact.html",
+    "https://www.sifma.org/about/sifma-foundation"
+  ],
+  "documents": [
+    {
+      "section": "program-guides",
+      "file": "program-guides/SMG_Essentials_Workbook.pdf",
+      "title": "SMG Essentials Workbook",
+      "url": "https://www.stockmarketgame.org/SMG_Essentials_Workbook.pdf",
+      "use": "Ten-session student workbook covering goals, companies, stocks, portfolio construction, research, risk, diversification, market analysis, asset allocation, evaluation and reflection."
+    },
+    {
+      "section": "program-guides",
+      "file": "program-guides/SMG_Advisor_Guide_2022.pdf",
+      "title": "SMG Advisor Guide",
+      "url": "https://www.stockmarketgame.org/document/2022%20SMG%20Advisor%20Guide.pdf",
+      "use": "Teacher setup, platform orientation, implementation guidance and FAQs."
+    },
+    {
+      "section": "program-guides",
+      "file": "program-guides/SMG_Teachers_Guide.pdf",
+      "title": "The Stock Market Game Teacher's Guide",
+      "url": "https://www.stockmarketgame.org/assets/documents/teachersguide.pdf",
+      "use": "Team formation, roles, research, assessment, rules activities and journal templates."
+    },
+    {
+      "section": "program-guides",
+      "file": "program-guides/SMG_32_Week_Curriculum_Map_2020.pdf",
+      "title": "SMG 32-week Curriculum Map",
+      "url": "https://www.stockmarketgame.org/document/Fall2020_32wk_curriculum_map.pdf",
+      "use": "Legacy full-year pacing reference still linked by the official teacher-training page; use for sequence ideas, not current rules."
+    },
+    {
+      "section": "program-guides",
+      "file": "program-guides/SMG_Student_Activity_Packet.pdf",
+      "title": "Stock Market Game Student Activity Packet",
+      "url": "https://www.stockmarketgame.org/document/Student_Activity_Packet.pdf",
+      "use": "Self-guided platform and investing activities suitable for absences, homework and independent support."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_National_Rules_Handout.pdf",
+      "title": "SMG Rules Handout",
+      "url": "https://www.stockmarketgame.org/document/SMG_Rules_Handout.pdf",
+      "use": "Printable national portfolio, transaction and participation rules."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_Rules_Summary_Table.pdf",
+      "title": "Summary Table of SMG Rules",
+      "url": "https://www.stockmarketgame.org/assets/pdf/SMGRulesSummaryTable.pdf",
+      "use": "One-page rule reference for students."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_Rules_Quiz.pdf",
+      "title": "Do You Know the Rules? Quiz",
+      "url": "https://www.stockmarketgame.org/document/Rules_Quiz.pdf",
+      "use": "Rules-readiness check before students can enter a trade."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_Portfolio_Rankings_Guide.pdf",
+      "title": "Guide to SMG Portfolio Rankings",
+      "url": "https://www.stockmarketgame.org/document/Guide_to_SMG_Portfolio_Rankings.pdf",
+      "use": "Explains total-equity and S&P 500 comparison ranking methods."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_Team_Roles.pdf",
+      "title": "SMG Team Roles",
+      "url": "https://www.stockmarketgame.org/document/Team_Roles.pdf",
+      "use": "Printable director, research, portfolio, data-entry and reporter responsibilities."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_How_to_Trade_Stocks.pdf",
+      "title": "How to Trade Stocks",
+      "url": "https://www.stockmarketgame.org/document/How_to_Trade_Stocks.pdf",
+      "use": "One-page stock order entry guide."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_How_to_Trade_Mutual_Funds.pdf",
+      "title": "How to Trade Mutual Funds",
+      "url": "https://www.stockmarketgame.org/document/How_to_Trade_Mutual_Funds.pdf",
+      "use": "One-page mutual-fund order entry guide."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_How_to_Trade_Municipal_Bonds.pdf",
+      "title": "How to Trade Municipal Bonds",
+      "url": "https://www.stockmarketgame.org/document/How_to_Trade_Municipal_Bonds.pdf",
+      "use": "One-page municipal-bond order entry guide where local SMG rules permit bond trading."
+    },
+    {
+      "section": "rules-and-platform",
+      "file": "rules-and-platform/SMG_How_to_Trade_Corporate_and_Government_Bonds.pdf",
+      "title": "How to Trade Corporate and Government Bonds",
+      "url": "https://www.stockmarketgame.org/document/How_to_Trade_Corporate_Government_Bonds.pdf",
+      "use": "One-page corporate and Treasury bond order entry guide where local SMG rules permit bond trading."
+    },
+    {
+      "section": "student-handouts",
+      "file": "student-handouts/SMG_Understanding_Stock_Quotes.pdf",
+      "title": "Understanding Stock Quotes",
+      "url": "https://www.stockmarketgame.org/document/Understanding_Stock_Quotes.pdf",
+      "use": "Printable stock-quote field reference."
+    },
+    {
+      "section": "student-handouts",
+      "file": "student-handouts/SMG_Jims_Birthday_Present.pdf",
+      "title": "Jim's Birthday Present",
+      "url": "https://www.stockmarketgame.org/document/0201_intro_to_companies_activity_Final.pdf",
+      "use": "Introductory brands, companies and public-company activity."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/00_Understanding_SMG_Grades_9-12.pdf",
+      "title": "Understanding SMG - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/00-01-understandingsmg-09-12.pdf",
+      "use": "High-school onboarding lesson with team building, journals, roles and assessment prompts."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/01_What_Is_a_Company_Grades_9-12.pdf",
+      "title": "What Is a Company? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/01-01-whatisacompany-09-12.pdf",
+      "use": "Public/private company and business-structure lesson."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/02_What_Is_a_Stock_Grades_9-12.pdf",
+      "title": "What Is a Stock? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/01-02-whatisastock-09-12.pdf",
+      "use": "Share ownership, return and shareholder lesson."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/03_Ticker_Symbols_and_Stock_Quotes_Grades_9-12.pdf",
+      "title": "Identifying Symbols and Interpreting Stock Quotes - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/01-03-stockquote-09-12.pdf",
+      "use": "Ticker lookup and quote interpretation lesson."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/04_Diversification_Grades_9-12.pdf",
+      "title": "What Is Diversification? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/02-01-diversification-09-12.pdf",
+      "use": "Diversification lesson and classroom activities."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/05_Stock_Research_Guide_and_Worksheet.pdf",
+      "title": "SMG Stock Research Guide and Worksheet",
+      "url": "https://www.stockmarketgame.org/document/SMG%20Stock%20Research%20Guide%20and%20Worksheet.pdf",
+      "use": "Research process, company evidence guide and printable worksheet."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/06_What_Is_Risk_Grades_9-12.pdf",
+      "title": "What Is Risk? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/02-03-risk-09-12.pdf",
+      "use": "Risk concepts, comparison and assessment activities."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/07_What_Causes_Stock_Prices_to_Change_Grades_9-12.pdf",
+      "title": "What Causes Stock Prices to Change? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/03-01-pricechange-09-12.pdf",
+      "use": "Price-change evidence and market-event lesson."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/08_Buy_Sell_or_Hold_Grades_9-12.pdf",
+      "title": "Buy, Sell, or Hold? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/03-02-buysellhold-09-12.pdf",
+      "use": "Evidence-based portfolio decision lesson."
+    },
+    {
+      "section": "high-school-lessons",
+      "file": "high-school-lessons/09_Investment_Strategy_Reflection_Grades_9-12.pdf",
+      "title": "How Successful Was My Investment Strategy? - Grades 9-12",
+      "url": "https://www.stockmarketgame.org/document/04-01-assessment-09-12.pdf",
+      "use": "Portfolio evaluation, reflection and final assessment."
+    },
+    {
+      "section": "evidence",
+      "file": "evidence/SMG_Learning_Point_Study_Summary.pdf",
+      "title": "The Study of The Stock Market Game - Summary",
+      "url": "https://www.sifma.org/wp-content/uploads/2017/05/education_sifma-foundation_learning-point-study-summary.pdf",
+      "use": "Two-page official summary of the independent student-outcomes study."
+    },
+    {
+      "section": "evidence",
+      "file": "evidence/SMG_Learning_Point_Study_Brief_Report_2009.pdf",
+      "title": "The Stock Market Game Study - Brief Report",
+      "url": "https://www.stockmarketgame.org/assets/pdf/2009_Learning_Point_Study_Brief_Report.pdf",
+      "use": "Methodology and findings from the randomized study; retain the 2009 date when citing."
+    },
+    {
+      "section": "evidence",
+      "file": "evidence/SMG_Learning_Point_Study_Full_Report_2009.pdf",
+      "title": "The Stock Market Game Study - Full Report",
+      "url": "https://www.stockmarketgame.org/assets/pdf/2009_Learning_Point_Study_Full_Report.pdf",
+      "use": "Full methodology, instruments, analysis and findings from the randomized study; retain the 2009 date when citing."
+    },
+    {
+      "section": "evidence",
+      "file": "evidence/About_the_SIFMA_Foundation_2025.pdf",
+      "title": "About the SIFMA Foundation",
+      "url": "https://www.sifma.org/wp-content/uploads/2025/11/About-the-Foundation.pdf",
+      "use": "Current official program and foundation overview."
+    }
+  ]
+}
