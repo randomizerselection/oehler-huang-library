@@ -141,25 +141,26 @@ window.INVEST.lesson = {
       eyebrow: "Objectives",
       title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
+      phases: ["Define", "Use", "Produce"],
       bullets: [
-        "define the key term",
-        "use the evidence source",
-        "write the next action"
+        "[Lesson terms and rule]",
+        "[Named evidence or calculation]",
+        "[Specified output and success condition]"
       ],
       zhBullets: [
-        "定义关键词。",
-        "使用证据来源。",
-        "写出下一步行动。"
+        "[本课术语和规则]",
+        "[指定证据或计算]",
+        "[指定成果和成功条件]"
       ],
       highlights: [
-        ["key term"],
-        ["evidence source"],
-        ["next action"]
+        ["[Lesson terms and rule]"],
+        ["[Named evidence or calculation]"],
+        ["[Specified output and success condition]"]
       ],
       zhHighlights: [
-        ["关键词"],
-        ["证据来源"],
-        ["下一步行动"]
+        ["[本课术语和规则]"],
+        ["[指定证据或计算]"],
+        ["[指定成果和成功条件]"]
       ]
     },
     {
@@ -203,6 +204,7 @@ window.INVEST.lesson = {
       question: "Ask students to choose, predict, calculate, classify or correct a misconception before revealing the explanation.",
       questionZh: "先让学生选择、预测、计算、分类或纠正误解，再揭示解释。",
       revealTitle: "Evidence comes before judgement",
+      revealTitleZh: "先看证据，再作判断。",
       answer: "Reveal a concise model answer only after students commit to an answer.",
       answerZh: "学生先作答后，再揭示简洁的参考答案。",
       notes: "Use the response as a formative decision point: move on, reteach, ask for improvement or collect the written check."

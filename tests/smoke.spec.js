@@ -929,7 +929,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
+      ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
 
@@ -940,10 +940,12 @@ test.describe('site smoke', () => {
     await goToInvestmentSlide(page, { type: 'discussion' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText('A family has CNY 50,000 but no stated goal. What should it do next?');
     await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).not.toContainText(/product/i);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /family-goal-piggy-bank-target\.jpg/);
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /^Show possible answer$/i })).toBeVisible();
     await page.getByRole('button', { name: /^Show possible answer$/i }).click();
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswer.invReveal.is-revealed').first()).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerTitle')).toHaveText('First define what the money is for and when it will be needed');
     const overlayBox = await page.locator('.invSlide.is-active .invDiscussionAnswerOverlay.is-revealed').evaluate((node) => {
       const rect = node.getBoundingClientRect();
       return {
@@ -962,16 +964,23 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 discussion reveal desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'discussion', title: 'What is missing from ‘invest to make more money’?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'What does ‘make more money’ leave out?' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toHaveAttribute('style', /market-gainers-and-losers-screen\.jpg/);
     await expectInvestmentDiscussionPromptInsideBody(page, 'lesson 1 scenario discussion projector');
     await expectInvestmentSlideFits(page, 'lesson 1 scenario discussion projector');
+    await page.getByRole('button', { name: /^Show possible answer$/i }).click();
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerTitle')).toHaveText('The answer leaves out the financial goal, time horizon, access need and possibility of loss');
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerTitleZh')).toHaveText('这个回答遗漏了财务目标、投资期限、资金使用需要和发生损失的可能性。');
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerText')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerZh')).toHaveCount(0);
+    await expectInvestmentSlideFits(page, 'lesson 1 misconception reveal projector');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Check the goal before considering investment' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'flow', title: 'Before investing: goal, access and possible loss' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
     await expectInvestmentSlideFits(page, 'lesson 1 goal flow projector');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Choose the next step for each goal' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to its next step' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invClassificationCategory')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(3);
     await expectInvestmentSlideFits(page, 'lesson 1 family-goal classification projector');
@@ -996,7 +1005,7 @@ test.describe('site smoke', () => {
     await expectInvestmentSlideFits(page, 'lesson 1 quiz interaction desktop');
 
     await page.setViewportSize({ width: 1366, height: 768 });
-    await goToInvestmentSlide(page, { type: 'quiz', title: 'Start with the goal before comparing investments' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'quiz', title: 'What must the family know first?' }, lessonPath);
     await expect(page.locator('.invSlide.is-active .invQuizChoices .invChoice')).toHaveCount(4);
     await expect(page.locator('.invSlide.is-active .invBigQuestion')).toContainText(/Before comparing investment choices/i);
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toBeHidden();
@@ -1004,7 +1013,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invQuizFeedback')).toContainText(/Start with the family's needs/i);
     await expectInvestmentSlideFits(page, 'lesson 1 goal-first hinge check projector');
 
-    await goToInvestmentSlide(page, { type: 'evidenceSimulator', title: 'What should the family do as each clue appears?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'evidenceSimulator', title: 'Update the decision as each clue appears' }, lessonPath);
     const lessonEvidenceSimulator = page.locator('.invSlide.is-active .invEvidenceSimulator');
     await expect(lessonEvidenceSimulator).toBeVisible();
     await expect(lessonEvidenceSimulator.locator('.invEvidenceFact')).toHaveCount(4);
@@ -1030,7 +1039,7 @@ test.describe('site smoke', () => {
     await expect(lessonEvidenceSimulator.locator('.invEvidenceFact.is-revealed')).toHaveCount(4);
     await expectInvestmentSlideFits(page, 'lesson 1 evidence simulator conclusion projector');
 
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Choose the next step for each goal' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to its next step' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal');
@@ -1085,7 +1094,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 2 desktop',
-      ['section', 'discussion', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
+      ['section', 'discussion', 'outcomes', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 2 has quiz data').toBeGreaterThan(0);
 
@@ -1166,6 +1175,9 @@ test.describe('site smoke', () => {
     for (const { type } of newSlideTypes) {
       expect(templateTypes, `template includes ${type}`).toContain(type);
     }
+
+    const templateOutcomesSlide = await goToInvestmentSlide(page, { type: 'outcomes' }, lessonPath);
+    await expectInvestmentSlideFits(page, `template outcomes slide ${templateOutcomesSlide}`);
 
     const templateVisualPauseSlide = await goToInvestmentSlide(
       page,
@@ -1514,9 +1526,14 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['section', 'discussion', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
+      ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
-    await goToInvestmentSlide(page, { type: 'evidenceSimulator', title: 'What should the family do as each clue appears?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'What does ‘make more money’ leave out?' }, lessonPath);
+    await page.getByRole('button', { name: /^Show possible answer$/i }).click();
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerTitleZh')).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invDiscussionAnswerText')).toHaveCount(0);
+    await expectInvestmentSlideFits(page, 'lesson 1 one-sentence bilingual discussion reveal phone');
+    await goToInvestmentSlide(page, { type: 'evidenceSimulator', title: 'Update the decision as each clue appears' }, lessonPath);
     const phoneEvidenceSimulator = page.locator('.invSlide.is-active .invEvidenceSimulator');
     for (let factIndex = 1; factIndex <= 4; factIndex += 1) {
       await phoneEvidenceSimulator.locator('[data-action="reveal-evidence"]').click();
@@ -1525,7 +1542,7 @@ test.describe('site smoke', () => {
     await phoneEvidenceSimulator.locator('[data-action="reveal-evidence"]').click();
     await expect(phoneEvidenceSimulator.locator('.invEvidenceConclusion')).toBeVisible();
     await expectInvestmentSlideFits(page, 'lesson 1 evidence simulator conclusion phone');
-    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Choose the next step for each goal' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Match each goal to its next step' }, lessonPath);
     await expectInvestmentClassificationPartialReveal(page, 0, 'lesson 1 share classification initial phone');
     await page.keyboard.press('ArrowRight');
     await expectInvestmentClassificationPartialReveal(page, 1, 'lesson 1 share classification first reveal phone');
@@ -1560,7 +1577,7 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 2 phone',
-      ['section', 'discussion', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
+      ['section', 'discussion', 'outcomes', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
     await expectNoHorizontalOverflow(page);
 

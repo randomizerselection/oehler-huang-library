@@ -316,6 +316,7 @@
             <a href="${escapeHtml(location.pathname)}">Slides</a>
             <a href="${escapeHtml(location.pathname)}?view=print" aria-current="page">Handout</a>
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
+            ${lesson.meta?.passportUrl ? `<a href="${escapeHtml(lesson.meta.passportUrl)}">Passport</a>` : ''}
             <a href="../../index.html">Course</a>
           </nav>
           <div class="handoutTools">
@@ -603,6 +604,7 @@
     const photo = slide.visual || slide.photo;
     const questionText = slide.question || slide.prompt || '';
     const questionZh = slide.zh || slide.questionZh || slide.promptZh;
+    const hasAnswer = Boolean(slide.revealTitle || slide.revealTitleZh || slide.answer || slide.note);
     const longQuestion = slide.compact || String(questionText).length > 110 || String(questionZh || '').length > 60;
     const className = `invDiscussionSlide${longQuestion ? ' invLongDiscussionSlide' : ''} invContextPhotoSlide`;
     const body = `
@@ -611,18 +613,19 @@
           ${slide.eyebrow ? `<div class="invDiscussionEyebrow">${escapeHtml(slide.eyebrow)}</div>` : ''}
           <p class="invDiscussionQuestionText">${html(questionText)}</p>
           ${questionZh ? `<p class="invDiscussionQuestionZh" lang="zh-Hans">${escapeHtml(questionZh)}</p>` : ''}
-          ${(slide.answer || slide.note) ? `
+          ${hasAnswer ? `
             <button type="button" class="invDiscussionAnswerButton" data-action="show-discussion-answer" aria-haspopup="dialog">
               <span>Show possible answer</span>
             </button>` : ''}
         </div>
-        ${(slide.answer || slide.note) ? `
+        ${hasAnswer ? `
           <div class="invDiscussionAnswerOverlay invReveal invDiscussionAnswer" role="dialog" aria-modal="true" aria-label="Possible answer">
             <div class="invDiscussionAnswerPanel">
               <button type="button" class="invDiscussionAnswerClose" data-action="close-discussion-answer" aria-label="Close possible answer">&times;</button>
               <div class="invDiscussionAnswerHeader">Possible answer</div>
               ${slide.revealTitle ? `<strong class="invDiscussionAnswerTitle">${escapeHtml(slide.revealTitle)}</strong>` : ''}
-              <p class="invDiscussionAnswerText">${html(slide.answer || slide.note || '')}</p>
+              ${slide.revealTitleZh ? `<strong class="invDiscussionAnswerTitleZh" lang="zh-Hans">${escapeHtml(slide.revealTitleZh)}</strong>` : ''}
+              ${(slide.answer || slide.note) ? `<p class="invDiscussionAnswerText">${html(slide.answer || slide.note || '')}</p>` : ''}
               ${slide.answerZh ? `<p class="invDiscussionAnswerZh" lang="zh-Hans">${escapeHtml(slide.answerZh)}</p>` : ''}
             </div>
           </div>` : ''}
@@ -1588,6 +1591,7 @@
             <a href="${escapeHtml(location.pathname)}" aria-current="page">Slides</a>
             ${lesson.handout ? `<a href="${escapeHtml(location.pathname)}?view=print">Handout</a>` : ''}
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
+            ${lesson.meta?.passportUrl ? `<a href="${escapeHtml(lesson.meta.passportUrl)}">Passport</a>` : ''}
             <a href="../../index.html">Course</a>
             <a href="../../../index.html">Library</a>
           </nav>

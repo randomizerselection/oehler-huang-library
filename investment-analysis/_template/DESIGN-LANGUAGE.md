@@ -23,7 +23,7 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 - Keep the top chrome compact. The slide, not the navigation, must dominate the viewport.
 - Keep source panels, notes, overview and photo captions outside the teaching hierarchy.
-- Titles appear once and should make the taught concept, question or exercise explicit. Term slides should not repeat the term in both the title and body.
+- Titles appear once and follow the slide's function: questions for discussion, yes/no and quiz slides; the term alone for term slides; short academic topics for section dividers; concise commands for simulations, classifications, comparisons and written tasks; and concepts, relationships or clear claims for teaching and evidence slides. Term slides should not repeat the term in both the title and body.
 - Body content should sit in the upper-middle teaching zone with generous whitespace. Avoid bottom-heavy layouts on tall classroom screens.
 - Important student-facing teaching text should have concise Simplified Chinese support: main titles, term definitions, core prompts/tasks, main reveal answers, flow/answer items and quiz prompts/explanations. Do not translate source metadata, stock codes, dates, numbers, minor labels, UI chrome or teacher notes unless they carry the concept.
 - Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.

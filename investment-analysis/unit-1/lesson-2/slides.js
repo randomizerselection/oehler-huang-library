@@ -6,6 +6,7 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 2: How do goals change investment decisions?",
+    passportUrl: "../passport.html#lesson-2",
     sources: [
       {
         label: "Investor.gov: Time Horizon",
@@ -169,14 +170,15 @@ window.INVEST.lesson = {
       visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
         "Keep the title screen simple.",
+        "Opening minute: ask students to reread Passport page 1 privately, then write only the 'My first thought' box on page 2 before the family case begins.",
         "Move immediately to the university-versus-retirement judgement."
       ]
     },
     {
       type: "discussion",
       eyebrow: "First judgement",
-      title: "Three years and thirty years",
-      zhTitle: "三年与三十年",
+      title: "Should three-year and thirty-year goals be invested alike?",
+      zhTitle: "三年目标和三十年目标应该采用相同投资方式吗？",
       question: "Should money for university in three years be invested like retirement money needed in thirty years?",
       questionZh: "三年后用于大学的资金，是否应该像三十年后才需要的退休资金一样投资？",
       revealTitle: "Different goals need different decisions",
@@ -209,8 +211,8 @@ window.INVEST.lesson = {
       type: "peerTask",
       taskType: "definitionRecall",
       eyebrow: "Lesson 1 retrieval",
-      title: "Recall the goal before comparing choices",
-      zhTitle: "比较选择前先回忆目标",
+      title: "Recall the Lesson 1 definitions",
+      zhTitle: "回忆第一课的定义",
       prompt: "Without notes, complete the three definitions that Lesson 2 will use.",
       promptZh: "不看笔记，补全第二课将使用的三个定义。",
       definitionItems: [
@@ -292,8 +294,8 @@ window.INVEST.lesson = {
     {
       type: "flow",
       eyebrow: "Decision rule",
-      title: "Move from goal to suitability",
-      zhTitle: "从目标走向适合度",
+      title: "From financial goal to suitability",
+      zhTitle: "从财务目标到适合度",
       visual: investmentPhotos.businessChartsPaper,
       flowStyle: "sequence",
       steps: [
@@ -323,8 +325,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Comparing financial goals",
-      zhTitle: "比较财务目标",
+      title: "Financial goal comparison",
+      zhTitle: "财务目标比较",
       notes: "Read frozen evidence -> classify horizon -> rank access need -> compare -> check guidance."
     },
     {
@@ -362,8 +364,8 @@ window.INVEST.lesson = {
     {
       type: "classificationTask",
       eyebrow: "Horizon classification",
-      title: "Which horizon belongs to each goal?",
-      zhTitle: "每个目标属于哪一种期限？",
+      title: "Classify each goal by time horizon",
+      zhTitle: "按投资期限给每个目标分类",
       prompt: "Use only the frozen dates to classify the three goals.",
       promptZh: "只使用冻结日期给三个目标分类。",
       categories: [
@@ -411,8 +413,8 @@ window.INVEST.lesson = {
     {
       type: "compare",
       eyebrow: "Goal comparison",
-      title: "University or retirement?",
-      zhTitle: "大学目标还是退休目标？",
+      title: "Compare university and retirement goals",
+      zhTitle: "比较大学目标与退休目标",
       mode: "fillBlanks",
       leftTitle: "University in three years",
       leftTitleZh: "三年后上大学",
@@ -463,8 +465,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Suitability reasoning and judgement",
-      zhTitle: "适合度推理与判断",
+      title: "Suitability judgement",
+      zhTitle: "适合度判断",
       notes: "Rehearse -> assess -> revise judgement -> submit."
     },
     {
@@ -525,6 +527,21 @@ window.INVEST.lesson = {
         { prompt: "An investment is not suitable unless it matches the goal and ability to accept __________.", answer: "loss", zh: "除非投资与目标和承受__________的能力相匹配，否则它并不适合。", answerZh: "损失" }
       ],
       notes: "Collect individually. Lesson 3 can retrieve the goal-first rule before distinguishing saving, investing and speculation."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "Passport Update",
+      title: "Complete Passport page 2",
+      zhTitle: "完成护照第2页",
+      steps: [
+        { text: "Use broad bands for horizon, date flexibility and liquidity need.", zh: "使用大致范围记录期限、日期灵活性和流动性需要。" },
+        { text: "Use the four-row table: read left, then tick and complete the frame on the right.", zh: "使用四行表格：阅读左侧指令，在右侧勾选并补全。" },
+        { text: "Work privately for five minutes; finish as homework before Lesson 3 if needed.", zh: "私下完成五分钟；如有需要，请在第3课前作为作业补完。" }
+      ],
+      notes: [
+        "Keep the family-goal comparison as the assessable output; this Passport page is the personal transfer exit ticket.",
+        "Students share no personal goal details unless they volunteer one non-sensitive decision rule."
+      ]
     }
   ]
 };

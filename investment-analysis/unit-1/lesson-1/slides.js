@@ -6,6 +6,7 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 1: Why do people and families invest?",
+    passportUrl: "../passport.html#lesson-1",
     sources: [
       {
         label: "Investor.gov: Introduction to Investing",
@@ -50,7 +51,7 @@ window.INVEST.lesson = {
         blocks: [
           {
             type: "scenario",
-            title: "CNY 50,000—but what is it for?",
+            title: "What should the family do with CNY 50,000?",
             context: "China's National Bureau of Statistics reported nationwide per-capita disposable income of CNY 43,377 in 2025. A hypothetical family has CNY 50,000 available after current commitments, but its future goal is unknown.",
             realData: [
               { label: "2025 nationwide per-capita disposable income", value: "CNY 43,377", source: "National Bureau of Statistics of China, published 20 Jan 2026" }
@@ -119,7 +120,7 @@ window.INVEST.lesson = {
       {
         label: "5",
         title: "Misconception check",
-        instruction: "Correct the shortcut with evidence from the family goal table.",
+        instruction: "Correct the incomplete claim with evidence from the family goal table.",
         blocks: [
           {
             type: "prompts",
@@ -151,29 +152,30 @@ window.INVEST.lesson = {
       type: "hero",
       eyebrow: "Unit 1 Lesson 1",
       title: "Why do people and families invest?",
-      zhTitle: "人们和家庭为什么投资？",
+      zhTitle: "个人与家庭为什么要投资？",
       prominentTitle: true,
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Keep this as a clean title screen.",
+        "Opening minute: ask students to open Passport page 1, read the privacy rule and write only the private 'My first thought' box. Do not collect or discuss personal goals.",
         "Move directly to the CNY 50,000 three-choice judgement before teaching any definition."
       ]
     },
     {
       type: "discussion",
       eyebrow: "First judgement",
-      title: "CNY 50,000—but what is it for?",
-      zhTitle: "50,000元人民币——用途是什么？",
+      title: "What should the family do with CNY 50,000?",
+      zhTitle: "这个家庭应如何处理5万元人民币？",
       question: "A family has CNY 50,000 but no stated goal. What should it do next?",
-      questionZh: "一个家庭有50,000元人民币，但没有明确目标。下一步该怎么做？",
-      revealTitle: "Need more information before deciding",
-      answer: "Without a stated goal, choose ‘Need more information.’ The 2025 national benchmark of CNY 43,377 per person shows the amount is significant, but the family still needs the purpose, amount, priority, time horizon, access need and consequence of loss.",
-      answerZh: "没有明确目标时，应选择“需要更多信息”。2025年全国人均43,377元人民币的基准表明这笔金额很重要，但家庭仍需了解用途、金额、优先级、期限、资金使用需要和损失后果。",
-      visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
+      questionZh: "一个家庭有5万元人民币，但没有明确的财务目标。下一步应该怎么做？",
+      revealTitle: "First define what the money is for and when it will be needed",
+      answer: "The family should not choose an investment yet. First, state the purpose, target amount, priority, date, access need and consequence of loss. Those facts show whether the CNY 50,000 should stay available or whether investing could be considered.",
+      answerZh: "家庭现在不应直接选择投资。第一步应明确这笔钱的用途、目标金额、优先级、使用日期、资金使用需要和损失后果。这些信息能帮助家庭判断应保持5万元人民币可用，还是可以考虑投资。",
+      visual: investmentPhotos.lesson1FamilyGoalTarget,
       notes: [
         "Keep only the short question visible; do not add statistics, choices or instructions to the hook screen.",
         "Ask students for a one-sentence answer and justification before revealing the model response.",
-        "Use the NBS benchmark in the answer reveal and handout rather than crowding the opening question."
+        "Use the piggy bank and target to make the missing financial goal visible before students know the formal term."
       ]
     },
     {
@@ -182,15 +184,16 @@ window.INVEST.lesson = {
       title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
       visual: investmentPhotos.businessChartsPaper,
+      phases: ["Define", "Identify", "Decide"],
       bullets: [
-        "Define investment, return and financial goal.",
-        "Choose a next step using goal, time, access and loss.",
-        "Justify the choice with one reason and one condition."
+        "Investment, return and financial goal",
+        "Four facts needed before investing",
+        "What the family should do with CNY 50,000"
       ],
       zhBullets: [
-        "定义投资、回报和财务目标。",
-        "根据目标、期限、资金使用和损失选择下一步。",
-        "用一个理由和一个条件说明选择。"
+        "投资、回报与财务目标",
+        "投资前需要明确的四项信息",
+        "这个家庭应如何处理5万元人民币"
       ]
     },
     {
@@ -203,14 +206,14 @@ window.INVEST.lesson = {
     {
       type: "discussion",
       eyebrow: "Try first",
-      title: "What is missing from ‘invest to make more money’?",
-      zhTitle: "“投资就是为了赚更多钱”缺少了什么？",
+      title: "What does ‘make more money’ leave out?",
+      zhTitle: "“赚更多钱”的说法遗漏了什么？",
       question: "A student says, ‘Investing is simply a way to make more money.’ What does this answer leave out?",
-      questionZh: "一名学生说：“投资只是赚更多钱的一种方式。”这个回答遗漏了什么？",
-      revealTitle: "The shortcut ignores the goal and the possibility of loss",
-      answer: "Investment seeks future return, but the return can be a gain or a loss. A careful decision also identifies the financial goal, the time horizon and the need to access the money.",
-      answerZh: "投资寻求未来回报，但回报可能是收益，也可能是损失。谨慎的决定还要明确财务目标、投资期限以及使用资金的需要。",
-      visual: investmentPhotos.assetCashSavings
+      questionZh: "一名学生说：“投资只是一种赚更多钱的方式。”这个回答遗漏了什么？",
+      revealTitle: "The answer leaves out the financial goal, time horizon, access need and possibility of loss",
+      revealTitleZh: "这个回答遗漏了财务目标、投资期限、资金使用需要和发生损失的可能性。",
+      visual: investmentPhotos.lesson1GainAndLossMarketScreen,
+      notes: "Use the green and red market columns to ask what an upward-only idea of investing ignores."
     },
     {
       type: "term",
@@ -228,8 +231,8 @@ window.INVEST.lesson = {
     {
       type: "flow",
       eyebrow: "Decision method",
-      title: "Check the goal before considering investment",
-      zhTitle: "考虑投资前先检查目标",
+      title: "Before investing: goal, access and possible loss",
+      zhTitle: "投资前：目标、资金使用与可能损失",
       visual: investmentPhotos.businessChartsPaper,
       flowStyle: "sequence",
       steps: [
@@ -254,8 +257,8 @@ window.INVEST.lesson = {
     {
       type: "yesNoCheck",
       eyebrow: "Check the idea",
-      title: "A future goal does not automatically justify investing",
-      zhTitle: "未来目标不会自动说明投资是合理的",
+      title: "Does every future goal justify investing?",
+      zhTitle: "每个未来目标都适合投资吗？",
       prompt: "Vote yes or no before revealing each reason.",
       promptZh: "先投票判断是或否，再揭示每个理由。",
       items: [
@@ -267,8 +270,8 @@ window.INVEST.lesson = {
     {
       type: "quiz",
       eyebrow: "Hinge question",
-      title: "Which statement uses the full definition?",
-      zhTitle: "哪一个陈述使用了完整定义？",
+      title: "Which statement fully defines investment?",
+      zhTitle: "哪项陈述完整定义了投资？",
       question: "Which statement best explains investment?",
       zh: "哪一个陈述最准确地解释了投资？",
       choices: [
@@ -284,15 +287,15 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 2",
-      title: "Financial goals and time horizons",
-      zhTitle: "财务目标与期限",
+      title: "Financial goals",
+      zhTitle: "财务目标",
       notes: "Attempt -> define financial goal -> compare horizons -> classify goals -> prioritise evidence."
     },
     {
       type: "discussion",
       eyebrow: "Try first",
-      title: "What turns a future wish into a usable financial goal?",
-      zhTitle: "什么能把未来愿望变成可用的财务目标？",
+      title: "What makes a financial goal usable?",
+      zhTitle: "什么使财务目标可用于决策？",
       question: "‘We want a better future’ is too vague for an investment decision. Which details would make the goal usable?",
       questionZh: "“我们想要更好的未来”对投资决策来说太模糊。哪些细节能使这个目标变得可用？",
       revealTitle: "A usable goal states the purpose, amount, priority and time horizon",
@@ -320,8 +323,8 @@ window.INVEST.lesson = {
     {
       type: "evidenceSimulator",
       eyebrow: "Whole-class simulation",
-      title: "What should the family do as each clue appears?",
-      zhTitle: "随着每条线索出现，家庭应该怎么做？",
+      title: "Update the decision as each clue appears",
+      zhTitle: "每获得一条线索，就更新一次决定",
       prompt: "A family has CNY 50,000. After each clue, ask the class to choose 1, 2 or 3.",
       promptZh: "一个家庭有50,000元人民币。每条线索出现后，请全班选择1、2或3。",
       evidenceLabel: "Family-goal clues",
@@ -378,8 +381,8 @@ window.INVEST.lesson = {
       type: "classificationTask",
       compact: true,
       eyebrow: "Evidence task",
-      title: "Choose the next step for each goal",
-      zhTitle: "为每个目标选择下一步",
+      title: "Match each goal to its next step",
+      zhTitle: "将每个目标与下一步行动配对",
       prompt: "Medical bill is the worked example. Choose the next step for the other three goals, then defend one.",
       promptZh: "医疗账单是示例。为其余三个目标选择下一步，然后说明一个理由。",
       categories: [
@@ -398,8 +401,8 @@ window.INVEST.lesson = {
     {
       type: "quiz",
       eyebrow: "Quick check",
-      title: "Start with the goal before comparing investments",
-      zhTitle: "比较投资前先了解目标",
+      title: "What must the family know first?",
+      zhTitle: "这个家庭首先必须了解什么？",
       visual: investmentPhotos.businessChartsPaper,
       question: "Before comparing investment choices, what should the family know?",
       zh: "在比较投资选择之前，家庭应该了解什么？",
@@ -417,8 +420,8 @@ window.INVEST.lesson = {
     {
       type: "yesNoCheck",
       eyebrow: "Misconception check",
-      title: "Possible return alone does not justify investing",
-      zhTitle: "仅有可能回报不能说明投资是合理的",
+      title: "Is possible return enough?",
+      zhTitle: "只看到可能的回报就足够吗？",
       prompt: "Judge each correction before revealing the explanation.",
       promptZh: "先判断每个修正，再揭示解释。",
       items: [
@@ -430,8 +433,8 @@ window.INVEST.lesson = {
     {
       type: "section",
       eyebrow: "Part 3",
-      title: "Investment reasoning and judgement",
-      zhTitle: "投资推理与判断",
+      title: "Evidence-based judgement",
+      zhTitle: "基于证据的判断",
       notes: "Build the reasoning chain -> compare judgements -> revise the first answer -> submit."
     },
     {
@@ -456,8 +459,8 @@ window.INVEST.lesson = {
     {
       type: "compare",
       eyebrow: "Improve the answer",
-      title: "Replace vague labels with a clear next step",
-      zhTitle: "用清晰的下一步替换模糊标签",
+      title: "Replace vague advice with a specific action",
+      zhTitle: "将含糊建议改为具体行动",
       mode: "fillBlanks",
       leftTitle: "Vague label",
       leftTitleZh: "模糊标签",
@@ -477,14 +480,14 @@ window.INVEST.lesson = {
     {
       type: "discussion",
       eyebrow: "Return to the dilemma",
-      title: "Return to the hook: choose the next step",
-      zhTitle: "回到开场：选择下一步",
+      title: "What should the family do now?",
+      zhTitle: "这个家庭现在应该怎么做？",
       question: "The family still has no stated goal. Which next step is most defensible, and what evidence is missing?",
       questionZh: "这个家庭仍没有明确目标。哪一个下一步最合理？还缺少什么证据？",
-      revealTitle: "Need more information before considering investment",
-      answer: "Choose ‘Need more information.’ The family must define the purpose, amount, priority, time horizon, access need and consequence of loss. The national income benchmark cannot supply that family-specific evidence.",
-      answerZh: "选择“需要更多信息”。家庭必须明确用途、金额、优先级、期限、资金使用需要和损失后果。全国收入基准不能提供这些家庭特定证据。",
-      visual: investmentPhotos.investorMeetingReport
+      revealTitle: "Define the family goal before considering investment",
+      answer: "The most defensible next step is to define the purpose, target amount, priority, time horizon, access need and consequence of loss. The 2025 national benchmark of CNY 43,377 per person shows that CNY 50,000 is significant, but it cannot supply this family-specific evidence.",
+      answerZh: "最合理的下一步是明确用途、目标金额、优先级、投资期限、资金使用需要和损失后果。2025年全国人均43,377元人民币的基准说明5万元人民币是一笔重要金额，但不能提供这些家庭特定证据。",
+      visual: investmentPhotos.lesson1FamilyGoalTarget
     },
     {
       type: "exam",
@@ -498,6 +501,21 @@ window.INVEST.lesson = {
       notes: [
         "Collect the response individually before revealing the keyword check.",
         "Lesson 2 will compare goals by time horizon, liquidity need and suitability."
+      ]
+    },
+    {
+      type: "peerTask",
+      eyebrow: "Passport Update",
+      title: "Complete Passport page 1",
+      zhTitle: "完成护照第1页",
+      steps: [
+        { text: "Use broad priority and horizon bands only; write no exact personal amounts.", zh: "只使用大致优先级和期限范围；不要填写个人确切金额。" },
+        { text: "Use the four-row table: read left, then write, tick or complete the frame on the right.", zh: "使用四行表格：阅读左侧指令，在右侧填写、勾选或补全。" },
+        { text: "Work privately for five minutes; finish as homework before Lesson 2 if needed.", zh: "私下完成五分钟；如有需要，请在第2课前作为作业补完。" }
+      ],
+      notes: [
+        "Keep the mock-family exam response as the assessable output; this Passport page is the personal transfer exit ticket.",
+        "The teacher reviews concept use, justification and revision, not the student's chosen goal."
       ]
     }
   ]

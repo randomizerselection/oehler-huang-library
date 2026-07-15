@@ -175,6 +175,7 @@
       [
         "assetCashSavings",
         "assetPropertyBuilding",
+        "assetShareCertificate",
         "assetCommoditiesPort",
         "shippingPort",
         "hsbcBuilding"
@@ -190,6 +191,8 @@
       [
         "speculatorInvestorRace",
         "lesson1ScenarioFinancialDocuments",
+        "lesson1FamilyGoalTarget",
+        "lesson1GainAndLossMarketScreen",
         "lesson1ScenarioSmartphoneCandlestick",
         "lesson1ScenarioHouseForRent",
         "lesson1ScenarioRedMarketLosses",

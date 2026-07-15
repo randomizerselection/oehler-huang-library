@@ -235,6 +235,22 @@ window.INVEST = window.INVEST || {};
       "https://www.pexels.com/photo/white-papers-on-the-table-7821708/",
       { objectPosition: "center 52%" }
     ),
+    lesson1FamilyGoalTarget: photo(
+      "lesson-1/family-goal-piggy-bank-target.jpg",
+      "A piggy bank stands in front of a dartboard target.",
+      "A financial decision needs a defined goal",
+      "Pexels / Dany Kurniawan",
+      "https://www.pexels.com/photo/a-piggy-bank-on-the-table-12357524/",
+      { objectPosition: "center 50%" }
+    ),
+    lesson1GainAndLossMarketScreen: photo(
+      "lesson-1/market-gainers-and-losers-screen.jpg",
+      "A market screen and smartphone show both green gainers and red losers.",
+      "Investment return can include gains and losses",
+      "Pexels / StockRadars Co.",
+      "https://www.pexels.com/photo/smartphone-displaying-stock-market-data-28682351/",
+      { objectPosition: "center 50%" }
+    ),
     lesson1ScenarioSmartphoneCandlestick: photo(
       "lesson-1/scenario-smartphone-candlestick-chart.jpg",
       "A smartphone displays a stock trading app with candlestick charts.",

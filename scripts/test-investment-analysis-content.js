@@ -39,7 +39,8 @@ const {
   renderDefinitionPage,
 } = require('./build-investment-definitions-page.js');
 
-const vagueRevealTitlePattern = /^(?:answer|possible answer|sample answer|model answer|model sentence|model direction|teacher cue|course rule|analysis boundary|bridge(?: to lesson \d+)?)$/i;
+const vagueRevealTitlePattern = /^(?:answer|possible answer|sample answer|model answer|model sentence|model direction|teacher cue|course rule|analysis boundary|bridge(?: to lesson \d+)?|need more information(?: before .+)?)$/i;
+const vagueObjectivePattern = /^(?:understand\b|learn(?: about)?\b|know(?: about)?\b|choose a next step\b|justify (?:the|a|your) choice\b|define the key term\b|use the evidence source\b|write the next action\b)/i;
 const requiredLessonFields = [
   'lesson',
   'unit',
@@ -174,6 +175,12 @@ function hasTemplateGuidance() {
   const readmePath = path.join(courseRoot, '_template', 'README.md');
   const source = fs.readFileSync(readmePath, 'utf8');
   return /discussion\.revealTitle.+concise answer statement/i.test(source);
+}
+
+function hasConciseObjectiveGuidance() {
+  const readmePath = path.join(courseRoot, '_template', 'README.md');
+  const source = fs.readFileSync(readmePath, 'utf8');
+  return /`outcomes` objective concise.+phase label carries the action verb/i.test(source);
 }
 
 function isNonEmptyString(value) {
@@ -1208,6 +1215,7 @@ function validateImportantChineseSupport() {
               failures.push(`${label}: missing Chinese support for the discussion question`);
             }
           }
+          if (slide.revealTitle && !slide.answer && !slide.note) requireChinese(failures, label, slide.revealTitleZh, 'revealTitleZh for a one-sentence revealed answer');
           if (slide.answer || slide.note) requireChinese(failures, label, slide.answerZh, 'answerZh for the revealed answer');
           break;
         case 'term':
@@ -1568,6 +1576,10 @@ function validateActiveLessonAlignment() {
   const homepageSource = fs.readFileSync(homepagePath, 'utf8');
   const activeLessons = [1, 2];
 
+  if (!hasConciseObjectiveGuidance()) {
+    failures.push('investment-analysis/_template/README.md: missing concise objective guidance');
+  }
+
   const expectedTerms = new Map([
     [1, ['investment', 'return', 'financial goal']],
     [2, ['time horizon', 'liquidity need', 'suitability']],
@@ -1624,6 +1636,11 @@ function validateActiveLessonAlignment() {
     const outcomes = (lesson.slides || []).filter((slide) => slide.type === 'outcomes');
     if (outcomes.length !== 1 || outcomes[0].bullets?.length !== 3 || outcomes[0].zhBullets?.length !== 3) {
       failures.push(`${label}/slides.js: active lesson must have exactly one outcomes slide with exactly three bilingual objectives`);
+    }
+    for (const [index, objective] of (outcomes[0]?.bullets || []).entries()) {
+      if (vagueObjectivePattern.test(String(objective || '').trim())) {
+        failures.push(`${label}/slides.js: objective ${index + 1} is too vague; name the lesson knowledge, evidence or specified output`);
+      }
     }
 
     const slideTerms = (lesson.slides || [])
