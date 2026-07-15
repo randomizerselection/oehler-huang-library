@@ -123,42 +123,20 @@ function renderSimpleFlow(flow = []) {
   return flow.map((step) => `- ${step.label}: ${step.text}`).join('\n');
 }
 
-function renderPassportAnswerFormat(label, format = {}) {
-  const optionGroups = (format.optionGroups || [])
-    .map((group) => `${group.label}: ${(group.options || []).join(' / ')}`)
-    .join('; ');
-  const sentenceFrames = (format.sentenceFrames || []).join(' | ');
+function renderStockMarketGame(lab = {}) {
+  if (!lab.studentAction) return '';
   return [
-    `- Answer format - ${label}: ${format.answerType || 'Not specified'}`,
-    ...(optionGroups ? [`  - Tick choices: ${optionGroups}`] : []),
-    ...(sentenceFrames ? [`  - Sentence frames: ${sentenceFrames}`] : []),
-  ].join('\n');
-}
-
-function renderPassport(checkpoint = {}) {
-  if (!checkpoint.lesson) return '';
-  const formats = checkpoint.answerFormats || {};
-  return [
-    `- Booklet page: ${checkpoint.lesson}. ${checkpoint.title}`,
-    `- Page layout: ${checkpoint.pageLayout}`,
-    `- Focus: ${checkpoint.focus}`,
-    `- My first thought: ${checkpoint.firstThoughtPrompt}`,
-    renderPassportAnswerFormat('My first thought', formats.firstThought),
-    `- What today's evidence showed: ${checkpoint.evidencePrompt}`,
-    renderPassportAnswerFormat("What today's evidence showed", formats.evidence),
-    `- My revised decision: ${checkpoint.revisedDecisionPrompt}`,
-    renderPassportAnswerFormat('My revised decision', formats.revisedDecision),
-    `- Still missing: ${checkpoint.missingInformationPrompt}`,
-    renderPassportAnswerFormat('Still missing', formats.missingInformation),
-    `- Timing: ${checkpoint.timing}`,
-    `- Teacher note: ${checkpoint.teacherNote}`,
-    `- Privacy: ${checkpoint.privacyRule}`,
+    `- Integration level: ${lab.integrationLevel || 'required course lab'}`,
+    `- Student action: ${lab.studentAction}`,
+    `- Lesson use: ${lab.lessonUse || ''}`,
+    `- Required output: ${lab.requiredOutput || ''}`,
+    `- Frozen-data rule: ${lab.dataRule || ''}`,
   ].join('\n');
 }
 
 function renderMarkdown(context) {
   if (context.contextType === 'course-generator-index') {
-    const passportPilot = context.course.personalPassportPilot;
+    const smg = context.course.stockMarketGameIntegration;
     return [
       `# ${context.course.courseTitle}: Generator Index`,
       '',
@@ -178,19 +156,18 @@ function renderMarkdown(context) {
       '',
       ...((context.course.simpleLessonStructure || []).map((step) => `- ${step.label}: ${step.purpose}`)),
       '',
-      ...(passportPilot ? [
-        '## Unit 1 My Future Investor Passport Pilot',
+      ...(smg ? [
+        '## Stock Market Game Course Laboratory',
         '',
-        passportPilot.purpose,
-        '',
-        `- Booklet: ${passportPilot.bookletRoute}`,
-        `- Page layout: ${passportPilot.pageLayout}`,
-        ...passportPilot.routine.map((step) => `- ${step}`),
+        `- Role: ${smg.role}`,
+        `- Lesson time: ${smg.operatingModel?.lessonTimeShare || ''}`,
+        `- Integration: ${smg.operatingModel?.integrationRule || ''}`,
+        `- Assessment: ${smg.assessmentRule || ''}`,
         '',
       ] : []),
       '## Lessons',
       '',
-      ...context.lessons.map((lesson) => `- Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company} - ${lesson.guidingQuestion}`),
+      ...context.lessons.map((lesson) => `- Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company} - ${lesson.guidingQuestion} | SMG: ${lesson.stockMarketGame?.studentAction || ''}`),
       '',
       '## Generation Rules',
       '',
@@ -215,7 +192,7 @@ function renderMarkdown(context) {
   const evidence = requiredInputs.evidenceContract || context.evidenceContract;
   const artifact = requiredInputs.artifactContract || context.artifactContract;
   const assessment = requiredInputs.assessmentContract || context.assessmentContract;
-  const passport = context.generatorBrief.passportCheckpoint || teaching.passportCheckpoint || lesson.passportCheckpoint;
+  const stockMarketGame = context.generatorBrief.stockMarketGame || teaching.stockMarketGame || lesson.stockMarketGame;
   const titlePrefix = context.target ? `${context.materialTarget.label}: ` : '';
 
   return [
@@ -248,10 +225,10 @@ function renderMarkdown(context) {
     '',
     renderInvestmentAction(context.generatorBrief.investmentAction || teaching.investmentAction || lesson.investmentAction),
     '',
-    ...(passport ? [
-      '## My Future Investor Passport',
+    ...(stockMarketGame ? [
+      '## Stock Market Game Core Lab',
       '',
-      renderPassport(passport),
+      renderStockMarketGame(stockMarketGame),
       '',
     ] : []),
     '## Retrieval Practice',

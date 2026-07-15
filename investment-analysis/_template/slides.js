@@ -6,6 +6,12 @@ window.INVEST.lesson = {
     lessonLabel: "Unit X Lesson Y: Lesson title",
     sources: []
   },
+  stockMarketGame: {
+    integrationLevel: "required formative course lab",
+    studentAction: "Replace with the exact stockMarketGame.studentAction from the canonical course map.",
+    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+    dataRule: "Capture and freeze the required portfolio, watchlist, transaction, quote or benchmark evidence at the start of the lesson."
+  },
   handout: {
     title: "Lesson title",
     subtitle: "Unit X Lesson Y",
@@ -622,6 +628,28 @@ window.INVEST.lesson = {
         "学生比较第一个要点后，再揭示第一段。",
         "学生比较第二个要点后，再揭示第二段。"
       ]
+    },
+    {
+      type: "section",
+      eyebrow: "Course laboratory",
+      title: "SMG evidence and decision",
+      zhTitle: "SMG证据与决策",
+      notes: "Move from taught concept to the required team portfolio application. Allocate roughly 35-50% of lesson time to the lab sequence, not necessarily 35-50% of slide count."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "SMG core lab",
+      title: "Apply the lesson to the team portfolio",
+      zhTitle: "把本课知识应用于团队投资组合",
+      prompt: "Complete the exact stockMarketGame.studentAction from the canonical course map using a frozen platform snapshot.",
+      promptZh: "使用冻结的平台截图，完成课程地图中本课规定的SMG任务。",
+      steps: [
+        { label: "1", text: "Capture the required portfolio, watchlist, transaction, quote or benchmark evidence.", zh: "保存本课所需的投资组合、自选清单、交易、报价或基准证据。" },
+        { label: "2", text: "Apply today's concept and record one material fact, one limitation and the team decision.", zh: "应用今天的概念，记录一个重要事实、一个局限和团队决策。" },
+        { label: "3", text: "Add one team evidence row; every student writes the individual exit judgement.", zh: "添加一条团队证据记录；每位学生独立完成离堂判断。" }
+      ],
+      sharePrompt: "Name the student and role responsible for the evidence row and state the review trigger.",
+      sharePromptZh: "写明负责该证据记录的学生及角色，并说明复查条件。"
     },
     {
       type: "answer",

@@ -871,9 +871,9 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
     await expect(page.getByRole('link', { name: /^Browse available lessons$/i })).toHaveAttribute('href', '#start-course');
-    await expect(page.getByText(/Goal first\. Investment choice second\./i)).toBeVisible();
+    await expect(page.getByText(/Learn it\. Test it in SMG\. Defend it\./i)).toBeVisible();
     await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
-    await expect(page.locator('.investment-resource-list a')).toHaveCount(2);
+    await expect(page.locator('.investment-resource-list a')).toHaveCount(3);
     await expect(page.locator('a[href="syllabus-company-analysis.html"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
   });
@@ -894,7 +894,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /^Definitions$/i }).first()).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
     await expect(page.getByText(/Learn how goals, risk, markets, companies and portfolios shape evidence-based investment decisions for families/i)).toBeVisible();
-    await expect(page.getByText(/Goal first\. Investment choice second\./i)).toBeVisible();
+    await expect(page.getByText(/Learn it\. Test it in SMG\. Defend it\./i)).toBeVisible();
     await expect(page.locator('body')).toContainText(/Personal Investment Foundations/i);
     await expect(page.locator('body')).toContainText(/Analysing Companies/i);
 
@@ -907,7 +907,7 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^Course materials$/i })).toBeVisible();
     await expect(page.locator('.investment-resource-list a[href="syllabus.html"]')).toContainText(/Units, lesson questions and assessments/i);
-    await expect(page.locator('.investment-resource-list a')).toHaveCount(2);
+    await expect(page.locator('.investment-resource-list a')).toHaveCount(3);
     await expect(page.locator('a[href="syllabus-company-analysis.html"]')).toHaveCount(0);
     await expect(page.locator('a[href*="lesson-1-all-types"]')).toHaveCount(0);
     await expect(page.locator('a[href*="view=print"]')).toHaveCount(0);
@@ -932,6 +932,17 @@ test.describe('site smoke', () => {
       ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
+    await expect(page.getByRole('link', { name: /^Passport$/i })).toHaveCount(0);
+
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Define the team investment purpose' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/SMG core lab/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/mock purpose/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG purpose lab desktop');
+
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Open the team evidence record' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/Director.*Researcher.*Portfolio Coordinator/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG evidence lab desktop');
 
     await goToInvestmentSlide(page, { type: 'section' }, lessonPath);
     await expect(page.locator('.invSlide.is-active.invSectionSlide .invSectionSubtitle')).toHaveCount(0);
@@ -1097,6 +1108,13 @@ test.describe('site smoke', () => {
       ['section', 'discussion', 'outcomes', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
     expect(lessonSummary.quizCount, 'lesson 2 has quiz data').toBeGreaterThan(0);
+    await expect(page.getByRole('link', { name: /^Passport$/i })).toHaveCount(0);
+
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Record the team decision rule' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/SMG core lab/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/goal, horizon, liquidity need/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expectInvestmentSlideFits(page, 'lesson 2 SMG goal-rules lab desktop');
 
     await goToInvestmentSlide(page, { type: 'term' }, lessonPath);
     if (await page.locator('.invSlide.is-active .blank').count()) {
@@ -1540,6 +1558,9 @@ test.describe('site smoke', () => {
       'lesson 1 phone',
       ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'evidenceSimulator', 'peerTask', 'classificationTask', 'compare', 'exam']
     );
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Open the team evidence record' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG evidence lab phone');
     await goToInvestmentSlide(page, { type: 'discussion', title: 'What does ‘make more money’ leave out?' }, lessonPath);
     await page.getByRole('button', { name: /^Show possible answer$/i }).click();
     await expect(page.locator('.invSlide.is-active .invDiscussionAnswerTitleZh')).toBeVisible();
@@ -1591,6 +1612,9 @@ test.describe('site smoke', () => {
       'lesson 2 phone',
       ['section', 'discussion', 'outcomes', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'peerTask', 'classificationTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
+    await goToInvestmentSlide(page, { type: 'peerTask', title: 'Record the team decision rule' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expectInvestmentSlideFits(page, 'lesson 2 SMG goal-rules lab phone');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath) + '?view=print');

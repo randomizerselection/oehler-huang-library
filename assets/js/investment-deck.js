@@ -316,7 +316,6 @@
             <a href="${escapeHtml(location.pathname)}">Slides</a>
             <a href="${escapeHtml(location.pathname)}?view=print" aria-current="page">Handout</a>
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
-            ${lesson.meta?.passportUrl ? `<a href="${escapeHtml(lesson.meta.passportUrl)}">Passport</a>` : ''}
             <a href="../../index.html">Course</a>
           </nav>
           <div class="handoutTools">
@@ -1591,7 +1590,6 @@
             <a href="${escapeHtml(location.pathname)}" aria-current="page">Slides</a>
             ${lesson.handout ? `<a href="${escapeHtml(location.pathname)}?view=print">Handout</a>` : ''}
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
-            ${lesson.meta?.passportUrl ? `<a href="${escapeHtml(lesson.meta.passportUrl)}">Passport</a>` : ''}
             <a href="../../index.html">Course</a>
             <a href="../../../index.html">Library</a>
           </nav>

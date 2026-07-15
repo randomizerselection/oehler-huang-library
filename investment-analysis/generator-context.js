@@ -81,7 +81,7 @@
         "Use the deck arc as the slide spine: hook, retrieval, teach, practice, output rehearsal and exit ticket.",
         "Preserve the decisionFirst contract: starter dilemma, first judgement, missing evidence, key idea, try it, misconception check and exit judgement.",
         "Include the lesson investmentAction so students finish with a concrete next action, not only a concept summary.",
-        "When passportCheckpoint is present, keep the mock-case output assessable and end with one separate five-minute Passport Update slide using the checkpoint exactly.",
+        "Use the lesson stockMarketGame action as a substantial slide-deck lab before the individual exit; do not reduce it to a note, optional extension or final reminder.",
         "Keep visible slide labels student-facing while preserving ILA and retrieval logic in notes.",
         "Use the source pack to freeze evidence before adding charts, figures or screenshots.",
     ],
@@ -182,7 +182,6 @@
       sourceFitAudit: map.sourceFitAudit,
       generatorAccess: map.generatorAccess,
       practicalInvestingBoundary: map.practicalInvestingBoundary,
-      personalPassportPilot: map.personalPassportPilot,
       stockMarketGameIntegration: map.stockMarketGameIntegration,
       decisionFirstSyllabus: map.decisionFirstSyllabus,
       investmentWorkflow: map.investmentWorkflow,
@@ -210,7 +209,6 @@
       stockMarketGame: lesson.stockMarketGame,
       studentHook: lesson.studentHook,
       simpleFlow: lesson.simpleFlow,
-      passportCheckpoint: lesson.passportCheckpoint,
       availableTargets: ["lesson", ...Object.keys(MATERIAL_TARGETS)],
     };
   }
@@ -234,7 +232,6 @@
       groundedScenario: lesson.groundedScenario,
       investmentAction: lesson.investmentAction,
       stockMarketGame: lesson.stockMarketGame,
-      passportCheckpoint: lesson.passportCheckpoint,
     };
   }
 
@@ -287,7 +284,6 @@
         stockMarketGame: lesson.stockMarketGame,
         formativeAssessment: lesson.formativeAssessment,
         exitTicket: lesson.exitTicket,
-        passportCheckpoint: lesson.passportCheckpoint,
         futureReuse: lesson.futureReuse,
       },
       contentContract: {
@@ -309,14 +305,11 @@
       artifactContract: {
         handoutSections: lesson.handoutSections,
         artifactBlueprint: lesson.artifactBlueprint,
-        passportCheckpoint: lesson.passportCheckpoint,
-        personalPassportPilot: courseMap.personalPassportPilot,
         worksheet: lesson.worksheet,
       },
       assessmentContract: {
         formativeAssessment: lesson.formativeAssessment,
         exitTicket: lesson.exitTicket,
-        personalExitTicket: lesson.passportCheckpoint,
         assessmentBlueprint: lesson.assessmentBlueprint,
         examPattern: lesson.examPattern,
       },

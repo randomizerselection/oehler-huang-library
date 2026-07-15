@@ -6,7 +6,6 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 2: How do goals change investment decisions?",
-    passportUrl: "../passport.html#lesson-2",
     sources: [
       {
         label: "Investor.gov: Time Horizon",
@@ -45,6 +44,13 @@ window.INVEST.lesson = {
         url: "Local classroom scenario"
       }
     ]
+  },
+  stockMarketGame: {
+    phase: 1,
+    integrationLevel: "required formative course lab",
+    studentAction: "Turn the team purpose into explicit goal, time-horizon and liquidity rules that will govern later portfolio decisions.",
+    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+    dataRule: "Use the frozen team mandate written in Lesson 1; no order is entered before the Lesson 8 launch gate."
   },
   handout: {
     title: "How do goals change investment decisions?",
@@ -170,7 +176,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
         "Keep the title screen simple.",
-        "Opening minute: ask students to reread Passport page 1 privately, then write only the 'My first thought' box on page 2 before the family case begins.",
+        "Opening minute: teams retrieve the mock investment purpose written in Lesson 1, but do not revise it until they have compared horizon, liquidity need and suitability.",
         "Move immediately to the university-versus-retirement judgement."
       ]
     },
@@ -199,12 +205,12 @@ window.INVEST.lesson = {
       bullets: [
         "Define and use time horizon, liquidity need, suitability.",
         "Classify education, home and retirement goals by horizon and liquidity need.",
-        "Explain why two goals require different investment choices."
+        "Write the SMG team's goal, horizon and liquidity rules."
       ],
       zhBullets: [
         "定义并使用投资期限、流动性需求和适合度。",
         "根据期限和流动性需求给教育、住房和退休目标分类。",
-        "解释为什么两个目标需要不同的投资选择。"
+        "写出SMG团队的目标、期限和流动性规则。"
       ]
     },
     {
@@ -464,6 +470,43 @@ window.INVEST.lesson = {
     },
     {
       type: "section",
+      eyebrow: "Course laboratory",
+      title: "SMG goal and liquidity rules",
+      zhTitle: "SMG目标与流动性规则",
+      notes: "The next slide is the Lesson 2 SMG core lab. Allow roughly 15-20 minutes so teams improve the Lesson 1 mandate using today's horizon, liquidity and suitability concepts before the individual assessment."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "SMG core lab",
+      title: "Set the team goal rules",
+      zhTitle: "制定团队目标规则",
+      prompt: "Turn the Lesson 1 team purpose into rules that can govern later portfolio decisions. Do not enter an order.",
+      promptZh: "把第一课的团队目标转化为能够指导后续投资组合决策的规则。不得提交交易指令。",
+      steps: [
+        { label: "1", text: "Write the mock financial goal and a specific time horizon.", zh: "写出模拟财务目标和明确的投资期限。" },
+        { label: "2", text: "State when access matters and how much virtual cash must remain available.", zh: "说明何时需要使用资金，以及必须保留多少虚拟现金。" }
+      ],
+      sharePrompt: "Check that the horizon and liquidity rule describe the same mock goal.",
+      sharePromptZh: "检查期限和流动性规则是否针对同一个模拟目标。",
+      notes: "Use the frozen Lesson 1 mandate. Allow about ten minutes; no order is entered."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "SMG core lab",
+      title: "Record the team decision rule",
+      zhTitle: "记录团队决策规则",
+      prompt: "Complete the suitability rule and the Lesson 2 evidence row.",
+      promptZh: "完成适合度规则和第二课团队证据记录。",
+      steps: [
+        { label: "1", text: "No investment choice unless it fits goal, horizon, liquidity need and ability to accept loss.", zh: "只有符合目标、期限、流动性需求和承受损失能力时，才能考虑投资选择。" },
+        { label: "2", text: "Record the responsible student, decision reason and Lesson 7 review trigger.", zh: "记录负责学生、决策理由和第七课复查条件。" }
+      ],
+      sharePrompt: "Add one team evidence row. Every student writes one individual exit judgement defending a team rule.",
+      sharePromptZh: "添加一条团队证据记录。每位学生独立写出一句话，为一条团队规则辩护。",
+      notes: "Allow five to ten minutes. Assess concept use and evidence, not the team's preferred horizon."
+    },
+    {
+      type: "section",
       eyebrow: "Part 3",
       title: "Suitability judgement",
       zhTitle: "适合度判断",
@@ -528,20 +571,5 @@ window.INVEST.lesson = {
       ],
       notes: "Collect individually. Lesson 3 can retrieve the goal-first rule before distinguishing saving, investing and speculation."
     },
-    {
-      type: "peerTask",
-      eyebrow: "Passport Update",
-      title: "Complete Passport page 2",
-      zhTitle: "完成护照第2页",
-      steps: [
-        { text: "Use broad bands for horizon, date flexibility and liquidity need.", zh: "使用大致范围记录期限、日期灵活性和流动性需要。" },
-        { text: "Use the four-row table: read left, then tick and complete the frame on the right.", zh: "使用四行表格：阅读左侧指令，在右侧勾选并补全。" },
-        { text: "Work privately for five minutes; finish as homework before Lesson 3 if needed.", zh: "私下完成五分钟；如有需要，请在第3课前作为作业补完。" }
-      ],
-      notes: [
-        "Keep the family-goal comparison as the assessable output; this Passport page is the personal transfer exit ticket.",
-        "Students share no personal goal details unless they volunteer one non-sensitive decision rule."
-      ]
-    }
   ]
 };

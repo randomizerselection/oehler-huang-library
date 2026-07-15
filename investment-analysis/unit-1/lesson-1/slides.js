@@ -6,7 +6,6 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 1: Why do people and families invest?",
-    passportUrl: "../passport.html#lesson-1",
     sources: [
       {
         label: "Investor.gov: Introduction to Investing",
@@ -33,6 +32,13 @@ window.INVEST.lesson = {
         url: "Local classroom scenario"
       }
     ]
+  },
+  stockMarketGame: {
+    phase: 1,
+    integrationLevel: "summative course milestone",
+    studentAction: "Form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.",
+    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+    dataRule: "Use the teacher-frozen team setup and mandate record; no order is entered before the Lesson 8 launch gate."
   },
   handout: {
     title: "Why do people and families invest?",
@@ -157,7 +163,7 @@ window.INVEST.lesson = {
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Keep this as a clean title screen.",
-        "Opening minute: ask students to open Passport page 1, read the privacy rule and write only the private 'My first thought' box. Do not collect or discuss personal goals.",
+        "Opening minute: explain that the shared SMG portfolio is the course laboratory. Students will form teams and write a mock investment purpose after learning why goals must come first.",
         "Move directly to the CNY 50,000 three-choice judgement before teaching any definition."
       ]
     },
@@ -188,12 +194,12 @@ window.INVEST.lesson = {
       bullets: [
         "Investment, return and financial goal",
         "Four facts needed before investing",
-        "What the family should do with CNY 50,000"
+        "SMG team purpose, first roles and evidence record"
       ],
       zhBullets: [
         "投资、回报与财务目标",
         "投资前需要明确的四项信息",
-        "这个家庭应如何处理5万元人民币"
+        "SMG团队目标、首轮角色与证据记录"
       ]
     },
     {
@@ -432,6 +438,42 @@ window.INVEST.lesson = {
     },
     {
       type: "section",
+      eyebrow: "Course laboratory",
+      title: "SMG team mandate",
+      zhTitle: "SMG团队任务准则",
+      notes: "The next two slides are the Lesson 1 SMG core lab. Allow roughly 15-20 minutes: students apply the goal-first concept by forming the team, writing a mock long-horizon purpose, assigning first roles and opening the evidence record."
+    },
+    {
+      type: "peerTask",
+      eyebrow: "SMG core lab",
+      title: "Define the team investment purpose",
+      zhTitle: "明确团队投资目标",
+      prompt: "Form a team of three to five where practicable. Agree one clearly labelled mock long-horizon purpose before discussing any security.",
+      promptZh: "在条件允许时组成三至五人团队。在讨论任何证券之前，先商定一个明确标注为模拟的长期目标。",
+      steps: [
+        { label: "1", text: "Choose one mock purpose and when its money would be needed.", zh: "选择一个模拟目标，并说明何时需要使用资金。" },
+        { label: "2", text: "Record one boundary: no security choice before the team agrees goal, horizon, liquidity and risk rules.", zh: "记录一条边界：团队商定目标、期限、流动性和风险规则之前，不选择证券。" }
+      ],
+      sharePrompt: "Each student writes the agreed purpose and one reason it must come before choosing investments.",
+      sharePromptZh: "每位学生写下团队商定的目标，并说明为什么必须先明确目标再选择投资。"
+    },
+    {
+      type: "peerTask",
+      eyebrow: "SMG milestone",
+      title: "Open the team evidence record",
+      zhTitle: "建立团队证据记录",
+      prompt: "Assign the first roles and create the Lesson 1 evidence row. Do not enter an order.",
+      promptZh: "分配首轮角色并建立第一课证据记录。不得提交交易指令。",
+      steps: [
+        { label: "1", text: "Assign Director, Researcher, Portfolio, Data Entry and Reporter roles; combine roles in smaller teams.", zh: "分配负责人、研究员、投资组合、数据录入和报告员角色；小组人数不足时可合并角色。" },
+        { label: "2", text: "Record date, purpose, names, roles, decision reason and the Lesson 7 review trigger.", zh: "记录日期、目标、姓名、角色、决策理由和第七课复查条件。" }
+      ],
+      sharePrompt: "Submit one team evidence row. Every student then completes the individual exit judgement later in this deck.",
+      sharePromptZh: "提交一条团队证据记录。随后每位学生在本课件中独立完成离堂判断。",
+      notes: "This is a summative SMG milestone. Check that every student is rostered on exactly one team and has a recorded role; do not assess the chosen mock goal itself."
+    },
+    {
+      type: "section",
       eyebrow: "Part 3",
       title: "Evidence-based judgement",
       zhTitle: "基于证据的判断",
@@ -503,20 +545,5 @@ window.INVEST.lesson = {
         "Lesson 2 will compare goals by time horizon, liquidity need and suitability."
       ]
     },
-    {
-      type: "peerTask",
-      eyebrow: "Passport Update",
-      title: "Complete Passport page 1",
-      zhTitle: "完成护照第1页",
-      steps: [
-        { text: "Use broad priority and horizon bands only; write no exact personal amounts.", zh: "只使用大致优先级和期限范围；不要填写个人确切金额。" },
-        { text: "Use the four-row table: read left, then write, tick or complete the frame on the right.", zh: "使用四行表格：阅读左侧指令，在右侧填写、勾选或补全。" },
-        { text: "Work privately for five minutes; finish as homework before Lesson 2 if needed.", zh: "私下完成五分钟；如有需要，请在第2课前作为作业补完。" }
-      ],
-      notes: [
-        "Keep the mock-family exam response as the assessable output; this Passport page is the personal transfer exit ticket.",
-        "The teacher reviews concept use, justification and revision, not the student's chosen goal."
-      ]
-    }
   ]
 };

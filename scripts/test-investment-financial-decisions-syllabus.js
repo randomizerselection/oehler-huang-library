@@ -8,9 +8,6 @@ const pagePath = path.join(root, 'investment-analysis', 'syllabus.html');
 const smgGuidePath = path.join(root, 'investment-analysis', 'stock-market-game-integration.md');
 const lessonTemplatePath = path.join(root, 'investment-analysis', '_template', 'README.md');
 const homePath = path.join(root, 'investment-analysis', 'index.html');
-const passportPath = path.join(root, 'investment-analysis', 'unit-1', 'passport.html');
-const passportRenderPath = path.join(root, 'investment-analysis', 'unit-1', 'passport-render.js');
-const passportCssPath = path.join(root, 'assets', 'css', 'investment-passport.css');
 const map = require(mapPath);
 const generator = require(path.join(root, 'investment-analysis', 'generator-context.js'));
 
@@ -32,68 +29,8 @@ check(Array.isArray(map.lessons) && map.lessons.length === 50, 'expected exactly
 check(Array.isArray(map.examCheckpoints) && map.examCheckpoints.length === 6, 'expected six unit checkpoints');
 check(/CNY/.test(map.currencyRule || '') && /HKD/.test(map.currencyRule || '') && /USD/.test(map.currencyRule || ''), 'currency rule must map mainland China, Hong Kong and United States cases to CNY, HKD and USD');
 
-const passport = map.personalPassportPilot;
-check(passport && passport.title === 'My Future Investor Passport', 'Unit 1 Passport pilot is missing');
-check(passport && passport.unit === 1 && passport.lessonRange.join('-') === '1-8', 'Passport pilot must cover Unit 1 Lessons 1-8 only');
-check(passport && passport.bookletRoute === 'unit-1/passport.html', 'Passport pilot must expose the printable booklet route');
-check(passport && /one uncluttered two-column table per lesson/i.test(passport.pageLayout || ''), 'Passport pilot must define the one-table page layout');
-check(passport && Array.isArray(passport.sectionFields) && passport.sectionFields.map((field) => field.key).join('|') === 'firstThought|evidence|revisedDecision|missingInformation', 'Passport pilot must define the four repeated response fields');
-check(passport && Array.isArray(passport.teacherReview) && passport.teacherReview.map((item) => item.afterLesson).join('|') === '4|8', 'Passport teacher reviews must occur after Lessons 4 and 8');
-check(passport && passport.safeguards.some((rule) => /never request real family income, balances, accounts or exact personal amounts/i.test(rule)), 'Passport safeguards must forbid real family financial figures');
-
-const passportRequiredFields = [
-  'title',
-  'titleZh',
-  'focus',
-  'focusZh',
-  'firstThoughtPrompt',
-  'firstThoughtPromptZh',
-  'evidencePrompt',
-  'evidencePromptZh',
-  'revisedDecisionPrompt',
-  'revisedDecisionPromptZh',
-  'missingInformationPrompt',
-  'missingInformationPromptZh',
-  'timing',
-  'teacherNote',
-  'privacyRule',
-];
-const passportAnswerFormatKeys = ['firstThought', 'evidence', 'revisedDecision', 'missingInformation'];
-
-map.lessons.slice(0, 8).forEach((lesson, index) => {
-  const checkpoint = lesson.passportCheckpoint;
-  check(checkpoint && checkpoint.lesson === index + 1, `lesson ${index + 1} must expose its matching Passport checkpoint`);
-  passportRequiredFields.forEach((field) => check(checkpoint && nonEmpty(checkpoint[field]), `lesson ${index + 1} Passport checkpoint is missing ${field}`));
-  check(checkpoint && checkpoint.completionMinutes === 5, `lesson ${index + 1} Passport checkpoint must take five minutes`);
-  check(checkpoint && /unfinished work becomes homework/i.test(checkpoint.timing), `lesson ${index + 1} Passport checkpoint must define the homework fallback`);
-  check(checkpoint && Array.isArray(checkpoint.supportItems) && checkpoint.supportItems.length >= 3, `lesson ${index + 1} Passport checkpoint needs self-contained support`);
-  check(checkpoint && checkpoint.pageLayout === passport.pageLayout, `lesson ${index + 1} Passport checkpoint must preserve the shared one-table layout`);
-  check(checkpoint && checkpoint.answerFormats && typeof checkpoint.answerFormats === 'object', `lesson ${index + 1} Passport checkpoint needs structured answer formats`);
-
-  passportAnswerFormatKeys.forEach((key) => {
-    const format = checkpoint && checkpoint.answerFormats && checkpoint.answerFormats[key];
-    check(format && nonEmpty(format.answerType), `lesson ${index + 1} Passport ${key} needs a clear English answer type`);
-    check(format && nonEmpty(format.answerTypeZh), `lesson ${index + 1} Passport ${key} needs a clear Chinese answer type`);
-    check(format && Array.isArray(format.optionGroups), `lesson ${index + 1} Passport ${key} must define optionGroups`);
-    check(format && Array.isArray(format.sentenceFrames), `lesson ${index + 1} Passport ${key} must define sentenceFrames`);
-    check(format && Number.isInteger(format.lines) && format.lines >= 0 && format.lines <= 3, `lesson ${index + 1} Passport ${key} must cap free-writing lines at three`);
-    check(format && ((format.optionGroups || []).length + (format.sentenceFrames || []).length > 0), `lesson ${index + 1} Passport ${key} needs finite choices or a sentence frame`);
-    (format && format.optionGroups || []).forEach((group, groupIndex) => {
-      check(nonEmpty(group.label) && nonEmpty(group.labelZh), `lesson ${index + 1} Passport ${key} option group ${groupIndex + 1} needs bilingual labels`);
-      check(Array.isArray(group.options) && group.options.length >= 2, `lesson ${index + 1} Passport ${key} option group ${groupIndex + 1} needs at least two choices`);
-    });
-  });
-
-  const studentPrompts = checkpoint
-    ? [checkpoint.firstThoughtPrompt, checkpoint.evidencePrompt, checkpoint.revisedDecisionPrompt, checkpoint.missingInformationPrompt].join(' ')
-    : '';
-  check(!/my income|my balance|my account|exact personal amount/i.test(studentPrompts), `lesson ${index + 1} Passport prompts must not request private financial figures`);
-});
-
-map.lessons.slice(8).forEach((lesson) => {
-  check(lesson.passportCheckpoint === null, `lesson ${lesson.lesson} must remain outside the Unit 1 Passport pilot`);
-});
-
+check(!Object.prototype.hasOwnProperty.call(map, 'personalPassportPilot'), 'retired Investor Passport contract must not remain in the course map');
+check(map.lessons.every((lesson) => !Object.prototype.hasOwnProperty.call(lesson, 'passportCheckpoint')), 'retired Investor Passport checkpoints must not remain on lessons');
 function lessonByAnchor(pattern) {
   return map.lessons.find((lesson) => pattern.test(lesson.caseAnchor || ''));
 }
@@ -254,7 +191,7 @@ if (fs.existsSync(pagePath)) {
   check(/course-map-render\.js/.test(page), 'syllabus page must load the shared renderer');
   check(/data-course-map-generator-rows/.test(page), 'syllabus page must render the generator table');
   check(/data-course-map-lesson-grid/.test(page), 'syllabus page must render lesson cards');
-  check(/unit-1\/passport\.html/.test(page), 'syllabus page must link the Unit 1 Passport');
+  check(!/passport/i.test(page), 'syllabus page must not retain the retired Investor Passport');
   check(/id="stock-market-game"/.test(page), 'syllabus page must expose the required Stock Market Game section');
   check(/Every student participates in The Stock Market Game/.test(page), 'syllabus page must state required participation');
   check(/First trade after Lesson 8/.test(page), 'syllabus page must state the controlled first-trade gate');
@@ -293,49 +230,21 @@ if (fs.existsSync(homePath)) {
   check(/class="investment-home landing-page simplified-landing"/.test(home), 'investment landing page must use the simplified layout');
   check(/Learn how goals, risk, markets, companies and portfolios shape evidence-based investment decisions for families\./.test(home), 'investment landing page must use the current goal-first course introduction');
   check(/The Stock Market Game is the course laboratory: every lesson applies its key idea/i.test(home), 'investment landing page must foreground the every-lesson Stock Market Game laboratory');
-  check(/unit-1\/passport\.html/.test(home), 'investment landing page must link the Unit 1 Passport');
+  check(!/passport/i.test(home), 'investment landing page must not retain the retired Investor Passport');
   check(/stock-market-game-integration\.md/.test(home), 'investment landing page must expose the required Stock Market Game guide');
   check(!/investment-status-panel|investment-card-grid/.test(home), 'investment landing page still contains a duplicated status panel or card grid');
 }
 
-check(fs.existsSync(passportPath), 'Unit 1 Passport booklet page is missing');
-check(fs.existsSync(passportRenderPath), 'Unit 1 Passport renderer is missing');
-check(fs.existsSync(passportCssPath), 'Unit 1 Passport print stylesheet is missing');
-
-if (fs.existsSync(passportPath)) {
-  const passportPage = fs.readFileSync(passportPath, 'utf8');
-  check(/data-passport-document/.test(passportPage), 'Passport page must provide the booklet mount point');
-  check(/course-map-financial-decisions-data\.js/.test(passportPage), 'Passport page must load the canonical financial-decisions map');
-  check(/passport-render\.js/.test(passportPage), 'Passport page must load its renderer');
-  check(/investment-passport\.css/.test(passportPage), 'Passport page must load its print stylesheet');
-}
-
-if (fs.existsSync(passportRenderPath)) {
-  const passportRender = fs.readFileSync(passportRenderPath, 'utf8');
-  check(/data-passport-lesson/.test(passportRender), 'Passport renderer must mark each lesson page for verification');
-  check(/checkpoints\.length !== 8/.test(passportRender), 'Passport renderer must fail closed unless exactly eight checkpoints load');
-  check(/Teacher-private/.test(passportRender), 'Passport renderer must include private teacher review panels');
-  check(/<table class="passport-task-table"/.test(passportRender) && /passport-task-row/.test(passportRender), 'Passport renderer must use one four-row task table per lesson');
-  check(!/passport-response-grid|passport-answer-type/.test(passportRender), 'Passport renderer must not restore the former card grid or repeated answer-type panels');
-  check(/passport-option/.test(passportRender) && /passport-sentence-frame/.test(passportRender), 'Passport renderer must display finite choices and sentence frames');
-}
-
-if (fs.existsSync(passportCssPath)) {
-  const passportCss = fs.readFileSync(passportCssPath, 'utf8');
-  check(/@page\s*{[\s\S]*?size:\s*A4/i.test(passportCss), 'Passport stylesheet must define A4 print output');
-  check(/height:\s*297mm/.test(passportCss) && /width:\s*210mm/.test(passportCss), 'Passport stylesheet must size each page to A4');
-  check(/break-after:\s*page/.test(passportCss) && /page-break-after:\s*always/.test(passportCss), 'Passport stylesheet must force one printed page per lesson');
-  check(/\.passport-task-table/.test(passportCss) && /table-layout:\s*fixed/.test(passportCss), 'Passport stylesheet must use a stable full-page table layout');
-  check(/\.passport-option::before/.test(passportCss), 'Passport stylesheet must visibly distinguish tick choices');
-}
-
+check(!fs.existsSync(path.join(root, 'investment-analysis', 'unit-1', 'passport.html')), 'retired Investor Passport page must be removed');
+check(!fs.existsSync(path.join(root, 'investment-analysis', 'unit-1', 'passport-render.js')), 'retired Investor Passport renderer must be removed');
+check(!fs.existsSync(path.join(root, 'assets', 'css', 'investment-passport.css')), 'retired Investor Passport stylesheet must be removed');
 [1, 2].forEach((lessonNumber) => {
   const lessonSlidesPath = path.join(root, 'investment-analysis', 'unit-1', `lesson-${lessonNumber}`, 'slides.js');
   const lessonSlides = fs.readFileSync(lessonSlidesPath, 'utf8');
-  check((lessonSlides.match(/eyebrow:\s*"Passport Update"/g) || []).length === 1, `lesson ${lessonNumber} must contain exactly one Passport Update slide`);
-  check(new RegExp(`passportUrl: "\\.\\.\\/passport\\.html#lesson-${lessonNumber}"`).test(lessonSlides), `lesson ${lessonNumber} must link its matching Passport page`);
-  check(/Opening minute:/.test(lessonSlides), `lesson ${lessonNumber} must include the private opening-minute teacher note`);
-  check(/Use the four-row table:/.test(lessonSlides), `lesson ${lessonNumber} Passport Update slide must tell students how to use the one-table layout`);
+  check(!/passport/i.test(lessonSlides), `lesson ${lessonNumber} must not retain the retired Investor Passport`);
+  check((lessonSlides.match(/eyebrow:\s*"SMG core lab"/g) || []).length >= 1, `lesson ${lessonNumber} must contain a visible SMG core-lab slide`);
+  check(lessonSlides.includes(map.lessons[lessonNumber - 1].stockMarketGame.studentAction), `lesson ${lessonNumber} deck must use the exact canonical SMG action`);
+  check(/team evidence row/i.test(lessonSlides) && /individual exit/i.test(lessonSlides), `lesson ${lessonNumber} SMG lab must produce team and individual evidence`);
 });
 
 const generatorMap = generator.loadCourseMap('financial-decisions');
@@ -346,19 +255,15 @@ check(defaultGeneratorMap.syllabusKey === 'financial-decisions', 'default genera
 const courseContext = generator.getCourseGeneratorContext('financial-decisions');
 check(courseContext.course.courseTitle === map.courseTitle, 'course generator context title does not match the candidate map');
 check(courseContext.course.currencyRule === map.currencyRule, 'course generator context must expose the currency rule');
-check(courseContext.course.personalPassportPilot.bookletRoute === passport.bookletRoute, 'course generator context must expose the Passport pilot');
 check(courseContext.course.stockMarketGameIntegration.status === 'required for every enrolled student', 'course generator context must expose required Stock Market Game participation');
 check(courseContext.lessons.every((lesson) => lesson.stockMarketGame && lesson.stockMarketGame.required === true), 'course generator context must expose every lesson Stock Market Game action');
 check(courseContext.generationRules.includes(map.currencyRule), 'generation rules must include the country- and transaction-matched currency rule');
 check(courseContext.lessons.length === 50, 'course generator context must expose fifty active lesson summaries');
 const lessonContext = generator.getLessonMaterialContext(50, 'deck', generatorMap);
 check(lessonContext.lesson.guidingQuestion === map.lessons[49].guidingQuestion, 'lesson 50 deck context does not match the active map');
-const passportLessonContext = generator.getLessonMaterialContext(1, 'deck', generatorMap);
-check(passportLessonContext.lesson.passportCheckpoint.title === 'My future goals', 'lesson 1 generator context must expose its Passport checkpoint');
-check(passportLessonContext.requiredInputs.artifactContract.personalPassportPilot.bookletRoute === passport.bookletRoute, 'lesson artifact contract must expose the shared Passport route');
-check(passportLessonContext.lesson.stockMarketGame.phase === 1, 'lesson generator context must expose the Lesson 1 Stock Market Game phase');
-const nonPassportLessonContext = generator.getLessonMaterialContext(9, 'deck', generatorMap);
-check(nonPassportLessonContext.lesson.passportCheckpoint === null, 'lesson 9 generator context must remain outside the Passport pilot');
+const firstLessonContext = generator.getLessonMaterialContext(1, 'deck', generatorMap);
+check(firstLessonContext.lesson.stockMarketGame.phase === 1, 'lesson generator context must expose the Lesson 1 Stock Market Game phase');
+check(!/passport/i.test(JSON.stringify(firstLessonContext)), 'lesson generator context must not retain the retired Investor Passport');
 
 const cli = spawnSync(
   process.execPath,
@@ -380,9 +285,9 @@ check(cli.status === 0, `financial-decisions CLI export failed: ${cli.stderr || 
 check(/Why do people and families invest\?/.test(cli.stdout), 'CLI export is missing the first candidate guiding question');
 check(/Decision-First Contract/.test(cli.stdout), 'CLI export is missing the decision-first contract');
 check(/Generation Rules/.test(cli.stdout), 'CLI export is missing generation rules');
-check(/My Future Investor Passport/.test(cli.stdout) && /Final five minutes/i.test(cli.stdout), 'CLI export is missing the Lesson 1 Passport checkpoint');
-check(/Page layout: One uncluttered two-column table per lesson/.test(cli.stdout), 'CLI export must preserve the Passport one-table layout');
-check((cli.stdout.match(/Answer format -/g) || []).length === 4 && /Tick choices:/.test(cli.stdout) && /Sentence frames:/.test(cli.stdout), 'CLI export must preserve all four structured Passport answer formats');
+check(/Stock Market Game Core Lab/.test(cli.stdout), 'CLI export is missing the Lesson 1 SMG core lab');
+check(cli.stdout.includes(map.lessons[0].stockMarketGame.studentAction), 'CLI export must preserve the exact Lesson 1 SMG action');
+check(!/passport/i.test(cli.stdout), 'CLI export must not retain the retired Investor Passport');
 check(/CNY/.test(cli.stdout) && /HKD/.test(cli.stdout) && /USD/.test(cli.stdout), 'CLI export is missing the country- and transaction-matched currency rule');
 
 if (failures.length) {

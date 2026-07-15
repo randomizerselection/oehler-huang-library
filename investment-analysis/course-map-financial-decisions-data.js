@@ -214,408 +214,6 @@
     { anchor: "Family investment strategy capstone", role: "synthesis case", q: "How should students build and explain a family investment strategy?", zh: "如何制定并说明家庭投资策略？", hook: "A mock family has education, housing and retirement goals plus an existing portfolio. What should its next investment process be?", core: "A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.", terms: ["familyStrategy", "familyCommunication", "professionalReferral"], formula: "Use relevant earlier formulas only where the frozen case evidence supports them.", task: "Build and present a complete strategy from a multi-source mock family evidence pack.", naive: "A final strategy is useful only if it tells the family exactly what to buy.", need: "Students need the full profile, investment evidence, existing allocation, goal priorities, uncertainties and matters requiring professional advice.", output: "Present a family strategy with goal allocations, evidence, risks, caveats, review rules and professional referrals.", avoid: "Do not use real family account data or give personalised buy, sell or hold advice." }
   ];
 
-  const passportSections = [
-    {
-      lesson: 1,
-      title: "My future goals",
-      titleZh: "我的未来目标",
-      focus: "Choose two meaningful future aspirations. Record only a broad priority and time-horizon band for each.",
-      focusZh: "选择两个对你有意义的未来愿望，只记录每个愿望的大致优先级和时间范围。",
-      firstThoughtPrompt: "Which two future goals matter to me, and which currently feels more important?",
-      firstThoughtPromptZh: "哪两个未来目标对我很重要？目前哪一个更优先？",
-      evidencePrompt: "What did today's family case show about purpose, priority, time horizon and possible loss?",
-      evidencePromptZh: "今天的家庭案例说明了用途、优先级、投资期限和可能损失中的哪些要点？",
-      revisedDecisionPrompt: "For each goal, choose: keep money available, gather more information or consider investing later. Give one condition.",
-      revisedDecisionPromptZh: "针对每个目标选择：保持资金可用、收集更多信息，或以后考虑投资，并写出一个条件。",
-      missingInformationPrompt: "What would I still need to know before making an investment decision for one goal?",
-      missingInformationPromptZh: "在为其中一个目标作出投资决定前，我还需要了解什么？",
-      supportItems: ["Goal A / Goal B", "Priority: higher / medium / lower", "Horizon: under 3 years / 3-10 years / over 10 years"]
-    },
-    {
-      lesson: 2,
-      title: "When will I need the money?",
-      titleZh: "我什么时候需要这笔钱？",
-      focus: "Return to one goal from page 1. Add its horizon, date flexibility and liquidity need using broad bands.",
-      focusZh: "回到第1页的一个目标，用大致范围补充其投资期限、日期灵活性和流动性需要。",
-      firstThoughtPrompt: "How flexible is the goal date, and how quickly might the money need to be available?",
-      firstThoughtPromptZh: "目标日期有多大灵活性？这笔钱可能需要多快可用？",
-      evidencePrompt: "Which lesson evidence helped me distinguish time horizon, liquidity need and suitability?",
-      evidencePromptZh: "哪些课堂证据帮助我区分投资期限、流动性需要和适合度？",
-      revisedDecisionPrompt: "Explain why this goal should not automatically use the same investment choice as a goal with a different horizon.",
-      revisedDecisionPromptZh: "说明为什么这个目标不应自动采用与不同期限目标相同的投资选择。",
-      missingInformationPrompt: "What fact about timing, flexibility or possible loss is still missing?",
-      missingInformationPromptZh: "关于时间、灵活性或可能损失，我还缺少哪项信息？",
-      supportItems: ["Horizon: short / medium / long", "Date: fixed / partly flexible / flexible", "Liquidity need: high / medium / low"]
-    },
-    {
-      lesson: 3,
-      title: "Saving or investing?",
-      titleZh: "储蓄还是投资？",
-      focus: "Use one goal to distinguish saving, investing and speculation by purpose, horizon, evidence and possible loss.",
-      focusZh: "针对一个目标，根据用途、期限、证据和可能损失区分储蓄、投资与投机。",
-      firstThoughtPrompt: "Would I currently describe the next step for this goal as saving, investing or neither? Why?",
-      firstThoughtPromptZh: "我目前会把这个目标的下一步称为储蓄、投资，还是两者都不是？为什么？",
-      evidencePrompt: "Which feature of today's cases made an action saving, investing or speculation?",
-      evidencePromptZh: "今天案例中的哪些特征使一项行动属于储蓄、投资或投机？",
-      revisedDecisionPrompt: "Choose: keep available, gather information or consider investing. Explain why speculation does not fit the goal.",
-      revisedDecisionPromptZh: "选择：保持资金可用、收集信息或考虑投资，并说明投机为什么不适合该目标。",
-      missingInformationPrompt: "What evidence would I need before changing this classification?",
-      missingInformationPromptZh: "在改变这一分类前，我需要什么证据？",
-      supportItems: ["Saving: near-term access and protection", "Investing: future return with possible loss", "Speculation: uncertain price movement without a goal-and-evidence plan"]
-    },
-    {
-      lesson: 4,
-      title: "Starting earlier",
-      titleZh: "更早开始",
-      focus: "Use the teacher-provided growth factors to explain how time changes a projection for one goal.",
-      focusZh: "使用教师提供的增长系数，说明时间如何改变一个目标的预测结果。",
-      firstThoughtPrompt: "Before using the figures, how important do I think an earlier start is for a long-term goal?",
-      firstThoughtPromptZh: "在使用数据前，我认为更早开始对长期目标有多重要？",
-      evidencePrompt: "At an assumed 4% annual return, a starting amount is about 1.48 times larger after 10 years, 2.19 times after 20 years and 3.24 times after 30 years. What does the comparison show?",
-      evidencePromptZh: "假设年回报率为4%，初始金额在10年后约为1.48倍、20年后约为2.19倍、30年后约为3.24倍。这个比较说明什么？",
-      revisedDecisionPrompt: "Explain how starting earlier could affect my goal, while stating that the assumed return is not promised.",
-      revisedDecisionPromptZh: "说明更早开始可能如何影响我的目标，同时指出假设回报并非保证。",
-      missingInformationPrompt: "Which assumption would I need to check before trusting a projection?",
-      missingInformationPromptZh: "在相信预测前，我需要检查哪一项假设？",
-      supportItems: ["10 years: x1.48", "20 years: x2.19", "30 years: x3.24", "Classroom projection only; future return is uncertain"],
-      reviewCheckpoint: "midpoint"
-    },
-    {
-      lesson: 5,
-      title: "Purchasing power",
-      titleZh: "购买力",
-      focus: "Use the real-return rule to explain how inflation can change what a future goal requires.",
-      focusZh: "使用实际回报规则，说明通货膨胀如何改变未来目标所需的资金。",
-      firstThoughtPrompt: "If the number of currency units for my goal stayed unchanged for years, would the goal necessarily remain affordable?",
-      firstThoughtPromptZh: "如果我的目标所需货币数额多年不变，这个目标是否一定仍然负担得起？",
-      evidencePrompt: "A nominal return of 4% with inflation of 3% gives an approximate real return of 1%. What does that mean for purchasing power?",
-      evidencePromptZh: "名义回报率为4%、通货膨胀率为3%时，近似实际回报率为1%。这对购买力意味着什么？",
-      revisedDecisionPrompt: "Explain one way inflation could change the planning for my goal using broad terms only.",
-      revisedDecisionPromptZh: "不估算个人确切金额，说明通货膨胀可能如何改变我的目标规划。",
-      missingInformationPrompt: "Which inflation, fee or time-period assumption would I still need?",
-      missingInformationPromptZh: "我还需要哪项通胀率、费用或时间范围假设？",
-      supportItems: ["Approximate real return = nominal return - inflation", "4% - 3% = about 1%", "Use the same period and state the limitation"]
-    },
-    {
-      lesson: 6,
-      title: "Risk and possible return",
-      titleZh: "风险与可能回报",
-      focus: "Connect possible loss to what would happen to one goal instead of treating higher risk as automatically better.",
-      focusZh: "把可能损失与一个目标的后果联系起来，而不是认为更高风险自动更好。",
-      firstThoughtPrompt: "Would a higher possible return automatically improve my goal decision? Why or why not?",
-      firstThoughtPromptZh: "更高的可能回报是否会自动改善我的目标决定？为什么？",
-      evidencePrompt: "What did today's risk-return cases show about uncertainty and the absence of guaranteed return?",
-      evidencePromptZh: "今天的风险与回报案例说明了不确定性和回报不受保证的哪些要点？",
-      revisedDecisionPrompt: "Choose whether a substantial loss would leave the goal unchanged, delay it or block it. Explain the consequence.",
-      revisedDecisionPromptZh: "选择较大损失会使目标不受影响、推迟还是无法实现，并说明后果。",
-      missingInformationPrompt: "What range of outcomes or loss evidence would I need before considering more risk?",
-      missingInformationPromptZh: "在考虑承担更多风险前，我需要了解什么结果范围或损失证据？",
-      supportItems: ["Possible upside", "Possible downside", "Uncertainty", "Higher risk does not guarantee higher return"]
-    },
-    {
-      lesson: 7,
-      title: "My risk evidence",
-      titleZh: "我的风险证据",
-      focus: "Separate willingness to accept loss from the goal's capacity to absorb loss, using broad categories only.",
-      focusZh: "只使用大致类别，区分承受损失的意愿与目标吸收损失的能力。",
-      firstThoughtPrompt: "How willing might I feel to accept uncertainty for this goal? Choose low, medium or high.",
-      firstThoughtPromptZh: "对于这个目标，我可能有多大意愿接受不确定性？选择低、中或高。",
-      evidencePrompt: "What evidence about the goal shows whether it could actually absorb a loss?",
-      evidencePromptZh: "关于这个目标的哪些证据能说明它实际上能否承受损失？",
-      revisedDecisionPrompt: "Compare my willingness with the goal's capacity. State which one should limit the decision and why.",
-      revisedDecisionPromptZh: "比较我的意愿与目标的承受能力，说明哪一项应限制决定以及原因。",
-      missingInformationPrompt: "What non-sensitive fact about timing, flexibility or consequences is still missing?",
-      missingInformationPromptZh: "关于时间、灵活性或后果，我还缺少哪项非敏感信息？",
-      supportItems: ["Risk tolerance: willingness", "Risk capacity: financial ability", "Use goal consequences, not a personality label"]
-    },
-    {
-      lesson: 8,
-      title: "My decision charter",
-      titleZh: "我的决策准则",
-      focus: "Turn Unit 1 learning into personal decision rules before any investment choice is compared.",
-      focusZh: "在比较任何投资选择前，把第一单元的学习转化为个人决策准则。",
-      firstThoughtPrompt: "Which rule do I currently think should come first before considering an investment?",
-      firstThoughtPromptZh: "在考虑投资前，我目前认为哪条规则最应优先？",
-      evidencePrompt: "Which Unit 1 ideas most changed my thinking about goals, time, inflation, risk or missing evidence?",
-      evidencePromptZh: "第一单元中关于目标、时间、通胀、风险或缺失证据的哪些观点最改变了我的想法？",
-      revisedDecisionPrompt: "Write at least three rules for my future self, including one rule about goals, one about risk and one about evidence.",
-      revisedDecisionPromptZh: "为未来的自己写至少三条规则，包括一条关于目标、一条关于风险和一条关于证据的规则。",
-      missingInformationPrompt: "What question should my future self answer before moving from a plan to an investment comparison?",
-      missingInformationPromptZh: "在从计划进入投资比较前，未来的我应先回答什么问题？",
-      supportItems: ["Keep available", "Gather evidence", "Consider or compare", "Avoid speculation", "Seek regulated professional help when needed"],
-      reviewCheckpoint: "final"
-    }
-  ];
-
-  const passportAnswerFormats = {
-    1: {
-      firstThought: {
-        answerType: "Write two short goal labels, tick one priority choice, then complete one sentence.",
-        answerTypeZh: "写出两个简短目标，勾选一个优先级选项，然后补全一句话。",
-        optionGroups: [{ label: "Higher priority", labelZh: "优先级更高", options: ["Goal A / 目标A", "Goal B / 目标B", "Same / 相同"] }],
-        sentenceFrames: ["Goal A: __________", "Goal B: __________", "My higher-priority goal is __________ because __________."],
-        lines: 0
-      },
-      evidence: {
-        answerType: "Tick one factor, then give one reason from today's case.",
-        answerTypeZh: "勾选一个因素，然后写出今天案例中的一个理由。",
-        optionGroups: [{ label: "Most useful factor", labelZh: "最有用的因素", options: ["Purpose / 用途", "Priority / 优先级", "Horizon / 期限", "Possible loss / 可能损失"] }],
-        sentenceFrames: ["The most useful factor was __________ because the case showed __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick one next step for each goal, then write one condition.",
-        answerTypeZh: "为每个目标勾选一个下一步，然后写出一个条件。",
-        optionGroups: [
-          { label: "Goal A", labelZh: "目标A", options: ["Keep available / 保持可用", "Gather information / 收集信息", "Consider later / 以后考虑"] },
-          { label: "Goal B", labelZh: "目标B", options: ["Keep available / 保持可用", "Gather information / 收集信息", "Consider later / 以后考虑"] }
-        ],
-        sentenceFrames: ["My condition is: I would reconsider when __________."],
-        lines: 0
-      },
-      missingInformation: {
-        answerType: "Tick one missing category and write one precise question.",
-        answerTypeZh: "勾选一个缺失信息类别，并写出一个具体问题。",
-        optionGroups: [{ label: "Missing", labelZh: "缺失信息", options: ["Timing / 时间", "Access / 资金使用", "Possible loss / 可能损失", "Priority / 优先级"] }],
-        sentenceFrames: ["Before deciding, I need to know: __________?"],
-        lines: 0
-      }
-    },
-    2: {
-      firstThought: {
-        answerType: "Choose one goal and tick one option in each row.",
-        answerTypeZh: "选择一个目标，并在每一行勾选一个选项。",
-        optionGroups: [
-          { label: "Goal", labelZh: "目标", options: ["A", "B"] },
-          { label: "Horizon", labelZh: "期限", options: ["Short / 短", "Medium / 中", "Long / 长"] },
-          { label: "Liquidity need", labelZh: "流动性需要", options: ["High / 高", "Medium / 中", "Low / 低"] }
-        ],
-        sentenceFrames: ["The date is: fixed / partly flexible / flexible."],
-        lines: 0
-      },
-      evidence: {
-        answerType: "Tick the fact that most changed your judgement, then explain its effect.",
-        answerTypeZh: "勾选最能改变你判断的事实，然后说明其影响。",
-        optionGroups: [{ label: "Key fact", labelZh: "关键事实", options: ["Target date / 目标日期", "Flexibility / 灵活性", "Access need / 使用需要", "Loss effect / 损失影响"] }],
-        sentenceFrames: ["This fact matters because __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick one judgement, then complete the because sentence.",
-        answerTypeZh: "勾选一个判断，然后补全“因为”句。",
-        optionGroups: [{ label: "Judgement", labelZh: "判断", options: ["Same choice / 相同选择", "Different choice may be needed / 可能需要不同选择", "Cannot decide yet / 尚不能决定"] }],
-        sentenceFrames: ["I chose __________ because the goal has a __________ horizon and a __________ liquidity need."],
-        lines: 1
-      },
-      missingInformation: {
-        answerType: "Tick one missing fact and write one question beginning with What or When.",
-        answerTypeZh: "勾选一项缺失事实，并写出一个以“什么”或“何时”开头的问题。",
-        optionGroups: [{ label: "Missing", labelZh: "缺失信息", options: ["Exact date / 具体日期", "Flexibility / 灵活性", "Access / 使用", "Loss consequence / 损失后果"] }],
-        sentenceFrames: ["What/When __________?"],
-        lines: 0
-      }
-    },
-    3: {
-      firstThought: {
-        answerType: "Tick one classification, then give one reason.",
-        answerTypeZh: "勾选一个分类，然后写出一个理由。",
-        optionGroups: [{ label: "Current classification", labelZh: "当前分类", options: ["Saving / 储蓄", "Investing / 投资", "Not enough information / 信息不足"] }],
-        sentenceFrames: ["I chose __________ because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Tick the strongest sign of speculation, then copy one matching case fact.",
-        answerTypeZh: "勾选最明显的投机迹象，然后抄写一个相符的案例事实。",
-        optionGroups: [{ label: "Speculation sign", labelZh: "投机迹象", options: ["No stated goal / 无明确目标", "Weak evidence / 证据薄弱", "Price movement only / 只看价格变化", "Loss ignored / 忽视损失"] }],
-        sentenceFrames: ["The matching case fact was: __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick one next step and complete one judgement sentence.",
-        answerTypeZh: "勾选一个下一步，并补全一句判断。",
-        optionGroups: [{ label: "Next step", labelZh: "下一步", options: ["Keep available / 保持可用", "Gather evidence / 收集证据", "Consider investing / 考虑投资"] }],
-        sentenceFrames: ["For this goal, I would __________ because __________; speculation does not fit because __________."],
-        lines: 1
-      },
-      missingInformation: {
-        answerType: "Tick one evidence category and name the exact fact needed.",
-        answerTypeZh: "勾选一个证据类别，并写出所需的具体事实。",
-        optionGroups: [{ label: "Evidence needed", labelZh: "所需证据", options: ["Purpose / 用途", "Horizon / 期限", "Possible loss / 可能损失", "Source quality / 来源质量"] }],
-        sentenceFrames: ["I need to know __________."],
-        lines: 0
-      }
-    },
-    4: {
-      firstThought: {
-        answerType: "Tick one strength-of-effect choice, then give one reason.",
-        answerTypeZh: "勾选一个影响程度，然后写出一个理由。",
-        optionGroups: [{ label: "Earlier start effect", labelZh: "更早开始的影响", options: ["Small / 小", "Moderate / 中", "Large / 大", "Not sure / 不确定"] }],
-        sentenceFrames: ["I expect the effect to be __________ because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Fill three blanks using the teacher-provided factors.",
-        answerTypeZh: "使用教师提供的系数补全三个空格。",
-        optionGroups: [],
-        sentenceFrames: ["At 4%: 10 years = x____; 20 years = x____; 30 years = x____.", "The longer period produces __________ growth because __________."],
-        lines: 0
-      },
-      revisedDecision: {
-        answerType: "Tick one planning effect and complete the projection caveat.",
-        answerTypeZh: "勾选一个规划影响，并补全预测限制。",
-        optionGroups: [{ label: "Planning effect", labelZh: "规划影响", options: ["Start earlier / 更早开始", "Review timing / 复核时间", "Gather evidence / 收集证据"] }],
-        sentenceFrames: ["For my goal, more time could __________.", "This is not a promise because __________."],
-        lines: 0
-      },
-      missingInformation: {
-        answerType: "Tick one projection assumption and state what must be checked.",
-        answerTypeZh: "勾选一个预测假设，并说明必须检查什么。",
-        optionGroups: [{ label: "Assumption", labelZh: "假设", options: ["Return / 回报", "Years / 年数", "Fees / 费用", "Contributions / 投入"] }],
-        sentenceFrames: ["I must check whether __________."],
-        lines: 0
-      }
-    },
-    5: {
-      firstThought: {
-        answerType: "Tick yes, no or not sure, then give one reason.",
-        answerTypeZh: "勾选是、否或不确定，然后写出一个理由。",
-        optionGroups: [{ label: "Same future affordability?", labelZh: "未来负担能力相同？", options: ["Yes / 是", "No / 否", "Not sure / 不确定"] }],
-        sentenceFrames: ["I chose __________ because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Calculate one number, then tick the purchasing-power result.",
-        answerTypeZh: "计算一个数字，然后勾选购买力结果。",
-        optionGroups: [{ label: "Purchasing power", labelZh: "购买力", options: ["Rises / 上升", "Falls / 下降", "Unchanged / 不变"] }],
-        sentenceFrames: ["Approximate real return = 4% - 3% = ____%."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick one planning response and complete one sentence.",
-        answerTypeZh: "勾选一个规划回应，并补全一句话。",
-        optionGroups: [{ label: "Planning response", labelZh: "规划回应", options: ["Review target / 复核目标", "Review inflation / 复核通胀", "Gather evidence / 收集证据"] }],
-        sentenceFrames: ["Inflation means I should __________ because __________."],
-        lines: 1
-      },
-      missingInformation: {
-        answerType: "Tick one missing assumption and write its required period or value.",
-        answerTypeZh: "勾选一个缺失假设，并写出所需的时期或数值。",
-        optionGroups: [{ label: "Missing", labelZh: "缺失信息", options: ["Inflation / 通胀", "Fees / 费用", "Time period / 时期", "Nominal return / 名义回报"] }],
-        sentenceFrames: ["I still need __________ for the period __________."],
-        lines: 0
-      }
-    },
-    6: {
-      firstThought: {
-        answerType: "Tick yes, no or not sure, then complete the because sentence.",
-        answerTypeZh: "勾选是、否或不确定，然后补全“因为”句。",
-        optionGroups: [{ label: "Higher possible return is automatically better", labelZh: "更高可能回报自动更好", options: ["Yes / 是", "No / 否", "Not sure / 不确定"] }],
-        sentenceFrames: ["I chose __________ because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Tick two features that must be considered together, then explain the link.",
-        answerTypeZh: "勾选两个必须同时考虑的特征，然后说明联系。",
-        optionGroups: [{ label: "Tick two", labelZh: "勾选两个", options: ["Possible upside / 可能上涨", "Possible downside / 可能下跌", "Uncertainty / 不确定性", "Goal consequence / 目标后果"] }],
-        sentenceFrames: ["These features belong together because __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick one consequence of a substantial loss, then justify it.",
-        answerTypeZh: "勾选较大损失的一个后果，然后说明理由。",
-        optionGroups: [{ label: "Goal consequence", labelZh: "目标后果", options: ["Unchanged / 不受影响", "Delayed / 推迟", "Blocked / 无法实现", "Cannot judge / 无法判断"] }],
-        sentenceFrames: ["A substantial loss would __________ my goal because __________."],
-        lines: 1
-      },
-      missingInformation: {
-        answerType: "Tick one missing risk fact and write the exact question.",
-        answerTypeZh: "勾选一项缺失风险事实，并写出具体问题。",
-        optionGroups: [{ label: "Risk fact", labelZh: "风险事实", options: ["Outcome range / 结果范围", "Likelihood / 可能性", "Horizon / 期限", "Loss consequence / 损失后果"] }],
-        sentenceFrames: ["I need to ask: __________?"],
-        lines: 0
-      }
-    },
-    7: {
-      firstThought: {
-        answerType: "Tick one willingness level, then give one reason.",
-        answerTypeZh: "勾选一个意愿程度，然后写出一个理由。",
-        optionGroups: [{ label: "Risk tolerance", labelZh: "风险承受意愿", options: ["Low / 低", "Medium / 中", "High / 高"] }],
-        sentenceFrames: ["My willingness is __________ because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Tick the goal consequence that best shows risk capacity, then cite one goal fact.",
-        answerTypeZh: "勾选最能说明风险承受能力的目标后果，然后引用一个目标事实。",
-        optionGroups: [{ label: "If loss occurs", labelZh: "如果发生损失", options: ["Goal continues / 目标继续", "Goal delayed / 目标推迟", "Goal blocked / 目标受阻", "Unknown / 未知"] }],
-        sentenceFrames: ["The relevant goal fact is __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Tick the limiting factor, then complete one comparison sentence.",
-        answerTypeZh: "勾选限制因素，然后补全一句比较。",
-        optionGroups: [{ label: "Limit the decision", labelZh: "限制决定", options: ["Tolerance / 承受意愿", "Capacity / 承受能力", "Both / 两者", "More evidence / 更多证据"] }],
-        sentenceFrames: ["My willingness is __________, but the goal's capacity is __________; therefore __________ should limit the decision."],
-        lines: 1
-      },
-      missingInformation: {
-        answerType: "Tick one non-sensitive missing fact and write one short question.",
-        answerTypeZh: "勾选一项非敏感缺失事实，并写出一个简短问题。",
-        optionGroups: [{ label: "Missing", labelZh: "缺失信息", options: ["Timing / 时间", "Flexibility / 灵活性", "Access / 使用", "Consequence / 后果"] }],
-        sentenceFrames: ["I still need to know __________."],
-        lines: 0
-      }
-    },
-    8: {
-      firstThought: {
-        answerType: "Tick the rule that should come first, then give one reason.",
-        answerTypeZh: "勾选最应优先的规则，然后写出一个理由。",
-        optionGroups: [{ label: "First rule", labelZh: "第一条规则", options: ["Define the goal / 明确目标", "Check risk / 检查风险", "Check evidence / 检查证据"] }],
-        sentenceFrames: ["__________ should come first because __________."],
-        lines: 1
-      },
-      evidence: {
-        answerType: "Tick exactly two ideas that most changed your thinking, then name one change.",
-        answerTypeZh: "准确勾选两个最改变你想法的观点，然后写出一个变化。",
-        optionGroups: [{ label: "Tick two", labelZh: "勾选两个", options: ["Goal / 目标", "Horizon / 期限", "Inflation / 通胀", "Risk / 风险", "Missing evidence / 缺失证据"] }],
-        sentenceFrames: ["I changed my judgement about __________ from __________ to __________."],
-        lines: 1
-      },
-      revisedDecision: {
-        answerType: "Complete all three decision rules. Each rule must contain one action.",
-        answerTypeZh: "补全三条决策规则。每条规则必须包含一个行动。",
-        optionGroups: [],
-        sentenceFrames: ["Goal rule: Before considering investment, I will __________.", "Risk rule: If a loss could __________, I will __________.", "Evidence rule: I will not decide until I know __________."],
-        lines: 0
-      },
-      missingInformation: {
-        answerType: "Tick one final check and write the exact question your future self should ask.",
-        answerTypeZh: "勾选一个最终检查，并写出未来的自己应提出的具体问题。",
-        optionGroups: [{ label: "Final check", labelZh: "最终检查", options: ["Goal / 目标", "Risk / 风险", "Cost / 成本", "Evidence / 证据", "Professional help / 专业帮助"] }],
-        sentenceFrames: ["Before comparing investments, I should ask: __________?"],
-        lines: 0
-      }
-    }
-  };
-
-  const passportPageLayout = "One uncluttered two-column table per lesson: four numbered rows, with the direct instruction on the left and only the required choices, sentence frames and writing space on the right.";
-
-  function getPassportCheckpoint(lesson) {
-    const section = passportSections.find(function findSection(item) { return item.lesson === lesson; });
-    if (!section) return null;
-    return Object.assign({}, section, {
-      answerFormats: passportAnswerFormats[lesson],
-      pageLayout: passportPageLayout,
-      completionMinutes: 5,
-      openingRetrieval: lesson === 1
-        ? "Read the privacy rule, then write a private first thought before the final five-minute update."
-        : "Privately reread the previous Passport entry for one minute before today's new learning.",
-      timing: "Complete during the final five minutes of the lesson; unfinished work becomes homework due before the next lesson.",
-      teacherNote: "Open Passport page " + lesson + " after the mock-case output. Keep the booklet private and assess concept use, reasoning and revision rather than the student's chosen goal or preferred risk level.",
-      privacyRule: "Use genuine aspirations or a plausible future-self goal. Record broad bands only; never record real family income, balances, accounts or exact personal amounts.",
-      shareRule: "Share only one non-sensitive decision rule if invited; the rest of the page remains private."
-    });
-  }
-
   const unitReuse = {
     1: "Reused throughout the course when investment choices, markets, companies and portfolios are judged against goals and constraints.",
     2: "Reused in market, portfolio and family-case lessons when students compare security, fund or deposit structure, cost and suitability.",
@@ -806,7 +404,7 @@
   function lessonFromSpec(spec, index) {
     const lesson = index + 1;
     const unit = getUnit(lesson);
-    const passportCheckpoint = getPassportCheckpoint(lesson);
+    const stockMarketGame = getStockMarketGameLessonIntegration(lesson);
     const terms = getTerms(spec.terms);
     const retrievalBase = lesson === 1
       ? "Everyday understanding of future goals, waiting, uncertainty and familiar investment claims."
@@ -867,8 +465,7 @@
       avoidOverlap: spec.avoid,
       misconception: spec.naive,
       studentOutput: studentOutput,
-      passportCheckpoint: passportCheckpoint,
-      stockMarketGame: getStockMarketGameLessonIntegration(lesson),
+      stockMarketGame: stockMarketGame,
       futureReuse: unitReuse[unit.unit],
       focus: "Focus: " + spec.q + " Case anchor: " + spec.anchor + ".",
       objectives: [
@@ -883,7 +480,7 @@
       coreClaim: spec.core,
       decisionFirst: decisionFirst,
       simpleFlow: simpleFlow,
-      formativeAssessment: "First judgement, targeted retrieval, evidence task, misconception correction and individual exit output." + (passportCheckpoint ? " The private five-minute Passport update is the personal exit ticket after the assessable mock-case output." : ""),
+      formativeAssessment: "First judgement, targeted retrieval, required SMG core lab, misconception correction and individual exit output.",
       exitTicket: studentOutput,
       groundedScenario: groundedScenario,
       handoutMaterial: spec.anchor + " worksheet with source box, vocabulary, evidence task, calculation or judgement, misconception check and individual output.",
@@ -945,14 +542,12 @@
           "Hook: " + spec.hook,
           "Retrieval: " + retrievalBase,
           "Teach: " + spec.core,
-          "Evidence practice: " + spec.task,
+          "SMG core lab: " + stockMarketGame.studentAction,
           "Output rehearsal: improve the first judgement using the taught evidence.",
-          passportCheckpoint
-            ? "Personal exit ticket: complete Passport page " + lesson + " during the final five minutes; unfinished work becomes homework."
-            : "Exit ticket: " + studentOutput
+          "Individual exit ticket: " + studentOutput
         ],
         handoutBlocks: handoutBlocks,
-        passportCheckpoint: passportCheckpoint,
+        stockMarketGame: stockMarketGame,
         chapterOutput: "The handout is the textbook chapter; do not add separate textbook-only teaching content.",
         examItemShape: "Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output."
       },
@@ -967,7 +562,7 @@
         firstJudgementPrompt: decisionFirst.firstJudgementPrompt,
         missingEvidence: spec.need,
         exitJudgement: studentOutput,
-        passportCheckpoint: passportCheckpoint
+        stockMarketGame: stockMarketGame
       },
       publishedRoutes: lesson <= 2 ? {
         slides: "unit-1/lesson-" + lesson + "/index.html",
@@ -1076,38 +671,6 @@
       implementationGuide: "investment-analysis/stock-market-game-integration.md",
       phases: stockMarketGamePhases
     },
-    personalPassportPilot: {
-      title: "My Future Investor Passport",
-      titleZh: "我的未来投资者护照",
-      unit: 1,
-      lessonRange: [1, 8],
-      bookletRoute: "unit-1/passport.html",
-      pageLayout: passportPageLayout,
-      purpose: "Students apply each Unit 1 concept to future goals they genuinely care about and record how evidence changes their thinking.",
-      routine: [
-        "Opening minute: privately reread the previous entry and make an initial judgement for today's question.",
-        "Main lesson: complete the evidence-based mock case and formal output.",
-        "Final five minutes: complete the aligned Passport page; unfinished work becomes homework due before the next lesson.",
-        "Next lesson: briefly retrieve the previous decision before adding new learning."
-      ],
-      sectionFields: [
-        { key: "firstThought", label: "My first thought", labelZh: "我的最初想法" },
-        { key: "evidence", label: "Evidence check", labelZh: "证据检查" },
-        { key: "revisedDecision", label: "My revised decision", labelZh: "我修改后的决定" },
-        { key: "missingInformation", label: "Still missing", labelZh: "仍缺少的信息" }
-      ],
-      safeguards: [
-        "Use real aspirations with broad time and priority bands, or use a plausible future-self goal if preferred.",
-        "Never request real family income, balances, accounts or exact personal amounts.",
-        "Do not ask for named products or personalised investment recommendations.",
-        "Students share only one non-sensitive decision rule; the booklet otherwise remains private."
-      ],
-      teacherReview: [
-        { afterLesson: 4, type: "private midpoint review", focus: "Concept use, justification and revision; do not judge the chosen goal or risk preference." },
-        { afterLesson: 8, type: "private final review", focus: "Concept use, justification, revision and the final decision charter." }
-      ],
-      successCriterion: "Students can identify at least one judgement that changed during Unit 1 and explain the change using course terminology."
-    },
     writtenArtifactRule: "Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and six unit dividers only.",
     groundedScenarioContract: {
       rule: "Every lesson handout begins with a short grounded scenario that is used in the lesson, not a decorative statistic or an entirely fictional case.",
@@ -1151,7 +714,6 @@
         "Preserve the progression family goal -> investor profile -> investment choice -> market understanding -> security analysis -> portfolio decision.",
         "Build every lesson around a first judgement, missing evidence, one focused key idea, an evidence task, misconception correction and a justified next action.",
         "Begin every handout with a short grounded scenario: at least one real, dated, source-backed figure or statement plus clearly labelled mock or anonymised details, and reuse it in the lesson task.",
-        "For Lessons 1-8, end the deck with the five-minute My Future Investor Passport checkpoint from passportCheckpoint; keep the mock case as the formal assessed output and assign only unfinished Passport work as homework.",
         "Use every lesson's stockMarketGame field as the main application and evidence task. The 14 named milestones are summative; the other 36 lesson labs are required formative work that builds the same portfolio evidence trail.",
         "Make the SMG lab replace compatible generic case practice rather than appending a separate activity or homework stream. Capture one concise team evidence row and one individual exit judgement per lesson, then curate them into the unit output.",
         "Freeze the required portfolio, watchlist, transaction, quote or benchmark snapshot at the start of the lesson so generators never depend on a live price remaining unchanged.",

@@ -63,20 +63,6 @@
     `;
   }
 
-  function renderPassportCheckpoint(lesson) {
-    const checkpoint = lesson.passportCheckpoint;
-    if (!checkpoint) return "";
-    return `
-      <div class="investment-lesson-action" aria-label="Lesson ${lesson.lesson} My Future Investor Passport checkpoint">
-        <p><strong>Passport Update · page ${lesson.lesson}:</strong> ${escapeHtml(checkpoint.title)} <span class="investment-term-zh" lang="zh-Hans">${escapeHtml(checkpoint.titleZh)}</span></p>
-        <ul>
-          <li><strong>Final five minutes:</strong> ${escapeHtml(checkpoint.focus)}</li>
-          <li><strong>If unfinished:</strong> Complete privately before the next lesson.</li>
-        </ul>
-      </div>
-    `;
-  }
-
   function renderStockMarketGameLesson(lesson) {
     const smg = lesson.stockMarketGame;
     if (!smg || smg.required !== true) return "";
@@ -240,7 +226,6 @@
           <span><strong>Formula/check:</strong> ${escapeHtml(lesson.formulaOrNoFormula)}</span>
         </div>
         ${renderInvestmentAction(lesson)}
-        ${renderPassportCheckpoint(lesson)}
         ${renderStockMarketGameLesson(lesson)}
         ${lesson.publishedRoutes ? `
           <nav class="investment-lesson-routes" aria-label="Lesson ${lesson.lesson} materials">

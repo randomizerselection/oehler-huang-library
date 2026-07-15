@@ -1659,6 +1659,22 @@ function validateActiveLessonAlignment() {
       failures.push(`${label}/slides.js: final handout writing question must match courseMap.studentOutput`);
     }
 
+    if (lesson.stockMarketGame?.studentAction !== mapLesson.stockMarketGame?.studentAction) {
+      failures.push(`${label}/slides.js: deck-level Stock Market Game action must exactly match the canonical lesson action`);
+    }
+    const smgLabIndex = (lesson.slides || []).findIndex((slide) => slide.eyebrow === 'SMG core lab');
+    const exitIndex = (lesson.slides || []).findLastIndex((slide) => slide.eyebrow === 'Exit ticket');
+    if (smgLabIndex < 0 || exitIndex < 0 || smgLabIndex >= exitIndex) {
+      failures.push(`${label}/slides.js: a visible SMG core lab must appear before the individual exit ticket`);
+    }
+    const smgLabText = JSON.stringify((lesson.slides || []).filter((slide) => /SMG/i.test(slide.eyebrow || '')));
+    if (!/team evidence row/i.test(smgLabText) || !/individual exit/i.test(smgLabText)) {
+      failures.push(`${label}/slides.js: SMG lab must produce one team evidence row and one individual exit judgement`);
+    }
+    if (/passport/i.test(slideSource)) {
+      failures.push(`${label}/slides.js: retired Investor Passport content must not remain in the active deck`);
+    }
+
     if (!Array.isArray(quiz.questions) || quiz.questions.length !== 10) {
       failures.push(`${label}/quiz.js: active lesson quiz must contain exactly ten questions`);
     }
@@ -1682,6 +1698,12 @@ function validateActiveLessonAlignment() {
     if (!homepageSource.includes(`unit-1/lesson-${lessonNumber}/index.html`)) {
       failures.push(`investment-analysis/index.html: missing current Lesson ${lessonNumber} route`);
     }
+  }
+
+  const templateLesson = readInvestmentLesson('investment-analysis/_template/slides.js');
+  const templateSmgLab = (templateLesson.slides || []).find((slide) => slide.eyebrow === 'SMG core lab');
+  if (!templateLesson.stockMarketGame?.studentAction || !templateSmgLab || !/team evidence row/i.test(JSON.stringify(templateSmgLab))) {
+    failures.push('investment-analysis/_template/slides.js: future decks need a deck-level Stock Market Game contract and visible team-evidence lab before the exit');
   }
 
   const archiveDirs = [
