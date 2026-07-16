@@ -429,6 +429,164 @@
   color: var(--inv-cyan);
 }
 
+/* Focused bilingual student syllabus */
+
+.student-syllabus .investment-nav .investment-link span,
+.student-syllabus .investment-action span {
+  margin-left: 0.35em;
+  color: rgba(214, 231, 232, 0.66);
+  font-weight: 550;
+}
+
+.student-syllabus .investment-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.55fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.student-syllabus .investment-hero-copy {
+  width: auto;
+  padding-right: 0;
+}
+
+.student-syllabus .investment-title-zh {
+  display: block;
+  margin-top: 11px;
+  color: rgba(214, 231, 232, 0.8);
+  font-size: 0.42em;
+  font-weight: 520;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.student-syllabus .investment-course-subtitle span,
+.student-syllabus .investment-bilingual-copy > span,
+.student-syllabus .investment-card p > span,
+.student-syllabus .investment-outcome-list li > span,
+.student-syllabus .investment-boundary-note > span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(190, 211, 207, 0.72);
+}
+
+.investment-student-route {
+  margin: clamp(24px, 4vw, 42px) clamp(24px, 4vw, 42px) clamp(24px, 4vw, 42px) 0;
+  border: 1px solid rgba(79, 210, 255, 0.22);
+  border-top: 3px solid var(--inv-cyan);
+  border-radius: 14px;
+  background: rgba(5, 14, 17, 0.72);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.investment-student-route > span {
+  color: var(--inv-cyan);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.investment-student-route > span i,
+.investment-disclosure > summary i {
+  margin-left: 0.45em;
+  color: rgba(190, 211, 207, 0.68);
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.investment-student-route ol {
+  display: grid;
+  gap: 0;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: student-route;
+}
+
+.investment-student-route li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 4px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 13px 0;
+  counter-increment: student-route;
+}
+
+.investment-student-route li::before {
+  content: counter(student-route, decimal-leading-zero);
+  grid-row: 1 / span 2;
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.investment-student-route strong {
+  color: var(--inv-ink);
+  font-size: 15px;
+}
+
+.investment-student-route small {
+  color: var(--inv-muted);
+  font-size: 13px;
+}
+
+.student-syllabus .investment-output-line {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+  color: rgba(214, 231, 232, 0.8);
+  font-size: 13px;
+}
+
+.student-syllabus .investment-student-priority-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.student-syllabus .investment-student-disclosure {
+  margin-top: 14px;
+  background: rgba(4, 13, 16, 0.34);
+}
+
+.student-syllabus .investment-syllabus-lesson > .investment-lesson-quick-facts,
+.student-syllabus .investment-syllabus-lesson > .investment-simple-flow,
+.student-syllabus .investment-syllabus-lesson > .investment-lesson-action,
+.student-syllabus .investment-syllabus-lesson .investment-lesson-smg-evidence,
+.student-syllabus .investment-lesson-topline strong {
+  display: none;
+}
+
+.student-syllabus .investment-lesson-hook {
+  color: var(--inv-muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.student-syllabus .investment-lesson-smg-label span i {
+  margin-left: 0.35em;
+  color: rgba(190, 211, 207, 0.68);
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.student-syllabus .investment-lesson-routes a span {
+  margin-left: 0.25em;
+  color: rgba(214, 231, 232, 0.66);
+  font-weight: 550;
+}
+
+.student-syllabus .investment-author-note {
+  margin: 14px 0 0;
+  color: rgba(157, 180, 177, 0.66);
+  font-size: 12px;
+}
+
+.student-syllabus .investment-author-note a {
+  color: var(--inv-cyan);
+}
+
 @media (max-width: 760px) {
   .simplified-syllabus .investment-page {
     width: min(100% - 24px, 1120px);
@@ -456,6 +614,20 @@
 
   .investment-disclosure > summary span {
     grid-column: 1;
+  }
+
+  .student-syllabus .investment-hero,
+  .student-syllabus .investment-student-priority-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-syllabus .investment-hero-copy {
+    padding-right: 24px;
+    padding-bottom: 0;
+  }
+
+  .investment-student-route {
+    margin: 0 18px 18px;
   }
 
   .investment-disclosure > summary strong {
@@ -2542,7 +2714,10 @@ img {
 
 .invQuizChoices {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 12px;
+}
+
+.invQuizPanel {
+  padding: clamp(14px, 1.5vw, 22px);
 }
 
 .invChoice {
@@ -5193,8 +5368,12 @@ img {
 
 .invTermVisuals .invKeywordVisual {
   display: grid;
-  grid-template-rows: minmax(104px, 1fr) auto;
-  min-height: 166px;
+  grid-template-rows: minmax(104px, 1fr);
+  min-height: 132px;
+}
+
+.invTermVisuals .invKeywordVisual figcaption {
+  display: none;
 }
 
 .invStepVisual {
@@ -7267,7 +7446,10 @@ img {
 .handoutFactGrid,
 .handoutCases,
 .handoutTermList,
-.handoutPromptGrid {
+.handoutPromptGrid,
+.handoutDefinitionList,
+.handoutKnowledge,
+.handoutNumberedKnowledge {
   display: grid;
   gap: 8px;
 }
@@ -7282,11 +7464,90 @@ img {
 .handoutPrompt,
 .handoutCalculation,
 .handoutSentence,
-.handoutWriting {
+.handoutWriting,
+.handoutDefinitionItem,
+.handoutKnowledge,
+.handoutMisconception,
+.handoutNumberedKnowledge {
   border: 1px solid #cfd8d8;
   border-radius: 5px;
   background: #fbfdfd;
   padding: 8px;
+}
+
+.handoutDefinitionList {
+  margin: 0;
+}
+
+.handoutDefinitionItem {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.24fr) minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+}
+
+.handoutDefinitionItem dt {
+  color: #19383d;
+  font-weight: 700;
+}
+
+.handoutDefinitionItem dt span,
+.handoutDefinitionItem dd > span,
+.handoutNumberedKnowledge li > span {
+  display: block;
+}
+
+.handoutDefinitionItem dt span {
+  margin-top: 2px;
+  color: #4b6266;
+  font-weight: 600;
+}
+
+.handoutDefinitionItem dd {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.handoutDefinitionZh,
+.handoutKnowledgeZh {
+  margin-top: 4px;
+  color: #4b6266;
+  font-size: 0.94em;
+  line-height: 1.45;
+}
+
+.handoutKnowledge p,
+.handoutMisconception p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.handoutKnowledge p + p,
+.handoutMisconception p + p {
+  border-top: 1px solid #dce4e4;
+  padding-top: 8px;
+}
+
+.handoutMisconception {
+  display: grid;
+  gap: 8px;
+  border-left: 4px solid #274b50;
+}
+
+.handoutNumberedKnowledge {
+  margin: 0;
+  padding: 8px 8px 8px 36px;
+}
+
+.handoutNumberedKnowledge li {
+  padding-left: 4px;
+  line-height: 1.45;
+}
+
+.handoutNumberedKnowledge li + li {
+  border-top: 1px solid #dce4e4;
+  margin-top: 8px;
+  padding-top: 8px;
 }
 
 .handoutFact {
@@ -9434,7 +9695,8 @@ img {
   .handoutFactGrid,
   .handoutCases,
   .handoutTermItem,
-  .handoutPromptGrid {
+  .handoutPromptGrid,
+  .handoutDefinitionItem {
     grid-template-columns: 1fr;
   }
 
@@ -9624,15 +9886,22 @@ img {
 .invDiscussionSlide {
   isolation: isolate;
   background:
-    radial-gradient(circle at 44% 42%, rgba(79, 210, 255, 0.22), rgba(5, 10, 12, 0.94)),
+    linear-gradient(90deg, rgba(3, 10, 14, 0.18), rgba(3, 10, 14, 0) 72%),
     var(--hero-photo, none) var(--photo-position, center) / cover no-repeat,
     #071013;
 }
 
 .invDiscussionSlide::before {
   background:
-    linear-gradient(90deg, rgba(3, 10, 14, 0.76), rgba(3, 10, 14, 0.18) 56%, rgba(3, 10, 14, 0.54)),
-    linear-gradient(180deg, rgba(3, 10, 14, 0.08), rgba(3, 10, 14, 0.58));
+    linear-gradient(
+      90deg,
+      rgba(3, 10, 14, 0.88) 0%,
+      rgba(3, 10, 14, 0.78) 34%,
+      rgba(3, 10, 14, 0.42) 52%,
+      rgba(3, 10, 14, 0.1) 70%,
+      rgba(3, 10, 14, 0.16) 100%
+    ),
+    linear-gradient(180deg, rgba(3, 10, 14, 0.06), rgba(3, 10, 14, 0.28));
   opacity: 1;
 }
 
@@ -9774,14 +10043,14 @@ img {
   position: relative;
   width: min(960px, 100%);
   display: grid;
-  gap: 16px;
+  gap: 18px;
   border: 1px solid rgba(241, 190, 90, 0.46);
   border-radius: var(--inv-radius);
   background:
     linear-gradient(145deg, rgba(241, 190, 90, 0.14), rgba(79, 210, 255, 0.08)),
     linear-gradient(180deg, rgba(13, 30, 34, 0.98), rgba(5, 12, 15, 0.98));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-  padding: clamp(24px, 3.2vw, 46px);
+  padding: clamp(30px, 4vw, 58px);
 }
 
 .invDiscussionAnswerClose {
@@ -9801,20 +10070,9 @@ img {
   cursor: pointer;
 }
 
-.invDiscussionAnswerHeader {
-  width: fit-content;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--inv-radius);
-  background: rgba(255, 255, 255, 0.11);
-  color: #fff;
-  padding: 8px 11px;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.invDiscussionAnswerTitle {
-  max-width: 28ch;
+.invDiscussionAnswerSentence {
+  max-width: 30ch;
+  margin: 0;
   color: #fff;
   font-size: clamp(34px, 3vw, 54px);
   font-weight: 700;
@@ -9822,32 +10080,14 @@ img {
   text-wrap: balance;
 }
 
-.invDiscussionAnswerTitleZh {
-  max-width: 36ch;
+.invDiscussionAnswerSentenceZh {
+  max-width: 38ch;
+  margin: 0;
   color: rgba(205, 242, 246, 0.92);
   font-size: clamp(24px, 1.9vw, 34px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.24;
   text-wrap: balance;
-}
-
-.invDiscussionAnswerText {
-  max-width: 34ch;
-  margin: 0;
-  color: var(--inv-ink);
-  font-size: clamp(28px, 2.35vw, 42px);
-  font-weight: 600;
-  line-height: 1.16;
-  text-wrap: balance;
-}
-
-.invDiscussionAnswerZh {
-  max-width: 44ch;
-  margin: 0;
-  color: rgba(205, 242, 246, 0.9);
-  font-size: clamp(20px, 1.65vw, 30px);
-  font-weight: 500;
-  line-height: 1.34;
 }
 
 @media (max-width: 900px) {
@@ -9914,23 +10154,14 @@ img {
     padding: 22px;
   }
 
-  .invDiscussionAnswerTitle {
-    max-width: 19ch;
+  .invDiscussionAnswerSentence {
+    max-width: 21ch;
     font-size: clamp(26px, 7vw, 40px);
   }
 
-  .invDiscussionAnswerTitleZh {
-    max-width: 22ch;
+  .invDiscussionAnswerSentenceZh {
+    max-width: 24ch;
     font-size: clamp(18px, 4.8vw, 24px);
-  }
-
-  .invDiscussionAnswerText {
-    max-width: 21ch;
-    font-size: clamp(23px, 6vw, 34px);
-  }
-
-  .invDiscussionAnswerZh {
-    font-size: clamp(17px, 4.5vw, 24px);
   }
 }
 
@@ -10531,53 +10762,65 @@ img {
 /* Outcomes slide: classroom projection polish */
 
 .invOutcomesSlide .invSlideHeader {
-  padding-bottom: clamp(12px, 1.8vh, 20px);
+  padding-bottom: clamp(10px, 1.4vh, 16px);
 }
 
 .invOutcomesSlide .invTitleBlock h1 {
-  font-size: clamp(48px, 4.8vw, 76px);
-  line-height: 1.02;
+  font-size: clamp(44px, 4.2vw, 68px);
+  line-height: 1;
 }
 
 .invOutcomesSlide .invZhTitle {
   max-width: 900px;
   color: rgba(205, 242, 246, 0.9);
-  font-size: clamp(28px, 2.8vw, 40px);
+  font-size: clamp(25px, 2.3vw, 36px);
   line-height: 1.08;
 }
 
 .invOutcomesSlide .invSlideBody {
   align-content: start;
-  padding-top: clamp(18px, 2.5vh, 28px);
+  padding-top: clamp(14px, 2vh, 22px);
 }
 
 .invOutcomesSlide .invObjectiveGrid {
   width: min(1320px, 100%);
   grid-template-columns: 1fr;
-  gap: clamp(10px, 1.2vh, 14px);
+  gap: clamp(12px, 1.4vh, 16px);
   align-items: stretch;
 }
 
 .invOutcomesSlide .invObjective {
+  --objective-accent: var(--inv-cyan);
+  --objective-accent-rgb: 79, 210, 255;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: clamp(138px, 16vh, 172px);
-  border: 1px solid rgba(79, 210, 255, 0.32);
-  border-top: 1px solid rgba(79, 210, 255, 0.32);
-  border-left: 5px solid rgba(79, 210, 255, 0.82);
+  min-height: clamp(124px, 14.5vh, 156px);
+  border: 1px solid rgba(var(--objective-accent-rgb), 0.4);
+  border-left: 4px solid var(--objective-accent);
   background:
-    linear-gradient(180deg, rgba(17, 37, 43, 0.94), rgba(6, 16, 19, 0.9)),
+    linear-gradient(110deg, rgba(var(--objective-accent-rgb), 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(17, 37, 43, 0.96), rgba(6, 16, 19, 0.94)),
     rgba(8, 20, 24, 0.9);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.07),
     0 18px 48px rgba(0, 0, 0, 0.24);
-  grid-template-columns: 72px 126px minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: clamp(132px, 12vw, 174px) minmax(0, 1fr);
   grid-template-rows: 1fr;
-  gap: clamp(14px, 1.4vw, 22px);
-  align-items: center;
-  align-content: center;
-  padding: clamp(16px, 1.5vw, 22px);
+  gap: 0;
+  align-items: stretch;
+  align-content: stretch;
+  padding: 0;
+}
+
+.invOutcomesSlide .invObjective:nth-child(2) {
+  --objective-accent: var(--inv-green);
+  --objective-accent-rgb: 57, 217, 145;
+}
+
+.invOutcomesSlide .invObjective:nth-child(3) {
+  --objective-accent: var(--inv-amber);
+  --objective-accent-rgb: 241, 190, 90;
 }
 
 .invOutcomesSlide .invObjective:not(:last-child)::before {
@@ -10588,6 +10831,22 @@ img {
   display: none;
 }
 
+.invOutcomesSlide .invObjectiveMarker {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  border-right: 1px solid rgba(var(--objective-accent-rgb), 0.3);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(var(--objective-accent-rgb), 0.18), transparent 58%),
+    rgba(2, 11, 14, 0.3);
+  padding: 16px 14px;
+}
+
 .invOutcomesSlide .invObjectiveStep {
   position: static;
   z-index: 1;
@@ -10595,31 +10854,45 @@ img {
   right: auto;
   bottom: auto;
   justify-self: center;
-  color: rgba(79, 210, 255, 0.66);
-  font-size: clamp(36px, 3.2vw, 48px);
+  color: var(--objective-accent);
+  font-size: clamp(38px, 3.4vw, 54px);
   font-weight: 700;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .invOutcomesSlide .invObjectivePhase {
   position: relative;
   z-index: 1;
-  border-color: rgba(241, 190, 90, 0.46);
-  background: rgba(241, 190, 90, 0.12);
-  color: rgba(255, 211, 126, 0.96);
+  max-width: 100%;
+  border-color: rgba(var(--objective-accent-rgb), 0.5);
+  background: rgba(var(--objective-accent-rgb), 0.12);
+  color: var(--objective-accent);
   font-size: clamp(13px, 0.95vw, 15px);
   letter-spacing: 0.06em;
   padding: 8px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.invOutcomesSlide .invObjectiveCopy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  gap: clamp(8px, 1vh, 12px);
+  padding: clamp(18px, 2vw, 28px) clamp(22px, 2.4vw, 36px);
 }
 
 .invOutcomesSlide .invObjective strong {
   position: relative;
   z-index: 1;
-  align-self: center;
   max-width: none;
-  font-size: clamp(24px, 1.65vw, 32px);
-  font-weight: 600;
-  line-height: 1.12;
+  font-size: clamp(25px, 1.75vw, 34px);
+  font-weight: 650;
+  line-height: 1.1;
   text-wrap: pretty;
 }
 
@@ -10631,14 +10904,14 @@ img {
   position: relative;
   z-index: 1;
   max-width: none;
-  color: rgba(205, 242, 246, 0.88);
-  font-size: clamp(18px, 1.18vw, 23px);
+  color: rgba(205, 242, 246, 0.82);
+  font-size: clamp(18px, 1.15vw, 22px);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 .invOutcomesSlide .invObjectiveKeyword {
-  color: var(--inv-green);
+  color: var(--objective-accent);
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.16em;
 }
@@ -10649,11 +10922,11 @@ img {
   }
 
   .invOutcomesSlide .invTitleBlock h1 {
-    font-size: clamp(34px, 9vw, 48px);
+    font-size: clamp(32px, 8.4vw, 44px);
   }
 
   .invOutcomesSlide .invZhTitle {
-    font-size: clamp(20px, 5.4vw, 28px);
+    font-size: clamp(19px, 5vw, 25px);
   }
 
   .invOutcomesSlide .invSlideBody {
@@ -10663,17 +10936,15 @@ img {
 
   .invOutcomesSlide .invObjectiveGrid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 9px;
   }
 
   .invOutcomesSlide .invObjective {
-    min-height: 0;
-    grid-template-columns: 34px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    column-gap: 8px;
-    row-gap: 4px;
-    align-content: center;
-    padding: 8px 10px;
+    min-height: 96px;
+    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+    padding: 0;
   }
 
   .invOutcomesSlide .invObjective::after,
@@ -10681,39 +10952,49 @@ img {
     display: none;
   }
 
+  .invOutcomesSlide .invObjectiveMarker {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: 9px 5px;
+  }
+
   .invOutcomesSlide .invObjectiveStep {
     display: block;
     position: static;
     z-index: 1;
-    grid-row: 1 / span 2;
     align-self: center;
     justify-self: center;
-    color: rgba(79, 210, 255, 0.72);
-    font-size: 22px;
+    color: var(--objective-accent);
+    font-size: 24px;
     line-height: 1;
   }
 
-  .invOutcomesSlide .invObjective strong,
-  .invOutcomesSlide .invObjectiveZh {
-    grid-column: 2;
+  .invOutcomesSlide .invObjectivePhase {
+    display: inline-flex;
+    max-width: 58px;
+    padding: 4px 5px;
+    font-size: 9px;
+    letter-spacing: 0.035em;
   }
 
-  .invOutcomesSlide .invObjectivePhase {
-    display: none;
+  .invOutcomesSlide .invObjectiveCopy {
+    align-content: center;
+    gap: 5px;
+    padding: 10px 12px;
   }
 
   .invOutcomesSlide .invObjective strong {
-    font-size: clamp(17px, 4.5vw, 20px);
-    line-height: 1.08;
+    font-size: clamp(17px, 4.6vw, 20px);
+    line-height: 1.07;
   }
 
   .invOutcomesSlide .invObjectiveZh {
-    font-size: clamp(13px, 3.3vw, 15px);
-    line-height: 1.12;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.1;
   }
 }
 
-.invContextPhotoSlide {
+.invContextPhotoSlide:not(.invDiscussionSlide) {
   background:
     linear-gradient(90deg, rgba(6, 12, 15, 0.96), rgba(6, 12, 15, 0.84) 58%, rgba(6, 12, 15, 0.48)),
     linear-gradient(0deg, rgba(6, 12, 15, 0.96), rgba(6, 12, 15, 0.46)),
@@ -10772,6 +11053,10 @@ img {
   .handoutCalculation,
   .handoutSentence,
   .handoutWriting,
+  .handoutDefinitionItem,
+  .handoutKnowledge,
+  .handoutMisconception,
+  .handoutNumberedKnowledge,
   .handoutDataTable tr {
     break-inside: avoid;
   }
@@ -10875,7 +11160,7 @@ img {
     opacity: 0.82;
   }
 
-  .invContextPhotoSlide {
+  .invContextPhotoSlide:not(.invDiscussionSlide) {
     background:
       linear-gradient(90deg, rgba(5, 12, 15, 0.97), rgba(5, 12, 15, 0.84) 58%, rgba(5, 12, 15, 0.54)),
       linear-gradient(0deg, rgba(5, 12, 15, 0.97), rgba(5, 12, 15, 0.42)),
@@ -13292,5 +13577,285 @@ img {
   .invEvidenceAction {
     min-height: 32px;
     font-size: 11px;
+  }
+}
+
+/* Decision-check flows use prominent bilingual card headings and staged reveals. */
+.invFlow-decisionChecks {
+  width: min(1480px, 100%);
+  grid-template-columns: repeat(var(--flow-count), minmax(0, 1fr));
+  gap: clamp(14px, 1.35vw, 22px);
+  align-items: stretch;
+}
+
+.invFlow-decisionChecks .invStep {
+  --check-accent: rgba(79, 210, 255, 0.82);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  gap: clamp(8px, 0.8vw, 12px);
+  min-height: clamp(278px, 34vh, 372px);
+  overflow: hidden;
+  border: 1px solid rgba(214, 231, 232, 0.16);
+  border-top: 7px solid var(--check-accent);
+  padding: clamp(16px, 1.4vw, 22px);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--check-accent) 12%, transparent), rgba(7, 17, 20, 0.92) 58%),
+    rgba(9, 19, 22, 0.94);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.invFlow-decisionChecks .invStep:nth-child(2) {
+  --check-accent: rgba(57, 217, 145, 0.82);
+}
+
+.invFlow-decisionChecks .invStep:nth-child(3) {
+  --check-accent: rgba(241, 190, 90, 0.86);
+}
+
+.invFlow-decisionChecks .invStep:nth-child(4) {
+  --check-accent: rgba(238, 108, 101, 0.84);
+}
+
+.invFlow-decisionChecks .invStep.invReveal:not(.is-revealed) {
+  display: grid;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.invFlow-decisionChecks .invStep.invReveal.is-revealed {
+  display: grid;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invFlow-decisionChecks .invStepNum {
+  position: absolute;
+  top: clamp(14px, 1.2vw, 20px);
+  right: clamp(14px, 1.2vw, 20px);
+  z-index: 0;
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  color: color-mix(in srgb, var(--check-accent) 22%, transparent);
+  font-size: clamp(62px, 5.8vw, 104px);
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.invFlow-decisionChecks .invStepVisual,
+.invFlow-decisionChecks .invStepHeading,
+.invFlow-decisionChecks .invStepText,
+.invFlow-decisionChecks .invZhLine {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.invFlow-decisionChecks .invStepVisual {
+  height: clamp(70px, 9vh, 94px);
+  margin-bottom: 0;
+}
+
+.invFlow-decisionChecks .invStepHeading {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  border-bottom: 2px solid color-mix(in srgb, var(--check-accent) 56%, transparent);
+  padding: 0 2.7rem 10px 0;
+}
+
+.invFlow-decisionChecks .invStepTitle {
+  color: #f7fcfc;
+  font-family: var(--inv-display);
+  font-size: clamp(28px, 2.35vw, 42px);
+  font-weight: 780;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.invFlow-decisionChecks .invStepTitleZh {
+  color: var(--check-accent);
+  font-size: clamp(19px, 1.45vw, 25px);
+  font-weight: 720;
+  line-height: 1.08;
+}
+
+.invFlow-decisionChecks .invStepText {
+  color: rgba(239, 248, 248, 0.93);
+  font-family: var(--inv-text);
+  font-size: clamp(19px, 1.35vw, 25px);
+  line-height: 1.16;
+}
+
+.invFlow-decisionChecks .invZhLine {
+  display: block;
+  align-self: end;
+  margin-top: auto;
+  border-top: 1px solid rgba(214, 231, 232, 0.14);
+  padding-top: clamp(8px, 0.7vw, 12px);
+  color: rgba(223, 238, 238, 0.84);
+  font-size: clamp(16px, 1.12vw, 21px);
+  line-height: 1.18;
+}
+
+@media (max-width: 900px) {
+  .invFlow-decisionChecks {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .invFlow-decisionChecks .invStep {
+    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 3px 9px;
+    min-height: 0;
+    border-top-width: 1px;
+    border-left: 5px solid var(--check-accent);
+    padding: 8px 10px;
+    transform: none;
+  }
+
+  .invFlow-decisionChecks .invStep.invReveal:not(.is-revealed),
+  .invFlow-decisionChecks .invStep.invReveal.is-revealed {
+    transform: none;
+  }
+
+  .invFlow-decisionChecks .invStepNum {
+    position: static;
+    grid-row: 1 / span 3;
+    align-self: center;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--inv-radius);
+    background: var(--check-accent);
+    color: #04110c;
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  .invFlow-decisionChecks .invStepHeading {
+    grid-column: 2;
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    border-bottom-width: 1px;
+    padding: 0 0 3px;
+  }
+
+  .invFlow-decisionChecks .invStepTitle {
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  .invFlow-decisionChecks .invStepTitleZh {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .invFlow-decisionChecks .invStepText {
+    grid-column: 2;
+    font-size: 15px;
+    line-height: 1.08;
+  }
+
+  .invFlow-decisionChecks .invZhLine {
+    grid-column: 2;
+    display: block;
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+    font-size: 12px;
+    line-height: 1.08;
+  }
+}
+
+/* Projector-scale type for short yes/no checks intended for whole-class viewing. */
+@media (min-width: 901px) {
+  .invClassroomLargeTextSlide.is-active {
+    gap: 12px;
+  }
+
+  .invClassroomLargeTextSlide .invTitleBlock h1 {
+    max-width: 1240px;
+    font-size: clamp(56px, 4.3vw, 68px);
+    line-height: 1.02;
+  }
+
+  .invClassroomLargeTextSlide .invZhTitle {
+    font-size: clamp(35px, 2.8vw, 42px);
+    line-height: 1.08;
+  }
+
+  .invClassroomLargeTextSlide .invSlideBody {
+    padding-top: 4px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteBoard {
+    gap: 8px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteInstruction {
+    padding-block: 8px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteInstruction strong {
+    font-size: 29px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteInstruction .invZhLine {
+    font-size: 22px;
+  }
+
+  .invClassroomLargeTextSlide:has(.invVoteAnswer.is-revealed) .invVoteInstruction {
+    display: none;
+  }
+
+  .invClassroomLargeTextSlide .invVoteRow {
+    padding-block: 13px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteStatement strong {
+    font-size: 29px;
+    line-height: 1.06;
+  }
+
+  .invClassroomLargeTextSlide .invVoteStatement .invZhLine {
+    font-size: 22px;
+    line-height: 1.08;
+  }
+
+  .invClassroomLargeTextSlide .invVoteChoice {
+    font-size: 16px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteChoices small {
+    font-size: 13px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteVerdict {
+    font-size: 15px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteVerdict small {
+    font-size: 13px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteReason p {
+    font-size: 22px;
+  }
+
+  .invClassroomLargeTextSlide .invVoteReason .invZhLine {
+    font-size: 18px;
   }
 }

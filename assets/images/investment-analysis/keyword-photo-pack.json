@@ -2151,8 +2151,7 @@
       ],
       "uses": [
         "visualPause",
-        "discussion",
-        "classificationTask"
+        "discussion"
       ],
       "deckHint": "Use when students explain why a diversified portfolio can reduce single-company risk.",
       "objectPosition": "center 50%",

@@ -10,12 +10,12 @@ window.INVEST.quiz = {
       prompt: "What is time horizon?",
       zh: "什么是投资期限？",
       choices: [
-        "The period before invested money is expected to be needed",
         "The number of products a family owns",
         "The return earned last year",
+        "The period before invested money is expected to be needed",
         "The date on which a product becomes popular"
       ],
-      answer: 0,
+      answer: 2,
       explanation: "Time horizon measures the period before the invested money is expected to be needed for the goal.",
       explanationZh: "投资期限衡量预计需要为目标使用已投资资金之前的时间。"
     },
@@ -34,12 +34,12 @@ window.INVEST.quiz = {
       prompt: "Which factors belong in the Lesson 2 definition of suitability?",
       zh: "哪些因素属于第二课的适合度定义？",
       choices: [
-        "Goal, horizon, liquidity need and ability to accept loss",
         "Product popularity, logo and advertising",
         "Last week's price change only",
-        "The opinions of other families"
+        "The opinions of other families",
+        "Goal, horizon, liquidity need and ability to accept loss"
       ],
-      answer: 0,
+      answer: 3,
       explanation: "Suitability tests whether an investment matches the person's goal and constraints.",
       explanationZh: "适合度检查投资是否与个人目标和限制相匹配。"
     },
@@ -64,12 +64,12 @@ window.INVEST.quiz = {
       prompt: "Why does the home goal differ from the university goal?",
       zh: "为什么住房目标与大学目标不同？",
       choices: [
-        "It has a longer horizon and up to two years of date flexibility",
         "It guarantees a higher return",
+        "It has a longer horizon and up to two years of date flexibility",
         "It has no target amount",
         "It requires money sooner"
       ],
-      answer: 0,
+      answer: 1,
       explanation: "The home goal is planned for eight years and its date can move, so its constraints differ from the fixed three-year education goal.",
       explanationZh: "住房目标计划在八年后且日期可以调整，因此其限制不同于固定三年的教育目标。"
     },
@@ -79,12 +79,12 @@ window.INVEST.quiz = {
       prompt: "Which important facts are missing for the retirement goal?",
       zh: "退休目标缺少哪些重要事实？",
       choices: [
-        "The target amount, later withdrawal needs and ability to accept loss",
         "Whether retirement is a future goal",
         "Whether thirty years is longer than three years",
+        "The target amount, later withdrawal needs and ability to accept loss",
         "Whether investment can involve return"
       ],
-      answer: 0,
+      answer: 2,
       explanation: "A long horizon alone is not enough to establish suitability.",
       explanationZh: "仅凭较长期限不足以确定适合度。"
     },
@@ -94,12 +94,12 @@ window.INVEST.quiz = {
       prompt: "Why does the investment with the highest possible return not fit every goal?",
       zh: "为什么可能回报最高的投资并不适合每一个目标？",
       choices: [
-        "Goals have different horizons, liquidity needs and consequences of loss",
         "High possible return always means low risk",
         "Every family has the same goal",
-        "Suitability depends only on recent performance"
+        "Suitability depends only on recent performance",
+        "Goals have different horizons, liquidity needs and consequences of loss"
       ],
-      answer: 0,
+      answer: 3,
       explanation: "Return cannot establish suitability without the goal constraints.",
       explanationZh: "如果没有目标限制，回报不能确定适合度。"
     },
@@ -124,12 +124,12 @@ window.INVEST.quiz = {
       prompt: "What can official time-horizon guidance not decide for the family?",
       zh: "官方投资期限指引不能替家庭决定什么？",
       choices: [
-        "A named product and whether its possible loss is acceptable for this family",
         "That the period before a goal matters",
+        "A named product and whether its possible loss is acceptable for this family",
         "That risk tolerance affects choices",
         "That goals can have different horizons"
       ],
-      answer: 0,
+      answer: 1,
       explanation: "General guidance supports a method; family-specific suitability still requires evidence.",
       explanationZh: "一般指引支持一种方法；家庭具体的适合度仍需要证据。"
     },
@@ -139,12 +139,12 @@ window.INVEST.quiz = {
       prompt: "Which explanation best shows why two goals require different investment choices?",
       zh: "哪一个解释最能说明为什么两个目标需要不同的投资选择？",
       choices: [
-        "University money is needed sooner on a fixed date, while retirement money has a longer horizon and lower current access need; each choice must match its goal and loss capacity.",
         "Retirement is later, so any investment is suitable.",
         "University is expensive, so it needs the highest possible return.",
+        "University money is needed sooner on a fixed date, while retirement money has a longer horizon and lower current access need; each choice must match its goal and loss capacity.",
         "The same family should use one identical choice for all money."
       ],
-      answer: 0,
+      answer: 2,
       explanation: "The answer compares horizon and liquidity need, then keeps the judgement conditional on suitability evidence.",
       explanationZh: "该答案比较期限和流动性需求，并使判断以适合度证据为条件。"
     }

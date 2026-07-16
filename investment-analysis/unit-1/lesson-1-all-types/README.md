@@ -15,16 +15,12 @@ Current slide types shown:
 - `term`
 - `answer`
 - `flow`
-- `peerTask`
 - `rankingTask`
-- `peerTask` / `definitionRecall`
-- `peerTask` / `missingSentence`
 - `yesNoCheck`
 - `quiz`
 - `dataSnapshot`
 - `conceptTriad`
 - `compare`
-- `classificationTask`
 - `sourceLens`
 - `quoteMap`
 - `comparisonMatrix`
@@ -35,8 +31,6 @@ Current slide types shown:
 - `judgementFrame`
 - `exam`
 - `modelAnswer`
-
-The deck also shows meaningful variants of `peerTask` and `answer`, because those are likely candidates for splitting into clearer future slide types.
 
 `visualPause` is intentionally picture-only on the projected slide. Put prompts, captions and teaching bridges in speaker notes or adjacent slides.
 

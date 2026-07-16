@@ -1,3100 +1,1747 @@
-# Investment Analysis: Evidence-Based Investing: Compiled Handout Book
+# Investment and Financial Decision-Making: Compiled Handout Book
 
-Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and unit dividers only. Every worksheet also ends with a practical investment action so students learn the steps of analysing before investing.
+The complete SMG Essentials Workbook is the default individual work record. Assigned workbook pages replace overlapping lesson worksheets. When the workbook cannot hold required dated evidence, calculation or judgement, generate one separately labelled activity insert and file it with the workbook. Lesson handouts are bilingual exam-revision sheets containing in-lesson definition blanks and numbered knowledge points, never extended tasks or response spaces. The shared team decision log remains the authoritative evidence and transaction record.
 
-Students learn a decision-first investing process: start with a concrete company, security, fund, portfolio or investor-profile dilemma, make a first judgement, collect dated evidence, compare return, compounding, risk, price, cost, time horizon and fit, then make an evidence-based classroom action such as consider, watch, avoid, compare with another choice or gather more evidence. They do not receive stock tips, market timing calls or personalised portfolio instructions.
+Use goals, horizon, liquidity, risk capacity, investment-choice evidence, company evidence, price, cost and limitations to choose a defensible next action.
 
-Vocabulary definitions use the textbook-style overview at `references/investment-analysis-definitions.md`, prioritising CFA Program glossary where course terms overlap.
+Vocabulary definitions use the textbook-style overview at `investment-analysis/course-map-financial-decisions-data.js`, prioritising the course definition source where course terms overlap.
 
 Educational use only. Students make evidence-based classroom judgements, not personalised financial advice.
 
 ## Contents
 
-- Unit 1: Foundations, assets and market access (Lessons 1-10)
-  - Lesson 1: Tencent - What is investment analysis?
-  - Lesson 2: Family saving plan - How are saving, investing and speculation different?
-  - Lesson 3: Mixed asset set - What kinds of assets can an investor own?
-  - Lesson 4: Xiaomi - What does owning one share actually give?
-  - Lesson 5: HKEX - Why do investors need organised markets?
-  - Lesson 6: Alibaba quote snapshot - What can a quote page tell us?
-  - Lesson 7: JD.com evidence pack - How should an analyst record evidence before judging?
-  - Lesson 8: Government bond - How is a bond different from a share?
-  - Lesson 9: ChinaAMC CSI 300 ETF - How can one fund hold many investments?
-  - Lesson 10: Mini portfolio checkpoint - What evidence is enough for a first investment judgement?
-- Unit 2: Company evidence and financial statements (Lessons 11-20)
-  - Lesson 11: Meituan - Does high revenue mean a company is strong?
-  - Lesson 12: BYD - Can sales rise while costs become a problem?
-  - Lesson 13: CATL - Which company turns sales into profit more efficiently?
-  - Lesson 14: Tesla - Why can a growing company still need cash?
-  - Lesson 15: Balance sheet snapshot - What does a balance sheet add to company analysis?
-  - Lesson 16: Lenovo - When does borrowing become a shareholder risk?
-  - Lesson 17: HSBC - Why might an investor like dividends?
-  - Lesson 18: Starbucks - What could hurt one familiar company?
-  - Lesson 19: Toyota peer set - How can a company comparison be fair?
-  - Lesson 20: Company evidence checkpoint - How do financial statements change an investment judgement?
-- Unit 3: Returns, valuation and investor fit (Lessons 21-30)
-  - Lesson 21: Apple - How does a share make or lose money for an investor?
-  - Lesson 22: Nvidia - How can one company be worth so much?
-  - Lesson 23: Microsoft - When do investors pay a high price for profit?
-  - Lesson 24: Toyota valuation case - Can a good company still be too expensive?
-  - Lesson 25: HSBC income case - How should income and price change be combined?
-  - Lesson 26: Two-holding portfolio - How does diversification change risk?
-  - Lesson 27: Investor profile A - Why can the same investment fit one person but not another?
-  - Lesson 28: Samsung - Why can exchange rates matter to shareholders?
-  - Lesson 29: Risk-return scenario - How should possible return be compared with downside risk?
-  - Lesson 30: Semester 1 memo - What should a first-semester investment memo include?
-- Unit 4: Funds, bonds, costs, diversification and behaviour (Lessons 31-40)
-  - Lesson 31: Bank deposit - When is cash or a deposit the better choice?
-  - Lesson 32: Treasury bond - What do maturity and yield tell a bond investor?
-  - Lesson 33: Bond fund - Why do bond prices move when interest rates change?
-  - Lesson 34: Corporate bond - How can credit risk affect bond investors?
-  - Lesson 35: Index fund - How is an index fund different from active stock picking?
-  - Lesson 36: Active fund - How much do fund costs matter?
-  - Lesson 37: Sector ETF - Can a diversified fund still be concentrated?
-  - Lesson 38: Global fund - How does geography change portfolio risk?
-  - Lesson 39: Monthly investment plan - How do compounding and gradual investing affect long-run accumulation?
-  - Lesson 40: Investor policy statement - What rules should guide an investor before choosing investments?
-- Unit 5: Portfolio decision process, monitoring and final memo (Lessons 41-50)
-  - Lesson 41: Fund comparison - How should two investment choices be compared?
-  - Lesson 42: Starter portfolio - How can a simple portfolio be built from evidence?
-  - Lesson 43: Concentrated Tencent holding - When is one holding too large?
-  - Lesson 44: Watchlist dashboard - What should an investor monitor after deciding to watch?
-  - Lesson 45: Rebalanced portfolio - Why might a portfolio need rebalancing?
-  - Lesson 46: Trading-cost scenario - How do costs and taxes affect a decision?
-  - Lesson 47: Past-winner fund - Why can chasing recent performance be dangerous?
-  - Lesson 48: Next-action board - How should an investor choose watch, avoid, consider or compare?
-  - Lesson 49: Evidence pack - What evidence must be checked before a final memo?
-  - Lesson 50: Final investment memo - How do students write a final evidence-based investment memo?
+- Unit 1: Personal Investment Foundations (Lessons 1-8)
+  - Lesson 1: Family goal table - Why do people and families invest?
+  - Lesson 2: Three family goals - How do goals change investment decisions?
+  - Lesson 3: Short-term and long-term money - How are saving, investing and speculation different?
+  - Lesson 4: Monthly investment projection - How does compounding build wealth over time?
+  - Lesson 5: Inflation and return table - How does inflation affect real return?
+  - Lesson 6: Risk-return choice set - What is the relationship between risk and possible return?
+  - Lesson 7: Two investor profiles - How are risk tolerance and risk capacity different?
+  - Lesson 8: Family investment policy - Why should an investor write a plan before choosing investments?
+- Unit 2: Investment Choices for Families (Lessons 9-17)
+  - Lesson 9: House-deposit money - When should money remain in cash or deposits?
+  - Lesson 10: Government and corporate bonds - How do bonds provide income, and what risks remain?
+  - Lesson 11: Tencent share ownership - What does owning a share mean?
+  - Lesson 12: CSI 300 ETF factsheet - How do funds and ETFs let investors hold many assets?
+  - Lesson 13: Index and active fund pair - How are index funds and actively managed funds different?
+  - Lesson 14: Two fund fee schedules - How do investment fees reduce long-term wealth?
+  - Lesson 15: Concentrated family holdings - How does diversification reduce avoidable risk?
+  - Lesson 16: Monthly and lump-sum scenarios - How do regular investing and lump-sum investing differ?
+  - Lesson 17: Three family profiles - Which investment mix fits different family goals?
+- Unit 3: How Markets Work (Lessons 18-26)
+  - Lesson 18: Growth company financing - Why do companies issue shares?
+  - Lesson 19: HKEX market map - How are primary and secondary markets different?
+  - Lesson 20: Broker trade journey - How do brokers, custody and settlement complete a trade?
+  - Lesson 21: Alibaba quote snapshot - What can a quote page tell an investor?
+  - Lesson 22: Earnings-news price reaction - Why do share prices change?
+  - Lesson 23: Nvidia and peer scale case - How are share price and company size different?
+  - Lesson 24: HSBC return case - How does a share create gains, losses and income?
+  - Lesson 25: Hang Seng Index snapshot - How does a market index measure performance?
+  - Lesson 26: News and rumour evidence pack - How should investors judge market news?
+- Unit 4: Analysing Companies (Lessons 27-35)
+  - Lesson 27: Analyst conflict case - What ethical responsibilities does an investment analyst have?
+  - Lesson 28: Tencent business model - How does a business make money and defend its position?
+  - Lesson 29: Meituan income statement - What does an income statement reveal about performance?
+  - Lesson 30: Lenovo balance sheet - How does a balance sheet reveal financial strength and debt risk?
+  - Lesson 31: Tesla cash-flow extract - Why can profit and cash flow tell different stories?
+  - Lesson 32: BYD and Toyota peer comparison - How can two companies be compared fairly?
+  - Lesson 33: Global consumer company risk register - Which important risks may not appear directly in the financial statements?
+  - Lesson 34: Microsoft valuation case - Can a good company still be too expensive?
+  - Lesson 35: Junior analyst evidence pack - How should a junior analyst write an evidence-based company memo?
+- Unit 5: Portfolios and Investor Behaviour (Lessons 36-43)
+  - Lesson 36: Three-goal family portfolio - How should asset allocation reflect family goals?
+  - Lesson 37: Concentrated Tencent holding - When is one holding too large?
+  - Lesson 38: Global fund exposure - How do geographic and currency exposures affect a portfolio?
+  - Lesson 39: Diversified portfolio stress test - Which risks remain after diversification?
+  - Lesson 40: Fund-share-bond comparison - How can funds, shares and bonds be compared fairly?
+  - Lesson 41: Drifted portfolio - Why and when should a portfolio be rebalanced?
+  - Lesson 42: Investment watchlist - What should investors monitor after making a decision?
+  - Lesson 43: Past-winner fund - Why do investors chase winners or panic after losses?
+- Unit 6: Family Investment Decisions and Careers (Lessons 44-50)
+  - Lesson 44: Education investment goal - How should a family invest for an education goal?
+  - Lesson 45: Home-deposit goal - How much investment risk should house-deposit money take?
+  - Lesson 46: Retirement investment goal - How can long-term investing support retirement?
+  - Lesson 47: Family windfall - How should a family handle a financial windfall?
+  - Lesson 48: Suspicious investment offer - How can investors recognise fraud and unsuitable products?
+  - Lesson 49: Investment career rotation - Which careers support investment decisions, and how do they work?
+  - Lesson 50: Family investment strategy capstone - How should students build and explain a family investment strategy?
 
-# Unit 1: Foundations, assets and market access
+# Unit 1: Personal Investment Foundations
 
-Students build the first investing vocabulary, compare asset types, read market evidence and learn how organised markets, shares, bonds and funds work before making any recommendation.
+Students connect family goals, time, inflation, compounding and risk to a written investment plan before comparing investment choices.
 
-## Lesson 1: What is investment analysis?
+## Lesson 1: Why do people and families invest?
 
-**Case anchor:** Tencent
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** What is investment analysis?
-**Student hook:** Would you buy shares in Tencent? Give one reason.
-**Core claim:** Investment analysis judges potential return, risk and suitability before action.
-**Primary output:** Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.
-**Formula or formula rule:** no new formula; students classify evidence needs and explain in words only.
-**Analyse why:** Analyse why the evidence used in the Tencent case could change an investor's judgement about the Tencent investment case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Tencent.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
+**Case anchor:** Family goal table
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Published lesson
+**Guiding question:** Why do people and families invest?
+**Student hook:** A family has CNY 50,000 but no stated goal. What should it do next?
+**Core claim:** People invest to move resources toward future goals while accepting uncertainty and possible loss.
+**Primary output:** Choose one goal. State the next step and justify it with one reason and one condition.
+**Formula or formula rule:** No new formula; classify goals by purpose, amount and time horizon.
+**Analyse why:** Analyse why the evidence in Family goal table could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Source box
-
-Record the Tencent source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| investment analysis | 投资分析 | Investment analysis is the process of evaluating an investment opportunity with evidence to judge its potential return, risk and suitability before making a decision. |
-| return | 回报 | Return is the gain or loss earned from an investment over a stated holding period, including price change and any income received. |
-| risk | 风险 | Risk is the possibility that results, returns or prices are worse than expected. |
-| investor fit | 投资者适合度 | Investor fit is the degree to which an investment matches an investor's goal, time horizon, liquidity need and risk tolerance. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Tencent case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define investment analysis.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify evidence needs and explain in words only.
-3. **Explain:** Explain what one Tencent evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about the Tencent investment case.
-5. **Judge:** Give your own evidence-based classroom verdict on Tencent. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Classify the missing evidence before making a Tencent judgement.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: A familiar company is automatically a suitable investment.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a Tencent next-action judgement using one source detail, one missing evidence need, one caveat and the action gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 2: How are saving, investing and speculation different?
-
-**Case anchor:** Family saving plan
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** How are saving, investing and speculation different?
-**Student hook:** Should the family save, invest or speculate with all CNY 30,000? Give one reason.
-**Core claim:** Saving protects short-term needs, while investing accepts risk for possible future return.
-**Primary output:** Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
-**Formula or formula rule:** no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss.
-**Analyse why:** Analyse why the evidence used in the Family saving plan case could change an investor's judgement about the family saving decision
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Family saving plan.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Family saving plan source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| saving | 储蓄 | Saving is keeping money safe and available for future use, usually with lower risk and lower expected return than investing. |
 | investment | 投资 | Investment is putting money into an asset to seek future return while accepting possible loss. |
-| speculation | 投机 | Speculation is trying to profit from uncertain price movements, often over a short time and with weaker evidence than investment analysis requires. |
+| return | 回报 | Return is the gain or loss from an investment over a stated period, including price change and income. |
+| financial goal | 财务目标 | A financial goal is a stated future use of money with an amount, priority and time horizon. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Family saving plan case extract with source title, publication or accessed date, key figures and one limitation.
+- People invest to move resources toward future goals while accepting uncertainty and possible loss.
+- Evidence to check: the goal, time horizon, liquidity need and possible loss before judging whether investment is appropriate.
+- Formula or relationship: No new formula; classify goals by purpose, amount and time horizon.
+- Exam correction: The claim 'Investing is simply a way to make more money.' is incorrect. Use this principle instead: People invest to move resources toward future goals while accepting uncertainty and possible loss.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define saving.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify choices by purpose, time horizon, liquidity need, evidence and possible loss.
-3. **Explain:** Explain what one Family saving plan evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about the family saving decision.
-5. **Judge:** Give your own evidence-based classroom verdict on Family saving plan. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 2: How do goals change investment decisions?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Three family goals
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Published lesson
+**Guiding question:** How do goals change investment decisions?
+**Student hook:** Should money for university in three years be invested like retirement money needed in thirty years?
+**Core claim:** An investment decision must begin with the goal, time horizon and liquidity need rather than a preferred investment.
+**Primary output:** Explain why two goals require different investment choices.
+**Formula or formula rule:** No new formula; rank goals by horizon and access need.
+**Analyse why:** Analyse why the evidence in Three family goals could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Classify the near-term money, long-term surplus and rumour-led price bet as saving, investing or speculation with a reason.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: Investing is always better than saving, and a rumour-led price bet is the same as investment analysis.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Explain why the CNY 12,000 should be saved, why only the long-term surplus might be considered for investment, and why the rumour-led bet should be rejected as speculation.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 3: What kinds of assets can an investor own?
-
-**Case anchor:** Mixed asset set
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** What kinds of assets can an investor own?
-**Student hook:** Cash, property, bonds and shares all have value. Are they the same kind of risk?
-**Core claim:** Different asset classes have different liquidity, risk and return patterns.
-**Primary output:** Write a short Mixed asset set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students rank asset types qualitatively and explain caveats.
-**Analyse why:** Analyse why the evidence used in the Mixed asset set case could change an investor's judgement about Mixed asset set case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Mixed asset set.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Mixed asset set source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| asset | 资产 | An asset is something with economic value that can be owned or controlled, such as cash, property, a bond, a share or a business resource. |
-| asset class | 资产类别 | Asset class is a course concept used to analyse Mixed asset set with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| liquidity need | 流动性需求 | Liquidity need is a course concept used to analyse Mixed asset set with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| time horizon | 投资期限 | Time horizon is the period before invested money is expected to be needed. |
+| liquidity need | 流动性需求 | Liquidity need is the need to access money quickly without accepting a large loss or delay. |
+| suitability | 适合度 | Suitability is the degree to which an investment matches a person's goal, horizon, liquidity need and ability to accept loss. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Mixed asset set case extract with source title, publication or accessed date, key figures and one limitation.
+- An investment decision must begin with the goal, time horizon and liquidity need rather than a preferred investment.
+- Evidence to check: when the money is required, how flexible the date is and what loss would damage the goal.
+- Formula or relationship: No new formula; rank goals by horizon and access need.
+- Exam correction: The claim 'The investment with the highest possible return fits every goal.' is incorrect. Use this principle instead: An investment decision must begin with the goal, time horizon and liquidity need rather than a preferred investment.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define asset.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students rank asset types qualitatively and explain caveats.
-3. **Explain:** Explain what one Mixed asset set evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Mixed asset set case.
-5. **Judge:** Give your own evidence-based classroom verdict on Mixed asset set. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 3: How are saving, investing and speculation different?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Short-term and long-term money
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** How are saving, investing and speculation different?
+**Student hook:** A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?
+**Core claim:** Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
+**Primary output:** Correct one mistaken classification using the four decision criteria.
+**Formula or formula rule:** No new formula; classify choices by purpose, horizon, evidence and possible loss.
+**Analyse why:** Analyse why the evidence in Short-term and long-term money could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Rank a mixed asset set by liquidity and risk with one caveat.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Mixed asset set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 4: What does owning one share actually give?
-
-**Case anchor:** Xiaomi
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** What does owning one share actually give?
-**Student hook:** If you own one Xiaomi share, do you control Xiaomi?
-**Core claim:** A share is an ownership claim, but control depends on rights and ownership size.
-**Primary output:** Write a short Xiaomi judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** ownership % = shares owned / total shares x 100.
-**Analyse why:** Analyse why the evidence used in the Xiaomi case could change an investor's judgement about Xiaomi case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Xiaomi.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Xiaomi source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| share | 股票 / 股份 | A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends. |
-| share ownership | 股票所有权 | Share ownership is a course concept used to analyse Xiaomi with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| shareholder right | 股东权利 | Shareholder right is a course concept used to analyse Xiaomi with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| saving | 储蓄 | Saving is keeping money available for future use, usually with lower risk and lower expected return than investing. |
+| investment | 投资 | Investment is putting money into an asset to seek future return while accepting possible loss. |
+| speculation | 投机 | Speculation is seeking profit from uncertain price movements, often with a short horizon and weaker evidence than investment analysis requires. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Xiaomi case extract with source title, publication or accessed date, key figures and one limitation.
+- Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
+- Evidence to check: the purpose, time horizon, evidence quality and loss consequences for each action.
+- Formula or relationship: No new formula; classify choices by purpose, horizon, evidence and possible loss.
+- Exam correction: The claim 'Any purchase of shares is investing and any bank deposit is always the best choice.' is incorrect. Use this principle instead: Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define share.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: ownership % = shares owned / total shares x 100.
-3. **Explain:** Explain what one Xiaomi evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Xiaomi case.
-5. **Judge:** Give your own evidence-based classroom verdict on Xiaomi. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 4: How does compounding build wealth over time?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Monthly investment projection
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does compounding build wealth over time?
+**Student hook:** Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?
+**Core claim:** Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
+**Primary output:** Explain why an earlier start changes the projection and state one limitation.
+**Formula or formula rule:** Future value of one amount = starting amount x (1 + assumed return)^years; regular-contribution tables may be teacher-provided.
+**Analyse why:** Analyse why the evidence in Monthly investment projection could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Sort shareholder statements into gives, may give and does not give.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Xiaomi judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 5: Why do investors need organised markets?
-
-**Case anchor:** HKEX
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** Why do investors need organised markets?
-**Student hook:** If you buy a share today, who gets the money and why does the market exist?
-**Core claim:** An exchange helps listed securities trade, but secondary trades do not always fund the company.
-**Primary output:** Write a short HKEX judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students identify company, exchange, code and one trading friction accurately.
-**Analyse why:** Analyse why the evidence used in the HKEX case could change an investor's judgement about HKEX case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HKEX.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the HKEX source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| stock exchange | 证券交易所 | A stock exchange is a regulated market where listed securities can be bought and sold under published trading rules. |
-| secondary market | 二级市场 | A secondary market is the market where investors buy and sell existing securities with each other after they have been issued. |
-| listing | 上市 | A listing is the formal permission for a company's securities to trade on a stock exchange after the company meets the exchange's requirements. |
-| stock code | 股票代码 | A stock code is the short market identifier used to find a listed security on an exchange or market-data system. |
-| liquidity | 流动性 | Liquidity is the ability to trade an asset quickly, at relatively low cost and in meaningful quantities without causing a large price change. |
+| compounding | 复利 | Compounding is growth in which later returns build on earlier returns. |
+| future value | 终值 | Future value is the projected value of money after growth over a stated period and assumed return. |
+| regular contribution | 定期投入 | A regular contribution is an amount added to an investment on a repeated schedule. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short HKEX case extract with source title, publication or accessed date, key figures and one limitation.
+- Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
+- Evidence to check: the starting amount, contribution pattern, assumed return, time and whether fees are included.
+- Formula or relationship: Future value of one amount = starting amount x (1 + assumed return)^years; regular-contribution tables may be teacher-provided.
+- Exam correction: The claim 'A compound-growth projection shows what the investor will definitely receive.' is incorrect. Use this principle instead: Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define stock exchange.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students identify company, exchange, code and one trading friction accurately.
-3. **Explain:** Explain what one HKEX evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about HKEX case.
-5. **Judge:** Give your own evidence-based classroom verdict on HKEX. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 5: How does inflation affect real return?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Inflation and return table
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does inflation affect real return?
+**Student hook:** An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?
+**Core claim:** Real return measures how investment growth changes purchasing power after inflation.
+**Primary output:** Calculate one real return and explain what it means for a family goal.
+**Formula or formula rule:** Approximate real return = nominal return - inflation rate.
+**Analyse why:** Analyse why the evidence in Inflation and return table could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
+### Key definitions / 核心定义
 
-Match company, exchange, stock code and one market friction.
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| inflation | 通货膨胀 | Inflation is a sustained increase in the general price level that reduces the purchasing power of money. |
+| purchasing power | 购买力 | Purchasing power is the quantity of goods and services that money can buy. |
+| real return | 实际回报 | Real return is investment return after allowing for inflation. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Misconception check
+### Numbered revision points / 编号复习要点
 
-Correct the shortcut: one attractive clue is enough for an investment decision.
+- Real return measures how investment growth changes purchasing power after inflation.
+- Evidence to check: the same-period nominal return, inflation rate, fees and the limits of the approximation.
+- Formula or relationship: Approximate real return = nominal return - inflation rate.
+- Exam correction: The claim 'Any positive nominal return makes the investor better off in real terms.' is incorrect. Use this principle instead: Real return measures how investment growth changes purchasing power after inflation.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-### Individual written output
+## Lesson 6: What is the relationship between risk and possible return?
 
-Write a short HKEX judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
+**Case anchor:** Risk-return choice set
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** What is the relationship between risk and possible return?
+**Student hook:** One choice offers a higher possible return. Does that make it the better investment?
+**Core claim:** Higher possible return usually comes with greater uncertainty, but taking more risk does not guarantee higher return.
+**Primary output:** Reject or improve the statement that more risk always produces more return.
+**Formula or formula rule:** No new formula; compare possible upside, downside and uncertainty qualitatively.
+**Analyse why:** Analyse why the evidence in Risk-return choice set could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+### Key definitions / 核心定义
 
-## Lesson 6: What can a quote page tell us?
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| risk | 风险 | Risk is the possibility that results, returns or prices are worse than expected. |
+| expected return | 预期回报 | Expected return is a reasoned estimate of possible average return, not a guaranteed outcome. |
+| uncertainty | 不确定性 | Uncertainty is limited knowledge about which future outcome will occur. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Higher possible return usually comes with greater uncertainty, but taking more risk does not guarantee higher return.
+- Evidence to check: the range of outcomes, probability limits, time horizon and consequences of loss.
+- Formula or relationship: No new formula; compare possible upside, downside and uncertainty qualitatively.
+- Exam correction: The claim 'Higher risk guarantees higher return over time.' is incorrect. Use this principle instead: Higher possible return usually comes with greater uncertainty, but taking more risk does not guarantee higher return.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 7: How are risk tolerance and risk capacity different?
+
+**Case anchor:** Two investor profiles
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** How are risk tolerance and risk capacity different?
+**Student hook:** Two people both say they accept risk, but only one can afford a large loss. Are their profiles the same?
+**Core claim:** Risk tolerance describes willingness to accept loss, while risk capacity describes financial ability to withstand it.
+**Primary output:** Explain which profile has lower risk capacity and why.
+**Formula or formula rule:** No new formula; compare willingness, financial consequences and time to recover.
+**Analyse why:** Analyse why the evidence in Two investor profiles could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| risk tolerance | 风险承受意愿 | Risk tolerance is a person's willingness to accept uncertainty and investment losses. |
+| risk capacity | 风险承受能力 | Risk capacity is a person's financial ability to withstand loss without damaging important goals. |
+| loss capacity | 亏损承受能力 | Loss capacity is the amount of loss a person can absorb while still meeting essential goals. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Risk tolerance describes willingness to accept loss, while risk capacity describes financial ability to withstand it.
+- Evidence to check: the goal, horizon, income stability, liquidity needs and effect of a loss.
+- Formula or relationship: No new formula; compare willingness, financial consequences and time to recover.
+- Exam correction: The claim 'A confident investor automatically has high risk capacity.' is incorrect. Use this principle instead: Risk tolerance describes willingness to accept loss, while risk capacity describes financial ability to withstand it.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 8: Why should an investor write a plan before choosing investments?
+
+**Case anchor:** Family investment policy
+**Unit:** 1. Personal Investment Foundations
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why should an investor write a plan before choosing investments?
+**Student hook:** A popular fund appears before a family has agreed its goals or risk limits. What should happen first?
+**Core claim:** A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.
+**Primary output:** Write three investment-plan rules and justify the most important one.
+**Formula or formula rule:** No new formula; write rules for goal, horizon, liquidity, risk, cost and review.
+**Analyse why:** Analyse why the evidence in Family investment policy could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| investment plan | 投资计划 | An investment plan records goals, horizon, risk limits, permitted asset types and review arrangements before investment choices are compared. |
+| investment constraint | 投资限制 | An investment constraint is a limit such as a short horizon, liquidity need, loss limit or restricted asset or instrument type. |
+| decision rule | 决策规则 | A decision rule is a written condition used to make choices consistently rather than emotionally. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.
+- Evidence to check: agreed goals, constraints, acceptable risks, asset-class and instrument boundaries and review arrangements.
+- Formula or relationship: No new formula; write rules for goal, horizon, liquidity, risk, cost and review.
+- Exam correction: The claim 'A plan is unnecessary if the investment has performed well recently.' is incorrect. Use this principle instead: A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+
+# Unit 2: Investment Choices for Families
+
+Students compare cash, fixed-income securities, shares and funds, then combine knowledge of these choices with fees, diversification and suitable investing methods.
+
+## Lesson 9: When should money remain in cash or deposits?
+
+**Case anchor:** House-deposit money
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** When should money remain in cash or deposits?
+**Student hook:** A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?
+**Core claim:** Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
+**Primary output:** Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+**Formula or formula rule:** Simple annual interest = amount x stated annual rate; compare with inflation only when periods align.
+**Analyse why:** Analyse why the evidence in House-deposit money could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| cash | 现金 | Cash is money available immediately with little price risk but exposure to inflation. |
+| deposit | 存款 | A deposit is money held with a financial institution under stated access, interest and protection terms. |
+| liquidity | 流动性 | Liquidity is the ability to access or trade an asset quickly at relatively low cost without a large price change. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
+- Evidence to check: access terms, protection limits, interest, inflation and the consequence of investment loss.
+- Formula or relationship: Simple annual interest = amount x stated annual rate; compare with inflation only when periods align.
+- Exam correction: The claim 'Cash is always safe because its price does not fall.' is incorrect. Use this principle instead: Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 10: How do bonds provide income, and what risks remain?
+
+**Case anchor:** Government and corporate bonds
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do bonds provide income, and what risks remain?
+**Student hook:** A corporate bond offers a higher yield than a government bond. Is the extra income free?
+**Core claim:** A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
+**Primary output:** Compare the two bonds and identify which evidence is still missing.
+**Formula or formula rule:** Annual coupon income = face value x coupon rate; current yield = annual coupon / market price x 100 when suitable.
+**Analyse why:** Analyse why the evidence in Government and corporate bonds could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| bond | 债券 | A bond is a security representing money lent to an issuer in return for promised payments under stated terms. |
+| coupon | 票息 | A coupon is the periodic interest payment specified by a bond. |
+| maturity | 到期日 | Maturity is the date on which a bond's principal is due to be repaid. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
+- Evidence to check: issuer strength, maturity, coupon, price, yield and risk disclosures.
+- Formula or relationship: Annual coupon income = face value x coupon rate; current yield = annual coupon / market price x 100 when suitable.
+- Exam correction: The claim 'Bonds cannot lose value because they pay interest.' is incorrect. Use this principle instead: A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 11: What does owning a share mean?
+
+**Case anchor:** Tencent share ownership
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** What does owning a share mean?
+**Student hook:** If you own one Tencent share, do you control the company or own its buildings?
+**Core claim:** A share is one ownership unit with a residual claim and specified rights, not direct ownership of company assets.
+**Primary output:** Explain accurately what one share gives and does not give.
+**Formula or formula rule:** Ownership percentage = shares owned / total shares outstanding x 100.
+**Analyse why:** Analyse why the evidence in Tencent share ownership could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| share | 股票 | A share is one unit of ownership in a company and gives a claim on part of its equity. |
+| shareholder rights | 股东权利 | Shareholder rights are the voting, information or distribution rights attached to a class of shares. |
+| equity | 权益 | Equity is the residual ownership claim after liabilities are deducted from assets. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A share is one ownership unit with a residual claim and specified rights, not direct ownership of company assets.
+- Evidence to check: the share class, total shares, voting rights and distribution policy.
+- Formula or relationship: Ownership percentage = shares owned / total shares outstanding x 100.
+- Exam correction: The claim 'One share gives direct control over the company and its assets.' is incorrect. Use this principle instead: A share is one ownership unit with a residual claim and specified rights, not direct ownership of company assets.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 12: How do funds and ETFs let investors hold many assets?
+
+**Case anchor:** CSI 300 ETF factsheet
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do funds and ETFs let investors hold many assets?
+**Student hook:** One ETF holds hundreds of shares. Does that automatically make it suitable for every family?
+**Core claim:** Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
+**Primary output:** Write a fund-factsheet verdict for a mock long-term goal.
+**Formula or formula rule:** Portfolio weight = holding value / total portfolio value x 100.
+**Analyse why:** Analyse why the evidence in CSI 300 ETF factsheet could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| investment fund | 投资基金 | An investment fund pools money from investors to hold a portfolio under stated objectives and rules. |
+| ETF | 交易型开放式指数基金 | An ETF is a fund whose units trade on an exchange during the trading day. |
+| portfolio weight | 投资组合权重 | Portfolio weight is the percentage of a portfolio represented by one holding or asset class. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
+- Evidence to check: the fund objective, index or strategy, holdings, geographic exposure, cost and risk disclosure.
+- Formula or relationship: Portfolio weight = holding value / total portfolio value x 100.
+- Exam correction: The claim 'An ETF is automatically safe because it contains many holdings.' is incorrect. Use this principle instead: Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 13: How are index funds and actively managed funds different?
+
+**Case anchor:** Index and active fund pair
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How are index funds and actively managed funds different?
+**Student hook:** One fund tracks a market and another tries to beat it. Which evidence should decide between them?
+**Core claim:** Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
+**Primary output:** Explain which evidence matters most before choosing between the two fund types.
+**Formula or formula rule:** Active return = fund return - benchmark return when periods and fee treatment align.
+**Analyse why:** Analyse why the evidence in Index and active fund pair could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| index fund | 指数基金 | An index fund aims to track a specified market index rather than select securities to outperform it. |
+| actively managed fund | 主动管理基金 | An actively managed fund selects investments in an attempt to meet an objective or outperform a benchmark. |
+| benchmark | 基准 | A benchmark is a stated standard used to compare investment performance or risk. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
+- Evidence to check: the stated objective, benchmark, fee, risk, holdings and multi-period evidence.
+- Formula or relationship: Active return = fund return - benchmark return when periods and fee treatment align.
+- Exam correction: The claim 'Active management always beats an index because experts choose the investments.' is incorrect. Use this principle instead: Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 14: How do investment fees reduce long-term wealth?
+
+**Case anchor:** Two fund fee schedules
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do investment fees reduce long-term wealth?
+**Student hook:** A fee difference of 0.8 percentage points looks small. Can it matter over twenty years?
+**Core claim:** Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
+**Primary output:** Calculate the fee difference and explain its long-run effect without assuming future returns.
+**Formula or formula rule:** Annual fund cost = invested amount x expense ratio; net return = gross return - relevant fees as a classroom approximation.
+**Analyse why:** Analyse why the evidence in Two fund fee schedules could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| expense ratio | 费用率 | Expense ratio is the annual operating cost of a fund expressed as a percentage of fund assets. |
+| fee drag | 费用拖累 | Fee drag is the reduction in investment growth caused by recurring fees and charges. |
+| net return | 净回报 | Net return is the return remaining after relevant fees and costs. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
+- Evidence to check: all recurring and transaction fees, investment amount, period and assumptions used in projections.
+- Formula or relationship: Annual fund cost = invested amount x expense ratio; net return = gross return - relevant fees as a classroom approximation.
+- Exam correction: The claim 'A fee below 1% is too small to affect a long-term decision.' is incorrect. Use this principle instead: Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 15: How does diversification reduce avoidable risk?
+
+**Case anchor:** Concentrated family holdings
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does diversification reduce avoidable risk?
+**Student hook:** A family owns ten technology shares. Is that a diversified portfolio?
+**Core claim:** Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
+**Primary output:** Identify one avoidable concentration and one risk diversification cannot remove.
+**Formula or formula rule:** Combined exposure weight = sum of holdings sharing the same exposure.
+**Analyse why:** Analyse why the evidence in Concentrated family holdings could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| diversification | 分散投资 | Diversification is spreading investments across different exposures to reduce dependence on any single one. |
+| correlation | 相关性 | Correlation describes the degree to which two investments tend to move together. |
+| company-specific risk | 公司特定风险 | Company-specific risk is risk arising from events or conditions affecting one company. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
+- Evidence to check: holding weights and the economic exposures the holdings share.
+- Formula or relationship: Combined exposure weight = sum of holdings sharing the same exposure.
+- Exam correction: The claim 'Owning many securities always means the portfolio is diversified.' is incorrect. Use this principle instead: Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 16: How do regular investing and lump-sum investing differ?
+
+**Case anchor:** Monthly and lump-sum scenarios
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do regular investing and lump-sum investing differ?
+**Student hook:** A family has money available now but dislikes choosing one purchase date. Should it invest all at once or in stages?
+**Core claim:** Lump-sum and regular investing create different market-exposure and timing patterns; neither method guarantees profit.
+**Primary output:** Explain one advantage and one limitation of each method for a mock profile.
+**Formula or formula rule:** Average purchase price = total amount invested / total units purchased.
+**Analyse why:** Analyse why the evidence in Monthly and lump-sum scenarios could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| regular investing | 定期投资 | Regular investing is adding money to investments on a repeated schedule rather than waiting for a perfect date. |
+| lump-sum investing | 一次性投资 | Lump-sum investing is investing an available amount at one time. |
+| timing risk | 时点风险 | Timing risk is the risk that the chosen entry or exit date leads to an unfavourable result. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Lump-sum and regular investing create different market-exposure and timing patterns; neither method guarantees profit.
+- Evidence to check: when the money became available, the goal horizon, transaction costs and price path.
+- Formula or relationship: Average purchase price = total amount invested / total units purchased.
+- Exam correction: The claim 'Regular investing always earns a higher return than investing a lump sum.' is incorrect. Use this principle instead: Lump-sum and regular investing create different market-exposure and timing patterns; neither method guarantees profit.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 17: Which investment mix fits different family goals?
+
+**Case anchor:** Three family profiles
+**Unit:** 2. Investment Choices for Families
+**Production status:** Planned from the canonical course map
+**Guiding question:** Which investment mix fits different family goals?
+**Student hook:** Three families have the same amount but different goals. Should they hold the same investments?
+**Core claim:** A suitable asset-class mix connects each goal to horizon, liquidity, loss capacity, diversification and cost.
+**Primary output:** Write an investment-choice comparison memo for the three profiles.
+**Formula or formula rule:** Asset-class weight = asset-class value / total portfolio value x 100.
+**Analyse why:** Analyse why the evidence in Three family profiles could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| asset allocation | 资产配置 | Asset allocation is the division of a portfolio among asset classes such as cash, bonds and shares. |
+| investor profile | 投资者画像 | An investor profile summarises goals, horizon, liquidity needs, knowledge and ability and willingness to accept risk. |
+| portfolio | 投资组合 | A portfolio is the collection of investments held by an investor. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A suitable asset-class mix connects each goal to horizon, liquidity, loss capacity, diversification and cost.
+- Evidence to check: each goal's horizon, flexibility, liquidity need, risk capacity and investment-choice evidence.
+- Formula or relationship: Asset-class weight = asset-class value / total portfolio value x 100.
+- Exam correction: The claim 'The portfolio with the highest expected return is best for all three families.' is incorrect. Use this principle instead: A suitable asset-class mix connects each goal to horizon, liquidity, loss capacity, diversification and cost.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+
+# Unit 3: How Markets Work
+
+Students trace securities from issue to settlement, read market evidence and explain prices, returns, indices and news without drifting into short-term speculation.
+
+## Lesson 18: Why do companies issue shares?
+
+**Case anchor:** Growth company financing
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why do companies issue shares?
+**Student hook:** A growing company needs new capital. Why might it issue shares instead of borrowing?
+**Core claim:** Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
+**Primary output:** Explain one benefit to the company and one effect on existing shareholders.
+**Formula or formula rule:** Ownership percentage = shares owned / total shares outstanding x 100 before and after issuance.
+**Analyse why:** Analyse why the evidence in Growth company financing could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| equity financing | 股权融资 | Equity financing is raising money by issuing ownership claims rather than borrowing. |
+| initial public offering | 首次公开募股 | An initial public offering is the first public sale of a company's shares. |
+| dilution | 股权稀释 | Dilution is a reduction in an existing shareholder's ownership percentage when additional shares are issued. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
+- Evidence to check: whether shares are newly issued, the use of proceeds and share counts before and after.
+- Formula or relationship: Ownership percentage = shares owned / total shares outstanding x 100 before and after issuance.
+- Exam correction: The claim 'When investors trade a company's shares, the company receives the money every time.' is incorrect. Use this principle instead: Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 19: How are primary and secondary markets different?
+
+**Case anchor:** HKEX market map
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How are primary and secondary markets different?
+**Student hook:** You buy an existing share through HKEX. Does your payment go to the company?
+**Core claim:** Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
+**Primary output:** Correct the money-flow misconception using both market diagrams.
+**Formula or formula rule:** No new formula; trace security and money flows between issuer, investor and market participants.
+**Analyse why:** Analyse why the evidence in HKEX market map could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| primary market | 一级市场 | The primary market is where newly issued securities are sold and the issuer receives the proceeds. |
+| secondary market | 二级市场 | The secondary market is where investors trade existing securities with one another. |
+| stock exchange | 证券交易所 | A stock exchange is a regulated market where listed securities trade under published rules. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
+- Evidence to check: the security's issue status, counterparties and role of the exchange.
+- Formula or relationship: No new formula; trace security and money flows between issuer, investor and market participants.
+- Exam correction: The claim 'Every stock-market purchase sends new money to the listed company.' is incorrect. Use this principle instead: Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 20: How do brokers, custody and settlement complete a trade?
+
+**Case anchor:** Broker trade journey
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do brokers, custody and settlement complete a trade?
+**Student hook:** A student presses buy in an app. Which institutions must act before the trade is complete?
+**Core claim:** A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
+**Primary output:** Explain the role of three market participants in one completed trade.
+**Formula or formula rule:** No new formula; sequence the operational steps from order to settlement.
+**Analyse why:** Analyse why the evidence in Broker trade journey could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| broker | 经纪商 | A broker is an authorised intermediary that receives and executes client orders in financial markets. |
+| custody | 托管 | Custody is the safekeeping and administration of financial assets for an investor. |
+| settlement | 结算 | Settlement is the completion of a trade through delivery of the security and payment. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
+- Evidence to check: the roles, legal holder arrangement, settlement cycle and relevant costs.
+- Formula or relationship: No new formula; sequence the operational steps from order to settlement.
+- Exam correction: The claim 'The trading app itself owns the shares and completes the entire trade instantly.' is incorrect. Use this principle instead: A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 21: What can a quote page tell an investor?
 
 **Case anchor:** Alibaba quote snapshot
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** What can a quote page tell us?
-**Student hook:** A quote page shows Alibaba's price. Is that enough to decide?
-**Core claim:** A quote page is a dated market snapshot, not a promise of value or execution.
-**Primary output:** Write a short Alibaba quote snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** bid-ask spread = ask price - bid price.
-**Analyse why:** Analyse why the evidence used in the Alibaba quote snapshot case could change an investor's judgement about Alibaba quote snapshot case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Alibaba quote snapshot.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** What can a quote page tell an investor?
+**Student hook:** An HKEX quote shows Hong Kong-listed Alibaba at HKD 82. Is that the price every investor can trade immediately?
+**Core claim:** A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
+**Primary output:** Calculate the spread and state two things the quote page cannot prove.
+**Formula or formula rule:** Bid-ask spread = ask price - bid price.
+**Analyse why:** Analyse why the evidence in Alibaba quote snapshot could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Source box
-
-Record the Alibaba quote snapshot source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| quote page | 报价页面 | Quote page is a course concept used to analyse Alibaba quote snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| bid-ask spread | 买卖价差 | Bid-ask spread is a course concept used to analyse Alibaba quote snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| share price | 股价 | A share price is the market price of one share at a specific time. |
+| bid price | 买价 | Bid price is the highest displayed price a buyer is currently willing to pay. |
+| ask price | 卖价 | Ask price is the lowest displayed price a seller is currently willing to accept. |
+| bid-ask spread | 买卖价差 | Bid-ask spread is the difference between the ask price and the bid price. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Alibaba quote snapshot case extract with source title, publication or accessed date, key figures and one limitation.
+- A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
+- Evidence to check: the snapshot time, bid, ask, volume, market status and order conditions.
+- Formula or relationship: Bid-ask spread = ask price - bid price.
+- Exam correction: The claim 'The displayed last price is always the exact price of the next trade.' is incorrect. Use this principle instead: A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define quote page.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: bid-ask spread = ask price - bid price.
-3. **Explain:** Explain what one Alibaba quote snapshot evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Alibaba quote snapshot case.
-5. **Judge:** Give your own evidence-based classroom verdict on Alibaba quote snapshot. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 22: Why do share prices change?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Earnings-news price reaction
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why do share prices change?
+**Student hook:** A company reports higher profit, yet its share price falls. How can both be true?
+**Core claim:** Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
+**Primary output:** Explain one price reaction using the chain information to expectations to action to price pressure.
+**Formula or formula rule:** Percentage price change = (new price - old price) / old price x 100.
+**Analyse why:** Analyse why the evidence in Earnings-news price reaction could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Read one quote snapshot and separate what it tells from what it cannot prove.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Alibaba quote snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 7: How should an analyst record evidence before judging?
-
-**Case anchor:** JD.com evidence pack
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** How should an analyst record evidence before judging?
-**Student hook:** JD.com's price moved. Which source would you trust first?
-**Core claim:** Useful evidence records source, date, figure, use and limitation before judgement.
-**Primary output:** Write a short JD.com evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students use the chain information -> expectation -> action -> possible price movement.
-**Analyse why:** Analyse why the evidence used in the JD.com evidence pack case could change an investor's judgement about JD.com evidence pack case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for JD.com evidence pack.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the JD.com evidence pack source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| evidence log | 证据记录 | Evidence log is a course concept used to analyse JD.com evidence pack with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| source limitation | 来源局限 | Source limitation is a course concept used to analyse JD.com evidence pack with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| market expectations | 市场预期 | Market expectations are investors' collective views about future company or economic outcomes. |
+| market information | 市场信息 | Market information is news, data or disclosure that may change expectations and trading decisions. |
+| market price | 市场价格 | Market price is the price at which a security can trade at a particular time. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short JD.com evidence pack case extract with source title, publication or accessed date, key figures and one limitation.
+- Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
+- Evidence to check: prior expectations, the new information, valuation, alternative explanations and the price snapshot period.
+- Formula or relationship: Percentage price change = (new price - old price) / old price x 100.
+- Exam correction: The claim 'Good company news must make the share price rise.' is incorrect. Use this principle instead: Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define evidence log.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students use the chain information -> expectation -> action -> possible price movement.
-3. **Explain:** Explain what one JD.com evidence pack evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about JD.com evidence pack case.
-5. **Judge:** Give your own evidence-based classroom verdict on JD.com evidence pack. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 23: How are share price and company size different?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Nvidia and peer scale case
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How are share price and company size different?
+**Student hook:** Company A has a USD 500 share price and Company B has a USD 100 share price. Which company is larger?
+**Core claim:** One-share price cannot show company size because market capitalisation also depends on shares outstanding.
+**Primary output:** Calculate both market capitalisations and correct the high-price misconception.
+**Formula or formula rule:** Market capitalisation = share price x shares outstanding.
+**Analyse why:** Analyse why the evidence in Nvidia and peer scale case could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Build one evidence-log row and state one limitation.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short JD.com evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 8: How is a bond different from a share?
-
-**Case anchor:** Government bond
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** How is a bond different from a share?
-**Student hook:** A bond promises payments. Does that make it risk-free?
-**Core claim:** A bond is a lending claim, not ownership, and still has interest-rate and credit risk.
-**Primary output:** Write a short Government bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** coupon income = coupon rate x face value.
-**Analyse why:** Analyse why the evidence used in the Government bond case could change an investor's judgement about Government bond case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Government bond.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Government bond source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| bond | 债券 | Bond is a course concept used to analyse Government bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| coupon | 票息 | Coupon is a course concept used to analyse Government bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| share price | 股价 | Share price is the market price of one share at a stated time. |
+| market capitalisation | 市值 | Market capitalisation is share price multiplied by shares outstanding. |
+| shares outstanding | 流通在外股份 | Shares outstanding are the shares issued and currently held by investors. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Government bond case extract with source title, publication or accessed date, key figures and one limitation.
+- One-share price cannot show company size because market capitalisation also depends on shares outstanding.
+- Evidence to check: share price, share count, consistent currency and snapshot date.
+- Formula or relationship: Market capitalisation = share price x shares outstanding.
+- Exam correction: The claim 'The company with the higher share price is the larger or more valuable company.' is incorrect. Use this principle instead: One-share price cannot show company size because market capitalisation also depends on shares outstanding.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define bond.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: coupon income = coupon rate x face value.
-3. **Explain:** Explain what one Government bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Government bond case.
-5. **Judge:** Give your own evidence-based classroom verdict on Government bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 24: How does a share create gains, losses and income?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** HSBC return case
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does a share create gains, losses and income?
+**Student hook:** A share pays a dividend but its price falls. Did the investor earn a positive return?
+**Core claim:** Shareholder return combines price change and distributions over the same holding period.
+**Primary output:** Calculate total return and explain which component drove the result.
+**Formula or formula rule:** Total return amount = ending value - starting value + income; total return percentage = total return amount / starting value x 100.
+**Analyse why:** Analyse why the evidence in HSBC return case could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Label coupon, maturity and issuer risk on a bond example.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Government bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 9: How can one fund hold many investments?
-
-**Case anchor:** ChinaAMC CSI 300 ETF
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** How can one fund hold many investments?
-**Student hook:** One ETF holds many companies. Is it automatically safe?
-**Core claim:** A fund can diversify company-specific risk but still carries market, sector and fund-structure risks.
-**Primary output:** Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** portfolio weight = holding value / total portfolio value x 100.
-**Analyse why:** Analyse why the evidence used in the ChinaAMC CSI 300 ETF case could change an investor's judgement about ChinaAMC CSI 300 ETF case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for ChinaAMC CSI 300 ETF.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the ChinaAMC CSI 300 ETF source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| ETF | 交易型开放式指数基金 | ETF is a course concept used to analyse ChinaAMC CSI 300 ETF with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| fund factsheet | 基金资料页 | Fund factsheet is a course concept used to analyse ChinaAMC CSI 300 ETF with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| dividend | 股息 | A dividend is a distribution a company makes to shareholders from available resources. |
+| capital gain | 资本利得 | A capital gain is the increase in an asset's value compared with its purchase price when measured or realised. |
+| total return | 总回报 | Total return combines price change and income received over a stated holding period. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short ChinaAMC CSI 300 ETF case extract with source title, publication or accessed date, key figures and one limitation.
+- Shareholder return combines price change and distributions over the same holding period.
+- Evidence to check: purchase value, ending value, income, holding period, currency and costs.
+- Formula or relationship: Total return amount = ending value - starting value + income; total return percentage = total return amount / starting value x 100.
+- Exam correction: The claim 'Receiving a dividend means the investment produced a positive total return.' is incorrect. Use this principle instead: Shareholder return combines price change and distributions over the same holding period.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define ETF.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: portfolio weight = holding value / total portfolio value x 100.
-3. **Explain:** Explain what one ChinaAMC CSI 300 ETF evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about ChinaAMC CSI 300 ETF case.
-5. **Judge:** Give your own evidence-based classroom verdict on ChinaAMC CSI 300 ETF. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 25: How does a market index measure performance?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Hang Seng Index snapshot
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does a market index measure performance?
+**Student hook:** The Hang Seng Index rises. Does that mean every listed share rose?
+**Core claim:** A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
+**Primary output:** Explain what the index movement shows and two things it does not show.
+**Formula or formula rule:** Index percentage change = (new index level - old index level) / old index level x 100.
+**Analyse why:** Analyse why the evidence in Hang Seng Index snapshot could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Read a fund factsheet and identify exposure, cost and one remaining risk.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short ChinaAMC CSI 300 ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 10: What evidence is enough for a first investment judgement?
-
-**Case anchor:** Mini portfolio checkpoint
-**Unit:** 1. Foundations, assets and market access
-**Guiding question:** What evidence is enough for a first investment judgement?
-**Student hook:** You can choose cash, a bond, a share or a fund. What evidence is still missing?
-**Core claim:** A first judgement must connect the investment choice, evidence, risk, return and investor fit.
-**Primary output:** Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students synthesise the Unit 1 evidence chain.
-**Analyse why:** Analyse why the evidence used in the Mini portfolio checkpoint case could change an investor's judgement about Mini portfolio checkpoint case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Mini portfolio checkpoint.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Mini portfolio checkpoint source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| risk-return trade-off | 风险回报权衡 | Risk-return trade-off is a course concept used to analyse Mini portfolio checkpoint with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| first evidence memo | 初步证据备忘录 | First evidence memo is a course concept used to analyse Mini portfolio checkpoint with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| market index | 市场指数 | A market index measures the performance of a defined basket of securities according to stated rules. |
+| index weight | 指数权重 | Index weight is the influence one constituent has on an index's movement. |
+| market return | 市场回报 | Market return is the change in value of a stated market measure over a stated period, including income when specified. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Mini portfolio checkpoint case extract with source title, publication or accessed date, key figures and one limitation.
+- A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
+- Evidence to check: index rules, constituents, weights, dates and whether income is included.
+- Formula or relationship: Index percentage change = (new index level - old index level) / old index level x 100.
+- Exam correction: The claim 'If an index rises, all constituent shares and all investor portfolios gained the same amount.' is incorrect. Use this principle instead: A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define risk-return trade-off.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students synthesise the Unit 1 evidence chain.
-3. **Explain:** Explain what one Mini portfolio checkpoint evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Mini portfolio checkpoint case.
-5. **Judge:** Give your own evidence-based classroom verdict on Mini portfolio checkpoint. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 26: How should investors judge market news?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** News and rumour evidence pack
+**Unit:** 3. How Markets Work
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should investors judge market news?
+**Student hook:** A social-media post claims a company will announce a major deal tomorrow. What should a careful investor do?
+**Core claim:** Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
+**Primary output:** Write a market-evidence memo choosing monitor, reject or gather more evidence.
+**Formula or formula rule:** No new formula; score sources by authority, date, evidence, corroboration and limitation.
+**Analyse why:** Analyse why the evidence in News and rumour evidence pack could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Write a first evidence memo with one action and one caveat.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Mini portfolio checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-
-# Unit 2: Company evidence and financial statements
-
-Students use revenue, margin, cash-flow, balance-sheet, dividend, risk and comparison evidence to judge business strength without treating one number as the whole case.
-
-## Lesson 11: Does high revenue mean a company is strong?
-
-**Case anchor:** Meituan
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** Does high revenue mean a company is strong?
-**Student hook:** Meituan's revenue is high. Does that mean the company is strong?
-**Core claim:** Revenue shows sales scale, not profit strength or investment quality by itself.
-**Primary output:** Write a short Meituan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** revenue growth = (new revenue - old revenue) / old revenue x 100.
-**Analyse why:** Analyse why the evidence used in the Meituan case could change an investor's judgement about Meituan case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Meituan.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Meituan source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| revenue | 收入 | Revenue is a course concept used to analyse Meituan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| business model | 商业模式 | Business model is a course concept used to analyse Meituan with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| source quality | 来源质量 | Source quality is the reliability, relevance, date and limitations of evidence used in analysis. |
+| material information | 重大信息 | Material information is information that could reasonably affect an investment decision or security price. |
+| market rumour | 市场传闻 | A market rumour is an unverified claim circulating among market participants. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Meituan case extract with source title, publication or accessed date, key figures and one limitation.
+- Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
+- Evidence to check: the original source, publication time, supporting evidence, independent confirmation and legal or ethical limits.
+- Formula or relationship: No new formula; score sources by authority, date, evidence, corroboration and limitation.
+- Exam correction: The claim 'Widely shared information is reliable enough to trade on.' is incorrect. Use this principle instead: Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define revenue.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: revenue growth = (new revenue - old revenue) / old revenue x 100.
-3. **Explain:** Explain what one Meituan evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Meituan case.
-5. **Judge:** Give your own evidence-based classroom verdict on Meituan. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+# Unit 4: Analysing Companies
 
-### Calculation or judgement task
+Students use ethical source discipline, business models, financial statements, comparisons, risks and valuation to write a balanced junior analyst memo.
 
-Calculate or interpret revenue growth and name one thing it cannot prove.
+## Lesson 27: What ethical responsibilities does an investment analyst have?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Analyst conflict case
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** What ethical responsibilities does an investment analyst have?
+**Student hook:** An analyst owns shares in a company before publishing a positive report. What must readers know?
+**Core claim:** Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
+**Primary output:** Explain the most serious conflict and the action needed before publication.
+**Formula or formula rule:** No new formula; apply an ethics checklist to evidence, incentives and disclosure.
+**Analyse why:** Analyse why the evidence in Analyst conflict case could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Meituan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 12: Can sales rise while costs become a problem?
-
-**Case anchor:** BYD
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** Can sales rise while costs become a problem?
-**Student hook:** BYD's sales rise. Could costs still make the story weaker?
-**Core claim:** Rising sales can hide cost pressure, so gross profit and gross margin matter.
-**Primary output:** Write a short BYD judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
-**Analyse why:** Analyse why the evidence used in the BYD case could change an investor's judgement about BYD case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for BYD.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the BYD source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| cost of sales | 销售成本 | Cost of sales is a course concept used to analyse BYD with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| gross margin | 毛利率 | Gross margin is a course concept used to analyse BYD with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| analyst ethics | 分析师职业道德 | Analyst ethics are principles requiring honesty, independence, competence and fair treatment in investment work. |
+| conflict of interest | 利益冲突 | A conflict of interest is a situation in which another interest could impair objective professional judgement. |
+| professional judgement | 专业判断 | Professional judgement is a reasoned conclusion formed from evidence, standards, limitations and ethical duties. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short BYD case extract with source title, publication or accessed date, key figures and one limitation.
+- Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
+- Evidence to check: the analyst's interests, evidence process, audience, disclosures and professional duties.
+- Formula or relationship: No new formula; apply an ethics checklist to evidence, incentives and disclosure.
+- Exam correction: The claim 'Accurate calculations make an analysis ethical even when conflicts are hidden.' is incorrect. Use this principle instead: Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define cost of sales.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: gross profit = revenue - cost of sales; gross margin = gross profit / revenue x 100.
-3. **Explain:** Explain what one BYD evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about BYD case.
-5. **Judge:** Give your own evidence-based classroom verdict on BYD. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 28: How does a business make money and defend its position?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Tencent business model
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does a business make money and defend its position?
+**Student hook:** Tencent offers many services. Which activities actually create revenue and strengthen the business?
+**Core claim:** A company analysis begins with how the business creates value, earns revenue and sustains an advantage before reading ratios.
+**Primary output:** Explain one revenue driver and one risk to the claimed advantage.
+**Formula or formula rule:** No new formula; map customer, value proposition, revenue driver, cost and competitive advantage.
+**Analyse why:** Analyse why the evidence in Tencent business model could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Calculate gross margin and explain what changed.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short BYD judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 13: Which company turns sales into profit more efficiently?
-
-**Case anchor:** CATL
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** Which company turns sales into profit more efficiently?
-**Student hook:** Two battery companies sell a lot. Which turns sales into profit more efficiently?
-**Core claim:** Efficiency comparison needs aligned metrics, time periods and margin evidence.
-**Primary output:** Write a short CATL judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** operating margin = operating profit / revenue x 100.
-**Analyse why:** Analyse why the evidence used in the CATL case could change an investor's judgement about CATL case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for CATL.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the CATL source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| operating profit | 营业利润 | Operating profit is a course concept used to analyse CATL with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| operating margin | 营业利润率 | Operating margin is a course concept used to analyse CATL with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| business model | 商业模式 | A business model explains how a company creates value, serves customers and earns revenue. |
+| revenue driver | 收入驱动因素 | A revenue driver is a factor such as price, volume, users or locations that influences sales. |
+| competitive advantage | 竞争优势 | A competitive advantage is a capability or position that helps a company perform better than competitors over time. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short CATL case extract with source title, publication or accessed date, key figures and one limitation.
+- A company analysis begins with how the business creates value, earns revenue and sustains an advantage before reading ratios.
+- Evidence to check: segment revenue, customer behaviour, costs, competitors and evidence that an advantage can persist.
+- Formula or relationship: No new formula; map customer, value proposition, revenue driver, cost and competitive advantage.
+- Exam correction: The claim 'A famous brand automatically proves a durable competitive advantage.' is incorrect. Use this principle instead: A company analysis begins with how the business creates value, earns revenue and sustains an advantage before reading ratios.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define operating profit.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: operating margin = operating profit / revenue x 100.
-3. **Explain:** Explain what one CATL evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about CATL case.
-5. **Judge:** Give your own evidence-based classroom verdict on CATL. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 29: What does an income statement reveal about performance?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Meituan income statement
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** What does an income statement reveal about performance?
+**Student hook:** Meituan's revenue rises quickly. Does that prove the business became more profitable?
+**Core claim:** An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
+**Primary output:** Calculate two measures and write one sentence linking them to company performance.
+**Formula or formula rule:** Revenue growth = (new revenue - old revenue) / old revenue x 100; profit margin = profit / revenue x 100.
+**Analyse why:** Analyse why the evidence in Meituan income statement could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Compare operating margins using the same period.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short CATL judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 14: Why can a growing company still need cash?
-
-**Case anchor:** Tesla
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** Why can a growing company still need cash?
-**Student hook:** Tesla can grow and still need cash. How can that happen?
-**Core claim:** Profit and cash flow answer different questions.
-**Primary output:** Write a short Tesla judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** free cash flow = operating cash flow - capital expenditure.
-**Analyse why:** Analyse why the evidence used in the Tesla case could change an investor's judgement about Tesla case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Tesla.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Tesla source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| operating cash flow | 经营现金流 | Operating cash flow is a course concept used to analyse Tesla with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| capital expenditure | 资本支出 | Capital expenditure is a course concept used to analyse Tesla with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| income statement | 利润表 | An income statement reports revenue, expenses and profit over a period. |
+| revenue | 收入 | Revenue is income generated from ordinary business activities before expenses are deducted. |
+| profit margin | 利润率 | Profit margin expresses a measure of profit as a percentage of revenue. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Tesla case extract with source title, publication or accessed date, key figures and one limitation.
+- An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
+- Evidence to check: aligned periods, accounting definitions, segment context and cost changes.
+- Formula or relationship: Revenue growth = (new revenue - old revenue) / old revenue x 100; profit margin = profit / revenue x 100.
+- Exam correction: The claim 'Rising revenue always means rising profitability and a stronger investment case.' is incorrect. Use this principle instead: An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define operating cash flow.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: free cash flow = operating cash flow - capital expenditure.
-3. **Explain:** Explain what one Tesla evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Tesla case.
-5. **Judge:** Give your own evidence-based classroom verdict on Tesla. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 30: How does a balance sheet reveal financial strength and debt risk?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Lenovo balance sheet
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** How does a balance sheet reveal financial strength and debt risk?
+**Student hook:** A company owns many assets but also owes large amounts. Which side matters more?
+**Core claim:** A balance sheet shows resources, obligations and equity at one date; debt must be judged with liquidity, cash generation and business context.
+**Primary output:** Interpret the leverage measure and identify the next evidence needed.
+**Formula or formula rule:** Equity = assets - liabilities; debt-to-equity = total debt / equity when definitions are suitable.
+**Analyse why:** Analyse why the evidence in Lenovo balance sheet could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Interpret operating cash flow and capital expenditure evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Tesla judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 15: What does a balance sheet add to company analysis?
-
-**Case anchor:** Balance sheet snapshot
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** What does a balance sheet add to company analysis?
-**Student hook:** A company reports assets and liabilities. Which side should an investor check first?
-**Core claim:** A balance sheet helps students see resources, obligations and equity claims.
-**Primary output:** Write a short Balance sheet snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** equity = assets - liabilities.
-**Analyse why:** Analyse why the evidence used in the Balance sheet snapshot case could change an investor's judgement about Balance sheet snapshot case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Balance sheet snapshot.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Balance sheet snapshot source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| balance sheet asset | 资产负债表资产 | Balance sheet asset is a course concept used to analyse Balance sheet snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| liability | 负债 | Liability is a course concept used to analyse Balance sheet snapshot with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| balance sheet | 资产负债表 | A balance sheet reports assets, liabilities and equity at a point in time. |
+| debt | 债务 | Debt is money owed under repayment and interest obligations. |
+| leverage | 杠杆 | Leverage is the use of debt or other fixed obligations that can amplify gains and losses to owners. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Balance sheet snapshot case extract with source title, publication or accessed date, key figures and one limitation.
+- A balance sheet shows resources, obligations and equity at one date; debt must be judged with liquidity, cash generation and business context.
+- Evidence to check: debt type, maturity, cash, equity, operating cash flow and comparable definitions.
+- Formula or relationship: Equity = assets - liabilities; debt-to-equity = total debt / equity when definitions are suitable.
+- Exam correction: The claim 'More debt always means a company is weak, while more assets always mean it is safe.' is incorrect. Use this principle instead: A balance sheet shows resources, obligations and equity at one date; debt must be judged with liquidity, cash generation and business context.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define balance sheet asset.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: equity = assets - liabilities.
-3. **Explain:** Explain what one Balance sheet snapshot evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Balance sheet snapshot case.
-5. **Judge:** Give your own evidence-based classroom verdict on Balance sheet snapshot. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 31: Why can profit and cash flow tell different stories?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Tesla cash-flow extract
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why can profit and cash flow tell different stories?
+**Student hook:** A company reports profit but has negative free cash flow. Is one figure wrong?
+**Core claim:** Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
+**Primary output:** Explain why profit and free cash flow differ and what the difference may imply.
+**Formula or formula rule:** Free cash flow = operating cash flow - capital expenditure.
+**Analyse why:** Analyse why the evidence in Tesla cash-flow extract could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Classify items as asset, liability or equity and state one limitation.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Balance sheet snapshot judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 16: When does borrowing become a shareholder risk?
-
-**Case anchor:** Lenovo
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** When does borrowing become a shareholder risk?
-**Student hook:** Lenovo borrows money. When does borrowing become a shareholder risk?
-**Core claim:** Borrowing can fund growth but also raises fixed obligations and shareholder risk.
-**Primary output:** Write a short Lenovo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** debt-to-equity = total debt / equity, if the data is suitable.
-**Analyse why:** Analyse why the evidence used in the Lenovo case could change an investor's judgement about Lenovo case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Lenovo.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Lenovo source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| debt | 债务 | Debt is a course concept used to analyse Lenovo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| leverage | 杠杆 | Leverage is a course concept used to analyse Lenovo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| operating cash flow | 经营现金流 | Operating cash flow is cash generated or used by normal business operations. |
+| free cash flow | 自由现金流 | Free cash flow is operating cash flow minus capital expenditure in the course's simplified calculation. |
+| earnings quality | 盈利质量 | Earnings quality is the degree to which reported profit is supported by sustainable operations and cash generation. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Lenovo case extract with source title, publication or accessed date, key figures and one limitation.
+- Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
+- Evidence to check: operating cash flow, capital expenditure, working-capital context and the reporting period.
+- Formula or relationship: Free cash flow = operating cash flow - capital expenditure.
+- Exam correction: The claim 'Reported profit means the same amount of cash entered the company.' is incorrect. Use this principle instead: Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define debt.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: debt-to-equity = total debt / equity, if the data is suitable.
-3. **Explain:** Explain what one Lenovo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Lenovo case.
-5. **Judge:** Give your own evidence-based classroom verdict on Lenovo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 32: How can two companies be compared fairly?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** BYD and Toyota peer comparison
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** How can two companies be compared fairly?
+**Student hook:** BYD grows faster while Toyota has a higher margin. Which company is stronger?
+**Core claim:** A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
+**Primary output:** Write a two-measure comparison with one explicit comparability caveat.
+**Formula or formula rule:** Use previously taught growth, margin and leverage formulas with aligned figures.
+**Analyse why:** Analyse why the evidence in BYD and Toyota peer comparison could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Interpret or calculate a debt-risk measure and connect it to one caveat.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Lenovo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 17: Why might an investor like dividends?
-
-**Case anchor:** HSBC
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** Why might an investor like dividends?
-**Student hook:** HSBC pays dividends. Is a high dividend yield enough reason to like it?
-**Core claim:** Dividends add income, but yield and total return depend on price and risk.
-**Primary output:** Write a short HSBC judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** dividend yield = annual dividend / share price x 100.
-**Analyse why:** Analyse why the evidence used in the HSBC case could change an investor's judgement about HSBC case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HSBC.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the HSBC source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| dividend | 股息 | Dividend is a course concept used to analyse HSBC with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| dividend safety | 股息安全性 | Dividend safety is a course concept used to analyse HSBC with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| peer comparison | 同业比较 | Peer comparison evaluates similar companies using aligned periods and definitions. |
+| financial ratio | 财务比率 | A financial ratio relates two financial figures to support interpretation and comparison. |
+| comparability | 可比性 | Comparability is the degree to which evidence can be compared fairly across companies or periods. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short HSBC case extract with source title, publication or accessed date, key figures and one limitation.
+- A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
+- Evidence to check: comparable periods, accounting definitions, scale, business mix and risk evidence.
+- Formula or relationship: Use previously taught growth, margin and leverage formulas with aligned figures.
+- Exam correction: The claim 'The company with the best single ratio is the stronger investment.' is incorrect. Use this principle instead: A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define dividend.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: dividend yield = annual dividend / share price x 100.
-3. **Explain:** Explain what one HSBC evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about HSBC case.
-5. **Judge:** Give your own evidence-based classroom verdict on HSBC. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 33: Which important risks may not appear directly in the financial statements?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Global consumer company risk register
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** Which important risks may not appear directly in the financial statements?
+**Student hook:** A company's historical numbers look strong. What could still damage its future results?
+**Core claim:** Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
+**Primary output:** Prioritise two risks and explain the evidence behind the ranking.
+**Formula or formula rule:** No new formula; assess each risk by evidence, likelihood, impact and possible indicator.
+**Analyse why:** Analyse why the evidence in Global consumer company risk register could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Calculate or interpret dividend yield and explain one limitation.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short HSBC judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 18: What could hurt one familiar company?
-
-**Case anchor:** Starbucks
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** What could hurt one familiar company?
-**Student hook:** Starbucks is familiar. What could still hurt it?
-**Core claim:** A familiar company can still face risks that affect future revenue, profit, expectations and price.
-**Primary output:** Write a short Starbucks judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; build a risk-evidence-effect chain.
-**Analyse why:** Analyse why the evidence used in the Starbucks case could change an investor's judgement about Starbucks case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Starbucks.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Starbucks source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| company-specific risk | 公司特定风险 | Company-specific risk is a course concept used to analyse Starbucks with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| risk register | 风险登记表 | Risk register is a course concept used to analyse Starbucks with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| business risk | 经营风险 | Business risk is uncertainty arising from a company's operations, customers, costs and competitive environment. |
+| industry risk | 行业风险 | Industry risk is exposure to conditions affecting companies in the same industry. |
+| governance risk | 治理风险 | Governance risk is the possibility that leadership, controls or incentives harm investors' interests. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Starbucks case extract with source title, publication or accessed date, key figures and one limitation.
+- Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
+- Evidence to check: risk disclosures, industry evidence, competitive conditions, governance information and indicators to monitor.
+- Formula or relationship: No new formula; assess each risk by evidence, likelihood, impact and possible indicator.
+- Exam correction: The claim 'Strong historical profit proves that the company is low risk.' is incorrect. Use this principle instead: Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define company-specific risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; build a risk-evidence-effect chain.
-3. **Explain:** Explain what one Starbucks evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Starbucks case.
-5. **Judge:** Give your own evidence-based classroom verdict on Starbucks. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 34: Can a good company still be too expensive?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Build a risk register with likelihood, impact and evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Starbucks judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 19: How can a company comparison be fair?
-
-**Case anchor:** Toyota peer set
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** How can a company comparison be fair?
-**Student hook:** Toyota looks strong. What makes a comparison unfair?
-**Core claim:** Fair comparison requires aligned metrics, dates, currencies and business context.
-**Primary output:** Write a short Toyota peer set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** compare the same metric over the same period; no single new formula.
-**Analyse why:** Analyse why the evidence used in the Toyota peer set case could change an investor's judgement about Toyota peer set case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Toyota peer set.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Toyota peer set source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| benchmark | 基准 | Benchmark is a course concept used to analyse Toyota peer set with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| peer comparison | 同业比较 | Peer comparison is a course concept used to analyse Toyota peer set with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Toyota peer set case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define benchmark.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: compare the same metric over the same period; no single new formula.
-3. **Explain:** Explain what one Toyota peer set evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Toyota peer set case.
-5. **Judge:** Give your own evidence-based classroom verdict on Toyota peer set. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Complete one peer-comparison row with a fairness caveat.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Toyota peer set judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 20: How do financial statements change an investment judgement?
-
-**Case anchor:** Company evidence checkpoint
-**Unit:** 2. Company evidence and financial statements
-**Guiding question:** How do financial statements change an investment judgement?
-**Student hook:** A company has growth, debt and risk evidence. What should change your view?
-**Core claim:** A company judgement improves when evidence is connected across revenue, margin, cash, debt and risk.
-**Primary output:** Write a short Company evidence checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students combine statement evidence into a written judgement.
-**Analyse why:** Analyse why the evidence used in the Company evidence checkpoint case could change an investor's judgement about Company evidence checkpoint case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Company evidence checkpoint.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Company evidence checkpoint source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| financial statement memo | 财务报表备忘录 | Financial statement memo is a course concept used to analyse Company evidence checkpoint with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| evidence caveat | 证据限制说明 | Evidence caveat is a course concept used to analyse Company evidence checkpoint with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Company evidence checkpoint case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define financial statement memo.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students combine statement evidence into a written judgement.
-3. **Explain:** Explain what one Company evidence checkpoint evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Company evidence checkpoint case.
-5. **Judge:** Give your own evidence-based classroom verdict on Company evidence checkpoint. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Write one company evidence memo with source dates and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Company evidence checkpoint judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-
-# Unit 3: Returns, valuation and investor fit
-
-Students connect investor return, valuation, diversification, profile fit and risk caveats into the first semester investment memo.
-
-## Lesson 21: How does a share make or lose money for an investor?
-
-**Case anchor:** Apple
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** How does a share make or lose money for an investor?
-**Student hook:** Apple's share price changed. How much did the investor really gain or lose?
-**Core claim:** Investor return depends on gain or loss relative to the purchase price.
-**Primary output:** Write a short Apple judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** gain = sale price - purchase price; return % = gain / purchase price x 100.
-**Analyse why:** Analyse why the evidence used in the Apple case could change an investor's judgement about Apple case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Apple.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Apple source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| capital gain | 资本利得 | Capital gain is a course concept used to analyse Apple with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| percentage return | 百分比回报 | Percentage return is a course concept used to analyse Apple with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Apple case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define capital gain.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: gain = sale price - purchase price; return % = gain / purchase price x 100.
-3. **Explain:** Explain what one Apple evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Apple case.
-5. **Judge:** Give your own evidence-based classroom verdict on Apple. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Calculate a percentage return and explain the first risk-return trade-off.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Apple judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 22: How can one company be worth so much?
-
-**Case anchor:** Nvidia
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** How can one company be worth so much?
-**Student hook:** Nvidia's share price is high. Does that mean it is the biggest company?
-**Core claim:** Market capitalisation combines one-share price and share count.
-**Primary output:** Write a short Nvidia judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** market capitalisation = share price x shares outstanding.
-**Analyse why:** Analyse why the evidence used in the Nvidia case could change an investor's judgement about Nvidia case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Nvidia.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Nvidia source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| market capitalisation | 市值 | Market capitalisation is a course concept used to analyse Nvidia with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| shares outstanding | 已发行股数 | Shares outstanding is a course concept used to analyse Nvidia with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Nvidia case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define market capitalisation.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: market capitalisation = share price x shares outstanding.
-3. **Explain:** Explain what one Nvidia evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Nvidia case.
-5. **Judge:** Give your own evidence-based classroom verdict on Nvidia. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Calculate or interpret market capitalisation and compare company scale.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Nvidia judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 23: When do investors pay a high price for profit?
-
-**Case anchor:** Microsoft
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** When do investors pay a high price for profit?
-**Student hook:** Microsoft trades at a high price for profit. Is that optimism, risk or both?
-**Core claim:** A P/E ratio can signal expectations, risk or both.
-**Primary output:** Write a short Microsoft judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** EPS = net profit / shares; P/E = share price / EPS.
-**Analyse why:** Analyse why the evidence used in the Microsoft case could change an investor's judgement about Microsoft case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Microsoft.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Microsoft source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| earnings per share | 每股收益 | Earnings per share is a course concept used to analyse Microsoft with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| P/E ratio | 市盈率 | P/E ratio is a course concept used to analyse Microsoft with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Microsoft case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define earnings per share.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: EPS = net profit / shares; P/E = share price / EPS.
-3. **Explain:** Explain what one Microsoft evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Microsoft case.
-5. **Judge:** Give your own evidence-based classroom verdict on Microsoft. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Interpret a P/E ratio and connect it to expectations and evidence limits.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Microsoft judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 24: Can a good company still be too expensive?
-
-**Case anchor:** Toyota valuation case
-**Unit:** 3. Returns, valuation and investor fit
+**Case anchor:** Microsoft valuation case
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
 **Guiding question:** Can a good company still be too expensive?
-**Student hook:** Toyota is a good company. Could it still be too expensive?
-**Core claim:** A good company only becomes attractive when quality is judged with price and risk.
-**Primary output:** Write a short Toyota valuation case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** compare P/E, growth and risk evidence; no new calculation.
-**Analyse why:** Analyse why the evidence used in the Toyota valuation case case could change an investor's judgement about Toyota valuation case case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Toyota valuation case.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
+**Student hook:** Microsoft has a strong business, but investors pay a high price for its earnings. Can both statements be true?
+**Core claim:** Investment quality depends on both the business and the price paid; a high valuation can increase disappointment risk when expectations are demanding.
+**Primary output:** Interpret the P/E comparison and state why it cannot decide the case alone.
+**Formula or formula rule:** EPS = net profit / shares; P/E ratio = share price / EPS.
+**Analyse why:** Analyse why the evidence in Microsoft valuation case could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Source box
-
-Record the Toyota valuation case source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| valuation risk | 估值风险 | Valuation risk is a course concept used to analyse Toyota valuation case with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| margin of safety | 安全边际 | Margin of safety is a course concept used to analyse Toyota valuation case with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| earnings per share | 每股收益 | Earnings per share is profit attributable to ordinary shareholders divided by the relevant number of shares. |
+| P/E ratio | 市盈率 | The P/E ratio is share price divided by earnings per share. |
+| valuation risk | 估值风险 | Valuation risk is the possibility that the price paid already assumes outcomes that may not occur. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Toyota valuation case case extract with source title, publication or accessed date, key figures and one limitation.
+- Investment quality depends on both the business and the price paid; a high valuation can increase disappointment risk when expectations are demanding.
+- Evidence to check: sustainable earnings, price date, peer basis, growth expectations and risk evidence.
+- Formula or relationship: EPS = net profit / shares; P/E ratio = share price / EPS.
+- Exam correction: The claim 'A high-quality company is attractive at any price.' is incorrect. Use this principle instead: Investment quality depends on both the business and the price paid; a high valuation can increase disappointment risk when expectations are demanding.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define valuation risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: compare P/E, growth and risk evidence; no new calculation.
-3. **Explain:** Explain what one Toyota valuation case evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Toyota valuation case case.
-5. **Judge:** Give your own evidence-based classroom verdict on Toyota valuation case. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 35: How should a junior analyst write an evidence-based company memo?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Junior analyst evidence pack
+**Unit:** 4. Analysing Companies
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should a junior analyst write an evidence-based company memo?
+**Student hook:** The evidence shows a strong business, mixed cash flow and a demanding price. What conclusion is defensible?
+**Core claim:** A balanced company memo connects business quality, financial evidence, risk, valuation, caveats and a practical next action.
+**Primary output:** Write a junior analyst memo with three evidence points, two risks, one caveat and one next action.
+**Formula or formula rule:** Use one relevant earlier formula only when the source pack supports it.
+**Analyse why:** Analyse why the evidence in Junior analyst evidence pack could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Classify the case as attractive, risky, too expensive or incomplete.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Toyota valuation case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 25: How should income and price change be combined?
-
-**Case anchor:** HSBC income case
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** How should income and price change be combined?
-**Student hook:** A dividend looks attractive. What if the share price falls?
-**Core claim:** Total return combines price movement and income received.
-**Primary output:** Write a short HSBC income case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** total return = capital gain or loss + dividends.
-**Analyse why:** Analyse why the evidence used in the HSBC income case case could change an investor's judgement about HSBC income case case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for HSBC income case.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the HSBC income case source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| total return | 总回报 | Total return is a course concept used to analyse HSBC income case with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| dividend yield | 股息收益率 | Dividend yield is a course concept used to analyse HSBC income case with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| investment memo | 投资备忘录 | An investment memo is a structured written judgement using evidence, risks, valuation, limitations and a next action. |
+| caveat | 限制说明 | A caveat is a stated limitation or condition that qualifies a conclusion. |
+| evidence-based verdict | 基于证据的结论 | An evidence-based verdict is a conclusion explicitly supported by dated evidence and limitations. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short HSBC income case case extract with source title, publication or accessed date, key figures and one limitation.
+- A balanced company memo connects business quality, financial evidence, risk, valuation, caveats and a practical next action.
+- Evidence to check: dated business, statement, risk and valuation evidence plus source limitations.
+- Formula or relationship: Use one relevant earlier formula only when the source pack supports it.
+- Exam correction: The claim 'A company analysis is incomplete unless it ends with buy, sell or hold advice.' is incorrect. Use this principle instead: A balanced company memo connects business quality, financial evidence, risk, valuation, caveats and a practical next action.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define total return.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: total return = capital gain or loss + dividends.
-3. **Explain:** Explain what one HSBC income case evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about HSBC income case case.
-5. **Judge:** Give your own evidence-based classroom verdict on HSBC income case. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+# Unit 5: Portfolios and Investor Behaviour
 
-### Calculation or judgement task
+Students construct, compare, monitor and rebalance portfolios while recognising concentration, currency, market and behavioural risks.
 
-Separate capital gain, dividend income and total return.
+## Lesson 36: How should asset allocation reflect family goals?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Three-goal family portfolio
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should asset allocation reflect family goals?
+**Student hook:** One family portfolio must support education, a home purchase and retirement. Should every goal use the same asset mix?
+**Core claim:** Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
+**Primary output:** Defend the allocation of each goal bucket and state one unresolved assumption.
+**Formula or formula rule:** Asset-class weight = asset-class value / total portfolio value x 100.
+**Analyse why:** Analyse why the evidence in Three-goal family portfolio could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short HSBC income case judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 26: How does diversification change risk?
-
-**Case anchor:** Two-holding portfolio
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** How does diversification change risk?
-**Student hook:** Two holdings feel safer than one. What risk remains?
-**Core claim:** Diversification can reduce company-specific risk but does not remove market risk.
-**Primary output:** Write a short Two-holding portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** portfolio weight = holding value / total portfolio value x 100.
-**Analyse why:** Analyse why the evidence used in the Two-holding portfolio case could change an investor's judgement about Two-holding portfolio case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Two-holding portfolio.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Two-holding portfolio source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| diversification | 分散化 | Diversification is a course concept used to analyse Two-holding portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| portfolio weight | 投资组合权重 | Portfolio weight is a course concept used to analyse Two-holding portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| asset allocation | 资产配置 | Asset allocation is the division of a portfolio among asset classes such as cash, bonds and shares. |
+| strategic asset allocation | 战略资产配置 | Strategic asset allocation is a long-run target mix designed around goals and risk constraints. |
+| goal bucket | 目标资金组合 | A goal bucket is a portion of a portfolio assigned to a particular purpose and horizon. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Two-holding portfolio case extract with source title, publication or accessed date, key figures and one limitation.
+- Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
+- Evidence to check: each goal amount, horizon, flexibility, contribution plan and loss capacity.
+- Formula or relationship: Asset-class weight = asset-class value / total portfolio value x 100.
+- Exam correction: The claim 'One family should have one identical risk level for all money and all goals.' is incorrect. Use this principle instead: Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define diversification.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: portfolio weight = holding value / total portfolio value x 100.
-3. **Explain:** Explain what one Two-holding portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Two-holding portfolio case.
-5. **Judge:** Give your own evidence-based classroom verdict on Two-holding portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Calculate a portfolio weight and name one remaining risk.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Two-holding portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 27: Why can the same investment fit one person but not another?
-
-**Case anchor:** Investor profile A
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** Why can the same investment fit one person but not another?
-**Student hook:** Two students choose the same fund. Could one choice still be unsuitable?
-**Core claim:** Investor fit depends on goal, time horizon, liquidity need and risk tolerance.
-**Primary output:** Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students match investment risk to investor profile.
-**Analyse why:** Analyse why the evidence used in the Investor profile A case could change an investor's judgement about Investor profile A case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Investor profile A.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Investor profile A source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| investor profile | 投资者画像 | Investor profile is a course concept used to analyse Investor profile A with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| time horizon | 投资期限 | Time horizon is a course concept used to analyse Investor profile A with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Investor profile A case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define investor profile.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students match investment risk to investor profile.
-3. **Explain:** Explain what one Investor profile A evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Investor profile A case.
-5. **Judge:** Give your own evidence-based classroom verdict on Investor profile A. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Match investor profiles to suitable and unsuitable investment choices.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Investor profile A judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 28: Why can exchange rates matter to shareholders?
-
-**Case anchor:** Samsung
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** Why can exchange rates matter to shareholders?
-**Student hook:** Samsung sells globally. Why can exchange rates matter to shareholders?
-**Core claim:** Exchange rates can create measurement and return risk for global companies.
-**Primary output:** Write a short Samsung judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** exchange-rate change % = (new rate - old rate) / old rate x 100.
-**Analyse why:** Analyse why the evidence used in the Samsung case could change an investor's judgement about Samsung case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Samsung.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Samsung source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| currency risk | 货币风险 | Currency risk is a course concept used to analyse Samsung with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| geographic exposure | 地域敞口 | Geographic exposure is a course concept used to analyse Samsung with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Samsung case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define currency risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: exchange-rate change % = (new rate - old rate) / old rate x 100.
-3. **Explain:** Explain what one Samsung evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Samsung case.
-5. **Judge:** Give your own evidence-based classroom verdict on Samsung. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Interpret a simple currency scenario and state who benefits or loses.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Samsung judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 29: How should possible return be compared with downside risk?
-
-**Case anchor:** Risk-return scenario
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** How should possible return be compared with downside risk?
-**Student hook:** One choice has a higher possible return. Is it automatically better?
-**Core claim:** Expected return must be judged with downside risk and investor fit.
-**Primary output:** Write a short Risk-return scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students compare return clues with possible downside.
-**Analyse why:** Analyse why the evidence used in the Risk-return scenario case could change an investor's judgement about Risk-return scenario case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Risk-return scenario.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Risk-return scenario source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| expected return | 预期回报 | Expected return is a course concept used to analyse Risk-return scenario with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| downside risk | 下行风险 | Downside risk is a course concept used to analyse Risk-return scenario with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Risk-return scenario case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define expected return.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students compare return clues with possible downside.
-3. **Explain:** Explain what one Risk-return scenario evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Risk-return scenario case.
-5. **Judge:** Give your own evidence-based classroom verdict on Risk-return scenario. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Classify evidence as return, risk, price or fit.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Risk-return scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 30: What should a first-semester investment memo include?
-
-**Case anchor:** Semester 1 memo
-**Unit:** 3. Returns, valuation and investor fit
-**Guiding question:** What should a first-semester investment memo include?
-**Student hook:** You have company, price, return and fit evidence. What is still not enough?
-**Core claim:** A defensible memo uses dated evidence, caveats and a practical next action.
-**Primary output:** Write a short Semester 1 memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** synthesis of return, valuation, risk and investor fit; no new formula.
-**Analyse why:** Analyse why the evidence used in the Semester 1 memo case could change an investor's judgement about Semester 1 memo case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Semester 1 memo.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Semester 1 memo source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| semester-one investment memo | 第一学期投资备忘录 | Semester-one investment memo is a course concept used to analyse Semester 1 memo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| evidence-based verdict | 基于证据的结论 | Evidence-based verdict is a course concept used to analyse Semester 1 memo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Semester 1 memo case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define semester-one investment memo.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of return, valuation, risk and investor fit; no new formula.
-3. **Explain:** Explain what one Semester 1 memo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Semester 1 memo case.
-5. **Judge:** Give your own evidence-based classroom verdict on Semester 1 memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Write a first-semester memo that chooses consider, watch, avoid, compare or gather evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Semester 1 memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-
-# Unit 4: Funds, bonds, costs, diversification and behaviour
-
-Students broaden the course beyond single shares by analysing cash, bonds, funds, fees, concentration, geography, compounding, gradual investing, behaviour and written plan rules.
-
-## Lesson 31: When is cash or a deposit the better choice?
-
-**Case anchor:** Bank deposit
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** When is cash or a deposit the better choice?
-**Student hook:** A deposit earns less than shares. Why might it still fit?
-**Core claim:** Cash and deposits protect liquidity but can lose purchasing power to inflation.
-**Primary output:** Write a short Bank deposit judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** real return = nominal return - inflation rate, as a simple classroom approximation.
-**Analyse why:** Analyse why the evidence used in the Bank deposit case could change an investor's judgement about Bank deposit case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Bank deposit.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Bank deposit source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| cash deposit | 现金存款 | Cash deposit is a course concept used to analyse Bank deposit with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| inflation risk | 通货膨胀风险 | Inflation risk is a course concept used to analyse Bank deposit with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Bank deposit case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define cash deposit.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: real return = nominal return - inflation rate, as a simple classroom approximation.
-3. **Explain:** Explain what one Bank deposit evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Bank deposit case.
-5. **Judge:** Give your own evidence-based classroom verdict on Bank deposit. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Match short-term needs to cash or risky investments.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Bank deposit judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 32: What do maturity and yield tell a bond investor?
-
-**Case anchor:** Treasury bond
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** What do maturity and yield tell a bond investor?
-**Student hook:** Two bonds pay different yields. Which one is actually safer?
-**Core claim:** Bond yield must be read with maturity, issuer and price risk.
-**Primary output:** Write a short Treasury bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** current yield = annual coupon / bond price x 100, if the data is suitable.
-**Analyse why:** Analyse why the evidence used in the Treasury bond case could change an investor's judgement about Treasury bond case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Treasury bond.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Treasury bond source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| maturity date | 到期日 | Maturity date is a course concept used to analyse Treasury bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| yield | 收益率 | Yield is a course concept used to analyse Treasury bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Treasury bond case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define maturity date.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: current yield = annual coupon / bond price x 100, if the data is suitable.
-3. **Explain:** Explain what one Treasury bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Treasury bond case.
-5. **Judge:** Give your own evidence-based classroom verdict on Treasury bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Label maturity date, coupon and yield on a bond extract.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Treasury bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 33: Why do bond prices move when interest rates change?
-
-**Case anchor:** Bond fund
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** Why do bond prices move when interest rates change?
-**Student hook:** Interest rates rise. Why might an existing bond fund fall?
-**Core claim:** Bond prices and interest rates usually move in opposite directions.
-**Primary output:** Write a short Bond fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students explain the inverse price-rate direction.
-**Analyse why:** Analyse why the evidence used in the Bond fund case could change an investor's judgement about Bond fund case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Bond fund.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Bond fund source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| interest rate risk | 利率风险 | Interest rate risk is a course concept used to analyse Bond fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| bond price | 债券价格 | Bond price is a course concept used to analyse Bond fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Bond fund case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define interest rate risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students explain the inverse price-rate direction.
-3. **Explain:** Explain what one Bond fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Bond fund case.
-5. **Judge:** Give your own evidence-based classroom verdict on Bond fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Use a simple scenario to state who gains or loses.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Bond fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 34: How can credit risk affect bond investors?
-
-**Case anchor:** Corporate bond
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** How can credit risk affect bond investors?
-**Student hook:** A corporate bond pays more. Is the extra yield free money?
-**Core claim:** Higher yield can compensate for higher credit risk, but it does not remove default risk.
-**Primary output:** Write a short Corporate bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** yield spread = corporate bond yield - safer benchmark yield.
-**Analyse why:** Analyse why the evidence used in the Corporate bond case could change an investor's judgement about Corporate bond case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Corporate bond.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Corporate bond source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| credit risk | 信用风险 | Credit risk is a course concept used to analyse Corporate bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| issuer strength | 发行人实力 | Issuer strength is a course concept used to analyse Corporate bond with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Corporate bond case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define credit risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: yield spread = corporate bond yield - safer benchmark yield.
-3. **Explain:** Explain what one Corporate bond evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Corporate bond case.
-5. **Judge:** Give your own evidence-based classroom verdict on Corporate bond. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Classify issuer evidence as credit strength or credit warning.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Corporate bond judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 35: How is an index fund different from active stock picking?
-
-**Case anchor:** Index fund
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** How is an index fund different from active stock picking?
-**Student hook:** One fund tracks an index and another chooses stocks. Which evidence matters?
-**Core claim:** Index funds aim to track a market, while active funds try to beat a benchmark.
-**Primary output:** Write a short Index fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students compare objective, benchmark and evidence.
-**Analyse why:** Analyse why the evidence used in the Index fund case could change an investor's judgement about Index fund case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Index fund.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Index fund source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| index fund | 指数基金 | Index fund is a course concept used to analyse Index fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| active fund | 主动型基金 | Active fund is a course concept used to analyse Index fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Index fund case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define index fund.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students compare objective, benchmark and evidence.
-3. **Explain:** Explain what one Index fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Index fund case.
-5. **Judge:** Give your own evidence-based classroom verdict on Index fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Compare an index fund and active fund using objective evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Index fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 36: How much do fund costs matter?
-
-**Case anchor:** Active fund
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** How much do fund costs matter?
-**Student hook:** A fund fee looks small. How can it still affect returns?
-**Core claim:** Fees reduce investor return and must be compared with performance evidence and risk.
-**Primary output:** Write a short Active fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** annual fund cost = invested amount x expense ratio.
-**Analyse why:** Analyse why the evidence used in the Active fund case could change an investor's judgement about Active fund case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Active fund.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Active fund source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| expense ratio | 费用率 | Expense ratio is a course concept used to analyse Active fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| tracking difference | 跟踪差异 | Tracking difference is a course concept used to analyse Active fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Active fund case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define expense ratio.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: annual fund cost = invested amount x expense ratio.
-3. **Explain:** Explain what one Active fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Active fund case.
-5. **Judge:** Give your own evidence-based classroom verdict on Active fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Read an expense ratio and explain what it cannot prove.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Active fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 37: Can a diversified fund still be concentrated?
-
-**Case anchor:** Sector ETF
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** Can a diversified fund still be concentrated?
-**Student hook:** A fund owns many shares. Why might it still be risky?
-**Core claim:** Many holdings can still share the same sector, theme or exposure.
-**Primary output:** Write a short Sector ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** top-holdings weight = sum of largest holding weights.
-**Analyse why:** Analyse why the evidence used in the Sector ETF case could change an investor's judgement about Sector ETF case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Sector ETF.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Sector ETF source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| sector concentration | 行业集中度 | Sector concentration is a course concept used to analyse Sector ETF with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| holdings overlap | 持仓重叠 | Holdings overlap is a course concept used to analyse Sector ETF with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Sector ETF case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define sector concentration.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: top-holdings weight = sum of largest holding weights.
-3. **Explain:** Explain what one Sector ETF evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Sector ETF case.
-5. **Judge:** Give your own evidence-based classroom verdict on Sector ETF. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Find the largest sector and holding concentration in a fund factsheet.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Sector ETF judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 38: How does geography change portfolio risk?
-
-**Case anchor:** Global fund
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** How does geography change portfolio risk?
-**Student hook:** A global fund sounds diversified. Which countries dominate it?
-**Core claim:** Geographic diversification reduces some local risk but can leave home bias or currency exposure.
-**Primary output:** Write a short Global fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** region weight = region holding value / portfolio value x 100.
-**Analyse why:** Analyse why the evidence used in the Global fund case could change an investor's judgement about Global fund case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Global fund.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Global fund source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| geographic diversification | 地域分散化 | Geographic diversification is a course concept used to analyse Global fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| home bias | 本土偏好 | Home bias is a course concept used to analyse Global fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Global fund case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define geographic diversification.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: region weight = region holding value / portfolio value x 100.
-3. **Explain:** Explain what one Global fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Global fund case.
-5. **Judge:** Give your own evidence-based classroom verdict on Global fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Read regional weights and identify one remaining exposure.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Global fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 39: How do compounding and gradual investing affect long-run accumulation?
-
-**Case anchor:** Monthly investment plan
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** How do compounding and gradual investing affect long-run accumulation?
-**Student hook:** Should an investor rely on one perfect purchase, or build a long-run plan over time?
-**Core claim:** Compounding can make long-run accumulation grow as returns build on earlier returns, while gradual investing can reduce timing pressure without guaranteeing profit.
-**Primary output:** Write a short Monthly investment plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** future value = starting amount x (1 + return rate)^years; average purchase price = total amount invested / total units bought.
-**Analyse why:** Analyse why the evidence used in the Monthly investment plan case could change an investor's judgement about compounding and gradual investing in long-run accumulation
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Monthly investment plan.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Monthly investment plan source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| compounding | 复利 | Compounding is growth where later returns build on earlier returns, so a long-run projection can increase faster over time, but the projected return is an assumption and not a promise. |
-| dollar-cost averaging | 定期定额投资 | Dollar-cost averaging is investing a fixed amount on a regular schedule, which can reduce timing pressure but does not guarantee profit or remove market risk. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Monthly investment plan case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define compounding.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: future value = starting amount x (1 + return rate)^years; average purchase price = total amount invested / total units bought.
-3. **Explain:** Explain what one Monthly investment plan evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about compounding and gradual investing in long-run accumulation.
-5. **Judge:** Give your own evidence-based classroom verdict on Monthly investment plan. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Compare a simple compound-growth table with one lump-sum and one gradual-investing scenario.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Monthly investment plan judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 40: What rules should guide an investor before choosing investments?
-
-**Case anchor:** Investor policy statement
-**Unit:** 4. Funds, bonds, costs, diversification and behaviour
-**Guiding question:** What rules should guide an investor before choosing investments?
-**Student hook:** An investment looks exciting. What rule should stop a careless decision?
-**Core claim:** A written plan protects the decision process before emotion or news takes over.
-**Primary output:** Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students write rules that constrain later choices.
-**Analyse why:** Analyse why the evidence used in the Investor policy statement case could change an investor's judgement about Investor policy statement case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Investor policy statement.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Investor policy statement source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| investment policy statement | 投资政策说明 | Investment policy statement is a course concept used to analyse Investor policy statement with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| written plan | 书面计划 | Written plan is a course concept used to analyse Investor policy statement with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Investor policy statement case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define investment policy statement.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students write rules that constrain later choices.
-3. **Explain:** Explain what one Investor policy statement evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Investor policy statement case.
-5. **Judge:** Give your own evidence-based classroom verdict on Investor policy statement. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Write simple plan rules for goal, risk, liquidity, evidence and action.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Investor policy statement judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-
-# Unit 5: Portfolio decision process, monitoring and final memo
-
-Students compare alternatives, build and monitor a simple portfolio, control concentration and costs, avoid performance chasing and write a final evidence-based investment memo.
-
-## Lesson 41: How should two investment choices be compared?
-
-**Case anchor:** Fund comparison
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** How should two investment choices be compared?
-**Student hook:** Two funds both look reasonable. What makes the comparison fair?
-**Core claim:** Fair comparison uses the same dates, metrics, risk categories and investor profile.
-**Primary output:** Write a short Fund comparison judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** compare return, risk, cost and fit side by side; no single new formula.
-**Analyse why:** Analyse why the evidence used in the Fund comparison case could change an investor's judgement about Fund comparison case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Fund comparison.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Fund comparison source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| opportunity cost | 机会成本 | Opportunity cost is a course concept used to analyse Fund comparison with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| alternative comparison | 替代方案比较 | Alternative comparison is a course concept used to analyse Fund comparison with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Fund comparison case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define opportunity cost.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: compare return, risk, cost and fit side by side; no single new formula.
-3. **Explain:** Explain what one Fund comparison evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Fund comparison case.
-5. **Judge:** Give your own evidence-based classroom verdict on Fund comparison. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Complete a comparison matrix with one caveat.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Fund comparison judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 42: How can a simple portfolio be built from evidence?
-
-**Case anchor:** Starter portfolio
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** How can a simple portfolio be built from evidence?
-**Student hook:** A portfolio has cash, bonds, funds and one share. What is each holding doing?
-**Core claim:** A portfolio should connect each holding to goal, risk and evidence.
-**Primary output:** Write a short Starter portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** asset allocation weight = asset-class value / total portfolio value x 100.
-**Analyse why:** Analyse why the evidence used in the Starter portfolio case could change an investor's judgement about Starter portfolio case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Starter portfolio.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Starter portfolio source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
-
-| Term | Chinese support | Definition |
-| --- | --- | --- |
-| simple portfolio | 简单投资组合 | Simple portfolio is a course concept used to analyse Starter portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| asset allocation | 资产配置 | Asset allocation is a course concept used to analyse Starter portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Evidence and Data Analysis
-
-**Case information:** Use a short Starter portfolio case extract with source title, publication or accessed date, key figures and one limitation.
-
-**Questions:**
-
-1. **Identify/Define:** Identify the source date and define simple portfolio.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: asset allocation weight = asset-class value / total portfolio value x 100.
-3. **Explain:** Explain what one Starter portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Starter portfolio case.
-5. **Judge:** Give your own evidence-based classroom verdict on Starter portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Calculation or judgement task
-
-Build a simple portfolio table with purpose and risk for each holding.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Starter portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 43: When is one holding too large?
+## Lesson 37: When is one holding too large?
 
 **Case anchor:** Concentrated Tencent holding
-**Unit:** 5. Portfolio decision process, monitoring and final memo
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
 **Guiding question:** When is one holding too large?
-**Student hook:** Tencent is familiar and large in the portfolio. Is that comfort or concentration risk?
-**Core claim:** Position size controls how much one holding can affect the whole portfolio.
-**Primary output:** Write a short Concentrated Tencent holding judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** position size = holding value / total portfolio value x 100.
-**Analyse why:** Analyse why the evidence used in the Concentrated Tencent holding case could change an investor's judgement about Concentrated Tencent holding case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Concentrated Tencent holding.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
+**Student hook:** Tencent rises until it becomes 38% of a family portfolio. Is that success, risk or both?
+**Core claim:** Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
+**Primary output:** Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+**Formula or formula rule:** Position size = holding value / total portfolio value x 100.
+**Analyse why:** Analyse why the evidence in Concentrated Tencent holding could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Source box
-
-Record the Concentrated Tencent holding source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| concentration risk | 集中风险 | Concentration risk is a course concept used to analyse Concentrated Tencent holding with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| position size | 持仓规模 | Position size is a course concept used to analyse Concentrated Tencent holding with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| position size | 持仓规模 | Position size is one holding's value as a percentage of the total portfolio. |
+| concentration risk | 集中风险 | Concentration risk is the risk created when too much of a portfolio depends on one exposure. |
+| portfolio weight | 投资组合权重 | Portfolio weight is the percentage of a portfolio represented by one holding or asset class. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Concentrated Tencent holding case extract with source title, publication or accessed date, key figures and one limitation.
+- Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
+- Evidence to check: current weights, target rules, tax or transaction constraints if relevant and the holding's shared exposures.
+- Formula or relationship: Position size = holding value / total portfolio value x 100.
+- Exam correction: The claim 'A strong company cannot be too large in a portfolio.' is incorrect. Use this principle instead: Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define concentration risk.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: position size = holding value / total portfolio value x 100.
-3. **Explain:** Explain what one Concentrated Tencent holding evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Concentrated Tencent holding case.
-5. **Judge:** Give your own evidence-based classroom verdict on Concentrated Tencent holding. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 38: How do geographic and currency exposures affect a portfolio?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Global fund exposure
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** How do geographic and currency exposures affect a portfolio?
+**Student hook:** A fund is labelled global, but most holdings and revenue come from one region. How diversified is it?
+**Core claim:** Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
+**Primary output:** Explain one geographic benefit and one remaining currency or concentration risk.
+**Formula or formula rule:** Region weight = regional holding value / portfolio value x 100; exchange-rate percentage change may be interpreted from a frozen table.
+**Analyse why:** Analyse why the evidence in Global fund exposure could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Calculate a position size and state whether it is too concentrated.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Concentrated Tencent holding judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 44: What should an investor monitor after deciding to watch?
-
-**Case anchor:** Watchlist dashboard
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** What should an investor monitor after deciding to watch?
-**Student hook:** A watch decision is not doing nothing. What should be watched?
-**Core claim:** Monitoring tracks the evidence that could change a judgement later.
-**Primary output:** Write a short Watchlist dashboard judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students define evidence triggers and review dates.
-**Analyse why:** Analyse why the evidence used in the Watchlist dashboard case could change an investor's judgement about Watchlist dashboard case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Watchlist dashboard.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Watchlist dashboard source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| monitoring evidence | 跟踪证据 | Monitoring evidence is a course concept used to analyse Watchlist dashboard with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| watchlist | 观察名单 | Watchlist is a course concept used to analyse Watchlist dashboard with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| currency risk | 货币风险 | Currency risk is the possibility that exchange-rate changes affect investment value or return. |
+| geographic exposure | 地域敞口 | Geographic exposure is the share of an investment connected to particular countries or regions. |
+| home bias | 本土偏好 | Home bias is the tendency to invest disproportionately in familiar domestic markets. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Watchlist dashboard case extract with source title, publication or accessed date, key figures and one limitation.
+- Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
+- Evidence to check: holdings, revenue geography, base currency, hedging policy and regional weights.
+- Formula or relationship: Region weight = regional holding value / portfolio value x 100; exchange-rate percentage change may be interpreted from a frozen table.
+- Exam correction: The claim 'A global fund removes country and currency risk.' is incorrect. Use this principle instead: Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define monitoring evidence.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students define evidence triggers and review dates.
-3. **Explain:** Explain what one Watchlist dashboard evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Watchlist dashboard case.
-5. **Judge:** Give your own evidence-based classroom verdict on Watchlist dashboard. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 39: Which risks remain after diversification?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Diversified portfolio stress test
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** Which risks remain after diversification?
+**Student hook:** A portfolio owns many companies and funds, yet nearly everything falls during a market shock. Has diversification failed?
+**Core claim:** Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
+**Primary output:** Identify which risks were diversified and which remained in each scenario.
+**Formula or formula rule:** No new formula; compare direction and magnitude of holding changes in a frozen stress scenario.
+**Analyse why:** Analyse why the evidence in Diversified portfolio stress test could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Create a watchlist with evidence item, date and trigger.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Watchlist dashboard judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 45: Why might a portfolio need rebalancing?
-
-**Case anchor:** Rebalanced portfolio
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** Why might a portfolio need rebalancing?
-**Student hook:** One holding rises a lot. Should the portfolio be left alone?
-**Core claim:** Rebalancing can restore target weights but must consider costs and evidence.
-**Primary output:** Write a short Rebalanced portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** weight gap = current weight - target weight.
-**Analyse why:** Analyse why the evidence used in the Rebalanced portfolio case could change an investor's judgement about Rebalanced portfolio case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Rebalanced portfolio.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Rebalanced portfolio source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| rebalancing | 再平衡 | Rebalancing is a course concept used to analyse Rebalanced portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| target weight | 目标权重 | Target weight is a course concept used to analyse Rebalanced portfolio with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| market risk | 市场风险 | Market risk is the risk of broad price movements affecting many investments at the same time. |
+| correlation | 相关性 | Correlation describes the degree to which two investments tend to move together. |
+| diversification | 分散投资 | Diversification is spreading investments across different exposures to reduce dependence on any single one. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Rebalanced portfolio case extract with source title, publication or accessed date, key figures and one limitation.
+- Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
+- Evidence to check: asset weights, shared exposures, scenario assumptions and the goal horizon.
+- Formula or relationship: No new formula; compare direction and magnitude of holding changes in a frozen stress scenario.
+- Exam correction: The claim 'A diversified portfolio should never experience a large loss.' is incorrect. Use this principle instead: Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define rebalancing.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: weight gap = current weight - target weight.
-3. **Explain:** Explain what one Rebalanced portfolio evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Rebalanced portfolio case.
-5. **Judge:** Give your own evidence-based classroom verdict on Rebalanced portfolio. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 40: How can funds, shares and bonds be compared fairly?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Fund-share-bond comparison
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** How can funds, shares and bonds be compared fairly?
+**Student hook:** A bond has a clear yield, a fund has broad holdings and a share has strong growth. Which comparison is fair?
+**Core claim:** Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
+**Primary output:** Choose compare further, consider, watch or avoid and justify the investment trade-off.
+**Formula or formula rule:** Use relevant earlier return, yield, cost and weight formulas only with aligned data.
+**Analyse why:** Analyse why the evidence in Fund-share-bond comparison could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Compare current and target weights and decide whether action is justified.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Rebalanced portfolio judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 46: How do costs and taxes affect a decision?
-
-**Case anchor:** Trading-cost scenario
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** How do costs and taxes affect a decision?
-**Student hook:** A trade looks profitable before costs. What changes after friction?
-**Core claim:** Transaction costs and tax friction can reduce or reverse an expected benefit.
-**Primary output:** Write a short Trading-cost scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** net gain = gross gain - transaction costs - tax estimate.
-**Analyse why:** Analyse why the evidence used in the Trading-cost scenario case could change an investor's judgement about Trading-cost scenario case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Trading-cost scenario.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Trading-cost scenario source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| transaction cost | 交易成本 | Transaction cost is a course concept used to analyse Trading-cost scenario with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| tax friction | 税务摩擦 | Tax friction is a course concept used to analyse Trading-cost scenario with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| investment comparison | 投资选择比较 | Investment comparison evaluates alternatives using the same goal, risk, cost, liquidity and evidence criteria. |
+| opportunity cost | 机会成本 | Opportunity cost is the next-best alternative given up when a choice is made. |
+| suitability | 适合度 | Suitability is the degree to which an investment matches a person's goal, horizon, liquidity need and ability to accept loss. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Trading-cost scenario case extract with source title, publication or accessed date, key figures and one limitation.
+- Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
+- Evidence to check: the same goal, date, currency, horizon, risk categories, costs and the terms of each choice.
+- Formula or relationship: Use relevant earlier return, yield, cost and weight formulas only with aligned data.
+- Exam correction: The claim 'The investment with the highest recent return is the best alternative.' is incorrect. Use this principle instead: Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define transaction cost.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: net gain = gross gain - transaction costs - tax estimate.
-3. **Explain:** Explain what one Trading-cost scenario evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Trading-cost scenario case.
-5. **Judge:** Give your own evidence-based classroom verdict on Trading-cost scenario. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 41: Why and when should a portfolio be rebalanced?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Drifted portfolio
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why and when should a portfolio be rebalanced?
+**Student hook:** Shares rise and the portfolio moves far above its planned share weight. Should the family leave it alone?
+**Core claim:** Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
+**Primary output:** Calculate one adjustment and justify rebalance, monitor or no action.
+**Formula or formula rule:** Weight gap = current weight - target weight; trade amount = target value - current value.
+**Analyse why:** Analyse why the evidence in Drifted portfolio could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
+### Key definitions / 核心定义
 
-Identify cost items before choosing whether to trade.
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| rebalancing | 再平衡 | Rebalancing is adjusting portfolio weights toward stated targets after they have changed. |
+| target weight | 目标权重 | Target weight is the planned percentage of a portfolio assigned to a holding or asset class. |
+| transaction cost | 交易成本 | Transaction cost is a cost caused by buying, selling or administering an investment. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Misconception check
+### Numbered revision points / 编号复习要点
 
-Correct the shortcut: one attractive clue is enough for an investment decision.
+- Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
+- Evidence to check: target weights, current weights, tolerance bands, costs and whether goals changed.
+- Formula or relationship: Weight gap = current weight - target weight; trade amount = target value - current value.
+- Exam correction: The claim 'Rebalancing always improves returns and should happen whenever prices move.' is incorrect. Use this principle instead: Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-### Individual written output
+## Lesson 42: What should investors monitor after making a decision?
 
-Write a short Trading-cost scenario judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
+**Case anchor:** Investment watchlist
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** What should investors monitor after making a decision?
+**Student hook:** A careful investor chooses watch rather than buy or avoid. What must be watched next?
+**Core claim:** Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
+**Primary output:** Create a four-item watchlist and explain the most important trigger.
+**Formula or formula rule:** No new formula; define measurable triggers and scheduled review dates.
+**Analyse why:** Analyse why the evidence in Investment watchlist could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+### Key definitions / 核心定义
 
-## Lesson 47: Why can chasing recent performance be dangerous?
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| watchlist | 观察名单 | A watchlist records investments and evidence that should be reviewed before a judgement changes. |
+| review trigger | 复核触发条件 | A review trigger is an event or evidence threshold that requires a decision to be reconsidered. |
+| monitoring evidence | 监测证据 | Monitoring evidence is updated information used to test whether an earlier investment case still holds. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
+- Evidence to check: the original thesis, material evidence indicators, review interval and action rules.
+- Formula or relationship: No new formula; define measurable triggers and scheduled review dates.
+- Exam correction: The claim 'Monitoring means checking the price every day.' is incorrect. Use this principle instead: Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 43: Why do investors chase winners or panic after losses?
 
 **Case anchor:** Past-winner fund
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** Why can chasing recent performance be dangerous?
-**Student hook:** Last year's best fund looks obvious. Why might that be a trap?
-**Core claim:** Recent performance is evidence, but it can mislead if risk, luck and valuation are ignored.
-**Primary output:** Write a short Past-winner fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students classify behaviour and evidence quality.
-**Analyse why:** Analyse why the evidence used in the Past-winner fund case could change an investor's judgement about Past-winner fund case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Past-winner fund.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
+**Unit:** 5. Portfolios and Investor Behaviour
+**Production status:** Planned from the canonical course map
+**Guiding question:** Why do investors chase winners or panic after losses?
+**Student hook:** Last year's best-performing fund attracts large inflows just before it falls. Why might investors still have chosen it?
+**Core claim:** FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
+**Primary output:** Correct one performance-chasing decision using evidence and a written plan rule.
+**Formula or formula rule:** No new formula; separate evidence, emotion, recent outcome and decision rule.
+**Analyse why:** Analyse why the evidence in Past-winner fund could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Source box
-
-Record the Past-winner fund source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| performance chasing | 追逐业绩 | Performance chasing is a course concept used to analyse Past-winner fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| recency bias | 近因偏差 | Recency bias is a course concept used to analyse Past-winner fund with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| FOMO | 错失恐惧 | FOMO is fear of missing out that can push an investor to act without sufficient evidence. |
+| recency bias | 近因偏差 | Recency bias is giving too much weight to recent events when judging the future. |
+| performance chasing | 追逐业绩 | Performance chasing is choosing investments mainly because of strong recent returns. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Past-winner fund case extract with source title, publication or accessed date, key figures and one limitation.
+- FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
+- Evidence to check: the original goal, long-run evidence, valuation, risk and whether the decision rule changed.
+- Formula or relationship: No new formula; separate evidence, emotion, recent outcome and decision rule.
+- Exam correction: The claim 'Recent winners are the safest investments because their trend is proven.' is incorrect. Use this principle instead: FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define performance chasing.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students classify behaviour and evidence quality.
-3. **Explain:** Explain what one Past-winner fund evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Past-winner fund case.
-5. **Judge:** Give your own evidence-based classroom verdict on Past-winner fund. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+# Unit 6: Family Investment Decisions and Careers
 
-### Calculation or judgement task
+Students apply the course to education, housing, retirement and windfall cases, identify unsafe offers, explore careers and defend a final family strategy.
 
-Sort evidence into durable skill, luck, risk and missing information.
+## Lesson 44: How should a family invest for an education goal?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Education investment goal
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should a family invest for an education goal?
+**Student hook:** University costs begin in eight years, but payments will be needed over four years. Is one investment horizon enough?
+**Core claim:** An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
+**Primary output:** Explain how the education strategy should change as the first payment approaches.
+**Formula or formula rule:** Funding gap = target amount - projected available amount; contribution scenarios use teacher-provided compound tables.
+**Analyse why:** Analyse why the evidence in Education investment goal could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Past-winner fund judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 48: How should an investor choose watch, avoid, consider or compare?
-
-**Case anchor:** Next-action board
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** How should an investor choose watch, avoid, consider or compare?
-**Student hook:** The evidence is mixed. Which next action is most defensible?
-**Core claim:** The next action should match evidence strength, risk, fit and missing information.
-**Primary output:** Write a short Next-action board judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students use a decision rule rather than a tip.
-**Analyse why:** Analyse why the evidence used in the Next-action board case could change an investor's judgement about Next-action board case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Next-action board.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Next-action board source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| next-action verdict | 下一步行动结论 | Next-action verdict is a course concept used to analyse Next-action board with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| decision rule | 决策规则 | Decision rule is a course concept used to analyse Next-action board with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| education fund | 教育资金 | An education fund is money invested or saved for future education costs under a stated horizon and target. |
+| target amount | 目标金额 | Target amount is the planned value needed for a financial goal. |
+| contribution rate | 投入比例 | Contribution rate is the amount or percentage regularly added toward a goal. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Next-action board case extract with source title, publication or accessed date, key figures and one limitation.
+- An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
+- Evidence to check: target cost, timing of several payments, current amount, contributions, inflation assumption and loss capacity.
+- Formula or relationship: Funding gap = target amount - projected available amount; contribution scenarios use teacher-provided compound tables.
+- Exam correction: The claim 'A long-term goal should remain fully invested in risky assets until the first payment date.' is incorrect. Use this principle instead: An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define next-action verdict.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students use a decision rule rather than a tip.
-3. **Explain:** Explain what one Next-action board evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Next-action board case.
-5. **Judge:** Give your own evidence-based classroom verdict on Next-action board. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 45: How much investment risk should house-deposit money take?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Home-deposit goal
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How much investment risk should house-deposit money take?
+**Student hook:** A family hopes to buy a home in three years but could delay by one year. How much loss risk can the deposit accept?
+**Core claim:** A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
+**Primary output:** Choose a broad risk level and justify it using the goal constraints.
+**Formula or formula rule:** Maximum affordable loss = current amount - minimum amount required by the purchase date.
+**Analyse why:** Analyse why the evidence in Home-deposit goal could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Place cases into watch, avoid, consider, compare or gather-more-evidence categories.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Next-action board judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 49: What evidence must be checked before a final memo?
-
-**Case anchor:** Evidence pack
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** What evidence must be checked before a final memo?
-**Student hook:** A final answer sounds confident. Which source check could still weaken it?
-**Core claim:** A final evidence pack must record source date, figure, use, limitation and missing evidence.
-**Primary output:** Write a short Evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** no new formula; students audit evidence completeness and source quality.
-**Analyse why:** Analyse why the evidence used in the Evidence pack case could change an investor's judgement about Evidence pack case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Evidence pack.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Evidence pack source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| evidence pack | 证据包 | Evidence pack is a course concept used to analyse Evidence pack with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| source checklist | 来源检查清单 | Source checklist is a course concept used to analyse Evidence pack with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| short-term goal | 短期目标 | A short-term goal is a planned use of money within a relatively short and clearly stated period. |
+| capital preservation | 资本保全 | Capital preservation is prioritising protection of the amount invested over seeking high return. |
+| loss risk | 亏损风险 | Loss risk is the possibility that an investment is worth less when the money is needed. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Evidence pack case extract with source title, publication or accessed date, key figures and one limitation.
+- A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
+- Evidence to check: minimum amount, target date, flexibility, loss limit and the access conditions of each choice.
+- Formula or relationship: Maximum affordable loss = current amount - minimum amount required by the purchase date.
+- Exam correction: The claim 'Because housing is expensive, the deposit must seek the highest possible return.' is incorrect. Use this principle instead: A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define evidence pack.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: no new formula; students audit evidence completeness and source quality.
-3. **Explain:** Explain what one Evidence pack evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Evidence pack case.
-5. **Judge:** Give your own evidence-based classroom verdict on Evidence pack. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 46: How can long-term investing support retirement?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Retirement investment goal
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How can long-term investing support retirement?
+**Student hook:** A retirement goal is thirty years away, but the money may then be needed for decades. Which horizon matters?
+**Core claim:** Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
+**Primary output:** Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
+**Formula or formula rule:** Projected value = current amount x (1 + assumed return)^years plus teacher-provided contribution projections; label all assumptions.
+**Analyse why:** Analyse why the evidence in Retirement investment goal could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
-
-Audit a source pack and flag one weak source.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Misconception check
-
-Correct the shortcut: one attractive clue is enough for an investment decision.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-### Individual written output
-
-Write a short Evidence pack judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
-
-## Lesson 50: How do students write a final evidence-based investment memo?
-
-**Case anchor:** Final investment memo
-**Unit:** 5. Portfolio decision process, monitoring and final memo
-**Guiding question:** How do students write a final evidence-based investment memo?
-**Student hook:** A careful investor has to choose a defensible next action. What belongs in the final memo?
-**Core claim:** The final memo combines the investment choice, evidence, return, risk, fit, alternatives, caveats and next action.
-**Primary output:** Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
-**Formula or formula rule:** synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
-**Analyse why:** Analyse why the evidence used in the Final investment memo case could change an investor's judgement about Final investment memo case
-**Practical investing action:** Choose consider, watch, avoid, compare with another choice or gather more evidence for Final investment memo.
-**Decision rule:** The action must follow the strength of evidence, the main risk, the possible return and the investor-fit constraint.
-
-### Source box
-
-Record the Final investment memo source title, source date or accessed date, key figure and one limitation before judging.
-
-**Expected student work:** A dated source note with one limitation.
-
-### Vocabulary
+### Key definitions / 核心定义
 
 | Term | Chinese support | Definition |
 | --- | --- | --- |
-| final investment memo | 最终投资备忘录 | Final investment memo is a course concept used to analyse Final investment memo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
-| investment caveat | 投资限制说明 | Investment caveat is a course concept used to analyse Final investment memo with dated evidence, risk, return, price or investor-fit limits before choosing a defensible next action. |
+| retirement goal | 退休目标 | A retirement goal is a long-term objective to finance spending after employment income reduces or stops. |
+| retirement horizon | 退休投资期限 | Retirement horizon is the time until retirement money begins to be used and the period over which it may be needed. |
+| withdrawal need | 提取需求 | Withdrawal need is the amount and timing of money expected to be taken from a portfolio. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Evidence and Data Analysis
+### Numbered revision points / 编号复习要点
 
-**Case information:** Use a short Final investment memo case extract with source title, publication or accessed date, key figures and one limitation.
+- Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
+- Evidence to check: contribution capacity, retirement date range, expected withdrawals, inflation, fees and loss capacity.
+- Formula or relationship: Projected value = current amount x (1 + assumed return)^years plus teacher-provided contribution projections; label all assumptions.
+- Exam correction: The claim 'A long horizon means retirement money can take unlimited risk until retirement day.' is incorrect. Use this principle instead: Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
 
-**Questions:**
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-1. **Identify/Define:** Identify the source date and define final investment memo.
-2. **Calculate/Interpret:** Use or interpret the lesson rule: synthesis of investment choice, return, risk, cost, fit and evidence; no new formula.
-3. **Explain:** Explain what one Final investment memo evidence point shows and one thing it cannot prove.
-4. **Analyse why:** Analyse why this evidence could change the judgement about Final investment memo case.
-5. **Judge:** Give your own evidence-based classroom verdict on Final investment memo. Then choose the next investment action: consider, watch, avoid, compare with another choice or gather more evidence. Justify it with dated evidence and caveats.
+## Lesson 47: How should a family handle a financial windfall?
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Case anchor:** Family windfall
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should a family handle a financial windfall?
+**Student hook:** A family receives CNY 500,000 unexpectedly and feels pressure to invest immediately. What should happen first?
+**Core claim:** A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
+**Primary output:** Write a first-month windfall action plan without selecting named investments.
+**Formula or formula rule:** Allocation percentage = amount assigned to a goal / total windfall x 100.
+**Analyse why:** Analyse why the evidence in Family windfall could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-### Calculation or judgement task
+### Key definitions / 核心定义
 
-Write the final memo with dated evidence and a defensible classroom action.
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| financial windfall | 意外之财 | A financial windfall is an unexpected receipt of a significant amount of money. |
+| staged decision | 分阶段决策 | A staged decision divides a large choice into planned steps so evidence can be gathered before all money is committed. |
+| decision pause | 决策冷静期 | A decision pause is a deliberate waiting period used to reduce emotional or pressured action. |
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
 
-### Misconception check
+### Numbered revision points / 编号复习要点
 
-Correct the shortcut: one attractive clue is enough for an investment decision.
+- A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
+- Evidence to check: goals, obligations, decision-makers, horizon, risk capacity, professional needs and investment evidence.
+- Formula or relationship: Allocation percentage = amount assigned to a goal / total windfall x 100.
+- Exam correction: The claim 'Leaving windfall money temporarily uninvested always wastes an opportunity.' is incorrect. Use this principle instead: A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
 
-### Individual written output
+## Lesson 48: How can investors recognise fraud and unsuitable products?
 
-Write a short Final investment memo judgement with dated evidence, one caveat and a next action: consider, watch, avoid, compare or gather more evidence.
+**Case anchor:** Suspicious investment offer
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How can investors recognise fraud and unsuitable products?
+**Student hook:** An online offer promises a guaranteed 18% return and demands payment today. Which claims should stop the decision?
+**Core claim:** Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
+**Primary output:** Write a stop-and-verify response identifying the three strongest red flags.
+**Formula or formula rule:** No new formula; apply a stop-check-verify checklist to claims, provider, custody and disclosure.
+**Analyse why:** Analyse why the evidence in Suspicious investment offer could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 
-**Expected student work:** A concise written response that uses the lesson concept and evidence.
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| investment fraud | 投资欺诈 | Investment fraud is deception used to obtain money by making false or misleading investment claims. |
+| fraud red flag | 欺诈警示信号 | A fraud red flag is a warning sign such as guaranteed high return, urgency, secrecy or unverifiable custody. |
+| suitability disclosure | 适合度说明 | A suitability disclosure explains relevant risks, investor requirements and product limitations. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
+- Evidence to check: provider authorisation, independent contact details, custody, written terms, risk disclosure and complaint routes.
+- Formula or relationship: No new formula; apply a stop-check-verify checklist to claims, provider, custody and disclosure.
+- Exam correction: The claim 'A professional-looking website and testimonials prove an investment is legitimate.' is incorrect. Use this principle instead: Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 49: Which careers support investment decisions, and how do they work?
+
+**Case anchor:** Investment career rotation
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** Which careers support investment decisions, and how do they work?
+**Student hook:** A family investment decision may involve research, planning, portfolio management, operations and compliance. Who does what?
+**Core claim:** Investment careers apply different combinations of analysis, communication, technology, ethics and control to the same decision process.
+**Primary output:** Compare three careers and identify the skills this course develops for each.
+**Formula or formula rule:** No new formula; map evidence, decision, communication and control responsibilities across roles.
+**Analyse why:** Analyse why the evidence in Investment career rotation could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| equity research | 股票研究 | Equity research analyses companies and securities using financial, industry and valuation evidence. |
+| portfolio management | 投资组合管理 | Portfolio management is selecting, monitoring and adjusting investments to meet stated objectives and constraints. |
+| compliance | 合规 | Compliance is the function that helps an organisation and its staff follow laws, regulations and professional standards. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- Investment careers apply different combinations of analysis, communication, technology, ethics and control to the same decision process.
+- Evidence to check: role responsibilities, required skills, ethical duties, typical outputs and decision authority.
+- Formula or relationship: No new formula; map evidence, decision, communication and control responsibilities across roles.
+- Exam correction: The claim 'Investment careers mainly involve choosing winning stocks.' is incorrect. Use this principle instead: Investment careers apply different combinations of analysis, communication, technology, ethics and control to the same decision process.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.
+
+## Lesson 50: How should students build and explain a family investment strategy?
+
+**Case anchor:** Family investment strategy capstone
+**Unit:** 6. Family Investment Decisions and Careers
+**Production status:** Planned from the canonical course map
+**Guiding question:** How should students build and explain a family investment strategy?
+**Student hook:** A mock family has education, housing and retirement goals plus an existing portfolio. What should its next investment process be?
+**Core claim:** A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.
+**Primary output:** Present a family strategy with goal allocations, evidence, risks, caveats, review rules and professional referrals.
+**Formula or formula rule:** Use relevant earlier formulas only where the frozen case evidence supports them.
+**Analyse why:** Analyse why the evidence in Family investment strategy capstone could change the initial investment judgement.
+**Practical investing action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+**Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+
+### Key definitions / 核心定义
+
+| Term | Chinese support | Definition |
+| --- | --- | --- |
+| family investment strategy | 家庭投资策略 | A family investment strategy connects several goals to suitable investment choices, risk limits, contributions and review rules. |
+| financial communication | 财务沟通 | Financial communication explains evidence, choices, risks and limitations clearly to other decision-makers. |
+| professional referral | 专业转介 | A professional referral identifies when a regulated or specialised adviser is needed instead of relying only on classroom analysis. |
+
+**Bilingual production rule:** Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks.
+
+### Numbered revision points / 编号复习要点
+
+- A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.
+- Evidence to check: the full profile, investment evidence, existing allocation, goal priorities, uncertainties and matters requiring professional advice.
+- Formula or relationship: Use relevant earlier formulas only where the frozen case evidence supports them.
+- Exam correction: The claim 'A final strategy is useful only if it tells the family exactly what to buy.' is incorrect. Use this principle instead: A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.
+
+**Bilingual production rule:** Render every English revision point with a faithful Simplified Chinese partner sentence.

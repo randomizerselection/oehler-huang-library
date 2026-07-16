@@ -6,7 +6,7 @@ const {
   sourcePath,
   htmlOutputPath,
   parseFrontMatter,
-  getInvestmentDefinitionSections,
+  getCourseMapDefinitionSections,
   getInvestmentCfaMatches,
   getInvestmentCfaMatchMap,
   getInvestmentTextbookDefinitions,
@@ -88,15 +88,15 @@ ${matches.map((match) => `
 
 function renderDefinitionRows(section, cfaMatchMap, textbookDefinitionMap, sourceUrl) {
   return section.entries.map((entry) => `
-              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.definitionZh} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))} ${getTextbookSearchText(textbookDefinitionMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
+              <tr class="investment-definition-row" data-unit="unit-${entry.unit}" data-search="${escapeHtml(`${entry.ref} ${entry.term} ${entry.zh} ${entry.definition} ${entry.definitionZh || ''} ${entry.courseUse} ${getCfaSearchText(cfaMatchMap.get(entry.term.toLowerCase()))} ${getTextbookSearchText(textbookDefinitionMap.get(entry.term.toLowerCase()))}`.toLowerCase())}">
                 <th scope="row">${escapeHtml(entry.ref)}</th>
                 <td>
                   <strong>${escapeHtml(entry.term)}</strong>
                   <span lang="zh-Hans">${escapeHtml(entry.zh)}</span>
                 </td>
                 <td>
-                  <p class="investment-definition-en">${escapeHtml(entry.definition)}</p>
-                  <p class="investment-definition-zh" lang="zh-Hans">${escapeHtml(entry.definitionZh)}</p>
+                  <p class="investment-definition-en">${escapeHtml(entry.definition)}</p>${entry.definitionZh ? `
+                  <p class="investment-definition-zh" lang="zh-Hans">${escapeHtml(entry.definitionZh)}</p>` : ''}
                 </td>
                 <td>${renderCfaMatchCell(cfaMatchMap.get(entry.term.toLowerCase()), sourceUrl)}</td>
                 <td>${renderTextbookDefinitionCell(textbookDefinitionMap.get(entry.term.toLowerCase()))}</td>
@@ -121,7 +121,7 @@ function renderDefinitionSections(sections, cfaMatchMap, textbookDefinitionMap, 
                 <tr>
                   <th scope="col">Ref</th>
                   <th scope="col">Term</th>
-                  <th scope="col">Textbook definition / 中文定义</th>
+                  <th scope="col">Course definition / 中文术语</th>
                   <th scope="col">CFA source definition</th>
                   <th scope="col">Local textbook definitions</th>
                   <th scope="col">Course use</th>
@@ -135,7 +135,7 @@ ${renderDefinitionRows(section, cfaMatchMap, textbookDefinitionMap, sourceUrl)}
         </section>`).join('\n');
 }
 
-function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
+function renderDefinitionPage(sections = getCourseMapDefinitionSections()) {
   const markdown = fs.readFileSync(sourcePath, 'utf8');
   const frontMatter = parseFrontMatter(markdown);
   const cfaData = getInvestmentCfaMatches();
@@ -143,9 +143,10 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
   const textbookData = getInvestmentTextbookDefinitions();
   const textbookDefinitionMap = getInvestmentTextbookDefinitionMap();
   const total = sections.reduce((sum, section) => sum + section.entries.length, 0);
-  const matchedTotal = Array.from(cfaMatchMap.keys()).length;
-  const textbookMatchedTotal = Array.from(textbookDefinitionMap.keys()).length;
-  const title = frontMatter.title || 'Investment Analysis Definition Overview';
+  const activeTerms = sections.flatMap((section) => section.entries).map((entry) => entry.term.toLowerCase());
+  const matchedTotal = activeTerms.filter((term) => cfaMatchMap.has(term)).length;
+  const textbookMatchedTotal = activeTerms.filter((term) => textbookDefinitionMap.has(term)).length;
+  const title = 'Investment and Financial Decision-Making Definitions';
   const cfaSourceUrl = cfaData.sourceUrl || frontMatter.priority_source_url || 'https://www.cfainstitute.org/programs/cfa-program/candidate-resources/glossary-terms';
   const sectionData = sections.map((section) => ({
     unit: section.unit,
@@ -158,7 +159,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Textbook-style definitions for the 50-lesson Investment Analysis evidence-based investing course." />
+  <meta name="description" content="Active definitions for the 50-lesson Investment and Financial Decision-Making course." />
   <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
   <title>${escapeHtml(title)} - Oehler-Huang Library</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
@@ -422,7 +423,7 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
   </style>
 </head>
 <body class="investment-home investment-definitions-page">
-  <!-- Generated by scripts/build-investment-definitions-page.js from references/investment-analysis-definitions.md. Do not edit by hand. -->
+  <!-- Generated by scripts/build-investment-definitions-page.js from investment-analysis/course-map-financial-decisions-data.js. Do not edit by hand. -->
   <main class="investment-page">
     <nav class="investment-nav" aria-label="Investment Analysis definitions navigation">
       <a class="investment-link" href="../index.html">Main library</a>
@@ -436,15 +437,16 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
     <header class="investment-hero investment-definition-hero">
       <div class="investment-hero-copy">
         <div class="investment-eyebrow">Course reference</div>
-        <h1>Investment Analysis Definitions</h1>
+        <h1>Investment and Financial Decision-Making Definitions</h1>
         <p>
-          Textbook-style definitions for all ${total} key terms used across the 50-lesson evidence-based investing course, with Chinese translations, ${matchedTotal} CFA Program glossary source matches and ${textbookMatchedTotal} local textbook source matches shown beside the classroom wording.
+          Active course definitions for all ${total} key terms used across the 50-lesson course, with Chinese term support, ${matchedTotal} CFA Program glossary source matches and ${textbookMatchedTotal} local textbook source matches shown beside the classroom wording.
         </p>
         <div class="investment-actions" aria-label="Definition overview links">
           <a class="investment-action primary" href="#definition-overview">Browse definitions</a>
           <a class="investment-action" href="syllabus.html#lesson-generator-table">Lesson map</a>
           <a class="investment-action" href="${escapeHtml(cfaSourceUrl)}">CFA glossary</a>
-          <a class="investment-action" href="../references/investment-analysis-definitions.md">Markdown source</a>
+          <a class="investment-action" href="course-map-financial-decisions-data.js">Canonical course data</a>
+          <a class="investment-action" href="../references/investment-analysis-definitions.md">Archived company-analysis glossary</a>
           <a class="investment-action" href="../references/investment-analysis-textbook-definitions.json">Textbook sources</a>
         </div>
       </div>
@@ -476,9 +478,9 @@ function renderDefinitionPage(sections = getInvestmentDefinitionSections()) {
       <div class="investment-section-head">
         <div>
           <div class="investment-section-kicker">Definition overview</div>
-          <h2 id="definition-overview-title">Complete course vocabulary</h2>
+          <h2 id="definition-overview-title">Active course vocabulary</h2>
         </div>
-        <p>Search by course term, Chinese support, Chinese definition translation, CFA glossary term, local textbook source, lesson reference or definition wording. Unit filters preserve the course sequence. Terms without a clear CFA glossary or textbook equivalent remain course-specific.</p>
+        <p>Search by course term, Chinese support, CFA glossary term, local textbook source, lesson reference or definition wording. Unit filters preserve the active course sequence. Terms without a clear CFA glossary or textbook equivalent remain course-specific.</p>
       </div>
 
       <div class="investment-definition-toolbar" data-definition-toolbar>

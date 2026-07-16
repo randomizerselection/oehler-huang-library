@@ -93,6 +93,41 @@ function getInvestmentDefinitionMap() {
   return new Map(getInvestmentDefinitionEntries().map((entry) => [entry.term.toLowerCase(), entry]));
 }
 
+function getCourseMapDefinitionSections(map = require('../investment-analysis/course-map-financial-decisions-data.js')) {
+  const legacyDefinitions = getInvestmentDefinitionMap();
+  const seen = new Set();
+
+  return map.units.map((unit) => {
+    const entries = [];
+    for (const lesson of map.lessons.filter((item) => item.unit === unit.unit)) {
+      for (const term of lesson.terms || []) {
+        const key = String(term.term || '').toLowerCase();
+        if (!key || seen.has(key)) continue;
+        seen.add(key);
+        const legacy = legacyDefinitions.get(key);
+        entries.push({
+          ref: `U${unit.unit} L${lesson.lesson}`,
+          term: cleanText(term.term),
+          zh: cleanText(term.zh),
+          definition: cleanText(term.definition),
+          definitionZh: cleanText(term.definitionZh || legacy?.definitionZh),
+          courseUse: `Introduced in Lesson ${lesson.lesson}: ${lesson.guidingQuestion}`,
+          unit: unit.unit,
+          lesson: lesson.lesson,
+          sectionId: `unit-${unit.unit}-${slugify(unit.title)}`,
+          sectionTitle: unit.title,
+        });
+      }
+    }
+    return {
+      id: `unit-${unit.unit}-${slugify(unit.title)}`,
+      unit: unit.unit,
+      title: unit.title,
+      entries,
+    };
+  });
+}
+
 function getInvestmentCfaMatches() {
   return JSON.parse(fs.readFileSync(cfaMatchesPath, 'utf8'));
 }
@@ -136,6 +171,7 @@ module.exports = {
   getInvestmentDefinitionSections,
   getInvestmentDefinitionEntries,
   getInvestmentDefinitionMap,
+  getCourseMapDefinitionSections,
   getInvestmentCfaMatches,
   getInvestmentCfaMatchMap,
   getInvestmentTextbookDefinitions,

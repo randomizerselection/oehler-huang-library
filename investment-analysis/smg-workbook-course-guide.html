@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Student course rules and page calendar for the SMG Essentials Workbook." />
+  <title>SMG Workbook Course Guide - Investment and Financial Decision-Making</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/investment-workbook.css" />
+</head>
+<body class="investment-workbook-page">
+  <main class="workbook-shell">
+    <nav class="workbook-nav" aria-label="Workbook guide navigation">
+      <a href="index.html">Course home</a>
+      <div class="workbook-actions">
+        <a href="references/stock-market-game/program-guides/SMG_Essentials_Workbook.pdf">Open official workbook</a>
+        <a href="smg-team-evidence-log.html">Team evidence log</a>
+        <button class="primary" type="button" onclick="window.print()">Print this guide</button>
+      </div>
+    </nav>
+
+    <article class="workbook-paper">
+      <div class="workbook-kicker">Place inside the workbook front cover</div>
+      <h1>SMG Workbook Course Guide <span lang="zh-Hans">SMG学习手册课程指南</span></h1>
+      <p class="workbook-lead">Keep the complete SMG Essentials Workbook for the full course. Complete or revisit pages when your teacher assigns them; the course does not follow the workbook from front to back.<span lang="zh-Hans">完整保留SMG学习手册，并按照教师安排完成或重做指定页面；课程不按手册页码从头到尾推进。</span></p>
+
+      <section class="workbook-responsibility-grid" aria-label="Course record responsibilities">
+        <article>
+          <h3>Your individual record <span lang="zh-Hans">个人学习记录</span></h3>
+          <p>The workbook is your default work record. File any separately labelled activity inserts with the matching lesson pages. Lesson handouts use bilingual fill-in definitions and numbered revision points.<span lang="zh-Hans">学习手册是你的默认学习记录；活动补充单应与对应课程页面放在一起。课程讲义使用双语填空定义和编号复习要点。</span></p>
+        </article>
+        <article>
+          <h3>Your team's official record <span lang="zh-Hans">团队正式记录</span></h3>
+          <p>The shared team decision log records evidence, decisions, order checks, platform status and review triggers.<span lang="zh-Hans">共享团队决策日志记录证据、决策、订单核查、平台状态和复查条件。</span></p>
+        </article>
+        <article>
+          <h3>Trade instructions <span lang="zh-Hans">交易指令</span></h3>
+          <p>A workbook instruction never authorises a trade. It becomes a proposal and must pass the course approval gate.<span lang="zh-Hans">手册中的交易指令不能直接授权交易；它只能成为建议，并必须通过课程审批关卡。</span></p>
+        </article>
+      </section>
+
+      <h2>Course rules <span lang="zh-Hans">课程规则</span></h2>
+      <ol class="workbook-rule-list" data-workbook-rules></ol>
+
+      <h2>Workbook page calendar <span lang="zh-Hans">学习手册页码安排</span></h2>
+      <p class="workbook-note">Lessons not listed use one separately labelled activity insert filed with the workbook. No general worksheet should duplicate an official workbook activity, and the lesson handout contains knowledge rather than tasks.<span lang="zh-Hans">未列出的课程使用一页活动补充单，并与学习手册一起保存；不得另发重复官方手册活动的通用练习单，课程讲义只包含知识内容。</span></p>
+      <table class="workbook-calendar">
+        <thead>
+          <tr><th>Lesson<br><span lang="zh-Hans">课程</span></th><th>Workbook pages<br><span lang="zh-Hans">手册页码</span></th><th>Treatment<br><span lang="zh-Hans">使用方式</span></th><th>What to do<br><span lang="zh-Hans">任务</span></th></tr>
+        </thead>
+        <tbody data-workbook-calendar></tbody>
+      </table>
+    </article>
+  </main>
+  <script src="course-map-financial-decisions-data.js"></script>
+  <script src="../assets/js/investment-workbook.js"></script>
+</body>
+</html>

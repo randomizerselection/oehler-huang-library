@@ -66,11 +66,15 @@
   function renderStockMarketGameLesson(lesson) {
     const smg = lesson.stockMarketGame;
     if (!smg || smg.required !== true) return "";
+    const assessmentLabel = smg.milestone
+      ? "Summative unit output / 单元素养评估"
+      : (smg.evidenceCheckpoint ? "Formative evidence checkpoint / 形成性证据检查" : "Required team lab / 必修团队实践");
     return `
-      <div class="investment-lesson-smg${smg.milestone ? " is-milestone" : ""}" data-smg-core-lab${smg.milestone ? " data-smg-milestone" : ""} aria-label="Lesson ${lesson.lesson} SMG core lab">
-        <div class="investment-lesson-smg-label"><span>SMG core lab</span><strong>${smg.milestone ? "Summative milestone" : "Required formative lab"}</strong></div>
+      <div class="investment-lesson-smg${smg.milestone ? " is-milestone" : ""}" data-smg-core-lab${smg.milestone ? " data-smg-milestone" : ""}${smg.evidenceCheckpoint ? " data-smg-evidence-checkpoint" : ""} aria-label="Lesson ${lesson.lesson} SMG core lab / SMG核心实践">
+        <div class="investment-lesson-smg-label"><span>SMG core lab <i lang="zh-Hans">SMG核心实践</i></span><strong>${assessmentLabel}</strong></div>
         <p>${escapeHtml(smg.studentAction)}</p>
-        ${smg.milestone ? `<p class="investment-lesson-smg-evidence"><strong>Milestone evidence:</strong> ${escapeHtml(smg.requiredEvidence)}</p>` : ""}
+        ${smg.workbook ? `<p class="investment-lesson-smg-evidence"><strong>Workbook / 学习手册:</strong> ${escapeHtml(smg.workbook.pages)} - ${escapeHtml(smg.workbook.studentAction)}</p>` : ""}
+        ${(smg.milestone || smg.evidenceCheckpoint) ? `<p class="investment-lesson-smg-evidence"><strong>Evidence / 评估证据:</strong> ${escapeHtml(smg.requiredEvidence)}</p>` : ""}
       </div>
     `;
   }
@@ -149,6 +153,21 @@
     `).join("");
   }
 
+  function renderStockMarketGameWorkbookSessions() {
+    const grid = document.querySelector("[data-stock-market-game-workbook-sessions]");
+    const workbook = courseMap && courseMap.stockMarketGameIntegration && courseMap.stockMarketGameIntegration.workbook;
+    if (!grid || !workbook || !Array.isArray(workbook.sessions)) return;
+
+    grid.innerHTML = workbook.sessions.map((session) => `
+      <article class="investment-card">
+        <span class="code">Session ${escapeHtml(session.session)} - pp. ${escapeHtml(session.pages.join("-"))}</span>
+        <h3>${escapeHtml(session.title)}</h3>
+        <p>${escapeHtml(session.courseUse)}</p>
+        <p><strong>Course placement:</strong> Lessons ${escapeHtml(session.courseLessons.join("-"))}</p>
+      </article>
+    `).join("");
+  }
+
   function renderSimpleFlow(lesson) {
     const flow = Array.isArray(lesson.simpleFlow) ? lesson.simpleFlow : [];
     if (!flow.length) return "";
@@ -215,7 +234,7 @@
 
     grid.innerHTML = courseMap.lessons.map((lesson) => `
       <article class="investment-syllabus-lesson" data-syllabus-lesson data-lesson="${lesson.lesson}">
-        <div class="investment-lesson-topline"><span class="code">Lesson ${lesson.lesson}</span><strong>${escapeHtml(lesson.caseAnchor || lesson.company)}</strong></div>
+        <div class="investment-lesson-topline"><span class="code">Lesson ${lesson.lesson} · 第${lesson.lesson}课</span><strong>${escapeHtml(lesson.caseAnchor || lesson.company)}</strong></div>
         <h3>${escapeHtml(lesson.guidingQuestion)}</h3>
         <p class="investment-lesson-title-zh" lang="zh-Hans">${escapeHtml(lesson.guidingQuestionZh)}</p>
         <p class="investment-lesson-hook">${escapeHtml(lesson.studentHook || lesson.focus)}</p>
@@ -228,14 +247,14 @@
         ${renderInvestmentAction(lesson)}
         ${renderStockMarketGameLesson(lesson)}
         ${lesson.publishedRoutes ? `
-          <nav class="investment-lesson-routes" aria-label="Lesson ${lesson.lesson} materials">
-            <a href="${escapeHtml(lesson.publishedRoutes.slides)}">Slides</a>
-            <a href="${escapeHtml(lesson.publishedRoutes.quiz)}">Quiz</a>
-            <a href="${escapeHtml(lesson.publishedRoutes.handout)}">Handout</a>
+          <nav class="investment-lesson-routes" aria-label="Lesson ${lesson.lesson} materials / 第${lesson.lesson}课学习材料">
+            <a href="${escapeHtml(lesson.publishedRoutes.slides)}">Slides <span lang="zh-Hans">课件</span></a>
+            <a href="${escapeHtml(lesson.publishedRoutes.quiz)}">Quiz <span lang="zh-Hans">测验</span></a>
+            <a href="${escapeHtml(lesson.publishedRoutes.handout)}">Handout <span lang="zh-Hans">学习单</span></a>
           </nav>
         ` : ""}
         <details class="investment-lesson-details">
-          <summary>Show retrieval, worksheet and generator details</summary>
+          <summary>More about this lesson <span lang="zh-Hans">更多课程信息</span></summary>
           <p class="investment-lesson-focus">${escapeHtml(lesson.focus)}</p>
           ${renderTermsForCard(lesson.terms)}
           <p class="investment-lesson-formula"><strong>Formula:</strong> ${escapeHtml(lesson.formulaOrNoFormula)}</p>
@@ -274,6 +293,7 @@
     renderSimpleLessonStructure();
     renderStockMarketGamePhases();
     renderStockMarketGameUnitEvidence();
+    renderStockMarketGameWorkbookSessions();
     renderGeneratorTable();
     renderLessonCards();
   }

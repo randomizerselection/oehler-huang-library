@@ -6,6 +6,12 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 1: Why do people and families invest?",
+    deliveryPlan: {
+      coreRoute: "Teach in one standard period; section dividers are transitions, not separate activities.",
+      phaseShares: { launchAndRetrieval: "15%", keyIdeaAndPractice: "30%", smgCoreLab: "40%", outputAndExit: "15%" },
+      optionalReinforcementSlides: ["Which statement fully defines investment?", "What must the family know first?"],
+      rule: "If time is short, skip the optional reinforcement slides; never cut the SMG core lab or individual exit judgement."
+    },
     sources: [
       {
         label: "Investor.gov: Introduction to Investing",
@@ -35,123 +41,74 @@ window.INVEST.lesson = {
   },
   stockMarketGame: {
     phase: 1,
-    integrationLevel: "summative course milestone",
+    integrationLevel: "formative evidence checkpoint",
     studentAction: "Form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.",
-    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
-    dataRule: "Use the teacher-frozen team setup and mandate record; no order is entered before the Lesson 8 launch gate."
+    requiredOutput: "Complete Workbook pp. 1-3 and 8 and the individual exit judgement; add the opening authoritative team-log row.",
+    workbook: {
+      pages: "1-3 and 8",
+      treatment: "complete",
+      studentAction: "Set up the personal workbook, record only the team ID or username, assign roles and complete the opening orientation."
+    },
+    dataRule: "Use the teacher-frozen team setup and mandate record; no order is entered before the Lesson 17 launch gate."
   },
   handout: {
     title: "Why do people and families invest?",
     subtitle: "Unit 1 Lesson 1",
-    description: "Use a family goal table to decide whether to keep money available, gather more information or consider investing.",
-    meta: [
-      { label: "Name", value: "" },
-      { label: "Class", value: "" },
-      { label: "Date", value: "" }
-    ],
+    description: "Exam revision / 考试复习：complete bilingual definitions during the lesson, then revise the numbered knowledge points.",
     sections: [
       {
         label: "1",
-        title: "Opening decision: choose the next step",
-        instruction: "Use the real benchmark and mock family case to choose 1, 2 or 3, then return to the same decision at the end.",
+        title: "Key definitions / 核心定义",
+        instruction: "Complete the English key terms during the lesson; use the Chinese line to check meaning.",
         blocks: [
           {
-            type: "scenario",
-            title: "What should the family do with CNY 50,000?",
-            context: "China's National Bureau of Statistics reported nationwide per-capita disposable income of CNY 43,377 in 2025. A hypothetical family has CNY 50,000 available after current commitments, but its future goal is unknown.",
-            realData: [
-              { label: "2025 nationwide per-capita disposable income", value: "CNY 43,377", source: "National Bureau of Statistics of China, published 20 Jan 2026" }
-            ],
-            fictionalElement: "The family, its CNY 50,000 and the four goal amounts are hypothetical classroom details.",
-            lessonUse: "Use the benchmark to recognise that this is a significant decision, then choose whether to keep money available, gather more information or consider investing.",
-            limitation: "A national per-capita figure does not show this family's income, current commitments, priorities or ability to accept loss."
-          },
-          {
-            type: "prompts",
-            prompts: [
-              { label: "First judgement", prompt: "Circle one: 1 Keep available · 2 Need more information · 3 Consider investing. Explain your choice.", lines: 3 },
-              { label: "Missing evidence", prompt: "What must the family know before it can choose a different next step?", lines: 4 }
+            type: "bilingualDefinitions",
+            items: [
+              {
+                term: "Investment",
+                termZh: "投资",
+                prompt: "Investment is putting money into an __________ to seek __________ while accepting __________.",
+                answers: ["asset", "future return", "possible loss"],
+                definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。"
+              },
+              {
+                term: "Return",
+                termZh: "回报",
+                prompt: "Return is the __________ from an investment over a __________, including __________.",
+                answers: ["gain or loss", "stated period", "price change and income"],
+                definitionZh: "回报是投资在规定期间内的收益或损失，包括价格变化和收入。"
+              },
+              {
+                term: "Financial goal",
+                termZh: "财务目标",
+                prompt: "A financial goal is a stated __________ with an __________, __________ and __________.",
+                answers: ["future use of money", "amount", "priority", "time horizon"],
+                definitionZh: "财务目标是对资金未来用途的明确说明，并包括金额、优先级和投资期限。"
+              }
             ]
           }
         ]
       },
       {
         label: "2",
-        title: "Vocabulary",
-        instruction: "Complete the three Lesson 1 definitions.",
+        title: "Numbered revision points / 编号复习要点",
+        instruction: "Memorise these six bilingual examinable statements.",
         blocks: [
           {
-            type: "terms",
-            terms: [
-              { label: "Investment", prompt: "Investment puts money into an asset to seek future return while accepting possible __________.", answer: "loss" },
-              { label: "Return", prompt: "Return is the gain or loss over a stated period, including price change and __________.", answer: "income" },
-              { label: "Financial goal", prompt: "A financial goal states a future use, amount, priority and time __________.", answer: "horizon" }
+            type: "bilingualNumberedKnowledge",
+            points: [
+              { en: "People invest to move resources toward future goals while accepting uncertainty and possible loss.", zh: "个人与家庭通过投资把资源用于未来目标，同时接受不确定性和可能的损失。" },
+              { en: "A financial goal should state the future use of the money, target amount, priority and time horizon.", zh: "财务目标应说明资金的未来用途、目标金额、优先级和投资期限。" },
+              { en: "Before considering an investment, check the liquidity need and the consequence of a possible loss.", zh: "考虑投资前，应检查流动性需求以及可能损失带来的后果。" },
+              { en: "Return includes gain or loss over a stated period, including price change and income.", zh: "回报是规定期间内的收益或损失，包括价格变化和收入。" },
+              { en: "Use this decision sequence: financial goal → time horizon and access need → consequence of loss → keep available, gather more evidence or consider investing.", zh: "使用此决策顺序：财务目标 → 投资期限和资金使用需求 → 损失后果 → 保持资金可用、收集更多证据或考虑投资。" },
+              { en: "Investing is not simply a way to make more money; it seeks future return for a defined goal while accepting uncertainty and possible loss.", zh: "投资不只是赚更多钱；投资是为了明确的未来目标寻求回报，同时接受不确定性和可能损失。" }
             ]
-          }
-        ]
-      },
-      {
-        label: "3",
-        title: "Evidence and Data Analysis",
-        instruction: "Read the family goal table before choosing the next step for each goal.",
-        blocks: [
-          {
-            type: "table",
-            columns: ["Goal", "Amount", "When needed", "Could a loss damage the goal?"],
-            rows: [
-              ["University fees", "CNY 180,000", "6 years", "Yes, if the amount is below target when fees are due"],
-              ["Home deposit", "CNY 400,000", "10 years", "Yes, but the date has some flexibility"],
-              ["Retirement income", "Not fixed yet", "30 years", "Yes, but the horizon is long"],
-              ["Medical bill", "CNY 25,000", "4 months", "Yes, and access is urgent"]
-            ]
-          }
-        ]
-      },
-      {
-        label: "4",
-        title: "Classification judgement",
-        instruction: "Classify each goal as keep available, need more information or consider investing.",
-        blocks: [
-          {
-            type: "cases",
-            cases: [
-              { label: "A", text: "University fees in six years", answer: "Need more information: the fixed date and possible loss must be checked" },
-              { label: "B", text: "Home deposit in ten years with some flexibility", answer: "Consider investing after checks: the horizon is longer, but loss could still delay the goal" },
-              { label: "C", text: "Retirement income in thirty years", answer: "Need more information: the target and ability to accept loss are still missing" },
-              { label: "D", text: "Medical bill in four months", answer: "Keep available: the money is needed soon" }
-            ]
-          }
-        ]
-      },
-      {
-        label: "5",
-        title: "Misconception check",
-        instruction: "Correct the incomplete claim with evidence from the family goal table.",
-        blocks: [
-          {
-            type: "prompts",
-            prompts: [
-              { label: "Weak claim", prompt: "Investing is simply a way to make more money.", lines: 2 },
-              { label: "Correction", prompt: "Explain why goal, time horizon, access need and possible loss must be checked first.", lines: 4 }
-            ]
-          }
-        ]
-      },
-      {
-        label: "6",
-        title: "Individual output",
-        instruction: "Use the lesson definitions and one condition from the family goal table.",
-        blocks: [
-          {
-            type: "writing",
-            question: "Choose one goal. State the next step and justify it with one reason and one condition.",
-            keywords: ["next step", "future goal", "return", "time horizon", "possible loss"],
-            lines: 8
           }
         ]
       }
     ],
-    sources: "National Bureau of Statistics of China, Households' Income and Consumption Expenditure in 2025, published 20 Jan 2026; Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. The NBS income figure is real and dated; the family and goal figures are hypothetical classroom details. This is not personal investment advice."
+    sources: "Definitions and lesson principles are aligned with Investor.gov Introduction to Investing and IFEC Building an Investment Portfolio, accessed 13 Jul 2026. Student activities remain in the SMG workbook and team evidence log."
   },
   slides: [
     {
@@ -174,9 +131,8 @@ window.INVEST.lesson = {
       zhTitle: "这个家庭应如何处理5万元人民币？",
       question: "A family has CNY 50,000 but no stated goal. What should it do next?",
       questionZh: "一个家庭有5万元人民币，但没有明确的财务目标。下一步应该怎么做？",
-      revealTitle: "First define what the money is for and when it will be needed",
-      answer: "The family should not choose an investment yet. First, state the purpose, target amount, priority, date, access need and consequence of loss. Those facts show whether the CNY 50,000 should stay available or whether investing could be considered.",
-      answerZh: "家庭现在不应直接选择投资。第一步应明确这笔钱的用途、目标金额、优先级、使用日期、资金使用需要和损失后果。这些信息能帮助家庭判断应保持5万元人民币可用，还是可以考虑投资。",
+      revealTitle: "The family should first define what the money is for and when it will be needed.",
+      revealTitleZh: "这个家庭应先明确这笔钱的用途以及何时需要使用。",
       visual: investmentPhotos.lesson1FamilyGoalTarget,
       notes: [
         "Keep only the short question visible; do not add statistics, choices or instructions to the hook screen.",
@@ -216,7 +172,7 @@ window.INVEST.lesson = {
       zhTitle: "“赚更多钱”的说法遗漏了什么？",
       question: "A student says, ‘Investing is simply a way to make more money.’ What does this answer leave out?",
       questionZh: "一名学生说：“投资只是一种赚更多钱的方式。”这个回答遗漏了什么？",
-      revealTitle: "The answer leaves out the financial goal, time horizon, access need and possibility of loss",
+      revealTitle: "The answer leaves out the financial goal, time horizon, access need and possibility of loss.",
       revealTitleZh: "这个回答遗漏了财务目标、投资期限、资金使用需要和发生损失的可能性。",
       visual: investmentPhotos.lesson1GainAndLossMarketScreen,
       notes: "Use the green and red market columns to ask what an upward-only idea of investing ignores."
@@ -237,14 +193,33 @@ window.INVEST.lesson = {
     {
       type: "flow",
       eyebrow: "Decision method",
-      title: "Before investing: goal, access and possible loss",
-      zhTitle: "投资前：目标、资金使用与可能损失",
+      title: "What should you check before investing?",
+      zhTitle: "投资前应该检查什么？",
       visual: investmentPhotos.businessChartsPaper,
-      flowStyle: "sequence",
+      flowStyle: "decisionChecks",
+      revealSteps: true,
       steps: [
-        { text: "State the goal and required __________", answer: "amount", zh: "说明目标和所需金额", visual: investmentPhotos.lesson1ScenarioHouseForRent },
-        { text: "Check when the money is needed and whether it must stay __________", answer: "available", zh: "检查何时需要资金以及资金是否必须保持可用", visual: investmentPhotos.assetCashSavings },
-        { text: "Then seek return while accepting possible __________", answer: "loss", zh: "然后寻求回报，同时接受可能损失", visual: investmentPhotos.financialAnalysisDesk }
+        {
+          title: "Goal",
+          titleZh: "目标",
+          body: "State what the money is for and the amount required.",
+          zh: "说明这笔钱的用途和所需金额。",
+          visual: investmentPhotos.lesson1ScenarioHouseForRent
+        },
+        {
+          title: "Access",
+          titleZh: "资金使用",
+          body: "Check when the money is needed and whether it must remain available.",
+          zh: "检查何时需要这笔钱，以及资金是否必须保持可用。",
+          visual: investmentPhotos.assetCashSavings
+        },
+        {
+          title: "Possible loss",
+          titleZh: "可能损失",
+          body: "Check what loss could be accepted without damaging the goal.",
+          zh: "检查在不损害目标的情况下可以接受多大损失。",
+          visual: investmentPhotos.financialAnalysisDesk
+        }
       ]
     },
     {
@@ -265,6 +240,7 @@ window.INVEST.lesson = {
       eyebrow: "Check the idea",
       title: "Does every future goal justify investing?",
       zhTitle: "每个未来目标都适合投资吗？",
+      classroomLargeText: true,
       prompt: "Vote yes or no before revealing each reason.",
       promptZh: "先投票判断是或否，再揭示每个理由。",
       items: [
@@ -278,8 +254,6 @@ window.INVEST.lesson = {
       eyebrow: "Hinge question",
       title: "Which statement fully defines investment?",
       zhTitle: "哪项陈述完整定义了投资？",
-      question: "Which statement best explains investment?",
-      zh: "哪一个陈述最准确地解释了投资？",
       choices: [
         "Investment guarantees that saved money grows.",
         "Investment puts money into an asset to seek future return while accepting possible loss.",
@@ -304,9 +278,8 @@ window.INVEST.lesson = {
       zhTitle: "什么使财务目标可用于决策？",
       question: "‘We want a better future’ is too vague for an investment decision. Which details would make the goal usable?",
       questionZh: "“我们想要更好的未来”对投资决策来说太模糊。哪些细节能使这个目标变得可用？",
-      revealTitle: "A usable goal states the purpose, amount, priority and time horizon",
-      answer: "The family must name what the money is for, how much is needed, how important the goal is and when the money is required.",
-      answerZh: "家庭必须说明资金用途、所需金额、目标的重要程度以及何时需要这笔钱。",
+      revealTitle: "A usable goal states the purpose, amount, priority and time horizon.",
+      revealTitleZh: "可用的目标应说明用途、金额、优先级和投资期限。",
       visual: investmentPhotos.lesson1ScenarioFinancialDocuments,
       notes: [
         "Students list details before the possible answer is shown.",
@@ -327,91 +300,11 @@ window.INVEST.lesson = {
       definitionZh: "财务目标是对资金未来用途的明确说明，并包括金额、优先级和投资期限。"
     },
     {
-      type: "evidenceSimulator",
-      eyebrow: "Whole-class simulation",
-      title: "Update the decision as each clue appears",
-      zhTitle: "每获得一条线索，就更新一次决定",
-      prompt: "A family has CNY 50,000. After each clue, ask the class to choose 1, 2 or 3.",
-      promptZh: "一个家庭有50,000元人民币。每条线索出现后，请全班选择1、2或3。",
-      evidenceLabel: "Family-goal clues",
-      decisionLabel: "Choose one after each clue",
-      facts: [
-        {
-          label: "Purpose and amount",
-          labelZh: "用途和金额",
-          value: "Medical bill · CNY 25,000",
-          valueZh: "医疗账单·25,000元人民币"
-        },
-        {
-          label: "Time horizon",
-          labelZh: "时间期限",
-          value: "The bill is due in four months",
-          valueZh: "账单将在四个月后到期"
-        },
-        {
-          label: "Access need",
-          labelZh: "资金使用需要",
-          value: "The money must be available when the bill is due",
-          valueZh: "账单到期时必须能够使用这笔钱"
-        },
-        {
-          label: "Possible loss",
-          labelZh: "可能的损失",
-          value: "A loss could leave the medical bill unpaid",
-          valueZh: "损失可能导致医疗账单无法支付"
-        }
-      ],
-      decisionOptions: [
-        { id: "keep-available", label: "Keep available", labelZh: "保持资金可用", detail: "Use this when the money is needed soon.", detailZh: "资金很快要使用时，选择此项。", tone: "caution" },
-        { id: "more-information", label: "Need more information", labelZh: "需要更多信息", detail: "Use this when the amount, date or possible loss is unclear.", detailZh: "金额、日期或可能损失不清楚时，选择此项。", tone: "neutral" },
-        { id: "consider-investing", label: "Consider investing", labelZh: "可考虑投资", detail: "Use this for a later goal with no urgent access need; check risk first.", detailZh: "目标较远且无需紧急使用资金时可选择；先检查风险。", tone: "positive" }
-      ],
-      conclusion: {
-        verdict: "keep-available",
-        tone: "caution",
-        label: "Keep CNY 25,000 available",
-        labelZh: "保留25,000元人民币以便使用",
-        text: "The CNY 25,000 is needed in four months. A loss could leave the bill unpaid, so this amount should remain available. Judge the remaining CNY 25,000 separately.",
-        textZh: "25,000元人民币四个月后就要使用。损失可能导致账单无法支付，因此这笔钱应保持可用。剩余25,000元人民币须另行判断。"
-      },
-      conclusionLabel: "Best next step",
-      instruction: "Students show 1, 2 or 3 with their fingers. The teacher clicks only Reveal next clue.",
-      notes: [
-        "This is teacher-led. Students show 1, 2 or 3; there is no on-screen vote to record.",
-        "Reveal one clue, ask one student to justify whether the class should change its choice, then reveal the next clue.",
-        "After the fourth clue, ask for a final choice before showing the conclusion.",
-        "Keep the conclusion limited to the medical-bill portion. Do not infer that the rest of the CNY 50,000 should be invested."
-      ]
-    },
-    {
-      type: "classificationTask",
-      compact: true,
-      eyebrow: "Evidence task",
-      title: "Match each goal to its next step",
-      zhTitle: "将每个目标与下一步行动配对",
-      prompt: "Medical bill is the worked example. Choose the next step for the other three goals, then defend one.",
-      promptZh: "医疗账单是示例。为其余三个目标选择下一步，然后说明一个理由。",
-      categories: [
-        { title: "Keep available", zhTitle: "保持资金可用", clue: "money needed soon; loss would damage the goal" },
-        { title: "Need more information", zhTitle: "需要更多信息", clue: "amount, date or loss capacity is missing" },
-        { title: "Consider investing", zhTitle: "可考虑投资", clue: "longer horizon; urgent access not needed" }
-      ],
-      items: [
-        { label: "A", text: "Retirement income in 30 years; target not fixed.", zh: "三十年后的退休收入；目标金额未定。", answer: "Need more information", answerZh: "需要更多信息", reason: "The long horizon helps, but target and loss capacity are missing.", reasonZh: "长期限有利，但仍缺目标金额和损失承受能力。" },
-        { label: "C", text: "CNY 400k home deposit; 10 years; flexible date.", zh: "40万元人民币首付；十年；日期灵活。", answer: "Consider investing", answerZh: "可考虑投资", reason: "The long, flexible horizon supports consideration; loss still matters.", reasonZh: "长期且灵活，可考虑投资；损失仍重要。" },
-        { label: "D", text: "CNY 180k university fees; 6 years; fixed date.", zh: "18万元人民币学费；六年；日期固定。", answer: "Need more information", answerZh: "需要更多信息", reason: "Six years gives time, but loss near the fixed date could block the goal.", reasonZh: "六年提供时间，但临近固定日期的损失可能阻碍目标。" }
-      ],
-      sharePrompt: "Use goal, horizon and possible loss in one justification.",
-      sharePromptZh: "在一个理由中使用目标、期限和可能损失。"
-    },
-    {
       type: "quiz",
       eyebrow: "Quick check",
       title: "What must the family know first?",
       zhTitle: "这个家庭首先必须了解什么？",
       visual: investmentPhotos.businessChartsPaper,
-      question: "Before comparing investment choices, what should the family know?",
-      zh: "在比较投资选择之前，家庭应该了解什么？",
       choices: [
         "What the money is for, when it is needed and what would happen if some were lost.",
         "Which investment earned the highest return last month.",
@@ -444,80 +337,48 @@ window.INVEST.lesson = {
       notes: "The next two slides are the Lesson 1 SMG core lab. Allow roughly 15-20 minutes: students apply the goal-first concept by forming the team, writing a mock long-horizon purpose, assigning first roles and opening the evidence record."
     },
     {
-      type: "peerTask",
+      type: "flow",
       eyebrow: "SMG core lab",
       title: "Define the team investment purpose",
       zhTitle: "明确团队投资目标",
-      prompt: "Form a team of three to five where practicable. Agree one clearly labelled mock long-horizon purpose before discussing any security.",
-      promptZh: "在条件允许时组成三至五人团队。在讨论任何证券之前，先商定一个明确标注为模拟的长期目标。",
+      prompt: "Agree one clearly labelled mock long-horizon purpose before discussing any security.",
+      promptZh: "在讨论任何证券之前，先商定一个明确标注为模拟的长期目标。",
       steps: [
-        { label: "1", text: "Choose one mock purpose and when its money would be needed.", zh: "选择一个模拟目标，并说明何时需要使用资金。" },
-        { label: "2", text: "Record one boundary: no security choice before the team agrees goal, horizon, liquidity and risk rules.", zh: "记录一条边界：团队商定目标、期限、流动性和风险规则之前，不选择证券。" }
+        { label: "1", text: "Form a team of three to five. Open Workbook pp. 1-3 and 8; record an ID, never a password.", zh: "组成三至五人团队。打开练习册第1至3页和第8页；只记录编号，绝不记录密码。" },
+        { label: "2", text: "Record one mock purpose. Choose no security until goal, horizon, liquidity and risk rules are agreed.", zh: "记录一个模拟目标。商定目标、期限、流动性和风险规则前，不选择证券。" }
       ],
-      sharePrompt: "Each student writes the agreed purpose and one reason it must come before choosing investments.",
-      sharePromptZh: "每位学生写下团队商定的目标，并说明为什么必须先明确目标再选择投资。"
+      sharePrompt: "Each student records the purpose and why it must come before an investment choice.",
+      sharePromptZh: "每位学生记录团队目标，并说明为什么必须先明确目标再选择投资。"
     },
     {
-      type: "peerTask",
-      eyebrow: "SMG milestone",
+      type: "flow",
+      eyebrow: "SMG evidence checkpoint",
       title: "Open the team evidence record",
       zhTitle: "建立团队证据记录",
       prompt: "Assign the first roles and create the Lesson 1 evidence row. Do not enter an order.",
       promptZh: "分配首轮角色并建立第一课证据记录。不得提交交易指令。",
       steps: [
         { label: "1", text: "Assign Director, Researcher, Portfolio, Data Entry and Reporter roles; combine roles in smaller teams.", zh: "分配负责人、研究员、投资组合、数据录入和报告员角色；小组人数不足时可合并角色。" },
-        { label: "2", text: "Record date, purpose, names, roles, decision reason and the Lesson 7 review trigger.", zh: "记录日期、目标、姓名、角色、决策理由和第七课复查条件。" }
+        { label: "2", text: "Add one team evidence row: date, purpose, names, roles, decision reason and the Lesson 7 review trigger.", zh: "添加一条团队证据记录：日期、目标、姓名、角色、决策理由和第七课复查条件。" }
       ],
       sharePrompt: "Submit one team evidence row. Every student then completes the individual exit judgement later in this deck.",
       sharePromptZh: "提交一条团队证据记录。随后每位学生在本课件中独立完成离堂判断。",
       notes: "This is a summative SMG milestone. Check that every student is rostered on exactly one team and has a recorded role; do not assess the chosen mock goal itself."
     },
     {
-      type: "section",
-      eyebrow: "Part 3",
-      title: "Evidence-based judgement",
-      zhTitle: "基于证据的判断",
-      notes: "Build the reasoning chain -> compare judgements -> revise the first answer -> submit."
-    },
-    {
-      type: "peerTask",
-      taskType: "missingSentence",
+      type: "answer",
       eyebrow: "Output rehearsal",
-      title: "Build a clear next-step judgement",
-      zhTitle: "形成清晰的下一步判断",
-      prompt: "Add the missing sentence so the judgement names a next step, a reason and a condition.",
-      promptZh: "补全句子，使判断包含下一步、理由和条件。",
-      steps: [
-        { label: "1", text: "The home-deposit goal is ten years away and the date is flexible.", zh: "住房首付目标在十年后，日期可以调整。" },
-        { label: "2", text: "__________", answer: "The family may consider investing because urgent access is not needed, but it must check how a loss could delay the goal.", zh: "家庭可考虑投资，因为无需紧急使用资金，但必须检查损失会如何推迟目标。" },
-        { label: "3", text: "Therefore, set the access and loss conditions before comparing investments.", zh: "因此，比较投资前先确定资金使用和损失条件。" }
+      title: "Write a clear next-step judgement",
+      zhTitle: "写出清晰的下一步判断",
+      items: [
+        {
+          prompt: "The family may __________ because urgent access is not needed; however, it must check how a loss could delay the goal.",
+          answer: "consider investing",
+          zh: "家庭可__________，因为无需紧急使用资金；但是，必须检查损失会如何推迟目标。",
+          answerZh: "考虑投资"
+        }
       ],
-      missingSentenceStep: 2,
-      missingSentenceAnswer: "The family may consider investing because urgent access is not needed, but it must check how a loss could delay the goal.",
-      missingSentenceAnswerZh: "家庭可考虑投资，因为无需紧急使用资金，但必须检查损失会如何推迟目标。",
-      sharePrompt: "Underline the reason once; the condition twice.",
-      sharePromptZh: "理由画一条线；条件画两条线。"
-    },
-    {
-      type: "compare",
-      eyebrow: "Improve the answer",
-      title: "Replace vague advice with a specific action",
-      zhTitle: "将含糊建议改为具体行动",
-      mode: "fillBlanks",
-      leftTitle: "Vague label",
-      leftTitleZh: "模糊标签",
-      left: [
-        { label: "1", text: "Says only, ‘Investment may __________.’", answer: "help", zh: "只说“投资可能有__________”。", answerZh: "帮助" },
-        { label: "2", text: "Does not name an action or use goal __________.", answer: "evidence", zh: "没有说明行动，也没有使用目标__________。", answerZh: "证据" }
-      ],
-      rightTitle: "Clear next step",
-      rightTitleZh: "清晰的下一步",
-      right: [
-        { label: "1", text: "Names the action: keep available, need more information or consider __________.", answer: "investing", zh: "说明行动：保持资金可用、需要更多信息或考虑__________。", answerZh: "投资" },
-        { label: "2", text: "Uses ‘because’ to connect the goal, horizon, access and possible __________.", answer: "loss", zh: "用“因为”连接目标、期限、资金使用和可能的__________。", answerZh: "损失" }
-      ],
-      prompt: "Complete the contrast, then improve one vague judgement from earlier in the lesson.",
-      promptZh: "完成对比，然后改进本课前面出现的一个模糊判断。"
+      notes: "Students complete the sentence individually, then underline the reason once and the condition twice."
     },
     {
       type: "discussion",
@@ -526,24 +387,37 @@ window.INVEST.lesson = {
       zhTitle: "这个家庭现在应该怎么做？",
       question: "The family still has no stated goal. Which next step is most defensible, and what evidence is missing?",
       questionZh: "这个家庭仍没有明确目标。哪一个下一步最合理？还缺少什么证据？",
-      revealTitle: "Define the family goal before considering investment",
-      answer: "The most defensible next step is to define the purpose, target amount, priority, time horizon, access need and consequence of loss. The 2025 national benchmark of CNY 43,377 per person shows that CNY 50,000 is significant, but it cannot supply this family-specific evidence.",
-      answerZh: "最合理的下一步是明确用途、目标金额、优先级、投资期限、资金使用需要和损失后果。2025年全国人均43,377元人民币的基准说明5万元人民币是一笔重要金额，但不能提供这些家庭特定证据。",
+      revealTitle: "The family should define its financial goal before considering investment.",
+      revealTitleZh: "这个家庭应在考虑投资前明确其财务目标。",
       visual: investmentPhotos.lesson1FamilyGoalTarget
     },
     {
-      type: "exam",
+      type: "answer",
       eyebrow: "Exit ticket",
-      title: "Choose and justify the next step",
-      zhTitle: "选择并说明下一步",
-      revealKeywords: true,
-      prompt: "Choose one goal. Select: keep available, need more information or consider investing. Justify with one reason and one condition. [4]",
-      zh: "选择一个目标。选择保持资金可用、需要更多信息或考虑投资，并用一个理由和一个条件说明。[4]",
-      keywords: ["next step", "financial goal", "because", "however", "horizon / access / loss"],
-      notes: [
-        "Collect the response individually before revealing the keyword check.",
-        "Lesson 2 will compare goals by time horizon, liquidity need and suitability."
-      ]
+      title: "Fill in the blanks",
+      zhTitle: "完成填空",
+      mode: "fillBlanks",
+      items: [
+        {
+          prompt: "Investment seeks future return while accepting possible __________.",
+          answer: "loss",
+          zh: "投资寻求未来回报，同时接受可能发生的__________。",
+          answerZh: "损失"
+        },
+        {
+          prompt: "Before comparing investments, a family should first define its financial __________.",
+          answer: "goal",
+          zh: "在比较投资之前，家庭应先明确其财务__________。",
+          answerZh: "目标"
+        },
+        {
+          prompt: "The family should check when the money is needed and whether it must remain __________.",
+          answer: "available",
+          zh: "家庭应检查何时需要这笔钱，以及资金是否必须保持__________。",
+          answerZh: "可用"
+        }
+      ],
+      notes: "Students complete all three statements individually before the answers are revealed. Lesson 2 will compare goals by time horizon, liquidity need and suitability."
     },
   ]
 };

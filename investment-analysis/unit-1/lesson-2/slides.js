@@ -6,6 +6,12 @@ window.INVEST.lesson = {
   meta: {
     courseLabel: "Investment and Financial Decision-Making",
     lessonLabel: "Unit 1 Lesson 2: How do goals change investment decisions?",
+    deliveryPlan: {
+      coreRoute: "Teach in one standard period; section dividers are transitions, not separate activities.",
+      phaseShares: { launchAndRetrieval: "15%", keyIdeaAndPractice: "30%", smgCoreLab: "40%", outputAndExit: "15%" },
+      optionalReinforcementSlides: ["Which question comes first?", "National averages are not family goals", "What does time-horizon guidance add?"],
+      rule: "If time is short, skip the optional reinforcement slides; never cut the SMG core lab or individual exit judgement."
+    },
     sources: [
       {
         label: "Investor.gov: Time Horizon",
@@ -49,122 +55,72 @@ window.INVEST.lesson = {
     phase: 1,
     integrationLevel: "required formative course lab",
     studentAction: "Turn the team purpose into explicit goal, time-horizon and liquidity rules that will govern later portfolio decisions.",
-    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
-    dataRule: "Use the frozen team mandate written in Lesson 1; no order is entered before the Lesson 8 launch gate."
+    requiredOutput: "Complete Workbook pp. 5-6 and the individual exit judgement; add a team-log row for the revised goal and liquidity rule.",
+    workbook: {
+      pages: "5-6",
+      treatment: "complete with course addition",
+      studentAction: "Complete the short- and long-term goal tables; add liquidity need beside each goal."
+    },
+    dataRule: "Use the frozen team mandate written in Lesson 1; no order is entered before the Lesson 17 launch gate."
   },
   handout: {
     title: "How do goals change investment decisions?",
     subtitle: "Unit 1 Lesson 2",
-    description: "Compare education, home and retirement goals by time horizon, liquidity need and suitability before considering investment choices.",
-    meta: [
-      { label: "Name", value: "" },
-      { label: "Class", value: "" },
-      { label: "Date", value: "" }
-    ],
+    description: "Exam revision / 考试复习：complete bilingual definitions during the lesson, then revise the numbered knowledge points.",
     sections: [
       {
         label: "1",
-        title: "Grounded scenario and opening decision",
-        instruction: "Use the real national averages and clearly labelled mock goals to make a judgement, then revise it at the end.",
+        title: "Key definitions / 核心定义",
+        instruction: "Complete the English key terms during the lesson; use the Chinese line to check meaning.",
         blocks: [
           {
-            type: "scenario",
-            title: "Real data, mock family goals",
-            context: "China's National Bureau of Statistics reported nationwide per-capita consumption expenditure of CNY 29,476 in 2025, including CNY 6,397 for residence and CNY 3,489 for education, culture and recreation. A hypothetical family is planning university costs in three years, a home deposit in eight years and retirement in thirty years.",
-            realData: [
-              { label: "Total consumption per person", value: "CNY 29,476", source: "National Bureau of Statistics of China, 2025" },
-              { label: "Residence per person", value: "CNY 6,397", source: "National Bureau of Statistics of China, 2025" },
-              { label: "Education, culture and recreation per person", value: "CNY 3,489", source: "National Bureau of Statistics of China, 2025" }
-            ],
-            fictionalElement: "The family, its CNY 240,000 university target, CNY 500,000 home-deposit target and retirement details are hypothetical classroom data.",
-            lessonUse: "Explain why national averages cannot set one family's target, then compare the three goals by when the money is needed, access need and possible loss.",
-            limitation: "The national categories are annual per-capita averages; they are not university-cost, home-deposit or retirement estimates for this family."
-          },
-          {
-            type: "prompts",
-            prompts: [
-              { label: "First judgement", prompt: "Should money for university in three years be invested like retirement money needed in thirty years?", lines: 3 },
-              { label: "Missing evidence", prompt: "What would you need to know about both goals before deciding?", lines: 4 }
+            type: "bilingualDefinitions",
+            items: [
+              {
+                term: "Time horizon",
+                termZh: "投资期限",
+                prompt: "Time horizon is the __________ before invested money is expected to be __________.",
+                answers: ["period", "needed"],
+                definitionZh: "投资期限是预计需要使用已投资资金之前的时间。"
+              },
+              {
+                term: "Liquidity need",
+                termZh: "流动性需求",
+                prompt: "Liquidity need is the need to access money __________ without accepting a large __________ or __________.",
+                answers: ["quickly", "loss", "delay"],
+                definitionZh: "流动性需求是无需承受重大损失或延迟即可快速取用资金的需要。"
+              },
+              {
+                term: "Suitability",
+                termZh: "适合度",
+                prompt: "Suitability is the degree to which an investment matches a person's __________, __________, __________ and ability to accept __________.",
+                answers: ["goal", "horizon", "liquidity need", "loss"],
+                definitionZh: "适合度是投资与个人目标、期限、流动性需求和承受损失能力相匹配的程度。"
+              }
             ]
           }
         ]
       },
       {
         label: "2",
-        title: "Vocabulary",
-        instruction: "Complete and use the three Lesson 2 definitions.",
+        title: "Numbered revision points / 编号复习要点",
+        instruction: "Memorise these six bilingual examinable statements.",
         blocks: [
           {
-            type: "terms",
-            terms: [
-              { label: "Time horizon", prompt: "Time horizon is the period before invested money is expected to be __________.", answer: "needed" },
-              { label: "Liquidity need", prompt: "Liquidity need is the need to access money quickly without a large loss or __________.", answer: "delay" },
-              { label: "Suitability", prompt: "Suitability checks whether an investment matches the goal, horizon, liquidity need and ability to accept __________.", answer: "loss" }
+            type: "bilingualNumberedKnowledge",
+            points: [
+              { en: "An investment decision begins with the financial goal, time horizon and liquidity need rather than a preferred investment.", zh: "投资决策应从财务目标、投资期限和流动性需求开始，而不是从偏好的投资选择开始。" },
+              { en: "Time horizon is the period before the invested money is expected to be needed.", zh: "投资期限是预计需要使用已投资资金之前的时间。" },
+              { en: "A shorter or inflexible horizon usually increases the importance of reliable access and the damage that a market loss could cause.", zh: "投资期限越短或越缺乏灵活性，可靠取用资金的重要性通常越高，市场损失造成的损害也越大。" },
+              { en: "Suitability depends on the match between the goal, time horizon, liquidity need, date flexibility and ability to accept loss.", zh: "适合度取决于投资与目标、期限、流动性需求、日期灵活性和承受损失能力之间的匹配。" },
+              { en: "A long horizon may allow more time to recover from losses, but it does not make every investment suitable.", zh: "较长的投资期限可能提供更多时间从损失中恢复，但并不意味着每项投资都适合。" },
+              { en: "The investment with the highest possible return does not fit every goal; possible return matters only after goal constraints have been considered.", zh: "可能回报最高的投资并不适合每个目标；只有在考虑目标限制后，才应判断可能回报。" }
             ]
-          }
-        ]
-      },
-      {
-        label: "3",
-        title: "Evidence and Data Analysis",
-        instruction: "Use the grounded scenario and mock goal facts to classify each horizon and access need.",
-        blocks: [
-          {
-            type: "table",
-            columns: ["Goal", "Amount", "When needed", "Date flexibility", "Liquidity need"],
-            rows: [
-              ["University", "CNY 240,000", "3 years", "Low", "High as the start date approaches"],
-              ["Home deposit", "CNY 500,000", "8 years", "Up to 2 years", "Medium"],
-              ["Retirement", "Target not fixed", "30 years", "Retirement date range not fixed", "Low now; later withdrawals not yet specified"]
-            ]
-          }
-        ]
-      },
-      {
-        label: "4",
-        title: "Goal comparison",
-        instruction: "Use the evidence to rank horizons and access needs. No calculation is required.",
-        blocks: [
-          {
-            type: "cases",
-            cases: [
-              { label: "A", text: "University in three years", answer: "Shortest horizon; highest near-term liquidity need" },
-              { label: "B", text: "Home deposit in eight years with some flexibility", answer: "Medium horizon; medium liquidity need" },
-              { label: "C", text: "Retirement in thirty years", answer: "Longest horizon; lowest current liquidity need, but later withdrawals are unknown" },
-              { label: "D", text: "The investment with the highest possible return", answer: "Cannot be judged as suitable without knowing the goal, timing, access need and possible loss" }
-            ]
-          }
-        ]
-      },
-      {
-        label: "5",
-        title: "Misconception check",
-        instruction: "Correct the choice-before-goal shortcut.",
-        blocks: [
-          {
-            type: "prompts",
-            prompts: [
-              { label: "Weak claim", prompt: "The investment with the highest possible return fits every goal.", lines: 2 },
-              { label: "Correction", prompt: "Use time horizon, liquidity need and possible loss to correct the claim.", lines: 5 }
-            ]
-          }
-        ]
-      },
-      {
-        label: "6",
-        title: "Individual output",
-        instruction: "Compare two goals using at least two lesson terms.",
-        blocks: [
-          {
-            type: "writing",
-            question: "Explain why two goals require different investment choices.",
-            keywords: ["time horizon", "liquidity need", "suitability", "possible loss", "goal"],
-            lines: 10
           }
         ]
       }
     ],
-    sources: "National Bureau of Statistics of China, Households' Income and Consumption Expenditure in 2025, published 20 Jan 2026; Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. The NBS spending figures are real and dated; the family and goal figures are hypothetical classroom details. This is not personal investment advice."
+    sources: "Definitions and lesson principles are aligned with Investor.gov Time Horizon and Asset Allocation, IFEC Building an Investment Portfolio, and HKMA Investment Services, accessed 13 Jul 2026. Student activities remain in the SMG workbook and team evidence log."
   },
   slides: [
     {
@@ -187,9 +143,8 @@ window.INVEST.lesson = {
       zhTitle: "三年目标和三十年目标应该采用相同投资方式吗？",
       question: "Should money for university in three years be invested like retirement money needed in thirty years?",
       questionZh: "三年后用于大学的资金，是否应该像三十年后才需要的退休资金一样投资？",
-      revealTitle: "Different goals need different decisions",
-      answer: "Not automatically. University money has a shorter time horizon and a higher need for reliable access on a known date. Retirement money has a longer horizon, but its target, later withdrawals and ability to accept loss still need evidence.",
-      answerZh: "不应该自动采用相同方式。大学资金的投资期限更短，而且在已知日期可靠取用资金的需要更高。退休资金期限更长，但目标金额、以后提取资金的安排和承受损失能力仍需要证据。",
+      revealTitle: "University and retirement money should not automatically be invested alike.",
+      revealTitleZh: "大学资金和退休资金不应自动采用相同的投资方式。",
       visual: investmentPhotos.investorMeetingReport,
       notes: [
         "Take same/different votes before reveal.",
@@ -202,6 +157,7 @@ window.INVEST.lesson = {
       title: "By the end, you can",
       zhTitle: "本课结束时，你能够",
       visual: investmentPhotos.businessChartsPaper,
+      phases: ["Define", "Classify", "Write"],
       bullets: [
         "Define and use time horizon, liquidity need, suitability.",
         "Classify education, home and retirement goals by horizon and liquidity need.",
@@ -214,20 +170,16 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "peerTask",
-      taskType: "definitionRecall",
+      type: "answer",
       eyebrow: "Lesson 1 retrieval",
       title: "Recall the Lesson 1 definitions",
       zhTitle: "回忆第一课的定义",
-      prompt: "Without notes, complete the three definitions that Lesson 2 will use.",
-      promptZh: "不看笔记，补全第二课将使用的三个定义。",
-      definitionItems: [
-        { label: "1", term: "Investment", termZh: "投资", answer: "Investment is putting money into an asset to seek future return while accepting possible loss.", answerZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。" },
-        { label: "2", term: "Return", termZh: "回报", answer: "Return is the gain or loss from an investment over a stated period, including price change and income.", answerZh: "回报是投资在规定期间内的收益或损失，包括价格变化和收入。" },
-        { label: "3", term: "Financial goal", termZh: "财务目标", answer: "A financial goal is a stated future use of money with an amount, priority and time horizon.", answerZh: "财务目标是对资金未来用途的明确说明，并包括金额、优先级和投资期限。" }
+      items: [
+        { prompt: "Investment seeks future __________ while accepting possible loss.", answer: "return", zh: "投资寻求未来__________，同时接受可能的损失。", answerZh: "回报" },
+        { prompt: "Return is the gain or __________ from an investment over a stated period.", answer: "loss", zh: "回报是投资在规定期间内的收益或__________。", answerZh: "损失" },
+        { prompt: "A financial goal states a future use, amount, priority and time __________.", answer: "horizon", zh: "财务目标说明未来用途、金额、优先级和投资__________。", answerZh: "期限" }
       ],
-      sharePrompt: "Explain which part of a financial goal distinguishes university from retirement.",
-      sharePromptZh: "解释财务目标的哪一部分区分了大学目标和退休目标。"
+      notes: "Students complete all three without notes, then explain which part distinguishes university from retirement."
     },
     {
       type: "section",
@@ -243,9 +195,8 @@ window.INVEST.lesson = {
       zhTitle: "什么使两个目标不同？",
       question: "University begins in three years; retirement begins in thirty years. Apart from the dates, what else should the family compare?",
       questionZh: "大学在三年后开始；退休在三十年后开始。除了日期，家庭还应比较什么？",
-      revealTitle: "Compare access, flexibility and the consequence of loss",
-      answer: "The family should compare when each payment is required, whether the date can move, how quickly money must be accessed and what loss would damage each goal.",
-      answerZh: "家庭应比较每笔付款何时需要、日期能否调整、需要多快取用资金，以及什么样的损失会损害每个目标。",
+      revealTitle: "The family should compare access, flexibility and the consequence of loss.",
+      revealTitleZh: "这个家庭应比较资金使用需要、日期灵活性和损失后果。",
       visual: investmentPhotos.lesson1ScenarioHouseForRent
     },
     {
@@ -300,15 +251,40 @@ window.INVEST.lesson = {
     {
       type: "flow",
       eyebrow: "Decision rule",
-      title: "From financial goal to suitability",
-      zhTitle: "从财务目标到适合度",
+      title: "What determines whether an investment is suitable?",
+      zhTitle: "什么决定一项投资是否适合？",
       visual: investmentPhotos.businessChartsPaper,
-      flowStyle: "sequence",
+      flowStyle: "decisionChecks",
+      revealSteps: true,
       steps: [
-        { text: "Define the goal and required amount", zh: "明确目标和所需金额", visual: investmentPhotos.lesson1ScenarioFinancialDocuments },
-        { text: "Identify the time horizon and liquidity need", zh: "识别投资期限和流动性需求", visual: investmentPhotos.assetCashSavings },
-        { text: "Check what loss the person can accept without damaging the goal", zh: "检查个人在不损害目标的情况下能够承受什么损失", visual: investmentPhotos.investorMeetingReport },
-        { text: "Only then compare whether an investment choice is suitable", zh: "只有这样才能比较投资选择是否适合", visual: investmentPhotos.financialAnalysisDesk }
+        {
+          title: "Goal",
+          titleZh: "目标",
+          body: "Define what the money is for and the amount required.",
+          zh: "明确这笔钱的用途和所需金额。",
+          visual: investmentPhotos.lesson1ScenarioFinancialDocuments
+        },
+        {
+          title: "Time and access",
+          titleZh: "期限与资金使用",
+          body: "Identify the time horizon and when the money must be available.",
+          zh: "明确投资期限以及何时必须能够使用这笔钱。",
+          visual: investmentPhotos.assetCashSavings
+        },
+        {
+          title: "Loss capacity",
+          titleZh: "损失承受能力",
+          body: "Check what loss could be accepted without damaging the goal.",
+          zh: "检查在不损害目标的情况下可以承受多大损失。",
+          visual: investmentPhotos.investorMeetingReport
+        },
+        {
+          title: "Suitability",
+          titleZh: "适合度",
+          body: "Use all three checks to judge whether the investment fits.",
+          zh: "综合前三项检查，判断这项投资是否适合。",
+          visual: investmentPhotos.financialAnalysisDesk
+        }
       ]
     },
     {
@@ -316,8 +292,6 @@ window.INVEST.lesson = {
       eyebrow: "Hinge question",
       title: "Which question comes first?",
       zhTitle: "哪一个问题应先提出？",
-      question: "Before comparing investment choices for university money, which question should the family answer first?",
-      zh: "在比较大学资金的投资选择前，家庭应先回答哪一个问题？",
       choices: [
         "Which investment had the highest return last year?",
         "When is the money required, and how much loss or delay can the goal accept?",
@@ -368,24 +342,16 @@ window.INVEST.lesson = {
       taskZh: "按期限和流动性分类，再补一项适合度事实。"
     },
     {
-      type: "classificationTask",
+      type: "answer",
       eyebrow: "Horizon classification",
       title: "Classify each goal by time horizon",
       zhTitle: "按投资期限给每个目标分类",
-      prompt: "Use only the frozen dates to classify the three goals.",
-      promptZh: "只使用冻结日期给三个目标分类。",
-      categories: [
-        { title: "Shorter horizon", zhTitle: "较短期限", clue: "money needed in about three years" },
-        { title: "Medium horizon", zhTitle: "中等期限", clue: "money needed in about eight years" },
-        { title: "Long horizon", zhTitle: "长期限", clue: "money needed in about thirty years" }
-      ],
       items: [
-        { label: "A", text: "Retirement begins in thirty years.", zh: "退休在三十年后开始。", answer: "Long horizon", answerZh: "长期限", reason: "It has the longest period before the money begins to be needed.", reasonZh: "在开始需要资金前，它拥有最长时间。" },
-        { label: "B", text: "University fees begin in three years.", zh: "大学学费在三年后开始支付。", answer: "Shorter horizon", answerZh: "较短期限", reason: "It has the shortest period before a known payment date.", reasonZh: "在已知付款日期前，它拥有最短时间。" },
-        { label: "C", text: "The home deposit is planned for eight years from now.", zh: "购房首付计划在八年后使用。", answer: "Medium horizon", answerZh: "中等期限", reason: "Its horizon lies between the education and retirement goals.", reasonZh: "它的期限处于教育目标和退休目标之间。" }
+        { prompt: "University fees in three years: __________ horizon.", answer: "shorter", zh: "三年后的大学学费：__________期限。", answerZh: "较短" },
+        { prompt: "Home deposit in eight years: __________ horizon.", answer: "medium", zh: "八年后的购房首付：__________期限。", answerZh: "中等" },
+        { prompt: "Retirement in thirty years: __________ horizon.", answer: "long", zh: "三十年后的退休：__________期限。", answerZh: "长" }
       ],
-      sharePrompt: "State why horizon alone does not prove suitability.",
-      sharePromptZh: "说明为什么仅凭期限不能证明适合度。"
+      notes: "Reveal after students classify all three. Ask why horizon alone does not prove suitability."
     },
     {
       type: "rankingTask",
@@ -476,22 +442,22 @@ window.INVEST.lesson = {
       notes: "The next slide is the Lesson 2 SMG core lab. Allow roughly 15-20 minutes so teams improve the Lesson 1 mandate using today's horizon, liquidity and suitability concepts before the individual assessment."
     },
     {
-      type: "peerTask",
+      type: "flow",
       eyebrow: "SMG core lab",
       title: "Set the team goal rules",
       zhTitle: "制定团队目标规则",
       prompt: "Turn the Lesson 1 team purpose into rules that can govern later portfolio decisions. Do not enter an order.",
       promptZh: "把第一课的团队目标转化为能够指导后续投资组合决策的规则。不得提交交易指令。",
       steps: [
-        { label: "1", text: "Write the mock financial goal and a specific time horizon.", zh: "写出模拟财务目标和明确的投资期限。" },
-        { label: "2", text: "State when access matters and how much virtual cash must remain available.", zh: "说明何时需要使用资金，以及必须保留多少虚拟现金。" }
+        { label: "1", text: "Complete Workbook pp. 5-6 for the mock goal and add a specific time horizon.", zh: "完成练习册第5至6页，并为模拟目标补充明确期限。" },
+        { label: "2", text: "Add the liquidity need: state when access matters and how much virtual cash must remain available.", zh: "补充流动性需求：说明何时需要使用资金，以及必须保留多少虚拟现金。" }
       ],
       sharePrompt: "Check that the horizon and liquidity rule describe the same mock goal.",
       sharePromptZh: "检查期限和流动性规则是否针对同一个模拟目标。",
       notes: "Use the frozen Lesson 1 mandate. Allow about ten minutes; no order is entered."
     },
     {
-      type: "peerTask",
+      type: "flow",
       eyebrow: "SMG core lab",
       title: "Record the team decision rule",
       zhTitle: "记录团队决策规则",
@@ -499,7 +465,7 @@ window.INVEST.lesson = {
       promptZh: "完成适合度规则和第二课团队证据记录。",
       steps: [
         { label: "1", text: "No investment choice unless it fits goal, horizon, liquidity need and ability to accept loss.", zh: "只有符合目标、期限、流动性需求和承受损失能力时，才能考虑投资选择。" },
-        { label: "2", text: "Record the responsible student, decision reason and Lesson 7 review trigger.", zh: "记录负责学生、决策理由和第七课复查条件。" }
+        { label: "2", text: "Add one team evidence row: responsible student, decision reason and Lesson 7 review trigger.", zh: "添加一条团队证据记录：负责学生、决策理由和第七课复查条件。" }
       ],
       sharePrompt: "Add one team evidence row. Every student writes one individual exit judgement defending a team rule.",
       sharePromptZh: "添加一条团队证据记录。每位学生独立写出一句话，为一条团队规则辩护。",
@@ -513,8 +479,7 @@ window.INVEST.lesson = {
       notes: "Rehearse -> assess -> revise judgement -> submit."
     },
     {
-      type: "peerTask",
-      taskType: "missingSentence",
+      type: "flow",
       eyebrow: "Output rehearsal",
       title: "Complete the comparison chain",
       zhTitle: "补全比较链条",
@@ -553,9 +518,8 @@ window.INVEST.lesson = {
       zhTitle: "两个目标是否应该采用相同投资方式？",
       question: "Use time horizon, liquidity need and suitability to revise the opening judgement.",
       questionZh: "使用投资期限、流动性需求和适合度修改开场判断。",
-      revealTitle: "Different constraints require different investment choices",
-      answer: "University money has a three-year horizon, a fixed start date and a high need for access, so a large loss or delay could damage the goal. Retirement money has a thirty-year horizon and a lower current access need, but the target and ability to accept loss still need evidence. The same choice is therefore not automatically suitable for both.",
-      answerZh: "大学资金有三年期限、固定开学日期和较高资金使用需要，因此重大损失或延迟可能损害目标。退休资金有三十年期限且当前资金使用需要较低，但目标金额和承受损失能力仍需要证据。因此，同一个选择不会自动同时适合两者。",
+      revealTitle: "Different constraints require different investment choices.",
+      revealTitleZh: "不同限制条件需要不同的投资选择。",
       visual: investmentPhotos.investorMeetingReport
     },
     {

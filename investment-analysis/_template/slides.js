@@ -9,96 +9,52 @@ window.INVEST.lesson = {
   stockMarketGame: {
     integrationLevel: "required formative course lab",
     studentAction: "Replace with the exact stockMarketGame.studentAction from the canonical course map.",
-    requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+    requiredOutput: "Complete the assigned workbook judgement or activity insert; add a team-log row when the lesson creates a decision or monitoring update.",
+    workbook: {
+      pages: "Replace with the exact stockMarketGame.workbook.pages value.",
+      treatment: "Replace with the exact stockMarketGame.workbook.treatment value.",
+      studentAction: "Replace with the exact stockMarketGame.workbook.studentAction value."
+    },
     dataRule: "Capture and freeze the required portfolio, watchlist, transaction, quote or benchmark evidence at the start of the lesson."
   },
   handout: {
     title: "Lesson title",
     subtitle: "Unit X Lesson Y",
-    description: "Use a short grounded scenario and the lesson evidence to complete one investment judgement.",
-    meta: [
-      { label: "Name", value: "" },
-      { label: "Class", value: "" },
-      { label: "Date", value: "" }
-    ],
+    description: "Exam revision / 考试复习：complete bilingual definitions during the lesson, then revise the numbered knowledge points.",
     sections: [
       {
         label: "1",
-        title: "Grounded scenario and source box",
-        instruction: "Read the real, dated evidence and the clearly labelled mock or anonymised decision.",
+        title: "Key definitions / 核心定义",
+        instruction: "Complete the English key terms during the lesson; use the Chinese line to check meaning.",
         blocks: [
           {
-            type: "scenario",
-            title: "Real evidence, mock or anonymised decision",
-            context: "Replace with a two- or three-sentence scenario that combines the source-backed evidence with the lesson decision.",
-            realData: [
-              { label: "Dated source-backed figure", value: "Replace with value and unit", source: "Source title | evidence date" }
-            ],
-            fictionalElement: "Identify every invented or anonymised profile detail.",
-            lessonUse: "State the exact slide activity and handout task that use this evidence.",
-            limitation: "State what the real evidence cannot prove about the case or future result."
+            type: "bilingualDefinitions",
+            items: [
+              { term: "Term 1", termZh: "术语一", prompt: "Replace selected key words with __________.", answers: ["exact answer"], definitionZh: "填写完整的简体中文定义。" },
+              { term: "Term 2", termZh: "术语二", prompt: "Replace selected key words with __________.", answers: ["exact answer"], definitionZh: "填写完整的简体中文定义。" },
+              { term: "Term 3", termZh: "术语三", prompt: "Replace selected key words with __________.", answers: ["exact answer"], definitionZh: "填写完整的简体中文定义。" }
+            ]
           }
         ]
       },
       {
         label: "2",
-        title: "Vocabulary",
-        instruction: "Complete and use the lesson definitions.",
+        title: "Numbered revision points / 编号复习要点",
+        instruction: "Memorise these short bilingual examinable statements.",
         blocks: [
           {
-            type: "terms",
-            terms: [
-              { label: "Term A", prompt: "Replace with a definition containing one conceptual __________.", answer: "blank" }
+            type: "bilingualNumberedKnowledge",
+            points: [
+              { en: "Replace with the lesson core claim as a complete sentence.", zh: "填写对应的简体中文完整句子。" },
+              { en: "Replace with one essential relationship or condition taught in the lesson.", zh: "填写对应的简体中文完整句子。" },
+              { en: "Replace with the exact formula or qualitative decision rule.", zh: "填写对应的简体中文完整句子。" },
+              { en: "Replace with the concise correction to the canonical misconception.", zh: "填写对应的简体中文完整句子。" }
             ]
           }
-        ]
-      },
-      {
-        label: "3",
-        title: "Evidence and Data Analysis",
-        instruction: "Use the grounded scenario to identify or interpret evidence, explain its meaning and make a judgement.",
-        blocks: [
-          {
-            type: "table",
-            columns: ["Evidence", "Value", "What it may show", "What it cannot show"],
-            rows: [
-              ["Source-backed item", "Value and unit", "Replace with a focused interpretation", "Replace with one limitation"]
-            ]
-          }
-        ]
-      },
-      {
-        label: "4",
-        title: "Calculation or judgement task",
-        instruction: "Apply the lesson formula or decision rule to the scenario.",
-        blocks: [
-          { type: "writing", question: "Replace with the lesson calculation, interpretation or judgement task.", lines: 6 }
-        ]
-      },
-      {
-        label: "5",
-        title: "Misconception check",
-        instruction: "Correct one explicit investment shortcut using the scenario evidence.",
-        blocks: [
-          {
-            type: "prompts",
-            prompts: [
-              { label: "Weak claim", prompt: "Replace with the lesson misconception.", lines: 2 },
-              { label: "Correction", prompt: "Correct it using one source-backed fact and the lesson concept.", lines: 4 }
-            ]
-          }
-        ]
-      },
-      {
-        label: "6",
-        title: "Individual written output",
-        instruction: "Complete the lesson primary output independently.",
-        blocks: [
-          { type: "writing", question: "Replace with the exact course-map studentOutput.", lines: 8 }
         ]
       }
     ],
-    sources: "List the scenario source title, publication or evidence date, accessed date and limitation. Label mock or anonymised details."
+    sources: "List only sources used to support definitions and knowledge printed on this handout. Student work remains in the SMG workbook, activity insert or team log."
   },
   slides: [
     {
@@ -127,20 +83,16 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "peerTask",
-      taskType: "definitionRecall",
+      type: "answer",
       eyebrow: "Recall",
       title: "Recall last lesson",
       zhTitle: "回忆上一课",
-      prompt: "Write one-sentence definitions before reveal.",
-      promptZh: "先写一句定义，再揭示答案。",
-      definitionItems: [
-        { label: "1", term: "Term A", termZh: "术语A", answer: "Use the CFA-inspired textbook definition from the course overview when the term exists there.", answerZh: "若课程总览已有该术语，请使用其中受CFA启发的教材式定义。" },
-        { label: "2", term: "Term B", termZh: "术语B", answer: "If no overview match exists, write a complete definition with the same precise finance style.", answerZh: "若总览没有匹配术语，请用同样精确的金融表达写出完整定义。" },
-        { label: "3", term: "Term C", termZh: "术语C", answer: "Keep slide blanks on the concept payload, not on filler words or the term itself.", answerZh: "幻灯片填空应放在概念关键词上，而不是填充词或术语本身。" }
+      items: [
+        { prompt: "Term A means __________.", answer: "replace with the exact definition", zh: "术语A是__________。", answerZh: "替换为准确的定义" },
+        { prompt: "Term B means __________.", answer: "replace with the exact definition", zh: "术语B是__________。", answerZh: "替换为准确的定义" },
+        { prompt: "Term C means __________.", answer: "replace with the exact definition", zh: "术语C是__________。", answerZh: "替换为准确的定义" }
       ],
-      sharePrompt: "Compare with a partner, then improve one definition.",
-      sharePromptZh: "与同伴比较，然后改进一个定义。"
+      notes: "Students complete all three before reveal, then compare and improve one definition."
     },
     {
       type: "outcomes",
@@ -209,10 +161,8 @@ window.INVEST.lesson = {
       visual: window.INVEST.photos?.financialAnalysisDesk,
       question: "Ask students to choose, predict, calculate, classify or correct a misconception before revealing the explanation.",
       questionZh: "先让学生选择、预测、计算、分类或纠正误解，再揭示解释。",
-      revealTitle: "Evidence comes before judgement",
+      revealTitle: "Evidence should come before judgement.",
       revealTitleZh: "先看证据，再作判断。",
-      answer: "Reveal a concise model answer only after students commit to an answer.",
-      answerZh: "学生先作答后，再揭示简洁的参考答案。",
       notes: "Use the response as a formative decision point: move on, reteach, ask for improvement or collect the written check."
     },
     {
@@ -229,7 +179,7 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "peerTask",
+      type: "flow",
       eyebrow: "Practice check",
       title: "Replace with the practice task",
       zhTitle: "替换为练习任务",
@@ -281,8 +231,7 @@ window.INVEST.lesson = {
       notes: "Use rankingTask for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative order."
     },
     {
-      type: "peerTask",
-      taskType: "missingSentence",
+      type: "flow",
       eyebrow: "Pair task",
       title: "Complete the missing sentence",
       zhTitle: "补全缺失句子",
@@ -410,24 +359,16 @@ window.INVEST.lesson = {
       promptZh: "填空后，解释哪一边更有说服力。"
     },
     {
-      type: "classificationTask",
+      type: "answer",
       eyebrow: "Classify",
       title: "Classify the evidence habit",
       zhTitle: "给证据习惯分类",
-      prompt: "Classify each case using the taught categories.",
-      promptZh: "用已学类别给每个案例分类。",
-      categories: [
-        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure", visual: window.INVEST.photos?.annualReports },
-        { title: "Risk", zhTitle: "风险", clue: "what could go worse", visual: window.INVEST.photos?.keywordDemandRiskEmptyStore },
-        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support", visual: window.INVEST.photos?.modernTradingDesk }
-      ],
       items: [
-        { label: "A", text: "Uses a dated annual-report figure.", zh: "使用带日期的年报数据。", answer: "Evidence", answerZh: "证据", reason: "It names a source-backed fact.", reasonZh: "它说出了有来源支持的事实。" },
-        { label: "B", text: "Says the company is famous, so the share is safe.", zh: "说公司很有名，所以股票安全。", answer: "Weak opinion", answerZh: "薄弱观点", reason: "Familiarity is not evidence of value or risk.", reasonZh: "熟悉度不是价值或风险的证据。" },
-        { label: "C", text: "Asks what could reduce future profit.", zh: "询问什么可能降低未来利润。", answer: "Risk", answerZh: "风险", reason: "It checks what could go worse than expected.", reasonZh: "它检查什么可能比预期更差。" }
+        { prompt: "A dated annual-report figure is __________.", answer: "evidence", zh: "带日期的年报数据属于__________。", answerZh: "证据" },
+        { prompt: "“The company is famous, so the share is safe” is a __________.", answer: "weak opinion", zh: "“公司很有名，所以股票安全”属于__________。", answerZh: "薄弱观点" },
+        { prompt: "Asking what could reduce future profit checks __________.", answer: "risk", zh: "询问什么可能降低未来利润是在检查__________。", answerZh: "风险" }
       ],
-      sharePrompt: "Defend one classification with a reason.",
-      sharePromptZh: "用理由说明一个分类。"
+      notes: "Students classify all three before reveal, then defend one answer with a reason."
     },
     {
       type: "yesNoCheck",
@@ -503,37 +444,6 @@ window.INVEST.lesson = {
       ],
       prompt: "Choose the stronger case only after filling every criterion.",
       promptZh: "填完每个标准后，再选择更强的案例。"
-    },
-    {
-      type: "evidenceSimulator",
-      eyebrow: "Teacher-led simulation",
-      title: "Reveal clues, then choose the next step",
-      zhTitle: "揭示线索，然后选择下一步",
-      prompt: "After each clue, ask the class to choose 1, 2 or 3.",
-      promptZh: "每条线索出现后，请全班选择1、2或3。",
-      evidenceLabel: "Goal clues",
-      decisionLabel: "Choose one after each clue",
-      facts: [
-        { label: "Purpose and amount", labelZh: "用途和金额", value: "University fees · CNY 180,000", valueZh: "大学学费·180,000元人民币" },
-        { label: "Time horizon", labelZh: "时间期限", value: "The fees are due in six years", valueZh: "学费将在六年后支付" },
-        { label: "Access need", labelZh: "资金使用需要", value: "The payment date is fixed", valueZh: "付款日期是固定的" },
-        { label: "Possible loss", labelZh: "可能的损失", value: "A loss near the date could block the goal", valueZh: "临近日期的损失可能阻碍目标实现" }
-      ],
-      decisionOptions: [
-        { id: "keep-available", label: "Keep available", labelZh: "保持资金可用", detail: "Use this when the money is needed soon.", detailZh: "资金很快要使用时，选择此项。", tone: "caution" },
-        { id: "more-information", label: "Need more information", labelZh: "需要更多信息", detail: "Use this when the amount, date or possible loss is unclear.", detailZh: "金额、日期或可能损失不清楚时，选择此项。", tone: "neutral" },
-        { id: "consider-investing", label: "Consider investing", labelZh: "可考虑投资", detail: "Use this for a later goal with no urgent access need; check risk first.", detailZh: "目标较远且无需紧急使用资金时可选择；先检查风险。", tone: "positive" }
-      ],
-      conclusion: {
-        verdict: "more-information",
-        tone: "caution",
-        label: "Need more information before deciding",
-        labelZh: "决定之前需要更多信息",
-        text: "Six years gives the family time, but the fixed payment date and possible loss must be checked before investment could be considered.",
-        textZh: "六年期限给了家庭一定时间，但在考虑投资之前，仍必须检查固定付款日期和可能损失的影响。"
-      },
-      instruction: "Students show 1, 2 or 3 with their fingers. The teacher clicks only Reveal next clue.",
-      notes: "Use this only as a teacher-led whole-class simulation. Reveal one clue at a time and ask students to justify any change of choice."
     },
     {
       type: "catalystTimeline",
@@ -637,16 +547,16 @@ window.INVEST.lesson = {
       notes: "Move from taught concept to the required team portfolio application. Allocate roughly 35-50% of lesson time to the lab sequence, not necessarily 35-50% of slide count."
     },
     {
-      type: "peerTask",
+      type: "flow",
       eyebrow: "SMG core lab",
       title: "Apply the lesson to the team portfolio",
       zhTitle: "把本课知识应用于团队投资组合",
       prompt: "Complete the exact stockMarketGame.studentAction from the canonical course map using a frozen platform snapshot.",
       promptZh: "使用冻结的平台截图，完成课程地图中本课规定的SMG任务。",
       steps: [
-        { label: "1", text: "Capture the required portfolio, watchlist, transaction, quote or benchmark evidence.", zh: "保存本课所需的投资组合、自选清单、交易、报价或基准证据。" },
-        { label: "2", text: "Apply today's concept and record one material fact, one limitation and the team decision.", zh: "应用今天的概念，记录一个重要事实、一个局限和团队决策。" },
-        { label: "3", text: "Add one team evidence row; every student writes the individual exit judgement.", zh: "添加一条团队证据记录；每位学生独立完成离堂判断。" }
+        { label: "1", text: "Open the assigned workbook pages and apply the stated treatment or trade override.", zh: "打开指定练习册页面，并执行规定的处理方式或交易覆盖规则。" },
+        { label: "2", text: "Add one dated fact and limitation only when the workbook cannot hold the required evidence.", zh: "仅在练习册无法容纳所需证据时，补充一条带日期的事实和一条局限。" },
+        { label: "3", text: "Complete the individual judgement; add a team-log row when the lesson creates a decision or monitoring update.", zh: "完成个人判断；当本课形成团队决策或监测更新时，添加一条团队日志记录。" }
       ],
       sharePrompt: "Name the student and role responsible for the evidence row and state the review trigger.",
       sharePromptZh: "写明负责该证据记录的学生及角色，并说明复查条件。"

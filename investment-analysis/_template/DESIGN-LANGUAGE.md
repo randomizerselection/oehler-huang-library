@@ -44,28 +44,27 @@ Use this standard for every Investment Analysis landing page and lesson deck. Th
 
 - Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
 - `section`: keep the slide visually closer to the standard economics-presentation divider, with a notebook-ready academic topic such as `Investment and return` doing the work and only a quiet progress strip below it.
-- `discussion`: ask a real question first. For the lesson hook, show exactly one short question and nothing else beyond the visual and reveal control. Do not display the model explanation as the initial prompt.
+- `discussion`: ask a real question first. For the lesson hook, show exactly one short question and nothing else beyond the visual and reveal control. After the click, reveal only one short English answer sentence followed by its concise Chinese translation; do not add a label, answer title or explanatory paragraph.
+- `term`: keep definition-slide pictures image-only with no visible caption beneath them; retain meaningful alt text in the photo data.
 - `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
 - `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
 - `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
 - `visualGrid`: use image-led example cards only when the pictures help students compare or recall concrete categories; keep each label short and avoid decorative image collections.
 - `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
-- `classificationTask`: use for classify-and-justify routines with revealed reasons. Keep category labels short and already taught.
 - `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason. Present three or four statements in one full-width vertical voting board. Make Yes and No real buttons: a click scores the committed choice and reveals the verdict and reason inside the same row; deck reveal controls remain the teacher-led fallback. Do not use a repeated-card grid or horizontal carousel.
+- `quiz`: show exactly one direct bilingual question in the slide title, then place the choices immediately below it. Do not repeat or rephrase the question in the body.
 - `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Present three to five options as one vertical decision ladder with a rank blank beside each, then replace it with one defensible ordered model and reasons. Do not combine empty slots with a card grid or use a horizontal carousel. Use `axis.showNote: false` when the end labels already make the axis meaning complete.
 - `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
 - `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
 - `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.
-- `evidenceSimulator`: use for a teacher-led progressive evidence case. Show no more than four locked clues and three plain next-step choices. Students show 1, 2 or 3 verbally or with fingers; the teacher uses one reveal control and does not record votes on screen. Keep every revealed clue visible when the final model conclusion appears, and never turn the result into a numerical suitability score or real product recommendation.
 - `catalystTimeline`: show up to four events linking information to expectations or price movement; use `revealEffects: true` so students avoid overclaiming causation.
 - `judgementFrame`: use four stages: evidence, return, risk and price paid; reveal answers only after students draft the balanced judgement.
 - `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.
 - `riskRegister`: show four short risk prompts in large blocks; use `revealEffects: true` so students link risk to future profit, expectations or price paid before seeing the effect.
-- `flow`: use large numbered steps with meaningful blanks and `answer` values; do not add a second explanatory line to every step.
+- `flow`: use large numbered steps with meaningful blanks and `answer` values for causal or retrieval chains; do not add a second explanatory line to every step.
+- `flow` with `flowStyle: "decisionChecks"`: use a question title, prominent bilingual box headers, one concise bilingual explanation per box, `revealSteps: true`, and no blanks.
 - `answer` and fill-blank term slides: blanks must render as clear answer slots with a visible underline/fill, stable width before and after reveal, and punctuation attached to the slot.
 - `Exit ticket`: keep it as a compact final-check slide with numbered prompts, no visible source button, and all prompts fitting above the footer on phone.
-- `peerTask`: show one large task surface; if a visual is useful, keep it as a subdued background rather than a competing card.
-- `peerTask` variants: use `definitionRecall` for three prior terms at the start of Lesson 2+; use `missingSentence` for one missing explanation link, not broad discussion.
 - `exam`: use the exam question once, then reveal keywords only after students have tried a plan when `revealKeywords: true`.
 - `modelAnswer`: use `cueLabel` and `cueText` to make the comparison task explicit, then reveal paragraphs one at a time.
 

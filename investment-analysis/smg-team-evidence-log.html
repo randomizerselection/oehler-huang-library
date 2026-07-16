@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Printable authoritative Stock Market Game team evidence and decision log." />
+  <title>SMG Team Evidence Log - Investment and Financial Decision-Making</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/css/investment-workbook.css" />
+</head>
+<body class="investment-workbook-page">
+  <main class="workbook-shell">
+    <nav class="workbook-nav" aria-label="Team log navigation">
+      <a href="index.html">Course home</a>
+      <div class="workbook-actions">
+        <a href="smg-workbook-course-guide.html">Workbook course guide</a>
+        <button class="primary" type="button" onclick="window.print()">Print team log</button>
+      </div>
+    </nav>
+
+    <section class="workbook-log-sheet">
+      <div class="workbook-kicker">Authoritative team record - sheet 1</div>
+      <h1>SMG Team Evidence and Decision Log <span lang="zh-Hans">SMG团队证据与决策日志</span></h1>
+      <div class="workbook-log-meta"><span><strong>Class:</strong></span><span><strong>Team ID:</strong></span><span><strong>Portfolio purpose:</strong></span></div>
+      <p class="workbook-log-reminder">Record a row whenever the team makes a decision or monitoring update. Never write a password. Submission is not execution.</p>
+      <div data-log-entries="1"></div>
+    </section>
+
+    <section class="workbook-log-sheet">
+      <div class="workbook-kicker">Authoritative team record - sheet 2</div>
+      <h1>SMG Team Evidence and Decision Log <span lang="zh-Hans">SMG团队证据与决策日志</span></h1>
+      <div class="workbook-log-meta"><span><strong>Class:</strong></span><span><strong>Team ID:</strong></span><span><strong>Portfolio purpose:</strong></span></div>
+      <p class="workbook-log-reminder">A justified hold, research or no-trade decision is valid. Rank and raw return do not establish decision quality.</p>
+      <div data-log-entries="4"></div>
+    </section>
+  </main>
+
+  <template id="log-entry-template">
+    <article class="workbook-log-entry">
+      <h2>Decision record <span data-entry-number></span></h2>
+      <div class="workbook-log-grid">
+        <div class="workbook-log-field small"><strong>Decision date<br><span lang="zh-Hans">决策日期</span></strong></div>
+        <div class="workbook-log-field medium"><strong>Student and role<br><span lang="zh-Hans">学生与角色</span></strong></div>
+        <div class="workbook-log-field medium"><strong>Proposed action<br><span lang="zh-Hans">建议行动</span></strong></div>
+        <div class="workbook-log-field small"><strong>Order checker<br><span lang="zh-Hans">订单核查人</span></strong></div>
+        <div class="workbook-log-field small"><strong>Platform result<br><span lang="zh-Hans">平台结果</span></strong></div>
+        <div class="workbook-log-field large"><strong>Dated evidence - source, date, material fact and limitation<br><span lang="zh-Hans">带日期证据：来源、日期、重要事实与局限</span></strong></div>
+        <div class="workbook-log-field large"><strong>Plan and risk fit - goal, horizon, limits and course-rule check<br><span lang="zh-Hans">计划与风险匹配：目标、期限、限制与课程规则核查</span></strong></div>
+        <div class="workbook-log-field large"><strong>Team decision - include material dissent<br><span lang="zh-Hans">团队决策：包括重要异议</span></strong></div>
+        <div class="workbook-log-field large"><strong>Review trigger - date, evidence or threshold<br><span lang="zh-Hans">复查条件：日期、证据或阈值</span></strong></div>
+      </div>
+    </article>
+  </template>
+  <script>
+    const template = document.querySelector("#log-entry-template");
+    document.querySelectorAll("[data-log-entries]").forEach((container) => {
+      const start = Number(container.dataset.logEntries);
+      for (let number = start; number < start + 3; number += 1) {
+        const entry = template.content.cloneNode(true);
+        entry.querySelector("[data-entry-number]").textContent = number;
+        container.appendChild(entry);
+      }
+    });
+  </script>
+</body>
+</html>

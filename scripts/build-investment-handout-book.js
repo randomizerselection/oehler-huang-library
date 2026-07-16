@@ -1,13 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const courseMap = require('../investment-analysis/course-map-data.js');
-const { getInvestmentDefinitionMap } = require('./investment-definitions');
+const courseMap = require('../investment-analysis/course-map-financial-decisions-data.js');
+const archivedCourseMap = require('../investment-analysis/course-map-data.js');
 
 const root = path.resolve(__dirname, '..');
 const outputPath = path.join(root, 'investment-analysis', 'companion-textbook', 'compiled-handout-book.md');
 const teacherBlueprintPath = path.join(root, 'investment-analysis', 'companion-textbook', 'course-map-teacher-blueprint.md');
-const investmentDefinitionMap = getInvestmentDefinitionMap();
+const archivedOutputPath = path.join(root, 'investment-analysis', 'companion-textbook', 'compiled-handout-book-company-analysis-archive.md');
+const archivedTeacherBlueprintPath = path.join(root, 'investment-analysis', 'companion-textbook', 'course-map-teacher-blueprint-company-analysis-archive.md');
 
 function line(value = '') {
   return value;
@@ -18,8 +19,7 @@ function renderTermTable(terms) {
     '| Term | Chinese support | Definition |',
     '| --- | --- | --- |',
     ...terms.map((term) => {
-      const textbookDefinition = investmentDefinitionMap.get(String(term.term || '').toLowerCase())?.definition || term.definition;
-      return `| ${term.term} | ${term.zh} | ${textbookDefinition} |`;
+      return `| ${term.term} | ${term.zh} | ${term.definition} |`;
     }),
   ].join('\n');
 }
@@ -29,8 +29,18 @@ function renderHandoutBlock(lesson, block) {
   lines.push(line(`### ${block.title}`));
   lines.push(line());
 
-  if (block.key === 'vocabulary') {
+  if (block.key === 'vocabulary' || block.key === 'definitions') {
     lines.push(line(renderTermTable(lesson.terms)));
+    if (block.translationRule) {
+      lines.push(line());
+      lines.push(line(`**Bilingual production rule:** ${block.translationRule}`));
+    }
+  } else if (block.key === 'numberedRevisionPoints') {
+    lines.push(renderBulletList(block.content || []));
+    if (block.translationRule) {
+      lines.push(line());
+      lines.push(line(`**Bilingual production rule:** ${block.translationRule}`));
+    }
   } else if (block.key === 'companyEvidence' && lesson.worksheet?.evidenceAndDataAnalysis) {
     const worksheet = lesson.worksheet.evidenceAndDataAnalysis;
     lines.push(line(`**Case information:** ${worksheet.stimulus}`));
@@ -56,8 +66,9 @@ function renderLessonHandout(lesson) {
   const sections = [];
   sections.push(line(`## Lesson ${lesson.lesson}: ${lesson.guidingQuestion}`));
   sections.push(line());
-  sections.push(line(`**Case anchor:** ${lesson.company}`));
+  sections.push(line(`**Case anchor:** ${lesson.caseAnchor || lesson.company}`));
   sections.push(line(`**Unit:** ${lesson.unit}. ${lesson.unitTitle}`));
+  sections.push(line(`**Production status:** ${lesson.publishedRoutes ? 'Published lesson' : 'Planned from the canonical course map'}`));
   sections.push(line(`**Guiding question:** ${lesson.guidingQuestion}`));
   if (lesson.studentHook) sections.push(line(`**Student hook:** ${lesson.studentHook}`));
   sections.push(line(`**Core claim:** ${lesson.coreClaim}`));
@@ -200,9 +211,12 @@ function renderLessonTeacherBlueprint(lesson) {
 
 function renderTeacherBlueprint(map = courseMap) {
   const lines = [];
+  const canonicalSource = map.syllabusKey === 'financial-decisions'
+    ? 'investment-analysis/course-map-financial-decisions-data.js'
+    : 'investment-analysis/course-map-data.js';
   lines.push(`# ${map.courseTitle}: Teacher Blueprint`);
   lines.push('');
-  lines.push('This file is generated from `investment-analysis/course-map-data.js`. Use it to build lesson decks, handouts, handout-book chapters and exam questions from the same contract.');
+  lines.push(`This file is generated from \`${canonicalSource}\`. Use it to build lesson decks, handouts, knowledge-handbook chapters, activity inserts and exam questions from the same contract.`);
   lines.push('');
   if (map.decisionFirstSyllabus) {
     lines.push('## Decision-First Teaching Model');
@@ -239,7 +253,7 @@ function renderTeacherBlueprint(map = courseMap) {
   lines.push('| Lesson | Case anchor | Role | Status | Replacement candidate |');
   lines.push('| --- | --- | --- | --- | --- |');
   for (const lesson of map.lessons) {
-    lines.push(`| ${lesson.lesson} | ${lesson.company} | ${lesson.caseRole} | ${lesson.caseReview.status} | ${lesson.caseReview.replacementCandidate || ''} |`);
+    lines.push(`| ${lesson.lesson} | ${lesson.caseAnchor || lesson.company} | ${lesson.caseRole} | ${lesson.caseReview.status} | ${lesson.caseReview.replacementCandidate || ''} |`);
   }
 
   for (const unit of map.units) {
@@ -264,7 +278,10 @@ function renderHandoutBook(map = courseMap) {
   parts.push(line(map.writtenArtifactRule));
   parts.push(line());
   if (map.practicalInvestingBoundary) {
-    parts.push(line(map.practicalInvestingBoundary));
+    const boundary = typeof map.practicalInvestingBoundary === 'string'
+      ? map.practicalInvestingBoundary
+      : map.practicalInvestingBoundary.positiveMethod;
+    parts.push(line(boundary));
     parts.push(line());
   }
   if (map.definitionOverview?.source) {
@@ -279,7 +296,7 @@ function renderHandoutBook(map = courseMap) {
   for (const unit of map.units) {
     parts.push(line(`- Unit ${unit.unit}: ${unit.title} (Lessons ${unit.lessons[0]}-${unit.lessons[1]})`));
     for (const lesson of map.lessons.filter((item) => item.unit === unit.unit)) {
-      parts.push(line(`  - Lesson ${lesson.lesson}: ${lesson.company} - ${lesson.guidingQuestion}`));
+      parts.push(line(`  - Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company} - ${lesson.guidingQuestion}`));
     }
   }
 
@@ -301,9 +318,13 @@ function renderHandoutBook(map = courseMap) {
 function writeHandoutBook() {
   const output = renderHandoutBook();
   const teacherBlueprint = renderTeacherBlueprint();
+  const archivedOutput = renderHandoutBook(archivedCourseMap);
+  const archivedTeacherBlueprint = renderTeacherBlueprint(archivedCourseMap);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, output, 'utf8');
   fs.writeFileSync(teacherBlueprintPath, teacherBlueprint, 'utf8');
+  fs.writeFileSync(archivedOutputPath, archivedOutput, 'utf8');
+  fs.writeFileSync(archivedTeacherBlueprintPath, archivedTeacherBlueprint, 'utf8');
   return outputPath;
 }
 
@@ -311,14 +332,22 @@ if (require.main === module) {
   if (process.argv.includes('--check')) {
     const expected = renderHandoutBook();
     const expectedTeacherBlueprint = renderTeacherBlueprint();
+    const expectedArchived = renderHandoutBook(archivedCourseMap);
+    const expectedArchivedTeacherBlueprint = renderTeacherBlueprint(archivedCourseMap);
     const actual = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
     const actualTeacherBlueprint = fs.existsSync(teacherBlueprintPath) ? fs.readFileSync(teacherBlueprintPath, 'utf8') : '';
+    const actualArchived = fs.existsSync(archivedOutputPath) ? fs.readFileSync(archivedOutputPath, 'utf8') : '';
+    const actualArchivedTeacherBlueprint = fs.existsSync(archivedTeacherBlueprintPath) ? fs.readFileSync(archivedTeacherBlueprintPath, 'utf8') : '';
     if (actual !== expected) {
       console.error(`Compiled handout book is out of date: ${path.relative(root, outputPath)}`);
       process.exit(1);
     }
     if (actualTeacherBlueprint !== expectedTeacherBlueprint) {
       console.error(`Teacher blueprint is out of date: ${path.relative(root, teacherBlueprintPath)}`);
+      process.exit(1);
+    }
+    if (actualArchived !== expectedArchived || actualArchivedTeacherBlueprint !== expectedArchivedTeacherBlueprint) {
+      console.error('Archived company-analysis handout book or teacher blueprint is out of date.');
       process.exit(1);
     }
     console.log(`Compiled handout book and teacher blueprint are current.`);
@@ -331,6 +360,8 @@ if (require.main === module) {
 module.exports = {
   outputPath,
   teacherBlueprintPath,
+  archivedOutputPath,
+  archivedTeacherBlueprintPath,
   renderHandoutBook,
   renderTeacherBlueprint,
   writeHandoutBook,

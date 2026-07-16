@@ -34,12 +34,12 @@ window.INVEST.quiz = {
       prompt: "Which pair is included in the Lesson 1 definition of return?",
       zh: "哪一组内容包含在第一课的回报定义中？",
       choices: [
-        "Price change and income",
         "Goal priority and age",
+        "Price change and income",
         "Budget and tax",
         "Investment name and popularity"
       ],
-      answer: 0,
+      answer: 1,
       explanation: "The course definition includes price change and income over a stated period.",
       explanationZh: "课程定义包括规定期间内的价格变化和收入。"
     },
@@ -49,12 +49,12 @@ window.INVEST.quiz = {
       prompt: "Which description is a complete financial goal?",
       zh: "哪一个描述是完整的财务目标？",
       choices: [
-        "CNY 180,000 for university fees in six years, with high priority",
         "Make more money",
         "Choose an investment soon",
+        "CNY 180,000 for university fees in six years, with high priority",
         "Choose a high return"
       ],
-      answer: 0,
+      answer: 2,
       explanation: "A financial goal states a future use, amount, priority and time horizon.",
       explanationZh: "财务目标说明资金的未来用途、金额、优先级和投资期限。"
     },
@@ -64,12 +64,12 @@ window.INVEST.quiz = {
       prompt: "Which is the strongest reason a family might invest?",
       zh: "哪一个是家庭可能投资的最有力理由？",
       choices: [
-        "To seek future return for a stated long-term goal while accepting possible loss",
         "To guarantee that every goal is reached",
         "To avoid identifying when the money is needed",
-        "To copy an investment chosen by another family"
+        "To copy an investment chosen by another family",
+        "To seek future return for a stated long-term goal while accepting possible loss"
       ],
-      answer: 0,
+      answer: 3,
       explanation: "The reason links investment to a stated goal, future return and possible loss.",
       explanationZh: "该理由把投资与明确目标、未来回报和可能损失联系起来。"
     },
@@ -94,12 +94,12 @@ window.INVEST.quiz = {
       prompt: "A retirement goal is thirty years away. Which condition is still missing?",
       zh: "退休目标在三十年后。仍然缺少哪一个条件？",
       choices: [
-        "The target amount and the family's ability to accept loss",
         "Proof that every return will be positive",
+        "The target amount and the family's ability to accept loss",
         "A promise to choose one investment today",
         "A list of classmates' opinions"
       ],
-      answer: 0,
+      answer: 1,
       explanation: "Choose ‘Need more information.’ A long horizon may support investment consideration, but the target amount and loss capacity are still missing.",
       explanationZh: "选择“需要更多信息”。较长期限可能支持考虑投资，但仍缺少目标金额和损失承受能力。"
     },
@@ -109,12 +109,12 @@ window.INVEST.quiz = {
       prompt: "Why is ‘investing is simply a way to make more money’ incomplete?",
       zh: "为什么“投资只是赚更多钱的一种方式”是不完整的？",
       choices: [
-        "It ignores the financial goal, time horizon, access need and possible loss",
         "It contains too many financial conditions",
         "It proves that investment is saving",
+        "It ignores the financial goal, time horizon, access need and possible loss",
         "It explains the family goal fully"
       ],
-      answer: 0,
+      answer: 2,
       explanation: "A careful investment decision begins with the goal and its constraints, not return alone.",
       explanationZh: "谨慎的投资决定从目标及其限制开始，而不是只看回报。"
     },
@@ -124,12 +124,12 @@ window.INVEST.quiz = {
       prompt: "What can general investor guidance not decide for a family?",
       zh: "一般投资者指引不能替家庭决定什么？",
       choices: [
-        "Its exact priorities, investment choice and whether a particular loss is acceptable",
         "That investment involves risk",
         "That goals have time horizons",
-        "That evidence should be checked"
+        "That evidence should be checked",
+        "Its exact priorities, investment choice and whether a particular loss is acceptable"
       ],
-      answer: 0,
+      answer: 3,
       explanation: "General guidance supports a method, but family-specific priorities and constraints still require evidence.",
       explanationZh: "一般指引支持一种方法，但家庭具体的优先级和限制仍需要证据。"
     },

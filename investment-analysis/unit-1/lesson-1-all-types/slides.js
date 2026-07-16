@@ -63,10 +63,7 @@ window.INVEST.lesson = {
               { metric: "term", value: "One key term and definition.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "answer", value: "Fill-in retrieval, checks, or exit ticket.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "flow", value: "Sequence with reveal blanks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "peerTask", value: "Partner steps or sorting board.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "rankingTask", value: "Ordered low-to-high line with defended reveal.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "definitionRecall", value: "Opening recall with revealed model definitions.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "missingSentence", value: "Sentence-level explanation practice.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "yesNoCheck", value: "Vote yes/no, then reveal the reason.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "quiz", value: "Interactive multiple-choice hinge check.", shows: "", limits: "", showsLines: 1, limitLines: 1 }
             ]
@@ -86,7 +83,6 @@ window.INVEST.lesson = {
               { metric: "conceptTriad", value: "Compare three related concepts.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "visualGrid", value: "Compare concrete examples through purposeful images.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "compare", value: "Two-column T-table for clean contrasts.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
-              { metric: "classificationTask", value: "Classify cases and reveal reasons.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "sourceLens", value: "Source metadata and source checks.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "quoteMap", value: "Quote-page identity fields.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
               { metric: "comparisonMatrix", value: "Compare choices across common criteria.", shows: "", limits: "", showsLines: 1, limitLines: 1 },
@@ -218,9 +214,8 @@ window.INVEST.lesson = {
       visual: investmentPhotos.investorMeetingReport,
       question: "A student says: Tencent is famous, so its share must be safe. What is missing?",
       questionZh: "学生说：腾讯很有名，所以它的股票一定安全。这里缺少什么？",
-      revealTitle: "Familiarity is not evidence",
-      answer: "The claim needs a source, date, share price, possible return, risk and limitation before judgement.",
-      answerZh: "判断前需要来源、日期、股价、可能回报、风险和局限，而不能只靠熟悉度。",
+      revealTitle: "Familiarity alone does not prove that a share is safe.",
+      revealTitleZh: "仅凭熟悉度不能证明一只股票是安全的。",
       notes: [
         "Current role: student-answerable prompt with a concise reveal answer.",
         "Future use: use when you want commitment before explanation.",
@@ -281,51 +276,6 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "peerTask",
-      eyebrow: "type: peerTask",
-      title: "Improve one analyst sentence",
-      zhTitle: "改进一句分析句",
-      visual: investmentPhotos.businessChartsPaper,
-      steps: [
-        { text: "Write your own sentence first.", zh: "先写出自己的句子。" },
-        { text: "Compare with a partner and underline the evidence.", zh: "与同伴比较，并划出证据。" },
-        { text: "Improve one word before the reveal.", zh: "揭示前改进一个词。" }
-      ],
-      sampleAnswer: "Tencent is a familiar company, but a judgement needs source-dated evidence about price, return and risk.",
-      sampleAnswerZh: "腾讯是熟悉的公司，但判断需要关于价格、回报和风险的带日期证据。",
-      notes: [
-        "Current role: partner work with a revealed sample answer.",
-        "Future use: use for short writing, peer comparison or improvement routines.",
-        "Review decision: decide whether the steps panel is clear enough."
-      ]
-    },
-    {
-      type: "peerTask",
-      eyebrow: "type: peerTask / sort variant",
-      title: "Sort the evidence habit",
-      zhTitle: "给证据习惯分类",
-      visual: investmentPhotos.investorChartScreens,
-      taskType: "sort",
-      categories: ["Company", "Share price", "Risk", "Weak opinion"],
-      steps: [
-        { text: "Sort each case into one category.", zh: "把每个案例分到一个类别。" },
-        { text: "Explain the most difficult choice.", zh: "解释最难判断的一项。" }
-      ],
-      cases: [
-        { label: "A", text: "Tencent Holdings" },
-        { label: "B", text: "0700.HK moved" },
-        { label: "C", text: "Competition may reduce profit" },
-        { label: "D", text: "Famous means safe" }
-      ],
-      sampleAnswer: "Famous means safe is a weak opinion because it has not checked price, return or risk.",
-      sampleAnswerZh: "“有名就安全”是弱观点，因为它没有核查价格、回报或风险。",
-      notes: [
-        "Current role: same peerTask type, but taskType sort changes the layout.",
-        "Future use: use for categories, concepts, evidence/source sorting and misconception checks.",
-        "Review decision: decide whether this should become its own slide type."
-      ]
-    },
-    {
       type: "rankingTask",
       eyebrow: "type: rankingTask",
       title: "Rank assets by risk",
@@ -362,62 +312,15 @@ window.INVEST.lesson = {
       notes: [
         "Current role: custom ordered-line task for comparative risk or priority ranking.",
         "Future use: use when students must defend a low-to-high sequence rather than sort cases into categories.",
-        "Review decision: keep rankingTask separate from the sort peerTask."
-      ]
-    },
-    {
-      type: "peerTask",
-      taskType: "definitionRecall",
-      eyebrow: "type: peerTask / definitionRecall",
-      title: "Recall three definitions",
-      zhTitle: "回忆三个定义",
-      prompt: "Write one-sentence definitions before reveal.",
-      promptZh: "先写一句定义，再揭示答案。",
-      definitionItems: [
-        { label: "1", term: "Share", termZh: "股票 / 股份", answer: "A share is one unit of ownership in a company, giving the shareholder a claim on part of the company's equity and, depending on the share class, certain rights such as votes or dividends.", answerZh: "股票或股份是公司所有权的一个单位，使股东对公司部分权益拥有要求权，并且视股票类别而可能享有投票权或股息等权利。" },
-        { label: "2", term: "Stock code", termZh: "股票代码", answer: "A stock code is the short market identifier used to find a listed security on an exchange or market-data system.", answerZh: "股票代码是用于在交易所或市场数据系统中查找某一上市证券的简短市场识别代码。" },
-        { label: "3", term: "Risk", termZh: "风险", answer: "Risk is the possibility that results, returns or prices are worse than expected.", answerZh: "风险是结果、回报或价格比预期更差的可能性。" }
-      ],
-      sharePrompt: "Compare one definition and improve the wording.",
-      sharePromptZh: "比较一个定义，并改进表达。",
-      notes: [
-        "Current role: economics-derived peerTask variant for opening retrieval.",
-        "Future use: use at the start of Lesson 2+ when students need to recall exact definitions.",
-        "Review decision: decide whether this should stay as a peerTask variant or become a named slide type."
-      ]
-    },
-    {
-      type: "peerTask",
-      taskType: "missingSentence",
-      eyebrow: "type: peerTask / missingSentence",
-      title: "Complete the missing explanation sentence",
-      zhTitle: "补全缺失的解释句",
-      prompt: "Use the first and last step to write the missing analyst sentence.",
-      promptZh: "利用第一步和最后一步，写出缺失的分析句。",
-      steps: [
-        { label: "1", text: "The source reports a change in profit.", zh: "来源报告利润发生变化。" },
-        { label: "2", text: "__________", answer: "Investors may update expectations about future returns.", zh: "投资者可能更新对未来回报的预期。" },
-        { label: "3", text: "The share price may move as buying and selling pressure changes.", zh: "随着买卖压力变化，股价可能变动。" }
-      ],
-      missingSentenceStep: 2,
-      missingSentenceAnswer: "Investors may update expectations about future returns.",
-      missingSentenceAnswerZh: "投资者可能更新对未来回报的预期。",
-      sharePrompt: "Read the sentence aloud and check that it explains the middle link.",
-      sharePromptZh: "读出句子，并检查它是否解释了中间环节。",
-      notes: [
-        "Current role: economics-derived sentence-chain practice.",
-        "Future use: use when students need to write one missing link in an evidence-to-judgement chain.",
-        "Review decision: decide whether this adds enough value beyond flow and normal peerTask."
+        "Review decision: keep rankingTask for genuine ordered comparisons."
       ]
     },
     {
       type: "quiz",
       eyebrow: "type: quiz",
-      title: "Hinge check",
-      zhTitle: "关键检查",
+      title: "Which claim is safest after looking at a frozen share-price chart?",
+      zhTitle: "看完冻结的股价图后，哪一个说法最稳妥？",
       visual: investmentPhotos.tabletFinancialChart,
-      question: "Which claim is safest after looking at a frozen share-price chart?",
-      zh: "看完冻结的股价图后，哪一个说法最稳妥？",
       choices: [
         "The share is definitely a good investment.",
         "The chart shows how one share price moved in that source.",
@@ -581,31 +484,6 @@ window.INVEST.lesson = {
       ]
     },
     {
-      type: "classificationTask",
-      eyebrow: "type: classificationTask",
-      title: "Classify the evidence habit",
-      zhTitle: "给证据习惯分类",
-      prompt: "Classify each case using the categories already taught.",
-      promptZh: "用已经学过的类别给每个案例分类。",
-      categories: [
-        { title: "Evidence", zhTitle: "证据", clue: "source, date, figure", visual: investmentPhotos.annualReports },
-        { title: "Risk", zhTitle: "风险", clue: "what could go worse", visual: investmentPhotos.keywordDemandRiskEmptyStore },
-        { title: "Weak opinion", zhTitle: "薄弱观点", clue: "claim without support", visual: investmentPhotos.modernTradingDesk }
-      ],
-      items: [
-        { label: "A", text: "Uses a dated annual-report figure.", zh: "使用带日期的年报数据。", answer: "Evidence", answerZh: "证据", reason: "It names a source-backed fact.", reasonZh: "它说出了有来源支持的事实。" },
-        { label: "B", text: "Says Tencent is famous, so it is safe.", zh: "说腾讯很有名，所以很安全。", answer: "Weak opinion", answerZh: "薄弱观点", reason: "Familiarity is not evidence of value or risk.", reasonZh: "熟悉度不是价值或风险的证据。" },
-        { label: "C", text: "Asks what could reduce future profit.", zh: "询问什么可能降低未来利润。", answer: "Risk", answerZh: "风险", reason: "It checks what could go worse than expected.", reasonZh: "它检查什么可能比预期更差。" }
-      ],
-      sharePrompt: "Defend one classification with a reason.",
-      sharePromptZh: "用理由说明一个分类。",
-      notes: [
-        "Current role: economics-derived classify-and-justify routine.",
-        "Future use: use for evidence/opinion/risk/source-quality categories.",
-        "Review decision: decide whether it should replace the sort peerTask for some tasks."
-      ]
-    },
-    {
       type: "yesNoCheck",
       eyebrow: "type: yesNoCheck",
       title: "Yes or no: does this prove quality?",
@@ -692,41 +570,6 @@ window.INVEST.lesson = {
         "Current role: two- or three-column criteria comparison.",
         "Future use: use for investment choices, company-versus-fund choices or strategy comparisons.",
         "Review decision: decide whether this should support student input boxes or only reveal cells."
-      ]
-    },
-    {
-      type: "evidenceSimulator",
-      eyebrow: "type: evidenceSimulator",
-      title: "Reveal clues, then choose the next step",
-      zhTitle: "揭示线索，然后选择下一步",
-      prompt: "After each clue, ask the class to choose 1, 2 or 3.",
-      promptZh: "每条线索出现后，请全班选择1、2或3。",
-      evidenceLabel: "Progressive clues",
-      decisionLabel: "Choose one after each clue",
-      facts: [
-        { label: "Purpose and amount", labelZh: "用途和金额", value: "Home deposit · CNY 400,000", valueZh: "住房首付·400,000元人民币" },
-        { label: "Time horizon", labelZh: "时间期限", value: "The goal is ten years away", valueZh: "目标将在十年后实现" },
-        { label: "Access need", labelZh: "资金使用需要", value: "The date has some flexibility", valueZh: "日期具有一定灵活性" },
-        { label: "Possible loss", labelZh: "可能的损失", value: "A loss could delay the purchase", valueZh: "损失可能推迟购房" }
-      ],
-      decisionOptions: [
-        { id: "keep-available", label: "Keep available", labelZh: "保持资金可用", detail: "Use this when the money is needed soon.", detailZh: "资金很快要使用时，选择此项。", tone: "caution" },
-        { id: "more-information", label: "Need more information", labelZh: "需要更多信息", detail: "Use this when the amount, date or possible loss is unclear.", detailZh: "金额、日期或可能损失不清楚时，选择此项。", tone: "neutral" },
-        { id: "consider-investing", label: "Consider investing", labelZh: "可考虑投资", detail: "Use this for a later goal with no urgent access need; check risk first.", detailZh: "目标较远且无需紧急使用资金时可选择；先检查风险。", tone: "positive" }
-      ],
-      conclusion: {
-        verdict: "consider-investing",
-        tone: "positive",
-        label: "Consider investing after the remaining checks",
-        labelZh: "完成其余检查后可考虑投资",
-        text: "The longer, flexible horizon supports considering investment, but the family must still judge the consequence of loss and how much must remain available.",
-        textZh: "较长且灵活的期限支持考虑投资，但家庭仍必须判断损失后果以及需要保持可用的资金金额。"
-      },
-      instruction: "Students show 1, 2 or 3 with their fingers. The teacher clicks only Reveal next clue.",
-      notes: [
-        "Current role: one-button teacher-led progressive clues with verbal or finger choices.",
-        "Future use: use when each new fact should change or qualify a judgement.",
-        "Review decision: keep the prompt, revealed facts and conclusion visible together on classroom screens."
       ]
     },
     {

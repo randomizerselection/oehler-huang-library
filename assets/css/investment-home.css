@@ -56,6 +56,33 @@
   line-height: 0.98;
 }
 
+.investment-home .investment-title-zh {
+  display: block;
+  margin-top: 12px;
+  color: rgba(214, 231, 232, 0.82);
+  font-size: 0.42em;
+  font-weight: 520;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.investment-home .investment-bilingual-copy > span,
+.investment-home .investment-lesson-list p > span,
+.investment-home .investment-unit-list p > span,
+.investment-home .investment-principle > p > span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(190, 211, 207, 0.7);
+}
+
+.investment-home .investment-nav .investment-link span,
+.investment-home .investment-action span,
+.investment-home .investment-lesson-list nav a span {
+  margin-left: 0.35em;
+  color: rgba(214, 231, 232, 0.66);
+  font-weight: 550;
+}
+
 .investment-home .investment-hero-copy > p,
 .investment-home.simplified-landing .investment-hero-copy > p {
   max-width: 43rem;
@@ -111,6 +138,13 @@
   text-transform: uppercase;
 }
 
+.investment-principle > span i {
+  margin-left: 0.55em;
+  color: rgba(190, 211, 207, 0.68);
+  font-style: normal;
+  letter-spacing: 0;
+}
+
 .investment-principle > strong {
   margin-top: 13px;
   color: var(--inv-ink);
@@ -118,6 +152,16 @@
   font-weight: 560;
   letter-spacing: -0.035em;
   line-height: 1.08;
+}
+
+.investment-principle > strong small {
+  display: block;
+  margin-top: 10px;
+  color: rgba(190, 211, 207, 0.7);
+  font-size: 0.48em;
+  font-weight: 520;
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 
 .investment-decision-flow {
@@ -137,6 +181,14 @@
   font-size: 11px;
   font-weight: 700;
   text-align: center;
+}
+
+.investment-decision-flow b span {
+  display: block;
+  margin-top: 2px;
+  color: rgba(190, 211, 207, 0.65);
+  font-size: 0.82em;
+  font-weight: 550;
 }
 
 .investment-decision-flow i {
@@ -227,6 +279,22 @@
   font-size: 14px;
 }
 
+.investment-home .investment-lesson-list .investment-card-title-zh {
+  margin-top: 6px;
+  color: rgba(214, 231, 232, 0.78);
+  font-size: 17px;
+  font-weight: 520;
+}
+
+.investment-home .investment-lesson-list .investment-lab-note {
+  margin-top: 15px;
+  border-top: 1px solid rgba(79, 210, 255, 0.16);
+  padding-top: 11px;
+  color: var(--inv-cyan);
+  font-size: 12px;
+  font-weight: 680;
+}
+
 .investment-home .investment-lesson-list nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -262,6 +330,13 @@
   font-size: 13px;
 }
 
+.investment-home .investment-unit-list .investment-card-title-zh {
+  margin-top: 4px;
+  color: rgba(214, 231, 232, 0.72);
+  font-size: 15px;
+  font-weight: 520;
+}
+
 .investment-home .investment-resource-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
@@ -272,6 +347,19 @@
   align-content: center;
   border-radius: 13px;
   padding: 20px;
+}
+
+.investment-home .investment-resource-list strong span {
+  color: rgba(214, 231, 232, 0.72);
+  font-size: 0.88em;
+  font-weight: 550;
+}
+
+.investment-home .investment-resource-list i {
+  display: block;
+  margin-top: 3px;
+  color: rgba(157, 180, 177, 0.72);
+  font-style: normal;
 }
 
 .investment-supporting-link {

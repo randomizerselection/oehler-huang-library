@@ -259,7 +259,7 @@
       lessons: [1, 8],
       officialStage: "Understanding SMG and Before You Invest",
       coursePurpose: "Form teams, learn the national and local rules, rotate defined roles, open the team journal and write an evidence-based investment policy before any order is entered.",
-      defaultStudentAction: "Apply each lesson's concept to the team purpose, rules, policy or pre-launch watchlist; do not trade before the Lesson 8 launch gate.",
+      defaultStudentAction: "Apply each lesson's concept to the team purpose, rules, policy or pre-launch watchlist; do not trade during Unit 1.",
       requiredEvidence: "Roster, role record, completed rules quiz, team investment policy and individual Unit 1 checkpoint.",
       officialResources: ["program-guides/SMG_Advisor_Guide_2022.pdf", "high-school-lessons/00_Understanding_SMG_Grades_9-12.pdf", "rules-and-platform/SMG_National_Rules_Handout.pdf", "rules-and-platform/SMG_Rules_Quiz.pdf", "rules-and-platform/SMG_Team_Roles.pdf"]
     },
@@ -267,9 +267,9 @@
       phase: 2,
       lessons: [9, 17],
       officialStage: "Selecting Your Investments",
-      coursePurpose: "Compare eligible investment choices, research candidates and justify every trade, watch or no-trade decision against the approved team plan.",
-      defaultStudentAction: "Apply each lesson's investment-choice criteria to the portfolio or an eligible candidate and record the resulting evidence or decision.",
-      requiredEvidence: "Research worksheet, proposal author, team decision, transaction note or no-trade reason and review trigger.",
+      coursePurpose: "Compare investment choices, learn what shares and funds provide, test costs and diversification, then prepare the first evidence-backed order against the approved team plan.",
+      defaultStudentAction: "Apply each lesson's investment-choice criteria to a paper portfolio or eligible candidate; no order is entered before the Lesson 17 launch gate.",
+      requiredEvidence: "Investment-choice comparison, research worksheet, proposed allocation, proposal author, team decision and review trigger.",
       officialResources: ["program-guides/SMG_Essentials_Workbook.pdf", "high-school-lessons/04_Diversification_Grades_9-12.pdf", "high-school-lessons/05_Stock_Research_Guide_and_Worksheet.pdf", "high-school-lessons/06_What_Is_Risk_Grades_9-12.pdf", "rules-and-platform/SMG_How_to_Trade_Stocks.pdf"]
     },
     {
@@ -311,20 +311,24 @@
   ];
 
   const stockMarketGameMilestones = {
-    1: "Create teams of three to five where practicable, roster every student on exactly one portfolio, assign the first roles and open individual journals.",
-    3: "Read the live national rules and advisor-account local rules, complete the official rules quiz and sign the course's long-only participation agreement.",
-    7: "Complete the official Before You Invest checks on companies, stocks, ticker symbols and quote fields, then research one eligible candidate without entering an order.",
-    8: "Approve the team investment policy, then complete one successful long stock buy of at least 10 shares at the transition into Unit 2; every student records their contribution to the proposal.",
-    15: "Audit whether the portfolio is genuinely diversified and propose one evidence-based improvement or justified no-change decision.",
-    17: "Complete the first formal portfolio-fit review against the team's goals, horizon, risk limits and permitted choices.",
-    21: "Annotate one eligible security's quote page before any new order is approved.",
-    25: "Compare team performance with the applicable platform benchmark without treating rank as proof of decision quality.",
-    35: "Submit a junior analyst memo connected to one holding or watchlist candidate.",
+    8: "Submit the Unit 1 investment policy and individual goal-horizon-risk decision charter; no order is entered.",
+    17: "Submit the Unit 2 investment-choice memo, approve the proposed allocation and complete the first qualifying teacher-approved order.",
+    26: "Submit the Unit 3 market-evidence memo using transaction, quote, return and benchmark evidence.",
+    35: "Submit the Unit 4 junior analyst memo connected to one holding or watchlist candidate.",
+    43: "Submit the Unit 5 portfolio review and evidence-based rebalance or no-rebalance decision.",
+    50: "Submit the Unit 6 final portfolio evaluation and an individual reflection proving participation, evidence use and changed judgement."
+  };
+
+  const stockMarketGameEvidenceCheckpoints = {
+    1: "Create teams, roster every student, assign the first roles and open individual evidence records.",
+    3: "Read the live national and local rules, complete the official rules quiz and sign the long-only participation agreement.",
+    7: "Set the team's risk-tolerance and risk-capacity limits without selecting a security.",
+    15: "Audit the proposed paper portfolio for company, sector and geographic concentration.",
+    21: "Annotate one eligible security's quote page before any later order is considered.",
+    25: "Compare team performance with the applicable benchmark without treating rank as proof of decision quality.",
     36: "Record the portfolio's current asset allocation and compare it with the approved team plan.",
-    41: "Complete the formal rebalance decision using target weights, transaction costs and evidence.",
-    43: "Audit one team decision for FOMO, recency bias or performance chasing and revise the process if needed.",
-    48: "Re-check current national and local rules, account security and unsafe-offer boundaries before the final portfolio period.",
-    50: "Submit the final team portfolio evaluation and an individual reflection proving personal participation, evidence use and changed judgement."
+    41: "Complete a formal rebalance check using target weights, transaction costs and evidence.",
+    48: "Re-check current national and local rules, account security and unsafe-offer boundaries before the final portfolio period."
   };
 
   const stockMarketGameLessonActions = {
@@ -334,17 +338,17 @@
     4: "Use a frozen contribution-and-return scenario to project how the team's starting capital could compound, then label every assumption and limitation.",
     5: "Calculate the approximate real return of a frozen portfolio or benchmark scenario and explain the effect on the team's purchasing-power goal.",
     6: "Place one watchlist candidate and the team's cash position on a risk-possible-return map, including one downside that the map cannot quantify.",
-    7: "Set team risk-tolerance and risk-capacity limits, complete the official company-stock-ticker-quote checks and research one eligible candidate without trading.",
-    8: "Approve the team investment policy and first evidence-backed proposal, then complete the qualifying long stock purchase when the teacher opens the launch gate.",
-    9: "Set and justify the portfolio's cash reserve by explaining which money should remain liquid rather than being invested immediately.",
+    7: "Set team risk-tolerance and risk-capacity limits, complete the official rules check and record which investment-choice evidence must be learned before any order.",
+    8: "Approve the team investment policy, permitted-choice boundaries and pre-launch research plan; do not select or purchase a security.",
+    9: "Set and justify the proposed portfolio's cash reserve by explaining which money should remain liquid rather than being invested immediately.",
     10: "Compare the portfolio with a teacher-frozen bond alternative; if the platform does not permit that bond, record the comparison as a paper allocation rather than a trade.",
-    11: "Explain what ownership of one current holding or eligible watchlist share gives the team and what it does not give.",
-    12: "Test whether an eligible fund or teacher-frozen ETF candidate would broaden the portfolio's exposures, then identify one risk that remains.",
+    11: "Explain what ownership of one eligible watchlist share would give the team and what it would not give; no order is entered.",
+    12: "Test whether an eligible fund or teacher-frozen ETF candidate would broaden the proposed portfolio's exposures, then identify one risk that remains.",
     13: "Compare an index-tracking and actively managed fund candidate by objective, benchmark, cost, holdings and evidence quality.",
     14: "Use the current platform or local fee schedule to calculate how transaction or fund costs would affect one proposed portfolio action.",
-    15: "Audit the live portfolio by company, sector and geography, then approve one diversification improvement or a justified no-change decision.",
+    15: "Audit the proposed paper portfolio by company, sector and geography, then improve its diversification before launch.",
     16: "Model regular contributions versus one lump-sum contribution in a side scenario and state why this projection is not a promised platform result.",
-    17: "Complete the formal portfolio-fit review against the approved goal, horizon, liquidity need, risk limits, costs and permitted choices.",
+    17: "Complete the formal portfolio-fit review, approve the first evidence-backed proposal and then complete the qualifying long stock purchase when the teacher opens the launch gate.",
     18: "Use a dated filing or official company source to explain why one holding or watchlist company issued shares and what the issue financed.",
     19: "Classify one team transaction as a secondary-market trade and contrast it with the company's primary-market issuance.",
     20: "Trace one order from proposal through submission, execution and settlement, recording the actual platform status at each available stage.",
@@ -380,11 +384,94 @@
     50: "Defend the final portfolio against its goal and benchmark, evaluate the decision process and submit an individual reflection on contribution and changed judgement."
   };
 
+  const stockMarketGameWorkbookSessions = [
+    { session: 1, title: "Intro to Investing", pages: [4, 8], courseLessons: [1, 3], courseUse: "Goals, saving versus investing, reflection and team roles." },
+    { session: 2, title: "Intro to Companies & Stocks", pages: [9, 14], courseLessons: [11, 11], courseUse: "Company-share foundations and public-company identification after the team policy is complete." },
+    { session: 3, title: "Building Your Portfolio", pages: [15, 19], courseLessons: [17, 17], courseUse: "Investment-choice review, proposed allocation and the first qualifying order at the launch gate." },
+    { session: 4, title: "Conducting Research", pages: [20, 24], courseLessons: [21, 21], courseUse: "Candidate research and quote-page annotation after students have learned shares, funds, costs and diversification." },
+    { session: 5, title: "Assessing Risk", pages: [25, 28], courseLessons: [6, 7], courseUse: "Risk, risk tolerance and risk capacity before any security is selected." },
+    { session: 6, title: "Diversification", pages: [29, 36], courseLessons: [12, 15], courseUse: "Funds, costs, sectors, diversification and a controlled fund proposal." },
+    { session: 7, title: "Market Analysis", pages: [37, 40], courseLessons: [22, 29], courseUse: "Price-moving information, earnings evidence and source limitations." },
+    { session: 8, title: "Asset Allocation", pages: [41, 45], courseLessons: [10, 40], courseUse: "Bond structure, goal fit and later cross-asset comparison." },
+    { session: 9, title: "Portfolio Evaluation", pages: [46, 48], courseLessons: [29, 35], courseUse: "Annual-report evidence and the company-analysis portfolio implication." },
+    { session: 10, title: "Wrap Up & Reflection", pages: [49, 55], courseLessons: [49, 50], courseUse: "Benchmark-aware evaluation, team presentation and individual reflection." }
+  ];
+
+  const stockMarketGameWorkbookLessonPlan = {
+    1: { pages: "1-3 and 8", action: "Set up the personal workbook, record only the team ID or username, assign roles and complete the opening orientation.", treatment: "complete" },
+    2: { pages: "5-6", action: "Complete the short- and long-term goal tables; add liquidity need beside each goal.", treatment: "complete with course addition" },
+    3: { pages: "4 and 7", action: "Use the introduction and reflection to distinguish saving, investing and speculation for the stated goals.", treatment: "complete" },
+    6: { pages: "25-26", action: "Complete the risk introduction and distinguish possible return from guaranteed return; no security is selected.", treatment: "complete with course boundary" },
+    7: { pages: "27-28", action: "Separate willingness to take risk from financial ability to withstand loss and record the team's pre-launch risk limits.", treatment: "complete with course addition" },
+    10: { pages: "41-45", action: "Complete the bond comparison as a paper allocation unless current platform, local and course rules permit an approved order.", treatment: "complete with trade override" },
+    11: { pages: "9-14", action: "Complete the company-and-stock pages and correct what owning one share gives and does not give before any order is entered.", treatment: "complete with course correction" },
+    12: { pages: "33-35", action: "Complete the mutual-fund quote and holdings investigation, adding objective, cost and one remaining concentration risk.", treatment: "complete with course addition" },
+    13: { pages: "36", action: "Replace the automatic mutual-fund trade with a compare, research, hold, propose or no-trade decision supported by evidence.", treatment: "complete with trade override" },
+    14: { pages: "34-36", action: "Revisit the fund evidence and calculate how the stated expense ratio affects the proposed holding.", treatment: "revisit with calculation" },
+    15: { pages: "29-32", action: "Complete the sector map and portfolio circle, then test company, sector and geographic concentration rather than counting holdings.", treatment: "complete with course addition" },
+    17: { pages: "15-19 and 24", action: "Complete the proposed allocation, test it against the approved goal and limits, then treat any buy instruction as submission to the Lesson 17 approval gate.", treatment: "complete with trade override" },
+    21: { pages: "20-23", action: "Complete the research and quote pages and annotate one live or frozen eligible-security quote before any later order is considered.", treatment: "complete with course addition" },
+    22: { pages: "37 and 40", action: "Use the market-analysis opener and current-events reflection to explain one price move with an alternative explanation and limitation.", treatment: "complete" },
+    26: { pages: "40", action: "Audit the source, date, material claim, uncertainty and possible conflict behind the completed current-events reflection.", treatment: "revisit" },
+    29: { pages: "38-39 and 46-47", action: "Use earnings and annual-report evidence for one holding or candidate; do not treat an analyst estimate or one ratio as a decision by itself.", treatment: "complete with course addition" },
+    35: { pages: "47-48", action: "Convert buy, sell or hold into an evidence-based portfolio implication: hold, research, trade or no trade, with a caveat and review trigger.", treatment: "revisit with trade override" },
+    36: { pages: "32 and 44-45", action: "Revisit the workbook allocation and compare it with the live portfolio's actual asset and security weights.", treatment: "revisit" },
+    40: { pages: "41-45", action: "Revisit bonds beside a current share holding and eligible fund using the same goal, risk, liquidity, cost and evidence criteria.", treatment: "revisit" },
+    49: { pages: "54", action: "Use the additional-assessment menu to select evidence for the final presentation; do not add a second project.", treatment: "extension menu" },
+    50: { pages: "49-53 and 55", action: "Complete the final benchmark-aware evaluation, team presentation and individual reflection; judge the process, not the ranking.", treatment: "complete" }
+  };
+
+  const stockMarketGameWorkbookRules = [
+    "The complete SMG Essentials Workbook is issued to every student and remains the default individual paper record for the full course.",
+    "Workbook pages are completed or revisited at the lesson shown in the course page calendar, not necessarily in numerical page or session order.",
+    "Any workbook instruction to buy, purchase or enter a trade means propose buy, hold, research, sell, rebalance or no trade; an order is entered only after the course approval gate is met.",
+    "A workbook answer does not authorise a transaction. The shared team decision log is the authoritative decision, evidence and platform-status record.",
+    "When a workbook activity overlaps the lesson task, use the workbook and do not generate a duplicate worksheet. Generate one separately labelled activity insert only for evidence, calculation or judgement that the workbook cannot hold.",
+    "Add dated evidence, one material fact, one limitation, plan fit and a review trigger whenever the workbook does not request them explicitly.",
+    "Portfolio rank and raw return carry no marks; compare the appropriate benchmark and assess evidence, reasoning, participation, rule compliance and reflection.",
+    "Students may record a team ID or username in the workbook but must never record a password."
+  ];
+
+  const stockMarketGameWorkbookRulesZh = [
+    "每位学生领取完整的《SMG Essentials Workbook》，并把它作为全课程默认的个人纸质学习记录。",
+    "按照课程页码安排完成或重做练习册内容，不必按页码或单元顺序从头做到尾。",
+    "练习册中任何“买入”“购买”或“提交交易”的指令，都应理解为提出买入、持有、继续研究、卖出、再平衡或不交易的建议；只有通过课程审批关卡后才能下单。",
+    "练习册答案不能授权交易。共享团队决策日志才是证据、决策和平台状态的正式记录。",
+    "练习册活动与课堂任务重合时，不再生成重复练习单；只有在练习册无法容纳必要证据、计算或判断时，才使用一页简短补充单。",
+    "若练习册没有明确要求，应补充带日期的证据、一个重要事实、一个局限、与团队计划的匹配以及复查条件。",
+    "投资组合排名和原始收益不计分；应比较适用基准，并评估证据、推理、参与、规则遵守和反思。",
+    "学生可以记录团队编号或用户名，但绝不能在练习册中记录密码。"
+  ];
+
+  function getStockMarketGameWorkbookUse(lesson) {
+    const planned = stockMarketGameWorkbookLessonPlan[lesson];
+    if (planned) {
+      return {
+        hasAssignedPages: true,
+        pages: planned.pages,
+        treatment: planned.treatment,
+        studentAction: planned.action,
+        individualRecord: "Complete the assigned workbook pages and the lesson's individual exit judgement.",
+        supplementRule: "Use at most one separately labelled activity insert for required evidence or judgement that the assigned workbook pages cannot hold; do not reproduce the workbook activity."
+      };
+    }
+    return {
+      hasAssignedPages: false,
+      pages: "No new workbook pages",
+      treatment: "activity insert",
+      studentAction: "Keep the workbook as the permanent course record and complete only the separately labelled lesson activity insert; do not add a duplicate general worksheet.",
+      individualRecord: "Complete the lesson's individual activity insert and file it with the workbook.",
+      supplementRule: "The insert must contain only the lesson-specific evidence, calculation or judgement missing from the official workbook."
+    };
+  }
+
   function getStockMarketGameLessonIntegration(lesson) {
     const phase = stockMarketGamePhases.find(function findPhase(item) {
       return lesson >= item.lessons[0] && lesson <= item.lessons[1];
     });
     const milestone = Boolean(stockMarketGameMilestones[lesson]);
+    const evidenceCheckpoint = Boolean(stockMarketGameEvidenceCheckpoints[lesson]);
+    const workbook = getStockMarketGameWorkbookUse(lesson);
     return {
       required: true,
       central: true,
@@ -394,9 +481,11 @@
       requiredEvidence: phase.requiredEvidence,
       officialResources: phase.officialResources,
       milestone: milestone,
-      integrationLevel: milestone ? "summative course milestone" : "required formative course lab",
-      lessonUse: "Use as the lesson's main application and evidence task, replacing compatible generic practice rather than being appended as an extra activity.",
-      requiredOutput: "Add one concise team evidence row and complete the lesson's individual exit judgement.",
+      evidenceCheckpoint: evidenceCheckpoint,
+      integrationLevel: milestone ? "summative unit output" : (evidenceCheckpoint ? "formative evidence checkpoint" : "required formative course lab"),
+      lessonUse: "Use as the lesson's main application and evidence task. Complete the assigned official workbook pages when present; otherwise use one separately labelled activity insert. Never append a duplicate worksheet.",
+      requiredOutput: workbook.individualRecord + " Add one authoritative team decision-log row when the lesson produces a team decision or monitoring update.",
+      workbook: workbook,
       dataRule: "Use a portfolio, watchlist, transaction, quote or benchmark snapshot captured at the start of the lesson so the task remains stable while the platform continues to move."
     };
   }
@@ -412,22 +501,38 @@
     const studentOutput = spec.output.replace(/[.]?$/, ".");
     const actionSentence = "Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.";
     const groundedScenario = {
-      requirement: "Open the handout with a short scenario that combines real, dated evidence with a clearly labelled mock or anonymised decision.",
+      requirement: "Use a short scenario in the projected lesson or workbook activity that combines real, dated evidence with a clearly labelled mock or anonymised decision.",
       realEvidence: "Use at least one source-backed figure or statement with its source title and evidence date.",
       fictionalFrame: "Label every invented amount, profile detail or decision as mock, hypothetical or anonymised.",
       lessonUse: "Reuse the same scenario evidence in the lesson task: " + spec.task + " Then use it again in the individual output: " + studentOutput,
       limitation: "State what the real evidence cannot show about the mock profile or future investment result."
     };
+    const misconceptionCorrection = "The claim '" + spec.naive + "' is incorrect. Use this principle instead: " + spec.core;
+    const revisionPoints = [
+      spec.core,
+      "Evidence to check: " + spec.need.replace(/^Students need\s+/i, ""),
+      "Formula or relationship: " + spec.formula,
+      "Exam correction: " + misconceptionCorrection
+    ];
     const handoutSections = [
-      { key: "sourceBox", title: "Grounded scenario and source box", task: "Read a short scenario combining at least one real, dated figure or statement with clearly labelled mock or anonymised details. Record the " + spec.anchor + " source title, evidence date, accessed date, key figure or statement and one limitation." },
-      { key: "vocabulary", title: "Vocabulary", task: "Define and use: " + terms.map(function termName(item) { return item.term; }).join(", ") + "." },
-      { key: "companyEvidence", title: "Evidence and Data Analysis", task: spec.task },
-      { key: "calculationOrJudgement", title: "Calculation or judgement task", task: spec.formula },
-      { key: "misconceptionCheck", title: "Misconception check", task: "Correct the claim: " + spec.naive },
-      { key: "individualOutput", title: "Individual written output", task: studentOutput }
+      {
+        key: "definitions",
+        title: "Key definitions / 核心定义",
+        content: terms.map(function mapDefinition(term) { return { term: term.term, termZh: term.zh, definition: term.definition }; }),
+        bilingual: true,
+        fillInTheBlanks: true,
+        translationRule: "Generate a complete Simplified Chinese definition and select only English key words taught during the lesson as blanks."
+      },
+      {
+        key: "numberedRevisionPoints",
+        title: "Numbered revision points / 编号复习要点",
+        content: revisionPoints,
+        bilingual: true,
+        translationRule: "Render every English revision point with a faithful Simplified Chinese partner sentence."
+      }
     ];
     const handoutBlocks = handoutSections.map(function mapSection(section) {
-      return { key: section.key, title: section.title, prompt: section.task, expectedStudentWork: section.task };
+      return { key: section.key, title: section.title, content: section.content, bilingual: section.bilingual, fillInTheBlanks: Boolean(section.fillInTheBlanks), translationRule: section.translationRule, studentUse: section.fillInTheBlanks ? "Complete selected English key terms during the lesson, then use the answer toggle to check exact wording." : "Memorise the bilingual numbered statements for exam revision." };
     });
     const decisionFirst = {
       starterDilemma: spec.hook,
@@ -483,8 +588,17 @@
       formativeAssessment: "First judgement, targeted retrieval, required SMG core lab, misconception correction and individual exit output.",
       exitTicket: studentOutput,
       groundedScenario: groundedScenario,
-      handoutMaterial: spec.anchor + " worksheet with source box, vocabulary, evidence task, calculation or judgement, misconception check and individual output.",
+      handoutMaterial: "A bilingual exam-revision handout for " + spec.anchor + ": fill-in-the-blank English key definitions with complete Simplified Chinese support, followed by four to seven bilingual numbered knowledge points covering the taught principle, evidence relationship, formula or decision rule and misconception correction. Definition blanks are completed during the lesson and checked with the answer toggle. Do not include workbook directions, evidence tasks, extended response prompts, writing lines or an individual output.",
       handoutSections: handoutSections,
+      writtenRecord: {
+        primaryArtifact: stockMarketGame.workbook.hasAssignedPages ? "SMG Essentials Workbook" : "activity insert filed with the SMG Essentials Workbook",
+        workbookPages: stockMarketGame.workbook.pages,
+        workbookTreatment: stockMarketGame.workbook.treatment,
+        workbookAction: stockMarketGame.workbook.studentAction,
+        supplementRule: stockMarketGame.workbook.supplementRule,
+        authoritativeTeamRecord: "The shared SMG team decision log is authoritative for evidence, decisions, dissent, order checks, platform status and review triggers.",
+        individualOutput: studentOutput
+      },
       primaryOutput: { type: "evidence-based-investment-decision", description: studentOutput },
       investmentAction: {
         studentAction: actionSentence,
@@ -548,7 +662,7 @@
         ],
         handoutBlocks: handoutBlocks,
         stockMarketGame: stockMarketGame,
-        chapterOutput: "The handout is the textbook chapter; do not add separate textbook-only teaching content.",
+        chapterOutput: "Use the definition-and-numbered-point lesson handout as the exam-revision chapter. Keep workbook directions, evidence tasks, calculations to complete and individual judgements in the workbook or a separately labelled activity insert; do not place them in the handout.",
         examItemShape: "Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output."
       },
       cardGenerator: {
@@ -570,7 +684,7 @@
         handout: "unit-1/lesson-" + lesson + "/index.html?view=print"
       } : null,
       caseReview: {
-        status: "planned",
+        status: lesson <= 2 ? "published and source-verified" : "planned",
         sourceFit: "The case can be taught from frozen evidence without live-price dependence or personal account data.",
         reason: "The anchor supports the unit progression and an evidence-based investment decision."
       }
@@ -588,7 +702,7 @@
   });
 
   const courseMap = {
-    version: 6,
+    version: 10,
     syllabusKey: "financial-decisions",
     courseTitle: "Investment and Financial Decision-Making",
     mapTitle: "50-Lesson Personal Wealth, Markets and Analysis Course Map",
@@ -612,8 +726,8 @@
         rotationRule: "Rotate roles every two course weeks. Teams with fewer than five students may combine roles, but the proposal author and order checker should be different students where team size permits; no rotation may expose team passwords."
       },
       launchGate: {
-        timing: "After Lesson 8 and at the transition into Unit 2.",
-        readiness: ["Every student is rostered.", "National and local rules have been read.", "The official rules quiz is complete.", "The official company, stock, ticker-symbol and quote checks are complete.", "The team investment policy is approved.", "A dated research note supports the proposed order."],
+        timing: "At the end of Lesson 17, after students have completed the investment-choice foundations in Units 1 and 2.",
+        readiness: ["Every student is rostered.", "National and local rules have been read.", "The official rules quiz is complete.", "The team investment policy is approved.", "Students can explain shares and funds, compare costs and identify concentration risk.", "The proposed allocation fits the goal, horizon, liquidity need and risk limits.", "A dated research note supports the proposed order."],
         qualifyingAction: "Complete one successful teacher-approved long stock buy of at least 10 shares, subject to any stricter local rule. Every student records their contribution to the team proposal."
       },
       classroomRules: [
@@ -632,13 +746,26 @@
       ],
       operatingModel: {
         lessonTimeShare: "Allocate roughly 35-50% of every lesson to the SMG core lab; scale the exact minutes to the timetable and give milestone lessons the larger share.",
-        integrationRule: "The SMG core lab is the lesson's main application and evidence task. It replaces compatible generic case practice rather than being appended after the lesson.",
-        lessonEvidenceCadence: "Every lesson produces one concise team evidence row and one individual exit judgement. The six unit outputs curate this evidence rather than asking students to reproduce it.",
-        summativeCadence: "Fourteen named lessons are summative SMG milestones; the other thirty-six are required formative course labs that build the same portfolio evidence trail.",
+        integrationRule: "The SMG core lab is the lesson's main application and evidence task. The complete official workbook is the default individual work record; assigned workbook pages replace compatible generic practice, and only missing course evidence receives a separately labelled activity insert.",
+        lessonEvidenceCadence: "Every lesson produces an individual workbook entry or activity insert. A team decision-log row is added whenever the lesson produces a team decision or monitoring update; the six unit outputs curate this evidence rather than asking students to reproduce it.",
+        summativeCadence: "Only the six unit outputs are summative. All other SMG work, including named evidence checkpoints, is formative and builds the same portfolio evidence trail.",
         individualEvidenceCadence: "Every student contributes through rotating roles and an individual exit judgement in every lesson, then curates one personal checkpoint per unit plus the final reflection.",
         tradingCadence: "After the required first qualifying purchase, there is no trade quota. A justified hold or no-trade decision counts equally when evidence or portfolio fit does not support action.",
-        workloadRule: "SMG work is the application layer of the course, not a second parallel homework course. Reuse the same evidence in the lesson output and unit assessment.",
+        workloadRule: "SMG work is the application layer of the course, not a second parallel homework course. Never assign the official workbook activity and a duplicate six-block worksheet; use an activity insert only for missing course evidence.",
         snapshotRule: "Capture the required platform evidence at the start of the lesson and use that frozen snapshot for teaching, writing and assessment so live price movement cannot destabilise the task."
+      },
+      workbook: {
+        title: "SMG Essentials Workbook",
+        file: "investment-analysis/references/stock-market-game/program-guides/SMG_Essentials_Workbook.pdf",
+        pages: 55,
+        distribution: "Print and issue the complete workbook to every student at the start of the course.",
+        role: "Default individual paper record for the full course; students complete or revisit pages according to the course calendar rather than workbook order.",
+        courseRules: stockMarketGameWorkbookRules,
+        courseRulesZh: stockMarketGameWorkbookRulesZh,
+        sessions: stockMarketGameWorkbookSessions,
+        lessonPlan: stockMarketGameWorkbookLessonPlan,
+        studentGuide: "investment-analysis/smg-workbook-course-guide.html",
+        teamLog: "investment-analysis/smg-team-evidence-log.html"
       },
       decisionLogFields: [
         { key: "date", label: "Decision date", requirement: "Use the date the evidence was reviewed." },
@@ -651,8 +778,8 @@
         { key: "reviewTrigger", label: "Review trigger", requirement: "State the date, evidence or threshold that requires reconsideration." }
       ],
       unitEvidence: [
-        { unit: 1, lessons: [1, 8], title: "SMG investment policy", teamEvidence: "Roster, role schedule, rules check, goal-horizon-risk rules, investment policy and approved first proposal.", individualEvidence: "Curate the strongest Unit 1 exit judgements into a personal goal-horizon-risk decision charter.", assessmentUse: "This is the Personal Investment Foundations unit output." },
-        { unit: 2, lessons: [9, 17], title: "SMG portfolio construction", teamEvidence: "Cash rule, asset-choice comparisons, cost check, diversification audit and formal portfolio-fit review.", individualEvidence: "Defend one chosen investment criterion and one rejected portfolio alternative using the lesson evidence trail.", assessmentUse: "This is the SMG portfolio-construction and investment-choice memo." },
+        { unit: 1, lessons: [1, 8], title: "SMG investment policy", teamEvidence: "Roster, role schedule, rules check, goal-horizon-risk rules, permitted-choice boundaries and the approved investment policy; no trade is entered.", individualEvidence: "Curate the strongest Unit 1 exit judgements into a personal goal-horizon-risk decision charter.", assessmentUse: "This is the Personal Investment Foundations unit output." },
+        { unit: 2, lessons: [9, 17], title: "SMG portfolio construction", teamEvidence: "Cash rule, investment-choice comparisons, cost check, diversification audit, formal portfolio-fit review and the first approved qualifying order.", individualEvidence: "Defend one chosen investment criterion and one rejected portfolio alternative using the lesson evidence trail.", assessmentUse: "This is the SMG portfolio-construction and investment-choice memo." },
         { unit: 3, lessons: [18, 26], title: "SMG market evidence", teamEvidence: "Issuance note, transaction trace, quote annotation, price explanation, return calculation and benchmark comparison.", individualEvidence: "Explain one transaction, price or return judgement with dated evidence and a limitation.", assessmentUse: "This is the SMG transaction, quote, return and benchmark evidence memo." },
         { unit: 4, lessons: [27, 35], title: "SMG company analysis", teamEvidence: "Ethics check, source log, business model, statements, peer comparison, risks and valuation evidence for a holding or candidate.", individualEvidence: "Author or critically review one balanced company judgement and its portfolio implication.", assessmentUse: "This is the junior company-analysis memo on an SMG holding or watchlist candidate." },
         { unit: 5, lessons: [36, 43], title: "SMG portfolio review", teamEvidence: "Weights, concentration, geographic and currency exposure, remaining risk, alternatives, rebalance, dashboard and behaviour audit.", individualEvidence: "Defend the rebalance or no-rebalance decision and specify a dated review trigger.", assessmentUse: "This is the SMG portfolio review and evidence-based rebalance decision." },
@@ -671,31 +798,28 @@
       implementationGuide: "investment-analysis/stock-market-game-integration.md",
       phases: stockMarketGamePhases
     },
-    writtenArtifactRule: "Each lesson worksheet is the primary written artifact. The textbook is a compiled collection of the 50 worksheets with light front matter and six unit dividers only.",
+    writtenArtifactRule: "The complete SMG Essentials Workbook is the default individual work record. Assigned workbook pages replace overlapping lesson worksheets. When the workbook cannot hold required dated evidence, calculation or judgement, generate one separately labelled activity insert and file it with the workbook. Lesson handouts are bilingual exam-revision sheets containing in-lesson definition blanks and numbered knowledge points, never extended tasks or response spaces. The shared team decision log remains the authoritative evidence and transaction record.",
     groundedScenarioContract: {
-      rule: "Every lesson handout begins with a short grounded scenario that is used in the lesson, not a decorative statistic or an entirely fictional case.",
+      rule: "Every lesson uses a short grounded scenario in the deck, workbook activity or separately labelled activity insert when the assigned workbook pages do not already hold the required evidence task.",
       realEvidence: "Include at least one dated, source-backed figure or statement that materially informs the student task.",
       fictionalFrame: "Mock or anonymised family, investor and company details are allowed only when clearly labelled and separated from the real evidence.",
-      lessonUse: "Reuse the same scenario and evidence in at least one projected lesson activity and in the handout's Evidence and Data Analysis work.",
+      lessonUse: "Reuse the same scenario and evidence in at least one projected lesson activity and in the workbook or activity insert; do not move the task into the content-only handout.",
       limitation: "State what the source-backed evidence cannot prove about the mock case or future outcome."
     },
     definitionOverview: {
-      source: "references/investment-analysis-definitions.md",
+      source: "investment-analysis/course-map-financial-decisions-data.js",
+      archivedCompanyAnalysisSource: "references/investment-analysis-definitions.md",
       studentPage: "investment-analysis/definitions.html",
-      rule: "Reuse the shared textbook-style investment definitions where they match. Add and validate the new family-investment, market and career terms before lesson production."
+      rule: "Generate the active definition page from each lesson's canonical terms. Reuse archived source matches only as cross-references; never let the archived company-analysis glossary replace active course wording."
     },
     handoutContract: [
-      { key: "sourceBox", title: "Grounded scenario and source box", requirement: "A short scenario with at least one real, dated, source-backed figure or statement; clearly labelled mock or anonymised details; source title, URL, publication date, accessed date, key evidence and limitation." },
-      { key: "vocabulary", title: "Vocabulary", requirement: "All lesson terms with English definition and concise Simplified Chinese support." },
-      { key: "companyEvidence", title: "Evidence and Data Analysis", requirement: "Reuse the grounded scenario in a short frozen case followed by identify, calculate or interpret, explain, analyse why and judge tasks." },
-      { key: "calculationOrJudgement", title: "Calculation or judgement task", requirement: "The lesson formula, investment comparison, evidence interpretation or decision rule." },
-      { key: "misconceptionCheck", title: "Misconception check", requirement: "One explicit investment shortcut or misconception the handout corrects." },
-      { key: "individualOutput", title: "Individual written output", requirement: "A goal, investment-choice, market, company, portfolio or family-strategy output that can be assessed." }
+      { key: "definitions", title: "Key definitions / 核心定义", requirement: "Print every new term bilingually. Use targeted English fill-in-the-blank key words answerable during the lesson, preserve the exact answers for the toggle and provide the complete Simplified Chinese definition." },
+      { key: "numberedRevisionPoints", title: "Numbered revision points / 编号复习要点", requirement: "Give four to seven short, complete, examinable English statements, each followed by faithful Simplified Chinese. Cover the core principle, important relationship, formula or decision rule and misconception correction." }
     ],
     textbookAssembly: {
-      source: "lesson handouts",
-      rule: "Do not write separate textbook-only teaching chapters; compile the handout sequence with a cover, contents page and six unit dividers.",
-      sections: ["Cover", "Contents", "Unit divider", "Lesson handouts 1-50"]
+      source: "Bilingual definition-and-numbered-point lesson handouts",
+      rule: "The lesson handouts may be compiled verbatim as a bilingual course revision handbook. Do not add textbook-only chapters, workbook directions, case tasks, extended questions, response spaces or model activities.",
+      sections: ["Unit dividers", "Lesson questions", "Bilingual fill-in definitions", "Bilingual numbered revision points"]
     },
     generatorAccess: {
       canonicalSource: "investment-analysis/course-map-financial-decisions-data.js",
@@ -704,18 +828,21 @@
       targets: [
         { key: "lesson", purpose: "Full lesson-planning context.", use: "Load before writing a deck, notes or source task." },
         { key: "deck", purpose: "Slide-deck contract.", use: "Use the decision-first fields, deck arc, retrieval, formative assessment and exit output." },
-        { key: "handout", purpose: "Six-block worksheet contract.", use: "Use the lesson handout blocks in the fixed order." },
+        { key: "handout", purpose: "Bilingual exam-revision handout contract.", use: "Generate targeted English definition blanks with complete Chinese definitions and four to seven bilingual numbered knowledge points; exclude workbook directions, extended activities and response spaces." },
+        { key: "activity-insert", purpose: "One-page lesson work record when the official workbook has no suitable pages.", use: "Generate only the frozen evidence, calculation or judgement missing from the workbook; file the completed insert with the student's workbook." },
         { key: "quiz", purpose: "Follow-up retrieval contract.", use: "Retrieve the lesson terms, misconception, formula or decision rule and exit judgement." },
         { key: "exam", purpose: "Unit-checkpoint item contract.", use: "Use the source pack and assessment blueprint." },
-        { key: "textbook", purpose: "Compiled handout-book contract.", use: "Treat the lesson handout as the chapter." }
+        { key: "textbook", purpose: "Compiled knowledge-handbook contract.", use: "Compile the content-only lesson handouts verbatim with light unit navigation; keep all student work in the workbook or activity inserts." }
       ],
       rules: [
         "Treat this file as the canonical Investment and Financial Decision-Making syllabus.",
         "Preserve the progression family goal -> investor profile -> investment choice -> market understanding -> security analysis -> portfolio decision.",
         "Build every lesson around a first judgement, missing evidence, one focused key idea, an evidence task, misconception correction and a justified next action.",
-        "Begin every handout with a short grounded scenario: at least one real, dated, source-backed figure or statement plus clearly labelled mock or anonymised details, and reuse it in the lesson task.",
-        "Use every lesson's stockMarketGame field as the main application and evidence task. The 14 named milestones are summative; the other 36 lesson labs are required formative work that builds the same portfolio evidence trail.",
-        "Make the SMG lab replace compatible generic case practice rather than appending a separate activity or homework stream. Capture one concise team evidence row and one individual exit judgement per lesson, then curate them into the unit output.",
+        "Keep every handout exam-revision focused and bilingual: targeted English definition blanks with complete Simplified Chinese definitions, followed by four to seven bilingual numbered knowledge points; exclude scenarios to analyse, extended activities and response spaces.",
+        "Use every lesson's stockMarketGame field as the main application and evidence task. Only the six unit outputs are summative; all other lesson labs and evidence checkpoints are required formative work that builds the same portfolio evidence trail.",
+        "Issue the complete SMG Essentials Workbook to every student. Follow the course page calendar rather than workbook order, and apply the printed course overrides to every automatic trade instruction.",
+        "Make assigned workbook pages replace compatible generic practice. Generate only a separately labelled missing-evidence activity insert; never append a duplicate six-block worksheet or parallel homework stream.",
+        "Keep the shared team decision log authoritative for evidence, decisions, dissent, order checks, platform status and review triggers. The individual workbook and inserts show each student's thinking.",
         "Freeze the required portfolio, watchlist, transaction, quote or benchmark snapshot at the start of the lesson so generators never depend on a live price remaining unchanged.",
         "Apply the course's stricter SMG rules: long-only, no margin, no short selling, evidence before every order and grades based on process rather than rank or return.",
         "After the first qualifying purchase, do not impose a trade quota; a justified hold or no-trade decision is an equally valid evidence-based output.",

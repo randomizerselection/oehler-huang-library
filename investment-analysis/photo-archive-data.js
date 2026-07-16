@@ -115,7 +115,6 @@
     sourceLens: "Source lens",
     dataSnapshot: "Data snapshot",
     compare: "Compare task",
-    classificationTask: "Classification task",
     yesNoCheck: "Yes/no check",
     calculationDesk: "Calculation desk",
     quiz: "Quiz or review"
@@ -182,7 +181,7 @@
       ],
       {
         tags: ["asset class", "risk", "return", "property", "commodities", "real economy"],
-        uses: ["classificationTask", "compare", "visualPause", "discussion"],
+        uses: ["compare", "visualPause", "discussion"],
         deckHint: "Use for asset-class ranking, risk-return comparison and real-economy exposure prompts."
       }
     ),
@@ -201,7 +200,7 @@
       {
         lesson: "Lesson 1 / reusable",
         tags: ["scenario", "first judgement", "speculation", "investment", "evidence choice"],
-        uses: ["hook", "classificationTask", "yesNoCheck", "compare", "quiz"],
+        uses: ["hook", "yesNoCheck", "compare", "quiz"],
         deckHint: "Good for first-vote prompts where students decide whether an action is investing, saving, speculation or evidence gathering."
       }
     ),
@@ -343,7 +342,7 @@
       {
         lesson: "Lessons 7, 22, 24 and 26",
         tags: ["inventory risk", "cost of sales", "capacity", "store network", "working capital"],
-        uses: ["visualPause", "discussion", "sourceLens", "classificationTask"],
+        uses: ["visualPause", "discussion", "sourceLens"],
         deckHint: "Use for inventory, capacity or cost-of-sales vocabulary where students should connect shelves and stock to business evidence."
       }
     ),
@@ -568,7 +567,7 @@
     entry("keywordPortfolioDiversificationCards", "keyword-portfolio-funds", {
       lesson: "Lessons 18 and 20",
       tags: ["diversification", "portfolio", "risk reduction", "asset allocation"],
-      uses: ["visualPause", "discussion", "classificationTask"],
+      uses: ["visualPause", "discussion"],
       deckHint: "Use when students explain why a diversified portfolio can reduce single-company risk."
     })
   ];

@@ -69,7 +69,7 @@ function bulletList(items = []) {
 }
 
 function renderTerms(terms = []) {
-  return terms.map((term) => `- ${term.term}: ${term.definition}`).join('\n');
+  return terms.map((term) => `- ${term.term}${term.zh ? ` / ${term.zh}` : ''}: ${term.definition}`).join('\n');
 }
 
 function sentence(value = '') {
@@ -130,6 +130,12 @@ function renderStockMarketGame(lab = {}) {
     `- Student action: ${lab.studentAction}`,
     `- Lesson use: ${lab.lessonUse || ''}`,
     `- Required output: ${lab.requiredOutput || ''}`,
+    ...(lab.workbook ? [
+      `- Workbook pages: ${lab.workbook.pages || ''}`,
+      `- Workbook treatment: ${lab.workbook.treatment || ''}`,
+      `- Workbook action: ${lab.workbook.studentAction || ''}`,
+      `- Supplement rule: ${lab.workbook.supplementRule || ''}`,
+    ] : []),
     `- Frozen-data rule: ${lab.dataRule || ''}`,
   ].join('\n');
 }
@@ -162,6 +168,8 @@ function renderMarkdown(context) {
         `- Role: ${smg.role}`,
         `- Lesson time: ${smg.operatingModel?.lessonTimeShare || ''}`,
         `- Integration: ${smg.operatingModel?.integrationRule || ''}`,
+        `- Individual paper record: ${smg.workbook?.role || ''}`,
+        `- Team record: ${smg.workbook?.teamLog || ''}`,
         `- Assessment: ${smg.assessmentRule || ''}`,
         '',
       ] : []),
@@ -194,6 +202,79 @@ function renderMarkdown(context) {
   const assessment = requiredInputs.assessmentContract || context.assessmentContract;
   const stockMarketGame = context.generatorBrief.stockMarketGame || teaching.stockMarketGame || lesson.stockMarketGame;
   const titlePrefix = context.target ? `${context.materialTarget.label}: ` : '';
+  const handoutKnowledgePoints = artifact.handoutSections?.find((section) => section.key === 'numberedRevisionPoints')?.content
+    || [...new Set([teaching.coreClaim, context.generatorBrief.newKnowledge].filter(Boolean))];
+
+  if (context.target === 'handout' && context.materialTarget?.label === 'Bilingual exam revision handout') {
+    return [
+      `# ${titlePrefix}Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company}`,
+      '',
+      `**Guiding question:** ${lesson.guidingQuestion}`,
+      `**Unit:** ${lesson.unit}. ${lesson.unitTitle}`,
+      '',
+      '## Key Definitions / 核心定义',
+      '',
+      renderTerms(content.terms),
+      '',
+      '## Numbered Revision Points / 编号复习要点',
+      '',
+      ...handoutKnowledgePoints.map((point, index) => `${index + 1}. ${point}`),
+      '',
+      '## Source Basis',
+      '',
+      bulletList(evidence.sourcePack.requiredSourceTypes),
+      '',
+      '## Generation Rules',
+      '',
+      bulletList(context.generationRules),
+    ].join('\n').trim() + '\n';
+  }
+
+  if (context.target === 'activity-insert') {
+    if (!context.applicable) {
+      return [
+        `# Activity insert not required: Lesson ${lesson.lesson}`,
+        '',
+        context.applicabilityReason,
+        '',
+        'Use the assigned official workbook pages and the individual exit judgement instead.',
+      ].join('\n').trim() + '\n';
+    }
+
+    const scenario = evidence.groundedScenario || {};
+    return [
+      `# Lesson Activity Insert: Lesson ${lesson.lesson}`,
+      '',
+      `**Guiding question:** ${lesson.guidingQuestion}`,
+      `**File with:** SMG Essentials Workbook`,
+      `**Individual output:** ${teaching.primaryOutput.description}`,
+      '',
+      '## Frozen scenario and source',
+      '',
+      `- Evidence requirement: ${scenario.realEvidence || ''}`,
+      `- Mock-data label: ${scenario.fictionalFrame || ''}`,
+      `- Limitation: ${scenario.limitation || ''}`,
+      '',
+      '## Evidence task',
+      '',
+      renderWorksheet(context.generatorBrief.worksheet),
+      '',
+      '## Final judgement',
+      '',
+      teaching.primaryOutput.description,
+      '',
+      '## Source record',
+      '',
+      '- Source title or local path:',
+      '- Publication or figures date:',
+      '- Accessed date:',
+      '- One evidence limitation:',
+      '',
+      '## Generation rules',
+      '',
+      bulletList(context.generationRules),
+    ].join('\n').trim() + '\n';
+  }
 
   return [
     `# ${titlePrefix}Lesson ${lesson.lesson}: ${lesson.caseAnchor || lesson.company}`,
@@ -254,6 +335,13 @@ function renderMarkdown(context) {
     '',
     '## Artifact',
     '',
+    ...(context.generatorBrief.writtenRecord ? [
+      `- Primary paper artifact: ${context.generatorBrief.writtenRecord.primaryArtifact}`,
+      `- Workbook pages: ${context.generatorBrief.writtenRecord.workbookPages}`,
+      `- Supplement rule: ${context.generatorBrief.writtenRecord.supplementRule}`,
+      `- Team record: ${context.generatorBrief.writtenRecord.authoritativeTeamRecord}`,
+      '',
+    ] : []),
     bulletList(artifact.artifactBlueprint.deckArc),
     '',
     '## Assessment',
