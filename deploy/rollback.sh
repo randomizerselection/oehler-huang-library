@@ -22,6 +22,14 @@ link="/opt/oehler-huang-platform/.rollback-$release_id"
 ln -s "$target" "$link"
 mv -Tf "$link" "$current"
 systemctl restart "$service"
-curl --fail --show-error --silent "http://127.0.0.1:$port/api/health"
-echo
-echo "Rolled back to $release_id."
+for _ in {1..30}; do
+  if curl --fail --silent "http://127.0.0.1:$port/api/health"; then
+    echo
+    echo "Rolled back to $release_id."
+    exit 0
+  fi
+  sleep 1
+done
+echo "Rollback health check failed for $release_id" >&2
+systemctl status "$service" --no-pager >&2 || true
+exit 5
