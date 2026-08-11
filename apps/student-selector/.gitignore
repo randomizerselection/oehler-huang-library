@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Node / browser tests
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+
+# VS Code settings (optional; many teams exclude)
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+Run (debug).bat
+build.bat

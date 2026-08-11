@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Random Student Selector is a browser classroom app for timed thinking, attendance-aware random selection, formative outcomes, and live summaries."
+    >
+    <meta name="theme-color" content="#17312f">
+    <title>Random Student Selector</title>
+    <link rel="icon" href="assets/icon.png">
+    <link rel="stylesheet" href="selector.css">
+  </head>
+  <body>
+    <main id="student-selector-app" class="selector-root" data-student-selector-root></main>
+    <script src="selector.js"></script>
+    <script>
+      window.StudentSelector.mount(document.getElementById("student-selector-app"));
+    </script>
+  </body>
+</html>
