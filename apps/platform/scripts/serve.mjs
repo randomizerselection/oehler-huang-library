@@ -6,7 +6,8 @@ const envFile = resolve(import.meta.dirname, "..", "..", "..", ".env");
 if (existsSync(envFile) && process.loadEnvFile) process.loadEnvFile(envFile);
 const port = Number(process.env.OH_PORT ?? process.env.ECONMARK_PORT ?? 4173);
 const host = process.env.OH_HOST ?? process.env.ECONMARK_HOST ?? "127.0.0.1";
-const application = await createEconMarkServer();
+const applicationRoot = resolve(import.meta.dirname, "..");
+const application = await createEconMarkServer({ root: applicationRoot });
 
 application.server.listen(port, host, () => {
   const status = application.gradingGateway.status();
