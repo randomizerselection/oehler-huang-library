@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f3b" />
+    <meta name="description" content="EconMark 学生作答提交与暂定成绩反馈" />
+    <title>EconMark Student · 上传作答并获得暂定成绩</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/student-styles.css" />
+  </head>
+  <body class="student-body">
+    <header class="site-header student-header">
+      <a class="brand" href="/mark/" aria-label="EconMark Student 首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span><strong>EconMark Student</strong><small>学生作答与成长反馈</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="student-teacher-link" href="/mark/teacher">教师入口</a>
+        <div id="account-signed-out" class="account-controls">
+          <button id="account-open-login" class="account-link">登录</button>
+          <button id="account-open-register" class="account-register">创建学生账户</button>
+        </div>
+        <div id="account-signed-in" class="account-controls" hidden>
+          <span class="account-name" id="account-name"></span>
+          <button id="account-logout" class="account-link">退出</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="student-main">
+      <section class="student-hero">
+        <div class="student-hero-copy">
+          <p class="eyebrow">Cambridge IGCSE Economics 0455</p>
+          <h1>交上你的作答，<br /><em>看清下一步怎么进步。</em></h1>
+          <p>拍照或选择一张完整的手写作答。EconMark 会读取你的原文，给出暂定成绩、得分证据和中英双语改进建议。</p>
+          <div class="student-trust-row">
+            <span>不改写你的答案</span><span>只按预设标准评分</span><span>结果明确标注“暂定”</span>
+          </div>
+        </div>
+        <aside class="provisional-card">
+          <span class="provisional-icon" aria-hidden="true">≈</span>
+          <div><strong>这是学习反馈，不是最终成绩</strong><p>老师仍可复核图片、转写和评分证据。低置信度或图片不清晰时，系统会停止评分并请你重新提交。</p></div>
+        </aside>
+      </section>
+
+      <div id="student-alert" class="student-alert" role="status" aria-live="polite"></div>
+
+      <section class="student-code-card" aria-labelledby="student-code-title">
+        <div><p class="section-kicker">Start here · 从这里开始</p><h2 id="student-code-title">输入老师分享的作业代码</h2><p>你可以先查看题目；登录只在提交真实作答时需要。</p></div>
+        <form id="student-code-form"><label for="student-assignment-code">8 位作业代码</label><div><input id="student-assignment-code" maxlength="8" autocomplete="off" placeholder="例如 7K9M2QPX" /><button class="button button-primary" type="submit">查看题目</button></div><button id="student-demo" class="student-demo-button" type="button">没有代码？先看看一份合成示例结果</button></form>
+      </section>
+
+      <section class="student-flow" aria-label="学生提交流程">
+        <div class="student-stepper" aria-hidden="true">
+          <div class="student-step active" data-student-step="1"><span>1</span><b>查看题目</b></div>
+          <div class="student-step" data-student-step="2"><span>2</span><b>上传作答</b></div>
+          <div class="student-step" data-student-step="3"><span>3</span><b>暂定反馈</b></div>
+        </div>
+
+        <div class="student-grid">
+          <div class="student-submit-column">
+            <article id="student-assignment-card" class="student-card assignment-card" hidden>
+              <div class="student-card-heading"><span class="student-card-number">01</span><div><p>当前作业 · Active assignment</p><h2 id="student-assignment-title">正在载入题目……</h2></div></div>
+              <p id="student-question" class="student-question">—</p>
+              <div class="assignment-meta-row"><span id="student-command">—</span><span id="student-max-mark">—</span></div>
+              <p id="student-instructions" class="student-instructions"></p>
+            </article>
+
+            <article id="student-upload-card" class="student-card upload-card" hidden>
+              <div class="student-card-heading"><span class="student-card-number">02</span><div><p>你的作答 · Your answer</p><h2>上传一张清晰的完整照片</h2></div></div>
+              <label class="student-ref-field" for="student-ref"><span>学生编号（不要填写真实姓名）</span><input id="student-ref" maxlength="80" placeholder="例如 IC1-08" autocomplete="off" /></label>
+              <label id="student-upload-zone" class="student-upload-zone" for="student-answer-upload">
+                <input id="student-answer-upload" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" />
+                <span class="student-upload-mark" aria-hidden="true">↑</span>
+                <strong id="student-upload-title">拍照或从设备选择作答</strong>
+                <small id="student-upload-limit">支持 JPG、PNG、WEBP</small>
+              </label>
+              <div id="student-preview" class="student-preview" hidden>
+                <img id="student-preview-image" alt="即将提交的手写作答预览" />
+                <div><strong id="student-file-name"></strong><span id="student-file-meta"></span><button id="student-remove-file" type="button">重新选择</button></div>
+              </div>
+              <label class="student-consent"><input id="student-consent" type="checkbox" /><span>我确认这是我的作答，并理解图片与评分记录会永久保存在我的账户中；显示分数只是暂定结果。</span></label>
+              <button id="student-submit" class="button button-primary student-submit-button" disabled><span>提交并获取暂定成绩</span><small>Submit for provisional feedback</small><b>→</b></button>
+            </article>
+          </div>
+
+          <aside id="student-result-panel" class="student-card student-result-panel">
+            <div id="student-empty-result" class="student-empty-result">
+              <div class="student-result-orbit"><span>E</span></div>
+              <h2>你的反馈会显示在这里</h2>
+              <p>提交后，你会看到暂定成绩、为什么得到这些分，以及最值得先改进的两件事。</p>
+              <ol><li>图片与手写识别质量检查</li><li>两次独立评分与证据核对</li><li>中英双语成长反馈</li></ol>
+            </div>
+            <div id="student-processing" class="student-processing" hidden>
+              <div class="student-spinner" aria-hidden="true"></div><p class="section-kicker">正在分析你的作答</p><h2 id="student-processing-title">检查图片与手写内容……</h2><p>通常需要一小会儿。请不要关闭页面或重复提交。</p>
+            </div>
+            <div id="student-result" hidden>
+              <div class="student-result-label"><span id="student-result-status">暂定成绩</span><b id="student-confidence">—</b></div>
+              <div class="student-score"><strong id="student-score-value">—</strong><span id="student-score-max">/ 8</span></div>
+              <p id="student-level" class="student-level">—</p>
+              <div id="student-review-warning" class="student-review-warning" hidden></div>
+              <p class="student-result-disclaimer">此结果由自动评分生成，仅供学习参考；在老师复核前不构成正式成绩。</p>
+
+              <section class="student-feedback-section"><div class="student-section-title"><span>✓</span><h3>你已经做好的地方</h3></div><ul id="student-strengths"></ul></section>
+              <section class="student-feedback-section improvement"><div class="student-section-title"><span>↑</span><h3>接下来优先改进</h3></div><ol id="student-priorities"></ol></section>
+              <section class="student-feedback-section"><div class="student-section-title"><span>?</span><h3>用这道问题再练一步</h3></div><ol id="student-follow-ups"></ol></section>
+              <details class="student-evidence-details"><summary>查看我的得分证据</summary><div id="student-evidence"></div></details>
+              <details id="student-mark-scheme-details" class="student-mark-scheme-details"><summary>查看本次评分使用的完整评分标准</summary><pre id="student-mark-scheme"></pre></details>
+              <button id="student-start-again" class="button button-secondary student-again-button">提交另一份作答</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="student-history-section" class="student-history" hidden>
+        <div><p class="section-kicker">我的提交记录</p><h2>重新查看以前的反馈</h2></div>
+        <div id="student-history-list" class="student-history-list"></div>
+      </section>
+    </main>
+
+    <footer class="student-footer"><p><strong>EconMark Student</strong> · 暂定成绩不是正式成绩</p><p>如图片模糊、裁切不完整、包含多份作答或需要图表判分，请联系老师。</p></footer>
+    <div id="student-toast" class="toast" role="alert" aria-live="assertive"></div>
+
+    <dialog id="account-dialog" class="account-dialog" data-mode="login">
+      <form id="account-form" class="account-form">
+        <div class="account-dialog-heading"><div><p class="section-kicker">保存你的作答与反馈</p><h2 id="account-dialog-title">登录 EconMark</h2></div><button id="account-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button></div>
+        <label id="account-display-name-field" class="field" for="account-display-name" hidden><span>显示名称</span><input id="account-display-name" maxlength="80" autocomplete="name" /></label>
+        <label class="field" for="account-username"><span>用户名</span><input id="account-username" required minlength="3" maxlength="60" autocomplete="username" /></label>
+        <label class="field" for="account-password"><span>密码（至少 10 个字符）</span><input id="account-password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" /></label>
+        <p id="account-error" class="account-error" role="alert"></p>
+        <button id="account-submit" class="button button-primary" type="submit">登录</button>
+        <button id="account-mode-toggle" class="account-mode-toggle" type="button">没有账户？免费创建</button>
+        <p class="account-storage-note">真实作答必须使用学生账户提交。原图和评分记录会永久保存在此服务器账户中。</p>
+      </form>
+    </dialog>
+    <script type="module" src="/src/student-app.js"></script>
+  </body>
+</html>

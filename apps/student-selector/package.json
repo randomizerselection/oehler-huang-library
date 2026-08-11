@@ -1,7 +1,7 @@
 {
-  "name": "studentselector",
+  "name": "@oehler-huang/student-selector",
   "version": "1.0.0",
-  "description": "`Random Student Selector` is a GitHub Pages-compatible classroom app for running attendance-aware questioning, timed thinking, random student selection, quick formative outcomes, and live lesson summaries.",
+  "description": "Authenticated classroom selector integrated with the Oehler-Huang Learning Platform.",
   "private": true,
   "scripts": {
     "test": "playwright test"
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/randomizerselection/studentselector/issues"
   },
-  "homepage": "https://randomizerselection.github.io/studentselector/",
+  "homepage": "/selector/",
   "devDependencies": {
     "@playwright/test": "^1.59.1"
   }

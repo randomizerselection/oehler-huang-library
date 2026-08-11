@@ -112,7 +112,7 @@ Students connect family goals, time, inflation, compounding and risk to a writte
 
 - **Hook:** A family has CNY 50,000 but no stated goal. What should it do next?
 - **Key idea:** People invest to move resources toward future goals while accepting uncertainty and possible loss.
-- **Try it:** Choose whether to keep money available, gather more information or consider investing for four family goals.
+- **Try it:** Complete two short-term and two long-term financial goals with a time horizon and reason.
 - **Decide:** Choose one goal. State the next step and justify it with one reason and one condition.
 
 ### Decision-first teaching contract
@@ -122,7 +122,7 @@ Students connect family goals, time, inflation, compounding and risk to a writte
 - **Likely naive answer:** Investing is simply a way to make more money.
 - **Missing evidence:** Students need the goal, time horizon, liquidity need and possible loss before judging whether investment is appropriate.
 - **Key idea:** People invest to move resources toward future goals while accepting uncertainty and possible loss.
-- **Try it:** Choose whether to keep money available, gather more information or consider investing for four family goals.
+- **Try it:** Complete two short-term and two long-term financial goals with a time horizon and reason.
 - **Misconception check:** Correct the claim: Investing is simply a way to make more money.
 - **Exit judgement:** Choose one goal. State the next step and justify it with one reason and one condition.
 
@@ -145,7 +145,7 @@ Students connect family goals, time, inflation, compounding and risk to a writte
 - Hook: A family has CNY 50,000 but no stated goal. What should it do next?
 - Retrieval: Everyday understanding of future goals, waiting, uncertainty and familiar investment claims.
 - Teach: People invest to move resources toward future goals while accepting uncertainty and possible loss.
-- SMG core lab: Form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.
+- SMG core lab: Complete the short- and long-term goal tables, form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Choose one goal. State the next step and justify it with one reason and one condition.
 

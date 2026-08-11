@@ -848,9 +848,50 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /Start Lesson 1/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
     await expect(page.getByRole('link', { name: /See available lessons/i })).toHaveAttribute('href', '#start-course');
     await expect(page.getByText(/Learn it\. Apply it in SMG\. Defend it\./i)).toBeVisible();
+    await expect(page.locator('.investment-skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
+    await expect(page.locator('.investment-unit-list li')).toHaveCount(6);
     await expect(page.locator('.investment-resource-list a')).toHaveCount(4);
     await expect(page.locator('a[href="syllabus-company-analysis.html"]')).toHaveCount(0);
+
+    const investmentLandingLayout = await page.evaluate(() => {
+      const hero = document.querySelector('.investment-hero');
+      const nav = document.querySelector('.investment-nav');
+      const flow = document.querySelector('.investment-decision-flow');
+      const lessonList = document.querySelector('.investment-lesson-list');
+      const unitList = document.querySelector('.investment-unit-list');
+      const resourceList = document.querySelector('.investment-resource-list');
+      const sectionTitleZh = document.querySelector('.investment-section-title-zh');
+      const footer = document.querySelector('.investment-footer');
+      return {
+        viewportWidth: document.documentElement.clientWidth,
+        heroHeight: hero?.getBoundingClientRect().height || 0,
+        navHeight: nav?.getBoundingClientRect().height || 0,
+        flowColumns: getComputedStyle(flow).gridTemplateColumns.split(' ').length,
+        lessonColumns: getComputedStyle(lessonList).gridTemplateColumns.split(' ').length,
+        unitColumns: getComputedStyle(unitList).gridTemplateColumns.split(' ').length,
+        resourceColumns: getComputedStyle(resourceList).gridTemplateColumns.split(' ').length,
+        sectionTitleZhDisplay: getComputedStyle(sectionTitleZh).display,
+        footerDisplay: getComputedStyle(footer).display
+      };
+    });
+
+    expect(investmentLandingLayout.sectionTitleZhDisplay).toBe('block');
+    expect(investmentLandingLayout.flowColumns).toBe(5);
+    if (investmentLandingLayout.viewportWidth <= 420) {
+      expect(investmentLandingLayout.heroHeight).toBeLessThan(1020);
+      expect(investmentLandingLayout.navHeight).toBeLessThan(120);
+      expect(investmentLandingLayout.footerDisplay).toBe('grid');
+      expect(investmentLandingLayout.lessonColumns).toBe(1);
+      expect(investmentLandingLayout.unitColumns).toBe(1);
+      expect(investmentLandingLayout.resourceColumns).toBe(1);
+    } else {
+      expect(investmentLandingLayout.heroHeight).toBeLessThan(680);
+      expect(investmentLandingLayout.lessonColumns).toBe(2);
+      expect(investmentLandingLayout.unitColumns).toBe(2);
+      expect(investmentLandingLayout.resourceColumns).toBe(2);
+    }
+
     await expectNoHorizontalOverflow(page);
   });
 
@@ -907,20 +948,104 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 desktop',
-      ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'answer', 'exam']
+      ['section', 'discussion', 'outcomes', 'term', 'flow', 'visualGrid', 'quiz', 'yesNoCheck', 'judgementFrame', 'answer', 'exam']
     );
     expect(lessonSummary.quizCount, 'lesson 1 has quiz data').toBeGreaterThan(0);
     await expect(page.getByRole('link', { name: /^Passport$/i })).toHaveCount(0);
+    await page.setViewportSize({ width: 1366, height: 768 });
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Define the team investment purpose' }, lessonPath);
+    const expectActiveVisualGridNotClipped = async (label) => {
+      const layout = await page.locator('.invSlide.is-active').evaluate((slide) => {
+        const header = slide.querySelector('.invSlideHeader')?.getBoundingClientRect();
+        const body = slide.querySelector('.invSlideBody')?.getBoundingClientRect();
+        const clippedCards = [...slide.querySelectorAll('.invVisualGridCard')].filter((card) => {
+          const cardBox = card.getBoundingClientRect();
+          const textBox = card.querySelector('.invVisualGridText')?.getBoundingClientRect();
+          return textBox && textBox.bottom > cardBox.bottom + 1;
+        }).length;
+        return {
+          headerBottom: header?.bottom || 0,
+          bodyTop: body?.top || 0,
+          clippedCards,
+        };
+      });
+      expect(layout.bodyTop, `${label} body starts below header`).toBeGreaterThanOrEqual(layout.headerBottom - 1);
+      expect(layout.clippedCards, `${label} card text is not clipped`).toBe(0);
+    };
+
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Welcome to the Stock Market Game!' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invVisualGridImage img')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText strong')).toHaveText(['Virtual portfolio', 'Team challenge', 'Evidence hunt', 'Progress story']);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText em')).toHaveText(['虚拟投资组合', '团队挑战', '寻找证据', '成长记录']);
+    await expectActiveVisualGridNotClipped('lesson 1 SMG welcome projector');
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG welcome desktop');
+
+    await goToInvestmentSlide(page, { type: 'flow', title: 'What will your team do during the course?' }, lessonPath);
+    const smgJourneySteps = page.locator('.invSlide.is-active .invFlow-decisionChecks .invStep');
+    await expect(smgJourneySteps).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invStepTitle')).toHaveText(['Learn', 'Research', 'Decide', 'Review']);
+    await expect(page.locator('.invSlide.is-active .invStep.is-revealed')).toHaveCount(0);
+    for (let revealCount = 1; revealCount <= 4; revealCount += 1) {
+      await page.locator('.invSlide.is-active .invSlideHeader').click();
+      await expect(page.locator('.invSlide.is-active .invStep.is-revealed')).toHaveCount(revealCount);
+    }
+    await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG journey desktop');
+
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Set up your team' }, lessonPath);
     await expect(page.locator('.invSlide.is-active')).toContainText(/SMG core lab/i);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/mock purpose/i);
-    await expectInvestmentSlideFits(page, 'lesson 1 SMG purpose lab desktop');
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText strong')).toHaveText(['Form a team', 'Open the workbook']);
+    await expect(page.locator('.invSlide.is-active .invVisualGridImage img')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toHaveCount(0);
+    await expect(page.locator('.invSlide.is-active .invVisualGrid')).toHaveAttribute('data-style', 'twoStep');
+    await expectActiveVisualGridNotClipped('lesson 1 SMG team setup projector');
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG team setup desktop');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Open the team evidence record' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/Director.*Researcher.*Portfolio.*Data Entry.*Reporter/i);
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Choose the team goal' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText strong')).toHaveText(['Choose one long-term goal', 'Set four boundaries']);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText p').first()).toHaveText('Use the workbook—or invent one.');
+    await expect(page.locator('.invSlide.is-active .invVisualGridText p').nth(2)).toHaveText('Goal · time · access · possible loss');
+    await expect(page.locator('.invSlide.is-active .invVisualGridImage img')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toHaveCount(0);
+    const twoStepLayout = await page.locator('.invSlide.is-active .invVisualGrid').evaluate((grid) => ({
+      columns: getComputedStyle(grid).gridTemplateColumns.split(' ').length,
+      width: grid.getBoundingClientRect().width,
+    }));
+    expect(twoStepLayout.columns).toBe(2);
+    expect(twoStepLayout.width).toBeGreaterThan(900);
+    await expectActiveVisualGridNotClipped('lesson 1 SMG goal projector');
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG goal lab desktop');
+
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Open the team evidence record' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText strong')).toHaveText(['Director', 'Researcher + Portfolio', 'Data Entry', 'Reporter']);
     await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expect(page.locator('.invSlide.is-active .invVisualGridImage img')).toHaveCount(4);
+    await expectActiveVisualGridNotClipped('lesson 1 SMG evidence projector');
     await expectInvestmentSlideFits(page, 'lesson 1 SMG evidence lab desktop');
+
+    await goToInvestmentSlide(page, { type: 'judgementFrame', title: 'Write one judgement about one goal' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invJudgementStage')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invJudgementStage > strong')).toHaveText([
+      'Choose a goal',
+      'State the next step',
+      'Give one reason',
+      'Add one condition',
+    ]);
+    await expect(page.locator('.invSlide.is-active .invJudgementLabelZh')).toHaveText([
+      '选择目标',
+      '说明下一步',
+      '给出一个理由',
+      '补充一个条件',
+    ]);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).not.toHaveClass(/is-revealed/);
+    await expectInvestmentSlideFits(page, 'lesson 1 output judgement frame desktop');
+    await page.locator('.invSlide.is-active .invSlideHeader').click();
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toHaveClass(/is-revealed/);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/For \[goal\], the family should \[next step\]/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 output judgement frame revealed desktop');
 
     await goToInvestmentSlide(page, { type: 'section' }, lessonPath);
     await expect(page.locator('.invSlide.is-active.invSectionSlide .invSectionSubtitle')).toHaveCount(0);
@@ -979,6 +1104,15 @@ test.describe('site smoke', () => {
     }
     await expect(page.locator('.invSlide.is-active .invStepVisual img')).toHaveCount(3);
     await expect(page.locator('.invSlide.is-active .invStepVisual img').first()).toBeVisible();
+    await expect(page.locator('.invSlide.is-active .invStepVisual img').nth(0)).toHaveAttribute('src', /family-goal-piggy-bank-target\.jpg/);
+    await expect(page.locator('.invSlide.is-active .invStepVisual img').nth(1)).toHaveAttribute('src', /access-public-atm-2024\.jpg/);
+    await expect(page.locator('.invSlide.is-active .invStepVisual img').nth(2)).toHaveAttribute('src', /scenario-smartphone-red-market-losses\.jpg/);
+    const decisionDescriptionType = await page.locator('.invSlide.is-active').evaluate((slide) => ({
+      english: Number.parseFloat(getComputedStyle(slide.querySelector('.invStepText')).fontSize),
+      chinese: Number.parseFloat(getComputedStyle(slide.querySelector('.invStep > .invZhLine')).fontSize),
+    }));
+    expect(decisionDescriptionType.english).toBeGreaterThanOrEqual(23);
+    expect(decisionDescriptionType.chinese).toBeGreaterThanOrEqual(19);
     await expectInvestmentSlideFits(page, 'lesson 1 decision checks projector');
 
     await goToInvestmentSlide(page, { type: 'term' }, lessonPath);
@@ -990,16 +1124,59 @@ test.describe('site smoke', () => {
     }
     await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveCount(1);
     await expect(page.locator('.invSlide.is-active .invTermVisuals figcaption')).toBeHidden();
+    await expect(page.locator('.invSlide.is-active .invTermExamples li')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invTermExamples li small')).toHaveCount(3);
     await expectInvestmentSlideFits(page, 'lesson 1 term interaction desktop');
 
-    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Does every future goal justify investing?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'term', title: 'Return' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveAttribute('src', /definitions\/return-definition\.svg/);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveAttribute('alt', /upward gain arrow and a downward loss arrow/i);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveCSS('object-fit', 'contain');
+    await expect(page.locator('.invSlide.is-active .invTermVisuals .invKeywordVisual')).toHaveClass(/invKeywordVisual-icon/);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals figcaption')).toBeHidden();
+    await expectInvestmentSlideFits(page, 'lesson 1 return definition graphic projector');
+
+    await goToInvestmentSlide(page, { type: 'term', title: 'Financial goal' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveAttribute('src', /definitions\/financial-goal-definition\.svg/);
+    await expect(page.locator('.invSlide.is-active .invTermVisuals img')).toHaveAttribute('alt', /yuan coin at the centre of a clear target/i);
+    const financialGoalIcon = await page.locator('.invSlide.is-active .invTermVisuals .invKeywordVisual').evaluate((icon) => ({
+      width: icon.getBoundingClientRect().width,
+      height: icon.getBoundingClientRect().height,
+    }));
+    expect(financialGoalIcon.width).toBeLessThanOrEqual(180);
+    expect(Math.abs(financialGoalIcon.width - financialGoalIcon.height)).toBeLessThanOrEqual(2);
+    await expect(page.locator('.invSlide.is-active .invTermExamples li')).toHaveCount(3);
+    await expectInvestmentSlideFits(page, 'lesson 1 financial goal icon projector');
+
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Short-term and long-term goals' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCompareListItem')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/laptop in 8 months/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/retirement in 30 years/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 short- and long-term goal examples projector');
+
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Classify the goals' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(8);
+    await expectInvestmentSlideFits(page, 'lesson 1 goal classification projector');
+    await revealInvestmentSlide(page);
+    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(8);
+    await expectInvestmentSlideFits(page, 'lesson 1 goal classification revealed projector');
+
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Complete your goal tables in the workbook' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Write directly in Workbook pp\. 5-6/i);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText strong')).toHaveText(['Short-term goals · p. 5', 'Long-term goals · p. 6']);
+    await expect(page.locator('.invSlide.is-active .invVisualGridText em')).toHaveText(['短期目标 · 第5页', '长期目标 · 第6页']);
+    await expectInvestmentSlideFits(page, 'lesson 1 workbook goal tables projector');
+
+    await goToInvestmentSlide(page, { type: 'yesNoCheck', title: 'Vote yes or no.' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invZhTitle')).toHaveText('投票：是或否。');
+    await expect(page.locator('.invSlide.is-active .invVoteInstruction')).toHaveCount(0);
     const classroomCheckType = await page.locator('.invSlide.is-active').evaluate((slide) => {
       const fontSize = (selector) => Number.parseFloat(getComputedStyle(slide.querySelector(selector)).fontSize);
       return {
         title: fontSize('h1'),
         titleZh: fontSize('.invZhTitle'),
-        instruction: fontSize('.invVoteInstruction strong'),
-        instructionZh: fontSize('.invVoteInstruction .invZhLine'),
         statement: fontSize('.invVoteStatement strong'),
         statementZh: fontSize('.invVoteStatement .invZhLine'),
         vote: fontSize('.invVoteChoice'),
@@ -1007,8 +1184,6 @@ test.describe('site smoke', () => {
     });
     expect(classroomCheckType.title).toBeGreaterThanOrEqual(56);
     expect(classroomCheckType.titleZh).toBeGreaterThanOrEqual(35);
-    expect(classroomCheckType.instruction).toBeGreaterThanOrEqual(29);
-    expect(classroomCheckType.instructionZh).toBeGreaterThanOrEqual(22);
     expect(classroomCheckType.statement).toBeGreaterThanOrEqual(29);
     expect(classroomCheckType.statementZh).toBeGreaterThanOrEqual(22);
     expect(classroomCheckType.vote).toBeGreaterThanOrEqual(16);
@@ -1044,6 +1219,20 @@ test.describe('site smoke', () => {
     await expect(page.locator('.invSlide.is-active .invZhTitle')).toHaveText('哪项陈述完整定义了投资？');
     await expect(page.locator('.invSlide.is-active .invBigQuestion, .invSlide.is-active .invQuizPanel > .invPromptZh')).toHaveCount(0);
     await expect(page.locator('.invSlide.is-active .invQuizChoices')).toBeVisible();
+    const hingeVisualLayers = await page.locator('.invSlide.is-active').evaluate((slide) => {
+      const panelStyle = getComputedStyle(slide.querySelector('.invQuizPanel'));
+      const badgeStyle = getComputedStyle(slide.querySelector('.invChoiceBadge'));
+      return {
+        panelBorderWidth: panelStyle.borderTopWidth,
+        panelBackground: panelStyle.backgroundColor,
+        panelShadow: panelStyle.boxShadow,
+        badgeBackground: badgeStyle.backgroundColor,
+      };
+    });
+    expect(hingeVisualLayers.panelBorderWidth).toBe('0px');
+    expect(hingeVisualLayers.panelBackground).toBe('rgba(0, 0, 0, 0)');
+    expect(hingeVisualLayers.panelShadow).toBe('none');
+    expect(hingeVisualLayers.badgeBackground).toBe('rgba(0, 0, 0, 0)');
     await expectInvestmentSlideFits(page, 'lesson 1 single-question hinge check projector');
 
     await goToInvestmentSlide(page, { type: 'quiz', title: 'What must the family know first?' }, lessonPath);
@@ -1061,17 +1250,35 @@ test.describe('site smoke', () => {
     )));
     expect(removedPartThree).toBe(false);
 
-    await goToInvestmentSlide(page, { type: 'answer', title: 'Fill in the blanks' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Exit ticket' }, lessonPath);
     await expect(page.locator('.invSlide.is-active')).toHaveClass(/invExitTicketSlide/);
+    await expect(page.locator('.invSlide.is-active .invEyebrow')).toHaveText('Check');
+    await expect(page.locator('.invSlide.is-active .invZhTitle')).toHaveText('离堂小测');
     await expect(page.locator('.invSlide.is-active .sourceList')).toBeHidden();
-    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(3);
-    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(6);
+    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(8);
     await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(0);
+    const exitLayout = await page.locator('.invSlide.is-active').evaluate((slide) => {
+      const list = slide.querySelector('.invCheckList');
+      const rows = [...slide.querySelectorAll('.invCheckItem')];
+      const number = slide.querySelector('.invCheckNumber');
+      const listStyle = getComputedStyle(list);
+      const numberStyle = getComputedStyle(number);
+      return {
+        columns: listStyle.gridTemplateColumns.split(' ').length,
+        rowWidths: rows.map((row) => row.getBoundingClientRect().width),
+        listWidth: list.getBoundingClientRect().width,
+        numberRadius: numberStyle.borderRadius,
+      };
+    });
+    expect(exitLayout.columns).toBe(1);
+    expect(exitLayout.rowWidths.every((width) => width >= exitLayout.listWidth - 2)).toBe(true);
+    expect(exitLayout.numberRadius).toBe('50%');
     await expectInvestmentSlideFits(page, 'lesson 1 fill-blank exit ticket projector');
     await revealInvestmentSlide(page);
-    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(6);
-    await expect(page.locator('.invSlide.is-active .invCheckText')).toContainText(['loss', 'goal', 'available']);
-    await expect(page.locator('.invSlide.is-active .invCheckText .invZhLine')).toContainText(['损失', '目标', '可用']);
+    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(8);
+    await expect(page.locator('.invSlide.is-active .invCheckText')).toContainText(['asset', 'loss', 'goal', 'available']);
+    await expect(page.locator('.invSlide.is-active .invCheckText .invZhLine')).toContainText(['资产', '损失', '目标', '可用']);
     await expectInvestmentSlideFits(page, 'lesson 1 fill-blank exit ticket revealed projector');
 
     await page.setViewportSize({ width: 1920, height: 1080 });
@@ -1122,19 +1329,20 @@ test.describe('site smoke', () => {
     expect(lessonSummary.quizCount, 'lesson 2 has quiz data').toBeGreaterThan(0);
     await expect(page.getByRole('link', { name: /^Passport$/i })).toHaveCount(0);
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Record the team decision rule' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/SMG core lab/i);
-    await expect(page.locator('.invSlide.is-active')).toContainText(/goal, horizon, liquidity need/i);
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Record the evidence' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/SMG evidence checkpoint/i);
     await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/individual exit/i);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(2);
     await expectInvestmentSlideFits(page, 'lesson 2 SMG goal-rules lab desktop');
 
-    await goToInvestmentSlide(page, { type: 'flow', title: 'What determines whether an investment is suitable?' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'flow', title: 'What changes when the goal changes?' }, lessonPath);
     const suitabilitySteps = page.locator('.invSlide.is-active .invFlow-decisionChecks .invStep');
-    await expect(suitabilitySteps).toHaveCount(4);
-    await expect(page.locator('.invSlide.is-active .invStepTitle')).toHaveText(['Goal', 'Time and access', 'Loss capacity', 'Suitability']);
-    await expect(page.locator('.invSlide.is-active .invStepTitleZh')).toHaveText(['目标', '期限与资金使用', '损失承受能力', '适合度']);
+    await expect(suitabilitySteps).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invStepTitle')).toHaveText(['Time', 'Access', 'Possible loss']);
+    await expect(page.locator('.invSlide.is-active .invStepTitleZh')).toHaveText(['期限', '资金使用', '可能损失']);
     await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(0);
-    for (let revealCount = 1; revealCount <= 4; revealCount += 1) {
+    for (let revealCount = 1; revealCount <= 3; revealCount += 1) {
       await page.locator('.invSlide.is-active .invSlideHeader').click();
       await expect(page.locator('.invSlide.is-active .invStep.is-revealed')).toHaveCount(revealCount);
     }
@@ -1204,7 +1412,7 @@ test.describe('site smoke', () => {
       { type: 'visualGrid', title: 'Compare examples with pictures', marker: '.invVisualGrid' },
       { type: 'rankingTask', title: 'Rank choices on a risk line', marker: '.invPriorityTask' },
       { type: 'compare', title: 'Compare two ideas in a T-table', marker: '.invCompareTwoColumn' },
-      { type: 'yesNoCheck', title: 'Yes or no: does this prove quality?', marker: '.invVoteBoard' },
+      { type: 'yesNoCheck', title: 'Vote yes or no.', marker: '.invVoteBoard' },
       { type: 'sourceLens', title: 'Can this source support the claim?', marker: '.invSourceLens' },
       { type: 'quoteMap', title: 'Read the quote page before the opinion', marker: '.invQuoteMap' },
       { type: 'comparisonMatrix', title: 'Compare two choices with the same criteria', marker: '.invCompareMatrix' },
@@ -1248,7 +1456,7 @@ test.describe('site smoke', () => {
 
     const voteSlideNumber = await goToInvestmentSlide(
       page,
-      { type: 'yesNoCheck', title: 'Yes or no: does this prove quality?' },
+      { type: 'yesNoCheck', title: 'Vote yes or no.' },
       lessonPath
     );
     await expect(page.locator('.invSlide.is-active .invVoteRow')).toHaveCount(3);
@@ -1278,7 +1486,7 @@ test.describe('site smoke', () => {
 
     await goToInvestmentSlide(
       page,
-      { type: 'yesNoCheck', title: 'Yes or no: does this prove quality?' },
+      { type: 'yesNoCheck', title: 'Vote yes or no.' },
       lessonPath
     );
     await page.evaluate(() => {
@@ -1360,7 +1568,7 @@ test.describe('site smoke', () => {
       },
       {
         type: 'yesNoCheck',
-        title: 'Yes or no: does this prove quality?',
+        title: 'Vote yes or no.',
         selector: '.invVoteStatement strong',
         text: /A stock code proves the share is a good investment/i,
       },
@@ -1478,7 +1686,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /SMG Workbook Course Guide/i })).toBeVisible();
     await expect(page.locator('[data-workbook-rules] li')).toHaveCount(8);
     await expect(page.locator('[data-workbook-calendar] tr')).toHaveCount(Object.keys(financialDecisionCourseMap.stockMarketGameIntegration.workbook.lessonPlan).length);
-    await expect(page.locator('[data-workbook-calendar] tr').first()).toContainText(/Lesson 1[\s\S]*1-3 and 8/i);
+    await expect(page.locator('[data-workbook-calendar] tr').first()).toContainText(/Lesson 1[\s\S]*1-3, 5-6 and 8/i);
     await expect(page.locator('[data-workbook-calendar]')).toContainText(/Any instruction to buy|trade override|approval gate/i);
     await expect(page.getByRole('link', { name: /Open official workbook/i })).toHaveAttribute('href', 'references/stock-market-game/program-guides/SMG_Essentials_Workbook.pdf');
     await expect(page.getByRole('link', { name: /Team evidence log/i })).toHaveAttribute('href', 'smg-team-evidence-log.html');
@@ -1572,9 +1780,23 @@ test.describe('site smoke', () => {
       page,
       lessonPath,
       'lesson 1 phone',
-      ['section', 'discussion', 'outcomes', 'term', 'flow', 'quiz', 'yesNoCheck', 'answer', 'exam']
+      ['section', 'discussion', 'outcomes', 'term', 'flow', 'visualGrid', 'compare', 'quiz', 'yesNoCheck', 'judgementFrame', 'answer', 'exam']
     );
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Open the team evidence record' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Welcome to the Stock Market Game!' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG welcome phone');
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Complete your goal tables in the workbook' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invVisualGridCard')).toHaveCount(2);
+    await expect(page.locator('.invSlide.is-active .invFocusPrompt')).toContainText(/Workbook pp\. 5-6/i);
+    await expectInvestmentSlideFits(page, 'lesson 1 workbook goal tables phone');
+    await goToInvestmentSlide(page, { type: 'flow', title: 'What will your team do during the course?' }, lessonPath);
+    for (let revealCount = 1; revealCount <= 4; revealCount += 1) {
+      await page.locator('.invSlide.is-active .invSlideHeader').click();
+      await expect(page.locator('.invSlide.is-active .invStep.is-revealed')).toHaveCount(revealCount);
+    }
+    await expect(page.locator('.invSlide.is-active .invStepTitleZh')).toHaveText(['学习', '研究', '决策', '复盘']);
+    await expectInvestmentSlideFits(page, 'lesson 1 SMG journey reveal phone');
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Open the team evidence record' }, lessonPath);
     await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
     await expectInvestmentSlideFits(page, 'lesson 1 SMG evidence lab phone');
     await goToInvestmentSlide(page, { type: 'discussion', title: 'What does ‘make more money’ leave out?' }, lessonPath);
@@ -1589,11 +1811,30 @@ test.describe('site smoke', () => {
     }
     await expect(page.locator('.invSlide.is-active .invStepTitleZh')).toHaveText(['目标', '资金使用', '可能损失']);
     await expectInvestmentSlideFits(page, 'lesson 1 decision checks reveal phone');
-    await goToInvestmentSlide(page, { type: 'answer', title: 'Fill in the blanks' }, lessonPath);
-    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(6);
+    await goToInvestmentSlide(page, { type: 'term', title: 'Financial goal' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invTermExamples li')).toHaveCount(3);
+    await expect(page.locator('.invSlide.is-active .invTermExamples li small')).toHaveCount(3);
+    await expectInvestmentSlideFits(page, 'lesson 1 definition examples phone');
+    await goToInvestmentSlide(page, { type: 'compare', title: 'Short-term and long-term goals' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCompareListItem')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'lesson 1 short- and long-term goal examples phone');
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Classify the goals' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invCheckItem')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'lesson 1 goal classification phone');
+    await goToInvestmentSlide(page, { type: 'judgementFrame', title: 'Write one judgement about one goal' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invJudgementStage')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invJudgementStage > strong')).toHaveText([
+      'Choose a goal',
+      'State the next step',
+      'Give one reason',
+      'Add one condition',
+    ]);
+    await expectInvestmentSlideFits(page, 'lesson 1 output judgement frame phone');
+    await goToInvestmentSlide(page, { type: 'answer', title: 'Exit ticket' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .blank')).toHaveCount(8);
     await expectInvestmentSlideFits(page, 'lesson 1 fill-blank exit ticket phone');
     await revealInvestmentSlide(page);
-    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(6);
+    await expect(page.locator('.invSlide.is-active .blank.is-revealed')).toHaveCount(8);
     await expectInvestmentSlideFits(page, 'lesson 1 fill-blank exit ticket revealed phone');
     await expectNoHorizontalOverflow(page);
 
@@ -1631,8 +1872,9 @@ test.describe('site smoke', () => {
       'lesson 2 phone',
       ['section', 'discussion', 'outcomes', 'visualPause', 'term', 'flow', 'compare', 'quiz', 'rankingTask', 'dataSnapshot', 'sourceLens', 'yesNoCheck', 'exam', 'answer']
     );
-    await goToInvestmentSlide(page, { type: 'flow', title: 'Record the team decision rule' }, lessonPath);
+    await goToInvestmentSlide(page, { type: 'visualGrid', title: 'Record the evidence' }, lessonPath);
     await expect(page.locator('.invSlide.is-active')).toContainText(/team evidence row/i);
+    await expect(page.locator('.invSlide.is-active')).toContainText(/individual exit/i);
     await expectInvestmentSlideFits(page, 'lesson 2 SMG goal-rules lab phone');
     await expectNoHorizontalOverflow(page);
 
@@ -3829,10 +4071,13 @@ test.describe('site smoke', () => {
       return;
     }
 
-    await page.route('https://randomizerselection.github.io/studentselector/selector.css', async (route) => {
+    await page.addInitScript(() => {
+      window.IGCSE = { studentSelectorBaseUrl: 'https://selector.test/' };
+    });
+    await page.route('https://selector.test/selector.css', async (route) => {
       await route.fulfill({ status: 200, contentType: 'text/css', body: '.selector-overlay-host{position:fixed;inset:0;z-index:9999;background:#fff}' });
     });
-    await page.route('https://randomizerselection.github.io/studentselector/selector.js', async (route) => {
+    await page.route('https://selector.test/selector.js', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/javascript',
@@ -3937,7 +4182,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.studentSelectorSidePanel .selector-class-select option').first()).toHaveCSS('background-color', 'rgb(255, 255, 255)');
     await expect(page.locator('.studentSelectorSidePanel')).not.toHaveClass(/is-stage-overlay/);
     await expect(page.locator('[data-test-reel]')).toBeHidden();
-    await expect(page.locator('link[href*="randomizerselection.github.io/studentselector/selector.css"]')).toHaveCount(0);
+    await expect(page.locator('link[href*="selector.test/selector.css"]')).toHaveCount(0);
     await expect.poll(() => page.evaluate(() => window.__studentSelectorMountOptions?.skipStyles)).toBe(true);
 
     const startButton = page.locator('.studentSelectorSidePanel').getByRole('button', { name: /START SELECTION/i });
@@ -4618,26 +4863,22 @@ test.describe('site smoke', () => {
     await expect(page.locator('.quizReviewCount')).toHaveText('0');
     await expect(page.locator('.quizQuestion.is-correct')).toHaveCount(8);
     await expect(page.locator('.quizCorrection').filter({ hasText: /Correct: gdp/i })).toBeVisible();
-    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Submission failed - retry/i);
-    await expect(page.getByRole('button', { name: /Retry submission/i })).toBeVisible();
+    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Score marked locally/i);
+    await expect(page.getByRole('button', { name: /Retry submission/i })).toBeHidden();
     await expect(page.getByRole('combobox', { name: /^Class$/i })).toBeDisabled();
     await expectNoHorizontalOverflow(page);
   });
 
-  test('student quiz submits to configured Netlify form endpoint', async ({ page }) => {
-    let submissionBody = '';
-    await page.route('https://example.test/', async (route) => {
-      submissionBody = route.request().postData() || '';
-      await route.fulfill({ status: 200, body: 'ok' });
-    });
-
+  test('signed-in student quiz submits raw answers for server verification', async ({ page }) => {
     await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '?view=quiz');
     await page.evaluate(() => {
-      window.IGCSE.quizConfig = {
-        submissionEnabled: true,
-        provider: 'netlify-forms',
-        formName: 'quiz-submissions',
-        submitEndpoint: 'https://example.test/',
+      window.OHPlatform = {
+        ready: async () => {},
+        session: { authenticated: true, account: { role: 'student' } },
+        submitQuiz: async (quizId, payload) => {
+          window.__quizRequest = { quizId, payload };
+          return { score: 8, max_score: 8, percentage: 100 };
+        },
       };
     });
 
@@ -4649,16 +4890,13 @@ test.describe('site smoke', () => {
     await page.getByRole('button', { name: /Mark quiz/i }).click();
 
     await expect(page.locator('.quizScore')).toHaveText('8/8 (100%)');
-    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Score submitted to your teacher/i);
+    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Verified score saved: 8\/8 \(100%\)/i);
 
-    const submitted = new URLSearchParams(submissionBody);
-    expect(submitted.get('form-name')).toBe('quiz-submissions');
-    expect(submitted.get('studentName')).toBe('Test Student');
-    expect(submitted.get('studentClass')).toBe('IC 1.1');
-    expect(submitted.get('lessonCode')).toBe('4.1.1');
-    expect(submitted.get('score')).toBe('8');
-    expect(submitted.get('maxScore')).toBe('8');
-    expect(submitted.get('responsesJson')).toContain('growth-measure');
+    const submitted = await page.evaluate(() => window.__quizRequest);
+    expect(submitted.quizId).toBeTruthy();
+    expect(submitted.payload.mode).toBe('practice');
+    expect(Object.keys(submitted.payload.answers)).toHaveLength(8);
+    expect(submitted.payload.idempotency_key).toBeTruthy();
   });
 
   test('fiscal policy menu links back and offers lesson views', async ({ page }) => {

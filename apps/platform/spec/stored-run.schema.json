@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/stored-run.schema.json",
+  "title": "EconMark account-owned stored grading run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["input", "rubric", "output", "persistence"],
+  "properties": {
+    "input": { "$ref": "grading-input.schema.json" },
+    "rubric": { "$ref": "parsed-rubric.schema.json" },
+    "output": { "$ref": "grading-output.schema.json" },
+    "persistence": { "$ref": "persistence-record.schema.json" }
+  }
+}

@@ -54,8 +54,10 @@
     const labelZh = item.src
       ? fallbackZh
       : (item.labelZh || item.zhTitle || item.titleZh || item.visualLabelZh || fallbackZh || '');
+    const visualStyle = item.visualStyle || photo.visualStyle || '';
+    const visualStyleClass = visualStyle ? ` invKeywordVisual-${visualStyle}` : '';
     return `
-      <figure class="invKeywordVisual ${escapeHtml(className)}"${photoStyle(photo)}>
+      <figure class="invKeywordVisual ${escapeHtml(className)}${escapeHtml(visualStyleClass)}"${photoStyle(photo)}>
         <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || label || '')}" loading="eager" />
         ${(label || labelZh) ? `
           <figcaption>
@@ -715,6 +717,14 @@
   function renderTerm(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const keywordVisuals = keywordVisualListMarkup(slide.keywordVisuals || slide.keywordVisual, 'invTermVisuals');
+    const examples = (slide.examples || []).map((example) => {
+      const normalized = typeof example === 'string' ? { text: example } : (example || {});
+      return `
+        <li>
+          <span>${escapeHtml(normalized.text || normalized.example || '')}</span>
+          ${normalized.zh ? `<small lang="zh-Hans">${escapeHtml(normalized.zh)}</small>` : ''}
+        </li>`;
+    }).join('');
     const termBox = `
       <div class="invTermBox">
         <div class="invTermHeaderBlock">
@@ -725,6 +735,11 @@
         <div class="invTermDefinition">
           <div class="invTermDefinitionText">${applyDefinitionBlanks(slide.definition || '', slide.definitionBlanks)}</div>
           ${slide.definitionZh ? `<p class="invTermDefinitionZh" lang="zh-Hans">${escapeHtml(slide.definitionZh)}</p>` : ''}
+          ${examples ? `
+            <div class="invTermExamples">
+              <strong>Examples <span lang="zh-Hans">例子</span></strong>
+              <ul>${examples}</ul>
+            </div>` : ''}
         </div>
       </div>`;
     const body = termBox;
@@ -734,6 +749,7 @@
   function renderAnswer(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const isExitTicket = /exit ticket/i.test(`${slide.eyebrow || ''} ${slide.title || ''}`);
+    const checkLayoutClass = slide.checkLayout === 'twoColumn' ? ' invTwoColumnCheck' : '';
     const items = (slide.items || []).map((item, i) => {
       const zhMarkup = item.zh && item.answerZh
         ? fillBlankMarkup(item.zh, item.answerZh)
@@ -748,7 +764,7 @@
         </div>
       `;
     }).join('');
-    const body = `<div class="invCheckList${isExitTicket ? ' invExitList' : ''}">${items}</div>`;
+    const body = `<div class="invCheckList${isExitTicket ? ' invExitList' : ''}${checkLayoutClass}">${items}</div>`;
     return slideShell(slide, index, lesson, body, `${isExitTicket ? 'invAnswerSlide invExitTicketSlide' : 'invAnswerSlide'}${photo ? ' invContextPhotoSlide' : ''}`, photo);
   }
 
@@ -848,6 +864,7 @@
   function renderVisualGrid(slide, index, lesson) {
     const revealCardLabels = Boolean(slide.revealCardLabels || slide.revealCardText);
     const showCardNumbers = slide.showCardNumbers !== false;
+    const visualGridStyle = slide.visualGridStyle || '';
     const cards = (slide.cards || []).slice(0, 6).map((card, i) => {
       const photo = card.visual || card.photo;
       const textClass = `invVisualGridText${revealCardLabels ? ' invReveal' : ''}`;
@@ -869,7 +886,7 @@
     const body = `
       <div class="invVisualGridWrap">
         ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<div class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</div>` : ''}</div>` : ''}
-        <div class="invVisualGrid" data-count="${(slide.cards || []).length}">${cards}</div>
+        <div class="invVisualGrid" data-count="${(slide.cards || []).length}"${visualGridStyle ? ` data-style="${escapeHtml(visualGridStyle)}"` : ''}>${cards}</div>
       </div>`;
     return slideShell(slide, index, lesson, body, 'invVisualGridSlide');
   }
@@ -1002,6 +1019,7 @@
       <div class="invJudgementStage">
         <span class="invJudgementStep">${String(i + 1).padStart(2, '0')}</span>
         <strong>${escapeHtml(stage.label || '')}</strong>
+        ${stage.labelZh ? `<span class="invJudgementLabelZh" lang="zh-Hans">${escapeHtml(stage.labelZh)}</span>` : ''}
         <p>${html(stage.prompt || '')}</p>
         ${stage.zh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(stage.zh)}</p>` : ''}
         ${stage.answer ? `<p class="invJudgementAnswer${revealAnswers ? ' invReveal' : ''}">${html(stage.answer)}${stage.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(stage.answerZh)}</span>` : ''}</p>` : ''}
@@ -1149,7 +1167,6 @@
     }).join('');
     const body = `
       <div class="invVoteBoard${slide.compact ? ' is-compact' : ''}${densityClass}" style="--vote-count:${itemCount}">
-        ${slide.prompt ? `<div class="invVoteInstruction"><span>Vote first</span><div><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<p class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</p>` : ''}</div></div>` : ''}
         <div class="invVoteRows">${items}</div>
       </div>`;
     return slideShell(slide, index, lesson, body, `invYesNoCheckSlide${compactClass}${classroomTextClass} invContextPhotoSlide`, photo);

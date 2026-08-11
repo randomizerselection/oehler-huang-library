@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/evidence-record.schema.json",
+  "title": "EconMark evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "transcript_quote", "rubric_reference", "credit_status", "economic_reason", "mark_value", "quality_flags"],
+  "properties": {
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "transcript_quote": { "type": "string", "minLength": 1 },
+    "rubric_reference": { "type": "string", "minLength": 1 },
+    "credit_status": { "enum": ["credited", "partial", "not_credited"] },
+    "economic_reason": { "type": "string", "minLength": 1 },
+    "mark_value": { "type": "integer", "minimum": 0, "maximum": 8 },
+    "quality_flags": { "type": "array", "items": { "type": "string" } }
+  }
+}

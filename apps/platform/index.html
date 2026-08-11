@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f3b" />
+    <meta name="description" content="EconMark IGCSE 经济学手写论述题证据锁定智评助手。" />
+    <title>EconMark · 经济学论述题智评助手</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/mark/single#top" aria-label="EconMark 单份评分">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span><strong>EconMark</strong><small>经济学论述题智评助手</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="batch-link" href="/mark/teacher">作业库</a>
+        <a class="batch-link" href="/mark/batch">批量评分</a>
+        <a class="batch-link" href="/mark/">学生入口</a>
+        <div id="account-signed-out" class="account-controls">
+          <button id="account-open-login" class="account-link">登录</button>
+          <button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button>
+        </div>
+        <div id="account-signed-in" class="account-controls" hidden>
+          <a href="#history-section" class="account-name" id="account-name"></a>
+          <button id="account-open-settings" class="account-link">账户设置</button>
+          <button id="account-logout" class="account-link">退出</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Cambridge IGCSE Economics 0455 · Analyse [6] &amp; Discuss [8]</p>
+          <h1>从手写作答到<br /><em>有据可查的评分</em></h1>
+          <p class="hero-copy">确认原文，逐项锁定得分证据，教师始终保留最终决定权。<br /><small>Confirm the transcript, trace every credit, and keep the teacher in control.</small></p>
+        </div>
+        <aside class="safety-card">
+          <span class="shield" aria-hidden="true">✓</span>
+          <div>
+            <strong>不会自动生成最终成绩</strong>
+            <p>所有结果均为暂定分数，须由教师认可、调整或拒绝后才形成最终记录。</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="scope-strip" aria-label="功能范围与隐私提示">
+        <div><span>01</span><strong>图片优先</strong><small>Image first</small></div>
+        <div><span>02</span><strong>证据锁定</strong><small>Evidence locked</small></div>
+        <div><span>03</span><strong>双语反馈</strong><small>Bilingual feedback</small></div>
+        <div><span>04</span><strong>教师审核</strong><small>Teacher reviewed</small></div>
+      </section>
+
+      <div id="notice" class="notice notice-info" role="status">
+        <strong>统一账户与永久记录：</strong>所有访客均可直接使用下方样例。创建账户后可上传作答；原图、评分证据、反馈和终审记录将永久保存在服务器账户中。
+      </div>
+
+      <nav class="steps" aria-label="评分流程">
+        <button class="step active" data-step="1"><span>1</span><b>作答图片</b><small>Answer image</small></button>
+        <button class="step" data-step="2"><span>2</span><b>确认转写</b><small>Confirm transcript</small></button>
+        <button class="step" data-step="3"><span>3</span><b>确认评分标准</b><small>Confirm rubric</small></button>
+        <button class="step" data-step="4"><span>4</span><b>证据与评分</b><small>Evidence &amp; mark</small></button>
+        <button class="step" data-step="5"><span>5</span><b>教师决定</b><small>Teacher decision</small></button>
+      </nav>
+
+      <section class="workspace">
+        <div class="panel panel-input">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">从原始证据开始</p>
+              <h2>1. 选择一份手写作答</h2>
+              <p>一键体验三份原创合成样例；登录后可上传自己的作答图片并永久保存结果。</p>
+            </div>
+            <span class="scope-badge">V1 适用范围</span>
+          </div>
+
+          <div class="sample-grid" id="sample-grid">
+            <button class="sample-card" data-sample="weak">
+              <span class="sample-grade">L1</span>
+              <strong>基础 <small>Weak</small></strong>
+              <span>因果链较短 · 缺少权衡</span>
+            </button>
+            <button class="sample-card" data-sample="middle">
+              <span class="sample-grade">L2</span>
+              <strong>中等 <small>Middle</small></strong>
+              <span>因果链较完整 · 评价简短</span>
+            </button>
+            <button class="sample-card" data-sample="strong">
+              <span class="sample-grade">L3</span>
+              <strong>优秀 <small>Strong</small></strong>
+              <span>双向分析 · 判断有依据</span>
+            </button>
+          </div>
+
+          <label class="upload-zone" for="answer-upload" id="upload-zone">
+            <input id="answer-upload" type="file" accept="image/jpeg,image/png,image/webp" />
+            <span class="upload-icon" aria-hidden="true">↥</span>
+            <strong>登录并上传作答</strong>
+            <span id="single-upload-limit">JPG、PNG 或 WEBP · 上限由服务器配置</span>
+          </label>
+
+          <div class="preview-shell" id="preview-shell" hidden>
+            <div class="preview-toolbar">
+              <div><span class="dot good"></span><strong id="image-status">图片已就绪</strong></div>
+              <span id="image-meta"></span>
+            </div>
+            <div id="image-preview" class="image-preview"></div>
+          </div>
+
+          <div class="panel-heading compact">
+            <div>
+              <p class="section-kicker">教师确认关口</p>
+              <h2>2. 核对并确认转写文本</h2>
+              <p>请对照原图修正转写。系统绝不会使用未经确认的文本进行评分。</p>
+            </div>
+            <span id="transcript-state" class="state-pill pending">待确认</span>
+          </div>
+          <label class="field" for="transcript">
+            <span>精确转写（Exact transcript）</span>
+            <textarea id="transcript" rows="10" placeholder="请选择合成样例，或对照图片粘贴并核对完整转写。"></textarea>
+          </label>
+          <div class="inline-note"><span aria-hidden="true">≠</span> 保留原有拼写、删除线和可见修改，不要替学生润色英文。</div>
+          <button id="confirm-transcript" class="button button-secondary" disabled>确认转写文本</button>
+
+          <div class="panel-heading compact">
+            <div>
+              <p class="section-kicker">唯一评分依据</p>
+              <h2>3. 确认题目与评分标准</h2>
+              <p>每一分均以教师提供的评分标准为准，不依赖模型记忆。</p>
+            </div>
+            <span id="rubric-state" class="state-pill pending">待确认</span>
+          </div>
+          <label class="field" for="single-assignment-select">
+            <span>从中央作业库选择（真实上传必需）</span>
+            <select id="single-assignment-select"><option value="">请选择已发布作业</option></select>
+          </label>
+          <p id="single-assignment-note" class="inline-note"><span>!</span> 题目与评分标准只能在<a href="/mark/teacher">教师作业库</a>创建或修订。</p>
+          <label class="field" for="question-text">
+            <span>题目（Question）</span>
+            <textarea id="question-text" rows="2" readonly></textarea>
+          </label>
+          <div class="field-row">
+            <label class="field" for="command-word"><span>指令词</span><select id="command-word" disabled><option value="Discuss">Discuss（讨论）</option><option value="Analyse">Analyse（分析）</option></select></label>
+            <label class="field" for="max-mark"><span>满分</span><select id="max-mark" disabled><option value="8">8 分</option><option value="6">6 分</option></select></label>
+          </div>
+          <label class="field" for="mark-scheme">
+            <span>评分标准（Mark scheme）</span>
+            <textarea id="mark-scheme" rows="10" readonly></textarea>
+          </label>
+          <div class="inline-note"><span aria-hidden="true">©</span> 公开样例采用原创评分标准；官方材料仅可在经批准的登录账户流程中使用。</div>
+          <button id="confirm-rubric" class="button button-secondary">确认题目与评分标准</button>
+
+          <button id="run-grading" class="button button-primary button-run" disabled>
+            <span>开始证据锁定评分</span><small>Run evidence-locked marking</small><b aria-hidden="true">→</b>
+          </button>
+        </div>
+
+        <aside class="panel panel-output" id="output-panel">
+          <div id="empty-result" class="empty-result">
+            <div class="empty-orbit"><span>E</span></div>
+            <h2>评分证据将在此显示</h2>
+            <p>完成两项确认后，系统将生成暂定分数、双重独立复核和中英双语反馈。</p>
+            <ol>
+              <li><span>✓</span> 只引用学生原文</li>
+              <li><span>✓</span> 独立二次评分复核</li>
+              <li><span>✓</span> 教师保留最终决定权</li>
+            </ol>
+          </div>
+
+          <div id="result" hidden>
+            <div class="result-topline">
+              <div><p class="section-kicker">暂定结果</p><h2>基于证据的评分复核</h2></div>
+              <span id="confidence-badge" class="confidence">—</span>
+            </div>
+            <div class="score-card">
+              <div><strong id="score-value">—</strong><span id="score-max">/ 8</span></div>
+              <p><b id="level-value">—</b> · 教师审核前不构成最终成绩<br /><small>Not final until teacher review</small></p>
+            </div>
+            <div id="manual-review-warning" class="notice notice-warn" hidden></div>
+            <div class="review-pass-grid">
+              <div><span>初评分</span><strong id="primary-mark">—</strong></div>
+              <div><span>复核分</span><strong id="reviewer-mark">—</strong></div>
+              <div><span>裁定分</span><strong id="adjudicated-mark">—</strong></div>
+            </div>
+
+            <section class="result-section">
+              <div class="result-heading"><h3>评分证据</h3><span>Criterion evidence</span></div>
+              <div id="evidence-list" class="evidence-list"></div>
+            </section>
+
+            <section class="result-section">
+              <div class="result-heading"><h3>双语反馈</h3><span>Bilingual feedback</span></div>
+              <div class="language-tabs" role="tablist">
+                <button data-lang="en">English</button><button class="active" data-lang="zh">简体中文</button>
+              </div>
+              <div id="feedback-content"></div>
+            </section>
+
+            <section class="result-section">
+              <div class="result-heading"><h3>教师审核决定</h3><span>Teacher decision</span></div>
+              <div id="decision-status" class="decision-status">尚未生成最终成绩。</div>
+              <div class="decision-buttons">
+                <button id="approve-button" class="button button-approve">认可暂定分数</button>
+                <button id="show-adjust-button" class="button button-secondary">调整分数</button>
+                <button id="reject-button" class="button button-ghost">拒绝结果</button>
+              </div>
+              <div id="adjust-form" class="adjust-form" hidden>
+                <label class="field" for="adjust-mark"><span>教师最终分数</span><input id="adjust-mark" type="number" min="0" max="8" step="1" /></label>
+                <label class="field" for="override-reason"><span>调整理由（必填）</span><textarea id="override-reason" rows="3" placeholder="请注明所调整的证据或评分标准判断。"></textarea></label>
+                <button id="save-adjustment" class="button button-primary">保存调整</button>
+              </div>
+            </section>
+
+            <section class="result-section export-section">
+              <div class="result-heading"><h3>审计记录导出</h3><span>Audit export</span></div>
+              <div class="export-buttons">
+                <button id="export-json" class="button button-ghost">JSON</button>
+                <button id="export-csv" class="button button-ghost">CSV</button>
+                <button id="print-report" class="button button-ghost">打印 / PDF</button>
+              </div>
+              <p id="version-line" class="version-line"></p>
+            </section>
+          </div>
+        </aside>
+      </section>
+
+      <section class="history-section" id="history-section" hidden>
+        <div class="panel-heading"><div><p class="section-kicker">账户专属 · 永久保留</p><h2>评分历史记录</h2><p>重新打开任何原图、评分证据、反馈和最终决定。</p></div></div>
+        <div id="history-list" class="history-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>EconMark</strong> · 原创合成演示 · 机器评分仅为暂定结果</p>
+      <p>暂不支持：图表、计算题、缺少评分标准、未经确认的转写、多题边界不清或非 6/8 分题型。</p>
+    </footer>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+    <dialog id="account-dialog" class="account-dialog" data-mode="login">
+      <form id="account-form" class="account-form">
+        <div class="account-dialog-heading">
+          <div><p class="section-kicker">永久账户与历史记录</p><h2 id="account-dialog-title">登录 EconMark</h2></div>
+          <button id="account-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button>
+        </div>
+        <label id="account-display-name-field" class="field" for="account-display-name" hidden><span>显示名称</span><input id="account-display-name" maxlength="80" autocomplete="name" /></label>
+        <label class="field" for="account-username"><span>用户名</span><input id="account-username" required minlength="3" maxlength="60" autocomplete="username" /></label>
+        <label class="field" for="account-password"><span>密码</span><input id="account-password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" /></label>
+        <label id="account-teacher-invite-field" class="field" for="account-teacher-invite" hidden><span>教师邀请码</span><input id="account-teacher-invite" maxlength="160" /></label>
+        <p id="account-error" class="account-error" role="alert"></p>
+        <button id="account-submit" class="button button-primary" type="submit">登录</button>
+        <button id="account-mode-toggle" class="account-mode-toggle" type="button">没有账户？免费创建</button>
+        <p class="account-storage-note">登录后上传的原图、评分证据、反馈和终审记录将永久保存在此 EconMark 服务器中。</p>
+      </form>
+    </dialog>
+    <dialog id="account-settings-dialog" class="account-dialog">
+      <form id="account-settings-form" class="account-form">
+        <div class="account-dialog-heading">
+          <div><p class="section-kicker">账户安全与永久数据</p><h2>账户设置</h2></div>
+          <button id="account-settings-close" type="button" class="dialog-close" aria-label="关闭">×</button>
+        </div>
+        <p id="account-settings-summary" class="account-storage-note"></p>
+        <label class="field" for="account-current-password"><span>当前密码</span><input id="account-current-password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" /></label>
+        <label class="field" for="account-new-password"><span>新密码</span><input id="account-new-password" type="password" required minlength="10" maxlength="128" autocomplete="new-password" /></label>
+        <p id="account-settings-error" class="account-error" role="alert"></p>
+        <button id="account-change-password" class="button button-primary" type="submit">更改密码</button>
+        <p class="account-storage-note">系统不提供账户、图片或历史记录删除功能；达到容量上限后只停止新增。</p>
+      </form>
+    </dialog>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

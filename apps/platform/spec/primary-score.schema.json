@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/primary-score.schema.json",
+  "title": "EconMark primary scoring pass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mark", "level", "evidence", "missed_opportunities", "confidence_reasons"],
+  "properties": {
+    "mark": { "type": "integer", "minimum": 0, "maximum": 8 },
+    "level": { "type": ["string", "null"] },
+    "evidence": { "type": "array", "items": { "$ref": "evidence-record.schema.json" } },
+    "missed_opportunities": { "type": "array", "items": { "type": "string" } },
+    "confidence_reasons": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

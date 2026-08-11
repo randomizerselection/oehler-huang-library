@@ -10,13 +10,30 @@
     <meta name="theme-color" content="#17312f">
     <title>Random Student Selector</title>
     <link rel="icon" href="assets/icon.png">
-    <link rel="stylesheet" href="selector.css">
+    <link rel="stylesheet" href="/student-selector/selector.css">
   </head>
   <body>
     <main id="student-selector-app" class="selector-root" data-student-selector-root></main>
-    <script src="selector.js"></script>
+    <script src="/assets/js/platform-shell.js"></script>
+    <script src="/student-selector/selector.js"></script>
     <script>
-      window.StudentSelector.mount(document.getElementById("student-selector-app"));
+      (async () => {
+        await window.OHPlatform.ready();
+        if (window.OHPlatform.session.account?.role !== "teacher") {
+          location.replace(`/?signin=1&next=${encodeURIComponent(location.pathname + location.search)}`);
+          return;
+        }
+        const lessonContext = {
+          content_id: new URLSearchParams(location.search).get("lesson"),
+          learning_assignment_id: new URLSearchParams(location.search).get("assignment")
+        };
+        window.StudentSelector.mount(document.getElementById("student-selector-app"), {
+          basePath: "/student-selector/",
+          defaultClassId: new URLSearchParams(location.search).get("class"),
+          lessonContext,
+          ...window.OHPlatform.selectorAdapters(lessonContext)
+        });
+      })();
     </script>
   </body>
 </html>

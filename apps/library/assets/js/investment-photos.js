@@ -21,7 +21,8 @@ window.INVEST = window.INVEST || {};
       source,
       objectPosition: options.objectPosition || "center",
       objectFit: options.objectFit || "cover",
-      background: options.background || "#05090b"
+      background: options.background || "#05090b",
+      visualStyle: options.visualStyle || ""
     };
   }
 
@@ -242,6 +243,86 @@ window.INVEST = window.INVEST || {};
       "Pexels / Dany Kurniawan",
       "https://www.pexels.com/photo/a-piggy-bank-on-the-table-12357524/",
       { objectPosition: "center 50%" }
+    ),
+    lesson1CashAccessAtm: photo(
+      "lesson-1/access-public-atm-2024.jpg",
+      "A public ATM provides immediate access to cash.",
+      "An ATM represents money that can remain readily available",
+      "Pexels / C. AG TRAPHAUS",
+      "https://www.pexels.com/photo/atm-28171591/",
+      { objectPosition: "center 22%" }
+    ),
+    definitionInvestmentGraphic: photo(
+      "definitions/investment-definition.svg",
+      "Coins move into an asset, followed by an uncertain future gain or loss.",
+      "Investment: money enters an asset to seek future return while accepting possible loss",
+      "Oehler-Huang Library",
+      "Purpose-built local course graphic",
+      { objectFit: "contain", background: "#071114" }
+    ),
+    definitionReturnGraphic: photo(
+      "definitions/return-definition.svg",
+      "A yuan coin between an upward gain arrow and a downward loss arrow.",
+      "Return can move up as a gain or down as a loss",
+      "Oehler-Huang Library",
+      "Purpose-built local course icon",
+      { objectFit: "contain", background: "transparent", visualStyle: "icon" }
+    ),
+    definitionFinancialGoalGraphic: photo(
+      "definitions/financial-goal-definition.svg",
+      "A yuan coin at the centre of a clear target.",
+      "Financial goal: money directed towards a stated target",
+      "Oehler-Huang Library",
+      "Purpose-built local course icon",
+      { objectFit: "contain", background: "transparent", visualStyle: "icon" }
+    ),
+    definitionTimeHorizonGraphic: photo(
+      "definitions/time-horizon-definition.svg",
+      "A clock points along a forward arrow towards a target date.",
+      "Time horizon: the period before invested money is needed",
+      "Oehler-Huang Library",
+      "Purpose-built local course icon",
+      { objectFit: "contain", background: "transparent", visualStyle: "icon" }
+    ),
+    definitionLiquidityNeedGraphic: photo(
+      "definitions/liquidity-need-definition.svg",
+      "A yuan coin moves quickly out of an open wallet.",
+      "Liquidity need: money can be accessed quickly",
+      "Oehler-Huang Library",
+      "Purpose-built local course icon",
+      { objectFit: "contain", background: "transparent", visualStyle: "icon" }
+    ),
+    definitionSuitabilityGraphic: photo(
+      "definitions/suitability-definition.svg",
+      "Two matching puzzle pieces join beside a clear approval check.",
+      "Suitability matches an investment to the person's goal and constraints",
+      "Oehler-Huang Library",
+      "Purpose-built local course icon",
+      { objectFit: "contain", background: "transparent", visualStyle: "icon" }
+    ),
+    lesson2UniversityStudents: photo(
+      "lesson-2/university-students.jpg",
+      "University students write at desks in a classroom.",
+      "University study as a near-term financial goal",
+      "Pexels / Eduard Perez",
+      "https://www.pexels.com/photo/college-students-studying-in-a-classroom-37811241/",
+      { objectPosition: "center 46%" }
+    ),
+    lesson2HomeKey: photo(
+      "lesson-2/new-home-key.jpg",
+      "A couple holds up the key to a new home.",
+      "A home purchase as a medium-term financial goal",
+      "Pexels / Kindel Media",
+      "https://www.pexels.com/photo/people-holding-a-key-7579197/",
+      { objectPosition: "center 42%" }
+    ),
+    lesson2RetirementCouple: photo(
+      "lesson-2/retirement-couple-walking.jpg",
+      "An older couple walks together while holding hands.",
+      "Retirement as a long-term financial goal",
+      "Pexels / Noelle Otto",
+      "https://www.pexels.com/photo/old-couple-walking-while-holding-hands-906111/",
+      { objectPosition: "center 52%" }
     ),
     lesson1GainAndLossMarketScreen: photo(
       "lesson-1/market-gainers-and-losers-screen.jpg",

@@ -5,6 +5,7 @@ module.exports = defineConfig({
   timeout: 30_000,
   use: {
     baseURL: "http://127.0.0.1:8770",
+    channel: "chrome",
     trace: "on-first-retry"
   },
   webServer: {

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/account.schema.json",
+  "title": "EconMark public account",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["account_id", "username", "display_name", "role", "created_at", "status"],
+  "properties": {
+    "account_id": { "type": "string", "pattern": "^acct_" },
+    "username": { "type": "string", "minLength": 3, "maxLength": 60 },
+    "display_name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "role": { "enum": ["student", "teacher"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "last_login_at": { "type": ["string", "null"], "format": "date-time" },
+    "status": { "const": "active" }
+  }
+}

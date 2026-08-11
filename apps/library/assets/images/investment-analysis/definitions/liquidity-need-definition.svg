@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Liquidity need icon</title>
+  <desc id="desc">A yuan coin moves quickly out of an open wallet.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M78 160h254c31 0 56 25 56 56v150H116c-21 0-38-17-38-38Z" fill="#0d2228" stroke="#4fd2ff" stroke-width="18"/>
+    <path d="M78 160c0-25 20-45 45-45h198" fill="none" stroke="#d6e7e8" stroke-width="18"/>
+    <path d="M298 229h122v82H298c-23 0-41-18-41-41s18-41 41-41Z" fill="#173b45" stroke="#f1be5a" stroke-width="18"/>
+    <circle cx="308" cy="270" r="12" fill="#f1be5a"/>
+    <circle cx="380" cy="124" r="69" fill="#123f31" stroke="#39d991" stroke-width="16"/>
+    <text x="380" y="151" text-anchor="middle" fill="#f7fcfc" font-family="Arial, sans-serif" font-size="76" font-weight="700">¥</text>
+    <path d="M363 191v58" fill="none" stroke="#39d991" stroke-width="20"/>
+    <path d="m332 222 31 31 31-31" fill="none" stroke="#39d991" stroke-width="20"/>
+  </g>
+</svg>

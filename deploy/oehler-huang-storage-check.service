@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Oehler-Huang platform storage thresholds
+
+[Service]
+Type=oneshot
+User=econmark
+Group=econmark
+WorkingDirectory=/opt/oehler-huang-platform/current
+EnvironmentFile=/etc/oehler-huang-platform/platform.env
+ExecStart=/usr/bin/node /opt/oehler-huang-platform/current/apps/platform/scripts/check-storage.mjs

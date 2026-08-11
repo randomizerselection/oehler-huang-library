@@ -1,0 +1,3592 @@
+{
+  "schema_version": "oehler-huang-quiz-bank/1.0.0",
+  "source_hash": "1b64227f9bbbb0a9776a0dc6af285eced7e0d1fd5429106901dc27cfdb4ffb60",
+  "quizzes": [
+    {
+      "id": "2-8-market-economic-system-lesson-1",
+      "version": "1.0.0",
+      "title": "Market economic system quiz",
+      "description": "Check syllabus 2.8.1: market forces, private sector ownership, the price mechanism and profit motive.",
+      "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-1/",
+      "source": "lessons/unit-2-allocation/2-8-market-economic-system/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "definition",
+          "type": "multipleChoice",
+          "prompt": "Which statement best defines a market economic system?",
+          "choices": [
+            "Resources are allocated mainly by market forces or the price mechanism, with private sector ownership and the profit motive.",
+            "The government owns all resources and sets all output.",
+            "All goods are provided free by the public sector.",
+            "Firms produce only what the government orders."
+          ],
+          "answer": 0,
+          "explanation": "This matches the definitions source: market forces / price mechanism, private sector ownership and decisions influenced by the profit motive.",
+          "points": 1
+        },
+        {
+          "id": "private-ownership",
+          "type": "fillBlank",
+          "prompt": "A market economic system includes private __________ of resources.",
+          "acceptedAnswers": [
+            "ownership"
+          ],
+          "explanation": "Private ownership is a core feature of a market economy.",
+          "points": 1
+        },
+        {
+          "id": "price-mechanism",
+          "type": "fillBlank",
+          "prompt": "Prices act as signals and incentives through the price __________.",
+          "acceptedAnswers": [
+            "mechanism"
+          ],
+          "explanation": "The price mechanism uses price changes to allocate resources.",
+          "points": 1
+        },
+        {
+          "id": "profit-motive",
+          "type": "multipleChoice",
+          "prompt": "Why is profit important in a market economy?",
+          "choices": [
+            "It gives firms an incentive to produce goods consumers want.",
+            "It guarantees equal income.",
+            "It removes external costs.",
+            "It means government owns firms."
+          ],
+          "answer": 0,
+          "explanation": "Profit is an incentive that can move resources towards demanded goods.",
+          "points": 1
+        },
+        {
+          "id": "private-sector",
+          "type": "multipleChoice",
+          "prompt": "A coffee shop owned by shareholders is in the...",
+          "choices": [
+            "private sector",
+            "public sector",
+            "planned sector",
+            "tax sector"
+          ],
+          "answer": 0,
+          "explanation": "The private sector includes firms owned by individuals or shareholders.",
+          "points": 1
+        },
+        {
+          "id": "systems",
+          "type": "multipleChoice",
+          "prompt": "Which economy combines private-sector market activity with public-sector intervention?",
+          "choices": [
+            "Mixed economy",
+            "Pure market economy",
+            "Budget deficit",
+            "Current account"
+          ],
+          "answer": 0,
+          "explanation": "A mixed economy uses both markets and government intervention.",
+          "points": 1
+        },
+        {
+          "id": "market-forces",
+          "type": "fillBlank",
+          "prompt": "Market forces means demand and __________.",
+          "acceptedAnswers": [
+            "supply"
+          ],
+          "explanation": "Demand and supply influence prices in markets.",
+          "points": 1
+        },
+        {
+          "id": "allocation",
+          "type": "multipleChoice",
+          "prompt": "What does it mean to allocate resources?",
+          "choices": [
+            "Decide how land, labour, capital and enterprise are used.",
+            "Print more money.",
+            "Measure inflation only.",
+            "Ban all trade."
+          ],
+          "answer": 0,
+          "explanation": "Allocation means deciding how scarce resources are used.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-8-market-economic-system-lesson-2",
+      "version": "1.0.0",
+      "title": "Price mechanism quiz",
+      "description": "Check demand and supply signals, incentives and resource allocation.",
+      "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-2/",
+      "source": "lessons/unit-2-allocation/2-8-market-economic-system/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "price-signal",
+          "type": "fillBlank",
+          "prompt": "In a market economy, prices act as signals and __________.",
+          "acceptedAnswers": [
+            "incentives",
+            "an incentive"
+          ],
+          "explanation": "Prices signal scarcity and create incentives for buyers and sellers.",
+          "points": 1
+        },
+        {
+          "id": "demand-rises",
+          "type": "multipleChoice",
+          "prompt": "If demand rises and supply is unchanged, what is the likely short-run effect?",
+          "choices": [
+            "Price rises and profit may rise.",
+            "Price must fall to zero.",
+            "Government owns the market.",
+            "Resources leave immediately."
+          ],
+          "answer": 0,
+          "explanation": "Higher demand tends to raise price and profit incentives.",
+          "points": 1
+        },
+        {
+          "id": "resource-movement",
+          "type": "multipleChoice",
+          "prompt": "Which chain best shows resources moving into a market?",
+          "choices": [
+            "Demand rises -> price rises -> profit rises -> firms use more resources.",
+            "Demand rises -> profit falls -> firms leave.",
+            "Demand rises -> prices disappear.",
+            "Demand rises -> supply is banned."
+          ],
+          "answer": 0,
+          "explanation": "Profit signals attract land, labour, capital and enterprise.",
+          "points": 1
+        },
+        {
+          "id": "demand-falls",
+          "type": "fillBlank",
+          "prompt": "When demand falls, price and profit may __________.",
+          "acceptedAnswers": [
+            "fall",
+            "decrease"
+          ],
+          "explanation": "Falling demand sends a signal to reduce output.",
+          "points": 1
+        },
+        {
+          "id": "consumer-sovereignty",
+          "type": "fillBlank",
+          "prompt": "Consumer __________ means firms produce what consumers demand.",
+          "acceptedAnswers": [
+            "sovereignty"
+          ],
+          "explanation": "Consumer sovereignty means spending decisions influence production.",
+          "points": 1
+        },
+        {
+          "id": "ev-example",
+          "type": "multipleChoice",
+          "prompt": "Demand for electric cars rises. What should firms do if profit rises?",
+          "choices": [
+            "Allocate more resources to electric car production.",
+            "Ignore consumer demand.",
+            "Produce fewer electric cars.",
+            "Stop using prices."
+          ],
+          "answer": 0,
+          "explanation": "Rising profit encourages more resources into production.",
+          "points": 1
+        },
+        {
+          "id": "resources",
+          "type": "multipleChoice",
+          "prompt": "Which list contains only factors of production?",
+          "choices": [
+            "Land, labour, capital and enterprise",
+            "Imports, exports, taxes and subsidies",
+            "Inflation, money, prices and GDP",
+            "Choice, equality, monopoly and pollution"
+          ],
+          "answer": 0,
+          "explanation": "These are the resources allocated by the price mechanism.",
+          "points": 1
+        },
+        {
+          "id": "mechanism",
+          "type": "fillBlank",
+          "prompt": "The price mechanism allocates resources through changes in __________.",
+          "acceptedAnswers": [
+            "price",
+            "prices"
+          ],
+          "explanation": "Price changes signal where resources should move.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-8-market-economic-system-lesson-3",
+      "version": "1.0.0",
+      "title": "Arguments for markets quiz",
+      "description": "Check choice, incentives and efficiency.",
+      "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-3/",
+      "source": "lessons/unit-2-allocation/2-8-market-economic-system/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "advantages-list",
+          "type": "multipleChoice",
+          "prompt": "Which list gives syllabus arguments for markets?",
+          "choices": [
+            "Choice, incentives and efficiency",
+            "Inequality, market failure and under-provision",
+            "Taxes, spending and borrowing",
+            "Inflation, deflation and unemployment"
+          ],
+          "answer": 0,
+          "explanation": "The syllabus names choice, incentives and efficiency as advantages.",
+          "points": 1
+        },
+        {
+          "id": "choice",
+          "type": "fillBlank",
+          "prompt": "Competition between many firms can increase consumer __________.",
+          "acceptedAnswers": [
+            "choice"
+          ],
+          "explanation": "Choice is a key argument for markets.",
+          "points": 1
+        },
+        {
+          "id": "profit-incentive",
+          "type": "multipleChoice",
+          "prompt": "How can profit encourage innovation?",
+          "choices": [
+            "Better products may attract consumers and increase sales.",
+            "Profit prevents firms from improving products.",
+            "Profit guarantees equality.",
+            "Profit means prices never change."
+          ],
+          "answer": 0,
+          "explanation": "Profit gives firms an incentive to improve products.",
+          "points": 1
+        },
+        {
+          "id": "efficiency",
+          "type": "fillBlank",
+          "prompt": "Competition can pressure firms to reduce waste and lower __________.",
+          "acceptedAnswers": [
+            "costs",
+            "cost"
+          ],
+          "explanation": "This can improve efficiency.",
+          "points": 1
+        },
+        {
+          "id": "app-store",
+          "type": "multipleChoice",
+          "prompt": "A large app market with many developers most directly shows...",
+          "choices": [
+            "consumer choice and innovation",
+            "non-provision of public goods",
+            "higher external costs only",
+            "a planned economy"
+          ],
+          "answer": 0,
+          "explanation": "Many developers and apps can increase choice and innovation.",
+          "points": 1
+        },
+        {
+          "id": "ev-firms",
+          "type": "multipleChoice",
+          "prompt": "When EV firms compete to improve batteries and prices, this shows...",
+          "choices": [
+            "incentives and innovation",
+            "under-consumption of merit goods",
+            "no role for prices",
+            "public ownership of all resources"
+          ],
+          "answer": 0,
+          "explanation": "Competition and profit can create incentives to innovate.",
+          "points": 1
+        },
+        {
+          "id": "logistics",
+          "type": "fillBlank",
+          "prompt": "Firms may improve logistics to reduce waste and become more __________.",
+          "acceptedAnswers": [
+            "efficient"
+          ],
+          "explanation": "Efficiency means using fewer resources for the same or greater output.",
+          "points": 1
+        },
+        {
+          "id": "exam-chain",
+          "type": "multipleChoice",
+          "prompt": "Which is the strongest exam chain?",
+          "choices": [
+            "Competition pressures firms to cut costs, which may lower prices for consumers.",
+            "Markets are good because markets are good.",
+            "Choice is bad because firms exist.",
+            "Prices do not matter in markets."
+          ],
+          "answer": 0,
+          "explanation": "The strongest answer gives a cause and consequence.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-8-market-economic-system-lesson-4",
+      "version": "1.0.0",
+      "title": "Arguments against markets quiz",
+      "description": "Check inequality, market failure and under-provision.",
+      "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-4/",
+      "source": "lessons/unit-2-allocation/2-8-market-economic-system/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "against-list",
+          "type": "multipleChoice",
+          "prompt": "Which list gives syllabus arguments against markets?",
+          "choices": [
+            "Inequality, market failure and under-provision of some goods",
+            "Choice, incentives and efficiency only",
+            "Exports, imports and exchange rates",
+            "Money supply, interest rates and inflation"
+          ],
+          "answer": 0,
+          "explanation": "The syllabus names inequality, market failure and under-provision.",
+          "points": 1
+        },
+        {
+          "id": "inequality",
+          "type": "fillBlank",
+          "prompt": "Market demand reflects wants and ability to __________.",
+          "acceptedAnswers": [
+            "pay"
+          ],
+          "explanation": "Richer consumers have more spending power.",
+          "points": 1
+        },
+        {
+          "id": "external-cost",
+          "type": "multipleChoice",
+          "prompt": "A factory pollutes and nearby residents face health costs. What is ignored?",
+          "choices": [
+            "External costs",
+            "Consumer sovereignty",
+            "Higher choice",
+            "Private ownership only"
+          ],
+          "answer": 0,
+          "explanation": "Pollution imposes costs on third parties.",
+          "points": 1
+        },
+        {
+          "id": "market-failure",
+          "type": "fillBlank",
+          "prompt": "Market failure means resources are allocated __________ by the market.",
+          "acceptedAnswers": [
+            "inefficiently"
+          ],
+          "explanation": "Market failure is inefficient allocation by the market.",
+          "points": 1
+        },
+        {
+          "id": "public-good",
+          "type": "multipleChoice",
+          "prompt": "Why might street lighting be under-provided by private firms?",
+          "choices": [
+            "People can benefit without paying.",
+            "It has no social benefit.",
+            "Prices always allocate it perfectly.",
+            "It is a luxury private good."
+          ],
+          "answer": 0,
+          "explanation": "Free riders make it difficult to charge users.",
+          "points": 1
+        },
+        {
+          "id": "under-provision",
+          "type": "fillBlank",
+          "prompt": "Public goods may suffer from under-__________ or non-provision.",
+          "acceptedAnswers": [
+            "provision"
+          ],
+          "explanation": "Some socially useful goods may not be provided by markets.",
+          "points": 1
+        },
+        {
+          "id": "balanced-answer",
+          "type": "multipleChoice",
+          "prompt": "A balanced answer about markets should...",
+          "choices": [
+            "Use arguments for and against before judging.",
+            "Only list advantages.",
+            "Only list disadvantages.",
+            "Avoid examples."
+          ],
+          "answer": 0,
+          "explanation": "Discuss questions need both sides and a judgement.",
+          "points": 1
+        },
+        {
+          "id": "pollution-chain",
+          "type": "multipleChoice",
+          "prompt": "Which chain is strongest?",
+          "choices": [
+            "External cost ignored -> market price too low -> output may be too high.",
+            "External cost ignored -> choice must rise.",
+            "Pollution -> no market failure.",
+            "Public goods -> profit must rise."
+          ],
+          "answer": 0,
+          "explanation": "This explains the mechanism and consequence.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-9-market-failure-lesson-1",
+      "version": "1.0.0",
+      "title": "External costs and benefits quiz",
+      "description": "Check syllabus 2.9 externalities, private effects and social effects.",
+      "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-1/",
+      "source": "lessons/unit-2-allocation/2-9-market-failure/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "market-failure",
+          "type": "multipleChoice",
+          "prompt": "What is market failure?",
+          "choices": [
+            "An inefficient allocation of resources by the market.",
+            "Any fall in a firm profit.",
+            "A market where prices never change.",
+            "A situation where consumers always have too much choice."
+          ],
+          "answer": 0,
+          "explanation": "Market failure is inefficient allocation or misallocation of resources by the market.",
+          "points": 1
+        },
+        {
+          "id": "social-cost",
+          "type": "fillBlank",
+          "prompt": "Social cost equals private cost plus external __________.",
+          "acceptedAnswers": [
+            "cost",
+            "costs"
+          ],
+          "explanation": "External costs are added to private costs.",
+          "points": 1
+        },
+        {
+          "id": "social-benefit",
+          "type": "fillBlank",
+          "prompt": "Social benefit equals private benefit plus external __________.",
+          "acceptedAnswers": [
+            "benefit",
+            "benefits"
+          ],
+          "explanation": "External benefits are added to private benefits.",
+          "points": 1
+        },
+        {
+          "id": "external-cost",
+          "type": "multipleChoice",
+          "prompt": "Which is an external cost?",
+          "choices": [
+            "Dirty air suffered by nearby residents from a factory.",
+            "The wage paid to a worker.",
+            "The rent paid by a shop.",
+            "The price paid by the buyer."
+          ],
+          "answer": 0,
+          "explanation": "An external cost is suffered by a third party.",
+          "points": 1
+        },
+        {
+          "id": "external-benefit",
+          "type": "multipleChoice",
+          "prompt": "Which is an external benefit?",
+          "choices": [
+            "Lower disease spread after people are vaccinated.",
+            "The price paid for the vaccine.",
+            "A firm rent payment.",
+            "A consumer private shopping benefit only."
+          ],
+          "answer": 0,
+          "explanation": "An external benefit is gained by third parties who are not directly involved in the transaction.",
+          "points": 1
+        },
+        {
+          "id": "third-party",
+          "type": "fillBlank",
+          "prompt": "An externality affects a third __________.",
+          "acceptedAnswers": [
+            "party",
+            "parties"
+          ],
+          "explanation": "Third parties are outside the direct buyer-seller transaction.",
+          "points": 1
+        },
+        {
+          "id": "output-external-cost",
+          "type": "multipleChoice",
+          "prompt": "If external costs are ignored, what may happen to market output?",
+          "choices": [
+            "It may be too high from society viewpoint.",
+            "It must be exactly efficient.",
+            "It will always be zero.",
+            "It will always be too low."
+          ],
+          "answer": 0,
+          "explanation": "When social cost exceeds private cost, the market may produce or consume too much.",
+          "points": 1
+        },
+        {
+          "id": "output-external-benefit",
+          "type": "multipleChoice",
+          "prompt": "If external benefits are ignored, what may happen to market output?",
+          "choices": [
+            "It may be too low from society viewpoint.",
+            "It must be exactly efficient.",
+            "It will always be too high.",
+            "It will always be a public good."
+          ],
+          "answer": 0,
+          "explanation": "When social benefit exceeds private benefit, the market may produce or consume too little.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-9-market-failure-lesson-2",
+      "version": "1.0.0",
+      "title": "Merit and demerit goods quiz",
+      "description": "Check syllabus 2.9 merit goods, demerit goods, under-consumption and over-consumption.",
+      "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-2/",
+      "source": "lessons/unit-2-allocation/2-9-market-failure/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "merit-good",
+          "type": "multipleChoice",
+          "prompt": "What is a merit good?",
+          "choices": [
+            "A beneficial good that may be under-consumed.",
+            "A harmful good that is over-consumed.",
+            "A non-rival and non-excludable good.",
+            "A good supplied by only one firm."
+          ],
+          "answer": 0,
+          "explanation": "Merit goods are beneficial and may be under-consumed because people do not recognise their full benefits.",
+          "points": 1
+        },
+        {
+          "id": "demerit-good",
+          "type": "multipleChoice",
+          "prompt": "What is a demerit good?",
+          "choices": [
+            "A harmful good that may be over-consumed.",
+            "A good that always has no price.",
+            "A good that cannot be excluded.",
+            "A good that is always exported."
+          ],
+          "answer": 0,
+          "explanation": "Demerit goods may be over-consumed when people do not appreciate their full costs.",
+          "points": 1
+        },
+        {
+          "id": "under-consumption",
+          "type": "fillBlank",
+          "prompt": "Merit goods may be under-__________.",
+          "acceptedAnswers": [
+            "consumed",
+            "consumption"
+          ],
+          "explanation": "Consumers may demand too little because they do not realise the full benefits.",
+          "points": 1
+        },
+        {
+          "id": "over-consumption",
+          "type": "fillBlank",
+          "prompt": "Demerit goods may be over-__________.",
+          "acceptedAnswers": [
+            "consumed",
+            "consumption"
+          ],
+          "explanation": "Consumers may demand too much because they do not realise the full costs.",
+          "points": 1
+        },
+        {
+          "id": "education",
+          "type": "multipleChoice",
+          "prompt": "Why may education be under-consumed in a free market?",
+          "choices": [
+            "Consumers may not realise long-term benefits or be unable to afford enough.",
+            "It has no social benefit.",
+            "It is always harmful.",
+            "It is a monopoly by definition."
+          ],
+          "answer": 0,
+          "explanation": "Education is a merit good whose long-term benefits may not be fully recognised.",
+          "points": 1
+        },
+        {
+          "id": "tobacco",
+          "type": "multipleChoice",
+          "prompt": "Why may tobacco be over-consumed in a free market?",
+          "choices": [
+            "Consumers may underestimate addiction and long-term health costs.",
+            "It is a public good.",
+            "It creates only benefits.",
+            "It is always under-consumed."
+          ],
+          "answer": 0,
+          "explanation": "Tobacco is a demerit good because consumers may not fully recognise its costs.",
+          "points": 1
+        },
+        {
+          "id": "merit-example",
+          "type": "multipleChoice",
+          "prompt": "Which is usually treated as a merit good?",
+          "choices": [
+            "Healthcare",
+            "Tobacco",
+            "Gambling",
+            "A monopoly rail service"
+          ],
+          "answer": 0,
+          "explanation": "Healthcare is beneficial and may be under-consumed if consumers do not recognise its full benefits.",
+          "points": 1
+        },
+        {
+          "id": "demerit-example",
+          "type": "multipleChoice",
+          "prompt": "Which is usually treated as a demerit good?",
+          "choices": [
+            "Tobacco",
+            "Education",
+            "Vaccination",
+            "Street lighting"
+          ],
+          "answer": 0,
+          "explanation": "Tobacco is harmful and may be over-consumed if consumers do not recognise its full costs.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-9-market-failure-lesson-3",
+      "version": "1.0.0",
+      "title": "Public goods quiz",
+      "description": "Check syllabus 2.9 public goods, free riders, private revenue and non-provision.",
+      "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-3/",
+      "source": "lessons/unit-2-allocation/2-9-market-failure/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "public-good",
+          "type": "multipleChoice",
+          "prompt": "Which pair of features defines a public good?",
+          "choices": [
+            "Non-rival and non-excludable.",
+            "Expensive and imported.",
+            "Harmful and addictive.",
+            "Produced by one firm."
+          ],
+          "answer": 0,
+          "explanation": "A public good is non-rival and non-excludable, so it needs to be financed by government.",
+          "points": 1
+        },
+        {
+          "id": "non-rival",
+          "type": "multipleChoice",
+          "prompt": "What does non-rival mean?",
+          "choices": [
+            "One person using the good does not reduce use by others.",
+            "Only one person can use the good.",
+            "Non-payers can always be excluded.",
+            "The good is always harmful."
+          ],
+          "answer": 0,
+          "explanation": "Non-rival means consumption by one user does not reduce availability to others.",
+          "points": 1
+        },
+        {
+          "id": "non-excludable",
+          "type": "multipleChoice",
+          "prompt": "What does non-excludable mean?",
+          "choices": [
+            "Non-payers cannot easily be stopped from benefiting.",
+            "The good is always produced abroad.",
+            "The good has no social benefit.",
+            "Only rich people can use the good."
+          ],
+          "answer": 0,
+          "explanation": "Non-excludable means it is difficult to prevent non-payers from benefiting.",
+          "points": 1
+        },
+        {
+          "id": "free-rider",
+          "type": "multipleChoice",
+          "prompt": "What is the free-rider problem?",
+          "choices": [
+            "People can benefit without paying.",
+            "People always pay more tax.",
+            "Firms always innovate.",
+            "Consumers always buy too much education."
+          ],
+          "answer": 0,
+          "explanation": "Free riders make it difficult for private firms to charge every beneficiary.",
+          "points": 1
+        },
+        {
+          "id": "non-provision",
+          "type": "fillBlank",
+          "prompt": "Weak private revenue may lead to non-__________.",
+          "acceptedAnswers": [
+            "provision"
+          ],
+          "explanation": "Markets may not provide public goods because private revenue may be too low to cover costs and make a profit.",
+          "points": 1
+        },
+        {
+          "id": "public-example",
+          "type": "multipleChoice",
+          "prompt": "Which is the best public good example?",
+          "choices": [
+            "Flood protection for a town",
+            "A sandwich",
+            "A private tutoring lesson",
+            "A cigarette"
+          ],
+          "answer": 0,
+          "explanation": "Flood protection can be non-rival and non-excludable when many homes are protected together.",
+          "points": 1
+        },
+        {
+          "id": "private-good",
+          "type": "multipleChoice",
+          "prompt": "Which feature normally helps private firms sell private goods?",
+          "choices": [
+            "Excludability",
+            "Free-rider problem",
+            "Non-provision",
+            "No price possible"
+          ],
+          "answer": 0,
+          "explanation": "If buyers can be excluded unless they pay, firms can earn private revenue.",
+          "points": 1
+        },
+        {
+          "id": "public-merit",
+          "type": "multipleChoice",
+          "prompt": "Why is a merit good not automatically a public good?",
+          "choices": [
+            "A merit good can often be sold to individual consumers.",
+            "A merit good is always harmful.",
+            "A public good is always over-consumed.",
+            "A merit good must have no benefits."
+          ],
+          "answer": 0,
+          "explanation": "Many merit goods, such as education, are excludable even though consumers may not fully recognise their benefits.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "2-9-market-failure-lesson-4",
+      "version": "1.0.0",
+      "title": "Monopoly power and evaluation quiz",
+      "description": "Check syllabus 2.9 monopoly power, restricted supply and evaluation.",
+      "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-4/",
+      "source": "lessons/unit-2-allocation/2-9-market-failure/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "monopoly-cause",
+          "type": "multipleChoice",
+          "prompt": "How can monopoly power cause market failure?",
+          "choices": [
+            "A firm may restrict output and charge higher prices.",
+            "Competition always increases.",
+            "Prices become unnecessary.",
+            "Consumers always gain more choice."
+          ],
+          "answer": 0,
+          "explanation": "Abuse of monopoly power can restrict supply and harm consumers.",
+          "points": 1
+        },
+        {
+          "id": "restricted-output",
+          "type": "fillBlank",
+          "prompt": "A monopoly may restrict output and charge higher __________.",
+          "acceptedAnswers": [
+            "prices",
+            "price"
+          ],
+          "explanation": "Restricted supply can push prices up.",
+          "points": 1
+        },
+        {
+          "id": "choice",
+          "type": "multipleChoice",
+          "prompt": "What may happen to consumer choice when competition is weak?",
+          "choices": [
+            "Choice may fall.",
+            "Choice must increase.",
+            "Choice becomes unlimited.",
+            "Choice is unrelated to market failure."
+          ],
+          "answer": 0,
+          "explanation": "A dominant firm may offer less variety or weaker quality.",
+          "points": 1
+        },
+        {
+          "id": "monopoly-benefit",
+          "type": "multipleChoice",
+          "prompt": "Which is a possible benefit of a large monopoly firm?",
+          "choices": [
+            "Economies of scale may lower costs.",
+            "It always harms consumers.",
+            "It always removes all external costs.",
+            "It always creates free riders."
+          ],
+          "answer": 0,
+          "explanation": "Evaluation should recognise possible economies of scale or innovation.",
+          "points": 1
+        },
+        {
+          "id": "public-good-review",
+          "type": "fillBlank",
+          "prompt": "Public goods may suffer from non-__________.",
+          "acceptedAnswers": [
+            "provision"
+          ],
+          "explanation": "This reviews another type of market failure.",
+          "points": 1
+        },
+        {
+          "id": "demerit-review",
+          "type": "fillBlank",
+          "prompt": "Demerit goods may be over-__________.",
+          "acceptedAnswers": [
+            "consumed",
+            "consumption"
+          ],
+          "explanation": "This reviews over-consumption.",
+          "points": 1
+        },
+        {
+          "id": "external-cost-review",
+          "type": "multipleChoice",
+          "prompt": "Which phrase completes the external cost explanation?",
+          "choices": [
+            "Social cost exceeds private cost.",
+            "Social benefit is zero.",
+            "Private cost exceeds every social cost.",
+            "No third party is affected."
+          ],
+          "answer": 0,
+          "explanation": "External costs mean social cost is greater than private cost.",
+          "points": 1
+        },
+        {
+          "id": "judgement",
+          "type": "fillBlank",
+          "prompt": "A discuss answer should end with a reasoned __________.",
+          "acceptedAnswers": [
+            "judgement",
+            "judgment"
+          ],
+          "explanation": "A judgement weighs the arguments.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-1-1-macroeconomic-aims",
+      "version": "1.0.0",
+      "title": "Macroeconomic aims quiz",
+      "description": "Check the six macroeconomic aims and common conflicts between them.",
+      "route": "/lessons/unit-4-government/4-1-macroeconomic-aims/",
+      "source": "lessons/unit-4-government/4-1-macroeconomic-aims/quiz.js",
+      "questions": [
+        {
+          "id": "macro-focus",
+          "type": "multipleChoice",
+          "prompt": "Macroeconomic aims focus mainly on which level of the economy?",
+          "choices": [
+            "The whole economy",
+            "One household only",
+            "One firm only",
+            "One product market only"
+          ],
+          "answer": 0,
+          "explanation": "Macroeconomics studies economy-wide performance such as output, employment, inflation, and trade.",
+          "points": 1
+        },
+        {
+          "id": "growth-measure",
+          "type": "fillBlank",
+          "prompt": "Economic growth means an increase in real __________.",
+          "acceptedAnswers": [
+            "gdp",
+            "gross domestic product",
+            "real gdp"
+          ],
+          "explanation": "Growth is usually measured by an increase in real GDP.",
+          "points": 1
+        },
+        {
+          "id": "stable-prices",
+          "type": "multipleChoice",
+          "prompt": "Which aim is most directly linked to keeping inflation low and predictable?",
+          "choices": [
+            "Stable prices",
+            "Full employment",
+            "Redistribution of income",
+            "Environmental sustainability"
+          ],
+          "answer": 0,
+          "explanation": "Stable prices / low inflation means keeping the general price level rising slowly and predictably.",
+          "points": 1
+        },
+        {
+          "id": "employment",
+          "type": "fillBlank",
+          "prompt": "Keeping unemployment low is the aim of full __________.",
+          "acceptedAnswers": [
+            "employment",
+            "full employment"
+          ],
+          "explanation": "Full employment means most people who are willing and able to work can find jobs.",
+          "points": 1
+        },
+        {
+          "id": "external-stability",
+          "type": "multipleChoice",
+          "prompt": "Which aim is most connected to avoiding persistent current account problems?",
+          "choices": [
+            "Balance of payments stability",
+            "Stable prices",
+            "Redistribution of income",
+            "Economic growth"
+          ],
+          "answer": 0,
+          "explanation": "Balance of payments stability means avoiding persistent current account deficits or surpluses.",
+          "points": 1
+        },
+        {
+          "id": "inequality",
+          "type": "fillBlank",
+          "prompt": "Reducing excessive income inequality is called redistribution of __________.",
+          "acceptedAnswers": [
+            "income",
+            "income redistribution"
+          ],
+          "explanation": "Redistribution of income aims to reduce large gaps between high and low income groups.",
+          "points": 1
+        },
+        {
+          "id": "growth-sustainability-conflict",
+          "type": "multipleChoice",
+          "prompt": "Why may economic growth conflict with environmental sustainability?",
+          "choices": [
+            "More output may use more resources and create more pollution.",
+            "More output always reduces pollution.",
+            "Growth means imports must fall to zero.",
+            "Growth automatically makes income equal."
+          ],
+          "answer": 0,
+          "explanation": "Growth can create environmental costs if output rises through greater resource use or pollution.",
+          "points": 1
+        },
+        {
+          "id": "employment-bop",
+          "type": "fillBlank",
+          "prompt": "Higher employment may raise incomes, causing consumers to buy more imports and worsening the balance of __________.",
+          "acceptedAnswers": [
+            "payments",
+            "balance of payments"
+          ],
+          "explanation": "A rise in imports can worsen the current account position, affecting balance of payments stability.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-2-fiscal-policy-lesson-1",
+      "version": "1.1.0",
+      "title": "Government budget and spending quiz",
+      "description": "Check government budgets, budget balances, and the main areas, reasons and effects of government spending.",
+      "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-1/",
+      "source": "lessons/unit-4-government/4-2-fiscal-policy/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "budget-definition",
+          "type": "multipleChoice",
+          "prompt": "Which definition best matches a government budget?",
+          "choices": [
+            "A record of only the money spent by households and firms.",
+            "A policy that requires taxation to equal exports.",
+            "A plan or forecast for government revenue and government expenditure.",
+            "A measure of the difference between exports and imports."
+          ],
+          "answer": 2,
+          "explanation": "The syllabus definition is a plan or forecast for government revenue and expenditure.",
+          "points": 1
+        },
+        {
+          "id": "balanced-budget",
+          "type": "multipleChoice",
+          "prompt": "Government revenue is $780m and government expenditure is $780m. What is the budget position?",
+          "choices": [
+            "$780m surplus",
+            "Balanced budget",
+            "$780m deficit",
+            "$1,560m balanced budget"
+          ],
+          "answer": 1,
+          "explanation": "A balanced budget occurs when government revenue equals government expenditure.",
+          "points": 1
+        },
+        {
+          "id": "deficit-calculation",
+          "type": "multipleChoice",
+          "prompt": "Tax revenue is $650m, other government revenue is $80m, and government expenditure is $790m. What is the budget balance?",
+          "choices": [
+            "$60m surplus",
+            "$140m deficit",
+            "$60m deficit",
+            "$1,520m surplus"
+          ],
+          "answer": 2,
+          "explanation": "Total revenue is $730m. $730m - $790m = -$60m, so spending exceeds revenue by $60m.",
+          "points": 1
+        },
+        {
+          "id": "deficit",
+          "type": "fillBlank",
+          "prompt": "When government expenditure is greater than government revenue, there is a budget __________.",
+          "acceptedAnswers": [
+            "deficit",
+            "budget deficit"
+          ],
+          "explanation": "A budget deficit occurs when government spending exceeds government revenue.",
+          "points": 1
+        },
+        {
+          "id": "spending-area",
+          "type": "multipleChoice",
+          "prompt": "Which list contains only main areas of government spending in the syllabus?",
+          "choices": [
+            "Exports, imports, profits, dividends, wages and rent.",
+            "Luxury goods, private profit, foreign holidays, shares and advertising.",
+            "Exchange rates, tariffs, quotas, imports and overseas investment.",
+            "Education, healthcare, infrastructure, welfare, defence and debt interest."
+          ],
+          "answer": 3,
+          "explanation": "Main areas include education, healthcare, infrastructure, welfare, defence and debt interest.",
+          "points": 1
+        },
+        {
+          "id": "merit-goods",
+          "type": "fillBlank",
+          "prompt": "Government spending on education and healthcare can increase access to __________ goods.",
+          "acceptedAnswers": [
+            "merit",
+            "merit goods"
+          ],
+          "explanation": "Education and healthcare are merit goods that may be under-consumed without government support.",
+          "points": 1
+        },
+        {
+          "id": "infrastructure-effect",
+          "type": "multipleChoice",
+          "prompt": "What is the most likely long-run effect of government spending on roads, ports and communication networks?",
+          "choices": [
+            "It immediately removes the need for taxation.",
+            "It can improve infrastructure, reduce costs for firms and increase productive capacity.",
+            "It guarantees that imports will fall to zero.",
+            "It means all public spending becomes welfare spending."
+          ],
+          "answer": 1,
+          "explanation": "Infrastructure spending can raise efficiency and productive capacity, supporting long-term economic growth.",
+          "points": 1
+        },
+        {
+          "id": "welfare-redistribution",
+          "type": "fillBlank",
+          "prompt": "Government welfare benefits can help redistribute __________ and reduce poverty.",
+          "acceptedAnswers": [
+            "income"
+          ],
+          "explanation": "Welfare benefits are transfer payments that can support lower-income households and reduce income inequality.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-2-fiscal-policy-lesson-2",
+      "version": "1.0.0",
+      "title": "Taxation foundations quiz",
+      "description": "Check reasons for taxation and direct and indirect tax examples.",
+      "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-2/",
+      "source": "lessons/unit-4-government/4-2-fiscal-policy/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "tax-revenue",
+          "type": "multipleChoice",
+          "prompt": "Why do governments collect taxes?",
+          "choices": [
+            "To raise revenue for public spending.",
+            "To make every market private.",
+            "To remove the need for a budget.",
+            "To guarantee zero inflation."
+          ],
+          "answer": 0,
+          "explanation": "A main reason for taxation is to raise revenue to fund public services and other spending.",
+          "points": 1
+        },
+        {
+          "id": "demerit",
+          "type": "fillBlank",
+          "prompt": "A tax on cigarettes can be used to reduce consumption of a __________ good.",
+          "acceptedAnswers": [
+            "demerit",
+            "demerit good"
+          ],
+          "explanation": "Demerit goods create private or external costs, so governments may tax them to reduce consumption.",
+          "points": 1
+        },
+        {
+          "id": "direct-tax",
+          "type": "multipleChoice",
+          "prompt": "Which is the best example of a direct tax?",
+          "choices": [
+            "Income tax",
+            "Value added tax",
+            "Sales tax",
+            "Excise duty on cigarettes"
+          ],
+          "answer": 0,
+          "explanation": "A direct tax is paid on income or wealth directly to government.",
+          "points": 1
+        },
+        {
+          "id": "indirect-tax",
+          "type": "fillBlank",
+          "prompt": "A tax placed on spending on goods and services is an __________ tax.",
+          "acceptedAnswers": [
+            "indirect",
+            "indirect tax"
+          ],
+          "explanation": "Indirect taxes are taxes on spending / goods and services.",
+          "points": 1
+        },
+        {
+          "id": "corporation-tax",
+          "type": "multipleChoice",
+          "prompt": "Corporation tax is a tax on what?",
+          "choices": [
+            "Company profits",
+            "Household spending",
+            "Imported goods only",
+            "All public services"
+          ],
+          "answer": 0,
+          "explanation": "Corporation tax is a direct tax on company profits.",
+          "points": 1
+        },
+        {
+          "id": "sales-tax",
+          "type": "fillBlank",
+          "prompt": "VAT and sales tax are usually examples of __________ taxes.",
+          "acceptedAnswers": [
+            "indirect",
+            "indirect tax",
+            "indirect taxes"
+          ],
+          "explanation": "VAT and sales tax are added to spending on goods and services.",
+          "points": 1
+        },
+        {
+          "id": "tariff",
+          "type": "multipleChoice",
+          "prompt": "What is an import tariff?",
+          "choices": [
+            "An indirect tax on imported goods.",
+            "A subsidy paid to all consumers.",
+            "A direct tax on company profits.",
+            "A benefit paid to unemployed workers."
+          ],
+          "answer": 0,
+          "explanation": "A tariff is an indirect tax on imports and can make imported goods more expensive.",
+          "points": 1
+        },
+        {
+          "id": "environment-tax",
+          "type": "fillBlank",
+          "prompt": "A pollution tax can encourage environmental __________.",
+          "acceptedAnswers": [
+            "sustainability",
+            "environmental sustainability",
+            "protection",
+            "responsibility"
+          ],
+          "explanation": "Pollution taxes raise the cost of polluting and can encourage environmental sustainability.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-2-fiscal-policy-lesson-3",
+      "version": "1.0.0",
+      "title": "Tax structures quiz",
+      "description": "Check progressive, regressive and proportional taxes.",
+      "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-3/",
+      "source": "lessons/unit-4-government/4-2-fiscal-policy/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "progressive",
+          "type": "multipleChoice",
+          "prompt": "What happens in a progressive tax system?",
+          "choices": [
+            "The percentage of income paid in tax rises as income rises.",
+            "Everyone pays exactly the same amount of tax.",
+            "Lower-income households always pay a higher percentage.",
+            "Only firms pay tax."
+          ],
+          "answer": 0,
+          "explanation": "Progressive taxes take a higher proportion from people with higher incomes.",
+          "points": 1
+        },
+        {
+          "id": "proportional",
+          "type": "fillBlank",
+          "prompt": "A tax where everyone pays the same percentage of income is called __________ tax.",
+          "acceptedAnswers": [
+            "proportional",
+            "proportional tax"
+          ],
+          "explanation": "A proportional tax uses one constant tax rate.",
+          "points": 1
+        },
+        {
+          "id": "regressive",
+          "type": "multipleChoice",
+          "prompt": "Why can an indirect tax be regressive?",
+          "choices": [
+            "It may take a larger percentage of income from lower-income households.",
+            "It always makes rich people pay no tax.",
+            "It only applies to exports.",
+            "It must be paid directly from wages."
+          ],
+          "answer": 0,
+          "explanation": "The same tax on a product can be a larger share of a lower income.",
+          "points": 1
+        },
+        {
+          "id": "tax-burden",
+          "type": "fillBlank",
+          "prompt": "A household paying $500 tax from $10,000 income pays __________% of its income in tax.",
+          "acceptedAnswers": [
+            "5",
+            "5%",
+            "five",
+            "five percent"
+          ],
+          "explanation": "$500 divided by $10,000 is 0.05, or 5%.",
+          "points": 1
+        },
+        {
+          "id": "redistribution",
+          "type": "fillBlank",
+          "prompt": "Progressive taxes can help redistribute __________ from higher-income to lower-income groups.",
+          "acceptedAnswers": [
+            "income",
+            "wealth"
+          ],
+          "explanation": "Tax revenue can fund transfers or services that support lower-income households.",
+          "points": 1
+        },
+        {
+          "id": "china-income-tax",
+          "type": "multipleChoice",
+          "prompt": "In a progressive income tax, what happens when income moves into a higher band?",
+          "choices": [
+            "The higher band is taxed at a higher marginal rate.",
+            "The person stops paying all tax.",
+            "Every household pays the same cash amount.",
+            "Only imported goods are taxed."
+          ],
+          "answer": 0,
+          "explanation": "A progressive income tax applies higher rates to higher income bands.",
+          "points": 1
+        },
+        {
+          "id": "classification-first",
+          "type": "multipleChoice",
+          "prompt": "Why should an answer classify a tax before explaining its effects?",
+          "choices": [
+            "The type of tax affects who pays and how incentives change.",
+            "Classification means no explanation is needed.",
+            "All taxes have exactly the same effect.",
+            "Only direct taxes can raise revenue."
+          ],
+          "answer": 0,
+          "explanation": "Classifying the tax helps identify who pays, what price or income changes, and likely effects.",
+          "points": 1
+        },
+        {
+          "id": "same-percentage",
+          "type": "fillBlank",
+          "prompt": "A proportional tax charges the same __________ at all income levels.",
+          "acceptedAnswers": [
+            "percentage",
+            "rate",
+            "proportion"
+          ],
+          "explanation": "Proportional taxes keep the same percentage rate even when income differs.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-2-fiscal-policy-lesson-4",
+      "version": "1.0.0",
+      "title": "Expansionary and contractionary fiscal policy quiz",
+      "description": "Check fiscal policy, expansionary and contractionary measures, aggregate demand, employment and demand-pull inflationary pressure.",
+      "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-4/",
+      "source": "lessons/unit-4-government/4-2-fiscal-policy/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "fiscal-policy-definition",
+          "type": "multipleChoice",
+          "prompt": "What is fiscal policy?",
+          "choices": [
+            "The use of government spending and taxation to influence economic activity and aggregate demand.",
+            "The use of interest rates by private banks only.",
+            "The buying and selling decisions of households.",
+            "The rules firms use to set wages."
+          ],
+          "answer": 0,
+          "explanation": "Fiscal policy uses government spending and taxation to influence economic activity, aggregate demand and macroeconomic aims.",
+          "points": 1
+        },
+        {
+          "id": "fiscal-tools",
+          "type": "fillBlank",
+          "prompt": "Fiscal policy uses government spending and __________.",
+          "acceptedAnswers": [
+            "taxation",
+            "taxes",
+            "tax"
+          ],
+          "explanation": "Spending and taxation are the two main fiscal-policy instruments.",
+          "points": 1
+        },
+        {
+          "id": "expansionary",
+          "type": "multipleChoice",
+          "prompt": "Which is an expansionary fiscal policy?",
+          "choices": [
+            "Increasing government spending or cutting taxes.",
+            "Cutting government spending and raising taxes.",
+            "Banning all imports.",
+            "Removing all public services."
+          ],
+          "answer": 0,
+          "explanation": "Expansionary policy raises aggregate demand by increasing spending or reducing taxes.",
+          "points": 1
+        },
+        {
+          "id": "contractionary",
+          "type": "fillBlank",
+          "prompt": "Raising taxes or cutting government spending is usually __________ fiscal policy.",
+          "acceptedAnswers": [
+            "contractionary",
+            "deflationary"
+          ],
+          "explanation": "Contractionary fiscal policy reduces aggregate demand and demand-pull inflationary pressure.",
+          "points": 1
+        },
+        {
+          "id": "aggregate-demand",
+          "type": "fillBlank",
+          "prompt": "Expansionary fiscal policy usually increases aggregate __________.",
+          "acceptedAnswers": [
+            "demand"
+          ],
+          "explanation": "Higher government spending or lower taxes can increase total spending in the economy.",
+          "points": 1
+        },
+        {
+          "id": "employment-effect",
+          "type": "multipleChoice",
+          "prompt": "How can increased government spending reduce unemployment?",
+          "choices": [
+            "It can raise demand for goods, services and labour.",
+            "It always reduces all prices instantly.",
+            "It stops firms from hiring workers.",
+            "It removes consumer spending from GDP."
+          ],
+          "answer": 0,
+          "explanation": "Higher spending can raise aggregate demand, output and derived demand for labour.",
+          "points": 1
+        },
+        {
+          "id": "inflation-pressure",
+          "type": "fillBlank",
+          "prompt": "Contractionary fiscal policy can reduce demand-pull inflationary __________.",
+          "acceptedAnswers": [
+            "pressure"
+          ],
+          "explanation": "Lower aggregate demand can reduce demand-pull inflationary pressure.",
+          "points": 1
+        },
+        {
+          "id": "tax-cut",
+          "type": "multipleChoice",
+          "prompt": "What is a likely short-run effect of cutting income tax?",
+          "choices": [
+            "Households may have more disposable income and spend more.",
+            "Households must have less disposable income.",
+            "Government spending automatically becomes zero.",
+            "Exports must fall to zero."
+          ],
+          "answer": 0,
+          "explanation": "Lower income tax can raise disposable income, consumption and aggregate demand.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-2-fiscal-policy-lesson-5",
+      "version": "1.1.0",
+      "title": "Fiscal policy effects and limitations quiz",
+      "description": "Check fiscal-policy effects on macroeconomic aims and why the effects may be limited.",
+      "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-5/",
+      "source": "lessons/unit-4-government/4-2-fiscal-policy/quiz-lesson-5.js",
+      "questions": [
+        {
+          "id": "six-aims",
+          "type": "multipleChoice",
+          "prompt": "Which option correctly matches a fiscal-policy change with the macroeconomic aim it is most likely to support?",
+          "choices": [
+            "Higher progressive taxes and higher transfer payments - redistribution of income.",
+            "Higher government spending during inflation caused by excess demand - stable prices.",
+            "Lower environmental taxes on pollution - environmental sustainability.",
+            "Higher taxes during a recession - full employment through higher aggregate demand."
+          ],
+          "answer": 0,
+          "explanation": "Fiscal policy may support economic growth, full employment, stable prices, balance of payments stability, redistribution of income and environmental sustainability.",
+          "points": 1
+        },
+        {
+          "id": "growth",
+          "type": "fillBlank",
+          "prompt": "Higher government spending may increase aggregate demand and real __________.",
+          "acceptedAnswers": [
+            "gdp",
+            "GDP"
+          ],
+          "explanation": "If firms can raise output, higher demand may increase real GDP and economic growth.",
+          "points": 1
+        },
+        {
+          "id": "price-stability",
+          "type": "multipleChoice",
+          "prompt": "Which situation gives contractionary fiscal policy the strongest chance of reducing inflation?",
+          "choices": [
+            "Inflation is mainly demand-pull and the economy is operating close to full capacity.",
+            "Inflation is mainly caused by higher imported oil prices and wages are unchanged.",
+            "Inflation is caused by reduced farm output after a drought.",
+            "Inflation is low because aggregate demand is weak and unemployment is rising."
+          ],
+          "answer": 0,
+          "explanation": "Higher taxes or lower government spending reduce aggregate demand most directly, so they are most effective against demand-pull inflation.",
+          "points": 1
+        },
+        {
+          "id": "redistribution",
+          "type": "fillBlank",
+          "prompt": "Progressive taxes and transfer payments can reduce income __________.",
+          "acceptedAnswers": [
+            "inequality"
+          ],
+          "explanation": "Progressive taxes take a larger share from higher incomes, while transfers can support lower-income households.",
+          "points": 1
+        },
+        {
+          "id": "balance-of-payments",
+          "type": "fillBlank",
+          "prompt": "Lower spending may reduce imports and support balance of payments __________.",
+          "acceptedAnswers": [
+            "stability"
+          ],
+          "explanation": "If consumers and firms buy fewer imported goods, international payments may become more stable.",
+          "points": 1
+        },
+        {
+          "id": "sustainability",
+          "type": "multipleChoice",
+          "prompt": "Which policy is most clearly designed to improve environmental sustainability through fiscal incentives?",
+          "choices": [
+            "A pollution tax plus spending on renewable-energy infrastructure.",
+            "A cut in all tariffs, including tariffs on high-emission goods.",
+            "A reduction in unemployment benefits with no environmental condition.",
+            "A lower corporation tax for every firm regardless of pollution."
+          ],
+          "answer": 0,
+          "explanation": "Green spending and environmental taxes can change incentives and reduce pollution.",
+          "points": 1
+        },
+        {
+          "id": "weak-response",
+          "type": "fillBlank",
+          "prompt": "Expansionary fiscal policy may have a weak response if consumer confidence remains __________.",
+          "acceptedAnswers": [
+            "low"
+          ],
+          "explanation": "If confidence is low, households may save tax cuts rather than increase spending.",
+          "points": 1
+        },
+        {
+          "id": "may-wording",
+          "type": "multipleChoice",
+          "prompt": "An exam answer says: \"Lower taxes will increase employment.\" Which improvement adds the best evaluation?",
+          "choices": [
+            "Lower taxes may increase employment if confidence is high and extra spending is on domestic goods, but the effect can be weakened by saving, imports and time lags.",
+            "Lower taxes always increase employment because all households spend all extra income immediately.",
+            "Lower taxes cannot affect employment because taxation is not part of fiscal policy.",
+            "Lower taxes only affect environmental sustainability and never affect aggregate demand."
+          ],
+          "answer": 0,
+          "explanation": "Fiscal policy effects are conditional, so strong answers explain when the effect is likely or limited.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-3-monetary-policy-lesson-1",
+      "version": "1.1.0",
+      "title": "Money supply and monetary policy quiz",
+      "description": "Check syllabus 4.3.1: money supply, monetary policy measures and macroeconomic aims.",
+      "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-1/",
+      "source": "lessons/unit-4-government/4-3-monetary-policy/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "money-supply-definition",
+          "type": "multipleChoice",
+          "prompt": "What is the money supply?",
+          "choices": [
+            "The total quantity of foreign currency available within the economy.",
+            "The total quantity of money available within the economy.",
+            "The total quantity of money issued by the central bank.",
+            "The total quantity of money within commercial banks."
+          ],
+          "answer": 1,
+          "explanation": "Money supply is the total quantity of money available within the economy, not just central-bank money or bank balances. Source: 0455_w24_12 Q18.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w24_12 Q18",
+              "note": "Recent Paper 1 MCQ on money supply."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "money-supply-economy",
+          "type": "fillBlank",
+          "prompt": "The __________ is the amount of money in the economy.",
+          "acceptedAnswers": [
+            "money supply",
+            "supply of money"
+          ],
+          "explanation": "Money supply means the amount of money in an economy at a particular time.",
+          "points": 1
+        },
+        {
+          "id": "central-bank",
+          "type": "multipleChoice",
+          "prompt": "What is not normally a function of the central bank of a country?",
+          "choices": [
+            "Acting as lender of last resort.",
+            "Issuing notes and coins.",
+            "Operating the government monetary policy.",
+            "Setting the government budget."
+          ],
+          "answer": 3,
+          "explanation": "The government budget is part of fiscal policy. Central banks may issue currency, act as lender of last resort and operate monetary policy. Source: 0455_w23_11 Q12.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w23_11 Q12",
+              "note": "Recent Paper 1 MCQ on central-bank functions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "monetary-policy-tools",
+          "type": "multipleChoice",
+          "prompt": "Monetary policy often involves a change in which variables?",
+          "choices": [
+            "Government expenditure or taxes.",
+            "Interest rates or the money supply.",
+            "Labour market or trade union laws.",
+            "Tariffs or quotas."
+          ],
+          "answer": 1,
+          "explanation": "Interest rates and money supply are monetary-policy variables. Source: 0455_s25_11 Q19.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_s25_11 Q19",
+              "note": "Recent Paper 1 MCQ on monetary-policy variables."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "exchange-rate-tool",
+          "type": "fillBlank",
+          "prompt": "Alongside interest rates and money supply, monetary policy can use __________ measures.",
+          "acceptedAnswers": [
+            "foreign exchange-rate",
+            "foreign exchange rate",
+            "exchange-rate",
+            "exchange rate"
+          ],
+          "explanation": "Foreign exchange-rate measures are part of monetary policy in 4.3.1 and 4.3.2.",
+          "points": 1
+        },
+        {
+          "id": "fiscal-not-monetary",
+          "type": "multipleChoice",
+          "prompt": "What is not a monetary policy measure?",
+          "choices": [
+            "Changes in income tax rates.",
+            "Changes in interest rates.",
+            "Changes in the exchange rate.",
+            "Changes in the money supply."
+          ],
+          "answer": 0,
+          "explanation": "Income tax is fiscal policy. Monetary policy can use interest rates, exchange-rate measures and money supply. Source: 0455_w25_11 Q19.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w25_11 Q19",
+              "note": "Recent Paper 1 MCQ on monetary-policy measures."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "macro-aims",
+          "type": "fillBlank",
+          "prompt": "Monetary policy is used to influence __________.",
+          "acceptedAnswers": [
+            "macroeconomic aims",
+            "macroeconomic objectives",
+            "macroeconomic goals"
+          ],
+          "explanation": "The syllabus says monetary policy influences macroeconomic aims.",
+          "points": 1
+        },
+        {
+          "id": "total-demand",
+          "type": "multipleChoice",
+          "prompt": "What correctly explains the effect of monetary policy measures on macroeconomic aims?",
+          "choices": [
+            "A higher exchange rate will make imports more expensive and improve the balance of payments.",
+            "An increase in interest rates will encourage investment and lead to higher economic growth.",
+            "An increase in the money supply in an economy without spare capacity will result in demand-pull inflation.",
+            "Higher interest rates result in less income from savings and therefore higher unemployment."
+          ],
+          "answer": 2,
+          "explanation": "If money supply rises when spare capacity is absent, aggregate demand may rise faster than output and cause demand-pull inflation. Source: 0455_s24_13 Q19.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_s24_13 Q19",
+              "note": "Recent Paper 1 MCQ on monetary-policy effects."
+            }
+          ],
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-3-monetary-policy-lesson-2",
+      "version": "1.2.0",
+      "title": "Interest rates quiz",
+      "description": "Check syllabus 4.3.2: interest rates and their effects on spending, saving, borrowing, investment, output, employment and inflation.",
+      "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-2/",
+      "source": "lessons/unit-4-government/4-3-monetary-policy/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "interest-rate-definition",
+          "type": "multipleChoice",
+          "prompt": "What is an interest rate?",
+          "choices": [
+            "The cost of borrowing and reward for saving.",
+            "A tax on imports.",
+            "A government budget balance.",
+            "The number of workers unemployed."
+          ],
+          "answer": 0,
+          "explanation": "An interest rate is the cost of borrowing and the reward for saving, usually expressed as a percentage.",
+          "points": 1
+        },
+        {
+          "id": "saving-reward",
+          "type": "fillBlank",
+          "prompt": "A higher interest rate increases the __________.",
+          "acceptedAnswers": [
+            "reward for saving",
+            "reward for savings"
+          ],
+          "explanation": "Higher rates make saving more attractive.",
+          "points": 1
+        },
+        {
+          "id": "borrowing-cost",
+          "type": "fillBlank",
+          "prompt": "A higher interest rate raises the __________.",
+          "acceptedAnswers": [
+            "cost of borrowing",
+            "borrowing cost",
+            "cost of loans"
+          ],
+          "explanation": "Higher rates make loans more expensive for households and firms.",
+          "points": 1
+        },
+        {
+          "id": "lower-rates-saving-borrowing",
+          "type": "multipleChoice",
+          "prompt": "If interest rates fall, what is the most likely effect on saving and borrowing?",
+          "choices": [
+            "Borrowing decreases; saving decreases.",
+            "Borrowing increases; saving decreases.",
+            "Borrowing decreases; saving increases.",
+            "Borrowing increases; saving increases."
+          ],
+          "answer": 1,
+          "explanation": "Lower rates make borrowing cheaper and saving less rewarding, so borrowing is likely to rise while saving falls. Source: 0455_s25_11 Q11.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_s25_11 Q11",
+              "note": "Recent Paper 1 MCQ on lower interest rates, saving and borrowing."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "lower-rates-steps",
+          "type": "multipleChoice",
+          "prompt": "Which steps best explain how lower interest rates may increase employment?",
+          "choices": [
+            "Lower rates -> cheaper borrowing -> higher spending and investment -> higher output -> higher employment.",
+            "Lower rates -> higher taxes -> lower demand -> higher employment.",
+            "Lower rates -> lower imports only -> higher employment.",
+            "Lower rates -> lower labour productivity -> higher employment."
+          ],
+          "answer": 0,
+          "explanation": "Lower interest rates can increase borrowing, spending, investment and output, so firms may hire more workers.",
+          "points": 1
+        },
+        {
+          "id": "higher-rates-investment",
+          "type": "multipleChoice",
+          "prompt": "Governments use monetary policy such as increasing the rate of interest. What is a result of increasing the rate of interest?",
+          "choices": [
+            "It creates disincentives for wage earners.",
+            "It discourages investment by entrepreneurs.",
+            "It reduces the disposable income of consumers.",
+            "It reduces government transfer payments."
+          ],
+          "answer": 1,
+          "explanation": "Higher interest rates increase borrowing costs, so some entrepreneurs may delay or cancel investment. Source: 0455_m25_12 Q19.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_m25_12 Q19",
+              "note": "Recent Paper 1 MCQ on increasing interest rates and investment."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "inflation-pressure",
+          "type": "fillBlank",
+          "prompt": "Higher interest rates may reduce demand-pull __________.",
+          "acceptedAnswers": [
+            "inflation",
+            "inflationary pressure"
+          ],
+          "explanation": "Higher rates can reduce aggregate demand, lowering pressure on prices.",
+          "points": 1
+        },
+        {
+          "id": "contractionary-risk",
+          "type": "multipleChoice",
+          "prompt": "What is one possible risk of higher interest rates?",
+          "choices": [
+            "Output and employment may fall.",
+            "Borrowing must rise.",
+            "Demand-pull inflation must rise.",
+            "Saving becomes less rewarding."
+          ],
+          "answer": 0,
+          "explanation": "Higher rates can reduce spending and investment, so output and employment may fall.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-3-monetary-policy-lesson-3",
+      "version": "1.2.0",
+      "title": "Money supply measures quiz",
+      "description": "Check syllabus 4.3.2: money supply measures, with a brief foreign-exchange-rate definition check.",
+      "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-3/",
+      "source": "lessons/unit-4-government/4-3-monetary-policy/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "money-supply-increase-aim",
+          "type": "multipleChoice",
+          "prompt": "What is the likely aim of increasing money supply?",
+          "choices": [
+            "To reduce bank lending and aggregate demand.",
+            "To increase lending, spending, investment and output.",
+            "To increase income tax revenue.",
+            "To reduce the number of commercial banks."
+          ],
+          "answer": 1,
+          "explanation": "Increasing money supply can support lending, spending and investment.",
+          "points": 1
+        },
+        {
+          "id": "bank-lending",
+          "type": "fillBlank",
+          "prompt": "Increasing money supply may increase bank __________.",
+          "acceptedAnswers": [
+            "lending",
+            "loans",
+            "credit"
+          ],
+          "explanation": "More liquidity can support bank lending.",
+          "points": 1
+        },
+        {
+          "id": "investment-output",
+          "type": "fillBlank",
+          "prompt": "More lending to firms may increase business __________.",
+          "acceptedAnswers": [
+            "investment",
+            "spending and investment"
+          ],
+          "explanation": "Firms may borrow to invest in capital equipment, branches or production.",
+          "points": 1
+        },
+        {
+          "id": "reducing-money-supply",
+          "type": "multipleChoice",
+          "prompt": "Reducing money supply is most likely to...",
+          "choices": [
+            "increase demand-pull inflation.",
+            "reduce lending, spending and inflationary pressure.",
+            "increase the reward for saving directly.",
+            "raise government spending."
+          ],
+          "answer": 1,
+          "explanation": "Less money and lending can reduce spending pressure.",
+          "points": 1
+        },
+        {
+          "id": "money-supply-risk",
+          "type": "multipleChoice",
+          "prompt": "What is a risk of increasing money supply too quickly when output cannot rise?",
+          "choices": [
+            "Demand-pull inflation may rise.",
+            "Bank lending must fall.",
+            "Employment must fall immediately.",
+            "Exports must become cheaper."
+          ],
+          "answer": 0,
+          "explanation": "If extra demand grows faster than output, inflationary pressure may rise. Source: 2025FM-22 Q3(d).",
+          "sources": [
+            {
+              "label": "Paper 2 source",
+              "ref": "2025FM-22 Q3(d)",
+              "note": "Money-supply discussion includes demand, growth, employment and inflation risks."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "policy-measures",
+          "type": "multipleChoice",
+          "prompt": "Which pair lists two monetary policy measures?",
+          "choices": [
+            "Interest rates and money supply.",
+            "Income tax and government spending.",
+            "Minimum wages and public ownership.",
+            "Tariffs and subsidies."
+          ],
+          "answer": 0,
+          "explanation": "Past Paper 2 accepts interest rates and money supply as monetary-policy measures. Source: 2023ON-21 Q5(a).",
+          "sources": [
+            {
+              "label": "Paper 2 source",
+              "ref": "2023ON-21 Q5(a)",
+              "note": "Identify two monetary policy measures."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "foreign-exchange-rate",
+          "type": "fillBlank",
+          "prompt": "The __________ is the price of one currency in terms of another.",
+          "acceptedAnswers": [
+            "foreign exchange rate",
+            "foreign exchange-rate",
+            "exchange rate"
+          ],
+          "explanation": "This is only an introductory definition here; exchange rates are taught in detail in Unit 6.",
+          "points": 1
+        },
+        {
+          "id": "exchange-brief-effect",
+          "type": "multipleChoice",
+          "prompt": "In this brief introduction, what happens when a country has a lower exchange rate?",
+          "choices": [
+            "Exports may become cheaper for foreign buyers and imports may become more expensive.",
+            "Exports must become more expensive and imports must become cheaper.",
+            "Only government spending changes.",
+            "Only unemployment changes."
+          ],
+          "answer": 0,
+          "explanation": "This is the basic trade-price link. Detailed exchange-rate and current-account analysis comes later in Unit 6.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-3-monetary-policy-lesson-4",
+      "version": "2.0.0",
+      "title": "Effects and limitations quiz",
+      "description": "Check syllabus 4.3.3: macroeconomic effects, limitations and Paper 2 evaluation.",
+      "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-4/",
+      "source": "lessons/unit-4-government/4-3-monetary-policy/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "expansionary-direction",
+          "type": "multipleChoice",
+          "prompt": "Which is an example of expansionary monetary policy?",
+          "choices": [
+            "Lower interest rates or increase the money supply.",
+            "Raise interest rates or reduce the money supply.",
+            "Raise income tax and reduce government spending.",
+            "Train workers to increase productive capacity."
+          ],
+          "answer": 0,
+          "explanation": "Expansionary monetary policy aims to raise aggregate demand.",
+          "points": 1
+        },
+        {
+          "id": "contractionary-direction",
+          "type": "multipleChoice",
+          "prompt": "Which is the likely aim of contractionary monetary policy?",
+          "choices": [
+            "To reduce aggregate demand and demand-pull inflationary pressure.",
+            "To increase aggregate demand and reduce saving.",
+            "To directly reduce all production costs.",
+            "To increase imports by increasing consumer spending."
+          ],
+          "answer": 0,
+          "explanation": "Higher interest rates or a lower money supply can reduce borrowing, spending, investment and aggregate demand.",
+          "points": 1
+        },
+        {
+          "id": "cyclical-unemployment",
+          "type": "fillBlank",
+          "prompt": "If higher aggregate demand causes firms to raise output and demand more labour, cyclical __________ may fall.",
+          "acceptedAnswers": [
+            "unemployment"
+          ],
+          "explanation": "Expansionary monetary policy may increase output and reduce cyclical unemployment when there is spare capacity.",
+          "points": 1
+        },
+        {
+          "id": "time-lag",
+          "type": "multipleChoice",
+          "prompt": "Why can a time lag limit monetary policy?",
+          "choices": [
+            "Borrowing, spending, investment, output, cyclical unemployment and prices may adjust slowly.",
+            "Aggregate demand always changes before the central bank acts.",
+            "All households and firms must borrow immediately.",
+            "Imports and exports are not affected by aggregate demand."
+          ],
+          "answer": 0,
+          "explanation": "A policy change does not instantly change decisions across the economy.",
+          "points": 1
+        },
+        {
+          "id": "confidence",
+          "type": "multipleChoice",
+          "prompt": "How can low consumer and business confidence limit lower interest rates?",
+          "choices": [
+            "Households may save and firms may avoid borrowing for investment.",
+            "Households must spend more and firms must expand.",
+            "Cost-push inflation must fall to zero.",
+            "Imports must fall immediately."
+          ],
+          "answer": 0,
+          "explanation": "Confidence affects whether households and firms choose to spend, borrow and invest.",
+          "points": 1
+        },
+        {
+          "id": "cost-push-demand-pull",
+          "type": "multipleChoice",
+          "prompt": "Which statement correctly compares demand-pull and cost-push inflation?",
+          "choices": [
+            "Higher interest rates are stronger against demand-pull inflation than cost-push inflation from higher production costs.",
+            "Higher interest rates are equally strong against every cause of inflation.",
+            "Cost-push inflation is caused by too much aggregate demand.",
+            "Demand-pull inflation is caused only by higher fuel prices."
+          ],
+          "answer": 0,
+          "explanation": "Contractionary monetary policy reduces aggregate demand, but it may not remove higher production costs.",
+          "points": 1
+        },
+        {
+          "id": "money-supply-benefit",
+          "type": "multipleChoice",
+          "prompt": "How may an increase in the money supply benefit an economy?",
+          "choices": [
+            "It may increase bank lending, spending, investment, aggregate demand, output and firm expansion.",
+            "It must reduce all prices immediately.",
+            "It must reduce imports immediately.",
+            "It directly increases income tax revenue."
+          ],
+          "answer": 0,
+          "explanation": "The 2025FM-22 mark scheme accepts higher lending, spending, investment, aggregate demand, growth and lower cyclical unemployment as benefits.",
+          "points": 1
+        },
+        {
+          "id": "money-supply-limit",
+          "type": "multipleChoice",
+          "prompt": "Which risk was accepted in the 2025FM-22 Q3(d) mark scheme?",
+          "choices": [
+            "Demand-pull inflation, more imports or household and firm debt.",
+            "Lower aggregate demand and lower output in every case.",
+            "A guaranteed fall in imports and prices.",
+            "No effect on bank lending or borrowing."
+          ],
+          "answer": 0,
+          "explanation": "The same limitations taught in the lesson appear in the mark-scheme points for the money-supply discuss question.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-4-supply-side-policy-lesson-1",
+      "version": "1.0.0",
+      "title": "Supply-side policy basics quiz",
+      "description": "Check syllabus 4.4.1: supply-side policy, productive capacity, efficiency and long-run output.",
+      "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-1/",
+      "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "policy-aim",
+          "type": "multipleChoice",
+          "prompt": "What is the main aim of supply-side policy?",
+          "choices": [
+            "To increase productive capacity and total supply.",
+            "To reduce every firm's output.",
+            "To use only interest rates.",
+            "To increase imports without changing output."
+          ],
+          "answer": 0,
+          "explanation": "Supply-side policy aims to raise productive capacity, efficiency and long-run output.",
+          "points": 1
+        },
+        {
+          "id": "capacity",
+          "type": "fillBlank",
+          "prompt": "Supply-side policy aims to increase productive __________.",
+          "acceptedAnswers": [
+            "capacity"
+          ],
+          "explanation": "Productive capacity is the economy's ability to produce goods and services.",
+          "points": 1
+        },
+        {
+          "id": "supply-demand",
+          "type": "multipleChoice",
+          "prompt": "Which contrast is most accurate?",
+          "choices": [
+            "Demand-side policy mainly affects aggregate demand; supply-side policy raises total supply.",
+            "Supply-side policy only changes consumer spending.",
+            "Monetary policy and supply-side policy use exactly the same measures.",
+            "Supply-side policy can only reduce output."
+          ],
+          "answer": 0,
+          "explanation": "The key exam contrast is aggregate demand versus total supply.",
+          "points": 1
+        },
+        {
+          "id": "long-run",
+          "type": "fillBlank",
+          "prompt": "Supply-side policies often have a stronger effect in the long __________.",
+          "acceptedAnswers": [
+            "run",
+            "term"
+          ],
+          "explanation": "Training, infrastructure and investment may take time to affect output.",
+          "points": 1
+        },
+        {
+          "id": "ppc",
+          "type": "multipleChoice",
+          "prompt": "How would higher productive capacity be shown on a PPC?",
+          "choices": [
+            "A rightward shift of the PPC.",
+            "A movement from one point to another on the same PPC only.",
+            "A leftward shift caused by fewer resources.",
+            "No possible change."
+          ],
+          "answer": 0,
+          "explanation": "A rightward PPC shift shows greater productive capacity.",
+          "points": 1
+        },
+        {
+          "id": "efficiency",
+          "type": "fillBlank",
+          "prompt": "Higher efficiency means less waste or more output from the same __________.",
+          "acceptedAnswers": [
+            "resources",
+            "inputs",
+            "input"
+          ],
+          "explanation": "Efficiency improves when inputs produce more output or less waste.",
+          "points": 1
+        },
+        {
+          "id": "classification",
+          "type": "multipleChoice",
+          "prompt": "Which pair shows the usual classification of supply-side policies?",
+          "choices": [
+            "Interventionist and market-based.",
+            "Cash-only and barter-only.",
+            "Imports and exports only.",
+            "Private and impossible."
+          ],
+          "answer": 0,
+          "explanation": "Supply-side policies are often grouped into interventionist and market-based measures.",
+          "points": 1
+        },
+        {
+          "id": "total-supply",
+          "type": "fillBlank",
+          "prompt": "Supply-side policy aims to increase total __________.",
+          "acceptedAnswers": [
+            "supply"
+          ],
+          "explanation": "The policy target is the economy's capacity to supply goods and services.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-4-supply-side-policy-lesson-2",
+      "version": "1.0.0",
+      "title": "Interventionist supply-side policies quiz",
+      "description": "Check government-led supply-side measures using education, training, healthcare, infrastructure and subsidies.",
+      "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-2/",
+      "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "interventionist",
+          "type": "multipleChoice",
+          "prompt": "Which is an interventionist supply-side policy?",
+          "choices": [
+            "Government spending on education and training.",
+            "Privatising a state-owned firm.",
+            "Deregulating a market.",
+            "Reducing trade union power only."
+          ],
+          "answer": 0,
+          "explanation": "Interventionist supply-side policies use government spending or direct support to improve supply.",
+          "points": 1
+        },
+        {
+          "id": "productivity",
+          "type": "multipleChoice",
+          "prompt": "What is productivity?",
+          "choices": [
+            "Output per worker or per factor input.",
+            "The total number of shops in a city.",
+            "A tax on imports only.",
+            "The interest rate paid on savings."
+          ],
+          "answer": 0,
+          "explanation": "Productivity measures output per worker or input in a period of time.",
+          "points": 1
+        },
+        {
+          "id": "training",
+          "type": "fillBlank",
+          "prompt": "Training can increase workers' skills and __________.",
+          "acceptedAnswers": [
+            "productivity"
+          ],
+          "explanation": "Training can make labour more productive and employable.",
+          "points": 1
+        },
+        {
+          "id": "healthcare",
+          "type": "fillBlank",
+          "prompt": "Better healthcare can reduce working time lost through __________.",
+          "acceptedAnswers": [
+            "illness",
+            "sickness",
+            "disease"
+          ],
+          "explanation": "Healthier workers may be absent less often and work more productively.",
+          "points": 1
+        },
+        {
+          "id": "mobility",
+          "type": "multipleChoice",
+          "prompt": "Which measure can increase geographical labour mobility?",
+          "choices": [
+            "Better transport links or housing access.",
+            "Banning workers from moving regions.",
+            "Removing all job adverts.",
+            "Reducing every worker's skills."
+          ],
+          "answer": 0,
+          "explanation": "Transport and housing can help workers reach jobs in different places.",
+          "points": 1
+        },
+        {
+          "id": "occupational",
+          "type": "fillBlank",
+          "prompt": "Training can improve occupational labour __________.",
+          "acceptedAnswers": [
+            "mobility"
+          ],
+          "explanation": "Occupational mobility means workers can move between types of work.",
+          "points": 1
+        },
+        {
+          "id": "unemployment-chain",
+          "type": "multipleChoice",
+          "prompt": "Which chain best explains an interventionist reduction in unemployment?",
+          "choices": [
+            "Education -> higher skills -> workers match vacancies -> unemployment may fall.",
+            "Education -> lower skills -> fewer vacancies -> unemployment must fall.",
+            "Healthcare -> more illness -> productivity rises.",
+            "Transport worsens -> workers reach more jobs."
+          ],
+          "answer": 0,
+          "explanation": "The accepted chain links skills or mobility to employability and lower unemployment.",
+          "points": 1
+        },
+        {
+          "id": "infrastructure",
+          "type": "fillBlank",
+          "prompt": "Better infrastructure can reduce firms' transport __________.",
+          "acceptedAnswers": [
+            "costs",
+            "cost"
+          ],
+          "explanation": "Infrastructure is an interventionist policy that can lower costs and raise capacity.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-4-supply-side-policy-lesson-3",
+      "version": "1.0.0",
+      "title": "Market-based supply-side policies quiz",
+      "description": "Check tax incentives, privatisation, deregulation and labour-market reforms.",
+      "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-3/",
+      "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "market-based",
+          "type": "multipleChoice",
+          "prompt": "Which is a market-based supply-side policy?",
+          "choices": [
+            "Deregulating a market to increase competition.",
+            "Government spending on healthcare.",
+            "Building a public road.",
+            "Subsidising training directly."
+          ],
+          "answer": 0,
+          "explanation": "Market-based policies work through incentives, competition and flexibility.",
+          "points": 1
+        },
+        {
+          "id": "competition",
+          "type": "fillBlank",
+          "prompt": "Market-based policies rely on prices, profit and __________.",
+          "acceptedAnswers": [
+            "competition"
+          ],
+          "explanation": "The market-based route uses competition and incentives rather than direct provision.",
+          "points": 1
+        },
+        {
+          "id": "tax-incentive",
+          "type": "multipleChoice",
+          "prompt": "How can lower corporation tax raise productive capacity?",
+          "choices": [
+            "It can increase retained profit and the incentive to invest.",
+            "It forces all firms to close.",
+            "It is direct public spending on roads.",
+            "It always reduces every firm's profit."
+          ],
+          "answer": 0,
+          "explanation": "More retained profit can fund investment in capital, technology or expansion.",
+          "points": 1
+        },
+        {
+          "id": "corporation-tax",
+          "type": "fillBlank",
+          "prompt": "A lower corporation tax may increase firms' incentive to __________.",
+          "acceptedAnswers": [
+            "invest",
+            "expand"
+          ],
+          "explanation": "Higher retained profit can encourage investment and expansion.",
+          "points": 1
+        },
+        {
+          "id": "privatisation",
+          "type": "multipleChoice",
+          "prompt": "What is privatisation?",
+          "choices": [
+            "Transfer of assets from the public sector to the private sector.",
+            "An increase in government ownership of every firm.",
+            "A tax paid only by households.",
+            "A rise in unemployment benefits."
+          ],
+          "answer": 0,
+          "explanation": "Privatisation transfers assets or firms into private-sector ownership.",
+          "points": 1
+        },
+        {
+          "id": "deregulation",
+          "type": "fillBlank",
+          "prompt": "Deregulation may reduce barriers to market __________.",
+          "acceptedAnswers": [
+            "entry"
+          ],
+          "explanation": "Lower entry barriers can increase competition and efficiency.",
+          "points": 1
+        },
+        {
+          "id": "risk",
+          "type": "multipleChoice",
+          "prompt": "Which is a possible risk of market-based supply-side reforms?",
+          "choices": [
+            "Weaker worker or consumer protection.",
+            "Instant success in every industry.",
+            "No need to consider time lags.",
+            "No effect on incentives."
+          ],
+          "answer": 0,
+          "explanation": "Deregulation and labour-market reforms can improve efficiency but may reduce protection.",
+          "points": 1
+        },
+        {
+          "id": "revenue",
+          "type": "fillBlank",
+          "prompt": "Lower taxes can reduce government tax __________.",
+          "acceptedAnswers": [
+            "revenue"
+          ],
+          "explanation": "This is one evaluation point for tax-cut supply-side policies.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-4-supply-side-policy-lesson-4",
+      "version": "1.0.0",
+      "title": "Supply-side effects and evaluation quiz",
+      "description": "Check syllabus 4.4.3: effects on growth, employment, prices, competitiveness and the current account.",
+      "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-4/",
+      "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "growth",
+          "type": "multipleChoice",
+          "prompt": "How can supply-side policy increase economic growth?",
+          "choices": [
+            "By raising productive capacity and long-run output.",
+            "By permanently reducing every worker's skill.",
+            "By making firms unable to produce.",
+            "By lowering total supply."
+          ],
+          "answer": 0,
+          "explanation": "Supply-side policy can raise real GDP by increasing capacity and productivity.",
+          "points": 1
+        },
+        {
+          "id": "costs",
+          "type": "fillBlank",
+          "prompt": "Higher productivity can reduce average production __________.",
+          "acceptedAnswers": [
+            "costs",
+            "cost"
+          ],
+          "explanation": "Lower unit costs can reduce cost-push inflationary pressure.",
+          "points": 1
+        },
+        {
+          "id": "inflation",
+          "type": "multipleChoice",
+          "prompt": "How can supply-side policy help price stability?",
+          "choices": [
+            "Lower costs can reduce cost-push inflationary pressure.",
+            "Higher costs always reduce inflation.",
+            "Less output always means lower inflation with no risk.",
+            "It can only affect income tax revenue."
+          ],
+          "answer": 0,
+          "explanation": "Productivity gains can lower average costs and increase supply.",
+          "points": 1
+        },
+        {
+          "id": "exports",
+          "type": "fillBlank",
+          "prompt": "If firms become more competitive, exports may __________.",
+          "acceptedAnswers": [
+            "rise",
+            "increase",
+            "grow"
+          ],
+          "explanation": "Lower prices or higher quality can raise export demand.",
+          "points": 1
+        },
+        {
+          "id": "current-account",
+          "type": "multipleChoice",
+          "prompt": "Which chain links supply-side policy to the current account?",
+          "choices": [
+            "Productivity rises -> costs fall -> exports become more competitive -> current account may improve.",
+            "Skills fall -> costs rise -> exports rise automatically.",
+            "Infrastructure worsens -> imports must disappear.",
+            "Workers train less -> current account must improve."
+          ],
+          "answer": 0,
+          "explanation": "Competitiveness is the key link to exports and the current account.",
+          "points": 1
+        },
+        {
+          "id": "unemployment",
+          "type": "fillBlank",
+          "prompt": "Better skills and mobility may reduce structural __________.",
+          "acceptedAnswers": [
+            "unemployment"
+          ],
+          "explanation": "Structural unemployment falls when workers can match available jobs.",
+          "points": 1
+        },
+        {
+          "id": "evaluation",
+          "type": "multipleChoice",
+          "prompt": "Which is the strongest evaluation point?",
+          "choices": [
+            "Supply-side policies may take years and have opportunity cost.",
+            "Supply-side policies work instantly in every case.",
+            "Supply-side policies never need funding.",
+            "Supply-side policies cannot affect firms."
+          ],
+          "answer": 0,
+          "explanation": "Time lags and opportunity cost are core evaluation points.",
+          "points": 1
+        },
+        {
+          "id": "opportunity-cost",
+          "type": "fillBlank",
+          "prompt": "Money spent on training has an opportunity __________.",
+          "acceptedAnswers": [
+            "cost"
+          ],
+          "explanation": "Government spending on one policy cannot be used for another priority.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-1-all-types:quiz",
+      "version": "1.0.0",
+      "title": "Slide Type Gallery Review Check",
+      "description": "Quickly check that the current Investment Analysis slide types and their main uses are clear.",
+      "route": "/investment-analysis/unit-1/lesson-1-all-types/",
+      "source": "investment-analysis/unit-1/lesson-1-all-types/quiz.js",
+      "questions": [
+        {
+          "id": "compact-data-purpose",
+          "type": "multipleChoice",
+          "prompt": "If a deck needs compact company figures with a student task, which slide type should it use?",
+          "zh": "如果课件需要带学生任务的紧凑公司数据，应该使用哪种幻灯片类型？",
+          "choices": [
+            "dataSnapshot",
+            "modelAnswer",
+            "riskRegister",
+            "visualPause"
+          ],
+          "answer": 0,
+          "explanation": "Use dataSnapshot for compact figures with a clear student task.",
+          "explanationZh": "用 dataSnapshot 呈现紧凑数据和明确任务。",
+          "points": 1
+        },
+        {
+          "id": "chart-hook",
+          "type": "multipleChoice",
+          "prompt": "Which slide type shows a frozen share-price chart as a classroom hook?",
+          "zh": "哪种幻灯片类型用冻结的股价图作为课堂导入？",
+          "choices": [
+            "quoteMap",
+            "priceChart",
+            "comparisonMatrix",
+            "answer"
+          ],
+          "answer": 1,
+          "explanation": "priceChart is the dedicated full-screen chart slide.",
+          "explanationZh": "priceChart 是专门用于全屏图表的幻灯片。",
+          "points": 1
+        },
+        {
+          "id": "question-first",
+          "type": "multipleChoice",
+          "prompt": "Which slide type should ask a student-answerable question before revealing a concise answer?",
+          "zh": "哪种幻灯片类型应先提出学生能回答的问题，再揭示简洁答案？",
+          "choices": [
+            "discussion",
+            "section",
+            "sourceLens",
+            "modelAnswer"
+          ],
+          "answer": 0,
+          "explanation": "discussion is the question-first, reveal-second slide type.",
+          "explanationZh": "discussion 是先提问、后揭示的幻灯片类型。",
+          "points": 1
+        },
+        {
+          "id": "source-check",
+          "type": "multipleChoice",
+          "prompt": "Which slide type is designed for source metadata and source-limit checks?",
+          "zh": "哪种幻灯片类型用于来源信息和来源局限检查？",
+          "choices": [
+            "sourceLens",
+            "hero",
+            "flow",
+            "quiz"
+          ],
+          "answer": 0,
+          "explanation": "sourceLens shows source title, publisher, date, unit and source checks.",
+          "explanationZh": "sourceLens 显示来源标题、发布者、日期、单位和来源检查。",
+          "points": 1
+        },
+        {
+          "id": "quote-fields",
+          "type": "multipleChoice",
+          "prompt": "Which slide type maps quote-page fields such as company, code, exchange, price, date and currency?",
+          "zh": "哪种幻灯片类型整理公司、代码、交易所、价格、日期和货币等报价页字段？",
+          "choices": [
+            "conceptTriad",
+            "quoteMap",
+            "calculationDesk",
+            "outcomes"
+          ],
+          "answer": 1,
+          "explanation": "quoteMap is the quote-page identity field map.",
+          "explanationZh": "quoteMap 用来整理报价页上的身份字段。",
+          "points": 1
+        },
+        {
+          "id": "calculation",
+          "type": "multipleChoice",
+          "prompt": "Which slide type is best for formula, inputs, worked example and try-it calculation work?",
+          "zh": "哪种幻灯片类型最适合公式、输入、例题和试算任务？",
+          "choices": [
+            "calculationDesk",
+            "analystBoard",
+            "visualPause",
+            "section"
+          ],
+          "answer": 0,
+          "explanation": "calculationDesk is the calculation-focused slide type.",
+          "explanationZh": "calculationDesk 是以计算为核心的幻灯片类型。",
+          "points": 1
+        },
+        {
+          "id": "risk",
+          "type": "multipleChoice",
+          "prompt": "Which slide type makes risk categories and their likely effects explicit?",
+          "zh": "哪种幻灯片类型能清楚展示风险类别及其可能影响？",
+          "choices": [
+            "riskRegister",
+            "term",
+            "priceChart",
+            "visualPause"
+          ],
+          "answer": 0,
+          "explanation": "riskRegister shows risk rows with revealed effect links.",
+          "explanationZh": "riskRegister 用风险行和揭示的影响连接来展示风险。",
+          "points": 1
+        },
+        {
+          "id": "review-decision",
+          "type": "fillBlank",
+          "prompt": "After reviewing a slide type, mark it as keep, edit, split, replace or ________.",
+          "zh": "复习一个幻灯片类型后，把它标记为保留、修改、拆分、替换或……",
+          "acceptedAnswers": [
+            "delete"
+          ],
+          "explanation": "The gallery worksheet uses keep, edit, split, replace and delete as the review decisions.",
+          "explanationZh": "展示讲义使用保留、修改、拆分、替换和删除作为复习决定。",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-02-before-syllabus-rebuild:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 1 Quiz",
+      "description": "Review the Lesson 1 map question: what investment analysis is, why this course is not short-term stock speculation, what a share is, and why evidence comes before opinion.",
+      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-02-before-syllabus-rebuild/",
+      "source": "investment-analysis/unit-1/lesson-1-archive-2026-07-02-before-syllabus-rebuild/quiz.js",
+      "questions": [
+        {
+          "id": "evidence-before-opinion",
+          "type": "multipleChoice",
+          "prompt": "What does investment analysis use before opinion?",
+          "zh": "投资分析在形成观点之前先使用什么？",
+          "choices": [
+            "Evidence",
+            "A favourite brand",
+            "A guess",
+            "A class vote"
+          ],
+          "answer": 0,
+          "explanation": "Investment analysis starts with evidence, then builds a careful judgement.",
+          "points": 1
+        },
+        {
+          "id": "not-stock-speculation",
+          "type": "multipleChoice",
+          "prompt": "What is this course not teaching students to do?",
+          "zh": "本课程不是教学生做什么？",
+          "choices": [
+            "Short-term stock speculation, tips or market timing",
+            "Read source-dated evidence",
+            "Separate a company from its listed share",
+            "Ask about possible return, risk and price"
+          ],
+          "answer": 0,
+          "explanation": "The course studies investment analysis, not speculation, stock tips, market timing or personal buy/sell advice.",
+          "points": 1
+        },
+        {
+          "id": "analysis-not-opinion",
+          "type": "multipleChoice",
+          "prompt": "Which sentence is analysis rather than unsupported opinion?",
+          "zh": "哪一句是分析，而不是没有证据的观点？",
+          "choices": [
+            "Tencent must be good because I know the brand.",
+            "Tencent is a familiar company, so risk is impossible.",
+            "Tencent has source-dated company evidence, but I still need to judge price and risk.",
+            "The share is good because the name is famous."
+          ],
+          "answer": 2,
+          "explanation": "The analytical sentence uses evidence and keeps price and risk open for judgement.",
+          "points": 1
+        },
+        {
+          "id": "asset",
+          "type": "multipleChoice",
+          "prompt": "What is an asset?",
+          "zh": "资产是什么？",
+          "choices": [
+            "Something owned that may have value",
+            "Only a daily price movement",
+            "Only a company product",
+            "A guaranteed profit"
+          ],
+          "answer": 0,
+          "explanation": "A share is one type of financial asset because it can be owned and may have value.",
+          "points": 1
+        },
+        {
+          "id": "share-definition",
+          "type": "multipleChoice",
+          "prompt": "What is a share?",
+          "zh": "股票是什么？",
+          "choices": [
+            "One unit of ownership in a company",
+            "A guaranteed bank payment",
+            "A company product",
+            "A government tax"
+          ],
+          "answer": 0,
+          "explanation": "A share is an ownership claim, not the product sold by the company. Stock can mean the company's shares in general; share means one unit.",
+          "explanationZh": "一股股票是一种所有权要求，不是公司出售的产品。Stock 可以指某家公司股票的总体；share 指一股、一个单位。",
+          "points": 1
+        },
+        {
+          "id": "share-price-point",
+          "type": "multipleChoice",
+          "prompt": "What does one point on a share-price graph show?",
+          "zh": "股价图上的一个点表示什么？",
+          "choices": [
+            "The market price of one share at that date",
+            "The company's total revenue for the year",
+            "A final proof that the share is a good investment",
+            "The number of products the company sold"
+          ],
+          "answer": 0,
+          "explanation": "A graph point is a source-dated share price. It is evidence, not a complete judgement.",
+          "explanationZh": "图上的一个点是带有来源日期的股价。它是证据，但不是完整判断。",
+          "points": 1
+        },
+        {
+          "id": "risk",
+          "type": "multipleChoice",
+          "prompt": "Which sentence best explains the risk-return trade-off?",
+          "zh": "哪句话最能解释风险与回报的取舍？",
+          "choices": [
+            "Higher possible return usually comes with higher uncertainty, but higher risk does not guarantee higher return.",
+            "Higher risk always guarantees higher return.",
+            "A famous company has no risk.",
+            "A price graph removes the need to check evidence."
+          ],
+          "answer": 0,
+          "explanation": "The course uses a simple rule: possible return and risk must be judged together, and risk can still lead to loss.",
+          "points": 1
+        },
+        {
+          "id": "ownership-blank",
+          "type": "fillBlank",
+          "prompt": "A share is one unit of ________ in a company.",
+          "zh": "股票是公司中的一个________单位。",
+          "acceptedAnswers": [
+            "ownership"
+          ],
+          "explanation": "Ownership is the key word: a share is not a loan or a bank deposit.",
+          "points": 1
+        },
+        {
+          "id": "evidence-blank",
+          "type": "fillBlank",
+          "prompt": "Investment analysis uses ________ before opinion.",
+          "zh": "投资分析先用________，再形成观点。",
+          "acceptedAnswers": [
+            "evidence"
+          ],
+          "explanation": "Evidence is the starting point for a careful investment judgement.",
+          "points": 1
+        },
+        {
+          "id": "risk-blank",
+          "type": "fillBlank",
+          "prompt": "Before judging a share, an analyst compares possible return, price and ________.",
+          "zh": "判断股票前，分析者要比较可能回报、价格和________。",
+          "acceptedAnswers": [
+            "risk"
+          ],
+          "explanation": "Lesson 1 introduces the basic risk-return habit before judgement.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-11-before-course-realignment:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 1 Quiz",
+      "description": "Review investment analysis, return, risk, suitability, assets and shares.",
+      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-11-before-course-realignment/",
+      "source": "investment-analysis/unit-1/lesson-1-archive-2026-07-11-before-course-realignment/quiz.js",
+      "questions": [
+        {
+          "id": "investment-analysis-definition",
+          "type": "multipleChoice",
+          "prompt": "Which response is investment analysis?",
+          "zh": "哪一个回应属于投资分析？",
+          "choices": [
+            "Evaluate potential return, risk and suitability",
+            "Check whether many people know the company",
+            "Wait for the share price to rise first",
+            "Ask classmates which share may rise"
+          ],
+          "answer": 0,
+          "explanation": "Investment analysis evaluates an opportunity's potential return, risk and suitability for an investor.",
+          "explanationZh": "投资分析评估一个机会对投资者的潜在回报、风险和适合性。",
+          "points": 1
+        },
+        {
+          "id": "investment-speculation",
+          "type": "multipleChoice",
+          "prompt": "Which action is closest to speculation?",
+          "zh": "哪一个行为最接近投机？",
+          "choices": [
+            "Reading a dated annual report before judging",
+            "Comparing risk and potential return",
+            "Buying only because the price rose this morning",
+            "Checking whether a company pays dividends"
+          ],
+          "answer": 2,
+          "explanation": "Speculation often focuses on short-term price movement rather than evidence-based judgement.",
+          "explanationZh": "投机常常关注短期价格变动，而不是基于证据的判断。",
+          "points": 1
+        },
+        {
+          "id": "asset-definition",
+          "type": "fillBlank",
+          "prompt": "An asset is something with ________ that can be owned.",
+          "zh": "资产是具有________并且可以被拥有的东西。",
+          "acceptedAnswers": [
+            "value"
+          ],
+          "explanation": "Assets have value; different assets carry different risks.",
+          "explanationZh": "资产具有价值；不同资产有不同风险。",
+          "points": 1
+        },
+        {
+          "id": "asset-type",
+          "type": "multipleChoice",
+          "prompt": "Which item is an asset type from the lesson?",
+          "zh": "哪一项是本课学到的资产类型？",
+          "choices": [
+            "Cash and savings",
+            "A classroom opinion",
+            "A company slogan",
+            "A random prediction"
+          ],
+          "answer": 0,
+          "explanation": "Cash and savings are one simple asset type.",
+          "explanationZh": "现金和储蓄是一种简单资产类型。",
+          "points": 1
+        },
+        {
+          "id": "risk-ranking",
+          "type": "multipleChoice",
+          "prompt": "Why can asset risk rankings differ?",
+          "zh": "为什么资产风险排序可能不同？",
+          "choices": [
+            "Because the exact asset, price, time and evidence matter",
+            "Because all assets always have the same risk",
+            "Because cash is always more risky than every share",
+            "Because risk disappears if the company is famous"
+          ],
+          "answer": 0,
+          "explanation": "Asset type matters, but the specific example and evidence also matter.",
+          "explanationZh": "资产类型重要，但具体例子和证据也重要。",
+          "points": 1
+        },
+        {
+          "id": "share-definition",
+          "type": "fillBlank",
+          "prompt": "A share is one unit of ________ in a company.",
+          "zh": "一股股票是公司中的一个________单位。",
+          "acceptedAnswers": [
+            "ownership"
+          ],
+          "explanation": "A share is one ownership unit, not the whole company.",
+          "explanationZh": "一股股票是一个所有权单位，不是整家公司。",
+          "points": 1
+        },
+        {
+          "id": "share-gives",
+          "type": "multipleChoice",
+          "prompt": "What might a share give, depending on the company?",
+          "zh": "股票可能带来什么，取决于公司情况？",
+          "choices": [
+            "Possible dividends",
+            "Guaranteed profit",
+            "Control of the whole company",
+            "A risk-free return"
+          ],
+          "answer": 0,
+          "explanation": "Some shares may pay dividends, but dividends are not guaranteed.",
+          "explanationZh": "有些股票可能支付股息，但股息不是保证的。",
+          "points": 1
+        },
+        {
+          "id": "tencent-decision",
+          "type": "multipleChoice",
+          "prompt": "Why is Tencent being familiar not enough reason to buy shares?",
+          "zh": "为什么熟悉腾讯不足以成为买入股票的理由？",
+          "choices": [
+            "Familiarity is not evidence about value, risk or return",
+            "Familiar companies cannot have shares",
+            "Shares always guarantee profit",
+            "Assets never carry risk"
+          ],
+          "answer": 0,
+          "explanation": "The opening question needs investment analysis: evidence, potential return, risk, suitability and the meaning of a share.",
+          "explanationZh": "开头问题需要投资分析：证据、潜在回报、风险、适合性以及股票的含义。",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-1-archive-price-graph:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 1 Quiz",
+      "description": "Review what a stock-price graph represents, why it can change, graph-based percentage changes and the first investment judgement rule.",
+      "route": "/investment-analysis/unit-1/lesson-1-archive-price-graph/",
+      "source": "investment-analysis/unit-1/lesson-1-archive-price-graph/quiz.js",
+      "questions": [
+        {
+          "id": "share-definition",
+          "type": "multipleChoice",
+          "prompt": "What is a share?",
+          "zh": "股票是什么？",
+          "choices": [
+            "One unit of ownership in a company",
+            "A guaranteed payment from a bank",
+            "A government tax on companies",
+            "A loan that must pay fixed interest"
+          ],
+          "answer": 0,
+          "explanation": "A share is an ownership claim, not a bank deposit or fixed-interest loan.",
+          "points": 1
+        },
+        {
+          "id": "shareholder",
+          "type": "multipleChoice",
+          "prompt": "Which person is a shareholder?",
+          "zh": "谁是股东？",
+          "choices": [
+            "A person who reads a company website",
+            "A person or institution that owns one or more shares",
+            "A customer who buys the company's product",
+            "A worker who receives a fixed wage"
+          ],
+          "answer": 1,
+          "explanation": "A shareholder owns shares. Customers and workers may be connected to the company without owning it.",
+          "points": 1
+        },
+        {
+          "id": "share-price-meaning",
+          "type": "multipleChoice",
+          "prompt": "Which sentence reads the Tencent price graph precisely?",
+          "zh": "哪一句能精确解读腾讯价格图？",
+          "choices": [
+            "Each point is the market price of one Tencent share at that date.",
+            "Each point is Tencent's total company value.",
+            "Each point is Tencent's revenue for that year.",
+            "Each point proves whether Tencent is a good investment."
+          ],
+          "answer": 0,
+          "explanation": "Correct: the graph gives one-share market prices over time. The misconception is treating a price point as total value, revenue or investment quality.",
+          "points": 1
+        },
+        {
+          "id": "price-change",
+          "type": "multipleChoice",
+          "prompt": "Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
+          "zh": "腾讯图表从663.00港元跌至429.80港元。大约百分比变化是多少？",
+          "choices": [
+            "-35%",
+            "-54%",
+            "+35%",
+            "-233%"
+          ],
+          "answer": 0,
+          "explanation": "(429.80 - 663.00) / 663.00 x 100 is about -35%. The old graph point is the denominator.",
+          "points": 1
+        },
+        {
+          "id": "good-investment",
+          "type": "multipleChoice",
+          "prompt": "Why can a famous company with a rising price graph still be a poor investment?",
+          "zh": "为什么有上涨价格图表的知名公司仍可能不是好投资？",
+          "choices": [
+            "A good company never earns profit.",
+            "The price point may already be too high compared with future profit and risk.",
+            "A low share price removes all risk.",
+            "Revenue is the same as ownership."
+          ],
+          "answer": 1,
+          "explanation": "Investment judgement compares future profit and risk with the current price paid, not just the shape of the graph.",
+          "points": 1
+        },
+        {
+          "id": "market-price",
+          "type": "multipleChoice",
+          "prompt": "What can push a share price up?",
+          "zh": "什么可能推动股价上涨？",
+          "choices": [
+            "More buyers than sellers after positive information changes expectations",
+            "The company having a stock code",
+            "The old price being used as the denominator",
+            "The company having a long name"
+          ],
+          "answer": 0,
+          "explanation": "New information can change expectations. If more buyers want the share than sellers, the market price can rise.",
+          "points": 1
+        },
+        {
+          "id": "expectations",
+          "type": "multipleChoice",
+          "prompt": "Why can a price rise before profit actually rises?",
+          "zh": "为什么利润还没有真正上升，股价就可能先上涨？",
+          "choices": [
+            "Investors may expect higher future profit after new information.",
+            "A share price is fixed once a year.",
+            "Revenue and price are always the same number.",
+            "A ticker guarantees a higher price."
+          ],
+          "answer": 0,
+          "explanation": "Share prices can react to expectations about the future, not only to profit that has already happened.",
+          "points": 1
+        },
+        {
+          "id": "ownership-blank",
+          "type": "fillBlank",
+          "prompt": "A share is one unit of ________ in a company.",
+          "zh": "股票是公司中的一个________单位。",
+          "acceptedAnswers": [
+            "ownership"
+          ],
+          "explanation": "Ownership is the key word: a share is not a loan or a bank deposit.",
+          "points": 1
+        },
+        {
+          "id": "expectations-blank",
+          "type": "fillBlank",
+          "prompt": "New information can change investors' ________ about future profit.",
+          "zh": "新信息会改变投资者对未来利润的________。",
+          "acceptedAnswers": [
+            "expectations",
+            "expectation"
+          ],
+          "explanation": "Expectations are investors' views about what may happen in the future.",
+          "points": 1
+        },
+        {
+          "id": "price-blank",
+          "type": "fillBlank",
+          "prompt": "A company can have high revenue, but investors still need to consider risk and the ________ paid for the share.",
+          "zh": "公司可以有很高的营业收入，但投资者仍需要考虑风险和买入股票的________。",
+          "acceptedAnswers": [
+            "price"
+          ],
+          "explanation": "A good company can be a weak investment if the price is too high.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-1:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 1 Quiz",
+      "description": "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
+      "route": "/investment-analysis/unit-1/lesson-1/",
+      "source": "investment-analysis/unit-1/lesson-1/quiz.js",
+      "questions": [
+        {
+          "id": "investment-definition",
+          "type": "multipleChoice",
+          "prompt": "Which statement correctly defines investment?",
+          "zh": "哪一个陈述正确定义了投资？",
+          "choices": [
+            "Putting money into an asset to seek future return while accepting possible loss",
+            "Keeping all money unchanged until it is spent",
+            "Guaranteeing that money grows faster than prices",
+            "Choosing the investment with the highest recent return"
+          ],
+          "answer": 0,
+          "explanation": "Investment seeks future return through an asset while retaining the possibility of loss.",
+          "explanationZh": "投资通过资产寻求未来回报，同时仍存在可能损失。",
+          "points": 1
+        },
+        {
+          "id": "return-definition",
+          "type": "fillBlank",
+          "prompt": "Return is the gain or ________ from an investment over a stated period.",
+          "zh": "回报是投资在规定期间内的收益或________。",
+          "acceptedAnswers": [
+            "loss",
+            "损失"
+          ],
+          "explanation": "Return can be positive or negative and includes price change and income.",
+          "explanationZh": "回报可以为正，也可以为负，并包括价格变化和收入。",
+          "points": 1
+        },
+        {
+          "id": "return-components",
+          "type": "multipleChoice",
+          "prompt": "Which pair is included in the Lesson 1 definition of return?",
+          "zh": "哪一组内容包含在第一课的回报定义中？",
+          "choices": [
+            "Goal priority and age",
+            "Price change and income",
+            "Budget and tax",
+            "Investment name and popularity"
+          ],
+          "answer": 1,
+          "explanation": "The course definition includes price change and income over a stated period.",
+          "explanationZh": "课程定义包括规定期间内的价格变化和收入。",
+          "points": 1
+        },
+        {
+          "id": "financial-goal-definition",
+          "type": "multipleChoice",
+          "prompt": "Which description is a complete financial goal?",
+          "zh": "哪一个描述是完整的财务目标？",
+          "choices": [
+            "Make more money",
+            "Choose an investment soon",
+            "CNY 180,000 for university fees in six years, with high priority",
+            "Choose a high return"
+          ],
+          "answer": 2,
+          "explanation": "A financial goal states a future use, amount, priority and time horizon.",
+          "explanationZh": "财务目标说明资金的未来用途、金额、优先级和投资期限。",
+          "points": 1
+        },
+        {
+          "id": "why-invest",
+          "type": "multipleChoice",
+          "prompt": "Which is the strongest reason a family might invest?",
+          "zh": "哪一个是家庭可能投资的最有力理由？",
+          "choices": [
+            "To guarantee that every goal is reached",
+            "To avoid identifying when the money is needed",
+            "To copy an investment chosen by another family",
+            "To seek future return for a stated long-term goal while accepting possible loss"
+          ],
+          "answer": 3,
+          "explanation": "The reason links investment to a stated goal, future return and possible loss.",
+          "explanationZh": "该理由把投资与明确目标、未来回报和可能损失联系起来。",
+          "points": 1
+        },
+        {
+          "id": "medical-goal",
+          "type": "multipleChoice",
+          "prompt": "What is the best next step for CNY 25,000 needed for a medical bill in four months?",
+          "zh": "四个月后支付医疗账单所需的25,000元人民币，最佳下一步是什么？",
+          "choices": [
+            "Keep it available because a loss or delay could leave the bill unpaid",
+            "Consider investing because every goal needs the highest possible return",
+            "Choose an investment before checking when the bill is due",
+            "Need more information because the purpose and date are unknown"
+          ],
+          "answer": 0,
+          "explanation": "Choose ‘Keep available.’ The goal is near-term and urgent, so the money must be accessible and has little room for loss.",
+          "explanationZh": "选择“保持资金可用”。该目标近期且紧急，因此资金必须可以使用，几乎没有承受损失的空间。",
+          "points": 1
+        },
+        {
+          "id": "retirement-condition",
+          "type": "multipleChoice",
+          "prompt": "A retirement goal is thirty years away. Which condition is still missing?",
+          "zh": "退休目标在三十年后。仍然缺少哪一个条件？",
+          "choices": [
+            "Proof that every return will be positive",
+            "The target amount and the family's ability to accept loss",
+            "A promise to choose one investment today",
+            "A list of classmates' opinions"
+          ],
+          "answer": 1,
+          "explanation": "Choose ‘Need more information.’ A long horizon may support investment consideration, but the target amount and loss capacity are still missing.",
+          "explanationZh": "选择“需要更多信息”。较长期限可能支持考虑投资，但仍缺少目标金额和损失承受能力。",
+          "points": 1
+        },
+        {
+          "id": "misconception",
+          "type": "multipleChoice",
+          "prompt": "Why is ‘investing is simply a way to make more money’ incomplete?",
+          "zh": "为什么“投资只是赚更多钱的一种方式”是不完整的？",
+          "choices": [
+            "It contains too many financial conditions",
+            "It proves that investment is saving",
+            "It ignores the financial goal, time horizon, access need and possible loss",
+            "It explains the family goal fully"
+          ],
+          "answer": 2,
+          "explanation": "A careful investment decision begins with the goal and its constraints, not return alone.",
+          "explanationZh": "谨慎的投资决定从目标及其限制开始，而不是只看回报。",
+          "points": 1
+        },
+        {
+          "id": "source-limit",
+          "type": "multipleChoice",
+          "prompt": "What can general investor guidance not decide for a family?",
+          "zh": "一般投资者指引不能替家庭决定什么？",
+          "choices": [
+            "That investment involves risk",
+            "That goals have time horizons",
+            "That evidence should be checked",
+            "Its exact priorities, investment choice and whether a particular loss is acceptable"
+          ],
+          "answer": 3,
+          "explanation": "General guidance supports a method, but family-specific priorities and constraints still require evidence.",
+          "explanationZh": "一般指引支持一种方法，但家庭具体的优先级和限制仍需要证据。",
+          "points": 1
+        },
+        {
+          "id": "exit-judgement",
+          "type": "multipleChoice",
+          "prompt": "Which answer states a clear next step and justifies it with evidence?",
+          "zh": "哪一个答案说明了清晰的下一步，并用证据加以说明？",
+          "choices": [
+            "Consider investing for the stated long-term goal because urgent access is not needed; first check what loss could delay the goal.",
+            "Invest because returns are always positive.",
+            "Choose the most popular investment before setting a goal.",
+            "Avoid every investment because loss is possible."
+          ],
+          "answer": 0,
+          "explanation": "The answer names the next step, connects it to the goal and gives access and loss conditions.",
+          "explanationZh": "该答案说明了下一步，把它与目标联系起来，并给出资金使用和损失条件。",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-2-archive-hkex-2026-07-11:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 2 Quiz",
+      "description": "Check whether students can explain why a stock market exists, identify a listed share, and avoid the misconception that every market purchase gives new money to the company.",
+      "route": "/investment-analysis/unit-1/lesson-2-archive-hkex-2026-07-11/",
+      "source": "investment-analysis/unit-1/lesson-2-archive-hkex-2026-07-11/quiz.js",
+      "questions": [
+        {
+          "id": "stock-exchange-role",
+          "type": "multipleChoice",
+          "prompt": "What is a stock exchange?",
+          "zh": "证券交易所是什么？",
+          "choices": [
+            "A regulated market where listed securities can be bought and sold",
+            "A guarantee that every share price will rise",
+            "A company product catalogue",
+            "A private investment adviser"
+          ],
+          "answer": 0,
+          "explanation": "A stock exchange organises trading in listed securities under market rules.",
+          "explanationZh": "证券交易所在市场规则下组织上市证券交易。",
+          "points": 1
+        },
+        {
+          "id": "listing-definition",
+          "type": "multipleChoice",
+          "prompt": "In this lesson, what does listing mean?",
+          "zh": "本课中，“上市”是什么意思？",
+          "choices": [
+            "A company's securities have permission to trade on an exchange",
+            "The company has no investment risk",
+            "Every trade gives new money to the company",
+            "The company must be the largest business in its industry"
+          ],
+          "answer": 0,
+          "explanation": "Listing is about permission to trade on an exchange after meeting market rules.",
+          "explanationZh": "上市指在满足市场规则后获准在交易所交易。",
+          "points": 1
+        },
+        {
+          "id": "stock-code-purpose",
+          "type": "multipleChoice",
+          "prompt": "What is the main purpose of a stock code such as 0700.HK?",
+          "zh": "像 0700.HK 这样的股票代码主要有什么作用？",
+          "choices": [
+            "It identifies a listed security in market data.",
+            "It proves the share is good value.",
+            "It removes all trading friction.",
+            "It replaces the need for a source date."
+          ],
+          "answer": 0,
+          "explanation": "A stock code is an identifier. It is not proof of investment quality.",
+          "explanationZh": "股票代码是识别码，不是投资质量的证明。",
+          "points": 1
+        },
+        {
+          "id": "secondary-market-money",
+          "type": "multipleChoice",
+          "prompt": "An investor buys existing listed shares from another investor on HKEX. What should we not assume?",
+          "zh": "一位投资者在港交所从另一位投资者手中买入已有上市股票。我们不应该假设什么？",
+          "choices": [
+            "That the company automatically receives new money from this trade",
+            "That ownership can change hands",
+            "That the trade happens through a market",
+            "That the share can have a stock code"
+          ],
+          "answer": 0,
+          "explanation": "A normal secondary-market trade transfers existing shares between investors.",
+          "explanationZh": "普通二级市场交易是在投资者之间转让已有股票。",
+          "points": 1
+        },
+        {
+          "id": "primary-issue",
+          "type": "multipleChoice",
+          "prompt": "Which situation is most clearly company fundraising?",
+          "zh": "哪种情况最明显属于公司筹资？",
+          "choices": [
+            "The company issues new shares, such as in an IPO.",
+            "One investor sells existing shares to another investor.",
+            "A student recognises the company name.",
+            "A stock code appears on a quote page."
+          ],
+          "answer": 0,
+          "explanation": "A new share issue can raise capital for the company. A secondary-market trade usually pays the selling investor.",
+          "explanationZh": "新股发行可以为公司筹集资本；二级市场交易通常是买方向卖方付款。",
+          "points": 1
+        },
+        {
+          "id": "source-box",
+          "type": "multipleChoice",
+          "prompt": "Which source-box record is strongest before judging an HKEX example?",
+          "zh": "判断港交所例子前，哪种来源框记录最强？",
+          "choices": [
+            "Company, exchange, stock code, source title, accessed date and limitation",
+            "Only the company logo",
+            "Only whether the price looks high",
+            "Only a friend's trading opinion"
+          ],
+          "answer": 0,
+          "explanation": "Lesson 2 continues the source habit: identify the security and record the source before judging.",
+          "explanationZh": "第二课延续来源习惯：先识别证券并记录来源，再作判断。",
+          "points": 1
+        },
+        {
+          "id": "liquidity-definition",
+          "type": "multipleChoice",
+          "prompt": "What does liquidity describe?",
+          "zh": "流动性描述什么？",
+          "choices": [
+            "How easily an asset can be bought or sold without a large price change",
+            "Whether a company is famous",
+            "The exact future share price",
+            "How many products the company sells"
+          ],
+          "answer": 0,
+          "explanation": "Liquidity is about ease of trading, not a guarantee of profit or safety.",
+          "explanationZh": "流动性关于交易便利度，不保证盈利或安全。",
+          "points": 1
+        },
+        {
+          "id": "trading-friction",
+          "type": "multipleChoice",
+          "prompt": "Which example shows trading friction?",
+          "zh": "哪一个例子体现了交易摩擦？",
+          "choices": [
+            "Trading hours, board lots, spreads, costs or limited buyers and sellers",
+            "A company has a familiar brand",
+            "A share has a stock code",
+            "A student likes the product"
+          ],
+          "answer": 0,
+          "explanation": "Markets reduce friction, but real trading still happens inside rules and costs.",
+          "explanationZh": "市场减少摩擦，但真实交易仍受规则和成本影响。",
+          "points": 1
+        },
+        {
+          "id": "market-importance",
+          "type": "multipleChoice",
+          "prompt": "Why can a stock market matter even when a company does not receive money from every trade?",
+          "zh": "即使公司不是每笔交易都收到钱，股票市场为什么仍然重要？",
+          "choices": [
+            "It helps investors transfer ownership and can improve liquidity.",
+            "It guarantees every investor will earn a return.",
+            "It removes the need to check sources.",
+            "It proves the company is undervalued."
+          ],
+          "answer": 0,
+          "explanation": "Secondary-market trading can support ownership transfer and liquidity, but it does not guarantee returns.",
+          "explanationZh": "二级市场交易支持所有权转让和流动性，但不保证收益。",
+          "points": 1
+        },
+        {
+          "id": "exit-sentence",
+          "type": "fillBlank",
+          "prompt": "A normal secondary-market trade transfers existing shares between investors; it does not automatically give new money to the ________.",
+          "zh": "普通二级市场交易是在投资者之间转让已有股票；它不会自动给________带来新资金。",
+          "acceptedAnswers": [
+            "company",
+            "firm",
+            "business"
+          ],
+          "explanation": "The company raises new money mainly through issuing new shares, not through every later market trade.",
+          "explanationZh": "公司主要通过发行新股筹集新资金，而不是通过之后的每一笔市场交易。",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-2:quiz",
+      "version": "1.0.0",
+      "title": "Unit 1 Lesson 2 Quiz",
+      "description": "Check whether students can classify goals by time horizon and liquidity need, then explain suitability without choosing a product first.",
+      "route": "/investment-analysis/unit-1/lesson-2/",
+      "source": "investment-analysis/unit-1/lesson-2/quiz.js",
+      "questions": [
+        {
+          "id": "time-horizon-definition",
+          "type": "multipleChoice",
+          "prompt": "What is time horizon?",
+          "zh": "什么是投资期限？",
+          "choices": [
+            "The number of products a family owns",
+            "The return earned last year",
+            "The period before invested money is expected to be needed",
+            "The date on which a product becomes popular"
+          ],
+          "answer": 2,
+          "explanation": "Time horizon measures the period before the invested money is expected to be needed for the goal.",
+          "explanationZh": "投资期限衡量预计需要为目标使用已投资资金之前的时间。",
+          "points": 1
+        },
+        {
+          "id": "liquidity-definition",
+          "type": "fillBlank",
+          "prompt": "Liquidity need is the need to access money quickly without accepting a large loss or ________.",
+          "zh": "流动性需求是无需承受重大损失或________即可快速取用资金的需要。",
+          "acceptedAnswers": [
+            "delay",
+            "延迟"
+          ],
+          "explanation": "Liquidity need concerns reliable access without a large loss or delay.",
+          "explanationZh": "流动性需求涉及无需承受重大损失或延迟即可可靠取用资金。",
+          "points": 1
+        },
+        {
+          "id": "suitability-definition",
+          "type": "multipleChoice",
+          "prompt": "Which factors belong in the Lesson 2 definition of suitability?",
+          "zh": "哪些因素属于第二课的适合度定义？",
+          "choices": [
+            "Product popularity, logo and advertising",
+            "Last week's price change only",
+            "The opinions of other families",
+            "Goal, horizon, liquidity need and ability to accept loss"
+          ],
+          "answer": 3,
+          "explanation": "Suitability tests whether an investment matches the person's goal and constraints.",
+          "explanationZh": "适合度检查投资是否与个人目标和限制相匹配。",
+          "points": 1
+        },
+        {
+          "id": "education-horizon",
+          "type": "multipleChoice",
+          "prompt": "Which goal has the shortest horizon in the frozen profile?",
+          "zh": "冻结资料中哪一个目标的期限最短？",
+          "choices": [
+            "University fees beginning in three years",
+            "A home deposit in eight years",
+            "Retirement in thirty years",
+            "All three have the same horizon"
+          ],
+          "answer": 0,
+          "explanation": "Three years is the shortest period before the money is expected to be needed.",
+          "explanationZh": "三年是预计需要资金前最短的时间。",
+          "points": 1
+        },
+        {
+          "id": "home-flexibility",
+          "type": "multipleChoice",
+          "prompt": "Why does the home goal differ from the university goal?",
+          "zh": "为什么住房目标与大学目标不同？",
+          "choices": [
+            "It guarantees a higher return",
+            "It has a longer horizon and up to two years of date flexibility",
+            "It has no target amount",
+            "It requires money sooner"
+          ],
+          "answer": 1,
+          "explanation": "The home goal is planned for eight years and its date can move, so its constraints differ from the fixed three-year education goal.",
+          "explanationZh": "住房目标计划在八年后且日期可以调整，因此其限制不同于固定三年的教育目标。",
+          "points": 1
+        },
+        {
+          "id": "retirement-missing-evidence",
+          "type": "multipleChoice",
+          "prompt": "Which important facts are missing for the retirement goal?",
+          "zh": "退休目标缺少哪些重要事实？",
+          "choices": [
+            "Whether retirement is a future goal",
+            "Whether thirty years is longer than three years",
+            "The target amount, later withdrawal needs and ability to accept loss",
+            "Whether investment can involve return"
+          ],
+          "answer": 2,
+          "explanation": "A long horizon alone is not enough to establish suitability.",
+          "explanationZh": "仅凭较长期限不足以确定适合度。",
+          "points": 1
+        },
+        {
+          "id": "highest-return-misconception",
+          "type": "multipleChoice",
+          "prompt": "Why does the investment with the highest possible return not fit every goal?",
+          "zh": "为什么可能回报最高的投资并不适合每一个目标？",
+          "choices": [
+            "High possible return always means low risk",
+            "Every family has the same goal",
+            "Suitability depends only on recent performance",
+            "Goals have different horizons, liquidity needs and consequences of loss"
+          ],
+          "answer": 3,
+          "explanation": "Return cannot establish suitability without the goal constraints.",
+          "explanationZh": "如果没有目标限制，回报不能确定适合度。",
+          "points": 1
+        },
+        {
+          "id": "liquidity-ranking",
+          "type": "multipleChoice",
+          "prompt": "Which goal has the highest current liquidity need in the frozen profile?",
+          "zh": "冻结资料中哪一个目标的当前流动性需求最高？",
+          "choices": [
+            "University in three years with a fixed start date",
+            "Retirement in thirty years",
+            "Home deposit in eight years with date flexibility",
+            "All three have identical liquidity needs"
+          ],
+          "answer": 0,
+          "explanation": "The earliest fixed payment date creates the strongest current need for reliable access.",
+          "explanationZh": "最早且固定的付款日期形成最强的当前可靠取用资金需要。",
+          "points": 1
+        },
+        {
+          "id": "source-limit",
+          "type": "multipleChoice",
+          "prompt": "What can official time-horizon guidance not decide for the family?",
+          "zh": "官方投资期限指引不能替家庭决定什么？",
+          "choices": [
+            "That the period before a goal matters",
+            "A named product and whether its possible loss is acceptable for this family",
+            "That risk tolerance affects choices",
+            "That goals can have different horizons"
+          ],
+          "answer": 1,
+          "explanation": "General guidance supports a method; family-specific suitability still requires evidence.",
+          "explanationZh": "一般指引支持一种方法；家庭具体的适合度仍需要证据。",
+          "points": 1
+        },
+        {
+          "id": "goal-comparison",
+          "type": "multipleChoice",
+          "prompt": "Which explanation best shows why two goals require different investment choices?",
+          "zh": "哪一个解释最能说明为什么两个目标需要不同的投资选择？",
+          "choices": [
+            "Retirement is later, so any investment is suitable.",
+            "University is expensive, so it needs the highest possible return.",
+            "University money is needed sooner on a fixed date, while retirement money has a longer horizon and lower current access need; each choice must match its goal and loss capacity.",
+            "The same family should use one identical choice for all money."
+          ],
+          "answer": 2,
+          "explanation": "The answer compares horizon and liquidity need, then keeps the judgement conditional on suitability evidence.",
+          "explanationZh": "该答案比较期限和流动性需求，并使判断以适合度证据为条件。",
+          "points": 1
+        }
+      ]
+    }
+  ]
+}

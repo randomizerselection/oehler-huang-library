@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Investment moves money into an asset for an uncertain future return</title>
+  <desc id="desc">Coins move into an asset, followed by a future path that can end in either a gain or a loss.</desc>
+  <rect width="1200" height="360" rx="34" fill="#071114"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(62 76)">
+      <ellipse cx="100" cy="176" rx="82" ry="27" fill="#132a31" stroke="#4fd2ff" stroke-width="8"/>
+      <path d="M18 128v48c0 15 37 27 82 27s82-12 82-27v-48" fill="#0d2026" stroke="#4fd2ff" stroke-width="8"/>
+      <ellipse cx="100" cy="128" rx="82" ry="27" fill="#173740" stroke="#4fd2ff" stroke-width="8"/>
+      <path d="M18 80v48c0 15 37 27 82 27s82-12 82-27V80" fill="#0d2026" stroke="#4fd2ff" stroke-width="8"/>
+      <ellipse cx="100" cy="80" rx="82" ry="27" fill="#1d4651" stroke="#4fd2ff" stroke-width="8"/>
+      <text x="100" y="96" text-anchor="middle" fill="#f7fcfc" font-family="Arial, sans-serif" font-size="48" font-weight="700">¥</text>
+    </g>
+    <path d="M278 180h112" stroke="#d6e7e8" stroke-width="12"/>
+    <path d="m370 153 31 27-31 27" stroke="#d6e7e8" stroke-width="12"/>
+    <g transform="translate(426 53)">
+      <rect x="0" y="58" width="236" height="192" rx="22" fill="#0d2228" stroke="#39d991" stroke-width="9"/>
+      <path d="M34 58 118 8l84 50" stroke="#39d991" stroke-width="11"/>
+      <rect x="42" y="100" width="54" height="54" rx="8" fill="#173f35"/>
+      <rect x="140" y="100" width="54" height="54" rx="8" fill="#173f35"/>
+      <rect x="91" y="178" width="54" height="72" rx="8" fill="#173f35"/>
+      <circle cx="200" cy="34" r="27" fill="#39d991"/>
+      <path d="m187 34 9 9 18-22" stroke="#04110c" stroke-width="8"/>
+    </g>
+    <path d="M688 180h124" stroke="#d6e7e8" stroke-width="12" stroke-dasharray="16 18"/>
+    <path d="m792 153 31 27-31 27" stroke="#d6e7e8" stroke-width="12"/>
+    <path d="M838 180c58 0 61-82 126-82h66" stroke="#39d991" stroke-width="10"/>
+    <path d="m1012 71 31 27-31 27" stroke="#39d991" stroke-width="10"/>
+    <circle cx="1090" cy="98" r="52" fill="#123f31" stroke="#39d991" stroke-width="8"/>
+    <path d="M1090 72v52M1064 98h52" stroke="#f7fcfc" stroke-width="11"/>
+    <path d="M838 180c58 0 61 82 126 82h66" stroke="#ee6c65" stroke-width="10"/>
+    <path d="m1012 235 31 27-31 27" stroke="#ee6c65" stroke-width="10"/>
+    <circle cx="1090" cy="262" r="52" fill="#482221" stroke="#ee6c65" stroke-width="8"/>
+    <path d="M1064 262h52" stroke="#f7fcfc" stroke-width="11"/>
+  </g>
+</svg>

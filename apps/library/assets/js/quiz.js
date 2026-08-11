@@ -219,6 +219,7 @@ window.IGCSE = window.IGCSE || {};
     return {
       id: question.id || '',
       type: question.type || 'multipleChoice',
+      rawAnswer: answer,
       prompt: question.prompt || '',
       studentAnswer: question.type === 'multipleChoice'
         ? (question.choices?.[answer] || '')
@@ -300,59 +301,18 @@ window.IGCSE = window.IGCSE || {};
   });
 
   async function submitPayload(payload) {
-    const config = window.IGCSE.quizConfig || {};
-    const openedLocally = window.location.protocol === 'file:';
-    const submitEndpoint = openedLocally && config.localSubmitEndpoint
-      ? config.localSubmitEndpoint
-      : config.submitEndpoint;
-    const useOpaqueSubmit = openedLocally && Boolean(config.localSubmitEndpoint);
-
-    if (!config.submissionEnabled || !submitEndpoint) {
-      return { state: 'disabled' };
-    }
-
-    if (config.provider === 'netlify-forms') {
-      const body = new URLSearchParams({
-        'form-name': config.formName || 'quiz-submissions',
-        attemptId: payload.attemptId,
-        submittedAt: payload.submittedAt,
-        studentName: payload.student.name,
-        studentClass: payload.student.className,
-        lessonCode: payload.lesson.code,
-        lessonTitle: payload.lesson.title,
-        lessonUnit: payload.lesson.unit,
-        quizId: payload.quiz.id,
-        quizVersion: payload.quiz.version,
-        quizTitle: payload.quiz.title,
-        score: String(payload.score),
-        maxScore: String(payload.maxScore),
-        percentage: String(payload.percentage),
-        responsesJson: JSON.stringify(payload.responses),
-      });
-
-      const response = await fetch(submitEndpoint, {
-        method: 'POST',
-        mode: useOpaqueSubmit ? 'no-cors' : 'cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-
-      if (response.type !== 'opaque' && !response.ok) {
-        throw new Error(`Submission failed with HTTP ${response.status}`);
-      }
-      return { state: 'submitted' };
-    }
-
-    const response = await fetch(submitEndpoint, {
-      method: 'POST',
-      mode: 'cors',
-      credentials: 'omit',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+    if (!window.OHPlatform) return { state: 'disabled' };
+    await window.OHPlatform.ready();
+    if (!window.OHPlatform.session.authenticated) return { state: 'disabled' };
+    const query = new URLSearchParams(location.search);
+    const assignmentId = query.get('assignment');
+    const attempt = await window.OHPlatform.submitQuiz(payload.quiz.id, {
+      idempotency_key: payload.attemptId,
+      mode: assignmentId ? 'assigned' : 'practice',
+      learning_assignment_id: assignmentId,
+      answers: Object.fromEntries(payload.responses.map((response) => [response.id, response.rawAnswer])),
     });
-
-    if (!response.ok) throw new Error(`Submission failed with HTTP ${response.status}`);
-    return { state: 'submitted' };
+    return { state: 'submitted', attempt };
   }
 
   const setStatus = (statusEl, state, message) => {
@@ -513,7 +473,8 @@ window.IGCSE = window.IGCSE || {};
       try {
         const submitResult = await submitPayload(lastPayload);
         if (submitResult.state === 'submitted') {
-          setStatus(statusEl, 'submitted', 'Score submitted to your teacher.');
+          const verified = submitResult.attempt;
+          setStatus(statusEl, 'submitted', `Verified score saved: ${verified.score}/${verified.max_score} (${verified.percentage}%).`);
         } else {
           setStatus(statusEl, 'disabled', 'Score marked locally. No teacher submission endpoint is configured.');
         }

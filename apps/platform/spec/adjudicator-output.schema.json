@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/adjudicator-output.schema.json",
+  "title": "EconMark one-mark adjudication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mark", "level", "reason"],
+  "properties": {
+    "mark": { "type": "integer", "minimum": 0, "maximum": 8 },
+    "level": { "type": ["string", "null"] },
+    "reason": { "type": "string", "minLength": 1 }
+  }
+}

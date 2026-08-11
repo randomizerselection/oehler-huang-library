@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f3b" />
+    <meta name="description" content="EconMark 教师作业库与学生提交审核" />
+    <title>EconMark Teacher · 作业库与审核中心</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/teacher-styles.css" />
+  </head>
+  <body class="teacher-body">
+    <header class="site-header teacher-header">
+      <a class="brand" href="/mark/teacher" aria-label="EconMark Teacher 首页"><span class="brand-mark">E</span><span><strong>EconMark Teacher</strong><small>作业库与审核中心</small></span></a>
+      <nav class="teacher-nav" aria-label="主要导航"><a href="/mark/">学生入口</a><a class="active" href="/mark/teacher">作业库</a><a href="/mark/single">单份评分</a><a href="/mark/batch">批量评分</a></nav>
+      <div class="header-actions">
+        <div id="account-signed-out" class="account-controls"><button id="account-open-login" class="account-link">登录</button><button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button></div>
+        <div id="account-signed-in" class="account-controls" hidden><span class="account-name" id="account-name"></span><button id="account-logout" class="account-link">退出</button></div>
+      </div>
+    </header>
+
+    <main class="teacher-main">
+      <section class="teacher-hero">
+        <div><p class="eyebrow">One source of truth</p><h1>题目与评分标准，<em>只需创建一次。</em></h1><p>在作业库中发布版本化作业，再用于学生自评、单份精评和整班批量评分。</p></div>
+        <button id="new-assignment" class="button button-primary" hidden>＋ 新建作业</button>
+      </section>
+
+      <div id="teacher-notice" class="teacher-notice" role="status" aria-live="polite"></div>
+
+      <section id="teacher-auth-gate" class="teacher-auth-gate">
+        <span>教师专属</span><h2>登录教师账户管理作业</h2><p>已有账户可直接登录。创建教师账户需要服务器管理员提供的邀请码。</p>
+        <div><button id="teacher-gate-login" class="button button-primary">教师登录</button><button id="teacher-gate-register" class="button button-secondary">使用邀请码创建账户</button></div>
+      </section>
+
+      <div id="teacher-workspace" class="teacher-workspace" hidden>
+        <section class="teacher-library-panel">
+          <div class="teacher-section-heading"><div><p class="section-kicker">Central assignment library</p><h2>我的作业</h2></div><div class="assignment-filters" role="group" aria-label="筛选作业"><button class="active" data-filter="all">全部</button><button data-filter="draft">草稿</button><button data-filter="published">已发布</button><button data-filter="archived">已归档</button></div></div>
+          <div id="assignment-list" class="assignment-list"></div>
+        </section>
+
+        <aside id="teacher-inbox-panel" class="teacher-inbox-panel">
+          <div class="teacher-section-heading"><div><p class="section-kicker">Student submissions</p><h2 id="inbox-title">学生提交</h2></div><span id="inbox-count" class="inbox-count">0</span></div>
+          <p id="inbox-description" class="inbox-description">选择一项已发布作业，查看学生自评提交。</p>
+          <div id="submission-list" class="submission-list"></div>
+        </aside>
+      </div>
+    </main>
+
+    <dialog id="assignment-dialog" class="assignment-dialog">
+      <form id="assignment-form" class="assignment-form">
+        <header><div><p class="section-kicker">唯一题目与评分依据</p><h2 id="assignment-dialog-title">新建作业</h2></div><button id="assignment-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button></header>
+        <input id="assignment-edit-id" type="hidden" />
+        <label class="field" for="assignment-title"><span>作业标题</span><input id="assignment-title" required maxlength="160" placeholder="例如：利率与通货膨胀" /></label>
+        <label class="field" for="assignment-instructions"><span>给学生的说明</span><textarea id="assignment-instructions" rows="2" maxlength="2000" placeholder="拍摄完整答题页，并确保字迹清晰。"></textarea></label>
+        <label class="field" for="assignment-question"><span>题目（Question）</span><textarea id="assignment-question" required rows="3"></textarea></label>
+        <div class="field-row"><label class="field" for="assignment-command"><span>指令词</span><select id="assignment-command"><option value="Discuss">Discuss（讨论）</option><option value="Analyse">Analyse（分析）</option></select></label><label class="field" for="assignment-max-mark"><span>满分</span><select id="assignment-max-mark"><option value="8">8 分</option><option value="6">6 分</option></select></label></div>
+        <label class="field" for="assignment-mark-scheme"><span>评分标准（Mark scheme）</span><textarea id="assignment-mark-scheme" required rows="10" placeholder="粘贴本题完整评分标准。它将成为所有评分模式的唯一依据。"></textarea></label>
+        <p class="assignment-form-note">草稿可以继续编辑；发布后内容永久冻结。需要修改时，系统会创建新的版本和分享代码。</p>
+        <p id="assignment-form-error" class="account-error" role="alert"></p>
+        <button id="assignment-save" class="button button-primary" type="submit">保存草稿</button>
+      </form>
+    </dialog>
+
+    <dialog id="submission-dialog" class="submission-dialog">
+      <div class="submission-detail">
+        <header><div><p class="section-kicker">学生提交审核</p><h2 id="submission-student">—</h2><p id="submission-meta">—</p></div><button id="submission-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button></header>
+        <div class="submission-detail-grid">
+          <section><img id="submission-image" alt="学生手写作答" /><h3>安全转写</h3><div id="submission-transcript" class="submission-transcript"></div><h3>评分证据</h3><div id="submission-evidence" class="evidence-list"></div></section>
+          <aside><div class="submission-score"><strong id="submission-score">—</strong><span id="submission-max">/8</span><p id="submission-confidence">—</p></div><div id="submission-feedback" class="submission-feedback"></div><h3>教师决定</h3><div id="submission-decision" class="decision-status">等待教师复核。</div><div class="decision-buttons"><button id="submission-approve" class="button button-approve">认可暂定分数</button><button id="submission-adjust-toggle" class="button button-secondary">调整</button><button id="submission-reject" class="button button-ghost">拒绝</button></div><div id="submission-adjust-form" class="adjust-form" hidden><label class="field" for="submission-adjust-mark"><span>最终分数</span><input id="submission-adjust-mark" type="number" min="0" max="8" /></label><label class="field" for="submission-adjust-reason"><span>调整理由</span><textarea id="submission-adjust-reason" rows="3"></textarea></label><button id="submission-adjust-save" class="button button-primary">保存调整</button></div></aside>
+        </div>
+      </div>
+    </dialog>
+
+    <div id="teacher-toast" class="toast" role="alert" aria-live="assertive"></div>
+    <dialog id="account-dialog" class="account-dialog" data-mode="login"><form id="account-form" class="account-form"><div class="account-dialog-heading"><div><p class="section-kicker">教师安全访问</p><h2 id="account-dialog-title">登录 EconMark</h2></div><button id="account-dialog-close" type="button" class="dialog-close">×</button></div><label id="account-display-name-field" class="field" for="account-display-name" hidden><span>显示名称</span><input id="account-display-name" maxlength="80" /></label><label class="field" for="account-username"><span>用户名</span><input id="account-username" required minlength="3" maxlength="60" /></label><label class="field" for="account-password"><span>密码</span><input id="account-password" type="password" required minlength="10" maxlength="128" /></label><label id="account-teacher-invite-field" class="field" for="account-teacher-invite" hidden><span>教师邀请码</span><input id="account-teacher-invite" maxlength="160" /></label><p id="account-error" class="account-error"></p><button id="account-submit" class="button button-primary" type="submit">登录</button><button id="account-mode-toggle" class="account-mode-toggle" type="button">没有账户？创建学生账户</button><p class="account-storage-note">教师注册必须使用服务器配置的邀请码。</p></form></dialog>
+    <script type="module" src="/src/teacher-app.js"></script>
+  </body>
+</html>

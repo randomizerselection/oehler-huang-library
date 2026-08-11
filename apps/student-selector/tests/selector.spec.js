@@ -1,7 +1,7 @@
 const { expect, test } = require("@playwright/test");
 
 test("loads roster and completes the core selector flow", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/tests/harness.html");
 
   await expect(page.getByRole("heading", { name: "Random Student Selector" })).toBeVisible();
 
@@ -40,7 +40,7 @@ test("loads roster and completes the core selector flow", async ({ page }) => {
 });
 
 test("exposes the reusable lesson overlay API", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/tests/harness.html");
 
   const hasApi = await page.evaluate(() => {
     return Boolean(window.StudentSelector?.mount && window.StudentSelector?.open);
@@ -49,7 +49,7 @@ test("exposes the reusable lesson overlay API", async ({ page }) => {
   expect(hasApi).toBe(true);
 
   await page.evaluate(() => {
-    window.__selectorOverlay = window.StudentSelector.open();
+    window.__selectorOverlay = window.StudentSelector.open(window.__testAdapters);
   });
 
   await expect(page.locator(".selector-overlay-host")).toBeVisible();

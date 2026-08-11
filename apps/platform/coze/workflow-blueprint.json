@@ -1,0 +1,55 @@
+{
+  "blueprint_version": "1.0.0",
+  "purpose": "Platform-neutral build blueprint; map these nodes manually in the current Coze workflow editor.",
+  "workflow": {
+    "name": "EconMark_Main_v1",
+    "version": "econmark-workflow/3.0.0",
+    "start_inputs": [
+      "run_id",
+      "mode",
+      "student_ref",
+      "question_text",
+      "command_word",
+      "max_mark",
+      "mark_scheme_text",
+      "answer_images",
+      "confirmed_transcript",
+      "transcript_teacher_confirmed",
+      "rubric_teacher_confirmed",
+      "language",
+      "schema_version"
+    ],
+    "nodes": [
+      { "id": "N01", "name": "ScopeGate", "type": "condition", "on_failure": "STOP_UNSUPPORTED_SCOPE" },
+      { "id": "N02", "name": "ImageValidation", "type": "vision_model", "prompt": "prompts/01-image-validation.md", "on_failure": "STOP_IMAGE_RETAKE" },
+      { "id": "N03", "name": "Transcription", "type": "vision_model", "prompt": "prompts/02-transcription.md", "on_failure": "STOP_TRANSCRIPTION" },
+      { "id": "N04", "name": "TeacherTranscriptGate", "type": "human_confirmation", "on_failure": "STOP_UNCONFIRMED_TRANSCRIPT" },
+      { "id": "N05", "name": "RubricParser", "type": "reasoning_model", "prompt": "prompts/03-rubric-parser.md", "schema": "spec/parsed-rubric.schema.json" },
+      { "id": "N06", "name": "TeacherRubricGate", "type": "human_confirmation", "on_failure": "STOP_UNCONFIRMED_RUBRIC" },
+      { "id": "N07", "name": "EvidenceExtractor", "type": "reasoning_model", "prompt": "prompts/04-evidence-extractor.md", "schema": "spec/evidence-record.schema.json" },
+      { "id": "N08", "name": "EvidenceInvariant", "type": "code", "on_failure": "STOP_EVIDENCE_INVARIANT" },
+      { "id": "N09", "name": "PrimaryScorer", "type": "reasoning_model", "prompt": "prompts/05-primary-scorer.md" },
+      { "id": "N10", "name": "IndependentReviewer", "type": "reasoning_model", "prompt": "prompts/06-independent-reviewer.md", "isolation": "Do not pass N09 mark or rationale." },
+      { "id": "N11", "name": "DisagreementRouter", "type": "condition" },
+      { "id": "N12", "name": "Adjudicator", "type": "reasoning_model", "prompt": "prompts/07-adjudicator.md", "run_when": "absolute scorer difference equals 1" },
+      { "id": "N13", "name": "ManualRange", "type": "code", "run_when": "absolute scorer difference >= 2 or whole-level difference" },
+      { "id": "N14", "name": "ConfidenceGate", "type": "reasoning_model", "prompt": "prompts/08-confidence-gate.md" },
+      { "id": "N15", "name": "FeedbackEnglish", "type": "reasoning_model", "prompt": "prompts/09-feedback-en.md" },
+      { "id": "N16", "name": "TranslateChinese", "type": "language_model", "prompt": "prompts/10-translation-zh.md" },
+      { "id": "N17", "name": "BilingualInvariant", "type": "code", "on_failure": "STOP_TRANSLATION_MISMATCH" },
+      { "id": "N18", "name": "AssembleProvisionalOutput", "type": "code", "schema": "spec/grading-output.schema.json" },
+      { "id": "N19", "name": "TeacherDecision", "type": "human_confirmation", "prompt": "prompts/11-teacher-decision.md", "schema": "spec/teacher-review.schema.json" },
+      { "id": "N20", "name": "PersistenceRouter", "type": "condition", "rule": "public_sample => no persistence; account_upload => permanent EconMark account storage" },
+      { "id": "N21", "name": "AccountAuditStore", "type": "external_api", "run_when": "mode is account_upload" },
+      { "id": "N22", "name": "ReportExport", "type": "document_or_api" },
+      { "id": "N23", "name": "End", "type": "end" }
+    ],
+    "edges": [
+      ["N01", "N02"], ["N02", "N03"], ["N03", "N04"], ["N04", "N05"], ["N05", "N06"],
+      ["N06", "N07"], ["N07", "N08"], ["N08", "N09"], ["N08", "N10"], ["N09", "N11"],
+      ["N10", "N11"], ["N11", "N12"], ["N11", "N13"], ["N11", "N14"], ["N12", "N14"],
+      ["N13", "N14"], ["N14", "N15"], ["N15", "N16"], ["N16", "N17"], ["N17", "N18"],
+      ["N18", "N19"], ["N19", "N20"], ["N20", "N21"], ["N20", "N22"], ["N21", "N22"], ["N22", "N23"]
+    ]
+  }
+}

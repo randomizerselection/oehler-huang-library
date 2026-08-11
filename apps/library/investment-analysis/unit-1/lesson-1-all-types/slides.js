@@ -233,10 +233,15 @@ window.INVEST.lesson = {
       ],
       definition: "A share price is the market price of one <span class=\"blank invReveal\" data-answer=\"share\" style=\"--blank-width:7ch\"><span class=\"invBlankText\">share</span></span> at a specific time.",
       definitionZh: "股价是在特定时间一股股票的市场交易价格。",
+      examples: [
+        { text: "Tencent trades at HKD 300 at 10:00.", zh: "腾讯在10:00的交易价格为300港元。" },
+        { text: "The same share trades at HKD 305 later that day.", zh: "同一股票当天稍后的交易价格为305港元。" },
+        { text: "Another company trades at HKD 50 at the same time.", zh: "另一家公司在同一时间的交易价格为50港元。" }
+      ],
       notes: [
         "Current role: one term, one definition, optional revealed blank.",
-        "Future use: use for definitions students should copy exactly.",
-        "Review decision: decide whether examples or non-examples should be built into this type."
+        "Future use: use for definitions students should copy exactly, followed by at least three concrete bilingual bullet examples.",
+        "Review decision: check whether the examples span different times, outcomes or boundary cases."
       ]
     },
     {
@@ -486,10 +491,8 @@ window.INVEST.lesson = {
     {
       type: "yesNoCheck",
       eyebrow: "type: yesNoCheck",
-      title: "Yes or no: does this prove quality?",
-      zhTitle: "判断：这能证明投资质量吗？",
-      prompt: "Vote yes or no before revealing the reason.",
-      promptZh: "先投票判断是或否，再揭示理由。",
+      title: "Vote yes or no.",
+      zhTitle: "投票：是或否。",
       items: [
         { text: "A stock code proves the share is a good investment.", zh: "股票代码能证明这只股票是好投资。", answer: false, answerZh: "否", reason: "A code identifies the security; it is not a quality signal.", reasonZh: "代码识别证券，但不是质量信号。" },
         { text: "A dated source is useful evidence.", zh: "带日期的来源是有用证据。", answer: true, answerZh: "是", reason: "The date helps judge whether the evidence is current.", reasonZh: "日期帮助判断证据是否及时。" },
@@ -747,7 +750,7 @@ window.INVEST.lesson = {
     },
     {
       type: "answer",
-      eyebrow: "type: answer / exit ticket variant",
+      eyebrow: "Check",
       title: "Exit ticket",
       zhTitle: "离堂小测",
       mode: "fillBlanks",
@@ -758,7 +761,7 @@ window.INVEST.lesson = {
         { prompt: "One rule for future decks is __________.", answer: "write a rule", zh: "未来课件的一条规则是__________。", answerZh: "写一条规则" }
       ],
       notes: [
-        "Current role: answer type becomes an exit ticket when the title includes Exit ticket.",
+        "Current role: the answer type becomes an economics-style exit ticket when it uses the standard Check / Exit ticket / 离堂小测 header.",
         "Future use: use for collectable individual output at the end of a lesson.",
         "Review decision: decide whether this variant should be split from retrieval checks."
       ]

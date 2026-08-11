@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/transcription-output.schema.json",
+  "title": "EconMark provider transcription output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text", "confidence", "uncertain_spans", "validation_flags", "usable"],
+  "properties": {
+    "text": { "type": "string", "minLength": 1 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "uncertain_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "page", "line", "reason"],
+        "properties": {
+          "text": { "type": "string" },
+          "page": { "type": "integer", "minimum": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "validation_flags": { "type": "array", "items": { "type": "string" } },
+    "usable": { "type": "boolean" }
+  }
+}

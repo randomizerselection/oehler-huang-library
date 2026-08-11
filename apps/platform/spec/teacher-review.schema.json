@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/teacher-review.schema.json",
+  "title": "EconMark teacher review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "teacher_mark", "override_reason", "reviewed_at", "decision_source"],
+  "properties": {
+    "decision": { "enum": ["approved", "adjusted", "rejected"] },
+    "teacher_mark": { "type": ["integer", "null"], "minimum": 0, "maximum": 8 },
+    "override_reason": { "type": ["string", "null"] },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "decision_source": { "enum": ["teacher", "automatic_policy"] },
+    "policy_version": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "decision": { "const": "adjusted" } } },
+      "then": {
+        "properties": {
+          "teacher_mark": { "type": "integer" },
+          "override_reason": { "type": "string", "minLength": 5 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "decision": { "const": "approved" } } },
+      "then": { "properties": { "teacher_mark": { "type": "integer" } } }
+    },
+    {
+      "if": { "properties": { "decision": { "const": "rejected" } } },
+      "then": { "properties": { "teacher_mark": { "const": null } } }
+    },
+    {
+      "if": { "properties": { "decision_source": { "const": "automatic_policy" } }, "required": ["decision_source"] },
+      "then": {
+        "required": ["policy_version"],
+        "properties": {
+          "decision": { "const": "approved" },
+          "override_reason": { "const": null }
+        }
+      }
+    }
+  ]
+}

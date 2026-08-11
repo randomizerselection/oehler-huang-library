@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/grading-output.schema.json",
+  "title": "EconMark grading output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "provisional_mark",
+    "max_mark",
+    "level",
+    "confidence",
+    "confidence_reasons",
+    "evidence",
+    "missed_opportunities",
+    "feedback_en",
+    "feedback_zh",
+    "improved_outline_en",
+    "improved_outline_zh",
+    "follow_up_questions_en",
+    "follow_up_questions_zh",
+    "manual_review_required",
+    "prompt_version",
+    "model_version",
+    "workflow_version",
+    "schema_version",
+    "final_mark"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "provisional_mark": { "type": "integer", "minimum": 0, "maximum": 8 },
+    "max_mark": { "enum": [6, 8] },
+    "level": { "type": ["string", "null"] },
+    "confidence": { "enum": ["high", "medium", "low"] },
+    "confidence_reasons": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "evidence": { "type": "array", "items": { "$ref": "evidence-record.schema.json" } },
+    "missed_opportunities": { "type": "array", "items": { "type": "string" } },
+    "feedback_en": { "$ref": "#/$defs/feedback" },
+    "feedback_zh": { "$ref": "#/$defs/feedback" },
+    "improved_outline_en": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "improved_outline_zh": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "follow_up_questions_en": { "$ref": "#/$defs/followUpQuestions" },
+    "follow_up_questions_zh": { "$ref": "#/$defs/followUpQuestions" },
+    "manual_review_required": { "type": "boolean" },
+    "scorer_marks": {
+      "type": "object",
+      "properties": {
+        "primary": { "type": "integer", "minimum": 0, "maximum": 8 },
+        "reviewer": { "type": "integer", "minimum": 0, "maximum": 8 },
+        "adjudicated": { "type": ["integer", "null"], "minimum": 0, "maximum": 8 }
+      }
+    },
+    "prompt_version": { "type": "string" },
+    "model_version": { "type": "string" },
+    "provider_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transcription", "rubric", "primary", "reviewer", "adjudicator", "feedback"],
+      "properties": {
+        "transcription": { "$ref": "#/$defs/providerRole" },
+        "rubric": { "$ref": "#/$defs/providerRole" },
+        "primary": { "$ref": "#/$defs/providerRole" },
+        "reviewer": { "$ref": "#/$defs/providerRole" },
+        "adjudicator": { "$ref": "#/$defs/providerRole" },
+        "feedback": { "$ref": "#/$defs/providerRole" }
+      }
+    },
+    "workflow_version": { "type": "string" },
+    "schema_version": { "type": "string" },
+    "final_mark": { "type": ["integer", "null"], "minimum": 0, "maximum": 8 },
+    "teacher_review": { "$ref": "teacher-review.schema.json" }
+  },
+  "$defs": {
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strengths", "missing_development", "priorities"],
+      "properties": {
+        "strengths": { "type": "array", "items": { "type": "string" } },
+        "missing_development": { "type": "array", "items": { "type": "string" } },
+        "priorities": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["priority_id", "text"],
+            "properties": {
+              "priority_id": { "type": "string", "minLength": 1 },
+              "text": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "providerRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model"],
+      "properties": {
+        "provider": { "enum": ["qwen", "kimi", "deepseek"] },
+        "model": { "type": "string", "minLength": 1 }
+      }
+    },
+    "followUpQuestions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question_id", "target_priority_id", "text"],
+        "properties": {
+          "question_id": { "type": "string", "minLength": 1 },
+          "target_priority_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "not": { "required": ["teacher_review"] } },
+      "then": { "properties": { "final_mark": { "const": null } } }
+    },
+    {
+      "if": { "properties": { "teacher_review": { "properties": { "decision": { "const": "rejected" } }, "required": ["decision"] } }, "required": ["teacher_review"] },
+      "then": { "properties": { "final_mark": { "const": null } } }
+    }
+  ]
+}

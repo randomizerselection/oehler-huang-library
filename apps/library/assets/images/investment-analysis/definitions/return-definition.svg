@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Return icon</title>
+  <desc id="desc">A yuan coin between an upward gain arrow and a downward loss arrow.</desc>
+  <circle cx="256" cy="256" r="108" fill="#173b45" stroke="#4fd2ff" stroke-width="18"/>
+  <circle cx="256" cy="256" r="74" fill="#0d2228" stroke="#d6e7e8" stroke-width="10"/>
+  <text x="256" y="286" text-anchor="middle" fill="#f7fcfc" font-family="Arial, sans-serif" font-size="92" font-weight="700">¥</text>
+  <path d="M76 210 174 112" fill="none" stroke="#39d991" stroke-width="24" stroke-linecap="round"/>
+  <path d="m126 112 54-6-6 54" fill="none" stroke="#39d991" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m338 336 98 98" fill="none" stroke="#ee6c65" stroke-width="24" stroke-linecap="round"/>
+  <path d="m386 434 54 6-6-54" fill="none" stroke="#ee6c65" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

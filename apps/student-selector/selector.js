@@ -47,7 +47,8 @@
 
   function assetUrl(path, basePath) {
     if (/^(https?:)?\/\//.test(path) || path.startsWith("data:")) return path;
-    return new URL(path, basePath || SCRIPT_BASE || window.location.href).toString();
+    const base = new URL(basePath || SCRIPT_BASE || window.location.href, window.location.href);
+    return new URL(path, base).toString();
   }
 
   function parseCsv(text) {
@@ -113,6 +114,14 @@
   }
 
   function choice(list) {
+    if (!list.length) return undefined;
+    if (globalThis.crypto?.getRandomValues) {
+      const range = 0x100000000;
+      const limit = range - (range % list.length);
+      const value = new Uint32Array(1);
+      do globalThis.crypto.getRandomValues(value); while (value[0] >= limit);
+      return list[value[0] % list.length];
+    }
     return list[Math.floor(Math.random() * list.length)];
   }
 
@@ -188,8 +197,12 @@
       this.options = options;
       this.basePath = options.basePath || SCRIPT_BASE || window.location.href;
       this.classes = {};
+      this.classLabels = {};
+      this.studentLabels = {};
       this.messages = {};
       this.state = loadStoredState();
+      this.remoteSession = null;
+      this.activeSelectionId = null;
       this.stage = { mode: "idle" };
       this.modal = null;
       this.timers = new Set();
@@ -246,22 +259,35 @@
 
     async loadData() {
       try {
-        const [studentText, messageText] = await Promise.all([
-          fetch(assetUrl("assets/students.csv", this.basePath)).then((response) => {
-            if (!response.ok) throw new Error("Missing students.csv");
-            return response.text();
-          }),
-          fetch(assetUrl("assets/messages.csv", this.basePath)).then((response) => {
+        const messagePromise = fetch(assetUrl("assets/messages.csv", this.basePath)).then((response) => {
             if (!response.ok) throw new Error("Missing messages.csv");
             return response.text();
-          })
-        ]);
-        this.classes = this.parseStudents(studentText);
+          });
+        if (!this.options.dataAdapter?.listClasses || !this.options.dataAdapter?.loadRoster) {
+          throw new Error("Authenticated class and roster adapters are required.");
+        }
+        const classResult = await this.options.dataAdapter.listClasses();
+        for (const classroom of classResult.items || classResult || []) {
+          const classId = String(classroom.class_id || classroom.id);
+          this.classLabels[classId] = classroom.name || classId;
+          const rosterResult = await this.options.dataAdapter.loadRoster(classId);
+          this.classes[classId] = [];
+          for (const student of rosterResult.students || []) {
+            const studentId = String(student.account_id || student.id);
+            this.classes[classId].push(studentId);
+            this.studentLabels[studentId] = student.display_name || student.username || studentId;
+          }
+        }
+        const messageText = await messagePromise;
         this.messages = this.parseMessages(messageText);
         if (this.state.selectedClass && !this.classes[this.state.selectedClass]) {
           this.state.selectedClass = "";
           this.save();
         }
+        if (!this.state.selectedClass && this.options.defaultClassId && this.classes[this.options.defaultClassId]) {
+          this.state.selectedClass = this.options.defaultClassId;
+        }
+        if (this.state.selectedClass) await this.ensureRemoteSession(this.state.selectedClass);
         this.render();
       } catch (error) {
         this.stage = {
@@ -269,6 +295,69 @@
           message: error.message || "Unable to load selector data."
         };
         this.render();
+      }
+    }
+
+    classLabel(classId = this.state.selectedClass) {
+      return this.classLabels[classId] || classId || "";
+    }
+
+    studentLabel(studentId) {
+      return this.studentLabels[studentId] || studentId || "";
+    }
+
+    async ensureRemoteSession(classId = this.state.selectedClass) {
+      if (!this.options.sessionAdapter || !classId) return null;
+      if (this.remoteSession?.class_id === classId && this.remoteSession.status === "active") return this.remoteSession;
+      this.remoteSession = await this.options.sessionAdapter.start({
+        class_id: classId,
+        lesson_content_id: this.options.lessonContext?.content_id || null,
+        learning_assignment_id: this.options.lessonContext?.learning_assignment_id || null
+      });
+      this.hydrateRemoteSession(this.remoteSession);
+      return this.remoteSession;
+    }
+
+    hydrateRemoteSession(session) {
+      if (!session) return;
+      const classId = session.class_id;
+      if (Array.isArray(session.roster)) {
+        this.classes[classId] = session.roster.map((item) => String(item.account_id));
+        session.roster.forEach((item) => {
+          this.studentLabels[String(item.account_id)] = item.display_name || item.username || String(item.account_id);
+        });
+      }
+      this.state.selectedClass = classId;
+      this.state.selectedStudentsByClass[classId] = [];
+      this.state.studentGradesByClass[classId] = {};
+      this.state.studentUngradedByClass[classId] = [];
+      this.state.absentStudentsByClass[classId] = (session.attendance || []).filter((item) => item.status === "absent").map((item) => item.account_id);
+      for (const selection of session.selections || []) {
+        uniquePush(this.state.selectedStudentsByClass[classId], selection.account_id);
+        if (["A*", "A", "B", "C"].includes(selection.outcome)) this.state.studentGradesByClass[classId][selection.account_id] = selection.outcome;
+        if (selection.outcome === "No Grade") uniquePush(this.state.studentUngradedByClass[classId], selection.account_id);
+      }
+      this.save();
+    }
+
+    async recordRemoteEvents(events) {
+      if (!this.options.sessionAdapter || !events.length) return this.remoteSession;
+      const session = await this.ensureRemoteSession();
+      const stableEvents = events.map((event) => ({
+        event_id: event.event_id || globalThis.crypto?.randomUUID?.() || `event-${Date.now()}-${Math.random()}`,
+        ...event
+      }));
+      try {
+        const updated = await this.options.sessionAdapter.recordEvents(session.session_id, { version: session.version, events: stableEvents });
+        this.remoteSession = updated;
+        return updated;
+      } catch (error) {
+        if (error.code === "SELECTOR_VERSION_CONFLICT" && this.options.sessionAdapter.get) {
+          this.remoteSession = await this.options.sessionAdapter.get(session.session_id);
+          this.hydrateRemoteSession(this.remoteSession);
+          this.render();
+        }
+        throw error;
       }
     }
 
@@ -349,12 +438,18 @@
       };
     }
 
-    setClass(className) {
+    async setClass(className) {
       this.state.selectedClass = className;
       if (className) this.classState(className);
       this.stage = { mode: "idle" };
       this.save();
       this.render();
+      try {
+        if (className) await this.ensureRemoteSession(className);
+        this.render();
+      } catch (error) {
+        this.showMessage("Unable to open class", error.message || "The class session could not be started.");
+      }
     }
 
     setTimer(seconds) {
@@ -378,7 +473,7 @@
       this.sound.play(AUDIO.closing);
     }
 
-    startSelection() {
+    async startSelection() {
       const className = this.state.selectedClass;
       if (!className || !this.classes[className]) {
         this.showMessage("Select a class", "Please select a valid class before starting.");
@@ -387,6 +482,11 @@
       const roster = this.effectiveRoster(className);
       if (!roster.length) {
         this.showSummary();
+        return;
+      }
+
+      try { await this.ensureRemoteSession(className); } catch (error) {
+        this.showMessage("Unable to start session", error.message || "The selector session could not be started.");
         return;
       }
 
@@ -399,7 +499,7 @@
         className,
         finalStudent,
         pool: roster,
-        names: slotEffectEnabled ? [choice(roster), choice(roster), choice(roster)] : ["", "Get ready", ""],
+        names: slotEffectEnabled ? [this.studentLabel(choice(roster)), this.studentLabel(choice(roster)), this.studentLabel(choice(roster))] : ["", "Get ready", ""],
         startedAt: Date.now(),
         duration,
         progress: 0
@@ -425,11 +525,11 @@
       if (this.stage.mode !== "selecting") return;
       const elapsed = Date.now() - this.stage.startedAt;
       this.stage.progress = Math.min(100, (elapsed / (this.stage.duration * 1000)) * 100);
-      this.stage.names = [choice(this.stage.pool), choice(this.stage.pool), choice(this.stage.pool)];
+      this.stage.names = [this.studentLabel(choice(this.stage.pool)), this.studentLabel(choice(this.stage.pool)), this.studentLabel(choice(this.stage.pool))];
       this.updateStageOnly();
     }
 
-    finalizeSelection() {
+    async finalizeSelection() {
       if (this.stage.mode !== "selecting") return;
       this.sound.stop();
       const className = this.stage.className;
@@ -439,14 +539,21 @@
         mode: "selected",
         className,
         finalStudent: student,
-        names: ["", student, ""],
+        names: ["", this.studentLabel(student), ""],
         progress: 100
       };
       this.save();
       this.render();
+      try {
+        const eventId = globalThis.crypto?.randomUUID?.() || `selection-${Date.now()}-${Math.random()}`;
+        const updated = await this.recordRemoteEvents([{ type: "selection", event_id: eventId, student_account_id: student, occurred_at: new Date().toISOString() }]);
+        this.activeSelectionId = updated?.selections?.find((item) => item.event_id === eventId)?.selection_id || null;
+      } catch (error) {
+        this.showMessage("Session save failed", error.message || "Reload the selector before continuing.");
+      }
     }
 
-    applyRating(rating) {
+    async applyRating(rating) {
       if (this.stage.mode !== "selected") return;
       const className = this.stage.className;
       const student = this.stage.finalStudent;
@@ -459,9 +566,10 @@
       this.sound.play(AUDIO.ratings[rating]);
       const messages = this.messages[rating] || [];
       this.showFeedback("Feedback", messages.length ? choice(messages) : "Noted.");
+      try { await this.recordRemoteEvents([{ type: "outcome", selection_id: this.activeSelectionId, student_account_id: student, outcome: rating, occurred_at: new Date().toISOString() }]); } catch (error) { this.showMessage("Outcome save failed", error.message); }
     }
 
-    markNoGrade() {
+    async markNoGrade() {
       if (this.stage.mode !== "selected") return;
       const className = this.stage.className;
       const student = this.stage.finalStudent;
@@ -471,10 +579,11 @@
       uniquePush(data.ungraded, student);
       uniquePush(data.selected, student);
       this.save();
-      this.showFeedback("No Grade", `No grade recorded for ${student} this round.`);
+      this.showFeedback("No Grade", `No grade recorded for ${this.studentLabel(student)} this round.`);
+      try { await this.recordRemoteEvents([{ type: "outcome", selection_id: this.activeSelectionId, student_account_id: student, outcome: "No Grade", occurred_at: new Date().toISOString() }]); } catch (error) { this.showMessage("Outcome save failed", error.message); }
     }
 
-    markAbsent() {
+    async markAbsent() {
       if (this.stage.mode !== "selected") return;
       const className = this.stage.className;
       const student = this.stage.finalStudent;
@@ -484,7 +593,8 @@
       uniquePush(data.absent, student);
       uniquePush(data.selected, student);
       this.save();
-      this.showFeedback("Absent", `${student} was marked absent and removed from today's list.`);
+      this.showFeedback("Absent", `${this.studentLabel(student)} was marked absent and removed from today's list.`);
+      try { await this.recordRemoteEvents([{ type: "outcome", selection_id: this.activeSelectionId, student_account_id: student, outcome: "Absent", occurred_at: new Date().toISOString() }, { type: "attendance", student_account_id: student, status: "absent", occurred_at: new Date().toISOString() }]); } catch (error) { this.showMessage("Attendance save failed", error.message); }
     }
 
     nextStudent() {
@@ -534,7 +644,7 @@
       }
     }
 
-    finishAttendance() {
+    async finishAttendance() {
       const className = this.modal.className;
       const absent = Array.from(new Set(this.modal.absent));
       this.classState(className).absent = absent;
@@ -546,11 +656,22 @@
         absent
       };
       this.render();
+      try {
+        const absentSet = new Set(absent);
+        await this.recordRemoteEvents((this.classes[className] || []).map((student) => ({
+          type: "attendance",
+          student_account_id: student,
+          status: absentSet.has(student) ? "absent" : "present",
+          occurred_at: new Date().toISOString()
+        })));
+      } catch (error) {
+        this.showMessage("Attendance save failed", error.message || "Attendance was not saved.");
+      }
     }
 
     copyAbsentList() {
       if (!this.modal || this.modal.type !== "attendance-result") return;
-      const text = this.modal.absent.length ? this.modal.absent.join("\n") : "(none)";
+      const text = this.modal.absent.length ? this.modal.absent.map((student) => this.studentLabel(student)).join("\n") : "(none)";
       navigator.clipboard?.writeText(text).then(
         () => this.showMessage("Copied", "Absent list copied to clipboard."),
         () => this.showMessage("Copy failed", "Unable to copy the absent list in this browser.")
@@ -577,9 +698,18 @@
       this.render();
     }
 
-    resetSession() {
+    async resetSession() {
       const className = this.state.selectedClass;
       if (!className) return;
+      try {
+        if (this.remoteSession && this.options.sessionAdapter) {
+          await this.options.sessionAdapter.complete(this.remoteSession.session_id, { status: "reset" });
+          this.remoteSession = null;
+        }
+      } catch (error) {
+        this.showMessage("Reset failed", error.message || "The current session could not be closed.");
+        return;
+      }
       this.state.selectedStudentsByClass[className] = [];
       this.state.studentGradesByClass[className] = {};
       this.state.studentUngradedByClass[className] = [];
@@ -590,6 +720,18 @@
       this.sound.stop();
       this.save();
       this.render();
+      try { await this.ensureRemoteSession(className); } catch (error) { this.showMessage("New session failed", error.message); }
+    }
+
+    async endSession() {
+      if (!this.remoteSession || !this.options.sessionAdapter) return;
+      try {
+        await this.options.sessionAdapter.complete(this.remoteSession.session_id, { status: "completed" });
+        this.remoteSession = null;
+        this.showMessage("Session completed", "The session summary has been saved for teacher reporting.");
+      } catch (error) {
+        this.showMessage("Session completion failed", error.message || "Try again.");
+      }
     }
 
     handleKeydown(event) {
@@ -638,7 +780,7 @@
     }
 
     renderDock() {
-      const classNames = Object.keys(this.classes).sort((a, b) => a.localeCompare(b));
+      const classNames = Object.keys(this.classes).sort((a, b) => this.classLabel(a).localeCompare(this.classLabel(b)));
       const metrics = this.metrics();
       const selected = this.state.selectedClass;
       return `
@@ -658,7 +800,7 @@
             <span class="selector-section-label">Class</span>
             <select class="selector-class-select" data-action="class">
               <option value="">Select a Class</option>
-              ${classNames.map((name) => `<option value="${escapeHtml(name)}" ${name === selected ? "selected" : ""}>${escapeHtml(name)}</option>`).join("")}
+              ${classNames.map((name) => `<option value="${escapeHtml(name)}" ${name === selected ? "selected" : ""}>${escapeHtml(this.classLabel(name))}</option>`).join("")}
             </select>
           </label>
 
@@ -692,6 +834,7 @@
 
           <button class="selector-button selector-primary" type="button" data-action="start">START SELECTION</button>
           <button class="selector-button" type="button" data-action="reset" ${selected ? "" : "disabled"}>Reset Current Class</button>
+          ${this.options.sessionAdapter ? `<button class="selector-button" type="button" data-action="end-session" ${selected ? "" : "disabled"}>End Session</button>` : ""}
         </section>
       `;
     }
@@ -708,11 +851,11 @@
       }
 
       const metrics = this.metrics();
-      const className = this.state.selectedClass || "No class selected";
+      const className = this.classLabel() || "No class selected";
       const names = this.stage.names || ["", "Ready", ""];
       const current =
         this.stage.mode === "selected"
-          ? this.stage.finalStudent
+          ? this.studentLabel(this.stage.finalStudent)
           : this.state.selectedClass
             ? "Ready"
             : "Select a class";
@@ -804,10 +947,10 @@
     }
 
     renderAttendance() {
-      const current = this.modal.roster[this.modal.index] || "";
+      const current = this.studentLabel(this.modal.roster[this.modal.index] || "");
       return `
         <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="Roll call">
-          ${this.renderPanelHeader(this.modal.className, `Student ${this.modal.index + 1} of ${this.modal.roster.length}`)}
+          ${this.renderPanelHeader(this.classLabel(this.modal.className), `Student ${this.modal.index + 1} of ${this.modal.roster.length}`)}
           <div class="selector-rollcall-name">${escapeHtml(current)}</div>
           <p class="selector-help">Present: Enter, Space, P, Right Arrow. Absent: A, Backspace, Left Arrow.</p>
           <div class="selector-actions">
@@ -819,10 +962,10 @@
     }
 
     renderAttendanceResult() {
-      const absentText = this.modal.absent.length ? this.modal.absent.join("\n") : "(none)";
+      const absentText = this.modal.absent.length ? this.modal.absent.map((student) => this.studentLabel(student)).join("\n") : "(none)";
       return `
         <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="Absent students">
-          ${this.renderPanelHeader(`${this.modal.className} - Absent Students`, `${this.modal.absent.length} absent`)}
+          ${this.renderPanelHeader(`${this.classLabel(this.modal.className)} - Absent Students`, `${this.modal.absent.length} absent`)}
           <textarea rows="10" readonly>${escapeHtml(absentText)}</textarea>
           <div class="selector-actions">
             <button class="selector-button selector-primary" type="button" data-action="copy-absent">Copy Absent List</button>
@@ -835,7 +978,7 @@
     renderFeedback() {
       return `
         <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="${escapeHtml(this.modal.title)}">
-          ${this.renderPanelHeader(this.modal.title, this.state.selectedClass)}
+          ${this.renderPanelHeader(this.modal.title, this.classLabel())}
           <div class="selector-rollcall-name">${escapeHtml(this.modal.message)}</div>
           <div class="selector-actions">
             <button class="selector-button selector-primary" type="button" data-action="next-student">Next Student</button>
@@ -863,7 +1006,7 @@
       const row = (student, tag) => `
         <div class="selector-summary-row">
           <span>${String(rowNumber++).padStart(2, "0")}</span>
-          <strong>${escapeHtml(student)}</strong>
+          <strong>${escapeHtml(this.studentLabel(student))}</strong>
           <span class="selector-tag">${escapeHtml(tag)}</span>
         </div>
       `;
@@ -883,7 +1026,7 @@
       }
       return `
         <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="Session summary">
-          ${this.renderPanelHeader(className || "Session Summary", this.metricSummary(metrics))}
+          ${this.renderPanelHeader(this.classLabel(className) || "Session Summary", this.metricSummary(metrics))}
           <div class="selector-metrics">
             ${this.metric("Remaining", metrics.remaining)}
             ${this.metric("Graded", metrics.graded)}
@@ -913,6 +1056,7 @@
           if (action === "closing") this.playClosing();
           if (action === "start") this.startSelection();
           if (action === "reset") this.resetSession();
+          if (action === "end-session") this.endSession();
           if (action === "rate") this.applyRating(event.currentTarget.dataset.rating);
           if (action === "no-grade") this.markNoGrade();
           if (action === "absent") this.markAbsent();

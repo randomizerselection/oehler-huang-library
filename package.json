@@ -1,0 +1,21 @@
+{
+  "name": "oehler-huang-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "npm run start --workspace=@oehler-huang/platform",
+    "build:content": "npm run build:content --workspace=@oehler-huang/library",
+    "check": "npm run check --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library",
+    "test": "npm run test --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library && npm run test --workspace=@oehler-huang/student-selector",
+    "test:platform": "npm run test --workspace=@oehler-huang/platform",
+    "test:content": "npm run test:content --workspace=@oehler-huang/library",
+    "test:selector": "npm run test --workspace=@oehler-huang/student-selector"
+  }
+}

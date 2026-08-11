@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/assignment.schema.json",
+  "title": "EconMark versioned teacher assignment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assignment_id", "series_id", "parent_assignment_id", "owner_account_id", "title", "student_instructions", "question_text", "command_word", "max_mark", "mark_scheme_text", "status", "version", "share_code", "created_at", "updated_at", "published_at", "archived_at"],
+  "properties": {
+    "assignment_id": { "type": "string", "pattern": "^assignment_" },
+    "series_id": { "type": "string", "pattern": "^assignment_" },
+    "parent_assignment_id": { "type": ["string", "null"] },
+    "owner_account_id": { "type": "string", "pattern": "^acct_" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "student_instructions": { "type": "string", "maxLength": 2000 },
+    "question_text": { "type": "string", "minLength": 1, "maxLength": 5000 },
+    "command_word": { "enum": ["Analyse", "Discuss"] },
+    "max_mark": { "enum": [6, 8] },
+    "mark_scheme_text": { "type": "string", "minLength": 1, "maxLength": 30000 },
+    "status": { "enum": ["draft", "published", "archived"] },
+    "version": { "type": "integer", "minimum": 1 },
+    "share_code": { "type": ["string", "null"], "pattern": "^[A-Z2-9]{8}$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "published_at": { "type": ["string", "null"], "format": "date-time" },
+    "archived_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

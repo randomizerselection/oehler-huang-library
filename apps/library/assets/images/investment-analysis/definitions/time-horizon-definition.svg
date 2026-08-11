@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Time horizon icon</title>
+  <desc id="desc">A clock points along a forward arrow towards a target date.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="174" cy="256" r="104" fill="#0d2228" stroke="#4fd2ff" stroke-width="18"/>
+    <path d="M174 196v64l47 30" stroke="#f7fcfc" stroke-width="22"/>
+    <path d="M278 256h122" stroke="#39d991" stroke-width="24"/>
+    <path d="m360 210 48 46-48 46" stroke="#39d991" stroke-width="24"/>
+    <path d="M425 150v212" stroke="#f1be5a" stroke-width="18"/>
+    <path d="M425 158h62l-21 34 21 34h-62" fill="#f1be5a" stroke="#f1be5a" stroke-width="10"/>
+  </g>
+</svg>

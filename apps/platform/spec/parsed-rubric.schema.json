@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/parsed-rubric.schema.json",
+  "title": "EconMark parsed rubric",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rubric_type", "criteria", "levels", "caps", "acceptable_alternatives", "command_word", "max_mark", "parser_confidence", "teacher_confirmed"],
+  "properties": {
+    "rubric_type": { "enum": ["point", "level"] },
+    "criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["criterion_id", "description", "max_credit"],
+        "properties": {
+          "criterion_id": { "type": "string", "minLength": 1 },
+          "description": { "type": "string", "minLength": 1 },
+          "max_credit": { "type": "integer", "minimum": 0, "maximum": 8 },
+          "indicators": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["level", "min_mark", "max_mark", "descriptor"],
+        "properties": {
+          "level": { "type": "string" },
+          "min_mark": { "type": "integer", "minimum": 0 },
+          "max_mark": { "type": "integer", "minimum": 0 },
+          "descriptor": { "type": "string" }
+        }
+      }
+    },
+    "caps": { "type": "array", "items": { "type": "string" } },
+    "acceptable_alternatives": { "type": "array", "items": { "type": "string" } },
+    "special_instructions": { "type": "array", "items": { "type": "string" } },
+    "command_word": { "enum": ["Analyse", "Discuss"] },
+    "max_mark": { "enum": [6, 8] },
+    "parser_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "teacher_confirmed": { "type": "boolean" }
+  }
+}

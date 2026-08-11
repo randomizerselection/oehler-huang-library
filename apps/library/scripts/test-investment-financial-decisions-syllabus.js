@@ -357,7 +357,7 @@ const lessonContext = generator.getLessonMaterialContext(50, 'deck', generatorMa
 check(lessonContext.lesson.guidingQuestion === map.lessons[49].guidingQuestion, 'lesson 50 deck context does not match the active map');
 const firstLessonContext = generator.getLessonMaterialContext(1, 'deck', generatorMap);
 check(firstLessonContext.lesson.stockMarketGame.phase === 1, 'lesson generator context must expose the Lesson 1 Stock Market Game phase');
-check(firstLessonContext.lesson.stockMarketGame.workbook.pages === '1-3 and 8', 'lesson generator context must expose the exact Lesson 1 workbook pages');
+check(firstLessonContext.lesson.stockMarketGame.workbook.pages === '1-3, 5-6 and 8', 'lesson generator context must expose the exact Lesson 1 workbook pages');
 check(firstLessonContext.materialTarget.label === 'Lesson deck', 'deck target label must remain a lesson deck');
 const firstHandoutContext = generator.getLessonMaterialContext(1, 'handout', generatorMap);
 check(firstHandoutContext.materialTarget.label === 'Bilingual exam revision handout', 'financial-decisions handout target must be a bilingual exam revision handout');
@@ -391,7 +391,7 @@ check(/Why do people and families invest\?/.test(cli.stdout), 'CLI export is mis
 check(/Decision-First Contract/.test(cli.stdout), 'CLI export is missing the decision-first contract');
 check(/Generation Rules/.test(cli.stdout), 'CLI export is missing generation rules');
 check(/Stock Market Game Core Lab/.test(cli.stdout), 'CLI export is missing the Lesson 1 SMG core lab');
-check(/Workbook pages: 1-3 and 8/.test(cli.stdout), 'CLI export is missing the Lesson 1 workbook assignment');
+check(/Workbook pages: 1-3, 5-6 and 8/.test(cli.stdout), 'CLI export is missing the Lesson 1 workbook assignment');
 check(cli.stdout.includes(map.lessons[0].stockMarketGame.studentAction), 'CLI export must preserve the exact Lesson 1 SMG action');
 check(!/passport/i.test(cli.stdout), 'CLI export must not retain the retired Investor Passport');
 check(/CNY/.test(cli.stdout) && /HKD/.test(cli.stdout) && /USD/.test(cli.stdout), 'CLI export is missing the country- and transaction-matched currency rule');

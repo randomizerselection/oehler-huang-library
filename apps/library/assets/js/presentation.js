@@ -1884,10 +1884,11 @@ function lessonStartUrl() {
 }
 
 function studentSelectorBaseUrl() {
-  return String(
+  const configured = String(
     window.IGCSE?.studentSelectorBaseUrl ||
-    'https://randomizerselection.github.io/studentselector/'
+    '/student-selector/'
   ).replace(/\/?$/, '/');
+  return new URL(configured, location.href).href;
 }
 
 function loadStudentSelectorAsset(tagName, attrs) {
@@ -1915,10 +1916,15 @@ let mountedStudentSelector = null;
 
 function syncStudentSelectorButtons() {
   const isOpen = Boolean(mountedStudentSelector?.panel?.isConnected);
+  const isTeacher = !window.OHPlatform || window.OHPlatform.session.account?.role === 'teacher';
+  if (!isTeacher && isOpen) closeStudentSelectorPanel();
   document.querySelectorAll('[data-student-selector]').forEach((button) => {
+    button.hidden = !isTeacher;
     button.setAttribute('aria-pressed', isOpen ? 'true' : 'false');
   });
 }
+
+window.addEventListener('oh:authchange', syncStudentSelectorButtons);
 
 function closeStudentSelectorPanel() {
   try {
@@ -1994,6 +2000,13 @@ async function openStudentSelector() {
   }
 
   try {
+    if (window.OHPlatform) {
+      await window.OHPlatform.ready();
+      if (window.OHPlatform.session.account?.role !== 'teacher') {
+        window.OHPlatform.openAccountDialog('login');
+        return;
+      }
+    }
     if (!window.StudentSelector?.open) {
       await loadStudentSelectorAsset('script', {
         src: new URL('selector.js', baseUrl).href,
@@ -2010,10 +2023,18 @@ async function openStudentSelector() {
       `;
       document.body.appendChild(panel);
 
+      const lessonContext = {
+        content_id: window.OHPlatform?.content?.id || window.IGCSE?.lesson?.meta?.code || null,
+        learning_assignment_id: new URLSearchParams(location.search).get('assignment'),
+      };
+      const platformAdapters = window.OHPlatform?.selectorAdapters?.(lessonContext) || {};
       const app = window.StudentSelector.mount(panel.querySelector('.studentSelectorMount'), {
         basePath: baseUrl,
         skipStyles: true,
         onClose: closeStudentSelectorPanel,
+        defaultClassId: new URLSearchParams(location.search).get('class'),
+        lessonContext,
+        ...platformAdapters,
       });
       panel.querySelector('[data-student-selector-close]')?.addEventListener('click', closeStudentSelectorPanel);
       const observer = attachStudentSelectorStageObserver(panel);

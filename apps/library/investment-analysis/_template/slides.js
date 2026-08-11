@@ -142,16 +142,21 @@ window.INVEST.lesson = {
     {
       type: "term",
       eyebrow: "Definition",
-      title: "Key term",
-      term: "Key term",
-      termZh: "关键词",
+      title: "Investment",
+      term: "Investment",
+      termZh: "投资",
       keywordVisuals: [
-        { label: "Visible keyword image", labelZh: "关键词配图", visual: window.INVEST.photos?.stockReportCalculator }
+        { label: "Money enters an asset for an uncertain future result", labelZh: "把钱投入资产以面对不确定的未来结果", visual: window.INVEST.photos?.definitionInvestmentGraphic }
       ],
-      definition: "A key term is the precise concept students must use when writing an evidence-based investment judgement.",
-      definitionBlanks: ["precise concept"],
-      definitionZh: "关键词是学生在写出基于证据的投资判断时必须使用的准确概念。",
-      notes: "Keep definition text canonical and put the projected fill-in answer in definitionBlanks."
+      definition: "Investment is putting money into an asset to seek future return while accepting possible loss.",
+      definitionBlanks: ["asset", "future return", "possible loss"],
+      definitionZh: "投资是把钱投入资产以寻求未来回报，同时接受可能发生的损失。",
+      examples: [
+        { text: "Shares may provide dividends or a price gain, but their price can fall.", zh: "股票可能带来股息或价格上涨，但价格也可能下跌。" },
+        { text: "A bond may provide interest, while repayment still depends on the issuer.", zh: "债券可能带来利息，但能否偿还仍取决于发行人。" },
+        { text: "A fund can hold many assets, but its value can still decrease.", zh: "基金可以持有多种资产，但其价值仍可能下降。" }
+      ],
+      notes: "Replace the whole example with the lesson term. The one included picture must make the exact definition obvious, not merely look financial. Keep at least three concise bilingual bullet examples after the definition and vary the context, outcome or boundary they illustrate."
     },
     {
       type: "discussion",
@@ -373,16 +378,14 @@ window.INVEST.lesson = {
     {
       type: "yesNoCheck",
       eyebrow: "Check",
-      title: "Yes or no: does this prove quality?",
-      zhTitle: "判断：这能证明投资质量吗？",
-      prompt: "Vote yes or no before revealing the reason.",
-      promptZh: "先投票判断是或否，再揭示理由。",
+      title: "Vote yes or no.",
+      zhTitle: "投票：是或否。",
       items: [
         { text: "A stock code proves the share is a good investment.", zh: "股票代码能证明这只股票是好投资。", answer: false, answerZh: "否", reason: "A code identifies the security; it is not a quality signal.", reasonZh: "代码识别证券，但不是质量信号。" },
         { text: "A dated source is useful evidence.", zh: "带日期的来源是有用证据。", answer: true, answerZh: "是", reason: "The date helps judge whether the evidence is current.", reasonZh: "日期帮助判断证据是否及时。" },
         { text: "One source can prove the full investment case.", zh: "一个来源能证明完整投资判断。", answer: false, answerZh: "否", reason: "A judgement still needs return, risk, price and limits.", reasonZh: "判断仍需要回报、风险、价格和局限。" }
       ],
-      notes: "Use three or four concise statements. Students click Yes or No to score the choice and reveal that row's verdict and reason; the shared reveal controls remain available for teacher-led voting."
+      notes: "Use three or four concise statements. The action belongs in the title, so do not add a repeated prompt. Students click Yes or No to score the choice and reveal that row's verdict and reason; the shared reveal controls remain available for teacher-led voting."
     },
     {
       type: "sourceLens",
@@ -563,16 +566,17 @@ window.INVEST.lesson = {
     },
     {
       type: "answer",
-      eyebrow: "Exit ticket",
-      title: "Retrieve and submit the lesson output",
-      zhTitle: "回忆并提交本课输出",
+      eyebrow: "Check",
+      title: "Exit ticket",
+      zhTitle: "离堂小测",
       mode: "fillBlanks",
       items: [
         { prompt: "The key term or rule I must remember is __________.", answer: "lesson target", zh: "我必须记住的关键词或规则是__________。", answerZh: "本课目标" },
         { prompt: "The evidence, formula or source habit I used was __________.", answer: "lesson skill", zh: "我使用的证据、公式或来源习惯是__________。", answerZh: "本课技能" },
-        { prompt: "My individual output answers the question: __________.", answer: "guiding question", zh: "我的个人输出回答的问题是__________。", answerZh: "引导问题" }
+        { prompt: "My individual output answers the question: __________.", answer: "guiding question", zh: "我的个人输出回答的问题是__________。", answerZh: "引导问题" },
+        { prompt: "One misconception I can now correct is __________.", answer: "lesson misconception", zh: "我现在能够纠正的一个误解是__________。", answerZh: "本课误解" }
       ],
-      notes: "Replace these placeholders with the lesson exitTicket and primaryOutput. The final check should be individual, collectable and aligned with the follow-up quiz; do not force a generic limitation sentence when the lesson output is a calculation, classification or source log."
+      notes: "Replace these four placeholders with concise retrieval statements from the lesson exitTicket and primaryOutput. Keep the economics-deck visual pattern: four full-width numbered rows with inline blanks, no image and no source button. The final check should be individual, collectable and aligned with the follow-up quiz."
     }
   ]
 };

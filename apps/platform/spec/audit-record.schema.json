@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/audit-record.schema.json",
+  "title": "EconMark audit record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["input", "rubric", "output", "created_at"],
+  "properties": {
+    "input": { "$ref": "grading-input.schema.json" },
+    "rubric": { "$ref": "parsed-rubric.schema.json" },
+    "output": { "$ref": "grading-output.schema.json" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "retention_policy": { "const": "permanent_no_automatic_deletion" },
+    "storage_notice": { "type": "string" }
+  }
+}

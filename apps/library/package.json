@@ -1,6 +1,7 @@
 {
-  "name": "oehler-huang-library",
+  "name": "@oehler-huang/library",
   "scripts": {
+    "build:content": "node scripts/build-platform-content.js",
     "build:definitions": "node scripts/build-definitions-page.js",
     "build:investment-definitions": "node scripts/build-investment-definitions-page.js",
     "build:android-data": "node scripts/export-definitions-android.js",
@@ -13,6 +14,7 @@
     "build:investment-handout-book": "node scripts/build-investment-handout-book.js",
     "export:investment-generator-context": "node scripts/export-investment-generator-context.js",
     "export:investment-photo-archive": "node scripts/export-investment-photo-archive.js",
+    "test:content": "node scripts/test-platform-content.js && node scripts/test-investment-analysis-content.js && node scripts/test-investment-financial-decisions-syllabus.js",
     "test": "playwright test",
     "test:regression": "playwright test tests/smoke.spec.js",
     "test:smoke": "playwright test tests/smoke.spec.js --project=chromium-desktop --grep @smoke",

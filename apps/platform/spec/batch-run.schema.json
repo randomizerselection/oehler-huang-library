@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/batch-run.schema.json",
+  "title": "EconMark weekend batch run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["batch_id", "approval_mode", "assignment", "submissions", "status", "created_at", "schema_version", "workflow_version"],
+  "properties": {
+    "batch_id": { "type": "string", "minLength": 1 },
+    "approval_mode": { "enum": ["teacher_review", "full_auto"] },
+    "assignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assignment_id", "question_text", "command_word", "max_mark", "mark_scheme_text", "teacher_confirmed"],
+      "properties": {
+        "assignment_id": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "question_text": { "type": "string", "minLength": 1 },
+        "command_word": { "enum": ["Analyse", "Discuss"] },
+        "max_mark": { "enum": [6, 8] },
+        "mark_scheme_text": { "type": "string", "minLength": 1 },
+        "teacher_confirmed": { "const": true }
+      }
+    },
+    "submissions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["submission_id", "student_ref", "source_name", "status"],
+        "properties": {
+          "submission_id": { "type": "string", "minLength": 1 },
+          "student_ref": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "source_name": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["queued", "processing", "completed", "failed"] },
+          "output": { "$ref": "grading-output.schema.json" },
+          "error_code": { "type": "string" },
+          "error_message": { "type": "string" }
+        }
+      }
+    },
+    "status": { "enum": ["draft", "queued", "processing", "review", "completed", "partial_failure"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": ["string", "null"], "format": "date-time" },
+    "schema_version": { "type": "string" },
+    "workflow_version": { "type": "string" }
+  }
+}

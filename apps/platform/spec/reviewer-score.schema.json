@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/reviewer-score.schema.json",
+  "title": "EconMark independent reviewer pass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mark", "level", "concerns", "confidence"],
+  "properties": {
+    "mark": { "type": "integer", "minimum": 0, "maximum": 8 },
+    "level": { "type": ["string", "null"] },
+    "concerns": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "enum": ["high", "medium", "low"] }
+  }
+}

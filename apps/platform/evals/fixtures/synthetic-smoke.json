@@ -1,0 +1,46 @@
+{
+  "dataset": "EconMark synthetic metric smoke test",
+  "warning": "Synthetic fixture for checking metric code only. It is not competition evidence and must not be reported as validation performance.",
+  "cases": [
+    {
+      "case_id": "SYN-01",
+      "teacher_mark": 2,
+      "agent_mark": 2,
+      "manual_seconds": 180,
+      "assisted_seconds": 75,
+      "reference_transcript": "higher rates reduce borrowing and spending",
+      "agent_transcript": "higher rates reduce borrowing and spending",
+      "feedback_ratings": { "accuracy": 5, "specificity": 5, "actionability": 4, "tone": 5 }
+    },
+    {
+      "case_id": "SYN-02",
+      "teacher_mark": 5,
+      "agent_mark": 5,
+      "manual_seconds": 240,
+      "assisted_seconds": 105,
+      "reference_transcript": "aggregate demand falls so demand pull inflation may decline",
+      "agent_transcript": "aggregate demand falls so demand pull inflation may decline",
+      "feedback_ratings": { "accuracy": 5, "specificity": 4, "actionability": 5, "tone": 5 }
+    },
+    {
+      "case_id": "SYN-03",
+      "teacher_mark": 8,
+      "agent_mark": 8,
+      "manual_seconds": 300,
+      "assisted_seconds": 130,
+      "reference_transcript": "the result depends on the cause of inflation and the time lag",
+      "agent_transcript": "the result depends on the cause of inflation and the time lag",
+      "feedback_ratings": { "accuracy": 5, "specificity": 5, "actionability": 5, "tone": 5 }
+    },
+    {
+      "case_id": "SYN-04",
+      "teacher_mark": 4,
+      "agent_mark": 5,
+      "manual_seconds": 210,
+      "assisted_seconds": 100,
+      "reference_transcript": "higher loan costs may lower investment",
+      "agent_transcript": "higher loan costs may lower investments",
+      "feedback_ratings": { "accuracy": 4, "specificity": 5, "actionability": 5, "tone": 5 }
+    }
+  ]
+}

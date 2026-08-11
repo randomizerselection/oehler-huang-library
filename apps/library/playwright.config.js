@@ -7,6 +7,7 @@ module.exports = defineConfig({
   reporter: [['list']],
   use: {
     browserName: 'chromium',
+    channel: 'chrome',
     trace: 'retain-on-failure'
   },
   projects: [

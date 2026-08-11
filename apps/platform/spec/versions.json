@@ -1,0 +1,7 @@
+{
+  "product_spec_version": "econmark-spec/4.0.0",
+  "schema_version": "econmark/4.0.0",
+  "workflow_version": "econmark-workflow/3.0.0",
+  "prompt_bundle_version": "econmark-prompts/3.0.0",
+  "demo_model_version": "econmark-deterministic-demo/1.0.0"
+}

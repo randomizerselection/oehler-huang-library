@@ -1,0 +1,27 @@
+[Unit]
+Description=Oehler-Huang Learning Platform
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=econmark
+Group=econmark
+WorkingDirectory=/opt/oehler-huang-platform/current
+EnvironmentFile=/etc/oehler-huang-platform/platform.env
+ExecStart=/usr/bin/node /opt/oehler-huang-platform/current/apps/platform/scripts/serve.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ReadWritePaths=/var/lib/oehler-huang-platform /var/backups/oehler-huang-platform
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

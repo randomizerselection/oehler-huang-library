@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/persistence-record.schema.json",
+  "title": "EconMark permanent persistence metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "assignment_id", "account_id", "batch_id", "image_id", "image_url", "stored_at", "updated_at", "retention_policy"],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "assignment_id": { "type": ["string", "null"] },
+    "account_id": { "type": "string", "pattern": "^acct_" },
+    "batch_id": { "type": ["string", "null"] },
+    "image_id": { "type": "string", "pattern": "^image_" },
+    "image_url": { "type": "string", "pattern": "^/api/images/" },
+    "stored_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "retention_policy": { "const": "permanent_no_automatic_deletion" }
+  }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1180" viewBox="0 0 900 1180" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic weak handwritten response</title>
+  <desc id="desc">An original synthetic economics answer written on ruled paper.</desc>
+  <defs>
+    <pattern id="lines" width="900" height="54" patternUnits="userSpaceOnUse"><rect width="900" height="54" fill="#fffdf6"/><path d="M0 53.5H900" stroke="#b9d5e0" stroke-width="1"/></pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#18352f" flood-opacity=".15"/></filter>
+  </defs>
+  <rect x="28" y="22" width="844" height="1136" rx="5" fill="url(#lines)" filter="url(#shadow)"/>
+  <path d="M112 22V1158" stroke="#e6a6a0" stroke-width="2"/>
+  <text x="142" y="92" fill="#243e68" font-family="'Comic Sans MS','Segoe Print',cursive" font-size="29" transform="rotate(-.4 142 92)">Higher interest rates make borrowing more</text>
+  <text x="142" y="146" fill="#243e68" font-family="'Comic Sans MS','Segoe Print',cursive" font-size="29" transform="rotate(.2 142 146)">expensive. People will spend less so</text>
+  <text x="142" y="200" fill="#243e68" font-family="'Comic Sans MS','Segoe Print',cursive" font-size="29" transform="rotate(-.2 142 200)">inflation may fall. This will definitely work.</text>
+  <text x="752" y="1100" fill="#887a67" font-family="Georgia,serif" font-size="16">SYN-W01</text>
+</svg>

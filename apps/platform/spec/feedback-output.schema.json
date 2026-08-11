@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/feedback-output.schema.json",
+  "title": "EconMark bilingual feedback pass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "feedback_en",
+    "feedback_zh",
+    "improved_outline_en",
+    "improved_outline_zh",
+    "follow_up_questions_en",
+    "follow_up_questions_zh"
+  ],
+  "properties": {
+    "feedback_en": { "$ref": "grading-output.schema.json#/$defs/feedback" },
+    "feedback_zh": { "$ref": "grading-output.schema.json#/$defs/feedback" },
+    "improved_outline_en": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "improved_outline_zh": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "follow_up_questions_en": { "$ref": "grading-output.schema.json#/$defs/followUpQuestions" },
+    "follow_up_questions_zh": { "$ref": "grading-output.schema.json#/$defs/followUpQuestions" }
+  }
+}

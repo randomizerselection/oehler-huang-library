@@ -2393,8 +2393,9 @@ img {
 .invPhotoFigure img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: var(--photo-fit, cover);
   object-position: var(--photo-position, center);
+  background: var(--photo-bg, transparent);
 }
 
 .invPhotoCaption {
@@ -3672,7 +3673,7 @@ img {
 
 .invTermBox {
   min-height: 390px;
-  grid-template-columns: minmax(270px, 0.36fr) minmax(0, 1fr);
+  grid-template-columns: minmax(330px, 0.42fr) minmax(0, 1fr);
   grid-template-areas: "term definition";
   gap: 28px;
   align-items: center;
@@ -5336,8 +5337,9 @@ img {
   width: 100%;
   height: 100%;
   min-height: 0;
-  object-fit: cover;
+  object-fit: var(--photo-fit, cover);
   object-position: var(--photo-position, center);
+  background: var(--photo-bg, transparent);
   display: block;
 }
 
@@ -5374,6 +5376,16 @@ img {
 
 .invTermVisuals .invKeywordVisual figcaption {
   display: none;
+}
+
+.invTermVisuals .invKeywordVisual-icon {
+  width: clamp(132px, 12vw, 176px);
+  min-height: 0;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .invStepVisual {
@@ -5859,6 +5871,21 @@ img {
   border-top: 1px solid rgba(57, 217, 145, 0.28);
   color: var(--inv-green);
   padding-top: 8px;
+}
+
+.invJudgementLabelZh {
+  color: var(--inv-green);
+  font-size: clamp(22px, 1.6vw, 27px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.invJudgementFrameSlide:has(.invFocusPrompt.is-revealed) .invJudgementStage {
+  min-height: 150px;
+}
+
+.invJudgementFrameSlide:has(.invFocusPrompt.is-revealed) .invJudgementStage > p {
+  display: none;
 }
 
 /* Investment slide formatting polish */
@@ -11535,6 +11562,101 @@ img {
   }
 }
 
+@media screen and (min-width: 901px) and (max-height: 820px) {
+  .invJudgementFrameSlide .invJudgementStage {
+    gap: 3px;
+    padding: 48px 10px 8px;
+  }
+
+  .invJudgementFrameSlide .invJudgementLabelZh {
+    font-size: 22px;
+  }
+}
+
+/* Definition slides always finish with a compact range of concrete examples. */
+.invTermExamples {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(214, 231, 232, 0.12);
+}
+
+.invTermExamples > strong {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  color: var(--inv-cyan);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.invTermExamples > strong span {
+  color: var(--inv-muted);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.invTermExamples ul {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding-left: 24px;
+}
+
+.invTermExamples li {
+  min-width: 0;
+  color: var(--inv-ink);
+  font-size: clamp(18px, 1.35vw, 22px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.invTermExamples li::marker {
+  color: var(--inv-green);
+}
+
+.invTermExamples li small {
+  display: block;
+  margin-top: 2px;
+  color: var(--inv-muted);
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+@media screen and (max-width: 900px) {
+  .invTermExamples {
+    gap: 5px;
+    padding-top: 7px;
+  }
+
+  .invTermExamples > strong {
+    font-size: 15px;
+  }
+
+  .invTermExamples > strong span {
+    font-size: 13px;
+  }
+
+  .invTermExamples ul {
+    gap: 3px;
+    padding-left: 19px;
+  }
+
+  .invTermExamples li {
+    font-size: 15px;
+    line-height: 1.05;
+  }
+
+  .invTermExamples li small {
+    font-size: 12px;
+    line-height: 1.05;
+  }
+}
+
 /* Yes/no checks use a single scan-first voting board, not a card grid. */
 .invYesNoCheckSlide .invSlideBody {
   align-content: start;
@@ -13692,8 +13814,8 @@ img {
 .invFlow-decisionChecks .invStepText {
   color: rgba(239, 248, 248, 0.93);
   font-family: var(--inv-text);
-  font-size: clamp(19px, 1.35vw, 25px);
-  line-height: 1.16;
+  font-size: clamp(23px, 1.6vw, 30px);
+  line-height: 1.18;
 }
 
 .invFlow-decisionChecks .invZhLine {
@@ -13703,8 +13825,8 @@ img {
   border-top: 1px solid rgba(214, 231, 232, 0.14);
   padding-top: clamp(8px, 0.7vw, 12px);
   color: rgba(223, 238, 238, 0.84);
-  font-size: clamp(16px, 1.12vw, 21px);
-  line-height: 1.18;
+  font-size: clamp(19px, 1.3vw, 25px);
+  line-height: 1.2;
 }
 
 @media (max-width: 900px) {
@@ -13857,5 +13979,342 @@ img {
 
   .invClassroomLargeTextSlide .invVoteReason .invZhLine {
     font-size: 18px;
+  }
+}
+
+/* Exit tickets mirror the economics-deck pattern: four full-width retrieval rows. */
+@media (min-width: 901px) {
+  .invExitTicketSlide.is-active {
+    gap: clamp(8px, 1.2vh, 14px);
+  }
+
+  .invExitTicketSlide .invSlideHeader {
+    padding-bottom: clamp(8px, 1.2vh, 14px);
+  }
+
+  .invExitTicketSlide .invSlideBody {
+    padding-top: 0;
+  }
+
+  .invExitTicketSlide .invCheckList {
+    width: min(1240px, 100%);
+    grid-template-columns: 1fr;
+    gap: clamp(8px, 1.1vh, 12px);
+  }
+
+  .invExitTicketSlide .invCheckItem {
+    grid-template-columns: clamp(40px, 3.5vw, 48px) minmax(0, 1fr);
+    min-height: clamp(70px, 10.5vh, 88px);
+    align-items: center;
+    gap: clamp(12px, 1.2vw, 18px);
+    border: 1px solid rgba(152, 184, 188, 0.3);
+    border-radius: 18px;
+    background: rgba(18, 33, 39, 0.82);
+    box-shadow: none;
+    padding: clamp(9px, 1.2vh, 13px) clamp(16px, 1.7vw, 24px);
+  }
+
+  .invExitTicketSlide .invCheckNumber {
+    width: clamp(40px, 3.5vw, 48px);
+    height: clamp(40px, 3.5vw, 48px);
+    border-radius: 50%;
+    background: var(--inv-amber);
+    color: #191104;
+    font-size: clamp(22px, 1.8vw, 28px);
+    box-shadow: 0 0 0 6px rgba(241, 190, 90, 0.08);
+  }
+
+  .invExitTicketSlide .invCheckText {
+    font-size: clamp(23px, 1.8vw, 30px);
+    line-height: 1.06;
+  }
+
+  .invExitTicketSlide .invZhLine {
+    margin-top: 4px;
+    font-size: clamp(16px, 1.25vw, 20px);
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 900px) {
+  .invExitTicketSlide .invCheckList {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .invExitTicketSlide .invSlideHeader .invZhTitle,
+  .invExitTicketSlide .invZhLine {
+    display: block;
+  }
+
+  .invExitTicketSlide .invSlideHeader .invZhTitle {
+    font-size: 21px;
+    line-height: 1.08;
+  }
+
+  .invExitTicketSlide .invCheckItem {
+    min-height: 0;
+    padding: 7px 9px;
+  }
+
+  .invExitTicketSlide .invCheckText {
+    font-size: 17px;
+    line-height: 1.07;
+  }
+
+  .invExitTicketSlide .invZhLine {
+    font-size: 13px;
+    line-height: 1.08;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  .invCheckList.invTwoColumnCheck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Keep four-card visual boards fully readable on common 1366x768 classroom displays. */
+@media screen and (min-width: 901px) and (max-height: 820px) {
+  .invVisualGridSlide {
+    padding: 20px;
+  }
+
+  .invVisualGridSlide.is-active {
+    gap: 10px;
+  }
+
+  .invVisualGridSlide .invSlideHeader {
+    padding-bottom: 8px !important;
+  }
+
+  .invVisualGridSlide .invTitleBlock h1 {
+    font-size: clamp(38px, 3.6vw, 49px);
+  }
+
+  .invVisualGridSlide .invZhTitle {
+    font-size: 25px;
+  }
+
+  .invVisualGridSlide .invSlideBody {
+    align-content: start;
+    padding-top: 8px;
+  }
+
+  .invVisualGridWrap {
+    gap: 8px;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt {
+    padding: 9px 14px;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt strong {
+    font-size: 25px;
+    line-height: 1.06;
+  }
+
+  .invVisualGridWrap > .invFocusPrompt .invZhLine {
+    font-size: 21px;
+    line-height: 1.08;
+  }
+
+  .invVisualGridImage {
+    aspect-ratio: 2.15 / 1;
+  }
+
+  .invVisualGridText {
+    gap: 3px;
+    padding: 8px 10px;
+  }
+
+  .invVisualGridText strong {
+    font-size: 25px;
+  }
+
+  .invVisualGridText em {
+    font-size: 18px;
+  }
+
+  .invVisualGridText p {
+    font-size: 18px;
+    line-height: 1.08;
+  }
+}
+
+/* Keep four-part judgement writing frames readable as a 2 × 2 task on phones. */
+@media screen and (max-width: 900px) {
+  .invJudgementFrameSlide .invJudgementStages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .invJudgementFrameSlide .invJudgementStage {
+    min-height: 0;
+    gap: 3px;
+    padding: 8px 7px 8px 38px;
+  }
+
+  .invJudgementFrameSlide .invJudgementStage > strong {
+    font-size: 22px;
+    line-height: 1.02;
+  }
+
+  .invJudgementFrameSlide .invJudgementStage > p {
+    font-size: 18px;
+    line-height: 1.06;
+  }
+
+  .invJudgementFrameSlide .invJudgementLabelZh {
+    display: none;
+  }
+}
+
+/* Hinge questions need one visual layer per answer, not boxes nested inside a panel. */
+.invQuizSlide .invQuizPanel {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.invQuizSlide .invQuizChoices {
+  gap: 12px;
+  margin-top: 0;
+}
+
+.invQuizSlide .invChoice {
+  border: 1px solid rgba(152, 184, 188, 0.34);
+  background: linear-gradient(180deg, rgba(15, 31, 36, 0.86), rgba(7, 17, 20, 0.9));
+  box-shadow: none;
+}
+
+.invQuizSlide .invChoiceBadge {
+  width: 38px;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  font-size: 28px;
+}
+
+/* Two-page workbook tasks use the full slide width while students write on paper. */
+@media screen and (min-width: 901px) {
+  .invVisualGrid[data-style="twoStep"] {
+    width: min(1100px, 100%);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-inline: auto;
+  }
+
+  .invVisualGrid[data-style="twoStep"] .invVisualGridImage {
+    aspect-ratio: 16 / 7;
+  }
+
+  .invVisualGrid[data-style="twoStep"] .invVisualGridText {
+    gap: 5px;
+    padding: 16px 20px 18px;
+  }
+
+  .invVisualGrid[data-style="twoStep"] .invVisualGridText strong {
+    font-size: clamp(30px, 2.4vw, 38px);
+    line-height: 1.04;
+  }
+
+  .invVisualGrid[data-style="twoStep"] .invVisualGridText em,
+  .invVisualGrid[data-style="twoStep"] .invVisualGridText p {
+    font-size: clamp(20px, 1.55vw, 25px);
+    line-height: 1.1;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(1120px, 100%);
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridImage {
+    aspect-ratio: 16 / 6;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText {
+    padding: 16px 18px;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText strong {
+    font-size: clamp(30px, 2.4vw, 38px);
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText em {
+    font-size: clamp(21px, 1.55vw, 26px);
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText p {
+    font-size: clamp(21px, 1.5vw, 25px);
+    line-height: 1.16;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(1180px, 100%);
+    gap: 16px;
+    margin-inline: auto;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridImage {
+    aspect-ratio: 16 / 8;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText {
+    gap: 5px;
+    padding: 14px 16px 16px;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText strong {
+    font-size: clamp(28px, 2.15vw, 34px);
+    line-height: 1.04;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText em,
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText p {
+    font-size: clamp(20px, 1.45vw, 24px);
+    line-height: 1.1;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-height: 820px) {
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridImage {
+    aspect-ratio: 16 / 4.5;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText {
+    padding: 10px 14px;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText strong {
+    font-size: 28px;
+  }
+
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText em,
+  .invVisualGrid[data-style="workbookGoals"] .invVisualGridText p {
+    font-size: 19px;
+    line-height: 1.1;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridImage {
+    aspect-ratio: 16 / 5.5;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText {
+    padding: 9px 12px 10px;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText strong {
+    font-size: 27px;
+  }
+
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText em,
+  .invVisualGrid[data-style="goalComparison"] .invVisualGridText p {
+    font-size: 18px;
+    line-height: 1.08;
   }
 }

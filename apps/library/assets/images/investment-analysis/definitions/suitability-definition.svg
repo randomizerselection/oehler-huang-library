@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Suitability icon</title>
+  <desc id="desc">Two matching puzzle pieces join beside a clear approval check.</desc>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 125h112c-4 13-6 25-6 36 0 29 23 52 52 52s52-23 52-52c0-11-2-23-6-36h76v105c13-4 25-6 36-6 29 0 52 23 52 52s-23 52-52 52c-11 0-23-2-36-6v65H252c4-13 6-25 6-36 0-29-23-52-52-52s-52 23-52 52c0 11 2 23 6 36H76Z" fill="#173b45" stroke="#4fd2ff" stroke-width="18"/>
+    <path d="m299 348 43 43 92-102" fill="none" stroke="#39d991" stroke-width="26"/>
+  </g>
+</svg>

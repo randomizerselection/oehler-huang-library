@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Selector test harness</title>
+  <link rel="stylesheet" href="/selector.css">
+</head>
+<body>
+  <main id="app"></main>
+  <script src="/selector.js"></script>
+  <script>
+    window.__testAdapters = {
+      basePath: "/",
+      dataAdapter: {
+        listClasses: async () => ({ items: [{ class_id: "class-test", name: "Synthetic Class" }] }),
+        loadRoster: async () => ({ students: [
+          { account_id: "student-1", display_name: "Ada" },
+          { account_id: "student-2", display_name: "Ben" },
+          { account_id: "student-3", display_name: "Chloe" }
+        ] })
+      }
+    };
+    window.__selector = window.StudentSelector.mount(document.getElementById("app"), window.__testAdapters);
+  </script>
+</body>
+</html>

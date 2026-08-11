@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Financial goal icon</title>
+  <desc id="desc">A yuan coin at the centre of a clear target.</desc>
+  <circle cx="256" cy="256" r="210" fill="#0d2228" stroke="#4fd2ff" stroke-width="18"/>
+  <circle cx="256" cy="256" r="144" fill="#102f37" stroke="#d6e7e8" stroke-width="16"/>
+  <circle cx="256" cy="256" r="80" fill="#123f31" stroke="#39d991" stroke-width="16"/>
+  <circle cx="256" cy="256" r="54" fill="#59481c" stroke="#f1be5a" stroke-width="14"/>
+  <text x="256" y="280" text-anchor="middle" fill="#fff8e5" font-family="Arial, sans-serif" font-size="70" font-weight="700">¥</text>
+  <path d="M394 82 290 186" fill="none" stroke="#f1be5a" stroke-width="22" stroke-linecap="round"/>
+  <path d="m371 78 62-3-3 62" fill="none" stroke="#f1be5a" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

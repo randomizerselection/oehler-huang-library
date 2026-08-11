@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/auth-session.schema.json",
+  "title": "EconMark browser session response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["authenticated", "account", "csrf_token", "expires_at"],
+  "properties": {
+    "authenticated": { "type": "boolean" },
+    "account": { "anyOf": [{ "$ref": "account.schema.json" }, { "type": "null" }] },
+    "csrf_token": { "type": ["string", "null"] },
+    "expires_at": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "authenticated": { "const": true } }, "required": ["authenticated"] },
+      "then": { "properties": { "account": { "$ref": "account.schema.json" }, "csrf_token": { "type": "string", "minLength": 20 }, "expires_at": { "type": "string", "format": "date-time" } } }
+    },
+    {
+      "if": { "properties": { "authenticated": { "const": false } }, "required": ["authenticated"] },
+      "then": { "properties": { "account": { "type": "null" }, "csrf_token": { "type": "null" }, "expires_at": { "type": "null" } } }
+    }
+  ]
+}

@@ -53,6 +53,12 @@
       generatorFit: "Use for first-vote prompts, misconception checks, compare tasks and investor-vs-speculator decisions."
     },
     {
+      id: "definition-graphics",
+      label: "Definition graphics",
+      description: "Purpose-built diagrams that show the exact components of abstract investment definitions.",
+      generatorFit: "Use on definition slides when a photograph cannot make the term's full meaning immediately visible."
+    },
+    {
       id: "keyword-financial-statements",
       label: "Keywords: statements and cash flow",
       description: "Images tied to statement-reading terms such as revenue, costs, cash flow and source evidence.",
@@ -202,6 +208,43 @@
         tags: ["scenario", "first judgement", "speculation", "investment", "evidence choice"],
         uses: ["hook", "yesNoCheck", "compare", "quiz"],
         deckHint: "Good for first-vote prompts where students decide whether an action is investing, saving, speculation or evidence gathering."
+      }
+    ),
+    entry("lesson1CashAccessAtm", "scenario-prompts", {
+      lesson: "Lesson 1 / reusable",
+      tags: ["access", "liquidity", "cash withdrawal", "available money", "ATM"],
+      uses: ["flow", "compare", "visualPause"],
+      deckHint: "Use when students must distinguish money that remains readily available from money committed to a less liquid investment."
+    }),
+    ...entries(
+      "definition-graphics",
+      [
+        "definitionInvestmentGraphic",
+        "definitionReturnGraphic",
+        "definitionFinancialGoalGraphic",
+        "definitionTimeHorizonGraphic",
+        "definitionLiquidityNeedGraphic",
+        "definitionSuitabilityGraphic"
+      ],
+      {
+        lesson: "Definitions / reusable",
+        tags: ["definition", "simple icon", "visual cue", "purpose-built graphic"],
+        uses: ["term"],
+        deckHint: "Use only for the matching definition. Prefer one bold symbol readable at small size; do not turn the definition visual into a labelled mini-diagram."
+      }
+    ),
+    ...entries(
+      "scenario-prompts",
+      [
+        "lesson2UniversityStudents",
+        "lesson2HomeKey",
+        "lesson2RetirementCouple"
+      ],
+      {
+        lesson: "Lesson 2 / reusable",
+        tags: ["financial goal", "university", "home", "retirement", "time horizon", "liquidity need"],
+        uses: ["hook", "discussion", "visualPause", "compare"],
+        deckHint: "Use when students compare concrete financial goals by when the money is needed and how reliably it must remain accessible."
       }
     ),
     ...entries(

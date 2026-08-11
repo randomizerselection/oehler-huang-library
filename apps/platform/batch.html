@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f3b" />
+    <meta name="description" content="EconMark 全自动周末作业批量评分：整班手写 OCR、双评分、异常拦截、批注稿和双语反馈。" />
+    <title>EconMark · 全自动周末作业批量评分</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/batch-styles.css" />
+  </head>
+  <body class="batch-page">
+    <header class="site-header">
+      <a class="brand" href="/mark/batch" aria-label="EconMark 全自动批量评分首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span><strong>EconMark</strong><small>全自动批量评分 · Automated Batch</small></span>
+      </a>
+      <div class="header-actions">
+        <a class="batch-link" href="/mark/teacher">作业库</a>
+        <a class="batch-link" href="/mark/single">单份评分</a>
+        <a class="batch-link" href="/mark/">学生入口</a>
+        <div id="account-signed-out" class="account-controls">
+          <button id="account-open-login" class="account-link">登录</button>
+          <button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button>
+        </div>
+        <div id="account-signed-in" class="account-controls" hidden>
+          <a href="/mark/single#history-section" class="account-name" id="account-name"></a>
+          <button id="account-open-settings" class="account-link">账户设置</button>
+          <button id="account-logout" class="account-link">退出</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="batch-main">
+      <section class="batch-hero">
+        <div>
+          <p class="eyebrow">默认全自动 · 同一道作业题 · 批量上限由服务器配置</p>
+          <h1>一次配置，自动完成<br /><em>全班作业评分</em></h1>
+          <p>整班 OCR、双评分、自动终审和个性化反馈连续完成，仅将异常作答交给教师。<br /><small>Process the whole class automatically and review exceptions only.</small></p>
+        </div>
+        <div class="batch-capacity" aria-label="批量处理容量">
+          <strong id="batch-capacity-value">—</strong><span>份作答上限<br />answers maximum</span>
+          <small id="batch-capacity-note">正在读取服务器批量与并行配置……</small>
+        </div>
+      </section>
+
+      <div class="notice notice-info batch-privacy">
+        <strong>账户存储：</strong>登录后可上传整班作答；原图、评分证据、反馈与终审记录将永久保存在当前账户中。<span id="batch-approval-notice">当前为全自动模式：通过硬性质量门槛的 OCR 与评分将由系统自动终审；异常项仍会拦截并提示教师。</span>
+      </div>
+
+      <section class="batch-layout">
+        <div class="batch-stack">
+          <article id="batch-assignment-panel" class="panel batch-panel confirmation-missing">
+            <div class="panel-heading">
+              <div><p class="section-kicker">作业统一设置</p><h2>1. 配置一次题目与标准</h2><p>同一道题目和同一份教师确认的评分标准适用于全班作答。</p></div>
+              <span id="batch-assignment-state" class="state-pill pending">待确认</span>
+            </div>
+            <input id="batch-assignment-id" type="hidden" />
+            <label class="field" for="batch-assignment-select"><span>从中央作业库选择</span><select id="batch-assignment-select"><option value="">请选择已发布作业</option></select></label>
+            <div class="field-row assignment-meta">
+              <label class="field" for="batch-command"><span>指令词</span><select id="batch-command" disabled><option value="Discuss">Discuss（讨论）</option><option value="Analyse">Analyse（分析）</option></select></label>
+              <label class="field" for="batch-max-mark"><span>满分</span><select id="batch-max-mark" disabled><option value="8">8 分</option><option value="6">6 分</option></select></label>
+            </div>
+            <label class="field" for="batch-question"><span>题目（Question）</span><textarea id="batch-question" rows="2" readonly></textarea></label>
+            <label class="field" for="batch-rubric"><span>评分标准（Mark scheme）</span><textarea id="batch-rubric" rows="8" readonly></textarea></label>
+            <div class="batch-action-line">
+              <div class="inline-note"><span>!</span> 题目与评分标准只在<a href="/mark/teacher">教师作业库</a>创建；批次开始后所选版本永久冻结。</div>
+              <button id="confirm-batch-assignment" class="button button-secondary confirmation-required" aria-pressed="false">确认全班作业设置（必需）</button>
+            </div>
+            <fieldset class="approval-mode-panel">
+              <legend>批次终审方式</legend>
+              <div class="approval-mode-options">
+                <label class="approval-mode-card">
+                  <input type="radio" name="batch-approval-mode" value="teacher_review" />
+                  <span><strong>教师复核模式</strong><small>可选模式 · OCR 合格后自动评分，成绩由教师认可或调整</small></span>
+                </label>
+                <label class="approval-mode-card automatic">
+                  <input type="radio" name="batch-approval-mode" value="full_auto" checked />
+                  <span><strong>全自动模式</strong><small>默认模式 · OCR、双评分与反馈完成后自动形成最终成绩</small></span>
+                </label>
+              </div>
+              <p id="automation-policy-note" class="automation-policy-note">全自动模式会自动认可高置信度结果，以及已完成一分差异裁决的中置信度结果；低置信度、OCR 疑点和两分以上评分分歧不会被静默通过。</p>
+            </fieldset>
+          </article>
+
+          <article class="panel batch-panel">
+            <div class="panel-heading">
+              <div><p class="section-kicker">全班作答导入</p><h2>2. 扫描或添加学生作答</h2><p>手机可连续拍摄，每按一次快门添加一份作答；也可从相册或电脑一次选择多张图片。</p></div>
+              <span id="batch-count-badge" class="count-badge">0 / —</span>
+            </div>
+            <div class="batch-intake-actions">
+              <button id="open-camera-scanner" class="camera-scan-button" type="button">
+                <span class="camera-scan-icon" aria-hidden="true">▣</span>
+                <span><strong>打开手机连续扫描</strong><small>保持后置相机开启 · 一份作答拍一张</small></span>
+              </button>
+              <label class="upload-zone batch-upload" for="batch-upload">
+                <input id="batch-upload" type="file" multiple accept="image/jpeg,image/png,image/webp" />
+                <span class="upload-icon">↥</span>
+                <strong id="batch-upload-title">从相册或文件中添加</strong>
+                <span id="batch-upload-limit">可多选 · 新图片追加到当前队列</span>
+              </label>
+              <button id="load-synthetic-class" class="synthetic-class-button">
+                <span class="sample-grade">DEMO</span>
+                <strong>载入 30 人合成演示班级</strong>
+                <small>基础、中等、优秀各 10 份</small>
+              </button>
+            </div>
+            <input id="camera-fallback-upload" class="visually-hidden-file" type="file" accept="image/*" capture="environment" />
+            <p class="mobile-scan-note">拍摄时请让整张答题纸进入取景框并保持光线均匀。作答按拍摄顺序自动编号，评分前可以修改编号或移除重拍。</p>
+            <div id="batch-empty" class="batch-empty">尚未添加作答。</div>
+            <div id="batch-draft-table-shell" class="table-shell batch-draft-table-shell" hidden>
+              <table class="batch-table draft-table">
+                <thead><tr><th>#</th><th>学生匿名编号</th><th>来源文件</th><th>类型</th><th>操作</th></tr></thead>
+                <tbody id="batch-draft-body"></tbody>
+              </table>
+            </div>
+            <button id="run-batch" class="button button-primary batch-run-button" aria-describedby="batch-run-readiness" disabled>
+              <span>开始全班批量评分</span><small id="batch-run-note">正在读取服务器并发配置……</small><b>→</b>
+            </button>
+            <div id="batch-run-readiness" class="batch-run-readiness blocked" role="status" aria-live="polite">
+              <strong>开始评分前还需完成</strong>
+              <ul>
+                <li>尚缺少确认：请点击上方“确认全班作业设置（必需）”。</li>
+                <li>尚未添加学生作答：请载入 30 人合成班级，或登录后选择真实文件。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <aside class="panel batch-overview">
+          <p class="section-kicker">实时批次状态</p>
+          <h2>全班处理概览</h2>
+          <div class="batch-metrics">
+            <div><span>已添加</span><strong id="metric-total">0</strong></div>
+            <div><span>已评分</span><strong id="metric-completed">0</strong></div>
+            <div><span>待复核</span><strong id="metric-review">0</strong></div>
+            <div><span>失败</span><strong id="metric-failed">0</strong></div>
+          </div>
+          <div class="progress-block">
+            <div><span id="progress-label">等待添加作答</span><b id="progress-percent">0%</b></div>
+            <div class="progress-track"><span id="progress-fill"></span></div>
+          </div>
+          <div class="batch-policy">
+            <h3 id="batch-policy-title">异常优先复核顺序</h3>
+            <ol id="batch-policy-list">
+              <li>无法辨认或处理失败的作答</li>
+              <li>强制人工复核及中置信度结果</li>
+              <li>双评分一致的高置信度结果</li>
+            </ol>
+          </div>
+          <div id="provider-status" class="provider-status">正在检查模型网关配置……</div>
+        </aside>
+      </section>
+
+      <dialog id="camera-scanner-dialog" class="camera-scanner-dialog" aria-labelledby="camera-scanner-title">
+        <div class="camera-scanner-shell">
+          <header class="camera-scanner-header">
+            <div><p>手机连续扫描</p><h2 id="camera-scanner-title">将一份作答放入取景框</h2></div>
+            <button id="close-camera-scanner" class="camera-scanner-close" type="button" aria-label="关闭相机">完成</button>
+          </header>
+          <div class="camera-video-stage">
+            <video id="camera-scanner-video" autoplay muted playsinline></video>
+            <div class="camera-page-guide" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div id="camera-scanner-loading" class="camera-scanner-loading">正在启动后置相机……</div>
+          </div>
+          <div id="camera-scanner-message" class="camera-scanner-message" role="status" aria-live="polite">每次拍摄会立即加入当前批次，不会立刻上传。</div>
+          <footer class="camera-scanner-controls">
+            <button id="undo-camera-scan" class="camera-undo-button" type="button" disabled>撤销上一张</button>
+            <button id="capture-camera-scan" class="camera-capture-button" type="button" aria-label="拍摄当前作答"><span></span></button>
+            <div class="camera-scan-count"><strong id="camera-session-count">0</strong><span>本次已拍</span></div>
+          </footer>
+          <canvas id="camera-scanner-canvas" hidden></canvas>
+        </div>
+      </dialog>
+
+      <section id="batch-results" class="panel batch-results" hidden>
+        <div class="results-toolbar">
+          <div><p id="results-kicker" class="section-kicker">教师复核队列</p><h2 id="results-title">3. 审核全班结果</h2><p id="results-description">教师认可或调整前均为暂定分数；批量认可只处理无风险标记的高置信度结果。</p></div>
+          <div class="toolbar-actions">
+            <button id="approve-high-confidence" class="button button-approve" disabled>批量认可合格结果</button>
+            <button id="prepare-feedback-pack" class="button button-secondary" disabled>预览学生反馈评分单（0/0）</button>
+            <button id="export-batch-json" class="button button-ghost">JSON</button>
+            <button id="export-batch-csv" class="button button-ghost">CSV</button>
+          </div>
+        </div>
+        <div class="results-summary-line">
+          <span id="batch-summary-text">—</span>
+          <span id="batch-average">平均分：—</span>
+        </div>
+        <div id="feedback-sheet-status" class="feedback-sheet-status pending" role="status" aria-live="polite">
+          <strong>学生反馈评分单尚未生成</strong>
+          <span>形成最终成绩后，每名学生都会获得一份含分数、双语反馈和针对性巩固题的可打印反馈单。</span>
+        </div>
+        <div class="table-shell result-table-shell">
+          <table class="batch-table result-table">
+            <thead><tr><th>学生编号</th><th>状态</th><th>评分</th><th>置信度</th><th>终审状态</th><th>操作</th></tr></thead>
+            <tbody id="batch-result-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="batch-detail" class="panel batch-detail" hidden>
+        <div class="detail-heading">
+          <div><p class="section-kicker">当前选中的作答</p><h2 id="detail-student">—</h2><p id="detail-source">—</p></div>
+          <button id="close-detail" class="button button-ghost">关闭</button>
+        </div>
+        <div class="detail-grid">
+          <div>
+            <h3>已确认或安全放行的转写</h3>
+            <div id="detail-transcript" class="detail-transcript"></div>
+            <h3>评分证据</h3>
+            <div id="detail-evidence" class="evidence-list"></div>
+          </div>
+          <div class="detail-review">
+            <div class="detail-score"><strong id="detail-mark">—</strong><span id="detail-max">/8</span><p id="detail-confidence">—</p></div>
+            <div id="detail-feedback" class="feedback-block"></div>
+            <h3>最终成绩决定</h3>
+            <div id="detail-decision-status" class="decision-status">等待教师复核。</div>
+            <div class="decision-buttons">
+              <button id="detail-approve" class="button button-approve">认可</button>
+              <button id="detail-show-adjust" class="button button-secondary">调整</button>
+              <button id="detail-reject" class="button button-ghost">拒绝</button>
+            </div>
+            <div id="detail-adjust-form" class="adjust-form" hidden>
+              <label class="field" for="detail-adjust-mark"><span>教师最终分数</span><input id="detail-adjust-mark" type="number" min="0" max="8" step="1" /></label>
+              <label class="field" for="detail-adjust-reason"><span>调整理由（必填）</span><textarea id="detail-adjust-reason" rows="3"></textarea></label>
+              <button id="detail-save-adjust" class="button button-primary">保存调整</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section id="feedback-pack-shell" class="feedback-pack-shell" hidden>
+      <div class="feedback-pack-toolbar">
+        <div>
+          <p class="section-kicker">每名已终审学生恰好一份 · 可逐人或全班打印</p>
+          <h2>学生反馈与评分单打印中心</h2>
+          <p id="feedback-pack-summary">—</p>
+        </div>
+        <div class="feedback-pack-actions">
+          <label class="feedback-layout-field" for="feedback-print-layout">
+            <span>全班打印版式</span>
+            <select id="feedback-print-layout">
+              <option value="two-up" selected>节纸模式：A4 每页 2 份</option>
+              <option value="full-page">整页模式：每名学生 1 页 A4</option>
+            </select>
+          </label>
+          <button id="close-feedback-pack" class="button button-ghost">关闭预览</button>
+          <button id="print-feedback-pack" class="button button-primary">打印全班学生反馈评分单</button>
+        </div>
+      </div>
+      <div id="feedback-pack-list" class="feedback-pack-list"></div>
+    </section>
+
+    <dialog id="marker-remarks-dialog" class="marker-remarks-dialog" aria-labelledby="marker-dialog-title">
+      <div class="marker-dialog-shell">
+        <header class="marker-dialog-heading">
+          <div>
+            <p class="section-kicker">原始作答 · 证据定位 · 阅卷解释</p>
+            <h2 id="marker-dialog-title">学生批注稿</h2>
+            <p id="marker-dialog-source">—</p>
+          </div>
+          <button id="marker-dialog-close" type="button" class="dialog-close" aria-label="关闭学生批注稿">×</button>
+        </header>
+        <div class="marker-summary-strip">
+          <div><span>学生编号</span><strong id="marker-student">—</strong></div>
+          <div><span>显示分数</span><strong id="marker-score">—</strong></div>
+          <div><span>评分置信度</span><strong id="marker-confidence">—</strong></div>
+          <div><span>终审状态</span><strong id="marker-decision">—</strong></div>
+        </div>
+        <p id="marker-question" class="marker-question">—</p>
+        <div class="marker-dialog-grid">
+          <section class="marker-script-panel">
+            <div class="marker-section-heading"><span>01</span><div><h3>学生原始手写作答</h3><p>原图不作改写；右侧编号批注均可回溯到逐字转写证据。</p></div></div>
+            <div class="marker-image-stage"><img id="marker-script-image" alt="学生手写作答原图" /></div>
+          </section>
+          <section class="marker-commentary-panel">
+            <div class="marker-section-heading"><span>02</span><div><h3>证据定位转写</h3><p>高亮文本与下方同编号阅卷批注一一对应。</p></div></div>
+            <div id="marker-annotated-transcript" class="marker-annotated-transcript"></div>
+            <div class="marker-section-heading remarks-heading"><span>03</span><div><h3>阅卷批注</h3><p>显示评分标准条目、得分值及经济学理由。</p></div></div>
+            <ol id="marker-remarks-list" class="marker-remarks-list"></ol>
+          </section>
+        </div>
+        <section class="marker-improvement-panel">
+          <div><h3>尚可发展的内容</h3><ul id="marker-missed-list"></ul></div>
+          <div><h3>下一步优先改进</h3><ol id="marker-priority-list"></ol></div>
+          <div><h3>双评分与异常检查</h3><div id="marker-scorer-summary" class="marker-scorer-summary"></div></div>
+        </section>
+      </div>
+    </dialog>
+
+    <footer>
+      <p><strong>EconMark 全班批量评分</strong> · 可配置批量容量 · 支持人工复核与全自动终审</p>
+      <p>正式使用前须完成学校数据处理审批、题目专项验证，并采用经批准的手写识别与评分模型服务。</p>
+    </footer>
+    <div id="batch-toast" class="toast" role="alert" aria-live="assertive"></div>
+    <dialog id="account-dialog" class="account-dialog" data-mode="login">
+      <form id="account-form" class="account-form">
+        <div class="account-dialog-heading">
+          <div><p class="section-kicker">永久账户与历史记录</p><h2 id="account-dialog-title">登录 EconMark</h2></div>
+          <button id="account-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button>
+        </div>
+        <label id="account-display-name-field" class="field" for="account-display-name" hidden><span>显示名称</span><input id="account-display-name" maxlength="80" autocomplete="name" /></label>
+        <label class="field" for="account-username"><span>用户名</span><input id="account-username" required minlength="3" maxlength="60" autocomplete="username" /></label>
+        <label class="field" for="account-password"><span>密码</span><input id="account-password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" /></label>
+        <label id="account-teacher-invite-field" class="field" for="account-teacher-invite" hidden><span>教师邀请码</span><input id="account-teacher-invite" maxlength="160" /></label>
+        <p id="account-error" class="account-error" role="alert"></p>
+        <button id="account-submit" class="button button-primary" type="submit">登录</button>
+        <button id="account-mode-toggle" class="account-mode-toggle" type="button">没有账户？免费创建</button>
+        <p class="account-storage-note">登录后上传的原图、评分证据、反馈和终审记录将永久保存在此 EconMark 服务器中。</p>
+      </form>
+    </dialog>
+    <dialog id="account-settings-dialog" class="account-dialog">
+      <form id="account-settings-form" class="account-form">
+        <div class="account-dialog-heading">
+          <div><p class="section-kicker">账户安全与永久数据</p><h2>账户设置</h2></div>
+          <button id="account-settings-close" type="button" class="dialog-close" aria-label="关闭">×</button>
+        </div>
+        <p id="account-settings-summary" class="account-storage-note"></p>
+        <label class="field" for="account-current-password"><span>当前密码</span><input id="account-current-password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" /></label>
+        <label class="field" for="account-new-password"><span>新密码</span><input id="account-new-password" type="password" required minlength="10" maxlength="128" autocomplete="new-password" /></label>
+        <p id="account-settings-error" class="account-error" role="alert"></p>
+        <button id="account-change-password" class="button button-primary" type="submit">更改密码</button>
+        <p class="account-storage-note">系统不提供账户、图片或历史记录删除功能；达到容量上限后只停止新增。</p>
+      </form>
+    </dialog>
+    <script type="module" src="/src/batch-app.js"></script>
+  </body>
+</html>

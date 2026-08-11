@@ -1,0 +1,15 @@
+{
+  "content_version": "1.0.0",
+  "public_mode": {
+    "login_required": false,
+    "persistence": false,
+    "student_data_allowed": false,
+    "default_question": "Discuss whether an increase in interest rates is likely to reduce inflation. [8]",
+    "rubric_notice": "Original demonstration rubric; not an official Cambridge mark scheme.",
+    "sample_ids": ["SYN-W01", "SYN-M01", "SYN-S01"],
+    "upload_warning_en": "Upload anonymized work only. Public submissions are not retained after the session.",
+    "upload_warning_zh": "仅可上传匿名作答。公共模式下，本次会话结束后不保留提交内容。",
+    "provisional_warning_en": "This is a provisional machine-assisted mark. A teacher must approve or adjust it.",
+    "provisional_warning_zh": "这是机器辅助生成的暂定分数，必须由教师认可或调整。"
+  }
+}
