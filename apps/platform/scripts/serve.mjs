@@ -2,6 +2,7 @@ import { createEconMarkServer } from "../server/app-server.mjs";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
+process.umask(0o027);
 const envFile = resolve(import.meta.dirname, "..", "..", "..", ".env");
 if (existsSync(envFile) && process.loadEnvFile) process.loadEnvFile(envFile);
 const port = Number(process.env.OH_PORT ?? process.env.ECONMARK_PORT ?? 4173);

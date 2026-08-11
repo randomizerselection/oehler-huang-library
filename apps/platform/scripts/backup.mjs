@@ -4,6 +4,7 @@ import { basename, join, resolve } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { resolveAppConfig } from "../server/app-config.mjs";
 
+process.umask(0o077);
 function sqliteLiteral(value) {
   return `'${String(value).replaceAll("'", "''")}'`;
 }

@@ -1,6 +1,6 @@
 import argon2 from "argon2";
 import { createHash, randomBytes, randomUUID } from "node:crypto";
-import { mkdirSync, unlinkSync } from "node:fs";
+import { chmodSync, mkdirSync, unlinkSync } from "node:fs";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { runPlatformMigrations } from "./migration-runner.mjs";
@@ -74,7 +74,8 @@ function withTransaction(database, operation) {
 }
 
 export function createPlatformStore({ dataDir, now = () => new Date() }) {
-  mkdirSync(dataDir, { recursive: true });
+  mkdirSync(dataDir, { recursive: true, mode: 0o750 });
+  chmodSync(dataDir, 0o750);
   const database = new DatabaseSync(join(dataDir, "econmark.sqlite"));
   database.exec("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA synchronous = FULL;");
   const migration = runPlatformMigrations(database, { dataDir });

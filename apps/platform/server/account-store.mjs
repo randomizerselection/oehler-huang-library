@@ -1,7 +1,7 @@
 import argon2 from "argon2";
 import { createHash, randomBytes, randomUUID } from "node:crypto";
-import { createReadStream, mkdirSync, unlinkSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
+import { chmodSync, createReadStream, mkdirSync, unlinkSync } from "node:fs";
+import { chmod, mkdir, writeFile } from "node:fs/promises";
 import { extname, join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { runPlatformMigrations } from "./migration-runner.mjs";
@@ -128,9 +128,11 @@ function parseJson(value, fallback = null) {
 }
 
 export function createAccountStore({ dataDir, maxFileBytes, studentMaxFileBytes = maxFileBytes, teacherMaxFileBytes = maxFileBytes, maxBatchSize = 100, maxBatchTotalBytes = 512 * 1024 * 1024, maxAccountStorageBytes = 50 * 1024 * 1024 * 1024, studentStorageBytes = maxAccountStorageBytes, teacherStorageBytes = maxAccountStorageBytes, uploadGuard = () => ({ allowed: true }), sessionTtlMs, now = () => new Date() }) {
-  mkdirSync(dataDir, { recursive: true });
+  mkdirSync(dataDir, { recursive: true, mode: 0o750 });
+  chmodSync(dataDir, 0o750);
   const imageRoot = join(dataDir, "images");
-  mkdirSync(imageRoot, { recursive: true });
+  mkdirSync(imageRoot, { recursive: true, mode: 0o750 });
+  chmodSync(imageRoot, 0o750);
   const database = new DatabaseSync(join(dataDir, "econmark.sqlite"));
   database.exec("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA synchronous = FULL;");
   database.exec(`
@@ -390,7 +392,8 @@ export function createAccountStore({ dataDir, maxFileBytes, studentMaxFileBytes 
     const imageId = `image_${randomUUID()}`;
     const extension = MIME_EXTENSIONS[mimeType] ?? (extname(String(payload.answer_name ?? "")) || ".bin");
     const accountDirectory = join(imageRoot, accountId);
-    await mkdir(accountDirectory, { recursive: true });
+    await mkdir(accountDirectory, { recursive: true, mode: 0o700 });
+    await chmod(accountDirectory, 0o700);
     const storedName = `${imageId}${extension}`;
     const storedPath = join(accountDirectory, storedName);
     const currentAccountBytes = Number(statements.accountByteTotal.get(accountId).total);

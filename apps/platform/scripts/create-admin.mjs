@@ -6,6 +6,7 @@ import { createAccountStore } from "../server/account-store.mjs";
 import { resolveAppConfig } from "../server/app-config.mjs";
 import { createPlatformStore } from "../server/platform-store.mjs";
 
+process.umask(0o027);
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const envFile = resolve(root, "../../.env");
 if (existsSync(envFile)) process.loadEnvFile(envFile);

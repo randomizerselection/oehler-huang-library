@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, readdirSync } from "node:fs";
+import { chmodSync, mkdirSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 function sqliteLiteral(value) {
@@ -18,7 +18,8 @@ export function runPlatformMigrations(database, { dataDir, migrationsDir = new U
   let backupPath = null;
   if (current > 0 && dataDir) {
     const backupRoot = join(dataDir, "backups");
-    mkdirSync(backupRoot, { recursive: true });
+    mkdirSync(backupRoot, { recursive: true, mode: 0o700 });
+    chmodSync(backupRoot, 0o700);
     backupPath = join(backupRoot, `pre-migration-v${current}-${new Date().toISOString().replaceAll(":", "-")}.sqlite`);
     database.exec("PRAGMA wal_checkpoint(FULL)");
     database.exec(`VACUUM INTO ${sqliteLiteral(backupPath)}`);

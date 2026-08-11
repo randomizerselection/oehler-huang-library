@@ -72,6 +72,12 @@ if [[ -f "$data_dir/econmark.sqlite" ]]; then
 fi
 
 runuser -u econmark -- env OH_DATA_DIR="$data_dir" node "$release_dir/apps/platform/scripts/migrate.mjs"
+chown -R econmark:econmark "$data_dir" "$backup_dir"
+find "$data_dir" -type d -exec chmod 0750 {} +
+find "$data_dir" -type f -exec chmod 0640 {} +
+if [[ -d "$data_dir/backups" ]]; then chmod 0700 "$data_dir/backups"; fi
+find "$backup_dir" -type d -exec chmod 0700 {} +
+find "$backup_dir" -type f -exec chmod 0600 {} +
 chown -R root:root "$release_dir"
 chmod -R go-w "$release_dir"
 
