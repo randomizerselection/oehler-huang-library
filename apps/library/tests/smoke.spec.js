@@ -642,19 +642,19 @@ test.describe('site smoke', () => {
     await expect(page.locator('link[href="assets/css/library-home.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.locator('.hero-summary-number, .course-index')).toHaveCount(0);
-    await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Select a course$/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Cambridge IGCSE Economics \(0455\)$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('heading', { name: /Learn with purpose/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^What do you want to do\?$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Definitions$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Teaching$/i })).toHaveAttribute('href', 'pedagogy.html');
-    await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.getByRole('link', { name: /Understand economies Cambridge IGCSE Economics/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('link', { name: /Evaluate financial decisions Investment & Finance/i })).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
-    await expect(page.locator('.course-entry-media img')).toHaveCount(2);
-    await expect(page.locator('.course-title-zh')).toHaveText(['IGCSE经济学课程', '投资与财务决策']);
+    await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
+    await expect(page.getByRole('link', { name: /Economics lessons Cambridge IGCSE Economics 0455/i })).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.getByRole('link', { name: /Investment lessons Investment & Financial Decision-Making/i })).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.getByRole('link', { name: /Homework submission Upload an answer and receive feedback/i })).toHaveAttribute('href', '/mark/');
+    await expect(page.locator('.entry-card')).toHaveCount(3);
+    await expect(page.locator('.entry-media img')).toHaveCount(2);
+    await expect(page.locator('.entry-title-zh')).toHaveText(['经济学课程', '投资与财务决策', '作业提交与反馈']);
     const heroLayout = await page.locator('.hero').evaluate((hero) => {
       const styles = getComputedStyle(hero);
       return {
@@ -746,9 +746,10 @@ test.describe('site smoke', () => {
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive smoke is phone-only.');
 
     await page.goto(pageUrl('index.html'));
-    await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.getByRole('heading', { name: /Learn with purpose/i })).toBeVisible();
+    await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
@@ -765,18 +766,19 @@ test.describe('site smoke', () => {
   test('landing page renders at desktop and phone widths', async ({ page }) => {
     await page.goto(pageUrl('index.html'));
 
-    await expect(page.getByRole('heading', { name: /Oehler-Huang Library/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /^Select a course$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Economics course$/i })).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.getByRole('link', { name: /^Investment & Finance course$/i })).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.getByText(/Open a course to view its syllabus, lessons and student resources/i)).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Learn with purpose/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^What do you want to do\?$/i })).toBeVisible();
+    await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
+    await expect(page.getByText(/Choose one path. Each card takes you directly/i)).toBeVisible();
     await expect(page.getByText(/Syllabus-led lessons, quizzes, flashcards, handouts and revision materials/i)).toBeVisible();
-    await expect(page.getByText(/A Grade 9 course connecting family investment goals with investment choices, markets, company analysis, portfolios and finance-career foundations/i)).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Syllabus$/i })).toHaveAttribute('href', 'investment-analysis/syllabus.html');
+    await expect(page.getByText(/Explore financial goals, markets, company analysis, portfolios/i)).toBeVisible();
+    await expect(page.getByText(/Enter your assignment code, upload a clear photo/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
-    await expect(page.getByRole('link', { name: /^Key definitions \/ 核心定义$/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^Definitions$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Teaching$/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expectNoHorizontalOverflow(page);

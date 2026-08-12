@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Oehler-Huang Library course directory for Economics and Investment and Financial Decision-Making." />
+  <meta name="description" content="Oehler-Huang Learning Platform: Economics lessons, Investment lessons, and secure homework submission." />
   <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
-  <title>Oehler-Huang Library</title>
+  <title>Oehler-Huang Learning Platform</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/theme.css" />
   <link rel="stylesheet" href="assets/css/landing.css" />
@@ -14,14 +14,15 @@
 </head>
 <body class="bg-ambient library-home landing-page">
   <main class="site">
-    <nav class="landing-nav" aria-label="Library navigation">
+    <nav class="landing-nav" aria-label="Platform navigation">
       <a class="landing-brand" href="index.html" aria-current="page">
         <span class="landing-brand-mark" aria-hidden="true">OH</span>
         <span>Oehler-Huang Library</span>
       </a>
       <div class="landing-nav-links">
-        <a class="landing-nav-link" href="economics/index.html">Economics</a>
-        <a class="landing-nav-link" href="investment-analysis/index.html">Investment &amp; Finance</a>
+        <a class="landing-nav-link" href="economics/index.html">Economics lessons</a>
+        <a class="landing-nav-link" href="investment-analysis/index.html">Investment lessons</a>
+        <a class="landing-nav-link homework-nav-link" href="/mark/">Homework submission</a>
         <a class="landing-nav-link" href="definitions.html">Definitions</a>
         <a class="landing-nav-link" href="pedagogy.html">Teaching</a>
       </div>
@@ -29,82 +30,111 @@
 
     <header class="hero">
       <div class="hero-copy">
-        <div class="eyebrow">Independent classroom resources</div>
-        <h1>Oehler-Huang <span>Library</span></h1>
+        <div class="eyebrow">One connected learning platform</div>
+        <h1>Learn with purpose. <span>Submit with confidence.</span></h1>
         <p class="lead">
-          Two connected courses for understanding economies and making evidence-based financial decisions.
+          Open a lesson library or submit your homework for structured feedback—all from one place.
         </p>
+        <div class="hero-trust" aria-label="Platform access information">
+          <span>Lessons are public</span>
+          <span>Homework is account-protected</span>
+        </div>
       </div>
-      <aside class="hero-guide" aria-label="Choose a course by learning goal">
-        <span class="hero-guide-label">Choose by learning goal</span>
-        <a class="hero-guide-link economics-guide" href="economics/index.html">
-          <span class="hero-guide-mark" aria-hidden="true">E</span>
-          <span><strong>Understand economies</strong><small>Cambridge IGCSE Economics (0455)</small></span>
-          <span class="hero-guide-arrow" aria-hidden="true">→</span>
+
+      <aside class="hero-routes" aria-label="Choose a destination">
+        <div class="hero-routes-heading">
+          <span>Start here</span>
+          <strong>Choose a destination</strong>
+        </div>
+        <a class="hero-route economics-route" href="economics/index.html">
+          <span class="hero-route-number" aria-hidden="true">01</span>
+          <span><strong>Economics lessons</strong><small>Cambridge IGCSE Economics 0455</small></span>
+          <span class="hero-route-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="hero-guide-link investment-guide" href="investment-analysis/index.html">
-          <span class="hero-guide-mark" aria-hidden="true">I</span>
-          <span><strong>Evaluate financial decisions</strong><small>Investment &amp; Finance</small></span>
-          <span class="hero-guide-arrow" aria-hidden="true">→</span>
+        <a class="hero-route investment-route" href="investment-analysis/index.html">
+          <span class="hero-route-number" aria-hidden="true">02</span>
+          <span><strong>Investment lessons</strong><small>Investment &amp; Financial Decision-Making</small></span>
+          <span class="hero-route-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="hero-route homework-route" href="/mark/">
+          <span class="hero-route-number" aria-hidden="true">03</span>
+          <span><strong>Homework submission</strong><small>Upload an answer and receive feedback</small></span>
+          <span class="hero-route-arrow" aria-hidden="true">→</span>
         </a>
       </aside>
     </header>
 
-    <section class="section" aria-labelledby="course-entry-title">
+    <section class="entry-section" aria-labelledby="entry-title">
       <div class="section-head">
         <div>
-          <div class="section-kicker">Course pages</div>
-          <h2 id="course-entry-title">Select a course</h2>
+          <div class="section-kicker">Three clear starting points</div>
+          <h2 id="entry-title">What do you want to do?</h2>
         </div>
-        <p class="section-intro">Open a course to view its syllabus, lessons and student resources.</p>
+        <p class="section-intro">Choose one path. Each card takes you directly to the relevant lessons or submission workspace.</p>
       </div>
 
-      <div class="course-entry-grid" aria-label="Course entry points">
-        <article class="course-entry-card economics-entry">
-          <div class="course-entry-media">
+      <div class="entry-grid" aria-label="Platform entry points">
+        <a class="entry-card economics-entry" href="economics/index.html" data-entry="economics">
+          <span class="entry-media">
             <img src="assets/images/monetary-policy/visual-pause-shipping-containers-port.jpg" alt="Containers and cranes at a busy international port." />
-            <span class="course-type">Exam course</span>
-          </div>
-          <div class="course-entry-content">
-            <div class="course-heading">
-              <h3>Cambridge IGCSE Economics (0455)</h3>
-              <p class="course-title-zh" lang="zh-Hans">IGCSE经济学课程</p>
-            </div>
-            <p>Syllabus-led lessons, quizzes, flashcards, handouts and revision materials for Cambridge IGCSE Economics.</p>
-            <ul class="course-tags" aria-label="Economics course features">
-              <li>Core concepts</li>
-              <li>Exam practice</li>
-              <li>Revision</li>
-            </ul>
-            <div class="course-actions">
-              <a class="course-link primary" href="economics/index.html">Economics course <span class="course-arrow" aria-hidden="true">→</span></a>
-              <a class="course-link" href="definitions.html">Key definitions / 核心定义</a>
-            </div>
-          </div>
-        </article>
+            <span class="entry-badge">Cambridge IGCSE</span>
+            <span class="entry-index" aria-hidden="true">01</span>
+          </span>
+          <span class="entry-content">
+            <span class="entry-heading">
+              <strong>Economics Lessons</strong>
+              <span class="entry-title-zh" lang="zh-Hans">经济学课程</span>
+            </span>
+            <span class="entry-description">Study syllabus-led lessons, quizzes, flashcards, handouts and exam practice for Cambridge IGCSE Economics.</span>
+            <span class="entry-features" aria-label="Economics lesson features">
+              <span>Core concepts</span><span>Exam practice</span><span>Revision</span>
+            </span>
+            <span class="entry-action">Open Economics <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
 
-        <article class="course-entry-card investment-entry">
-          <div class="course-entry-media">
+        <a class="entry-card investment-entry" href="investment-analysis/index.html" data-entry="investment">
+          <span class="entry-media">
             <img src="assets/images/investment-analysis/business-charts-paper-2021.jpg" alt="A student reviews printed business charts and evidence." />
-            <span class="course-type">Grade 9 course</span>
-          </div>
-          <div class="course-entry-content">
-            <div class="course-heading">
-              <h3>Investment and Financial Decision-Making</h3>
-              <p class="course-title-zh" lang="zh-Hans">投资与财务决策</p>
-            </div>
-            <p>A Grade 9 course connecting family investment goals with investment choices, markets, company analysis, portfolios and finance-career foundations.</p>
-            <ul class="course-tags" aria-label="Investment course features">
-              <li>Company analysis</li>
-              <li>Portfolios</li>
-              <li>Financial decisions</li>
-            </ul>
-            <div class="course-actions">
-              <a class="course-link primary" href="investment-analysis/index.html">Investment &amp; Finance course <span class="course-arrow" aria-hidden="true">→</span></a>
-              <a class="course-link" href="investment-analysis/syllabus.html">Syllabus</a>
-            </div>
-          </div>
-        </article>
+            <span class="entry-badge">Grade 9 course</span>
+            <span class="entry-index" aria-hidden="true">02</span>
+          </span>
+          <span class="entry-content">
+            <span class="entry-heading">
+              <strong>Investment Lessons</strong>
+              <span class="entry-title-zh" lang="zh-Hans">投资与财务决策</span>
+            </span>
+            <span class="entry-description">Explore financial goals, markets, company analysis, portfolios and evidence-based investment decisions.</span>
+            <span class="entry-features" aria-label="Investment lesson features">
+              <span>Company analysis</span><span>Portfolios</span><span>Decisions</span>
+            </span>
+            <span class="entry-action">Open Investment <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="entry-card homework-entry" href="/mark/" data-entry="homework">
+          <span class="entry-media homework-entry-media">
+            <span class="homework-paper" aria-hidden="true">
+              <span class="homework-paper-mark">E</span>
+              <span class="homework-paper-line"></span>
+              <span class="homework-paper-line short"></span>
+              <span class="homework-upload-arrow">↑</span>
+            </span>
+            <span class="entry-badge">Student portal</span>
+            <span class="entry-index" aria-hidden="true">03</span>
+          </span>
+          <span class="entry-content">
+            <span class="entry-heading">
+              <strong>Homework Submission</strong>
+              <span class="entry-title-zh" lang="zh-Hans">作业提交与反馈</span>
+            </span>
+            <span class="entry-description">Enter your assignment code, upload a clear photo of your answer and receive structured provisional feedback.</span>
+            <span class="entry-features" aria-label="Homework submission features">
+              <span>Secure account</span><span>Teacher review</span><span>Bilingual feedback</span>
+            </span>
+            <span class="entry-action">Submit Homework <span aria-hidden="true">→</span></span>
+          </span>
+        </a>
       </div>
     </section>
 
