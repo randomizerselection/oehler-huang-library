@@ -66,7 +66,7 @@
     if (document.querySelector('link[data-oh-platform-shell]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/platform-shell.css?v=20260812.2";
+    link.href = "/assets/css/platform-shell.css?v=20260812.4";
     link.dataset.ohPlatformShell = "";
     document.head.appendChild(link);
   }
@@ -105,11 +105,19 @@
     host.dataset.ohShellHost = "";
     host.innerHTML = shellMarkup();
     document.body.appendChild(host);
-    const shell = host.querySelector("[data-oh-shell]");
+    let shell = host.querySelector("[data-oh-shell]");
     const dock = document.querySelector("[data-oh-account-dock]");
     if (dock && shell) {
-      shell.classList.add("ohShellDocked");
-      dock.appendChild(shell);
+      const dockedShell = document.createElement("div");
+      dockedShell.className = "ohShell ohShellDockedFlat";
+      dockedShell.dataset.ohShell = "";
+      const utility = shell.querySelector(".ohShellUtility");
+      const accountButton = shell.querySelector("[data-oh-account]");
+      if (utility) dockedShell.appendChild(utility);
+      if (accountButton) dockedShell.appendChild(accountButton);
+      shell.remove();
+      shell = dockedShell;
+      dock.appendChild(dockedShell);
     }
     shell?.querySelector("[data-oh-account]")?.addEventListener("click", () => openAccountDialog());
     emitAuthChange();
