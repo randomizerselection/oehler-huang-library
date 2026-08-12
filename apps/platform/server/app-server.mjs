@@ -685,7 +685,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       if (!info.isFile()) throw new Error("Not a file");
       if (staticRoot === config.libraryRoot && extname(filePath).toLowerCase() === ".html") {
         let html = await readFile(filePath, "utf8");
-        if (!html.includes("/assets/js/platform-shell.js")) html = html.replace(/<\/head>/i, "  <script src=\"/assets/js/platform-shell.js?v=20260812.1\" defer></script>\n</head>");
+        if (!html.includes("/assets/js/platform-shell.js")) html = html.replace(/<\/head>/i, "  <script src=\"/assets/js/platform-shell.js?v=20260812.2\" defer></script>\n</head>");
         response.writeHead(200, securityHeaders({
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, max-age=300",

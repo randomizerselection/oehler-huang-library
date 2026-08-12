@@ -66,7 +66,7 @@
     if (document.querySelector('link[data-oh-platform-shell]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/platform-shell.css?v=20260812.1";
+    link.href = "/assets/css/platform-shell.css?v=20260812.2";
     link.dataset.ohPlatformShell = "";
     document.head.appendChild(link);
   }
