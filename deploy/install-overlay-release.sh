@@ -42,7 +42,11 @@ done < <(tar --list --gzip --file "$overlay")
 
 install -d -o root -g root -m 0755 "$release_dir"
 cp -a --link "$previous/." "$release_dir/"
-tar --extract --unlink-first --gzip --file "$overlay" --directory "$release_dir" --no-same-owner --no-same-permissions
+while IFS= read -r entry; do
+  [[ -n "$entry" && "$entry" != */ ]] || continue
+  rm -f -- "$release_dir/$entry"
+done < <(tar --list --gzip --file "$overlay")
+tar --extract --gzip --file "$overlay" --directory "$release_dir" --no-same-owner --no-same-permissions
 [[ -f "$release_dir/package.json" && -f "$release_dir/apps/platform/server/app-server.mjs" ]] || { echo "Overlay release is incomplete" >&2; exit 4; }
 
 cd "$release_dir"
