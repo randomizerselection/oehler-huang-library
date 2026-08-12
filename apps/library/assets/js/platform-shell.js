@@ -66,7 +66,7 @@
     if (document.querySelector('link[data-oh-platform-shell]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/platform-shell.css";
+    link.href = "/assets/css/platform-shell.css?v=20260812.1";
     link.dataset.ohPlatformShell = "";
     document.head.appendChild(link);
   }
@@ -75,9 +75,17 @@
     const account = state.session.account;
     return `
       <div class="ohShell" data-oh-shell>
-        <button class="ohShellButton" type="button" data-oh-account>${account ? `${escapeHtml(account.display_name)} · ${escapeHtml(account.role)}` : "Sign in"}</button>
-        ${account?.role === "teacher" ? '<a class="ohShellLink" href="/selector/">Selector</a><a class="ohShellLink" href="/mark/teacher">EconMark</a>' : ''}
-        ${account?.role === "student" ? '<a class="ohShellLink" href="/mark/">EconMark</a>' : ''}
+        <details class="ohShellMenu">
+          <summary title="Open platform navigation"><span class="ohShellMark" aria-hidden="true">OH</span><span>Platform navigation</span></summary>
+          <nav class="ohShellNav" aria-label="Platform navigation">
+            <a href="/">Platform home</a>
+            <a href="/economics/">Economics</a>
+            <a href="/investment-analysis/">Investment</a>
+            <a href="/mark/">Homework</a>
+            ${account?.role === "teacher" ? '<a class="ohShellUtility" href="/selector/">Student selector</a>' : ''}
+            <button class="ohShellButton" type="button" data-oh-account>${account ? `${escapeHtml(account.display_name)} · ${escapeHtml(account.role)}` : "Sign in"}</button>
+          </nav>
+        </details>
       </div>
       <dialog class="ohDialog" data-oh-dialog>
         <form method="dialog" class="ohDialogClose"><button aria-label="Close">×</button></form>
@@ -91,12 +99,19 @@
 
   function renderShell() {
     ensureStyles();
+    document.querySelector("[data-oh-shell]")?.remove();
     document.querySelector("[data-oh-shell-host]")?.remove();
     const host = document.createElement("div");
     host.dataset.ohShellHost = "";
     host.innerHTML = shellMarkup();
     document.body.appendChild(host);
-    host.querySelector("[data-oh-account]")?.addEventListener("click", () => openAccountDialog());
+    const shell = host.querySelector("[data-oh-shell]");
+    const dock = document.querySelector("[data-oh-account-dock]");
+    if (dock && shell) {
+      shell.classList.add("ohShellDocked");
+      dock.appendChild(shell);
+    }
+    shell?.querySelector("[data-oh-account]")?.addEventListener("click", () => openAccountDialog());
     emitAuthChange();
   }
 

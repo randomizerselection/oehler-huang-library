@@ -8,26 +8,32 @@
   <title>Archived Company-Analysis Syllabus - Oehler-Huang Library</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../assets/css/investment.css" />
+  <link rel="stylesheet" href="../assets/css/app-shell.css" />
   <script src="../assets/js/baidu-analytics.js"></script>
+  <script src="../assets/js/library-home.js" defer></script>
 </head>
 <body class="investment-home">
   <main class="investment-page investment-syllabus-page">
-    <nav class="investment-nav" aria-label="Archived company-analysis syllabus navigation">
-      <a class="investment-link" href="../index.html">Main library</a>
-      <div class="investment-nav-links">
-        <a class="investment-link" href="index.html">Course home</a>
-        <a class="investment-link" href="syllabus.html">Current syllabus</a>
-        <a class="investment-link" href="definitions.html">Definitions</a>
-        <a class="investment-link" href="#decision-first-model">Decision model</a>
-        <a class="investment-link" href="#lesson-rhythm">Lesson rhythm</a>
-        <a class="investment-link" href="#investment-workflow">Investment workflow</a>
-        <a class="investment-link" href="#lesson-map">Lesson map</a>
-        <a class="investment-link" href="#lesson-generator-table">Generator table</a>
-        <a class="investment-link" href="#generator-access">Generator access</a>
-        <a class="investment-link" href="#exam-schedule">Exam schedule</a>
-        <a class="investment-link" href="#course-standards">Course standards</a>
-      </div>
-    </nav>
+    <header class="investment-nav oh-app-header" aria-label="Platform navigation">
+      <a class="investment-link oh-app-brand" href="../index.html" aria-label="Oehler-Huang Learning Platform home">
+        <span class="oh-app-mark" aria-hidden="true">OH</span>
+        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
+      </a>
+      <nav class="investment-nav-links oh-primary-nav" aria-label="Primary destinations">
+        <a class="investment-link" data-oh-nav="economics" href="../economics/index.html">Economics</a>
+        <a class="investment-link is-current" data-oh-nav="investment" href="index.html" aria-current="page">Investment</a>
+        <a class="investment-link" data-oh-nav="homework" href="/mark/">Homework</a>
+      </nav>
+      <div class="oh-header-account" data-oh-account-dock></div>
+    </header>
+    <div class="oh-context-bar" style="--oh-context-accent:#7ef0b5">
+      <strong class="oh-context-label">Investment</strong>
+      <nav class="oh-context-nav" aria-label="Investment course resources">
+        <a href="index.html">Course home</a>
+        <a href="syllabus.html" aria-current="page">Syllabus</a>
+        <a href="definitions.html">Definitions</a>
+      </nav>
+    </div>
 
     <header class="investment-hero investment-syllabus-hero">
       <div class="investment-hero-copy">

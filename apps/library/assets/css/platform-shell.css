@@ -1,1 +1,151 @@
-.ohShell{position:fixed;z-index:99990;top:12px;right:12px;display:flex;gap:8px;align-items:center;font:600 13px/1.2 system-ui,sans-serif}.ohShellButton,.ohShellLink{border:1px solid rgba(15,23,42,.18);border-radius:999px;background:rgba(255,255,255,.94);color:#0f172a;padding:9px 13px;text-decoration:none;box-shadow:0 8px 24px rgba(15,23,42,.12);cursor:pointer}.ohDialog{width:min(680px,calc(100vw - 28px));max-height:calc(100vh - 40px);border:0;border-radius:20px;padding:26px;background:#fff;color:#10211f;box-shadow:0 30px 100px rgba(0,0,0,.32);font:15px/1.5 system-ui,sans-serif}.ohDialog::backdrop{background:rgba(3,15,18,.62);backdrop-filter:blur(5px)}.ohDialogClose{position:absolute;right:12px;top:10px}.ohDialogClose button{border:0;background:transparent;font-size:28px;cursor:pointer}.ohDialog h2,.ohDialog h3{margin:0 0 14px}.ohDialogTabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.ohDialogTabs button,.ohAccountActions button,.ohAccountActions a,.ohPanel button{border:1px solid #b8c8c4;border-radius:10px;background:#f4f8f7;color:#123f3b;padding:8px 11px;text-decoration:none;cursor:pointer}.ohDialogTabs [aria-current=page]{background:#123f3b;color:#fff}.ohAccountForm{display:grid;gap:12px}.ohAccountForm label{display:grid;gap:5px}.ohAccountForm input,.ohPanel input{border:1px solid #aabcb7;border-radius:10px;padding:10px;font:inherit}.ohPrimary{border:0;border-radius:11px;background:#0d6b5f;color:#fff;padding:11px 15px;font-weight:700;cursor:pointer}.ohFormError{color:#a32121;min-height:1.4em}.ohSecret{display:block;padding:16px;border-radius:12px;background:#eaf5f2;font:700 20px/1.3 ui-monospace,monospace;word-break:break-all;margin:14px 0}.ohAccountActions{display:flex;flex-wrap:wrap;gap:8px}.ohPanel{margin-top:20px;border-top:1px solid #dbe5e2;padding-top:16px}.ohPanel article{display:grid;grid-template-columns:minmax(120px,1fr) auto;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #edf2f1}.ohPanel article button,.ohPanel article a{grid-column:auto}.ohPanel form{display:flex;gap:8px;margin-bottom:12px}@media(max-width:640px){.ohShell{top:auto;bottom:10px;right:10px;max-width:calc(100vw - 20px);overflow:auto}.ohShellLink{display:none}.ohDialog{padding:22px 16px}.ohPanel article{grid-template-columns:1fr}}
+.ohShell {
+  position: fixed;
+  z-index: 99990;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #0f172a;
+  font: 650 12px/1.2 ui-sans-serif, system-ui, sans-serif;
+}
+
+.ohShellButton,
+.ohShellMenu > summary {
+  min-height: 38px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  padding: 9px 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ohShellMenu { position: relative; }
+.ohShellMenu > summary { display: flex; align-items: center; gap: 7px; list-style: none; }
+.ohShellMenu > summary::-webkit-details-marker { display: none; }
+.ohShell:not(.ohShellDocked) .ohShellMenu > summary > span:last-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.ohShell:not(.ohShellDocked) .ohShellMenu > summary {
+  width: 40px;
+  padding: 8px;
+}
+
+.ohShellMark {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 6px;
+  background: #071522;
+  color: #70ddff;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.ohShellNav {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 7px);
+  display: grid;
+  width: 190px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #071522;
+  padding: 6px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.ohShellNav a {
+  border-radius: 8px;
+  color: rgba(235, 244, 253, 0.78);
+  padding: 9px 10px;
+  text-decoration: none;
+}
+
+.ohShellNav .ohShellButton {
+  width: 100%;
+  margin-top: 4px;
+  border-color: rgba(86, 216, 255, 0.22);
+  background: rgba(86, 216, 255, 0.09);
+  color: #fff;
+  box-shadow: none;
+  text-align: left;
+}
+
+.ohShellNav a:hover,
+.ohShellNav a:focus-visible { background: rgba(86, 216, 255, 0.11); color: #fff; outline: none; }
+
+.ohShellDocked {
+  position: static;
+  color: inherit;
+  font: inherit;
+}
+
+.ohShellDocked .ohShellMenu,
+.ohShellDocked .ohShellNav { display: flex; width: auto; align-items: center; gap: 7px; }
+.ohShellDocked .ohShellMenu > summary { display: none; }
+.ohShellDocked .ohShellNav { position: static; overflow: visible; border: 0; background: transparent; padding: 0; box-shadow: none; }
+.ohShellDocked .ohShellNav > a:not(.ohShellUtility) { display: none; }
+.ohShellDocked .ohShellButton,
+.ohShellDocked .ohShellUtility {
+  min-height: 36px;
+  border-color: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7fbff;
+  padding: 8px 10px;
+  box-shadow: none;
+  font-size: 10px;
+}
+
+.ohShellDocked .ohShellUtility { color: #8be6ff; }
+
+.ohDialog {
+  width: min(680px, calc(100vw - 28px));
+  max-height: calc(100vh - 40px);
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  color: #10211f;
+  padding: 26px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.32);
+  font: 15px/1.5 system-ui, sans-serif;
+}
+
+.ohDialog::backdrop { background: rgba(3, 15, 18, 0.62); backdrop-filter: blur(5px); }
+.ohDialogClose { position: absolute; right: 12px; top: 10px; }
+.ohDialogClose button { border: 0; background: transparent; font-size: 28px; cursor: pointer; }
+.ohDialog h2, .ohDialog h3 { margin: 0 0 14px; }
+.ohDialogTabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.ohDialogTabs button, .ohAccountActions button, .ohAccountActions a, .ohPanel button { border: 1px solid #b8c8c4; border-radius: 10px; background: #f4f8f7; color: #123f3b; padding: 8px 11px; text-decoration: none; cursor: pointer; }
+.ohDialogTabs [aria-current=page] { background: #123f3b; color: #fff; }
+.ohAccountForm { display: grid; gap: 12px; }
+.ohAccountForm label { display: grid; gap: 5px; }
+.ohAccountForm input, .ohPanel input { border: 1px solid #aabcb7; border-radius: 10px; padding: 10px; font: inherit; }
+.ohPrimary { border: 0; border-radius: 11px; background: #0d6b5f; color: #fff; padding: 11px 15px; font-weight: 700; cursor: pointer; }
+.ohFormError { color: #a32121; min-height: 1.4em; }
+.ohSecret { display: block; margin: 14px 0; border-radius: 12px; background: #eaf5f2; padding: 16px; font: 700 20px/1.3 ui-monospace, monospace; word-break: break-all; }
+.ohAccountActions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ohPanel { margin-top: 20px; border-top: 1px solid #dbe5e2; padding-top: 16px; }
+.ohPanel article { display: grid; grid-template-columns: minmax(120px, 1fr) auto; gap: 8px; align-items: center; border-bottom: 1px solid #edf2f1; padding: 10px 0; }
+.ohPanel article button, .ohPanel article a { grid-column: auto; }
+.ohPanel form { display: flex; gap: 8px; margin-bottom: 12px; }
+
+@media (max-width: 640px) {
+  .ohShell { right: 9px; bottom: 9px; max-width: calc(100vw - 18px); }
+  .ohShellDocked .ohShellUtility { display: none; }
+  .ohShellDocked { max-width: none; }
+  .ohDialog { padding: 22px 16px; }
+  .ohPanel article { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,307 @@
+/* Shared navigation frame for Library, EconMark, and Student Selector. */
+
+.oh-app-header {
+  --oh-shell-bg: #071522;
+  --oh-shell-panel: rgba(255, 255, 255, 0.055);
+  --oh-shell-line: rgba(255, 255, 255, 0.13);
+  --oh-shell-text: #f7fbff;
+  --oh-shell-muted: rgba(225, 237, 249, 0.68);
+  --oh-shell-accent: #56d8ff;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid var(--oh-shell-line);
+  border-radius: 12px;
+  background: rgba(7, 21, 34, 0.94);
+  color: var(--oh-shell-text);
+  padding: 9px 11px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+body > .oh-app-header,
+.oh-app-header--full {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 70px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  padding-inline: clamp(18px, 4vw, 64px);
+}
+
+.oh-app-brand {
+  display: inline-flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  color: var(--oh-shell-text);
+  text-decoration: none;
+}
+
+.oh-app-mark {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(86, 216, 255, 0.38);
+  border-radius: 9px;
+  background: linear-gradient(145deg, rgba(86, 216, 255, 0.18), rgba(126, 240, 181, 0.08));
+  color: #8be6ff;
+  font: 900 11px/1 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.oh-app-brand > span:last-child,
+.oh-app-brand strong,
+.oh-app-brand small { display: block; }
+
+.oh-app-brand strong {
+  color: var(--oh-shell-text);
+  font: 800 14px/1.15 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.oh-app-brand small {
+  margin-top: 3px;
+  color: var(--oh-shell-muted);
+  font: 650 9px/1.1 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.oh-primary-nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.oh-primary-nav a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--oh-shell-muted);
+  padding: 8px 11px;
+  font: 760 12px/1.1 ui-sans-serif, system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.oh-primary-nav a:hover,
+.oh-primary-nav a:focus-visible,
+.oh-primary-nav a[aria-current="page"],
+.oh-primary-nav a.is-current {
+  border-color: rgba(86, 216, 255, 0.26);
+  background: rgba(86, 216, 255, 0.1);
+  color: var(--oh-shell-text);
+  outline: none;
+}
+
+.oh-primary-nav a[data-oh-nav="investment"][aria-current="page"],
+.oh-primary-nav a[data-oh-nav="investment"].is-current {
+  border-color: rgba(126, 240, 181, 0.28);
+  background: rgba(126, 240, 181, 0.09);
+}
+
+.oh-primary-nav a[data-oh-nav="homework"][aria-current="page"],
+.oh-primary-nav a[data-oh-nav="homework"].is-current {
+  border-color: rgba(255, 200, 107, 0.34);
+  background: rgba(255, 200, 107, 0.1);
+  color: #ffd889;
+}
+
+.oh-header-account {
+  display: flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+}
+
+.oh-header-account .account-controls {
+  margin: 0;
+}
+
+.oh-header-account .account-link,
+.oh-header-account .account-register,
+.oh-header-account .account-name {
+  border: 1px solid var(--oh-shell-line);
+  border-radius: 8px;
+  background: var(--oh-shell-panel);
+  color: var(--oh-shell-text);
+  padding: 8px 10px;
+  font: 750 10px/1.1 ui-sans-serif, system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.oh-header-account .account-register {
+  border-color: rgba(86, 216, 255, 0.34);
+  background: rgba(86, 216, 255, 0.13);
+}
+
+.oh-context-bar {
+  position: relative;
+  z-index: 90;
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: -5px 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  background: rgba(10, 28, 43, 0.9);
+  color: rgba(230, 240, 250, 0.72);
+  padding: 8px 11px 8px 16px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+body > .oh-context-bar,
+.oh-context-bar--full {
+  width: 100%;
+  margin: 0;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background: #0d2333;
+  padding-inline: clamp(18px, 4vw, 64px);
+}
+
+.oh-context-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(235, 244, 253, 0.78);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.oh-context-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--oh-context-accent, #56d8ff);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--oh-context-accent, #56d8ff) 14%, transparent);
+}
+
+.oh-context-nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.oh-context-nav a {
+  border-radius: 7px;
+  color: rgba(219, 232, 245, 0.68);
+  padding: 7px 9px;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.oh-context-nav a:hover,
+.oh-context-nav a:focus-visible,
+.oh-context-nav a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+.oh-context-nav a[aria-current="page"] {
+  box-shadow: inset 0 -2px var(--oh-context-accent, #56d8ff);
+}
+
+/* Investment home previously drew its own IA brand and highlighted the last link. */
+.investment-home .investment-nav.oh-app-header > .oh-app-brand::before { display: none; }
+
+.investment-home .investment-nav.oh-app-header > .oh-app-brand,
+.investment-home .investment-nav.oh-app-header > .oh-app-brand:hover,
+.investment-home .investment-nav.oh-app-header > .oh-app-brand:focus-visible {
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--oh-shell-text);
+  padding: 0;
+}
+
+.investment-home .investment-nav.oh-app-header .oh-app-brand span {
+  margin-left: 0;
+  color: inherit;
+}
+
+.investment-home .investment-nav.oh-app-header .oh-primary-nav .investment-link:last-child {
+  border-color: transparent;
+  background: transparent;
+  color: var(--oh-shell-muted);
+}
+
+.investment-home .investment-nav.oh-app-header .oh-primary-nav .investment-link[aria-current="page"] {
+  border-color: rgba(126, 240, 181, 0.28);
+  background: rgba(126, 240, 181, 0.09);
+  color: var(--oh-shell-text);
+}
+
+@media (max-width: 900px) {
+  .oh-app-header {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding-block: 9px;
+  }
+
+  .oh-primary-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .oh-header-account { margin-left: auto; }
+}
+
+@media (max-width: 620px) {
+  .oh-app-header,
+  body > .oh-app-header,
+  .oh-app-header--full { padding-inline: 10px; }
+
+  .oh-app-brand small { display: none; }
+  .oh-primary-nav a { min-height: 34px; padding: 7px 9px; font-size: 10px; }
+  .oh-header-account .account-register { display: none; }
+
+  .oh-context-bar,
+  body > .oh-context-bar,
+  .oh-context-bar--full {
+    display: block;
+    padding: 8px 10px;
+    overflow: hidden;
+  }
+
+  .oh-context-label { margin: 2px 7px 6px; }
+  .oh-context-nav { justify-content: flex-start; overflow-x: auto; }
+}
+
+@media print {
+  .oh-app-header,
+  .oh-context-bar { display: none !important; }
+}

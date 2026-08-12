@@ -8,17 +8,16 @@
     <title>EconMark · 全自动周末作业批量评分</title>
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/batch-styles.css" />
+    <link rel="stylesheet" href="/assets/css/app-shell.css" />
   </head>
   <body class="batch-page">
-    <header class="site-header">
-      <a class="brand" href="/mark/batch" aria-label="EconMark 全自动批量评分首页">
-        <span class="brand-mark" aria-hidden="true">E</span>
-        <span><strong>EconMark</strong><small>全自动批量评分 · Automated Batch</small></span>
+    <header class="site-header oh-app-header oh-app-header--full">
+      <a class="brand oh-app-brand" href="/" aria-label="Oehler-Huang Learning Platform home">
+        <span class="brand-mark oh-app-mark" aria-hidden="true">OH</span>
+        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
       </a>
-      <div class="header-actions">
-        <a class="batch-link" href="/mark/teacher">作业库</a>
-        <a class="batch-link" href="/mark/single">单份评分</a>
-        <a class="batch-link" href="/mark/">学生入口</a>
+      <nav class="oh-primary-nav" aria-label="Primary destinations"><a data-oh-nav="economics" href="/economics/">Economics</a><a data-oh-nav="investment" href="/investment-analysis/">Investment</a><a data-oh-nav="homework" href="/mark/" aria-current="page">Homework</a></nav>
+      <div class="header-actions oh-header-account">
         <div id="account-signed-out" class="account-controls">
           <button id="account-open-login" class="account-link">登录</button>
           <button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button>
@@ -30,6 +29,7 @@
         </div>
       </div>
     </header>
+    <div class="oh-context-bar oh-context-bar--full" style="--oh-context-accent:#ffc86b"><strong class="oh-context-label">EconMark</strong><nav class="oh-context-nav" aria-label="Teacher tools"><a href="/mark/">Student submission</a><a href="/mark/teacher">Assignment library</a><a href="/mark/single">Single marking</a><a href="/mark/batch" aria-current="page">Batch marking</a><a href="/selector/">Selector</a></nav></div>
 
     <main class="batch-main">
       <section class="batch-hero">

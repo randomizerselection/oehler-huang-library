@@ -8,15 +8,20 @@
     <title>EconMark Student · 上传作答并获得暂定成绩</title>
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/student-styles.css" />
+    <link rel="stylesheet" href="/assets/css/app-shell.css" />
   </head>
   <body class="student-body">
-    <header class="site-header student-header">
-      <a class="brand" href="/mark/" aria-label="EconMark Student 首页">
-        <span class="brand-mark" aria-hidden="true">E</span>
-        <span><strong>EconMark Student</strong><small>学生作答与成长反馈</small></span>
+    <header class="site-header student-header oh-app-header oh-app-header--full">
+      <a class="brand oh-app-brand" href="/" aria-label="Oehler-Huang Learning Platform home">
+        <span class="brand-mark oh-app-mark" aria-hidden="true">OH</span>
+        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
       </a>
-      <div class="header-actions">
-        <a class="student-teacher-link" href="/mark/teacher">教师入口</a>
+      <nav class="oh-primary-nav" aria-label="Primary destinations">
+        <a data-oh-nav="economics" href="/economics/">Economics</a>
+        <a data-oh-nav="investment" href="/investment-analysis/">Investment</a>
+        <a data-oh-nav="homework" href="/mark/" aria-current="page">Homework</a>
+      </nav>
+      <div class="header-actions oh-header-account">
         <div id="account-signed-out" class="account-controls">
           <button id="account-open-login" class="account-link">登录</button>
           <button id="account-open-register" class="account-register">创建学生账户</button>
@@ -27,6 +32,13 @@
         </div>
       </div>
     </header>
+    <div class="oh-context-bar oh-context-bar--full" style="--oh-context-accent:#ffc86b">
+      <strong class="oh-context-label">EconMark</strong>
+      <nav class="oh-context-nav" aria-label="Homework navigation">
+        <a href="/mark/" aria-current="page">Submit homework</a>
+        <a href="/mark/teacher">Teacher tools</a>
+      </nav>
+    </div>
 
     <main class="student-main">
       <section class="student-hero">

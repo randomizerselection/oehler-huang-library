@@ -8,16 +8,18 @@
     <title>EconMark Teacher · 作业库与审核中心</title>
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/teacher-styles.css" />
+    <link rel="stylesheet" href="/assets/css/app-shell.css" />
   </head>
   <body class="teacher-body">
-    <header class="site-header teacher-header">
-      <a class="brand" href="/mark/teacher" aria-label="EconMark Teacher 首页"><span class="brand-mark">E</span><span><strong>EconMark Teacher</strong><small>作业库与审核中心</small></span></a>
-      <nav class="teacher-nav" aria-label="主要导航"><a href="/mark/">学生入口</a><a class="active" href="/mark/teacher">作业库</a><a href="/mark/single">单份评分</a><a href="/mark/batch">批量评分</a></nav>
-      <div class="header-actions">
+    <header class="site-header teacher-header oh-app-header oh-app-header--full">
+      <a class="brand oh-app-brand" href="/" aria-label="Oehler-Huang Learning Platform home"><span class="brand-mark oh-app-mark">OH</span><span><strong>Oehler-Huang</strong><small>Learning Platform</small></span></a>
+      <nav class="oh-primary-nav" aria-label="Primary destinations"><a data-oh-nav="economics" href="/economics/">Economics</a><a data-oh-nav="investment" href="/investment-analysis/">Investment</a><a data-oh-nav="homework" href="/mark/" aria-current="page">Homework</a></nav>
+      <div class="header-actions oh-header-account">
         <div id="account-signed-out" class="account-controls"><button id="account-open-login" class="account-link">登录</button><button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button></div>
         <div id="account-signed-in" class="account-controls" hidden><span class="account-name" id="account-name"></span><button id="account-logout" class="account-link">退出</button></div>
       </div>
     </header>
+    <div class="oh-context-bar oh-context-bar--full" style="--oh-context-accent:#ffc86b"><strong class="oh-context-label">EconMark</strong><nav class="oh-context-nav" aria-label="Teacher tools"><a href="/mark/">Student submission</a><a href="/mark/teacher" aria-current="page">Assignment library</a><a href="/mark/single">Single marking</a><a href="/mark/batch">Batch marking</a><a href="/selector/">Selector</a></nav></div>
 
     <main class="teacher-main">
       <section class="teacher-hero">

@@ -59,6 +59,14 @@ button:disabled {
   color: var(--text);
 }
 
+body > .selector-root {
+  min-height: calc(100vh - 114px);
+}
+
+body > .selector-root .selector-shell {
+  min-height: calc(100vh - 150px);
+}
+
 .selector-shell {
   display: grid;
   grid-template-columns: minmax(300px, 520px) minmax(420px, 1fr);

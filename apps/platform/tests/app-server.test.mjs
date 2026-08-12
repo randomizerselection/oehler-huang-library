@@ -60,7 +60,7 @@ test("student-first HTTP routes enforce roles, assignment lifecycle, rubric auth
   const landingResponse = await fetch(`${base}/`);
   assert.equal(landingResponse.headers.get("permissions-policy"), "camera=(self), microphone=(), geolocation=()");
   const landing = await landingResponse.text();
-  assert.match(landing, /Oehler-Huang Library/);
+  assert.match(landing, /Oehler-Huang Learning Platform/);
   /* Consolidated root now serves the Library; the former student-entry assertion below is retained for migration history.
   assert.match(landing, /输入老师分享的作业代码/);
   */

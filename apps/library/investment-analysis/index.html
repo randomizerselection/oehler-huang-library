@@ -10,19 +10,33 @@
   <link rel="stylesheet" href="../assets/css/investment.css" />
   <link rel="stylesheet" href="../assets/css/landing.css" />
   <link rel="stylesheet" href="../assets/css/investment-home.css" />
+  <link rel="stylesheet" href="../assets/css/app-shell.css" />
   <script src="../assets/js/baidu-analytics.js"></script>
+  <script src="../assets/js/library-home.js" defer></script>
 </head>
 <body class="investment-home landing-page simplified-landing">
   <a class="investment-skip-link" href="#main-content">Skip to course content <span lang="zh-Hans">跳至课程内容</span></a>
   <main class="investment-page" id="main-content">
-    <nav class="investment-nav landing-nav" aria-label="Investment and Financial Decision-Making navigation / 投资与财务决策导航">
-      <a class="investment-link" href="../index.html">Oehler-Huang Library <span lang="zh-Hans">课程库</span></a>
-      <div class="investment-nav-links">
-        <a class="investment-link" href="../economics/index.html">Economics <span lang="zh-Hans">经济学</span></a>
-        <a class="investment-link" href="syllabus.html">Syllabus <span lang="zh-Hans">课程大纲</span></a>
-        <a class="investment-link" href="definitions.html">Definitions <span lang="zh-Hans">核心术语</span></a>
-      </div>
-    </nav>
+    <header class="investment-nav landing-nav oh-app-header" aria-label="Platform navigation">
+      <a class="investment-link oh-app-brand" href="../index.html" aria-label="Oehler-Huang Learning Platform home">
+        <span class="oh-app-mark" aria-hidden="true">OH</span>
+        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
+      </a>
+      <nav class="investment-nav-links oh-primary-nav" aria-label="Primary destinations">
+        <a class="investment-link" data-oh-nav="economics" href="../economics/index.html">Economics</a>
+        <a class="investment-link is-current" data-oh-nav="investment" href="index.html" aria-current="page">Investment</a>
+        <a class="investment-link" data-oh-nav="homework" href="/mark/">Homework</a>
+      </nav>
+      <div class="oh-header-account" data-oh-account-dock></div>
+    </header>
+    <div class="oh-context-bar" style="--oh-context-accent:#7ef0b5">
+      <strong class="oh-context-label">Investment</strong>
+      <nav class="oh-context-nav" aria-label="Investment course resources">
+        <a href="index.html" aria-current="page">Course home</a>
+        <a href="syllabus.html">Syllabus</a>
+        <a href="definitions.html">Definitions</a>
+      </nav>
+    </div>
 
     <header class="investment-hero">
       <div class="investment-hero-copy">
