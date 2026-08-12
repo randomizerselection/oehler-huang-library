@@ -10,3 +10,5 @@ Production activation is deliberately separate. After ICP approval and explicit 
 4. Switch root and `www` DNS, then add the `mark` redirect to `/mark/`.
 
 Every upgrade creates and verifies a database/upload backup before migrations, then switches its symlink atomically: `current-staging` for private staging and `current` for production. Use `rollback.sh <release-id> <environment>` for code rollback. Database rollbacks require a tested backup restore when a migration is not backward-compatible.
+
+For a small code-only release over a constrained connection, `install-overlay-release.sh` can create a new release from the current release using hard links and safely overlay a Git archive. It still reinstalls production dependencies, rebuilds generated content, backs up and verifies persistent data, runs migrations, enforces read-only code permissions, switches atomically, health-checks, and restores the previous symlink on failure. Use a full `publish-to-vps.ps1` release whenever media or other large source assets changed.
