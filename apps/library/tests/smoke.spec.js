@@ -8,6 +8,7 @@ const vm = require('vm');
 const root = path.resolve(__dirname, '..');
 const financialDecisionCourseMap = require(path.join(root, 'investment-analysis', 'course-map-financial-decisions-data.js'));
 const pageUrl = (relativePath) => pathToFileURL(path.join(root, relativePath)).toString();
+const localHomeworkUrl = 'http://127.0.0.1:4173/mark/';
 const remoteUrlPattern = /^https?:\/\//i;
 const deckTitleTranslations = {
   'External costs and benefits': '外部成本与外部收益',
@@ -640,6 +641,7 @@ test.describe('site smoke', () => {
 
     await expect(page.locator('link[href="assets/css/landing.css"]')).toHaveCount(1);
     await expect(page.locator('link[href="assets/css/library-home.css"]')).toHaveCount(1);
+    await expect(page.locator('script[src="assets/js/library-home.js"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.locator('.hero-summary-number, .course-index')).toHaveCount(0);
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
@@ -648,7 +650,8 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: /^Teaching$/i })).toHaveAttribute('href', 'pedagogy.html');
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
+    await expect(page.locator('.homework-nav-link')).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.locator('.hero, .hero-routes')).toHaveCount(0);
     await expect(page.locator('.entry-card')).toHaveCount(3);
     await expect(page.locator('.entry-media img')).toHaveCount(2);
@@ -738,7 +741,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
@@ -758,7 +761,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
-    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', '/mark/');
+    await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.getByText('Lessons are public. Homework submission requires an account.')).toBeVisible();
     await expect(page.getByText(/Syllabus-led lessons, quizzes, flashcards, handouts and revision materials/i)).toBeVisible();
     await expect(page.getByText(/Explore financial goals, markets, company analysis, portfolios/i)).toBeVisible();
