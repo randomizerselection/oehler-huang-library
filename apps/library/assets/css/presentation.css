@@ -258,6 +258,241 @@ body { overflow: hidden; }
   .slide { padding: 4vh 5vw; }
 }
 
+/* ---------- One-off syllabus welcome slide ---------- */
+.slide.is-welcome {
+  padding: 0;
+  gap: 0;
+  background: #07111d;
+}
+.slide.is-welcome.is-active {
+  display: block;
+}
+.welcomeBlock {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #07111d;
+}
+.welcomeIntro,
+.welcomeRules,
+.welcomeRuleGrid,
+.welcomeRule {
+  position: absolute;
+  inset: 0;
+}
+.welcomeIntroImage,
+.welcomeRuleImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.welcomeIntro::after,
+.welcomeRule::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(2,10,19,.94) 0%, rgba(2,10,19,.72) 38%, rgba(2,10,19,.14) 74%, rgba(2,10,19,.08) 100%),
+    linear-gradient(0deg, rgba(2,10,19,.78) 0%, rgba(2,10,19,.08) 60%);
+}
+.welcomeIntroCopy,
+.welcomeRuleOverlay {
+  position: absolute;
+  left: clamp(2rem, 6vw, 7rem);
+  bottom: clamp(3rem, 8vh, 7rem);
+  z-index: 2;
+  width: min(78vw, 980px);
+  color: #fff;
+  text-shadow: 0 3px 24px rgba(0,0,0,.5);
+}
+.welcomeEyebrow,
+.welcomeRuleContext {
+  display: block;
+  margin-bottom: clamp(.8rem, 1.6vh, 1.35rem);
+  color: var(--cyan);
+  font-size: clamp(15px, 1.05vw, 21px);
+  font-weight: 900;
+  letter-spacing: .15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.welcomeIntroCopy h1 {
+  max-width: 10ch;
+  color: #fff;
+  font-size: clamp(62px, 7.2vw, 138px);
+  line-height: .9;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+.welcomeIdentity {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .45rem 1.2rem;
+  margin-top: clamp(1.1rem, 2.5vh, 2rem);
+}
+.welcomeTeacherName {
+  color: #fff;
+  font-size: clamp(22px, 1.65vw, 34px);
+  line-height: 1.1;
+}
+.welcomeCallMe {
+  color: rgba(255,255,255,.78);
+  font-size: clamp(17px, 1.15vw, 24px);
+  line-height: 1.2;
+}
+.welcomeCallMe b {
+  color: var(--gold);
+  font-weight: 900;
+}
+.welcomeClasses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: clamp(1rem, 2vh, 1.6rem);
+}
+.welcomeClasses span {
+  min-width: 4.4rem;
+  padding: .56rem .78rem;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 999px;
+  background: rgba(4,14,25,.32);
+  backdrop-filter: blur(8px);
+  color: #edf8ff;
+  font-size: clamp(16px, 1vw, 21px);
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+.welcomeRule {
+  background: #07111d;
+}
+.welcomeRule.partial-item {
+  transform: none;
+  filter: none;
+  transition: opacity .5s var(--ease);
+}
+.welcomeRule.partial-item.is-visible {
+  transform: none;
+  filter: none;
+}
+.welcomeRule.is-label-top-left .welcomeRuleOverlay {
+  top: clamp(3rem, 8vh, 7rem);
+  bottom: auto;
+}
+.welcomeRuleContext {
+  margin-bottom: clamp(1.2rem, 2.5vh, 2rem);
+}
+.welcomeRuleNumber {
+  display: block;
+  margin-bottom: clamp(.65rem, 1.2vh, 1rem);
+  color: var(--gold);
+  font-size: clamp(24px, 2vw, 40px);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+.welcomeRuleNumber small {
+  color: rgba(255,255,255,.54);
+  font-size: .5em;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.welcomeRule h2 {
+  max-width: 16ch;
+  color: #fff;
+  font-size: clamp(48px, 5.1vw, 100px);
+  line-height: .95;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.welcomeRuleTitleZh {
+  display: block;
+  margin-top: clamp(.5rem, 1vh, .85rem);
+  color: rgba(235,244,255,.82);
+  font-size: .42em;
+  font-weight: 760;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+.welcomeRule p {
+  max-width: 46ch;
+  margin-top: clamp(1rem, 2.2vh, 1.7rem);
+  color: rgba(255,255,255,.86);
+  font-size: clamp(20px, 1.55vw, 31px);
+  font-weight: 650;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+.welcomeRule p mark {
+  padding: .03em .16em;
+  border-radius: .18em;
+  background: rgba(255,209,102,.28);
+  box-shadow: inset 0 -.12em 0 rgba(255,209,102,.55);
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .welcomeIntro::after,
+  .welcomeRule::after {
+    background:
+      linear-gradient(0deg, rgba(2,10,19,.95) 0%, rgba(2,10,19,.63) 48%, rgba(2,10,19,.18) 78%, rgba(2,10,19,.2) 100%);
+  }
+  .welcomeIntroCopy,
+  .welcomeRuleOverlay {
+    left: 7vw;
+    bottom: max(4.4rem, 7vh);
+    width: 86vw;
+  }
+  .welcomeRule.is-label-top-left .welcomeRuleOverlay {
+    top: auto;
+    bottom: max(4.4rem, 7vh);
+  }
+  .welcomeIntroCopy h1 {
+    max-width: 9ch;
+    font-size: clamp(52px, 17vw, 84px);
+  }
+  .welcomeIdentity {
+    display: grid;
+    gap: .35rem;
+  }
+  .welcomeClasses {
+    gap: .38rem;
+  }
+  .welcomeClasses span {
+    min-width: 0;
+    padding: .46rem .62rem;
+    font-size: clamp(13px, 3.6vw, 17px);
+  }
+  .welcomeRuleContext {
+    margin-bottom: .85rem;
+  }
+  .welcomeRuleNumber {
+    margin-bottom: .6rem;
+    font-size: clamp(21px, 6.5vw, 31px);
+  }
+  .welcomeRule h2 {
+    max-width: 12ch;
+    font-size: clamp(42px, 13vw, 68px);
+  }
+  .welcomeRuleTitleZh {
+    font-size: .48em;
+  }
+  .welcomeRule p {
+    max-width: 32ch;
+    margin-top: .9rem;
+    font-size: clamp(17px, 4.8vw, 23px);
+  }
+}
+
 /* ---------- Visual panels ---------- */
 .vizPanel {
   width: min(100%, 560px);
@@ -349,6 +584,11 @@ body { overflow: hidden; }
   height: 100vh;
   display: block;
   object-fit: cover;
+}
+.slide.is-visualPause.is-layout-contain-overview .visualPauseImage {
+  object-fit: contain;
+  object-position: center;
+  background: #f7f4ed;
 }
 body.is-visual-pause .lessonModeSwitch,
 body.is-visual-pause #progress,
@@ -1669,6 +1909,25 @@ h2 .inlineZh {
 .slide.is-term .visual {
   display: none;
 }
+.slide.is-term.is-layout-photo-term .content {
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: clamp(1.2rem, 2.6vw, 2.5rem);
+}
+.slide.is-term.is-layout-photo-term .visual {
+  min-height: 0;
+  display: grid;
+}
+.slide.is-term.is-layout-photo-term .termBlock {
+  width: 100%;
+}
+.slide.is-term.is-layout-photo-term .termDefinitionText {
+  max-width: 31ch;
+  font-size: clamp(25px, 2.15vw, 42px);
+}
+.slide.is-term.is-layout-photo-term .photoPanel {
+  height: min(56vh, 500px);
+  min-height: 320px;
+}
 .termBlock {
   width: min(1220px, 100%);
   justify-self: center;
@@ -1920,6 +2179,21 @@ h2 .inlineZh {
 }
 
 @media (max-width: 960px) {
+  .slide.is-term.is-layout-photo-term .content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .7rem;
+  }
+  .slide.is-term.is-layout-photo-term .visual {
+    min-height: 0;
+  }
+  .slide.is-term.is-layout-photo-term .photoPanel {
+    height: min(27vh, 250px);
+    min-height: 170px;
+  }
+  .slide.is-term.is-layout-photo-term .termDefinitionText {
+    max-width: none;
+    font-size: clamp(21px, 5.2vw, 29px);
+  }
   .termBlock {
     gap: .55rem;
   }
@@ -3827,6 +4101,11 @@ h2 .inlineZh {
   padding: 3px;
 }
 
+.lessonModeAccount {
+  display: inline-flex;
+  min-width: 0;
+}
+
 .lessonModeButton,
 .lessonModeTab,
 .lessonModeMenuButton {
@@ -5124,6 +5403,24 @@ body.is-flashcard-mode #deck {
   padding: 12px;
 }
 
+.quizIdentity > div {
+  display: grid;
+  gap: 5px;
+}
+
+.quizIdentity strong {
+  color: #0f3d35;
+  font-size: .9375rem;
+}
+
+.quizIdentity > a {
+  align-self: center;
+  justify-self: end;
+  color: #1d5f50;
+  font-size: .8125rem;
+  font-weight: 800;
+}
+
 .quizIdentity label,
 .quizBlank {
   display: grid;
@@ -6189,6 +6486,12 @@ body.is-flashcard-mode #deck {
     justify-content: stretch;
   }
 
+  .lessonModeAccount {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+
   .lessonModeTabs {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -6676,5 +6979,1663 @@ body.is-flashcard-mode #deck {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+  }
+}
+
+/* ---------- Opt-in paper presentation ----------
+   A reusable light lecture-deck treatment for source decks built around
+   flat typography, generous margins and documentary photography. */
+body.presentation-paper {
+  --bg-0: #f8f7f3;
+  --bg-1: #f8f7f3;
+  --bg-2: #ffffff;
+  --ink: #17242e;
+  --ink-dim: #26333d;
+  --muted: #68747e;
+  --cyan: #3f82f7;
+  --gold: #3f82f7;
+  --gold-warm: #2f6688;
+  --green: #2f9a68;
+  --rose: #ef6c5d;
+  --line: rgba(23, 36, 46, .14);
+  --line-strong: rgba(23, 36, 46, .24);
+  --card-bg: transparent;
+  --card-bg-hi: transparent;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --r-xl: 0;
+  font-family: Aptos, "Segoe UI", "Microsoft YaHei", "DengXian", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg-0);
+}
+
+body.presentation-paper.bg-ambient::before,
+body.presentation-paper.bg-ambient::after {
+  display: none;
+}
+
+.presentation-paper #deck,
+.presentation-paper .slide {
+  background: var(--bg-0);
+}
+
+.presentation-paper .slide {
+  padding: clamp(34px, 5.4vh, 64px) clamp(46px, 5.5vw, 88px);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+.presentation-paper .topline,
+.presentation-paper .slide-footer,
+.presentation-paper .slideSourceControl,
+.presentation-paper .discussionCredit,
+.presentation-paper .help {
+  display: none !important;
+}
+
+.presentation-paper .lessonModeSwitch {
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+
+.presentation-paper:hover .lessonModeSwitch,
+.presentation-paper .lessonModeSwitch:focus-within {
+  opacity: 1;
+}
+
+.presentation-paper #progress {
+  height: 3px;
+  background: rgba(63, 130, 247, .12);
+}
+
+.presentation-paper #progress span {
+  background: var(--cyan);
+}
+
+.presentation-paper .content {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, .78fr);
+  gap: clamp(32px, 4.2vw, 72px);
+  align-items: center;
+}
+
+.presentation-paper .content main {
+  min-width: 0;
+}
+
+.presentation-paper .content aside.visual {
+  min-width: 0;
+  min-height: 0;
+}
+
+.presentation-paper .slide h1,
+.presentation-paper .slide h2,
+.presentation-paper .slide h3,
+.presentation-paper .slide p,
+.presentation-paper .slide .text {
+  color: var(--ink);
+}
+
+.presentation-paper .slide h2 {
+  max-width: none;
+  font-size: clamp(38px, 4.1vw, 68px);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.presentation-paper .lead {
+  max-width: 46ch;
+  color: var(--ink);
+  font-size: clamp(23px, 2vw, 34px);
+  line-height: 1.28;
+}
+
+.presentation-paper .prompt {
+  display: block;
+  margin-top: clamp(16px, 2.6vh, 28px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #2f6688;
+  box-shadow: none;
+  font-size: clamp(19px, 1.45vw, 27px);
+  font-weight: 800;
+}
+
+.presentation-paper .photoPanel,
+.presentation-paper .slide.is-hero .photoPanel {
+  width: 100%;
+  max-width: none;
+  height: min(68vh, 590px);
+  min-height: 340px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.presentation-paper .photoPanel::after,
+.presentation-paper .photoPanel figcaption {
+  display: none;
+}
+
+.presentation-paper .photoPanel img {
+  object-fit: var(--photo-fit, cover);
+}
+
+/* Edge-to-edge title image, matching a conventional PowerPoint title slide. */
+.presentation-paper .slide.is-hero {
+  padding: 0;
+}
+
+.presentation-paper .slide.is-hero .content {
+  height: 100vh;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.presentation-paper .slide.is-hero .content main {
+  display: grid;
+  align-content: center;
+  padding: 7vh 5.6vw;
+}
+
+.presentation-paper .slide.is-hero .content aside.visual,
+.presentation-paper .slide.is-hero .photoPanel {
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+}
+
+.presentation-paper .slide.is-hero h1 {
+  max-width: 8.5ch;
+  color: var(--ink);
+  font-size: clamp(62px, 5.4vw, 94px);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.presentation-paper .slide.is-hero .heroTitleZh {
+  display: none;
+}
+
+/* Flat objective timeline. */
+.presentation-paper .slide.is-outcomes .content {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.presentation-paper .choices.is-outcomes {
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(22px, 3.4vw, 64px);
+  margin-top: clamp(58px, 11vh, 108px);
+}
+
+.presentation-paper .choices.is-outcomes::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #bcc5cc;
+}
+
+.presentation-paper .choices.is-outcomes .choice {
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .55rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.presentation-paper .choices.is-outcomes .choice::before {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  margin: 0 0 1.05rem;
+  border: 1.5px solid var(--cyan);
+  border-radius: 999px;
+  background: #eef4f7;
+  color: var(--ink);
+  font-size: clamp(24px, 2vw, 34px);
+}
+
+.presentation-paper .choices.is-outcomes .choice > span:first-child {
+  padding: 0;
+  border: 0;
+  color: #2f6688;
+  font-size: clamp(22px, 1.8vw, 31px);
+  line-height: 1.18;
+  font-weight: 850;
+}
+
+.presentation-paper .choices.is-outcomes .outcomeZh {
+  color: var(--muted);
+  font-size: clamp(17px, 1.25vw, 22px);
+  line-height: 1.3;
+}
+
+/* Framed observation slide: title above a large photograph. */
+.presentation-paper .slide.is-visualPause.is-framed {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: clamp(34px, 5.2vh, 58px) clamp(46px, 4.8vw, 76px);
+  background: var(--bg-0);
+}
+
+.presentation-paper .slide.is-visualPause.is-framed.is-active {
+  display: grid;
+}
+
+.presentation-paper .visualPauseFrame {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(24px, 4vh, 42px);
+}
+
+.presentation-paper .visualPauseFrame h2 {
+  color: var(--ink);
+  font-size: clamp(42px, 4.25vw, 70px);
+}
+
+.presentation-paper .visualPauseMedia {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.presentation-paper .visualPauseMedia .visualPauseImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Split question slides. */
+.presentation-paper .slide.is-discussion {
+  padding: 0;
+  background: var(--bg-0);
+}
+
+.presentation-paper .slide.is-discussion::after {
+  display: none;
+}
+
+.presentation-paper .slide.is-discussion > :not(.discussionBg) {
+  position: relative;
+  z-index: 1;
+}
+
+.presentation-paper .slide.is-discussion .discussionBg {
+  inset: 0 0 0 auto;
+  width: 45%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+.presentation-paper .discussionContent {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: clamp(34px, 5.4vh, 64px) clamp(46px, 5.5vw, 88px);
+}
+
+.presentation-paper .slide.is-discussion.has-visual .discussionContent {
+  width: 55%;
+  padding-right: clamp(34px, 4.4vw, 70px);
+}
+
+.presentation-paper .discussionPrompt {
+  width: 100%;
+  max-width: none;
+  display: grid;
+  gap: clamp(12px, 1.65vh, 20px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .discussionTitle {
+  margin-bottom: clamp(10px, 1.2vh, 18px);
+  color: var(--ink);
+  font-size: clamp(35px, 3.55vw, 58px);
+  line-height: 1.06;
+}
+
+.presentation-paper .discussionPrompt > p {
+  max-width: 32ch;
+  color: var(--ink);
+  font-size: clamp(24px, 2.35vw, 40px);
+  line-height: 1.17;
+  font-weight: 820;
+  text-wrap: pretty;
+}
+
+.presentation-paper .discussionPrompt .discussionFollowUp {
+  color: var(--rose);
+  font-size: clamp(21px, 1.95vw, 33px);
+  font-weight: 850;
+}
+
+.presentation-paper .discussionPrompt .zh,
+.presentation-paper .discussionPrompt .discussionFollowUpZh {
+  color: var(--muted);
+  font-size: clamp(17px, 1.35vw, 24px);
+  line-height: 1.34;
+  font-weight: 500;
+}
+
+.presentation-paper .discussionSupport {
+  display: grid;
+  gap: .42rem;
+  margin-top: clamp(8px, 1.2vh, 16px);
+}
+
+.presentation-paper .discussionSupport span {
+  color: var(--ink);
+  font-size: clamp(19px, 1.55vw, 27px);
+  line-height: 1.27;
+}
+
+.presentation-paper .discussionAnswerButton {
+  width: fit-content;
+  margin-top: clamp(10px, 1.5vh, 18px);
+  padding: .58rem .78rem;
+  border: 1px solid rgba(63, 130, 247, .38);
+  border-radius: 7px;
+  background: rgba(63, 130, 247, .06);
+  color: #2f6688;
+  box-shadow: none;
+}
+
+.presentation-paper .slide.is-layout-opening .discussionPrompt > p:first-of-type {
+  font-size: clamp(34px, 3.5vw, 59px);
+  line-height: 1.04;
+}
+
+.presentation-paper .slide.is-layout-quick-check .discussionPrompt {
+  align-content: center;
+}
+
+.presentation-paper .slide.is-layout-quick-check .discussionPrompt > p:first-of-type {
+  color: var(--cyan);
+  font-size: clamp(28px, 2.8vw, 47px);
+}
+
+.presentation-paper .slide.is-layout-short-answer .discussionPrompt > p:first-of-type {
+  font-size: clamp(22px, 1.92vw, 32px);
+}
+
+/* Definitions and evidence slides are flat, not card-like. */
+.presentation-paper .termBlock {
+  display: grid;
+  gap: clamp(12px, 1.7vh, 20px);
+}
+
+.presentation-paper .definitionCue {
+  display: none;
+}
+
+.presentation-paper .termBlock h2 {
+  color: #2f6688;
+  font-size: clamp(40px, 4vw, 66px);
+  line-height: 1.04;
+}
+
+.presentation-paper .termBlock h2 .inlineZh {
+  color: inherit;
+}
+
+.presentation-paper .termBlock .lead {
+  color: var(--rose);
+  font-size: clamp(21px, 1.6vw, 28px);
+  font-weight: 800;
+}
+
+.presentation-paper .termBlock .termBox {
+  display: grid;
+  gap: .55rem;
+  margin: clamp(10px, 1.6vh, 18px) 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .termDefinitionText {
+  max-width: 34ch;
+  color: var(--ink);
+  font-size: clamp(23px, 2vw, 34px);
+  line-height: 1.32;
+  font-weight: 500;
+}
+
+.presentation-paper .termBox .termDefinitionZh {
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: clamp(16px, 1.22vw, 21px);
+  line-height: 1.36;
+}
+
+.presentation-paper .formula {
+  margin-top: clamp(8px, 1.2vh, 14px);
+  color: #2f6688;
+  font-size: clamp(21px, 1.75vw, 30px);
+  line-height: 1.22;
+}
+
+.presentation-paper .termExamples {
+  grid-template-columns: minmax(0, 1fr);
+  gap: .15rem;
+  margin-top: clamp(6px, 1vh, 12px);
+}
+
+.presentation-paper .termExample {
+  min-height: 0;
+  display: block;
+  padding: .18rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.presentation-paper .termExample > span {
+  display: none;
+}
+
+.presentation-paper .termExample b,
+.presentation-paper .termExample em {
+  display: inline;
+  color: var(--ink);
+  font-size: clamp(17px, 1.28vw, 23px);
+  line-height: 1.3;
+}
+
+.presentation-paper .termExample b::after {
+  content: ": ";
+}
+
+.presentation-paper .slide.is-cards .cardgrid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(5px, .85vh, 10px);
+  margin-top: clamp(18px, 3vh, 34px);
+}
+
+.presentation-paper .slide.is-cards .card {
+  min-height: 0;
+  display: block;
+  padding: .22rem 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .slide.is-cards .cardIcon,
+.presentation-paper .slide.is-cards .cardVisual,
+.presentation-paper .slide.is-cards .card .num {
+  display: none;
+}
+
+.presentation-paper .slide.is-cards .card b,
+.presentation-paper .slide.is-cards .card span {
+  display: inline;
+  font-size: clamp(19px, 1.5vw, 27px);
+  line-height: 1.3;
+}
+
+.presentation-paper .slide.is-cards .card b {
+  margin: 0 .32rem 0 0;
+  color: #2f6688;
+  font-weight: 850;
+}
+
+.presentation-paper .slide.is-cards .card span {
+  color: var(--ink);
+}
+
+.presentation-paper .slide.is-visual-left .content {
+  grid-template-columns: minmax(300px, .85fr) minmax(0, 1fr);
+}
+
+.presentation-paper .slide.is-visual-left .content main {
+  grid-column: 2;
+}
+
+.presentation-paper .slide.is-visual-left .content aside.visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Classification rows: blue numbers, plain text, answer on reveal. */
+.presentation-paper .classificationTaskBlock {
+  width: 100%;
+  gap: clamp(12px, 1.6vh, 20px);
+}
+
+.presentation-paper .classificationBadge {
+  display: none;
+}
+
+.presentation-paper .classificationTaskBlock h2 {
+  font-size: clamp(30px, 3.15vw, 52px);
+  line-height: 1.04;
+}
+
+.presentation-paper .classificationItems {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(7px, 1vh, 12px);
+}
+
+.presentation-paper .classificationItem {
+  min-height: 0;
+  display: grid;
+  padding: .12rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .classificationItemTop {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .35rem;
+}
+
+.presentation-paper .classificationItemNumber {
+  width: auto;
+  height: auto;
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cyan);
+  font-size: clamp(22px, 1.75vw, 31px);
+}
+
+.presentation-paper .classificationItemNumber::after {
+  content: ".";
+}
+
+.presentation-paper .classificationItem p {
+  color: var(--ink);
+  font-size: clamp(18px, 1.45vw, 26px);
+  line-height: 1.24;
+}
+
+.presentation-paper .classificationResult {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  padding: .2rem 0 .25rem 2.25rem;
+  border: 0;
+}
+
+.presentation-paper .classificationAnswer {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #2f6688;
+}
+
+.presentation-paper .classificationReason {
+  color: var(--muted);
+}
+
+/* MCQs use the source deck's left label and flat answer rows. */
+.presentation-paper .slide.is-quiz .content {
+  align-items: center;
+}
+
+.presentation-paper .quizBlock {
+  width: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(120px, .18fr) minmax(0, 1fr);
+  align-content: center;
+  gap: clamp(16px, 2.1vw, 34px) clamp(24px, 3vw, 52px);
+}
+
+.presentation-paper .quizEyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  color: var(--cyan);
+  font-size: clamp(30px, 3.2vw, 52px);
+  line-height: 1;
+  font-weight: 850;
+}
+
+.presentation-paper .quizBlock > .lead {
+  grid-column: 2;
+  grid-row: 1;
+  max-width: none;
+  font-size: clamp(26px, 2.55vw, 43px);
+  line-height: 1.13;
+  font-weight: 850;
+}
+
+.presentation-paper .quizBlock > .termDefinitionZh {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: clamp(16px, 1.2vw, 21px);
+}
+
+.presentation-paper .quizBlock .choices {
+  grid-column: 2;
+  gap: clamp(8px, 1.2vh, 14px);
+  margin-top: 0;
+}
+
+.presentation-paper .quizBlock .choice {
+  min-height: 0;
+  padding: .52rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+  font-size: clamp(20px, 1.62vw, 29px);
+  line-height: 1.28;
+}
+
+.presentation-paper .quizBlock .choiceLetter {
+  min-width: 1.35em;
+  height: auto;
+  display: inline;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cyan);
+  font-size: 1em;
+}
+
+.presentation-paper .quizBlock .choiceLetter::after {
+  content: ".";
+}
+
+.presentation-paper .quizBlock .choice:hover,
+.presentation-paper .quizBlock .choice:focus-visible {
+  background: rgba(63, 130, 247, .055);
+}
+
+/* Model answers and exit ticket remain spacious and typographic. */
+.presentation-paper .modelAnswerBlock {
+  gap: clamp(16px, 2.8vh, 28px);
+}
+
+.presentation-paper .modelAnswerBlock h2 {
+  font-size: clamp(43px, 4.3vw, 72px);
+}
+
+.presentation-paper .modelAnswerCard {
+  margin-top: clamp(24px, 6vh, 62px);
+  padding: 0 clamp(20px, 3.8vw, 60px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .modelAnswerLabel {
+  display: none;
+}
+
+.presentation-paper .modelAnswerText {
+  max-width: 42ch;
+  color: var(--ink);
+  font-size: clamp(26px, 2.45vw, 42px);
+  line-height: 1.27;
+  font-weight: 500;
+}
+
+.presentation-paper .modelAnswerText mark {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #2f6688;
+  box-shadow: none;
+  font-weight: 850;
+}
+
+.presentation-paper .peerTaskBlock {
+  width: 100%;
+  gap: clamp(14px, 2vh, 24px);
+}
+
+.presentation-paper .peerTaskBlock h2 {
+  font-size: clamp(42px, 4.2vw, 70px);
+}
+
+.presentation-paper .peerTaskGrid,
+.presentation-paper .peerTaskBottom {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(10px, 1.6vh, 18px);
+}
+
+.presentation-paper .peerTaskPromptPanel,
+.presentation-paper .peerTaskStepsPanel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .peerTaskBadge,
+.presentation-paper .peerTaskPanelLabel {
+  display: none;
+}
+
+.presentation-paper .peerTaskBlock .lead {
+  max-width: 54ch;
+  font-size: clamp(21px, 1.75vw, 30px);
+  font-weight: 500;
+}
+
+.presentation-paper .peerTaskBlock .steps {
+  gap: .22rem;
+}
+
+.presentation-paper .peerTaskBlock .step {
+  min-height: 0;
+  padding: .22rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.presentation-paper .peerTaskBlock .step .label {
+  min-width: 5.4em;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cyan);
+  font-size: clamp(21px, 1.8vw, 31px);
+  text-align: left;
+}
+
+.presentation-paper .peerTaskBlock .step .desc {
+  color: var(--ink);
+  font-size: clamp(19px, 1.55vw, 27px);
+  line-height: 1.27;
+}
+
+@media (max-width: 960px) {
+  .presentation-paper .slide {
+    padding: 28px 28px 38px;
+  }
+
+  .presentation-paper .content,
+  .presentation-paper .slide.is-visual-left .content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-content: start;
+  }
+
+  .presentation-paper .slide.is-visual-left .content main,
+  .presentation-paper .slide.is-visual-left .content aside.visual {
+    grid-column: 1;
+  }
+
+  .presentation-paper .slide.is-visual-left .content main {
+    grid-row: 1;
+  }
+
+  .presentation-paper .slide.is-visual-left .content aside.visual {
+    grid-row: 2;
+  }
+
+  .presentation-paper .photoPanel,
+  .presentation-paper .slide.is-hero .photoPanel {
+    height: min(38vh, 330px);
+    min-height: 220px;
+  }
+
+  .presentation-paper .slide.is-hero .content {
+    height: 100vh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: .8fr 1.2fr;
+  }
+
+  .presentation-paper .slide.is-hero .content main {
+    padding: 34px 28px 24px;
+  }
+
+  .presentation-paper .slide.is-hero .content aside.visual,
+  .presentation-paper .slide.is-hero .photoPanel {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .presentation-paper .slide.is-hero h1 {
+    font-size: clamp(48px, 12vw, 68px);
+  }
+
+  .presentation-paper .choices.is-outcomes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .presentation-paper .choices.is-outcomes::before {
+    display: none;
+  }
+
+  .presentation-paper .choices.is-outcomes .choice {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    text-align: left;
+  }
+
+  .presentation-paper .choices.is-outcomes .choice::before {
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+  }
+
+  .presentation-paper .slide.is-discussion .discussionBg {
+    inset: auto 0 0;
+    width: 100%;
+    height: 38%;
+  }
+
+  .presentation-paper .discussionContent,
+  .presentation-paper .slide.is-discussion.has-visual .discussionContent {
+    width: 100%;
+    height: 62vh;
+    padding: 30px 28px 20px;
+    align-items: start;
+    overflow-y: auto;
+  }
+
+  .presentation-paper .slide.is-discussion:not(.has-visual) .discussionContent {
+    height: 100vh;
+    align-items: center;
+  }
+
+  .presentation-paper .discussionPrompt > p,
+  .presentation-paper .slide.is-layout-opening .discussionPrompt > p:first-of-type {
+    max-width: none;
+    font-size: clamp(24px, 6.6vw, 34px);
+  }
+
+  .presentation-paper .visualPauseFrame {
+    gap: 20px;
+  }
+
+  .presentation-paper .quizBlock {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .presentation-paper .quizEyebrow,
+  .presentation-paper .quizBlock > .lead,
+  .presentation-paper .quizBlock > .termDefinitionZh,
+  .presentation-paper .quizBlock .choices {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .presentation-paper .quizEyebrow {
+    font-size: 28px;
+  }
+
+  .presentation-paper .quizBlock > .lead {
+    font-size: clamp(22px, 5.8vw, 30px);
+  }
+
+  .presentation-paper .quizBlock .choice {
+    font-size: clamp(17px, 4.35vw, 22px);
+  }
+
+  .presentation-paper .classificationItem p {
+    font-size: clamp(16px, 4.05vw, 20px);
+  }
+
+  .presentation-paper .modelAnswerCard {
+    margin-top: 18px;
+    padding: 0;
+  }
+
+  .presentation-paper .modelAnswerText {
+    font-size: clamp(21px, 5.4vw, 28px);
+  }
+}
+
+/* ---------- Refined PPT polish ----------
+   A quiet fit-and-finish pass: stronger hierarchy, cleaner rows and safer
+   classroom-height behaviour without adding new visual furniture. */
+.presentation-paper .slide {
+  overflow: hidden;
+  padding: clamp(30px, 4.6vh, 54px) clamp(44px, 5.25vw, 84px);
+}
+
+.presentation-paper .content {
+  width: min(100%, 1440px);
+  height: 100%;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+  gap: clamp(30px, 4vw, 64px);
+}
+
+.presentation-paper .content main,
+.presentation-paper .content main > div {
+  min-width: 0;
+  max-height: 100%;
+}
+
+.presentation-paper .slide h2 {
+  margin: 0;
+  font-size: clamp(38px, 3.8vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -.034em;
+}
+
+.presentation-paper .inlineZh {
+  margin: .12em 0 0;
+  color: #68747e;
+  font-size: .38em;
+  letter-spacing: 0;
+  font-weight: 650;
+}
+
+.presentation-paper .termBlock h2 .inlineZh,
+.presentation-paper .discussionTitle .inlineZh {
+  display: inline;
+  margin: 0 0 0 .38em;
+  color: inherit;
+  font-size: .52em;
+}
+
+.presentation-paper .lead {
+  margin: clamp(12px, 1.8vh, 20px) 0 0;
+  font-size: clamp(22px, 1.78vw, 30px);
+  line-height: 1.26;
+}
+
+.presentation-paper .prompt {
+  max-width: 64ch;
+  margin-top: clamp(12px, 1.8vh, 20px);
+  color: #43677f;
+  font-size: clamp(17px, 1.18vw, 21px);
+  line-height: 1.32;
+  font-weight: 650;
+}
+
+.presentation-paper .photoPanel,
+.presentation-paper .slide.is-hero .photoPanel {
+  height: clamp(360px, 68vh, 640px);
+  min-height: 0;
+}
+
+.presentation-paper .slide.is-hero .content {
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  grid-template-columns: 1.12fr .88fr;
+}
+
+.presentation-paper .slide.is-hero .content main {
+  padding: 7vh 5.6vw;
+}
+
+.presentation-paper .slide.is-hero .content aside.visual,
+.presentation-paper .slide.is-hero .photoPanel {
+  height: 100dvh;
+}
+
+.presentation-paper .slide.is-hero h1 {
+  max-width: 8ch;
+  font-size: clamp(60px, 5.15vw, 90px);
+  line-height: .96;
+}
+
+.presentation-paper .slide.is-outcomes h2 {
+  font-size: clamp(46px, 4.25vw, 68px);
+}
+
+.presentation-paper .choices.is-outcomes {
+  gap: clamp(24px, 3vw, 52px);
+  margin-top: clamp(42px, 8vh, 78px);
+}
+
+.presentation-paper .choices.is-outcomes::before {
+  top: 31px;
+}
+
+.presentation-paper .choices.is-outcomes .choice {
+  gap: .48rem;
+}
+
+.presentation-paper .choices.is-outcomes .choice::before {
+  width: 62px;
+  height: 62px;
+  margin-bottom: .8rem;
+  font-size: clamp(22px, 1.7vw, 30px);
+}
+
+.presentation-paper .choices.is-outcomes .choice > span:first-child {
+  font-size: clamp(20px, 1.55vw, 27px);
+  line-height: 1.18;
+}
+
+.presentation-paper .choices.is-outcomes .outcomeZh {
+  max-width: 24ch;
+  font-size: clamp(15px, 1.02vw, 18px);
+  line-height: 1.32;
+}
+
+.presentation-paper .slide.is-visualPause.is-framed {
+  height: 100dvh;
+  padding: clamp(30px, 4.6vh, 52px) clamp(44px, 5.25vw, 84px);
+}
+
+.presentation-paper .visualPauseFrame {
+  gap: clamp(20px, 3vh, 32px);
+}
+
+.presentation-paper .visualPauseFrame h2 {
+  font-size: clamp(42px, 3.9vw, 62px);
+  line-height: 1;
+}
+
+.presentation-paper .slide.is-discussion .discussionBg {
+  width: 42%;
+}
+
+.presentation-paper .discussionContent {
+  width: min(100%, 1440px);
+  height: 100dvh;
+  margin-inline: auto;
+  padding: clamp(30px, 4.6vh, 54px) clamp(44px, 5.25vw, 84px);
+}
+
+.presentation-paper .slide.is-discussion.has-visual .discussionContent {
+  width: 58%;
+  margin: 0;
+  padding-right: clamp(34px, 4vw, 64px);
+}
+
+.presentation-paper .discussionPrompt {
+  gap: clamp(10px, 1.35vh, 16px);
+}
+
+.presentation-paper .discussionTitle {
+  max-width: 19ch;
+  margin-bottom: clamp(6px, .8vh, 10px);
+  font-size: clamp(34px, 3.15vw, 50px);
+  line-height: 1.04;
+}
+
+.presentation-paper .discussionPrompt > p {
+  max-width: 31ch;
+  font-size: clamp(25px, 2.15vw, 36px);
+  line-height: 1.17;
+}
+
+.presentation-paper .discussionPrompt .discussionFollowUp {
+  font-size: clamp(20px, 1.7vw, 28px);
+  line-height: 1.2;
+}
+
+.presentation-paper .discussionPrompt .zh,
+.presentation-paper .discussionPrompt .discussionFollowUpZh {
+  max-width: 39ch;
+  font-size: clamp(16px, 1.18vw, 20px);
+  line-height: 1.34;
+}
+
+.presentation-paper .discussionSupport {
+  gap: .28rem;
+  margin-top: clamp(4px, .7vh, 9px);
+}
+
+.presentation-paper .discussionSupport span {
+  font-size: clamp(17px, 1.25vw, 21px);
+  line-height: 1.26;
+}
+
+.presentation-paper .discussionAnswerButton {
+  gap: .3rem;
+  margin-top: clamp(7px, 1vh, 12px);
+  padding: .32rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(47, 102, 136, .42);
+  border-radius: 0;
+  background: transparent;
+  color: #2f6688;
+  box-shadow: none;
+  font-size: clamp(14px, .95vw, 17px);
+  font-weight: 700;
+}
+
+.presentation-paper .discussionAnswerButton:hover,
+.presentation-paper .discussionAnswerButton:focus-visible {
+  border-color: #2f6688;
+  background: transparent;
+  color: #244f69;
+}
+
+.presentation-paper .slide.is-layout-opening .discussionPrompt > p:first-of-type {
+  max-width: 22ch;
+  font-size: clamp(32px, 3vw, 50px);
+  line-height: 1.04;
+}
+
+.presentation-paper .slide.is-layout-quick-check:not(.has-visual) .discussionContent {
+  max-width: 1160px;
+}
+
+.presentation-paper .slide.is-layout-quick-check .discussionTitle {
+  color: #2f6688;
+}
+
+.presentation-paper .slide.is-layout-quick-check .discussionPrompt > p:first-of-type {
+  font-size: clamp(27px, 2.45vw, 39px);
+}
+
+.presentation-paper .slide.is-layout-short-answer .discussionTitle {
+  max-width: 24ch;
+  font-size: clamp(31px, 2.75vw, 44px);
+}
+
+.presentation-paper .slide.is-layout-short-answer .discussionPrompt > p:first-of-type {
+  max-width: 34ch;
+  font-size: clamp(22px, 1.78vw, 29px);
+  line-height: 1.2;
+}
+
+.presentation-paper .termBlock {
+  gap: clamp(9px, 1.25vh, 14px);
+}
+
+.presentation-paper .slide.is-term .content {
+  grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr);
+}
+
+.presentation-paper .slide.is-term .visual {
+  display: grid;
+}
+
+.presentation-paper .slide.is-term .photoPanel {
+  height: clamp(360px, 64vh, 590px);
+}
+
+.presentation-paper .termBlock h2 {
+  font-size: clamp(39px, 3.55vw, 57px);
+}
+
+.presentation-paper .termBlock .lead {
+  margin: 0;
+  font-size: clamp(18px, 1.35vw, 23px);
+}
+
+.presentation-paper .termBlock .termBox {
+  gap: .38rem;
+  margin-top: clamp(5px, .8vh, 9px);
+}
+
+.presentation-paper .termDefinitionText {
+  max-width: 35ch;
+  font-size: clamp(21px, 1.72vw, 28px);
+  line-height: 1.28;
+}
+
+.presentation-paper .termBox .termDefinitionZh {
+  font-size: clamp(14px, 1.02vw, 18px);
+  line-height: 1.34;
+}
+
+.presentation-paper .formula {
+  margin-top: clamp(4px, .65vh, 8px);
+  font-size: clamp(18px, 1.42vw, 24px);
+}
+
+.presentation-paper .termExamples {
+  gap: .05rem;
+  margin-top: clamp(3px, .55vh, 7px);
+}
+
+.presentation-paper .termExample {
+  padding: .1rem 0;
+}
+
+.presentation-paper .termExample b,
+.presentation-paper .termExample em {
+  font-size: clamp(15px, 1.08vw, 19px);
+  line-height: 1.27;
+}
+
+.presentation-paper .slide.is-cards h2 {
+  font-size: clamp(38px, 3.45vw, 56px);
+}
+
+.presentation-paper .slide.is-cards .lead {
+  color: #52616d;
+  font-size: clamp(19px, 1.45vw, 25px);
+}
+
+.presentation-paper .slide.is-cards .cardgrid {
+  gap: clamp(7px, .85vh, 10px);
+  margin-top: clamp(15px, 2.35vh, 26px);
+}
+
+.presentation-paper .slide.is-cards .card {
+  display: grid;
+  grid-template-columns: minmax(130px, .72fr) minmax(0, 1.28fr);
+  column-gap: clamp(12px, 1.5vw, 22px);
+  align-items: baseline;
+  padding: .14rem 0;
+}
+
+.presentation-paper .slide.is-cards .card b,
+.presentation-paper .slide.is-cards .card span {
+  font-size: clamp(17px, 1.25vw, 22px);
+  line-height: 1.28;
+}
+
+.presentation-paper .slide.is-cards .card b {
+  margin: 0;
+}
+
+.presentation-paper .slide.is-cards .prompt {
+  max-width: 55ch;
+  color: #65727c;
+  font-size: clamp(14px, .95vw, 17px);
+  font-weight: 550;
+}
+
+.presentation-paper .classificationTaskBlock {
+  width: min(1340px, 100%);
+  gap: clamp(9px, 1.25vh, 14px);
+}
+
+.presentation-paper .classificationTaskBlock h2 {
+  font-size: clamp(31px, 2.8vw, 44px);
+  line-height: 1.06;
+}
+
+.presentation-paper .classificationItems {
+  gap: clamp(5px, .62vh, 8px);
+}
+
+.presentation-paper .classificationItem {
+  grid-template-columns: minmax(0, 1.38fr) minmax(260px, .62fr);
+  grid-template-rows: auto;
+  align-items: center;
+  gap: clamp(14px, 2vw, 30px);
+  padding: .16rem 0;
+}
+
+.presentation-paper .classificationItemTop {
+  gap: .48rem;
+}
+
+.presentation-paper .classificationItemNumber {
+  font-size: clamp(20px, 1.48vw, 26px);
+}
+
+.presentation-paper .classificationItem p {
+  font-size: clamp(17px, 1.23vw, 22px);
+  line-height: 1.22;
+  font-weight: 650;
+}
+
+.presentation-paper .classificationResult {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: .55rem;
+  padding: 0;
+}
+
+.presentation-paper .classificationAnswer {
+  font-size: clamp(15px, .94vw, 17px);
+  font-weight: 800;
+}
+
+.presentation-paper .classificationReason {
+  font-size: clamp(14px, .95vw, 17px);
+  line-height: 1.22;
+}
+
+.presentation-paper .classificationShare {
+  margin-top: 2px;
+  font-size: clamp(14px, .95vw, 17px);
+}
+
+.presentation-paper .quizBlock {
+  grid-template-columns: minmax(105px, .17fr) minmax(0, 1fr);
+  gap: clamp(14px, 1.75vw, 26px) clamp(24px, 2.7vw, 44px);
+}
+
+.presentation-paper .quizEyebrow {
+  font-size: clamp(28px, 2.85vw, 45px);
+}
+
+.presentation-paper .quizBlock > .lead {
+  font-size: clamp(27px, 2.3vw, 38px);
+  line-height: 1.14;
+}
+
+.presentation-paper .quizBlock .choices {
+  gap: clamp(5px, .8vh, 9px);
+}
+
+.presentation-paper .quizBlock .choice {
+  padding: .38rem 0;
+  font-size: clamp(18px, 1.38vw, 24px);
+  line-height: 1.24;
+}
+
+.presentation-paper .quizBlock .choiceLetter {
+  min-width: 1.5em;
+}
+
+.presentation-paper .modelAnswerBlock {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  gap: clamp(12px, 1.8vh, 20px);
+}
+
+.presentation-paper .modelAnswerBlock h2 {
+  font-size: clamp(42px, 3.9vw, 62px);
+}
+
+.presentation-paper .modelAnswerCard {
+  margin-top: clamp(16px, 3.2vh, 32px);
+  padding: 0 clamp(10px, 2.8vw, 38px);
+}
+
+.presentation-paper .modelAnswerText {
+  max-width: 45ch;
+  font-size: clamp(25px, 2.1vw, 35px);
+  line-height: 1.28;
+}
+
+.presentation-paper .modelAnswerParagraphs {
+  display: grid;
+  gap: clamp(12px, 1.8vh, 20px);
+  font-size: clamp(22px, 1.75vw, 29px);
+  line-height: 1.27;
+}
+
+.presentation-paper .peerTaskBlock {
+  width: min(1220px, 100%);
+  margin-inline: auto;
+  gap: clamp(10px, 1.4vh, 16px);
+}
+
+.presentation-paper .peerTaskBlock h2 {
+  font-size: clamp(40px, 3.75vw, 60px);
+}
+
+.presentation-paper .peerTaskBlock .lead {
+  max-width: 62ch;
+  margin-top: 0;
+  font-size: clamp(18px, 1.4vw, 24px);
+  line-height: 1.3;
+}
+
+.presentation-paper .peerTaskGrid {
+  gap: clamp(8px, 1vh, 12px);
+}
+
+.presentation-paper .peerTaskBlock .steps {
+  gap: .1rem;
+}
+
+.presentation-paper .peerTaskBlock .step {
+  padding: .16rem 0;
+}
+
+.presentation-paper .peerTaskBlock .step .label {
+  min-width: 5.6em;
+  font-size: clamp(18px, 1.48vw, 25px);
+}
+
+.presentation-paper .peerTaskBlock .step .desc {
+  font-size: clamp(17px, 1.3vw, 22px);
+  line-height: 1.24;
+}
+
+.presentation-paper .peerTaskShare {
+  max-width: none;
+  padding-top: clamp(8px, 1vh, 12px);
+  border-top: 1px solid rgba(47, 102, 136, .22);
+  font-size: clamp(14px, .94vw, 17px);
+}
+
+/* Typical classroom displays are often wide but only 720–768 px tall. */
+@media (min-width: 961px) and (max-height: 780px) {
+  .presentation-paper .slide {
+    padding-top: 26px;
+    padding-bottom: 30px;
+  }
+
+  .presentation-paper .content {
+    gap: clamp(24px, 3.2vw, 50px);
+  }
+
+  .presentation-paper .photoPanel,
+  .presentation-paper .slide.is-hero .photoPanel {
+    height: min(64vh, 500px);
+  }
+
+  .presentation-paper .slide.is-hero .photoPanel,
+  .presentation-paper .slide.is-hero .content aside.visual {
+    height: 100dvh;
+  }
+
+  .presentation-paper .choices.is-outcomes {
+    margin-top: 34px;
+  }
+
+  .presentation-paper .discussionContent {
+    padding-top: 26px;
+    padding-bottom: 30px;
+  }
+
+  .presentation-paper .discussionPrompt {
+    gap: 8px;
+  }
+
+  .presentation-paper .slide.is-layout-opening .discussionPrompt > p:first-of-type {
+    font-size: clamp(31px, 2.75vw, 44px);
+  }
+
+  .presentation-paper .slide.is-layout-short-answer .discussionTitle {
+    font-size: clamp(29px, 2.5vw, 39px);
+  }
+
+  .presentation-paper .slide.is-layout-short-answer .discussionPrompt > p:first-of-type {
+    font-size: clamp(20px, 1.6vw, 26px);
+  }
+
+  .presentation-paper .termBlock {
+    gap: 7px;
+  }
+
+  .presentation-paper .termDefinitionText {
+    font-size: clamp(19px, 1.52vw, 25px);
+  }
+
+  .presentation-paper .termBox .termDefinitionZh,
+  .presentation-paper .termExample b,
+  .presentation-paper .termExample em {
+    font-size: clamp(13px, .96vw, 16px);
+  }
+
+  .presentation-paper .classificationTaskBlock h2 {
+    font-size: clamp(29px, 2.48vw, 39px);
+  }
+
+  .presentation-paper .classificationItem p {
+    font-size: clamp(16px, 1.08vw, 19px);
+  }
+
+  .presentation-paper .classificationReason,
+  .presentation-paper .classificationShare {
+    font-size: clamp(13px, .86vw, 15px);
+  }
+
+  .presentation-paper .quizBlock > .lead {
+    font-size: clamp(25px, 2.05vw, 34px);
+  }
+
+  .presentation-paper .quizBlock .choice {
+    font-size: clamp(17px, 1.22vw, 21px);
+  }
+
+  .presentation-paper .modelAnswerCard {
+    margin-top: 14px;
+  }
+
+  .presentation-paper .modelAnswerText {
+    font-size: clamp(23px, 1.88vw, 31px);
+  }
+
+  .presentation-paper .modelAnswerParagraphs {
+    font-size: clamp(20px, 1.55vw, 26px);
+  }
+}
+
+@media (max-width: 960px) {
+  .presentation-paper .slide.is-active {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .presentation-paper .slide {
+    padding: 26px 26px 36px;
+  }
+
+  .presentation-paper .content,
+  .presentation-paper .slide.is-visual-left .content,
+  .presentation-paper .slide.is-term .content {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .presentation-paper .slide h2 {
+    font-size: clamp(32px, 8.2vw, 46px);
+  }
+
+  .presentation-paper .slide.is-hero .content {
+    height: 100dvh;
+  }
+
+  .presentation-paper .slide.is-hero .content main {
+    padding: 30px 26px 22px;
+  }
+
+  .presentation-paper .slide.is-hero h1 {
+    font-size: clamp(46px, 11.8vw, 66px);
+  }
+
+  .presentation-paper .photoPanel,
+  .presentation-paper .slide.is-hero .photoPanel {
+    height: min(36vh, 300px);
+  }
+
+  .presentation-paper .slide.is-hero .photoPanel,
+  .presentation-paper .slide.is-hero .content aside.visual {
+    height: 100%;
+  }
+
+  .presentation-paper .choices.is-outcomes {
+    margin-top: 22px;
+  }
+
+  .presentation-paper .slide.is-discussion .discussionBg {
+    height: 34%;
+  }
+
+  .presentation-paper .discussionContent,
+  .presentation-paper .slide.is-discussion.has-visual .discussionContent {
+    width: 100%;
+    height: 66dvh;
+    padding: 26px 26px 18px;
+  }
+
+  .presentation-paper .slide.is-discussion:not(.has-visual) .discussionContent {
+    height: 100dvh;
+  }
+
+  .presentation-paper .discussionTitle {
+    max-width: none;
+    font-size: clamp(29px, 7.3vw, 39px);
+  }
+
+  .presentation-paper .discussionPrompt > p,
+  .presentation-paper .slide.is-layout-opening .discussionPrompt > p:first-of-type,
+  .presentation-paper .slide.is-layout-short-answer .discussionPrompt > p:first-of-type {
+    max-width: none;
+    font-size: clamp(22px, 5.75vw, 30px);
+  }
+
+  .presentation-paper .slide.is-cards .card {
+    grid-template-columns: minmax(105px, .65fr) minmax(0, 1.35fr);
+    column-gap: 12px;
+  }
+
+  .presentation-paper .classificationItem {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: .28rem 0;
+  }
+
+  .presentation-paper .classificationResult {
+    padding-left: 1.8rem;
+  }
+
+  .presentation-paper .quizBlock {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .presentation-paper .modelAnswerBlock,
+  .presentation-paper .peerTaskBlock {
+    width: 100%;
+  }
+
+  .presentation-paper .modelAnswerText,
+  .presentation-paper .modelAnswerParagraphs {
+    font-size: clamp(20px, 5.1vw, 27px);
   }
 }

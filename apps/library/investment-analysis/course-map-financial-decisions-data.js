@@ -1,13 +1,16 @@
 (function attachFinancialDecisionCourseMap(global) {
   const termBank = {
+    financialInvestment: ["financial investment", "金融投资", "Financial investment means putting money into an asset to seek future total return. Total return equals income plus the change in market value. Evidence can support the expectation, but possible loss remains."],
     investment: ["investment", "投资", "Investment is putting money into an asset to seek future return while accepting possible loss."],
     return: ["return", "回报", "Return is the gain or loss from an investment over a stated period, including price change and income."],
     financialGoal: ["financial goal", "财务目标", "A financial goal is a stated future use of money with an amount, priority and time horizon."],
     timeHorizon: ["time horizon", "投资期限", "Time horizon is the period before invested money is expected to be needed."],
     liquidityNeed: ["liquidity need", "流动性需求", "Liquidity need is the need to access money quickly without accepting a large loss or delay."],
     suitability: ["suitability", "适合度", "Suitability is the degree to which an investment matches a person's goal, horizon, liquidity need and ability to accept loss."],
-    saving: ["saving", "储蓄", "Saving is keeping money available for future use, usually with lower risk and lower expected return than investing."],
-    speculation: ["speculation", "投机", "Speculation is seeking profit from uncertain price movements, often with a short horizon and weaker evidence than investment analysis requires."],
+    saving: ["saving", "储蓄", "Saving is current income not spent now. Saving emphasises capital preservation and liquidity."],
+    speculation: ["speculation", "投机", "Speculation means trading mainly to profit from a predicted price change. Income or underlying value is not the main basis for the trade."],
+    consumption: ["consumption", "消费", "Consumption is using money to obtain goods or services mainly for present use, need or enjoyment rather than for a future financial return."],
+    gambling: ["gambling", "赌博", "Gambling is staking money or something of value on an uncertain game, event or lottery for a possible prize, with the stake at risk if the chosen outcome does not occur."],
     evidence: ["investment evidence", "投资证据", "Investment evidence is dated information used to support or challenge an investment judgement."],
     compounding: ["compounding", "复利", "Compounding is growth in which later returns build on earlier returns."],
     futureValue: ["future value", "终值", "Future value is the projected value of money after growth over a stated period and assumed return."],
@@ -148,15 +151,19 @@
   };
 
   const units = [
-    { unit: 1, semester: 1, lessons: [1, 8], title: "Personal Investment Foundations", summary: "Students connect family goals, time, inflation, compounding and risk to a written investment plan before comparing investment choices.", unitOutput: "A team SMG investment policy plus an individual goal-horizon-risk decision charter." },
-    { unit: 2, semester: 1, lessons: [9, 17], title: "Investment Choices for Families", summary: "Students compare cash, fixed-income securities, shares and funds, then combine knowledge of these choices with fees, diversification and suitable investing methods.", unitOutput: "An SMG portfolio-construction and investment-choice memo." },
-    { unit: 3, semester: 1, lessons: [18, 26], title: "How Markets Work", summary: "Students trace securities from issue to settlement, read market evidence and explain prices, returns, indices and news without drifting into short-term speculation.", unitOutput: "An SMG transaction, quote, return and benchmark evidence memo." },
-    { unit: 4, semester: 2, lessons: [27, 35], title: "Analysing Companies", summary: "Students use ethical source discipline, business models, financial statements, comparisons, risks and valuation to write a balanced junior analyst memo.", unitOutput: "A junior company-analysis memo on an SMG holding or watchlist candidate." },
-    { unit: 5, semester: 2, lessons: [36, 43], title: "Portfolios and Investor Behaviour", summary: "Students construct, compare, monitor and rebalance portfolios while recognising concentration, currency, market and behavioural risks.", unitOutput: "An SMG portfolio review and evidence-based rebalance decision." },
-    { unit: 6, semester: 2, lessons: [44, 50], title: "Family Investment Decisions and Careers", summary: "Students apply the course to education, housing, retirement and windfall cases, identify unsafe offers, explore careers and defend a final family strategy.", unitOutput: "A final SMG portfolio evaluation linked to a family strategy and team presentation." }
+    { unit: 1, semester: 1, lessons: [1, 7], title: "Personal Investment Foundations", summary: "Students distinguish investment from saving and speculation, then connect family goals, time, inflation, compounding and risk to a written investment plan.", unitOutput: "A team SMG investment policy plus an individual goal-horizon-risk decision charter." },
+    { unit: 2, semester: 1, lessons: [8, 13], title: "Investment Choices for Families", summary: "Students compare cash, bonds, shares and funds, then apply fees, diversification, investing methods and suitability to a proposed portfolio.", unitOutput: "An SMG portfolio-construction and investment-choice memo." },
+    { unit: 3, semester: 1, lessons: [14, 18], title: "How Markets Work", summary: "Students trace securities from issue to settlement, read quotes and explain prices, returns, benchmarks and news using dated evidence.", unitOutput: "An SMG transaction, quote, return and benchmark evidence memo." },
+    { unit: 4, semester: 1, lessons: [19, 24], title: "Analysing Companies", summary: "Students use ethical source discipline, business models, financial statements, peer evidence, risks and valuation to write a balanced junior analyst memo.", unitOutput: "A junior company-analysis memo on an SMG holding or watchlist candidate." },
+    { unit: 5, semester: 1, lessons: [25, 28], title: "Portfolios and Investor Behaviour", summary: "Students review allocation, concentration, currency and market risks, compare alternatives, rebalance, monitor and correct behavioural bias.", unitOutput: "An SMG portfolio review and evidence-based rebalance decision." },
+    { unit: 6, semester: 1, lessons: [29, 32], title: "Family Investment Decisions and Careers", summary: "Students stress-test portfolios against family goals, handle windfalls and unsafe offers, explore careers and defend a final family strategy.", unitOutput: "A final SMG portfolio evaluation linked to a family strategy and team presentation." }
   ];
 
-  const lessonSpecs = [
+  // The expanded 51-lesson source bank is retained here so strong cases can be
+  // combined without losing their evidence contracts. Only lessonSpecs below is
+  // exported as the active one-semester sequence.
+  const expandedLessonSpecs = [
+    { anchor: "Three money decisions", role: "comparison case", q: "What is investment?", zh: "什么是投资？", hook: "A friend says a share price will rise tomorrow. Would you borrow CNY 1,000 to buy it?", core: "Financial investment seeks total return from an asset; the decision's main purpose and expected payoff source distinguish it from speculation, while capital preservation and liquidity distinguish it from saving.", terms: ["financialInvestment", "speculation", "saving"], formula: "Total return = income + change in market value; classify by the decision's main purpose and expected payoff source.", task: "Classify decisions as financial investment, speculation or saving and justify one boundary case.", naive: "Anything kept for the future or bought to make money is an investment.", need: "Students need the main purpose, expected payoff source, evidence used, liquidity priority and possible loss.", output: "Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.", avoid: "Do not turn classification into a moral ranking, personalised advice or a long survey of household finance." },
     { anchor: "Family goal table", role: "mock mainland China family profile", q: "Why do people and families invest?", zh: "个人与家庭为什么要投资？", hook: "A family has CNY 50,000 but no stated goal. What should it do next?", core: "People invest to move resources toward future goals while accepting uncertainty and possible loss.", terms: ["investment", "return", "financialGoal"], formula: "No new formula; classify goals by purpose, amount and time horizon.", task: "Complete two short-term and two long-term financial goals with a time horizon and reason.", naive: "Investing is simply a way to make more money.", need: "Students need the goal, time horizon, liquidity need and possible loss before judging whether investment is appropriate.", output: "Choose one goal. State the next step and justify it with one reason and one condition.", avoid: "Do not introduce budgeting, consumer finance or specific investment recommendations in the opening lesson." },
     { anchor: "Three family goals", role: "mock family profile", q: "How do goals change investment decisions?", zh: "财务目标如何改变投资决策？", hook: "Should money for university in three years be invested like retirement money needed in thirty years?", core: "An investment decision must begin with the goal, time horizon and liquidity need rather than a preferred investment.", terms: ["timeHorizon", "liquidityNeed", "suitability"], formula: "No new formula; rank goals by horizon and access need.", task: "Classify education, home and retirement goals by horizon and liquidity need.", naive: "The investment with the highest possible return fits every goal.", need: "Students need when the money is required, how flexible the date is and what loss would damage the goal.", output: "Explain why two goals require different investment choices.", avoid: "Do not compare or select investments before students can define the goal constraints." },
     { anchor: "Short-term and long-term money", role: "comparison case", q: "How are saving, investing and speculation different?", zh: "储蓄、投资和投机有什么区别？", hook: "A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?", core: "Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.", terms: ["saving", "investment", "speculation"], formula: "No new formula; classify choices by purpose, horizon, evidence and possible loss.", task: "Sort six actions as saving, investing or speculation and justify one borderline case.", naive: "Any purchase of shares is investing and any bank deposit is always the best choice.", need: "Students need the purpose, time horizon, evidence quality and loss consequences for each action.", output: "Correct one mistaken classification using the four decision criteria.", avoid: "Treat speculation only as a weak method to reject, not a parallel course topic." },
@@ -164,7 +171,7 @@
     { anchor: "Inflation and return table", role: "economic data case", q: "How does inflation affect real return?", zh: "通货膨胀如何影响实际回报？", hook: "An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?", core: "Real return measures how investment growth changes purchasing power after inflation.", terms: ["inflation", "purchasingPower", "realReturn"], formula: "Approximate real return = nominal return - inflation rate.", task: "Calculate approximate real return for three scenarios and interpret purchasing-power change.", naive: "Any positive nominal return makes the investor better off in real terms.", need: "Students need the same-period nominal return, inflation rate, fees and the limits of the approximation.", output: "Calculate one real return and explain what it means for a family goal.", avoid: "Do not turn the lesson into a general macroeconomics survey." },
     { anchor: "Risk-return choice set", role: "comparison case", q: "What is the relationship between risk and possible return?", zh: "风险与潜在回报有什么关系？", hook: "One choice offers a higher possible return. Does that make it the better investment?", core: "Higher possible return usually comes with greater uncertainty, but taking more risk does not guarantee higher return.", terms: ["risk", "expectedReturn", "uncertainty"], formula: "No new formula; compare possible upside, downside and uncertainty qualitatively.", task: "Place four choices on a risk-return grid and add one caveat to each placement.", naive: "Higher risk guarantees higher return over time.", need: "Students need the range of outcomes, probability limits, time horizon and consequences of loss.", output: "Reject or improve the statement that more risk always produces more return.", avoid: "Keep the risk-return rule simple; do not introduce volatility statistics yet." },
     { anchor: "Two investor profiles", role: "mock investor profile", q: "How are risk tolerance and risk capacity different?", zh: "风险承受意愿与风险承受能力有何不同？", hook: "Two people both say they accept risk, but only one can afford a large loss. Are their profiles the same?", core: "Risk tolerance describes willingness to accept loss, while risk capacity describes financial ability to withstand it.", terms: ["riskTolerance", "riskCapacity", "lossCapacity"], formula: "No new formula; compare willingness, financial consequences and time to recover.", task: "Diagnose the mismatch between stated willingness and actual loss capacity in two profiles.", naive: "A confident investor automatically has high risk capacity.", need: "Students need the goal, horizon, income stability, liquidity needs and effect of a loss.", output: "Explain which profile has lower risk capacity and why.", avoid: "Do not use personality quizzes as a substitute for financial evidence." },
-    { anchor: "Family investment policy", role: "synthesis case", q: "Why should an investor write a plan before choosing investments?", zh: "为什么应先制定投资计划再选择投资？", hook: "A popular fund appears before a family has agreed its goals or risk limits. What should happen first?", core: "A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.", terms: ["investmentPlan", "constraint", "decisionRule"], formula: "No new formula; write rules for goal, horizon, liquidity, risk, cost and review.", task: "Complete a one-page investment plan for a mock family using evidence from Lessons 1-7.", naive: "A plan is unnecessary if the investment has performed well recently.", need: "Students need agreed goals, constraints, acceptable risks, asset-class and instrument boundaries and review arrangements.", output: "Write three investment-plan rules and justify the most important one.", avoid: "Do not select named investments; finish Unit 1 with rules that later security, fund and deposit lessons will use." },
+    { anchor: "Family investment policy", role: "synthesis case", q: "Why should an investor write a plan before choosing investments?", zh: "为什么应先制定投资计划再选择投资？", hook: "A popular fund appears before a family has agreed its goals or risk limits. What should happen first?", core: "A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.", terms: ["investmentPlan", "constraint", "decisionRule"], formula: "No new formula; write rules for goal, horizon, liquidity, risk, cost and review.", task: "Complete a one-page investment plan for a mock family using evidence from Lessons 1-8.", naive: "A plan is unnecessary if the investment has performed well recently.", need: "Students need agreed goals, constraints, acceptable risks, asset-class and instrument boundaries and review arrangements.", output: "Write three investment-plan rules and justify the most important one.", avoid: "Do not select named investments; finish Unit 1 with rules that later security, fund and deposit lessons will use." },
 
     { anchor: "House-deposit money", role: "mock family profile", q: "When should money remain in cash or deposits?", zh: "哪些资金应保留为现金或存款？", hook: "A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?", core: "Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.", terms: ["cash", "deposit", "liquidity"], formula: "Simple annual interest = amount x stated annual rate; compare with inflation only when periods align.", task: "Compare two deposit extracts and a risky investment against the same short-horizon goal.", naive: "Cash is always safe because its price does not fall.", need: "Students need access terms, protection limits, interest, inflation and the consequence of investment loss.", output: "Choose cash, deposit or gather more evidence for the mock goal and justify the action.", avoid: "Do not turn the case into mortgage, banking or household-budget instruction." },
     { anchor: "Government and corporate bonds", role: "fixed-income security", q: "How do bonds provide income, and what risks remain?", zh: "债券如何提供收入，又有哪些风险？", hook: "A corporate bond offers a higher yield than a government bond. Is the extra income free?", core: "A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.", terms: ["bond", "coupon", "maturity"], formula: "Annual coupon income = face value x coupon rate; current yield = annual coupon / market price x 100 when suitable.", task: "Label coupon, maturity and issuer risk on two frozen bond summaries.", naive: "Bonds cannot lose value because they pay interest.", need: "Students need issuer strength, maturity, coupon, price, yield and risk disclosures.", output: "Compare the two bonds and identify which evidence is still missing.", avoid: "Do not teach duration mathematics or imply that any bond is risk-free." },
@@ -214,6 +221,280 @@
     { anchor: "Family investment strategy capstone", role: "synthesis case", q: "How should students build and explain a family investment strategy?", zh: "如何制定并说明家庭投资策略？", hook: "A mock family has education, housing and retirement goals plus an existing portfolio. What should its next investment process be?", core: "A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.", terms: ["familyStrategy", "familyCommunication", "professionalReferral"], formula: "Use relevant earlier formulas only where the frozen case evidence supports them.", task: "Build and present a complete strategy from a multi-source mock family evidence pack.", naive: "A final strategy is useful only if it tells the family exactly what to buy.", need: "Students need the full profile, investment evidence, existing allocation, goal priorities, uncertainties and matters requiring professional advice.", output: "Present a family strategy with goal allocations, evidence, risks, caveats, review rules and professional referrals.", avoid: "Do not use real family account data or give personalised buy, sell or hold advice." }
   ];
 
+  function compactSpec(sourceIndexes, overrides) {
+    const base = expandedLessonSpecs[sourceIndexes[0]];
+    return Object.assign({}, base, overrides || {});
+  }
+
+  const lessonSpecs = [
+    expandedLessonSpecs[0],
+    expandedLessonSpecs[1],
+    expandedLessonSpecs[2],
+    compactSpec([4, 5], {
+      anchor: "Compounding and real-return projection",
+      role: "calculation case",
+      q: "How do compounding and inflation change wealth over time?",
+      zh: "复利与通货膨胀如何改变长期财富？",
+      hook: "A portfolio grows by 5% each year while prices also rise. How much of the projected growth is a real gain?",
+      core: "Compounding builds later returns on earlier returns, while inflation reduces the purchasing power of the resulting nominal value.",
+      terms: ["compounding", "futureValue", "inflation", "realReturn"],
+      formula: "Future value = starting amount x (1 + assumed return)^years; approximate real return = nominal return - inflation rate.",
+      task: "Compare two frozen growth projections, calculate approximate real return and label every assumption.",
+      naive: "A compound-growth projection shows a guaranteed increase in purchasing power.",
+      need: "Students need the starting amount, contribution pattern, assumed return, inflation rate, fees, period and limits of both calculations.",
+      output: "Explain how compounding changes the projection and how inflation changes its meaning for the family goal.",
+      avoid: "Do not present assumed returns as promises or turn the lesson into a general macroeconomics survey."
+    }),
+    expandedLessonSpecs[6],
+    expandedLessonSpecs[7],
+    expandedLessonSpecs[8],
+
+    compactSpec([9, 10], {
+      anchor: "Cash and bond choice set",
+      role: "investment-choice comparison",
+      q: "How should families compare cash, deposits and bonds?",
+      zh: "家庭应如何比较现金、存款与债券？",
+      hook: "A family needs some money in eighteen months and the rest in ten years. Should it use the same low-risk choice for both amounts?",
+      core: "Cash and deposits emphasise liquidity and capital preservation, while bonds add lending income and credit, interest-rate, inflation and maturity risks.",
+      terms: ["cash", "deposit", "bond", "coupon", "maturity"],
+      formula: "Simple annual interest = amount x stated annual rate; annual coupon income = face value x coupon rate.",
+      task: "Compare a deposit and two frozen bond summaries against short- and long-horizon family needs.",
+      naive: "Cash and bonds are all safe choices because they pay a stated rate.",
+      need: "Students need access terms, protection limits, issuer strength, maturity, price, yield, inflation and consequences of loss.",
+      output: "Match one choice to each goal and identify the most important missing evidence.",
+      avoid: "Do not teach duration mathematics, mortgages or jurisdiction-specific banking administration."
+    }),
+    expandedLessonSpecs[11],
+    compactSpec([12, 13], {
+      anchor: "ETF and fund comparison",
+      role: "fund comparison",
+      q: "How do funds, ETFs, index funds and active funds differ?",
+      zh: "基金、ETF、指数基金与主动管理基金有何不同？",
+      hook: "One fund tracks an index and another tries to beat it. Does either label prove that the fund fits the family goal?",
+      core: "Funds pool investments, while their trading structure, objective, benchmark, management method, holdings, costs and remaining risks determine how they differ.",
+      terms: ["fund", "etf", "indexFund", "activeFund", "benchmark"],
+      formula: "Portfolio weight = holding value / total portfolio value x 100; active return = fund return - benchmark return when periods and fees align.",
+      task: "Read two frozen fund summaries and compare objective, benchmark, holdings, cost, liquidity and risk.",
+      naive: "A diversified or actively managed fund is automatically suitable and safe.",
+      need: "Students need the fund objective, structure, benchmark, holdings, geographic exposure, costs and multi-period evidence.",
+      output: "Write a qualified fund comparison for one mock long-term goal.",
+      avoid: "Do not rank named funds, rely on recent performance or present one management style as universally superior."
+    }),
+    compactSpec([14, 15], {
+      anchor: "Fund costs and hidden concentration",
+      role: "portfolio comparison",
+      q: "How do fees and diversification affect an investment choice?",
+      zh: "费用与分散投资如何影响投资选择？",
+      hook: "A low-fee portfolio owns many securities but most share the same technology exposure. Is it well constructed?",
+      core: "Fees reduce the amount that compounds, while diversification reduces dependence on shared exposures rather than merely increasing the number of holdings.",
+      terms: ["expenseRatio", "feeDrag", "diversification", "correlation", "companySpecificRisk"],
+      formula: "Annual fund cost = invested amount x expense ratio; combined exposure weight = the sum of holdings sharing an exposure.",
+      task: "Calculate first-year fees, map company, sector and geographic exposures and improve one concentrated proposal.",
+      naive: "A fee below 1% does not matter and many holdings always make a portfolio diversified.",
+      need: "Students need all recurring and transaction fees, holding weights, shared exposures, time horizon and projection assumptions.",
+      output: "Identify the larger weakness in the proposal and justify one improvement without promising a return.",
+      avoid: "Do not select a fund using cost alone or teach portfolio optimisation mathematics."
+    }),
+    expandedLessonSpecs[16],
+    expandedLessonSpecs[17],
+
+    compactSpec([18, 19], {
+      anchor: "Company financing and market map",
+      role: "market infrastructure case",
+      q: "How do primary and secondary markets connect companies and investors?",
+      zh: "一级市场与二级市场如何连接公司和投资者？",
+      hook: "You buy an existing share through HKEX. Does your payment finance the company?",
+      core: "Companies raise capital by issuing new securities in primary markets, while investors trade existing securities with one another in secondary markets.",
+      terms: ["equityFinancing", "primaryMarket", "secondaryMarket", "exchange"],
+      formula: "No new formula; trace the money, security and ownership flows in an issue and a later trade.",
+      task: "Complete two market-flow diagrams and explain what the company receives in each case.",
+      naive: "Every stock-market purchase sends new money to the listed company.",
+      need: "Students need the security's issue status, counterparties, stated use of proceeds and role of the exchange.",
+      output: "Correct the money-flow misconception using one primary- and one secondary-market example.",
+      avoid: "Do not add advanced corporate-finance theory or detailed order types."
+    }),
+    compactSpec([20, 21], {
+      anchor: "Trade journey and quote snapshot",
+      role: "market-process case",
+      q: "How does an order become a completed trade, and what does a quote show?",
+      zh: "订单如何成为已完成交易，行情页面显示什么？",
+      hook: "A team submits a buy order at the displayed price. Is execution at that price guaranteed?",
+      core: "An order moves through submission, matching, execution and settlement, while a time-stamped quote shows market information rather than a guaranteed trade price.",
+      terms: ["broker", "settlement", "bid", "ask", "bidAskSpread"],
+      formula: "Bid-ask spread = ask price - bid price; transaction value = executed price x quantity before fees.",
+      task: "Trace one frozen order and annotate its quote, status, execution price, quantity, time stamp and settlement evidence.",
+      naive: "Submitting an order at the displayed quote guarantees an immediate trade at that price.",
+      need: "Students need the order type, quantity, bid, ask, time stamp, market status, execution notice, fees and settlement record.",
+      output: "Explain the order outcome and one reason the displayed quote could differ from the execution.",
+      avoid: "Do not teach day-trading tactics or imply students can control execution price."
+    }),
+    compactSpec([22, 23], {
+      anchor: "Price reaction and company scale",
+      role: "market-evidence comparison",
+      q: "Why do share prices change, and why is price not company value?",
+      zh: "股价为何变化，为什么股价不等于公司价值？",
+      hook: "A lower-priced share belongs to the larger company. Which figure explains this?",
+      core: "Prices change as new information alters expectations and trading pressure, while market capitalisation combines share price with shares outstanding to measure equity-market scale.",
+      terms: ["expectations", "materialInformation", "marketPrice", "marketCap", "sharesOutstanding"],
+      formula: "Market capitalisation = share price x shares outstanding.",
+      task: "Explain one frozen price reaction and compare two companies using both share price and market capitalisation.",
+      naive: "A low share price means a cheap company, and every price movement has one clear cause.",
+      need: "Students need the timing of information, expectations, trading context, share count and alternative explanations.",
+      output: "Write a cautious explanation of the price move and correct the company-scale misconception.",
+      avoid: "Do not predict the next move or teach short-term trading."
+    }),
+    compactSpec([24, 25], {
+      anchor: "Return and benchmark comparison",
+      role: "performance comparison",
+      q: "How should investment performance be measured and compared?",
+      zh: "应如何衡量并比较投资表现？",
+      hook: "A portfolio gained 8% while its market index gained 11%. Was the portfolio successful?",
+      core: "Total return combines price change and income, while a benchmark gives a relevant same-period comparison without proving that the decision process was good or bad.",
+      terms: ["capitalGain", "dividend", "totalReturn", "marketIndex", "benchmark"],
+      formula: "Total return percentage = (ending value - beginning value + income) / beginning value x 100; relative return = portfolio return - benchmark return.",
+      task: "Calculate a holding's total return and compare the team portfolio with a matched index over the same frozen period.",
+      naive: "A positive return or high rank proves that the investment decision was good.",
+      need: "Students need beginning and ending values, income, fees, the exact period, benchmark method and portfolio cash flows.",
+      output: "State the relative result and one limitation of using it to judge decision quality.",
+      avoid: "Do not use rank alone or compare unmatched periods, currencies or return definitions."
+    }),
+    compactSpec([26, 27], {
+      anchor: "News, rumour and analyst conflict pack",
+      role: "market and professional ethics case",
+      q: "How should investors judge market information and analyst conflicts?",
+      zh: "投资者应如何判断市场信息与分析师利益冲突？",
+      hook: "A positive report is shared online, but the author owns the shares and cites no original source. Should the team use it?",
+      core: "Reliable investment evidence requires source, date, material support, uncertainty and conflict checks, with evidence separated clearly from opinion.",
+      terms: ["sourceQuality", "rumour", "materialInformation", "conflictInterest", "professionalJudgement"],
+      formula: "No new formula; apply a source-and-conflict checklist before information enters the evidence record.",
+      task: "Audit four information items, disclose conflicts and decide which evidence can support the market memo.",
+      naive: "A confident expert claim or accurate calculation is reliable even when sources and conflicts are hidden.",
+      need: "Students need the original source, publication date, evidence chain, uncertainty, author interests and disclosure.",
+      output: "Accept, qualify or reject one source and justify the decision with a conflict check.",
+      avoid: "Do not reward speed, popularity or confidence as substitutes for evidence."
+    }),
+
+    expandedLessonSpecs[28],
+    compactSpec([29, 31], {
+      anchor: "Income statement and cash-flow extracts",
+      role: "listed company evidence case",
+      q: "How do profit and cash flow reveal different parts of company performance?",
+      zh: "利润与现金流如何揭示公司表现的不同方面？",
+      hook: "A company reports higher profit but weaker operating cash flow. Which result should the analyst trust?",
+      core: "The income statement measures revenue, expenses and profit over a period, while the cash-flow statement records cash movements; their difference can reveal timing, working-capital and investment effects.",
+      terms: ["incomeStatement", "revenue", "profitMargin", "operatingCashFlow", "freeCashFlow", "earningsQuality"],
+      formula: "Operating margin = operating profit / revenue x 100; simplified free cash flow = operating cash flow - capital expenditure.",
+      task: "Calculate one margin and free-cash-flow figure, then reconcile why profit and operating cash flow differ.",
+      naive: "Reported profit and cash generated are the same measure of performance.",
+      need: "Students need reporting periods, accounting definitions, working-capital movements, capital expenditure and any one-off items.",
+      output: "Explain which difference matters most to the investment judgement and what evidence is still needed.",
+      avoid: "Do not turn the lesson into advanced accounting or treat one figure as a complete decision."
+    }),
+    expandedLessonSpecs[30],
+    compactSpec([32, 33], {
+      anchor: "Peer comparison and risk register",
+      role: "company comparison case",
+      q: "How should analysts compare companies and record important risks?",
+      zh: "分析师应如何比较公司并记录重要风险？",
+      hook: "Two companies have different margins and growth rates. Can one number prove which company is stronger?",
+      core: "A fair peer comparison aligns business model, period, currency and measure, then records material risks, evidence, impact and disconfirming indicators.",
+      terms: ["peerComparison", "comparability", "businessRisk", "industryRisk", "governanceRisk"],
+      formula: "Use aligned growth, margin and leverage measures; convert currency only when the source and rate are frozen and stated.",
+      task: "Compare two frozen peers on aligned measures and add two material risks with indicators to a risk register.",
+      naive: "The company with the better single ratio is the better investment.",
+      need: "Students need comparable definitions, periods, currency, business context, risk evidence, possible impact and a monitoring indicator.",
+      output: "Write a balanced peer judgement with one limitation and one risk that could reverse it.",
+      avoid: "Do not compare unlike companies or repeat generic risk lists."
+    }),
+    expandedLessonSpecs[34],
+    expandedLessonSpecs[35],
+
+    compactSpec([36, 37], {
+      anchor: "Portfolio allocation and concentration audit",
+      role: "portfolio construction case",
+      q: "How do asset allocation and concentration shape portfolio risk?",
+      zh: "资产配置与集中度如何影响投资组合风险？",
+      hook: "A portfolio owns many securities but half its value depends on one company. Which feature matters more?",
+      core: "Asset allocation distributes value across investment categories, while concentration measures dependence on one holding or shared exposure.",
+      terms: ["assetAllocation", "portfolioWeight", "concentrationRisk", "diversification"],
+      formula: "Portfolio weight = holding value / total portfolio value x 100; combined exposure weight = sum of related holding weights.",
+      task: "Calculate portfolio weights and identify the largest company, sector and asset-class concentrations.",
+      naive: "A portfolio with many line items is automatically diversified and well allocated.",
+      need: "Students need current values, asset classes, sectors, shared exposures, target ranges and goal constraints.",
+      output: "Identify the most avoidable concentration and propose one evidence-based correction.",
+      avoid: "Do not teach optimisation mathematics or assume equal weights are automatically suitable."
+    }),
+    compactSpec([38, 39], {
+      anchor: "Global exposure and portfolio stress test",
+      role: "portfolio risk case",
+      q: "Which geographic, currency and market risks remain in a diversified portfolio?",
+      zh: "分散投资组合仍有哪些地域、货币与市场风险？",
+      hook: "A global-looking portfolio owns many funds, yet most revenue and currency exposure points to one market. Is it diversified?",
+      core: "Listing place does not fully reveal geographic or currency exposure, and diversification cannot remove broad market risk or correlations that rise during stress.",
+      terms: ["geographicExposure", "currencyRisk", "marketRisk", "correlation", "diversification"],
+      formula: "Exposure weight = sum of holdings or revenues linked to the same geography or currency, using one stated method.",
+      task: "Map hidden geographic and currency exposures, then stress-test the portfolio against company, sector and market shocks.",
+      naive: "Foreign listings or many funds automatically remove geographic, currency and market risk.",
+      need: "Students need holding weights, underlying exposures, revenue geography, currencies, hedging information and scenario assumptions.",
+      output: "Explain which risk was diversified, which remained and which exposure needs more evidence.",
+      avoid: "Do not add currency speculation, beta or volatility statistics."
+    }),
+    compactSpec([40, 41, 42], {
+      anchor: "Portfolio comparison, rebalance and monitoring case",
+      role: "portfolio decision case",
+      q: "How should investors compare, rebalance and monitor a portfolio?",
+      zh: "投资者应如何比较、再平衡并监测投资组合？",
+      hook: "A share holding rises above its target weight. Should the team sell, hold or gather more evidence?",
+      core: "A portfolio decision compares alternatives against the same goal, measures weight gaps, considers costs and defines evidence-based review triggers before acting.",
+      terms: ["investmentComparison", "rebalancing", "targetWeight", "transactionCost", "reviewTrigger"],
+      formula: "Weight gap = current weight - target weight; trade amount = target value - current value.",
+      task: "Compare a share, fund and bond alternative, calculate weight gaps and choose rebalance, monitor or no action with dated triggers.",
+      naive: "Rebalancing always improves return and monitoring means checking prices every day.",
+      need: "Students need the same goal, target ranges, current weights, costs, thesis evidence, tolerance bands and review date.",
+      output: "Defend the portfolio action and state the evidence or threshold that would change it.",
+      avoid: "Do not force unlike returns into one ranking or imply that rebalancing predicts prices."
+    }),
+    compactSpec([43], {
+      q: "How can investors recognise bias and improve a portfolio review?",
+      zh: "投资者如何识别偏差并改进投资组合评估？",
+      task: "Diagnose FOMO, recency bias and performance chasing in the team's evidence trail, then complete the Unit 5 portfolio review.",
+      output: "Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger."
+    }),
+
+    compactSpec([44, 45, 46], {
+      anchor: "Three family goal stress tests",
+      role: "mock family portfolio case",
+      q: "How should one portfolio change for education, housing and retirement goals?",
+      zh: "同一投资组合应如何因教育、住房与退休目标而调整？",
+      hook: "The same family portfolio must support a house purchase in three years, university payments in eight years and retirement in thirty years. Can one allocation fit all three?",
+      core: "Different goals require separate target amounts, horizons, liquidity, contribution and withdrawal plans, loss capacity and changing risk levels.",
+      terms: ["educationFund", "shortTermGoal", "retirementGoal", "capitalPreservation", "withdrawalNeed"],
+      formula: "Funding gap = target amount - projected available amount; maximum affordable loss = current amount - minimum required amount.",
+      task: "Stress-test the current portfolio against all three goals and propose distinct broad risk and review rules.",
+      naive: "One high-return allocation is suitable for every family goal if the family waits long enough.",
+      need: "Students need target amounts, payment dates, flexibility, contributions, withdrawals, inflation, fees and loss capacity.",
+      output: "Explain the most important allocation difference among the three goals and why it is necessary.",
+      avoid: "Do not teach mortgages, pensions or named education products, and do not promise required returns."
+    }),
+    compactSpec([47, 48], {
+      anchor: "Windfall and suspicious-offer case",
+      role: "family investment safety case",
+      q: "How should a family pause, plan and verify before investing unexpected money?",
+      zh: "家庭应如何在投资意外所得前暂停、规划并核实？",
+      hook: "A family receives CNY 500,000 and immediately sees an offer promising a guaranteed 18% return. What should happen first?",
+      core: "A windfall requires a decision pause, goal review and staged evidence process, while urgency, guaranteed high return, secrecy and unverifiable custody require the family to stop and verify.",
+      terms: ["windfall", "decisionPause", "investmentFraud", "redFlag", "suitabilityDisclosure"],
+      formula: "Allocation percentage = amount assigned to a goal / total windfall x 100; apply a stop-check-verify checklist before any transfer.",
+      task: "Create a first-month windfall plan and audit four offer claims for red flags, suitability and verification steps.",
+      naive: "Waiting wastes the opportunity, and a professional-looking guaranteed offer is safer than leaving money uninvested.",
+      need: "Students need family goals, obligations, risk capacity, provider authorisation, custody, written terms, risk disclosure and independent contact details.",
+      output: "Write a staged plan and a stop-and-verify response identifying the three strongest red flags.",
+      avoid: "Do not provide tax, inheritance or legal advice and do not recommend a model portfolio."
+    }),
+    expandedLessonSpecs[49],
+    expandedLessonSpecs[50]
+  ];
+
   const unitReuse = {
     1: "Reused throughout the course when investment choices, markets, companies and portfolios are judged against goals and constraints.",
     2: "Reused in market, portfolio and family-case lessons when students compare security, fund or deposit structure, cost and suitability.",
@@ -256,7 +537,7 @@
   const stockMarketGamePhases = [
     {
       phase: 1,
-      lessons: [1, 8],
+      lessons: [1, 7],
       officialStage: "Understanding SMG and Before You Invest",
       coursePurpose: "Form teams, learn the national and local rules, rotate defined roles, open the team journal and write an evidence-based investment policy before any order is entered.",
       defaultStudentAction: "Apply each lesson's concept to the team purpose, rules, policy or pre-launch watchlist; do not trade during Unit 1.",
@@ -265,16 +546,16 @@
     },
     {
       phase: 2,
-      lessons: [9, 17],
+      lessons: [8, 13],
       officialStage: "Selecting Your Investments",
       coursePurpose: "Compare investment choices, learn what shares and funds provide, test costs and diversification, then prepare the first evidence-backed order against the approved team plan.",
-      defaultStudentAction: "Apply each lesson's investment-choice criteria to a paper portfolio or eligible candidate; no order is entered before the Lesson 17 launch gate.",
+      defaultStudentAction: "Apply each lesson's investment-choice criteria to a paper portfolio or eligible candidate; no order is entered before the Lesson 13 launch gate.",
       requiredEvidence: "Investment-choice comparison, research worksheet, proposed allocation, proposal author, team decision and review trigger.",
       officialResources: ["program-guides/SMG_Essentials_Workbook.pdf", "high-school-lessons/04_Diversification_Grades_9-12.pdf", "high-school-lessons/05_Stock_Research_Guide_and_Worksheet.pdf", "high-school-lessons/06_What_Is_Risk_Grades_9-12.pdf", "rules-and-platform/SMG_How_to_Trade_Stocks.pdf"]
     },
     {
       phase: 3,
-      lessons: [18, 26],
+      lessons: [14, 18],
       officialStage: "Selecting and Tracking Your Investments",
       coursePurpose: "Use the live team portfolio to understand issuance, exchanges, order entry, quotes, price change, return, benchmarks and market information.",
       defaultStudentAction: "Apply each lesson's market concept to a platform page, transaction, price move, return or benchmark result.",
@@ -283,7 +564,7 @@
     },
     {
       phase: 4,
-      lessons: [27, 35],
+      lessons: [19, 24],
       officialStage: "Tracking Your Investments",
       coursePurpose: "Apply ethical company analysis to one holding or watchlist candidate and replace unsupported portfolio stories with dated business and financial evidence.",
       defaultStudentAction: "Apply each lesson's company-analysis method to one holding or watchlist candidate and record what would maintain or change the team decision.",
@@ -292,7 +573,7 @@
     },
     {
       phase: 5,
-      lessons: [36, 43],
+      lessons: [25, 28],
       officialStage: "Tracking Your Investments",
       coursePurpose: "Review allocation, concentration, currency exposure, remaining risk, rebalancing, monitoring triggers and behavioural mistakes using the active portfolio.",
       defaultStudentAction: "Apply each lesson's portfolio method to current allocation, benchmark and evidence, then choose hold, research, trade, rebalance or no action under the course rules.",
@@ -301,7 +582,7 @@
     },
     {
       phase: 6,
-      lessons: [44, 50],
+      lessons: [29, 32],
       officialStage: "Reflections",
       coursePurpose: "Evaluate the strategy rather than celebrate rank, connect results to long-horizon family goals and defend a final evidence-based portfolio judgement.",
       defaultStudentAction: "Apply each lesson's family-decision, safety or career concept to the portfolio and add evidence to the final team evaluation and individual reflection.",
@@ -311,114 +592,97 @@
   ];
 
   const stockMarketGameMilestones = {
-    8: "Submit the Unit 1 investment policy and individual goal-horizon-risk decision charter; no order is entered.",
-    17: "Submit the Unit 2 investment-choice memo, approve the proposed allocation and complete the first qualifying teacher-approved order.",
-    26: "Submit the Unit 3 market-evidence memo using transaction, quote, return and benchmark evidence.",
-    35: "Submit the Unit 4 junior analyst memo connected to one holding or watchlist candidate.",
-    43: "Submit the Unit 5 portfolio review and evidence-based rebalance or no-rebalance decision.",
-    50: "Submit the Unit 6 final portfolio evaluation and an individual reflection proving participation, evidence use and changed judgement."
+    7: "Submit the Unit 1 investment policy and individual goal-horizon-risk decision charter; no order is entered.",
+    13: "Submit the Unit 2 investment-choice memo, approve the proposed allocation and complete the first qualifying teacher-approved order.",
+    18: "Submit the Unit 3 market-evidence memo using transaction, quote, return and benchmark evidence.",
+    24: "Submit the Unit 4 junior analyst memo connected to one holding or watchlist candidate.",
+    28: "Submit the Unit 5 portfolio review and evidence-based rebalance or no-rebalance decision.",
+    32: "Submit the Unit 6 final portfolio evaluation and an individual reflection proving participation, evidence use and changed judgement."
   };
 
   const stockMarketGameEvidenceCheckpoints = {
-    1: "Create teams, roster every student, assign the first roles and open individual evidence records.",
-    3: "Read the live national and local rules, complete the official rules quiz and sign the long-only participation agreement.",
-    7: "Set the team's risk-tolerance and risk-capacity limits without selecting a security.",
-    15: "Audit the proposed paper portfolio for company, sector and geographic concentration.",
-    21: "Annotate one eligible security's quote page before any later order is considered.",
-    25: "Compare team performance with the applicable benchmark without treating rank as proof of decision quality.",
-    36: "Record the portfolio's current asset allocation and compare it with the approved team plan.",
-    41: "Complete a formal rebalance check using target weights, transaction costs and evidence.",
-    48: "Re-check current national and local rules, account security and unsafe-offer boundaries before the final portfolio period."
+    2: "Create teams, roster every student, assign the first roles and open individual evidence records.",
+    4: "Read the live national and local rules, complete the official rules quiz and sign the long-only participation agreement.",
+    6: "Set the team's risk-tolerance and risk-capacity limits without selecting a security.",
+    11: "Audit the proposed paper portfolio for company, sector and geographic concentration.",
+    15: "Annotate one eligible security's quote page before any later order is considered.",
+    17: "Compare team performance with the applicable benchmark without treating rank as proof of decision quality.",
+    25: "Record the portfolio's current asset allocation and compare it with the approved team plan.",
+    27: "Complete a formal rebalance check using target weights, transaction costs and evidence.",
+    30: "Re-check current national and local rules, account security and unsafe-offer boundaries before the final portfolio period."
   };
 
   const stockMarketGameLessonActions = {
-    1: "Complete the short- and long-term goal tables, form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.",
-    2: "Turn the team purpose into explicit goal, time-horizon and liquidity rules that will govern later portfolio decisions.",
-    3: "Classify proposed team actions as saving, investing or speculation, complete the official rules quiz and sign the course's long-only participation agreement.",
-    4: "Use a frozen contribution-and-return scenario to project how the team's starting capital could compound, then label every assumption and limitation.",
-    5: "Calculate the approximate real return of a frozen portfolio or benchmark scenario and explain the effect on the team's purchasing-power goal.",
-    6: "Place one watchlist candidate and the team's cash position on a risk-possible-return map, including one downside that the map cannot quantify.",
-    7: "Set team risk-tolerance and risk-capacity limits, complete the official rules check and record which investment-choice evidence must be learned before any order.",
-    8: "Approve the team investment policy, permitted-choice boundaries and pre-launch research plan; do not select or purchase a security.",
-    9: "Set and justify the proposed portfolio's cash reserve by explaining which money should remain liquid rather than being invested immediately.",
-    10: "Compare the portfolio with a teacher-frozen bond alternative; if the platform does not permit that bond, record the comparison as a paper allocation rather than a trade.",
-    11: "Explain what ownership of one eligible watchlist share would give the team and what it would not give; no order is entered.",
-    12: "Test whether an eligible fund or teacher-frozen ETF candidate would broaden the proposed portfolio's exposures, then identify one risk that remains.",
-    13: "Compare an index-tracking and actively managed fund candidate by objective, benchmark, cost, holdings and evidence quality.",
-    14: "Use the current platform or local fee schedule to calculate how transaction or fund costs would affect one proposed portfolio action.",
-    15: "Audit the proposed paper portfolio by company, sector and geography, then improve its diversification before launch.",
-    16: "Model regular contributions versus one lump-sum contribution in a side scenario and state why this projection is not a promised platform result.",
-    17: "Complete the formal portfolio-fit review, approve the first evidence-backed proposal and then complete the qualifying long stock purchase when the teacher opens the launch gate.",
-    18: "Use a dated filing or official company source to explain why one holding or watchlist company issued shares and what the issue financed.",
-    19: "Classify one team transaction as a secondary-market trade and contrast it with the company's primary-market issuance.",
-    20: "Trace one order from proposal through submission, execution and settlement, recording the actual platform status at each available stage.",
-    21: "Annotate the quote page for one eligible security before any new order is approved, including price, change, volume and time stamp.",
-    22: "Explain one material price move in a holding or watchlist candidate using dated evidence, an alternative explanation and one limitation.",
-    23: "Compare market capitalisation and share price for two eligible candidates and correct the claim that the lower-priced share is the cheaper company.",
-    24: "Calculate total return for one holding or frozen candidate, including distributions where relevant, and distinguish it from price return.",
-    25: "Compare the team's return with the applicable platform benchmark over the same period and explain why rank does not prove decision quality.",
-    26: "Audit one market-news item used by the team for source quality, date, material evidence, uncertainty and possible conflict.",
-    27: "Apply the course ethics and conflict check to a team source, recommendation or proposed action before it enters the evidence record.",
-    28: "Write a concise business-model note for one holding or watchlist candidate: customer, value offered, revenue driver and main vulnerability.",
-    29: "Extract one revenue, cost and profit trend from a holding or candidate's income statement and state how it affects the team judgement.",
-    30: "Use balance-sheet evidence to assess one holding or candidate's liquidity, debt or financial resilience without relying on a single ratio.",
-    31: "Compare profit with operating cash flow for one holding or candidate and record why the difference matters to the portfolio decision.",
-    32: "Compare one holding or candidate with a relevant peer using the same dated measures and explain one limit of the comparison.",
-    33: "Add two qualitative risks and one disconfirming indicator to the monitoring record for a holding or watchlist candidate.",
-    34: "Make a cautious valuation judgement for one holding or candidate using at least one comparison measure, assumptions and an explicit caveat.",
-    35: "Submit the junior analyst memo on one SMG holding or watchlist candidate and connect its evidence to a hold, research, trade or no-trade decision.",
-    36: "Calculate the live portfolio's asset and security weights and compare them with the approved team policy.",
-    37: "Identify the portfolio's largest company, sector and factor concentrations and decide which concentration is most avoidable.",
-    38: "Map the geographic and currency exposures behind the portfolio's listings, revenues or funds and identify one mismatch with the team goal.",
-    39: "Separate company-specific risks from market-wide risks in the portfolio and explain which risks diversification cannot remove.",
-    40: "Compare a current share holding, an eligible fund and a teacher-frozen bond alternative against the same team objective and constraints.",
-    41: "Complete the formal rebalance decision using current weights, target ranges, transaction costs, dated evidence and a justified action or no action.",
-    42: "Build the team's monitoring dashboard with benchmark, cash, weights, decision thesis, disconfirming evidence and dated review triggers.",
-    43: "Audit one team decision for FOMO, recency bias or performance chasing and revise the decision process before any related order.",
-    44: "Stress-test the current portfolio against a mock education goal and state which holding, risk or liquidity feature would need reconsideration.",
-    45: "Stress-test the current portfolio against a near-term house-deposit goal and explain why the same allocation may become unsuitable.",
-    46: "Stress-test the current portfolio against a long-horizon retirement goal and identify which evidence supports or weakens its suitability.",
-    47: "Apply a mock windfall to the team strategy, choosing an immediate, staged or no-investment action with a decision pause and evidence plan.",
-    48: "Re-check live national and local rules, account security and unsafe-offer red flags before the final portfolio period.",
-    49: "Map the team's research, portfolio, compliance, data-entry and reporting work to real investment careers and their ethical responsibilities.",
-    50: "Defend the final portfolio against its goal and benchmark, evaluate the decision process and submit an individual reflection on contribution and changed judgement."
+    1: "Use the four-category classifier on the lesson handout, agree one team boundary rule for investment versus saving, speculation and consumption, and record one concise team evidence row; do not enter an order.",
+    2: "Complete the short- and long-term goal tables, form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.",
+    3: "Turn the team purpose into explicit goal, time-horizon and liquidity rules that will govern later portfolio decisions.",
+    4: "Use frozen contribution, return and inflation figures to compare nominal and real compound-growth projections, label every assumption and complete the official rules quiz.",
+    5: "Place one watchlist candidate and the team's cash position on a risk-possible-return map, including one downside that the map cannot quantify.",
+    6: "Set team risk-tolerance and risk-capacity limits and record which investment-choice evidence must be learned before any order.",
+    7: "Approve the team investment policy, permitted-choice boundaries and pre-launch research plan; do not select or purchase a security.",
+    8: "Compare the proposed cash reserve with a teacher-frozen deposit and bond alternative, recording any non-platform choice as a paper allocation.",
+    9: "Explain what ownership of one eligible watchlist share would give the team and what it would not give; no order is entered.",
+    10: "Compare an ETF, index-tracking fund and actively managed fund by objective, benchmark, holdings, cost and remaining risk.",
+    11: "Calculate the cost of one proposed fund or transaction and audit the paper portfolio for company, sector and geographic concentration.",
+    12: "Model regular contributions versus one lump-sum contribution and explain why neither method guarantees the better result.",
+    13: "Complete the formal portfolio-fit review, approve the first evidence-backed proposal and complete the qualifying long stock purchase when the teacher opens the launch gate.",
+    14: "Trace a holding from company issuance in the primary market to the team's secondary-market trade, explaining where money and securities moved.",
+    15: "Trace one order through submission, execution and settlement and annotate the related quote with bid, ask, volume and time stamp.",
+    16: "Explain one material price move using dated evidence and compare share price with market capitalisation for two candidates.",
+    17: "Calculate total return for one holding and compare the team's same-period performance with the applicable benchmark without using rank as proof of quality.",
+    18: "Audit one market-news or analyst item for source quality, date, material evidence, uncertainty and conflict, then submit the market-evidence memo.",
+    19: "Write a concise business-model note for one holding or watchlist candidate: customer, value offered, revenue driver and main vulnerability.",
+    20: "Extract revenue and profit evidence, compare profit with operating cash flow and explain the difference for the team judgement.",
+    21: "Use balance-sheet evidence to assess one holding or candidate's liquidity, debt and resilience without relying on a single ratio.",
+    22: "Compare one holding with a relevant peer using aligned measures and add two material risks plus a disconfirming indicator to the monitoring record.",
+    23: "Make a cautious valuation judgement for one holding or candidate using at least one comparison measure, assumptions and an explicit caveat.",
+    24: "Submit the junior analyst memo on one SMG holding or watchlist candidate and connect its evidence to a hold, research, trade or no-trade decision.",
+    25: "Calculate the live portfolio's asset and security weights and identify the largest avoidable company, sector or asset-class concentration.",
+    26: "Map geographic and currency exposures, then separate company-specific risks from the market-wide risks diversification cannot remove.",
+    27: "Compare a share, fund and teacher-frozen bond alternative, calculate weight gaps and complete a rebalance, monitor or no-action decision with dated triggers.",
+    28: "Audit one team decision for FOMO, recency bias or performance chasing, correct the process and submit the Unit 5 portfolio review.",
+    29: "Stress-test the current portfolio against education, house-deposit and retirement goals and explain why the three allocations require different risk rules.",
+    30: "Build a staged windfall plan, audit a suspicious offer and re-check current rules, account security and stop-and-verify boundaries.",
+    31: "Map the team's research, portfolio, compliance, data-entry and reporting work to real investment careers and their ethical responsibilities.",
+    32: "Defend the final portfolio against its goal and benchmark, present the family strategy and submit an individual reflection on contribution and changed judgement."
   };
 
   const stockMarketGameWorkbookSessions = [
-    { session: 1, title: "Intro to Investing", pages: [4, 8], courseLessons: [1, 3], courseUse: "Goals, saving versus investing, reflection and team roles." },
-    { session: 2, title: "Intro to Companies & Stocks", pages: [9, 14], courseLessons: [11, 11], courseUse: "Company-share foundations and public-company identification after the team policy is complete." },
-    { session: 3, title: "Building Your Portfolio", pages: [15, 19], courseLessons: [17, 17], courseUse: "Investment-choice review, proposed allocation and the first qualifying order at the launch gate." },
-    { session: 4, title: "Conducting Research", pages: [20, 24], courseLessons: [21, 21], courseUse: "Candidate research and quote-page annotation after students have learned shares, funds, costs and diversification." },
-    { session: 5, title: "Assessing Risk", pages: [25, 28], courseLessons: [6, 7], courseUse: "Risk, risk tolerance and risk capacity before any security is selected." },
-    { session: 6, title: "Diversification", pages: [29, 36], courseLessons: [12, 15], courseUse: "Funds, costs, sectors, diversification and a controlled fund proposal." },
-    { session: 7, title: "Market Analysis", pages: [37, 40], courseLessons: [22, 29], courseUse: "Price-moving information, earnings evidence and source limitations." },
-    { session: 8, title: "Asset Allocation", pages: [41, 45], courseLessons: [10, 40], courseUse: "Bond structure, goal fit and later cross-asset comparison." },
-    { session: 9, title: "Portfolio Evaluation", pages: [46, 48], courseLessons: [29, 35], courseUse: "Annual-report evidence and the company-analysis portfolio implication." },
-    { session: 10, title: "Wrap Up & Reflection", pages: [49, 55], courseLessons: [49, 50], courseUse: "Benchmark-aware evaluation, team presentation and individual reflection." }
+    { session: 1, title: "Intro to Investing", pages: [4, 8], courseLessons: [2, 4], courseUse: "Goals, saving versus investing, reflection and team roles after the Lesson 1 classification workshop." },
+    { session: 2, title: "Intro to Companies & Stocks", pages: [9, 14], courseLessons: [9, 9], courseUse: "Company-share foundations and public-company identification after the team policy is complete." },
+    { session: 3, title: "Building Your Portfolio", pages: [15, 19], courseLessons: [13, 13], courseUse: "Investment-choice review, proposed allocation and the first qualifying order at the launch gate." },
+    { session: 4, title: "Conducting Research", pages: [20, 24], courseLessons: [15, 15], courseUse: "Candidate research and quote-page annotation after students have learned shares, funds, costs and diversification." },
+    { session: 5, title: "Assessing Risk", pages: [25, 28], courseLessons: [5, 6], courseUse: "Risk, risk tolerance and risk capacity before any security is selected." },
+    { session: 6, title: "Diversification", pages: [29, 36], courseLessons: [10, 11], courseUse: "Funds, costs, sectors, diversification and a controlled fund proposal." },
+    { session: 7, title: "Market Analysis", pages: [37, 40], courseLessons: [16, 20], courseUse: "Price-moving information, earnings evidence and source limitations." },
+    { session: 8, title: "Asset Allocation", pages: [41, 45], courseLessons: [8, 27], courseUse: "Bond structure, goal fit and later cross-asset comparison." },
+    { session: 9, title: "Portfolio Evaluation", pages: [46, 48], courseLessons: [20, 28], courseUse: "Annual-report evidence, company analysis and the cumulative portfolio review." },
+    { session: 10, title: "Wrap Up & Reflection", pages: [49, 55], courseLessons: [31, 32], courseUse: "Benchmark-aware evaluation, team presentation and individual reflection." }
   ];
 
   const stockMarketGameWorkbookLessonPlan = {
-    1: { pages: "1-3, 5-6 and 8", action: "Set up the personal workbook, complete the short- and long-term goal tables, record only the team ID or username, assign roles and complete the opening orientation.", treatment: "complete" },
-    2: { pages: "5-6", action: "Revisit the completed short- and long-term goal tables; add liquidity need beside each goal.", treatment: "revisit with course addition" },
-    3: { pages: "4 and 7", action: "Use the introduction and reflection to distinguish saving, investing and speculation for the stated goals.", treatment: "complete" },
-    6: { pages: "25-26", action: "Complete the risk introduction and distinguish possible return from guaranteed return; no security is selected.", treatment: "complete with course boundary" },
-    7: { pages: "27-28", action: "Separate willingness to take risk from financial ability to withstand loss and record the team's pre-launch risk limits.", treatment: "complete with course addition" },
-    10: { pages: "41-45", action: "Complete the bond comparison as a paper allocation unless current platform, local and course rules permit an approved order.", treatment: "complete with trade override" },
-    11: { pages: "9-14", action: "Complete the company-and-stock pages and correct what owning one share gives and does not give before any order is entered.", treatment: "complete with course correction" },
-    12: { pages: "33-35", action: "Complete the mutual-fund quote and holdings investigation, adding objective, cost and one remaining concentration risk.", treatment: "complete with course addition" },
-    13: { pages: "36", action: "Replace the automatic mutual-fund trade with a compare, research, hold, propose or no-trade decision supported by evidence.", treatment: "complete with trade override" },
-    14: { pages: "34-36", action: "Revisit the fund evidence and calculate how the stated expense ratio affects the proposed holding.", treatment: "revisit with calculation" },
-    15: { pages: "29-32", action: "Complete the sector map and portfolio circle, then test company, sector and geographic concentration rather than counting holdings.", treatment: "complete with course addition" },
-    17: { pages: "15-19 and 24", action: "Complete the proposed allocation, test it against the approved goal and limits, then treat any buy instruction as submission to the Lesson 17 approval gate.", treatment: "complete with trade override" },
-    21: { pages: "20-23", action: "Complete the research and quote pages and annotate one live or frozen eligible-security quote before any later order is considered.", treatment: "complete with course addition" },
-    22: { pages: "37 and 40", action: "Use the market-analysis opener and current-events reflection to explain one price move with an alternative explanation and limitation.", treatment: "complete" },
-    26: { pages: "40", action: "Audit the source, date, material claim, uncertainty and possible conflict behind the completed current-events reflection.", treatment: "revisit" },
-    29: { pages: "38-39 and 46-47", action: "Use earnings and annual-report evidence for one holding or candidate; do not treat an analyst estimate or one ratio as a decision by itself.", treatment: "complete with course addition" },
-    35: { pages: "47-48", action: "Convert buy, sell or hold into an evidence-based portfolio implication: hold, research, trade or no trade, with a caveat and review trigger.", treatment: "revisit with trade override" },
-    36: { pages: "32 and 44-45", action: "Revisit the workbook allocation and compare it with the live portfolio's actual asset and security weights.", treatment: "revisit" },
-    40: { pages: "41-45", action: "Revisit bonds beside a current share holding and eligible fund using the same goal, risk, liquidity, cost and evidence criteria.", treatment: "revisit" },
-    49: { pages: "54", action: "Use the additional-assessment menu to select evidence for the final presentation; do not add a second project.", treatment: "extension menu" },
-    50: { pages: "49-53 and 55", action: "Complete the final benchmark-aware evaluation, team presentation and individual reflection; judge the process, not the ranking.", treatment: "complete" }
+    2: { pages: "1-3, 5-6 and 8", action: "Set up the personal workbook, complete the short- and long-term goal tables, record only the team ID or username, assign roles and complete the opening orientation.", treatment: "complete" },
+    3: { pages: "5-6", action: "Revisit the completed short- and long-term goal tables; add liquidity need beside each goal.", treatment: "revisit with course addition" },
+    4: { pages: "4 and 7", action: "Use the introduction and reflection to distinguish saving, investing and speculation, then add the lesson's real-return calculation on the activity insert.", treatment: "complete with course addition" },
+    5: { pages: "25-26", action: "Complete the risk introduction and distinguish possible return from guaranteed return; no security is selected.", treatment: "complete with course boundary" },
+    6: { pages: "27-28", action: "Separate willingness to take risk from financial ability to withstand loss and record the team's pre-launch risk limits.", treatment: "complete with course addition" },
+    7: { pages: "15-16", action: "Draft the policy rules that will control later portfolio construction and file the Unit 1 checkpoint.", treatment: "revisit with policy synthesis" },
+    8: { pages: "41-45", action: "Complete the cash-and-bond comparison as a paper allocation unless current platform, local and course rules permit an approved order.", treatment: "complete with trade override" },
+    9: { pages: "9-14", action: "Complete the company-and-stock pages and correct what owning one share gives and does not give before any order is entered.", treatment: "complete with course correction" },
+    10: { pages: "33-36", action: "Complete the fund quote, holdings and management-style comparison, replacing any automatic trade instruction with an evidence decision.", treatment: "complete with trade override" },
+    11: { pages: "29-32 and 34-36", action: "Calculate the stated fee, map portfolio exposures and improve diversification before launch.", treatment: "complete with course addition" },
+    12: { pages: "17", action: "Add the regular-versus-lump-sum comparison to the contribution discussion without treating either projection as promised.", treatment: "revisit with calculation" },
+    13: { pages: "15-19 and 24", action: "Complete the proposed allocation, test it against the approved goal and limits, then treat any buy instruction as submission to the Lesson 13 approval gate.", treatment: "complete with trade override" },
+    15: { pages: "20-23", action: "Complete the research and quote pages and annotate one live or frozen eligible-security quote before any later order is considered.", treatment: "complete with course addition" },
+    16: { pages: "37 and 40", action: "Use the market-analysis opener and current-events reflection to explain one price move with an alternative explanation and limitation.", treatment: "complete" },
+    18: { pages: "40", action: "Audit the source, date, material claim, uncertainty and possible conflict behind the completed current-events reflection.", treatment: "revisit" },
+    20: { pages: "38-39 and 46-47", action: "Use earnings, cash-flow and annual-report evidence for one holding or candidate; do not treat one figure as a decision by itself.", treatment: "complete with course addition" },
+    24: { pages: "47-48", action: "Convert buy, sell or hold into an evidence-based portfolio implication with a caveat and review trigger.", treatment: "revisit with trade override" },
+    25: { pages: "32 and 44-45", action: "Revisit the workbook allocation and compare it with the live portfolio's actual asset and security weights.", treatment: "revisit" },
+    27: { pages: "41-48", action: "Compare current choices, calculate weight gaps and complete the rebalance or no-action decision.", treatment: "revisit with portfolio decision" },
+    28: { pages: "49", action: "Begin the cumulative portfolio evaluation by correcting one biased decision process.", treatment: "revisit with reflection" },
+    31: { pages: "54", action: "Use the additional-assessment menu to select evidence for the final presentation; do not add a second project.", treatment: "extension menu" },
+    32: { pages: "49-55", action: "Complete the final benchmark-aware evaluation, team presentation and individual reflection; judge the process, not the ranking.", treatment: "complete" }
   };
 
   const stockMarketGameWorkbookRules = [
@@ -444,6 +708,16 @@
   ];
 
   function getStockMarketGameWorkbookUse(lesson) {
+    if (lesson === 1) {
+      return {
+        hasAssignedPages: true,
+        pages: "Lesson 1 handout",
+        treatment: "integrated lesson handout",
+        studentAction: "Use the concise Lesson 1 handout for the classification task and file it with the SMG workbook after the lesson.",
+        individualRecord: "Complete the handout classification and the lesson's individual exit judgement.",
+        supplementRule: "The integrated handout is the complete Lesson 1 work record; do not add a duplicate activity insert."
+      };
+    }
     const planned = stockMarketGameWorkbookLessonPlan[lesson];
     if (planned) {
       return {
@@ -678,13 +952,13 @@
         exitJudgement: studentOutput,
         stockMarketGame: stockMarketGame
       },
-      publishedRoutes: lesson <= 2 ? {
+      publishedRoutes: lesson <= 3 ? {
         slides: "unit-1/lesson-" + lesson + "/index.html",
         quiz: "unit-1/lesson-" + lesson + "/index.html?view=quiz",
         handout: "unit-1/lesson-" + lesson + "/index.html?view=print"
       } : null,
       caseReview: {
-        status: lesson <= 2 ? "published and source-verified" : "planned",
+        status: lesson <= 3 ? "published and source-verified" : "planned",
         sourceFit: "The case can be taught from frozen evidence without live-price dependence or personal account data.",
         reason: "The anchor supports the unit progression and an evidence-based investment decision."
       }
@@ -702,12 +976,21 @@
   });
 
   const courseMap = {
-    version: 10,
+    version: 12,
     syllabusKey: "financial-decisions",
     courseTitle: "Investment and Financial Decision-Making",
-    mapTitle: "50-Lesson Personal Wealth, Markets and Analysis Course Map",
+    mapTitle: "32-Lesson One-Semester Personal Wealth, Markets and Analysis Course Map",
+    deliveryModel: {
+      duration: "one semester",
+      teachingWeeks: 16,
+      lessonsPerWeek: 2,
+      plannedLessons: 32,
+      acceptedLessonRange: [30, 35],
+      lessonLengthMinutes: 40,
+      schedulingRule: "Teach two lessons per week for sixteen weeks. If the school calendar provides only 30-31 meetings, combine a unit synthesis with its checkpoint; if it provides 33-35 meetings, use the additional meetings for retrieval, catch-up or presentations without adding new core content."
+    },
     currencyRule: "Use ISO currency codes that match the case: CNY for mainland China family scenarios, HKD for Hong Kong-listed securities or Hong Kong transactions, USD for United States cases, and the corresponding local or transaction currency for other countries. In Chinese support, name 人民币, 港元 or 美元 as appropriate.",
-    courseIntroduction: "Investment is not simply choosing a stock. It begins with understanding what the money is for, when it will be needed, what risk can be accepted and which evidence is still missing. The Stock Market Game is the course's required laboratory: every lesson applies its investment concept to the team's policy, watchlist, portfolio, transactions, evidence or benchmark. Students learn to make informed investment decisions, contribute thoughtfully to family discussions, understand stock markets, analyse companies and portfolios, and explore the tools and responsibilities of finance professionals.",
+    courseIntroduction: "Students will develop practical financial skills they can use throughout their lives. They will learn why people invest and how goals, time, risk and possible return shape sensible financial decisions. Students will compare cash, bonds, shares and investment funds, discover how stock markets work and learn to understand basic company information. They will also practise building a balanced mix of investments (a portfolio). The course aims to help students become more confident, thoughtful and responsible when discussing financial choices and prepare for possible careers in finance.",
     coursePromise: "Students move from family goal to investor profile, investment choice, market understanding, security analysis and portfolio decision. In every lesson they test that learning in a shared Stock Market Game portfolio and communicate a justified next action with evidence and limits.",
     stockMarketGameIntegration: {
       status: "required for every enrolled student",
@@ -715,7 +998,7 @@
       provider: "SIFMA Foundation",
       program: "The Stock Market Game",
       courseStart: "2026-09-01",
-      session: "Use the registered 2026-2027 full-academic-year session and the exact dates displayed in the advisor account; official registration guidance says dates and competition conditions vary by program.",
+      session: "Use the registered semester session whose dates cover the sixteen-week course, and follow the exact dates and competition conditions displayed in the advisor account.",
       officialSequence: ["Understanding SMG", "Before You Invest", "Selecting Your Investments", "Tracking Your Investments", "Reflections"],
       nationalMinimum: "A team is not listed in rankings until it completes at least one successful buy or short-sell transaction. National rules require stock and mutual-fund buy orders and stock short-sell orders to contain at least 10 shares. This platform threshold is not sufficient evidence of individual course participation.",
       courseMinimum: "Every student must belong to exactly one team, understand the rules, rotate roles, contribute research and decisions, maintain individual evidence and complete a final reflection. Team rank or return never substitutes for this evidence.",
@@ -726,7 +1009,7 @@
         rotationRule: "Rotate roles every two course weeks. Teams with fewer than five students may combine roles, but the proposal author and order checker should be different students where team size permits; no rotation may expose team passwords."
       },
       launchGate: {
-        timing: "At the end of Lesson 17, after students have completed the investment-choice foundations in Units 1 and 2.",
+        timing: "At the end of Lesson 13, after students have completed the investment-choice foundations in Units 1 and 2.",
         readiness: ["Every student is rostered.", "National and local rules have been read.", "The official rules quiz is complete.", "The team investment policy is approved.", "Students can explain shares and funds, compare costs and identify concentration risk.", "The proposed allocation fits the goal, horizon, liquidity need and risk limits.", "A dated research note supports the proposed order."],
         qualifyingAction: "Complete one successful teacher-approved long stock buy of at least 10 shares, subject to any stricter local rule. Every student records their contribution to the team proposal."
       },
@@ -778,12 +1061,12 @@
         { key: "reviewTrigger", label: "Review trigger", requirement: "State the date, evidence or threshold that requires reconsideration." }
       ],
       unitEvidence: [
-        { unit: 1, lessons: [1, 8], title: "SMG investment policy", teamEvidence: "Roster, role schedule, rules check, goal-horizon-risk rules, permitted-choice boundaries and the approved investment policy; no trade is entered.", individualEvidence: "Curate the strongest Unit 1 exit judgements into a personal goal-horizon-risk decision charter.", assessmentUse: "This is the Personal Investment Foundations unit output." },
-        { unit: 2, lessons: [9, 17], title: "SMG portfolio construction", teamEvidence: "Cash rule, investment-choice comparisons, cost check, diversification audit, formal portfolio-fit review and the first approved qualifying order.", individualEvidence: "Defend one chosen investment criterion and one rejected portfolio alternative using the lesson evidence trail.", assessmentUse: "This is the SMG portfolio-construction and investment-choice memo." },
-        { unit: 3, lessons: [18, 26], title: "SMG market evidence", teamEvidence: "Issuance note, transaction trace, quote annotation, price explanation, return calculation and benchmark comparison.", individualEvidence: "Explain one transaction, price or return judgement with dated evidence and a limitation.", assessmentUse: "This is the SMG transaction, quote, return and benchmark evidence memo." },
-        { unit: 4, lessons: [27, 35], title: "SMG company analysis", teamEvidence: "Ethics check, source log, business model, statements, peer comparison, risks and valuation evidence for a holding or candidate.", individualEvidence: "Author or critically review one balanced company judgement and its portfolio implication.", assessmentUse: "This is the junior company-analysis memo on an SMG holding or watchlist candidate." },
-        { unit: 5, lessons: [36, 43], title: "SMG portfolio review", teamEvidence: "Weights, concentration, geographic and currency exposure, remaining risk, alternatives, rebalance, dashboard and behaviour audit.", individualEvidence: "Defend the rebalance or no-rebalance decision and specify a dated review trigger.", assessmentUse: "This is the SMG portfolio review and evidence-based rebalance decision." },
-        { unit: 6, lessons: [44, 50], title: "SMG final evaluation", teamEvidence: "Three goal stress tests, windfall decision, rules and security re-check, career reflection and final benchmark-aware portfolio defence.", individualEvidence: "Explain personal contribution, one changed judgement and one process improvement using evidence from the year.", assessmentUse: "This is the final SMG portfolio evaluation linked to a family strategy and team presentation; InvestWrite may be offered separately but is not required." }
+        { unit: 1, lessons: [1, 7], title: "SMG investment policy", teamEvidence: "Classification boundary, roster, role schedule, rules check, goal-horizon-risk rules, permitted-choice boundaries and the approved investment policy; no trade is entered.", individualEvidence: "Curate the strongest Unit 1 exit judgements into a personal goal-horizon-risk decision charter.", assessmentUse: "This is the Personal Investment Foundations unit output." },
+        { unit: 2, lessons: [8, 13], title: "SMG portfolio construction", teamEvidence: "Cash-and-bond comparison, share and fund evidence, cost check, diversification audit, investing-method comparison, formal portfolio-fit review and the first approved qualifying order.", individualEvidence: "Defend one chosen investment criterion and one rejected portfolio alternative using the lesson evidence trail.", assessmentUse: "This is the SMG portfolio-construction and investment-choice memo." },
+        { unit: 3, lessons: [14, 18], title: "SMG market evidence", teamEvidence: "Issuance note, transaction trace, quote annotation, price explanation, return calculation, benchmark comparison and source audit.", individualEvidence: "Explain one transaction, price or return judgement with dated evidence and a limitation.", assessmentUse: "This is the SMG transaction, quote, return and benchmark evidence memo." },
+        { unit: 4, lessons: [19, 24], title: "SMG company analysis", teamEvidence: "Business model, statements, peer comparison, risks and valuation evidence for a holding or candidate.", individualEvidence: "Author or critically review one balanced company judgement and its portfolio implication.", assessmentUse: "This is the junior company-analysis memo on an SMG holding or watchlist candidate." },
+        { unit: 5, lessons: [25, 28], title: "SMG portfolio review", teamEvidence: "Weights, concentration, geographic and currency exposure, remaining risk, alternatives, rebalance, monitoring triggers and behaviour audit.", individualEvidence: "Defend the rebalance or no-rebalance decision and specify a dated review trigger.", assessmentUse: "This is the SMG portfolio review and evidence-based rebalance decision." },
+        { unit: 6, lessons: [29, 32], title: "SMG final evaluation", teamEvidence: "Three goal stress tests, windfall and safety decision, career reflection and final benchmark-aware portfolio defence.", individualEvidence: "Explain personal contribution, one changed judgement and one process improvement using evidence from the semester.", assessmentUse: "This is the final SMG portfolio evaluation linked to a family strategy and team presentation; InvestWrite may be offered separately but is not required." }
       ],
       individualParticipationEvidence: [
         "Completed rules quiz and signed course participation agreement.",
@@ -813,22 +1096,22 @@
       rule: "Generate the active definition page from each lesson's canonical terms. Reuse archived source matches only as cross-references; never let the archived company-analysis glossary replace active course wording."
     },
     handoutContract: [
-      { key: "definitions", title: "Key definitions / 核心定义", requirement: "Print every new term bilingually. Use targeted English fill-in-the-blank key words answerable during the lesson, preserve the exact answers for the toggle and provide the complete Simplified Chinese definition." },
+      { key: "definitions", title: "Key definitions / 核心定义", requirement: "Print every difficult new term with a consistent Chinese translation. Use complete, self-contained English definitions rather than fill-in-the-blank or cloze wording, and give English visual priority." },
       { key: "numberedRevisionPoints", title: "Numbered revision points / 编号复习要点", requirement: "Give four to seven short, complete, examinable English statements, each followed by faithful Simplified Chinese. Cover the core principle, important relationship, formula or decision rule and misconception correction." }
     ],
     textbookAssembly: {
       source: "Bilingual definition-and-numbered-point lesson handouts",
       rule: "The lesson handouts may be compiled verbatim as a bilingual course revision handbook. Do not add textbook-only chapters, workbook directions, case tasks, extended questions, response spaces or model activities.",
-      sections: ["Unit dividers", "Lesson questions", "Bilingual fill-in definitions", "Bilingual numbered revision points"]
+      sections: ["Unit dividers", "Lesson questions", "Self-contained bilingual definitions", "Bilingual numbered revision points"]
     },
     generatorAccess: {
       canonicalSource: "investment-analysis/course-map-financial-decisions-data.js",
       contextModule: "investment-analysis/generator-context.js",
-      cli: "node scripts/export-investment-generator-context.js --syllabus financial-decisions --lesson <1-50> --target lesson",
+      cli: "node scripts/export-investment-generator-context.js --syllabus financial-decisions --lesson <1-32> --target lesson",
       targets: [
         { key: "lesson", purpose: "Full lesson-planning context.", use: "Load before writing a deck, notes or source task." },
         { key: "deck", purpose: "Slide-deck contract.", use: "Use the decision-first fields, deck arc, retrieval, formative assessment and exit output." },
-        { key: "handout", purpose: "Bilingual exam-revision handout contract.", use: "Generate targeted English definition blanks with complete Chinese definitions and four to seven bilingual numbered knowledge points; exclude workbook directions, extended activities and response spaces." },
+        { key: "handout", purpose: "Bilingual exam-revision handout contract.", use: "Generate complete English definitions with consistent Chinese translations of difficult terminology, structured comparisons and concise varied practice; never use cloze definitions." },
         { key: "activity-insert", purpose: "One-page lesson work record when the official workbook has no suitable pages.", use: "Generate only the frozen evidence, calculation or judgement missing from the workbook; file the completed insert with the student's workbook." },
         { key: "quiz", purpose: "Follow-up retrieval contract.", use: "Retrieve the lesson terms, misconception, formula or decision rule and exit judgement." },
         { key: "exam", purpose: "Unit-checkpoint item contract.", use: "Use the source pack and assessment blueprint." },
@@ -836,9 +1119,10 @@
       ],
       rules: [
         "Treat this file as the canonical Investment and Financial Decision-Making syllabus.",
+        "Use the shared Economics presentation system for every lesson: assets/css/theme.css, assets/css/presentation.css, assets/js/presentation.js, window.IGCSE.lesson and window.IGCSE.quiz. Mount native lesson data directly with window.IGCSE.mountLesson.",
         "Preserve the progression family goal -> investor profile -> investment choice -> market understanding -> security analysis -> portfolio decision.",
         "Build every lesson around a first judgement, missing evidence, one focused key idea, an evidence task, misconception correction and a justified next action.",
-        "Keep every handout exam-revision focused and bilingual: targeted English definition blanks with complete Simplified Chinese definitions, followed by four to seven bilingual numbered knowledge points; exclude scenarios to analyse, extended activities and response spaces.",
+        "Keep every handout exam-revision focused: use complete self-contained English definitions, consistently translate difficult terminology, give English visual priority and never use cloze definitions.",
         "Use every lesson's stockMarketGame field as the main application and evidence task. Only the six unit outputs are summative; all other lesson labs and evidence checkpoints are required formative work that builds the same portfolio evidence trail.",
         "Issue the complete SMG Essentials Workbook to every student. Follow the course page calendar rather than workbook order, and apply the printed course overrides to every automatic trade instruction.",
         "Make assigned workbook pages replace compatible generic practice. Generate only a separately labelled missing-evidence activity insert; never append a duplicate six-block worksheet or parallel homework stream.",

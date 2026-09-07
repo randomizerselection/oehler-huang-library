@@ -16,5 +16,9 @@ apps/platform/output/
 apps/platform/tmp/
 apps/library/test-results/
 apps/library/playwright-report/
+apps/library/.codex-screens/
+apps/library/tmp/
+apps/library/reports/
+apps/library/student-performance-report.html
 apps/student-selector/test-results/
 apps/student-selector/playwright-report/

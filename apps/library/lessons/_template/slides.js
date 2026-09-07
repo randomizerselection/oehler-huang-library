@@ -46,11 +46,17 @@
      ordinary, less dense card slides.
 
    Section divider convention:
-     Section titles should name the concept being taught. Use zhTitle for a
-     concise Chinese translation. Omit subtitles by default.
-     Add a subtitle only when it gives a student-facing bridge or contrast,
+      Section titles should name the concept being taught. Use zhTitle for a
+      concise Chinese translation. Omit subtitles by default.
+      Put the exact syllabus code and section heading on the hero/title slide,
+      not on section dividers. Dividers mark only internal teaching chunks.
+      Add a subtitle only when it gives a student-facing bridge or contrast,
      e.g. subtitle: 'How lower rates change spending and investment'.
      Do not use section subtitles for syllabus refs or topic breadcrumbs.
+
+   Student-facing wording convention:
+     Do not show editorial remarks such as "For now", "This is taught later",
+     or comments about slide sequencing. Put that guidance in teacher notes.
 
    Visual pause and discussion convention:
      Fact slides are discontinued. Each major section should normally start
@@ -61,7 +67,16 @@
      Use objectPosition when the default crop misses the focal point.
      For mechanism lessons, prefer:
        section -> visualPause -> flow(fillBlanks) -> short check/practice.
-     Teach both directions before compare/classification review.
+      Teach both directions before compare/classification review.
+
+   Flow convention:
+      Every arrow must mean "therefore" or "this leads to". Put parallel
+      premises together in one chip. Use cards for parallel observations that
+      independently support a conclusion.
+
+   Yes/No convention:
+      yesNoCheck shows every statement immediately. Each next action reveals
+      one answer and reason, so students decide before seeing feedback.
 
    Recall convention:
      For lessons after lesson 1, start with a peerTask definition recall:
@@ -88,7 +103,7 @@ IGCSE.lesson = {
     {
       type: 'hero',
       eyebrow:  'Overview',
-      title:    '<Lesson title>',
+      title:    '<Syllabus code and section title>',
       subtitle: '<Short subtitle>',
       kicker:   '<One-line hook>',
       visual:   photos.starbucks || 'hero',

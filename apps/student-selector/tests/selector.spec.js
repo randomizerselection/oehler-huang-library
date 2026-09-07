@@ -1,5 +1,123 @@
 const { expect, test } = require("@playwright/test");
 
+test("decodes and plays every original MP3 with the original duration mapping", async ({ page }) => {
+  const warnings = [];
+  page.on("console", (message) => {
+    if (message.text().includes("Student selector sound")) warnings.push(message.text());
+  });
+  await page.goto("/tests/harness.html");
+  await page.getByRole("button", { name: "Play Intro", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => Boolean(window.__selector.sound.current))).toBe(true);
+  const result = await page.evaluate(async () => {
+    const app = window.__selector;
+    const files = ["welcome", "closing", "select_student", "medium_slot", "long_slot",
+      "timeup", "sound_a_star", "sound_a", "sound_b", "sound_c"];
+    const decoded = [];
+    for (const name of files) {
+      await app.sound.play(`assets/${name}.mp3`);
+      const buffer = app.sound.current.buffer;
+      decoded.push({ name, duration: buffer.duration,
+        hasSignal: buffer.getChannelData(0).some((sample) => Math.abs(sample) > 0.01) });
+    }
+    const state = app.sound.context.state;
+    app.sound.stop();
+    return { decoded, state, slots: [3, 5, 20].map((seconds) => app.slotSound(seconds)) };
+  });
+  expect(result.state).toBe("running");
+  expect(result.decoded).toHaveLength(10);
+  for (const clip of result.decoded) {
+    expect(clip.duration, clip.name).toBeGreaterThan(0);
+    expect(clip.hasSignal, clip.name).toBe(true);
+  }
+  expect(result.slots).toEqual(["assets/select_student.mp3", "assets/medium_slot.mp3", "assets/long_slot.mp3"]);
+  expect(warnings).toEqual([]);
+});
+
+test("time-up survives selection reveal but mute stops all channels", async ({ page }) => {
+  await page.goto("/tests/harness.html");
+  await page.locator("[data-action='class']").selectOption("class-test");
+  await page.getByRole("button", { name: "START SELECTION" }).click();
+  await expect.poll(() => page.evaluate(() => Boolean(window.__selector.sound.current?.loop))).toBe(true);
+  await expect(page.getByRole("button", { name: /A Strong/ })).toBeVisible({ timeout: 7_000 });
+  expect(await page.evaluate(() => ({
+    music: window.__selector.sound.current,
+    overlays: window.__selector.sound.overlays.size
+  }))).toEqual({ music: null, overlays: 1 });
+  await page.evaluate(() => window.__selector.toggle("soundEnabled"));
+  expect(await page.evaluate(() => window.__selector.sound.overlays.size)).toBe(0);
+  await page.evaluate(() => window.__selector.sound.playOverlay("assets/timeup.mp3"));
+  expect(await page.evaluate(() => window.__selector.sound.overlays.size)).toBe(0);
+});
+
+test("quiet countdown still plays time-up after user activation expires", async ({ page }) => {
+  await page.goto("/tests/harness.html");
+  await page.locator("[data-action='class']").selectOption("class-test");
+  await page.getByRole("button", { name: "Slot Effect" }).click();
+  await page.evaluate(() => window.__selector.setTimer(7));
+  await page.getByRole("button", { name: "START SELECTION" }).click();
+  await expect.poll(() => page.evaluate(() => window.__selector.sound.context?.state)).toBe("running");
+  await expect(page.getByRole("button", { name: /A Strong/ })).toBeVisible({ timeout: 10_000 });
+  expect(await page.evaluate(() => window.__selector.sound.overlays.size)).toBe(1);
+});
+
+test("mute cancels audio still loading and later playback can retry", async ({ page }) => {
+  let release;
+  const delayed = new Promise((resolve) => { release = resolve; });
+  await page.route("**/assets/welcome.mp3", async (route) => {
+    await delayed;
+    await route.continue();
+  });
+  await page.goto("/tests/harness.html");
+  const requested = page.waitForRequest("**/assets/welcome.mp3");
+  await page.getByRole("button", { name: "Play Intro", exact: true }).click();
+  await requested;
+  await page.getByRole("button", { name: "Sound", exact: true }).click();
+  // Unmuting before the download finishes must not resurrect the cancelled cue.
+  await page.getByRole("button", { name: "Sound", exact: true }).click();
+  release();
+  await page.evaluate(async () => {
+    await window.__selector.sound.buffer("assets/welcome.mp3");
+  });
+  expect(await page.evaluate(() => window.__selector.sound.current)).toBeNull();
+  await page.getByRole("button", { name: "Play Intro", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => Boolean(window.__selector.sound.current))).toBe(true);
+});
+
+test("roll call restores the original present, absent and completion tones", async ({ page }) => {
+  await page.goto("/tests/harness.html");
+  await page.locator("[data-action='class']").selectOption("class-test");
+  await page.evaluate(() => {
+    window.__toneFrequencies = [];
+    window.__gainNodesCreated = 0;
+    const createGain = AudioContext.prototype.createGain;
+    AudioContext.prototype.createGain = function () {
+      window.__gainNodesCreated += 1;
+      return createGain.call(this);
+    };
+    const create = AudioContext.prototype.createOscillator;
+    AudioContext.prototype.createOscillator = function () {
+      const oscillator = create.call(this);
+      const start = oscillator.start.bind(oscillator);
+      oscillator.start = (...args) => {
+        window.__toneFrequencies.push(oscillator.frequency.value);
+        start(...args);
+      };
+      return oscillator;
+    };
+  });
+  await page.getByRole("button", { name: "Attendance", exact: true }).click();
+  await page.keyboard.press("Enter");
+  await expect.poll(() => page.evaluate(() => window.__toneFrequencies)).toEqual([988]);
+  await page.keyboard.press("KeyA");
+  await expect.poll(() => page.evaluate(() => window.__toneFrequencies)).toEqual([988, 523, 392]);
+  await page.keyboard.press("Enter");
+  await expect.poll(() => page.evaluate(() => window.__toneFrequencies)).toEqual([988, 523, 392, 988, 659, 784, 988]);
+  expect(await page.evaluate(() => window.__gainNodesCreated)).toBe(0);
+  await page.evaluate(() => window.__selector.destroy());
+  expect(await page.evaluate(() => window.__selector.sound.context.state)).toBe("closed");
+  expect(await page.evaluate(() => window.__selector.sound.overlays.size)).toBe(0);
+});
+
 test("loads roster and completes the core selector flow", async ({ page }) => {
   await page.goto("/tests/harness.html");
 

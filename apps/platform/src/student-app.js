@@ -58,6 +58,8 @@ const elements = {
   startAgain: $("#student-start-again"),
   historySection: $("#student-history-section"),
   historyList: $("#student-history-list"),
+  quizHistorySection: $("#student-quiz-history-section"),
+  quizHistoryList: $("#student-quiz-history-list"),
   toast: $("#student-toast")
 };
 
@@ -350,12 +352,36 @@ async function renderHistory() {
   }
 }
 
+async function renderQuizHistory() {
+  const account = getAuthState().account;
+  const selected = new URLSearchParams(location.search).get('tab') === 'quizzes';
+  elements.quizHistorySection.hidden = !selected || account?.role !== 'student';
+  elements.quizHistoryList.replaceChildren();
+  if (!selected || account?.role !== 'student') return;
+  try {
+    const response = await authFetch('/api/quiz-attempts/me?limit=100');
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.message || '测验记录加载失败。');
+    if (!payload.items.length) { elements.quizHistoryList.append(node('p', 'student-history-empty', '你还没有保存的课程测验。')); return; }
+    for (const item of payload.items) {
+      const article = node('article', 'student-history-item');
+      article.append(node('strong', '', `${item.lesson_title || item.lesson_id} · ${item.score}/${item.max_score} (${item.percentage}%)`));
+      article.append(node('span', '', `${new Date(item.created_at).toLocaleString('zh-CN')} · ${item.class_name} · v${item.quiz_version}`));
+      elements.quizHistoryList.append(article);
+    }
+  } catch (error) { elements.quizHistoryList.append(node('p', 'student-history-empty', friendlyError(error))); }
+}
+
 async function initialise() {
   await initializeAccountUI();
+  if (new URLSearchParams(location.search).get('tab') === 'quizzes' && getAuthState().account?.role !== 'student') {
+    await window.PlatformAuth?.requireRole?.('student', { context: 'quiz-history', message: '学生账户可查看自己的课程测验记录。' });
+  }
   elements.uploadLimit.textContent = `支持 JPG、PNG、WEBP · 最大 ${getPublicConfig().max_file_mb} MB`;
   const codeFromUrl = new URL(location.href).searchParams.get("code");
   if (codeFromUrl) await resolveCode(codeFromUrl);
   await renderHistory();
+  await renderQuizHistory();
 
   elements.codeForm.addEventListener("submit", (event) => { event.preventDefault(); resolveCode(elements.code.value); });
 
@@ -372,7 +398,7 @@ async function initialise() {
   elements.submit.addEventListener("click", submitAnswer);
   elements.demo.addEventListener("click", showDemo);
   elements.startAgain.addEventListener("click", resetSubmission);
-  window.addEventListener("econmark:authchange", () => renderHistory());
+  window.addEventListener("econmark:authchange", () => { renderHistory(); renderQuizHistory(); });
 }
 
 initialise().catch((error) => showAlert(friendlyError(error), "error"));

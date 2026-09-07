@@ -28,6 +28,13 @@
     }
   };
 
+  // Original desktop roll-call cues (frequency Hz, duration ms).
+  const ATTENDANCE_TONES = {
+    present: [[988, 70]],
+    absent: [[523, 90], [392, 140]],
+    complete: [[659, 80], [784, 80], [988, 120]]
+  };
+
   const RATINGS = [
     ["A*", "Excellent"],
     ["A", "Strong"],
@@ -146,48 +153,144 @@
   class SoundManager {
     constructor(app) {
       this.app = app;
+      this.context = null;
       this.current = null;
       this.cache = new Map();
+      this.overlays = new Set();
+      this.musicVersion = 0;
+      this.stopVersion = 0;
+      this.destroyed = false;
     }
 
     get enabled() {
       return Boolean(this.app.state.soundEnabled);
     }
 
-    audio(path) {
+    unlock() {
+      if (!this.enabled || this.destroyed) return Promise.resolve(false);
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!this.context) this.context = new AudioContext();
+        // Resume during the click/key gesture, before roster/session requests or
+        // countdown timers consume the browser's user-activation window.
+        return this.context.resume().then(() => !this.destroyed);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    }
+
+    buffer(path) {
       const url = assetUrl(path, this.app.basePath);
       if (!this.cache.has(url)) {
-        const audio = new Audio(url);
-        audio.preload = "auto";
-        this.cache.set(url, audio);
+        const pending = fetch(url)
+          .then((response) => {
+            if (!response.ok) throw new Error(`Unable to load selector sound: ${url}`);
+            return response.arrayBuffer();
+          })
+          .then((bytes) => this.context.decodeAudioData(bytes))
+          .catch((error) => {
+            this.cache.delete(url); // A later click can retry a failed request.
+            throw error;
+          });
+        this.cache.set(url, pending);
       }
       return this.cache.get(url);
     }
 
-    stop() {
+    prepare() {
+      this.unlock().then((ready) => {
+        if (!ready) return;
+        const paths = [AUDIO.intro, AUDIO.closing, AUDIO.slotShort, AUDIO.slotMedium,
+          AUDIO.slotLong, AUDIO.timeup, ...Object.values(AUDIO.ratings)];
+        return Promise.all(paths.map((path) => this.buffer(path)));
+      }).catch((error) => this.reportError(error));
+    }
+
+    reportError(error) {
+      if (!this.destroyed) console.warn("Student selector sound could not play.", error);
+    }
+
+    stopMusic() {
+      this.musicVersion += 1;
       if (this.current) {
-        this.current.pause();
-        this.current.currentTime = 0;
+        this.current.stop();
+        this.current.disconnect();
       }
       this.current = null;
     }
 
-    play(path, options = {}) {
-      if (!this.enabled || !path) return;
-      const audio = this.audio(path);
-      this.stop();
-      audio.loop = Boolean(options.loop);
-      audio.currentTime = 0;
-      this.current = audio;
-      audio.play().catch(() => {});
+    stop() {
+      this.stopVersion += 1;
+      this.stopMusic();
+      for (const source of this.overlays) {
+        source.stop();
+        source.disconnect();
+      }
+      this.overlays.clear();
+    }
+
+    async play(path, options = {}) {
+      if (!this.enabled || !path || this.destroyed) return;
+      if (!options.overlay) this.stopMusic();
+      const musicVersion = this.musicVersion;
+      const stopVersion = this.stopVersion;
+      try {
+        if (!await this.unlock()) return;
+        const buffer = await this.buffer(path);
+        if (!this.enabled || this.destroyed || stopVersion !== this.stopVersion ||
+          (!options.overlay && musicVersion !== this.musicVersion)) return;
+        const source = this.context.createBufferSource();
+        source.buffer = buffer;
+        source.loop = Boolean(options.loop);
+        source.connect(this.context.destination);
+        if (options.overlay) this.overlays.add(source);
+        else this.current = source;
+        source.onended = () => {
+          source.disconnect();
+          this.overlays.delete(source);
+          if (this.current === source) this.current = null;
+        };
+        source.start();
+      } catch (error) {
+        this.reportError(error);
+      }
     }
 
     playOverlay(path) {
-      if (!this.enabled || !path) return;
-      const audio = this.audio(path);
-      audio.loop = false;
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
+      return this.play(path, { overlay: true });
+    }
+
+    async playAttendance(cue) {
+      if (!this.enabled || this.destroyed) return;
+      const stopVersion = this.stopVersion;
+      try {
+        if (!await this.unlock() || !this.enabled || stopVersion !== this.stopVersion) return;
+        let startsAt = this.context.currentTime;
+        for (const [frequency, duration] of ATTENDANCE_TONES[cue]) {
+          const tone = this.context.createOscillator();
+          tone.type = "square";
+          tone.frequency.value = frequency;
+          // Connect directly at unity gain, matching the unattenuated desktop cues.
+          tone.connect(this.context.destination);
+          this.overlays.add(tone);
+          tone.onended = () => {
+            tone.disconnect();
+            this.overlays.delete(tone);
+          };
+          tone.start(startsAt);
+          tone.stop(startsAt + duration / 1000);
+          startsAt += duration / 1000 + 0.015;
+        }
+      } catch (error) {
+        this.reportError(error);
+      }
+    }
+
+    destroy() {
+      this.destroyed = true;
+      this.stop();
+      this.cache.clear();
+      this.context?.close().catch(() => {});
     }
   }
 
@@ -215,7 +318,7 @@
 
     destroy() {
       this.clearTimers();
-      this.sound.stop();
+      this.sound.destroy();
       document.removeEventListener("keydown", this.boundKeydown);
       this.container.innerHTML = "";
     }
@@ -485,6 +588,8 @@
         return;
       }
 
+      this.sound.stop();
+      this.sound.prepare();
       try { await this.ensureRemoteSession(className); } catch (error) {
         this.showMessage("Unable to start session", error.message || "The selector session could not be started.");
         return;
@@ -531,7 +636,7 @@
 
     async finalizeSelection() {
       if (this.stage.mode !== "selecting") return;
-      this.sound.stop();
+      this.sound.stopMusic(); // Let the original time-up cue finish naturally.
       const className = this.stage.className;
       const student = this.stage.finalStudent;
       uniquePush(this.classState(className).selected, student);
@@ -635,6 +740,7 @@
       if (!this.modal || this.modal.type !== "attendance") return;
       const current = this.modal.roster[this.modal.index];
       if (!current) return;
+      this.sound.playAttendance(isPresent ? "present" : "absent");
       if (!isPresent) this.modal.absent.push(current);
       this.modal.index += 1;
       if (this.modal.index >= this.modal.roster.length) {
@@ -645,6 +751,7 @@
     }
 
     async finishAttendance() {
+      this.sound.playAttendance("complete");
       const className = this.modal.className;
       const absent = Array.from(new Set(this.modal.absent));
       this.classState(className).absent = absent;

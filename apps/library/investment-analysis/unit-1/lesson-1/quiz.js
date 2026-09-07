@@ -1,152 +1,130 @@
-window.INVEST = window.INVEST || {};
+window.IGCSE = window.IGCSE || {};
 
-window.INVEST.quiz = {
-  title: "Unit 1 Lesson 1 Quiz",
-  description: "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
+window.IGCSE.quiz = {
+  id: 'investment-analysis-unit-1-lesson-1',
+  version: '3.0.0',
+  title: 'Unit 1 Lesson 1 Quiz',
+  description: 'Retrieve the definitions, evidence and decisions used in the latest What is investment? lesson.',
   questions: [
     {
-      id: "investment-definition",
-      type: "multipleChoice",
-      prompt: "Which statement correctly defines investment?",
-      zh: "哪一个陈述正确定义了投资？",
+      id: 'strongest-investment-evidence',
+      type: 'multipleChoice',
+      prompt: 'What is the strongest evidence that a decision is a financial investment?',
+      zh: '什么证据最能表明一个决定属于金融投资？',
       choices: [
-        "Putting money into an asset to seek future return while accepting possible loss",
-        "Keeping all money unchanged until it is spent",
-        "Guaranteeing that money grows faster than prices",
-        "Choosing the investment with the highest recent return"
-      ],
-      answer: 0,
-      explanation: "Investment seeks future return through an asset while retaining the possibility of loss.",
-      explanationZh: "投资通过资产寻求未来回报，同时仍存在可能损失。"
-    },
-    {
-      id: "return-definition",
-      type: "fillBlank",
-      prompt: "Return is the gain or ________ from an investment over a stated period.",
-      zh: "回报是投资在规定期间内的收益或________。",
-      acceptedAnswers: ["loss", "损失"],
-      explanation: "Return can be positive or negative and includes price change and income.",
-      explanationZh: "回报可以为正，也可以为负，并包括价格变化和收入。"
-    },
-    {
-      id: "return-components",
-      type: "multipleChoice",
-      prompt: "Which pair is included in the Lesson 1 definition of return?",
-      zh: "哪一组内容包含在第一课的回报定义中？",
-      choices: [
-        "Goal priority and age",
-        "Price change and income",
-        "Budget and tax",
-        "Investment name and popularity"
+        'The asset has risen in price before',
+        'The main basis is expected income and/or evidence about underlying value, while possible loss is accepted',
+        'Money can be withdrawn immediately with no possible loss',
+        'The buyer plans to sell after an unverified rumour',
       ],
       answer: 1,
-      explanation: "The course definition includes price change and income over a stated period.",
-      explanationZh: "课程定义包括规定期间内的价格变化和收入。"
+      explanation: 'A financial investment seeks total return using income and/or evidence about value while possible loss remains.',
+      explanationZh: '金融投资以收入和/或价值证据为依据寻求总回报，同时仍有可能亏损。',
     },
     {
-      id: "financial-goal-definition",
-      type: "multipleChoice",
-      prompt: "Which description is a complete financial goal?",
-      zh: "哪一个描述是完整的财务目标？",
+      id: 'saving-decision',
+      type: 'multipleChoice',
+      prompt: 'Which decision is saving rather than financial investment?',
+      zh: '哪一个决定属于储蓄，而不是金融投资？',
       choices: [
-        "Make more money",
-        "Choose an investment soon",
-        "CNY 180,000 for university fees in six years, with high priority",
-        "Choose a high return"
-      ],
-      answer: 2,
-      explanation: "A financial goal states a future use, amount, priority and time horizon.",
-      explanationZh: "财务目标说明资金的未来用途、金额、优先级和投资期限。"
-    },
-    {
-      id: "why-invest",
-      type: "multipleChoice",
-      prompt: "Which is the strongest reason a family might invest?",
-      zh: "哪一个是家庭可能投资的最有力理由？",
-      choices: [
-        "To guarantee that every goal is reached",
-        "To avoid identifying when the money is needed",
-        "To copy an investment chosen by another family",
-        "To seek future return for a stated long-term goal while accepting possible loss"
-      ],
-      answer: 3,
-      explanation: "The reason links investment to a stated goal, future return and possible loss.",
-      explanationZh: "该理由把投资与明确目标、未来回报和可能损失联系起来。"
-    },
-    {
-      id: "medical-goal",
-      type: "multipleChoice",
-      prompt: "What is the best next step for CNY 25,000 needed for a medical bill in four months?",
-      zh: "四个月后支付医疗账单所需的25,000元人民币，最佳下一步是什么？",
-      choices: [
-        "Keep it available because a loss or delay could leave the bill unpaid",
-        "Consider investing because every goal needs the highest possible return",
-        "Choose an investment before checking when the bill is due",
-        "Need more information because the purpose and date are unknown"
+        'Keeping school-trip money in an easy-access account',
+        'Buying a diversified fund for long-term growth after reviewing its fees and risks',
+        'Buying shares for dividends and long-term value after analysing profits, debt and cash flow',
+        'Buying property mainly for expected net rental income',
       ],
       answer: 0,
-      explanation: "Choose ‘Keep available.’ The goal is near-term and urgent, so the money must be accessible and has little room for loss.",
-      explanationZh: "选择“保持资金可用”。该目标近期且紧急，因此资金必须可以使用，几乎没有承受损失的空间。"
+      explanation: 'The known near-term need makes liquidity and capital preservation decisive.',
+      explanationZh: '已知的近期需要使流动性和保本成为决定性因素。',
     },
     {
-      id: "retirement-condition",
-      type: "multipleChoice",
-      prompt: "A retirement goal is thirty years away. Which condition is still missing?",
-      zh: "退休目标在三十年后。仍然缺少哪一个条件？",
+      id: 'speculation-evidence',
+      type: 'multipleChoice',
+      prompt: 'Which evidence most clearly indicates speculation?',
+      zh: '哪一项证据最清楚地表明属于投机？',
       choices: [
-        "Proof that every return will be positive",
-        "The target amount and the family's ability to accept loss",
-        "A promise to choose one investment today",
-        "A list of classmates' opinions"
+        'Expected bond interest after analysing credit risk',
+        'Expected net rental income after estimating vacancy and maintenance',
+        'Borrowing after a rumour of a next-week price jump and planning a quick sale',
+        'Accepting that a diversified fund held long term can lose value',
+      ],
+      answer: 2,
+      explanation: 'The decision depends mainly on a rumoured short-term price movement, and borrowing increases possible loss.',
+      explanationZh: '该决定主要依赖传闻中的短期价格变动，而且借款会增加潜在损失。',
+    },
+    {
+      id: 'saving-priorities',
+      type: 'multipleChoice',
+      prompt: 'Which statement about saving is correct?',
+      zh: '关于储蓄，哪一个陈述是正确的？',
+      choices: [
+        'Earning interest automatically changes saving into financial investment',
+        'Saving cannot lose purchasing power',
+        'Capital preservation and liquidity can matter more than a high return',
+        'Saving always means holding cash at home',
+      ],
+      answer: 2,
+      explanation: 'Saving can prioritise capital preservation and liquidity even when it earns interest.',
+      explanationZh: '即使获得利息，储蓄仍可优先考虑保本与流动性。',
+    },
+    {
+      id: 'same-asset-different-decision',
+      type: 'multipleChoice',
+      prompt: 'Two people buy the same asset. Why might one be investing and the other speculating?',
+      zh: '两个人购买同一资产，为什么一个可能在投资，另一个可能在投机？',
+      choices: [
+        'The asset name decides the category',
+        'The person who pays the higher price is the speculator',
+        'The person planning to sell sooner is always the speculator',
+        'One bases expected return on income and/or evidence about long-term value; the other mainly on a price prediction',
+      ],
+      answer: 3,
+      explanation: 'Classification depends on the decision’s expected payoff basis and evidence, not only the asset name.',
+      explanationZh: '分类取决于决定的预期回报依据与证据，而不仅仅取决于资产名称。',
+    },
+    {
+      id: 'total-return-components',
+      type: 'multipleChoice',
+      prompt: 'Which two components make up total return?',
+      zh: '总回报由哪两个部分构成？',
+      choices: [
+        'Liquidity and capital preservation',
+        'Income and the change in market value',
+        'Research and holding period',
+        'Interest and guaranteed profit',
       ],
       answer: 1,
-      explanation: "Choose ‘Need more information.’ A long horizon may support investment consideration, but the target amount and loss capacity are still missing.",
-      explanationZh: "选择“需要更多信息”。较长期限可能支持考虑投资，但仍缺少目标金额和损失承受能力。"
+      explanation: 'Total return equals income plus the change in market value.',
+      explanationZh: '总回报等于收入加市场价值的变化。',
     },
     {
-      id: "misconception",
-      type: "multipleChoice",
-      prompt: "Why is ‘investing is simply a way to make more money’ incomplete?",
-      zh: "为什么“投资只是赚更多钱的一种方式”是不完整的？",
+      id: 'frequent-trading-cost',
+      type: 'multipleChoice',
+      prompt: 'What did the historical household study illustrate about frequent trading?',
+      zh: '历史家庭研究说明频繁交易可能产生什么影响？',
       choices: [
-        "It contains too many financial conditions",
-        "It proves that investment is saving",
-        "It ignores the financial goal, time horizon, access need and possible loss",
-        "It explains the family goal fully"
-      ],
-      answer: 2,
-      explanation: "A careful investment decision begins with the goal and its constraints, not return alone.",
-      explanationZh: "谨慎的投资决定从目标及其限制开始，而不是只看回报。"
-    },
-    {
-      id: "source-limit",
-      type: "multipleChoice",
-      prompt: "What can general investor guidance not decide for a family?",
-      zh: "一般投资者指引不能替家庭决定什么？",
-      choices: [
-        "That investment involves risk",
-        "That goals have time horizons",
-        "That evidence should be checked",
-        "Its exact priorities, investment choice and whether a particular loss is acceptable"
+        'Frequent trading guarantees a higher return',
+        'Every active trader loses all invested money',
+        'The market return is fixed each year',
+        'Trading costs can reduce net return',
       ],
       answer: 3,
-      explanation: "General guidance supports a method, but family-specific priorities and constraints still require evidence.",
-      explanationZh: "一般指引支持一种方法，但家庭具体的优先级和限制仍需要证据。"
+      explanation: 'In the historical sample, trading costs reduced the net return of the most-active group.',
+      explanationZh: '在该历史样本中，交易成本降低了交易最频繁群体的净回报。',
     },
     {
-      id: "exit-judgement",
-      type: "multipleChoice",
-      prompt: "Which answer states a clear next step and justifies it with evidence?",
-      zh: "哪一个答案说明了清晰的下一步，并用证据加以说明？",
+      id: 'borrowing-worsens-loss',
+      type: 'multipleChoice',
+      prompt: 'Nora borrows to buy shares after an unverified rumour. How can borrowing worsen the loss?',
+      zh: 'Nora听信未经证实的传闻，借钱买股票。借款会如何加重损失？',
       choices: [
-        "Consider investing for the stated long-term goal because urgent access is not needed; first check what loss could delay the goal.",
-        "Invest because returns are always positive.",
-        "Choose the most popular investment before setting a goal.",
-        "Avoid every investment because loss is possible."
+        'The debt must still be repaid if the shares fall',
+        'Borrowing guarantees a higher selling price',
+        'The lender absorbs every market loss',
+        'Debt converts speculation into saving',
       ],
       answer: 0,
-      explanation: "The answer names the next step, connects it to the goal and gives access and loss conditions.",
-      explanationZh: "该答案说明了下一步，把它与目标联系起来，并给出资金使用和损失条件。"
-    }
-  ]
+      explanation: 'Nora remains responsible for repaying the borrowed money even if the asset loses value.',
+      explanationZh: '即使资产贬值，Nora仍有责任偿还借款。',
+    },
+  ],
 };

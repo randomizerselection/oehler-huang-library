@@ -1,5 +1,9 @@
 import { resolve } from "node:path";
 
+const DEFAULT_STUDENT_CLASSES = Object.freeze([
+  "IC 1.1", "IC 1.2", "IC 1.3", "IC 2.1", "IC 2.2", "IC 3.1", "IC 3.2"
+]);
+
 function boundedInteger(value, fallback, minimum, maximum) {
   const parsed = Number(value);
   if (!Number.isInteger(parsed)) return fallback;
@@ -9,6 +13,14 @@ function boundedInteger(value, fallback, minimum, maximum) {
 function booleanValue(value, fallback = false) {
   if (value == null || value === "") return fallback;
   return ["1", "true", "yes", "on"].includes(String(value).toLowerCase());
+}
+
+function commaSeparated(value, fallback) {
+  const values = String(value ?? "")
+    .split(",")
+    .map((item) => item.normalize("NFKC").trim())
+    .filter(Boolean);
+  return Object.freeze(values.length ? [...new Set(values)] : [...fallback]);
 }
 
 export function resolveAppConfig(env = process.env, root = process.cwd()) {
@@ -29,6 +41,7 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
     512
   );
   const teacherInviteCode = String(env.ECONMARK_TEACHER_INVITE_CODE ?? "").trim();
+  const studentClasses = commaSeparated(env.ECONMARK_STUDENT_CLASSES, DEFAULT_STUDENT_CLASSES);
   return Object.freeze({
     dataDir: resolve(root, env.OH_DATA_DIR || env.ECONMARK_DATA_DIR || "../../.platform-data"),
     libraryRoot: resolve(root, env.OH_LIBRARY_ROOT || "../library"),
@@ -47,6 +60,7 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
     teacherStorageBytes: teacherStorageMb * 1024 * 1024,
     maxRequestBytes: maxRequestMb * 1024 * 1024,
     teacherInviteCode,
+    studentClasses,
     sessionDays,
     sessionTtlMs: sessionDays * 24 * 60 * 60 * 1000,
     loginAttemptsPer15Minutes,
@@ -70,10 +84,14 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
       account_required_for_uploads: true,
       public_samples_enabled: true,
       teacher_registration_enabled: true,
-      class_join_required: true,
+      class_join_required: false,
+      student_classes: studentClasses,
+      platform_base_path: "/econmark",
       disk_warn_percent: boundedInteger(env.OH_DISK_WARN_PERCENT, 60, 1, 99),
       disk_critical_percent: boundedInteger(env.OH_DISK_CRITICAL_PERCENT, 70, 1, 99),
       disk_upload_stop_percent: boundedInteger(env.OH_DISK_UPLOAD_STOP_PERCENT, 80, 1, 99)
     })
   });
 }
+
+export { DEFAULT_STUDENT_CLASSES };

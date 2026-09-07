@@ -5,7 +5,7 @@ const { createHash } = require('node:crypto');
 
 const root = path.resolve(__dirname, '..');
 const generatedRoot = path.join(root, 'generated');
-const ignored = /(?:^|[\\/])(?:_template|_archive|archive|tmp|node_modules|android-definitions)(?:[\\/]|$)/i;
+const ignored = /(?:^|[\\/])(?:_template|[^\\/]*archive[^\\/]*|lesson-1-all-types|tmp|node_modules|android-definitions)(?:[\\/]|$)/i;
 
 function walk(directory, predicate, results = []) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -51,12 +51,17 @@ function evaluateQuiz(file) {
 }
 
 function normalizeQuiz(raw, file, route) {
-  const fallback = `${contentId(route)}:quiz`;
-  const id = String(raw.id || fallback).trim();
-  const version = String(raw.version || '1.0.0').trim();
+  const relative = path.relative(root, file).replaceAll('\\', '/');
+  const requiredText = (value, label) => {
+    const text = String(value || '').normalize('NFKC').trim();
+    if (!text) throw new Error(`${relative}: ${label} is required.`);
+    return text;
+  };
+  const id = requiredText(raw?.id, 'quiz id');
+  const version = requiredText(raw?.version, 'quiz version');
   const seen = new Set();
   const questions = (raw.questions || []).map((question, index) => {
-    const questionId = String(question.id || `${id}:q${index + 1}`).trim();
+    const questionId = requiredText(question.id, `question ${index + 1} id`);
     if (seen.has(questionId)) throw new Error(`Duplicate question id ${questionId} in ${file}`);
     seen.add(questionId);
     if (!['multipleChoice', 'fillBlank'].includes(question.type)) throw new Error(`Unsupported question type ${question.type} in ${file}`);
@@ -65,7 +70,21 @@ function normalizeQuiz(raw, file, route) {
     return { ...question, id: questionId, points: Number.isFinite(question.points) ? question.points : 1 };
   });
   if (!questions.length) throw new Error(`Quiz ${id} has no questions.`);
-  return { id, version, title: String(raw.title || id), description: String(raw.description || ''), route, source: path.relative(root, file).replaceAll('\\', '/'), questions };
+  const investment = relative.startsWith('investment-analysis/');
+  const lessonDirectory = path.basename(path.dirname(file));
+  return {
+    id,
+    version,
+    course_id: investment ? 'investment-analysis' : 'economics',
+    course_title: investment ? 'Investment and Financial Decision-Making' : 'Cambridge IGCSE Economics 0455',
+    lesson_id: investment ? lessonDirectory : id.replace(/-lesson-\d+$/, ''),
+    lesson_title: String(raw.title || lessonDirectory).replace(/\s+quiz$/i, ''),
+    title: String(raw.title || id),
+    description: String(raw.description || ''),
+    route,
+    source: relative,
+    questions
+  };
 }
 
 function build({ write = true } = {}) {

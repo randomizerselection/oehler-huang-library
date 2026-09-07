@@ -13,6 +13,7 @@ const required = [
   "src/marker-remarks.js",
   "src/workflow.js",
   "src/auth.js",
+  "src/platform-account-shell.js",
   "src/assignments.js",
   "src/student-app.js",
   "src/teacher-app.js",
@@ -38,6 +39,8 @@ const required = [
   "spec/adjudicator-output.schema.json",
   "spec/feedback-output.schema.json",
   "spec/account.schema.json",
+  "spec/quiz-attempt.schema.json",
+  "spec/UNIFIED-PLATFORM-SPEC.md",
   "spec/auth-session.schema.json",
   "spec/persistence-record.schema.json",
   "spec/stored-run.schema.json",
@@ -49,9 +52,10 @@ const required = [
   "docs/competition-evidence-log.md",
   "docs/migration-guide.md",
   "docs/digitalocean-deployment.md",
-  "deploy/econmark.service",
-  "deploy/nginx.conf.example",
-  "deploy/econmark.env.example",
+  "docs/unified-platform-rollout.md",
+  "../../deploy/oehler-huang-platform.service",
+  "../../deploy/nginx-oehler-huang-platform.conf",
+  "../../deploy/platform.env.example",
   "evals/fixtures/synthetic-smoke.json"
 ];
 

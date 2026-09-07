@@ -26,6 +26,138 @@ window.IGCSE = window.IGCSE || {};
     source,
   });
 
+  const basicEconomicProblem = {
+    projectCostChoice: photo(
+      'basic-economic-problem',
+      'student-project-cost-choice.jpg',
+      'Three college students reviewing a project plan with cost notes, papers and a laptop.',
+      'Tima Miroshnichenko / Pexels',
+      'https://www.pexels.com/photo/college-students-sitting-at-a-table-near-a-blackboard-6913236/'
+    ),
+    wantGoodToyTrain: photo(
+      'basic-economic-problem',
+      'want-good-toy-train.jpg',
+      'A child looking closely at a toy train displayed in a shop.',
+      'Vika Glitter / Pexels',
+      'https://www.pexels.com/photo/selective-focus-photography-of-toddler-in-front-of-glass-1620675/'
+    ),
+    wantServiceChildHaircut: photo(
+      'basic-economic-problem',
+      'want-service-child-haircut.jpg',
+      'A smiling child receiving a haircut from a barber.',
+      'RDNE Stock project / Pexels',
+      'https://www.pexels.com/photo/a-child-at-a-barber-7697384/'
+    ),
+    wantExperienceAquarium: photo(
+      'basic-economic-problem',
+      'want-experience-aquarium.jpg',
+      'Children watching colourful fish through a large aquarium window.',
+      'Rachel Claire / Pexels',
+      'https://www.pexels.com/photo/child-watching-fish-in-aquarium-5531403/'
+    ),
+    finiteResourceFarmland: photo(
+      'basic-economic-problem',
+      'finite-resource-farmland-aerial.jpg',
+      'An aerial view of separate fields showing a fixed area of productive farmland.',
+      'Marta Bernal / Pexels',
+      'https://www.pexels.com/photo/aerial-view-of-farm-field-6345021/'
+    ),
+    finiteResourceFarmWorkers: photo(
+      'basic-economic-problem',
+      'finite-resource-rice-workers.jpg',
+      'A group of farmers harvesting rice on terraced fields.',
+      'Quang Nguyen Vinh / Pexels',
+      'https://www.pexels.com/photo/anonymous-farmers-harvesting-rice-on-terraced-fields-6129016/'
+    ),
+    finiteResourceConstructionSite: photo(
+      'basic-economic-problem',
+      'finite-resource-construction-site.jpg',
+      'A fenced construction site containing a fixed area, machinery and stacks of building materials.',
+      'Jude Mitchell-Hedges / Pexels',
+      'https://www.pexels.com/photo/urban-construction-site-with-heavy-machinery-31531768/'
+    ),
+    welcomeProductiveFactory: photo(
+      'basic-economic-problem',
+      'welcome-productive-factory.jpg',
+      'Workers operating machinery on a factory production floor.',
+      'Mehmet Turgut Kirkgoz / Pexels',
+      'https://www.pexels.com/photo/people-working-on-a-factory-11765539/'
+    ),
+    welcomeRaiseHandConference: photo(
+      'basic-economic-problem',
+      'welcome-raise-hand-conference.jpg',
+      'A participant raising his hand during a business conference.',
+      'RDNE Stock project / Pexels',
+      'https://www.pexels.com/photo/a-young-man-raising-his-hand-at-a-business-conference-7648052/'
+    ),
+    welcomeGroupAnalysis: photo(
+      'basic-economic-problem',
+      'welcome-group-analysis-6248980.jpg',
+      'Three colleagues discussing financial charts displayed on several computers.',
+      'Kampus Production / Pexels',
+      'https://www.pexels.com/photo/photograph-of-colleagues-talking-near-a-laptop-with-charts-6248980/'
+    ),
+    welcomeExplainData: photo(
+      'basic-economic-problem',
+      'welcome-explain-data.jpg',
+      'A presenter explaining financial data and charts to a group.',
+      'Kampus Production / Pexels',
+      'https://www.pexels.com/photo/woman-presenting-at-the-office-8353803/'
+    ),
+    welcomeIcBucksCoins: photo(
+      'basic-economic-problem',
+      'welcome-ic-bucks-coins.jpg',
+      'Two hands holding a collection of coins against a blue background.',
+      'Towfiqu barbhuiya / Pexels',
+      'https://www.pexels.com/photo/a-person-holding-silver-and-gold-coins-10972831/'
+    ),
+  };
+
+  const factorsOfProduction = {
+    bakeryProductionTeam: photo(
+      'factors-of-production',
+      'bakery-production-team.jpg',
+      'Two bakers preparing bread beside a large oven in a working bakery.',
+      'Yasin Onuş / Pexels',
+      'https://www.pexels.com/photo/artisan-bakers-preparing-traditional-bread-36445326/'
+    ),
+    landWheatField: photo(
+      'factors-of-production',
+      'land-wheat-field.jpg',
+      'A field of ripe wheat growing under a blue sky.',
+      'Egor Komarov / Pexels',
+      'https://www.pexels.com/photo/field-of-wheat-17707608/'
+    ),
+    landCoralReef: photo(
+      'factors-of-production',
+      'land-coral-reef.jpg',
+      'Fish swimming through a colourful coral reef in the sea.',
+      'Francesco Ungaro / Pexels',
+      'https://www.pexels.com/photo/coral-reef-and-fish-17693474/'
+    ),
+    labourBakerKneading: photo(
+      'factors-of-production',
+      'labour-baker-kneading.jpg',
+      'A baker using human effort and skill to knead bread dough.',
+      'Vaibhav Jadhav / Pexels',
+      'https://www.pexels.com/photo/man-preparing-dough-for-bread-3218467/'
+    ),
+    capitalIndustrialMachine: photo(
+      'factors-of-production',
+      'capital-industrial-machine.jpg',
+      'A large human-made machine used in industrial production.',
+      'J E / Pexels',
+      'https://www.pexels.com/photo/a-large-machine-in-a-factory-with-a-large-machine-18569745/'
+    ),
+    enterpriseOnlineShop: photo(
+      'factors-of-production',
+      'enterprise-online-shop.jpg',
+      'Two entrepreneurs organising stock and orders for an online clothing shop.',
+      'Kampus Production / Pexels',
+      'https://www.pexels.com/photo/women-running-an-online-shop-7857537/'
+    ),
+  };
+
   const marketEconomicSystem = {
     starbucks: photo(
       'market-economic-system',
@@ -723,6 +855,166 @@ window.IGCSE = window.IGCSE || {};
     ),
   };
 
+  const moneyBanking = {
+    heavyStoneLunch: photo(
+      'money-and-banking', 'heavy-stone-lunch-payment.png',
+      'Imagined cafeteria payment: a customer struggles to carry a heavy stone offered in exchange for lunch.',
+      'AI-generated teaching scenario / OpenAI',
+      'Generated for this lesson; not a photograph of a real event'
+    ),
+    fragileMoney: photo(
+      'money-and-banking', 'fragile-banknotes-falling-apart.png',
+      'Imagined shop payment: a worn fictional banknote falls apart as a customer hands it to a cashier.',
+      'AI-generated teaching scenario / OpenAI',
+      'Generated for this lesson; fictional currency and transaction'
+    ),
+    smallPayment: photo(
+      'money-and-banking', 'three-yuan-purchase-hundred-note.png',
+      'Imagined canteen purchase: a customer offers a hundred-yuan note for a three-yuan bun, but the cashier has no change.',
+      'AI-generated teaching scenario / OpenAI',
+      'Generated for this lesson; not a photograph of a real event'
+    ),
+    equalNotes: photo(
+      'money-and-banking', 'two-ten-yuan-notes-equal-value.png',
+      'Illustrative comparison of two ten-yuan banknotes of equal face value, one new and one creased.',
+      'AI-generated teaching illustration / OpenAI',
+      'Generated for this lesson; illustrative notes, not authentication evidence'
+    ),
+    coinDenominations: photo(
+      'money-and-banking', 'euro-coin-denominations.jpg',
+      'Euro coins with different denominations, from one cent to two euros.',
+      'Lukasz Kobus / European Commission, © European Union / CC BY 4.0; resized',
+      'https://commons.wikimedia.org/wiki/File:Euro_coins_(16).jpg'
+    ),
+    matchingBanknotes: photo(
+      'money-and-banking', 'matching-euro-banknotes.jpg',
+      'Several fifty-euro banknotes, each with the same face value.',
+      'Pixabay / Pexels / CC0',
+      'https://www.pexels.com/photo/banknote-lot-259249/'
+    ),
+    bankDepositBalance: photo(
+      'money-and-banking', 'example-bank-deposit-balance.png',
+      'Fictional current account showing an available bank deposit balance of RMB 800.00.',
+      'AI-generated teaching example / OpenAI',
+      'Generated for this lesson; no real account or personal data'
+    ),
+    portableWallet: photo(
+      'money-and-banking', 'banknotes-in-wallet.jpg',
+      'A person taking banknotes from a small leather wallet.',
+      'Kaboompics.com / Pexels',
+      'https://www.pexels.com/photo/crop-man-getting-dollars-from-wallet-4386433/'
+    ),
+    recognisableBanknote: photo(
+      'money-and-banking', 'checking-banknote-uv.jpg',
+      'A person checking the authenticity of banknotes with ultraviolet light.',
+      'Tima Miroshnichenko / Pexels',
+      'https://www.pexels.com/photo/a-person-using-uv-light-on-money-6266515/'
+    ),
+    currencyProduction: photo(
+      'money-and-banking', 'controlled-banknote-issue.png',
+      'Illustrative scenario: a worker checks a limited batch of fictional banknotes at a printing press.',
+      'AI-generated teaching illustration / OpenAI',
+      'Generated for this lesson; fictional currency and production scene'
+    ),
+    diamondPayment: photo(
+      'money-and-banking', 'diamond-grocery-payment.png',
+      'Imagined transaction: a customer offers a diamond for bread and apples at a grocery checkout.',
+      'AI-generated scenario / OpenAI',
+      'Generated for this lesson; not a photograph of a real event'
+    ),
+    cashAndCoins: photo(
+      'money-and-banking',
+      'cash-and-coins.jpg',
+      'A stack of coins resting on colourful banknotes.',
+      'Pixabay / Pexels',
+      'https://www.pexels.com/photo/assorted-banknotes-and-round-silver-colored-coins-210574/'
+    ),
+      contactlessPayment: photo(
+        'money-and-banking',
+        'contactless-smartphone-payment.jpg',
+        'A customer holding a smartphone above a contactless payment terminal.',
+        'Jack Sparrow / Pexels',
+        'https://www.pexels.com/photo/making-a-payment-with-a-smartphone-4199524/'
+      ),
+      functionsOverview: photo(
+        'money-and-banking',
+        'functions-of-money-overview.png',
+        'Overview of medium of exchange, unit of account, store of value and standard of deferred payment.',
+        'Oehler-Huang Library',
+        'User-supplied classroom graphic'
+      ),
+      functionsOverviewDark: photo(
+        'money-and-banking',
+        'four-functions-of-money-dark-overview.png',
+        'Dark classroom overview showing medium of exchange, unit of account, store of value and standard of deferred payment.',
+        'AI-generated image, OpenAI',
+        'User-supplied generated image'
+      ),
+    mediumExchangeCash: photo(
+      'money-and-banking',
+      'cash-payment-cashier.jpg',
+      'A customer handing banknotes to a cashier to complete a purchase.',
+      'RDNE Stock project / Pexels',
+      'https://www.pexels.com/photo/person-paying-on-a-cashier-4921262/'
+    ),
+    vegetableMarket: photo(
+      'money-and-banking',
+      'vegetable-market-vendor.jpg',
+      'A merchant surrounded by fresh vegetables at a busy market stall.',
+      'Tarikul Raana / Pexels',
+      'https://www.pexels.com/photo/merchant-selling-vegetables-14445907/'
+    ),
+    marketCashPayment: photo(
+      'money-and-banking',
+      'cash-payment-vegetable-market.jpg',
+      'A customer handing cash to a vendor across a vegetable market stall.',
+      'Thomas Rainero / Pexels',
+      'https://www.pexels.com/photo/customer-paying-with-cash-13195444/'
+    ),
+    supermarketPrices: photo(
+      'money-and-banking',
+      'supermarket-price-labels.jpg',
+      'Milk cartons displayed above price labels on supermarket shelves.',
+      'Nothing Ahead / Pexels',
+      'https://www.pexels.com/photo/shelves-with-various-milk-boxes-7451957/'
+    ),
+    storeValueSavingsJar: photo(
+      'money-and-banking',
+      'savings-jar-banknotes.jpg',
+      'A hand placing rolled banknotes into a glass savings jar.',
+      'Kaboompics.com / Pexels',
+      'https://www.pexels.com/photo/close-up-shot-of-a-person-saving-money-in-the-glass-jar-7680483/'
+    ),
+    deferredPaymentLoanAgreement: photo(
+      'money-and-banking',
+      'loan-agreement-future-payment-v2.jpg',
+      'A loan agreement setting out the terms of borrowing and future repayment.',
+      'RDNE Stock project / Pexels',
+      'https://www.pexels.com/photo/close-up-photo-of-an-agreement-on-a-paper-7841821/'
+    ),
+      coinsOnBanknotes: photo(
+        'money-and-banking',
+        'coins-on-banknotes.jpg',
+        'Coins of different denominations resting on banknotes.',
+        'Rudolfs Klintsons / Pexels',
+        'https://www.pexels.com/photo/a-close-up-shot-of-coins-on-the-bank-notes-7114270/'
+      ),
+      characteristicsOverview: photo(
+        'money-and-banking',
+        'characteristics-of-money-overview-no-subtitle.png',
+        'Overview of the seven characteristics of effective money.',
+        'Oehler-Huang Library',
+        'User-supplied classroom graphic'
+      ),
+      characteristicsOverviewDark: photo(
+        'money-and-banking',
+        'characteristics-of-money-dark-overview.png',
+        'Dark classroom overview showing the seven characteristics of effective money.',
+        'AI-generated image, OpenAI',
+        'User-supplied generated image'
+      ),
+    };
+
   const supplySidePolicy = {
     singaporeIte: photo(
       'supply-side-policy',
@@ -820,6 +1112,8 @@ window.IGCSE = window.IGCSE || {};
 
   IGCSE.photos = {
     ...(IGCSE.photos || {}),
+    basicEconomicProblem,
+    factorsOfProduction,
     fiscalPolicy,
     fiscalPolicyFacts,
     macroAims,
@@ -838,6 +1132,7 @@ window.IGCSE = window.IGCSE || {};
     cocoaChocolate,
     marketFailure,
     marketFailureReview,
+    moneyBanking,
     monetaryPolicy,
     supplySidePolicy,
     supplySidePolicyFacts,

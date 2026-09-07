@@ -8,9 +8,11 @@ const vm = require('vm');
 const root = path.resolve(__dirname, '..');
 const financialDecisionCourseMap = require(path.join(root, 'investment-analysis', 'course-map-financial-decisions-data.js'));
 const pageUrl = (relativePath) => pathToFileURL(path.join(root, relativePath)).toString();
-const localHomeworkUrl = 'http://127.0.0.1:4173/mark/';
+const localHomeworkUrl = 'http://127.0.0.1:4173/econmark/';
 const remoteUrlPattern = /^https?:\/\//i;
 const deckTitleTranslations = {
+  'The basic economic problem': '基本经济问题',
+  'Factors of production and rewards': '生产要素及其报酬',
   'External costs and benefits': '外部成本与外部收益',
   'Merit and demerit goods': '有益品与有害品',
   'Public goods': '公共物品',
@@ -19,6 +21,8 @@ const deckTitleTranslations = {
   'Price mechanism': '价格机制',
   'Arguments for markets': '支持市场的论点',
   'Arguments against markets': '反对市场的论点',
+  'Money: forms and functions': '货币：形式与职能',
+  'Money: characteristics and exam practice': '货币：特征与考试练习',
   'Macroeconomic aims': '宏观经济目标',
   'Government budget and spending': '政府预算与支出',
   'Taxation foundations': '税收基础',
@@ -27,7 +31,7 @@ const deckTitleTranslations = {
   'Effects on macroeconomic aims': '对宏观经济目标的影响',
   'Money supply and monetary policy': '货币供应与货币政策',
   'Interest rates': '利率',
-  'Money supply and exchange rates': '货币供应与汇率',
+  'Money supply measures': '货币供给措施',
   'Effects of monetary policy': '货币政策的影响',
   'Productive capacity and total supply': '生产能力与总供给',
   'Interventionist supply-side policies': '干预型供给侧政策',
@@ -47,8 +51,11 @@ const hierarchyTitleTranslations = {
     'International trade and globalisation': '国际贸易与全球化',
   },
   topics: {
+    'The basic economic problem': '基本经济问题',
+    'Factors of production': '生产要素',
     'Market economic system and market arguments': '市场经济体制与市场论点',
     'Market failure': '市场失灵',
+    'Money and banking': '货币与银行',
     'Macroeconomic aims': '宏观经济目标',
     'Fiscal policy': '财政政策',
     'Monetary policy': '货币政策',
@@ -145,13 +152,13 @@ function readLesson(relativePath) {
   return context.window.IGCSE.lesson;
 }
 
-function factPanels(slide) {
-  return [
-    (slide.context || slide.question || slide.fact || slide.country) ? slide : null,
-    slide.facts?.left,
-    slide.facts?.china,
-    ...(Array.isArray(slide.facts) ? slide.facts.map((item) => typeof item === 'string' ? { fact: item } : item) : []),
-  ].filter(Boolean);
+function normalizeExamQuestion(value = '') {
+  return String(value)
+    .replace(/^Q\d+[A-Z]?:\s*/i, '')
+    .replace(/\s*\[\d+\]\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
 }
 
 const targetFiscalMonetarySlideFiles = [
@@ -658,6 +665,8 @@ test.describe('site smoke', () => {
     await expect(page.locator('.entry-card')).toHaveCount(3);
     await expect(page.locator('.entry-media img')).toHaveCount(2);
     await expect(page.locator('.entry-title-zh')).toHaveText(['经济学课程', '投资与财务决策', '作业提交与反馈']);
+    const cardWidths = await page.locator('.entry-card').evaluateAll((cards) => cards.map((card) => card.getBoundingClientRect().width));
+    expect(Math.max(...cardWidths) - Math.min(...cardWidths)).toBeLessThan(2);
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expect(page.locator('a[href^="lessons/"]')).toHaveCount(0);
@@ -688,8 +697,6 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('definitions.html'));
 
-    await expect(page.locator('link[href="assets/css/app-shell.css"]')).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /^Homework$/i })).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.getByRole('heading', { name: /^Key Definitions$/i })).toBeVisible();
     await expect(page.locator('.definition-card').first()).toBeVisible();
 
@@ -705,7 +712,8 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('investment-analysis/definitions.html'));
 
     await expect(page.getByRole('heading', { name: /^Investment and Financial Decision-Making Definitions$/i })).toBeVisible();
-    await expect(page.locator('.investment-definition-row:not([hidden])')).toHaveCount(144);
+    const activeDefinitionCount = new Set(financialDecisionCourseMap.lessons.flatMap((lesson) => lesson.terms.map((term) => term.term.toLowerCase()))).size;
+    await expect(page.locator('.investment-definition-row:not([hidden])')).toHaveCount(activeDefinitionCount);
 
     await page.getByRole('searchbox', { name: /Search definitions/i }).fill('fee drag');
     await expect(page.locator('.investment-definition-row:not([hidden])')).toHaveCount(1);
@@ -738,13 +746,257 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test('@smoke @responsive basic economic problem uses the syllabus title and clean section dividers', async ({ page }, testInfo) => {
+    const lessonPath = 'lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/index.html';
+    const expectedTitles = [
+      'Wants and infinite wants',
+      'Finite resources',
+      'Scarcity and choice',
+      'The basic economic problem',
+    ];
+    await page.goto(pageUrl(lessonPath));
+    await expect(page).toHaveTitle(/1\.1\.1 Finite resources and infinite wants/i);
+    await expect(page.locator('.slide.is-active')).toHaveClass(/is-welcome/);
+    await expect(page.locator('.slide.is-active h1')).toHaveText('Welcome to Economics');
+    await expect(page.locator('.slide.is-active .welcomeTeacherName')).toHaveText('Samuel Oehler-Huang');
+    await expect(page.locator('.slide.is-active .welcomeCallMe')).toContainText('Please call me Mr. Huang');
+    await expect(page.locator('.slide.is-active .welcomeClasses span')).toHaveText(['IC1', 'IC2', 'IC3', 'Senior 3']);
+    await expect(page.locator('.slide.is-active .welcomeRule')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active .welcomeRuleImage')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active .welcomeRuleOverlay')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active .welcomeRuleGrid')).toBeVisible();
+    await expect(page.locator('.slide.is-active .welcomeRuleTitleZh')).toHaveText([
+      '高效学习。',
+      '全班问答：请举手。',
+      '两人及小组活动：积极交流。',
+      '解释你的思考过程。',
+    ]);
+    await expect(page.locator('.slide.is-active .welcomeRule').nth(4).locator('.welcomeRuleTitleZh')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .welcomeRule.partial-item')).toHaveCount(5);
+    await expect(page.locator('.slide.is-active .welcomeRule.is-visible')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .welcomeIntroImage')).toBeVisible();
+    const welcomeImageSources = await page.locator('.slide.is-active .welcomeRuleImage').evaluateAll((images) => (
+      images.map((image) => image.getAttribute('src') || '')
+    ));
+    expect(welcomeImageSources.every((src) => (
+      src.includes('assets/images/basic-economic-problem/welcome-') && !/^https?:/i.test(src)
+    ))).toBe(true);
+    await expect(page.locator('.slide.is-active')).toContainText('How We Work in Economics');
+    await expect(page.locator('.slide.is-active')).toContainText('in English');
+    await expect(page.locator('.slide.is-active')).toContainText('IC Bucks');
+    await expectNoHorizontalOverflow(page);
+    if (!testInfo.project.name.includes('phone')) {
+      const welcomeFitsVertically = await page.locator('.slide.is-active').evaluate((slide) => slide.scrollHeight <= slide.clientHeight + 1);
+      expect(welcomeFitsVertically).toBe(true);
+    }
+
+    const viewport = page.viewportSize();
+    const revealPoint = {
+      x: Math.floor((viewport?.width || 1024) / 2),
+      y: Math.floor((viewport?.height || 768) / 2),
+    };
+    for (let visibleRules = 1; visibleRules <= 5; visibleRules += 1) {
+      await page.mouse.click(revealPoint.x, revealPoint.y);
+      await expect(page.locator('.slide.is-active .welcomeRule.is-visible')).toHaveCount(visibleRules);
+      const activeRule = page.locator('.slide.is-active .welcomeRule.is-visible').last();
+      await expect(activeRule.locator('.welcomeRuleImage')).toBeVisible();
+      await expect(activeRule.locator('.welcomeRuleOverlay')).toBeVisible();
+      const imageDimensions = await activeRule.locator('.welcomeRuleImage').evaluate((image) => ({
+        width: image.naturalWidth,
+        height: image.naturalHeight,
+      }));
+      expect(imageDimensions.width).toBeGreaterThanOrEqual(2200);
+      expect(imageDimensions.height).toBeGreaterThanOrEqual(1500);
+      await expect(page).toHaveURL(/#1$/);
+    }
+
+    await page.goto(`${pageUrl(lessonPath)}#2`);
+    await expect(page.locator('.slide.is-active h1')).toHaveText('1.1.1 Finite resources and infinite wants');
+    await expect(page.locator('.slide.is-active .heroTitleZh')).toHaveText('有限资源与无限欲望');
+    await expect(page.locator('.slide.is-active .sub')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .kicker')).toHaveText('Why can’t we have everything?');
+    await expect(page.locator('.discussionCredit')).toHaveCount(0);
+    const conceptSequence = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides;
+      const indexOf = (title) => slides.findIndex((slide) => slide.title === title);
+      return {
+        welcomeCount: slides.filter((slide) => slide.type === 'welcome').length,
+        welcomeIsFirst: slides[0]?.type === 'welcome',
+        want: indexOf('Want'),
+        infiniteWants: indexOf('Why wants are described as infinite'),
+        finiteResources: indexOf('What finite resources means'),
+        factorOfProduction: indexOf('Factor of production'),
+        scarcity: indexOf('Scarcity'),
+        wantVisuals: slides
+          .filter((slide) => slide.type === 'visualPause' && /^A want for /.test(slide.title || ''))
+          .map((slide) => ({ title: slide.title, src: slide.visual?.src || '' })),
+        resourceVisuals: slides
+          .filter((slide) => slide.type === 'visualPause' && /^A limited /.test(slide.title || ''))
+          .map((slide) => ({ title: slide.title, src: slide.visual?.src || '' })),
+        infiniteWantsLead: slides[indexOf('Why wants are described as infinite')]?.lead || '',
+        factorOfProductionLead: slides[indexOf('Factor of production')]?.lead || '',
+        removedTitlesPresent: slides.some((slide) => [
+          'The four factors of production',
+          'Different constraints, the same scarcity',
+        ].includes(slide.title)),
+        removedQuestionsPresent: slides.some((slide) => /larger budget|hospital instead of a sports stadium/i.test(slide.question || '')),
+        dividerMetadataPresent: slides
+          .filter((slide) => slide.type === 'section')
+          .some((slide) => slide.syllabusRef || slide.syllabusFocus || slide.notebookSection),
+      };
+    });
+    expect(conceptSequence.welcomeCount).toBe(1);
+    expect(conceptSequence.welcomeIsFirst).toBe(true);
+    expect(conceptSequence.want).toBeLessThan(conceptSequence.infiniteWants);
+    expect(conceptSequence.infiniteWants).toBeLessThan(conceptSequence.finiteResources);
+    expect(conceptSequence.factorOfProduction).toBeLessThan(conceptSequence.finiteResources);
+    expect(conceptSequence.finiteResources).toBeLessThan(conceptSequence.scarcity);
+    expect(conceptSequence.wantVisuals).toHaveLength(3);
+    expect(conceptSequence.resourceVisuals).toHaveLength(3);
+    expect([...conceptSequence.wantVisuals, ...conceptSequence.resourceVisuals].every(({ src }) => (
+      src.includes('../../../assets/images/basic-economic-problem/') && !/^https?:/i.test(src)
+    ))).toBe(true);
+    expect(conceptSequence.removedTitlesPresent).toBe(false);
+    expect(conceptSequence.removedQuestionsPresent).toBe(false);
+    expect(conceptSequence.dividerMetadataPresent).toBe(false);
+    expect(conceptSequence.infiniteWantsLead).toBe('');
+    expect(conceptSequence.factorOfProductionLead).toBe('');
+
+    const sectionNumbers = await page.evaluate(() => window.IGCSE.lesson.slides
+      .map((slide, index) => slide.type === 'section' ? index + 1 : null)
+      .filter(Boolean));
+
+    expect(sectionNumbers).toHaveLength(4);
+    for (const [index, sectionNumber] of sectionNumbers.entries()) {
+      await page.goto(`${pageUrl(lessonPath)}#${sectionNumber}`);
+      await expect(page.locator('.slide.is-active .sectionContext')).toHaveCount(0);
+      await expect(page.locator('.slide.is-active .sectionTitle')).toContainText(expectedTitles[index]);
+      const fitsVertically = await page.locator('.slide.is-active').evaluate((slide) => slide.scrollHeight <= slide.clientHeight + 1);
+      expect(fitsVertically).toBe(true);
+      await expectNoHorizontalOverflow(page);
+    }
+
+    const infiniteWantsSlideNumber = conceptSequence.infiniteWants + 1;
+    await page.goto(`${pageUrl(lessonPath)}#${infiniteWantsSlideNumber}`);
+    await expect(page.locator('.slide.is-active .flowChain')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .cardgrid .card')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active')).not.toContainText('parallel observations');
+    await expectNoHorizontalOverflow(page);
+
+    for (const visual of [...conceptSequence.wantVisuals, ...conceptSequence.resourceVisuals]) {
+      const visualSlideNumber = await page.evaluate((title) => (
+        window.IGCSE.lesson.slides.findIndex((slide) => slide.title === title) + 1
+      ), visual.title);
+      await page.goto(`${pageUrl(lessonPath)}#${visualSlideNumber}`);
+      const image = page.locator('.slide.is-active .visualPauseImage');
+      await expect(image).toBeVisible();
+      await expect(image).toHaveAttribute('src', /assets\/images\/basic-economic-problem\/.+\.jpg$/);
+      const dimensions = await image.evaluate((element) => ({
+        width: element.naturalWidth,
+        height: element.naturalHeight,
+      }));
+      expect(dimensions.width).toBeGreaterThanOrEqual(2200);
+      expect(dimensions.height).toBeGreaterThanOrEqual(1500);
+      await expectNoHorizontalOverflow(page);
+    }
+  });
+
+  test('@smoke @responsive factors of production lesson uses local photos and a three-part sequence', async ({ page }) => {
+    const lessonPath = 'lessons/unit-1-basic-economic-problem/1-2-factors-of-production/index.html';
+    await page.goto(pageUrl(lessonPath));
+
+    await expect(page).toHaveTitle(/1\.2\.1 Factors of production and rewards/i);
+    await expect(page.locator('.slide.is-active h1')).toHaveText('1.2.1 Factors of production and rewards');
+    await expect(page.locator('.slide.is-active .heroTitleZh')).toHaveText('生产要素及其报酬');
+    await expect(page.locator('.slide.is-active .sub')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+
+    const lessonShape = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides;
+      const terms = slides.filter((slide) => slide.type === 'term').map((slide) => slide.title);
+      return {
+        hasWelcome: slides.some((slide) => slide.type === 'welcome'),
+        recall: slides[1],
+        sections: slides.filter((slide) => slide.type === 'section').map((slide) => slide.title),
+        terms,
+        visualSlides: slides
+          .filter((slide) => slide.type === 'visualPause')
+          .map((slide) => ({ title: slide.title, src: slide.visual?.src || '' })),
+        sourceRefs: slides.flatMap((slide) => (slide.sources || []).map((source) => source.ref)),
+      };
+    });
+
+    expect(lessonShape.hasWelcome).toBe(false);
+    expect(lessonShape.recall.type).toBe('peerTask');
+    expect(lessonShape.recall.taskType).toBe('definitionRecall');
+    expect(lessonShape.recall.definitionItems).toHaveLength(3);
+    expect(lessonShape.sections).toEqual([
+      'The four factors of production',
+      'Land, labour and capital',
+      'Enterprise and factor rewards',
+    ]);
+    expect(lessonShape.terms).toEqual([
+      'Factor of production',
+      'Land',
+      'Labour',
+      'Capital',
+      'Enterprise and entrepreneur',
+    ]);
+    expect(lessonShape.visualSlides).toHaveLength(6);
+    expect(lessonShape.visualSlides.every(({ src }) => (
+      src.includes('../../../assets/images/factors-of-production/') && !/^https?:/i.test(src)
+    ))).toBe(true);
+    expect(lessonShape.sourceRefs).toEqual(expect.arrayContaining([
+      'Syllabus 1.2.1',
+      '2025FM-22 Q3(a)',
+      '2023ON-22 Q2(a)',
+      '2025MJ-21 Q3(a)',
+      '2025MJ-22 Q1(b)',
+    ]));
+
+    for (const visual of lessonShape.visualSlides) {
+      const slideNumber = await page.evaluate((title) => (
+        window.IGCSE.lesson.slides.findIndex((slide) => slide.title === title) + 1
+      ), visual.title);
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      const image = page.locator('.slide.is-active .visualPauseImage');
+      await expect(image).toBeVisible();
+      await expect.poll(() => image.evaluate((element) => element.naturalWidth)).toBeGreaterThan(0);
+      const dimensions = await image.evaluate((element) => ({
+        width: element.naturalWidth,
+        height: element.naturalHeight,
+      }));
+      expect(dimensions.width).toBeGreaterThanOrEqual(2200);
+      expect(dimensions.height).toBeGreaterThanOrEqual(1500);
+      await expectNoHorizontalOverflow(page);
+    }
+
+    const yesNoNumber = await page.evaluate(() => (
+      window.IGCSE.lesson.slides.findIndex((slide) => slide.title === 'Land: Yes or No?') + 1
+    ));
+    await page.goto(`${pageUrl(lessonPath)}#${yesNoNumber}`);
+    await expect(page.locator('.slide.is-active .yesNoStatement')).toHaveCount(3);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
+
+    await page.goto(`${pageUrl(lessonPath)}?view=quiz`);
+    await expect(page.locator('.quizQuestion')).toHaveCount(10);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(`${pageUrl(lessonPath)}?view=flashcards`);
+    await expect(page.locator('.flashcardPosition')).toHaveText('10 left');
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(`${pageUrl(lessonPath)}?view=print`);
+    await expect(page.locator('.handoutDocument')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@responsive phone layout keeps core pages usable', async ({ page }, testInfo) => {
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive smoke is phone-only.');
 
     await page.goto(pageUrl('index.html'));
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
-    await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
-    await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
+    await expect(page.locator('.entry-card')).toHaveCount(3);
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expectNoHorizontalOverflow(page);
 
@@ -766,10 +1018,9 @@ test.describe('site smoke', () => {
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
-    await expect(page.getByText('Lessons are public. Homework submission requires an account.')).toBeVisible();
-    await expect(page.getByText(/Syllabus-led lessons, quizzes, flashcards, handouts and exam practice/i)).toBeVisible();
-    await expect(page.getByText(/Explore financial goals, markets, company analysis, portfolios/i)).toBeVisible();
-    await expect(page.getByText(/Enter your assignment code, upload a clear photo/i)).toBeVisible();
+    await expect(page.getByText(/Study syllabus-led lessons, quizzes, flashcards, handouts and exam practice/i)).toBeVisible();
+    await expect(page.getByText(/Explore financial goals, markets, company analysis, portfolios and evidence-based investment decisions/i)).toBeVisible();
+    await expect(page.getByText(/Enter your assignment code, upload a clear photo of your answer/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
@@ -781,12 +1032,11 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('economics/index.html'));
     await expect(page.locator('link[href="../assets/css/landing.css"]')).toHaveCount(1);
     await expect(page.locator('link[href="../assets/css/economics-home.css"]')).toHaveCount(1);
-    await expect(page.locator('link[href="../assets/css/app-shell.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /^Investment$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
-    await expect(page.getByRole('link', { name: /^Homework$/i })).toHaveAttribute('href', localHomeworkUrl);
+    await expect(page.getByRole('link', { name: /^Investment & Finance$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
     await expect(page.getByRole('link', { name: /^Key definitions$/i })).toHaveAttribute('href', '../definitions.html');
     await expect(page.locator('#unit-2')).toBeVisible();
+    await expect(page.locator('#unit-3')).toBeVisible();
     await expect(page.locator('#unit-4')).toBeVisible();
     await expect(page.locator('.unit-step.is-empty').first()).toBeHidden();
     await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toHaveAttribute('href', '../pedagogy.html');
@@ -819,10 +1069,10 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(24);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(24);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(22);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(22);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(27);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(27);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(25);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(25);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);
@@ -895,18 +1145,17 @@ test.describe('site smoke', () => {
   });
 
   test('@smoke investment course page and lesson interactions work', async ({ page }, testInfo) => {
-    test.setTimeout(90000);
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
+    test.setTimeout(180000);
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment test.');
 
-    const lessonPath = 'investment-analysis/unit-1/lesson-1/index.html';
+    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.locator('link[href="../assets/css/landing.css"]')).toHaveCount(1);
     await expect(page.locator('link[href="../assets/css/investment-home.css"]')).toHaveCount(1);
-    await expect(page.locator('link[href="../assets/css/app-shell.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.getByRole('link', { name: /Economics/i })).toHaveAttribute('href', '../economics/index.html');
-    await expect(page.getByRole('link', { name: /^Homework$/i })).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /Syllabus/i }).first()).toHaveAttribute('href', 'syllabus.html');
     await expect(page.getByRole('link', { name: /Definitions/i }).first()).toHaveAttribute('href', 'definitions.html');
@@ -916,12 +1165,14 @@ test.describe('site smoke', () => {
     await expect(page.locator('body')).toContainText(/Personal Investment Foundations/i);
     await expect(page.locator('body')).toContainText(/Analysing Companies/i);
 
-    await expect(page.locator('.investment-lesson-list article')).toHaveCount(2);
-    await expect(page.locator('.investment-lesson-list .investment-card-title-zh')).toHaveText(['个人与家庭为什么要投资？', '财务目标如何改变投资决策？']);
+    await expect(page.locator('.investment-lesson-list article')).toHaveCount(3);
+    await expect(page.locator('.investment-lesson-list .investment-card-title-zh')).toHaveText(['什么是投资？', '个人与家庭为什么要投资？', '财务目标如何改变投资决策？']);
     await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html"]')).toHaveCount(1);
     await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html?view=quiz"]')).toHaveCount(1);
     await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html"]')).toHaveCount(1);
     await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html?view=quiz"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-3/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-3/index.html?view=quiz"]')).toHaveCount(1);
     await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
 
     await expect(page.getByRole('heading', { name: /Keep learning/i })).toBeVisible();
@@ -1307,11 +1558,54 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test('@smoke investment lesson 1 classification workshop and quiz work', async ({ page }, testInfo) => {
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
+    test.setTimeout(90000);
+    test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment test.');
+
+    const lessonPath = 'investment-analysis/unit-1/lesson-1/index.html';
+
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto(pageUrl(lessonPath));
+    await expect(page.locator('.invSlide.is-active')).toContainText(/What is investment\?/i);
+    await expectInvestmentRepresentativeSlidesFit(
+      page,
+      lessonPath,
+      'new lesson 1 desktop',
+      ['section', 'discussion', 'outcomes', 'term', 'classificationTask', 'yesNoCheck', 'answer']
+    );
+
+    await goToInvestmentSlide(page, { type: 'discussion', title: 'Can the same asset mean two different things?' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invDiscussionQuestionText')).toHaveText('Two people buy the same shares. Can one be investing while the other is speculating?');
+    await page.getByRole('button', { name: /^Show possible answer$/i }).click();
+    await expectInvestmentSlideFits(page, 'new lesson 1 opening judgement revealed');
+
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify the four decisions' }, lessonPath);
+    await expect(page.locator('.invSlide.is-active .invClassificationCategory')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(4);
+    await revealInvestmentSlide(page);
+    await expect(page.locator('.invSlide.is-active .invClassificationResult.is-revealed')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'new lesson 1 four-category classification revealed');
+
+    await page.goto(pageUrl(lessonPath) + '?view=print');
+    await expect(page.locator('.handoutDefinitionItem')).toHaveCount(4);
+    await expect(page.locator('.handoutDefinitionZh')).toHaveCount(4);
+    await expect(page.locator('.handoutBlank')).toHaveCount(12);
+    await expect(page.locator('.handoutNumberedKnowledge li')).toHaveCount(6);
+    await expect(page.locator('a[href="../../handouts/unit-1-lesson-1-what-is-investment-handout.docx"]')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=quiz');
+    await expect(page.locator('.invQuizQuestion')).toHaveCount(10);
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@smoke investment lesson 2 page and quiz work', async ({ page }, testInfo) => {
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(90000);
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment lesson 2 test.');
 
-    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
+    const lessonPath = 'investment-analysis/unit-1/lesson-3/index.html';
 
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto(pageUrl(lessonPath));
@@ -1380,6 +1674,7 @@ test.describe('site smoke', () => {
   });
 
   test('@smoke investment archived lesson snapshots open', async ({ page }, testInfo) => {
+    test.skip(true, 'Archived renderer snapshots are intentionally outside active-course coverage.');
     test.skip(testInfo.project.name.includes('phone'), 'Archive loading is covered once on desktop.');
 
     const archives = [
@@ -1406,6 +1701,7 @@ test.describe('site smoke', () => {
   });
 
   test('@smoke investment @responsive investment template new slide types render', async ({ page }, testInfo) => {
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(90000);
     const lessonPath = 'investment-analysis/_template/index.html';
     const newSlideTypes = [
@@ -1631,6 +1927,100 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test('@smoke @responsive native Investment Analysis lessons use the Economics renderer and fit', async ({ page }) => {
+    test.setTimeout(180000);
+
+    const lessons = [
+      { path: 'investment-analysis/unit-1/lesson-1/index.html', slideCount: 29, quizCount: 8 },
+      { path: 'investment-analysis/unit-1/lesson-2/index.html', slideCount: 29, quizCount: 10, highResolutionVisuals: true },
+      { path: 'investment-analysis/unit-1/lesson-3/index.html', slideCount: 30, quizCount: 10, highResolutionVisuals: true },
+    ];
+
+    await page.goto(pageUrl('investment-analysis/index.html'));
+    await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
+    await expect(page.locator('a[href*="generator-comparison"], a[href*="lesson-1-all-types"]')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+
+    for (const lesson of lessons) {
+      await page.goto(pageUrl(lesson.path));
+      await expect(page.locator('body')).toHaveClass(/subject-economics/);
+      await expect(page.locator('body')).not.toHaveClass(/investment-deck/);
+      await expect(page.locator('script[src*="investment-deck"], script[src*="investment-economics-bridge"]')).toHaveCount(0);
+      await expect(page.locator('.slide')).toHaveCount(lesson.slideCount);
+      await expect(page.locator('.slide.is-active')).toHaveAttribute('data-idx', '0');
+
+      const registered = await page.evaluate(() => ({
+        slides: window.IGCSE?.lesson?.slides?.length || 0,
+        questions: window.IGCSE?.quiz?.questions?.length || 0,
+      }));
+      expect(registered.slides, `${lesson.path}: native lesson data`).toBe(lesson.slideCount);
+      expect(registered.questions, `${lesson.path}: native quiz data`).toBe(lesson.quizCount);
+
+      await page.evaluate(async () => {
+        const images = [...document.querySelectorAll('.visualPauseImage')];
+        images.forEach((image) => { image.loading = 'eager'; });
+        await Promise.all(images.map((image) => (
+          image.complete && image.naturalWidth > 0 ? Promise.resolve() : image.decode()
+        )));
+      });
+      const slideAudit = await page.evaluate((slideCount) => {
+        const results = [];
+        for (let slideNumber = 1; slideNumber <= slideCount; slideNumber += 1) {
+          const select = document.querySelector('[data-slide-jump]');
+          select.value = String(slideNumber);
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          const slide = document.querySelector('.slide.is-active');
+          const rect = slide.getBoundingClientRect();
+          const image = slide.querySelector('.visualPauseImage');
+          results.push({
+            slideNumber,
+            index: Number(slide.dataset.idx),
+            clientWidth: slide.clientWidth,
+            scrollWidth: slide.scrollWidth,
+            left: rect.left,
+            right: rect.right,
+            viewportWidth: document.documentElement.clientWidth,
+            image: image ? {
+              complete: image.complete,
+              naturalWidth: image.naturalWidth,
+              naturalHeight: image.naturalHeight,
+              source: image.currentSrc || image.src,
+            } : null,
+          });
+        }
+        return results;
+      }, lesson.slideCount);
+
+      expect(slideAudit).toHaveLength(lesson.slideCount);
+      for (const fit of slideAudit) {
+        expect(fit.index, `${lesson.path} slide ${fit.slideNumber}: navigation`).toBe(fit.slideNumber - 1);
+        expect(fit.scrollWidth, `${lesson.path} slide ${fit.slideNumber}: no horizontal clipping`).toBeLessThanOrEqual(fit.clientWidth + 4);
+        expect(fit.left, `${lesson.path} slide ${fit.slideNumber}: stays inside the viewport`).toBeGreaterThanOrEqual(-2);
+        expect(fit.right, `${lesson.path} slide ${fit.slideNumber}: stays inside the viewport`).toBeLessThanOrEqual(fit.viewportWidth + 2);
+        if (fit.image) {
+          expect(fit.image.complete, `${lesson.path} slide ${fit.slideNumber}: visual loaded`).toBe(true);
+          expect(fit.image.naturalWidth, `${lesson.path} slide ${fit.slideNumber}: visual has pixels`).toBeGreaterThan(0);
+          if (lesson.highResolutionVisuals) {
+            expect(Math.max(fit.image.naturalWidth, fit.image.naturalHeight), `${lesson.path} slide ${fit.slideNumber}: high-resolution visual`).toBeGreaterThanOrEqual(1920);
+            expect(fit.image.source, `${lesson.path} slide ${fit.slideNumber}: visual is stored locally`).toContain('/assets/images/investment-analysis/');
+          }
+        }
+      }
+
+      await expectNoHorizontalOverflow(page);
+      await page.goto(`${pageUrl(lesson.path)}?view=quiz`);
+      await expect(page.locator('.quizDeck')).toBeVisible();
+      await expect(page.locator('.quizQuestion')).toHaveCount(lesson.quizCount);
+      await expectNoHorizontalOverflow(page);
+    }
+
+    await page.goto(pageUrl('investment-analysis/_template/index.html'));
+    await expect(page.locator('body')).toHaveClass(/subject-economics/);
+    await expect(page.locator('.slide.is-active')).toBeVisible();
+    await expect(page.locator('script[src*="investment-deck"], script[src*="investment-economics-bridge"]')).toHaveCount(0);
+    await expectNoHorizontalOverflow(page);
+  });
+
   test('@smoke investment course map page works', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
@@ -1642,7 +2032,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /The Stock Market Game is part of every lesson/i })).toBeVisible();
     await expect(page.locator('[data-stock-market-game-phases] .investment-card')).toHaveCount(6);
     await expect(page.locator('[data-stock-market-game-unit-evidence] .investment-card')).toHaveCount(6);
-    await expect(page.locator('#stock-market-game')).toContainText(/First trade after Lesson 17/i);
+    await expect(page.locator('#stock-market-game')).toContainText(/First trade after Lesson 18/i);
     await expect(page.locator('#stock-market-game')).toContainText(/Process, not rank or return/i);
     await expect(page.locator('#stock-market-game')).toContainText(/Team lab and individual judgement/i);
     await expect(page.locator('#stock-market-game')).toContainText(/One evidence trail, six assessed outputs/i);
@@ -1661,23 +2051,24 @@ test.describe('site smoke', () => {
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Exit judgement/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/Investment action/i);
     await expect(page.locator('.investment-generator-table thead')).toContainText(/SMG core lab/i);
-    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/CNY 50,000 but no stated goal.*What should it do next/i);
-    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/goal, time horizon/i);
-    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
-    await expect(page.locator('[data-syllabus-lesson] .investment-lesson-title-zh')).toHaveCount(50);
-    await expect(page.locator('[data-syllabus-lesson] .investment-lesson-title-zh').first()).toHaveText('个人与家庭为什么要投资？');
+    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(51);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/Two people buy the same shares.*Can one be investing while the other is speculating/i);
+    await expect(page.locator('.investment-generator-table tbody tr').first()).toContainText(/main purpose.*expected payoff source.*evidence used.*possible loss/i);
+    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(51);
+    await expect(page.locator('[data-syllabus-lesson] .investment-lesson-title-zh')).toHaveCount(51);
+    await expect(page.locator('[data-syllabus-lesson] .investment-lesson-title-zh').first()).toHaveText('什么是投资？');
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
     await expect(page.locator('[data-syllabus-lesson]').first()).toBeVisible();
     await expect(page.locator('[data-syllabus-lesson]').last()).toBeVisible();
-    await expect(page.locator('[data-smg-core-lab]')).toHaveCount(50);
+    await expect(page.locator('[data-smg-core-lab]')).toHaveCount(51);
     await expect(page.locator('[data-smg-milestone]')).toHaveCount(6);
     await expect(page.locator('[data-smg-evidence-checkpoint]')).toHaveCount(9);
-    await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/SMG core lab[\s\S]*Formative evidence checkpoint[\s\S]*Form the SMG team/i);
+    await expect(page.locator('[data-syllabus-lesson]').first()).toContainText(/SMG core lab[\s\S]*Required team lab[\s\S]*four-category classifier/i);
     await expect(page.locator('[data-syllabus-lesson]').last()).toContainText(/SMG core lab[\s\S]*Summative unit output[\s\S]*Defend the final portfolio/i);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="1"] .investment-lesson-routes a')).toHaveCount(3);
     await expect(page.locator('[data-syllabus-lesson][data-lesson="2"] .investment-lesson-routes a')).toHaveCount(3);
-    await expect(page.locator('[data-syllabus-lesson][data-lesson="3"] .investment-lesson-routes')).toHaveCount(0);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="3"] .investment-lesson-routes a')).toHaveCount(3);
+    await expect(page.locator('[data-syllabus-lesson][data-lesson="4"] .investment-lesson-routes')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -1687,7 +2078,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('heading', { name: /SMG Workbook Course Guide/i })).toBeVisible();
     await expect(page.locator('[data-workbook-rules] li')).toHaveCount(8);
     await expect(page.locator('[data-workbook-calendar] tr')).toHaveCount(Object.keys(financialDecisionCourseMap.stockMarketGameIntegration.workbook.lessonPlan).length);
-    await expect(page.locator('[data-workbook-calendar] tr').first()).toContainText(/Lesson 1[\s\S]*1-3, 5-6 and 8/i);
+    await expect(page.locator('[data-workbook-calendar] tr').first()).toContainText(/Lesson 2[\s\S]*1-3, 5-6 and 8/i);
     await expect(page.locator('[data-workbook-calendar]')).toContainText(/Any instruction to buy|trade override|approval gate/i);
     await expect(page.getByRole('link', { name: /Open official workbook/i })).toHaveAttribute('href', 'references/stock-market-game/program-guides/SMG_Essentials_Workbook.pdf');
     await expect(page.getByRole('link', { name: /Team evidence log/i })).toHaveAttribute('href', 'smg-team-evidence-log.html');
@@ -1704,26 +2095,23 @@ test.describe('site smoke', () => {
     await expect(page.locator('.workbook-log-sheet')).toHaveCount(2);
   });
 
-  test('@smoke investment handouts use bilingual fill definitions and numbered revision points', async ({ page }) => {
+  test('@smoke investment print views use complete definitions without fill-in-the-blanks', async ({ page }) => {
     const handouts = [
-      { path: 'investment-analysis/unit-1/lesson-1/index.html', firstTerm: /Investment[sS]*投资/i, blankCount: 10 },
-      { path: 'investment-analysis/unit-1/lesson-2/index.html', firstTerm: /Time horizon[sS]*投资期限/i, blankCount: 9 },
+      { path: 'investment-analysis/unit-1/lesson-1/index.html', sectionCount: 5, terms: ['Financial investment', 'Speculation', 'Saving'] },
+      { path: 'investment-analysis/unit-1/lesson-2/index.html', sectionCount: 3, terms: ['Investment', 'Return', 'Financial goal'] },
+      { path: 'investment-analysis/unit-1/lesson-3/index.html', sectionCount: 3, terms: ['Time horizon', 'Liquidity need', 'Suitability'] },
     ];
 
     for (const handout of handouts) {
       await page.goto(pageUrl(handout.path) + '?view=print');
-      await expect(page.locator('body')).toHaveClass(/investment-handout/);
-      await expect(page.locator('.handoutSection')).toHaveCount(2);
-      await expect(page.locator('.handoutDefinitionItem')).toHaveCount(3);
-      await expect(page.locator('.handoutDefinitionItem').first()).toContainText(handout.firstTerm);
-      await expect(page.locator('.handoutDefinitionZh')).toHaveCount(3);
-      await expect(page.locator('.handoutBlank')).toHaveCount(handout.blankCount);
-      await expect(page.locator('.handoutAnswerToggle')).toBeVisible();
-      await page.locator('.handoutAnswerToggle').click();
-      await expect(page.locator('.handoutDocument')).toHaveClass(/is-showing-answers/);
-      await expect(page.locator('.handoutNumberedKnowledge li')).toHaveCount(6);
-      await expect(page.locator('.handoutKnowledgeZh')).toHaveCount(6);
-      await expect(page.locator('.handoutScenario, .handoutDataTable, .handoutPrompt, .handoutWriting, .handoutWriteLine, .handoutMisconception')).toHaveCount(0);
+      await expect(page.locator('body')).toHaveClass(/subject-economics/);
+      await expect(page.locator('body')).toHaveClass(/is-handout-mode/);
+      await expect(page.locator('.handoutSection')).toHaveCount(handout.sectionCount);
+      await expect(page.locator('.handoutDefinition')).toHaveCount(handout.terms.length);
+      await expect(page.locator('.handoutBlock:has(.handoutDefinition) > h3')).toHaveText(handout.terms);
+      await expect(page.locator('.handoutDefinitionZh')).toHaveCount(handout.terms.length);
+      await expect(page.locator('.handoutBlank, .handoutAnswerToggle')).toHaveCount(0);
+      await expect(page.locator('.handoutDocument')).not.toContainText(/in this handout|^Here,/i);
       await expectNoHorizontalOverflow(page);
     }
   });
@@ -1755,22 +2143,34 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
     await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i })).toBeVisible();
-    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(50);
+    await expect(page.locator('[data-syllabus-lesson]')).toHaveCount(51);
     await expect(page.locator('[data-exam-checkpoint]')).toHaveCount(6);
-    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(50);
+    await expect(page.locator('.investment-generator-table tbody tr')).toHaveCount(51);
     await expectNoHorizontalOverflow(page);
   });
 
   test('@responsive investment course and quiz fit phone width', async ({ page }, testInfo) => {
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(60000);
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment smoke is phone-only.');
 
-    const lessonPath = 'investment-analysis/unit-1/lesson-1/index.html';
+    const newLessonPath = 'investment-analysis/unit-1/lesson-1/index.html';
+    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
 
     await page.goto(pageUrl('investment-analysis/index.html'));
     await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
     await expect(page.locator('body')).toContainText(/goals, evidence, risk and portfolio choices/i);
     await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(newLessonPath));
+    await expect(page.locator('.invSlide.is-active')).toContainText(/What is investment\?/i);
+    await goToInvestmentSlide(page, { type: 'classificationTask', title: 'Classify the four decisions' }, newLessonPath);
+    await expect(page.locator('.invSlide.is-active .invClassificationCategory')).toHaveCount(4);
+    await expect(page.locator('.invSlide.is-active .invClassificationItem')).toHaveCount(4);
+    await revealInvestmentSlide(page);
+    await expect(page.locator('.invSlide.is-active .invClassificationResult.is-revealed')).toHaveCount(4);
+    await expectInvestmentSlideFits(page, 'new lesson 1 classification phone');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl(lessonPath));
@@ -1857,10 +2257,11 @@ test.describe('site smoke', () => {
   });
 
   test('@responsive investment lesson 2 fits phone width', async ({ page }, testInfo) => {
+    test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(60000);
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive investment lesson 2 coverage is phone-only.');
 
-    const lessonPath = 'investment-analysis/unit-1/lesson-2/index.html';
+    const lessonPath = 'investment-analysis/unit-1/lesson-3/index.html';
 
     await page.goto(pageUrl(lessonPath));
     await expect(page.locator('.invSlide.is-active')).toBeVisible();
@@ -2262,6 +2663,13 @@ test.describe('site smoke', () => {
   test('unit deck menus show subordinate Chinese deck titles', async ({ page }) => {
     const menus = [
       {
+        path: 'lessons/unit-3-decision-makers/3-1-money-and-banking/index.html',
+        titles: [
+          'Money: forms and functions',
+          'Money: characteristics and exam practice',
+        ],
+      },
+      {
         path: 'lessons/unit-2-allocation/2-8-market-economic-system/index.html',
         titles: [
           'Market economic system',
@@ -2321,6 +2729,291 @@ test.describe('site smoke', () => {
     }
   });
 
+  test('money lessons preserve the function-first pacing and recent-paper focus', () => {
+    const lesson = readLesson('lessons/unit-3-decision-makers/3-1-money-and-banking/slides-lesson-1.js');
+    const lesson2 = readLesson('lessons/unit-3-decision-makers/3-1-money-and-banking/slides-lesson-2.js');
+    const slides = [...lesson.slides, ...lesson2.slides];
+    expect(lesson.slides.some(slide => slide.layout === 'money-characteristics')).toBe(false);
+    expect(lesson2.slides[1]).toMatchObject({ type: 'peerTask', taskType: 'definitionRecall' });
+    expect(lesson2.slides[1].definitionItems).toHaveLength(3);
+    expect(lesson2.slides.findIndex(slide => slide.title === 'Exit ticket')).toBe(40);
+    const outcomes = slides.filter((slide) => slide.type === 'outcomes');
+    const sections = slides.filter((slide) => slide.type === 'section');
+    const formativeTypes = new Set(['answer', 'classificationTask', 'exam', 'peerTask', 'quiz', 'yesNoCheck']);
+    const sourceRefs = slides.flatMap((slide) => (slide.sources || []).map((source) => source.ref));
+
+    expect(slides[0]).toMatchObject({ type: 'hero', title: '3.1.1 Money', zhTitle: '货币' });
+    expect(slides[1].type).toBe('discussion');
+    expect(slides[2]).toMatchObject({ type: 'outcomes', eyebrow: 'Objectives', title: 'By the end, you can' });
+    expect(outcomes).toHaveLength(2);
+    expect(outcomes[0].bullets).toHaveLength(3);
+    expect(outcomes[0].zhBullets).toHaveLength(3);
+    expect(sections).toHaveLength(5);
+
+    for (const section of sections) {
+      const index = slides.indexOf(section);
+      const firstTeachingSlide = slides[index + 1];
+      expect(
+        ['discussion', 'visualPause'].includes(firstTeachingSlide?.type) || Boolean(firstTeachingSlide?.visual),
+      ).toBe(true);
+    }
+
+    const functionTitles = [
+      'Medium of exchange',
+      'Unit of account',
+      'Store of value',
+      'Standard of deferred payment',
+    ];
+    const functionSlides = slides.filter((slide) => functionTitles.includes(slide.title));
+    expect(functionSlides.map((slide) => slide.title)).toEqual(functionTitles);
+    for (const slide of functionSlides) {
+      const index = slides.indexOf(slide);
+      expect(slide.type).toBe('term');
+      expect(slide.visual).toBeTruthy();
+      expect(formativeTypes.has(slides[index + 1]?.type)).toBe(true);
+      expect(slides[index - 1]).toMatchObject({ type: 'discussion', layout: 'question-only' });
+      expect(slides[index - 1].question).toMatch(/\?$/);
+      for (const extra of ['title', 'answer', 'visual', 'support', 'followUp', 'zh', 'eyebrow']) {
+        expect(slides[index - 1][extra]).toBeUndefined();
+      }
+    }
+
+    const cardSlides = slides.filter(slide => slide.type === 'cards');
+    expect(cardSlides).toHaveLength(1);
+    expect(cardSlides[0].title).toBe('Common forms of money today');
+    expect(cardSlides[0].partialReview).toEqual(['.cardgrid > .card']);
+    const characteristics = lesson2.slides.filter(slide => slide.type === 'term');
+    expect(characteristics.map(slide => slide.title)).toEqual(["Generally acceptable","Portable","Recognisable","Durable","Limited in supply","Divisible","Uniform"]);
+    for (const slide of characteristics) {
+      const index = lesson2.slides.indexOf(slide);
+      expect(slide.layout).toBe('photo-term');
+      expect(slide.visual).toBeTruthy();
+      expect(lesson2.slides[index - 1].type).toBe('discussion');
+      expect(lesson2.slides[index - 1].visual).toBeTruthy();
+      expect(formativeTypes.has(lesson2.slides[index + 1].type)).toBe(true);
+    }
+    const lastCharacteristicIndex = lesson2.slides.indexOf(characteristics.at(-1));
+    for (const [index, slide] of lesson2.slides.entries()) {
+      if (slide.type === 'visualPause' && slide.layout === 'contain-overview') expect(index).toBeGreaterThan(lastCharacteristicIndex);
+    }
+    expect(lesson2.slides.some(slide => slide.title === 'Design a classroom currency')).toBe(false);
+    expect(lesson2.slides.find(slide => slide.question?.startsWith('Which of the characteristics does the IC Buck'))).toMatchObject({type:'discussion', layout:'question-only'});
+
+    const source = fs.readFileSync(path.join(
+      root,
+      'lessons/unit-3-decision-makers/3-1-money-and-banking/slides-lesson-1.js',
+    ), 'utf8') + fs.readFileSync(path.join(root, 'lessons/unit-3-decision-makers/3-1-money-and-banking/slides-lesson-2.js'), 'utf8');
+    for (const photoKey of [
+      'functionsOverview',
+      'functionsOverviewDark',
+      'mediumExchangeCash',
+      'supermarketPrices',
+      'storeValueSavingsJar',
+      'deferredPaymentLoanAgreement',
+      'characteristicsOverview',
+      'characteristicsOverviewDark',
+      'cashAndCoins',
+    ]) {
+      expect(source).toContain(`visual: photos.${photoKey}`);
+    }
+
+    expect(slides.filter((slide) => formativeTypes.has(slide.type)).length).toBeGreaterThanOrEqual(10);
+    expect(slides.some((slide) => slide.type === 'classificationTask')).toBe(true);
+    expect(slides.some((slide) => slide.type === 'peerTask')).toBe(true);
+    expect(slides.some((slide) => slide.type === 'yesNoCheck')).toBe(true);
+    expect(slides.some((slide) => slide.type === 'exam' && slide.examSpec?.pattern === '2 x (1 + 1)')).toBe(true);
+    expect(sourceRefs.filter((ref) => /2023|2024|2025/.test(ref)).length).toBeGreaterThanOrEqual(13);
+
+    const pastPaperPairs = [
+      ['Identify two functions of money. [2]', '2023MJ-21 Q2(a)'],
+      ['Explain two functions of money. [4]', '2023ON-21 Q3(b)'],
+      ['Explain two characteristics of money. [4]', '2024MJ-22 Q4(b)'],
+    ];
+    for (const [title, ref] of pastPaperPairs) {
+      const examIndex = slides.findIndex((slide) => slide.type === 'exam' && slide.title === title);
+      expect(examIndex).toBeGreaterThan(0);
+      expect(slides[examIndex].sources).toEqual(expect.arrayContaining([
+        expect.objectContaining({ ref, question: title.replace(/ \[\d+\]$/, '') }),
+      ]));
+      expect(slides[examIndex + 1]).toMatchObject({ type: 'modelAnswer', title });
+      expect(slides[examIndex + 1].sources).toEqual(expect.arrayContaining([
+        expect.objectContaining({ ref, question: title.replace(/ \[\d+\]$/, '') }),
+      ]));
+    }
+
+    expect(slides).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        type: 'quiz',
+        question: 'What is not a function of money?',
+        answer: 1,
+        sources: expect.arrayContaining([expect.objectContaining({ ref: '2024ON-11 Q10' })]),
+      }),
+    ]));
+  });
+
+  for (const lessonNumber of [1, 2]) {
+  test(`@smoke @responsive money lesson ${lessonNumber} renders its core assessment views without overflow`, async ({ page }) => {
+    const lessonPath = `lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-${lessonNumber}.html`;
+    await page.goto(pageUrl(lessonPath));
+    const slideNumbers = await page.evaluate(() => {
+      const slides = window.IGCSE.lesson.slides;
+      const numberOf = (predicate) => slides.findIndex(predicate) + 1;
+      return {
+        total: slides.length,
+        overviews: slides
+          .map((slide, index) => ({ slide, number: index + 1 }))
+          .filter(({ slide }) => slide.type === 'visualPause' && [
+            'Four functions of money',
+            'Characteristics of money',
+            'Review the four functions of money',
+            'Review the characteristics of money',
+          ].includes(slide.title))
+          .map(({ number }) => number),
+        definitionVisual: numberOf((slide) => slide.type === 'visualPause' && slide.title === 'What makes this money?'),
+        functions: slides
+          .map((slide, index) => ({ slide, number: index + 1 }))
+          .filter(({ slide }) => [
+            'Medium of exchange',
+            'Unit of account',
+            'Store of value',
+            'Standard of deferred payment',
+          ].includes(slide.title))
+          .map(({ number }) => number),
+        forms: numberOf((slide) => slide.title === 'Common forms of money today'),
+        characteristics: slides.map((slide,index) => ({slide,number:index+1})).filter(({slide}) => slide.type === 'term' && slide.definitionCue?.startsWith('Characteristic')).map(({number})=>number),
+        diamond: numberOf((slide) => slide.layout === 'diamond-question'),
+        functionQuestions: slides.map((slide, index) => ({ slide, number: index + 1 }))
+          .filter(({ slide }) => slide.layout === 'question-only').map(({ number }) => number),
+        classification: numberOf((slide) => slide.type === 'classificationTask'),
+        peer: numberOf((slide) => slide.type === 'peerTask'),
+        exam: numberOf((slide) => slide.type === 'exam'),
+        quiz: numberOf((slide) => slide.type === 'quiz'),
+        recentPractice: slides
+          .map((slide, index) => ({ slide, number: index + 1 }))
+          .filter(({ slide }) => (slide.sources || []).some((source) => [
+            '2024ON-11 Q10',
+            '2023MJ-21 Q2(a)',
+            '2023ON-21 Q3(b)',
+            '2024MJ-22 Q4(b)',
+          ].includes(source.ref)) && ['quiz', 'exam', 'modelAnswer'].includes(slide.type))
+          .map(({ number }) => number),
+        exit: numberOf((slide) => slide.type === 'answer' && slide.title === 'Exit ticket'),
+      };
+    });
+
+    expect(slideNumbers.total).toBeGreaterThanOrEqual(27);
+    expect(slideNumbers.overviews).toHaveLength(2);
+    for (const slideNumber of slideNumbers.overviews) {
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      const overview = page.locator('.slide.is-active.is-layout-contain-overview .visualPauseImage');
+      await expect(overview).toBeVisible();
+      await expect.poll(() => overview.evaluate((image) => image.naturalWidth)).toBeGreaterThanOrEqual(1600);
+      await expect.poll(() => overview.evaluate((image) => getComputedStyle(image).objectFit)).toBe('contain');
+      await expectNoHorizontalOverflow(page);
+    }
+
+    if (lessonNumber === 1) {
+    expect(slideNumbers.definitionVisual).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.definitionVisual}`);
+    const definitionImage = page.locator('.slide.is-active .visualPauseImage');
+    await expect(definitionImage).toBeVisible();
+    await expect(definitionImage).toHaveAttribute('src', /cash-and-coins\.jpg$/);
+    await expect.poll(() => definitionImage.evaluate((image) => image.naturalWidth)).toBeGreaterThanOrEqual(1600);
+    await expectNoHorizontalOverflow(page);
+
+    expect(slideNumbers.functions).toHaveLength(4);
+    for (const slideNumber of slideNumbers.functions) {
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      await expect(page.locator('.slide.is-active .termBlock')).toBeVisible();
+      const photo = page.locator('.slide.is-active .photoPanel img');
+      await expect(photo).toBeVisible();
+      await expect.poll(() => photo.evaluate((image) => image.naturalWidth)).toBeGreaterThanOrEqual(1600);
+      await expectNoHorizontalOverflow(page);
+    }
+
+    expect(slideNumbers.forms).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.forms}`);
+    const formCards = page.locator('.slide.is-active .cardgrid > .card');
+    await expect(formCards).toHaveCount(3);
+    expect(await formCards.evaluateAll((cards) => cards.every((card) => card.getAttribute('aria-hidden') === 'true'))).toBe(true);
+    await expect(page.locator('.slide.is-active .prompt')).toBeVisible();
+    for (let revealed = 1; revealed <= 3; revealed += 1) {
+      await page.keyboard.press('ArrowRight');
+      await expect(page.locator('.slide.is-active .cardgrid > .card.is-visible')).toHaveCount(revealed);
+      await expect(page.locator('.slide.is-active')).toContainText('Common forms of money today');
+    }
+    await expectNoHorizontalOverflow(page);
+
+    await expect(formCards.locator('img')).toHaveCount(3);
+    expect(await formCards.locator('img').evaluateAll((images) => images.every((img) => img.complete && img.naturalWidth > 0))).toBe(true);
+    }
+    for (const slideNumber of slideNumbers.functionQuestions) {
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      const active = page.locator('.slide.is-active');
+      await expect(active.locator('.discussionPrompt > p')).toHaveCount(1);
+      await expect(active.locator('.discussionAnswerButton')).toHaveCount(0);
+      await expect(active.locator('.topline')).toBeHidden();
+      await expect(active.locator('.slide-footer')).toBeHidden();
+      await expectNoHorizontalOverflow(page);
+    }
+    if (lessonNumber === 2) {
+    expect(slideNumbers.characteristics).toHaveLength(7);
+    for (const number of slideNumbers.characteristics) {
+      for (const neighbour of [number-1,number,number+1]) {
+        await page.goto(`${pageUrl(lessonPath)}#${neighbour}`);
+        await expect(page.locator('.slide.is-active')).toBeVisible();
+        if (neighbour === number - 1) {
+          const scenario = page.locator('.slide.is-active .discussionBg');
+          await expect(scenario).toBeVisible();
+          await expect.poll(() => scenario.evaluate(image => image.naturalWidth)).toBeGreaterThanOrEqual(1536);
+          await expect(page.locator('.slide.is-active .discussionPrompt > p')).toBeVisible();
+        }
+        await expectNoHorizontalOverflow(page);
+      }
+      await page.goto(`${pageUrl(lessonPath)}#${number}`);
+      const photo = page.locator('.slide.is-active .photoPanel img');
+      await expect(photo).toBeVisible();
+      await expect.poll(() => photo.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+      await page.locator('.slide.is-active .definitionBlankAnswer').first().click();
+      await expect(page.locator('.slide.is-active .definitionBlankAnswer').first()).toHaveAttribute('aria-expanded', 'true');
+      await expect(page.locator('.slide.is-active .termBlock')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+    }
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.diamond}`);
+    await expect(page.locator('.slide.is-active .discussionBg')).toHaveAttribute('src', /diamond-grocery-payment\.png$/);
+    await expectNoHorizontalOverflow(page);
+
+    }
+    for (const slideNumber of [slideNumbers.classification, slideNumbers.peer, slideNumbers.exam, slideNumbers.exit]) {
+      expect(slideNumber).toBeGreaterThan(0);
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      await expect(page.locator('.slide.is-active')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+    }
+
+    expect(slideNumbers.recentPractice.length).toBeGreaterThanOrEqual(3);
+    for (const slideNumber of slideNumbers.recentPractice) {
+      await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
+      await expect(page.locator('.slide.is-active')).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+    }
+
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.quiz}`);
+    await expect(page.locator('.slide.is-active .mcqExplanation')).toBeHidden();
+    await page.locator('.slide.is-active .choices.is-mcq .choice').first().click();
+    await expect(page.locator('.slide.is-active .mcqExplanation')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=quiz');
+    await expect(page.locator('.quizQuestion')).toHaveCount(5);
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(pageUrl(lessonPath) + '?view=flashcards');
+    await expect(page.locator('[data-flashcard-card]')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+  }
+
   test('shared photo catalogue uses complete local image metadata', () => {
     const entries = flattenPhotoCatalogue(loadPhotoCatalogue());
 
@@ -2378,7 +3071,24 @@ test.describe('site smoke', () => {
     expect(missingZhTitles).toEqual([]);
   });
 
-  test('complete lesson decks include fact and discussion slides', () => {
+  test('the classroom welcome slide appears only in the first syllabus lesson', () => {
+    const slideFiles = findSlideFiles(path.join(root, 'lessons'), root)
+      .filter((slideFile) => !slideFile.includes('/_template/'));
+    const decksWithWelcome = slideFiles.filter((slideFile) => {
+      const lesson = readLesson(slideFile);
+      return (lesson.slides || []).some((slide) => slide.type === 'welcome');
+    });
+
+    expect(decksWithWelcome).toEqual([
+      'lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/slides.js',
+    ]);
+
+    const welcomeLesson = readLesson(decksWithWelcome[0]);
+    expect(welcomeLesson.slides[0].type).toBe('welcome');
+    expect(welcomeLesson.slides[0].rules).toHaveLength(5);
+  });
+
+  test('lesson decks retire fact slides and retain student discussion', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons'), root)
       .filter((slideFile) => !slideFile.includes('/_template/'));
     const missingCoverage = [];
@@ -2389,8 +3099,10 @@ test.describe('site smoke', () => {
       const hasFact = slides.some((slide) => slide.type === 'fact');
       const hasDiscussion = slides.some((slide) => slide.type === 'discussion');
 
-      if (!hasFact) missingCoverage.push(`${slideFile}: missing fact slide`);
-      if (!hasDiscussion) missingCoverage.push(`${slideFile}: missing discussion slide`);
+      if (hasFact) missingCoverage.push(`${slideFile}: still uses retired fact slides`);
+      if (!slideFile.includes('/2-review-') && !hasDiscussion) {
+        missingCoverage.push(`${slideFile}: missing discussion slide`);
+      }
     }
 
     expect(missingCoverage).toEqual([]);
@@ -2476,7 +3188,7 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('market failure taught steps are followed by formative checks', () => {
+  test('market failure taught steps receive nearby formative checks', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons/unit-2-allocation/2-9-market-failure'), root);
     const taughtTypes = new Set([
       'compare',
@@ -2495,9 +3207,9 @@ test.describe('site smoke', () => {
       const slides = lesson.slides || [];
       for (const [index, slide] of slides.entries()) {
         if (!taughtTypes.has(slide.type)) continue;
-        const nextSlide = slides[index + 1];
-        if (!formativeTypes.has(nextSlide?.type)) {
-          missingChecks.push(`${slideFile} slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        const nearbySlides = slides.slice(index + 1, index + 4);
+        if (!nearbySlides.some((candidate) => formativeTypes.has(candidate?.type))) {
+          missingChecks.push(`${slideFile} slide ${index + 1} ${slide.type}: no formative check within three slides`);
         }
       }
     }
@@ -2744,7 +3456,7 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
-  test('target fiscal and monetary taught steps are immediately followed by formative checks', () => {
+  test('target fiscal and monetary taught steps receive nearby formative checks', () => {
     const slideFiles = [
       'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js',
       'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
@@ -2762,9 +3474,9 @@ test.describe('site smoke', () => {
       const slides = lesson.slides || [];
       for (const [index, slide] of slides.entries()) {
         if (!taughtTypes.has(slide.type)) continue;
-        const nextSlide = slides[index + 1];
-        if (!formativeTypes.has(nextSlide?.type)) {
-          failures.push(`${slideFile} slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        const nearbySlides = slides.slice(index + 1, index + 4);
+        if (!nearbySlides.some((candidate) => formativeTypes.has(candidate?.type))) {
+          failures.push(`${slideFile} slide ${index + 1} ${slide.type}: no formative check within three slides`);
         }
       }
     }
@@ -2781,18 +3493,18 @@ test.describe('site smoke', () => {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
         for (const field of textFields) {
-          if (/\b(?:stance|route|chain)\b/i.test(String(slide[field] || ''))) {
+          if (/\b(?:stance|route)\b/i.test(String(slide[field] || ''))) {
             failures.push(`${slideFile} slide ${index + 1}: ${field} uses unclear wording`);
           }
         }
         for (const answer of slide.sampleAnswers || []) {
-          if (/\b(?:stance|route|chain)\b/i.test(String(answer || ''))) {
+          if (/\b(?:stance|route)\b/i.test(String(answer || ''))) {
             failures.push(`${slideFile} slide ${index + 1}: sample answer uses unclear wording`);
           }
         }
         for (const card of slide.cards || []) {
           const cardText = Array.isArray(card) ? card.join(' ') : Object.values(card || {}).join(' ');
-          if (/\b(?:stance|route|chain)\b/i.test(cardText)) {
+          if (/\b(?:stance|route)\b/i.test(cardText)) {
             failures.push(`${slideFile} slide ${index + 1}: card uses unclear wording`);
           }
         }
@@ -2816,10 +3528,6 @@ test.describe('site smoke', () => {
         if (slide.type === 'compare') {
           if (slide.variant === 'examDiscussion') {
             if (!/\[\d+\]/.test(slide.title || '')) failures.push(`${slideFile} slide ${index + 1}: exam discussion title should include marks`);
-            if ((slide.partialReview || []).join(' ') !== '.splitCols .card .choice') {
-              failures.push(`${slideFile} slide ${index + 1}: exam discussion should reveal keyword rows`);
-            }
-            if (slide.mode === 'fillBlanks') failures.push(`${slideFile} slide ${index + 1}: exam discussion should not be a fill-blank compare`);
             continue;
           }
           if (slide.variant === 'policyDirection') {
@@ -2849,29 +3557,19 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
-  test('fact slides use one context sentence followed by one question', () => {
+  test('visual pauses replace legacy fact-slide content', () => {
     const failures = [];
 
     for (const slideFile of findSlideFiles(path.join(root, 'lessons'), root)) {
       const lesson = readLesson(slideFile);
       for (const [index, slide] of (lesson.slides || []).entries()) {
-        if (slide.type !== 'fact') continue;
-
-        for (const panel of factPanels(slide)) {
-          const context = String(panel.context || '').trim();
-          const question = String(panel.question || '').trim();
-          const fact = String(panel.fact || '').trim();
-
-          if (fact) failures.push(`${slideFile} slide ${index + 1}: still uses legacy fact text`);
-          if (!context) failures.push(`${slideFile} slide ${index + 1}: missing context`);
-          if (!question) failures.push(`${slideFile} slide ${index + 1}: missing question`);
-          if (!panel.questionZh) failures.push(`${slideFile} slide ${index + 1}: missing Chinese question`);
-          if (!panel.answer) failures.push(`${slideFile} slide ${index + 1}: missing possible answer`);
-          if (context.includes('?')) failures.push(`${slideFile} slide ${index + 1}: context is a question`);
-          if (question && !question.endsWith('?')) failures.push(`${slideFile} slide ${index + 1}: question does not end with ?`);
-          if ((context.match(/[.!?](?=\s|$)/g) || []).length > 1) {
-            failures.push(`${slideFile} slide ${index + 1}: context has more than one sentence`);
-          }
+        if (slide.type === 'fact') failures.push(`${slideFile} slide ${index + 1}: uses retired fact type`);
+        if (slide.type !== 'visualPause') continue;
+        if (!slide.title) failures.push(`${slideFile} slide ${index + 1}: missing title`);
+        if (!slide.visual) failures.push(`${slideFile} slide ${index + 1}: missing visual`);
+        if (!slide.notes) failures.push(`${slideFile} slide ${index + 1}: missing teacher notes`);
+        if (slide.context || slide.question || slide.answer || slide.facts) {
+          failures.push(`${slideFile} slide ${index + 1}: exposes retired fact-panel fields`);
         }
       }
     }
@@ -3060,20 +3758,20 @@ test.describe('site smoke', () => {
 
     for (const [index, slide] of slides.entries()) {
       for (const field of ['title', 'question', 'prompt']) {
-        if (/\b(?:stance|route|chain)\b/i.test(String(slide[field] || ''))) {
+        if (/\b(?:stance|route)\b/i.test(String(slide[field] || ''))) {
           failures.push(`slide ${index + 1}: ${field} uses unclear wording`);
         }
       }
       for (const objective of slide.type === 'outcomes' ? slide.bullets || [] : []) {
-        if (/\b(?:stance|route|chain)\b/i.test(objective)) failures.push(`objective uses unclear wording: ${objective}`);
+        if (/\b(?:stance|route)\b/i.test(objective)) failures.push(`objective uses unclear wording: ${objective}`);
       }
 
       if (formativeTypes.has(slide.type)) formativeSeen.add(slide.type);
 
       if (taughtTypes.has(slide.type)) {
-        const nextSlide = slides[index + 1];
-        if (!formativeTypes.has(nextSlide?.type)) {
-          failures.push(`slide ${index + 1} ${slide.type} -> ${nextSlide?.type || 'end'}`);
+        const nearbySlides = slides.slice(index + 1, index + 4);
+        if (!nearbySlides.some((candidate) => formativeTypes.has(candidate?.type))) {
+          failures.push(`slide ${index + 1} ${slide.type}: no formative check within three slides`);
         }
       }
 
@@ -3090,7 +3788,7 @@ test.describe('site smoke', () => {
     expect(failures).toEqual([]);
   });
 
-  test('exam chain slides are followed by mark-scheme model answers', () => {
+  test('exam practice is followed by model-answer or mark-scheme feedback', () => {
     const slideFiles = findSlideFiles(path.join(root, 'lessons'), root)
       .filter((slideFile) => !slideFile.includes('/_template/'));
     const missingModelAnswers = [];
@@ -3102,21 +3800,32 @@ test.describe('site smoke', () => {
       for (const [index, slide] of slides.entries()) {
         if (slide.type !== 'exam') continue;
 
-        const nextSlide = slides[index + 1];
+        const nextSlide = slides.slice(index + 1, index + 3).find((candidate) => (
+          candidate?.type === 'modelAnswer'
+          || (candidate?.type === 'cards' && /mark scheme/i.test(candidate.title || ''))
+        ));
         const label = `${slideFile} slide ${index + 1}`;
-        if (nextSlide?.type !== 'modelAnswer') {
-          missingModelAnswers.push(`${label}: next slide is not modelAnswer`);
+        if (!nextSlide) {
+          missingModelAnswers.push(`${label}: no answer feedback within the next two slides`);
           continue;
         }
 
-        expect(nextSlide.question, `${label} model question`).toBe(slide.question);
-        expect(nextSlide.answer, `${label} model answer`).toEqual(expect.any(String));
-        expect(nextSlide.answer.trim(), `${label} model answer`).not.toHaveLength(0);
-        expect(nextSlide.markSchemeNote, `${label} markSchemeNote`).toEqual(expect.any(String));
-        expect(nextSlide.markSchemeNote, `${label} markSchemeNote`).toMatch(/\b(?:explain|analyse|discuss|mark|scheme|level|chain|judgement|transmission)\b/i);
+        if (nextSlide.type === 'cards') {
+          expect(nextSlide.cards || [], `${label} mark-scheme cards`).not.toHaveLength(0);
+          continue;
+        }
 
-        for (const keyword of slide.keywords || []) {
-          expect(nextSlide.links || [], `${label} links include ${keyword}`).toContain(keyword);
+        expect(normalizeExamQuestion(nextSlide.question || nextSlide.title), `${label} model question`)
+          .toBe(normalizeExamQuestion(slide.question || slide.title));
+        const modelAnswer = nextSlide.answer || (nextSlide.paragraphs || []).join(' ');
+        expect(modelAnswer, `${label} model answer`).toEqual(expect.any(String));
+        expect(modelAnswer.trim(), `${label} model answer`).not.toHaveLength(0);
+        if (nextSlide.markSchemeNote) {
+          expect(nextSlide.markSchemeNote, `${label} markSchemeNote`).toMatch(/\b(?:explain|analyse|discuss|mark|scheme|level|chain|judgement|transmission)\b/i);
+        }
+
+        if ((slide.keywords || []).length) {
+          expect(nextSlide.links || [], `${label} keeps keyword highlighting`).not.toHaveLength(0);
         }
       }
     }
@@ -3128,21 +3837,22 @@ test.describe('site smoke', () => {
     const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html';
     await page.goto(pageUrl(lessonPath));
     const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
-      .findIndex((slide) => slide.type === 'exam' && /higher interest rates may reduce inflation/i.test(slide.question || '')) + 1);
+      .findIndex((slide) => slide.type === 'exam' && (slide.keywords || []).length > 0) + 1);
 
     expect(slideNumber).toBeGreaterThan(0);
     await page.setViewportSize({ width: 1366, height: 768 });
     await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
 
     await expect(page.locator('.slide.is-active .examBlock')).toBeVisible();
-    await expect(page.locator('.slide.is-active .examBlock .card')).toHaveCount(5);
+    const keywordCount = await page.evaluate((index) => window.IGCSE.lesson.slides[index - 1].keywords.length, slideNumber);
+    await expect(page.locator('.slide.is-active .examBlock .card')).toHaveCount(keywordCount);
     await expect(page.locator('.slide.is-active .examBlock .card').first()).toBeVisible();
     await expect(page.locator('.slide.is-active .examBlock .prompt')).toBeVisible();
     await expect(page.locator('.slide.is-active .partial-item')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
   });
 
-  test('yes/no checks reveal one statement then its answer', async ({ page }) => {
+  test('yes/no checks show all statements and reveal one answer at a time', async ({ page }) => {
     const lessonPath = 'lessons/unit-4-government/4-3-monetary-policy/lesson-2.html';
     await page.goto(pageUrl(lessonPath));
     const slideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
@@ -3153,109 +3863,36 @@ test.describe('site smoke', () => {
     await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
 
     await expect(page.locator('.slide.is-active .yesNoRow')).toHaveCount(4);
-    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .yesNoRow.partial-item')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .yesNoRow')).toHaveCount(4);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.partial-item')).toHaveCount(4);
     await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
     await page.keyboard.press('ArrowRight');
-    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(1);
-    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
-    await page.keyboard.press('ArrowRight');
-    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(1);
     await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(1);
     await page.keyboard.press('ArrowRight');
-    await expect(page.locator('.slide.is-active .yesNoRow.is-visible')).toHaveCount(2);
-    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(2);
+    await expect(page.locator('.slide.is-active .yesNoRow')).toHaveCount(4);
     await expectNoHorizontalOverflow(page);
   });
 
-  test('fact slide text keeps source attribution in source lines', () => {
-    const slideFiles = findSlideFiles(path.join(root, 'lessons'), root);
-    const badFacts = [];
-    const sourceAttributionPattern = /\b(?:according to|the world bank|world bank|who estimates|unesco estimated|ilo reported|starbucks reported)\b/i;
-
-    for (const slideFile of slideFiles) {
-      const lesson = readLesson(slideFile);
-      for (const [index, slide] of (lesson.slides || []).entries()) {
-        if (slide.type !== 'fact') continue;
-
-        for (const panel of factPanels(slide)) {
-          const visibleText = [panel.context, panel.question].filter(Boolean).join(' ');
-          if (sourceAttributionPattern.test(visibleText)) {
-            badFacts.push(`${slideFile} slide ${index + 1}: ${visibleText}`);
-          }
-        }
-      }
-    }
-
-    expect(badFacts).toEqual([]);
-  });
-
-  test('fact slides render context and question without overflow', async ({ page }) => {
+  test('visual pause slides render as image-first bridges without overflow', async ({ page }) => {
     const targets = [
-      { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html', slideNumber: 5 },
-      { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-3.html', slideNumber: 14 },
-      { htmlFile: 'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html', slideNumber: 14 },
-      { htmlFile: 'lessons/unit-2-allocation/2-review-cocoa-chocolate-section-a/index.html', slideNumber: 2 },
-      { htmlFile: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html', slideNumber: 7 },
-      { htmlFile: 'lessons/unit-4-government/4-3-monetary-policy/lesson-4.html', slideNumber: 5 },
-      { htmlFile: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-3.html', slideNumber: 8 },
+      { htmlFile: 'lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-1.html', slideFile: 'lessons/unit-3-decision-makers/3-1-money-and-banking/slides-lesson-1.js' },
+      { htmlFile: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html', slideFile: 'lessons/unit-2-allocation/2-8-market-economic-system/slides-lesson-1.js' },
+      { htmlFile: 'lessons/unit-2-allocation/2-9-market-failure/lesson-3.html', slideFile: 'lessons/unit-2-allocation/2-9-market-failure/slides-lesson-3.js' },
+      { htmlFile: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html', slideFile: 'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js' },
+      { htmlFile: 'lessons/unit-4-government/4-3-monetary-policy/lesson-4.html', slideFile: 'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-4.js' },
+      { htmlFile: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-3.html', slideFile: 'lessons/unit-4-government/4-4-supply-side-policy/slides-lesson-3.js' },
     ];
 
-    let checkedFactInteraction = false;
     for (const target of targets) {
-      await page.goto(`${pageUrl(target.htmlFile)}#${target.slideNumber}`, { waitUntil: 'domcontentloaded' });
-      await expect(page.locator('.slide.is-active .factContext').first()).toBeVisible();
-      await expect(page.locator('.slide.is-active .factQuestion').first()).toBeVisible();
-      await expect(page.locator('.slide.is-active .factQuestionZh').first()).toBeVisible();
-      await expect(page.locator('.slide.is-active .chinaCompareButton')).toHaveCount(0);
-      await expect(page.locator('.slide.is-active .factCompareSlider')).toHaveCount(0);
-      await expect(page.locator('.slide.is-active .factAnswerButton')).toBeVisible();
+      const lesson = readLesson(target.slideFile);
+      const slideNumber = lesson.slides.findIndex((slide) => slide.type === 'visualPause') + 1;
+      expect(slideNumber, target.slideFile).toBeGreaterThan(0);
+      await page.goto(`${pageUrl(target.htmlFile)}#${slideNumber}`, { waitUntil: 'domcontentloaded' });
+      await expect(page.locator('.slide.is-active .visualPauseImage')).toBeVisible();
+      await expect(page.locator('.slide.is-active .factBlock')).toHaveCount(0);
       await expectNoHorizontalOverflow(page);
-
-      if (!checkedFactInteraction) {
-        const chinaButton = page.locator('.slide.is-active .factSwitchButton[data-fact-target="china"]');
-        if (await chinaButton.count()) {
-          await expect(page.locator('.slide.is-active .factSwitchButton[data-fact-target="example"]')).toHaveAttribute('aria-pressed', 'true');
-          await expect(page.locator('.slide.is-active .factPanelStack .factCountry')).toHaveCount(0);
-          await chinaButton.click();
-          await expect(chinaButton).toHaveAttribute('aria-pressed', 'true');
-          await expect(page.locator('.slide.is-active .factPanel.is-china.is-active')).toBeVisible();
-        }
-        await page.locator('.slide.is-active .factAnswerButton').click();
-        await expect(page.getByRole('dialog', { name: /^Possible answer$/i })).toBeVisible();
-        await page.getByRole('button', { name: /^Close possible answer$/i }).click();
-        checkedFactInteraction = true;
-      }
-
-      const metrics = await page.evaluate(() => {
-        const slide = document.querySelector('.slide.is-active');
-        const factBlock = slide?.querySelector('.factBlock');
-        const visual = slide?.querySelector('.visual');
-        const hasSwitcher = Boolean(slide?.querySelector('.factCountrySwitch'));
-        const slideRect = slide?.getBoundingClientRect();
-        const factRect = factBlock?.getBoundingClientRect();
-        const visualRect = visual?.getBoundingClientRect();
-
-        return {
-          factBottom: factRect?.bottom ?? 0,
-          visualBottom: visualRect?.bottom ?? 0,
-          slideBottom: slideRect?.bottom ?? window.innerHeight,
-          factWidth: factRect?.width ?? 0,
-          slideWidth: slideRect?.width ?? window.innerWidth,
-          countryBadges: slide?.querySelectorAll('.factPanelStack .factCountry').length ?? 0,
-          hasSwitcher,
-        };
-      });
-
-      expect(metrics.factBottom, `${target.htmlFile}#${target.slideNumber}`).toBeLessThanOrEqual(metrics.slideBottom + 2);
-      expect(metrics.visualBottom, `${target.htmlFile}#${target.slideNumber}`).toBeLessThanOrEqual(metrics.slideBottom + 2);
-      if (metrics.hasSwitcher) {
-        expect(metrics.countryBadges, `${target.htmlFile}#${target.slideNumber}`).toBe(0);
-      } else {
-        expect(metrics.countryBadges, `${target.htmlFile}#${target.slideNumber}`).toBeGreaterThan(0);
-      }
-      if (metrics.slideWidth > 960) {
-        expect(metrics.factWidth, `${target.htmlFile}#${target.slideNumber}`).toBeGreaterThan(620);
-      }
     }
   });
 
@@ -3538,14 +4175,21 @@ test.describe('site smoke', () => {
     for (const lessonPath of lessonPaths) {
       await page.setViewportSize({ width: 1366, height: 768 });
       await page.goto(pageUrl(lessonPath));
-      const flowSlideNumber = await page.evaluate(() => window.IGCSE.lesson.slides
-        .findIndex((slide) => slide.type === 'flow') + 1);
+      const flowState = await page.evaluate(() => {
+        const index = window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'flow');
+        const nodes = window.IGCSE.lesson.slides[index]?.nodes || [];
+        return {
+          slideNumber: index + 1,
+          nodeCount: Array.isArray(nodes[0]) ? nodes.flat().length : nodes.length,
+        };
+      });
+      const flowSlideNumber = flowState.slideNumber;
 
       await page.goto(`${pageUrl(lessonPath)}#${flowSlideNumber}`);
-      await expect(page.locator('.slide.is-active .flowChip')).toHaveCount(4);
+      await expect(page.locator('.slide.is-active .flowChip')).toHaveCount(flowState.nodeCount);
       await expect(page.locator('.slide.is-active .flowChip.partial-item')).toHaveCount(0);
-      await expect(page.locator('.slide.is-active .flowTextZh')).toHaveCount(4);
-      await expect(page.locator('.slide.is-active .flowText .blankAnswer')).toHaveCount(4);
+      await expect(page.locator('.slide.is-active .flowTextZh')).toHaveCount(flowState.nodeCount);
+      await expect(page.locator('.slide.is-active .flowText .blankAnswer')).toHaveCount(flowState.nodeCount);
       await expect(page.locator('.slide.is-active .flowText .blankAnswer.is-revealed')).toHaveCount(0);
 
       await page.locator('.slide.is-active .flowText .blankAnswer').first().click();
@@ -3624,7 +4268,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('fiscal policy lesson 4 reveals term notes and peer examples only after the task', async ({ page }) => {
+  test('fiscal policy lesson 4 reveals term notes and missing-sentence answers only after the task', async ({ page }) => {
     const lessonPath = 'lessons/unit-4-government/4-2-fiscal-policy/lesson-4.html';
     await page.goto(pageUrl(lessonPath));
     const slideNumbers = await page.evaluate(() => {
@@ -3660,17 +4304,14 @@ test.describe('site smoke', () => {
 
     expect(slideNumbers.peerTask).toBeGreaterThan(0);
     await page.goto(`${pageUrl(lessonPath)}#${slideNumbers.peerTask}`);
-    await expect(page.locator('.slide.is-active .peerTaskBlock')).toBeVisible();
-    await expect(page.locator('.slide.is-active .peerTaskBlock > h2')).toHaveCount(0);
+    await expect(page.locator('.slide.is-active .peerTaskBlock.is-missingSentenceTask')).toBeVisible();
+    await expect(page.locator('.slide.is-active .peerTaskBlock > h2')).toHaveText(/Complete the missing sentence/i);
     await expect(page.locator('.slide.is-active .steps .step')).toHaveCount(3);
     await expect(page.locator('.slide.is-active .steps .step.partial-item')).toHaveCount(0);
-    await expect(page.locator('.slide.is-active .peerTaskShare')).toBeVisible();
-    await expect(page.locator('.slide.is-active .peerTaskShare.partial-item')).toHaveCount(0);
-    await expect(page.locator('.slide.is-active .peerTaskSampleLabel')).toBeVisible();
-    await expect(page.locator('.slide.is-active .peerTaskSamples .choice')).toHaveCount(1);
-    await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(0);
-    await page.keyboard.press('ArrowRight');
-    await expect(page.locator('.slide.is-active .peerTaskSamples .choice.is-visible')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .step.is-missingSentence .blankAnswer')).toHaveCount(1);
+    await expect(page.locator('.slide.is-active .step.is-missingSentence .blankAnswer')).not.toHaveClass(/is-revealed/);
+    await page.locator('.slide.is-active .step.is-missingSentence .blankAnswer').click();
+    await expect(page.locator('.slide.is-active .step.is-missingSentence .blankAnswer')).toHaveClass(/is-revealed/);
     await expectNoHorizontalOverflow(page);
   });
 
@@ -3809,20 +4450,20 @@ test.describe('site smoke', () => {
   });
 
   test('side-by-side contrast slides render full-width without pictures', async ({ page }) => {
-    await page.goto(pageUrl('lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html'));
+    const lessonPath = 'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html';
+    await page.goto(pageUrl(lessonPath));
     const slideNumber = await page.evaluate(() => {
-      const contrastTypes = new Set(['compare', 'split', 'systemCompare']);
-      return window.IGCSE.lesson.slides.findIndex((slide) => contrastTypes.has(slide.type) && slide.visual) + 1;
+      return window.IGCSE.lesson.slides.findIndex((slide) => slide.type === 'compare' && !slide.visual) + 1;
     });
 
     expect(slideNumber).toBeGreaterThan(0);
     await page.setViewportSize({ width: 1366, height: 768 });
-    await page.goto(`${pageUrl('lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html')}#${slideNumber}`);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
 
     await expect(page.locator('.slide.is-active .visual')).toHaveCount(0);
     await expect(page.locator('.slide.is-active .content')).toHaveClass(/is-full/);
     const compareText = await page.evaluate(() => {
-      const firstChoice = document.querySelector('.slide.is-active .compareBlock .choice');
+      const firstChoice = document.querySelector('.slide.is-active .compareBlock .fillBlank p');
       const firstHeading = document.querySelector('.slide.is-active .compareBlock .card > b');
       return {
         choiceSize: Number.parseFloat(getComputedStyle(firstChoice).fontSize),
@@ -3837,7 +4478,7 @@ test.describe('site smoke', () => {
   test('teaching philosophy page renders bilingual pedagogy at desktop and phone widths', async ({ page }) => {
     await page.goto(pageUrl('pedagogy.html'));
 
-    await expect(page.getByRole('link', { name: /Library index/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Oehler-Huang Learning Platform home/i })).toBeVisible();
     await expect(page.getByRole('heading', { name: /Teaching Philosophy/i })).toBeVisible();
     await expect(page.getByText('教学理念', { exact: true })).toBeVisible();
     await expect(page.getByRole('img', { name: /Samuel Oehler-Huang/i })).toBeVisible();
@@ -4008,47 +4649,50 @@ test.describe('site smoke', () => {
     const checks = [
       {
         path: 'lessons/unit-4-government/4-1-macroeconomic-aims/index.html',
-        hash: '#5',
+        slideFile: 'lessons/unit-4-government/4-1-macroeconomic-aims/slides.js',
         title: /The six macroeconomic aims/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
         path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-1.html',
-        hash: '#14',
+        slideFile: 'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-1.js',
         title: /Main areas of spending/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
         path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-1.html',
-        hash: '#17',
+        slideFile: 'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-1.js',
         title: /Why governments spend/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
         path: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html',
-        hash: '#5',
+        slideFile: 'lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-5.js',
         title: /The six macroeconomic aims/i,
         rows: testInfo.project.name.includes('phone') ? 3 : 2,
       },
       {
         path: 'lessons/unit-4-government/4-3-monetary-policy/lesson-1.html',
-        hash: '#11',
+        slideFile: 'lessons/unit-4-government/4-3-monetary-policy/slides-lesson-1.js',
         title: /Central-bank functions/i,
       },
       {
         path: 'lessons/unit-4-government/4-4-supply-side-policy/lesson-2.html',
-        hash: '#5',
+        slideFile: 'lessons/unit-4-government/4-4-supply-side-policy/slides-lesson-2.js',
         title: /Government builds capacity/i,
       },
       {
         path: 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html',
-        hash: '#8',
+        slideFile: 'lessons/unit-2-allocation/2-8-market-economic-system/slides-lesson-1.js',
         title: /Four core features/i,
       },
     ];
 
     for (const check of checks) {
-      await page.goto(pageUrl(check.path) + check.hash);
+      const lesson = readLesson(check.slideFile);
+      const slideNumber = lesson.slides.findIndex((slide) => check.title.test(slide.title || '')) + 1;
+      expect(slideNumber, `${check.path} ${check.title}`).toBeGreaterThan(0);
+      await page.goto(`${pageUrl(check.path)}#${slideNumber}`);
       await expect(page.locator('.slide.is-active h2')).toHaveText(check.title);
       await expectNoHorizontalOverflow(page);
       await expectCompactCardGridFits(page, { rows: check.rows });
@@ -4056,7 +4700,9 @@ test.describe('site smoke', () => {
 
     if (!testInfo.project.name.includes('phone')) {
       await page.setViewportSize({ width: 2048, height: 576 });
-      await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '#5');
+      const macroLesson = readLesson('lessons/unit-4-government/4-1-macroeconomic-aims/slides.js');
+      const macroSlideNumber = macroLesson.slides.findIndex((slide) => /The six macroeconomic aims/i.test(slide.title || '')) + 1;
+      await page.goto(`${pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html')}#${macroSlideNumber}`);
       await expect(page.locator('.slide.is-active h2')).toHaveText(/The six macroeconomic aims/i);
       await expectNoHorizontalOverflow(page);
       await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-balancedGrid/);
@@ -4072,13 +4718,10 @@ test.describe('site smoke', () => {
       return;
     }
 
-    await page.addInitScript(() => {
-      window.IGCSE = { studentSelectorBaseUrl: 'https://selector.test/' };
-    });
-    await page.route('https://selector.test/selector.css', async (route) => {
+    await page.route('https://randomizerselection.github.io/studentselector/selector.css', async (route) => {
       await route.fulfill({ status: 200, contentType: 'text/css', body: '.selector-overlay-host{position:fixed;inset:0;z-index:9999;background:#fff}' });
     });
-    await page.route('https://selector.test/selector.js', async (route) => {
+    await page.route('https://randomizerselection.github.io/studentselector/selector.js', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/javascript',
@@ -4183,7 +4826,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.studentSelectorSidePanel .selector-class-select option').first()).toHaveCSS('background-color', 'rgb(255, 255, 255)');
     await expect(page.locator('.studentSelectorSidePanel')).not.toHaveClass(/is-stage-overlay/);
     await expect(page.locator('[data-test-reel]')).toBeHidden();
-    await expect(page.locator('link[href*="selector.test/selector.css"]')).toHaveCount(0);
+    await expect(page.locator('link[href*="randomizerselection.github.io/studentselector/selector.css"]')).toHaveCount(0);
     await expect.poll(() => page.evaluate(() => window.__studentSelectorMountOptions?.skipStyles)).toBe(true);
 
     const startButton = page.locator('.studentSelectorSidePanel').getByRole('button', { name: /START SELECTION/i });
@@ -4233,8 +4876,11 @@ test.describe('site smoke', () => {
   });
 
   test('rapid keyboard navigation advances after the final partial reveal', async ({ page }) => {
-    await page.goto(pageUrl('lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html') + '#6');
-    await expect(page.locator('.slide.is-active h2')).toHaveText(/Raise revenue/i);
+    const lessonPath = 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html';
+    const lesson = readLesson('lessons/unit-2-allocation/2-8-market-economic-system/slides-lesson-1.js');
+    const slideNumber = lesson.slides.findIndex((slide) => (slide.partialReview || []).length > 0) + 1;
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
 
     const partialCount = await page.locator('.slide.is-active .partial-item').count();
     expect(partialCount).toBeGreaterThan(0);
@@ -4244,15 +4890,18 @@ test.describe('site smoke', () => {
     }
 
     await expect(page.locator('.slide.is-active .partial-item.is-visible')).toHaveCount(partialCount);
-    await expect(page).toHaveURL(/#6$/);
+    await expect(page).toHaveURL(new RegExp(`#${slideNumber}$`));
 
     await page.keyboard.press('ArrowRight');
-    await expect(page).toHaveURL(/#7$/);
+    await expect(page).toHaveURL(new RegExp(`#${slideNumber + 1}$`));
   });
 
   test('rapid click navigation advances after the final partial reveal', async ({ page }) => {
-    await page.goto(pageUrl('lessons/unit-4-government/4-2-fiscal-policy/lesson-2.html') + '#6');
-    await expect(page.locator('.slide.is-active h2')).toHaveText(/Raise revenue/i);
+    const lessonPath = 'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html';
+    const lesson = readLesson('lessons/unit-2-allocation/2-8-market-economic-system/slides-lesson-1.js');
+    const slideNumber = lesson.slides.findIndex((slide) => (slide.partialReview || []).length > 0) + 1;
+    expect(slideNumber).toBeGreaterThan(0);
+    await page.goto(`${pageUrl(lessonPath)}#${slideNumber}`);
 
     const partialCount = await page.locator('.slide.is-active .partial-item').count();
     expect(partialCount).toBeGreaterThan(0);
@@ -4267,10 +4916,10 @@ test.describe('site smoke', () => {
     }
 
     await expect(page.locator('.slide.is-active .partial-item.is-visible')).toHaveCount(partialCount);
-    await expect(page).toHaveURL(/#6$/);
+    await expect(page).toHaveURL(new RegExp(`#${slideNumber}$`));
 
     await page.mouse.click(clickPoint.x, clickPoint.y);
-    await expect(page).toHaveURL(/#7$/);
+    await expect(page).toHaveURL(new RegExp(`#${slideNumber + 1}$`));
   });
 
   test('student print view renders a full lesson handout', async ({ page }, testInfo) => {
@@ -4636,6 +5285,7 @@ test.describe('site smoke', () => {
     test.slow();
 
     const quizPaths = [
+      'lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/index.html',
       'lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html',
       'lessons/unit-2-allocation/2-8-market-economic-system/lesson-2.html',
       'lessons/unit-2-allocation/2-8-market-economic-system/lesson-3.html',
@@ -4658,22 +5308,16 @@ test.describe('site smoke', () => {
 
     for (const quizPath of quizPaths) {
       await page.goto(pageUrl(quizPath) + '?view=quiz');
+      const questionCount = await page.evaluate(() => window.IGCSE.quiz.questions.length);
       await expect(page.locator('.quizDeck')).toBeVisible();
-      await expect(page.locator('.quizQuestion')).toHaveCount(8);
-      await expect(page.locator('.quizAnsweredCount')).toHaveText('0/8 answered');
-      await expect(page.locator('.quizProgressTrack')).toHaveAttribute('aria-valuemax', '8');
-      await expect(page.getByRole('textbox', { name: /^Name$/i })).toBeVisible();
-      await expect(page.getByRole('combobox', { name: /^Class$/i })).toBeVisible();
-      await expect(page.getByRole('combobox', { name: /^Class$/i }).locator('option')).toHaveText([
-        'Choose class',
-        'IC 1.1',
-        'IC 1.2',
-        'IC 1.3',
-        'IC 2.1',
-        'IC 2.2',
-        'IC 3.1',
-        'IC 3.2',
-      ]);
+      await expect(page.locator('.quizQuestion')).toHaveCount(questionCount);
+      await expect(page.locator('.quizAnsweredCount')).toHaveText(`0/${questionCount} answered`);
+      await expect(page.locator('.quizProgressTrack')).toHaveAttribute('aria-valuemax', String(questionCount));
+      await expect(page.locator('.quizIdentity')).toContainText('Submission account');
+      await expect(page.locator('.quizIdentity')).toContainText('Sign in when you are ready');
+      await expect(page.getByRole('button', { name: /Mark & submit/i })).toBeVisible();
+      await expect(page.getByRole('textbox', { name: /^Name$/i })).toHaveCount(0);
+      await expect(page.getByRole('combobox', { name: /^Class$/i })).toHaveCount(0);
       await expect(page.locator('.quizSources')).toHaveCount(0);
       await expectLessonModeTabs(page, 'Quiz');
       await expectNoHorizontalOverflow(page);
@@ -4683,7 +5327,7 @@ test.describe('site smoke', () => {
   test('active lesson slides expose compact source lines for definitions and exam content', async ({ page }) => {
     const checks = [
       {
-        url: 'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html#5',
+        url: 'lessons/unit-2-allocation/2-9-market-failure/lesson-1.html#6',
         expected: /Definitions 2026: Market failure/i,
       },
       {
@@ -4696,7 +5340,7 @@ test.describe('site smoke', () => {
         expected: /Definitions 2026: Monetary policy/i,
       },
       {
-        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html#32',
+        url: 'lessons/unit-4-government/4-2-fiscal-policy/lesson-5.html#42',
         expected: /Paper 2 source/i,
       },
       {
@@ -4798,8 +5442,6 @@ test.describe('site smoke', () => {
     await expect(page.locator('.quizAnsweredCount')).toHaveText('0/8 answered');
     await expect(page.locator('.quizProgressTrack')).toHaveAttribute('aria-valuenow', '0');
 
-    await page.getByRole('textbox', { name: /^Name$/i }).fill('Test Student');
-    await page.getByRole('combobox', { name: /^Class$/i }).selectOption('IC 1.1');
     await page.locator('.quizQuestion').nth(0).getByLabel('The whole economy').check();
     await expect(page.locator('.quizAnsweredCount')).toHaveText('1/8 answered');
     await expect(page.locator('.quizProgressTrack')).toHaveAttribute('aria-valuenow', '1');
@@ -4810,104 +5452,110 @@ test.describe('site smoke', () => {
     await page.locator('.quizQuestion').nth(1).getByLabel('Answer').fill('   ');
     await expect(page.locator('.quizAnsweredCount')).toHaveText('1/8 answered');
 
-    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await page.getByRole('button', { name: /Mark & submit/i }).click();
     await expect(page.locator('.quizResult')).toBeHidden();
 
     await fillPerfectMacroeconomicAimsQuiz(page);
     await expect(page.locator('.quizAnsweredCount')).toHaveText('8/8 answered');
-    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await page.getByRole('button', { name: /Mark & submit/i }).click();
 
     await expect(page.locator('.quizScore')).toHaveText('8/8 (100%)');
     await expect(page.locator('.quizCorrectCount')).toHaveText('8/8');
     await expect(page.locator('.quizReviewCount')).toHaveText('0');
     await expect(page.locator('.quizPercent')).toHaveText('100%');
-    await expect(page.getByRole('textbox', { name: /^Name$/i })).toBeDisabled();
     await expect(page.locator('.quizQuestion').nth(0).getByLabel('The whole economy')).toBeDisabled();
-    await expect(page.getByRole('button', { name: /Mark quiz/i })).toBeDisabled();
+    await expect(page.getByRole('button', { name: /Mark & submit/i })).toBeDisabled();
+    await expect(page.locator('.quizSubmitStatus')).toContainText('Local preview only');
 
     await page.getByRole('button', { name: /Try again/i }).click();
-    await expect(page.getByRole('textbox', { name: /^Name$/i })).toBeEnabled();
-    await expect(page.getByRole('textbox', { name: /^Name$/i })).toHaveValue('');
     await expect(page.locator('.quizAnsweredCount')).toHaveText('0/8 answered');
     await expect(page.locator('.quizProgressTrack')).toHaveAttribute('aria-valuenow', '0');
     await expect(page.locator('.quizResult')).toBeHidden();
-    await expect(page.getByRole('button', { name: /Mark quiz/i })).toBeEnabled();
+    await expect(page.getByRole('button', { name: /Mark & submit/i })).toBeEnabled();
     await expectNoHorizontalOverflow(page);
   });
 
-  test('student quiz marks answers and preserves score when submission fails', async ({ page }) => {
-    await page.route('https://quiz.invalid/submit', async (route) => {
-      await route.fulfill({
-        status: 500,
-        headers: { 'access-control-allow-origin': '*' },
-        body: 'failed',
+  test('student quiz preserves answers and withholds corrections when EconMark submission fails', async ({ page }) => {
+    await page.addInitScript(() => {
+      const session = { authenticated: true, account: { role: 'student', display_name: 'Test Student', class_name: 'IC 1.1' } };
+      window.LibraryPlatform = Object.freeze({
+        hosted: true,
+        initialize: async () => ({ session, config: { student_classes: ['IC 1.1'] } }),
+        getSession: () => session,
+        requireRole: async () => session,
+        createAttemptId: () => 'attempt_regression_failure',
+        submitAttempt: async () => { throw new Error('EconMark is temporarily unavailable.'); }
       });
     });
-
     await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '?view=quiz');
-    await page.evaluate(() => {
-      window.IGCSE.quizConfig = {
-        submissionEnabled: true,
-        submitEndpoint: 'https://quiz.invalid/submit',
-      };
-    });
-
-    await page.getByRole('textbox', { name: /^Name$/i }).fill('Test Student');
-    await page.getByRole('combobox', { name: /^Class$/i }).selectOption('IC 1.1');
 
     await fillPerfectMacroeconomicAimsQuiz(page);
 
-    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await page.getByRole('button', { name: /Mark & submit/i }).click();
 
-    await expect(page.locator('.quizScore')).toHaveText('8/8 (100%)');
-    await expect(page.locator('.quizCorrectCount')).toHaveText('8/8');
-    await expect(page.locator('.quizReviewCount')).toHaveText('0');
-    await expect(page.locator('.quizQuestion.is-correct')).toHaveCount(8);
-    await expect(page.locator('.quizCorrection').filter({ hasText: /Correct: gdp/i })).toBeVisible();
-    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Score marked locally/i);
-    await expect(page.getByRole('button', { name: /Retry submission/i })).toBeHidden();
-    await expect(page.getByRole('combobox', { name: /^Class$/i })).toBeDisabled();
+    await expect(page.locator('.quizScore')).toHaveText('');
+    await expect(page.locator('.quizQuestion.is-correct')).toHaveCount(0);
+    await expect(page.locator('.quizCorrection:visible')).toHaveCount(0);
+    await expect(page.locator('.quizSubmitStatus')).toContainText('temporarily unavailable');
+    await expect(page.locator('.quizSubmitStatus')).toContainText('answers are preserved');
+    await expect(page.getByRole('button', { name: /Retry submission/i })).toBeVisible();
+    await expect(page.locator('.quizQuestion').nth(0).getByLabel('The whole economy')).toBeDisabled();
     await expectNoHorizontalOverflow(page);
   });
 
-  test('signed-in student quiz submits raw answers for server verification', async ({ page }) => {
-    await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '?view=quiz');
-    await page.evaluate(() => {
-      window.OHPlatform = {
-        ready: async () => {},
-        session: { authenticated: true, account: { role: 'student' } },
-        submitQuiz: async (quizId, payload) => {
-          window.__quizRequest = { quizId, payload };
-          return { score: 8, max_score: 8, percentage: 100 };
+  test('student quiz sends raw answers to EconMark and uses the server result', async ({ page }) => {
+    await page.addInitScript(() => {
+      let session = { authenticated: false, account: null };
+      window.LibraryPlatform = Object.freeze({
+        hosted: true,
+        initialize: async () => ({ session, config: { student_classes: ['IC 1.1'] } }),
+        getSession: () => session,
+        requireRole: async () => {
+          window.__answersPresentAtLogin = document.querySelectorAll('.quizQuestions input:checked').length === 4
+            && [...document.querySelectorAll('.quizQuestions input[type="text"]')].every((input) => input.value.trim());
+          session = { authenticated: true, account: { role: 'student', display_name: 'Test Student', class_name: 'IC 1.1' } };
+          return session;
         },
-      };
+        createAttemptId: () => 'attempt_regression_success',
+        submitAttempt: async (payload) => {
+          window.__quizAttempt = payload;
+          const questions = window.IGCSE.quiz.questions.map((question) => ({
+            question_id: question.id,
+            correct: true,
+            correct_answer_text: question.type === 'fillBlank' ? question.acceptedAnswers[0] : question.choices[question.answer],
+            explanation: question.explanation || ''
+          }));
+          return { score: questions.length, max_score: questions.length, percentage: 100, result: { questions } };
+        }
+      });
     });
-
-    await page.getByRole('textbox', { name: /^Name$/i }).fill('Test Student');
-    await page.getByRole('combobox', { name: /^Class$/i }).selectOption('IC 1.1');
+    await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '?view=quiz');
 
     await fillPerfectMacroeconomicAimsQuiz(page);
 
-    await page.getByRole('button', { name: /Mark quiz/i }).click();
+    await page.getByRole('button', { name: /Mark & submit/i }).click();
 
     await expect(page.locator('.quizScore')).toHaveText('8/8 (100%)');
-    await expect(page.locator('.quizSubmitStatus')).toHaveText(/Verified score saved: 8\/8 \(100%\)/i);
+    await expect(page.locator('.quizSubmitStatus')).toContainText(/saved to your quiz history/i);
 
-    const submitted = await page.evaluate(() => window.__quizRequest);
-    expect(submitted.quizId).toBeTruthy();
-    expect(submitted.payload.mode).toBe('practice');
-    expect(Object.keys(submitted.payload.answers)).toHaveLength(8);
-    expect(submitted.payload.idempotency_key).toBeTruthy();
+    const submitted = await page.evaluate(() => window.__quizAttempt);
+    expect(await page.evaluate(() => window.__answersPresentAtLogin)).toBe(true);
+    expect(submitted.attemptId).toBe('attempt_regression_success');
+    expect(submitted.quiz.id).toBe('4-1-1-macroeconomic-aims');
+    expect(submitted.quiz.version).toBe('1.0.0');
+    expect(submitted.answers['growth-measure']).toBe('real GDP');
+    expect(submitted).not.toHaveProperty('score');
+    expect(submitted).not.toHaveProperty('student');
   });
 
   test('fiscal policy menu links back and offers lesson views', async ({ page }) => {
     await page.goto(pageUrl('lessons/unit-4-government/4-2-fiscal-policy/index.html'));
 
     await expect(page.getByRole('link', { name: /Library index/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(4);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(5);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);

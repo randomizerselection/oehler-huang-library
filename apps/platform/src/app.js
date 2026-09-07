@@ -443,7 +443,7 @@ function applyAssignment(assignment) {
   const icon = node("span", "", "✓");
   const text = document.createTextNode(` 已锁定“${assignment.title}”V${assignment.version}。修改请前往`);
   const link = node("a", "", "教师作业库");
-  link.href = "/teacher";
+  link.href = "/econmark/teacher";
   elements.assignmentNote.replaceChildren(icon, text, link, document.createTextNode("创建新版本。"));
   resetReview();
   updateRunState();

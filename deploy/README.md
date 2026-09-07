@@ -7,7 +7,7 @@ Production activation is deliberately separate. After ICP approval and explicit 
 1. Deploy with `-Environment production`.
 2. Review and install `nginx-oehler-huang-platform.conf`.
 3. Obtain/renew certificates, add the TLS listener and HSTS only after HTTPS is confirmed.
-4. Switch root and `www` DNS, then add the `mark` redirect to `/mark/`.
+4. Switch root and `www` DNS, then redirect the legacy `mark` host and `/mark/` paths to `/econmark/`.
 
 Every upgrade creates and verifies a database/upload backup before migrations, then switches its symlink atomically: `current-staging` for private staging and `current` for production. Use `rollback.sh <release-id> <environment>` for code rollback. Database rollbacks require a tested backup restore when a migration is not backward-compatible.
 

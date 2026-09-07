@@ -16,7 +16,6 @@ window.IGCSE = window.IGCSE || {};
   };
 
   const questionMaxPoints = (question) => Number.isFinite(question.points) ? question.points : 1;
-  const classOptions = ['IC 1.1', 'IC 1.2', 'IC 1.3', 'IC 2.1', 'IC 2.2', 'IC 3.1', 'IC 3.2'];
   const questionTypeLabel = (question) => question.type === 'fillBlank' ? 'Short answer' : 'Multiple choice';
   const SOURCE_PROFILES = {
     marketSystem: [
@@ -219,7 +218,6 @@ window.IGCSE = window.IGCSE || {};
     return {
       id: question.id || '',
       type: question.type || 'multipleChoice',
-      rawAnswer: answer,
       prompt: question.prompt || '',
       studentAnswer: question.type === 'multipleChoice'
         ? (question.choices?.[answer] || '')
@@ -280,40 +278,24 @@ window.IGCSE = window.IGCSE || {};
     });
   };
 
-  const createPayload = (lesson, quiz, student, result) => ({
-    attemptId: `${quiz.id || lesson.meta?.code || 'quiz'}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-    submittedAt: new Date().toISOString(),
-    lesson: {
-      code: lesson.meta?.code || '',
-      title: lesson.meta?.lessonLabel || lesson.meta?.title || '',
-      unit: lesson.meta?.unit || '',
-    },
-    quiz: {
-      id: quiz.id || '',
-      version: quiz.version || '',
-      title: quiz.title || '',
-    },
-    student,
-    score: result.score,
-    maxScore: result.maxScore,
-    percentage: result.percentage,
-    responses: result.responses,
-  });
+  const readAnswers = (form, questions) => Object.fromEntries(
+    questions.map((question, index) => [question.id, readStudentAnswer(form, question, index)]),
+  );
 
-  async function submitPayload(payload) {
-    if (!window.OHPlatform) return { state: 'disabled' };
-    await window.OHPlatform.ready();
-    if (!window.OHPlatform.session.authenticated) return { state: 'disabled' };
-    const query = new URLSearchParams(location.search);
-    const assignmentId = query.get('assignment');
-    const attempt = await window.OHPlatform.submitQuiz(payload.quiz.id, {
-      idempotency_key: payload.attemptId,
-      mode: assignmentId ? 'assigned' : 'practice',
-      learning_assignment_id: assignmentId,
-      answers: Object.fromEntries(payload.responses.map((response) => [response.id, response.rawAnswer])),
-    });
-    return { state: 'submitted', attempt };
-  }
+  const resultFromAttempt = (attempt) => {
+    const result = attempt.result || {};
+    return {
+      score: Number(attempt.score ?? result.score ?? 0),
+      maxScore: Number(attempt.max_score ?? result.max_score ?? 0),
+      percentage: Number(attempt.percentage ?? result.percentage ?? 0),
+      responses: (result.questions || []).map((question) => ({
+        id: question.question_id,
+        correct: Boolean(question.correct),
+        correctAnswer: question.correct_answer_text || question.correct_answer || '',
+        explanation: question.explanation || '',
+      })),
+    };
+  };
 
   const setStatus = (statusEl, state, message) => {
     statusEl.className = `quizSubmitStatus is-${state}`;
@@ -322,7 +304,7 @@ window.IGCSE = window.IGCSE || {};
 
   const setFormLocked = (form, locked) => {
     form.classList.toggle('is-locked', locked);
-    form.querySelectorAll('.quizIdentity input, .quizIdentity select, .quizQuestions input').forEach((input) => {
+    form.querySelectorAll('.quizQuestions input').forEach((input) => {
       input.disabled = locked;
     });
     form.querySelector('[data-quiz-submit]').disabled = locked;
@@ -375,18 +357,9 @@ window.IGCSE = window.IGCSE || {};
         </header>
 
         <form class="quizForm">
-          <section class="quizIdentity" aria-label="Student details">
-            <label>
-              <span>Name</span>
-              <input name="studentName" type="text" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Class</span>
-              <select name="studentClass" required>
-                <option value="">Choose class</option>
-                ${classOptions.map((className) => `<option value="${esc(className)}">${esc(className)}</option>`).join('')}
-              </select>
-            </label>
+          <section class="quizIdentity" aria-label="Submission account">
+            <div><span>Submission account</span><strong data-quiz-account>Sign in when you are ready to mark and submit.</strong></div>
+            <a href="/econmark/?tab=quizzes" data-quiz-history hidden>Quiz history</a>
           </section>
 
           <section class="quizStatus" aria-label="Quiz progress" aria-live="polite">
@@ -405,7 +378,7 @@ window.IGCSE = window.IGCSE || {};
           </section>
 
           <section class="quizActions">
-            <button class="quizPrimaryButton" type="submit" data-quiz-submit>Mark quiz</button>
+            <button class="quizPrimaryButton" type="submit" data-quiz-submit>Mark &amp; submit</button>
             <button class="quizSecondaryButton" type="button" data-quiz-reset hidden>Try again</button>
           </section>
 
@@ -447,7 +420,33 @@ window.IGCSE = window.IGCSE || {};
     const answeredCountEl = mountEl.querySelector('.quizAnsweredCount');
     const progressBar = mountEl.querySelector('.quizProgressTrack');
     const progressFill = mountEl.querySelector('.quizProgressFill');
+    const accountEl = mountEl.querySelector('[data-quiz-account]');
+    const historyLink = mountEl.querySelector('[data-quiz-history]');
     let lastPayload = null;
+
+    const updateAccountSummary = () => {
+      const account = window.LibraryPlatform?.getSession?.().account;
+      if (!account) {
+        accountEl.textContent = 'Sign in when you are ready to mark and submit.';
+        historyLink.hidden = true;
+      } else if (account.role === 'teacher') {
+        accountEl.textContent = `${account.display_name} · Teacher preview (not submitted)`;
+        historyLink.hidden = false;
+        historyLink.href = '/econmark/teacher?tab=quizzes';
+        historyLink.textContent = 'Teacher gradebook';
+      } else {
+        accountEl.textContent = `${account.display_name} · ${account.class_name || 'Class required'}`;
+        historyLink.hidden = false;
+        historyLink.href = '/econmark/?tab=quizzes';
+        historyLink.textContent = 'Quiz history';
+      }
+    };
+
+    IGCSE.ensurePlatformAuth?.()
+      .then((platform) => platform?.initialize({ context: 'economics-quiz', roleHint: 'student' }))
+      .then(updateAccountSummary)
+      .catch(() => {});
+    window.addEventListener('platform:authchange', updateAccountSummary);
 
     const updateProgress = () => {
       const answered = questions.filter((question, index) => {
@@ -466,35 +465,7 @@ window.IGCSE = window.IGCSE || {};
       progressFill.style.width = `${percent}%`;
     };
 
-    const runSubmission = async () => {
-      if (!lastPayload) return;
-      retryButton.hidden = true;
-      setStatus(statusEl, 'pending', 'Submitting score...');
-      try {
-        const submitResult = await submitPayload(lastPayload);
-        if (submitResult.state === 'submitted') {
-          const verified = submitResult.attempt;
-          setStatus(statusEl, 'submitted', `Verified score saved: ${verified.score}/${verified.max_score} (${verified.percentage}%).`);
-        } else {
-          setStatus(statusEl, 'disabled', 'Score marked locally. No teacher submission endpoint is configured.');
-        }
-      } catch (_error) {
-        setStatus(statusEl, 'failed', 'Submission failed - retry when your connection or endpoint is available.');
-        retryButton.hidden = false;
-      }
-    };
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-
-      const result = gradeQuiz(form, questions);
-      const student = {
-        name: form.elements.studentName.value.trim(),
-        className: form.elements.studentClass.value.trim(),
-      };
-      lastPayload = createPayload(lesson, quiz, student, result);
-
+    const showResult = (result, message, stateName = 'submitted') => {
       applyCorrections(form, questions, result.responses);
       scoreEl.textContent = `${result.score}/${result.maxScore} (${result.percentage}%)`;
       const correctCount = result.responses.filter((response) => response.correct).length;
@@ -503,9 +474,55 @@ window.IGCSE = window.IGCSE || {};
       percentEl.textContent = `${result.percentage}%`;
       resultEl.hidden = false;
       resetButton.hidden = false;
+      setStatus(statusEl, stateName, message);
+      resultEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    };
+
+    const runSubmission = async () => {
+      if (!lastPayload) return;
+      retryButton.hidden = true;
+      resultEl.hidden = false;
+      setStatus(statusEl, 'pending', 'Sign in if needed; your completed answers will stay here.');
+      try {
+        const platform = await IGCSE.ensurePlatformAuth?.();
+        const current = platform?.getSession?.();
+        if (platform?.hosted === false || current?.account?.role === 'teacher') {
+          const preview = gradeQuiz(form, questions);
+          showResult(preview, current?.account?.role === 'teacher' ? 'Teacher preview only — this result was not stored as a student attempt.' : 'Local preview only — open the hosted library to submit.', 'disabled');
+          return;
+        }
+        const session = await platform?.requireRole('student', {
+          context: 'economics-quiz',
+          message: 'Use a student account to mark and submit this quiz. Your answers will remain completed.'
+        });
+        if (!session) {
+          setFormLocked(form, false);
+          setStatus(statusEl, 'disabled', 'Submission paused. Your answers are still here.');
+          return;
+        }
+        const attempt = await platform.submitAttempt({
+          attemptId: lastPayload.attemptId,
+          quiz,
+          answers: lastPayload.answers
+        });
+        showResult(resultFromAttempt(attempt), 'Marked by EconMark and saved to your quiz history.');
+        updateAccountSummary();
+      } catch (error) {
+        setStatus(statusEl, 'failed', `${error.message} Your answers are preserved; retry when ready.`);
+        retryButton.hidden = false;
+      }
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      lastPayload = {
+        attemptId: window.LibraryPlatform?.createAttemptId?.() || `attempt_${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        answers: readAnswers(form, questions),
+      };
       setFormLocked(form, true);
       await runSubmission();
-      resultEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     });
 
     retryButton.addEventListener('click', runSubmission);
@@ -525,7 +542,7 @@ window.IGCSE = window.IGCSE || {};
         });
       });
       updateProgress();
-      mountEl.querySelector('.quizIdentity input')?.focus();
+      mountEl.querySelector('.quizQuestions input')?.focus();
     });
 
     form.addEventListener('input', updateProgress);

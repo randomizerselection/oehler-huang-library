@@ -208,6 +208,7 @@
       syllabusKey: map.syllabusKey || "default",
       courseTitle: map.courseTitle,
       mapTitle: map.mapTitle,
+      deliveryModel: map.deliveryModel,
       currencyRule: map.currencyRule,
       writtenArtifactRule: map.writtenArtifactRule,
       definitionOverview: map.definitionOverview,

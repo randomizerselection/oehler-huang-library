@@ -14,8 +14,10 @@
     "build:content": "npm run build:content --workspace=@oehler-huang/library",
     "check": "npm run check --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library",
     "test": "npm run test --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library && npm run test --workspace=@oehler-huang/student-selector",
+    "test:full": "npm test && npm run test --workspace=@oehler-huang/library",
     "test:platform": "npm run test --workspace=@oehler-huang/platform",
     "test:content": "npm run test:content --workspace=@oehler-huang/library",
-    "test:selector": "npm run test --workspace=@oehler-huang/student-selector"
+    "test:selector": "npm run test --workspace=@oehler-huang/student-selector",
+    "test:library": "npm run test --workspace=@oehler-huang/library"
   }
 }

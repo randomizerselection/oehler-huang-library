@@ -44,62 +44,141 @@ Review each planned case before lesson production and replace it only when the s
 
 | Lesson | Case anchor | Role | Status | Replacement candidate |
 | --- | --- | --- | --- | --- |
-| 1 | Family goal table | mock mainland China family profile | published and source-verified |  |
-| 2 | Three family goals | mock family profile | published and source-verified |  |
-| 3 | Short-term and long-term money | comparison case | planned |  |
-| 4 | Monthly investment projection | calculation case | planned |  |
-| 5 | Inflation and return table | economic data case | planned |  |
-| 6 | Risk-return choice set | comparison case | planned |  |
-| 7 | Two investor profiles | mock investor profile | planned |  |
-| 8 | Family investment policy | synthesis case | planned |  |
-| 9 | House-deposit money | mock family profile | planned |  |
-| 10 | Government and corporate bonds | fixed-income security | planned |  |
-| 11 | Tencent share ownership | listed company | planned |  |
-| 12 | CSI 300 ETF factsheet | fund | planned |  |
-| 13 | Index and active fund pair | fund comparison | planned |  |
-| 14 | Two fund fee schedules | fund comparison | planned |  |
-| 15 | Concentrated family holdings | portfolio case | planned |  |
-| 16 | Monthly and lump-sum scenarios | comparison case | planned |  |
-| 17 | Three family profiles | synthesis case | planned |  |
-| 18 | Growth company financing | listed company | planned |  |
-| 19 | HKEX market map | market infrastructure | planned |  |
-| 20 | Broker trade journey | market infrastructure | planned |  |
-| 21 | Alibaba quote snapshot | Hong Kong market data case | planned |  |
-| 22 | Earnings-news price reaction | market data case | planned |  |
-| 23 | Nvidia and peer scale case | United States company comparison | planned |  |
-| 24 | HSBC return case | listed company | planned |  |
-| 25 | Hang Seng Index snapshot | market data case | planned |  |
-| 26 | News and rumour evidence pack | source evaluation case | planned |  |
-| 27 | Analyst conflict case | professional ethics case | planned |  |
-| 28 | Tencent business model | listed company | planned |  |
-| 29 | Meituan income statement | listed company | planned |  |
-| 30 | Lenovo balance sheet | listed company | planned |  |
-| 31 | Tesla cash-flow extract | listed company | planned |  |
-| 32 | BYD and Toyota peer comparison | company comparison | planned |  |
-| 33 | Global consumer company risk register | listed company | planned |  |
-| 34 | Microsoft valuation case | listed company | planned |  |
-| 35 | Junior analyst evidence pack | synthesis case | planned |  |
-| 36 | Three-goal family portfolio | portfolio case | planned |  |
-| 37 | Concentrated Tencent holding | portfolio case | planned |  |
-| 38 | Global fund exposure | fund | planned |  |
-| 39 | Diversified portfolio stress test | portfolio case | planned |  |
-| 40 | Fund-share-bond comparison | investment comparison | planned |  |
-| 41 | Drifted portfolio | portfolio case | planned |  |
-| 42 | Investment watchlist | monitoring case | planned |  |
-| 43 | Past-winner fund | behaviour case | planned |  |
-| 44 | Education investment goal | mock family profile | planned |  |
-| 45 | Home-deposit goal | mock family profile | planned |  |
-| 46 | Retirement investment goal | mock family profile | planned |  |
-| 47 | Family windfall | mock mainland China family profile | planned |  |
-| 48 | Suspicious investment offer | product-risk case | planned |  |
-| 49 | Investment career rotation | career case | planned |  |
-| 50 | Family investment strategy capstone | synthesis case | planned |  |
+| 1 | Three money decisions | comparison case | published and source-verified |  |
+| 2 | Family goal table | mock mainland China family profile | published and source-verified |  |
+| 3 | Three family goals | mock family profile | published and source-verified |  |
+| 4 | Compounding and real-return projection | calculation case | planned |  |
+| 5 | Risk-return choice set | comparison case | planned |  |
+| 6 | Two investor profiles | mock investor profile | planned |  |
+| 7 | Family investment policy | synthesis case | planned |  |
+| 8 | Cash and bond choice set | investment-choice comparison | planned |  |
+| 9 | Tencent share ownership | listed company | planned |  |
+| 10 | ETF and fund comparison | fund comparison | planned |  |
+| 11 | Fund costs and hidden concentration | portfolio comparison | planned |  |
+| 12 | Monthly and lump-sum scenarios | comparison case | planned |  |
+| 13 | Three family profiles | synthesis case | planned |  |
+| 14 | Company financing and market map | market infrastructure case | planned |  |
+| 15 | Trade journey and quote snapshot | market-process case | planned |  |
+| 16 | Price reaction and company scale | market-evidence comparison | planned |  |
+| 17 | Return and benchmark comparison | performance comparison | planned |  |
+| 18 | News, rumour and analyst conflict pack | market and professional ethics case | planned |  |
+| 19 | Tencent business model | listed company | planned |  |
+| 20 | Income statement and cash-flow extracts | listed company evidence case | planned |  |
+| 21 | Lenovo balance sheet | listed company | planned |  |
+| 22 | Peer comparison and risk register | company comparison case | planned |  |
+| 23 | Microsoft valuation case | listed company | planned |  |
+| 24 | Junior analyst evidence pack | synthesis case | planned |  |
+| 25 | Portfolio allocation and concentration audit | portfolio construction case | planned |  |
+| 26 | Global exposure and portfolio stress test | portfolio risk case | planned |  |
+| 27 | Portfolio comparison, rebalance and monitoring case | portfolio decision case | planned |  |
+| 28 | Past-winner fund | behaviour case | planned |  |
+| 29 | Three family goal stress tests | mock family portfolio case | planned |  |
+| 30 | Windfall and suspicious-offer case | family investment safety case | planned |  |
+| 31 | Investment career rotation | career case | planned |  |
+| 32 | Family investment strategy capstone | synthesis case | planned |  |
 
 # Unit 1: Personal Investment Foundations
 
-Students connect family goals, time, inflation, compounding and risk to a written investment plan before comparing investment choices.
+Students distinguish investment from saving and speculation, then connect family goals, time, inflation, compounding and risk to a written investment plan.
 
-## Lesson 1: Family goal table
+## Lesson 1: Three money decisions
+
+**Guiding question:** What is investment?
+**Student hook:** A friend says a share price will rise tomorrow. Would you borrow CNY 1,000 to buy it?
+**Core claim:** Financial investment seeks total return from an asset; the decision's main purpose and expected payoff source distinguish it from speculation, while capital preservation and liquidity distinguish it from saving.
+**Case role:** comparison case
+**Primary output:** evidence-based-investment-decision - Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+**Case review:** published and source-verified; The anchor supports the unit progression and an evidence-based investment decision.
+
+### Simple lesson flow
+
+- **Hook:** A friend says a share price will rise tomorrow. Would you borrow CNY 1,000 to buy it?
+- **Key idea:** Financial investment seeks total return from an asset; the decision's main purpose and expected payoff source distinguish it from speculation, while capital preservation and liquidity distinguish it from saving.
+- **Try it:** Classify decisions as financial investment, speculation or saving and justify one boundary case.
+- **Decide:** Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+
+### Decision-first teaching contract
+
+- **Starter dilemma:** A friend says a share price will rise tomorrow. Would you borrow CNY 1,000 to buy it?
+- **First judgement:** Make a first judgement about Three money decisions and give one reason before the key idea is taught.
+- **Likely naive answer:** Anything kept for the future or bought to make money is an investment.
+- **Missing evidence:** Students need the main purpose, expected payoff source, evidence used, liquidity priority and possible loss.
+- **Key idea:** Financial investment seeks total return from an asset; the decision's main purpose and expected payoff source distinguish it from speculation, while capital preservation and liquidity distinguish it from saving.
+- **Try it:** Classify decisions as financial investment, speculation or saving and justify one boundary case.
+- **Misconception check:** Correct the claim: Anything kept for the future or bought to make money is an investment.
+- **Exit judgement:** Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+
+### Source pack
+
+- mock family or investor profile
+- teacher-frozen investment, market or economic evidence
+- official or regulator investor-education source
+
+**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
+**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
+
+**Evidence limitations:**
+- The evidence is frozen for classroom use and is not live investment data.
+- Historical evidence does not guarantee future return.
+- The same evidence can lead to different actions for different goals and profiles.
+
+### Deck arc
+
+- Hook: A friend says a share price will rise tomorrow. Would you borrow CNY 1,000 to buy it?
+- Retrieval: Everyday understanding of future goals, waiting, uncertainty and familiar investment claims.
+- Teach: Financial investment seeks total return from an asset; the decision's main purpose and expected payoff source distinguish it from speculation, while capital preservation and liquidity distinguish it from saving.
+- SMG core lab: Use the four-category classifier on the lesson handout, agree one team boundary rule for investment versus saving, speculation and consumption, and record one concise team evidence row; do not enter an order.
+- Output rehearsal: improve the first judgement using the taught evidence.
+- Individual exit ticket: Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+
+### Retrieval practice
+
+- **Yes/no:** Anything kept for the future or bought to make money is an investment. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Three money decisions? Answer: Students need the main purpose, expected payoff source, evidence used, liquidity priority and possible loss.
+- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
+- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
+
+### Practical investing action
+
+- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
+- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
+- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
+- **Written action:** Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+
+### Analyse why
+
+Analyse why the evidence in Three money decisions could change the initial investment judgement.
+
+- dated evidence
+- effect on goal, return, risk, price or fit
+- reason the judgement changes
+- qualified next action
+
+### Evidence and Data Analysis worksheet
+
+**Case information:** A short grounded Three money decisions scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+
+1. **Identify:** Identify one relevant fact from the evidence pack.
+2. **Calculate or interpret:** Total return = income + change in market value; classify by the decision's main purpose and expected payoff source.
+3. **Explain:** Explain what one item of evidence can and cannot prove.
+4. **Analyse why:** Analyse why the evidence changes the first judgement.
+5. **Judge:** Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+
+### Handout/chapter blocks
+
+- **Key definitions / 核心定义:** undefined
+- **Numbered revision points / 编号复习要点:** undefined
+
+### Exam pattern
+
+- Command word: Assess
+- Marks: 8
+- Stimulus: frozen Three money decisions evidence pack
+- Calculation: Total return = income + change in market value; classify by the decision's main purpose and expected payoff source.
+- Judgement: Classify one borderline decision, cite one decisive clue and explain why a nearby category is weaker.
+- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
+
+## Lesson 2: Family goal table
 
 **Guiding question:** Why do people and families invest?
 **Student hook:** A family has CNY 50,000 but no stated goal. What should it do next?
@@ -143,7 +222,7 @@ Students connect family goals, time, inflation, compounding and risk to a writte
 ### Deck arc
 
 - Hook: A family has CNY 50,000 but no stated goal. What should it do next?
-- Retrieval: Everyday understanding of future goals, waiting, uncertainty and familiar investment claims.
+- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: People invest to move resources toward future goals while accepting uncertainty and possible loss.
 - SMG core lab: Complete the short- and long-term goal tables, form the SMG team, choose a shared long-horizon purpose, assign the first roles and open the team and individual evidence records.
 - Output rehearsal: improve the first judgement using the taught evidence.
@@ -196,7 +275,7 @@ Analyse why the evidence in Family goal table could change the initial investmen
 - Judgement: Choose one goal. State the next step and justify it with one reason and one condition.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 2: Three family goals
+## Lesson 3: Three family goals
 
 **Guiding question:** How do goals change investment decisions?
 **Student hook:** Should money for university in three years be invested like retirement money needed in thirty years?
@@ -293,129 +372,32 @@ Analyse why the evidence in Three family goals could change the initial investme
 - Judgement: Explain why two goals require different investment choices.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 3: Short-term and long-term money
+## Lesson 4: Compounding and real-return projection
 
-**Guiding question:** How are saving, investing and speculation different?
-**Student hook:** A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?
-**Core claim:** Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
-**Case role:** comparison case
-**Primary output:** evidence-based-investment-decision - Correct one mistaken classification using the four decision criteria.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?
-- **Key idea:** Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
-- **Try it:** Sort six actions as saving, investing or speculation and justify one borderline case.
-- **Decide:** Correct one mistaken classification using the four decision criteria.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?
-- **First judgement:** Make a first judgement about Short-term and long-term money and give one reason before the key idea is taught.
-- **Likely naive answer:** Any purchase of shares is investing and any bank deposit is always the best choice.
-- **Missing evidence:** Students need the purpose, time horizon, evidence quality and loss consequences for each action.
-- **Key idea:** Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
-- **Try it:** Sort six actions as saving, investing or speculation and justify one borderline case.
-- **Misconception check:** Correct the claim: Any purchase of shares is investing and any bank deposit is always the best choice.
-- **Exit judgement:** Correct one mistaken classification using the four decision criteria.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A family has money for next year's fees and money for retirement. Should both amounts be treated in the same way?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Saving protects near-term access, investing accepts risk for future return and speculation relies more heavily on uncertain price movement.
-- SMG core lab: Classify proposed team actions as saving, investing or speculation, complete the official rules quiz and sign the course's long-only participation agreement.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Correct one mistaken classification using the four decision criteria.
-
-### Retrieval practice
-
-- **Yes/no:** Any purchase of shares is investing and any bank deposit is always the best choice. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Short-term and long-term money? Answer: Students need the purpose, time horizon, evidence quality and loss consequences for each action.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Correct one mistaken classification using the four decision criteria.
-
-### Analyse why
-
-Analyse why the evidence in Short-term and long-term money could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Short-term and long-term money scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; classify choices by purpose, horizon, evidence and possible loss.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Correct one mistaken classification using the four decision criteria.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Short-term and long-term money evidence pack
-- Calculation: No new formula; classify choices by purpose, horizon, evidence and possible loss.
-- Judgement: Correct one mistaken classification using the four decision criteria.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 4: Monthly investment projection
-
-**Guiding question:** How does compounding build wealth over time?
-**Student hook:** Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?
-**Core claim:** Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
+**Guiding question:** How do compounding and inflation change wealth over time?
+**Student hook:** A portfolio grows by 5% each year while prices also rise. How much of the projected growth is a real gain?
+**Core claim:** Compounding builds later returns on earlier returns, while inflation reduces the purchasing power of the resulting nominal value.
 **Case role:** calculation case
-**Primary output:** evidence-based-investment-decision - Explain why an earlier start changes the projection and state one limitation.
+**Primary output:** evidence-based-investment-decision - Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?
-- **Key idea:** Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
-- **Try it:** Compare two frozen projections with different start dates and label every assumption.
-- **Decide:** Explain why an earlier start changes the projection and state one limitation.
+- **Hook:** A portfolio grows by 5% each year while prices also rise. How much of the projected growth is a real gain?
+- **Key idea:** Compounding builds later returns on earlier returns, while inflation reduces the purchasing power of the resulting nominal value.
+- **Try it:** Compare two frozen growth projections, calculate approximate real return and label every assumption.
+- **Decide:** Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?
-- **First judgement:** Make a first judgement about Monthly investment projection and give one reason before the key idea is taught.
-- **Likely naive answer:** A compound-growth projection shows what the investor will definitely receive.
-- **Missing evidence:** Students need the starting amount, contribution pattern, assumed return, time and whether fees are included.
-- **Key idea:** Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
-- **Try it:** Compare two frozen projections with different start dates and label every assumption.
-- **Misconception check:** Correct the claim: A compound-growth projection shows what the investor will definitely receive.
-- **Exit judgement:** Explain why an earlier start changes the projection and state one limitation.
+- **Starter dilemma:** A portfolio grows by 5% each year while prices also rise. How much of the projected growth is a real gain?
+- **First judgement:** Make a first judgement about Compounding and real-return projection and give one reason before the key idea is taught.
+- **Likely naive answer:** A compound-growth projection shows a guaranteed increase in purchasing power.
+- **Missing evidence:** Students need the starting amount, contribution pattern, assumed return, inflation rate, fees, period and limits of both calculations.
+- **Key idea:** Compounding builds later returns on earlier returns, while inflation reduces the purchasing power of the resulting nominal value.
+- **Try it:** Compare two frozen growth projections, calculate approximate real return and label every assumption.
+- **Misconception check:** Correct the claim: A compound-growth projection shows a guaranteed increase in purchasing power.
+- **Exit judgement:** Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 
 ### Source pack
 
@@ -433,17 +415,17 @@ Analyse why the evidence in Short-term and long-term money could change the init
 
 ### Deck arc
 
-- Hook: Which matters more for long-run accumulation: starting earlier or waiting to contribute more later?
+- Hook: A portfolio grows by 5% each year while prices also rise. How much of the projected growth is a real gain?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Compounding allows returns to build on earlier returns, but every projection depends on assumed returns and contributions.
-- SMG core lab: Use a frozen contribution-and-return scenario to project how the team's starting capital could compound, then label every assumption and limitation.
+- Teach: Compounding builds later returns on earlier returns, while inflation reduces the purchasing power of the resulting nominal value.
+- SMG core lab: Use frozen contribution, return and inflation figures to compare nominal and real compound-growth projections, label every assumption and complete the official rules quiz.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain why an earlier start changes the projection and state one limitation.
+- Individual exit ticket: Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 
 ### Retrieval practice
 
-- **Yes/no:** A compound-growth projection shows what the investor will definitely receive. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Monthly investment projection? Answer: Students need the starting amount, contribution pattern, assumed return, time and whether fees are included.
+- **Yes/no:** A compound-growth projection shows a guaranteed increase in purchasing power. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Compounding and real-return projection? Answer: Students need the starting amount, contribution pattern, assumed return, inflation rate, fees, period and limits of both calculations.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -452,11 +434,11 @@ Analyse why the evidence in Short-term and long-term money could change the init
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain why an earlier start changes the projection and state one limitation.
+- **Written action:** Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 
 ### Analyse why
 
-Analyse why the evidence in Monthly investment projection could change the initial investment judgement.
+Analyse why the evidence in Compounding and real-return projection could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -465,13 +447,13 @@ Analyse why the evidence in Monthly investment projection could change the initi
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Monthly investment projection scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Compounding and real-return projection scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Future value of one amount = starting amount x (1 + assumed return)^years; regular-contribution tables may be teacher-provided.
+2. **Calculate or interpret:** Future value = starting amount x (1 + assumed return)^years; approximate real return = nominal return - inflation rate.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain why an earlier start changes the projection and state one limitation.
+5. **Judge:** Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 
 ### Handout/chapter blocks
 
@@ -482,109 +464,12 @@ Analyse why the evidence in Monthly investment projection could change the initi
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Monthly investment projection evidence pack
-- Calculation: Future value of one amount = starting amount x (1 + assumed return)^years; regular-contribution tables may be teacher-provided.
-- Judgement: Explain why an earlier start changes the projection and state one limitation.
+- Stimulus: frozen Compounding and real-return projection evidence pack
+- Calculation: Future value = starting amount x (1 + assumed return)^years; approximate real return = nominal return - inflation rate.
+- Judgement: Explain how compounding changes the projection and how inflation changes its meaning for the family goal.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 5: Inflation and return table
-
-**Guiding question:** How does inflation affect real return?
-**Student hook:** An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?
-**Core claim:** Real return measures how investment growth changes purchasing power after inflation.
-**Case role:** economic data case
-**Primary output:** evidence-based-investment-decision - Calculate one real return and explain what it means for a family goal.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?
-- **Key idea:** Real return measures how investment growth changes purchasing power after inflation.
-- **Try it:** Calculate approximate real return for three scenarios and interpret purchasing-power change.
-- **Decide:** Calculate one real return and explain what it means for a family goal.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?
-- **First judgement:** Make a first judgement about Inflation and return table and give one reason before the key idea is taught.
-- **Likely naive answer:** Any positive nominal return makes the investor better off in real terms.
-- **Missing evidence:** Students need the same-period nominal return, inflation rate, fees and the limits of the approximation.
-- **Key idea:** Real return measures how investment growth changes purchasing power after inflation.
-- **Try it:** Calculate approximate real return for three scenarios and interpret purchasing-power change.
-- **Misconception check:** Correct the claim: Any positive nominal return makes the investor better off in real terms.
-- **Exit judgement:** Calculate one real return and explain what it means for a family goal.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: An investment rises by 4% while prices rise by 3%. Has purchasing power risen by 4%?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Real return measures how investment growth changes purchasing power after inflation.
-- SMG core lab: Calculate the approximate real return of a frozen portfolio or benchmark scenario and explain the effect on the team's purchasing-power goal.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate one real return and explain what it means for a family goal.
-
-### Retrieval practice
-
-- **Yes/no:** Any positive nominal return makes the investor better off in real terms. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Inflation and return table? Answer: Students need the same-period nominal return, inflation rate, fees and the limits of the approximation.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate one real return and explain what it means for a family goal.
-
-### Analyse why
-
-Analyse why the evidence in Inflation and return table could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Inflation and return table scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Approximate real return = nominal return - inflation rate.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate one real return and explain what it means for a family goal.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Inflation and return table evidence pack
-- Calculation: Approximate real return = nominal return - inflation rate.
-- Judgement: Calculate one real return and explain what it means for a family goal.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 6: Risk-return choice set
+## Lesson 5: Risk-return choice set
 
 **Guiding question:** What is the relationship between risk and possible return?
 **Student hook:** One choice offers a higher possible return. Does that make it the better investment?
@@ -681,7 +566,7 @@ Analyse why the evidence in Risk-return choice set could change the initial inve
 - Judgement: Reject or improve the statement that more risk always produces more return.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 7: Two investor profiles
+## Lesson 6: Two investor profiles
 
 **Guiding question:** How are risk tolerance and risk capacity different?
 **Student hook:** Two people both say they accept risk, but only one can afford a large loss. Are their profiles the same?
@@ -727,7 +612,7 @@ Analyse why the evidence in Risk-return choice set could change the initial inve
 - Hook: Two people both say they accept risk, but only one can afford a large loss. Are their profiles the same?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: Risk tolerance describes willingness to accept loss, while risk capacity describes financial ability to withstand it.
-- SMG core lab: Set team risk-tolerance and risk-capacity limits, complete the official rules check and record which investment-choice evidence must be learned before any order.
+- SMG core lab: Set team risk-tolerance and risk-capacity limits and record which investment-choice evidence must be learned before any order.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Explain which profile has lower risk capacity and why.
 
@@ -778,7 +663,7 @@ Analyse why the evidence in Two investor profiles could change the initial inves
 - Judgement: Explain which profile has lower risk capacity and why.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 8: Family investment policy
+## Lesson 7: Family investment policy
 
 **Guiding question:** Why should an investor write a plan before choosing investments?
 **Student hook:** A popular fund appears before a family has agreed its goals or risk limits. What should happen first?
@@ -791,7 +676,7 @@ Analyse why the evidence in Two investor profiles could change the initial inves
 
 - **Hook:** A popular fund appears before a family has agreed its goals or risk limits. What should happen first?
 - **Key idea:** A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.
-- **Try it:** Complete a one-page investment plan for a mock family using evidence from Lessons 1-7.
+- **Try it:** Complete a one-page investment plan for a mock family using evidence from Lessons 1-8.
 - **Decide:** Write three investment-plan rules and justify the most important one.
 
 ### Decision-first teaching contract
@@ -801,7 +686,7 @@ Analyse why the evidence in Two investor profiles could change the initial inves
 - **Likely naive answer:** A plan is unnecessary if the investment has performed well recently.
 - **Missing evidence:** Students need agreed goals, constraints, acceptable risks, asset-class and instrument boundaries and review arrangements.
 - **Key idea:** A written investment plan turns goals and constraints into decision rules before investment choices or market excitement influence the decision.
-- **Try it:** Complete a one-page investment plan for a mock family using evidence from Lessons 1-7.
+- **Try it:** Complete a one-page investment plan for a mock family using evidence from Lessons 1-8.
 - **Misconception check:** Correct the claim: A plan is unnecessary if the investment has performed well recently.
 - **Exit judgement:** Write three investment-plan rules and justify the most important one.
 
@@ -878,34 +763,34 @@ Analyse why the evidence in Family investment policy could change the initial in
 
 # Unit 2: Investment Choices for Families
 
-Students compare cash, fixed-income securities, shares and funds, then combine knowledge of these choices with fees, diversification and suitable investing methods.
+Students compare cash, bonds, shares and funds, then apply fees, diversification, investing methods and suitability to a proposed portfolio.
 
-## Lesson 9: House-deposit money
+## Lesson 8: Cash and bond choice set
 
-**Guiding question:** When should money remain in cash or deposits?
-**Student hook:** A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?
-**Core claim:** Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
-**Case role:** mock family profile
-**Primary output:** evidence-based-investment-decision - Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+**Guiding question:** How should families compare cash, deposits and bonds?
+**Student hook:** A family needs some money in eighteen months and the rest in ten years. Should it use the same low-risk choice for both amounts?
+**Core claim:** Cash and deposits emphasise liquidity and capital preservation, while bonds add lending income and credit, interest-rate, inflation and maturity risks.
+**Case role:** investment-choice comparison
+**Primary output:** evidence-based-investment-decision - Match one choice to each goal and identify the most important missing evidence.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?
-- **Key idea:** Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
-- **Try it:** Compare two deposit extracts and a risky investment against the same short-horizon goal.
-- **Decide:** Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+- **Hook:** A family needs some money in eighteen months and the rest in ten years. Should it use the same low-risk choice for both amounts?
+- **Key idea:** Cash and deposits emphasise liquidity and capital preservation, while bonds add lending income and credit, interest-rate, inflation and maturity risks.
+- **Try it:** Compare a deposit and two frozen bond summaries against short- and long-horizon family needs.
+- **Decide:** Match one choice to each goal and identify the most important missing evidence.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?
-- **First judgement:** Make a first judgement about House-deposit money and give one reason before the key idea is taught.
-- **Likely naive answer:** Cash is always safe because its price does not fall.
-- **Missing evidence:** Students need access terms, protection limits, interest, inflation and the consequence of investment loss.
-- **Key idea:** Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
-- **Try it:** Compare two deposit extracts and a risky investment against the same short-horizon goal.
-- **Misconception check:** Correct the claim: Cash is always safe because its price does not fall.
-- **Exit judgement:** Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+- **Starter dilemma:** A family needs some money in eighteen months and the rest in ten years. Should it use the same low-risk choice for both amounts?
+- **First judgement:** Make a first judgement about Cash and bond choice set and give one reason before the key idea is taught.
+- **Likely naive answer:** Cash and bonds are all safe choices because they pay a stated rate.
+- **Missing evidence:** Students need access terms, protection limits, issuer strength, maturity, price, yield, inflation and consequences of loss.
+- **Key idea:** Cash and deposits emphasise liquidity and capital preservation, while bonds add lending income and credit, interest-rate, inflation and maturity risks.
+- **Try it:** Compare a deposit and two frozen bond summaries against short- and long-horizon family needs.
+- **Misconception check:** Correct the claim: Cash and bonds are all safe choices because they pay a stated rate.
+- **Exit judgement:** Match one choice to each goal and identify the most important missing evidence.
 
 ### Source pack
 
@@ -923,17 +808,17 @@ Students compare cash, fixed-income securities, shares and funds, then combine k
 
 ### Deck arc
 
-- Hook: A family expects to use its house-deposit money in eighteen months. Should it seek a higher stock-market return?
+- Hook: A family needs some money in eighteen months and the rest in ten years. Should it use the same low-risk choice for both amounts?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Money needed soon may require liquidity and capital preservation even when cash has a lower expected return.
-- SMG core lab: Set and justify the proposed portfolio's cash reserve by explaining which money should remain liquid rather than being invested immediately.
+- Teach: Cash and deposits emphasise liquidity and capital preservation, while bonds add lending income and credit, interest-rate, inflation and maturity risks.
+- SMG core lab: Compare the proposed cash reserve with a teacher-frozen deposit and bond alternative, recording any non-platform choice as a paper allocation.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+- Individual exit ticket: Match one choice to each goal and identify the most important missing evidence.
 
 ### Retrieval practice
 
-- **Yes/no:** Cash is always safe because its price does not fall. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about House-deposit money? Answer: Students need access terms, protection limits, interest, inflation and the consequence of investment loss.
+- **Yes/no:** Cash and bonds are all safe choices because they pay a stated rate. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Cash and bond choice set? Answer: Students need access terms, protection limits, issuer strength, maturity, price, yield, inflation and consequences of loss.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -942,11 +827,11 @@ Students compare cash, fixed-income securities, shares and funds, then combine k
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+- **Written action:** Match one choice to each goal and identify the most important missing evidence.
 
 ### Analyse why
 
-Analyse why the evidence in House-deposit money could change the initial investment judgement.
+Analyse why the evidence in Cash and bond choice set could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -955,13 +840,13 @@ Analyse why the evidence in House-deposit money could change the initial investm
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded House-deposit money scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Cash and bond choice set scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Simple annual interest = amount x stated annual rate; compare with inflation only when periods align.
+2. **Calculate or interpret:** Simple annual interest = amount x stated annual rate; annual coupon income = face value x coupon rate.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+5. **Judge:** Match one choice to each goal and identify the most important missing evidence.
 
 ### Handout/chapter blocks
 
@@ -972,109 +857,12 @@ Analyse why the evidence in House-deposit money could change the initial investm
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen House-deposit money evidence pack
-- Calculation: Simple annual interest = amount x stated annual rate; compare with inflation only when periods align.
-- Judgement: Choose cash, deposit or gather more evidence for the mock goal and justify the action.
+- Stimulus: frozen Cash and bond choice set evidence pack
+- Calculation: Simple annual interest = amount x stated annual rate; annual coupon income = face value x coupon rate.
+- Judgement: Match one choice to each goal and identify the most important missing evidence.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 10: Government and corporate bonds
-
-**Guiding question:** How do bonds provide income, and what risks remain?
-**Student hook:** A corporate bond offers a higher yield than a government bond. Is the extra income free?
-**Core claim:** A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
-**Case role:** fixed-income security
-**Primary output:** evidence-based-investment-decision - Compare the two bonds and identify which evidence is still missing.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A corporate bond offers a higher yield than a government bond. Is the extra income free?
-- **Key idea:** A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
-- **Try it:** Label coupon, maturity and issuer risk on two frozen bond summaries.
-- **Decide:** Compare the two bonds and identify which evidence is still missing.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A corporate bond offers a higher yield than a government bond. Is the extra income free?
-- **First judgement:** Make a first judgement about Government and corporate bonds and give one reason before the key idea is taught.
-- **Likely naive answer:** Bonds cannot lose value because they pay interest.
-- **Missing evidence:** Students need issuer strength, maturity, coupon, price, yield and risk disclosures.
-- **Key idea:** A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
-- **Try it:** Label coupon, maturity and issuer risk on two frozen bond summaries.
-- **Misconception check:** Correct the claim: Bonds cannot lose value because they pay interest.
-- **Exit judgement:** Compare the two bonds and identify which evidence is still missing.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A corporate bond offers a higher yield than a government bond. Is the extra income free?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A bond is a lending claim whose income must be judged with maturity, credit, inflation and interest-rate risk.
-- SMG core lab: Compare the portfolio with a teacher-frozen bond alternative; if the platform does not permit that bond, record the comparison as a paper allocation rather than a trade.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Compare the two bonds and identify which evidence is still missing.
-
-### Retrieval practice
-
-- **Yes/no:** Bonds cannot lose value because they pay interest. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Government and corporate bonds? Answer: Students need issuer strength, maturity, coupon, price, yield and risk disclosures.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Compare the two bonds and identify which evidence is still missing.
-
-### Analyse why
-
-Analyse why the evidence in Government and corporate bonds could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Government and corporate bonds scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Annual coupon income = face value x coupon rate; current yield = annual coupon / market price x 100 when suitable.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Compare the two bonds and identify which evidence is still missing.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Government and corporate bonds evidence pack
-- Calculation: Annual coupon income = face value x coupon rate; current yield = annual coupon / market price x 100 when suitable.
-- Judgement: Compare the two bonds and identify which evidence is still missing.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 11: Tencent share ownership
+## Lesson 9: Tencent share ownership
 
 **Guiding question:** What does owning a share mean?
 **Student hook:** If you own one Tencent share, do you control the company or own its buildings?
@@ -1171,129 +959,32 @@ Analyse why the evidence in Tencent share ownership could change the initial inv
 - Judgement: Explain accurately what one share gives and does not give.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 12: CSI 300 ETF factsheet
+## Lesson 10: ETF and fund comparison
 
-**Guiding question:** How do funds and ETFs let investors hold many assets?
-**Student hook:** One ETF holds hundreds of shares. Does that automatically make it suitable for every family?
-**Core claim:** Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
-**Case role:** fund
-**Primary output:** evidence-based-investment-decision - Write a fund-factsheet verdict for a mock long-term goal.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** One ETF holds hundreds of shares. Does that automatically make it suitable for every family?
-- **Key idea:** Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
-- **Try it:** Read a frozen ETF factsheet and identify objective, top exposure, cost and one remaining risk.
-- **Decide:** Write a fund-factsheet verdict for a mock long-term goal.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** One ETF holds hundreds of shares. Does that automatically make it suitable for every family?
-- **First judgement:** Make a first judgement about CSI 300 ETF factsheet and give one reason before the key idea is taught.
-- **Likely naive answer:** An ETF is automatically safe because it contains many holdings.
-- **Missing evidence:** Students need the fund objective, index or strategy, holdings, geographic exposure, cost and risk disclosure.
-- **Key idea:** Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
-- **Try it:** Read a frozen ETF factsheet and identify objective, top exposure, cost and one remaining risk.
-- **Misconception check:** Correct the claim: An ETF is automatically safe because it contains many holdings.
-- **Exit judgement:** Write a fund-factsheet verdict for a mock long-term goal.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: One ETF holds hundreds of shares. Does that automatically make it suitable for every family?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Funds pool investments and can broaden exposure, but their objective, holdings, cost and remaining risks must still be checked.
-- SMG core lab: Test whether an eligible fund or teacher-frozen ETF candidate would broaden the proposed portfolio's exposures, then identify one risk that remains.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Write a fund-factsheet verdict for a mock long-term goal.
-
-### Retrieval practice
-
-- **Yes/no:** An ETF is automatically safe because it contains many holdings. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about CSI 300 ETF factsheet? Answer: Students need the fund objective, index or strategy, holdings, geographic exposure, cost and risk disclosure.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Write a fund-factsheet verdict for a mock long-term goal.
-
-### Analyse why
-
-Analyse why the evidence in CSI 300 ETF factsheet could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded CSI 300 ETF factsheet scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Portfolio weight = holding value / total portfolio value x 100.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Write a fund-factsheet verdict for a mock long-term goal.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen CSI 300 ETF factsheet evidence pack
-- Calculation: Portfolio weight = holding value / total portfolio value x 100.
-- Judgement: Write a fund-factsheet verdict for a mock long-term goal.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 13: Index and active fund pair
-
-**Guiding question:** How are index funds and actively managed funds different?
-**Student hook:** One fund tracks a market and another tries to beat it. Which evidence should decide between them?
-**Core claim:** Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
+**Guiding question:** How do funds, ETFs, index funds and active funds differ?
+**Student hook:** One fund tracks an index and another tries to beat it. Does either label prove that the fund fits the family goal?
+**Core claim:** Funds pool investments, while their trading structure, objective, benchmark, management method, holdings, costs and remaining risks determine how they differ.
 **Case role:** fund comparison
-**Primary output:** evidence-based-investment-decision - Explain which evidence matters most before choosing between the two fund types.
+**Primary output:** evidence-based-investment-decision - Write a qualified fund comparison for one mock long-term goal.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** One fund tracks a market and another tries to beat it. Which evidence should decide between them?
-- **Key idea:** Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
-- **Try it:** Compare two frozen fund summaries using objective, benchmark, cost, risk and evidence quality.
-- **Decide:** Explain which evidence matters most before choosing between the two fund types.
+- **Hook:** One fund tracks an index and another tries to beat it. Does either label prove that the fund fits the family goal?
+- **Key idea:** Funds pool investments, while their trading structure, objective, benchmark, management method, holdings, costs and remaining risks determine how they differ.
+- **Try it:** Read two frozen fund summaries and compare objective, benchmark, holdings, cost, liquidity and risk.
+- **Decide:** Write a qualified fund comparison for one mock long-term goal.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** One fund tracks a market and another tries to beat it. Which evidence should decide between them?
-- **First judgement:** Make a first judgement about Index and active fund pair and give one reason before the key idea is taught.
-- **Likely naive answer:** Active management always beats an index because experts choose the investments.
-- **Missing evidence:** Students need the stated objective, benchmark, fee, risk, holdings and multi-period evidence.
-- **Key idea:** Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
-- **Try it:** Compare two frozen fund summaries using objective, benchmark, cost, risk and evidence quality.
-- **Misconception check:** Correct the claim: Active management always beats an index because experts choose the investments.
-- **Exit judgement:** Explain which evidence matters most before choosing between the two fund types.
+- **Starter dilemma:** One fund tracks an index and another tries to beat it. Does either label prove that the fund fits the family goal?
+- **First judgement:** Make a first judgement about ETF and fund comparison and give one reason before the key idea is taught.
+- **Likely naive answer:** A diversified or actively managed fund is automatically suitable and safe.
+- **Missing evidence:** Students need the fund objective, structure, benchmark, holdings, geographic exposure, costs and multi-period evidence.
+- **Key idea:** Funds pool investments, while their trading structure, objective, benchmark, management method, holdings, costs and remaining risks determine how they differ.
+- **Try it:** Read two frozen fund summaries and compare objective, benchmark, holdings, cost, liquidity and risk.
+- **Misconception check:** Correct the claim: A diversified or actively managed fund is automatically suitable and safe.
+- **Exit judgement:** Write a qualified fund comparison for one mock long-term goal.
 
 ### Source pack
 
@@ -1311,17 +1002,17 @@ Analyse why the evidence in CSI 300 ETF factsheet could change the initial inves
 
 ### Deck arc
 
-- Hook: One fund tracks a market and another tries to beat it. Which evidence should decide between them?
+- Hook: One fund tracks an index and another tries to beat it. Does either label prove that the fund fits the family goal?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Index and active funds have different objectives, methods, costs and evidence requirements; neither label proves suitability.
-- SMG core lab: Compare an index-tracking and actively managed fund candidate by objective, benchmark, cost, holdings and evidence quality.
+- Teach: Funds pool investments, while their trading structure, objective, benchmark, management method, holdings, costs and remaining risks determine how they differ.
+- SMG core lab: Compare an ETF, index-tracking fund and actively managed fund by objective, benchmark, holdings, cost and remaining risk.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain which evidence matters most before choosing between the two fund types.
+- Individual exit ticket: Write a qualified fund comparison for one mock long-term goal.
 
 ### Retrieval practice
 
-- **Yes/no:** Active management always beats an index because experts choose the investments. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Index and active fund pair? Answer: Students need the stated objective, benchmark, fee, risk, holdings and multi-period evidence.
+- **Yes/no:** A diversified or actively managed fund is automatically suitable and safe. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about ETF and fund comparison? Answer: Students need the fund objective, structure, benchmark, holdings, geographic exposure, costs and multi-period evidence.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -1330,11 +1021,11 @@ Analyse why the evidence in CSI 300 ETF factsheet could change the initial inves
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain which evidence matters most before choosing between the two fund types.
+- **Written action:** Write a qualified fund comparison for one mock long-term goal.
 
 ### Analyse why
 
-Analyse why the evidence in Index and active fund pair could change the initial investment judgement.
+Analyse why the evidence in ETF and fund comparison could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -1343,13 +1034,13 @@ Analyse why the evidence in Index and active fund pair could change the initial 
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Index and active fund pair scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded ETF and fund comparison scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Active return = fund return - benchmark return when periods and fee treatment align.
+2. **Calculate or interpret:** Portfolio weight = holding value / total portfolio value x 100; active return = fund return - benchmark return when periods and fees align.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain which evidence matters most before choosing between the two fund types.
+5. **Judge:** Write a qualified fund comparison for one mock long-term goal.
 
 ### Handout/chapter blocks
 
@@ -1360,134 +1051,37 @@ Analyse why the evidence in Index and active fund pair could change the initial 
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Index and active fund pair evidence pack
-- Calculation: Active return = fund return - benchmark return when periods and fee treatment align.
-- Judgement: Explain which evidence matters most before choosing between the two fund types.
+- Stimulus: frozen ETF and fund comparison evidence pack
+- Calculation: Portfolio weight = holding value / total portfolio value x 100; active return = fund return - benchmark return when periods and fees align.
+- Judgement: Write a qualified fund comparison for one mock long-term goal.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 14: Two fund fee schedules
+## Lesson 11: Fund costs and hidden concentration
 
-**Guiding question:** How do investment fees reduce long-term wealth?
-**Student hook:** A fee difference of 0.8 percentage points looks small. Can it matter over twenty years?
-**Core claim:** Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
-**Case role:** fund comparison
-**Primary output:** evidence-based-investment-decision - Calculate the fee difference and explain its long-run effect without assuming future returns.
+**Guiding question:** How do fees and diversification affect an investment choice?
+**Student hook:** A low-fee portfolio owns many securities but most share the same technology exposure. Is it well constructed?
+**Core claim:** Fees reduce the amount that compounds, while diversification reduces dependence on shared exposures rather than merely increasing the number of holdings.
+**Case role:** portfolio comparison
+**Primary output:** evidence-based-investment-decision - Identify the larger weakness in the proposal and justify one improvement without promising a return.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A fee difference of 0.8 percentage points looks small. Can it matter over twenty years?
-- **Key idea:** Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
-- **Try it:** Calculate first-year costs and compare two frozen long-run projections with different fees.
-- **Decide:** Calculate the fee difference and explain its long-run effect without assuming future returns.
+- **Hook:** A low-fee portfolio owns many securities but most share the same technology exposure. Is it well constructed?
+- **Key idea:** Fees reduce the amount that compounds, while diversification reduces dependence on shared exposures rather than merely increasing the number of holdings.
+- **Try it:** Calculate first-year fees, map company, sector and geographic exposures and improve one concentrated proposal.
+- **Decide:** Identify the larger weakness in the proposal and justify one improvement without promising a return.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A fee difference of 0.8 percentage points looks small. Can it matter over twenty years?
-- **First judgement:** Make a first judgement about Two fund fee schedules and give one reason before the key idea is taught.
-- **Likely naive answer:** A fee below 1% is too small to affect a long-term decision.
-- **Missing evidence:** Students need all recurring and transaction fees, investment amount, period and assumptions used in projections.
-- **Key idea:** Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
-- **Try it:** Calculate first-year costs and compare two frozen long-run projections with different fees.
-- **Misconception check:** Correct the claim: A fee below 1% is too small to affect a long-term decision.
-- **Exit judgement:** Calculate the fee difference and explain its long-run effect without assuming future returns.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A fee difference of 0.8 percentage points looks small. Can it matter over twenty years?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Recurring fees reduce the amount that remains invested and therefore reduce later compounding as well as current return.
-- SMG core lab: Use the current platform or local fee schedule to calculate how transaction or fund costs would affect one proposed portfolio action.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate the fee difference and explain its long-run effect without assuming future returns.
-
-### Retrieval practice
-
-- **Yes/no:** A fee below 1% is too small to affect a long-term decision. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Two fund fee schedules? Answer: Students need all recurring and transaction fees, investment amount, period and assumptions used in projections.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate the fee difference and explain its long-run effect without assuming future returns.
-
-### Analyse why
-
-Analyse why the evidence in Two fund fee schedules could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Two fund fee schedules scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Annual fund cost = invested amount x expense ratio; net return = gross return - relevant fees as a classroom approximation.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate the fee difference and explain its long-run effect without assuming future returns.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Two fund fee schedules evidence pack
-- Calculation: Annual fund cost = invested amount x expense ratio; net return = gross return - relevant fees as a classroom approximation.
-- Judgement: Calculate the fee difference and explain its long-run effect without assuming future returns.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 15: Concentrated family holdings
-
-**Guiding question:** How does diversification reduce avoidable risk?
-**Student hook:** A family owns ten technology shares. Is that a diversified portfolio?
-**Core claim:** Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
-**Case role:** portfolio case
-**Primary output:** evidence-based-investment-decision - Identify one avoidable concentration and one risk diversification cannot remove.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A family owns ten technology shares. Is that a diversified portfolio?
-- **Key idea:** Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
-- **Try it:** Map ten holdings by company, sector and geography, then identify hidden concentration.
-- **Decide:** Identify one avoidable concentration and one risk diversification cannot remove.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A family owns ten technology shares. Is that a diversified portfolio?
-- **First judgement:** Make a first judgement about Concentrated family holdings and give one reason before the key idea is taught.
-- **Likely naive answer:** Owning many securities always means the portfolio is diversified.
-- **Missing evidence:** Students need holding weights and the economic exposures the holdings share.
-- **Key idea:** Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
-- **Try it:** Map ten holdings by company, sector and geography, then identify hidden concentration.
-- **Misconception check:** Correct the claim: Owning many securities always means the portfolio is diversified.
-- **Exit judgement:** Identify one avoidable concentration and one risk diversification cannot remove.
+- **Starter dilemma:** A low-fee portfolio owns many securities but most share the same technology exposure. Is it well constructed?
+- **First judgement:** Make a first judgement about Fund costs and hidden concentration and give one reason before the key idea is taught.
+- **Likely naive answer:** A fee below 1% does not matter and many holdings always make a portfolio diversified.
+- **Missing evidence:** Students need all recurring and transaction fees, holding weights, shared exposures, time horizon and projection assumptions.
+- **Key idea:** Fees reduce the amount that compounds, while diversification reduces dependence on shared exposures rather than merely increasing the number of holdings.
+- **Try it:** Calculate first-year fees, map company, sector and geographic exposures and improve one concentrated proposal.
+- **Misconception check:** Correct the claim: A fee below 1% does not matter and many holdings always make a portfolio diversified.
+- **Exit judgement:** Identify the larger weakness in the proposal and justify one improvement without promising a return.
 
 ### Source pack
 
@@ -1505,17 +1099,17 @@ Analyse why the evidence in Two fund fee schedules could change the initial inve
 
 ### Deck arc
 
-- Hook: A family owns ten technology shares. Is that a diversified portfolio?
+- Hook: A low-fee portfolio owns many securities but most share the same technology exposure. Is it well constructed?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Diversification reduces dependence on one company or shared exposure, but it does not remove broad market risk.
-- SMG core lab: Audit the proposed paper portfolio by company, sector and geography, then improve its diversification before launch.
+- Teach: Fees reduce the amount that compounds, while diversification reduces dependence on shared exposures rather than merely increasing the number of holdings.
+- SMG core lab: Calculate the cost of one proposed fund or transaction and audit the paper portfolio for company, sector and geographic concentration.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Identify one avoidable concentration and one risk diversification cannot remove.
+- Individual exit ticket: Identify the larger weakness in the proposal and justify one improvement without promising a return.
 
 ### Retrieval practice
 
-- **Yes/no:** Owning many securities always means the portfolio is diversified. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Concentrated family holdings? Answer: Students need holding weights and the economic exposures the holdings share.
+- **Yes/no:** A fee below 1% does not matter and many holdings always make a portfolio diversified. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Fund costs and hidden concentration? Answer: Students need all recurring and transaction fees, holding weights, shared exposures, time horizon and projection assumptions.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -1524,11 +1118,11 @@ Analyse why the evidence in Two fund fee schedules could change the initial inve
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Identify one avoidable concentration and one risk diversification cannot remove.
+- **Written action:** Identify the larger weakness in the proposal and justify one improvement without promising a return.
 
 ### Analyse why
 
-Analyse why the evidence in Concentrated family holdings could change the initial investment judgement.
+Analyse why the evidence in Fund costs and hidden concentration could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -1537,13 +1131,13 @@ Analyse why the evidence in Concentrated family holdings could change the initia
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Concentrated family holdings scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Fund costs and hidden concentration scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Combined exposure weight = sum of holdings sharing the same exposure.
+2. **Calculate or interpret:** Annual fund cost = invested amount x expense ratio; combined exposure weight = the sum of holdings sharing an exposure.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Identify one avoidable concentration and one risk diversification cannot remove.
+5. **Judge:** Identify the larger weakness in the proposal and justify one improvement without promising a return.
 
 ### Handout/chapter blocks
 
@@ -1554,12 +1148,12 @@ Analyse why the evidence in Concentrated family holdings could change the initia
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Concentrated family holdings evidence pack
-- Calculation: Combined exposure weight = sum of holdings sharing the same exposure.
-- Judgement: Identify one avoidable concentration and one risk diversification cannot remove.
+- Stimulus: frozen Fund costs and hidden concentration evidence pack
+- Calculation: Annual fund cost = invested amount x expense ratio; combined exposure weight = the sum of holdings sharing an exposure.
+- Judgement: Identify the larger weakness in the proposal and justify one improvement without promising a return.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 16: Monthly and lump-sum scenarios
+## Lesson 12: Monthly and lump-sum scenarios
 
 **Guiding question:** How do regular investing and lump-sum investing differ?
 **Student hook:** A family has money available now but dislikes choosing one purchase date. Should it invest all at once or in stages?
@@ -1605,7 +1199,7 @@ Analyse why the evidence in Concentrated family holdings could change the initia
 - Hook: A family has money available now but dislikes choosing one purchase date. Should it invest all at once or in stages?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: Lump-sum and regular investing create different market-exposure and timing patterns; neither method guarantees profit.
-- SMG core lab: Model regular contributions versus one lump-sum contribution in a side scenario and state why this projection is not a promised platform result.
+- SMG core lab: Model regular contributions versus one lump-sum contribution and explain why neither method guarantees the better result.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Explain one advantage and one limitation of each method for a mock profile.
 
@@ -1656,7 +1250,7 @@ Analyse why the evidence in Monthly and lump-sum scenarios could change the init
 - Judgement: Explain one advantage and one limitation of each method for a mock profile.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 17: Three family profiles
+## Lesson 13: Three family profiles
 
 **Guiding question:** Which investment mix fits different family goals?
 **Student hook:** Three families have the same amount but different goals. Should they hold the same investments?
@@ -1702,7 +1296,7 @@ Analyse why the evidence in Monthly and lump-sum scenarios could change the init
 - Hook: Three families have the same amount but different goals. Should they hold the same investments?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: A suitable asset-class mix connects each goal to horizon, liquidity, loss capacity, diversification and cost.
-- SMG core lab: Complete the formal portfolio-fit review, approve the first evidence-backed proposal and then complete the qualifying long stock purchase when the teacher opens the launch gate.
+- SMG core lab: Complete the formal portfolio-fit review, approve the first evidence-backed proposal and complete the qualifying long stock purchase when the teacher opens the launch gate.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Write an investment-choice comparison memo for the three profiles.
 
@@ -1756,131 +1350,34 @@ Analyse why the evidence in Three family profiles could change the initial inves
 
 # Unit 3: How Markets Work
 
-Students trace securities from issue to settlement, read market evidence and explain prices, returns, indices and news without drifting into short-term speculation.
+Students trace securities from issue to settlement, read quotes and explain prices, returns, benchmarks and news using dated evidence.
 
-## Lesson 18: Growth company financing
+## Lesson 14: Company financing and market map
 
-**Guiding question:** Why do companies issue shares?
-**Student hook:** A growing company needs new capital. Why might it issue shares instead of borrowing?
-**Core claim:** Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
-**Case role:** listed company
-**Primary output:** evidence-based-investment-decision - Explain one benefit to the company and one effect on existing shareholders.
+**Guiding question:** How do primary and secondary markets connect companies and investors?
+**Student hook:** You buy an existing share through HKEX. Does your payment finance the company?
+**Core claim:** Companies raise capital by issuing new securities in primary markets, while investors trade existing securities with one another in secondary markets.
+**Case role:** market infrastructure case
+**Primary output:** evidence-based-investment-decision - Correct the money-flow misconception using one primary- and one secondary-market example.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A growing company needs new capital. Why might it issue shares instead of borrowing?
-- **Key idea:** Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
-- **Try it:** Trace how a new share issue changes company cash and an existing shareholder's percentage ownership.
-- **Decide:** Explain one benefit to the company and one effect on existing shareholders.
+- **Hook:** You buy an existing share through HKEX. Does your payment finance the company?
+- **Key idea:** Companies raise capital by issuing new securities in primary markets, while investors trade existing securities with one another in secondary markets.
+- **Try it:** Complete two market-flow diagrams and explain what the company receives in each case.
+- **Decide:** Correct the money-flow misconception using one primary- and one secondary-market example.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A growing company needs new capital. Why might it issue shares instead of borrowing?
-- **First judgement:** Make a first judgement about Growth company financing and give one reason before the key idea is taught.
-- **Likely naive answer:** When investors trade a company's shares, the company receives the money every time.
-- **Missing evidence:** Students need whether shares are newly issued, the use of proceeds and share counts before and after.
-- **Key idea:** Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
-- **Try it:** Trace how a new share issue changes company cash and an existing shareholder's percentage ownership.
-- **Misconception check:** Correct the claim: When investors trade a company's shares, the company receives the money every time.
-- **Exit judgement:** Explain one benefit to the company and one effect on existing shareholders.
-
-### Source pack
-
-- official annual or interim report extract
-- dated company or market-data snapshot
-- risk, industry or governance source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A growing company needs new capital. Why might it issue shares instead of borrowing?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Companies issue shares to raise equity capital, but new issuance changes ownership claims and may dilute existing holders.
-- SMG core lab: Use a dated filing or official company source to explain why one holding or watchlist company issued shares and what the issue financed.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain one benefit to the company and one effect on existing shareholders.
-
-### Retrieval practice
-
-- **Yes/no:** When investors trade a company's shares, the company receives the money every time. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Growth company financing? Answer: Students need whether shares are newly issued, the use of proceeds and share counts before and after.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain one benefit to the company and one effect on existing shareholders.
-
-### Analyse why
-
-Analyse why the evidence in Growth company financing could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Growth company financing scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Ownership percentage = shares owned / total shares outstanding x 100 before and after issuance.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain one benefit to the company and one effect on existing shareholders.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Growth company financing evidence pack
-- Calculation: Ownership percentage = shares owned / total shares outstanding x 100 before and after issuance.
-- Judgement: Explain one benefit to the company and one effect on existing shareholders.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 19: HKEX market map
-
-**Guiding question:** How are primary and secondary markets different?
-**Student hook:** You buy an existing share through HKEX. Does your payment go to the company?
-**Core claim:** Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
-**Case role:** market infrastructure
-**Primary output:** evidence-based-investment-decision - Correct the money-flow misconception using both market diagrams.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** You buy an existing share through HKEX. Does your payment go to the company?
-- **Key idea:** Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
-- **Try it:** Complete two flow diagrams for a new issue and a secondary-market trade.
-- **Decide:** Correct the money-flow misconception using both market diagrams.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** You buy an existing share through HKEX. Does your payment go to the company?
-- **First judgement:** Make a first judgement about HKEX market map and give one reason before the key idea is taught.
+- **Starter dilemma:** You buy an existing share through HKEX. Does your payment finance the company?
+- **First judgement:** Make a first judgement about Company financing and market map and give one reason before the key idea is taught.
 - **Likely naive answer:** Every stock-market purchase sends new money to the listed company.
-- **Missing evidence:** Students need the security's issue status, counterparties and role of the exchange.
-- **Key idea:** Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
-- **Try it:** Complete two flow diagrams for a new issue and a secondary-market trade.
+- **Missing evidence:** Students need the security's issue status, counterparties, stated use of proceeds and role of the exchange.
+- **Key idea:** Companies raise capital by issuing new securities in primary markets, while investors trade existing securities with one another in secondary markets.
+- **Try it:** Complete two market-flow diagrams and explain what the company receives in each case.
 - **Misconception check:** Correct the claim: Every stock-market purchase sends new money to the listed company.
-- **Exit judgement:** Correct the money-flow misconception using both market diagrams.
+- **Exit judgement:** Correct the money-flow misconception using one primary- and one secondary-market example.
 
 ### Source pack
 
@@ -1898,17 +1395,17 @@ Analyse why the evidence in Growth company financing could change the initial in
 
 ### Deck arc
 
-- Hook: You buy an existing share through HKEX. Does your payment go to the company?
+- Hook: You buy an existing share through HKEX. Does your payment finance the company?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Primary markets fund issuers through new securities, while secondary markets allow investors to trade existing securities.
-- SMG core lab: Classify one team transaction as a secondary-market trade and contrast it with the company's primary-market issuance.
+- Teach: Companies raise capital by issuing new securities in primary markets, while investors trade existing securities with one another in secondary markets.
+- SMG core lab: Trace a holding from company issuance in the primary market to the team's secondary-market trade, explaining where money and securities moved.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Correct the money-flow misconception using both market diagrams.
+- Individual exit ticket: Correct the money-flow misconception using one primary- and one secondary-market example.
 
 ### Retrieval practice
 
 - **Yes/no:** Every stock-market purchase sends new money to the listed company. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about HKEX market map? Answer: Students need the security's issue status, counterparties and role of the exchange.
+- **Multiple choice:** Which evidence would most improve the first judgement about Company financing and market map? Answer: Students need the security's issue status, counterparties, stated use of proceeds and role of the exchange.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -1917,11 +1414,11 @@ Analyse why the evidence in Growth company financing could change the initial in
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Correct the money-flow misconception using both market diagrams.
+- **Written action:** Correct the money-flow misconception using one primary- and one secondary-market example.
 
 ### Analyse why
 
-Analyse why the evidence in HKEX market map could change the initial investment judgement.
+Analyse why the evidence in Company financing and market map could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -1930,13 +1427,13 @@ Analyse why the evidence in HKEX market map could change the initial investment 
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded HKEX market map scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Company financing and market map scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; trace security and money flows between issuer, investor and market participants.
+2. **Calculate or interpret:** No new formula; trace the money, security and ownership flows in an issue and a later trade.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Correct the money-flow misconception using both market diagrams.
+5. **Judge:** Correct the money-flow misconception using one primary- and one secondary-market example.
 
 ### Handout/chapter blocks
 
@@ -1947,37 +1444,37 @@ Analyse why the evidence in HKEX market map could change the initial investment 
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen HKEX market map evidence pack
-- Calculation: No new formula; trace security and money flows between issuer, investor and market participants.
-- Judgement: Correct the money-flow misconception using both market diagrams.
+- Stimulus: frozen Company financing and market map evidence pack
+- Calculation: No new formula; trace the money, security and ownership flows in an issue and a later trade.
+- Judgement: Correct the money-flow misconception using one primary- and one secondary-market example.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 20: Broker trade journey
+## Lesson 15: Trade journey and quote snapshot
 
-**Guiding question:** How do brokers, custody and settlement complete a trade?
-**Student hook:** A student presses buy in an app. Which institutions must act before the trade is complete?
-**Core claim:** A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
-**Case role:** market infrastructure
-**Primary output:** evidence-based-investment-decision - Explain the role of three market participants in one completed trade.
+**Guiding question:** How does an order become a completed trade, and what does a quote show?
+**Student hook:** A team submits a buy order at the displayed price. Is execution at that price guaranteed?
+**Core claim:** An order moves through submission, matching, execution and settlement, while a time-stamped quote shows market information rather than a guaranteed trade price.
+**Case role:** market-process case
+**Primary output:** evidence-based-investment-decision - Explain the order outcome and one reason the displayed quote could differ from the execution.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A student presses buy in an app. Which institutions must act before the trade is complete?
-- **Key idea:** A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
-- **Try it:** Put order entry, execution, confirmation, payment, delivery and custody into the correct sequence.
-- **Decide:** Explain the role of three market participants in one completed trade.
+- **Hook:** A team submits a buy order at the displayed price. Is execution at that price guaranteed?
+- **Key idea:** An order moves through submission, matching, execution and settlement, while a time-stamped quote shows market information rather than a guaranteed trade price.
+- **Try it:** Trace one frozen order and annotate its quote, status, execution price, quantity, time stamp and settlement evidence.
+- **Decide:** Explain the order outcome and one reason the displayed quote could differ from the execution.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A student presses buy in an app. Which institutions must act before the trade is complete?
-- **First judgement:** Make a first judgement about Broker trade journey and give one reason before the key idea is taught.
-- **Likely naive answer:** The trading app itself owns the shares and completes the entire trade instantly.
-- **Missing evidence:** Students need the roles, legal holder arrangement, settlement cycle and relevant costs.
-- **Key idea:** A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
-- **Try it:** Put order entry, execution, confirmation, payment, delivery and custody into the correct sequence.
-- **Misconception check:** Correct the claim: The trading app itself owns the shares and completes the entire trade instantly.
-- **Exit judgement:** Explain the role of three market participants in one completed trade.
+- **Starter dilemma:** A team submits a buy order at the displayed price. Is execution at that price guaranteed?
+- **First judgement:** Make a first judgement about Trade journey and quote snapshot and give one reason before the key idea is taught.
+- **Likely naive answer:** Submitting an order at the displayed quote guarantees an immediate trade at that price.
+- **Missing evidence:** Students need the order type, quantity, bid, ask, time stamp, market status, execution notice, fees and settlement record.
+- **Key idea:** An order moves through submission, matching, execution and settlement, while a time-stamped quote shows market information rather than a guaranteed trade price.
+- **Try it:** Trace one frozen order and annotate its quote, status, execution price, quantity, time stamp and settlement evidence.
+- **Misconception check:** Correct the claim: Submitting an order at the displayed quote guarantees an immediate trade at that price.
+- **Exit judgement:** Explain the order outcome and one reason the displayed quote could differ from the execution.
 
 ### Source pack
 
@@ -1995,17 +1492,17 @@ Analyse why the evidence in HKEX market map could change the initial investment 
 
 ### Deck arc
 
-- Hook: A student presses buy in an app. Which institutions must act before the trade is complete?
+- Hook: A team submits a buy order at the displayed price. Is execution at that price guaranteed?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A securities trade depends on authorised intermediation, recordkeeping, custody and settlement beyond the trading screen.
-- SMG core lab: Trace one order from proposal through submission, execution and settlement, recording the actual platform status at each available stage.
+- Teach: An order moves through submission, matching, execution and settlement, while a time-stamped quote shows market information rather than a guaranteed trade price.
+- SMG core lab: Trace one order through submission, execution and settlement and annotate the related quote with bid, ask, volume and time stamp.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain the role of three market participants in one completed trade.
+- Individual exit ticket: Explain the order outcome and one reason the displayed quote could differ from the execution.
 
 ### Retrieval practice
 
-- **Yes/no:** The trading app itself owns the shares and completes the entire trade instantly. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Broker trade journey? Answer: Students need the roles, legal holder arrangement, settlement cycle and relevant costs.
+- **Yes/no:** Submitting an order at the displayed quote guarantees an immediate trade at that price. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Trade journey and quote snapshot? Answer: Students need the order type, quantity, bid, ask, time stamp, market status, execution notice, fees and settlement record.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -2014,11 +1511,11 @@ Analyse why the evidence in HKEX market map could change the initial investment 
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain the role of three market participants in one completed trade.
+- **Written action:** Explain the order outcome and one reason the displayed quote could differ from the execution.
 
 ### Analyse why
 
-Analyse why the evidence in Broker trade journey could change the initial investment judgement.
+Analyse why the evidence in Trade journey and quote snapshot could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -2027,13 +1524,13 @@ Analyse why the evidence in Broker trade journey could change the initial invest
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Broker trade journey scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Trade journey and quote snapshot scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; sequence the operational steps from order to settlement.
+2. **Calculate or interpret:** Bid-ask spread = ask price - bid price; transaction value = executed price x quantity before fees.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain the role of three market participants in one completed trade.
+5. **Judge:** Explain the order outcome and one reason the displayed quote could differ from the execution.
 
 ### Handout/chapter blocks
 
@@ -2044,37 +1541,37 @@ Analyse why the evidence in Broker trade journey could change the initial invest
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Broker trade journey evidence pack
-- Calculation: No new formula; sequence the operational steps from order to settlement.
-- Judgement: Explain the role of three market participants in one completed trade.
+- Stimulus: frozen Trade journey and quote snapshot evidence pack
+- Calculation: Bid-ask spread = ask price - bid price; transaction value = executed price x quantity before fees.
+- Judgement: Explain the order outcome and one reason the displayed quote could differ from the execution.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 21: Alibaba quote snapshot
+## Lesson 16: Price reaction and company scale
 
-**Guiding question:** What can a quote page tell an investor?
-**Student hook:** An HKEX quote shows Hong Kong-listed Alibaba at HKD 82. Is that the price every investor can trade immediately?
-**Core claim:** A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
-**Case role:** Hong Kong market data case
-**Primary output:** evidence-based-investment-decision - Calculate the spread and state two things the quote page cannot prove.
+**Guiding question:** Why do share prices change, and why is price not company value?
+**Student hook:** A lower-priced share belongs to the larger company. Which figure explains this?
+**Core claim:** Prices change as new information alters expectations and trading pressure, while market capitalisation combines share price with shares outstanding to measure equity-market scale.
+**Case role:** market-evidence comparison
+**Primary output:** evidence-based-investment-decision - Write a cautious explanation of the price move and correct the company-scale misconception.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** An HKEX quote shows Hong Kong-listed Alibaba at HKD 82. Is that the price every investor can trade immediately?
-- **Key idea:** A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
-- **Try it:** Read a frozen quote page, calculate the spread and separate known facts from unsupported conclusions.
-- **Decide:** Calculate the spread and state two things the quote page cannot prove.
+- **Hook:** A lower-priced share belongs to the larger company. Which figure explains this?
+- **Key idea:** Prices change as new information alters expectations and trading pressure, while market capitalisation combines share price with shares outstanding to measure equity-market scale.
+- **Try it:** Explain one frozen price reaction and compare two companies using both share price and market capitalisation.
+- **Decide:** Write a cautious explanation of the price move and correct the company-scale misconception.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** An HKEX quote shows Hong Kong-listed Alibaba at HKD 82. Is that the price every investor can trade immediately?
-- **First judgement:** Make a first judgement about Alibaba quote snapshot and give one reason before the key idea is taught.
-- **Likely naive answer:** The displayed last price is always the exact price of the next trade.
-- **Missing evidence:** Students need the snapshot time, bid, ask, volume, market status and order conditions.
-- **Key idea:** A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
-- **Try it:** Read a frozen quote page, calculate the spread and separate known facts from unsupported conclusions.
-- **Misconception check:** Correct the claim: The displayed last price is always the exact price of the next trade.
-- **Exit judgement:** Calculate the spread and state two things the quote page cannot prove.
+- **Starter dilemma:** A lower-priced share belongs to the larger company. Which figure explains this?
+- **First judgement:** Make a first judgement about Price reaction and company scale and give one reason before the key idea is taught.
+- **Likely naive answer:** A low share price means a cheap company, and every price movement has one clear cause.
+- **Missing evidence:** Students need the timing of information, expectations, trading context, share count and alternative explanations.
+- **Key idea:** Prices change as new information alters expectations and trading pressure, while market capitalisation combines share price with shares outstanding to measure equity-market scale.
+- **Try it:** Explain one frozen price reaction and compare two companies using both share price and market capitalisation.
+- **Misconception check:** Correct the claim: A low share price means a cheap company, and every price movement has one clear cause.
+- **Exit judgement:** Write a cautious explanation of the price move and correct the company-scale misconception.
 
 ### Source pack
 
@@ -2092,17 +1589,17 @@ Analyse why the evidence in Broker trade journey could change the initial invest
 
 ### Deck arc
 
-- Hook: An HKEX quote shows Hong Kong-listed Alibaba at HKD 82. Is that the price every investor can trade immediately?
+- Hook: A lower-priced share belongs to the larger company. Which figure explains this?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A quote page is a dated market snapshot showing available information, not guaranteed execution or evidence of intrinsic value.
-- SMG core lab: Annotate the quote page for one eligible security before any new order is approved, including price, change, volume and time stamp.
+- Teach: Prices change as new information alters expectations and trading pressure, while market capitalisation combines share price with shares outstanding to measure equity-market scale.
+- SMG core lab: Explain one material price move using dated evidence and compare share price with market capitalisation for two candidates.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate the spread and state two things the quote page cannot prove.
+- Individual exit ticket: Write a cautious explanation of the price move and correct the company-scale misconception.
 
 ### Retrieval practice
 
-- **Yes/no:** The displayed last price is always the exact price of the next trade. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Alibaba quote snapshot? Answer: Students need the snapshot time, bid, ask, volume, market status and order conditions.
+- **Yes/no:** A low share price means a cheap company, and every price movement has one clear cause. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Price reaction and company scale? Answer: Students need the timing of information, expectations, trading context, share count and alternative explanations.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -2111,11 +1608,11 @@ Analyse why the evidence in Broker trade journey could change the initial invest
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate the spread and state two things the quote page cannot prove.
+- **Written action:** Write a cautious explanation of the price move and correct the company-scale misconception.
 
 ### Analyse why
 
-Analyse why the evidence in Alibaba quote snapshot could change the initial investment judgement.
+Analyse why the evidence in Price reaction and company scale could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -2124,207 +1621,13 @@ Analyse why the evidence in Alibaba quote snapshot could change the initial inve
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Alibaba quote snapshot scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Bid-ask spread = ask price - bid price.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate the spread and state two things the quote page cannot prove.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Alibaba quote snapshot evidence pack
-- Calculation: Bid-ask spread = ask price - bid price.
-- Judgement: Calculate the spread and state two things the quote page cannot prove.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 22: Earnings-news price reaction
-
-**Guiding question:** Why do share prices change?
-**Student hook:** A company reports higher profit, yet its share price falls. How can both be true?
-**Core claim:** Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
-**Case role:** market data case
-**Primary output:** evidence-based-investment-decision - Explain one price reaction using the chain information to expectations to action to price pressure.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A company reports higher profit, yet its share price falls. How can both be true?
-- **Key idea:** Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
-- **Try it:** Connect four news items to expectation changes and possible buying or selling pressure without predicting certainty.
-- **Decide:** Explain one price reaction using the chain information to expectations to action to price pressure.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A company reports higher profit, yet its share price falls. How can both be true?
-- **First judgement:** Make a first judgement about Earnings-news price reaction and give one reason before the key idea is taught.
-- **Likely naive answer:** Good company news must make the share price rise.
-- **Missing evidence:** Students need prior expectations, the new information, valuation, alternative explanations and the price snapshot period.
-- **Key idea:** Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
-- **Try it:** Connect four news items to expectation changes and possible buying or selling pressure without predicting certainty.
-- **Misconception check:** Correct the claim: Good company news must make the share price rise.
-- **Exit judgement:** Explain one price reaction using the chain information to expectations to action to price pressure.
-
-### Source pack
-
-- official exchange or market-infrastructure source
-- teacher-frozen market-data snapshot
-- dated disclosure or reputable market explanation
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A company reports higher profit, yet its share price falls. How can both be true?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Share prices change when new information changes expectations and investors' willingness to buy or sell at particular prices.
-- SMG core lab: Explain one material price move in a holding or watchlist candidate using dated evidence, an alternative explanation and one limitation.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain one price reaction using the chain information to expectations to action to price pressure.
-
-### Retrieval practice
-
-- **Yes/no:** Good company news must make the share price rise. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Earnings-news price reaction? Answer: Students need prior expectations, the new information, valuation, alternative explanations and the price snapshot period.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain one price reaction using the chain information to expectations to action to price pressure.
-
-### Analyse why
-
-Analyse why the evidence in Earnings-news price reaction could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Earnings-news price reaction scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Percentage price change = (new price - old price) / old price x 100.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain one price reaction using the chain information to expectations to action to price pressure.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Earnings-news price reaction evidence pack
-- Calculation: Percentage price change = (new price - old price) / old price x 100.
-- Judgement: Explain one price reaction using the chain information to expectations to action to price pressure.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 23: Nvidia and peer scale case
-
-**Guiding question:** How are share price and company size different?
-**Student hook:** Company A has a USD 500 share price and Company B has a USD 100 share price. Which company is larger?
-**Core claim:** One-share price cannot show company size because market capitalisation also depends on shares outstanding.
-**Case role:** United States company comparison
-**Primary output:** evidence-based-investment-decision - Calculate both market capitalisations and correct the high-price misconception.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** Company A has a USD 500 share price and Company B has a USD 100 share price. Which company is larger?
-- **Key idea:** One-share price cannot show company size because market capitalisation also depends on shares outstanding.
-- **Try it:** Calculate market capitalisation for two simplified companies and compare scale.
-- **Decide:** Calculate both market capitalisations and correct the high-price misconception.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** Company A has a USD 500 share price and Company B has a USD 100 share price. Which company is larger?
-- **First judgement:** Make a first judgement about Nvidia and peer scale case and give one reason before the key idea is taught.
-- **Likely naive answer:** The company with the higher share price is the larger or more valuable company.
-- **Missing evidence:** Students need share price, share count, consistent currency and snapshot date.
-- **Key idea:** One-share price cannot show company size because market capitalisation also depends on shares outstanding.
-- **Try it:** Calculate market capitalisation for two simplified companies and compare scale.
-- **Misconception check:** Correct the claim: The company with the higher share price is the larger or more valuable company.
-- **Exit judgement:** Calculate both market capitalisations and correct the high-price misconception.
-
-### Source pack
-
-- official annual or interim report extract
-- dated company or market-data snapshot
-- risk, industry or governance source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: Company A has a USD 500 share price and Company B has a USD 100 share price. Which company is larger?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: One-share price cannot show company size because market capitalisation also depends on shares outstanding.
-- SMG core lab: Compare market capitalisation and share price for two eligible candidates and correct the claim that the lower-priced share is the cheaper company.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate both market capitalisations and correct the high-price misconception.
-
-### Retrieval practice
-
-- **Yes/no:** The company with the higher share price is the larger or more valuable company. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Nvidia and peer scale case? Answer: Students need share price, share count, consistent currency and snapshot date.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate both market capitalisations and correct the high-price misconception.
-
-### Analyse why
-
-Analyse why the evidence in Nvidia and peer scale case could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Nvidia and peer scale case scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Price reaction and company scale scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
 2. **Calculate or interpret:** Market capitalisation = share price x shares outstanding.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate both market capitalisations and correct the high-price misconception.
+5. **Judge:** Write a cautious explanation of the price move and correct the company-scale misconception.
 
 ### Handout/chapter blocks
 
@@ -2335,231 +1638,37 @@ Analyse why the evidence in Nvidia and peer scale case could change the initial 
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Nvidia and peer scale case evidence pack
+- Stimulus: frozen Price reaction and company scale evidence pack
 - Calculation: Market capitalisation = share price x shares outstanding.
-- Judgement: Calculate both market capitalisations and correct the high-price misconception.
+- Judgement: Write a cautious explanation of the price move and correct the company-scale misconception.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 24: HSBC return case
+## Lesson 17: Return and benchmark comparison
 
-**Guiding question:** How does a share create gains, losses and income?
-**Student hook:** A share pays a dividend but its price falls. Did the investor earn a positive return?
-**Core claim:** Shareholder return combines price change and distributions over the same holding period.
-**Case role:** listed company
-**Primary output:** evidence-based-investment-decision - Calculate total return and explain which component drove the result.
+**Guiding question:** How should investment performance be measured and compared?
+**Student hook:** A portfolio gained 8% while its market index gained 11%. Was the portfolio successful?
+**Core claim:** Total return combines price change and income, while a benchmark gives a relevant same-period comparison without proving that the decision process was good or bad.
+**Case role:** performance comparison
+**Primary output:** evidence-based-investment-decision - State the relative result and one limitation of using it to judge decision quality.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A share pays a dividend but its price falls. Did the investor earn a positive return?
-- **Key idea:** Shareholder return combines price change and distributions over the same holding period.
-- **Try it:** Calculate and interpret total return in gain, loss and dividend scenarios.
-- **Decide:** Calculate total return and explain which component drove the result.
+- **Hook:** A portfolio gained 8% while its market index gained 11%. Was the portfolio successful?
+- **Key idea:** Total return combines price change and income, while a benchmark gives a relevant same-period comparison without proving that the decision process was good or bad.
+- **Try it:** Calculate a holding's total return and compare the team portfolio with a matched index over the same frozen period.
+- **Decide:** State the relative result and one limitation of using it to judge decision quality.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A share pays a dividend but its price falls. Did the investor earn a positive return?
-- **First judgement:** Make a first judgement about HSBC return case and give one reason before the key idea is taught.
-- **Likely naive answer:** Receiving a dividend means the investment produced a positive total return.
-- **Missing evidence:** Students need purchase value, ending value, income, holding period, currency and costs.
-- **Key idea:** Shareholder return combines price change and distributions over the same holding period.
-- **Try it:** Calculate and interpret total return in gain, loss and dividend scenarios.
-- **Misconception check:** Correct the claim: Receiving a dividend means the investment produced a positive total return.
-- **Exit judgement:** Calculate total return and explain which component drove the result.
-
-### Source pack
-
-- official annual or interim report extract
-- dated company or market-data snapshot
-- risk, industry or governance source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A share pays a dividend but its price falls. Did the investor earn a positive return?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Shareholder return combines price change and distributions over the same holding period.
-- SMG core lab: Calculate total return for one holding or frozen candidate, including distributions where relevant, and distinguish it from price return.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate total return and explain which component drove the result.
-
-### Retrieval practice
-
-- **Yes/no:** Receiving a dividend means the investment produced a positive total return. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about HSBC return case? Answer: Students need purchase value, ending value, income, holding period, currency and costs.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate total return and explain which component drove the result.
-
-### Analyse why
-
-Analyse why the evidence in HSBC return case could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded HSBC return case scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Total return amount = ending value - starting value + income; total return percentage = total return amount / starting value x 100.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate total return and explain which component drove the result.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen HSBC return case evidence pack
-- Calculation: Total return amount = ending value - starting value + income; total return percentage = total return amount / starting value x 100.
-- Judgement: Calculate total return and explain which component drove the result.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 25: Hang Seng Index snapshot
-
-**Guiding question:** How does a market index measure performance?
-**Student hook:** The Hang Seng Index rises. Does that mean every listed share rose?
-**Core claim:** A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
-**Case role:** market data case
-**Primary output:** evidence-based-investment-decision - Explain what the index movement shows and two things it does not show.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** The Hang Seng Index rises. Does that mean every listed share rose?
-- **Key idea:** A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
-- **Try it:** Read constituent weights and explain why one large company can influence an index more than another.
-- **Decide:** Explain what the index movement shows and two things it does not show.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** The Hang Seng Index rises. Does that mean every listed share rose?
-- **First judgement:** Make a first judgement about Hang Seng Index snapshot and give one reason before the key idea is taught.
-- **Likely naive answer:** If an index rises, all constituent shares and all investor portfolios gained the same amount.
-- **Missing evidence:** Students need index rules, constituents, weights, dates and whether income is included.
-- **Key idea:** A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
-- **Try it:** Read constituent weights and explain why one large company can influence an index more than another.
-- **Misconception check:** Correct the claim: If an index rises, all constituent shares and all investor portfolios gained the same amount.
-- **Exit judgement:** Explain what the index movement shows and two things it does not show.
-
-### Source pack
-
-- official exchange or market-infrastructure source
-- teacher-frozen market-data snapshot
-- dated disclosure or reputable market explanation
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: The Hang Seng Index rises. Does that mean every listed share rose?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A market index measures a defined basket under weighting rules and cannot represent every security or every investor's return.
-- SMG core lab: Compare the team's return with the applicable platform benchmark over the same period and explain why rank does not prove decision quality.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain what the index movement shows and two things it does not show.
-
-### Retrieval practice
-
-- **Yes/no:** If an index rises, all constituent shares and all investor portfolios gained the same amount. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Hang Seng Index snapshot? Answer: Students need index rules, constituents, weights, dates and whether income is included.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain what the index movement shows and two things it does not show.
-
-### Analyse why
-
-Analyse why the evidence in Hang Seng Index snapshot could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Hang Seng Index snapshot scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Index percentage change = (new index level - old index level) / old index level x 100.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain what the index movement shows and two things it does not show.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Hang Seng Index snapshot evidence pack
-- Calculation: Index percentage change = (new index level - old index level) / old index level x 100.
-- Judgement: Explain what the index movement shows and two things it does not show.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 26: News and rumour evidence pack
-
-**Guiding question:** How should investors judge market news?
-**Student hook:** A social-media post claims a company will announce a major deal tomorrow. What should a careful investor do?
-**Core claim:** Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
-**Case role:** source evaluation case
-**Primary output:** evidence-based-investment-decision - Write a market-evidence memo choosing monitor, reject or gather more evidence.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A social-media post claims a company will announce a major deal tomorrow. What should a careful investor do?
-- **Key idea:** Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
-- **Try it:** Rank five source extracts and decide which justify action, monitoring or rejection.
-- **Decide:** Write a market-evidence memo choosing monitor, reject or gather more evidence.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A social-media post claims a company will announce a major deal tomorrow. What should a careful investor do?
-- **First judgement:** Make a first judgement about News and rumour evidence pack and give one reason before the key idea is taught.
-- **Likely naive answer:** Widely shared information is reliable enough to trade on.
-- **Missing evidence:** Students need the original source, publication time, supporting evidence, independent confirmation and legal or ethical limits.
-- **Key idea:** Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
-- **Try it:** Rank five source extracts and decide which justify action, monitoring or rejection.
-- **Misconception check:** Correct the claim: Widely shared information is reliable enough to trade on.
-- **Exit judgement:** Write a market-evidence memo choosing monitor, reject or gather more evidence.
+- **Starter dilemma:** A portfolio gained 8% while its market index gained 11%. Was the portfolio successful?
+- **First judgement:** Make a first judgement about Return and benchmark comparison and give one reason before the key idea is taught.
+- **Likely naive answer:** A positive return or high rank proves that the investment decision was good.
+- **Missing evidence:** Students need beginning and ending values, income, fees, the exact period, benchmark method and portfolio cash flows.
+- **Key idea:** Total return combines price change and income, while a benchmark gives a relevant same-period comparison without proving that the decision process was good or bad.
+- **Try it:** Calculate a holding's total return and compare the team portfolio with a matched index over the same frozen period.
+- **Misconception check:** Correct the claim: A positive return or high rank proves that the investment decision was good.
+- **Exit judgement:** State the relative result and one limitation of using it to judge decision quality.
 
 ### Source pack
 
@@ -2577,17 +1686,17 @@ Analyse why the evidence in Hang Seng Index snapshot could change the initial in
 
 ### Deck arc
 
-- Hook: A social-media post claims a company will announce a major deal tomorrow. What should a careful investor do?
+- Hook: A portfolio gained 8% while its market index gained 11%. Was the portfolio successful?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Market news should be checked for source quality, date, materiality, confirmation and limitations before it changes an investment judgement.
-- SMG core lab: Audit one market-news item used by the team for source quality, date, material evidence, uncertainty and possible conflict.
+- Teach: Total return combines price change and income, while a benchmark gives a relevant same-period comparison without proving that the decision process was good or bad.
+- SMG core lab: Calculate total return for one holding and compare the team's same-period performance with the applicable benchmark without using rank as proof of quality.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Write a market-evidence memo choosing monitor, reject or gather more evidence.
+- Individual exit ticket: State the relative result and one limitation of using it to judge decision quality.
 
 ### Retrieval practice
 
-- **Yes/no:** Widely shared information is reliable enough to trade on. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about News and rumour evidence pack? Answer: Students need the original source, publication time, supporting evidence, independent confirmation and legal or ethical limits.
+- **Yes/no:** A positive return or high rank proves that the investment decision was good. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Return and benchmark comparison? Answer: Students need beginning and ending values, income, fees, the exact period, benchmark method and portfolio cash flows.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -2596,11 +1705,11 @@ Analyse why the evidence in Hang Seng Index snapshot could change the initial in
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Write a market-evidence memo choosing monitor, reject or gather more evidence.
+- **Written action:** State the relative result and one limitation of using it to judge decision quality.
 
 ### Analyse why
 
-Analyse why the evidence in News and rumour evidence pack could change the initial investment judgement.
+Analyse why the evidence in Return and benchmark comparison could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -2609,13 +1718,13 @@ Analyse why the evidence in News and rumour evidence pack could change the initi
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded News and rumour evidence pack scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Return and benchmark comparison scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; score sources by authority, date, evidence, corroboration and limitation.
+2. **Calculate or interpret:** Total return percentage = (ending value - beginning value + income) / beginning value x 100; relative return = portfolio return - benchmark return.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Write a market-evidence memo choosing monitor, reject or gather more evidence.
+5. **Judge:** State the relative result and one limitation of using it to judge decision quality.
 
 ### Handout/chapter blocks
 
@@ -2626,48 +1735,43 @@ Analyse why the evidence in News and rumour evidence pack could change the initi
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen News and rumour evidence pack evidence pack
-- Calculation: No new formula; score sources by authority, date, evidence, corroboration and limitation.
-- Judgement: Write a market-evidence memo choosing monitor, reject or gather more evidence.
+- Stimulus: frozen Return and benchmark comparison evidence pack
+- Calculation: Total return percentage = (ending value - beginning value + income) / beginning value x 100; relative return = portfolio return - benchmark return.
+- Judgement: State the relative result and one limitation of using it to judge decision quality.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
+## Lesson 18: News, rumour and analyst conflict pack
 
-# Unit 4: Analysing Companies
-
-Students use ethical source discipline, business models, financial statements, comparisons, risks and valuation to write a balanced junior analyst memo.
-
-## Lesson 27: Analyst conflict case
-
-**Guiding question:** What ethical responsibilities does an investment analyst have?
-**Student hook:** An analyst owns shares in a company before publishing a positive report. What must readers know?
-**Core claim:** Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
-**Case role:** professional ethics case
-**Primary output:** evidence-based-investment-decision - Explain the most serious conflict and the action needed before publication.
+**Guiding question:** How should investors judge market information and analyst conflicts?
+**Student hook:** A positive report is shared online, but the author owns the shares and cites no original source. Should the team use it?
+**Core claim:** Reliable investment evidence requires source, date, material support, uncertainty and conflict checks, with evidence separated clearly from opinion.
+**Case role:** market and professional ethics case
+**Primary output:** evidence-based-investment-decision - Accept, qualify or reject one source and justify the decision with a conflict check.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** An analyst owns shares in a company before publishing a positive report. What must readers know?
-- **Key idea:** Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
-- **Try it:** Identify ethical problems in three analyst scenarios and propose a corrective action.
-- **Decide:** Explain the most serious conflict and the action needed before publication.
+- **Hook:** A positive report is shared online, but the author owns the shares and cites no original source. Should the team use it?
+- **Key idea:** Reliable investment evidence requires source, date, material support, uncertainty and conflict checks, with evidence separated clearly from opinion.
+- **Try it:** Audit four information items, disclose conflicts and decide which evidence can support the market memo.
+- **Decide:** Accept, qualify or reject one source and justify the decision with a conflict check.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** An analyst owns shares in a company before publishing a positive report. What must readers know?
-- **First judgement:** Make a first judgement about Analyst conflict case and give one reason before the key idea is taught.
-- **Likely naive answer:** Accurate calculations make an analysis ethical even when conflicts are hidden.
-- **Missing evidence:** Students need the analyst's interests, evidence process, audience, disclosures and professional duties.
-- **Key idea:** Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
-- **Try it:** Identify ethical problems in three analyst scenarios and propose a corrective action.
-- **Misconception check:** Correct the claim: Accurate calculations make an analysis ethical even when conflicts are hidden.
-- **Exit judgement:** Explain the most serious conflict and the action needed before publication.
+- **Starter dilemma:** A positive report is shared online, but the author owns the shares and cites no original source. Should the team use it?
+- **First judgement:** Make a first judgement about News, rumour and analyst conflict pack and give one reason before the key idea is taught.
+- **Likely naive answer:** A confident expert claim or accurate calculation is reliable even when sources and conflicts are hidden.
+- **Missing evidence:** Students need the original source, publication date, evidence chain, uncertainty, author interests and disclosure.
+- **Key idea:** Reliable investment evidence requires source, date, material support, uncertainty and conflict checks, with evidence separated clearly from opinion.
+- **Try it:** Audit four information items, disclose conflicts and decide which evidence can support the market memo.
+- **Misconception check:** Correct the claim: A confident expert claim or accurate calculation is reliable even when sources and conflicts are hidden.
+- **Exit judgement:** Accept, qualify or reject one source and justify the decision with a conflict check.
 
 ### Source pack
 
-- professional code or official role description
-- teacher-built workflow case
-- dated career or industry source
+- official exchange or market-infrastructure source
+- teacher-frozen market-data snapshot
+- dated disclosure or reputable market explanation
 
 **Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
 **Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
@@ -2679,17 +1783,17 @@ Students use ethical source discipline, business models, financial statements, c
 
 ### Deck arc
 
-- Hook: An analyst owns shares in a company before publishing a positive report. What must readers know?
+- Hook: A positive report is shared online, but the author owns the shares and cites no original source. Should the team use it?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Investment analysis requires honesty, independence, competence, conflict disclosure and clear separation of evidence from opinion.
-- SMG core lab: Apply the course ethics and conflict check to a team source, recommendation or proposed action before it enters the evidence record.
+- Teach: Reliable investment evidence requires source, date, material support, uncertainty and conflict checks, with evidence separated clearly from opinion.
+- SMG core lab: Audit one market-news or analyst item for source quality, date, material evidence, uncertainty and conflict, then submit the market-evidence memo.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain the most serious conflict and the action needed before publication.
+- Individual exit ticket: Accept, qualify or reject one source and justify the decision with a conflict check.
 
 ### Retrieval practice
 
-- **Yes/no:** Accurate calculations make an analysis ethical even when conflicts are hidden. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Analyst conflict case? Answer: Students need the analyst's interests, evidence process, audience, disclosures and professional duties.
+- **Yes/no:** A confident expert claim or accurate calculation is reliable even when sources and conflicts are hidden. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about News, rumour and analyst conflict pack? Answer: Students need the original source, publication date, evidence chain, uncertainty, author interests and disclosure.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -2698,11 +1802,11 @@ Students use ethical source discipline, business models, financial statements, c
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain the most serious conflict and the action needed before publication.
+- **Written action:** Accept, qualify or reject one source and justify the decision with a conflict check.
 
 ### Analyse why
 
-Analyse why the evidence in Analyst conflict case could change the initial investment judgement.
+Analyse why the evidence in News, rumour and analyst conflict pack could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -2711,13 +1815,13 @@ Analyse why the evidence in Analyst conflict case could change the initial inves
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Analyst conflict case scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded News, rumour and analyst conflict pack scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; apply an ethics checklist to evidence, incentives and disclosure.
+2. **Calculate or interpret:** No new formula; apply a source-and-conflict checklist before information enters the evidence record.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain the most serious conflict and the action needed before publication.
+5. **Judge:** Accept, qualify or reject one source and justify the decision with a conflict check.
 
 ### Handout/chapter blocks
 
@@ -2728,12 +1832,17 @@ Analyse why the evidence in Analyst conflict case could change the initial inves
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Analyst conflict case evidence pack
-- Calculation: No new formula; apply an ethics checklist to evidence, incentives and disclosure.
-- Judgement: Explain the most serious conflict and the action needed before publication.
+- Stimulus: frozen News, rumour and analyst conflict pack evidence pack
+- Calculation: No new formula; apply a source-and-conflict checklist before information enters the evidence record.
+- Judgement: Accept, qualify or reject one source and justify the decision with a conflict check.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 28: Tencent business model
+
+# Unit 4: Analysing Companies
+
+Students use ethical source discipline, business models, financial statements, peer evidence, risks and valuation to write a balanced junior analyst memo.
+
+## Lesson 19: Tencent business model
 
 **Guiding question:** How does a business make money and defend its position?
 **Student hook:** Tencent offers many services. Which activities actually create revenue and strengthen the business?
@@ -2830,32 +1939,32 @@ Analyse why the evidence in Tencent business model could change the initial inve
 - Judgement: Explain one revenue driver and one risk to the claimed advantage.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 29: Meituan income statement
+## Lesson 20: Income statement and cash-flow extracts
 
-**Guiding question:** What does an income statement reveal about performance?
-**Student hook:** Meituan's revenue rises quickly. Does that prove the business became more profitable?
-**Core claim:** An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
-**Case role:** listed company
-**Primary output:** evidence-based-investment-decision - Calculate two measures and write one sentence linking them to company performance.
+**Guiding question:** How do profit and cash flow reveal different parts of company performance?
+**Student hook:** A company reports higher profit but weaker operating cash flow. Which result should the analyst trust?
+**Core claim:** The income statement measures revenue, expenses and profit over a period, while the cash-flow statement records cash movements; their difference can reveal timing, working-capital and investment effects.
+**Case role:** listed company evidence case
+**Primary output:** evidence-based-investment-decision - Explain which difference matters most to the investment judgement and what evidence is still needed.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** Meituan's revenue rises quickly. Does that prove the business became more profitable?
-- **Key idea:** An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
-- **Try it:** Calculate revenue growth and one margin, then explain why they can move differently.
-- **Decide:** Calculate two measures and write one sentence linking them to company performance.
+- **Hook:** A company reports higher profit but weaker operating cash flow. Which result should the analyst trust?
+- **Key idea:** The income statement measures revenue, expenses and profit over a period, while the cash-flow statement records cash movements; their difference can reveal timing, working-capital and investment effects.
+- **Try it:** Calculate one margin and free-cash-flow figure, then reconcile why profit and operating cash flow differ.
+- **Decide:** Explain which difference matters most to the investment judgement and what evidence is still needed.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** Meituan's revenue rises quickly. Does that prove the business became more profitable?
-- **First judgement:** Make a first judgement about Meituan income statement and give one reason before the key idea is taught.
-- **Likely naive answer:** Rising revenue always means rising profitability and a stronger investment case.
-- **Missing evidence:** Students need aligned periods, accounting definitions, segment context and cost changes.
-- **Key idea:** An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
-- **Try it:** Calculate revenue growth and one margin, then explain why they can move differently.
-- **Misconception check:** Correct the claim: Rising revenue always means rising profitability and a stronger investment case.
-- **Exit judgement:** Calculate two measures and write one sentence linking them to company performance.
+- **Starter dilemma:** A company reports higher profit but weaker operating cash flow. Which result should the analyst trust?
+- **First judgement:** Make a first judgement about Income statement and cash-flow extracts and give one reason before the key idea is taught.
+- **Likely naive answer:** Reported profit and cash generated are the same measure of performance.
+- **Missing evidence:** Students need reporting periods, accounting definitions, working-capital movements, capital expenditure and any one-off items.
+- **Key idea:** The income statement measures revenue, expenses and profit over a period, while the cash-flow statement records cash movements; their difference can reveal timing, working-capital and investment effects.
+- **Try it:** Calculate one margin and free-cash-flow figure, then reconcile why profit and operating cash flow differ.
+- **Misconception check:** Correct the claim: Reported profit and cash generated are the same measure of performance.
+- **Exit judgement:** Explain which difference matters most to the investment judgement and what evidence is still needed.
 
 ### Source pack
 
@@ -2873,17 +1982,17 @@ Analyse why the evidence in Tencent business model could change the initial inve
 
 ### Deck arc
 
-- Hook: Meituan's revenue rises quickly. Does that prove the business became more profitable?
+- Hook: A company reports higher profit but weaker operating cash flow. Which result should the analyst trust?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: An income statement shows revenue, expenses and profit over a period, but each figure needs comparison and explanation.
-- SMG core lab: Extract one revenue, cost and profit trend from a holding or candidate's income statement and state how it affects the team judgement.
+- Teach: The income statement measures revenue, expenses and profit over a period, while the cash-flow statement records cash movements; their difference can reveal timing, working-capital and investment effects.
+- SMG core lab: Extract revenue and profit evidence, compare profit with operating cash flow and explain the difference for the team judgement.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate two measures and write one sentence linking them to company performance.
+- Individual exit ticket: Explain which difference matters most to the investment judgement and what evidence is still needed.
 
 ### Retrieval practice
 
-- **Yes/no:** Rising revenue always means rising profitability and a stronger investment case. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Meituan income statement? Answer: Students need aligned periods, accounting definitions, segment context and cost changes.
+- **Yes/no:** Reported profit and cash generated are the same measure of performance. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Income statement and cash-flow extracts? Answer: Students need reporting periods, accounting definitions, working-capital movements, capital expenditure and any one-off items.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -2892,11 +2001,11 @@ Analyse why the evidence in Tencent business model could change the initial inve
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate two measures and write one sentence linking them to company performance.
+- **Written action:** Explain which difference matters most to the investment judgement and what evidence is still needed.
 
 ### Analyse why
 
-Analyse why the evidence in Meituan income statement could change the initial investment judgement.
+Analyse why the evidence in Income statement and cash-flow extracts could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -2905,13 +2014,13 @@ Analyse why the evidence in Meituan income statement could change the initial in
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Meituan income statement scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Income statement and cash-flow extracts scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Revenue growth = (new revenue - old revenue) / old revenue x 100; profit margin = profit / revenue x 100.
+2. **Calculate or interpret:** Operating margin = operating profit / revenue x 100; simplified free cash flow = operating cash flow - capital expenditure.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate two measures and write one sentence linking them to company performance.
+5. **Judge:** Explain which difference matters most to the investment judgement and what evidence is still needed.
 
 ### Handout/chapter blocks
 
@@ -2922,12 +2031,12 @@ Analyse why the evidence in Meituan income statement could change the initial in
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Meituan income statement evidence pack
-- Calculation: Revenue growth = (new revenue - old revenue) / old revenue x 100; profit margin = profit / revenue x 100.
-- Judgement: Calculate two measures and write one sentence linking them to company performance.
+- Stimulus: frozen Income statement and cash-flow extracts evidence pack
+- Calculation: Operating margin = operating profit / revenue x 100; simplified free cash flow = operating cash flow - capital expenditure.
+- Judgement: Explain which difference matters most to the investment judgement and what evidence is still needed.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 30: Lenovo balance sheet
+## Lesson 21: Lenovo balance sheet
 
 **Guiding question:** How does a balance sheet reveal financial strength and debt risk?
 **Student hook:** A company owns many assets but also owes large amounts. Which side matters more?
@@ -2973,7 +2082,7 @@ Analyse why the evidence in Meituan income statement could change the initial in
 - Hook: A company owns many assets but also owes large amounts. Which side matters more?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: A balance sheet shows resources, obligations and equity at one date; debt must be judged with liquidity, cash generation and business context.
-- SMG core lab: Use balance-sheet evidence to assess one holding or candidate's liquidity, debt or financial resilience without relying on a single ratio.
+- SMG core lab: Use balance-sheet evidence to assess one holding or candidate's liquidity, debt and resilience without relying on a single ratio.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Interpret the leverage measure and identify the next evidence needed.
 
@@ -3024,32 +2133,32 @@ Analyse why the evidence in Lenovo balance sheet could change the initial invest
 - Judgement: Interpret the leverage measure and identify the next evidence needed.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 31: Tesla cash-flow extract
+## Lesson 22: Peer comparison and risk register
 
-**Guiding question:** Why can profit and cash flow tell different stories?
-**Student hook:** A company reports profit but has negative free cash flow. Is one figure wrong?
-**Core claim:** Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
-**Case role:** listed company
-**Primary output:** evidence-based-investment-decision - Explain why profit and free cash flow differ and what the difference may imply.
+**Guiding question:** How should analysts compare companies and record important risks?
+**Student hook:** Two companies have different margins and growth rates. Can one number prove which company is stronger?
+**Core claim:** A fair peer comparison aligns business model, period, currency and measure, then records material risks, evidence, impact and disconfirming indicators.
+**Case role:** company comparison case
+**Primary output:** evidence-based-investment-decision - Write a balanced peer judgement with one limitation and one risk that could reverse it.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A company reports profit but has negative free cash flow. Is one figure wrong?
-- **Key idea:** Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
-- **Try it:** Calculate free cash flow and compare it with reported profit across two periods.
-- **Decide:** Explain why profit and free cash flow differ and what the difference may imply.
+- **Hook:** Two companies have different margins and growth rates. Can one number prove which company is stronger?
+- **Key idea:** A fair peer comparison aligns business model, period, currency and measure, then records material risks, evidence, impact and disconfirming indicators.
+- **Try it:** Compare two frozen peers on aligned measures and add two material risks with indicators to a risk register.
+- **Decide:** Write a balanced peer judgement with one limitation and one risk that could reverse it.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A company reports profit but has negative free cash flow. Is one figure wrong?
-- **First judgement:** Make a first judgement about Tesla cash-flow extract and give one reason before the key idea is taught.
-- **Likely naive answer:** Reported profit means the same amount of cash entered the company.
-- **Missing evidence:** Students need operating cash flow, capital expenditure, working-capital context and the reporting period.
-- **Key idea:** Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
-- **Try it:** Calculate free cash flow and compare it with reported profit across two periods.
-- **Misconception check:** Correct the claim: Reported profit means the same amount of cash entered the company.
-- **Exit judgement:** Explain why profit and free cash flow differ and what the difference may imply.
+- **Starter dilemma:** Two companies have different margins and growth rates. Can one number prove which company is stronger?
+- **First judgement:** Make a first judgement about Peer comparison and risk register and give one reason before the key idea is taught.
+- **Likely naive answer:** The company with the better single ratio is the better investment.
+- **Missing evidence:** Students need comparable definitions, periods, currency, business context, risk evidence, possible impact and a monitoring indicator.
+- **Key idea:** A fair peer comparison aligns business model, period, currency and measure, then records material risks, evidence, impact and disconfirming indicators.
+- **Try it:** Compare two frozen peers on aligned measures and add two material risks with indicators to a risk register.
+- **Misconception check:** Correct the claim: The company with the better single ratio is the better investment.
+- **Exit judgement:** Write a balanced peer judgement with one limitation and one risk that could reverse it.
 
 ### Source pack
 
@@ -3067,17 +2176,17 @@ Analyse why the evidence in Lenovo balance sheet could change the initial invest
 
 ### Deck arc
 
-- Hook: A company reports profit but has negative free cash flow. Is one figure wrong?
+- Hook: Two companies have different margins and growth rates. Can one number prove which company is stronger?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Profit uses accounting recognition while cash flow records cash movement, so both are needed to judge earnings quality and investment needs.
-- SMG core lab: Compare profit with operating cash flow for one holding or candidate and record why the difference matters to the portfolio decision.
+- Teach: A fair peer comparison aligns business model, period, currency and measure, then records material risks, evidence, impact and disconfirming indicators.
+- SMG core lab: Compare one holding with a relevant peer using aligned measures and add two material risks plus a disconfirming indicator to the monitoring record.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain why profit and free cash flow differ and what the difference may imply.
+- Individual exit ticket: Write a balanced peer judgement with one limitation and one risk that could reverse it.
 
 ### Retrieval practice
 
-- **Yes/no:** Reported profit means the same amount of cash entered the company. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Tesla cash-flow extract? Answer: Students need operating cash flow, capital expenditure, working-capital context and the reporting period.
+- **Yes/no:** The company with the better single ratio is the better investment. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Peer comparison and risk register? Answer: Students need comparable definitions, periods, currency, business context, risk evidence, possible impact and a monitoring indicator.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -3086,11 +2195,11 @@ Analyse why the evidence in Lenovo balance sheet could change the initial invest
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain why profit and free cash flow differ and what the difference may imply.
+- **Written action:** Write a balanced peer judgement with one limitation and one risk that could reverse it.
 
 ### Analyse why
 
-Analyse why the evidence in Tesla cash-flow extract could change the initial investment judgement.
+Analyse why the evidence in Peer comparison and risk register could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -3099,13 +2208,13 @@ Analyse why the evidence in Tesla cash-flow extract could change the initial inv
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Tesla cash-flow extract scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Peer comparison and risk register scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Free cash flow = operating cash flow - capital expenditure.
+2. **Calculate or interpret:** Use aligned growth, margin and leverage measures; convert currency only when the source and rate are frozen and stated.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain why profit and free cash flow differ and what the difference may imply.
+5. **Judge:** Write a balanced peer judgement with one limitation and one risk that could reverse it.
 
 ### Handout/chapter blocks
 
@@ -3116,206 +2225,12 @@ Analyse why the evidence in Tesla cash-flow extract could change the initial inv
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Tesla cash-flow extract evidence pack
-- Calculation: Free cash flow = operating cash flow - capital expenditure.
-- Judgement: Explain why profit and free cash flow differ and what the difference may imply.
+- Stimulus: frozen Peer comparison and risk register evidence pack
+- Calculation: Use aligned growth, margin and leverage measures; convert currency only when the source and rate are frozen and stated.
+- Judgement: Write a balanced peer judgement with one limitation and one risk that could reverse it.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 32: BYD and Toyota peer comparison
-
-**Guiding question:** How can two companies be compared fairly?
-**Student hook:** BYD grows faster while Toyota has a higher margin. Which company is stronger?
-**Core claim:** A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
-**Case role:** company comparison
-**Primary output:** evidence-based-investment-decision - Write a two-measure comparison with one explicit comparability caveat.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** BYD grows faster while Toyota has a higher margin. Which company is stronger?
-- **Key idea:** A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
-- **Try it:** Audit a flawed comparison table, repair the mismatches and write a balanced comparison.
-- **Decide:** Write a two-measure comparison with one explicit comparability caveat.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** BYD grows faster while Toyota has a higher margin. Which company is stronger?
-- **First judgement:** Make a first judgement about BYD and Toyota peer comparison and give one reason before the key idea is taught.
-- **Likely naive answer:** The company with the best single ratio is the stronger investment.
-- **Missing evidence:** Students need comparable periods, accounting definitions, scale, business mix and risk evidence.
-- **Key idea:** A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
-- **Try it:** Audit a flawed comparison table, repair the mismatches and write a balanced comparison.
-- **Misconception check:** Correct the claim: The company with the best single ratio is the stronger investment.
-- **Exit judgement:** Write a two-measure comparison with one explicit comparability caveat.
-
-### Source pack
-
-- official annual or interim report extract
-- dated company or market-data snapshot
-- risk, industry or governance source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: BYD grows faster while Toyota has a higher margin. Which company is stronger?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A fair comparison uses aligned periods, currencies, definitions, business models and several relevant measures rather than one headline figure.
-- SMG core lab: Compare one holding or candidate with a relevant peer using the same dated measures and explain one limit of the comparison.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Write a two-measure comparison with one explicit comparability caveat.
-
-### Retrieval practice
-
-- **Yes/no:** The company with the best single ratio is the stronger investment. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about BYD and Toyota peer comparison? Answer: Students need comparable periods, accounting definitions, scale, business mix and risk evidence.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Write a two-measure comparison with one explicit comparability caveat.
-
-### Analyse why
-
-Analyse why the evidence in BYD and Toyota peer comparison could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded BYD and Toyota peer comparison scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Use previously taught growth, margin and leverage formulas with aligned figures.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Write a two-measure comparison with one explicit comparability caveat.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen BYD and Toyota peer comparison evidence pack
-- Calculation: Use previously taught growth, margin and leverage formulas with aligned figures.
-- Judgement: Write a two-measure comparison with one explicit comparability caveat.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 33: Global consumer company risk register
-
-**Guiding question:** Which important risks may not appear directly in the financial statements?
-**Student hook:** A company's historical numbers look strong. What could still damage its future results?
-**Core claim:** Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
-**Case role:** listed company
-**Primary output:** evidence-based-investment-decision - Prioritise two risks and explain the evidence behind the ranking.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A company's historical numbers look strong. What could still damage its future results?
-- **Key idea:** Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
-- **Try it:** Build a risk register from dated company and industry extracts.
-- **Decide:** Prioritise two risks and explain the evidence behind the ranking.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A company's historical numbers look strong. What could still damage its future results?
-- **First judgement:** Make a first judgement about Global consumer company risk register and give one reason before the key idea is taught.
-- **Likely naive answer:** Strong historical profit proves that the company is low risk.
-- **Missing evidence:** Students need risk disclosures, industry evidence, competitive conditions, governance information and indicators to monitor.
-- **Key idea:** Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
-- **Try it:** Build a risk register from dated company and industry extracts.
-- **Misconception check:** Correct the claim: Strong historical profit proves that the company is low risk.
-- **Exit judgement:** Prioritise two risks and explain the evidence behind the ranking.
-
-### Source pack
-
-- official annual or interim report extract
-- dated company or market-data snapshot
-- risk, industry or governance source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A company's historical numbers look strong. What could still damage its future results?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Company analysis must add operational, industry, competitive and governance evidence because historical statements cannot show every future risk.
-- SMG core lab: Add two qualitative risks and one disconfirming indicator to the monitoring record for a holding or watchlist candidate.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Prioritise two risks and explain the evidence behind the ranking.
-
-### Retrieval practice
-
-- **Yes/no:** Strong historical profit proves that the company is low risk. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Global consumer company risk register? Answer: Students need risk disclosures, industry evidence, competitive conditions, governance information and indicators to monitor.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Prioritise two risks and explain the evidence behind the ranking.
-
-### Analyse why
-
-Analyse why the evidence in Global consumer company risk register could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Global consumer company risk register scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; assess each risk by evidence, likelihood, impact and possible indicator.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Prioritise two risks and explain the evidence behind the ranking.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Global consumer company risk register evidence pack
-- Calculation: No new formula; assess each risk by evidence, likelihood, impact and possible indicator.
-- Judgement: Prioritise two risks and explain the evidence behind the ranking.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 34: Microsoft valuation case
+## Lesson 23: Microsoft valuation case
 
 **Guiding question:** Can a good company still be too expensive?
 **Student hook:** Microsoft has a strong business, but investors pay a high price for its earnings. Can both statements be true?
@@ -3412,7 +2327,7 @@ Analyse why the evidence in Microsoft valuation case could change the initial in
 - Judgement: Interpret the P/E comparison and state why it cannot decide the case alone.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 35: Junior analyst evidence pack
+## Lesson 24: Junior analyst evidence pack
 
 **Guiding question:** How should a junior analyst write an evidence-based company memo?
 **Student hook:** The evidence shows a strong business, mixed cash flow and a demanding price. What conclusion is defensible?
@@ -3512,34 +2427,34 @@ Analyse why the evidence in Junior analyst evidence pack could change the initia
 
 # Unit 5: Portfolios and Investor Behaviour
 
-Students construct, compare, monitor and rebalance portfolios while recognising concentration, currency, market and behavioural risks.
+Students review allocation, concentration, currency and market risks, compare alternatives, rebalance, monitor and correct behavioural bias.
 
-## Lesson 36: Three-goal family portfolio
+## Lesson 25: Portfolio allocation and concentration audit
 
-**Guiding question:** How should asset allocation reflect family goals?
-**Student hook:** One family portfolio must support education, a home purchase and retirement. Should every goal use the same asset mix?
-**Core claim:** Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
-**Case role:** portfolio case
-**Primary output:** evidence-based-investment-decision - Defend the allocation of each goal bucket and state one unresolved assumption.
+**Guiding question:** How do asset allocation and concentration shape portfolio risk?
+**Student hook:** A portfolio owns many securities but half its value depends on one company. Which feature matters more?
+**Core claim:** Asset allocation distributes value across investment categories, while concentration measures dependence on one holding or shared exposure.
+**Case role:** portfolio construction case
+**Primary output:** evidence-based-investment-decision - Identify the most avoidable concentration and propose one evidence-based correction.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** One family portfolio must support education, a home purchase and retirement. Should every goal use the same asset mix?
-- **Key idea:** Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
-- **Try it:** Assign broad asset classes to three goal buckets and calculate the resulting weights.
-- **Decide:** Defend the allocation of each goal bucket and state one unresolved assumption.
+- **Hook:** A portfolio owns many securities but half its value depends on one company. Which feature matters more?
+- **Key idea:** Asset allocation distributes value across investment categories, while concentration measures dependence on one holding or shared exposure.
+- **Try it:** Calculate portfolio weights and identify the largest company, sector and asset-class concentrations.
+- **Decide:** Identify the most avoidable concentration and propose one evidence-based correction.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** One family portfolio must support education, a home purchase and retirement. Should every goal use the same asset mix?
-- **First judgement:** Make a first judgement about Three-goal family portfolio and give one reason before the key idea is taught.
-- **Likely naive answer:** One family should have one identical risk level for all money and all goals.
-- **Missing evidence:** Students need each goal amount, horizon, flexibility, contribution plan and loss capacity.
-- **Key idea:** Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
-- **Try it:** Assign broad asset classes to three goal buckets and calculate the resulting weights.
-- **Misconception check:** Correct the claim: One family should have one identical risk level for all money and all goals.
-- **Exit judgement:** Defend the allocation of each goal bucket and state one unresolved assumption.
+- **Starter dilemma:** A portfolio owns many securities but half its value depends on one company. Which feature matters more?
+- **First judgement:** Make a first judgement about Portfolio allocation and concentration audit and give one reason before the key idea is taught.
+- **Likely naive answer:** A portfolio with many line items is automatically diversified and well allocated.
+- **Missing evidence:** Students need current values, asset classes, sectors, shared exposures, target ranges and goal constraints.
+- **Key idea:** Asset allocation distributes value across investment categories, while concentration measures dependence on one holding or shared exposure.
+- **Try it:** Calculate portfolio weights and identify the largest company, sector and asset-class concentrations.
+- **Misconception check:** Correct the claim: A portfolio with many line items is automatically diversified and well allocated.
+- **Exit judgement:** Identify the most avoidable concentration and propose one evidence-based correction.
 
 ### Source pack
 
@@ -3557,17 +2472,17 @@ Students construct, compare, monitor and rebalance portfolios while recognising 
 
 ### Deck arc
 
-- Hook: One family portfolio must support education, a home purchase and retirement. Should every goal use the same asset mix?
+- Hook: A portfolio owns many securities but half its value depends on one company. Which feature matters more?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Asset allocation should connect separate goal buckets to their horizons, liquidity needs and risk capacities.
-- SMG core lab: Calculate the live portfolio's asset and security weights and compare them with the approved team policy.
+- Teach: Asset allocation distributes value across investment categories, while concentration measures dependence on one holding or shared exposure.
+- SMG core lab: Calculate the live portfolio's asset and security weights and identify the largest avoidable company, sector or asset-class concentration.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Defend the allocation of each goal bucket and state one unresolved assumption.
+- Individual exit ticket: Identify the most avoidable concentration and propose one evidence-based correction.
 
 ### Retrieval practice
 
-- **Yes/no:** One family should have one identical risk level for all money and all goals. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Three-goal family portfolio? Answer: Students need each goal amount, horizon, flexibility, contribution plan and loss capacity.
+- **Yes/no:** A portfolio with many line items is automatically diversified and well allocated. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Portfolio allocation and concentration audit? Answer: Students need current values, asset classes, sectors, shared exposures, target ranges and goal constraints.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -3576,11 +2491,11 @@ Students construct, compare, monitor and rebalance portfolios while recognising 
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Defend the allocation of each goal bucket and state one unresolved assumption.
+- **Written action:** Identify the most avoidable concentration and propose one evidence-based correction.
 
 ### Analyse why
 
-Analyse why the evidence in Three-goal family portfolio could change the initial investment judgement.
+Analyse why the evidence in Portfolio allocation and concentration audit could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -3589,13 +2504,13 @@ Analyse why the evidence in Three-goal family portfolio could change the initial
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Three-goal family portfolio scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Portfolio allocation and concentration audit scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Asset-class weight = asset-class value / total portfolio value x 100.
+2. **Calculate or interpret:** Portfolio weight = holding value / total portfolio value x 100; combined exposure weight = sum of related holding weights.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Defend the allocation of each goal bucket and state one unresolved assumption.
+5. **Judge:** Identify the most avoidable concentration and propose one evidence-based correction.
 
 ### Handout/chapter blocks
 
@@ -3606,37 +2521,37 @@ Analyse why the evidence in Three-goal family portfolio could change the initial
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Three-goal family portfolio evidence pack
-- Calculation: Asset-class weight = asset-class value / total portfolio value x 100.
-- Judgement: Defend the allocation of each goal bucket and state one unresolved assumption.
+- Stimulus: frozen Portfolio allocation and concentration audit evidence pack
+- Calculation: Portfolio weight = holding value / total portfolio value x 100; combined exposure weight = sum of related holding weights.
+- Judgement: Identify the most avoidable concentration and propose one evidence-based correction.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 37: Concentrated Tencent holding
+## Lesson 26: Global exposure and portfolio stress test
 
-**Guiding question:** When is one holding too large?
-**Student hook:** Tencent rises until it becomes 38% of a family portfolio. Is that success, risk or both?
-**Core claim:** Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
-**Case role:** portfolio case
-**Primary output:** evidence-based-investment-decision - Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+**Guiding question:** Which geographic, currency and market risks remain in a diversified portfolio?
+**Student hook:** A global-looking portfolio owns many funds, yet most revenue and currency exposure points to one market. Is it diversified?
+**Core claim:** Listing place does not fully reveal geographic or currency exposure, and diversification cannot remove broad market risk or correlations that rise during stress.
+**Case role:** portfolio risk case
+**Primary output:** evidence-based-investment-decision - Explain which risk was diversified, which remained and which exposure needs more evidence.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** Tencent rises until it becomes 38% of a family portfolio. Is that success, risk or both?
-- **Key idea:** Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
-- **Try it:** Calculate position sizes before and after a price change and identify the portfolio consequence.
-- **Decide:** Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+- **Hook:** A global-looking portfolio owns many funds, yet most revenue and currency exposure points to one market. Is it diversified?
+- **Key idea:** Listing place does not fully reveal geographic or currency exposure, and diversification cannot remove broad market risk or correlations that rise during stress.
+- **Try it:** Map hidden geographic and currency exposures, then stress-test the portfolio against company, sector and market shocks.
+- **Decide:** Explain which risk was diversified, which remained and which exposure needs more evidence.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** Tencent rises until it becomes 38% of a family portfolio. Is that success, risk or both?
-- **First judgement:** Make a first judgement about Concentrated Tencent holding and give one reason before the key idea is taught.
-- **Likely naive answer:** A strong company cannot be too large in a portfolio.
-- **Missing evidence:** Students need current weights, target rules, tax or transaction constraints if relevant and the holding's shared exposures.
-- **Key idea:** Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
-- **Try it:** Calculate position sizes before and after a price change and identify the portfolio consequence.
-- **Misconception check:** Correct the claim: A strong company cannot be too large in a portfolio.
-- **Exit judgement:** Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+- **Starter dilemma:** A global-looking portfolio owns many funds, yet most revenue and currency exposure points to one market. Is it diversified?
+- **First judgement:** Make a first judgement about Global exposure and portfolio stress test and give one reason before the key idea is taught.
+- **Likely naive answer:** Foreign listings or many funds automatically remove geographic, currency and market risk.
+- **Missing evidence:** Students need holding weights, underlying exposures, revenue geography, currencies, hedging information and scenario assumptions.
+- **Key idea:** Listing place does not fully reveal geographic or currency exposure, and diversification cannot remove broad market risk or correlations that rise during stress.
+- **Try it:** Map hidden geographic and currency exposures, then stress-test the portfolio against company, sector and market shocks.
+- **Misconception check:** Correct the claim: Foreign listings or many funds automatically remove geographic, currency and market risk.
+- **Exit judgement:** Explain which risk was diversified, which remained and which exposure needs more evidence.
 
 ### Source pack
 
@@ -3654,17 +2569,17 @@ Analyse why the evidence in Three-goal family portfolio could change the initial
 
 ### Deck arc
 
-- Hook: Tencent rises until it becomes 38% of a family portfolio. Is that success, risk or both?
+- Hook: A global-looking portfolio owns many funds, yet most revenue and currency exposure points to one market. Is it diversified?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Position size controls how strongly one company can affect the whole portfolio, so a familiar winner can become a concentration risk.
-- SMG core lab: Identify the portfolio's largest company, sector and factor concentrations and decide which concentration is most avoidable.
+- Teach: Listing place does not fully reveal geographic or currency exposure, and diversification cannot remove broad market risk or correlations that rise during stress.
+- SMG core lab: Map geographic and currency exposures, then separate company-specific risks from the market-wide risks diversification cannot remove.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+- Individual exit ticket: Explain which risk was diversified, which remained and which exposure needs more evidence.
 
 ### Retrieval practice
 
-- **Yes/no:** A strong company cannot be too large in a portfolio. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Concentrated Tencent holding? Answer: Students need current weights, target rules, tax or transaction constraints if relevant and the holding's shared exposures.
+- **Yes/no:** Foreign listings or many funds automatically remove geographic, currency and market risk. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Global exposure and portfolio stress test? Answer: Students need holding weights, underlying exposures, revenue geography, currencies, hedging information and scenario assumptions.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -3673,11 +2588,11 @@ Analyse why the evidence in Three-goal family portfolio could change the initial
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+- **Written action:** Explain which risk was diversified, which remained and which exposure needs more evidence.
 
 ### Analyse why
 
-Analyse why the evidence in Concentrated Tencent holding could change the initial investment judgement.
+Analyse why the evidence in Global exposure and portfolio stress test could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -3686,13 +2601,13 @@ Analyse why the evidence in Concentrated Tencent holding could change the initia
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Concentrated Tencent holding scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Global exposure and portfolio stress test scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Position size = holding value / total portfolio value x 100.
+2. **Calculate or interpret:** Exposure weight = sum of holdings or revenues linked to the same geography or currency, using one stated method.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+5. **Judge:** Explain which risk was diversified, which remained and which exposure needs more evidence.
 
 ### Handout/chapter blocks
 
@@ -3703,134 +2618,37 @@ Analyse why the evidence in Concentrated Tencent holding could change the initia
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Concentrated Tencent holding evidence pack
-- Calculation: Position size = holding value / total portfolio value x 100.
-- Judgement: Calculate the concentration and choose monitor, rebalance or gather more evidence for the mock plan.
+- Stimulus: frozen Global exposure and portfolio stress test evidence pack
+- Calculation: Exposure weight = sum of holdings or revenues linked to the same geography or currency, using one stated method.
+- Judgement: Explain which risk was diversified, which remained and which exposure needs more evidence.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 38: Global fund exposure
+## Lesson 27: Portfolio comparison, rebalance and monitoring case
 
-**Guiding question:** How do geographic and currency exposures affect a portfolio?
-**Student hook:** A fund is labelled global, but most holdings and revenue come from one region. How diversified is it?
-**Core claim:** Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
-**Case role:** fund
-**Primary output:** evidence-based-investment-decision - Explain one geographic benefit and one remaining currency or concentration risk.
+**Guiding question:** How should investors compare, rebalance and monitor a portfolio?
+**Student hook:** A share holding rises above its target weight. Should the team sell, hold or gather more evidence?
+**Core claim:** A portfolio decision compares alternatives against the same goal, measures weight gaps, considers costs and defines evidence-based review triggers before acting.
+**Case role:** portfolio decision case
+**Primary output:** evidence-based-investment-decision - Defend the portfolio action and state the evidence or threshold that would change it.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A fund is labelled global, but most holdings and revenue come from one region. How diversified is it?
-- **Key idea:** Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
-- **Try it:** Read regional weights and revenue exposure, then identify hidden home or currency bias.
-- **Decide:** Explain one geographic benefit and one remaining currency or concentration risk.
+- **Hook:** A share holding rises above its target weight. Should the team sell, hold or gather more evidence?
+- **Key idea:** A portfolio decision compares alternatives against the same goal, measures weight gaps, considers costs and defines evidence-based review triggers before acting.
+- **Try it:** Compare a share, fund and bond alternative, calculate weight gaps and choose rebalance, monitor or no action with dated triggers.
+- **Decide:** Defend the portfolio action and state the evidence or threshold that would change it.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A fund is labelled global, but most holdings and revenue come from one region. How diversified is it?
-- **First judgement:** Make a first judgement about Global fund exposure and give one reason before the key idea is taught.
-- **Likely naive answer:** A global fund removes country and currency risk.
-- **Missing evidence:** Students need holdings, revenue geography, base currency, hedging policy and regional weights.
-- **Key idea:** Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
-- **Try it:** Read regional weights and revenue exposure, then identify hidden home or currency bias.
-- **Misconception check:** Correct the claim: A global fund removes country and currency risk.
-- **Exit judgement:** Explain one geographic benefit and one remaining currency or concentration risk.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A fund is labelled global, but most holdings and revenue come from one region. How diversified is it?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Global labels do not remove geographic or currency concentration; investors must inspect where holdings earn money and in which currencies returns are measured.
-- SMG core lab: Map the geographic and currency exposures behind the portfolio's listings, revenues or funds and identify one mismatch with the team goal.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain one geographic benefit and one remaining currency or concentration risk.
-
-### Retrieval practice
-
-- **Yes/no:** A global fund removes country and currency risk. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Global fund exposure? Answer: Students need holdings, revenue geography, base currency, hedging policy and regional weights.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain one geographic benefit and one remaining currency or concentration risk.
-
-### Analyse why
-
-Analyse why the evidence in Global fund exposure could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Global fund exposure scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Region weight = regional holding value / portfolio value x 100; exchange-rate percentage change may be interpreted from a frozen table.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain one geographic benefit and one remaining currency or concentration risk.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Global fund exposure evidence pack
-- Calculation: Region weight = regional holding value / portfolio value x 100; exchange-rate percentage change may be interpreted from a frozen table.
-- Judgement: Explain one geographic benefit and one remaining currency or concentration risk.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 39: Diversified portfolio stress test
-
-**Guiding question:** Which risks remain after diversification?
-**Student hook:** A portfolio owns many companies and funds, yet nearly everything falls during a market shock. Has diversification failed?
-**Core claim:** Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
-**Case role:** portfolio case
-**Primary output:** evidence-based-investment-decision - Identify which risks were diversified and which remained in each scenario.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A portfolio owns many companies and funds, yet nearly everything falls during a market shock. Has diversification failed?
-- **Key idea:** Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
-- **Try it:** Stress-test a diversified portfolio against market, sector and company-specific shocks.
-- **Decide:** Identify which risks were diversified and which remained in each scenario.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A portfolio owns many companies and funds, yet nearly everything falls during a market shock. Has diversification failed?
-- **First judgement:** Make a first judgement about Diversified portfolio stress test and give one reason before the key idea is taught.
-- **Likely naive answer:** A diversified portfolio should never experience a large loss.
-- **Missing evidence:** Students need asset weights, shared exposures, scenario assumptions and the goal horizon.
-- **Key idea:** Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
-- **Try it:** Stress-test a diversified portfolio against market, sector and company-specific shocks.
-- **Misconception check:** Correct the claim: A diversified portfolio should never experience a large loss.
-- **Exit judgement:** Identify which risks were diversified and which remained in each scenario.
+- **Starter dilemma:** A share holding rises above its target weight. Should the team sell, hold or gather more evidence?
+- **First judgement:** Make a first judgement about Portfolio comparison, rebalance and monitoring case and give one reason before the key idea is taught.
+- **Likely naive answer:** Rebalancing always improves return and monitoring means checking prices every day.
+- **Missing evidence:** Students need the same goal, target ranges, current weights, costs, thesis evidence, tolerance bands and review date.
+- **Key idea:** A portfolio decision compares alternatives against the same goal, measures weight gaps, considers costs and defines evidence-based review triggers before acting.
+- **Try it:** Compare a share, fund and bond alternative, calculate weight gaps and choose rebalance, monitor or no action with dated triggers.
+- **Misconception check:** Correct the claim: Rebalancing always improves return and monitoring means checking prices every day.
+- **Exit judgement:** Defend the portfolio action and state the evidence or threshold that would change it.
 
 ### Source pack
 
@@ -3848,17 +2666,17 @@ Analyse why the evidence in Global fund exposure could change the initial invest
 
 ### Deck arc
 
-- Hook: A portfolio owns many companies and funds, yet nearly everything falls during a market shock. Has diversification failed?
+- Hook: A share holding rises above its target weight. Should the team sell, hold or gather more evidence?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Diversification reduces some specific risks but cannot eliminate broad market risk or exposures that become more correlated in stress.
-- SMG core lab: Separate company-specific risks from market-wide risks in the portfolio and explain which risks diversification cannot remove.
+- Teach: A portfolio decision compares alternatives against the same goal, measures weight gaps, considers costs and defines evidence-based review triggers before acting.
+- SMG core lab: Compare a share, fund and teacher-frozen bond alternative, calculate weight gaps and complete a rebalance, monitor or no-action decision with dated triggers.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Identify which risks were diversified and which remained in each scenario.
+- Individual exit ticket: Defend the portfolio action and state the evidence or threshold that would change it.
 
 ### Retrieval practice
 
-- **Yes/no:** A diversified portfolio should never experience a large loss. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Diversified portfolio stress test? Answer: Students need asset weights, shared exposures, scenario assumptions and the goal horizon.
+- **Yes/no:** Rebalancing always improves return and monitoring means checking prices every day. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Portfolio comparison, rebalance and monitoring case? Answer: Students need the same goal, target ranges, current weights, costs, thesis evidence, tolerance bands and review date.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -3867,11 +2685,11 @@ Analyse why the evidence in Global fund exposure could change the initial invest
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Identify which risks were diversified and which remained in each scenario.
+- **Written action:** Defend the portfolio action and state the evidence or threshold that would change it.
 
 ### Analyse why
 
-Analyse why the evidence in Diversified portfolio stress test could change the initial investment judgement.
+Analyse why the evidence in Portfolio comparison, rebalance and monitoring case could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -3880,207 +2698,13 @@ Analyse why the evidence in Diversified portfolio stress test could change the i
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Diversified portfolio stress test scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; compare direction and magnitude of holding changes in a frozen stress scenario.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Identify which risks were diversified and which remained in each scenario.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Diversified portfolio stress test evidence pack
-- Calculation: No new formula; compare direction and magnitude of holding changes in a frozen stress scenario.
-- Judgement: Identify which risks were diversified and which remained in each scenario.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 40: Fund-share-bond comparison
-
-**Guiding question:** How can funds, shares and bonds be compared fairly?
-**Student hook:** A bond has a clear yield, a fund has broad holdings and a share has strong growth. Which comparison is fair?
-**Core claim:** Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
-**Case role:** investment comparison
-**Primary output:** evidence-based-investment-decision - Choose compare further, consider, watch or avoid and justify the investment trade-off.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A bond has a clear yield, a fund has broad holdings and a share has strong growth. Which comparison is fair?
-- **Key idea:** Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
-- **Try it:** Complete a comparison matrix for one mock profile using frozen investment evidence.
-- **Decide:** Choose compare further, consider, watch or avoid and justify the investment trade-off.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A bond has a clear yield, a fund has broad holdings and a share has strong growth. Which comparison is fair?
-- **First judgement:** Make a first judgement about Fund-share-bond comparison and give one reason before the key idea is taught.
-- **Likely naive answer:** The investment with the highest recent return is the best alternative.
-- **Missing evidence:** Students need the same goal, date, currency, horizon, risk categories, costs and the terms of each choice.
-- **Key idea:** Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
-- **Try it:** Complete a comparison matrix for one mock profile using frozen investment evidence.
-- **Misconception check:** Correct the claim: The investment with the highest recent return is the best alternative.
-- **Exit judgement:** Choose compare further, consider, watch or avoid and justify the investment trade-off.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A bond has a clear yield, a fund has broad holdings and a share has strong growth. Which comparison is fair?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Fair investment comparison uses the same goal and evaluates return source, downside, liquidity, cost, diversification and evidence limitations.
-- SMG core lab: Compare a current share holding, an eligible fund and a teacher-frozen bond alternative against the same team objective and constraints.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Choose compare further, consider, watch or avoid and justify the investment trade-off.
-
-### Retrieval practice
-
-- **Yes/no:** The investment with the highest recent return is the best alternative. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Fund-share-bond comparison? Answer: Students need the same goal, date, currency, horizon, risk categories, costs and the terms of each choice.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Choose compare further, consider, watch or avoid and justify the investment trade-off.
-
-### Analyse why
-
-Analyse why the evidence in Fund-share-bond comparison could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Fund-share-bond comparison scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Use relevant earlier return, yield, cost and weight formulas only with aligned data.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Choose compare further, consider, watch or avoid and justify the investment trade-off.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Fund-share-bond comparison evidence pack
-- Calculation: Use relevant earlier return, yield, cost and weight formulas only with aligned data.
-- Judgement: Choose compare further, consider, watch or avoid and justify the investment trade-off.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 41: Drifted portfolio
-
-**Guiding question:** Why and when should a portfolio be rebalanced?
-**Student hook:** Shares rise and the portfolio moves far above its planned share weight. Should the family leave it alone?
-**Core claim:** Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
-**Case role:** portfolio case
-**Primary output:** evidence-based-investment-decision - Calculate one adjustment and justify rebalance, monitor or no action.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** Shares rise and the portfolio moves far above its planned share weight. Should the family leave it alone?
-- **Key idea:** Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
-- **Try it:** Calculate weight gaps and compare calendar, threshold and no-action choices.
-- **Decide:** Calculate one adjustment and justify rebalance, monitor or no action.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** Shares rise and the portfolio moves far above its planned share weight. Should the family leave it alone?
-- **First judgement:** Make a first judgement about Drifted portfolio and give one reason before the key idea is taught.
-- **Likely naive answer:** Rebalancing always improves returns and should happen whenever prices move.
-- **Missing evidence:** Students need target weights, current weights, tolerance bands, costs and whether goals changed.
-- **Key idea:** Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
-- **Try it:** Calculate weight gaps and compare calendar, threshold and no-action choices.
-- **Misconception check:** Correct the claim: Rebalancing always improves returns and should happen whenever prices move.
-- **Exit judgement:** Calculate one adjustment and justify rebalance, monitor or no action.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: Shares rise and the portfolio moves far above its planned share weight. Should the family leave it alone?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Rebalancing restores planned risk exposure, but any action must consider evidence, thresholds and transaction costs.
-- SMG core lab: Complete the formal rebalance decision using current weights, target ranges, transaction costs, dated evidence and a justified action or no action.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Calculate one adjustment and justify rebalance, monitor or no action.
-
-### Retrieval practice
-
-- **Yes/no:** Rebalancing always improves returns and should happen whenever prices move. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Drifted portfolio? Answer: Students need target weights, current weights, tolerance bands, costs and whether goals changed.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Calculate one adjustment and justify rebalance, monitor or no action.
-
-### Analyse why
-
-Analyse why the evidence in Drifted portfolio could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Drifted portfolio scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Portfolio comparison, rebalance and monitoring case scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
 2. **Calculate or interpret:** Weight gap = current weight - target weight; trade amount = target value - current value.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Calculate one adjustment and justify rebalance, monitor or no action.
+5. **Judge:** Defend the portfolio action and state the evidence or threshold that would change it.
 
 ### Handout/chapter blocks
 
@@ -4091,123 +2715,26 @@ Analyse why the evidence in Drifted portfolio could change the initial investmen
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Drifted portfolio evidence pack
+- Stimulus: frozen Portfolio comparison, rebalance and monitoring case evidence pack
 - Calculation: Weight gap = current weight - target weight; trade amount = target value - current value.
-- Judgement: Calculate one adjustment and justify rebalance, monitor or no action.
+- Judgement: Defend the portfolio action and state the evidence or threshold that would change it.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 42: Investment watchlist
+## Lesson 28: Past-winner fund
 
-**Guiding question:** What should investors monitor after making a decision?
-**Student hook:** A careful investor chooses watch rather than buy or avoid. What must be watched next?
-**Core claim:** Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
-**Case role:** monitoring case
-**Primary output:** evidence-based-investment-decision - Create a four-item watchlist and explain the most important trigger.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A careful investor chooses watch rather than buy or avoid. What must be watched next?
-- **Key idea:** Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
-- **Try it:** Convert a company or fund thesis into a watchlist of evidence, trigger, date and response.
-- **Decide:** Create a four-item watchlist and explain the most important trigger.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A careful investor chooses watch rather than buy or avoid. What must be watched next?
-- **First judgement:** Make a first judgement about Investment watchlist and give one reason before the key idea is taught.
-- **Likely naive answer:** Monitoring means checking the price every day.
-- **Missing evidence:** Students need the original thesis, material evidence indicators, review interval and action rules.
-- **Key idea:** Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
-- **Try it:** Convert a company or fund thesis into a watchlist of evidence, trigger, date and response.
-- **Misconception check:** Correct the claim: Monitoring means checking the price every day.
-- **Exit judgement:** Create a four-item watchlist and explain the most important trigger.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A careful investor chooses watch rather than buy or avoid. What must be watched next?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Monitoring tests the original investment case using planned evidence, dates and triggers rather than reacting to every price movement.
-- SMG core lab: Build the team's monitoring dashboard with benchmark, cash, weights, decision thesis, disconfirming evidence and dated review triggers.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Create a four-item watchlist and explain the most important trigger.
-
-### Retrieval practice
-
-- **Yes/no:** Monitoring means checking the price every day. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Investment watchlist? Answer: Students need the original thesis, material evidence indicators, review interval and action rules.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Create a four-item watchlist and explain the most important trigger.
-
-### Analyse why
-
-Analyse why the evidence in Investment watchlist could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Investment watchlist scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; define measurable triggers and scheduled review dates.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Create a four-item watchlist and explain the most important trigger.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Investment watchlist evidence pack
-- Calculation: No new formula; define measurable triggers and scheduled review dates.
-- Judgement: Create a four-item watchlist and explain the most important trigger.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 43: Past-winner fund
-
-**Guiding question:** Why do investors chase winners or panic after losses?
+**Guiding question:** How can investors recognise bias and improve a portfolio review?
 **Student hook:** Last year's best-performing fund attracts large inflows just before it falls. Why might investors still have chosen it?
 **Core claim:** FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
 **Case role:** behaviour case
-**Primary output:** evidence-based-investment-decision - Correct one performance-chasing decision using evidence and a written plan rule.
+**Primary output:** evidence-based-investment-decision - Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
 - **Hook:** Last year's best-performing fund attracts large inflows just before it falls. Why might investors still have chosen it?
 - **Key idea:** FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
-- **Try it:** Diagnose the bias in six scenarios and rewrite each decision using the investment plan.
-- **Decide:** Correct one performance-chasing decision using evidence and a written plan rule.
+- **Try it:** Diagnose FOMO, recency bias and performance chasing in the team's evidence trail, then complete the Unit 5 portfolio review.
+- **Decide:** Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 
 ### Decision-first teaching contract
 
@@ -4216,9 +2743,9 @@ Analyse why the evidence in Investment watchlist could change the initial invest
 - **Likely naive answer:** Recent winners are the safest investments because their trend is proven.
 - **Missing evidence:** Students need the original goal, long-run evidence, valuation, risk and whether the decision rule changed.
 - **Key idea:** FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
-- **Try it:** Diagnose the bias in six scenarios and rewrite each decision using the investment plan.
+- **Try it:** Diagnose FOMO, recency bias and performance chasing in the team's evidence trail, then complete the Unit 5 portfolio review.
 - **Misconception check:** Correct the claim: Recent winners are the safest investments because their trend is proven.
-- **Exit judgement:** Correct one performance-chasing decision using evidence and a written plan rule.
+- **Exit judgement:** Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 
 ### Source pack
 
@@ -4239,9 +2766,9 @@ Analyse why the evidence in Investment watchlist could change the initial invest
 - Hook: Last year's best-performing fund attracts large inflows just before it falls. Why might investors still have chosen it?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: FOMO, recency bias and performance chasing can replace goal-based evidence with emotional reactions to recent prices.
-- SMG core lab: Audit one team decision for FOMO, recency bias or performance chasing and revise the decision process before any related order.
+- SMG core lab: Audit one team decision for FOMO, recency bias or performance chasing, correct the process and submit the Unit 5 portfolio review.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Correct one performance-chasing decision using evidence and a written plan rule.
+- Individual exit ticket: Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 
 ### Retrieval practice
 
@@ -4255,7 +2782,7 @@ Analyse why the evidence in Investment watchlist could change the initial invest
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Correct one performance-chasing decision using evidence and a written plan rule.
+- **Written action:** Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 
 ### Analyse why
 
@@ -4274,7 +2801,7 @@ Analyse why the evidence in Past-winner fund could change the initial investment
 2. **Calculate or interpret:** No new formula; separate evidence, emotion, recent outcome and decision rule.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Correct one performance-chasing decision using evidence and a written plan rule.
+5. **Judge:** Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 
 ### Handout/chapter blocks
 
@@ -4287,40 +2814,40 @@ Analyse why the evidence in Past-winner fund could change the initial investment
 - Marks: 8
 - Stimulus: frozen Past-winner fund evidence pack
 - Calculation: No new formula; separate evidence, emotion, recent outcome and decision rule.
-- Judgement: Correct one performance-chasing decision using evidence and a written plan rule.
+- Judgement: Correct one biased decision and defend the final rebalance or no-rebalance judgement with a review trigger.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
 
 # Unit 6: Family Investment Decisions and Careers
 
-Students apply the course to education, housing, retirement and windfall cases, identify unsafe offers, explore careers and defend a final family strategy.
+Students stress-test portfolios against family goals, handle windfalls and unsafe offers, explore careers and defend a final family strategy.
 
-## Lesson 44: Education investment goal
+## Lesson 29: Three family goal stress tests
 
-**Guiding question:** How should a family invest for an education goal?
-**Student hook:** University costs begin in eight years, but payments will be needed over four years. Is one investment horizon enough?
-**Core claim:** An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
-**Case role:** mock family profile
-**Primary output:** evidence-based-investment-decision - Explain how the education strategy should change as the first payment approaches.
+**Guiding question:** How should one portfolio change for education, housing and retirement goals?
+**Student hook:** The same family portfolio must support a house purchase in three years, university payments in eight years and retirement in thirty years. Can one allocation fit all three?
+**Core claim:** Different goals require separate target amounts, horizons, liquidity, contribution and withdrawal plans, loss capacity and changing risk levels.
+**Case role:** mock family portfolio case
+**Primary output:** evidence-based-investment-decision - Explain the most important allocation difference among the three goals and why it is necessary.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** University costs begin in eight years, but payments will be needed over four years. Is one investment horizon enough?
-- **Key idea:** An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
-- **Try it:** Build a staged education-funding plan from a mock family profile and frozen projections.
-- **Decide:** Explain how the education strategy should change as the first payment approaches.
+- **Hook:** The same family portfolio must support a house purchase in three years, university payments in eight years and retirement in thirty years. Can one allocation fit all three?
+- **Key idea:** Different goals require separate target amounts, horizons, liquidity, contribution and withdrawal plans, loss capacity and changing risk levels.
+- **Try it:** Stress-test the current portfolio against all three goals and propose distinct broad risk and review rules.
+- **Decide:** Explain the most important allocation difference among the three goals and why it is necessary.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** University costs begin in eight years, but payments will be needed over four years. Is one investment horizon enough?
-- **First judgement:** Make a first judgement about Education investment goal and give one reason before the key idea is taught.
-- **Likely naive answer:** A long-term goal should remain fully invested in risky assets until the first payment date.
-- **Missing evidence:** Students need target cost, timing of several payments, current amount, contributions, inflation assumption and loss capacity.
-- **Key idea:** An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
-- **Try it:** Build a staged education-funding plan from a mock family profile and frozen projections.
-- **Misconception check:** Correct the claim: A long-term goal should remain fully invested in risky assets until the first payment date.
-- **Exit judgement:** Explain how the education strategy should change as the first payment approaches.
+- **Starter dilemma:** The same family portfolio must support a house purchase in three years, university payments in eight years and retirement in thirty years. Can one allocation fit all three?
+- **First judgement:** Make a first judgement about Three family goal stress tests and give one reason before the key idea is taught.
+- **Likely naive answer:** One high-return allocation is suitable for every family goal if the family waits long enough.
+- **Missing evidence:** Students need target amounts, payment dates, flexibility, contributions, withdrawals, inflation, fees and loss capacity.
+- **Key idea:** Different goals require separate target amounts, horizons, liquidity, contribution and withdrawal plans, loss capacity and changing risk levels.
+- **Try it:** Stress-test the current portfolio against all three goals and propose distinct broad risk and review rules.
+- **Misconception check:** Correct the claim: One high-return allocation is suitable for every family goal if the family waits long enough.
+- **Exit judgement:** Explain the most important allocation difference among the three goals and why it is necessary.
 
 ### Source pack
 
@@ -4338,17 +2865,17 @@ Students apply the course to education, housing, retirement and windfall cases, 
 
 ### Deck arc
 
-- Hook: University costs begin in eight years, but payments will be needed over four years. Is one investment horizon enough?
+- Hook: The same family portfolio must support a house purchase in three years, university payments in eight years and retirement in thirty years. Can one allocation fit all three?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: An education strategy connects target amount, contribution rate, investment horizon and later withdrawal needs, with risk normally reducing as the goal approaches.
-- SMG core lab: Stress-test the current portfolio against a mock education goal and state which holding, risk or liquidity feature would need reconsideration.
+- Teach: Different goals require separate target amounts, horizons, liquidity, contribution and withdrawal plans, loss capacity and changing risk levels.
+- SMG core lab: Stress-test the current portfolio against education, house-deposit and retirement goals and explain why the three allocations require different risk rules.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain how the education strategy should change as the first payment approaches.
+- Individual exit ticket: Explain the most important allocation difference among the three goals and why it is necessary.
 
 ### Retrieval practice
 
-- **Yes/no:** A long-term goal should remain fully invested in risky assets until the first payment date. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Education investment goal? Answer: Students need target cost, timing of several payments, current amount, contributions, inflation assumption and loss capacity.
+- **Yes/no:** One high-return allocation is suitable for every family goal if the family waits long enough. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Three family goal stress tests? Answer: Students need target amounts, payment dates, flexibility, contributions, withdrawals, inflation, fees and loss capacity.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -4357,11 +2884,11 @@ Students apply the course to education, housing, retirement and windfall cases, 
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain how the education strategy should change as the first payment approaches.
+- **Written action:** Explain the most important allocation difference among the three goals and why it is necessary.
 
 ### Analyse why
 
-Analyse why the evidence in Education investment goal could change the initial investment judgement.
+Analyse why the evidence in Three family goal stress tests could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -4370,13 +2897,13 @@ Analyse why the evidence in Education investment goal could change the initial i
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Education investment goal scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Three family goal stress tests scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Funding gap = target amount - projected available amount; contribution scenarios use teacher-provided compound tables.
+2. **Calculate or interpret:** Funding gap = target amount - projected available amount; maximum affordable loss = current amount - minimum required amount.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain how the education strategy should change as the first payment approaches.
+5. **Judge:** Explain the most important allocation difference among the three goals and why it is necessary.
 
 ### Handout/chapter blocks
 
@@ -4387,37 +2914,37 @@ Analyse why the evidence in Education investment goal could change the initial i
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Education investment goal evidence pack
-- Calculation: Funding gap = target amount - projected available amount; contribution scenarios use teacher-provided compound tables.
-- Judgement: Explain how the education strategy should change as the first payment approaches.
+- Stimulus: frozen Three family goal stress tests evidence pack
+- Calculation: Funding gap = target amount - projected available amount; maximum affordable loss = current amount - minimum required amount.
+- Judgement: Explain the most important allocation difference among the three goals and why it is necessary.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 45: Home-deposit goal
+## Lesson 30: Windfall and suspicious-offer case
 
-**Guiding question:** How much investment risk should house-deposit money take?
-**Student hook:** A family hopes to buy a home in three years but could delay by one year. How much loss risk can the deposit accept?
-**Core claim:** A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
-**Case role:** mock family profile
-**Primary output:** evidence-based-investment-decision - Choose a broad risk level and justify it using the goal constraints.
+**Guiding question:** How should a family pause, plan and verify before investing unexpected money?
+**Student hook:** A family receives CNY 500,000 and immediately sees an offer promising a guaranteed 18% return. What should happen first?
+**Core claim:** A windfall requires a decision pause, goal review and staged evidence process, while urgency, guaranteed high return, secrecy and unverifiable custody require the family to stop and verify.
+**Case role:** family investment safety case
+**Primary output:** evidence-based-investment-decision - Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 **Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
 
 ### Simple lesson flow
 
-- **Hook:** A family hopes to buy a home in three years but could delay by one year. How much loss risk can the deposit accept?
-- **Key idea:** A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
-- **Try it:** Compare cash, short-maturity bond and equity scenarios against the goal's minimum amount and flexibility.
-- **Decide:** Choose a broad risk level and justify it using the goal constraints.
+- **Hook:** A family receives CNY 500,000 and immediately sees an offer promising a guaranteed 18% return. What should happen first?
+- **Key idea:** A windfall requires a decision pause, goal review and staged evidence process, while urgency, guaranteed high return, secrecy and unverifiable custody require the family to stop and verify.
+- **Try it:** Create a first-month windfall plan and audit four offer claims for red flags, suitability and verification steps.
+- **Decide:** Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 
 ### Decision-first teaching contract
 
-- **Starter dilemma:** A family hopes to buy a home in three years but could delay by one year. How much loss risk can the deposit accept?
-- **First judgement:** Make a first judgement about Home-deposit goal and give one reason before the key idea is taught.
-- **Likely naive answer:** Because housing is expensive, the deposit must seek the highest possible return.
-- **Missing evidence:** Students need minimum amount, target date, flexibility, loss limit and the access conditions of each choice.
-- **Key idea:** A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
-- **Try it:** Compare cash, short-maturity bond and equity scenarios against the goal's minimum amount and flexibility.
-- **Misconception check:** Correct the claim: Because housing is expensive, the deposit must seek the highest possible return.
-- **Exit judgement:** Choose a broad risk level and justify it using the goal constraints.
+- **Starter dilemma:** A family receives CNY 500,000 and immediately sees an offer promising a guaranteed 18% return. What should happen first?
+- **First judgement:** Make a first judgement about Windfall and suspicious-offer case and give one reason before the key idea is taught.
+- **Likely naive answer:** Waiting wastes the opportunity, and a professional-looking guaranteed offer is safer than leaving money uninvested.
+- **Missing evidence:** Students need family goals, obligations, risk capacity, provider authorisation, custody, written terms, risk disclosure and independent contact details.
+- **Key idea:** A windfall requires a decision pause, goal review and staged evidence process, while urgency, guaranteed high return, secrecy and unverifiable custody require the family to stop and verify.
+- **Try it:** Create a first-month windfall plan and audit four offer claims for red flags, suitability and verification steps.
+- **Misconception check:** Correct the claim: Waiting wastes the opportunity, and a professional-looking guaranteed offer is safer than leaving money uninvested.
+- **Exit judgement:** Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 
 ### Source pack
 
@@ -4435,17 +2962,17 @@ Analyse why the evidence in Education investment goal could change the initial i
 
 ### Deck arc
 
-- Hook: A family hopes to buy a home in three years but could delay by one year. How much loss risk can the deposit accept?
+- Hook: A family receives CNY 500,000 and immediately sees an offer promising a guaranteed 18% return. What should happen first?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A short, partly flexible goal usually prioritises capital preservation and liquidity over maximising expected return.
-- SMG core lab: Stress-test the current portfolio against a near-term house-deposit goal and explain why the same allocation may become unsuitable.
+- Teach: A windfall requires a decision pause, goal review and staged evidence process, while urgency, guaranteed high return, secrecy and unverifiable custody require the family to stop and verify.
+- SMG core lab: Build a staged windfall plan, audit a suspicious offer and re-check current rules, account security and stop-and-verify boundaries.
 - Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Choose a broad risk level and justify it using the goal constraints.
+- Individual exit ticket: Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 
 ### Retrieval practice
 
-- **Yes/no:** Because housing is expensive, the deposit must seek the highest possible return. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Home-deposit goal? Answer: Students need minimum amount, target date, flexibility, loss limit and the access conditions of each choice.
+- **Yes/no:** Waiting wastes the opportunity, and a professional-looking guaranteed offer is safer than leaving money uninvested. Answer: No. Use the lesson evidence and key idea to correct the claim.
+- **Multiple choice:** Which evidence would most improve the first judgement about Windfall and suspicious-offer case? Answer: Students need family goals, obligations, risk capacity, provider authorisation, custody, written terms, risk disclosure and independent contact details.
 - **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
 - **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
 
@@ -4454,11 +2981,11 @@ Analyse why the evidence in Education investment goal could change the initial i
 - **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
 - **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
 - **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Choose a broad risk level and justify it using the goal constraints.
+- **Written action:** Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 
 ### Analyse why
 
-Analyse why the evidence in Home-deposit goal could change the initial investment judgement.
+Analyse why the evidence in Windfall and suspicious-offer case could change the initial investment judgement.
 
 - dated evidence
 - effect on goal, return, risk, price or fit
@@ -4467,13 +2994,13 @@ Analyse why the evidence in Home-deposit goal could change the initial investmen
 
 ### Evidence and Data Analysis worksheet
 
-**Case information:** A short grounded Home-deposit goal scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
+**Case information:** A short grounded Windfall and suspicious-offer case scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
 
 1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Maximum affordable loss = current amount - minimum amount required by the purchase date.
+2. **Calculate or interpret:** Allocation percentage = amount assigned to a goal / total windfall x 100; apply a stop-check-verify checklist before any transfer.
 3. **Explain:** Explain what one item of evidence can and cannot prove.
 4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Choose a broad risk level and justify it using the goal constraints.
+5. **Judge:** Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 
 ### Handout/chapter blocks
 
@@ -4484,303 +3011,12 @@ Analyse why the evidence in Home-deposit goal could change the initial investmen
 
 - Command word: Assess
 - Marks: 8
-- Stimulus: frozen Home-deposit goal evidence pack
-- Calculation: Maximum affordable loss = current amount - minimum amount required by the purchase date.
-- Judgement: Choose a broad risk level and justify it using the goal constraints.
+- Stimulus: frozen Windfall and suspicious-offer case evidence pack
+- Calculation: Allocation percentage = amount assigned to a goal / total windfall x 100; apply a stop-check-verify checklist before any transfer.
+- Judgement: Write a staged plan and a stop-and-verify response identifying the three strongest red flags.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 46: Retirement investment goal
-
-**Guiding question:** How can long-term investing support retirement?
-**Student hook:** A retirement goal is thirty years away, but the money may then be needed for decades. Which horizon matters?
-**Core claim:** Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
-**Case role:** mock family profile
-**Primary output:** evidence-based-investment-decision - Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A retirement goal is thirty years away, but the money may then be needed for decades. Which horizon matters?
-- **Key idea:** Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
-- **Try it:** Compare two retirement contribution paths and design review stages for a mock profile.
-- **Decide:** Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A retirement goal is thirty years away, but the money may then be needed for decades. Which horizon matters?
-- **First judgement:** Make a first judgement about Retirement investment goal and give one reason before the key idea is taught.
-- **Likely naive answer:** A long horizon means retirement money can take unlimited risk until retirement day.
-- **Missing evidence:** Students need contribution capacity, retirement date range, expected withdrawals, inflation, fees and loss capacity.
-- **Key idea:** Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
-- **Try it:** Compare two retirement contribution paths and design review stages for a mock profile.
-- **Misconception check:** Correct the claim: A long horizon means retirement money can take unlimited risk until retirement day.
-- **Exit judgement:** Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A retirement goal is thirty years away, but the money may then be needed for decades. Which horizon matters?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Retirement investing combines a long accumulation period with later withdrawal needs, so contributions, diversification, fees and changing risk capacity all matter.
-- SMG core lab: Stress-test the current portfolio against a long-horizon retirement goal and identify which evidence supports or weakens its suitability.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-
-### Retrieval practice
-
-- **Yes/no:** A long horizon means retirement money can take unlimited risk until retirement day. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Retirement investment goal? Answer: Students need contribution capacity, retirement date range, expected withdrawals, inflation, fees and loss capacity.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-
-### Analyse why
-
-Analyse why the evidence in Retirement investment goal could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Retirement investment goal scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Projected value = current amount x (1 + assumed return)^years plus teacher-provided contribution projections; label all assumptions.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Retirement investment goal evidence pack
-- Calculation: Projected value = current amount x (1 + assumed return)^years plus teacher-provided contribution projections; label all assumptions.
-- Judgement: Explain why the strategy should be reviewed during both accumulation and withdrawal stages.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 47: Family windfall
-
-**Guiding question:** How should a family handle a financial windfall?
-**Student hook:** A family receives CNY 500,000 unexpectedly and feels pressure to invest immediately. What should happen first?
-**Core claim:** A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
-**Case role:** mock mainland China family profile
-**Primary output:** evidence-based-investment-decision - Write a first-month windfall action plan without selecting named investments.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** A family receives CNY 500,000 unexpectedly and feels pressure to invest immediately. What should happen first?
-- **Key idea:** A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
-- **Try it:** Create a staged decision map that separates immediate protection, goal review, evidence gathering and later allocation.
-- **Decide:** Write a first-month windfall action plan without selecting named investments.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** A family receives CNY 500,000 unexpectedly and feels pressure to invest immediately. What should happen first?
-- **First judgement:** Make a first judgement about Family windfall and give one reason before the key idea is taught.
-- **Likely naive answer:** Leaving windfall money temporarily uninvested always wastes an opportunity.
-- **Missing evidence:** Students need goals, obligations, decision-makers, horizon, risk capacity, professional needs and investment evidence.
-- **Key idea:** A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
-- **Try it:** Create a staged decision map that separates immediate protection, goal review, evidence gathering and later allocation.
-- **Misconception check:** Correct the claim: Leaving windfall money temporarily uninvested always wastes an opportunity.
-- **Exit judgement:** Write a first-month windfall action plan without selecting named investments.
-
-### Source pack
-
-- mock family or investor profile
-- teacher-frozen investment, market or economic evidence
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: A family receives CNY 500,000 unexpectedly and feels pressure to invest immediately. What should happen first?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: A windfall should trigger a decision pause, goal review and staged evidence process rather than an immediate all-or-nothing investment.
-- SMG core lab: Apply a mock windfall to the team strategy, choosing an immediate, staged or no-investment action with a decision pause and evidence plan.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Write a first-month windfall action plan without selecting named investments.
-
-### Retrieval practice
-
-- **Yes/no:** Leaving windfall money temporarily uninvested always wastes an opportunity. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Family windfall? Answer: Students need goals, obligations, decision-makers, horizon, risk capacity, professional needs and investment evidence.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Write a first-month windfall action plan without selecting named investments.
-
-### Analyse why
-
-Analyse why the evidence in Family windfall could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Family windfall scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** Allocation percentage = amount assigned to a goal / total windfall x 100.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Write a first-month windfall action plan without selecting named investments.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Family windfall evidence pack
-- Calculation: Allocation percentage = amount assigned to a goal / total windfall x 100.
-- Judgement: Write a first-month windfall action plan without selecting named investments.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 48: Suspicious investment offer
-
-**Guiding question:** How can investors recognise fraud and unsuitable products?
-**Student hook:** An online offer promises a guaranteed 18% return and demands payment today. Which claims should stop the decision?
-**Core claim:** Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
-**Case role:** product-risk case
-**Primary output:** evidence-based-investment-decision - Write a stop-and-verify response identifying the three strongest red flags.
-**Case review:** planned; The anchor supports the unit progression and an evidence-based investment decision.
-
-### Simple lesson flow
-
-- **Hook:** An online offer promises a guaranteed 18% return and demands payment today. Which claims should stop the decision?
-- **Key idea:** Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
-- **Try it:** Audit four offers and identify fraud red flags, unsuitable features and verification steps.
-- **Decide:** Write a stop-and-verify response identifying the three strongest red flags.
-
-### Decision-first teaching contract
-
-- **Starter dilemma:** An online offer promises a guaranteed 18% return and demands payment today. Which claims should stop the decision?
-- **First judgement:** Make a first judgement about Suspicious investment offer and give one reason before the key idea is taught.
-- **Likely naive answer:** A professional-looking website and testimonials prove an investment is legitimate.
-- **Missing evidence:** Students need provider authorisation, independent contact details, custody, written terms, risk disclosure and complaint routes.
-- **Key idea:** Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
-- **Try it:** Audit four offers and identify fraud red flags, unsuitable features and verification steps.
-- **Misconception check:** Correct the claim: A professional-looking website and testimonials prove an investment is legitimate.
-- **Exit judgement:** Write a stop-and-verify response identifying the three strongest red flags.
-
-### Source pack
-
-- official factsheet or product disclosure
-- dated fee, holdings, yield or risk snapshot
-- official or regulator investor-education source
-
-**Preferred source order:** official issuer, company, exchange, regulator or professional source -> reputable dated market or education source -> teacher-frozen classroom snapshot with clear source notes
-**Snapshot fields:** source title, source URL or local path, publication date, accessed date, figures date, evidence limitation
-
-**Evidence limitations:**
-- The evidence is frozen for classroom use and is not live investment data.
-- Historical evidence does not guarantee future return.
-- The same evidence can lead to different actions for different goals and profiles.
-
-### Deck arc
-
-- Hook: An online offer promises a guaranteed 18% return and demands payment today. Which claims should stop the decision?
-- Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
-- Teach: Guaranteed high return, urgency, secrecy, unverifiable custody and missing suitability evidence are reasons to stop and verify before transferring money.
-- SMG core lab: Re-check live national and local rules, account security and unsafe-offer red flags before the final portfolio period.
-- Output rehearsal: improve the first judgement using the taught evidence.
-- Individual exit ticket: Write a stop-and-verify response identifying the three strongest red flags.
-
-### Retrieval practice
-
-- **Yes/no:** A professional-looking website and testimonials prove an investment is legitimate. Answer: No. Use the lesson evidence and key idea to correct the claim.
-- **Multiple choice:** Which evidence would most improve the first judgement about Suspicious investment offer? Answer: Students need provider authorisation, independent contact details, custody, written terms, risk disclosure and complaint routes.
-- **Matching/classification:** Match the lesson terms to their definitions and to one item in the case evidence.
-- **Source check:** Identify the source date, the figure or claim used and one limitation before judging.
-
-### Practical investing action
-
-- **Action:** Use the evidence to choose consider, watch, avoid, compare or gather more evidence for the mock case, unless the lesson specifies a narrower planning action.
-- **Decision rule:** The action must match the goal, horizon, risk, evidence strength, cost and missing information.
-- **Fit check:** How would this evidence affect a suitable mock family or investor profile?
-- **Written action:** Write a stop-and-verify response identifying the three strongest red flags.
-
-### Analyse why
-
-Analyse why the evidence in Suspicious investment offer could change the initial investment judgement.
-
-- dated evidence
-- effect on goal, return, risk, price or fit
-- reason the judgement changes
-- qualified next action
-
-### Evidence and Data Analysis worksheet
-
-**Case information:** A short grounded Suspicious investment offer scenario combining at least one dated, source-backed figure or statement with clearly labelled mock or anonymised details, plus the source title, evidence date and one stated limitation.
-
-1. **Identify:** Identify one relevant fact from the evidence pack.
-2. **Calculate or interpret:** No new formula; apply a stop-check-verify checklist to claims, provider, custody and disclosure.
-3. **Explain:** Explain what one item of evidence can and cannot prove.
-4. **Analyse why:** Analyse why the evidence changes the first judgement.
-5. **Judge:** Write a stop-and-verify response identifying the three strongest red flags.
-
-### Handout/chapter blocks
-
-- **Key definitions / 核心定义:** undefined
-- **Numbered revision points / 编号复习要点:** undefined
-
-### Exam pattern
-
-- Command word: Assess
-- Marks: 8
-- Stimulus: frozen Suspicious investment offer evidence pack
-- Calculation: No new formula; apply a stop-check-verify checklist to claims, provider, custody and disclosure.
-- Judgement: Write a stop-and-verify response identifying the three strongest red flags.
-- Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
-
-## Lesson 49: Investment career rotation
+## Lesson 31: Investment career rotation
 
 **Guiding question:** Which careers support investment decisions, and how do they work?
 **Student hook:** A family investment decision may involve research, planning, portfolio management, operations and compliance. Who does what?
@@ -4877,7 +3113,7 @@ Analyse why the evidence in Investment career rotation could change the initial 
 - Judgement: Compare three careers and identify the skills this course develops for each.
 - Shape: Assess using a frozen evidence pack, one calculation or interpretation, an analyse-why chain and the lesson output.
 
-## Lesson 50: Family investment strategy capstone
+## Lesson 32: Family investment strategy capstone
 
 **Guiding question:** How should students build and explain a family investment strategy?
 **Student hook:** A mock family has education, housing and retirement goals plus an existing portfolio. What should its next investment process be?
@@ -4923,7 +3159,7 @@ Analyse why the evidence in Investment career rotation could change the initial 
 - Hook: A mock family has education, housing and retirement goals plus an existing portfolio. What should its next investment process be?
 - Retrieval: Retrieve the prior lesson's core claim and the cumulative goal-horizon-risk-evidence decision chain.
 - Teach: A defensible family strategy connects goals, horizons, asset classes, investment choices, evidence, costs, risks, monitoring and professional limits in clear language.
-- SMG core lab: Defend the final portfolio against its goal and benchmark, evaluate the decision process and submit an individual reflection on contribution and changed judgement.
+- SMG core lab: Defend the final portfolio against its goal and benchmark, present the family strategy and submit an individual reflection on contribution and changed judgement.
 - Output rehearsal: improve the first judgement using the taught evidence.
 - Individual exit ticket: Present a family strategy with goal allocations, evidence, risks, caveats, review rules and professional referrals.
 

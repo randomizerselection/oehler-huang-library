@@ -4,16 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Investment Analysis Lesson Template</title>
-  <link rel="stylesheet" href="../../assets/css/investment.css" />
+  <link rel="stylesheet" href="../../assets/css/theme.css" />
+  <link rel="stylesheet" href="../../assets/css/presentation.css" />
 </head>
-<body>
-  <script src="../../assets/js/investment-quiz.js"></script>
-  <script src="quiz.js"></script>
-  <script src="../../assets/js/investment-deck.js"></script>
+<body class="bg-ambient">
+  <main id="deck" aria-live="polite"></main>
+  <aside id="notes" role="note" aria-label="Teacher notes"></aside>
+  <div id="overview" role="dialog" aria-label="Slide overview"></div>
+  <div class="help">Click / Right: reveal | Left: back</div>
+  <div id="progress" aria-hidden="true"><span></span></div>
+
+  <script src="../../assets/js/visuals.js"></script>
   <script src="../../assets/js/investment-photos.js"></script>
+  <script src="../../assets/js/platform-auth.js"></script>
+  <script src="../../assets/js/presentation.js"></script>
+  <script src="../../assets/js/quiz-config.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
   <script src="slides.js"></script>
-  <script>
-    window.INVEST.mountLesson(window.INVEST.lesson);
-  </script>
+  <script src="quiz.js"></script>
+  <script>window.IGCSE.mountLesson(window.IGCSE.lesson);</script>
 </body>
 </html>

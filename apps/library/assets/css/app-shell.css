@@ -1,4 +1,4 @@
-/* Shared navigation frame for Library, EconMark, and Student Selector. */
+/* Shared navigation frame for the Library and EconMark. */
 
 .oh-app-header {
   --oh-shell-bg: #071522;
@@ -22,17 +22,6 @@
   backdrop-filter: blur(18px);
 }
 
-body > .oh-app-header,
-.oh-app-header--full {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  min-height: 70px;
-  border-width: 0 0 1px;
-  border-radius: 0;
-  padding-inline: clamp(18px, 4vw, 64px);
-}
-
 .oh-app-brand {
   display: inline-flex;
   min-width: 0;
@@ -54,7 +43,6 @@ body > .oh-app-header,
   background: linear-gradient(145deg, rgba(86, 216, 255, 0.18), rgba(126, 240, 181, 0.08));
   color: #8be6ff;
   font: 900 11px/1 ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.02em;
 }
 
 .oh-app-brand > span:last-child,
@@ -64,7 +52,6 @@ body > .oh-app-header,
 .oh-app-brand strong {
   color: var(--oh-shell-text);
   font: 800 14px/1.15 ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.01em;
 }
 
 .oh-app-brand small {
@@ -129,28 +116,6 @@ body > .oh-app-header,
   gap: 7px;
 }
 
-.oh-header-account .account-controls {
-  margin: 0;
-}
-
-.oh-header-account .account-link,
-.oh-header-account .account-register,
-.oh-header-account .account-name {
-  border: 1px solid var(--oh-shell-line);
-  border-radius: 8px;
-  background: var(--oh-shell-panel);
-  color: var(--oh-shell-text);
-  padding: 8px 10px;
-  font: 750 10px/1.1 ui-sans-serif, system-ui, sans-serif;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.oh-header-account .account-register {
-  border-color: rgba(86, 216, 255, 0.34);
-  background: rgba(86, 216, 255, 0.13);
-}
-
 .oh-context-bar {
   position: relative;
   z-index: 90;
@@ -167,16 +132,6 @@ body > .oh-app-header,
   color: rgba(230, 240, 250, 0.72);
   padding: 8px 11px 8px 16px;
   font-family: ui-sans-serif, system-ui, sans-serif;
-}
-
-body > .oh-context-bar,
-.oh-context-bar--full {
-  width: 100%;
-  margin: 0;
-  border-width: 0 0 1px;
-  border-radius: 0;
-  background: #0d2333;
-  padding-inline: clamp(18px, 4vw, 64px);
 }
 
 .oh-context-label {
@@ -227,40 +182,6 @@ body > .oh-context-bar,
   outline: none;
 }
 
-.oh-context-nav a[aria-current="page"] {
-  box-shadow: inset 0 -2px var(--oh-context-accent, #56d8ff);
-}
-
-/* Investment home previously drew its own IA brand and highlighted the last link. */
-.investment-home .investment-nav.oh-app-header > .oh-app-brand::before { display: none; }
-
-.investment-home .investment-nav.oh-app-header > .oh-app-brand,
-.investment-home .investment-nav.oh-app-header > .oh-app-brand:hover,
-.investment-home .investment-nav.oh-app-header > .oh-app-brand:focus-visible {
-  gap: 10px;
-  border: 0;
-  background: transparent;
-  color: var(--oh-shell-text);
-  padding: 0;
-}
-
-.investment-home .investment-nav.oh-app-header .oh-app-brand span {
-  margin-left: 0;
-  color: inherit;
-}
-
-.investment-home .investment-nav.oh-app-header .oh-primary-nav .investment-link:last-child {
-  border-color: transparent;
-  background: transparent;
-  color: var(--oh-shell-muted);
-}
-
-.investment-home .investment-nav.oh-app-header .oh-primary-nav .investment-link[aria-current="page"] {
-  border-color: rgba(126, 240, 181, 0.28);
-  background: rgba(126, 240, 181, 0.09);
-  color: var(--oh-shell-text);
-}
-
 @media (max-width: 900px) {
   .oh-app-header {
     flex-wrap: wrap;
@@ -281,17 +202,11 @@ body > .oh-context-bar,
 }
 
 @media (max-width: 620px) {
-  .oh-app-header,
-  body > .oh-app-header,
-  .oh-app-header--full { padding-inline: 10px; }
-
+  .oh-app-header { padding-inline: 10px; }
   .oh-app-brand small { display: none; }
   .oh-primary-nav a { min-height: 34px; padding: 7px 9px; font-size: 10px; }
-  .oh-header-account .account-register { display: none; }
 
-  .oh-context-bar,
-  body > .oh-context-bar,
-  .oh-context-bar--full {
+  .oh-context-bar {
     display: block;
     padding: 8px 10px;
     overflow: hidden;

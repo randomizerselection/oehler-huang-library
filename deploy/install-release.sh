@@ -60,8 +60,25 @@ OH_BATCH_TOTAL_MB=512
 OH_DISK_WARN_PERCENT=60
 OH_DISK_CRITICAL_PERCENT=70
 OH_DISK_UPLOAD_STOP_PERCENT=80
+ECONMARK_STUDENT_CLASSES=IC 1.1,IC 1.2,IC 1.3,IC 2.1,IC 2.2,IC 3.1,IC 3.2
 OH_ALLOW_LEGACY_REGISTRATION=false
 EOF
+
+# Preserve secret provider and legacy invitation settings during the first
+# production cutover without copying obsolete paths, ports, or storage limits.
+if [[ "$environment" == "production" && -f /etc/econmark/econmark.env ]]; then
+  for key in \
+    DASHSCOPE_API_KEY \
+    ECONMARK_DEFAULT_PROVIDER \
+    ECONMARK_PROVIDER_MAX_ATTEMPTS \
+    ECONMARK_PROVIDER_TIMEOUT_MS \
+    ECONMARK_GRADING_REQUESTS_PER_HOUR \
+    ECONMARK_LOGIN_ATTEMPTS_PER_15_MINUTES \
+    ECONMARK_TEACHER_INVITE_CODE; do
+    value=$(sed -n "s/^${key}=//p" /etc/econmark/econmark.env | tail -n 1)
+    if [[ -n "$value" ]]; then printf '%s=%s\n' "$key" "$value" >>"$env_file"; fi
+  done
+fi
 chmod 0640 "$env_file"
 chown root:econmark "$env_file"
 

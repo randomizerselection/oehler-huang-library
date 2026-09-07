@@ -75,6 +75,16 @@ function json(response, status, value, headers = {}) {
   })).end(JSON.stringify(value));
 }
 
+function csvCell(value) {
+  const text = String(value ?? "");
+  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+}
+
+function quizAttemptsCsv(items) {
+  const columns = ["attempt_id", "created_at", "class_name", "display_name", "username", "course_id", "lesson_id", "quiz_id", "quiz_version", "score", "max_score", "percentage"];
+  return [columns.join(","), ...items.map((item) => columns.map((column) => csvCell(item[column])).join(","))].join("\r\n");
+}
+
 async function readJson(request, maximumBytes) {
   if (!String(request.headers["content-type"] ?? "").toLowerCase().startsWith("application/json")) {
     throw new HttpError("Use application/json.", "CONTENT_TYPE_UNSUPPORTED", 415);
@@ -173,7 +183,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
 
   async function apiHandler(request, response, rawPath) {
     if (request.method === "GET" && rawPath === "/api/config") {
-      json(response, 200, { ...config.public, storage: storageStatus(), schema_version: platformStore.migration.to });
+      json(response, 200, { ...config.public, storage: storageStatus(), schema_version: platformStore.migration.to, quiz_catalog_ready: true, quiz_catalog_size: contentCatalog.quizCount() });
       return true;
     }
     if (request.method === "GET" && rawPath === "/api/health") {
@@ -295,6 +305,12 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       json(response, 200, { changed: true, other_sessions_revoked: true });
       return true;
     }
+    if (request.method === "PATCH" && rawPath === "/api/account/profile") {
+      assertSameOrigin(request);
+      const { session } = requireSession(request, { csrf: true });
+      json(response, 200, { account: platformStore.updateProfile(session.account.account_id, await readJson(request, 64 * 1024)) });
+      return true;
+    }
     if (request.method === "GET" && rawPath === "/api/classes") {
       const { session } = requireSession(request);
       json(response, 200, platformStore.listClasses(session.account));
@@ -351,14 +367,46 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     const quizAttemptMatch = rawPath.match(/^\/api\/quizzes\/([^/]+)\/attempts$/);
-    if (request.method === "POST" && quizAttemptMatch) {
+    if (request.method === "POST" && (quizAttemptMatch || rawPath === "/api/quiz-attempts")) {
       assertSameOrigin(request);
       const { session } = requireSession(request, { csrf: true });
-      const definition = contentCatalog.quiz(decodeURIComponent(quizAttemptMatch[1]));
-      if (!definition) throw new HttpError("Quiz was not found.", "QUIZ_NOT_FOUND", 404);
       const payload = await readJson(request, 256 * 1024);
+      const quizId = quizAttemptMatch ? decodeURIComponent(quizAttemptMatch[1]) : String(payload.quiz_id ?? "").trim();
+      const definition = contentCatalog.quiz(quizId);
+      if (!definition) throw new HttpError("Quiz was not found.", "QUIZ_NOT_FOUND", 404);
+      if (payload.quiz_version && String(payload.quiz_version) !== String(definition.version)) {
+        throw new HttpError("This quiz version is unavailable. Reload the lesson and try again.", "QUIZ_VERSION_NOT_FOUND", 409);
+      }
       const result = contentCatalog.scoreQuiz(definition, payload.answers ?? {});
-      json(response, 201, platformStore.saveQuizAttempt(session.account.account_id, definition, payload, result));
+      if (session.account.role === "teacher" || session.account.role === "admin") {
+        json(response, 200, { attempt_id: null, quiz_id: definition.id, quiz_version: definition.version, result, score: result.score, max_score: result.max_score, percentage: result.percentage, saved: false, preview: true });
+        return true;
+      }
+      if (session.account.role !== "student") throw new HttpError("Student access is required to submit a quiz.", "ROLE_FORBIDDEN", 403);
+      const idempotencyKey = String(payload.attempt_id ?? payload.idempotency_key ?? "").trim();
+      if (!/^attempt_[A-Za-z0-9_-]{8,100}$/.test(idempotencyKey)) throw new HttpError("A stable attempt identifier is required.", "QUIZ_ATTEMPT_ID_INVALID", 400);
+      json(response, 201, platformStore.saveQuizAttempt(session.account.account_id, definition, { ...payload, idempotency_key: idempotencyKey }, result));
+      return true;
+    }
+    if (request.method === "GET" && rawPath === "/api/quiz-attempts/me") {
+      const { session } = requireRole(request, "student");
+      const url = new URL(request.url, "http://localhost");
+      json(response, 200, platformStore.listOwnQuizAttempts(session.account.account_id, { limit: url.searchParams.get("limit"), offset: url.searchParams.get("offset") }));
+      return true;
+    }
+    if (request.method === "GET" && ["/api/teacher/quiz-attempts", "/api/teacher/quiz-attempts.csv"].includes(rawPath)) {
+      const { session } = requireRole(request, ["teacher", "admin"]);
+      const url = new URL(request.url, "http://localhost");
+      const filters = Object.fromEntries(url.searchParams.entries());
+      if (rawPath.endsWith(".csv")) filters.limit = "10000";
+      const values = platformStore.listSchoolQuizAttempts(session.account.account_id, filters);
+      if (rawPath.endsWith(".csv")) {
+        response.writeHead(200, securityHeaders({
+          "content-type": "text/csv; charset=utf-8",
+          "content-disposition": "attachment; filename=quiz-attempts.csv",
+          "cache-control": "no-store"
+        })).end(`\ufeff${quizAttemptsCsv(values.items)}`);
+      } else json(response, 200, values);
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/learning/events/batch") {
@@ -618,7 +666,8 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
   }
 
   const server = createServer(async (request, response) => {
-    const rawPath = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
+    const requestUrl = new URL(request.url, "http://localhost");
+    const rawPath = decodeURIComponent(requestUrl.pathname);
     try {
       if (rawPath.startsWith("/api/") && await apiHandler(request, response, rawPath)) return;
       if (rawPath.startsWith("/api/")) {
@@ -626,13 +675,20 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
         return;
       }
       const legacyRedirects = {
-        "/teacher": "/mark/teacher", "/teacher.html": "/mark/teacher",
-        "/student": "/mark/", "/student.html": "/mark/",
-        "/single": "/mark/single", "/single.html": "/mark/single",
-        "/batch": "/mark/batch", "/batch.html": "/mark/batch"
+        "/teacher": "/econmark/teacher", "/teacher.html": "/econmark/teacher",
+        "/student": "/econmark/", "/student.html": "/econmark/",
+        "/single": "/econmark/single", "/single.html": "/econmark/single",
+        "/batch": "/econmark/batch", "/batch.html": "/econmark/batch",
+        "/mark": "/econmark/", "/mark/": "/econmark/",
+        "/mark/teacher": "/econmark/teacher", "/mark/student": "/econmark/",
+        "/mark/single": "/econmark/single", "/mark/batch": "/econmark/batch"
       };
       if (legacyRedirects[rawPath]) {
-        response.writeHead(308, securityHeaders({ location: legacyRedirects[rawPath], "cache-control": "no-store" })).end();
+        response.writeHead(308, securityHeaders({ location: `${legacyRedirects[rawPath]}${requestUrl.search}`, "cache-control": "no-store" })).end();
+        return;
+      }
+      if (rawPath.startsWith("/mark/")) {
+        response.writeHead(308, securityHeaders({ location: `${rawPath.replace(/^\/mark/, "/econmark")}${requestUrl.search}`, "cache-control": "no-store" })).end();
         return;
       }
       if (rawPath === "/student-selector" || rawPath === "/student-selector/" || rawPath === "/student-selector/index.html") {
@@ -657,10 +713,13 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       } else if (rawPath.startsWith("/student-selector/")) {
         staticRoot = config.selectorRoot;
         relative = rawPath.replace(/^\/student-selector\//, "");
-      } else if (rawPath === "/mark" || rawPath.startsWith("/mark/")) {
+      } else if (rawPath === "/econmark" || rawPath.startsWith("/econmark/")) {
         staticRoot = root;
-        const markPath = rawPath.replace(/^\/mark\/?/, "");
+        const markPath = rawPath.replace(/^\/econmark\/?/, "");
         relative = STATIC_ROUTE_ALIASES[`/${markPath}`] ?? (markPath || "student.html");
+      } else if (rawPath === "/platform/account-shell.js") {
+        staticRoot = root;
+        relative = "src/platform-account-shell.js";
       } else if (rawPath.startsWith("/src/")) {
         staticRoot = root;
       } else if (rawPath === "/") {
@@ -685,7 +744,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       if (!info.isFile()) throw new Error("Not a file");
       if (staticRoot === config.libraryRoot && extname(filePath).toLowerCase() === ".html") {
         let html = await readFile(filePath, "utf8");
-        if (!html.includes("/assets/js/platform-shell.js")) html = html.replace(/<\/head>/i, "  <script src=\"/assets/js/platform-shell.js?v=20260812.4\" defer></script>\n</head>");
+        if (!html.includes("/assets/js/platform-shell.js")) html = html.replace(/<\/head>/i, "  <script src=\"/assets/js/platform-shell.js?v=20260813.1\" defer></script>\n</head>");
         response.writeHead(200, securityHeaders({
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, max-age=300",
@@ -695,11 +754,11 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       }
       if (staticRoot === root && extname(filePath).toLowerCase() === ".html") {
         const html = (await readFile(filePath, "utf8"))
-          .replaceAll('href="/single.html', 'href="/mark/single')
-          .replaceAll('href="/single"', 'href="/mark/single"')
-          .replaceAll('href="/batch"', 'href="/mark/batch"')
-          .replaceAll('href="/teacher"', 'href="/mark/teacher"')
-          .replaceAll('href="/"', 'href="/mark/"');
+          .replaceAll('href="/single.html', 'href="/econmark/single')
+          .replaceAll('href="/single"', 'href="/econmark/single"')
+          .replaceAll('href="/batch"', 'href="/econmark/batch"')
+          .replaceAll('href="/teacher"', 'href="/econmark/teacher"')
+          .replaceAll('href="/"', 'href="/econmark/"');
         response.writeHead(200, securityHeaders({
           "content-type": "text/html; charset=utf-8",
           "cache-control": "private, no-store",

@@ -2,9 +2,9 @@
 
 Accessed: 15 July 2026  
 Publisher: SIFMA Foundation  
-Scope: public, official resources useful for the Grade 9 Investment and Financial Decision-Making course and its required, full-academic-year Stock Market Game laboratory.
+Scope: public, official resources useful for the Grade 9 Investment and Financial Decision-Making course and its required, one-semester Stock Market Game laboratory.
 
-Course use: SMG is the recurring application and assessment environment in all fifty lessons. These official materials support the lesson-specific actions in the canonical course map; they do not form a separate parallel curriculum or replace the course's goal-first investment concepts.
+Course use: SMG is the recurring application and assessment environment in all thirty-two lessons. These official materials support the lesson-specific actions in the canonical course map; they do not form a separate parallel curriculum or replace the course's goal-first investment concepts.
 
 ## Start with these files
 

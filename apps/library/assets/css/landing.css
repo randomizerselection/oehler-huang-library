@@ -66,6 +66,12 @@
   gap: 6px;
 }
 
+.platformAccountMount {
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
 .landing-nav-link {
   display: inline-flex;
   min-height: 38px;
@@ -599,7 +605,8 @@
   }
 
   .landing-nav { min-height: 0; margin-bottom: 10px; padding: 8px; }
-  .landing-brand { width: 100%; }
+  .landing-brand { width: 100%; padding-right: 146px; }
+  .landing-nav > .platformAccountMount { position: absolute; top: 8px; right: 8px; margin: 0; }
 
   .landing-nav-link {
     min-height: 36px;

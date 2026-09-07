@@ -7298,6 +7298,19 @@ img {
   font-weight: 600;
 }
 
+.invQuizSaveState {
+  flex: 1 1 100%;
+  color: var(--inv-muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.invAccount,
+.invQuizAccount {
+  display: inline-flex;
+  min-width: 0;
+}
+
 /* Investment handout view */
 
 .invHandout {
@@ -7811,7 +7824,7 @@ img {
   }
 
   .invControls {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .invModeTabs a,
@@ -10239,7 +10252,7 @@ img {
 .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories,
 .invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(var(--classification-category-cols, 3), minmax(0, 1fr)) !important;
   gap: 10px !important;
 }
 
@@ -14316,5 +14329,54 @@ img {
   .invVisualGrid[data-style="goalComparison"] .invVisualGridText p {
     font-size: 18px;
     line-height: 1.08;
+  }
+}
+
+/* Compact classification workshops must show the full four-case grid on phones. */
+@media screen and (max-width: 900px) {
+  .invSlide.invCompactClassificationSlide .invClassificationCategories,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationCategories {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationItems,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItems {
+    grid-auto-flow: row !important;
+    grid-auto-columns: unset !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    overflow-x: visible !important;
+    padding: 0 !important;
+    scroll-snap-type: none !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationItem,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationItem {
+    gap: 3px !important;
+    padding: 4px !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationPrompt strong,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt strong {
+    font-size: 12px !important;
+    line-height: 1.03 !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationPrompt .invZhLine,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationPrompt .invZhLine {
+    font-size: 9.5px !important;
+    line-height: 1.03 !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationResult p,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationResult p {
+    font-size: 9px !important;
+    line-height: 1.02 !important;
+  }
+
+  .invSlide.invCompactClassificationSlide .invClassificationReason .invZhLine,
+  .invSlide.invCompactClassificationSlide .invClassificationTask:has(.invClassificationResult.is-revealed) .invClassificationReason .invZhLine {
+    display: none !important;
   }
 }

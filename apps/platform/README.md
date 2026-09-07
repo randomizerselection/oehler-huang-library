@@ -70,7 +70,7 @@ npm run evaluate
 
 ## 部署
 
-DigitalOcean VPS 是合适的单机部署目标。推荐 Nginx + TLS + systemd + `/var/lib/econmark` 持久磁盘，详见 `docs/digitalocean-deployment.md`，并使用 `deploy/` 中的环境、Nginx 与 systemd 模板。永久保存要求同时备份 SQLite（含一致性快照）和图片目录，并监控磁盘空间；绝不能依赖重建服务器时的临时系统盘。
+DigitalOcean VPS 是合适的单机部署目标。生产部署统一使用 monorepo 根目录的 `deploy/` 发布、Nginx、systemd、备份和回滚工具；`docs/unified-platform-rollout.md` 是跨应用上线清单。永久保存要求同时备份 SQLite（含一致性快照）和图片目录，并监控磁盘空间；绝不能依赖重建服务器时的临时系统盘。
 
 ## 目录
 

@@ -17,8 +17,15 @@ The Library is public. Accounts, class rosters, learning records, Student Select
 - `/` public Library
 - `/investment-analysis/` Investment Analysis
 - `/selector/` teacher-only Student Selector
-- `/mark/` EconMark student entry
-- `/mark/teacher` EconMark teacher workspace
+- `/econmark/` EconMark student entry
+- `/econmark/teacher` EconMark teacher workspace and quiz gradebook
 - `/api/` platform API
 
-The original public repositories are independent legacy deployments and are not runtime dependencies of this project.
+This monorepo is the only active source of truth. Superseded standalone sources and generated artifacts are preserved outside the repository under `C:\Users\oehle\Documents\oehler-huang-legacy-sources`; they are not runtime dependencies.
+
+The canonical cross-application contract is
+[`apps/platform/spec/UNIFIED-PLATFORM-SPEC.md`](apps/platform/spec/UNIFIED-PLATFORM-SPEC.md);
+deployment and rollback steps are in
+[`apps/platform/docs/unified-platform-rollout.md`](apps/platform/docs/unified-platform-rollout.md).
+The ownership, generated-file, and archive boundaries are documented in
+[`docs/REPOSITORY-STRUCTURE.md`](docs/REPOSITORY-STRUCTURE.md).

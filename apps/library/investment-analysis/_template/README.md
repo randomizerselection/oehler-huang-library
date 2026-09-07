@@ -1,148 +1,112 @@
 # Investment and Financial Decision-Making Lesson Template
 
-Use this folder as the starting point for future `investment-analysis/unit-x/lesson-y/` decks.
+Use this folder for every new `investment-analysis/unit-x/lesson-y/` deck.
 
-Before creating or updating a deck, follow `DESIGN-LANGUAGE.md`. It is the source of truth for Investment Analysis typography, slide density, landing-page structure and visual QA.
+## Canonical slide generator
 
-Also check `../course-map-financial-decisions-data.js` before drafting the lesson. It is the active course-level source for the family, investment-choice, market or company case anchor, `decisionFirst` teaching contract, student hook, simple lesson flow, Grade 9 guiding question, core claim, case role, key terms, definitions, formulae, retrieval practice, analyse-why question, practical investment action, required `stockMarketGame` core lab, assigned SMG workbook pages, concise-insert rule, source pack, assessment blueprint, checkpoint pattern and individual classroom output for each taught lesson. `../syllabus.html` renders its table and lesson cards from that structured source. The former company-analysis route remains in `../course-map-data.js` for archive maintenance only.
+Active and future lessons use the shared Economics presentation system:
 
-Generator context:
+- `assets/css/theme.css`
+- `assets/css/presentation.css`
+- `assets/js/presentation.js`
+- `window.IGCSE.lesson`
+- `window.IGCSE.quiz`
 
-- From the repo root, run `node scripts/export-investment-generator-context.js --lesson 2 --target lesson --format md` before drafting a new active-course deck.
-- The default and `--syllabus financial-decisions` selectors load the active course. Use `--syllabus company-analysis` only when maintaining an archived lesson.
-- Use `--target deck`, `--target handout`, `--target activity-insert`, `--target quiz`, `--target exam` or `--target textbook` when building a specific lesson material.
-- Generate `--target activity-insert` only when the active lesson context says `applicable: true`. An assigned official workbook page makes the insert inapplicable because the page already holds the student work.
-- Programmatic generators should import `investment-analysis/generator-context.js` and call `getLessonGeneratorContext(lessonNumber)` or `getLessonMaterialContext(lessonNumber, target)` instead of copying syllabus fields by hand.
-- The generator context is a contract, not optional background: preserve the `decisionFirst`, `studentHook`, `simpleFlow`, `primaryOutput`, `groundedScenario`, `retrievalPractice`, `analyseWhy`, `investmentAction`, `stockMarketGame`, `worksheet`, `avoidOverlap`, `misconception`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint` unless the structured course map is intentionally revised first.
+The course uses `window.INVEST.photos` as its local image catalogue. Every lesson must use native Economics slide types, assign its data to `window.IGCSE.lesson` and mount directly with `window.IGCSE.mountLesson(window.IGCSE.lesson)`.
 
-Required files:
+Before drafting, read `DESIGN-LANGUAGE.md` and the lesson entry in `../course-map-financial-decisions-data.js`. Export the canonical lesson context from the repository root:
 
-- `index.html` loads `../../../assets/css/investment.css`, `../../../assets/js/investment-deck.js`, `../../../assets/js/investment-quiz.js`, then local `slides.js` and `quiz.js`.
-- `slides.js` assigns `window.INVEST.lesson`.
-- `quiz.js` assigns `window.INVEST.quiz`.
+```powershell
+node apps/library/scripts/export-investment-generator-context.js --lesson 2 --target deck --format md
+```
 
-Classroom rhythm:
+## Required files
 
-1. Starter dilemma from `decisionFirst.starterDilemma`; this should be one short, visible student question that provokes an immediate judgement or discussion. Keep statistics, instructions and explanation off the hook screen.
-2. First judgement from `decisionFirst.firstJudgementPrompt`; capture the quick vote, reason, ranking or classification before teaching.
-3. Simple visible rhythm from `simpleFlow`: Hook, Key idea, Try it, Decide.
-4. Brief retrieval diagnostic that asks students to recover prior knowledge before new content.
-5. Exactly three bilingual objectives.
-6. Repeated section cycle: retrieve, attempt, reveal/teach, formative check, improvement.
-7. Required SMG core lab using the lesson `stockMarketGame.studentAction` as the main application and evidence task; replace compatible generic practice instead of appending another activity.
-8. Output rehearsal and individual exit judgement using the same SMG evidence and the lesson `primaryOutput`.
-9. Exit ticket, then follow-up quiz.
+- `index.html` uses the Economics scaffold in this template.
+- `slides.js` assigns `window.IGCSE.lesson`.
+- `quiz.js` assigns `window.IGCSE.quiz`.
+- Local course images come from `window.INVEST.photos`.
 
-Keep real company data frozen with source and date metadata. Do not fetch live prices inside lesson files.
+## Lesson rhythm
 
-Grounded handout scenario:
+1. Open with one short dilemma that asks for an immediate judgement.
+2. Capture the first judgement before teaching.
+3. Show exactly three concise bilingual objectives.
+4. Divide the lesson with concise academic topic titles students can copy into notebooks.
+5. Teach each key term with an accurate self-contained definition and at least three concise bullet examples.
+6. Use a classification or sorting check after a distinction creates meaningful categories.
+7. Include varied formative checks: hinge MCQ, yes/no misconception check, classification, peer explanation, short calculation or source check as appropriate.
+8. Complete the required Stock Market Game evidence checkpoint from the course map.
+9. Rehearse the final judgement, then collect an individual exit response.
+10. Use the follow-up quiz to retrieve the same distinctions and decision rule.
 
-- Begin every handout with a short data-based scenario that is used in the lesson. It must not be an entirely fictional case or a decorative statistic.
-- Include at least one real, dated, source-backed figure or statement that materially informs the student task. Show the source title and evidence date.
-- Mock or anonymised family, investor and company details are allowed, but label them clearly and keep them distinct from the real evidence.
-- Reuse the same scenario evidence in at least one projected lesson activity and in the workbook or separately labelled activity insert. Do not place the scenario task in the content-only handout.
-- State one limitation: what the real evidence cannot prove about the mock case or a future investment result.
+Keep each `outcomes` objective concise because the phase label carries the action verb. Name the exact knowledge, comparison dimension or output.
 
-Use ISO currency codes that match the case. Use `CNY` for mainland China family scenarios, `HKD` only for Hong Kong-listed securities or Hong Kong transactions, `USD` for United States cases, and the corresponding local or transaction currency elsewhere. In Chinese support, name the currency as `人民币`, `港元` or `美元` rather than copying the English code.
+A `discussion.answer` is one English sentence followed by one Chinese sentence in `discussion.answerZh`. It must answer the exact question as a self-contained statement. Do not use labels such as “Model answer,” “Course rule,” or “Need more information.”
 
-ILA and continuous retrieval:
+## Native Economics slide types
 
-- Treat ILA as integrated learning and assessment: checks are part of teaching, not a separate test at the end.
-- Every taught section should begin with brief retrieval from the lesson `retrievalBase`, earlier course concepts, recurring misconceptions, formulas, source habits or evidence-judgement chains.
-- Every taught section should include a student attempt before the reveal and a formative check after the reveal.
-- Vary formative assessment across the lesson: hinge questions, sorting, mini calculations, source checks, misconception correction, peer comparison, cold-call justification and individual written checks.
-- Build examples into the teaching sequence, not only into teacher notes. Every definition slide must finish with at least three concise bilingual bullet examples that vary the context, outcome or boundary; include a loss, non-example or borderline case when it helps prevent overgeneralisation.
-- Apply the same example rule to knowledge students must use but may not formally define. Teach distinctions such as short-term versus long-term goals with several named cases before asking students to apply the distinction.
-- When the knowledge creates useful categories, follow the examples with a brief classify-or-sort check before reveal. Use the responses to decide whether to move on, reteach the boundary or ask students to justify one classification.
-- Every formative check should produce a visible decision point for the teacher: move on, reteach, ask for improvement or collect the individual output.
-- The final exit ticket should assess the lesson `primaryOutput`; the lesson quiz should retrieve the same core ideas after the lesson. Match the Economics deck pattern: `Check / Exit ticket / 离堂小测`, `mode: "fillBlanks"`, and three or four concise bilingual statements in full-width numbered rows with inline blanks. Do not add pictures, a card grid, a second instruction block or a source button.
-- When the primary output asks students to make a judgement with a decision, reason and condition, use a four-stage `judgementFrame`: choose the case or goal, state the decision, give one evidence-based reason and add one condition or limitation. Reveal a single sentence structure only after students draft their own answer. Do not reduce this task to one predetermined fill-in-the-blank answer.
-- Keep technical ILA language mostly in notes and planning guidance. Visible slide labels should remain student-facing, such as `Try first`, `Key idea`, `Practice check`, `Output rehearsal` and `Exit ticket`.
+Prefer the smallest component that expresses the teaching move:
 
-Teaching rhythm:
+- `hero` for the opening question and visual.
+- `discussion` for think-first judgement with a modal possible answer.
+- `outcomes` for the three objectives.
+- `section` for a short academic divider.
+- `visualPause` for one thought-provoking image.
+- `term` for one definition and three or more concise examples.
+- `cards` for a structured comparison grid.
+- `compare` for a two-column contrast.
+- `flow` for a mechanism or decision sequence.
+- `quiz` for one hinge question.
+- `yesNoCheck` for misconceptions and boundary cases.
+- `classificationTask` for cases classified with reasons.
+- `peerTask` for a staged spoken or written task.
+- `modelAnswer` for a model shown only after students try.
 
-- Stage the work as `try first, reveal second`. Use reveal states for company facts, evidence bodies, risk effects, keywords, calculation answers and model paragraphs.
-- Choose title grammar by slide function instead of forcing one grammatical style across the deck. Use a direct question for `discussion` and `quiz`; use the concise action title `Vote yes or no.` / `投票：是或否。` for `yesNoCheck`; use the term alone for `term`; a short academic topic for `section`; a concise command for simulations, classifications, comparisons and written tasks; and a concept, relationship or clear claim for teaching and evidence slides. Keep the cover as the lesson question and the objectives title as stable orientation.
-- Keep each `outcomes` objective concise because the phase label carries the action verb. Use a short, specific content label such as `Identify — Four facts needed before investing`, not a full explanatory sentence. Across the three objectives, name the lesson knowledge, evidence or output students will work with.
-- `discussion` slides must ask a real student-answerable question. A lesson-opening hook must contain only one short question; move context, choices and explanation into notes, the handout or the reveal. Do not use the prompt to display the answer.
-- `quiz` slides, including hinge questions and quick checks, should show exactly one bilingual question in `title` and `zhTitle`. Do not add a second `question` / `zh` prompt in the body; place the answer choices directly below the title.
-- `discussion.revealTitle` and `discussion.revealTitleZh` must be the complete short answer: one English sentence followed by one Chinese sentence. Do not add `answer`, `answerZh` or a second explanatory paragraph to a discussion reveal.
-- The English sentence must answer the exact question and name the missing information or next action; use a statement such as `One share is one ownership unit`, not a label such as `Model answer`, `Course rule`, `Bridge` or `Need more information before deciding`.
-- Hooks should normally begin with a concrete student decision or dilemma, not a chart by default. Use a chart as evidence after students know what question the evidence is meant to answer.
-- `section` dividers should stay quiet: part label, title, optional Chinese title, and the automatic progress strip. Use a concise academic topic or question students can copy into notebooks, such as `Investment and return` or `What is investment?`. Name the knowledge in the section; do not use an activity instruction, slogan, transition or full teaching claim. Do not add photos, prompt cards or manual roadmap lists.
-- Causal and retrieval `flow` slides should contain meaningful `__________` blanks with `answer` values, so students predict the key concept links before reveal.
-- Decision-method flows should use `flowStyle: "decisionChecks"` and `revealSteps: true`, following the Lesson 1 `What should you check before investing?` slide as the reference format. Give every box a short, prominent bilingual header such as `Goal` / `目标`, one classroom-readable bilingual description, and one image that directly represents that header or action. Use a question as the slide title, reveal the boxes one at a time, and use plain text rather than fill-in-the-blanks.
-- `term` definitions should use `definitionBlanks` to blank conceptual payload words such as `ownership`, `identifier`, `market price` or `specific time`, not merely the term being defined. Keep the English `definition` text canonical and unmarked so validators, handouts and recall checks read the same wording.
-- Every `term` slide must use exactly one image whose meaning directly and obviously matches the term. Treat it as a small visual cue, not a second teaching diagram: prefer one bold icon or symbol, avoid visible labels and multiple miniature components, and make it readable at roughly 150–175 px. A general finance desk, meeting, report or market screen is not sufficient. Check the local archive first; if no precise match exists, create or source a simple icon with accurate metadata.
-- `term` slides should show the term, English definition, Chinese definition and a compact `examples` list of at least three concrete bilingual bullet points. Keep extra related terms out of the projected definition block, and keep the examples short enough to remain visible beside the definition.
-- Use `compare` for a simple two-column T-table contrast. Use `comparisonMatrix` instead when students compare choices against three or four shared criteria.
-- Use `rankingTask` for low-to-high, risk-return, priority or confidence ordering tasks where students must defend a comparative order. Show three to five options in one vertical decision ladder with a blank rank beside each; reveal one defensible sequence and its reasons in the same reading direction. Do not use empty landing slots, a separate card grid or a horizontal phone carousel. Set `axis.showNote: false` when the end labels already define the order.
-- Use `yesNoCheck` for misconception votes and borderline judgements where students should commit to yes/no before the reason appears. Keep it to three or four short statements shown as one vertical voting board; students click Yes or No to score the choice and reveal that row's reason, while the normal reveal controls remain available for teacher-led voting. Split longer checks instead of recreating a card grid or phone carousel.
-- Do not use deprecated `marketBrief` slides in new decks. They add little teaching value; use `dataSnapshot` for compact figures, `sourceLens` for source validity, `quoteMap` for quote-page fields, or a normal `discussion` for retrieval.
+Do not create a new renderer type when these types can express the learning move.
 
-Syllabus alignment:
+## Chinese support
 
-- Center each lesson on the investment case anchor named in `course-map-financial-decisions-data.js` unless the structured course map itself is intentionally revised.
-- Use the syllabus analyst question as the lesson's guiding question, keeping it approachable for Grade 9 students.
-- Keep the visible student structure simple and interesting: use `decisionFirst`, `studentHook` and the four `simpleFlow` steps before adding detailed source, retrieval or exam work.
-- Use `decisionFirst.missingEvidence` to choose the lesson's first evidence source, calculation, classification or definition; do not begin with a broad topic overview when the contract gives a narrower missing-evidence problem.
-- Use `decisionFirst.misconceptionCheck` and `decisionFirst.exitJudgement` as the minimum assessment thread for the deck, handout and quiz.
-- Start from the lesson `coreClaim`, `primaryOutput`, `sourcePack`, `artifactBlueprint` and `assessmentBlueprint`; do not invent a separate deck, handout or exam objective.
-- Include the lesson `investmentAction` so students finish by choosing a justified next action such as consider, watch, avoid, compare with another choice or gather more evidence.
-- Treat the lesson `stockMarketGame.studentAction` as required core work, not an optional extension. Allocate roughly 35-50% of the lesson to that application and reuse its evidence in the individual exit and unit output.
-- Build a visible `SMG core lab` segment into every deck before the individual exit. It must include the named team action, one concise team evidence row and an individual written judgement; a teacher note or final reminder is not sufficient.
-- Capture the required SMG portfolio, watchlist, transaction, quote or benchmark snapshot at the start of the lesson. Do not make the deck, handout or assessment depend on live prices remaining unchanged.
-- Complete one individual workbook judgement or activity insert. Add a team-log row when the lesson creates a team decision or monitoring update; do not generate a duplicate SMG worksheet, log or homework stream.
-- Use `retrievalBase`, `formativeAssessment` and `exitTicket` as the assessment spine for the deck; do not leave them only in the syllabus card.
-- Teach the listed key terms and definitions explicitly, with Chinese support for the terms, objectives, difficult prompts and formula wording.
-- Use the active lesson's `terms` in `course-map-financial-decisions-data.js` as the canonical source for every active-course presentation definition. Use `references/investment-analysis-definitions.md` only when maintaining the archived company-analysis course or checking an exact legacy glossary match.
-- Add concise Simplified Chinese support for important student-facing teaching text as standard: slide titles, term definitions, core prompts/tasks, main answer/reveal text, flow/answer items and quiz prompts/explanations. Do not translate minor source metadata, codes, dates, numeric values, UI chrome or teacher notes unless they carry the concept.
-- Use the listed formulae and calculation wording where applicable; if a lesson has no new formula, include an evidence-reading or judgement check instead.
-- Use `investment choice` as the student-facing umbrella. Use the more precise `asset class`, `security`, `fixed-income security`, `fund` or `investment vehicle`, and `deposit product` when the category matters. Reserve `investment product` for a provider offering, factsheet, terms, fees, disclosure or suitability context.
-- Record the relevant security, fund, provider product, market, company or family-case label; source title; source URL; publication date; accessed date; key figures; and what the evidence can and cannot prove. Add stock code or listing details when a listed company is used.
-- Run the `sourceFitAudit` and check `caseReview` before building a deck; if the source pack fails, replace the company only with a case that preserves the same unit role, skill target and assessment blueprint.
-- Treat the complete SMG Essentials Workbook as the default individual work record. Name and use the exact `stockMarketGame.workbook.pages`, treatment and action in the lesson activity, not in the handout.
-- Make the print handout a bilingual exam-revision sheet with exactly two `artifactBlueprint.handoutBlocks`: fill-in-the-blank key definitions followed by four to seven short numbered revision points.
-- Every definition needs the English term, Chinese term, an English prompt with selected `__________` key words, an ordered `answers` array and a complete Simplified Chinese definition. Blanks must be answerable from content taught during the lesson.
-- Write each numbered point as an English and Simplified Chinese pair of complete statements students can memorise. Across the list, cover the core principle, essential relationship, formula or qualitative decision rule and misconception correction.
-- Do not place workbook directions, scenarios to analyse, evidence tasks, questions, writing lines, individual outputs or team-log instructions in the handout. If the workbook cannot hold essential student work, create a separately labelled activity insert and file it with the workbook.
-- Keep the shared SMG team decision log authoritative for evidence, team decisions, dissent, order checks, platform status and review triggers. A workbook or insert answer never authorises a transaction.
-- A compiled course knowledge handbook may consist of the lesson handouts verbatim with light unit navigation. Do not add textbook-only chapters or workbook activities.
-- One-class team tasks are allowed for scenario sorting, quote-page reading, ETF comparison and quick risk debate, but they must end with an individual written check.
-- The required year-long SMG portfolio and its six cumulative unit outputs are the deliberate exception to the normal ban on invented multi-lesson projects. Do not add a second portfolio, report or final-project sequence beside them.
+Use less Chinese than English, but always translate difficult financial and economic terminology. Include Chinese for:
 
-Visual rhythm:
+- difficult terms and complete definitions;
+- the opening question and possible answer;
+- section titles when they carry taught meaning;
+- hinge questions or instructions where misunderstanding would block the task;
+- quiz prompts and feedback.
 
-- Keep each projected slide to one main idea or student action.
-- Do not combine a dense table, chart, photo and prompt on the same slide.
-- Keep section dividers closer to the economics-presentation divider style: simple reset screen, no lesson-map card, no image column.
-- Use visuals like the Economics decks: a hook visual creates a concrete classroom decision, and an image-only `visualPause` directly prepares the next definition, example or evidence-reading task.
-- Every visual should have a purpose in teacher notes: what students observe, what misconception it exposes, and which concept comes next. Remove decorative finance photos when students do not need the image to answer.
-- Charts are evidence-reading surfaces, not automatic openers. Place them after the student has a reason to inspect what the chart can and cannot prove.
-- Use `dataSnapshot` for three key metrics plus a short reading task; keep detailed rows in notes, sources or a separate focused slide.
-- Use `conceptTriad` when students must compare three beginner concepts with definition, purpose, risk level, time horizon and example.
-- Use `visualGrid` when students need to compare concrete examples through pictures, such as asset types or three financial goals. Keep labels short and make each image necessary for the classification or recall task. For a three-item comparison, use one directly matched picture and one compact evidence line per card. Four-card grids should use labels or fragments, not four bilingual explanatory paragraphs; split multi-action instructions into two `twoStep` slides and move operational detail into notes.
-- Use `compare` when students need a clean two-column contrast with fill-in blanks, such as evidence-based analysis versus weak opinion.
-- Use `yesNoCheck` when a misconception can be tested as a yes/no vote before the explanation. Put `Vote yes or no.` / `投票：是或否。` in the title and begin the full-width statement rows immediately below it; do not repeat the instruction in a prompt panel. Each row should be easy to scan; clicking a choice scores it and lets the verdict and reason replace the vote choices.
-- Use `rankingTask` when students must assign ranks to choices on a low-to-high line and defend the sequence with evidence. Keep the attempt and revealed model as single-column reading surfaces.
-- Use `sourceLens` when students must test whether a source can support a claim: source title, publisher, date, unit, scope and limitation.
-- Use `quoteMap` when students must read a quote page: company, code, exchange, price, date/time and source before making an opinion.
-- Use `comparisonMatrix` when students compare two or three choices against the same criteria such as evidence, possible return, risk and price paid.
-- Use `catalystTimeline` when students connect new information, expectations and price movement without overclaiming causation.
-- Use `judgementFrame` when students need to assemble a balanced investment judgement from evidence, return, risk and price paid.
-- Use `analystBoard` with `revealBlocks: true` and `riskRegister` with `revealEffects: true` for staged evidence/risk thinking, not crowded dashboard panels.
-- Use `exam` with `revealKeywords: true` when students should plan before seeing the keyword scaffold.
-- Use `modelAnswer` with `cueLabel` and `cueText` so the comparison instruction matches the question.
-- Keep landing-page copy student-facing: lesson actions, what students will learn, and clear quiz/data links.
-- For a title-only course or lesson opener that should read as the main classroom title, set `prominentTitle: true` and keep the slide clean; avoid a subtitle unless it adds necessary information.
+Do not translate source metadata, stock codes, dates, ordinary UI labels, teacher notes or every example automatically. Keep existing translations consistent with the course term bank.
 
-Typography rhythm:
+## Handout contract
 
-- Projected teaching text uses one text face and two sizes: 48px for slide/term/section titles and 32px for lesson content.
-- Do not create special font sizes for metrics, terms, formulas, choices, prompts or model answers; use weight and spacing lightly instead.
-- Keep source panels, captions and deck chrome visually quiet so they do not compete with the teaching surface.
-- Use modern local photos for visual pauses and context backgrounds. Definition visuals do not have to be photographs: prefer a clear diagram or illustration when an abstract term has several components that one photograph cannot show. `visualPause` slides must project only the picture: no visible title, prompt, caption or credit. Put the teaching bridge in notes or on an adjacent slide.
-- Avoid old stock certificates, archival trading-floor imagery and museum-value photos unless the lesson explicitly teaches historical context.
-- Check `investment-analysis/photo-archive.html` or run `node scripts/export-investment-photo-archive.js --format md` before sourcing new images. The archive groups usable local photos by category, lesson fit, tags and slide use.
-- Use archive keys in decks with `visual: window.INVEST.photos?.<photoKey>` so generated slides keep credits, captions and local paths from `assets/js/investment-photos.js`.
-- Download new high-resolution photos when the catalogue match is weak or only generically financial. For keyword-led cards such as `Goal`, `Access` or `Possible loss`, do not substitute an unrelated finance desk or chart merely because it matches the course theme. Resize new images to projection quality and add complete metadata in `assets/js/investment-photos.js`.
+The knowledge handout is a four-page, monochrome, print-legible bilingual exam-revision sheet.
+
+- Use at least 10 pt throughout.
+- Use complete, self-contained definitions; do not use fill-in-the-blank or cloze definitions.
+- Give English priority. Translate difficult terms and definitions consistently.
+- Use structured grids to compare nearby concepts by the same dimensions.
+- Prefer concise bullet examples and varied short practice over long case narratives.
+- Keep scenarios only when a small amount of context is necessary to decide the classification.
+- Keep practice separate from answer keys or teacher notes.
+
+The knowledge handout and projected slides should complement one another. Students may keep the handout on their desks; slides should prompt thought, comparison and discussion instead of repeating every printed statement.
+
+## Currency and evidence
+
+Use the currency that matches the case: `CNY` for mainland China, `HKD` for Hong Kong securities or transactions, and `USD` for United States cases. Use 人民币, 港元 and 美元 in Chinese support.
+
+Freeze every real figure with a source and date. Label mock or anonymised details clearly. Do not fetch live prices inside lesson files and do not give personalised investment advice.
+
+## Validation
+
+From the repository root:
+
+```powershell
+node --check apps/library/assets/js/presentation.js
+node --check apps/library/investment-analysis/unit-1/lesson-1/slides.js
+node --check apps/library/investment-analysis/_template/slides.js
+node apps/library/scripts/test-investment-analysis-content.js
+npm run build:content
+```
+
+For rendered changes, verify a representative desktop and phone viewport, reveal controls, mode navigation, image loading and overflow. Reload the controlled browser after source changes.

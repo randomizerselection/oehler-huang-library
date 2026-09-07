@@ -35,7 +35,7 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
     await rm(dataDir, { recursive: true, force: true });
   });
 
-  assert.equal(store.migration.to, 10);
+  assert.equal(store.migration.to, 11);
   const admin = await store.bootstrapAdmin({ username: "admin.one", display_name: "Admin One", password: "admin-password-1" });
   const invitation = store.createTeacherInvitation(admin.account.account_id);
   const teacher = await store.registerTeacher({ invitation_code: invitation.invitation_code, username: "teacher.one", display_name: "Teacher One", password: "teacher-password-1" });
@@ -72,9 +72,11 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   assert.equal(store.listStudentAssignments(studentOne.account.account_id).items.length, 1);
   const result = { score: 1, max_score: 2, percentage: 50, responses: [{ question_id: "q1", correct: true }] };
   const firstAttempt = store.saveQuizAttempt(studentOne.account.account_id, quiz, { idempotency_key: "quiz-attempt-1", mode: "assigned", learning_assignment_id: assignment.assignment_id, answers: { q1: 0 } }, result);
-  const repeatedAttempt = store.saveQuizAttempt(studentOne.account.account_id, quiz, { idempotency_key: "quiz-attempt-1", mode: "assigned", learning_assignment_id: assignment.assignment_id, answers: { q1: 999 } }, { ...result, score: 0 });
+  const repeatedAttempt = store.saveQuizAttempt(studentOne.account.account_id, quiz, { idempotency_key: "quiz-attempt-1", mode: "assigned", learning_assignment_id: assignment.assignment_id, answers: { q1: 0 } }, result);
   assert.equal(repeatedAttempt.attempt_id, firstAttempt.attempt_id);
   assert.equal(repeatedAttempt.score, 1);
+  assert.equal(repeatedAttempt.class_name, "IC1 Economics");
+  await rejectsCode(() => Promise.resolve(store.saveQuizAttempt(studentOne.account.account_id, quiz, { idempotency_key: "quiz-attempt-1", mode: "assigned", learning_assignment_id: assignment.assignment_id, answers: { q1: 999 } }, { ...result, score: 0 })), "QUIZ_ATTEMPT_CONFLICT");
 
   const learningEvents = Array.from({ length: 200 }, (_, index) => ({ event_id: `active-${index}`, content_id: "lesson:one", content_version: "1.0.0", event_type: "active_time", occurred_at: "2026-08-11T11:00:00.000Z", data: { seconds: 60 } }));
   assert.equal(store.recordLearningEvents(studentOne.account.account_id, learningEvents).accepted, 200);

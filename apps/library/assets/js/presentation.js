@@ -10,6 +10,24 @@
 
 window.IGCSE = window.IGCSE || {};
 
+const igcsePlatformAuthSource = document.currentScript?.src
+  ? new URL('platform-auth.js', document.currentScript.src).href
+  : '/assets/js/platform-auth.js';
+
+IGCSE.ensurePlatformAuth = IGCSE.ensurePlatformAuth || function ensurePlatformAuth() {
+  if (window.LibraryPlatform) return Promise.resolve(window.LibraryPlatform);
+  if (!IGCSE.platformAuthLoader) {
+    IGCSE.platformAuthLoader = new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = igcsePlatformAuthSource;
+      script.addEventListener('load', () => resolve(window.LibraryPlatform || null), { once: true });
+      script.addEventListener('error', () => resolve(null), { once: true });
+      document.head.append(script);
+    });
+  }
+  return IGCSE.platformAuthLoader;
+};
+
 /* ---------- Utilities ---------- */
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (m) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -1004,6 +1022,68 @@ const classificationAnswerLabel = (answer, categories = []) => {
 
 /* ---------- Slide body renderers, keyed by slide.type ---------- */
 const renderers = {
+  welcome: (s) => {
+    const rules = s.rules || [];
+    const introPhoto = s.introVisual || rules[0]?.visual || null;
+    const introSrc = introPhoto?.src ? localImageSrc(introPhoto.src) : '';
+    return `
+      <div class="welcomeBlock">
+        <div class="welcomeIntro">
+          ${introSrc ? `
+            <img class="welcomeIntroImage"
+                 src="${esc(introSrc)}"
+                 alt=""
+                 aria-hidden="true"
+                 loading="eager"
+                 decoding="async" />` : ''}
+          <div class="welcomeIntroCopy">
+            <span class="welcomeEyebrow">${esc(s.rulesTitle || 'How We Work in Economics')}</span>
+            <h1>${esc(s.title || 'Welcome to Economics')}</h1>
+            <div class="welcomeIdentity">
+              <strong class="welcomeTeacherName">${esc(s.teacherName || '')}</strong>
+              <span class="welcomeCallMe">${esc(s.callMe || 'Please call me')} <b>${esc(s.preferredName || '')}</b></span>
+            </div>
+            <div class="welcomeClasses" aria-label="Classes">
+              ${(s.classes || []).map((className) => `<span>${esc(className)}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+        <section class="welcomeRules" aria-label="${esc(s.rulesTitle || 'How We Work in Economics')}">
+          <div class="welcomeRuleGrid">
+            ${rules.map((rule, index) => {
+              const photo = rule.visual && typeof rule.visual === 'object' ? rule.visual : null;
+              const photoSrc = photo?.src ? localImageSrc(photo.src) : '';
+              const positionClass = rule.labelPosition
+                ? ` is-label-${String(rule.labelPosition).replace(/[^a-z0-9_-]/gi, '')}`
+                : '';
+              const objectPosition = rule.objectPosition || photo?.objectPosition || '';
+              return `
+                <article class="welcomeRule${positionClass}">
+                  ${photoSrc ? `
+                    <img class="welcomeRuleImage"
+                         src="${esc(photoSrc)}"
+                         alt="${esc(photo.alt || rule.title || '')}"
+                         ${objectPosition ? `style="object-position: ${esc(objectPosition)};"` : ''}
+                         loading="eager"
+                         decoding="async" />` : ''}
+                  <div class="welcomeRuleOverlay">
+                    <span class="welcomeRuleContext">${esc(s.rulesTitle || 'How We Work in Economics')}</span>
+                    <span class="welcomeRuleNumber">${esc(rule.number || String(index + 1).padStart(2, '0'))}<small> / ${String(rules.length).padStart(2, '0')}</small></span>
+                    <h2>
+                      ${esc(rule.title || '')}
+                      ${rule.zhTitle ? `<span class="welcomeRuleTitleZh" lang="zh-Hans">${esc(rule.zhTitle)}</span>` : ''}
+                    </h2>
+                    <p>${highlightTerms(rule.body || '', rule.highlightTerms || [])}</p>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </section>
+      </div>
+    `;
+  },
+
   hero: (s) => `
     <div>
       ${s.subtitle ? `<div class="sub">${esc(s.subtitle)}</div>` : ''}
@@ -1115,15 +1195,17 @@ const renderers = {
 
   quiz: (s) => `
     <div class="quizBlock">
+      ${s.eyebrow ? `<div class="quizEyebrow">${esc(s.eyebrow)}</div>` : ''}
       ${s.question ? `<p class="lead">${esc(s.question)}</p>` : ''}
+      ${s.zh || s.zhTitle ? `<p class="termDefinitionZh" lang="zh-Hans">${esc(s.zh || s.zhTitle)}</p>` : ''}
       ${mcqChoiceList(s.choices, s.answer)}
-      ${s.prompt ? `<div class="prompt mcqExplanation" hidden aria-live="polite">${esc(s.prompt)}</div>` : ''}
+      ${s.prompt ? `<div class="prompt mcqExplanation" hidden aria-live="polite">${esc(s.prompt)}${s.promptZh ? `<span class="termDefinitionZh" lang="zh-Hans">${esc(s.promptZh)}</span>` : ''}</div>` : ''}
     </div>
   `,
 
   yesNoCheck: (s) => `
     <div class="yesNoCheckBlock">
-      ${s.title ? `<h2>${esc(s.title)}</h2>` : ''}
+      ${s.title ? `<h2>${esc(s.title)}${s.zhTitle ? `<span class="inlineZh" lang="zh-Hans">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
       ${s.prompt ? `<p class="lead">${esc(s.prompt)}</p>` : ''}
       ${yesNoRows(s.items || [])}
       ${s.footer ? `<div class="prompt">${esc(s.footer)}</div>` : ''}
@@ -1319,8 +1401,16 @@ const renderers = {
 
   discussion: (s) => `
     <div class="discussionPrompt">
+      ${s.title ? `<h2 class="discussionTitle">${esc(s.title)}${s.zhTitle ? `<span class="inlineZh" lang="zh-Hans">${esc(s.zhTitle)}</span>` : ''}</h2>` : ''}
       <p>${esc(s.question)}</p>
+      ${s.followUp ? `<p class="discussionFollowUp">${esc(s.followUp)}</p>` : ''}
       ${s.zh ? `<p class="zh">${esc(s.zh)}</p>` : ''}
+      ${s.followUpZh ? `<p class="zh discussionFollowUpZh">${esc(s.followUpZh)}</p>` : ''}
+      ${(s.support || []).length ? `
+        <div class="discussionSupport">
+          ${s.support.map((item) => `<span>${esc(item)}</span>`).join('')}
+        </div>
+      ` : ''}
       ${s.answer ? `
         <button type="button" class="discussionAnswerButton" data-discussion-answer="${s.discussionAnswerIndex ?? ''}" aria-haspopup="dialog">
           <span>Show possible answer</span>
@@ -1737,14 +1827,39 @@ const renderers = {
 
 /* ---------- Full slide renderer ---------- */
 function renderSlide(meta, slide, idx, total) {
+  const layoutClass = slide.layout ? ` is-layout-${sanitizeToken(slide.layout)}` : '';
+  if (slide.type === 'welcome') {
+    return `
+      <section class="slide is-welcome${layoutClass}" data-idx="${idx}"
+               data-notes="${esc(slide.notes || 'Welcome students and introduce one classroom expectation at a time.')}">
+        ${renderers.welcome(slide)}
+      </section>
+    `;
+  }
   if (slide.type === 'visualPause') {
     const photo = slide.visual && typeof slide.visual === 'object' ? slide.visual : null;
     const photoSrc = photo?.src ? localImageSrc(photo.src) : '';
     const objectPosition = slide.objectPosition || photo?.objectPosition || '';
+    const isFramed = Boolean(slide.framed);
     return `
-      <section class="slide is-visualPause" data-idx="${idx}"
+      <section class="slide is-visualPause${isFramed ? ' is-framed' : ''}${layoutClass}" data-idx="${idx}"
                data-notes="${esc(slide.notes || 'Visual pause - let students observe the image before moving on.')}">
-        ${photoSrc ? `
+        ${isFramed ? `
+          ${topline(slide, idx, total)}
+          <div class="visualPauseFrame">
+            ${slide.title ? `<h2>${esc(slide.title)}</h2>` : ''}
+            ${photoSrc ? `
+              <div class="visualPauseMedia">
+                <img class="visualPauseImage"
+                     src="${esc(photoSrc)}"
+                     alt="${esc(photo.alt || slide.title || '')}"
+                     ${objectPosition ? `style="object-position: ${esc(objectPosition)};"` : ''}
+                     loading="lazy"
+                     decoding="async" />
+              </div>` : ''}
+          </div>
+          ${footer(meta, slide)}
+        ` : photoSrc ? `
           <img class="visualPauseImage"
                src="${esc(photoSrc)}"
                alt="${esc(photo.alt || slide.title || '')}"
@@ -1758,12 +1873,18 @@ function renderSlide(meta, slide, idx, total) {
   if (slide.type === 'discussion') {
     const photo = slide.visual && typeof slide.visual === 'object' ? slide.visual : null;
     const photoSrc = photo?.src ? localImageSrc(photo.src) : '';
-    const caption = photo?.caption || photo?.alt || '';
+    const caption = photo && Object.prototype.hasOwnProperty.call(photo, 'caption')
+      ? photo.caption
+      : (photo?.alt || '');
     const credit = photo?.credit || '';
-    const promptLength = String(slide.question || '').length + String(slide.zh || '').length;
+    const visualClass = photoSrc ? ' has-visual' : '';
+    const promptLength = String(slide.question || '').length
+      + String(slide.followUp || '').length
+      + String(slide.zh || '').length
+      + String(slide.followUpZh || '').length;
     const sizeClass = promptLength > 135 ? ' is-long' : promptLength > 100 ? ' is-medium' : '';
     return `
-      <section class="slide is-discussion${sizeClass}" data-idx="${idx}"
+      <section class="slide is-discussion${visualClass}${sizeClass}${layoutClass}" data-idx="${idx}"
                data-notes="${esc(slide.notes || 'Teacher cue: let students discuss the question before taking responses.')}">
         ${photoSrc ? `
           <img class="discussionBg"
@@ -1807,6 +1928,7 @@ function renderSlide(meta, slide, idx, total) {
 
   const isHero = slide.type === 'hero';
   const isFact = slide.type === 'fact';
+  const visualPositionClass = slide.visualPosition === 'left' ? ' is-visual-left' : '';
   const typeClass = slide.type && !['hero', 'fact'].includes(slide.type)
     ? ` is-${String(slide.type).replace(/[^a-z0-9_-]/gi, '')}`
     : '';
@@ -1824,7 +1946,7 @@ function renderSlide(meta, slide, idx, total) {
   const slideSourceControl = renderSources(renderSlide.sources, 'sourceList slideSourceControl');
 
   return `
-    <section class="slide${typeClass}${isHero ? ' is-hero' : ''}${isFact ? ' is-fact' : ''}" data-idx="${idx}"
+    <section class="slide${typeClass}${isHero ? ' is-hero' : ''}${isFact ? ' is-fact' : ''}${visualPositionClass}${layoutClass}" data-idx="${idx}"
              data-notes="${esc(slide.notes || 'Teacher cue: ask students to explain the mechanism before revealing any answer.')}">
       ${topline(slide, idx, total)}
       <div class="content${visual ? '' : ' is-full'}">
@@ -1886,7 +2008,7 @@ function lessonStartUrl() {
 function studentSelectorBaseUrl() {
   const configured = String(
     window.IGCSE?.studentSelectorBaseUrl ||
-    '/student-selector/'
+    (location.protocol === 'file:' ? 'https://randomizerselection.github.io/studentselector/' : '/student-selector/')
   ).replace(/\/?$/, '/');
   return new URL(configured, location.href).href;
 }
@@ -2089,6 +2211,7 @@ function mountLessonModeSwitch(mode, meta = {}) {
     <div class="lessonModeTabs" aria-label="Lesson modes">
       ${modeTabs}
     </div>
+    <span class="lessonModeAccount" data-platform-account></span>
     ${currentMode === 'slides' ? '<button type="button" class="lessonModeButton lessonModeButton--selector lessonModeSelectorToggle" data-student-selector aria-label="Student selector" aria-pressed="false">Selector</button>' : ''}
     <details class="lessonModeMenu">
       <summary class="lessonModeMenuButton">More</summary>
@@ -2106,6 +2229,9 @@ function mountLessonModeSwitch(mode, meta = {}) {
     toggleStudentSelector();
   });
   document.body.appendChild(nav);
+  IGCSE.ensurePlatformAuth()
+    .then((platform) => platform?.initialize({ mount: nav.querySelector('[data-platform-account]'), context: currentMode, roleHint: 'student' }))
+    .catch(() => {});
   syncStudentSelectorButtons();
 }
 
@@ -2633,7 +2759,8 @@ function getPartialSelectors(meta, slide) {
   if (slide.type === 'peerTask' && slide.taskType === 'definitionRecall') return '.content main > div .definitionRecallAnswer';
   if (slide.type === 'peerTask') return '.content main > div .peerTaskSamples > .choice';
   if (slide.type === 'classificationTask') return '.content main > div .classificationResult';
-  if (slide.type === 'yesNoCheck') return '.content main > div .yesNoRow, .content main > div .yesNoAnswer';
+  if (slide.type === 'yesNoCheck') return '.content main > div .yesNoAnswer';
+  if (slide.type === 'welcome') return '.welcomeRuleGrid > .welcomeRule';
   if (Array.isArray(config)) return config.map((selector) => `.content main > div ${selector}`).join(',');
   if (slide.type === 'term') return '.content main > div > .definitionTermNotes > .definitionTermNote';
   if (slide.type === 'hero' && config !== true) return '';
@@ -2798,8 +2925,8 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     idx = Math.max(0, Math.min(slides.length - 1, n));
     slideEls.forEach((el, i) => el.classList.toggle('is-active', i === idx));
     document.body.classList.toggle('is-visual-pause', slides[idx]?.type === 'visualPause');
-    mountEl.querySelectorAll('[data-slide-jump]').forEach((input, i) => {
-      input.value = String(i + 1);
+    mountEl.querySelectorAll('[data-slide-jump]').forEach((input) => {
+      input.value = String(idx + 1);
     });
     syncPartials(idx);
     if (progressBar) progressBar.style.width = (((idx + 1) / slides.length) * 100) + '%';
@@ -2816,8 +2943,18 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     if (Number.isFinite(fromHash)) show(fromHash - 1);
   }
 
-  function toggleNotes() {
-    if (notesEl) notesEl.classList.toggle('is-visible');
+  async function toggleNotes() {
+    if (!notesEl) return;
+    if (notesEl.classList.contains('is-visible')) {
+      notesEl.classList.remove('is-visible');
+      return;
+    }
+    const platform = await IGCSE.ensurePlatformAuth();
+    const session = await platform?.requireRole('teacher', {
+      context: 'teacher-notes',
+      message: 'Teacher access is required to open lesson notes.'
+    });
+    if (session?.account?.role === 'teacher') notesEl.classList.add('is-visible');
   }
 
   function buildOverview() {

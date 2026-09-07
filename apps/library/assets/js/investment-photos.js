@@ -300,29 +300,37 @@ window.INVEST = window.INVEST || {};
       "Purpose-built local course icon",
       { objectFit: "contain", background: "transparent", visualStyle: "icon" }
     ),
+    lesson2FamilyPlanning: photo(
+      "lesson-2/family-financial-planning-2020.jpg",
+      "A couple reviews financial documents with a calculator and laptop at home.",
+      "A family defines its financial goals before considering an investment",
+      "Pexels / Mikhail Nilov",
+      "https://www.pexels.com/photo/couple-calculating-all-their-bills-6964107/",
+      { objectPosition: "center 48%" }
+    ),
     lesson2UniversityStudents: photo(
-      "lesson-2/university-students.jpg",
-      "University students write at desks in a classroom.",
+      "lesson-2/university-students-campus-2021.jpg",
+      "Three university students carry books and papers while walking across a campus.",
       "University study as a near-term financial goal",
-      "Pexels / Eduard Perez",
-      "https://www.pexels.com/photo/college-students-studying-in-a-classroom-37811241/",
-      { objectPosition: "center 46%" }
+      "Pexels / George Pak",
+      "https://www.pexels.com/photo/students-walking-on-the-campus-7972653/",
+      { objectPosition: "center 48%" }
     ),
     lesson2HomeKey: photo(
-      "lesson-2/new-home-key.jpg",
-      "A couple holds up the key to a new home.",
+      "lesson-2/home-goal-key-2021.jpg",
+      "A couple holds a house-shaped key ring and key in front of their new home.",
       "A home purchase as a medium-term financial goal",
-      "Pexels / Kindel Media",
-      "https://www.pexels.com/photo/people-holding-a-key-7579197/",
-      { objectPosition: "center 42%" }
+      "Pexels / RDNE Stock project",
+      "https://www.pexels.com/photo/happy-couple-holding-and-showing-a-house-key-8293700/",
+      { objectPosition: "center 45%" }
     ),
     lesson2RetirementCouple: photo(
-      "lesson-2/retirement-couple-walking.jpg",
+      "lesson-2/retirement-goal-couple-2017.jpg",
       "An older couple walks together while holding hands.",
       "Retirement as a long-term financial goal",
       "Pexels / Noelle Otto",
       "https://www.pexels.com/photo/old-couple-walking-while-holding-hands-906111/",
-      { objectPosition: "center 52%" }
+      { objectPosition: "center 48%" }
     ),
     lesson1GainAndLossMarketScreen: photo(
       "lesson-1/market-gainers-and-losers-screen.jpg",
@@ -355,6 +363,118 @@ window.INVEST = window.INVEST || {};
       "Pexels / StockRadars Co.",
       "https://www.pexels.com/photo/smartphone-display-of-stock-market-application-28682350/",
       { objectPosition: "center 46%" }
+    ),
+    lesson1PptxShanghaiSkyline: photo(
+      "lesson-1/pptx-shanghai-skyline.jpg",
+      "Shanghai skyline beside the Huangpu River under a clear blue sky.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxStockradarsPhone: photo(
+      "lesson-1/pptx-stockradars-phone.jpg",
+      "A smartphone displays a stock trading app and candlestick chart.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxSmartphoneMarket: photo(
+      "lesson-1/pptx-smartphone-market.jpg",
+      "A person examines a market chart on a smartphone.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 52%" }
+    ),
+    lesson1PptxTradingPhone: photo(
+      "lesson-1/pptx-trading-phone.jpg",
+      "Hands hold a smartphone displaying a trading app.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxGamestopStore: photo(
+      "lesson-1/pptx-gamestop-store.jpg",
+      "Customers stand outside a GameStop store.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxNyseTradingDesk: photo(
+      "lesson-1/pptx-nyse-trading-desk.jpg",
+      "A New York Stock Exchange trading desk surrounded by market screens.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 45%" }
+    ),
+    lesson1PptxBankDepositCounter: photo(
+      "lesson-1/pptx-bank-deposit-counter.jpg",
+      "A customer deposits money at a bank counter.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxEmergencySavingsJar: photo(
+      "lesson-1/pptx-emergency-savings-jar.jpg",
+      "A glass jar of coins is labelled emergency.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 52%" }
+    ),
+    lesson1PptxPiggyBankCoins: photo(
+      "lesson-1/pptx-piggy-bank-coins.jpg",
+      "A pink piggy bank stands among stacks of coins.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectFit: "contain", background: "#ffffff" }
+    ),
+    lesson1PptxExchangeSquare: photo(
+      "lesson-1/pptx-exchange-square.jpg",
+      "Exchange Square in Hong Kong with flags and market displays.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 50%" }
+    ),
+    lesson1PptxNyseFloor: photo(
+      "lesson-1/pptx-nyse-floor.jpg",
+      "The New York Stock Exchange floor with traders and market displays.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxCalculator: photo(
+      "lesson-1/pptx-calculator.jpg",
+      "A hand presses keys on a calculator.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 48%" }
+    ),
+    lesson1PptxLaptopStudy: photo(
+      "lesson-1/pptx-laptop-study.jpg",
+      "A student works at a laptop surrounded by notebooks and study materials.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 50%" }
+    ),
+    lesson1PptxMarketPhoneRumour: photo(
+      "lesson-1/pptx-market-phone-rumour.jpg",
+      "A smartphone is held in front of red and green market-price numbers.",
+      "",
+      "",
+      "Embedded in What is investment - classroom structured refined.pptx",
+      { objectPosition: "center 50%" }
     ),
     lesson1ScenarioContainerPort: photo(
       "lesson-1/scenario-container-ships-hamburg-port.jpg",

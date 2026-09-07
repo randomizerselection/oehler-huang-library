@@ -1,6 +1,6 @@
 window.IGCSE = window.IGCSE || {};
-
-IGCSE.quizConfig = {
+window.IGCSE.quizConfig = Object.freeze({
   submissionEnabled: true,
-  provider: 'oehler-huang-platform',
-};
+  provider: 'econmark',
+  submitEndpoint: '/api/quiz-attempts',
+});

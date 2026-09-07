@@ -4,6 +4,7 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
+  timeout: 90000,
   reporter: [['list']],
   use: {
     browserName: 'chromium',

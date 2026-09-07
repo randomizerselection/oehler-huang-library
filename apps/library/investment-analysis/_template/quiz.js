@@ -1,6 +1,8 @@
-window.INVEST = window.INVEST || {};
+window.IGCSE = window.IGCSE || {};
 
-window.INVEST.quiz = {
+window.IGCSE.quiz = {
+  id: "replace-with-stable-quiz-id",
+  version: "1.0.0",
   title: "Lesson quiz",
   description: "Replace with a short review description.",
   questions: [

@@ -16,6 +16,7 @@ const SCHEMA_FILES = Object.freeze([
   "adjudicator-output.schema.json",
   "feedback-output.schema.json",
   "account.schema.json",
+  "quiz-attempt.schema.json",
   "auth-session.schema.json",
   "persistence-record.schema.json",
   "stored-run.schema.json"

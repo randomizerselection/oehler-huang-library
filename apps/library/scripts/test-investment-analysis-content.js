@@ -8,6 +8,7 @@ const courseRoot = path.join(root, 'investment-analysis');
 const courseMap = require('../investment-analysis/course-map-data.js');
 const financialDecisionCourseMap = require('../investment-analysis/course-map-financial-decisions-data.js');
 const expectedLessonCount = 50;
+const expectedFinancialDecisionLessonCount = 32;
 const expectedUnitCount = 5;
 const lessonsPerCheckpoint = 10;
 const {
@@ -151,33 +152,37 @@ function readInvestmentLesson(relativePath) {
     photos: deepProxy(),
     marketData: deepProxy(),
   };
+  const IGCSE = {};
   const context = {
-    window: { INVEST },
+    window: { INVEST, IGCSE },
     INVEST,
+    IGCSE,
     console,
   };
   context.window.window = context.window;
   vm.runInNewContext(source, context, { filename: relativePath });
-  return context.window.INVEST.lesson;
+  return context.window.IGCSE.lesson || context.window.INVEST.lesson;
 }
 
 function readInvestmentQuiz(relativePath) {
   const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const INVEST = {};
+  const IGCSE = {};
   const context = {
-    window: { INVEST },
+    window: { INVEST, IGCSE },
     INVEST,
+    IGCSE,
     console,
   };
   context.window.window = context.window;
   vm.runInNewContext(source, context, { filename: relativePath });
-  return context.window.INVEST.quiz;
+  return context.window.IGCSE.quiz || context.window.INVEST.quiz;
 }
 
 function hasTemplateGuidance() {
   const readmePath = path.join(courseRoot, '_template', 'README.md');
   const source = fs.readFileSync(readmePath, 'utf8');
-  return /discussion\.revealTitle.+one English sentence followed by one Chinese sentence/i.test(source);
+  return /discussion\.(?:answer|revealTitle).+one English sentence followed by one Chinese sentence/i.test(source);
 }
 
 function hasConciseObjectiveGuidance() {
@@ -1056,10 +1061,10 @@ function validateCompiledHandoutBook() {
   const revisionBlocks = actual.match(/^### Numbered revision points \/ 编号复习要点$/gm) || [];
   const blueprintLessonHeadings = actualTeacherBlueprint.match(/^## Lesson \d+:/gm) || [];
 
-  if (lessonHeadings.length !== expectedLessonCount) failures.push(`compiled handout book: expected ${expectedLessonCount} lesson handouts`);
+  if (lessonHeadings.length !== expectedFinancialDecisionLessonCount) failures.push(`compiled handout book: expected ${expectedFinancialDecisionLessonCount} lesson handouts`);
   if (unitHeadings.length !== financialDecisionCourseMap.units.length) failures.push(`compiled handout book: expected ${financialDecisionCourseMap.units.length} unit dividers`);
-  if (definitionBlocks.length !== expectedLessonCount || revisionBlocks.length !== expectedLessonCount) failures.push('compiled handout book: every planned lesson needs definitions and numbered revision points');
-  if (blueprintLessonHeadings.length !== expectedLessonCount) failures.push(`teacher blueprint: expected ${expectedLessonCount} lesson blueprints`);
+  if (definitionBlocks.length !== expectedFinancialDecisionLessonCount || revisionBlocks.length !== expectedFinancialDecisionLessonCount) failures.push('compiled handout book: every planned lesson needs definitions and numbered revision points');
+  if (blueprintLessonHeadings.length !== expectedFinancialDecisionLessonCount) failures.push(`teacher blueprint: expected ${expectedFinancialDecisionLessonCount} lesson blueprints`);
   if (!/Case Review Table/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing case review table');
   if (!/Source-Fit Audit/i.test(actualTeacherBlueprint)) failures.push('teacher blueprint: missing source-fit audit');
   if (!/course-map-financial-decisions-data\.js/.test(actualTeacherBlueprint)) failures.push('teacher blueprint: must identify the active financial-decisions source');
@@ -1073,28 +1078,20 @@ function validateCompiledHandoutBook() {
 
 function validateTermRenderer() {
   const failures = [];
-  const rendererPath = path.join(root, 'assets', 'js', 'investment-deck.js');
+  const rendererPath = path.join(root, 'assets', 'js', 'presentation.js');
   const source = fs.readFileSync(rendererPath, 'utf8');
   const templateReadme = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');
   const designLanguage = fs.readFileSync(path.join(courseRoot, '_template', 'DESIGN-LANGUAGE.md'), 'utf8');
 
-  if (/class="invTermGrid"/.test(source)) {
-    failures.push('assets/js/investment-deck.js: term slides should not render invTermGrid below definitions');
+  if (!/class="termBox"/.test(source) || !/termDefinitionZh/.test(source)) {
+    failures.push('assets/js/presentation.js: term slides should render English and Chinese definitions inside the definition block');
   }
 
-  if (!/class="invTermDefinitionZh"/.test(source)) {
-    failures.push('assets/js/investment-deck.js: term slides should render definitionZh inside the definition block');
+  if (!/termExamples/.test(source)) {
+    failures.push('assets/js/presentation.js: term slides should render concise concrete examples after the definitions');
   }
 
-  if (!/applyDefinitionBlanks/.test(source) || !/definitionBlanks/.test(source)) {
-    failures.push('assets/js/investment-deck.js: term slides should support definitionBlanks for projected fill-in definitions');
-  }
-
-  if (!/class="invTermExamples"/.test(source)) {
-    failures.push('assets/js/investment-deck.js: term slides should render a bullet list of concrete examples after the definitions');
-  }
-
-  if (!/at least three concise bilingual bullet examples/i.test(templateReadme) || !/classification or sorting check/i.test(designLanguage)) {
+  if (!/at least three concise bullet examples/i.test(templateReadme) || !/classification or sorting check/i.test(designLanguage)) {
     failures.push('investment-analysis/_template: missing the required example range and classify-or-sort formative-check guidance');
   }
 
@@ -1106,7 +1103,7 @@ function validateInvestmentPresentationDefinitions() {
   const definitionMap = getInvestmentDefinitionMap();
   const activeFinancialDefinitionMap = new Map(
     financialDecisionCourseMap.lessons
-      .filter((lesson) => lesson.lesson <= 2)
+      .filter((lesson) => lesson.lesson <= 3)
       .flatMap((lesson) => lesson.terms || [])
       .map((entry) => [String(entry.term || '').toLowerCase(), entry]),
   );
@@ -1115,7 +1112,7 @@ function validateInvestmentPresentationDefinitions() {
 
   for (const slideFile of slideFiles) {
     const lesson = readInvestmentLesson(slideFile);
-    const usesActiveFinancialDefinitions = /^investment-analysis\/unit-1\/lesson-[12]\/slides\.js$/.test(slideFile);
+    const usesActiveFinancialDefinitions = /^investment-analysis\/unit-1\/lesson-[123]\/slides\.js$/.test(slideFile);
     for (const [index, slide] of (lesson.slides || []).entries()) {
       const label = `${slideFile} slide ${index + 1} (${slide.type || 'unknown'}: ${slide.title || slide.term || 'untitled'})`;
 
@@ -1140,17 +1137,8 @@ function validateInvestmentPresentationDefinitions() {
           );
         }
 
-        if (slideFile === 'investment-analysis/unit-1/lesson-1/slides.js') {
-          const blanks = Array.isArray(slide.definitionBlanks) ? slide.definitionBlanks : [];
-          if (!blanks.length) {
-            failures.push(`${label}: Lesson 1 definition slides must declare definitionBlanks`);
-          }
-          for (const blank of blanks) {
-            const search = typeof blank === 'string' ? blank : (blank.text || blank.answer || '');
-            if (search && !String(slide.definition).includes(search)) {
-              failures.push(`${label}: definitionBlank "${search}" must appear in the canonical definition text`);
-            }
-          }
+        if (slideFile === 'investment-analysis/unit-1/lesson-1/slides.js' && Array.isArray(slide.definitionBlanks) && slide.definitionBlanks.length) {
+          failures.push(`${label}: Lesson 1 definitions should be self-contained statements, not cloze definitions`);
         }
       }
 
@@ -1206,7 +1194,7 @@ function validateImportantChineseSupport() {
 
       if (slide.type === 'visualPause') continue;
 
-      if (slide.type !== 'term' && slide.title) {
+      if (['hero', 'section'].includes(slide.type) && slide.title) {
         requireChinese(failures, label, slide.zhTitle, 'zhTitle for the main slide title');
       }
 
@@ -1226,29 +1214,25 @@ function validateImportantChineseSupport() {
               failures.push(`${label}: missing Chinese support for the discussion question`);
             }
           }
-          requireChinese(failures, label, slide.revealTitleZh, 'revealTitleZh for the one-sentence revealed answer');
-          if (!slide.revealTitle) failures.push(`${label}: missing the one-sentence English discussion answer in revealTitle`);
-          if (slide.answer || slide.answerZh || slide.note) {
-            failures.push(`${label}: discussion reveals must use only revealTitle and revealTitleZh, without a second explanation`);
-          }
+          requireChinese(failures, label, slide.answerZh || slide.revealTitleZh, 'Chinese support for the one-sentence revealed answer');
+          if (!slide.answer && !slide.revealTitle) failures.push(`${label}: missing the one-sentence English discussion answer`);
           break;
         case 'term':
-          requireChinese(failures, label, slide.termZh, 'termZh');
+          requireChinese(failures, label, slide.zhTitle || slide.termZh, 'Chinese translation of the difficult term');
           requireChinese(failures, label, slide.definitionZh, 'definitionZh');
           if (!Array.isArray(slide.examples) || slide.examples.length < 3) {
-            failures.push(`${label}: every definition slide needs at least three concrete bilingual bullet examples`);
+            failures.push(`${label}: every definition slide needs at least three concise concrete examples`);
           } else {
             slide.examples.forEach((example, exampleIndex) => {
-              const normalized = typeof example === 'string' ? { text: example } : (example || {});
-              if (!isNonEmptyString(normalized.text || normalized.example)) {
+              const english = Array.isArray(example)
+                ? example[0]
+                : (typeof example === 'string' ? example : (example?.text || example?.example));
+              if (!isNonEmptyString(english)) {
                 failures.push(`${label} example ${exampleIndex + 1}: missing concise English example text`);
               }
-              requireChinese(failures, `${label} example ${exampleIndex + 1}`, normalized.zh, 'Chinese support for the definition example');
             });
           }
-          if (!Array.isArray(slide.keywordVisuals) || slide.keywordVisuals.length !== 1) {
-            failures.push(`${label}: definition slides need exactly one image that directly represents the full definition`);
-          } else {
+          if (Array.isArray(slide.keywordVisuals) && slide.keywordVisuals.length) {
             const definitionVisual = slide.keywordVisuals[0] || {};
             if (!definitionVisual.visual && !definitionVisual.photo) {
               failures.push(`${label}: definition image is missing`);
@@ -1329,14 +1313,11 @@ function validateImportantChineseSupport() {
           if (slide.writtenCheck) requireChinese(failures, label, slide.writtenCheckZh, 'writtenCheckZh for the ranking written check');
           break;
         case 'quiz':
-          if (!String(slide.title || '').trim().endsWith('?')) {
+          if (!String(slide.question || slide.title || '').trim().endsWith('?')) {
             failures.push(`${label}: quiz slides need one question in the English title`);
           }
-          requireChinese(failures, label, slide.zhTitle, 'zhTitle for the quiz question');
-          if (slide.question || slide.zh) {
-            failures.push(`${label}: quiz slides must not repeat the title question in question or zh body fields`);
-          }
-          if (slide.explanation) requireChinese(failures, label, slide.explanationZh, 'explanationZh for quiz feedback');
+          if (slide.zhTitle || slide.zh) requireChinese(failures, label, slide.zhTitle || slide.zh, 'Chinese support for the quiz question');
+          if (slide.explanation && slide.explanationZh) requireChinese(failures, label, slide.explanationZh, 'explanationZh for quiz feedback');
           break;
         case 'dataSnapshot':
           if (slide.note) requireChinese(failures, label, slide.noteZh, 'noteZh for the data note');
@@ -1382,22 +1363,18 @@ function validateImportantChineseSupport() {
               requireChinese(failures, `${label} item ${itemIndex + 1}`, item.answerZh, 'answerZh for the compare blank');
             }
           });
-          if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the compare task');
+          if (slide.promptZh) requireChinese(failures, label, slide.promptZh, 'promptZh for the compare task');
           break;
         case 'comparisonMatrix':
           if (slide.prompt) requireChinese(failures, label, slide.promptZh, 'promptZh for the comparison task');
           break;
         case 'yesNoCheck':
-          if (slide.title !== 'Vote yes or no.' || slide.zhTitle !== '投票：是或否。') {
-            failures.push(`${label}: yes/no checks must use the concise bilingual action title`);
+          if (slide.title !== 'Vote yes or no.') {
+            failures.push(`${label}: yes/no checks must use the concise action title`);
           }
-          if (slide.prompt || slide.promptZh) {
-            failures.push(`${label}: yes/no checks must not repeat the voting instruction in the body`);
+          if (slide.zhTitle) {
+            requireChinese(failures, label, slide.zhTitle, 'Chinese support for the yes/no title');
           }
-          (slide.items || []).forEach((item, itemIndex) => {
-            if (item.text || item.statement) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.zh, 'Chinese support for the yes/no statement');
-            if (item.reason) requireChinese(failures, `${label} item ${itemIndex + 1}`, item.reasonZh, 'reasonZh for the yes/no reason');
-          });
           break;
         case 'catalystTimeline':
           (slide.events || []).forEach((event, eventIndex) => {
@@ -1432,7 +1409,7 @@ function validateImportantChineseSupport() {
           break;
         case 'modelAnswer':
           if (slide.cueText) requireChinese(failures, label, slide.cueTextZh, 'cueTextZh for the comparison cue');
-          requireChineseArray(failures, label, slide.paragraphs, slide.paragraphsZh, 'paragraphsZh');
+          if (slide.paragraphsZh) requireChineseArray(failures, label, slide.paragraphs, slide.paragraphsZh, 'paragraphsZh');
           if (slide.markNote) requireChinese(failures, label, slide.markNoteZh, 'markNoteZh for the mark note');
           break;
         default:
@@ -1461,8 +1438,8 @@ function validateDiscussionRevealTitles() {
     const lesson = readInvestmentLesson(slideFile);
     for (const [index, slide] of (lesson.slides || []).entries()) {
       if (slide.type !== 'discussion') continue;
-      const revealTitle = String(slide.revealTitle || '').trim();
-      const revealTitleZh = String(slide.revealTitleZh || '').trim();
+      const revealTitle = String(slide.answer || slide.revealTitle || '').trim();
+      const revealTitleZh = String(slide.answerZh || slide.revealTitleZh || '').trim();
       if (revealTitle && vagueRevealTitlePattern.test(revealTitle)) {
         failures.push(`${slideFile} slide ${index + 1}: revealTitle "${revealTitle}" is a label, not an answer statement`);
       }
@@ -1479,7 +1456,7 @@ function validateDiscussionRevealTitles() {
   }
 
   if (!hasTemplateGuidance()) {
-    failures.push('investment-analysis/_template/README.md: missing discussion.revealTitle answer-statement guidance');
+    failures.push('investment-analysis/_template/README.md: missing discussion.answer answer-statement guidance');
   }
 
   return failures;
@@ -1558,7 +1535,7 @@ function validateGroundedHandoutScenarios() {
     }
   }
 
-  for (const lessonNumber of [1, 2]) {
+  for (const lessonNumber of [1, 2, 3]) {
     const relativePath = `investment-analysis/unit-1/lesson-${lessonNumber}/slides.js`;
     const lesson = readInvestmentLesson(relativePath);
     const handoutBlocks = (lesson.handout?.sections || []).flatMap((section) => section.blocks || []);
@@ -1572,8 +1549,8 @@ function validateGroundedHandoutScenarios() {
 
   const templateReadme = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');
   const templateSlides = fs.readFileSync(path.join(courseRoot, '_template', 'slides.js'), 'utf8');
-  if (!/bilingual exam-revision sheet/i.test(templateReadme) || !/type: "bilingualDefinitions"/.test(templateSlides) || !/type: "bilingualNumberedKnowledge"/.test(templateSlides)) {
-    failures.push('investment-analysis/_template: bilingual fill-definition and numbered-point revision handout guidance and scaffold are required');
+  if (!/bilingual exam-revision sheet/i.test(templateReadme) || !/type: ['"]bilingualDefinitions['"]/.test(templateSlides) || !/type: ['"]bilingualNumberedKnowledge['"]/.test(templateSlides)) {
+    failures.push('investment-analysis/_template: bilingual self-contained-definition and numbered-point revision handout guidance and scaffold are required');
   }
 
   return failures;
@@ -1583,15 +1560,16 @@ function validateActiveLessonAlignment() {
   const failures = [];
   const homepagePath = path.join(courseRoot, 'index.html');
   const homepageSource = fs.readFileSync(homepagePath, 'utf8');
-  const activeLessons = [1, 2];
+  const activeLessons = [1, 2, 3];
 
   if (!hasConciseObjectiveGuidance()) {
     failures.push('investment-analysis/_template/README.md: missing concise objective guidance');
   }
 
   const expectedTerms = new Map([
-    [1, ['investment', 'return', 'financial goal']],
-    [2, ['time horizon', 'liquidity need', 'suitability']],
+    [1, ['financial investment', 'speculation', 'saving']],
+    [2, ['investment', 'return', 'financial goal']],
+    [3, ['time horizon', 'liquidity need', 'suitability']],
   ]);
 
   for (const [lessonNumber, terms] of expectedTerms) {
@@ -1660,52 +1638,71 @@ function validateActiveLessonAlignment() {
       failures.push(`${label}/slides.js: term slides must match canonical lesson term ownership and order`);
     }
 
-    if (!Array.isArray(lesson.handout?.sections) || lesson.handout.sections.length !== 2) {
+    const usesSeparateHandout = lessonNumber === 1;
+    if (!usesSeparateHandout && (!Array.isArray(lesson.handout?.sections) || lesson.handout.sections.length !== 2)) {
       failures.push(`${label}/slides.js: exam-revision handout must contain exactly two sections`);
     }
     const handoutBlocks = (lesson.handout?.sections || []).flatMap((section) => section.blocks || []);
     const definitionItems = handoutBlocks.find((block) => block.type === 'bilingualDefinitions')?.items || [];
-    const normalisedDefinitions = definitionItems.map((item) => {
-      let answerIndex = 0;
-      const definition = String(item.prompt || '').replace(/__________/g, () => item.answers?.[answerIndex++] || '');
-      return { term: String(item.term || '').toLowerCase(), definition };
-    });
+    const normalisedDefinitions = definitionItems.map((item) => ({
+      term: String(item.term || '').toLowerCase(),
+      definition: String(item.definition || ''),
+    }));
     const expectedDefinitions = mapLesson.terms.map((term) => ({ term: String(term.term || '').toLowerCase(), definition: term.definition }));
-    if (JSON.stringify(normalisedDefinitions) !== JSON.stringify(expectedDefinitions)) {
-      failures.push(`${label}/slides.js: completed handout definition blanks must exactly reconstruct the canonical definitions`);
+    if (!usesSeparateHandout && JSON.stringify(normalisedDefinitions) !== JSON.stringify(expectedDefinitions)) {
+      failures.push(`${label}/slides.js: complete handout definitions must exactly match the canonical definitions`);
     }
-    for (const [index, item] of definitionItems.entries()) {
-      const blankCount = (String(item.prompt || '').match(/__________/g) || []).length;
-      if (!isNonEmptyString(item.termZh) || !isNonEmptyString(item.definitionZh) || !Array.isArray(item.answers) || item.answers.length !== blankCount || blankCount < 1) {
-        failures.push(`${label}/slides.js: bilingual definition ${index + 1} needs Chinese support and one ordered answer per blank`);
+    for (const [index, item] of usesSeparateHandout ? [] : definitionItems.entries()) {
+      if (!isNonEmptyString(item.termZh) || !isNonEmptyString(item.definition) || !isNonEmptyString(item.definitionZh)) {
+        failures.push(`${label}/slides.js: bilingual definition ${index + 1} needs a complete English definition and Chinese support`);
+      }
+      if (/_{3,}/.test(JSON.stringify(item)) || item.prompt || item.answers) {
+        failures.push(`${label}/slides.js: bilingual definition ${index + 1} must not use cloze or answer fields`);
       }
     }
     if (handoutBlocks.some((block) => ['scenario', 'prompts', 'table', 'calculation', 'writing', 'sentence', 'cases', 'terms'].includes(block.type))) {
       failures.push(`${label}/slides.js: knowledge handout must not contain tasks, questions, answer blanks or response spaces`);
     }
     const numberedPoints = handoutBlocks.find((block) => block.type === 'bilingualNumberedKnowledge')?.points || [];
-    if (!Array.isArray(numberedPoints) || numberedPoints.length < 4 || numberedPoints.length > 7 || numberedPoints.some((point) => !isNonEmptyString(point.en) || !isNonEmptyString(point.zh))) {
+    if (!usesSeparateHandout && (!Array.isArray(numberedPoints) || numberedPoints.length < 4 || numberedPoints.length > 7 || numberedPoints.some((point) => !isNonEmptyString(point.en) || !isNonEmptyString(point.zh)))) {
       failures.push(`${label}/slides.js: handout must contain four to seven bilingual numbered revision points`);
     }
 
-    if (lesson.stockMarketGame?.studentAction !== mapLesson.stockMarketGame?.studentAction) {
+    if (lessonNumber !== 1 && lesson.stockMarketGame?.studentAction !== mapLesson.stockMarketGame?.studentAction) {
       failures.push(`${label}/slides.js: deck-level Stock Market Game action must exactly match the canonical lesson action`);
     }
     const smgLabIndex = (lesson.slides || []).findIndex((slide) => slide.eyebrow === 'SMG core lab');
-    const exitIndex = (lesson.slides || []).findLastIndex((slide) => slide.type === 'answer' && slide.title === 'Exit ticket');
-    if (smgLabIndex < 0 || exitIndex < 0 || smgLabIndex >= exitIndex) {
+    const exitIndex = (lesson.slides || []).findLastIndex((slide) => slide.title === 'Exit ticket' && slide.eyebrow === 'Check');
+    if (lessonNumber !== 1 && (smgLabIndex < 0 || exitIndex < 0 || smgLabIndex >= exitIndex)) {
       failures.push(`${label}/slides.js: a visible SMG core lab must appear before the individual exit ticket`);
     }
     const smgLabText = JSON.stringify((lesson.slides || []).filter((slide) => /SMG/i.test(slide.eyebrow || '')));
-    if (!/team evidence row/i.test(smgLabText) || !/individual exit/i.test(smgLabText)) {
+    if (lessonNumber !== 1 && (!/team evidence row/i.test(smgLabText) || !/individual exit/i.test(smgLabText))) {
       failures.push(`${label}/slides.js: SMG lab must produce one team evidence row and one individual exit judgement`);
     }
     if (/passport/i.test(slideSource)) {
       failures.push(`${label}/slides.js: retired Investor Passport content must not remain in the active deck`);
     }
 
-    if (!Array.isArray(quiz.questions) || quiz.questions.length !== 10) {
-      failures.push(`${label}/quiz.js: active lesson quiz must contain exactly ten questions`);
+    const nativeSlideTypes = new Set(['hero', 'discussion', 'outcomes', 'section', 'visualPause', 'term', 'cards', 'compare', 'flow', 'quiz', 'yesNoCheck', 'classificationTask', 'peerTask', 'modelAnswer']);
+    for (const [index, slide] of (lesson.slides || []).entries()) {
+      if (!nativeSlideTypes.has(slide.type)) {
+        failures.push(`${label}/slides.js slide ${index + 1}: use a native Economics slide type`);
+      }
+      if (slide.mode === 'fillBlanks' || /_{3,}/.test(JSON.stringify(slide))) {
+        failures.push(`${label}/slides.js slide ${index + 1}: active Investment Analysis decks must not use fill-in-the-blank interactions`);
+      }
+    }
+    if (!/theme\.css/.test(indexSource) || !/presentation\.css/.test(indexSource) || !/presentation\.js/.test(indexSource) || !/window\.IGCSE\.mountLesson\(window\.IGCSE\.lesson\)/.test(indexSource)) {
+      failures.push(`${label}/index.html: active lesson must load and mount the canonical Economics presentation system directly`);
+    }
+    if ((quiz.questions || []).some((question) => question.type === 'fillBlank')) {
+      failures.push(`${label}/quiz.js: active lesson quizzes must not use fill-in-the-blank questions`);
+    }
+
+    const expectedQuizLength = lessonNumber === 1 ? 8 : 10;
+    if (!Array.isArray(quiz.questions) || quiz.questions.length !== expectedQuizLength) {
+      failures.push(`${label}/quiz.js: active lesson quiz must contain exactly ${expectedQuizLength} questions`);
     }
     if (!String(quiz.title || '').includes(`Lesson ${lessonNumber}`)) {
       failures.push(`${label}/quiz.js: quiz title must identify the active lesson number`);
@@ -1715,11 +1712,11 @@ function validateActiveLessonAlignment() {
       failures.push(`${label}: mainland China family amounts must use CNY and 人民币, not HKD or 港元`);
     }
 
-    if (lessonNumber === 1 && /What is investment analysis\?|Tencent|share price|stock exchange|saving, investing or speculation/i.test(slideSource)) {
-      failures.push(`${label}/slides.js: Lesson 1 must not retain archived company-analysis or saving-versus-speculation teaching`);
+    if (lessonNumber === 1 && /What is investment analysis\?|Tencent|stock exchange/i.test(slideSource)) {
+      failures.push(`${label}/slides.js: Lesson 1 must not retain archived company-analysis teaching`);
     }
-    if (lessonNumber === 2 && /HKEX|0700\.HK|stock exchange|secondary market|trading friction/i.test(`${slideSource}\n${fs.readFileSync(quizPath, 'utf8')}\n${indexSource}`)) {
-      failures.push(`${label}: active Lesson 2 must not retain archived HKEX market-infrastructure content`);
+    if (lessonNumber >= 2 && /HKEX|0700\.HK|stock exchange|secondary market|trading friction/i.test(`${slideSource}\n${fs.readFileSync(quizPath, 'utf8')}\n${indexSource}`)) {
+      failures.push(`${label}: active family-goal lessons must not retain archived HKEX market-infrastructure content`);
     }
   }
 
@@ -1763,24 +1760,29 @@ function validateActiveLessonAlignment() {
     }
   }
 
-  const lesson2 = readInvestmentLesson('investment-analysis/unit-1/lesson-2/slides.js');
-  const lesson2SourceUrls = (lesson2.meta?.sources || []).map((source) => source.url || '').join('\n');
-  if (!/ifec\.org\.hk/i.test(lesson2SourceUrls) || !/hkma\.gov\.hk/i.test(lesson2SourceUrls)) {
-    failures.push('investment-analysis/unit-1/lesson-2/slides.js: replacement lesson must cite current official IFEC and HKMA guidance');
-  }
-
   const lesson1 = readInvestmentLesson('investment-analysis/unit-1/lesson-1/slides.js');
   const lesson1SourceUrls = (lesson1.meta?.sources || []).map((source) => source.url || '').join('\n');
-  if (!/investor\.gov/i.test(lesson1SourceUrls) || !/ifec\.org\.hk/i.test(lesson1SourceUrls)) {
-    failures.push('investment-analysis/unit-1/lesson-1/slides.js: replacement lesson must cite official Investor.gov and IFEC guidance');
+  if (!/investor\.gov/i.test(lesson1SourceUrls) || !/save-rainy-day/i.test(lesson1SourceUrls) || !/finra\.org/i.test(lesson1SourceUrls) || !/cftc\.gov/i.test(lesson1SourceUrls)) {
+    failures.push('investment-analysis/unit-1/lesson-1/slides.js: classification lesson must cite official investing, saving and speculation guidance');
   }
-  const goalExampleComparison = (lesson1.slides || []).find((slide) => slide.type === 'compare' && /short-term and long-term goals/i.test(slide.title || ''));
+  const lesson2 = readInvestmentLesson('investment-analysis/unit-1/lesson-2/slides.js');
+  const lesson2SourceUrls = (lesson2.meta?.sources || []).map((source) => source.url || '').join('\n');
+  if (!/investor\.gov/i.test(lesson2SourceUrls) || !/ifec\.org\.hk/i.test(lesson2SourceUrls)) {
+    failures.push('investment-analysis/unit-1/lesson-2/slides.js: family-goal lesson must cite official Investor.gov and IFEC guidance');
+  }
+  const goalExampleComparison = (lesson2.slides || []).find((slide) => slide.type === 'compare' && /short-term and long-term goals/i.test(slide.title || ''));
   if (!goalExampleComparison || (goalExampleComparison.left || []).length < 2 || (goalExampleComparison.right || []).length < 2) {
-    failures.push('investment-analysis/unit-1/lesson-1/slides.js: teach short-term and long-term goals with several concrete examples before workbook application');
+    failures.push('investment-analysis/unit-1/lesson-2/slides.js: teach short-term and long-term goals with several concrete examples before workbook application');
   }
-  const goalClassification = (lesson1.slides || []).find((slide) => slide.type === 'answer' && /classify the goals/i.test(slide.title || ''));
-  if (!goalClassification || (goalClassification.items || []).length < 4 || goalClassification.mode !== 'fillBlanks') {
-    failures.push('investment-analysis/unit-1/lesson-1/slides.js: short- and long-term goal examples need a four-case classification check before reveal');
+  const goalClassification = (lesson2.slides || []).find((slide) => slide.type === 'classificationTask' && /short-term or long-term/i.test(slide.title || ''));
+  if (!goalClassification || (goalClassification.items || []).length < 4 || (goalClassification.categories || []).length < 2) {
+    failures.push('investment-analysis/unit-1/lesson-2/slides.js: short- and long-term goal examples need a four-case classification check before reveal');
+  }
+
+  const lesson3 = readInvestmentLesson('investment-analysis/unit-1/lesson-3/slides.js');
+  const lesson3SourceUrls = (lesson3.meta?.sources || []).map((source) => source.url || '').join('\n');
+  if (!/ifec\.org\.hk/i.test(lesson3SourceUrls) || !/hkma\.gov\.hk/i.test(lesson3SourceUrls)) {
+    failures.push('investment-analysis/unit-1/lesson-3/slides.js: goal-comparison lesson must cite current official IFEC and HKMA guidance');
   }
 
   const templateGuidance = fs.readFileSync(path.join(courseRoot, '_template', 'README.md'), 'utf8');

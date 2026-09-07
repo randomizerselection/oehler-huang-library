@@ -33,7 +33,7 @@ when students need to see the whole structure at once.
 ## Folder structure
 
 ```
-oehler-huang-library/
+apps/library/
 ├── index.html                         ← course directory
 ├── economics/
 │   └── index.html                     ← IGCSE Economics course landing page
@@ -152,11 +152,12 @@ Use the 4.2 rows for fiscal-policy wording when creating slides.
 
 That's it. No CSS or JavaScript changes are needed for a new lesson.
 
-Quiz score submission is configured in `assets/js/quiz-config.js`. The site is
-set up for Netlify Forms: quiz attempts post to the hidden
-`quiz-submissions` form in `index.html`, and Netlify stores the submissions for
-dashboard review and CSV export. After deployment, check Netlify → Forms →
-`quiz-submissions`.
+Quiz marking and submission use the same-origin EconMark account service.
+`npm run build:content` generates the validated, versioned server catalog in
+`generated/quiz-bank.json` from all active Economics and Investment quiz definitions. Browsers submit only
+the quiz ID/version and raw answers to `/api/quiz-attempts`; EconMark computes
+the score and stores an immutable attempt. Historical Netlify exports are
+archive-only and are not imported into the new ledger.
 
 ### Lesson structure preferences
 
@@ -186,28 +187,20 @@ photos on objective slides because they compete with the checklist.
 After that, teach each micro-sequence in this order:
 
 1. Divider or section slide
-2. Fact or discussion slide to introduce the topic
+2. Visual pause or discussion slide to introduce the topic
 3. Taught content slides
 4. Formative assessment, such as quizzes, hinge questions, application checks,
    answer blanks, or exam-style checks
 
-Repeat that divider -> fact/discussion -> content -> formative-assessment
+Repeat that divider -> visual-pause/discussion -> content -> formative-assessment
 sequence for each major section in the deck.
 
-Fact and discussion slides should be used generously, not as occasional
-decoration. Every complete lesson deck should include both formats, and each
-major section should normally begin with a concrete fact slide or a discussion
-prompt before abstract explanation. If a section introduces an economic aim,
-policy, market failure, institution, or real-world mechanism, prefer a sourced
-fact slide with a local photo unless the section is deliberately driven by a
-student discussion scenario.
-
-On fact slides, keep source attribution out of the large fact text. Do not write
-phrases such as `The World Bank expected`, `WHO estimates`, or `According to...`
-inside the fact sentence; put the source in the small `source` line. Use flags
-on fact panels where relevant, include a China comparison whenever the pattern
-supports it, and choose the most specific available local photo. Download and
-catalogue a new image when the existing catalogue only offers a generic visual.
+Visual pauses and discussion slides should be used as deliberate bridges, not
+decoration. Use `type: 'visualPause'` for an image-first moment immediately
+before the definition, example or flow it prepares. Keep the student surface to
+a short title and specific local image; put the observation question, teaching
+bridge and source context in teacher `notes`. The retired `fact` slide type must
+not be added to active lessons.
 
 Section dividers should name the content actually taught in that section. Use
 `zhTitle` for concise Chinese title translations on important `section`, `term`,
@@ -216,15 +209,25 @@ IGCSE terms. Divider subtitles are optional and should be used only as a short
 student-facing bridge or contrast that adds meaning beyond the title, such as
 `How lower rates change spending and investment`.
 
+Use the exact syllabus code and section heading as the presentation's main hero
+title, for example `1.1.1 Finite resources and infinite wants`. Section
+dividers are only for the internal teaching chunks and should not repeat
+syllabus or notebook metadata.
+
 Avoid vague divider titles such as `Too much`, `Too little`, `None`, `Part 1`,
 or `Next idea`. Use the syllabus concept or mechanism instead, for example
 `Over-consumption`, `Under-consumption`, `Non-provision`, or `Restricted
 monopoly supply`.
 
 Do not use divider subtitles for syllabus codes, topic breadcrumbs, or formulaic
-phrases such as `2.8.2 - advantages include efficiency`. Keep syllabus
-references in source comments, hero subtitles, objectives, quiz explanations, or
-teacher planning notes instead.
+phrases such as `2.8.2 - advantages include efficiency`. Keep the syllabus
+identity on the hero and in source comments, quiz explanations, or teacher
+planning notes instead.
+
+Keep editorial teaching remarks out of student-facing slide fields. Wording
+such as `For now`, `This is taught later`, or comments about why cards are
+arranged in a particular way belongs in private teacher `notes`, not in a
+visible `lead`, `subtitle`, `footer`, or definition.
 
 Most teaching slides should not use subtitles or lead text. Prefer a clear,
 self-contained title, then move directly into the content.
@@ -242,7 +245,8 @@ need to recall, not a low-value completion word. For example, prefer `The
 __________ is the amount of money in an economy` with answer `money supply`,
 rather than blanking only `economy`.
 
-For bilingual slides, put Chinese translations on discussion and fact slides.
+For bilingual slides, put Chinese translations on discussion slides and key
+teaching text; keep visual pauses image-first.
 Use `zhTitle` on important section dividers, flow slides and definition slides
 so the Chinese appears inline with the English title. Keep the English title
 short enough that the bilingual title does not overflow.
@@ -265,6 +269,7 @@ use a numbered overview followed by one slide per reason.
 
 | `type`     | Purpose                                  |
 | ---------- | ---------------------------------------- |
+| `welcome`  | One-off classroom welcome and expectations slide for the first syllabus lesson |
 | `hero`     | Opening title slide                      |
 | `roadmap`  | Numbered agenda cards                    |
 | `outcomes` | Learning objectives list                 |
@@ -274,9 +279,12 @@ use a numbered overview followed by one slide per reason.
 | `answer`   | Answer card and/or reasoning steps       |
 | `cards`    | Grid of concept cards                    |
 | `split`    | Two-column bullet comparison             |
-| `flow`     | Chain of arrow-connected chips           |
+| `flow`     | Genuine cause-and-result chain of arrow-connected chips |
 | `exam`     | Exam-style question + keyword anchors    |
 | `section`  | Full-bleed section break                 |
+| `visualPause` | Image-first bridge into the next concept |
+| `discussion` | Bilingual discussion prompt and possible answer |
+| `peerTask` | Self-contained pair or written practice task |
 
 Every slide accepts:
 
@@ -292,6 +300,16 @@ Also accepts:
 - `partialReview` - optional reveal pacing for selected slides
 
 See `lessons/unit-4-government/4-2-fiscal-policy/slides-lesson-4.js` for a full example.
+
+Every arrow on a `flow` slide must be readable as “therefore” or “this leads
+to”. Combine parallel starting conditions inside one chip before drawing the
+first arrow. When several observations independently support one conclusion,
+use equal `cards` plus a footer conclusion instead of a `flow`; arrows must
+never mean merely “and another point is”.
+
+On a `yesNoCheck` slide, every statement is visible immediately so students
+can decide all responses before review. The next action reveals one answer and
+reason at a time; statements themselves are never part of the reveal sequence.
 
 ### Partial review
 

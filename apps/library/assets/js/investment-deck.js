@@ -3,6 +3,24 @@
 
   const INVEST = window.INVEST;
   const interactiveSelector = 'a, button, input, textarea, select, label, summary, details, .sourcePanel, .sourceList, .invOverview, .invHandout, .invDiscussionAnswerOverlay';
+  const platformAuthSource = document.currentScript?.src
+    ? new URL('platform-auth.js', document.currentScript.src).href
+    : '/assets/js/platform-auth.js';
+
+  function ensurePlatformAuth() {
+    if (window.LibraryPlatform) return Promise.resolve(window.LibraryPlatform);
+    if (!INVEST.platformAuthLoader) {
+      INVEST.platformAuthLoader = new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = platformAuthSource;
+        script.addEventListener('load', () => resolve(window.LibraryPlatform || null), { once: true });
+        script.addEventListener('error', () => resolve(null), { once: true });
+        document.head.append(script);
+      });
+    }
+    return INVEST.platformAuthLoader;
+  }
+  INVEST.ensurePlatformAuth = ensurePlatformAuth;
 
   function escapeHtml(value) {
     return String(value ?? '')
@@ -376,6 +394,7 @@
 
   function mountHandout(lesson, target = document.body) {
     const handout = lesson.handout || {};
+    const handoutDocument = handout.document || null;
     const title = handout.title || lesson.meta?.lessonLabel || 'Investment Analysis handout';
     const subtitle = handout.subtitle || lesson.meta?.courseLabel || 'Investment Analysis';
     const sections = handout.sections || [];
@@ -389,6 +408,7 @@
           <nav class="invModeTabs" aria-label="Lesson views">
             <a href="${escapeHtml(location.pathname)}">Slides</a>
             <a href="${escapeHtml(location.pathname)}?view=print" aria-current="page">Handout</a>
+            ${handoutDocument?.href ? `<a href="${escapeHtml(handoutDocument.href)}" download="${escapeHtml(handoutDocument.filename || '')}">${escapeHtml(handoutDocument.label || 'Word handout')}${handoutDocument.labelZh ? ` <span lang="zh-Hans">${escapeHtml(handoutDocument.labelZh)}</span>` : ''}</a>` : ''}
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
             <a href="../../index.html">Course</a>
           </nav>
@@ -1172,6 +1192,60 @@
     return slideShell(slide, index, lesson, body, `invYesNoCheckSlide${compactClass}${classroomTextClass} invContextPhotoSlide`, photo);
   }
 
+  function renderClassificationTask(slide, index, lesson) {
+    const photo = slide.visual || slide.photo;
+    const categories = (slide.categories || []).map((category, categoryIndex) => `
+      <article class="invClassificationCategory">
+        <span class="invClassificationCategoryMark">${escapeHtml(alphaLabel(categoryIndex))}</span>
+        <div class="invClassificationCategoryText">
+          <strong>${escapeHtml(category.title || category.label || '')}</strong>
+          ${category.zhTitle || category.titleZh ? `<span lang="zh-Hans">${escapeHtml(category.zhTitle || category.titleZh)}</span>` : ''}
+        </div>
+        ${category.clue ? `<em>${escapeHtml(category.clue)}</em>` : ''}
+        ${keywordVisualMarkup(category.visual || category.photo, category.title || '', category.zhTitle || category.titleZh || '', 'invClassificationCategoryVisual')}
+      </article>
+    `).join('');
+    const items = (slide.items || []).map((rawItem, itemIndex) => {
+      const item = normalizeNumberedItem(rawItem, itemIndex);
+      const answerClass = String(item.answer || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+      return `
+        <article class="invClassificationItem">
+          <div class="invClassificationPrompt">
+            <span class="invClassificationLabel">${escapeHtml(item.label || alphaLabel(itemIndex))}</span>
+            <div class="invClassificationStatement">
+              <strong>${escapeHtml(item.text)}</strong>
+              ${item.zh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.zh)}</span>` : ''}
+            </div>
+          </div>
+          <div class="invClassificationResult invReveal${answerClass ? ` is-answer-${escapeHtml(answerClass)}` : ''}">
+            <span class="invClassificationBadge">${escapeHtml(item.answer)}</span>
+            ${item.answerZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.answerZh)}</span>` : ''}
+            <div class="invClassificationReason">
+              ${item.reason ? `<p>${escapeHtml(item.reason)}</p>` : ''}
+              ${item.reasonZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(item.reasonZh)}</span>` : ''}
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    const categoryCount = Math.max(1, Math.min(4, (slide.categories || []).length || 1));
+    const itemCount = (slide.items || []).length;
+    const itemColumns = itemCount === 4 ? 2 : Math.max(1, Math.min(3, itemCount || 1));
+    const body = `
+      <div class="invClassificationTask${slide.compact ? ' is-compact' : ''}" style="--classification-category-cols:${categoryCount};--classification-item-cols:${itemColumns}">
+        ${slide.prompt ? `<div class="invFocusPrompt"><strong>${escapeHtml(slide.prompt)}</strong>${slide.promptZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.promptZh)}</span>` : ''}</div>` : ''}
+        <div class="invClassificationCategories">${categories}</div>
+        <div class="invClassificationItems">${items}</div>
+        ${slide.sharePrompt ? `<div class="invFocusPrompt invReveal"><strong>${escapeHtml(slide.sharePrompt)}</strong>${slide.sharePromptZh ? `<span class="invZhLine" lang="zh-Hans">${escapeHtml(slide.sharePromptZh)}</span>` : ''}</div>` : ''}
+      </div>`;
+    const extraClass = `invClassificationTaskSlide invContextPhotoSlide${slide.compact ? ' invCompactClassificationSlide' : ''}`;
+    return slideShell(slide, index, lesson, body, extraClass, photo);
+  }
+
   function renderRankingTask(slide, index, lesson) {
     const photo = slide.visual || slide.photo;
     const rawItems = slide.items || slide.cases || [];
@@ -1350,6 +1424,7 @@
     calculationDesk: renderCalculationDesk,
     riskRegister: renderRiskRegister,
     yesNoCheck: renderYesNoCheck,
+    classificationTask: renderClassificationTask,
     rankingTask: renderRankingTask,
     quiz: renderQuiz,
     exam: renderExam,
@@ -1405,11 +1480,13 @@
           <nav class="invModeTabs" aria-label="Lesson views">
             <a href="${escapeHtml(location.pathname)}" aria-current="page">Slides</a>
             ${lesson.handout ? `<a href="${escapeHtml(location.pathname)}?view=print">Handout</a>` : ''}
+            ${lesson.handout?.document?.href ? `<a href="${escapeHtml(lesson.handout.document.href)}" download="${escapeHtml(lesson.handout.document.filename || '')}">${escapeHtml(lesson.handout.document.label || 'Word handout')}${lesson.handout.document.labelZh ? ` <span lang="zh-Hans">${escapeHtml(lesson.handout.document.labelZh)}</span>` : ''}</a>` : ''}
             <a href="${escapeHtml(location.pathname)}?view=quiz">Quiz</a>
             <a href="../../index.html">Course</a>
             <a href="../../../index.html">Library</a>
           </nav>
           <div class="invControls">
+            <span class="invAccount" data-platform-account></span>
             <button class="invButton" type="button" data-action="notes">Notes</button>
             <button class="invButton" type="button" data-action="overview">Overview</button>
           </div>
@@ -1430,6 +1507,10 @@
           </div>
         </div>
       </main>`;
+
+    ensurePlatformAuth()
+      .then((platform) => platform?.initialize({ mount: document.querySelector('[data-platform-account]'), context: 'investment-lesson', roleHint: 'student' }))
+      .catch(() => {});
 
     const state = {
       index: hashIndex(slides.length),
@@ -1491,9 +1572,21 @@
       showSlide(state.index - 1, { keepReveals: true });
     }
 
-    function toggleNotes() {
-      state.notesVisible = !state.notesVisible;
-      updateNotes();
+    async function toggleNotes() {
+      if (state.notesVisible) {
+        state.notesVisible = false;
+        updateNotes();
+        return;
+      }
+      const platform = await ensurePlatformAuth();
+      const session = await platform?.requireRole('teacher', {
+        context: 'teacher-notes',
+        message: 'Teacher access is required to open lesson notes.'
+      });
+      if (session?.account?.role === 'teacher') {
+        state.notesVisible = true;
+        updateNotes();
+      }
     }
 
     function toggleOverview(force) {

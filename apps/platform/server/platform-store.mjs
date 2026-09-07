@@ -42,6 +42,7 @@ function publicAccount(row) {
     username: row.username,
     display_name: row.display_name,
     role: row.role,
+    class_name: row.class_name ?? null,
     status: row.status,
     created_at: row.created_at,
     last_login_at: row.last_login_at
@@ -73,12 +74,23 @@ function withTransaction(database, operation) {
   }
 }
 
-export function createPlatformStore({ dataDir, now = () => new Date() }) {
+export function createPlatformStore({ dataDir, studentClasses = [], now = () => new Date() }) {
   mkdirSync(dataDir, { recursive: true, mode: 0o750 });
   chmodSync(dataDir, 0o750);
   const database = new DatabaseSync(join(dataDir, "econmark.sqlite"));
   database.exec("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA synchronous = FULL;");
   const migration = runPlatformMigrations(database, { dataDir });
+  const configuredStudentClasses = new Set(studentClasses.map((name) => String(name).normalize("NFKC").trim()).filter(Boolean));
+
+  function configuredClassName(value, { required = true } = {}) {
+    const className = String(value ?? "").normalize("NFKC").trim();
+    if (!className && !required) return null;
+    if (!className) throw new PlatformStoreError("Choose your class before continuing.", "CLASS_NAME_REQUIRED", 409);
+    if (configuredStudentClasses.size && !configuredStudentClasses.has(className)) {
+      throw new PlatformStoreError("Choose a class from the configured school list.", "CLASS_NAME_INVALID", 400);
+    }
+    return className;
+  }
 
   function audit(actorId, action, targetType, targetId = null, details = {}) {
     database.prepare("INSERT INTO audit_events (id, actor_account_id, action, target_type, target_id, details_json, occurred_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
@@ -122,8 +134,8 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
     const createdAt = timestamp(now());
     try {
       withTransaction(database, () => {
-        database.prepare("INSERT INTO accounts (id, username, display_name, password_hash, created_at, updated_at, status, role) VALUES (?, ?, ?, ?, ?, ?, 'active', ?)")
-          .run(accountId, valid.username, valid.displayName, encoded, createdAt, createdAt, role);
+        database.prepare("INSERT INTO accounts (id, username, display_name, password_hash, created_at, updated_at, status, role, class_name) VALUES (?, ?, ?, ?, ?, ?, 'active', ?, ?)")
+          .run(accountId, valid.username, valid.displayName, encoded, createdAt, createdAt, role, role === "student" ? value.class_name : null);
         insertRecoveryCode(accountId, recoveryCode, createdAt);
         extraOperation?.({ accountId, createdAt });
       });
@@ -170,15 +182,32 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
   }
 
   async function registerStudent(value) {
-    const joinHash = hash(String(value.join_code ?? "").trim().toUpperCase());
-    const classroom = database.prepare("SELECT * FROM classes WHERE join_code_hash = ? AND status = 'active'").get(joinHash);
-    if (!classroom) throw new PlatformStoreError("Class join code is invalid.", "CLASS_JOIN_CODE_INVALID", 404);
-    if (!classroom.consent_attested_at) throw new PlatformStoreError("Enrollment is not enabled until the teacher records the required authorization.", "CLASS_CONSENT_REQUIRED", 409);
-    const created = await insertAccountWithRecovery(value, "student", ({ accountId, createdAt }) => {
-      database.prepare("INSERT INTO class_memberships (class_id, account_id, status, joined_at) VALUES (?, ?, 'active', ?)").run(classroom.id, accountId, createdAt);
+    const rawJoinCode = String(value.join_code ?? "").trim().toUpperCase();
+    const classroom = rawJoinCode
+      ? database.prepare("SELECT * FROM classes WHERE join_code_hash = ? AND status = 'active'").get(hash(rawJoinCode))
+      : null;
+    if (rawJoinCode && !classroom) throw new PlatformStoreError("Class join code is invalid.", "CLASS_JOIN_CODE_INVALID", 404);
+    if (classroom && !classroom.consent_attested_at) throw new PlatformStoreError("Enrollment is not enabled until the teacher records the required authorization.", "CLASS_CONSENT_REQUIRED", 409);
+    const className = classroom?.name || configuredClassName(value.class_name);
+    const created = await insertAccountWithRecovery({ ...value, class_name: className }, "student", ({ accountId, createdAt }) => {
+      if (classroom) database.prepare("INSERT INTO class_memberships (class_id, account_id, status, joined_at) VALUES (?, ?, 'active', ?)").run(classroom.id, accountId, createdAt);
     });
-    audit(created.account.account_id, "student.register", "class", classroom.id);
-    return { ...created, class: { class_id: classroom.id, name: classroom.name } };
+    audit(created.account.account_id, "student.register", classroom ? "class" : "account", classroom?.id || created.account.account_id, { class_name: className });
+    return { ...created, class: classroom ? { class_id: classroom.id, name: classroom.name } : { class_id: null, name: className } };
+  }
+
+  function updateProfile(accountId, value = {}) {
+    const account = requireRole(accountId, ["student", "teacher", "admin"]);
+    const displayName = String(value.display_name ?? account.display_name).normalize("NFKC").trim().slice(0, 80);
+    if (!displayName) throw new PlatformStoreError("Display name is required.", "DISPLAY_NAME_INVALID");
+    const className = account.role === "student"
+      ? configuredClassName(value.class_name ?? account.class_name)
+      : null;
+    const updatedAt = timestamp(now());
+    database.prepare("UPDATE accounts SET display_name=?, class_name=?, updated_at=? WHERE id=?")
+      .run(displayName, className, updatedAt, accountId);
+    audit(accountId, "account.profile_update", "account", accountId, { class_name: className });
+    return publicAccount(accountById(accountId));
   }
 
   function joinClass(studentId, rawCode) {
@@ -343,11 +372,18 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
   }
 
   function saveQuizAttempt(accountId, quiz, value, result) {
-    requireRole(accountId, ["student", "teacher", "admin"]);
+    const account = requireRole(accountId, ["student"]);
+    if (!account.class_name) throw new PlatformStoreError("Choose your class before submitting a quiz.", "CLASS_NAME_REQUIRED", 409);
     const idempotency = String(value.idempotency_key ?? "").trim().slice(0, 120);
     if (!idempotency) throw new PlatformStoreError("Quiz attempt requires an idempotency key.", "IDEMPOTENCY_REQUIRED");
+    const answersJson = JSON.stringify(result.normalized_answers ?? value.answers ?? {});
     const existing = database.prepare("SELECT * FROM quiz_attempts WHERE account_id=? AND idempotency_key=?").get(accountId, idempotency);
-    if (existing) return quizAttempt(existing);
+    if (existing) {
+      if (existing.quiz_id !== quiz.id || existing.quiz_version !== quiz.version || existing.answers_json !== answersJson) {
+        throw new PlatformStoreError("A retry cannot change the quiz or answers for an existing attempt.", "QUIZ_ATTEMPT_CONFLICT", 409);
+      }
+      return quizAttempt(existing);
+    }
     const mode = value.mode === "assigned" ? "assigned" : "practice";
     let assignment = null;
     if (mode === "assigned") {
@@ -356,14 +392,83 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
     }
     const attemptId = `attempt_${randomUUID()}`;
     database.prepare(`INSERT INTO quiz_attempts
-      (id,quiz_id,quiz_version,account_id,class_id,learning_assignment_id,mode,answers_json,result_json,score,max_score,percentage,submitted_at,idempotency_key)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .run(attemptId, quiz.id, quiz.version, accountId, assignment?.class_id ?? null, assignment?.id ?? null, mode, JSON.stringify(value.answers ?? {}), JSON.stringify(result.responses), result.score, result.max_score, result.percentage, timestamp(now()), idempotency);
+      (id,quiz_id,quiz_version,account_id,class_id,learning_assignment_id,mode,answers_json,result_json,score,max_score,percentage,submitted_at,idempotency_key,class_name_snapshot,course_id,course_title,lesson_id,lesson_title)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+      .run(attemptId, quiz.id, quiz.version, accountId, assignment?.class_id ?? null, assignment?.id ?? null, mode, answersJson, JSON.stringify(result), result.score, result.max_score, result.percentage, timestamp(now()), idempotency, account.class_name, quiz.course_id ?? null, quiz.course_title ?? null, quiz.lesson_id ?? null, quiz.lesson_title ?? quiz.title ?? null);
     return quizAttempt(database.prepare("SELECT * FROM quiz_attempts WHERE id=?").get(attemptId));
   }
 
   function quizAttempt(row) {
-    return { attempt_id: row.id, quiz_id: row.quiz_id, quiz_version: row.quiz_version, mode: row.mode, learning_assignment_id: row.learning_assignment_id, score: row.score, max_score: row.max_score, percentage: row.percentage, responses: jsonParse(row.result_json, []), submitted_at: row.submitted_at };
+    const result = jsonParse(row.result_json, {});
+    const identity = row.username ? row : accountById(row.account_id);
+    return {
+      attempt_id: row.id,
+      account_id: row.account_id,
+      username: identity?.username ?? "",
+      display_name: identity?.display_name ?? "",
+      class_name: row.class_name_snapshot ?? null,
+      course_id: row.course_id ?? null,
+      course_title: row.course_title ?? null,
+      lesson_id: row.lesson_id ?? null,
+      lesson_title: row.lesson_title ?? null,
+      quiz_id: row.quiz_id,
+      quiz_version: row.quiz_version,
+      mode: row.mode,
+      learning_assignment_id: row.learning_assignment_id,
+      score: row.score,
+      max_score: row.max_score,
+      percentage: row.percentage,
+      answers: jsonParse(row.answers_json, {}),
+      result,
+      responses: result.questions ?? result.responses ?? [],
+      submitted_at: row.submitted_at,
+      created_at: row.submitted_at,
+      saved: true
+    };
+  }
+
+  function listOwnQuizAttempts(accountId, { limit = 100, offset = 0 } = {}) {
+    requireRole(accountId, ["student"]);
+    const boundedLimit = Math.max(1, Math.min(Number(limit) || 100, 500));
+    const boundedOffset = Math.max(0, Number(offset) || 0);
+    const total = Number(database.prepare("SELECT COUNT(*) AS value FROM quiz_attempts WHERE account_id=?").get(accountId).value);
+    const rows = database.prepare("SELECT * FROM quiz_attempts WHERE account_id=? ORDER BY submitted_at DESC LIMIT ? OFFSET ?").all(accountId, boundedLimit, boundedOffset);
+    return { total, items: rows.map(quizAttempt) };
+  }
+
+  function listSchoolQuizAttempts(teacherId, filters = {}) {
+    requireRole(teacherId, ["teacher", "admin"]);
+    const clauses = ["1=1"];
+    const params = [];
+    const exact = [
+      ["class_name", "qa.class_name_snapshot"],
+      ["course_id", "qa.course_id"],
+      ["lesson_id", "qa.lesson_id"],
+      ["quiz_id", "qa.quiz_id"],
+      ["quiz_version", "qa.quiz_version"]
+    ];
+    for (const [key, column] of exact) {
+      if (filters[key]) { clauses.push(`${column}=?`); params.push(String(filters[key])); }
+    }
+    if (filters.student) {
+      clauses.push("(a.display_name LIKE ? OR a.username LIKE ?)");
+      const term = `%${String(filters.student).slice(0, 80)}%`;
+      params.push(term, term);
+    }
+    if (filters.date_from) { clauses.push("qa.submitted_at>=?"); params.push(String(filters.date_from)); }
+    if (filters.date_to) { clauses.push("qa.submitted_at<=?"); params.push(`${String(filters.date_to).slice(0, 10)}T23:59:59.999Z`); }
+    const view = ["latest", "best", "all"].includes(filters.view) ? filters.view : "latest";
+    const order = view === "best" ? "qa.percentage DESC, qa.submitted_at DESC" : "qa.submitted_at DESC";
+    const partitionOrder = view === "best" ? "qa.percentage DESC, qa.submitted_at DESC" : "qa.submitted_at DESC";
+    const limit = Math.max(1, Math.min(Number(filters.limit) || 250, 10000));
+    const offset = Math.max(0, Number(filters.offset) || 0);
+    const where = clauses.join(" AND ");
+    const base = `SELECT qa.*,a.username,a.display_name,ROW_NUMBER() OVER (PARTITION BY qa.account_id,qa.quiz_id ORDER BY ${partitionOrder}) AS attempt_rank FROM quiz_attempts qa JOIN accounts a ON a.id=qa.account_id WHERE ${where}`;
+    const rankedFilter = view === "all" ? "" : "WHERE attempt_rank=1";
+    const total = Number(database.prepare(`SELECT COUNT(*) AS value FROM (${base}) ${rankedFilter}`).get(...params).value);
+    const rows = database.prepare(`SELECT * FROM (${base}) ${rankedFilter} ORDER BY ${order.replaceAll("qa.", "")} LIMIT ? OFFSET ?`).all(...params, limit, offset);
+    const items = rows.map((row) => ({ ...quizAttempt(row), username: row.username, display_name: row.display_name }));
+    return { total, view, items };
   }
 
   function recordLearningEvents(accountId, events = []) {
@@ -662,6 +767,7 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
     createTeacherInvitation,
     registerTeacher,
     registerStudent,
+    updateProfile,
     joinClass,
     recoverAccount,
     rotateRecoveryCode,
@@ -675,6 +781,8 @@ export function createPlatformStore({ dataDir, now = () => new Date() }) {
     listClassAssignments,
     listStudentAssignments,
     saveQuizAttempt,
+    listOwnQuizAttempts,
+    listSchoolQuizAttempts,
     recordLearningEvents,
     studentProgress,
     classProgress,

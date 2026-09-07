@@ -6,46 +6,65 @@
     <meta name="theme-color" content="#123f3b" />
     <meta name="description" content="EconMark 教师作业库与学生提交审核" />
     <title>EconMark Teacher · 作业库与审核中心</title>
-    <link rel="stylesheet" href="/src/styles.css" />
-    <link rel="stylesheet" href="/src/teacher-styles.css" />
-    <link rel="stylesheet" href="/assets/css/app-shell.css" />
+    <link rel="stylesheet" href="/econmark/src/styles.css" />
+    <link rel="stylesheet" href="/econmark/src/teacher-styles.css" />
   </head>
   <body class="teacher-body">
-    <header class="site-header teacher-header oh-app-header oh-app-header--full">
-      <a class="brand oh-app-brand" href="/" aria-label="Oehler-Huang Learning Platform home"><span class="brand-mark oh-app-mark">OH</span><span><strong>Oehler-Huang</strong><small>Learning Platform</small></span></a>
-      <nav class="oh-primary-nav" aria-label="Primary destinations"><a data-oh-nav="economics" href="/economics/">Economics</a><a data-oh-nav="investment" href="/investment-analysis/">Investment</a><a data-oh-nav="homework" href="/mark/" aria-current="page">Homework</a></nav>
-      <div class="header-actions oh-header-account">
-        <div id="account-signed-out" class="account-controls"><button id="account-open-login" class="account-link">登录</button><button id="account-open-register" class="account-register" data-account-role="teacher">创建教师账户</button></div>
-        <div id="account-signed-in" class="account-controls" hidden><span class="account-name" id="account-name"></span><button id="account-logout" class="account-link">退出</button></div>
-      </div>
+    <header class="site-header teacher-header">
+      <a class="brand" href="/econmark/teacher" aria-label="EconMark Teacher 首页"><span class="brand-mark">E</span><span><strong>EconMark <span class="brand-role">Teacher</span></strong><small>作业库与审核中心</small></span></a>
+      <nav class="app-nav" aria-label="主要导航"><a href="/econmark/">学生入口</a><a href="/econmark/teacher" aria-current="page">作业库</a><a href="/econmark/single">单份评分</a><a href="/econmark/batch">批量评分</a></nav>
+      <div class="header-actions" data-platform-account></div>
     </header>
-    <div class="oh-context-bar oh-context-bar--full" style="--oh-context-accent:#ffc86b"><strong class="oh-context-label">EconMark</strong><nav class="oh-context-nav" aria-label="Teacher tools"><a href="/mark/">Student submission</a><a href="/mark/teacher" aria-current="page">Assignment library</a><a href="/mark/single">Single marking</a><a href="/mark/batch">Batch marking</a><a href="/selector/">Selector</a></nav></div>
 
     <main class="teacher-main">
-      <section class="teacher-hero">
-        <div><p class="eyebrow">One source of truth</p><h1>题目与评分标准，<em>只需创建一次。</em></h1><p>在作业库中发布版本化作业，再用于学生自评、单份精评和整班批量评分。</p></div>
+      <section class="teacher-hero app-hero">
+        <div><p class="eyebrow">教师工作台</p><h1>创建作业，<em>审核提交。</em></h1><p>题目与评分标准集中维护，并用于学生反馈、单份评分和整班批量评分。</p></div>
         <button id="new-assignment" class="button button-primary" hidden>＋ 新建作业</button>
       </section>
 
       <div id="teacher-notice" class="teacher-notice" role="status" aria-live="polite"></div>
 
+      <nav class="teacher-area-tabs" aria-label="Teacher tools">
+        <a href="/econmark/teacher" data-teacher-tab="assignments">作业与评分</a>
+        <a href="/econmark/teacher?tab=quizzes" data-teacher-tab="quizzes">课程测验成绩</a>
+      </nav>
+
       <section id="teacher-auth-gate" class="teacher-auth-gate">
-        <span>教师专属</span><h2>登录教师账户管理作业</h2><p>已有账户可直接登录。创建教师账户需要服务器管理员提供的邀请码。</p>
-        <div><button id="teacher-gate-login" class="button button-primary">教师登录</button><button id="teacher-gate-register" class="button button-secondary">使用邀请码创建账户</button></div>
+        <h2 id="teacher-gate-title">登录后管理作业</h2><p id="teacher-gate-help">创建新账户需要管理员提供的邀请码。</p>
+        <div><button id="teacher-gate-login" class="button button-primary">登录</button><button id="teacher-gate-register" class="button button-secondary">使用邀请码注册</button></div>
       </section>
 
       <div id="teacher-workspace" class="teacher-workspace" hidden>
         <section class="teacher-library-panel">
-          <div class="teacher-section-heading"><div><p class="section-kicker">Central assignment library</p><h2>我的作业</h2></div><div class="assignment-filters" role="group" aria-label="筛选作业"><button class="active" data-filter="all">全部</button><button data-filter="draft">草稿</button><button data-filter="published">已发布</button><button data-filter="archived">已归档</button></div></div>
+          <div class="teacher-section-heading"><div><p class="section-kicker">作业库</p><h2>我的作业</h2></div><div class="assignment-filters" role="group" aria-label="筛选作业"><button class="active" data-filter="all">全部</button><button data-filter="draft">草稿</button><button data-filter="published">已发布</button><button data-filter="archived">已归档</button></div></div>
           <div id="assignment-list" class="assignment-list"></div>
         </section>
 
         <aside id="teacher-inbox-panel" class="teacher-inbox-panel">
-          <div class="teacher-section-heading"><div><p class="section-kicker">Student submissions</p><h2 id="inbox-title">学生提交</h2></div><span id="inbox-count" class="inbox-count">0</span></div>
+          <div class="teacher-section-heading"><div><p class="section-kicker">提交审核</p><h2 id="inbox-title">学生提交</h2></div><span id="inbox-count" class="inbox-count">0</span></div>
           <p id="inbox-description" class="inbox-description">选择一项已发布作业，查看学生自评提交。</p>
           <div id="submission-list" class="submission-list"></div>
         </aside>
       </div>
+
+      <section id="quiz-gradebook" class="quiz-gradebook" hidden>
+        <header class="teacher-section-heading"><div><p class="section-kicker">全校课程测验</p><h2>Quiz gradebook · 测验成绩册</h2></div><a id="quiz-export" class="button button-secondary" href="/api/teacher/quiz-attempts.csv">导出 CSV</a></header>
+        <form id="quiz-filters" class="quiz-filters">
+          <label>班级<select name="class_name"><option value="">全部班级</option></select></label>
+          <label>学生<input name="student" autocomplete="off" placeholder="姓名或用户名" /></label>
+          <label>课程<select name="course_id"><option value="">全部课程</option><option value="economics">Economics</option><option value="investment-analysis">Investment</option></select></label>
+          <label>课次<input name="lesson_id" autocomplete="off" placeholder="Lesson ID" /></label>
+          <label>测验<input name="quiz_id" autocomplete="off" placeholder="Quiz ID" /></label>
+          <label>显示<select name="view"><option value="latest">最新一次</option><option value="best">最佳一次</option><option value="all">全部尝试</option></select></label>
+          <label>开始日期<input name="date_from" type="date" /></label>
+          <label>结束日期<input name="date_to" type="date" /></label>
+          <button class="button button-primary" type="submit">筛选</button>
+        </form>
+        <p id="quiz-gradebook-summary" class="inbox-description"></p>
+        <div class="quiz-gradebook-table-wrap">
+          <table class="quiz-gradebook-table"><thead><tr><th>时间</th><th>班级</th><th>学生</th><th>课程 / 课次</th><th>测验版本</th><th>成绩</th></tr></thead><tbody id="quiz-gradebook-rows"></tbody></table>
+        </div>
+      </section>
     </main>
 
     <dialog id="assignment-dialog" class="assignment-dialog">
@@ -74,7 +93,6 @@
     </dialog>
 
     <div id="teacher-toast" class="toast" role="alert" aria-live="assertive"></div>
-    <dialog id="account-dialog" class="account-dialog" data-mode="login"><form id="account-form" class="account-form"><div class="account-dialog-heading"><div><p class="section-kicker">教师安全访问</p><h2 id="account-dialog-title">登录 EconMark</h2></div><button id="account-dialog-close" type="button" class="dialog-close">×</button></div><label id="account-display-name-field" class="field" for="account-display-name" hidden><span>显示名称</span><input id="account-display-name" maxlength="80" /></label><label class="field" for="account-username"><span>用户名</span><input id="account-username" required minlength="3" maxlength="60" /></label><label class="field" for="account-password"><span>密码</span><input id="account-password" type="password" required minlength="10" maxlength="128" /></label><label id="account-teacher-invite-field" class="field" for="account-teacher-invite" hidden><span>教师邀请码</span><input id="account-teacher-invite" maxlength="160" /></label><p id="account-error" class="account-error"></p><button id="account-submit" class="button button-primary" type="submit">登录</button><button id="account-mode-toggle" class="account-mode-toggle" type="button">没有账户？创建学生账户</button><p class="account-storage-note">教师注册必须使用服务器配置的邀请码。</p></form></dialog>
-    <script type="module" src="/src/teacher-app.js"></script>
+    <script type="module" src="/econmark/src/teacher-app.js"></script>
   </body>
 </html>

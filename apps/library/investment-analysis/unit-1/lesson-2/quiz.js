@@ -1,152 +1,160 @@
-window.INVEST = window.INVEST || {};
+window.IGCSE = window.IGCSE || {};
 
-window.INVEST.quiz = {
+window.IGCSE.quiz = {
+  id: "investment-analysis-unit-1-lesson-2",
+  version: "2.0.0",
   title: "Unit 1 Lesson 2 Quiz",
-  description: "Check whether students can classify goals by time horizon and liquidity need, then explain suitability without choosing a product first.",
+  description: "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
   questions: [
     {
-      id: "time-horizon-definition",
+      id: "investment-definition",
       type: "multipleChoice",
-      prompt: "What is time horizon?",
-      zh: "什么是投资期限？",
+      prompt: "Which statement correctly defines investment?",
+      zh: "哪一个陈述正确定义了投资？",
       choices: [
-        "The number of products a family owns",
-        "The return earned last year",
-        "The period before invested money is expected to be needed",
-        "The date on which a product becomes popular"
-      ],
-      answer: 2,
-      explanation: "Time horizon measures the period before the invested money is expected to be needed for the goal.",
-      explanationZh: "投资期限衡量预计需要为目标使用已投资资金之前的时间。"
-    },
-    {
-      id: "liquidity-definition",
-      type: "fillBlank",
-      prompt: "Liquidity need is the need to access money quickly without accepting a large loss or ________.",
-      zh: "流动性需求是无需承受重大损失或________即可快速取用资金的需要。",
-      acceptedAnswers: ["delay", "延迟"],
-      explanation: "Liquidity need concerns reliable access without a large loss or delay.",
-      explanationZh: "流动性需求涉及无需承受重大损失或延迟即可可靠取用资金。"
-    },
-    {
-      id: "suitability-definition",
-      type: "multipleChoice",
-      prompt: "Which factors belong in the Lesson 2 definition of suitability?",
-      zh: "哪些因素属于第二课的适合度定义？",
-      choices: [
-        "Product popularity, logo and advertising",
-        "Last week's price change only",
-        "The opinions of other families",
-        "Goal, horizon, liquidity need and ability to accept loss"
-      ],
-      answer: 3,
-      explanation: "Suitability tests whether an investment matches the person's goal and constraints.",
-      explanationZh: "适合度检查投资是否与个人目标和限制相匹配。"
-    },
-    {
-      id: "education-horizon",
-      type: "multipleChoice",
-      prompt: "Which goal has the shortest horizon in the frozen profile?",
-      zh: "冻结资料中哪一个目标的期限最短？",
-      choices: [
-        "University fees beginning in three years",
-        "A home deposit in eight years",
-        "Retirement in thirty years",
-        "All three have the same horizon"
+        "Putting money into an asset to seek future return while accepting possible loss",
+        "Keeping all money unchanged until it is spent",
+        "Guaranteeing that money grows faster than prices",
+        "Choosing the investment with the highest recent return"
       ],
       answer: 0,
-      explanation: "Three years is the shortest period before the money is expected to be needed.",
-      explanationZh: "三年是预计需要资金前最短的时间。"
+      explanation: "Investment seeks future return through an asset while retaining the possibility of loss.",
+      explanationZh: "投资通过资产寻求未来回报，同时仍存在可能损失。"
     },
     {
-      id: "home-flexibility",
+      id: "return-definition",
       type: "multipleChoice",
-      prompt: "Why does the home goal differ from the university goal?",
-      zh: "为什么住房目标与大学目标不同？",
+      prompt: "Which statement correctly completes the definition of return?",
+      zh: "哪一个陈述正确完成了回报的定义？",
       choices: [
-        "It guarantees a higher return",
-        "It has a longer horizon and up to two years of date flexibility",
-        "It has no target amount",
-        "It requires money sooner"
+        "Return is the income from an investment and cannot be negative.",
+        "Return is the gain or loss from an investment over a stated period, including price change and income.",
+        "Return is the original amount invested.",
+        "Return is any rise in price, regardless of income or costs."
       ],
       answer: 1,
-      explanation: "The home goal is planned for eight years and its date can move, so its constraints differ from the fixed three-year education goal.",
-      explanationZh: "住房目标计划在八年后且日期可以调整，因此其限制不同于固定三年的教育目标。"
+      explanation: "Return can be positive or negative and includes price change and income.",
+      explanationZh: "回报可以为正，也可以为负，并包括价格变化和收入。"
     },
     {
-      id: "retirement-missing-evidence",
+      id: "return-components",
       type: "multipleChoice",
-      prompt: "Which important facts are missing for the retirement goal?",
-      zh: "退休目标缺少哪些重要事实？",
+      prompt: "Which pair is included in the Lesson 2 definition of return?",
+      zh: "哪一组内容包含在第二课的回报定义中？",
       choices: [
-        "Whether retirement is a future goal",
-        "Whether thirty years is longer than three years",
-        "The target amount, later withdrawal needs and ability to accept loss",
-        "Whether investment can involve return"
+        "Goal priority and age",
+        "Price change and income",
+        "Budget and tax",
+        "Investment name and popularity"
+      ],
+      answer: 1,
+      explanation: "The course definition includes price change and income over a stated period.",
+      explanationZh: "课程定义包括规定期间内的价格变化和收入。"
+    },
+    {
+      id: "financial-goal-definition",
+      type: "multipleChoice",
+      prompt: "Which description is a complete financial goal?",
+      zh: "哪一个描述是完整的财务目标？",
+      choices: [
+        "Make more money",
+        "Choose an investment soon",
+        "CNY 180,000 for university fees in six years, with high priority",
+        "Choose a high return"
       ],
       answer: 2,
-      explanation: "A long horizon alone is not enough to establish suitability.",
-      explanationZh: "仅凭较长期限不足以确定适合度。"
+      explanation: "A financial goal states a future use, amount, priority and time horizon.",
+      explanationZh: "财务目标说明资金的未来用途、金额、优先级和投资期限。"
     },
     {
-      id: "highest-return-misconception",
+      id: "why-invest",
       type: "multipleChoice",
-      prompt: "Why does the investment with the highest possible return not fit every goal?",
-      zh: "为什么可能回报最高的投资并不适合每一个目标？",
+      prompt: "Which is the strongest reason a family might invest?",
+      zh: "哪一个是家庭可能投资的最有力理由？",
       choices: [
-        "High possible return always means low risk",
-        "Every family has the same goal",
-        "Suitability depends only on recent performance",
-        "Goals have different horizons, liquidity needs and consequences of loss"
+        "To guarantee that every goal is reached",
+        "To avoid identifying when the money is needed",
+        "To copy an investment chosen by another family",
+        "To seek future return for a stated long-term goal while accepting possible loss"
       ],
       answer: 3,
-      explanation: "Return cannot establish suitability without the goal constraints.",
-      explanationZh: "如果没有目标限制，回报不能确定适合度。"
+      explanation: "The reason links investment to a stated goal, future return and possible loss.",
+      explanationZh: "该理由把投资与明确目标、未来回报和可能损失联系起来。"
     },
     {
-      id: "liquidity-ranking",
+      id: "medical-goal",
       type: "multipleChoice",
-      prompt: "Which goal has the highest current liquidity need in the frozen profile?",
-      zh: "冻结资料中哪一个目标的当前流动性需求最高？",
+      prompt: "What is the best next step for CNY 25,000 needed for a medical bill in four months?",
+      zh: "四个月后支付医疗账单所需的25,000元人民币，最佳下一步是什么？",
       choices: [
-        "University in three years with a fixed start date",
-        "Retirement in thirty years",
-        "Home deposit in eight years with date flexibility",
-        "All three have identical liquidity needs"
+        "Keep it available because a loss or delay could leave the bill unpaid",
+        "Consider investing because every goal needs the highest possible return",
+        "Choose an investment before checking when the bill is due",
+        "Need more information because the purpose and date are unknown"
       ],
       answer: 0,
-      explanation: "The earliest fixed payment date creates the strongest current need for reliable access.",
-      explanationZh: "最早且固定的付款日期形成最强的当前可靠取用资金需要。"
+      explanation: "Choose ‘Keep available.’ The goal is near-term and urgent, so the money must be accessible and has little room for loss.",
+      explanationZh: "选择“保持资金可用”。该目标近期且紧急，因此资金必须可以使用，几乎没有承受损失的空间。"
+    },
+    {
+      id: "retirement-condition",
+      type: "multipleChoice",
+      prompt: "A retirement goal is thirty years away. Which condition is still missing?",
+      zh: "退休目标在三十年后。仍然缺少哪一个条件？",
+      choices: [
+        "Proof that every return will be positive",
+        "The target amount and the family's ability to accept loss",
+        "A promise to choose one investment today",
+        "A list of classmates' opinions"
+      ],
+      answer: 1,
+      explanation: "Choose ‘Need more information.’ A long horizon may support investment consideration, but the target amount and loss capacity are still missing.",
+      explanationZh: "选择“需要更多信息”。较长期限可能支持考虑投资，但仍缺少目标金额和损失承受能力。"
+    },
+    {
+      id: "misconception",
+      type: "multipleChoice",
+      prompt: "Why is ‘investing is simply a way to make more money’ incomplete?",
+      zh: "为什么“投资只是赚更多钱的一种方式”是不完整的？",
+      choices: [
+        "It contains too many financial conditions",
+        "It proves that investment is saving",
+        "It ignores the financial goal, time horizon, access need and possible loss",
+        "It explains the family goal fully"
+      ],
+      answer: 2,
+      explanation: "A careful investment decision begins with the goal and its constraints, not return alone.",
+      explanationZh: "谨慎的投资决定从目标及其限制开始，而不是只看回报。"
     },
     {
       id: "source-limit",
       type: "multipleChoice",
-      prompt: "What can official time-horizon guidance not decide for the family?",
-      zh: "官方投资期限指引不能替家庭决定什么？",
+      prompt: "What can general investor guidance not decide for a family?",
+      zh: "一般投资者指引不能替家庭决定什么？",
       choices: [
-        "That the period before a goal matters",
-        "A named product and whether its possible loss is acceptable for this family",
-        "That risk tolerance affects choices",
-        "That goals can have different horizons"
+        "That investment involves risk",
+        "That goals have time horizons",
+        "That evidence should be checked",
+        "Its exact priorities, investment choice and whether a particular loss is acceptable"
       ],
-      answer: 1,
-      explanation: "General guidance supports a method; family-specific suitability still requires evidence.",
-      explanationZh: "一般指引支持一种方法；家庭具体的适合度仍需要证据。"
+      answer: 3,
+      explanation: "General guidance supports a method, but family-specific priorities and constraints still require evidence.",
+      explanationZh: "一般指引支持一种方法，但家庭具体的优先级和限制仍需要证据。"
     },
     {
-      id: "goal-comparison",
+      id: "exit-judgement",
       type: "multipleChoice",
-      prompt: "Which explanation best shows why two goals require different investment choices?",
-      zh: "哪一个解释最能说明为什么两个目标需要不同的投资选择？",
+      prompt: "Which answer states a clear next step and justifies it with evidence?",
+      zh: "哪一个答案说明了清晰的下一步，并用证据加以说明？",
       choices: [
-        "Retirement is later, so any investment is suitable.",
-        "University is expensive, so it needs the highest possible return.",
-        "University money is needed sooner on a fixed date, while retirement money has a longer horizon and lower current access need; each choice must match its goal and loss capacity.",
-        "The same family should use one identical choice for all money."
+        "Consider investing for the stated long-term goal because urgent access is not needed; first check what loss could delay the goal.",
+        "Invest because returns are always positive.",
+        "Choose the most popular investment before setting a goal.",
+        "Avoid every investment because loss is possible."
       ],
-      answer: 2,
-      explanation: "The answer compares horizon and liquidity need, then keeps the judgement conditional on suitability evidence.",
-      explanationZh: "该答案比较期限和流动性需求，并使判断以适合度证据为条件。"
+      answer: 0,
+      explanation: "The answer names the next step, connects it to the goal and gives access and loss conditions.",
+      explanationZh: "该答案说明了下一步，把它与目标联系起来，并给出资金使用和损失条件。"
     }
   ]
 };

@@ -1,87 +1,45 @@
 # Investment Analysis Design Language
 
-Use this standard for every Investment Analysis landing page and lesson deck. The goal is a polished student-facing course identity, not an analyst dashboard.
+Use the shared Economics presentation system for every active and future Investment Analysis deck.
 
-## Identity
+## Visual identity
 
-- Name the course clearly: Investment and Financial Decision-Making.
-- Keep the Analyst Desk feeling through restrained dark surfaces, precise borders, cyan section labels, green action states and amber task emphasis.
-- Use modern real local course images when an image helps the student understand the lesson. Prefer high-resolution photos from the last few years, resize them to roughly a 1920-2560px long edge, and keep accurate `alt`, `caption`, `credit` and `source` metadata.
-- Match every monetary figure to the case country or transaction market: use `CNY` for mainland China family scenarios, `HKD` only for Hong Kong-listed securities or Hong Kong transactions, `USD` for United States cases, and the corresponding currency elsewhere. Use `人民币`, `港元` or `美元` in Chinese support.
-- Do not use remote images, decorative illustrations, gradient blobs, abstract background ornaments, old stock certificates, archive trading-floor photos, museum-value artifacts, or visuals that make the lesson feel historical unless the slide is explicitly about history.
-- Treat every screen as one student-facing action or idea.
+- Load `theme.css` and `presentation.css`; do not fork their typography, spacing or component system for a single course lesson.
+- Use the Economics light presentation theme and its restrained colour hierarchy.
+- Keep one dominant idea per slide and generous whitespace.
+- Use local course images only. A visual must support the judgement, definition or comparison being taught.
+- Avoid decorative dashboards, ornamental charts, remote images and repeated handout text.
 
-## Typography
+## Teaching surfaces
 
-- Use the shared `--inv-text` stack only. Do not add external fonts.
-- Projected desktop slides use two teaching sizes only: 48px for titles, terms and section numbers; 32px for all teaching content.
-- Phone slide previews keep teaching text at or above 24px.
-- Use 600 weight only for main titles, section labels and compact UI labels. Use 500 for classroom sentences, answer choices, formulas, evidence and model-answer text. Do not use ultra-bold display weights.
-- Keep letter spacing at 0. Do not create custom type sizes for individual slide types, metrics, formulas, choices or prompts.
+- A hook contains one short student-answerable question.
+- A visual pause contains one thought-provoking image; place the teaching question in notes or the adjacent slide.
+- A term slide contains one self-contained definition and at least three concise examples.
+- A comparison uses the same dimensions for every category.
+- A section divider uses a concise academic topic of one to six words so students can copy it into notebooks.
+- A classification or sorting check follows when students need to learn a boundary between nearby concepts.
+- A model appears only after students have attempted the task.
 
-## Slide Anatomy
+## Generator contract
 
-- Keep the top chrome compact. The slide, not the navigation, must dominate the viewport.
-- Keep source panels, notes, overview and photo captions outside the teaching hierarchy.
-- Titles appear once and follow the slide's function: questions for discussion, yes/no and quiz slides; the term alone for term slides; short academic topics for section dividers; concise commands for simulations, classifications, comparisons and written tasks; and concepts, relationships or clear claims for teaching and evidence slides. Term slides should not repeat the term in both the title and body.
-- Body content should sit in the upper-middle teaching zone with generous whitespace. Avoid bottom-heavy layouts on tall classroom screens.
-- Important student-facing teaching text should have concise Simplified Chinese support: main titles, term definitions, core prompts/tasks, main reveal answers, flow/answer items and quiz prompts/explanations. Do not translate source metadata, stock codes, dates, numbers, minor labels, UI chrome or teacher notes unless they carry the concept.
-- Use reveal states to stage learning, not decoration: students should identify, choose, calculate, classify or draft before answers, evidence bodies, risk effects, keywords or model paragraphs appear.
-- Start from the syllabus `decisionFirst` contract: a concrete starter dilemma, a first judgement, the missing evidence, one key idea, one practice task, a misconception check and an exit judgement.
-- Use image-first `visualPause` slides as bridges before major definitions, ownership distinctions, data reading, stock-code identification, calculation methods, price-movement logic, judgement frames, risk discussions and exam planning. The projected pause surface is image-only: no visible title, prompt, caption, credit or explanatory text. Put the teaching bridge in notes or on an adjacent slide.
-- Use visuals as teaching moves. A hook visual should support one short question that creates a concrete student decision; keep statistics, instructions and explanations off the initial hook screen. A visual pause should prepare the exact concept that follows; charts should appear when students are ready to read evidence, not automatically as the opener.
-- Keep `section` dividers as simple reset screens: part label, concise academic title, optional concise Chinese title and an automatic progress strip. The title should name the section's knowledge domain, concept, relationship or academic question in roughly one to six words so students can copy it into notebooks. Do not use an activity instruction, slogan, transition or full teaching claim, and do not add image columns, prompt cards, dashboard panels or manual roadmap lists.
+New decks assign `window.IGCSE.lesson` and quizzes assign `window.IGCSE.quiz`. Use native Economics types: `hero`, `discussion`, `outcomes`, `section`, `visualPause`, `term`, `cards`, `compare`, `flow`, `quiz`, `yesNoCheck`, `classificationTask`, `peerTask`, and `modelAnswer`.
 
-## Component Rules
+The Investment image catalogue remains under `window.INVEST.photos`. Every deck uses the native Economics schema and mounts directly through `window.IGCSE.mountLesson(window.IGCSE.lesson)`.
 
-### Visual presentation contract
+## Language
 
-- Give every slide type one dominant visual signal: cyan for concepts and sources, green for mechanisms and judgements, amber for student tasks and output, and red only for risk or correction states. Apply the signal through a restrained edge, label or active state rather than recolouring the whole slide.
-- Keep content cards on one shared surface system: quiet translucent fill, precise border, one accent edge and consistent corner radius. Do not stack several decorative borders, shadows or competing accent colours on one card.
-- On desktop, place the teaching move in the upper-middle zone and use the remaining space as deliberate breathing room. Do not stretch short content to fill the slide.
-- On phones, compact the course controls before shrinking teaching text. Dense comparison types may use an internal horizontal snap row so each card remains readable; the page and slide itself must never gain horizontal overflow.
-- A reveal should strengthen hierarchy: the attempt remains identifiable, while the revealed answer becomes the clearest accented surface. Do not make the whole slide denser merely because an answer is visible.
+Use accurate financial and economic terminology with simple sentence structure. Difficult terminology always receives a consistent Simplified Chinese translation. Keep English dominant: translate the conceptual load, not every label, date, example or piece of interface chrome.
 
-- Do not use deprecated `marketBrief` slides in new decks. They add little value compared with a focused `dataSnapshot`, `sourceLens`, `quoteMap`, or `discussion` slide.
-- `section`: keep the slide visually closer to the standard economics-presentation divider, with a notebook-ready academic topic such as `Investment and return` doing the work and only a quiet progress strip below it.
-- `discussion`: ask a real question first. For the lesson hook, show exactly one short question and nothing else beyond the visual and reveal control. After the click, reveal only one short English answer sentence followed by its concise Chinese translation; do not add a label, answer title or explanatory paragraph.
-- `term`: use exactly one image that makes the term immediately recognizable; keep it image-only with no visible caption beneath it and retain meaningful alt text in the photo data. Because this visual is a small cue beside the definition, prefer one bold icon or simple symbol with no visible labels, branches or miniature sub-diagrams. Reject generic finance imagery and over-complex illustrations. Check the local archive first, then create or source a precise icon when necessary. After the English and Chinese definitions, show at least three concise bilingual bullet examples spanning different contexts, outcomes or useful boundaries.
-- `priceChart`: use as a dated evidence-reading task after the lesson question is established. Do not default to chart-first lesson openings when a concrete dilemma or visual hook would better match the classroom rhythm.
-- `dataSnapshot`: show exactly three key metrics plus one short reading task. Put detailed tables, bars or source rows into notes, sources or a later focused slide.
-- `conceptTriad`: compare exactly three concepts; keep each definition short, and use purpose, risk, time horizon and example rows for the reveal layer.
-- `visualGrid`: use image-led example cards only when the pictures help students compare or recall concrete categories. Keep each label short. A three-item comparison may use one directly matched picture and one compact evidence line per card. If four bilingual cards require sentence-length explanations or the slide covers more than one student action, split the content into two `twoStep` slides with two cards each. Avoid decorative image collections.
-- Applied knowledge needs examples too: when students must use a distinction, rule or category, show several concrete cases before practice. Where categories are meaningful, use a short classification or sorting check so the teacher can see whether students understand the boundary.
-- `compare`: use for a clean two-column T-table contrast with short fill-in statements. Do not use it for multi-criteria investment choices; use `comparisonMatrix` there.
-- `yesNoCheck`: use for misconception votes and borderline investment judgements where a yes/no commitment matters before the reason. Use the concise action title `Vote yes or no.` with `投票：是或否。`, then place three or four bilingual statements directly below it. Do not add a repeated instruction or content question above the voting rows. Make Yes and No real buttons: a click scores the committed choice and reveals the verdict and reason inside the same row; deck reveal controls remain the teacher-led fallback. Do not use a repeated-card grid or horizontal carousel.
-- `quiz`: show exactly one direct bilingual question in the slide title, then place the choices immediately below it. Do not repeat or rephrase the question in the body.
-- `rankingTask`: use for ordered low-to-high, risk-return, priority or confidence tasks where students must defend a comparative sequence. Present three to five options as one vertical decision ladder with a rank blank beside each, then replace it with one defensible ordered model and reasons. Do not combine empty slots with a card grid or use a horizontal carousel. Use `axis.showNote: false` when the end labels already make the axis meaning complete.
-- `sourceLens`: show four source facts and up to four source-quality checks; use `revealAnswers: true` so students decide authority, date, scope and limitation before seeing a strong answer.
-- `quoteMap`: show up to six quote-page fields; use `revealValues: true` when students should locate company, code, exchange, price, date/time and source before reveal.
-- `comparisonMatrix`: compare two or three choices using the same criteria; keep row labels short and reveal cells only after students commit to the comparison.
-- `catalystTimeline`: show up to four events linking information to expectations or price movement; use `revealEffects: true` so students avoid overclaiming causation.
-- `judgementFrame`: use four stages: evidence, return, risk and price paid; reveal answers only after students draft the balanced judgement.
-- For personal-finance next-step judgements, the same `judgementFrame` may instead use four stages: choose the goal, state the next step, give one reason and add one condition. Reveal one sentence structure only after students draft; do not use a single-answer blank for an open judgement.
-- `analystBoard`: show no more than three large evidence blocks; use `revealBlocks: true` when students should identify the missing evidence block before bodies appear.
-- `riskRegister`: show four short risk prompts in large blocks; use `revealEffects: true` so students link risk to future profit, expectations or price paid before seeing the effect.
-- `flow`: use large numbered steps with meaningful blanks and `answer` values for causal or retrieval chains; do not add a second explanatory line to every step.
-- `flow` with `flowStyle: "decisionChecks"`: use the Lesson 1 `What should you check before investing?` slide as the visual reference. Use a question title, prominent bilingual box headers, one classroom-readable bilingual explanation per box, `revealSteps: true`, and no blanks. Every box must use a picture that directly depicts its keyword or action; check the local archive first and source a new modern image when existing pictures are only generically related.
-- `answer` and fill-blank term slides: blanks must render as clear answer slots with a visible underline/fill, stable width before and after reveal, and punctuation attached to the slot.
-- `Exit ticket`: follow the Economics deck pattern. Use `eyebrow: "Check"`, `title: "Exit ticket"`, `zhTitle: "离堂小测"` and `mode: "fillBlanks"`. Show three or four concise bilingual retrieval statements as full-width horizontal numbered rows with inline blanks; do not use a card grid, picture, extra instructions or a visible source button. All prompts must fit above the footer on phone.
-- `exam`: use the exam question once, then reveal keywords only after students have tried a plan when `revealKeywords: true`.
-- `modelAnswer`: use `cueLabel` and `cueText` to make the comparison task explicit, then reveal paragraphs one at a time.
+## Handout-led projection
 
-## Landing Pages
+Assume students may have the handout on their desks. Project prompts, images, contrasts, decisions and reveal states; do not reproduce paragraphs already available in print. Students should have time to annotate the handout and write a few key ideas in their notebooks.
 
-- The landing page is a student course doorway.
-- Use a factual course description of no more than two short paragraphs. State level, length, subject coverage and the no-advice boundary directly.
-- Keep navigation to the main course routes. Use one primary action and no more than one secondary action in the hero.
-- Present the six-unit sequence once. Do not repeat it in a status panel, promise strip, metric panel or second overview card.
-- Use a compact resource list for the syllabus, definitions and picture archive. Keep archived materials as a quiet text link.
-- Do not link to an existing lesson deck from the landing page until that deck matches the active syllabus sequence.
-- Keep generator tables, source contracts, formula banks and teaching-method details behind progressive disclosure on the syllabus page.
-- Avoid oversized decorative hero images, profile blocks, repeated statistics and multiple rows of button-like links.
+## Quality checks
 
-## QA Standard
-
-- Run `npm run test:smoke` and `npm run test:responsive` after design-system changes.
-- Keep Playwright guards for: slide count, quiz questions, local modern image metadata, visual-pause fit, reveal behavior, source panels, no horizontal overflow, no slide clipping, 32px/48px desktop teaching scale, at least 24px phone teaching text and no ultra-bold visible slide text.
+- Every active lesson route loads `theme.css`, `presentation.css` and `presentation.js`, then mounts a native `window.IGCSE.lesson`.
+- Every lesson has exactly three objectives and a clear first judgement.
+- Terms are translated and definitions are self-contained.
+- Comparisons use aligned dimensions.
+- Formative checks vary across the lesson.
+- Text fits at classroom and phone sizes.
+- Images load locally and reveal interactions work.

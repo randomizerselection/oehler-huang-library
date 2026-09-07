@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-content/1.0.0",
-  "source_hash": "dd69a40060fb08d1848d287267c57b56d680488be8bc36adb03526f7be2dc16d",
+  "source_hash": "b5a9751b41e9430184547f87627e00818a16e00763e0675f2347ba8917b70eec",
   "items": [
     {
       "id": "library:home",
@@ -28,15 +28,6 @@
       "route": "/investment-analysis/definitions/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:definitions:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:photo-archive",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Picture Archive - Investment Analysis",
-      "route": "/investment-analysis/photo-archive/",
-      "quiz_id": null,
-      "slide_id_pattern": "investment-analysis:photo-archive:slide-{1-based-index}"
     },
     {
       "id": "investment-analysis:smg-team-evidence-log",
@@ -75,67 +66,49 @@
       "slide_id_pattern": "investment-analysis:syllabus:slide-{1-based-index}"
     },
     {
-      "id": "investment-analysis:unit-1:lesson-1-all-types",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Slide Type Gallery - Investment Analysis",
-      "route": "/investment-analysis/unit-1/lesson-1-all-types/",
-      "quiz_id": "investment-analysis:unit-1:lesson-1-all-types:quiz",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-1-all-types:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-02-before-syllabus-rebuild",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "What is investment analysis, and what is a share? - Investment Analysis",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-02-before-syllabus-rebuild/",
-      "quiz_id": "investment-analysis:unit-1:lesson-1-archive-2026-07-02-before-syllabus-rebuild:quiz",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-1-archive-2026-07-02-before-syllabus-rebuild:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-11-before-course-realignment",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Investment analysis, assets and shares - Investment Analysis",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-11-before-course-realignment/",
-      "quiz_id": "investment-analysis:unit-1:lesson-1-archive-2026-07-11-before-course-realignment:quiz",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-1-archive-2026-07-11-before-course-realignment:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-price-graph",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "What does a stock price mean? - Investment Analysis",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-price-graph/",
-      "quiz_id": "investment-analysis:unit-1:lesson-1-archive-price-graph:quiz",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-1-archive-price-graph:slide-{1-based-index}"
-    },
-    {
       "id": "investment-analysis:unit-1:lesson-1",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Why do people and families invest? - Investment and Financial Decision-Making",
+      "title": "What is investment? - Investment and Financial Decision-Making",
       "route": "/investment-analysis/unit-1/lesson-1/",
-      "quiz_id": "investment-analysis:unit-1:lesson-1:quiz",
+      "quiz_id": "investment-analysis-unit-1-lesson-1",
       "slide_id_pattern": "investment-analysis:unit-1:lesson-1:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-2-archive-hkex-2026-07-11",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Why do companies need a stock market? - Investment Analysis",
-      "route": "/investment-analysis/unit-1/lesson-2-archive-hkex-2026-07-11/",
-      "quiz_id": "investment-analysis:unit-1:lesson-2-archive-hkex-2026-07-11:quiz",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-2-archive-hkex-2026-07-11:slide-{1-based-index}"
     },
     {
       "id": "investment-analysis:unit-1:lesson-2",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "How do goals change investment decisions? - Investment and Financial Decision-Making",
+      "title": "Why do people and families invest? - Investment and Financial Decision-Making",
       "route": "/investment-analysis/unit-1/lesson-2/",
-      "quiz_id": "investment-analysis:unit-1:lesson-2:quiz",
+      "quiz_id": "investment-analysis-unit-1-lesson-2",
       "slide_id_pattern": "investment-analysis:unit-1:lesson-2:slide-{1-based-index}"
+    },
+    {
+      "id": "investment-analysis:unit-1:lesson-3",
+      "version": "1.0.0",
+      "kind": "investment",
+      "title": "How do goals change investment decisions? - Investment and Financial Decision-Making",
+      "route": "/investment-analysis/unit-1/lesson-3/",
+      "quiz_id": "investment-analysis-unit-1-lesson-3",
+      "slide_id_pattern": "investment-analysis:unit-1:lesson-3:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-1-basic-economic-problem:1-1-basic-economic-problem",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "1.1.1 Finite resources and infinite wants - Oehler-Huang Library",
+      "route": "/lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/",
+      "quiz_id": "1-1-1-basic-economic-problem",
+      "slide_id_pattern": "lessons:unit-1-basic-economic-problem:1-1-basic-economic-problem:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-1-basic-economic-problem:1-2-factors-of-production",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "1.2.1 Factors of production and rewards - Oehler-Huang Library",
+      "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/",
+      "quiz_id": "1-2-1-factors-of-production",
+      "slide_id_pattern": "lessons:unit-1-basic-economic-problem:1-2-factors-of-production:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-2-allocation:2-8-market-economic-system",
@@ -244,6 +217,33 @@
       "route": "/lessons/unit-2-allocation/2-review-market-failure-section-a/",
       "quiz_id": null,
       "slide_id_pattern": "lessons:unit-2-allocation:2-review-market-failure-section-a:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-3-decision-makers:3-1-money-and-banking",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Money and banking decks - IGCSE Economics 0455",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/",
+      "quiz_id": null,
+      "slide_id_pattern": "lessons:unit-3-decision-makers:3-1-money-and-banking:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-3-decision-makers:3-1-money-and-banking:lesson-1",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Money lesson 1 - IGCSE Economics 0455",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-1/",
+      "quiz_id": "3-1-money-and-banking-lesson-1",
+      "slide_id_pattern": "lessons:unit-3-decision-makers:3-1-money-and-banking:lesson-1:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-3-decision-makers:3-1-money-and-banking:lesson-2",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Money lesson 2 - IGCSE Economics 0455",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-2/",
+      "quiz_id": "3-1-money-and-banking-lesson-2",
+      "slide_id_pattern": "lessons:unit-3-decision-makers:3-1-money-and-banking:lesson-2:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-4-government:4-1-macroeconomic-aims",

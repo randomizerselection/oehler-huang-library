@@ -1,5 +1,7 @@
 # EconMark 4.0 系统规范
 
+> This document remains the detailed EconMark grading-workflow specification. The shared identity, routes, lesson-library quiz ledger, and cross-application rules are governed by `UNIFIED-PLATFORM-SPEC.md`; that specification takes precedence where the scopes overlap.
+
 **规范标识：** `econmark-spec/4.0.0`  
 **产品基线：** `econmark/4.0.0`  
 **工作流基线：** `econmark-workflow/3.0.0`  
@@ -345,6 +347,22 @@ JSON Schema 文件是机器可执行合同；本文件是人类可读的总规�
 - 评价集结果必须与其冻结版本绑定，不得用新提示词覆盖旧结果。
 
 ## 18. 规范来源
+
+## 19. Unified platform extension
+
+The cross-application identity, route, class-profile, lesson-quiz, gradebook,
+content-catalog, migration-11, and atomic monorepo deployment contracts are
+normatively defined in [`UNIFIED-PLATFORM-SPEC.md`](UNIFIED-PLATFORM-SPEC.md).
+Where the older EconMark-only route or account language in this document
+conflicts with that extension, the unified specification takes precedence.
+
+The additional HTTP surface is:
+
+- `PATCH /api/account/profile`
+- `POST /api/quiz-attempts`
+- `GET /api/quiz-attempts/me`
+- `GET /api/teacher/quiz-attempts`
+- `GET /api/teacher/quiz-attempts.csv`
 
 本文件汇总并约束以下实现材料：
 

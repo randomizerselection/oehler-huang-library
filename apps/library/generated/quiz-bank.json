@@ -1,10 +1,291 @@
 {
   "schema_version": "oehler-huang-quiz-bank/1.0.0",
-  "source_hash": "dd69a40060fb08d1848d287267c57b56d680488be8bc36adb03526f7be2dc16d",
+  "source_hash": "b5a9751b41e9430184547f87627e00818a16e00763e0675f2347ba8917b70eec",
   "quizzes": [
+    {
+      "id": "1-1-1-basic-economic-problem",
+      "version": "1.4.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "1-1-1-basic-economic-problem",
+      "lesson_title": "The basic economic problem",
+      "title": "The basic economic problem quiz",
+      "description": "Retrieve the sequence: infinite wants, finite resources, scarcity, choice and the basic economic problem.",
+      "route": "/lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/",
+      "source": "lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/quiz.js",
+      "questions": [
+        {
+          "id": "want-definition",
+          "type": "multipleChoice",
+          "prompt": "Which statement best describes a want?",
+          "choices": [
+            "Something a person would like to have, use or experience.",
+            "Something a person already owns.",
+            "Only something needed for survival.",
+            "Only a physical product sold in a shop."
+          ],
+          "answer": 0,
+          "explanation": "A want may be a good, service or experience that a person would like to have or use.",
+          "points": 1
+        },
+        {
+          "id": "wants",
+          "type": "fillBlank",
+          "prompt": "Human wants are described as __________ because they continue and develop.",
+          "acceptedAnswers": [
+            "infinite",
+            "unlimited"
+          ],
+          "explanation": "Infinite and unlimited are both accepted descriptions of human wants.",
+          "points": 1
+        },
+        {
+          "id": "meaning-infinite-wants",
+          "type": "multipleChoice",
+          "prompt": "What does “infinite wants” mean?",
+          "choices": [
+            "Human wants continue and new wants can appear after others are satisfied.",
+            "Every individual wants every product that exists.",
+            "No human want can ever be satisfied.",
+            "Only people with low incomes have wants."
+          ],
+          "answer": 0,
+          "explanation": "Infinite wants means that the process of wanting continues, not that every person wants every product.",
+          "points": 1
+        },
+        {
+          "id": "resources",
+          "type": "fillBlank",
+          "prompt": "The productive resources available at any moment are __________ rather than endless.",
+          "acceptedAnswers": [
+            "finite",
+            "limited"
+          ],
+          "explanation": "Productive resources are finite or limited in amount. They are also called factors of production.",
+          "points": 1
+        },
+        {
+          "id": "identify-resource",
+          "type": "multipleChoice",
+          "prompt": "Which option contains productive resources rather than a want?",
+          "choices": [
+            "Workers, flour and ovens used by a bakery",
+            "Customers’ wish for more bread",
+            "A class’s wish for a larger sports centre",
+            "A family’s wish for a holiday"
+          ],
+          "answer": 0,
+          "explanation": "Workers, flour and ovens are inputs used to produce bread, so they are productive resources, also called factors of production. The other options state wants.",
+          "points": 1
+        },
+        {
+          "id": "scarcity",
+          "type": "fillBlank",
+          "prompt": "When infinite wants exceed the finite resources available to satisfy them, there is __________.",
+          "acceptedAnswers": [
+            "scarcity"
+          ],
+          "explanation": "Scarcity is the relationship created when wants exceed the resources available.",
+          "points": 1
+        },
+        {
+          "id": "full-shelves",
+          "type": "multipleChoice",
+          "prompt": "Why can scarcity exist when supermarket shelves are full?",
+          "choices": [
+            "The products still require finite resources, while human wants continue.",
+            "Full shelves mean that every want has been satisfied.",
+            "Scarcity means only that one product is temporarily unavailable.",
+            "Resources become unlimited once goods reach a shop."
+          ],
+          "answer": 0,
+          "explanation": "Scarcity is not an empty shelf. It is the continuing relationship between infinite wants and finite resources.",
+          "points": 1
+        },
+        {
+          "id": "result",
+          "type": "fillBlank",
+          "prompt": "Scarcity makes economic __________ unavoidable.",
+          "acceptedAnswers": [
+            "choice",
+            "choices",
+            "decision making",
+            "decision-making",
+            "decisions"
+          ],
+          "explanation": "Finite resources must be allocated between alternative uses, so a choice is necessary.",
+          "points": 1
+        },
+        {
+          "id": "basic-problem-definition",
+          "type": "multipleChoice",
+          "prompt": "Which statement best defines the basic economic problem?",
+          "choices": [
+            "Scarcity of finite resources compared with unlimited human wants.",
+            "Some consumers have lower incomes than others.",
+            "Shops sometimes run out of products.",
+            "Governments sometimes spend too much."
+          ],
+          "answer": 0,
+          "explanation": "The basic economic problem is the scarcity of finite resources compared with unlimited wants.",
+          "points": 1
+        },
+        {
+          "id": "economics-focus",
+          "type": "multipleChoice",
+          "prompt": "What does economics study?",
+          "choices": [
+            "How consumers, workers, firms and governments make choices when resources are finite and wants are infinite.",
+            "How to make every person equally wealthy.",
+            "How to predict every future price exactly.",
+            "How shops prevent products from selling out."
+          ],
+          "answer": 0,
+          "explanation": "Economics studies choices about using finite resources when not every want can be satisfied.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "1-2-1-factors-of-production",
+      "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "1-2-1-factors-of-production",
+      "lesson_title": "Factors of production and rewards",
+      "title": "Factors of production and rewards quiz",
+      "description": "Identify land, labour, capital and enterprise, then match each factor with its reward.",
+      "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/",
+      "source": "lessons/unit-1-basic-economic-problem/1-2-factors-of-production/quiz.js",
+      "questions": [
+        {
+          "id": "factor-definition",
+          "type": "multipleChoice",
+          "prompt": "Which statement best defines a factor of production?",
+          "choices": [
+            "A resource or input used to produce goods and services.",
+            "Any product that a consumer wants to buy.",
+            "Only a machine used inside a factory.",
+            "Money kept in a business bank account."
+          ],
+          "answer": 0,
+          "explanation": "A factor of production is any resource or input used in the production process.",
+          "points": 1
+        },
+        {
+          "id": "land-definition",
+          "type": "fillBlank",
+          "prompt": "Natural resources used in production are called __________.",
+          "acceptedAnswers": [
+            "land"
+          ],
+          "explanation": "Land includes all natural resources used in production, not only the ground.",
+          "points": 1
+        },
+        {
+          "id": "land-example",
+          "type": "multipleChoice",
+          "prompt": "Which is an example of the factor of production land?",
+          "choices": [
+            "Fish in the sea caught for food",
+            "A fishing boat made in a shipyard",
+            "A fisher’s human effort",
+            "The owner who organises the fishing business"
+          ],
+          "answer": 0,
+          "explanation": "Fish are a natural resource. The boat is capital, the effort is labour and the organiser supplies enterprise.",
+          "points": 1
+        },
+        {
+          "id": "labour-definition",
+          "type": "fillBlank",
+          "prompt": "Human effort or workers used in production are called __________.",
+          "acceptedAnswers": [
+            "labour",
+            "labor"
+          ],
+          "explanation": "Labour includes both physical and mental human effort.",
+          "points": 1
+        },
+        {
+          "id": "capital-definition",
+          "type": "multipleChoice",
+          "prompt": "Which item is capital?",
+          "choices": [
+            "A sewing machine used in a clothing factory",
+            "Cotton growing in a field",
+            "A worker sewing a shirt",
+            "Cash in a consumer’s wallet"
+          ],
+          "answer": 0,
+          "explanation": "The sewing machine is a human-made good used in production.",
+          "points": 1
+        },
+        {
+          "id": "enterprise-definition",
+          "type": "multipleChoice",
+          "prompt": "What does enterprise contribute to production?",
+          "choices": [
+            "It organises the other factors and takes risks.",
+            "It provides only natural resources.",
+            "It provides only physical human effort.",
+            "It turns every machine into money."
+          ],
+          "answer": 0,
+          "explanation": "Enterprise coordinates land, labour and capital and accepts business risk.",
+          "points": 1
+        },
+        {
+          "id": "land-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for land is __________.",
+          "acceptedAnswers": [
+            "rent"
+          ],
+          "explanation": "Rent is the reward for supplying land or natural resources.",
+          "points": 1
+        },
+        {
+          "id": "labour-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for labour is wages or __________.",
+          "acceptedAnswers": [
+            "salaries",
+            "salary"
+          ],
+          "explanation": "Workers receive wages or salaries for supplying labour.",
+          "points": 1
+        },
+        {
+          "id": "capital-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for capital is __________.",
+          "acceptedAnswers": [
+            "interest"
+          ],
+          "explanation": "Interest is the reward for supplying capital.",
+          "points": 1
+        },
+        {
+          "id": "enterprise-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for enterprise is __________.",
+          "acceptedAnswers": [
+            "profit",
+            "profits"
+          ],
+          "explanation": "Profit rewards the entrepreneur for organising production and taking risks.",
+          "points": 1
+        }
+      ]
+    },
     {
       "id": "2-8-market-economic-system-lesson-1",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-8-market-economic-system",
+      "lesson_title": "Market economic system",
       "title": "Market economic system quiz",
       "description": "Check syllabus 2.8.1: market forces, private sector ownership, the price mechanism and profit motive.",
       "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-1/",
@@ -115,6 +396,10 @@
     {
       "id": "2-8-market-economic-system-lesson-2",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-8-market-economic-system",
+      "lesson_title": "Price mechanism",
       "title": "Price mechanism quiz",
       "description": "Check demand and supply signals, incentives and resource allocation.",
       "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-2/",
@@ -224,6 +509,10 @@
     {
       "id": "2-8-market-economic-system-lesson-3",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-8-market-economic-system",
+      "lesson_title": "Arguments for markets",
       "title": "Arguments for markets quiz",
       "description": "Check choice, incentives and efficiency.",
       "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-3/",
@@ -335,6 +624,10 @@
     {
       "id": "2-8-market-economic-system-lesson-4",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-8-market-economic-system",
+      "lesson_title": "Arguments against markets",
       "title": "Arguments against markets quiz",
       "description": "Check inequality, market failure and under-provision.",
       "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-4/",
@@ -445,6 +738,10 @@
     {
       "id": "2-9-market-failure-lesson-1",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-9-market-failure",
+      "lesson_title": "External costs and benefits",
       "title": "External costs and benefits quiz",
       "description": "Check syllabus 2.9 externalities, private effects and social effects.",
       "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-1/",
@@ -558,6 +855,10 @@
     {
       "id": "2-9-market-failure-lesson-2",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-9-market-failure",
+      "lesson_title": "Merit and demerit goods",
       "title": "Merit and demerit goods quiz",
       "description": "Check syllabus 2.9 merit goods, demerit goods, under-consumption and over-consumption.",
       "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-2/",
@@ -674,6 +975,10 @@
     {
       "id": "2-9-market-failure-lesson-3",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-9-market-failure",
+      "lesson_title": "Public goods",
       "title": "Public goods quiz",
       "description": "Check syllabus 2.9 public goods, free riders, private revenue and non-provision.",
       "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-3/",
@@ -792,6 +1097,10 @@
     {
       "id": "2-9-market-failure-lesson-4",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "2-9-market-failure",
+      "lesson_title": "Monopoly power and evaluation",
       "title": "Monopoly power and evaluation quiz",
       "description": "Check syllabus 2.9 monopoly power, restricted supply and evaluation.",
       "route": "/lessons/unit-2-allocation/2-9-market-failure/lesson-4/",
@@ -899,8 +1208,219 @@
       ]
     },
     {
+      "id": "3-1-money-and-banking-lesson-1",
+      "version": "1.1.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-1-money-and-banking",
+      "lesson_title": "Money: forms and functions",
+      "title": "Money: forms and functions quiz",
+      "description": "Retrieval of the definition, forms and four functions taught in class 1.",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-1/",
+      "source": "lessons/unit-3-decision-makers/3-1-money-and-banking/quiz-lesson-1.js",
+      "questions": [
+        {
+          "id": "definition-money",
+          "type": "multipleChoice",
+          "prompt": "Which definition of money is correct?",
+          "choices": [
+            "Anything scarce that rises in value.",
+            "Anything generally accepted as a means of payment.",
+            "Any device that can open a banking app.",
+            "Any asset owned by a household."
+          ],
+          "answer": 1,
+          "explanation": "Money must be generally accepted and able to settle payments. A phone may move money, but is not itself money.",
+          "points": 1
+        },
+        {
+          "id": "money-or-tool",
+          "type": "multipleChoice",
+          "prompt": "A customer taps a debit card to pay. What is the money in this transaction?",
+          "choices": [
+            "The plastic card.",
+            "The card reader.",
+            "The bank deposit transferred between accounts.",
+            "The receipt printed by the shop."
+          ],
+          "answer": 2,
+          "explanation": "The card and reader are payment tools. The bank deposit is the value transferred to settle the payment.",
+          "points": 1
+        },
+        {
+          "id": "measure-of-value",
+          "type": "multipleChoice",
+          "prompt": "One function of money is to act as a measure of value. What does this mean?",
+          "choices": [
+            "Money allows people to borrow and lend.",
+            "Money allows people to save surplus income.",
+            "Money is used to buy goods and services.",
+            "Money is used to compare the worth of different goods and services."
+          ],
+          "answer": 3,
+          "explanation": "A measure of value is the unit-of-account function. A common unit lets people compare worth. Source: 0455_s23_12 Q12.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_s23_12 Q12",
+              "note": "Original recent Paper 1 question; answer D."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "old-age-saving",
+          "type": "multipleChoice",
+          "prompt": "A person saves money while planning for old age. Which function is money performing?",
+          "choices": [
+            "Medium of exchange.",
+            "Standard of deferred payment.",
+            "Store of value.",
+            "Unit of account."
+          ],
+          "answer": 2,
+          "explanation": "Saving carries purchasing power into the future, so money acts as a store of value. Source: 0455_w23_11 Q11.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w23_11 Q11",
+              "note": "Original recent Paper 1 application; answer C."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "deferred-payment",
+          "type": "fillBlank",
+          "prompt": "Money used to measure and repay a debt later acts as a standard of __________ payment.",
+          "acceptedAnswers": [
+            "deferred",
+            "deferred payments"
+          ],
+          "explanation": "Standard of deferred payment is the function linked to borrowing, lending and future repayment.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "3-1-money-and-banking-lesson-2",
+      "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-1-money-and-banking",
+      "lesson_title": "Money: characteristics and exam practice",
+      "title": "Money: characteristics and exam practice quiz",
+      "description": "Characteristics, their links to functions, and developed exam explanations.",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-2/",
+      "source": "lessons/unit-3-decision-makers/3-1-money-and-banking/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "not-a-function",
+          "type": "multipleChoice",
+          "prompt": "Which is not a function of money?",
+          "choices": [
+            "Medium of exchange.",
+            "Portability.",
+            "Store of value.",
+            "Unit of account."
+          ],
+          "answer": 1,
+          "explanation": "Portability is a characteristic of effective money. The other three options are functions. Source: 0455_w24_11 Q10.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w24_11 Q10",
+              "note": "Recent Paper 1 function-versus-characteristic distinction."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "banknotes-accepted",
+          "type": "multipleChoice",
+          "prompt": "Why do banknotes function as money?",
+          "choices": [
+            "They are backed by gold.",
+            "They are durable.",
+            "They are generally acceptable.",
+            "They have intrinsic value."
+          ],
+          "answer": 2,
+          "explanation": "Durability helps a note circulate, but general acceptability is what allows it to settle payments. Source: 0455_w25_13 Q10.",
+          "sources": [
+            {
+              "label": "Paper 1 source",
+              "ref": "0455_w25_13 Q10",
+              "note": "Original recent Paper 1 hinge question; answer C."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "divisible",
+          "type": "fillBlank",
+          "prompt": "Money available in different denominations is __________, so it can be used for payments of different sizes.",
+          "acceptedAnswers": [
+            "divisible"
+          ],
+          "explanation": "Divisibility means money can be split into smaller unit values. This is accepted Paper 2 mark-scheme language.",
+          "sources": [
+            {
+              "label": "Paper 2 source",
+              "ref": "0455_s24_22 Q4(b)",
+              "note": "Recent Paper 2 mark scheme accepts divisible as a characteristic of money."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "limited-supply",
+          "type": "fillBlank",
+          "prompt": "Money needs to be limited in __________ so that it is scarce enough to retain value.",
+          "acceptedAnswers": [
+            "supply",
+            "quantity"
+          ],
+          "explanation": "Limited supply helps maintain scarcity and protects the store-of-value function.",
+          "sources": [
+            {
+              "label": "Paper 2 source",
+              "ref": "0455_w25_23 Q3(b)",
+              "note": "Recent Paper 2 mark scheme accepts limited supply as a characteristic."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "durability-development",
+          "type": "multipleChoice",
+          "prompt": "Which sentence best develops the characteristic “coins are durable”?",
+          "choices": [
+            "Coins are made in different denominations.",
+            "Coins are accepted because the government issues them.",
+            "Coins do not perish, so they can be reused and keep value over time.",
+            "Coins can be carried from one shop to another."
+          ],
+          "answer": 2,
+          "explanation": "Paper 2 awards the development mark for explaining how long life supports a money function, such as store of value. Source: 0455_w25_23 Q3(b).",
+          "sources": [
+            {
+              "label": "Paper 2 source",
+              "ref": "0455_w25_23 Q3(b)",
+              "note": "Recent 4-mark explain question: one mark for each characteristic and one for each linked development."
+            }
+          ],
+          "points": 1
+        }
+      ]
+    },
+    {
       "id": "4-1-1-macroeconomic-aims",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-1-1-macroeconomic-aims",
+      "lesson_title": "Macroeconomic aims",
       "title": "Macroeconomic aims quiz",
       "description": "Check the six macroeconomic aims and common conflicts between them.",
       "route": "/lessons/unit-4-government/4-1-macroeconomic-aims/",
@@ -1012,6 +1532,10 @@
     {
       "id": "4-2-fiscal-policy-lesson-1",
       "version": "1.1.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-2-fiscal-policy",
+      "lesson_title": "Government budget and spending",
       "title": "Government budget and spending quiz",
       "description": "Check government budgets, budget balances, and the main areas, reasons and effects of government spending.",
       "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-1/",
@@ -1124,6 +1648,10 @@
     {
       "id": "4-2-fiscal-policy-lesson-2",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-2-fiscal-policy",
+      "lesson_title": "Taxation foundations",
       "title": "Taxation foundations quiz",
       "description": "Check reasons for taxation and direct and indirect tax examples.",
       "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-2/",
@@ -1237,6 +1765,10 @@
     {
       "id": "4-2-fiscal-policy-lesson-3",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-2-fiscal-policy",
+      "lesson_title": "Tax structures",
       "title": "Tax structures quiz",
       "description": "Check progressive, regressive and proportional taxes.",
       "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-3/",
@@ -1350,6 +1882,10 @@
     {
       "id": "4-2-fiscal-policy-lesson-4",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-2-fiscal-policy",
+      "lesson_title": "Expansionary and contractionary fiscal policy",
       "title": "Expansionary and contractionary fiscal policy quiz",
       "description": "Check fiscal policy, expansionary and contractionary measures, aggregate demand, employment and demand-pull inflationary pressure.",
       "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-4/",
@@ -1459,6 +1995,10 @@
     {
       "id": "4-2-fiscal-policy-lesson-5",
       "version": "1.1.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-2-fiscal-policy",
+      "lesson_title": "Fiscal policy effects and limitations",
       "title": "Fiscal policy effects and limitations quiz",
       "description": "Check fiscal-policy effects on macroeconomic aims and why the effects may be limited.",
       "route": "/lessons/unit-4-government/4-2-fiscal-policy/lesson-5/",
@@ -1566,6 +2106,10 @@
     {
       "id": "4-3-monetary-policy-lesson-1",
       "version": "1.1.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-3-monetary-policy",
+      "lesson_title": "Money supply and monetary policy",
       "title": "Money supply and monetary policy quiz",
       "description": "Check syllabus 4.3.1: money supply, monetary policy measures and macroeconomic aims.",
       "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-1/",
@@ -1717,6 +2261,10 @@
     {
       "id": "4-3-monetary-policy-lesson-2",
       "version": "1.2.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-3-monetary-policy",
+      "lesson_title": "Interest rates",
       "title": "Interest rates quiz",
       "description": "Check syllabus 4.3.2: interest rates and their effects on spending, saving, borrowing, investment, output, employment and inflation.",
       "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-2/",
@@ -1845,6 +2393,10 @@
     {
       "id": "4-3-monetary-policy-lesson-3",
       "version": "1.2.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-3-monetary-policy",
+      "lesson_title": "Money supply measures",
       "title": "Money supply measures quiz",
       "description": "Check syllabus 4.3.2: money supply measures, with a brief foreign-exchange-rate definition check.",
       "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-3/",
@@ -1974,6 +2526,10 @@
     {
       "id": "4-3-monetary-policy-lesson-4",
       "version": "2.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-3-monetary-policy",
+      "lesson_title": "Effects and limitations",
       "title": "Effects and limitations quiz",
       "description": "Check syllabus 4.3.3: macroeconomic effects, limitations and Paper 2 evaluation.",
       "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-4/",
@@ -2092,6 +2648,10 @@
     {
       "id": "4-4-supply-side-policy-lesson-1",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-4-supply-side-policy",
+      "lesson_title": "Supply-side policy basics",
       "title": "Supply-side policy basics quiz",
       "description": "Check syllabus 4.4.1: supply-side policy, productive capacity, efficiency and long-run output.",
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-1/",
@@ -2201,6 +2761,10 @@
     {
       "id": "4-4-supply-side-policy-lesson-2",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-4-supply-side-policy",
+      "lesson_title": "Interventionist supply-side policies",
       "title": "Interventionist supply-side policies quiz",
       "description": "Check government-led supply-side measures using education, training, healthcare, infrastructure and subsidies.",
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-2/",
@@ -2310,6 +2874,10 @@
     {
       "id": "4-4-supply-side-policy-lesson-3",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-4-supply-side-policy",
+      "lesson_title": "Market-based supply-side policies",
       "title": "Market-based supply-side policies quiz",
       "description": "Check tax incentives, privatisation, deregulation and labour-market reforms.",
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-3/",
@@ -2417,6 +2985,10 @@
     {
       "id": "4-4-supply-side-policy-lesson-4",
       "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-4-supply-side-policy",
+      "lesson_title": "Supply-side effects and evaluation",
       "title": "Supply-side effects and evaluation quiz",
       "description": "Check syllabus 4.4.3: effects on growth, employment, prices, competitiveness and the current account.",
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-4/",
@@ -2524,575 +3096,158 @@
       ]
     },
     {
-      "id": "investment-analysis:unit-1:lesson-1-all-types:quiz",
-      "version": "1.0.0",
-      "title": "Slide Type Gallery Review Check",
-      "description": "Quickly check that the current Investment Analysis slide types and their main uses are clear.",
-      "route": "/investment-analysis/unit-1/lesson-1-all-types/",
-      "source": "investment-analysis/unit-1/lesson-1-all-types/quiz.js",
-      "questions": [
-        {
-          "id": "compact-data-purpose",
-          "type": "multipleChoice",
-          "prompt": "If a deck needs compact company figures with a student task, which slide type should it use?",
-          "zh": "如果课件需要带学生任务的紧凑公司数据，应该使用哪种幻灯片类型？",
-          "choices": [
-            "dataSnapshot",
-            "modelAnswer",
-            "riskRegister",
-            "visualPause"
-          ],
-          "answer": 0,
-          "explanation": "Use dataSnapshot for compact figures with a clear student task.",
-          "explanationZh": "用 dataSnapshot 呈现紧凑数据和明确任务。",
-          "points": 1
-        },
-        {
-          "id": "chart-hook",
-          "type": "multipleChoice",
-          "prompt": "Which slide type shows a frozen share-price chart as a classroom hook?",
-          "zh": "哪种幻灯片类型用冻结的股价图作为课堂导入？",
-          "choices": [
-            "quoteMap",
-            "priceChart",
-            "comparisonMatrix",
-            "answer"
-          ],
-          "answer": 1,
-          "explanation": "priceChart is the dedicated full-screen chart slide.",
-          "explanationZh": "priceChart 是专门用于全屏图表的幻灯片。",
-          "points": 1
-        },
-        {
-          "id": "question-first",
-          "type": "multipleChoice",
-          "prompt": "Which slide type should ask a student-answerable question before revealing a concise answer?",
-          "zh": "哪种幻灯片类型应先提出学生能回答的问题，再揭示简洁答案？",
-          "choices": [
-            "discussion",
-            "section",
-            "sourceLens",
-            "modelAnswer"
-          ],
-          "answer": 0,
-          "explanation": "discussion is the question-first, reveal-second slide type.",
-          "explanationZh": "discussion 是先提问、后揭示的幻灯片类型。",
-          "points": 1
-        },
-        {
-          "id": "source-check",
-          "type": "multipleChoice",
-          "prompt": "Which slide type is designed for source metadata and source-limit checks?",
-          "zh": "哪种幻灯片类型用于来源信息和来源局限检查？",
-          "choices": [
-            "sourceLens",
-            "hero",
-            "flow",
-            "quiz"
-          ],
-          "answer": 0,
-          "explanation": "sourceLens shows source title, publisher, date, unit and source checks.",
-          "explanationZh": "sourceLens 显示来源标题、发布者、日期、单位和来源检查。",
-          "points": 1
-        },
-        {
-          "id": "quote-fields",
-          "type": "multipleChoice",
-          "prompt": "Which slide type maps quote-page fields such as company, code, exchange, price, date and currency?",
-          "zh": "哪种幻灯片类型整理公司、代码、交易所、价格、日期和货币等报价页字段？",
-          "choices": [
-            "conceptTriad",
-            "quoteMap",
-            "calculationDesk",
-            "outcomes"
-          ],
-          "answer": 1,
-          "explanation": "quoteMap is the quote-page identity field map.",
-          "explanationZh": "quoteMap 用来整理报价页上的身份字段。",
-          "points": 1
-        },
-        {
-          "id": "calculation",
-          "type": "multipleChoice",
-          "prompt": "Which slide type is best for formula, inputs, worked example and try-it calculation work?",
-          "zh": "哪种幻灯片类型最适合公式、输入、例题和试算任务？",
-          "choices": [
-            "calculationDesk",
-            "analystBoard",
-            "visualPause",
-            "section"
-          ],
-          "answer": 0,
-          "explanation": "calculationDesk is the calculation-focused slide type.",
-          "explanationZh": "calculationDesk 是以计算为核心的幻灯片类型。",
-          "points": 1
-        },
-        {
-          "id": "risk",
-          "type": "multipleChoice",
-          "prompt": "Which slide type makes risk categories and their likely effects explicit?",
-          "zh": "哪种幻灯片类型能清楚展示风险类别及其可能影响？",
-          "choices": [
-            "riskRegister",
-            "term",
-            "priceChart",
-            "visualPause"
-          ],
-          "answer": 0,
-          "explanation": "riskRegister shows risk rows with revealed effect links.",
-          "explanationZh": "riskRegister 用风险行和揭示的影响连接来展示风险。",
-          "points": 1
-        },
-        {
-          "id": "review-decision",
-          "type": "fillBlank",
-          "prompt": "After reviewing a slide type, mark it as keep, edit, split, replace or ________.",
-          "zh": "复习一个幻灯片类型后，把它标记为保留、修改、拆分、替换或……",
-          "acceptedAnswers": [
-            "delete"
-          ],
-          "explanation": "The gallery worksheet uses keep, edit, split, replace and delete as the review decisions.",
-          "explanationZh": "展示讲义使用保留、修改、拆分、替换和删除作为复习决定。",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-02-before-syllabus-rebuild:quiz",
-      "version": "1.0.0",
+      "id": "investment-analysis-unit-1-lesson-1",
+      "version": "3.0.0",
+      "course_id": "investment-analysis",
+      "course_title": "Investment and Financial Decision-Making",
+      "lesson_id": "lesson-1",
+      "lesson_title": "Unit 1 Lesson 1",
       "title": "Unit 1 Lesson 1 Quiz",
-      "description": "Review the Lesson 1 map question: what investment analysis is, why this course is not short-term stock speculation, what a share is, and why evidence comes before opinion.",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-02-before-syllabus-rebuild/",
-      "source": "investment-analysis/unit-1/lesson-1-archive-2026-07-02-before-syllabus-rebuild/quiz.js",
-      "questions": [
-        {
-          "id": "evidence-before-opinion",
-          "type": "multipleChoice",
-          "prompt": "What does investment analysis use before opinion?",
-          "zh": "投资分析在形成观点之前先使用什么？",
-          "choices": [
-            "Evidence",
-            "A favourite brand",
-            "A guess",
-            "A class vote"
-          ],
-          "answer": 0,
-          "explanation": "Investment analysis starts with evidence, then builds a careful judgement.",
-          "points": 1
-        },
-        {
-          "id": "not-stock-speculation",
-          "type": "multipleChoice",
-          "prompt": "What is this course not teaching students to do?",
-          "zh": "本课程不是教学生做什么？",
-          "choices": [
-            "Short-term stock speculation, tips or market timing",
-            "Read source-dated evidence",
-            "Separate a company from its listed share",
-            "Ask about possible return, risk and price"
-          ],
-          "answer": 0,
-          "explanation": "The course studies investment analysis, not speculation, stock tips, market timing or personal buy/sell advice.",
-          "points": 1
-        },
-        {
-          "id": "analysis-not-opinion",
-          "type": "multipleChoice",
-          "prompt": "Which sentence is analysis rather than unsupported opinion?",
-          "zh": "哪一句是分析，而不是没有证据的观点？",
-          "choices": [
-            "Tencent must be good because I know the brand.",
-            "Tencent is a familiar company, so risk is impossible.",
-            "Tencent has source-dated company evidence, but I still need to judge price and risk.",
-            "The share is good because the name is famous."
-          ],
-          "answer": 2,
-          "explanation": "The analytical sentence uses evidence and keeps price and risk open for judgement.",
-          "points": 1
-        },
-        {
-          "id": "asset",
-          "type": "multipleChoice",
-          "prompt": "What is an asset?",
-          "zh": "资产是什么？",
-          "choices": [
-            "Something owned that may have value",
-            "Only a daily price movement",
-            "Only a company product",
-            "A guaranteed profit"
-          ],
-          "answer": 0,
-          "explanation": "A share is one type of financial asset because it can be owned and may have value.",
-          "points": 1
-        },
-        {
-          "id": "share-definition",
-          "type": "multipleChoice",
-          "prompt": "What is a share?",
-          "zh": "股票是什么？",
-          "choices": [
-            "One unit of ownership in a company",
-            "A guaranteed bank payment",
-            "A company product",
-            "A government tax"
-          ],
-          "answer": 0,
-          "explanation": "A share is an ownership claim, not the product sold by the company. Stock can mean the company's shares in general; share means one unit.",
-          "explanationZh": "一股股票是一种所有权要求，不是公司出售的产品。Stock 可以指某家公司股票的总体；share 指一股、一个单位。",
-          "points": 1
-        },
-        {
-          "id": "share-price-point",
-          "type": "multipleChoice",
-          "prompt": "What does one point on a share-price graph show?",
-          "zh": "股价图上的一个点表示什么？",
-          "choices": [
-            "The market price of one share at that date",
-            "The company's total revenue for the year",
-            "A final proof that the share is a good investment",
-            "The number of products the company sold"
-          ],
-          "answer": 0,
-          "explanation": "A graph point is a source-dated share price. It is evidence, not a complete judgement.",
-          "explanationZh": "图上的一个点是带有来源日期的股价。它是证据，但不是完整判断。",
-          "points": 1
-        },
-        {
-          "id": "risk",
-          "type": "multipleChoice",
-          "prompt": "Which sentence best explains the risk-return trade-off?",
-          "zh": "哪句话最能解释风险与回报的取舍？",
-          "choices": [
-            "Higher possible return usually comes with higher uncertainty, but higher risk does not guarantee higher return.",
-            "Higher risk always guarantees higher return.",
-            "A famous company has no risk.",
-            "A price graph removes the need to check evidence."
-          ],
-          "answer": 0,
-          "explanation": "The course uses a simple rule: possible return and risk must be judged together, and risk can still lead to loss.",
-          "points": 1
-        },
-        {
-          "id": "ownership-blank",
-          "type": "fillBlank",
-          "prompt": "A share is one unit of ________ in a company.",
-          "zh": "股票是公司中的一个________单位。",
-          "acceptedAnswers": [
-            "ownership"
-          ],
-          "explanation": "Ownership is the key word: a share is not a loan or a bank deposit.",
-          "points": 1
-        },
-        {
-          "id": "evidence-blank",
-          "type": "fillBlank",
-          "prompt": "Investment analysis uses ________ before opinion.",
-          "zh": "投资分析先用________，再形成观点。",
-          "acceptedAnswers": [
-            "evidence"
-          ],
-          "explanation": "Evidence is the starting point for a careful investment judgement.",
-          "points": 1
-        },
-        {
-          "id": "risk-blank",
-          "type": "fillBlank",
-          "prompt": "Before judging a share, an analyst compares possible return, price and ________.",
-          "zh": "判断股票前，分析者要比较可能回报、价格和________。",
-          "acceptedAnswers": [
-            "risk"
-          ],
-          "explanation": "Lesson 1 introduces the basic risk-return habit before judgement.",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-2026-07-11-before-course-realignment:quiz",
-      "version": "1.0.0",
-      "title": "Unit 1 Lesson 1 Quiz",
-      "description": "Review investment analysis, return, risk, suitability, assets and shares.",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-2026-07-11-before-course-realignment/",
-      "source": "investment-analysis/unit-1/lesson-1-archive-2026-07-11-before-course-realignment/quiz.js",
-      "questions": [
-        {
-          "id": "investment-analysis-definition",
-          "type": "multipleChoice",
-          "prompt": "Which response is investment analysis?",
-          "zh": "哪一个回应属于投资分析？",
-          "choices": [
-            "Evaluate potential return, risk and suitability",
-            "Check whether many people know the company",
-            "Wait for the share price to rise first",
-            "Ask classmates which share may rise"
-          ],
-          "answer": 0,
-          "explanation": "Investment analysis evaluates an opportunity's potential return, risk and suitability for an investor.",
-          "explanationZh": "投资分析评估一个机会对投资者的潜在回报、风险和适合性。",
-          "points": 1
-        },
-        {
-          "id": "investment-speculation",
-          "type": "multipleChoice",
-          "prompt": "Which action is closest to speculation?",
-          "zh": "哪一个行为最接近投机？",
-          "choices": [
-            "Reading a dated annual report before judging",
-            "Comparing risk and potential return",
-            "Buying only because the price rose this morning",
-            "Checking whether a company pays dividends"
-          ],
-          "answer": 2,
-          "explanation": "Speculation often focuses on short-term price movement rather than evidence-based judgement.",
-          "explanationZh": "投机常常关注短期价格变动，而不是基于证据的判断。",
-          "points": 1
-        },
-        {
-          "id": "asset-definition",
-          "type": "fillBlank",
-          "prompt": "An asset is something with ________ that can be owned.",
-          "zh": "资产是具有________并且可以被拥有的东西。",
-          "acceptedAnswers": [
-            "value"
-          ],
-          "explanation": "Assets have value; different assets carry different risks.",
-          "explanationZh": "资产具有价值；不同资产有不同风险。",
-          "points": 1
-        },
-        {
-          "id": "asset-type",
-          "type": "multipleChoice",
-          "prompt": "Which item is an asset type from the lesson?",
-          "zh": "哪一项是本课学到的资产类型？",
-          "choices": [
-            "Cash and savings",
-            "A classroom opinion",
-            "A company slogan",
-            "A random prediction"
-          ],
-          "answer": 0,
-          "explanation": "Cash and savings are one simple asset type.",
-          "explanationZh": "现金和储蓄是一种简单资产类型。",
-          "points": 1
-        },
-        {
-          "id": "risk-ranking",
-          "type": "multipleChoice",
-          "prompt": "Why can asset risk rankings differ?",
-          "zh": "为什么资产风险排序可能不同？",
-          "choices": [
-            "Because the exact asset, price, time and evidence matter",
-            "Because all assets always have the same risk",
-            "Because cash is always more risky than every share",
-            "Because risk disappears if the company is famous"
-          ],
-          "answer": 0,
-          "explanation": "Asset type matters, but the specific example and evidence also matter.",
-          "explanationZh": "资产类型重要，但具体例子和证据也重要。",
-          "points": 1
-        },
-        {
-          "id": "share-definition",
-          "type": "fillBlank",
-          "prompt": "A share is one unit of ________ in a company.",
-          "zh": "一股股票是公司中的一个________单位。",
-          "acceptedAnswers": [
-            "ownership"
-          ],
-          "explanation": "A share is one ownership unit, not the whole company.",
-          "explanationZh": "一股股票是一个所有权单位，不是整家公司。",
-          "points": 1
-        },
-        {
-          "id": "share-gives",
-          "type": "multipleChoice",
-          "prompt": "What might a share give, depending on the company?",
-          "zh": "股票可能带来什么，取决于公司情况？",
-          "choices": [
-            "Possible dividends",
-            "Guaranteed profit",
-            "Control of the whole company",
-            "A risk-free return"
-          ],
-          "answer": 0,
-          "explanation": "Some shares may pay dividends, but dividends are not guaranteed.",
-          "explanationZh": "有些股票可能支付股息，但股息不是保证的。",
-          "points": 1
-        },
-        {
-          "id": "tencent-decision",
-          "type": "multipleChoice",
-          "prompt": "Why is Tencent being familiar not enough reason to buy shares?",
-          "zh": "为什么熟悉腾讯不足以成为买入股票的理由？",
-          "choices": [
-            "Familiarity is not evidence about value, risk or return",
-            "Familiar companies cannot have shares",
-            "Shares always guarantee profit",
-            "Assets never carry risk"
-          ],
-          "answer": 0,
-          "explanation": "The opening question needs investment analysis: evidence, potential return, risk, suitability and the meaning of a share.",
-          "explanationZh": "开头问题需要投资分析：证据、潜在回报、风险、适合性以及股票的含义。",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1-archive-price-graph:quiz",
-      "version": "1.0.0",
-      "title": "Unit 1 Lesson 1 Quiz",
-      "description": "Review what a stock-price graph represents, why it can change, graph-based percentage changes and the first investment judgement rule.",
-      "route": "/investment-analysis/unit-1/lesson-1-archive-price-graph/",
-      "source": "investment-analysis/unit-1/lesson-1-archive-price-graph/quiz.js",
-      "questions": [
-        {
-          "id": "share-definition",
-          "type": "multipleChoice",
-          "prompt": "What is a share?",
-          "zh": "股票是什么？",
-          "choices": [
-            "One unit of ownership in a company",
-            "A guaranteed payment from a bank",
-            "A government tax on companies",
-            "A loan that must pay fixed interest"
-          ],
-          "answer": 0,
-          "explanation": "A share is an ownership claim, not a bank deposit or fixed-interest loan.",
-          "points": 1
-        },
-        {
-          "id": "shareholder",
-          "type": "multipleChoice",
-          "prompt": "Which person is a shareholder?",
-          "zh": "谁是股东？",
-          "choices": [
-            "A person who reads a company website",
-            "A person or institution that owns one or more shares",
-            "A customer who buys the company's product",
-            "A worker who receives a fixed wage"
-          ],
-          "answer": 1,
-          "explanation": "A shareholder owns shares. Customers and workers may be connected to the company without owning it.",
-          "points": 1
-        },
-        {
-          "id": "share-price-meaning",
-          "type": "multipleChoice",
-          "prompt": "Which sentence reads the Tencent price graph precisely?",
-          "zh": "哪一句能精确解读腾讯价格图？",
-          "choices": [
-            "Each point is the market price of one Tencent share at that date.",
-            "Each point is Tencent's total company value.",
-            "Each point is Tencent's revenue for that year.",
-            "Each point proves whether Tencent is a good investment."
-          ],
-          "answer": 0,
-          "explanation": "Correct: the graph gives one-share market prices over time. The misconception is treating a price point as total value, revenue or investment quality.",
-          "points": 1
-        },
-        {
-          "id": "price-change",
-          "type": "multipleChoice",
-          "prompt": "Tencent's graph falls from HK$663.00 to HK$429.80. What is the approximate percentage change?",
-          "zh": "腾讯图表从663.00港元跌至429.80港元。大约百分比变化是多少？",
-          "choices": [
-            "-35%",
-            "-54%",
-            "+35%",
-            "-233%"
-          ],
-          "answer": 0,
-          "explanation": "(429.80 - 663.00) / 663.00 x 100 is about -35%. The old graph point is the denominator.",
-          "points": 1
-        },
-        {
-          "id": "good-investment",
-          "type": "multipleChoice",
-          "prompt": "Why can a famous company with a rising price graph still be a poor investment?",
-          "zh": "为什么有上涨价格图表的知名公司仍可能不是好投资？",
-          "choices": [
-            "A good company never earns profit.",
-            "The price point may already be too high compared with future profit and risk.",
-            "A low share price removes all risk.",
-            "Revenue is the same as ownership."
-          ],
-          "answer": 1,
-          "explanation": "Investment judgement compares future profit and risk with the current price paid, not just the shape of the graph.",
-          "points": 1
-        },
-        {
-          "id": "market-price",
-          "type": "multipleChoice",
-          "prompt": "What can push a share price up?",
-          "zh": "什么可能推动股价上涨？",
-          "choices": [
-            "More buyers than sellers after positive information changes expectations",
-            "The company having a stock code",
-            "The old price being used as the denominator",
-            "The company having a long name"
-          ],
-          "answer": 0,
-          "explanation": "New information can change expectations. If more buyers want the share than sellers, the market price can rise.",
-          "points": 1
-        },
-        {
-          "id": "expectations",
-          "type": "multipleChoice",
-          "prompt": "Why can a price rise before profit actually rises?",
-          "zh": "为什么利润还没有真正上升，股价就可能先上涨？",
-          "choices": [
-            "Investors may expect higher future profit after new information.",
-            "A share price is fixed once a year.",
-            "Revenue and price are always the same number.",
-            "A ticker guarantees a higher price."
-          ],
-          "answer": 0,
-          "explanation": "Share prices can react to expectations about the future, not only to profit that has already happened.",
-          "points": 1
-        },
-        {
-          "id": "ownership-blank",
-          "type": "fillBlank",
-          "prompt": "A share is one unit of ________ in a company.",
-          "zh": "股票是公司中的一个________单位。",
-          "acceptedAnswers": [
-            "ownership"
-          ],
-          "explanation": "Ownership is the key word: a share is not a loan or a bank deposit.",
-          "points": 1
-        },
-        {
-          "id": "expectations-blank",
-          "type": "fillBlank",
-          "prompt": "New information can change investors' ________ about future profit.",
-          "zh": "新信息会改变投资者对未来利润的________。",
-          "acceptedAnswers": [
-            "expectations",
-            "expectation"
-          ],
-          "explanation": "Expectations are investors' views about what may happen in the future.",
-          "points": 1
-        },
-        {
-          "id": "price-blank",
-          "type": "fillBlank",
-          "prompt": "A company can have high revenue, but investors still need to consider risk and the ________ paid for the share.",
-          "zh": "公司可以有很高的营业收入，但投资者仍需要考虑风险和买入股票的________。",
-          "acceptedAnswers": [
-            "price"
-          ],
-          "explanation": "A good company can be a weak investment if the price is too high.",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1:quiz",
-      "version": "1.0.0",
-      "title": "Unit 1 Lesson 1 Quiz",
-      "description": "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
+      "description": "Retrieve the definitions, evidence and decisions used in the latest What is investment? lesson.",
       "route": "/investment-analysis/unit-1/lesson-1/",
       "source": "investment-analysis/unit-1/lesson-1/quiz.js",
+      "questions": [
+        {
+          "id": "strongest-investment-evidence",
+          "type": "multipleChoice",
+          "prompt": "What is the strongest evidence that a decision is a financial investment?",
+          "zh": "什么证据最能表明一个决定属于金融投资？",
+          "choices": [
+            "The asset has risen in price before",
+            "The main basis is expected income and/or evidence about underlying value, while possible loss is accepted",
+            "Money can be withdrawn immediately with no possible loss",
+            "The buyer plans to sell after an unverified rumour"
+          ],
+          "answer": 1,
+          "explanation": "A financial investment seeks total return using income and/or evidence about value while possible loss remains.",
+          "explanationZh": "金融投资以收入和/或价值证据为依据寻求总回报，同时仍有可能亏损。",
+          "points": 1
+        },
+        {
+          "id": "saving-decision",
+          "type": "multipleChoice",
+          "prompt": "Which decision is saving rather than financial investment?",
+          "zh": "哪一个决定属于储蓄，而不是金融投资？",
+          "choices": [
+            "Keeping school-trip money in an easy-access account",
+            "Buying a diversified fund for long-term growth after reviewing its fees and risks",
+            "Buying shares for dividends and long-term value after analysing profits, debt and cash flow",
+            "Buying property mainly for expected net rental income"
+          ],
+          "answer": 0,
+          "explanation": "The known near-term need makes liquidity and capital preservation decisive.",
+          "explanationZh": "已知的近期需要使流动性和保本成为决定性因素。",
+          "points": 1
+        },
+        {
+          "id": "speculation-evidence",
+          "type": "multipleChoice",
+          "prompt": "Which evidence most clearly indicates speculation?",
+          "zh": "哪一项证据最清楚地表明属于投机？",
+          "choices": [
+            "Expected bond interest after analysing credit risk",
+            "Expected net rental income after estimating vacancy and maintenance",
+            "Borrowing after a rumour of a next-week price jump and planning a quick sale",
+            "Accepting that a diversified fund held long term can lose value"
+          ],
+          "answer": 2,
+          "explanation": "The decision depends mainly on a rumoured short-term price movement, and borrowing increases possible loss.",
+          "explanationZh": "该决定主要依赖传闻中的短期价格变动，而且借款会增加潜在损失。",
+          "points": 1
+        },
+        {
+          "id": "saving-priorities",
+          "type": "multipleChoice",
+          "prompt": "Which statement about saving is correct?",
+          "zh": "关于储蓄，哪一个陈述是正确的？",
+          "choices": [
+            "Earning interest automatically changes saving into financial investment",
+            "Saving cannot lose purchasing power",
+            "Capital preservation and liquidity can matter more than a high return",
+            "Saving always means holding cash at home"
+          ],
+          "answer": 2,
+          "explanation": "Saving can prioritise capital preservation and liquidity even when it earns interest.",
+          "explanationZh": "即使获得利息，储蓄仍可优先考虑保本与流动性。",
+          "points": 1
+        },
+        {
+          "id": "same-asset-different-decision",
+          "type": "multipleChoice",
+          "prompt": "Two people buy the same asset. Why might one be investing and the other speculating?",
+          "zh": "两个人购买同一资产，为什么一个可能在投资，另一个可能在投机？",
+          "choices": [
+            "The asset name decides the category",
+            "The person who pays the higher price is the speculator",
+            "The person planning to sell sooner is always the speculator",
+            "One bases expected return on income and/or evidence about long-term value; the other mainly on a price prediction"
+          ],
+          "answer": 3,
+          "explanation": "Classification depends on the decision’s expected payoff basis and evidence, not only the asset name.",
+          "explanationZh": "分类取决于决定的预期回报依据与证据，而不仅仅取决于资产名称。",
+          "points": 1
+        },
+        {
+          "id": "total-return-components",
+          "type": "multipleChoice",
+          "prompt": "Which two components make up total return?",
+          "zh": "总回报由哪两个部分构成？",
+          "choices": [
+            "Liquidity and capital preservation",
+            "Income and the change in market value",
+            "Research and holding period",
+            "Interest and guaranteed profit"
+          ],
+          "answer": 1,
+          "explanation": "Total return equals income plus the change in market value.",
+          "explanationZh": "总回报等于收入加市场价值的变化。",
+          "points": 1
+        },
+        {
+          "id": "frequent-trading-cost",
+          "type": "multipleChoice",
+          "prompt": "What did the historical household study illustrate about frequent trading?",
+          "zh": "历史家庭研究说明频繁交易可能产生什么影响？",
+          "choices": [
+            "Frequent trading guarantees a higher return",
+            "Every active trader loses all invested money",
+            "The market return is fixed each year",
+            "Trading costs can reduce net return"
+          ],
+          "answer": 3,
+          "explanation": "In the historical sample, trading costs reduced the net return of the most-active group.",
+          "explanationZh": "在该历史样本中，交易成本降低了交易最频繁群体的净回报。",
+          "points": 1
+        },
+        {
+          "id": "borrowing-worsens-loss",
+          "type": "multipleChoice",
+          "prompt": "Nora borrows to buy shares after an unverified rumour. How can borrowing worsen the loss?",
+          "zh": "Nora听信未经证实的传闻，借钱买股票。借款会如何加重损失？",
+          "choices": [
+            "The debt must still be repaid if the shares fall",
+            "Borrowing guarantees a higher selling price",
+            "The lender absorbs every market loss",
+            "Debt converts speculation into saving"
+          ],
+          "answer": 0,
+          "explanation": "Nora remains responsible for repaying the borrowed money even if the asset loses value.",
+          "explanationZh": "即使资产贬值，Nora仍有责任偿还借款。",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "investment-analysis-unit-1-lesson-2",
+      "version": "2.0.0",
+      "course_id": "investment-analysis",
+      "course_title": "Investment and Financial Decision-Making",
+      "lesson_id": "lesson-2",
+      "lesson_title": "Unit 1 Lesson 2",
+      "title": "Unit 1 Lesson 2 Quiz",
+      "description": "Check whether students can define investment, return and financial goal, then choose and justify a clear next step for a family goal.",
+      "route": "/investment-analysis/unit-1/lesson-2/",
+      "source": "investment-analysis/unit-1/lesson-2/quiz.js",
       "questions": [
         {
           "id": "investment-definition",
@@ -3112,13 +3267,16 @@
         },
         {
           "id": "return-definition",
-          "type": "fillBlank",
-          "prompt": "Return is the gain or ________ from an investment over a stated period.",
-          "zh": "回报是投资在规定期间内的收益或________。",
-          "acceptedAnswers": [
-            "loss",
-            "损失"
+          "type": "multipleChoice",
+          "prompt": "Which statement correctly completes the definition of return?",
+          "zh": "哪一个陈述正确完成了回报的定义？",
+          "choices": [
+            "Return is the income from an investment and cannot be negative.",
+            "Return is the gain or loss from an investment over a stated period, including price change and income.",
+            "Return is the original amount invested.",
+            "Return is any rise in price, regardless of income or costs."
           ],
+          "answer": 1,
           "explanation": "Return can be positive or negative and includes price change and income.",
           "explanationZh": "回报可以为正，也可以为负，并包括价格变化和收入。",
           "points": 1
@@ -3126,8 +3284,8 @@
         {
           "id": "return-components",
           "type": "multipleChoice",
-          "prompt": "Which pair is included in the Lesson 1 definition of return?",
-          "zh": "哪一组内容包含在第一课的回报定义中？",
+          "prompt": "Which pair is included in the Lesson 2 definition of return?",
+          "zh": "哪一组内容包含在第二课的回报定义中？",
           "choices": [
             "Goal priority and age",
             "Price change and income",
@@ -3254,180 +3412,16 @@
       ]
     },
     {
-      "id": "investment-analysis:unit-1:lesson-2-archive-hkex-2026-07-11:quiz",
-      "version": "1.0.0",
-      "title": "Unit 1 Lesson 2 Quiz",
-      "description": "Check whether students can explain why a stock market exists, identify a listed share, and avoid the misconception that every market purchase gives new money to the company.",
-      "route": "/investment-analysis/unit-1/lesson-2-archive-hkex-2026-07-11/",
-      "source": "investment-analysis/unit-1/lesson-2-archive-hkex-2026-07-11/quiz.js",
-      "questions": [
-        {
-          "id": "stock-exchange-role",
-          "type": "multipleChoice",
-          "prompt": "What is a stock exchange?",
-          "zh": "证券交易所是什么？",
-          "choices": [
-            "A regulated market where listed securities can be bought and sold",
-            "A guarantee that every share price will rise",
-            "A company product catalogue",
-            "A private investment adviser"
-          ],
-          "answer": 0,
-          "explanation": "A stock exchange organises trading in listed securities under market rules.",
-          "explanationZh": "证券交易所在市场规则下组织上市证券交易。",
-          "points": 1
-        },
-        {
-          "id": "listing-definition",
-          "type": "multipleChoice",
-          "prompt": "In this lesson, what does listing mean?",
-          "zh": "本课中，“上市”是什么意思？",
-          "choices": [
-            "A company's securities have permission to trade on an exchange",
-            "The company has no investment risk",
-            "Every trade gives new money to the company",
-            "The company must be the largest business in its industry"
-          ],
-          "answer": 0,
-          "explanation": "Listing is about permission to trade on an exchange after meeting market rules.",
-          "explanationZh": "上市指在满足市场规则后获准在交易所交易。",
-          "points": 1
-        },
-        {
-          "id": "stock-code-purpose",
-          "type": "multipleChoice",
-          "prompt": "What is the main purpose of a stock code such as 0700.HK?",
-          "zh": "像 0700.HK 这样的股票代码主要有什么作用？",
-          "choices": [
-            "It identifies a listed security in market data.",
-            "It proves the share is good value.",
-            "It removes all trading friction.",
-            "It replaces the need for a source date."
-          ],
-          "answer": 0,
-          "explanation": "A stock code is an identifier. It is not proof of investment quality.",
-          "explanationZh": "股票代码是识别码，不是投资质量的证明。",
-          "points": 1
-        },
-        {
-          "id": "secondary-market-money",
-          "type": "multipleChoice",
-          "prompt": "An investor buys existing listed shares from another investor on HKEX. What should we not assume?",
-          "zh": "一位投资者在港交所从另一位投资者手中买入已有上市股票。我们不应该假设什么？",
-          "choices": [
-            "That the company automatically receives new money from this trade",
-            "That ownership can change hands",
-            "That the trade happens through a market",
-            "That the share can have a stock code"
-          ],
-          "answer": 0,
-          "explanation": "A normal secondary-market trade transfers existing shares between investors.",
-          "explanationZh": "普通二级市场交易是在投资者之间转让已有股票。",
-          "points": 1
-        },
-        {
-          "id": "primary-issue",
-          "type": "multipleChoice",
-          "prompt": "Which situation is most clearly company fundraising?",
-          "zh": "哪种情况最明显属于公司筹资？",
-          "choices": [
-            "The company issues new shares, such as in an IPO.",
-            "One investor sells existing shares to another investor.",
-            "A student recognises the company name.",
-            "A stock code appears on a quote page."
-          ],
-          "answer": 0,
-          "explanation": "A new share issue can raise capital for the company. A secondary-market trade usually pays the selling investor.",
-          "explanationZh": "新股发行可以为公司筹集资本；二级市场交易通常是买方向卖方付款。",
-          "points": 1
-        },
-        {
-          "id": "source-box",
-          "type": "multipleChoice",
-          "prompt": "Which source-box record is strongest before judging an HKEX example?",
-          "zh": "判断港交所例子前，哪种来源框记录最强？",
-          "choices": [
-            "Company, exchange, stock code, source title, accessed date and limitation",
-            "Only the company logo",
-            "Only whether the price looks high",
-            "Only a friend's trading opinion"
-          ],
-          "answer": 0,
-          "explanation": "Lesson 2 continues the source habit: identify the security and record the source before judging.",
-          "explanationZh": "第二课延续来源习惯：先识别证券并记录来源，再作判断。",
-          "points": 1
-        },
-        {
-          "id": "liquidity-definition",
-          "type": "multipleChoice",
-          "prompt": "What does liquidity describe?",
-          "zh": "流动性描述什么？",
-          "choices": [
-            "How easily an asset can be bought or sold without a large price change",
-            "Whether a company is famous",
-            "The exact future share price",
-            "How many products the company sells"
-          ],
-          "answer": 0,
-          "explanation": "Liquidity is about ease of trading, not a guarantee of profit or safety.",
-          "explanationZh": "流动性关于交易便利度，不保证盈利或安全。",
-          "points": 1
-        },
-        {
-          "id": "trading-friction",
-          "type": "multipleChoice",
-          "prompt": "Which example shows trading friction?",
-          "zh": "哪一个例子体现了交易摩擦？",
-          "choices": [
-            "Trading hours, board lots, spreads, costs or limited buyers and sellers",
-            "A company has a familiar brand",
-            "A share has a stock code",
-            "A student likes the product"
-          ],
-          "answer": 0,
-          "explanation": "Markets reduce friction, but real trading still happens inside rules and costs.",
-          "explanationZh": "市场减少摩擦，但真实交易仍受规则和成本影响。",
-          "points": 1
-        },
-        {
-          "id": "market-importance",
-          "type": "multipleChoice",
-          "prompt": "Why can a stock market matter even when a company does not receive money from every trade?",
-          "zh": "即使公司不是每笔交易都收到钱，股票市场为什么仍然重要？",
-          "choices": [
-            "It helps investors transfer ownership and can improve liquidity.",
-            "It guarantees every investor will earn a return.",
-            "It removes the need to check sources.",
-            "It proves the company is undervalued."
-          ],
-          "answer": 0,
-          "explanation": "Secondary-market trading can support ownership transfer and liquidity, but it does not guarantee returns.",
-          "explanationZh": "二级市场交易支持所有权转让和流动性，但不保证收益。",
-          "points": 1
-        },
-        {
-          "id": "exit-sentence",
-          "type": "fillBlank",
-          "prompt": "A normal secondary-market trade transfers existing shares between investors; it does not automatically give new money to the ________.",
-          "zh": "普通二级市场交易是在投资者之间转让已有股票；它不会自动给________带来新资金。",
-          "acceptedAnswers": [
-            "company",
-            "firm",
-            "business"
-          ],
-          "explanation": "The company raises new money mainly through issuing new shares, not through every later market trade.",
-          "explanationZh": "公司主要通过发行新股筹集新资金，而不是通过之后的每一笔市场交易。",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-2:quiz",
-      "version": "1.0.0",
-      "title": "Unit 1 Lesson 2 Quiz",
+      "id": "investment-analysis-unit-1-lesson-3",
+      "version": "2.0.0",
+      "course_id": "investment-analysis",
+      "course_title": "Investment and Financial Decision-Making",
+      "lesson_id": "lesson-3",
+      "lesson_title": "Unit 1 Lesson 3",
+      "title": "Unit 1 Lesson 3 Quiz",
       "description": "Check whether students can classify goals by time horizon and liquidity need, then explain suitability without choosing a product first.",
-      "route": "/investment-analysis/unit-1/lesson-2/",
-      "source": "investment-analysis/unit-1/lesson-2/quiz.js",
+      "route": "/investment-analysis/unit-1/lesson-3/",
+      "source": "investment-analysis/unit-1/lesson-3/quiz.js",
       "questions": [
         {
           "id": "time-horizon-definition",
@@ -3435,25 +3429,28 @@
           "prompt": "What is time horizon?",
           "zh": "什么是投资期限？",
           "choices": [
+            "The period before invested money is expected to be needed",
             "The number of products a family owns",
             "The return earned last year",
-            "The period before invested money is expected to be needed",
             "The date on which a product becomes popular"
           ],
-          "answer": 2,
+          "answer": 0,
           "explanation": "Time horizon measures the period before the invested money is expected to be needed for the goal.",
           "explanationZh": "投资期限衡量预计需要为目标使用已投资资金之前的时间。",
           "points": 1
         },
         {
           "id": "liquidity-definition",
-          "type": "fillBlank",
-          "prompt": "Liquidity need is the need to access money quickly without accepting a large loss or ________.",
-          "zh": "流动性需求是无需承受重大损失或________即可快速取用资金的需要。",
-          "acceptedAnswers": [
-            "delay",
-            "延迟"
+          "type": "multipleChoice",
+          "prompt": "Which statement correctly defines liquidity need?",
+          "zh": "哪一个陈述正确定义了流动性需求？",
+          "choices": [
+            "The need to earn the highest possible return",
+            "The need to own several different products",
+            "The need to access money quickly without accepting a large loss or delay",
+            "The need to predict next week's market price"
           ],
+          "answer": 2,
           "explanation": "Liquidity need concerns reliable access without a large loss or delay.",
           "explanationZh": "流动性需求涉及无需承受重大损失或延迟即可可靠取用资金。",
           "points": 1
@@ -3461,8 +3458,8 @@
         {
           "id": "suitability-definition",
           "type": "multipleChoice",
-          "prompt": "Which factors belong in the Lesson 2 definition of suitability?",
-          "zh": "哪些因素属于第二课的适合度定义？",
+          "prompt": "Which factors belong in the Lesson 3 definition of suitability?",
+          "zh": "哪些因素属于第三课的适合度定义？",
           "choices": [
             "Product popularity, logo and advertising",
             "Last week's price change only",
