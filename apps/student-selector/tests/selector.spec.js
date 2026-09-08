@@ -1,5 +1,24 @@
 const { expect, test } = require("@playwright/test");
 
+test('selection works with blocked storage and fresh mounts do not share outcomes', async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => { throw new Error('Storage blocked'); };
+    Storage.prototype.setItem = () => { throw new Error('Storage blocked'); };
+  });
+  await page.goto('/tests/harness.html');
+  await page.locator('[data-action="class"]').selectOption('class-test');
+  await page.getByRole('button', { name: 'Sound', exact: true }).click();
+  await page.getByRole('button', { name: 'START SELECTION', exact: true }).click();
+  await page.locator('[data-action="no-grade"]').click({ timeout: 15000 });
+  expect(await page.evaluate(() => window.__selector.metrics().ungraded)).toBe(1);
+  await page.evaluate(() => {
+    window.__selector.destroy();
+    window.__selector = window.StudentSelector.mount(document.querySelector('#app'), window.__testAdapters);
+  });
+  await page.locator('[data-action="class"]').selectOption('class-test');
+  await expect(page.locator('.selector-metrics .selector-metric').nth(2)).toContainText('0');
+});
+
 test("decodes and plays every original MP3 with the original duration mapping", async ({ page }) => {
   const warnings = [];
   page.on("console", (message) => {

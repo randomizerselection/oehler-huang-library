@@ -13,6 +13,7 @@ import { resolveProviderPlan } from "./provider-config.mjs";
 import { createSchemaRegistry } from "./schema-registry.mjs";
 import { createPlatformStore, PlatformStoreError } from "./platform-store.mjs";
 import { createContentCatalog } from "./content-catalog.mjs";
+import { isPublicAsset } from "@oehler-huang/contracts/public-files";
 import {
   clearSessionCookie,
   clientIp,
@@ -38,7 +39,6 @@ const MIME = Object.freeze({
   ".woff": "font/woff",
   ".woff2": "font/woff2"
 });
-const BLOCKED_STATIC_PREFIXES = ["server/", "config/", "scripts/", "node_modules/", "."];
 const STATIC_ROUTE_ALIASES = Object.freeze({
   "/": "student.html",
   "/index.html": "student.html",
@@ -143,9 +143,9 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return { total_bytes: null, free_bytes: null, used_percent: null, level: "unknown", allowed: true, uploads_allowed: true };
     }
   }
+  const contentCatalog = createContentCatalog(config.libraryRoot);
   const accountStore = suppliedStore ?? createAccountStore({ ...config, uploadGuard: storageStatus });
   const platformStore = suppliedPlatformStore ?? createPlatformStore(config);
-  const contentCatalog = createContentCatalog(config.libraryRoot);
   const providerPlan = resolveProviderPlan(env);
   const schemaRegistry = suppliedGateway ? null : await createSchemaRegistry(root);
   const gradingGateway = suppliedGateway ?? await createGradingGateway({
@@ -667,8 +667,9 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
 
   const server = createServer(async (request, response) => {
     const requestUrl = new URL(request.url, "http://localhost");
-    const rawPath = decodeURIComponent(requestUrl.pathname);
+    let rawPath = requestUrl.pathname;
     try {
+      rawPath = decodeURIComponent(rawPath);
       if (rawPath.startsWith("/api/") && await apiHandler(request, response, rawPath)) return;
       if (rawPath.startsWith("/api/")) {
         json(response, 404, { error_code: "API_ROUTE_NOT_FOUND", message: "API route not found." });
@@ -720,17 +721,16 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       } else if (rawPath === "/platform/account-shell.js") {
         staticRoot = root;
         relative = "src/platform-account-shell.js";
+      } else if (rawPath.startsWith("/assets/samples/")) {
+        staticRoot = root;
       } else if (rawPath.startsWith("/src/")) {
         staticRoot = root;
       } else if (rawPath === "/") {
         relative = "index.html";
       }
       if (relative.endsWith("/")) relative += "index.html";
-      if (staticRoot === config.selectorRoot && /(?:^|\/)assets\/students\.csv$/i.test(relative)) {
-        response.writeHead(404, securityHeaders({ "content-type": "text/plain; charset=utf-8" })).end("Not found");
-        return;
-      }
-      if (BLOCKED_STATIC_PREFIXES.some((prefix) => relative.startsWith(prefix)) || /(?:^|\/)(?:tests?|docs?|archive|generated\/quiz-bank\.json)(?:\/|$)/i.test(relative) || /(?:^|\/)(?:package(?:-lock)?\.json|AGENTS\.md|README\.md|CNAME)$/i.test(relative)) {
+      const staticApp = staticRoot === root ? "platform" : staticRoot === config.selectorRoot ? "student-selector" : "library";
+      if (!isPublicAsset(staticApp, relative)) {
         response.writeHead(404, securityHeaders({ "content-type": "text/plain; charset=utf-8" })).end("Not found");
         return;
       }
@@ -745,10 +745,12 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       if (staticRoot === config.libraryRoot && extname(filePath).toLowerCase() === ".html") {
         let html = await readFile(filePath, "utf8");
         if (!html.includes("/assets/js/platform-shell.js")) html = html.replace(/<\/head>/i, "  <script src=\"/assets/js/platform-shell.js?v=20260813.1\" defer></script>\n</head>");
+        const classroomConnection = /^(?:a-level\/lessons|investment-analysis\/lessons|lessons)\//.test(relative.replaceAll('\\', '/'))
+          ? ' https://randomizerselection.github.io/studentselector/assets/students.csv' : '';
         response.writeHead(200, securityHeaders({
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, max-age=300",
-          "content-security-policy": "default-src 'self'; img-src 'self' blob: data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+          "content-security-policy": `default-src 'self'; img-src 'self' blob: data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'${classroomConnection}; object-src 'none'; base-uri 'self'; frame-ancestors 'none'`
         })).end(html);
         return;
       }

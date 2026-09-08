@@ -19,10 +19,18 @@ Inside a deck:
 | `Home` / `End`   | first / last slide       |
 | `F`              | toggle fullscreen        |
 | `N`              | toggle teacher notes     |
-| `O`              | overview grid (jump)     |
+| `O`              | searchable section overview (jump) |
 | `Esc`            | close overview           |
 
 URL hash tracks the slide (e.g. `…/index.html#12`), so bookmarks work.
+
+Economics, Investment and A-level decks share one bottom navigation bar. It fades
+after inactivity; move the pointer, tap, or press Tab to bring it back. More holds
+the course and library links, notes, fullscreen, account controls and Hide controls.
+Economics also keeps its available handout, quiz and flashcard links there.
+The overview groups slides by their section and searches titles, sections and slide
+numbers. Shared navigation lives in `assets/js/deck-navigation.js` and
+`assets/css/deck-navigation.css`; each renderer retains its own reveal interactions.
 
 ---
 

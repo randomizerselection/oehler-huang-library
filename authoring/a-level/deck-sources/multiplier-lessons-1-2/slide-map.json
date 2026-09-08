@@ -1,0 +1,1458 @@
+{
+  "sourceSlideCount": 45,
+  "outputSlides": [
+    {
+      "outputSlide": 1,
+      "sourceSlide": 1,
+      "key": "original-01",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/utg3698n",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 2,
+      "sourceSlide": 2,
+      "key": "original-02",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 3,
+      "sourceSlide": 3,
+      "key": "original-03",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 4,
+      "sourceSlide": 4,
+      "key": "original-04",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ih8ju9sn",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 5,
+      "sourceSlide": 5,
+      "key": "original-05",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/z2tcnm5s",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 6,
+      "sourceSlide": 6,
+      "key": "original-06",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/87ipkzal",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 7,
+      "sourceSlide": 7,
+      "key": "original-07",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ydkbm5sv",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 8,
+      "sourceSlide": 8,
+      "key": "original-08",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ri9g7uhw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 9,
+      "sourceSlide": 9,
+      "key": "original-09",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/nex4jq5k",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 10,
+      "sourceSlide": 10,
+      "key": "original-10",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/zelojyl8",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 11,
+      "sourceSlide": 11,
+      "key": "original-11",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/n69grmpw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 12,
+      "sourceSlide": 12,
+      "key": "original-12",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ra943il8",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 13,
+      "sourceSlide": 13,
+      "key": "original-13",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/o3i5w3ad",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 14,
+      "sourceSlide": 14,
+      "key": "original-14",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/jepwf2pc",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 15,
+      "sourceSlide": 15,
+      "key": "original-15",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/76p4jqls",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 16,
+      "sourceSlide": 16,
+      "key": "original-16",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ytkf2h8j",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 17,
+      "sourceSlide": 17,
+      "key": "original-17",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ihcvml4j",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 18,
+      "sourceSlide": 18,
+      "key": "original-18",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/itw3upcf",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 19,
+      "sourceSlide": 19,
+      "key": "original-19",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/vitozqt8",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 20,
+      "sourceSlide": 20,
+      "key": "original-20",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/4nu1krqh",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 21,
+      "sourceSlide": 21,
+      "key": "original-21",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ra9kryp8",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 22,
+      "sourceSlide": 22,
+      "key": "original-22",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/k7qpgjul",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 23,
+      "sourceSlide": 23,
+      "key": "original-23",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/v2d8fmhw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 24,
+      "sourceSlide": 24,
+      "key": "original-24",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/nux8zidc",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 25,
+      "sourceSlide": 18,
+      "key": "as-bridge",
+      "mode": "full",
+      "narrativeRole": "as bridge",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/itw3upcf",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/upg3i18r",
+            "sh/je5knut0",
+            "sh/4felwzu5",
+            "sh/5gnmp4bq",
+            "sh/6hw3y9sb",
+            "sh/rip4retw",
+            "sh/fapkr6pw"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 26,
+      "sourceSlide": 25,
+      "key": "ae-axes",
+      "mode": "diagram",
+      "narrativeRole": "ae axes",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 27,
+      "sourceSlide": 25,
+      "key": "ae-equality-line",
+      "mode": "diagram",
+      "narrativeRole": "ae equality line",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 28,
+      "sourceSlide": 8,
+      "key": "ae-spending-table",
+      "mode": "full",
+      "narrativeRole": "ae spending table",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ri9g7uhw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/je9g3ahk",
+            "sh/9w3uds36",
+            "sh/6h0fypgb",
+            "tb/l0jalsvu",
+            "sh/sjix0zy1"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 29,
+      "sourceSlide": 25,
+      "key": "ae-spending-line",
+      "mode": "diagram",
+      "narrativeRole": "ae spending line",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 30,
+      "sourceSlide": 25,
+      "key": "ae-equilibrium",
+      "mode": "diagram",
+      "narrativeRole": "ae equilibrium",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 31,
+      "sourceSlide": 25,
+      "key": "ae-below-equilibrium",
+      "mode": "diagram",
+      "narrativeRole": "ae below equilibrium",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 32,
+      "sourceSlide": 25,
+      "key": "ae-above-equilibrium",
+      "mode": "diagram",
+      "narrativeRole": "ae above equilibrium",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 33,
+      "sourceSlide": 25,
+      "key": "ae-injection-shift",
+      "mode": "diagram",
+      "narrativeRole": "ae injection shift",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 34,
+      "sourceSlide": 8,
+      "key": "ae-spending-rounds",
+      "mode": "full",
+      "narrativeRole": "ae spending rounds",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ri9g7uhw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/je9g3ahk",
+            "sh/9w3uds36",
+            "sh/6h0fypgb",
+            "tb/l0jalsvu",
+            "sh/sjix0zy1"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 35,
+      "sourceSlide": 25,
+      "key": "ae-new-equilibrium",
+      "mode": "diagram",
+      "narrativeRole": "ae new equilibrium",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 36,
+      "sourceSlide": 22,
+      "key": "ae-injections-leakages",
+      "mode": "full",
+      "narrativeRole": "ae injections leakages",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/k7qpgjul",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/436507qx",
+            "sh/58zqpov6",
+            "sh/il87etcv",
+            "sh/jmh8nyd0",
+            "sh/43u9snu5",
+            "sh/p43q1sva",
+            "sh/p4z6tcri"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 37,
+      "sourceSlide": 18,
+      "key": "ae-draw-and-explain",
+      "mode": "full",
+      "narrativeRole": "ae draw and explain",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/itw3upcf",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/upg3i18r",
+            "sh/je5knut0",
+            "sh/4felwzu5",
+            "sh/5gnmp4bq",
+            "sh/6hw3y9sb",
+            "sh/rip4retw",
+            "sh/fapkr6pw"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 38,
+      "sourceSlide": 25,
+      "key": "ae-negative-multiplier",
+      "mode": "diagram",
+      "narrativeRole": "ae negative multiplier",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/napsr6x0",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/fax0f6d4",
+            "sh/dojqx4fy",
+            "sh/snq94zet",
+            "sh/rmh8vux8",
+            "sh/ql8r2pwn",
+            "sh/xk3a98vi",
+            "sh/cju9g3ex",
+            "sh/gzmlsbq5",
+            "sh/uxsra18j",
+            "sh/vy1sj694",
+            "sh/8ba98bqt",
+            "sh/9cjahgry",
+            "sh/m98r618n",
+            "sh/7a1sf698",
+            "sh/s7utkvqx",
+            "sh/t83at0ri",
+            "sh/1czihwva",
+            "sh/gbq1obep"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 39,
+      "sourceSlide": 26,
+      "key": "adas-recall",
+      "mode": "diagram",
+      "narrativeRole": "adas recall",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/8fil4b21",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/1wn25ofi",
+            "sh/xwfeh87a",
+            "sh/mp4viton",
+            "sh/nqdwbep8",
+            "sh/8rmdkj6t",
+            "sh/9svedo7e",
+            "sh/y14ve9or",
+            "sh/z2dw7epc",
+            "sh/z61szulc",
+            "sh/y5sr69kr",
+            "sh/x4jax436",
+            "sh/c3a94z21",
+            "sh/b21svulg",
+            "sh/a18r2pkv",
+            "sh/p0zatk3a",
+            "sh/ozq90f2p",
+            "sh/0ve1wjex"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 40,
+      "sourceSlide": 26,
+      "key": "adas-initial-injection",
+      "mode": "diagram",
+      "narrativeRole": "adas initial injection",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/8fil4b21",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/1wn25ofi",
+            "sh/xwfeh87a",
+            "sh/mp4viton",
+            "sh/nqdwbep8",
+            "sh/8rmdkj6t",
+            "sh/9svedo7e",
+            "sh/y14ve9or",
+            "sh/z2dw7epc",
+            "sh/z61szulc",
+            "sh/y5sr69kr",
+            "sh/x4jax436",
+            "sh/c3a94z21",
+            "sh/b21svulg",
+            "sh/a18r2pkv",
+            "sh/p0zatk3a",
+            "sh/ozq90f2p",
+            "sh/0ve1wjex"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 41,
+      "sourceSlide": 26,
+      "key": "adas-multiplier-outcome",
+      "mode": "diagram",
+      "narrativeRole": "adas multiplier outcome",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/8fil4b21",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/1wn25ofi",
+            "sh/xwfeh87a",
+            "sh/mp4viton",
+            "sh/nqdwbep8",
+            "sh/8rmdkj6t",
+            "sh/9svedo7e",
+            "sh/y14ve9or",
+            "sh/z2dw7epc",
+            "sh/z61szulc",
+            "sh/y5sr69kr",
+            "sh/x4jax436",
+            "sh/c3a94z21",
+            "sh/b21svulg",
+            "sh/a18r2pkv",
+            "sh/p0zatk3a",
+            "sh/ozq90f2p",
+            "sh/0ve1wjex"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Split original diagram into sequenced builds and correct coordinates on equal scales. Reuse inherited axes, curves, labels and explanation frames."
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 65,
+            "top": 185,
+            "width": 600,
+            "height": 490
+          },
+          "reason": "Add native editable numerical ticks, projection guides, equilibrium dots and measurement brackets within the existing diagram frame. Line intersections and point-on-line contact are intentional; no labels cover inherited content."
+        }
+      ]
+    },
+    {
+      "outputSlide": 42,
+      "sourceSlide": 27,
+      "key": "original-27",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/mpor6x43",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 43,
+      "sourceSlide": 28,
+      "key": "original-28",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/0zehcr2x",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 44,
+      "sourceSlide": 30,
+      "key": "original-30",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/bqpkfy5s",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 45,
+      "sourceSlide": 31,
+      "key": "core-feedback",
+      "mode": "full",
+      "narrativeRole": "core feedback",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/zilsbyx4",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/qx4nihsb",
+            "sh/epcv2psr",
+            "sh/ehsr2dgz",
+            "sh/1k3ad8fa",
+            "sh/0jut43yp",
+            "sh/czexczq5",
+            "sh/ul8rq9gf",
+            "sh/4vm5g7al",
+            "sh/5wvmpcr6",
+            "sh/vexov2l8",
+            "sh/3ud4n290",
+            "sh/sz65k7ah",
+            "sh/d0fmtcr2"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    },
+    {
+      "outputSlide": 46,
+      "sourceSlide": 32,
+      "key": "original-32",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/6t8jupg7",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 47,
+      "sourceSlide": 33,
+      "key": "original-33",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/nml47a5w",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 48,
+      "sourceSlide": 34,
+      "key": "original-34",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/byh43utc",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 49,
+      "sourceSlide": 35,
+      "key": "original-35",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/gb6lcn6x",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 50,
+      "sourceSlide": 36,
+      "key": "original-36",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/rulsvutw",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 51,
+      "sourceSlide": 37,
+      "key": "original-37",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/kzupk3il",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 52,
+      "sourceSlide": 38,
+      "key": "original-38",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/mxgjmlwv",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 53,
+      "sourceSlide": 39,
+      "key": "original-39",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/r2pobudk",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 54,
+      "sourceSlide": 29,
+      "key": "later-consumption-question",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/vmlojmto",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/idkbuxsv"
+          ],
+          "action": "rewrite",
+          "reason": "Align prerequisites and feedback with AS-only prior knowledge; past-paper wording stays verbatim."
+        }
+      ]
+    },
+    {
+      "outputSlide": 55,
+      "sourceSlide": 40,
+      "key": "original-40",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/cnexsvih",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        }
+      ]
+    },
+    {
+      "outputSlide": 56,
+      "sourceSlide": 41,
+      "key": "original-41",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/f298ju10",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/exsr6t87"
+          ],
+          "action": "rewrite",
+          "reason": "Align prerequisites and feedback with AS-only prior knowledge; past-paper wording stays verbatim."
+        }
+      ]
+    },
+    {
+      "outputSlide": 57,
+      "sourceSlide": 42,
+      "key": "original-42",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/0j6dkjul",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/cfmdgzup"
+          ],
+          "action": "rewrite",
+          "reason": "Align prerequisites and feedback with AS-only prior knowledge; past-paper wording stays verbatim."
+        }
+      ]
+    },
+    {
+      "outputSlide": 58,
+      "sourceSlide": 43,
+      "key": "original-43",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/vyhgz690",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/6loju54n"
+          ],
+          "action": "rewrite",
+          "reason": "Align prerequisites and feedback with AS-only prior knowledge; past-paper wording stays verbatim."
+        }
+      ]
+    },
+    {
+      "outputSlide": 59,
+      "sourceSlide": 44,
+      "key": "original-44",
+      "mode": "preserve",
+      "narrativeRole": "preserve existing lesson slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/fqhcn6lk",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/vuxcb2lg"
+          ],
+          "action": "rewrite",
+          "reason": "Align prerequisites and feedback with AS-only prior knowledge; past-paper wording stays verbatim."
+        }
+      ]
+    },
+    {
+      "outputSlide": 60,
+      "sourceSlide": 45,
+      "key": "later-study-guide",
+      "mode": "full",
+      "narrativeRole": "later study guide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "sourceElementId": "sh/ne1kfydo",
+          "action": "rewrite",
+          "reason": "Keep page numbers consistent after inserting the teaching sequence."
+        },
+        {
+          "sourceElementIds": [
+            "sh/3y5s3yto",
+            "sh/itgzyls3",
+            "sh/5wrytgre",
+            "sh/2pkza5s7",
+            "sh/3qt03a9s",
+            "sh/vi1kjyd0",
+            "sh/ahs3qtwf",
+            "sh/gvu9s3ud",
+            "sh/hw3a1oby",
+            "sh/utcrqtc7",
+            "sh/fulszyts",
+            "sh/4zetw3u9",
+            "sh/pkna58bu",
+            "sh/2xwrutcj"
+          ],
+          "action": "rewrite-and-reposition",
+          "reason": "Expand the requested diagram teaching using the inherited content and diagram frames. Preserve exact font sizes; remove unrevealed lines with no fill, not overlays."
+        }
+      ]
+    }
+  ],
+  "omittedSourceSlides": []
+}

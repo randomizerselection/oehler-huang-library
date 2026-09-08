@@ -1,0 +1,13 @@
+/* Keep the white question readable over the bright printing press. */
+@media (min-width: 761px) {
+  .slide.is-layout-diamond-question:has(.discussionBg[src$="controlled-banknote-issue.png"])::after {
+    background: linear-gradient(90deg, rgba(3, 10, 20, .85), rgba(3, 10, 20, .78) 32%, transparent 70%);
+  }
+}
+
+/* Keep both halves of the fragile banknote visible in the phone crop. */
+@media (max-width: 760px) {
+  .is-layout-diamond-question .discussionBg[src$="fragile-banknotes-falling-apart.png"] {
+    object-position: 50% 50%;
+  }
+}

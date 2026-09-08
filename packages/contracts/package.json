@@ -1,0 +1,12 @@
+{
+  "name": "@oehler-huang/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "exports": {
+    "./content": "./content.cjs",
+    "./public-files": "./public-files.cjs"
+  },
+  "scripts": { "test": "node --test tests/*.test.cjs" },
+  "engines": { "node": ">=24" }
+}

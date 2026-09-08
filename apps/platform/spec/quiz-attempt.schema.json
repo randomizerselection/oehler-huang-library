@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://econmark.local/spec/quiz-attempt.schema.json",
+  "title": "Immutable EconMark quiz attempt",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["attempt_id", "account_id", "username", "display_name", "class_name", "quiz_id", "quiz_version", "answers", "result", "score", "max_score", "percentage", "created_at", "saved"],
+  "properties": {
+    "attempt_id": { "type": "string", "pattern": "^attempt_" },
+    "account_id": { "type": "string", "pattern": "^acct_" },
+    "username": { "type": "string" },
+    "display_name": { "type": "string" },
+    "class_name": { "type": "string", "minLength": 1 },
+    "course_id": { "type": ["string", "null"] },
+    "course_title": { "type": ["string", "null"] },
+    "lesson_id": { "type": ["string", "null"] },
+    "lesson_title": { "type": ["string", "null"] },
+    "quiz_id": { "type": "string", "minLength": 1 },
+    "quiz_version": { "type": "string", "minLength": 1 },
+    "answers": { "type": "object" },
+    "result": { "type": ["object", "array"] },
+    "score": { "type": "number", "minimum": 0 },
+    "max_score": { "type": "number", "minimum": 1 },
+    "percentage": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "saved": { "const": true }
+  }
+}

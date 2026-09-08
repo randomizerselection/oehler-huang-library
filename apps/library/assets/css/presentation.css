@@ -590,11 +590,9 @@ body { overflow: hidden; }
   object-position: center;
   background: #f7f4ed;
 }
-body.is-visual-pause .lessonModeSwitch,
 body.is-visual-pause #progress,
 body.is-visual-pause .help,
-body.is-visual-pause #notes,
-body.is-visual-pause .studentSelectorSidePanel {
+body.is-visual-pause #notes {
   display: none !important;
 }
 
@@ -4229,7 +4227,7 @@ h2 .inlineZh {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 120;
+  z-index: 1300;
   width: var(--student-selector-panel-width);
   overflow: hidden;
   color: var(--ink);
@@ -4258,6 +4256,14 @@ h2 .inlineZh {
 .studentSelectorSidePanel button {
   cursor: pointer;
 }
+
+.studentSelectorSidePanel button:disabled,
+.studentSelectorSidePanel select:disabled { cursor: not-allowed; opacity: .5; }
+.studentSelectorSidePanel .selector-load-status {
+  margin: 12px 0; padding: 12px; border: 1px solid var(--line-strong);
+  border-radius: 8px; line-height: 1.5;
+}
+.studentSelectorSidePanel .selector-load-status p { margin: 0 0 8px; }
 
 .studentSelectorPanelClose {
   position: absolute;
@@ -4417,6 +4423,12 @@ h2 .inlineZh {
   color: var(--muted);
   font-size: .86rem;
   font-weight: 750;
+}
+
+@media (min-width: 1100px) {
+  .studentSelectorSidePanel .selector-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .studentSelectorSidePanel .selector-metric { min-height: 68px; padding: 10px; }
+  .studentSelectorSidePanel .selector-metric span { font-size: .75rem; }
 }
 
 .studentSelectorSidePanel .selector-segmented,

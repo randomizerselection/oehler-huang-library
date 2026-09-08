@@ -51,6 +51,28 @@
   }
 
   const SCRIPT_BASE = getScriptBase();
+  const textCache = new Map();
+  const CACHE_MS = 5 * 60 * 1000;
+
+  // Public classroom data stays in memory only. Share in-flight requests too,
+  // so closing and reopening the panel does not start another download.
+  function loadPublicText(url) {
+    const cached = textCache.get(url);
+    if (cached && cached.expires > Date.now()) return cached.promise;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+    const entry = { expires: Infinity };
+    entry.promise = fetch(url, { credentials: 'omit', signal: controller.signal })
+      .then(response => {
+        if (!response.ok) throw new Error('Download failed.');
+        return response.text();
+      })
+      .then(text => { entry.expires = Date.now() + CACHE_MS; return text; })
+      .catch(error => { textCache.delete(url); throw error; })
+      .finally(() => clearTimeout(timer));
+    textCache.set(url, entry);
+    return entry.promise;
+  }
 
   function assetUrl(path, basePath) {
     if (/^(https?:)?\/\//.test(path) || path.startsWith("data:")) return path;
@@ -101,13 +123,14 @@
     return rows;
   }
 
-  function loadStoredState() {
+  function loadStoredState(storageKey = STORAGE_KEY) {
+    const defaults = JSON.parse(JSON.stringify(DEFAULT_STATE));
     try {
-      const raw = window.sessionStorage.getItem(STORAGE_KEY);
-      if (!raw) return { ...DEFAULT_STATE };
-      return { ...DEFAULT_STATE, ...JSON.parse(raw) };
+      const raw = window.sessionStorage.getItem(storageKey);
+      if (!raw) return defaults;
+      return { ...defaults, ...JSON.parse(raw) };
     } catch (_error) {
-      return { ...DEFAULT_STATE };
+      return defaults;
     }
   }
 
@@ -303,8 +326,13 @@
       this.classLabels = {};
       this.studentLabels = {};
       this.messages = {};
-      this.state = loadStoredState();
+      this.storageKey = options.classroomMode ? 'student-selector-classroom-session-v1' : STORAGE_KEY;
+      this.state = loadStoredState(this.storageKey);
       this.remoteSession = null;
+      this.destroyed = false;
+      this.loading = false;
+      this.ready = false;
+      this.loadError = '';
       this.activeSelectionId = null;
       this.stage = { mode: "idle" };
       this.modal = null;
@@ -313,10 +341,10 @@
       this.boundKeydown = (event) => this.handleKeydown(event);
       document.addEventListener("keydown", this.boundKeydown);
       this.loadData();
-      this.render();
     }
 
     destroy() {
+      this.destroyed = true;
       this.clearTimers();
       this.sound.destroy();
       document.removeEventListener("keydown", this.boundKeydown);
@@ -357,31 +385,47 @@
         studentUngradedByClass: this.state.studentUngradedByClass,
         absentStudentsByClass: this.state.absentStudentsByClass
       };
-      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      try { window.sessionStorage.setItem(this.storageKey, JSON.stringify(saved)); }
+      catch (_error) { /* Selection remains usable when browser storage is unavailable. */ }
     }
 
     async loadData() {
+      if (this.loading || this.destroyed) return;
+      this.loading = true;
+      this.ready = false;
+      this.loadError = '';
+      this.render();
       try {
-        const messagePromise = fetch(assetUrl("assets/messages.csv", this.basePath)).then((response) => {
-            if (!response.ok) throw new Error("Missing messages.csv");
-            return response.text();
-          });
-        if (!this.options.dataAdapter?.listClasses || !this.options.dataAdapter?.loadRoster) {
-          throw new Error("Authenticated class and roster adapters are required.");
-        }
-        const classResult = await this.options.dataAdapter.listClasses();
-        for (const classroom of classResult.items || classResult || []) {
-          const classId = String(classroom.class_id || classroom.id);
-          this.classLabels[classId] = classroom.name || classId;
-          const rosterResult = await this.options.dataAdapter.loadRoster(classId);
-          this.classes[classId] = [];
-          for (const student of rosterResult.students || []) {
-            const studentId = String(student.account_id || student.id);
-            this.classes[classId].push(studentId);
-            this.studentLabels[studentId] = student.display_name || student.username || studentId;
+        const loadClasses = async () => {
+          const classes = {}, classLabels = {}, studentLabels = {};
+          if (this.options.classroomMode) {
+            // The existing standalone Economics selector uses this public list.
+            // Keep it separate from private platform rosters and server sessions.
+            const text = await loadPublicText('https://randomizerselection.github.io/studentselector/assets/students.csv');
+            return { classes: this.parseStudents(text), classLabels, studentLabels };
           }
-        }
-        const messageText = await messagePromise;
+          if (!this.options.dataAdapter?.listClasses || !this.options.dataAdapter?.loadRoster) {
+            throw new Error("Authenticated class and roster adapters are required.");
+          }
+          const classResult = await this.options.dataAdapter.listClasses();
+          for (const classroom of classResult.items || classResult || []) {
+            const classId = String(classroom.class_id || classroom.id);
+            classLabels[classId] = classroom.name || classId;
+            const rosterResult = await this.options.dataAdapter.loadRoster(classId);
+            classes[classId] = [];
+            for (const student of rosterResult.students || []) {
+              const studentId = String(student.account_id || student.id);
+              classes[classId].push(studentId);
+              studentLabels[studentId] = student.display_name || student.username || studentId;
+            }
+          }
+          return { classes, classLabels, studentLabels };
+        };
+        const [data, messageText] = await Promise.all([
+          loadClasses(), loadPublicText(assetUrl('assets/messages.csv', this.basePath))
+        ]);
+        if (this.destroyed) return;
+        Object.assign(this, data);
         this.messages = this.parseMessages(messageText);
         if (this.state.selectedClass && !this.classes[this.state.selectedClass]) {
           this.state.selectedClass = "";
@@ -391,12 +435,11 @@
           this.state.selectedClass = this.options.defaultClassId;
         }
         if (this.state.selectedClass) await this.ensureRemoteSession(this.state.selectedClass);
-        this.render();
+        this.ready = true;
       } catch (error) {
-        this.stage = {
-          mode: "error",
-          message: error.message || "Unable to load selector data."
-        };
+        this.loadError = 'Could not load classes. Check your connection and try again.';
+      } finally {
+        this.loading = false;
         this.render();
       }
     }
@@ -577,6 +620,7 @@
     }
 
     async startSelection() {
+      if (!this.ready || this.destroyed || this.starting || this.stage.mode === 'selecting') return;
       const className = this.state.selectedClass;
       if (!className || !this.classes[className]) {
         this.showMessage("Select a class", "Please select a valid class before starting.");
@@ -590,10 +634,12 @@
 
       this.sound.stop();
       this.sound.prepare();
+      this.starting = true;
       try { await this.ensureRemoteSession(className); } catch (error) {
         this.showMessage("Unable to start session", error.message || "The selector session could not be started.");
         return;
-      }
+      } finally { this.starting = false; }
+      if (this.destroyed) return;
 
       const finalStudent = choice(roster);
       const duration = Math.max(1, Number(this.state.timerSeconds) || 5);
@@ -842,6 +888,13 @@
     }
 
     handleKeydown(event) {
+      if (event.key === 'Escape' && !event.defaultPrevented) {
+        if (this.modal) { event.preventDefault(); this.closeModal(); }
+        else if (this.options.onClose && !event.target.closest?.('select,input,textarea,[contenteditable="true"]')) {
+          event.preventDefault(); this.options.onClose();
+        }
+        return;
+      }
       if (!this.modal || this.modal.type !== "attendance") {
         if (event.key === "Escape" && this.modal) this.closeModal();
         return;
@@ -873,7 +926,9 @@
     }
 
     render() {
+      if (this.destroyed) return;
       this.container.classList.add("selector-root");
+      this.container.setAttribute('aria-busy', String(this.loading));
       this.container.innerHTML = `
         <div class="selector-shell">
           ${this.renderDock()}
@@ -897,15 +952,18 @@
               <img src="${assetUrl("assets/icon.png", this.basePath)}" alt="">
               <div>
                 <h1>Random Student Selector</h1>
-                <p>${selected ? this.metricSummary(metrics) : "Select a class to start"}</p>
+                <p>${this.loading ? 'Loading classes…' : selected && this.ready ? this.metricSummary(metrics) : 'Select a class to start'}</p>
               </div>
             </div>
             ${this.options.onClose ? `<button class="selector-close" type="button" data-action="close-overlay" aria-label="Close selector">x</button>` : `<a class="selector-about" href="${assetUrl("about.html", this.basePath)}">About</a>`}
           </div>
 
+          ${this.loadError ? `<div class="selector-load-status" role="alert"><p>${escapeHtml(this.loadError)}</p><button class="selector-button" type="button" data-action="retry-load">Try again</button></div>` : ''}
+          ${this.ready && !classNames.length ? '<p class="selector-load-status" role="status">No classes are available yet.</p>' : ''}
+
           <label class="selector-section">
             <span class="selector-section-label">Class</span>
-            <select class="selector-class-select" data-action="class">
+            <select class="selector-class-select" data-action="class" ${this.ready ? '' : 'disabled'}>
               <option value="">Select a Class</option>
               ${classNames.map((name) => `<option value="${escapeHtml(name)}" ${name === selected ? "selected" : ""}>${escapeHtml(this.classLabel(name))}</option>`).join("")}
             </select>
@@ -933,14 +991,14 @@
           </div>
 
           <div class="selector-actions">
-            <button class="selector-button" type="button" data-action="attendance">Attendance</button>
-            <button class="selector-button" type="button" data-action="summary">View Summary</button>
+            <button class="selector-button" type="button" data-action="attendance" ${this.ready && selected ? '' : 'disabled'}>Attendance</button>
+            <button class="selector-button" type="button" data-action="summary" ${this.ready && selected ? '' : 'disabled'}>View Summary</button>
             <button class="selector-button" type="button" data-action="intro">Play Intro</button>
             <button class="selector-button" type="button" data-action="closing">Play Closing</button>
           </div>
 
-          <button class="selector-button selector-primary" type="button" data-action="start">START SELECTION</button>
-          <button class="selector-button" type="button" data-action="reset" ${selected ? "" : "disabled"}>Reset Current Class</button>
+          <button class="selector-button selector-primary" type="button" data-action="start" ${this.ready && selected ? '' : 'disabled'}>START SELECTION</button>
+          <button class="selector-button" type="button" data-action="reset" ${this.ready && selected ? "" : "disabled"}>Reset Current Class</button>
           ${this.options.sessionAdapter ? `<button class="selector-button" type="button" data-action="end-session" ${selected ? "" : "disabled"}>End Session</button>` : ""}
         </section>
       `;
@@ -1155,6 +1213,7 @@
       this.container.querySelectorAll("[data-action]").forEach((element) => {
         element.addEventListener("click", (event) => {
           const action = event.currentTarget.dataset.action;
+          if (action === 'retry-load') this.loadData();
           if (action === "timer") this.setTimer(Number(event.currentTarget.dataset.seconds));
           if (action === "toggle") this.toggle(event.currentTarget.dataset.key);
           if (action === "attendance") this.startAttendance();

@@ -305,11 +305,13 @@ if (fs.existsSync(lessonTemplatePath)) {
 check(fs.existsSync(homePath), 'investment course landing page is missing');
 if (fs.existsSync(homePath)) {
   const home = fs.readFileSync(homePath, 'utf8');
-  check(/class="investment-home landing-page simplified-landing"/.test(home), 'investment landing page must use the simplified layout');
-  check(/Learn to make investment decisions by connecting goals, evidence, risk and portfolio choices[\s\S]*形成有依据的投资决策/.test(home), 'investment landing page must use the concise bilingual course introduction');
-  check(/Every lesson includes a team SMG lab and an individual judgement[\s\S]*每节课都包含团队SMG实践和个人判断/i.test(home), 'investment landing page must foreground the every-lesson Stock Market Game laboratory bilingually');
+  check(/class="bg-ambient course-home investment-course-home"/.test(home) && /assets\/css\/course-home\.css/.test(home), 'investment landing page must use the shared course layout');
+  check(/<h1[^>]*>Investment and finance<\/h1>[\s\S]*投资与金融/.test(home), 'investment landing page must use the consistent bilingual course title');
+  check(/lessons\/1-1-2-measuring-investment-return\/index\.html/.test(home) && /lessons\/1-1-3-compound-growth\/index\.html/.test(home), 'investment landing page must expose both current HTML lessons');
+  check(!/unit-1\/lesson-[123]\/index\.html/.test(home), 'investment landing page must not expose the older platform-native lessons');
   check(!/passport/i.test(home), 'investment landing page must not retain the retired Investor Passport');
-  check(/smg-workbook-course-guide\.html/.test(home) && /smg-team-evidence-log\.html/.test(home), 'investment landing page must expose the student-facing SMG workbook and team-log tools');
+  check(/syllabus-2026-27\.html/.test(home), 'investment landing page must expose the current 2026/27 syllabus');
+  check(!/smg-workbook-course-guide\.html|smg-team-evidence-log\.html/.test(home), 'investment landing page must not expose resources from the older course sequence');
   check(!/stock-market-game-integration\.md/.test(home), 'investment landing page must not expose the teacher implementation guide as a primary student route');
   check(!/investment-status-panel|investment-card-grid/.test(home), 'investment landing page still contains a duplicated status panel or card grid');
 }

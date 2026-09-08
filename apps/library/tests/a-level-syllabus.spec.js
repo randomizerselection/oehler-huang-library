@@ -1,0 +1,103 @@
+const { test, expect } = require('@playwright/test');
+const fs = require('node:fs');
+const path = require('node:path');
+const { pathToFileURL } = require('node:url');
+const root = path.resolve(__dirname, '..');
+const pageUrl = file => pathToFileURL(path.join(root, 'a-level', file)).href;
+const noOverflow = async page => expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+
+test('@smoke @responsive A Level syllabus navigation, coverage and filtering', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(pageUrl('index.html'));
+  await page.getByRole('link', { name: 'Syllabus', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Syllabus and lesson planner', exact: true })).toBeVisible();
+  await expect(page.locator('.lesson-plan')).toHaveCount(48);
+  await expect(page.locator('#filter-status')).toHaveText('48 of 48 lessons shown');
+  await page.locator('#section-filter').selectOption('11');
+  await expect(page.locator('.lesson-plan')).toHaveCount(19);
+  await page.locator('#planner-search').fill('Marshall');
+  await expect(page.locator('.lesson-plan')).toHaveCount(1);
+  await page.locator('.lesson-plan > summary').click();
+  await expect(page.locator('.outcome')).toContainText('J-curve');
+  await expect(page.locator('.allocation')).toContainText('Provisional allocation');
+  await noOverflow(page);
+  await page.getByRole('button', { name: 'Syllabus coverage', exact: true }).click();
+  await expect(page.locator('.syllabus-point')).toHaveCount(1);
+  await page.locator('.syllabus-point > summary').click();
+  await page.locator('[data-open-lesson="al-034"]').click();
+  await expect(page.locator('#al-034')).toHaveAttribute('open', '');
+  await expect(page.locator('#al-034 > summary')).toBeInViewport();
+  await page.getByRole('button', { name: 'Syllabus coverage', exact: true }).click();
+  await expect(page.locator('.syllabus-point')).toHaveCount(58);
+  await page.locator('#planner-search').fill('no-matching-topic-xyz');
+  await expect(page.locator('#empty-results')).toBeVisible();
+  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await expect(page.locator('.syllabus-point')).toHaveCount(58);
+  await page.locator('#lessons-per-week').fill('3');
+  await expect(page.locator('#weeks-output')).toHaveText('16 teaching weeks for 48 lessons');
+  await page.locator('#lessons-per-week').fill('0');
+  await expect(page.locator('#lessons-per-week')).toHaveAttribute('aria-invalid', 'true');
+  await expect(page.locator('#weeks-output')).toContainText('Enter a whole number');
+  await noOverflow(page);
+  expect(errors).toEqual([]);
+});
+
+test('@smoke @responsive A Level personal planning survives reload and exports safely', async ({ page }, testInfo) => {
+  await page.goto(pageUrl('syllabus/index.html') + '#al-004');
+  await expect(page.locator('#al-004')).toHaveAttribute('open', '');
+  await expect(page.locator('#al-004 .lesson-resource')).toContainText('income-gap segment needs additional preparation');
+  await page.locator('#date-al-004').fill('2026-10-12');
+  await page.locator('#status-al-004').selectOption('Taught');
+  const notes = '=SUM(1,2)\n<not-html> "quote"';
+  await page.locator('#notes-al-004').fill(notes);
+  await expect(page.locator('#draft-status')).toContainText('saved in this browser');
+  await page.reload();
+  await expect(page.locator('#date-al-004')).toHaveValue('2026-10-12');
+  await expect(page.locator('#status-al-004')).toHaveValue('Taught');
+  await expect(page.locator('#notes-al-004')).toHaveValue(notes);
+  await expect(page.locator('not-html')).toHaveCount(0);
+  await page.locator('#planner-search').fill('9.1.3');
+  await expect(page.locator('.lesson-plan')).toHaveCount(1);
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Download plan CSV' }).click();
+  const download = await pending;
+  const target = testInfo.outputPath('plan.csv');
+  await download.saveAs(target);
+  const csv = fs.readFileSync(target, 'utf8');
+  expect(csv).toContain('"2026-10-12","Taught"');
+  expect(csv).toContain('"\'=SUM(1,2)\n<not-html> ""quote"""');
+  expect(csv).toContain('"Aggregate demand and income gaps"');
+  expect(csv).not.toContain('"Globalisation"');
+  await noOverflow(page);
+});
+
+test('@smoke @responsive A Level print view expands filtered plans and restores them', async ({ page }) => {
+  await page.goto(pageUrl('syllabus/index.html'));
+  await page.locator('#planner-search').fill('9.1.1');
+  await expect(page.locator('.lesson-plan')).toHaveCount(2);
+  await expect(page.locator('.lesson-plan[open]')).toHaveCount(0);
+  await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.lesson-plan[open]')).toHaveCount(2);
+  await expect(page.locator('.planner-toolbar')).toBeHidden();
+  await expect(page.locator('.personal-plan').first()).toBeHidden();
+  await expect(page.locator('.print-personal').first()).toBeVisible();
+  await expect(page.locator('.lesson-plan .outcome').first()).toBeVisible();
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+  await noOverflow(page);
+  await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+  await page.emulateMedia({ media: 'screen' });
+  await expect(page.locator('.lesson-plan[open]')).toHaveCount(0);
+});
+
+test('@smoke A Level planner handles unavailable browser storage', async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.setItem = function () { throw new Error('Storage unavailable'); };
+  });
+  await page.goto(pageUrl('syllabus/index.html') + '#al-001');
+  await page.locator('#notes-al-001').fill('Retained in this tab.');
+  await expect(page.locator('#draft-status')).toContainText('Download the plan CSV');
+  await page.locator('#planner-search').fill('9.1.1');
+  await expect(page.locator('#notes-al-001')).toHaveValue('Retained in this tab.');
+});

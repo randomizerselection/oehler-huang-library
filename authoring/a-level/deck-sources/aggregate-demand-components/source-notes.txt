@@ -1,0 +1,59 @@
+Communication job: By the end, Cambridge A Level Economics students should explain what changes each
+component of aggregate demand, distinguish autonomous from induced expenditure, and connect those
+changes to the already-taught multiplier and the accelerator.
+
+Sequence evidence
+- AS & A Economics Syllabus 2026-2028.pdf, subject-content p.29: section 9.1.2 follows the multiplier
+  process and specifies consumption/saving functions, investment and the accelerator, government
+  spending, and net exports.
+- Syllabus planner.xlsx, '9 Macroeconomy' row 4: 9.1.2 is allocated 1.5 lessons.
+
+Primary content sources
+- Cambridge A Level Economics - Textbook.pdf, Chapter 41, section 41.2, PDF pp.354-355.
+- previous-lesson-materials/9.1 Circular flow of income/9.1.4 Changes in AD.pptx.
+- previous-lesson-materials/9.1 Circular flow of income/9.1.5 Changes in AD (2).pptx.
+- outputs/multiplier-html/A-Level_Multiplier_Lessons_1-2.html for the taught bridge and visual system.
+
+Asset provenance
+- html/assets/aggregate-demand-hero.png was generated with the built-in OpenAI image-generation tool
+  on 7 September 2026 from a text-only prompt. It has no external reference image, logo or watermark.
+- html/assets/autonomous-consumption-zero-income.png was generated with the built-in OpenAI
+  image-generation tool on 7 September 2026 as a deliberately staged visual-pause scenario.
+- html/assets/household-borrowing-costs.jpg: Pexels / Mikhail Nilov,
+  https://www.pexels.com/photo/couple-calculating-all-their-bills-6964107/.
+- html/assets/accelerator-factory-capacity.jpg: Wikimedia Commons / Anonyme / CC BY-SA 3.0,
+  https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg.
+- html/assets/government-road-investment.jpeg was inherited from the user's manual multiplier deck
+  and is reused to connect autonomous government spending with the taught multiplier mechanism.
+- html/assets/net-exports-container-port.jpg: Pexels / Wolfgang Weiser,
+  https://www.pexels.com/photo/maersk-line-ships-24896065/.
+- Watermarked stock images inherited from the legacy PowerPoint were inspected but excluded.
+
+Numerical teaching models
+- Consumption: C = 100 + 0.8Y_d; therefore S = -100 + 0.2Y_d and break-even Y_d = 500.
+- Accelerator: output in £bn is 100, 110, 125, 135, 140, 140 with v = 2; induced I is
+  unknown, 20, 30, 20, 10, 0 (£bn). Year 1 cannot be inferred without prior output.
+  Replacement investment is excluded from this model, but taught in the factory example.
+- Autonomous investment diagram reuses the previous lesson's AE = 100 + 0.75Y model so students
+  can distinguish the £50 vertical shift from the later multiplied change in income.
+
+The original four MCQs and final structured assessment are teacher-created.
+Five verified Cambridge accelerator MCQs have been added; see accelerator-source-audit.json
+for paper codes, page numbers, answer keys, local source paths and SHA-256 hashes.
+Their feedback and the separate income-table method slide are teacher-written.
+
+Accelerator revision, 8 September 2026
+- Coursebook section 41.2 (PDF p.354) explicitly teaches the accelerator coefficient.
+  Syllabus 9.1.2 names the accelerator but does not separately prescribe coefficient
+  calculations. Retain one brief coefficient example after the factory mechanism.
+- Factory table adapts the first five years of coursebook Table 41.1. Students trace
+  demand -> required stock -> extra machines -> replacements -> total purchases.
+- Prioritise the stock/flow distinction, volatility, changes in annual additions,
+  spare capacity and expectations, and the direction of multiplier/accelerator causation.
+- Equal absolute additions imply constant induced investment in the fixed-ratio model;
+  do not imply that a constant positive percentage growth rate gives equal additions.
+- For the existing 1.5-lesson allocation, use definition, falling-investment and 2026
+  table questions in class; the 2025 smaller-rise question is independent consolidation.
+  The coefficient and revealed table feedback can be brief or used for support.
+- The 2026 Paper 4 fiscal-policy question found in the corpus depends on deflationary
+  gaps (9.1.3), so it is not inserted into this components-of-AD lesson.

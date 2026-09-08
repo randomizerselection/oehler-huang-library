@@ -1,0 +1,880 @@
+{
+  "pptx": "outputs/multiplier-lessons-1-2-20260904/A-Level_Multiplier_Lessons_1-2.pptx",
+  "sha256": "bcc403ce0cefdd608b5cc5c314ed67257b5a24068efba7e5d1670f2f8220f1cc",
+  "slides": [
+    {
+      "slide": 1,
+      "text": {
+        "2": "The\nmultiplier",
+        "3": "Concept, calculation and national income",
+        "5": "Syllabus section 9.1.1",
+        "9": "01",
+        "10": "CAMBRIDGE A LEVEL ECONOMICS 9708"
+      }
+    },
+    {
+      "slide": 2,
+      "text": {
+        "5": "Why can £100m of government spending create more than £100m of GDP?"
+      }
+    },
+    {
+      "slide": 3,
+      "text": {
+        "2": "What you will be able to do",
+        "7": "1",
+        "9": "Show how an injection creates repeated rounds of income and spending.",
+        "10": "2",
+        "12": "Use the correct multiplier formula for four models of an economy.",
+        "13": "3",
+        "15": "Find average and marginal propensities from data.",
+        "16": "4",
+        "18": "Connect changing AD to equilibrium national income and exam questions."
+      }
+    },
+    {
+      "slide": 4,
+      "text": {
+        "2": "Concept\nand formulae",
+        "3": "Why one injection can create a larger final change in national income",
+        "9": "04",
+        "10": "LESSON 1"
+      }
+    },
+    {
+      "slide": 5,
+      "text": {
+        "4": "05",
+        "5": "The government commissions a new road.",
+        "6": "• Firms receive new orders.\n• Workers and suppliers receive income.\n• They spend part of that extra income.",
+        "12": "Why can £100m create more than £100m of GDP?"
+      }
+    },
+    {
+      "slide": 6,
+      "text": {
+        "4": "06",
+        "6": "1",
+        "7": "2",
+        "8": "3",
+        "9": "INJECTION",
+        "10": "New autonomous spending",
+        "11": "INCOME",
+        "12": "The payment becomes income",
+        "13": "RE-SPENDING",
+        "14": "Part is spent again; the rest leaks out",
+        "15": "Multiplier process = an initial change in spending causes a larger final change in economic activity.",
+        "16": "One injection creates repeated spending rounds"
+      }
+    },
+    {
+      "slide": 7,
+      "text": {
+        "4": "07",
+        "8": "NATIONAL\nINCOME FLOW",
+        "9": "INJECTIONS",
+        "10": "Investment (I)\nGovernment spending (G)\nExports (X)",
+        "11": "LEAKAGES / WITHDRAWALS",
+        "12": "Saving (S)\nTaxation (T)\nImports (M)",
+        "14": "Injections enlarge the flow; leakages reduce it"
+      }
+    },
+    {
+      "slide": 8,
+      "text": {
+        "4": "08",
+        "5": "Assume a closed economy with no government and an initial investment of £100m.",
+        "7": "The total converges to £400m: 100 + 75 + 56.25 + …",
+        "8": "MPC 0.75 makes each round 25% smaller",
+        "40": "Round | Income received (£m) | Consumption next round (£m) | Saving leakage (£m)\nInitial | 100.00 | 75.00 | 25.00\n2 | 75.00 | 56.25 | 18.75\n3 | 56.25 | 42.19 | 14.06\n4 | 42.19 | 31.64 | 10.55\n… | smaller each round | continues | continues"
+      }
+    },
+    {
+      "slide": 9,
+      "text": {
+        "4": "09",
+        "6": "k = change in national income\n÷ initial change in injection",
+        "7": "k = ΔY / ΔJ",
+        "8": "INTERPRET THE NUMBER",
+        "9": "• k = 1: no multiplied effect\n• k = 2.5: £1 creates £2.50 of income\n• larger leakages → smaller k\n• smaller leakages → larger k",
+        "10": "Example: £100m injection → £400m income, so k = 4.",
+        "11": "Multiplier = final income change ÷ injection"
+      }
+    },
+    {
+      "slide": 10,
+      "text": {
+        "4": "10",
+        "7": "AVERAGE PROPENSITY",
+        "8": "part of total income",
+        "9": "APC = C / Y\nAPS = S / Y",
+        "10": "MARGINAL PROPENSITY",
+        "11": "part of extra income",
+        "12": "MPC = ΔC / ΔY\nMPS = ΔS / ΔY",
+        "14": "Average uses totals; marginal uses changes"
+      }
+    },
+    {
+      "slide": 11,
+      "text": {
+        "4": "11",
+        "8": "Each flow has average and marginal measures",
+        "40": "Flow | Average measure | Formula | Marginal measure | Formula\nConsumption | APC | C / Y | MPC | ΔC / ΔY\nSaving | APS | S / Y | MPS | ΔS / ΔY\nImports | APM | M / Y | MPM | ΔM / ΔY\nTax | ART | T / Y | MRT | ΔT / ΔY"
+      }
+    },
+    {
+      "slide": 12,
+      "text": {
+        "4": "12",
+        "5": "Step 1: identify the leakages. Step 2: add their marginal propensities.",
+        "7": "General rule: k = 1 / MPW",
+        "8": "Four economy models, one multiplier rule",
+        "40": "Model | Leakages | Marginal propensity to withdraw (MPW) | Multiplier\nClosed, no government | S | MPS | 1 / MPS\nClosed, with government | S + T | MPS + MRT | 1 / (MPS + MRT)\nOpen, no government | S + M | MPS + MPM | 1 / (MPS + MPM)\nOpen, with government | S + T + M | MPS + MRT + MPM | 1 / (MPS + MRT + MPM)"
+      }
+    },
+    {
+      "slide": 13,
+      "text": {
+        "4": "13",
+        "5": "GIVEN",
+        "6": "MPS = 0.20\nMPM = 0.10\nMRT = 0.10\nExports rise by £80m",
+        "8": "1  MPW = 0.20 + 0.10 + 0.10 = 0.40\n\n2  k = 1 / 0.40 = 2.5\n\n3  ΔY = 2.5 × £80m = £200m",
+        "9": "Interpretation: every £1 of new exports creates £2.50 of national income.",
+        "10": "Worked example: open economy + government"
+      }
+    },
+    {
+      "slide": 14,
+      "text": {
+        "4": "14",
+        "7": "1",
+        "8": "Open, no government",
+        "9": "MPS = 1/6\nMPM = 1/3\nFind k.",
+        "10": "2",
+        "11": "Closed, no government",
+        "12": "Initial Y = $5,000m\nMPS = 0.20\nInvestment rises by $1,000m.\nFind k and ΔY.",
+        "13": "3",
+        "14": "Open, with government",
+        "15": "MPS = 0.20\nMPM = 0.30\nMRT = 0.30\nFind k.",
+        "17": "Calculate."
+      }
+    },
+    {
+      "slide": 15,
+      "text": {
+        "4": "15",
+        "5": "1",
+        "6": "MPW = 1/6 + 1/3 = 1/2\nk = 1 ÷ 1/2 = 2",
+        "8": "Imports count because the economy is open.",
+        "9": "2",
+        "10": "k = 1 ÷ 0.20 = 5\nΔY = 5 × $1,000m = $5,000m",
+        "12": "The $5,000m initial income is not part of ΔY.",
+        "13": "3",
+        "14": "MPW = 0.20 + 0.30 + 0.30 = 0.80\nk = 1 ÷ 0.80 = 1.25",
+        "16": "Add marginal leakages before inverting.",
+        "17": "Check the answer"
+      }
+    },
+    {
+      "slide": 16,
+      "text": {
+        "4": "16",
+        "5": "1",
+        "6": "Define the multiplier in one precise sentence.",
+        "8": "2",
+        "9": "Explain why larger leakages make the multiplier smaller.",
+        "11": "3",
+        "12": "An open economy has MPS = 0.15, MPM = 0.20 and MRT = 0.15. Calculate k.",
+        "14": "Exit ticket"
+      }
+    },
+    {
+      "slide": 17,
+      "text": {
+        "2": "Calculations\nand national income",
+        "9": "17",
+        "10": "LESSON 2"
+      }
+    },
+    {
+      "slide": 18,
+      "text": {
+        "4": "18",
+        "6": "RECALL",
+        "7": "• Define k.\n• Write the general MPW formula.\n• Name the three leakages in an open economy with government.\n• State the relationship between leakages and k.",
+        "9": "CALCULATE",
+        "10": "MPS = 0.10\nMPM = 0.20\nMRT = 0.20\n\nFind MPW and k.",
+        "11": "Recall from last lesson"
+      }
+    },
+    {
+      "slide": 19,
+      "text": {
+        "4": "19",
+        "6": "CALCULATE",
+        "7": "1  MPC\n2  MPS\n3  MPM\n4  MRT\n5  MPW and k",
+        "9": "Find marginal propensities",
+        "10": "Y | C (domestic) | S | M | T\n1,000 | 800 | 100 | 50 | 50\n1,200 | 940 | 120 | 70 | 70"
+      }
+    },
+    {
+      "slide": 20,
+      "text": {
+        "4": "20",
+        "5": "ΔY = 1,200 - 1,000 = 200",
+        "7": "MPW = 0.30, so k = 1 / 0.30 = 3.33",
+        "8": "Solution",
+        "9": "Measure | Change | Calculation | Value\nMPC | 940 - 800 = 140 | 140 / 200 | 0.70\nMPS | 120 - 100 = 20 | 20 / 200 | 0.10\nMPM | 70 - 50 = 20 | 20 / 200 | 0.10\nMRT | 70 - 50 = 20 | 20 / 200 | 0.10"
+      }
+    },
+    {
+      "slide": 21,
+      "text": {
+        "4": "21",
+        "6": "1",
+        "7": "MODEL",
+        "8": "Closed/open?\nGovernment?",
+        "9": "2",
+        "10": "LEAKAGES",
+        "11": "Write MPW\nfrom S, T, M",
+        "12": "3",
+        "13": "MULTIPLIER",
+        "14": "k = 1 / MPW",
+        "15": "4",
+        "16": "INCOME",
+        "17": "ΔY = k × ΔJ",
+        "18": "Final check: a larger MPW must produce a smaller k.",
+        "19": "How to calculate"
+      }
+    },
+    {
+      "slide": 22,
+      "text": {
+        "4": "22",
+        "6": "QUESTION",
+        "7": "MPS = 0.25\n\nInvestment rises by £60m.\n\nFind k and ΔY.",
+        "9": "METHOD",
+        "10": "k = 1 / MPS\n= 1 / 0.25\n= 4\n\nΔY = 4 × £60m = £240m",
+        "11": "Example A: closed economy, no government"
+      }
+    },
+    {
+      "slide": 23,
+      "text": {
+        "4": "23",
+        "6": "QUESTION",
+        "7": "MPS = 0.20\nMPM = 0.15\nMRT = 0.15\n\nGovernment spending rises by £90m.",
+        "9": "METHOD",
+        "10": "MPW = 0.20 + 0.15 + 0.15 = 0.50\n\nk = 1 / 0.50 = 2\n\nΔY = 2 × £90m = £180m",
+        "11": "Example B: open economy with government"
+      }
+    },
+    {
+      "slide": 24,
+      "text": {
+        "4": "24",
+        "5": "In a closed economy with no government, investment rises by £400m and consumption rises by £1,200m.",
+        "7": "1",
+        "8": "INJECTION",
+        "9": "£400m",
+        "10": "2",
+        "11": "INDUCED C",
+        "12": "+ £1,200m",
+        "13": "3",
+        "14": "TOTAL ΔY",
+        "15": "= £1,600m",
+        "16": "4",
+        "17": "MULTIPLIER",
+        "18": "1,600 / 400 = 4",
+        "19": "Then MPS = 1/k = 0.25 and MPC = 0.75.",
+        "20": "Work backwards: reconstruct the total change"
+      }
+    },
+    {
+      "slide": 25,
+      "text": {
+        "4": "25",
+        "6": "ALREADY LEARNED AT AS",
+        "7": "• Spending creates income for others.\n• I, G and X are injections; S, T and M are leakages.\n• AD/AS links real output to the price level.",
+        "9": "NEW IN THE INCOME APPROACH",
+        "10": "AE = total planned spending at each income level.\n\nHold prices fixed; assume firms can produce more.",
+        "11": "Use AS ideas to build a new diagram"
+      }
+    },
+    {
+      "slide": 26,
+      "text": {
+        "4": "26",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "19": "WHAT DOES ONE POINT MEAN?",
+        "20": "• Y = £400m: the value of current output and the income it generates.\n• AE = £350m: planned purchases of that output.\n• Both are flows measured per year.",
+        "21": "This point does not yet show equilibrium.",
+        "22": "First read the two axes",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "152": "A",
+        "153": "350"
+      }
+    },
+    {
+      "slide": 27,
+      "text": {
+        "4": "27",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "19": "AN EQUALITY GUIDE — NOT AS",
+        "20": "• Every point on this line has AE = Y.\n• At B: spending of £400m equals output of £400m.\n• It is 45° because the two axes use the same scale.",
+        "21": "Check: where would AE = Y = £600m lie?",
+        "22": "The 45° line is a line of equal values",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "152": "B",
+        "153": "45°"
+      }
+    },
+    {
+      "slide": 28,
+      "text": {
+        "4": "28",
+        "5": "Closed economy, no government: C = 0.75Y and I = £100m.",
+        "7": "For each extra £200m of income, planned spending rises by £150m.",
+        "8": "Build planned spending from simple numbers",
+        "40": "Y (£m) | C = 0.75Y (£m) | I (£m) | AE = C + I (£m)\n0 | 0 | 100 | 100\n200 | 150 | 100 | 250\n400 | 300 | 100 | 400\n600 | 450 | 100 | 550\n800 | 600 | 100 | 700"
+      }
+    },
+    {
+      "slide": 29,
+      "text": {
+        "4": "29",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "15": "AE",
+        "19": "READ THE INTERCEPT AND SLOPE",
+        "20": "• At Y = 0, planned AE is £100m: investment is still £100m.\n• More income leads to more consumption.\n• ΔAE / ΔY = 150 / 200 = 0.75.",
+        "21": "Here AE = £100m + 0.75Y.",
+        "22": "The AE line rises with income",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "155": "+200",
+        "156": "+150",
+        "157": "100"
+      }
+    },
+    {
+      "slide": 30,
+      "text": {
+        "4": "30",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "19": "PLANNED SPENDING = OUTPUT",
+        "20": "• At E₀, the AE line meets the 45° line.\n• Y₀ = £400m and AE = £400m.\n• Firms sell what they planned to produce; there is no unplanned stock change.",
+        "21": "Read down to the income axis: Y₀ = £400m.",
+        "22": "The intersection gives equilibrium income",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "152": "E₀"
+      }
+    },
+    {
+      "slide": 31,
+      "text": {
+        "4": "31",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "19": "AT Y = £200m, AE = £250m",
+        "20": "• Buyers plan to spend £50m more than current output.\n• Stocks run down unexpectedly; orders may be unfilled.\n• Firms raise production, creating more income.",
+        "21": "Predict: which way will Y move? Why?",
+        "22": "Below equilibrium, firms increase output",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "154": "£50m",
+        "156": "E₀"
+      }
+    },
+    {
+      "slide": 32,
+      "text": {
+        "4": "32",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "19": "AT Y = £600m, AE = £550m",
+        "20": "• Buyers plan to spend £50m less than current output.\n• Unsold goods add to stocks unexpectedly.\n• Firms cut production, reducing income.",
+        "21": "Check: why is £600m not equilibrium?",
+        "22": "Above equilibrium, firms reduce output",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "154": "£50m",
+        "156": "E₀"
+      }
+    },
+    {
+      "slide": 33,
+      "text": {
+        "4": "33",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "16": "AE₁",
+        "19": "INVESTMENT: £100m → £150m",
+        "20": "• The new £50m of I is autonomous: it does not depend on Y.\n• At every income, AE is now £50m higher.\n• At the old Y₀ = £400m, new AE is £450m.",
+        "21": "The vertical £50m gap is ΔI — not ΔY.",
+        "22": "An injection shifts AE up at every income",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "155": "ΔI = 50"
+      }
+    },
+    {
+      "slide": 34,
+      "text": {
+        "4": "34",
+        "5": "The £50m investment increase starts the process. MPC stays at 0.75.",
+        "7": "ΔY = 50 + 37.50 + 28.125 + … = £200m",
+        "8": "Extra income creates further spending",
+        "40": "Round | Extra income (£m) | Re-spent next round (£m) | Extra saving (£m)\nInitial | 50.00 | 37.50 | 12.50\n2 | 37.50 | 28.13 | 9.38\n3 | 28.13 | 21.09 | 7.03\n4 | 21.09 | 15.82 | 5.27\nAll rounds | 200.00 | 150.00 | 50.00"
+      }
+    },
+    {
+      "slide": 35,
+      "text": {
+        "4": "35",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "16": "AE₁",
+        "19": "NEW EQUILIBRIUM AT E₁",
+        "20": "• E₁ lies where AE₁ = Y = £600m.\n• ΔY = 600 − 400 = £200m.\n• k = 1 / (1 − 0.75) = 4.\n• ΔY = 4 × £50m = £200m.",
+        "21": "£50m of extra I + £150m of extra C = £200m.",
+        "22": "The final income rise is larger than the injection",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "153": "E₁",
+        "157": "ΔI = 50",
+        "161": "Horizontal change: ΔY = £200m"
+      }
+    },
+    {
+      "slide": 36,
+      "text": {
+        "4": "36",
+        "6": "BEFORE THE INJECTION",
+        "7": "Y = £400m\nC = £300m\nS = Y − C = £100m\n\nI = S = £100m",
+        "9": "AT THE NEW EQUILIBRIUM",
+        "10": "Y = £600m; C = £450m\nS = £150m; I = £150m\n\nExtra S = £50m\nExtra I = £50m",
+        "11": "AE = Y is also injections = leakages"
+      }
+    },
+    {
+      "slide": 37,
+      "text": {
+        "4": "37",
+        "6": "TEACHER-CREATED PRACTICE",
+        "7": "Start again at Y₀ = £400m.\nMPC = 0.75 and I = £100m.\n\nInvestment falls to £50m.\nPrices remain fixed.",
+        "9": "DRAW, CALCULATE, EXPLAIN",
+        "10": "1  Draw and label both AE lines.\n2  Find k, ΔY and the new Y.\n3  Explain firms’ response at the old income.",
+        "11": "Your turn: draw a fall in investment"
+      }
+    },
+    {
+      "slide": 38,
+      "text": {
+        "4": "38",
+        "12": "Planned aggregate expenditure, AE (£m)",
+        "13": "National income / output, Y (£m)",
+        "14": "AE = Y",
+        "15": "AE₀",
+        "16": "AE₂",
+        "19": "THE MULTIPLIER WORKS BOTH WAYS",
+        "20": "• New AE₂ = £50m + 0.75Y.\n• At the old Y₀, AE = £350m: stocks build up and output falls.\n• k = 4; ΔY = 4 × (−£50m) = −£200m.",
+        "21": "New Y = £400m − £200m = £200m.",
+        "22": "Answer: income falls from £400m to £200m",
+        "132": "0",
+        "134": "200",
+        "136": "200",
+        "138": "400",
+        "140": "400",
+        "142": "600",
+        "144": "600",
+        "146": "800",
+        "148": "800",
+        "153": "E₂",
+        "157": "ΔI = −50",
+        "161": "Income falls by £200m: 400 → 200"
+      }
+    },
+    {
+      "slide": 39,
+      "text": {
+        "4": "39",
+        "12": "Price level",
+        "13": "Real GDP",
+        "14": "SRAS",
+        "15": "AD₀",
+        "18": "CHECK THE AXES AGAIN",
+        "19": "• The vertical axis is now the price level, not AE.\n• AD₀ slopes down; SRAS slopes up.\n• At the intersection, read P₀ to the left and Y₀ below.",
+        "20": "The 45° line is not part of this model.",
+        "21": "Return to the familiar AS-level AD/AS model",
+        "133": "Y₀",
+        "134": "P₀"
+      }
+    },
+    {
+      "slide": 40,
+      "text": {
+        "4": "40",
+        "12": "Price level",
+        "13": "Real GDP",
+        "14": "SRAS",
+        "15": "AD₀",
+        "16": "AD₁",
+        "18": "ISOLATE THE FIRST CHANGE",
+        "19": "• Higher I increases demand at each price level: AD₀ → AD₁.\n• With upward-sloping SRAS, output and the price level rise.\n• The extra output creates income.",
+        "20": "Next: what do households do with extra income?",
+        "21": "First, the autonomous injection raises AD",
+        "135": "Y₀",
+        "136": "P₀",
+        "138": "Y₁",
+        "139": "P₁"
+      }
+    },
+    {
+      "slide": 41,
+      "text": {
+        "4": "41",
+        "12": "Price level",
+        "13": "Real GDP",
+        "14": "SRAS",
+        "15": "AD₀",
+        "16": "AD₁",
+        "17": "AD₂",
+        "18": "NOW ADD THE MULTIPLIER",
+        "19": "• Extra income induces consumption, shifting AD further to AD₂.\n• AD₂ summarises the later spending rounds.\n• Rising prices can limit the increase in real output.",
+        "20": "The fixed-price multiplier is not a guaranteed rise in real GDP.",
+        "21": "Further spending raises AD again",
+        "137": "Y₀",
+        "138": "P₀",
+        "140": "Y₁",
+        "141": "P₁",
+        "143": "Y₂",
+        "144": "P₂"
+      }
+    },
+    {
+      "slide": 42,
+      "text": {
+        "4": "42",
+        "6": "LEAKAGES RISE",
+        "7": "↑ MPS   ↑ MPM   ↑ MRT",
+        "8": "Each round of domestic spending is smaller.",
+        "10": "POLICY IMPLICATION",
+        "11": "A tax cut is not all spent.\nSome becomes saving or imports.",
+        "12": "Government spending enters AD directly.",
+        "13": "Formula check: MPW ↑  →  1/MPW ↓",
+        "14": "The multiplier falls when more income leaks out"
+      }
+    },
+    {
+      "slide": 43,
+      "text": {
+        "4": "43",
+        "6": "An initial injection into the circular flow of income causes a much larger increase in GDP. What does this define?",
+        "7": "A  autonomous investment",
+        "8": "B  demand-pull inflation",
+        "9": "C  the accelerator principle",
+        "10": "D  the national income multiplier",
+        "12": "Past paper: 9708/32/M/J/25 Q15"
+      }
+    },
+    {
+      "slide": 44,
+      "text": {
+        "4": "44",
+        "6": "What would increase the value of the multiplier?",
+        "7": "A  a decrease in the marginal propensity to consume",
+        "8": "B  a decrease in the marginal rate of tax",
+        "9": "C  an increase in the marginal propensity to import",
+        "10": "D  an increase in the marginal propensity to save",
+        "12": "Past paper: 9708/31/M/J/26 Q16"
+      }
+    },
+    {
+      "slide": 45,
+      "text": {
+        "4": "45",
+        "5": "1  D",
+        "6": "Definition",
+        "7": "The initial injection leads to a larger final increase in GDP.",
+        "9": "2  B",
+        "10": "MRT falls",
+        "11": "MPW falls, so k = 1/MPW rises.",
+        "13": "LINK",
+        "14": "Spending rounds",
+        "15": "Smaller leakages leave more income to be spent in the next round.",
+        "16": "Past-paper feedback: definition and leakages"
+      }
+    },
+    {
+      "slide": 46,
+      "text": {
+        "4": "46",
+        "6": "In a closed economy, the marginal propensity to save is 0.1 and the marginal propensity to pay taxes is also 0.1. These values are constant and do not vary with the level of income.\nWhat will be the increase in national income if there is an injection of $100 million into the circular flow?",
+        "7": "A  $1000 million",
+        "8": "B  $500 million",
+        "9": "C  $100 million",
+        "10": "D  $80 million",
+        "12": "Past paper: 9708/32/F/M/21 Q24"
+      }
+    },
+    {
+      "slide": 47,
+      "text": {
+        "4": "47",
+        "6": "In an economy, the marginal propensity to consume is 0.2, the marginal propensity to save is 0.3, the marginal propensity to tax is 0.3 and the marginal propensity to import is 0.2 at all levels of income.\nWhat would be the most likely consequence of an increase in government expenditure of $1000m?",
+        "7": "A  Import expenditure would increase by $200m.",
+        "8": "B  Import expenditure would increase by $1000m.",
+        "9": "C  Tax revenues would increase by $75m.",
+        "10": "D  Tax revenues would increase by $375m.",
+        "12": "Past paper: 9708/31/O/N/22 Q26"
+      }
+    },
+    {
+      "slide": 48,
+      "text": {
+        "4": "48",
+        "6": "What might decrease if a closed economy with a government sector decides to allow international trade?",
+        "7": "A  components of aggregate expenditure",
+        "8": "B  number of injections into the circular flow of income",
+        "9": "C  number of leakages from the circular flow of income",
+        "10": "D  value of the economy’s multiplier",
+        "12": "Past paper: 9708/31/O/N/23 Q17"
+      }
+    },
+    {
+      "slide": 49,
+      "text": {
+        "4": "49",
+        "5": "1  B",
+        "6": "MPW = 0.20",
+        "7": "k = 5, so ΔY = $500m.",
+        "9": "2  D",
+        "10": "ΔY = $1,250m",
+        "11": "ΔT = 0.30 × 1,250 = $375m.",
+        "13": "3  D",
+        "14": "Opening to trade",
+        "15": "Imports add a leakage, so MPW rises and k falls.",
+        "16": "Past-paper feedback: calculations and trade"
+      }
+    },
+    {
+      "slide": 50,
+      "text": {
+        "4": "50",
+        "6": "Explain how the extraction of natural resources in Ghana will ‘create further employment in other sectors through the multiplier effect’. [4]",
+        "7": "MARK TARGET",
+        "8": "2 marks: multiplier knowledge | 2 marks: case application",
+        "9": "Past paper: 9708/41/O/N/24 Q1(b) [4]"
+      }
+    },
+    {
+      "slide": 51,
+      "text": {
+        "4": "51",
+        "8": "1  DEFINE",
+        "9": "Multiplier = total rise in output from an initial injection; k = ΔY/ΔJ.",
+        "10": "2  APPLY 1",
+        "11": "Oil extraction creates new jobs and incomes in Ghana.",
+        "12": "3  APPLY 2",
+        "13": "Workers spend income in other sectors, creating more jobs and income.",
+        "14": "4  CHECK",
+        "15": "Name Ghana, the injection, income, re-spending and employment.",
+        "16": "Do not evaluate in a four-mark 'explain' response; complete the chain.",
+        "17": "Past-paper feedback: Ghana multiplier chain"
+      }
+    },
+    {
+      "slide": 52,
+      "text": {
+        "4": "52",
+        "6": "An open economy with government has MPS = 0.10, MPM = 0.20 and MRT = 0.20. Exports rise by £120m.",
+        "7": "a  Calculate MPW.",
+        "8": "b  Calculate the multiplier.",
+        "9": "c  Calculate the final change in national income.",
+        "10": "d  Explain one reason why the rise in real GDP may be smaller than your answer to c.",
+        "12": "Teacher-created assessment: multiplier"
+      }
+    },
+    {
+      "slide": 53,
+      "text": {
+        "4": "53",
+        "6": "1",
+        "7": "PROCESS",
+        "8": "An injection becomes income, then repeated rounds of spending.",
+        "9": "2",
+        "10": "SIZE",
+        "11": "k = 1/MPW. More saving, imports or tax means a smaller multiplier.",
+        "12": "3",
+        "13": "OUTCOME",
+        "14": "ΔY = k × ΔJ, but real output versus inflation depends on spare capacity.",
+        "15": "Final challenge: MPW 0.50 | k 2 | ΔY £240m",
+        "16": "Core Lessons 1-2: process, size and outcome"
+      }
+    },
+    {
+      "slide": 54,
+      "text": {
+        "4": "54",
+        "6": "An estimate of the consumption function of an economy is given by an equation C = 10 000 + 0.8Y where C = consumption and Y = income. \nWhich conclusion can be drawn from this information?",
+        "7": "A  The average propensity to consume is constant.",
+        "8": "B  The average propensity to consume increases as income increases.",
+        "9": "C  The average propensity to consume is always equal to the marginal propensity to consume.",
+        "10": "D  The average propensity to consume is always greater than the marginal propensity to consume.",
+        "12": "Past paper (study later): 9708/32/F/M/26 Q15"
+      }
+    },
+    {
+      "slide": 55,
+      "text": {
+        "4": "55",
+        "6": "Explain what economists mean by the marginal propensity to consume and consider the importance of this concept in relation to government macroeconomic policy. [12]",
+        "7": "STUDY LATER",
+        "8": "Today: define MPC and explain its multiplier link. Complete the policy evaluation later.",
+        "9": "Past paper (study later): 9708/41/O/N/21 Q4(a) [12]"
+      }
+    },
+    {
+      "slide": 56,
+      "text": {
+        "4": "56",
+        "8": "1  DEFINE",
+        "9": "MPC = ΔC/ΔY\n\nC = a + bY; b is MPC.",
+        "10": "2  EXPLAIN",
+        "11": "Higher MPC -> lower MPW -> larger k and a stronger change in AD.",
+        "12": "3  APPLY LATER",
+        "13": "Link to growth, employment, inflation, the BOP and redistribution.",
+        "14": "4  JUDGE LATER",
+        "15": "Importance varies by policy, MPM/MRT/MPS, spare capacity and confidence.",
+        "16": "Use familiar AS policy tools; return for the full A Level policy evaluation.",
+        "17": "Study later: plan for 9708/41/O/N/21 Q4(a)"
+      }
+    },
+    {
+      "slide": 57,
+      "text": {
+        "4": "57",
+        "6": "Due to the multiplier process, governments conducting an expansionary fiscal policy do not need to increase spending by the full amount of the negative output gap to bring the output of the economy to its full employment level. Evaluate this statement. [20]",
+        "7": "STUDY LATER",
+        "8": "AS AD/AS is familiar. First add output gaps and extended fiscal-policy evaluation.",
+        "9": "Past paper (study later): 9708/41/M/J/26 Q4 [20]"
+      }
+    },
+    {
+      "slide": 58,
+      "text": {
+        "4": "58",
+        "8": "1  OUTPUT GAP",
+        "9": "Actual output < potential output.\n\nFull employment removes cyclical unemployment.",
+        "10": "2  MULTIPLIER",
+        "11": "G is an injection; repeated rounds mean ΔY = k × ΔG.",
+        "12": "3  AD/AS",
+        "13": "Show AD moving toward full-employment output; explain the total shift exceeds ΔG.",
+        "14": "4  EVALUATE",
+        "15": "Unstable k, high MPM, crowding out, debt, time lags and overshooting inflation.",
+        "16": "Return after output gaps and A Level policy evaluation, including crowding out and time lags.",
+        "17": "Study later: plan for 9708/41/M/J/26 Q4"
+      }
+    },
+    {
+      "slide": 59,
+      "text": {
+        "4": "59",
+        "6": "Knowledge of both the multiplier and the accelerator enable a government to implement effective fiscal policies to close a deflationary gap. Evaluate this statement. [20]",
+        "7": "STUDY LATER",
+        "8": "First learn induced investment, the accelerator and deflationary gaps.",
+        "9": "Past paper (study later): 9708/44/M/J/26 Q4 [20]"
+      }
+    },
+    {
+      "slide": 60,
+      "text": {
+        "4": "60",
+        "8": "1  CONSUMPTION",
+        "9": "After 9.1.2: C = a + bY, autonomous consumption and APC versus MPC.",
+        "10": "2  OUTPUT GAPS",
+        "11": "After 9.1.3: apply familiar AS AD/AS to inflationary and deflationary gaps.",
+        "12": "3  ACCELERATOR",
+        "13": "After 9.1.2: induced investment and the accelerator principle.",
+        "14": "4  EVALUATION",
+        "15": "Then use A Level policy analysis to evaluate the longer essays.",
+        "16": "Core Lessons 1–2 end on slide 53. Slides 54–60 are for later study.",
+        "17": "Return to these questions after the prerequisites"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Source deck audit
+- Source: C:\Users\oehle\Documents\oehler-huang-platform\authoring\a-level\9.1 The circular flow of income\9.1.1 The multiplier process.pptx
+- All 48 source slides and all 48 layout JSON files were inspected.
+- Source size: 1280 x 720, white background, bold black Arial headings, grey title rule, electric blue and coral accents.
+- Retained patterns: photographic opening, full-screen analytical questions, numbered process chains, black-header tables, two-column comparisons, worked examples, practice/solution pairs, MCQs, feedback, four-mark explanation and synthesis.
+- The 37-slide output is built from the mapped inherited source frames only.

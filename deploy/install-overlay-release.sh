@@ -51,7 +51,8 @@ tar --extract --gzip --file "$overlay" --directory "$release_dir" --no-same-owne
 
 cd "$release_dir"
 npm ci --omit=dev --ignore-scripts=false
-rm -f -- apps/library/assets/data/content-manifest.json apps/library/assets/data/quiz-bank.json
+# The content builder atomically replaces generated files, breaking inherited
+# hard links without mutating the prior release's catalogue.
 npm run build:content
 
 if [[ -f "$data_dir/econmark.sqlite" ]]; then
@@ -96,4 +97,5 @@ for _ in {1..30}; do
   sleep 1
 done
 echo "Health check failed for overlay release $release_id" >&2
+rollback
 exit 5

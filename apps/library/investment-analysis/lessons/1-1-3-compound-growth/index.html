@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Investment Course Lesson 3: Compound growth, reinvestment, future value and projection assumptions." />
+  <title>Lesson 3 · Compound growth</title>
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../course-assets/css/presentation.css" />
+  <link rel="stylesheet" href="../../../assets/css/lesson-student-selector.css" />
+  <link rel="stylesheet" href="../../course-assets/css/student-selector.css" />
+  <script src="../../../assets/js/baidu-analytics.js"></script>
+</head>
+<body class="lesson-03">
+  <main class="app-shell">
+    <div id="deck" class="deck" aria-live="polite"></div>
+    <nav class="deck-controls" aria-label="Lesson navigation">
+      <a class="course-home-link" href="../../index.html">Course</a>
+      <button id="previousSlide" type="button" aria-label="Previous slide">←</button>
+      <button id="overviewButton" type="button">Overview</button>
+      <span id="slideStatus" aria-live="polite"></span>
+      <button id="notesButton" type="button">Notes</button>
+      <button id="studentSelectorButton" type="button" aria-label="Open student selector" aria-pressed="false" title="S">Selector</button>
+      <button id="fullscreenButton" type="button">Fullscreen</button>
+      <button id="nextSlide" type="button" aria-label="Next slide">→</button>
+    </nav>
+  </main>
+  <dialog id="overviewDialog" class="overview-dialog" aria-labelledby="overviewTitle">
+    <div class="overview-head"><div><span class="mini-label">Lesson map</span><h2 id="overviewTitle">Compound growth</h2></div><button id="closeOverview" type="button" aria-label="Close overview">×</button></div>
+    <div id="overviewGrid" class="overview-grid"></div>
+  </dialog>
+  <aside id="notesPanel" class="notes-panel" aria-label="Teacher notes" aria-hidden="true">
+    <button id="closeNotes" type="button" aria-label="Close notes">×</button>
+    <span class="mini-label">Teacher note</span><p id="notesText"></p><div id="notesSource" class="notes-source"></div>
+  </aside>
+  <script src="../../../assets/js/platform-auth.js"></script>
+  <script src="../../../assets/js/lesson-student-selector.js"></script>
+  <script src="../../course-assets/js/presentation.js"></script>
+  <script src="slides.js"></script>
+  <script>window.InvestmentPresentation.mount(window.INVESTMENT_COURSE.lesson);</script>
+</body>
+</html>

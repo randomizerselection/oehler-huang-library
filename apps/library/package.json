@@ -1,5 +1,7 @@
 {
   "name": "@oehler-huang/library",
+  "private": true,
+  "dependencies": { "@oehler-huang/contracts": "1.0.0" },
   "scripts": {
     "build:content": "node scripts/build-platform-content.js",
     "build:definitions": "node scripts/build-definitions-page.js",
@@ -9,16 +11,20 @@
     "test:android-offline": "node scripts/test-android-offline-app.js",
     "test:grading": "node scripts/test-grading-workflow.js",
     "test:investment-content": "node scripts/test-investment-analysis-content.js",
+    "test:current-investment-html": "node scripts/test-current-investment-course-html.js",
     "test:investment-financial-decisions": "node scripts/test-investment-financial-decisions-syllabus.js",
     "test:investment-photo-archive": "node scripts/test-investment-photo-archive.js",
     "build:investment-handout-book": "node scripts/build-investment-handout-book.js",
     "export:investment-generator-context": "node scripts/export-investment-generator-context.js",
     "export:investment-photo-archive": "node scripts/export-investment-photo-archive.js",
-    "test:content": "node scripts/test-platform-content.js && node scripts/test-investment-analysis-content.js && node scripts/test-investment-financial-decisions-syllabus.js",
+    "test:a-level-syllabus": "node scripts/test-a-level-syllabus.js",
+    "test:content": "node scripts/test-platform-content.js && node scripts/test-current-investment-course-html.js && node scripts/test-a-level-syllabus.js",
+    "test:legacy": "node scripts/test-investment-analysis-content.js && node scripts/test-investment-financial-decisions-syllabus.js",
+    "test:legacy:browser": "playwright test tests/smoke.spec.js --grep @legacy",
     "test": "playwright test",
-    "test:regression": "playwright test tests/smoke.spec.js",
-    "test:smoke": "playwright test tests/smoke.spec.js --project=chromium-desktop --grep @smoke",
-    "test:responsive": "playwright test tests/smoke.spec.js --project=chromium-phone --grep @responsive"
+    "test:regression": "playwright test tests/smoke.spec.js tests/a-level-syllabus.spec.js tests/current-lessons-viewport.spec.js --grep-invert @legacy",
+    "test:smoke": "playwright test tests/smoke.spec.js tests/a-level-syllabus.spec.js tests/current-lessons-viewport.spec.js --project=chromium-desktop --grep @smoke",
+    "test:responsive": "playwright test tests/smoke.spec.js tests/a-level-syllabus.spec.js tests/current-lessons-viewport.spec.js --project=chromium-phone --grep @responsive --grep-invert @legacy"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",

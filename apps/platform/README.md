@@ -2,9 +2,12 @@
 
 EconMark 是面向 Cambridge IGCSE Economics 0455 的学生自评与教师评分系统。目前严谨支持 `Analyse [6]` 与 `Discuss [8]`：教师在中央作业库中创建并发布版本化题目与评分标准，学生通过分享代码直接提交作答并获得暂定反馈；单份精评、批量评分、双评分、裁决、人工终审和永久审计记录均复用同一套工作流。
 
+此目录也负责整个平台的 HTTP 服务、共享账户、课程记录与持久化。项目边界和共享规则见
+[`../../docs/ARCHITECTURE.md`](../../docs/ARCHITECTURE.md)。所有安装、启动和发布操作从 monorepo 根目录运行；这里不再是独立部署项目。
+
 ## 产品模式
 
-- 根网址是学生入口；`/teacher` 是教师作业库与学生提交审核中心；`/single` 和 `/batch` 继续提供教师单份与批量评分。
+- `/` 是公共课程库；`/econmark/` 是学生入口；`/econmark/teacher` 是教师作业库；`/econmark/single` 和 `/econmark/batch` 提供单份与批量评分。旧路径保留重定向。
 - 学生和教师为正式分离的账户角色。学生注册开放；教师注册必须提供服务器配置的 `ECONMARK_TEACHER_INVITE_CODE`。
 - 题目与评分标准只在教师作业库创建。已发布版本不可原地修改；修订会产生新版本和新分享代码。
 - 所有访客无需登录即可运行原创合成样例，包括 30 人合成班级。
@@ -16,17 +19,18 @@ EconMark 是面向 Cambridge IGCSE Economics 0455 的学生自评与教师评分
 
 ## 本地运行
 
-要求 Node.js 22.5 或更新版本（账户数据库使用内置 `node:sqlite`）。
+要求 Node.js 24 或更新版本（账户数据库使用内置 `node:sqlite`）。从 monorepo 根目录运行：
 
 ```powershell
 npm install
+npm run build:content
 npm start
 ```
 
-打开 `http://127.0.0.1:4173/`。根网址进入学生代码与自评流程；`/teacher` 管理中央作业库；`/single` 保留三个公开样例和教师单份精评；`/batch` 保留完整 30 人合成班级和真实整班上传。创建账户后，上传与评分结果会写入 `.econmark-data/`：
+打开 `http://127.0.0.1:4173/econmark/`。单份和批量公开样例分别位于 `/econmark/single` 和 `/econmark/batch`。默认上传与评分结果写入仓库根目录的 `.platform-data/`；生产环境由 `OH_DATA_DIR` 指向发布目录之外的持久化位置：
 
 ```text
-.econmark-data/
+.platform-data/
 ├── econmark.sqlite          # 账户、会话、批次、评分与图片索引
 └── images/<account_id>/     # 只增不自动删除的原始上传文件
 ```

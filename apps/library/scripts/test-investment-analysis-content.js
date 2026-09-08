@@ -125,6 +125,7 @@ function findInvestmentSlideFiles(dir, base = root) {
     const absolutePath = path.join(dir, entry.name);
     const relativePath = path.relative(base, absolutePath).replace(/\\/g, '/');
     if (relativePath.includes('/archive') || relativePath.includes('-archive-')) return [];
+    if (relativePath.startsWith('investment-analysis/lessons/')) return [];
     if (entry.isDirectory()) return findInvestmentSlideFiles(absolutePath, base);
     if (!/^slides.*\.js$/.test(entry.name)) return [];
 
@@ -1720,9 +1721,16 @@ function validateActiveLessonAlignment() {
     }
   }
 
+  const publishedHtmlLessonRoutes = [
+    'lessons/1-1-2-measuring-investment-return/index.html',
+    'lessons/1-1-3-compound-growth/index.html',
+  ];
+  for (const route of publishedHtmlLessonRoutes) {
+    if (!homepageSource.includes(route)) failures.push(`investment-analysis/index.html: missing current HTML lesson route ${route}`);
+  }
   for (const lessonNumber of activeLessons) {
-    if (!homepageSource.includes(`unit-1/lesson-${lessonNumber}/index.html`)) {
-      failures.push(`investment-analysis/index.html: missing current Lesson ${lessonNumber} route`);
+    if (homepageSource.includes(`unit-1/lesson-${lessonNumber}/index.html`)) {
+      failures.push(`investment-analysis/index.html: older native Lesson ${lessonNumber} must not appear in current student navigation`);
     }
   }
 

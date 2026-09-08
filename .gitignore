@@ -22,3 +22,20 @@ apps/library/reports/
 apps/library/student-performance-report.html
 apps/student-selector/test-results/
 apps/student-selector/playwright-report/
+
+# Private course working files and reproducible classroom exports
+authoring/**/tmp/
+authoring/**/outputs/
+authoring/**/__pycache__/
+authoring/**/*.inspect.ndjson
+authoring/**/~$*
+
+# Repository-wide working output (preserved locally, never source or release inputs)
+/.codex-tmp*/
+/tmp/
+/*.inspect.ndjson
+**/.tmp/
+**/.kotlin/
+**/.gradle/
+**/__pycache__/
+**/*.pyc

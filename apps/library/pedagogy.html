@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="A bilingual explanation of the teaching philosophy and pedagogy behind Oehler-Huang Library." />
+  <meta name="description" content="How teaching varies across IGCSE Economics, A Level Economics and Investment: classroom activities, assessment and revision, explained in English and Chinese." />
   <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
-  <title>Teaching Philosophy - Oehler-Huang Library</title>
+  <title>Teaching approach - Oehler-Huang Library</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
   <link rel="stylesheet" href="assets/css/theme.css" />
@@ -13,620 +13,97 @@
   <link rel="stylesheet" href="assets/css/app-shell.css" />
 
   <style>
-    :root {
-      --page-max: 1180px;
-      --panel-radius: 8px;
-      --philosophy-line: rgba(255, 255, 255, .14);
-      --copy-size: clamp(16px, 1.05vw, 19px);
-      --compact-copy-size: clamp(14px, .95vw, 17px);
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-y: auto;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .site {
-      width: min(var(--page-max), calc(100% - 40px));
-      margin: 0 auto;
-      padding: 22px 0 58px;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.35;
-    }
-
-    .topbar a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-      padding: .55rem .75rem;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255,255,255,.055);
-      color: var(--ink);
-      font-weight: 850;
-      text-decoration: none;
-    }
-
-    .topbar span {
-      text-align: right;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(135deg, rgba(86,216,255,.13), rgba(255,255,255,.04) 46%, rgba(255,209,102,.09)),
-        var(--bg-1);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr);
-      gap: clamp(24px, 4vw, 52px);
-      align-items: stretch;
-      padding: clamp(24px, 4.4vw, 56px);
-    }
-
-    .hero-main {
-      display: grid;
-      gap: 1.25rem;
-      align-content: start;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      margin-bottom: .75rem;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    h1 {
-      max-width: 11ch;
-      margin: 0;
-      font-size: clamp(48px, 7vw, 96px);
-      line-height: 1.16;
-      letter-spacing: 0;
-      font-weight: 900;
-      padding-block: .04em .1em;
-      text-wrap: balance;
-    }
-
-    h1 span {
-      display: block;
-      padding-bottom: .08em;
-      background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead-grid {
-      display: grid;
-      gap: .9rem;
-      max-width: 56ch;
-      color: var(--ink-dim);
-    }
-
-    .lead-grid p {
-      font-size: clamp(17px, 1.22vw, 22px);
-      line-height: 1.45;
-    }
-
-    .author-card {
-      display: grid;
-      grid-template-columns: 68px minmax(0, 1fr);
-      gap: .85rem;
-      align-items: center;
-      width: min(100%, 500px);
-      padding: .85rem .95rem;
-      border: 1px solid rgba(255,209,102,.34);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(135deg, rgba(255,209,102,.14), rgba(86,216,255,.08)),
-        rgba(255,255,255,.055);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .author-card img {
-      width: 60px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.42);
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .author-card strong {
-      display: block;
-      color: #fff;
-      font-size: clamp(20px, 1.45vw, 26px);
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .author-card span {
-      display: block;
-      margin-top: .28rem;
-      color: var(--ink-dim);
-      font-size: var(--compact-copy-size);
-      line-height: 1.38;
-    }
-
-    .model-panel {
-      display: grid;
-      align-content: start;
-      gap: 1rem;
-      min-height: 100%;
-      padding: clamp(18px, 2.4vw, 28px);
-      border: 1px solid rgba(86,216,255,.24);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.03)),
-        rgba(7,17,31,.42);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .model-kicker {
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .model-panel h2 {
-      color: #fff;
-      font-size: clamp(27px, 2.5vw, 42px);
-      line-height: 1.06;
-      letter-spacing: 0;
-    }
-
-    .model-panel p {
-      color: var(--ink-dim);
-      font-size: var(--copy-size);
-      line-height: 1.5;
-    }
-
-    .model-list {
-      display: grid;
-      gap: .65rem;
-      margin-top: .25rem;
-    }
-
-    .model-item {
-      display: grid;
-      grid-template-columns: 2.35rem minmax(0, 1fr);
-      gap: .75rem;
-      align-items: start;
-      padding: .75rem;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--panel-radius);
-      background: rgba(255,255,255,.045);
-    }
-
-    .model-item b {
-      display: grid;
-      place-items: center;
-      width: 2.2rem;
-      aspect-ratio: 1;
-      border-radius: 999px;
-      background: rgba(126,240,181,.14);
-      border: 1px solid rgba(126,240,181,.38);
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .model-item span {
-      color: #fff;
-      font-size: var(--compact-copy-size);
-      font-weight: 800;
-      line-height: 1.25;
-    }
-
-    .zh {
-      color: #edf4ff;
-      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", ui-sans-serif, system-ui, sans-serif;
-    }
-
-    .section {
-      margin: 50px 0 0;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-      gap: clamp(1.2rem, 3vw, 2.4rem);
-      align-items: start;
-      margin-bottom: 1.4rem;
-      padding-bottom: 1.05rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-kicker {
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: .55rem;
-    }
-
-    h2 {
-      font-size: clamp(30px, 3.35vw, 52px);
-      line-height: 1.04;
-      letter-spacing: 0;
-      text-wrap: balance;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      font-size: var(--copy-size);
-      line-height: 1.55;
-    }
-
-    .cycle {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      border: 1px solid rgba(86,216,255,.18);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(180deg, rgba(86,216,255,.055), rgba(255,255,255,.025)),
-        rgba(255,255,255,.025);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .cycle-step {
-      position: relative;
-      display: grid;
-      grid-template-columns: 3rem minmax(0, 1fr);
-      gap: .9rem;
-      min-height: 178px;
-      padding: 1.1rem;
-      border-right: 1px solid rgba(255,255,255,.1);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-    .cycle-step:nth-child(2n) {
-      border-right: 0;
-    }
-
-    .cycle-step:nth-last-child(-n + 2) {
-      border-bottom: 0;
-    }
-
-    .cycle-step b {
-      display: grid;
-      place-items: center;
-      grid-row: 1 / span 3;
-      width: 2.65rem;
-      height: 2.65rem;
-      border-radius: 999px;
-      background: var(--gold);
-      color: #07111f;
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .cycle-step h3 {
-      grid-column: 2;
-      margin: 0 0 .45rem;
-      color: #fff;
-      font-size: clamp(20px, 1.35vw, 25px);
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
-    .cycle-step p {
-      grid-column: 2;
-      color: var(--muted);
-      font-size: var(--compact-copy-size);
-      line-height: 1.45;
-    }
-
-    .cycle-step p + p {
-      margin-top: .45rem;
-    }
-
-    .matrix {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .75rem;
-    }
-
-    .matrix-card {
-      position: relative;
-      min-height: 232px;
-      padding: 1rem 1rem 1.1rem;
-      border: 1px solid rgba(126,240,181,.24);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(180deg, rgba(126,240,181,.07), rgba(255,255,255,.035)),
-        rgba(255,255,255,.03);
-      overflow: hidden;
-    }
-
-    .matrix-card::before {
-      content: "";
-      display: block;
-      width: 44px;
-      height: 3px;
-      margin-bottom: .8rem;
-      border-radius: 999px;
-      background: var(--green);
-    }
-
-    .matrix-card h3 {
-      margin: 0 0 .55rem;
-      color: var(--green);
-      font-size: clamp(19px, 1.35vw, 25px);
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
-    .matrix-card p {
-      color: var(--ink-dim);
-      font-size: var(--compact-copy-size);
-      line-height: 1.5;
-    }
-
-    .matrix-card p + p {
-      margin-top: .5rem;
-    }
-
-    .attribute-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .55rem;
-      margin-top: 1rem;
-    }
-
-    .attribute-strip span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: .45rem .65rem;
-      border: 1px solid rgba(255,209,102,.32);
-      border-radius: 999px;
-      background: rgba(255,209,102,.08);
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    .audience-bands {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .audience-band {
-      display: grid;
-      grid-template-columns: minmax(180px, .42fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      padding: clamp(16px, 2vw, 24px);
-      border: 1px solid var(--philosophy-line);
-      border-radius: var(--panel-radius);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .audience-label {
-      display: grid;
-      align-content: start;
-      gap: .55rem;
-      padding-right: 1rem;
-      border-right: 1px solid rgba(255,255,255,.12);
-    }
-
-    .audience-label span {
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .audience-label h3 {
-      color: #fff;
-      font-size: clamp(24px, 2vw, 34px);
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .audience-copy {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .panel {
-      min-width: 0;
-    }
-
-    .panel h3 {
-      margin: 0 0 .55rem;
-      color: #fff;
-      font-size: clamp(20px, 1.45vw, 27px);
-      line-height: 1.1;
-      letter-spacing: 0;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--ink-dim);
-      font-size: var(--copy-size);
-      line-height: 1.52;
-    }
-
-    .panel .zh,
-    .panel.zh p,
-    .panel.zh li {
-      color: #edf4ff;
-    }
-
-    .panel ul {
-      display: grid;
-      gap: .45rem;
-      margin: .75rem 0 0;
-      padding-left: 1.15rem;
-    }
-
-    .source-note {
-      margin-top: 2.2rem;
-      padding: 1rem;
-      border: 1px solid rgba(255,209,102,.28);
-      border-radius: var(--panel-radius);
-      background: rgba(255,209,102,.075);
-      color: var(--ink-dim);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .source-note b {
-      display: block;
-      margin-bottom: .35rem;
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .source-note p {
-      color: var(--ink-dim);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .source-note a {
-      color: #fff;
-      font-weight: 800;
-      text-decoration-color: rgba(255,209,102,.55);
-      text-underline-offset: 3px;
-    }
-
-    .site-foot {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 52px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .site-foot a {
-      color: var(--ink);
-      font-weight: 800;
-      text-decoration-color: rgba(86,216,255,.5);
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 980px) {
-      .hero-inner,
-      .section-head,
-      .audience-band,
-      .audience-copy,
-      .matrix {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar span {
-        text-align: left;
-      }
-
-      .audience-label {
-        padding-right: 0;
-        padding-bottom: .9rem;
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.12);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .site {
-        width: min(100% - 28px, var(--page-max));
-        padding-top: 16px;
-      }
-
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero-inner {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: clamp(38px, 10.4vw, 50px);
-      }
-
-      .lead-grid p {
-        font-size: 16px;
-      }
-
-      .cycle {
-        grid-template-columns: 1fr;
-      }
-
-      .cycle-step {
-        min-height: 0;
-        grid-template-columns: 2.8rem minmax(0, 1fr);
-        border-right: 0;
-      }
-
-      .cycle-step:nth-last-child(2) {
-        border-bottom: 1px solid rgba(255,255,255,.1);
-      }
-
-      .author-card {
-        grid-template-columns: 58px minmax(0, 1fr);
-      }
-
-      .author-card img {
-        width: 54px;
-      }
-
-      .model-item {
-        grid-template-columns: 2.25rem minmax(0, 1fr);
-      }
+    :root { --page-max: 1280px; --table-ink: #203344; --table-muted: #465b6b; --table-line: #d1dce3; }
+    body { min-height: 100vh; overflow-y: auto; font-family: "Segoe UI", Arial, "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 16px; line-height: 1.55; }
+    body.bg-ambient::before { background: radial-gradient(ellipse at 12% 0%, #153444 0%, transparent 55%), linear-gradient(160deg, #0b1c2b, #0a1725); }
+    .site { width: min(var(--page-max), calc(100% - 48px)); margin: 0 auto; padding: 22px 0 36px; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:focus-visible, .table-scroll:focus-visible { outline: 3px solid #56d8ff; outline-offset: 4px; }
+    p { margin: 0; }
+    .intro { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; align-items: end; padding: 28px 0 24px; }
+    .eyebrow, .section-kicker { color: #9cd8da; font-size: 12px; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { margin: 10px 0 8px; font-size: clamp(34px, 4.1vw, 56px); line-height: 1.1; letter-spacing: -.035em; color: #f4f8fc; }
+    .intro-zh { font-size: 25px; line-height: 1.4; color: #c5d8e3; margin-bottom: 18px; }
+    .lead { max-width: 72ch; color: #e0e9f0; font-size: 17px; line-height: 1.6; }
+    .lead.zh { margin-top: 7px; font-size: 15px; color: #b8cad7; }
+    .author { display: flex; gap: 13px; align-items: center; border-left: 1px solid #3a4e5d; padding-left: 22px; }
+    .author img { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; object-fit: cover; object-position: center top; }
+    .author strong { display: block; font-size: 15px; color: #f0f5fa; margin-bottom: 5px; }
+    .author span { display: block; font-size: 13px; line-height: 1.5; color: #b8cad7; }
+    .section { margin-top: 36px; scroll-margin-top: 20px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+    h2 { margin: 7px 0 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; letter-spacing: -.02em; color: #f4f8fc; }
+    h2 .zh { display: block; font-size: 17px; font-weight: 500; color: #b8cad7; margin-top: 7px; letter-spacing: 0; }
+    .section-note { max-width: 44ch; font-size: 14px; line-height: 1.55; color: #b8cad7; }
+    .section-note .zh { display: block; margin-top: 4px; font-size: 13px; }
+    .table-scroll { container-type: inline-size; overflow-x: auto; border: 1px solid #b9cbd2; border-radius: 12px; background: #fbfcfd; scrollbar-color: #617d8c #e5ecee; }
+    .table-scroll:focus-visible { outline-color: #145a70; outline-offset: -4px; }
+    .comparison a:focus-visible { outline-color: #145a70; outline-offset: 3px; }
+    .comparison { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; color: var(--table-ink); text-align: left; }
+    .comparison .dimension-col { width: 16%; }
+    .comparison .course-col { width: 28%; }
+    .comparison th, .comparison td { padding: 21px 23px; vertical-align: top; border-bottom: 1px solid var(--table-line); border-right: 1px solid var(--table-line); }
+    .comparison tr > :last-child { border-right: 0; }
+    .comparison tbody tr:last-child > * { border-bottom: 0; }
+    .comparison thead th { padding-top: 23px; padding-bottom: 22px; background: #edf2f4; border-top: 4px solid #607482; }
+    .comparison thead th:nth-child(2) { border-top-color: #198375; background: #e4f2ed; }
+    .comparison thead th:nth-child(3) { border-top-color: #487bac; background: #e8f0f8; }
+    .comparison thead th:nth-child(4) { border-top-color: #b67829; background: #faf0df; }
+    .course-code { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--table-muted); margin-bottom: 8px; }
+    .course-name { display: block; font-size: 22px; line-height: 1.2; font-weight: 750; text-decoration: none; }
+    .course-name:hover { text-decoration: underline; }
+    .course-zh { display: block; font-size: 14px; font-weight: 500; margin-top: 7px; color: var(--table-muted); }
+    .course-focus { display: block; margin-top: 15px; font-size: 14px; font-weight: 650; line-height: 1.4; }
+    .comparison tbody th { font-size: 15px; font-weight: 750; line-height: 1.5; background: #e9eff2; }
+    .comparison tbody th .zh { display: block; margin-top: 6px; font-size: 14px; font-weight: 500; color: var(--table-muted); }
+    .comparison td { background: #fbfcfd; font-size: 16px; line-height: 1.6; }
+    .comparison td p { font-size: inherit; line-height: inherit; color: inherit; }
+    .comparison tbody tr:nth-child(even) td { background: #f1f5f7; }
+    .comparison td .zh { display: block; margin-top: 10px; font-size: 14px; line-height: 1.65; color: var(--table-muted); }
+    .comparison td strong { font-weight: 750; color: #152b3d; }
+    .comparison td a { color: #145a70; font-weight: 650; text-decoration-thickness: 1px; }
+    .comparison td p + p:not(.zh) { margin-top: 13px; }
+    .dimension-title { font-size: 14px; line-height: 1.5; font-weight: 650; }
+    .scroll-hint { display: none; font-size: 13px; color: #c5d8e3; margin: 0 0 12px; line-height: 1.5; }
+    .principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid #344956; }
+    .principles article { padding: 23px 25px; border-right: 1px solid #344956; }
+    .principles article:first-child { padding-left: 0; }
+    .principles article:last-child { border: 0; padding-right: 0; }
+    .principles h3 { margin: 0 0 10px; font-size: 18px; color: #e3f0f3; line-height: 1.4; }
+    .principles h3 .zh { display: block; margin-top: 3px; color: #9cd8da; font-size: 14px; font-weight: 500; }
+    .principles p { color: #c8d6df; font-size: 15px; line-height: 1.6; }
+    .principles p.zh { color: #b8cad7; font-size: 14px; margin-top: 8px; }
+    .support-table thead .course-name { font-size: 18px; }
+    .support-table thead th { padding-block: 17px; }
+    .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; font-size: 12px; color: #aabfce; line-height: 1.7; }
+    .scope p { font-size: 13px; line-height: 1.7; color: #b8cad7; }
+    .scope strong { display: block; color: #d9e5ed; margin-bottom: 5px; }
+    .site-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid #344956; margin-top: 28px; padding-top: 20px; font-size: 12px; color: #aabfce; }
+    @media (max-width: 1000px) {
+      .intro { grid-template-columns: 1fr; gap: 20px; }
+      .author { border: 0; padding: 0; }
+      .section-head { display: block; }
+      .section-note { margin-top: 12px; max-width: none; }
+      .comparison th, .comparison td { padding: 18px; }
+      .course-name { font-size: 19px; }
+    }
+    @media (max-width: 760px) {
+      .site { width: calc(100% - 28px); padding-top: 14px; }
+      .intro { padding-block: 24px 10px; }
+      .intro-zh { font-size: 21px; margin-bottom: 14px; }
+      .lead { font-size: 16px; }
+      .lead.zh { font-size: 14px; }
+      .section { margin-top: 28px; }
+      .scroll-hint { display: block; }
+      .comparison { width: min(864px, calc(300cqw - 228px)); }
+      .comparison .dimension-col { width: 114px; }
+      .comparison .course-col { width: auto; }
+      .comparison tr > :first-child { position: sticky; left: 0; z-index: 1; box-shadow: 3px 0 5px #1a344a0c; }
+      .comparison th, .comparison td { padding: 16px; }
+      .principles, .scope { grid-template-columns: 1fr; }
+      .principles article, .principles article:first-child, .principles article:last-child { padding: 20px 0; border-right: 0; border-bottom: 1px solid #344956; }
+      .principles article:last-child { border-bottom: 0; }
+      .scope { gap: 14px; }
     }
   </style>
   <script src="assets/js/baidu-analytics.js"></script>
@@ -640,281 +117,137 @@
         <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
       </a>
       <nav class="landing-nav-links oh-primary-nav" aria-label="Primary destinations">
-        <a class="landing-nav-link is-current" data-oh-nav="economics" href="economics/index.html" aria-current="page">Economics</a>
-        <a class="landing-nav-link" data-oh-nav="investment" href="investment-analysis/index.html">Investment</a>
+        <a class="landing-nav-link" data-oh-nav="economics" href="economics/index.html">IGCSE Economics</a>
+        <a class="landing-nav-link" data-oh-nav="a-level" href="a-level/index.html">A Level Economics</a>
+        <a class="landing-nav-link" data-oh-nav="investment" href="investment-analysis/index.html">Investment and finance</a>
         <a class="landing-nav-link" data-oh-nav="homework" href="/econmark/">Homework</a>
       </nav>
       <div class="oh-header-account" data-platform-account></div>
     </header>
     <div class="oh-context-bar" style="--oh-context-accent:#56d8ff">
-      <strong class="oh-context-label">Economics</strong>
-      <nav class="oh-context-nav" aria-label="Economics resources">
-        <a href="economics/index.html">Lessons</a>
-        <a href="definitions.html">Definitions</a>
-        <a href="pedagogy.html" aria-current="page">Teaching approach</a>
+      <strong class="oh-context-label">Teaching approach</strong>
+      <nav class="oh-context-nav" aria-label="On this page">
+        <a href="#courses-title">Across courses</a>
+        <a href="#shared-title">Shared principles</a>
+        <a href="#audience-title">Home and school</a>
       </nav>
     </div>
 
-    <header class="hero">
-      <div class="hero-inner">
-        <div class="hero-main">
-          <div>
-            <div class="eyebrow">For teachers and parents / 面向教师与家长</div>
-            <h1>
-              <span>Teaching</span>
-              <span>Philosophy</span>
-              <span class="zh" lang="zh-CN">教学理念</span>
-            </h1>
-          </div>
-          <div class="lead-grid">
-            <p>
-              Economics is not learned by memorising definitions alone. Students learn to use precise concepts, read models and data,
-              explain cause-and-effect chains, compare choices and write supported judgements.
-            </p>
-            <p class="zh" lang="zh-CN">
-              学习经济学不只是背诵定义。学生需要准确使用概念，读懂模型和数据，解释因果链，比较不同选择，并写出有依据的判断。
-            </p>
-          </div>
-          <div class="author-card" aria-label="Author information">
-            <img src="assets/images/profile/samuel-oehler-huang.jpg" alt="Samuel Oehler-Huang" loading="lazy" />
-            <div>
-              <strong>Samuel Oehler-Huang</strong>
-              <span>Economics teacher, Suzhou Foreign Language School</span>
-              <span class="zh" lang="zh-CN">苏州外国语学校经济学教师</span>
-            </div>
-          </div>
-        </div>
-        <aside class="model-panel" aria-label="Learning model summary">
-          <div class="model-kicker">Learning model</div>
-          <h2>Concepts, models, evidence, judgement.</h2>
-          <p>
-            The course treats Economics as disciplined thinking: students practise skills that are central to Economics and useful in
-            science, geography, humanities and extended writing.
-          </p>
-          <p class="zh" lang="zh-CN">
-            本课程把经济学视为一种有纪律的思考训练：学生练习经济学的核心技能，也把这些能力迁移到科学、地理、人文和长篇写作中。
-          </p>
-          <div class="model-list">
-            <div class="model-item">
-              <b>01</b>
-              <span>Key terms and diagrams make abstract ideas visible.</span>
-            </div>
-            <div class="model-item">
-              <b>02</b>
-              <span>Evidence and examples test whether a model explains reality.</span>
-            </div>
-            <div class="model-item">
-              <b>03</b>
-              <span>Evaluation turns analysis into transferable judgement.</span>
-            </div>
-          </div>
-        </aside>
+    <header class="intro">
+      <div>
+        <p class="eyebrow">A guide for teachers and parents / 面向教师与家长</p>
+        <h1>Teaching approach</h1>
+        <p class="intro-zh" lang="zh-CN">教学方式</p>
+        <p class="lead">Three courses share a commitment to clear reasoning. The emphasis changes: building economic explanations, connecting formal models, or interpreting financial decisions.</p>
+        <p class="lead zh" lang="zh-CN">三门课程都重视清晰推理，但各有侧重：建立经济学解释、连接正式模型，或解读财务决策。</p>
+      </div>
+      <div class="author" aria-label="Author information">
+        <img src="assets/images/profile/samuel-oehler-huang.jpg" alt="Samuel Oehler-Huang" loading="lazy" />
+        <div><strong>Samuel Oehler-Huang</strong><span>Economics teacher, Suzhou Foreign Language School</span><span lang="zh-CN">苏州外国语学校经济学教师</span></div>
       </div>
     </header>
 
-    <section class="section" aria-labelledby="cycle-title">
+    <section class="section" aria-labelledby="courses-title">
       <div class="section-head">
-        <div>
-          <div class="section-kicker">Core skill cycle</div>
-          <h2 id="cycle-title">From economic problem to transferable judgement / 从经济问题到可迁移的判断</h2>
-        </div>
-        <p class="section-intro">
-          Each lesson builds the habits students need for Economics: concept precision, model use, evidence, causal explanation,
-          application and evaluation.
-          <br><span class="zh" lang="zh-CN">每节课都训练经济学学习所需的习惯：概念准确、模型运用、证据意识、因果解释、情境应用和评价判断。</span>
-        </p>
+        <div><p class="section-kicker">01 / Classroom overview</p><h2 id="courses-title">How the teaching varies<span class="zh" lang="zh-CN">不同课程的教学方式</span></h2></div>
+        <p class="section-note">Read across each row to compare the same teaching decision. Based on the currently linked lessons; the balance varies by topic.
+          <span class="zh" lang="zh-CN">横向比较同一教学维度。概括依据当前课件，具体安排随主题而变化。</span></p>
       </div>
-
-      <div class="cycle">
-        <article class="cycle-step">
-          <b>1</b>
-          <h3>Economic problem<br><span class="zh" lang="zh-CN">经济问题</span></h3>
-          <p>Start with scarcity, incentives, a market change or a policy choice so students see what needs explaining.</p>
-          <p class="zh" lang="zh-CN">从稀缺、激励、市场变化或政策选择出发，让学生先看见需要解释的问题。</p>
-        </article>
-        <article class="cycle-step">
-          <b>2</b>
-          <h3>Concept or model<br><span class="zh" lang="zh-CN">概念或模型</span></h3>
-          <p>Students identify the term, diagram or model that can organise the problem and make the thinking precise.</p>
-          <p class="zh" lang="zh-CN">学生找出能够整理问题的术语、图表或模型，使思考更加准确。</p>
-        </article>
-        <article class="cycle-step">
-          <b>3</b>
-          <h3>Data and diagrams<br><span class="zh" lang="zh-CN">数据与图表</span></h3>
-          <p>Students read axes, shifts, trends and evidence, then connect visual information to economic meaning.</p>
-          <p class="zh" lang="zh-CN">学生解读坐标轴、曲线移动、趋势和证据，并把视觉信息连接到经济含义。</p>
-        </article>
-        <article class="cycle-step">
-          <b>4</b>
-          <h3>Causal chains<br><span class="zh" lang="zh-CN">因果链</span></h3>
-          <p>Students build explanations step by step, linking choices, incentives, costs, benefits and consequences.</p>
-          <p class="zh" lang="zh-CN">学生逐步建立解释，把选择、激励、成本、收益和后果联系起来。</p>
-        </article>
-        <article class="cycle-step">
-          <b>5</b>
-          <h3>Application<br><span class="zh" lang="zh-CN">情境应用</span></h3>
-          <p>Students apply the reasoning to households, firms, governments and countries, using examples rather than slogans.</p>
-          <p class="zh" lang="zh-CN">学生把推理应用到家庭、企业、政府和国家，用具体例子代替空泛结论。</p>
-        </article>
-        <article class="cycle-step">
-          <b>6</b>
-          <h3>Evaluation<br><span class="zh" lang="zh-CN">评价判断</span></h3>
-          <p>Students weigh assumptions, limits, winners and losers before writing a clear final judgement.</p>
-          <p class="zh" lang="zh-CN">学生权衡假设、局限、受益者和受损者，再写出清晰的最终判断。</p>
-        </article>
+      <p class="scroll-hint" id="comparison-hint">Scroll across to compare all three courses →<br><span lang="zh-CN">左右滑动，对照三门课程；左侧维度保持可见。</span></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Classroom approach comparison" aria-describedby="comparison-hint">
+        <table class="comparison">
+          <colgroup><col class="dimension-col"><col class="course-col"><col class="course-col"><col class="course-col"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col"><span class="dimension-title">Teaching dimension</span><span class="course-zh" lang="zh-CN">教学维度</span></th>
+              <th scope="col" id="igcse"><span class="course-code">Cambridge IGCSE · 0455</span><a class="course-name" href="economics/index.html">IGCSE Economics</a><span class="course-zh" lang="zh-CN">IGCSE 经济学</span><span class="course-focus">Build clear explanations</span></th>
+              <th scope="col" id="a-level"><span class="course-code">Cambridge AS &amp; A Level · 9708</span><a class="course-name" href="a-level/index.html">A Level Economics</a><span class="course-zh" lang="zh-CN">A Level 经济学</span><span class="course-focus">Connect and evaluate models</span></th>
+              <th scope="col" id="investment"><span class="course-code">Investment and finance</span><a class="course-name" href="investment-analysis/index.html">Investment</a><span class="course-zh" lang="zh-CN">投资与金融</span><span class="course-focus">Calculate and interpret decisions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Learning purpose<span class="zh" lang="zh-CN">学习目标</span></th>
+              <td><strong>Concepts → explanations.</strong> Use precise terms, explain cause and effect, and develop exam answers.<p class="zh" lang="zh-CN">从概念走向解释：准确使用术语，说明因果关系，展开考试答案。</p></td>
+              <td><strong>Models → conditional conclusions.</strong> Connect equations, data and diagrams; explain when a predicted effect holds.<p class="zh" lang="zh-CN">从模型走向有条件的结论：连接公式、数据与图表，说明预测成立的条件。</p></td>
+              <td><strong>Evidence → financial judgement.</strong> Calculate results, compare alternatives and state the limits of the conclusion.<p class="zh" lang="zh-CN">从证据走向财务判断：计算结果、比较选择，并说明结论的局限。</p></td>
+            </tr>
+            <tr>
+              <th scope="row">Lesson opening<span class="zh" lang="zh-CN">如何导入</span></th>
+              <td>A familiar issue, photograph or recall task makes the concept concrete before formal explanation.<p class="zh" lang="zh-CN">通过熟悉的问题、照片或回忆任务，使概念具体化，再进入正式解释。</p></td>
+              <td>A macroeconomic puzzle or prior-model recall prepares students for a new relationship or mechanism.<p class="zh" lang="zh-CN">以宏观经济问题或已有模型的回顾，为新关系、新机制作准备。</p></td>
+              <td>A financial puzzle invites a prediction before the rule: who earned more, or why did interest grow?<p class="zh" lang="zh-CN">先用财务问题引发预测，再介绍规则：谁赚得更多？利息为何增加？</p></td>
+            </tr>
+            <tr>
+              <th scope="row">How ideas are explained<span class="zh" lang="zh-CN">如何讲解</span></th>
+              <td>Short definitions, concrete examples, diagrams and visible causal steps. Keyword blanks focus attention on essential links.<p class="zh" lang="zh-CN">使用简短定义、具体例子、图表与完整因果步骤；关键词填空突出关键联系。</p></td>
+              <td>Move between verbal mechanisms, formulas, worked calculations, data tables and interactive diagrams.<p class="zh" lang="zh-CN">在文字机制、公式、计算示例、数据表与交互图表之间建立联系。</p></td>
+              <td>Introduce the term, show asset or company examples, then calculate step by step using dated evidence or labelled assumptions.<p class="zh" lang="zh-CN">先介绍术语与资产或公司实例，再用注明日期的证据或明确假设逐步计算。</p></td>
+            </tr>
+            <tr>
+              <th scope="row">Student practice<span class="zh" lang="zh-CN">学生如何练习</span></th>
+              <td>Recall, classify, complete causal explanations, discuss with a partner and turn keywords into written answers.<p class="zh" lang="zh-CN">回忆、分类、补全因果解释、同伴讨论，并把关键词组织成书面答案。</p></td>
+              <td>Calculate, interpret diagram changes, distinguish similar mechanisms and apply analysis to exam questions.<p class="zh" lang="zh-CN">完成计算、解读图表变化、区分相近机制，并将分析应用于考试题。</p></td>
+              <td>Classify returns, calculate and compare cases, answer misconception checks, and build a Stock Market Game evidence record.<p class="zh" lang="zh-CN">对回报分类、计算与比较案例、辨析常见误解，并建立模拟股票交易的证据记录。</p></td>
+            </tr>
+            <tr>
+              <th scope="row">Feedback &amp; success<span class="zh" lang="zh-CN">反馈与达标表现</span></th>
+              <td>Answer reveals and model responses check each causal link. Success means a developed explanation, with balance and judgement when required.<p class="zh" lang="zh-CN">通过答案揭示与参考答案检查因果环节；达标意味着解释充分，并在题目要求时兼顾双方、作出判断。</p></td>
+              <td>Worked feedback and MCQs expose calculation and modelling errors. Success connects the correct result to a diagram and a relevant qualification.<p class="zh" lang="zh-CN">通过计算反馈与选择题发现计算或模型误解；达标意味着连接正确结果、图表与相关限制条件。</p></td>
+              <td>Check method, units and interpretation. Success includes the relevant period or assumptions, and distinguishes a projection from a promise.<p class="zh" lang="zh-CN">检查方法、单位与解释；达标需要说明相关期间或假设，并区分预测与保证。</p></td>
+            </tr>
+            <tr>
+              <th scope="row">Language support<span class="zh" lang="zh-CN">语言支持</span></th>
+              <td>Frequent Chinese support for definitions and explanation steps; English keywords support written expression.<p class="zh" lang="zh-CN">较多使用中文辅助定义与解释步骤，以英文关键词支持书面表达。</p></td>
+              <td>Chinese support for technical concepts; English reasoning and consistent mathematical notation remain central.<p class="zh" lang="zh-CN">以中文辅助专业概念，重点保持英文推理与一致的数学表达。</p></td>
+              <td>English first, with Chinese for difficult financial terms. Short cases explain unfamiliar companies or assets.<p class="zh" lang="zh-CN">以英文为主，中文辅助较难的金融术语；简短案例介绍不熟悉的公司或资产。</p></td>
+            </tr>
+            <tr>
+              <th scope="row">In the lessons<span class="zh" lang="zh-CN">课例与变化</span></th>
+              <td><p><a href="lessons/unit-2-allocation/2-9-market-failure/lesson-2.html">Merit and demerit goods</a>: a school drinks question leads to definitions and written explanation.</p><p><a href="lessons/unit-2-allocation/2-review-cocoa-chocolate-section-a/index.html">Cocoa and chocolate review</a>: retry full questions from a paper extract.</p><p class="zh" lang="zh-CN">有益品与有害品课从校园饮料问题进入概念与解释；可可与巧克力复习课从试卷材料出发，重做完整题目。</p></td>
+              <td><p><a href="a-level/lessons/9-1-1-multiplier/index.html">The multiplier</a>: spending rounds, calculations, income diagrams and spare-capacity evaluation.</p><p><a href="a-level/lessons/9-1-2-aggregate-demand/index.html">Components of aggregate demand</a>: schedules, function shifts and the accelerator.</p><p class="zh" lang="zh-CN">乘数课连接支出轮次、计算、收入图表与闲置产能评价；总需求课使用数据表、函数移动与加速数。</p></td>
+              <td><p><a href="investment-analysis/lessons/1-1-2-measuring-investment-return/index.html">Measuring investment return</a>: distinguish money earned from percentage return.</p><p><a href="investment-analysis/lessons/1-1-3-compound-growth/index.html">Compound growth</a>: year-by-year reinvestment and an assumptions statement.</p><p class="zh" lang="zh-CN">回报课区分赚取金额与回报率；复利课用逐年再投资计算，并要求写出假设条件。</p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="cambridge-title">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">Cambridge alignment</div>
-          <h2 id="cambridge-title">Aligned with Cambridge teaching principles / 对齐剑桥教学原则</h2>
-        </div>
-        <p class="section-intro">
-          The course stays anchored in Cambridge IGCSE Economics 0455 and Cambridge teaching principles: active learning,
-          assessment for learning, metacognition, inclusive access and confident communication.
-          <br><span class="zh" lang="zh-CN">课程以 Cambridge IGCSE Economics 0455 和剑桥教学原则为核心：主动学习、促进学习的评价、元认知、包容性支持和自信表达。</span>
-        </p>
-      </div>
-
-      <div class="matrix">
-        <article class="matrix-card">
-          <h3>Active learning / 主动学习</h3>
-          <p>
-            Students predict, discuss and choose between alternatives before answers appear, using Economics problems to practise disciplined reasoning.
-          </p>
-          <p class="zh" lang="zh-CN">学生在答案出现之前先预测、讨论并比较不同选择，通过经济学问题练习有纪律的推理。</p>
-        </article>
-        <article class="matrix-card">
-          <h3>Assessment for learning / 促进学习的评价</h3>
-          <p>
-            Hinge questions, quizzes and exam prompts reveal whether students can define, draw, explain, apply and evaluate.
-          </p>
-          <p class="zh" lang="zh-CN">关键问题、测验和考试任务帮助判断学生是否能够定义、作图、解释、应用和评价。</p>
-        </article>
-        <article class="matrix-card">
-          <h3>Curriculum coherence / 课程连贯性</h3>
-          <p>
-            Lessons follow Cambridge syllabus references while linking key terms, diagrams, data and command words into one exam-ready sequence.
-          </p>
-          <p class="zh" lang="zh-CN">课程依据剑桥考纲，把关键词、图表、数据和指令词连接成适合考试的学习序列。</p>
-        </article>
-        <article class="matrix-card">
-          <h3>Inclusive bilingual access / 双语支持</h3>
-          <p>
-            Chinese support lowers the barrier to difficult ideas, while the final target remains clear English economic explanation.
-          </p>
-          <p class="zh" lang="zh-CN">中文支持降低理解难度，但最终目标仍是清晰、准确的英文经济学表达。</p>
-        </article>
-        <article class="matrix-card">
-          <h3>Metacognition and self-management / 元认知与自我管理</h3>
-          <p>
-            Students learn to check their own gaps: Can I recall the definition, redraw the model, explain the chain and justify the judgement?
-          </p>
-          <p class="zh" lang="zh-CN">学生学习检查自己的薄弱点：我能否回忆定义、重画模型、解释因果链并说明判断理由？</p>
-        </article>
-        <article class="matrix-card">
-          <h3>Transferable communication / 可迁移的表达能力</h3>
-          <p>
-            Cambridge command-word practice trains students to compare alternatives, weigh limits and write evidence-based conclusions across subjects.
-          </p>
-          <p class="zh" lang="zh-CN">剑桥指令词练习训练学生比较选择、权衡局限，并在不同学科中写出有证据支撑的结论。</p>
-        </article>
-      </div>
-
-      <div class="attribute-strip" aria-label="Cambridge learner attributes">
-        <span>Confident 自信</span>
-        <span>Responsible 负责</span>
-        <span>Reflective 反思</span>
-        <span>Innovative 创新</span>
-        <span>Engaged 投入</span>
+    <section class="section" aria-labelledby="shared-title">
+      <div class="section-head"><div><p class="section-kicker">02 / Shared foundations</p><h2 id="shared-title">What the courses share<span class="zh" lang="zh-CN">各课程的共同点</span></h2></div></div>
+      <div class="principles">
+        <article><h3>Try before feedback<span class="zh" lang="zh-CN">先尝试，再反馈</span></h3><p>Predict, discuss or calculate before revealing the answer.</p><p class="zh" lang="zh-CN">先预测、讨论或计算，再揭示答案。</p></article>
+        <article><h3>Show the reasoning<span class="zh" lang="zh-CN">展示推理过程</span></h3><p>Make the explanation, method and evidence visible.</p><p class="zh" lang="zh-CN">清楚呈现解释、方法与证据。</p></article>
+        <article><h3>Explain the conclusion<span class="zh" lang="zh-CN">说明结论的依据</span></h3><p>Say why an answer follows and which conditions matter.</p><p class="zh" lang="zh-CN">说明答案为何成立，以及哪些条件重要。</p></article>
       </div>
     </section>
 
     <section class="section" aria-labelledby="audience-title">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">For home and school</div>
-          <h2 id="audience-title">What this means in practice / 课堂内外的实际意义</h2>
-        </div>
-      </div>
-
-      <div class="audience-bands">
-        <article class="audience-band">
-          <div class="audience-label">
-            <span>Home review</span>
-            <h3>For parents</h3>
-            <h3 class="zh" lang="zh-CN">面向家长</h3>
-          </div>
-          <div class="audience-copy">
-            <div class="panel">
-              <p>
-                Effective Economics revision is active skill practice, not passive rereading. Students should recall terms, redraw diagrams,
-                explain chains, use evidence, answer command words and justify evaluation.
-              </p>
-              <ul>
-                <li>Slide view lets students revisit the problem-model-explanation sequence.</li>
-                <li>Handout view supports diagram redrawing, annotation and calmer review.</li>
-                <li>Quiz view checks definitions, application and causal reasoning after study.</li>
-              </ul>
-            </div>
-            <div class="panel zh" lang="zh-CN">
-              <p>
-                有效的经济学复习是主动的技能练习，而不是被动重读。学生应回忆术语、重画图表、解释因果链、使用证据、回应指令词并说明评价理由。
-              </p>
-              <ul>
-                <li>幻灯片模式帮助学生重走“问题—模型—解释”的学习过程。</li>
-                <li>讲义模式适合重画图表、做批注和安静复习。</li>
-                <li>测验模式用于检查定义、应用和因果推理。</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="audience-band">
-          <div class="audience-label">
-            <span>Classroom design</span>
-            <h3>For teachers</h3>
-            <h3 class="zh" lang="zh-CN">面向教师</h3>
-          </div>
-          <div class="audience-copy">
-            <div class="panel">
-              <p>
-                Each lesson is built as a teachable skill sequence: define accurately, model visually, interpret evidence, explain causally,
-                apply to a real context and evaluate before writing.
-              </p>
-              <ul>
-                <li>Partial reveals manage cognitive load when diagrams or chains are dense.</li>
-                <li>Real-world facts make abstract syllabus points testable and concrete.</li>
-                <li>Exam prompts rehearse analysis, comparison, limitation and final judgement.</li>
-              </ul>
-            </div>
-            <div class="panel zh" lang="zh-CN">
-              <p>
-                每节课都被设计成可教学的技能序列：准确定义、用模型呈现、解读证据、解释因果、应用到真实情境，并在写作前完成评价。
-              </p>
-              <ul>
-                <li>逐步呈现用于降低复杂图表和因果链的认知负荷。</li>
-                <li>真实材料让抽象考纲内容变得可检验、可理解。</li>
-                <li>考试练习训练分析、比较、局限和最终判断。</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+      <div class="section-head"><div><p class="section-kicker">03 / Home and school</p><h2 id="audience-title">Supporting the next step<span class="zh" lang="zh-CN">如何支持下一步学习</span></h2></div><p class="section-note">Use a fresh attempt to identify what needs practice.<span class="zh" lang="zh-CN">通过一次独立尝试，判断哪些方面需要继续练习。</span></p></div>
+      <p class="scroll-hint" id="support-hint">Scroll across for each course → <span lang="zh-CN">左右滑动查看各课程。</span></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Home and school support comparison" aria-describedby="support-hint">
+        <table class="comparison support-table">
+          <colgroup><col class="dimension-col"><col class="course-col"><col class="course-col"><col class="course-col"></colgroup>
+          <thead><tr><th scope="col"><span class="dimension-title">Support</span><span class="course-zh" lang="zh-CN">学习支持</span></th><th scope="col"><span class="course-name">IGCSE Economics</span><span class="course-zh" lang="zh-CN">IGCSE 经济学</span></th><th scope="col"><span class="course-name">A Level Economics</span><span class="course-zh" lang="zh-CN">A Level 经济学</span></th><th scope="col"><span class="course-name">Investment</span><span class="course-zh" lang="zh-CN">投资与金融</span></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">For parents<span class="zh" lang="zh-CN">面向家长</span></th>
+              <td>Ask for a definition, redrawn diagram or short explanation. Use the linked handouts, quizzes and flashcards for practice.<p class="zh" lang="zh-CN">请学生回忆定义、重画图表或写简短解释；使用课件中的讲义、测验与闪卡练习。</p></td>
+              <td>Ask students to redo a calculation, explain its diagram and name a condition that could change the conclusion.<p class="zh" lang="zh-CN">请学生重新计算、解释相关图表，并指出可能改变结论的条件。</p></td>
+              <td>Ask students to recalculate a case, explain the result in one sentence and state its period or assumptions.<p class="zh" lang="zh-CN">请学生重新计算案例，用一句话解释结果，并说明期间或假设。</p></td>
+            </tr>
+            <tr><th scope="row">For teachers<span class="zh" lang="zh-CN">面向教师</span></th>
+              <td>Check vocabulary and each causal link before extending the written answer.<p class="zh" lang="zh-CN">先检查术语和每个因果环节，再扩展书面答案。</p></td>
+              <td>Check that students can connect words, equations and diagrams before asking for evaluation.<p class="zh" lang="zh-CN">先确认学生能连接文字、公式与图表，再要求评价。</p></td>
+              <td>Check financial meaning, measurement basis and assumptions alongside numerical accuracy.<p class="zh" lang="zh-CN">检查数字准确性，同时检查财务含义、衡量口径与假设。</p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <aside class="source-note" aria-label="Sources and positioning">
-      <b>Sources and positioning / 来源与说明</b>
-      <p>
-        This teaching philosophy is an independent classroom statement. It is aligned with Cambridge International guidance on
-        <a href="https://www.cambridgeinternational.org/support-and-training-for-schools/leading-learning-and-teaching-with-cambridge/">leading, learning and teaching</a>,
-        the <a href="https://www.cambridgeinternational.org/why-choose-us/parents-and-students/learning-with-lasting-impact/cambridge-learner-attributes/">Cambridge learner attributes</a>,
-        and the <a href="https://www.cambridgeinternational.org/teacher-standards">Cambridge school leader and teacher standards</a>.
-        It does not claim formal endorsement by Cambridge International Education.
-        <br><span class="zh" lang="zh-CN">本教学理念是独立的课堂说明，参考并对齐剑桥关于教学与学习、学习者素养以及教师标准的指导，但不代表 Cambridge International Education 的正式背书。</span>
-      </p>
+    <aside class="scope" aria-label="Basis and course scope">
+      <p><strong>Basis and scope</strong>Based on the linked classroom lessons. Economics follows Cambridge 0455 and 9708 respectively; Investment follows its own <a href="investment-analysis/syllabus-2026-27.html">Investment and Financial Decisions syllabus</a>. These independent resources do not claim formal endorsement by Cambridge International Education. Investment examples are educational, not personal investment advice.</p>
+      <p lang="zh-CN"><strong>依据与范围</strong>依据上方课例。两门经济学课程分别依据剑桥 0455 与 9708；投资课采用独立的《投资与财务决策》课程纲要。资源为独立教学材料，不代表剑桥官方背书；投资案例用于教学，不构成个人投资建议。</p>
     </aside>
 
     <footer class="site-foot">

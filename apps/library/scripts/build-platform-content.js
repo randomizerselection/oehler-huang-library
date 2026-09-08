@@ -2,20 +2,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const { createHash } = require('node:crypto');
+const { CONTENT_SCHEMA, QUIZ_SCHEMA, CONTENT_FILES, validateContentCatalog } = require('@oehler-huang/contracts/content');
+const { activeContentFiles } = require('./content-sources.js');
 
 const root = path.resolve(__dirname, '..');
 const generatedRoot = path.join(root, 'generated');
-const ignored = /(?:^|[\\/])(?:_template|[^\\/]*archive[^\\/]*|lesson-1-all-types|tmp|node_modules|android-definitions)(?:[\\/]|$)/i;
-
-function walk(directory, predicate, results = []) {
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    const full = path.join(directory, entry.name);
-    if (ignored.test(path.relative(root, full))) continue;
-    if (entry.isDirectory()) walk(full, predicate, results);
-    else if (predicate(full)) results.push(full);
-  }
-  return results;
-}
 
 function routeFor(file) {
   const relative = path.relative(root, file).replaceAll('\\', '/');
@@ -38,8 +29,11 @@ function referencedScripts(htmlFile, source) {
   return [...source.matchAll(/<script[^>]+src=["']([^"']+)["'][^>]*><\/script>/gi)]
     .map((match) => match[1].split(/[?#]/)[0])
     .filter((src) => !/^(?:https?:)?\/\//i.test(src))
-    .map((src) => path.resolve(base, src))
-    .filter((file) => file.startsWith(root) && fs.existsSync(file));
+    .map((src) => src.startsWith('/') ? path.join(root, src) : path.resolve(base, src))
+    .filter((file) => {
+      const relative = path.relative(root, file);
+      return relative !== '..' && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative) && fs.existsSync(file);
+    });
 }
 
 function evaluateQuiz(file) {
@@ -88,8 +82,7 @@ function normalizeQuiz(raw, file, route) {
 }
 
 function build({ write = true } = {}) {
-  const htmlFiles = [path.join(root, 'index.html'), ...walk(path.join(root, 'lessons'), (file) => file.endsWith('.html')), ...walk(path.join(root, 'investment-analysis'), (file) => file.endsWith('.html'))]
-    .filter((file, index, files) => files.indexOf(file) === index);
+  const htmlFiles = activeContentFiles(root).map(file => path.join(root, file));
   const contents = [];
   const quizzes = [];
   const quizIds = new Set();
@@ -121,12 +114,22 @@ function build({ write = true } = {}) {
   contents.sort((left, right) => left.route.localeCompare(right.route));
   quizzes.sort((left, right) => left.id.localeCompare(right.id));
   const sourceHash = createHash('sha256').update(JSON.stringify({ contents, quizzes })).digest('hex');
-  const manifest = { schema_version: 'oehler-huang-content/1.0.0', source_hash: sourceHash, items: contents };
-  const bank = { schema_version: 'oehler-huang-quiz-bank/1.0.0', source_hash: sourceHash, quizzes };
+  const manifest = { schema_version: CONTENT_SCHEMA, source_hash: sourceHash, items: contents };
+  const bank = { schema_version: QUIZ_SCHEMA, source_hash: sourceHash, quizzes };
+  validateContentCatalog(manifest, bank);
   if (write) {
     fs.mkdirSync(generatedRoot, { recursive: true });
-    fs.writeFileSync(path.join(generatedRoot, 'content-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
-    fs.writeFileSync(path.join(generatedRoot, 'quiz-bank.json'), `${JSON.stringify(bank, null, 2)}\n`);
+    // Atomic replacement also breaks hard links used by overlay releases.
+    for (const [file, value] of [[CONTENT_FILES.manifest, manifest], [CONTENT_FILES.bank, bank]]) {
+      const destination = path.join(root, file);
+      const temporary = `${destination}.${process.pid}.tmp`;
+      try {
+        fs.writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`);
+        fs.renameSync(temporary, destination);
+      } finally {
+        fs.rmSync(temporary, { force: true });
+      }
+    }
   }
   return { manifest, bank };
 }

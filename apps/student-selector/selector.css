@@ -101,6 +101,14 @@ body > .selector-root .selector-shell {
   gap: 12px;
 }
 
+.selector-root button:disabled,
+.selector-root select:disabled { cursor: not-allowed; opacity: .5; }
+.selector-load-status {
+  margin: 12px 0; padding: 12px; border: 1px solid var(--line-strong);
+  border-radius: 8px; line-height: 1.5;
+}
+.selector-load-status p { margin: 0 0 8px; }
+
 .selector-brand {
   display: flex;
   align-items: center;

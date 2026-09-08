@@ -2,7 +2,11 @@
 
 This directory is the authenticated Student Selector application within the Oehler-Huang Learning Platform. Its original `gh-pages` history was imported as an unsquashed Git subtree; the public source repository and GitHub Pages deployment remain unchanged.
 
-The consolidated application is served from `/selector/` and can also be mounted in a lesson panel. It never loads a public roster file. Classes and active memberships come from the platform APIs, and selector sessions, attendance snapshots, selections, and informal outcomes are persisted by the server.
+The account-based application is served from `/selector/` and can also be mounted in a lesson panel. Its classes and active memberships come from protected platform APIs, and selector sessions, attendance snapshots, selections, and informal outcomes are persisted by the server.
+
+Lesson panels also support `classroomMode: true` without sign-in, matching the older Economics selector. This mode reads the existing public list from `https://randomizerselection.github.io/studentselector/assets/students.csv` and keeps selections in a separate browser session. It does not access platform rosters or save platform records. No roster CSV is copied into the platform or deployment.
+
+The public class list and feedback text are cached in page memory for five minutes, including requests already in progress. Failed requests are retryable and time out after 15 seconds. Loading and retry messages stay visible in the controls panel. Escape closes a selector dialog first, then the panel; closing during a download does not recreate its UI. Browser storage failures do not prevent selection within the current panel.
 
 ## Browser API
 

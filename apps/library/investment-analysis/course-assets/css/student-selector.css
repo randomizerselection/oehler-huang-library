@@ -1,0 +1,15 @@
+body { --student-selector-panel-width: min(520px, 38vw); }
+.studentSelectorSidePanel { --selector-radius: 6px; --selector-tint: var(--forest-soft); }
+.lesson-selector-heading { border-top-color: var(--forest); background: var(--paper-deep); }
+body.is-student-selector-open .app-shell { width: calc(100vw - var(--student-selector-panel-width)); margin-right: var(--student-selector-panel-width); }
+body.is-student-selector-open .deck { transform: scale(var(--selector-slide-scale, 1)); }
+body.is-student-selector-open .deck-controls { right: var(--student-selector-panel-width); width: auto; gap: 10px; }
+body.is-student-selector-open #studentSelectorButton { color: #edb993; }
+:fullscreen body.is-student-selector-open .app-shell { width: 100%; margin-right: 0; }
+:fullscreen body.is-student-selector-open .deck { transform: none; }
+@media (max-width: 760px) {
+  body { --student-selector-panel-width: 100vw; }
+  body.is-student-selector-open .app-shell { width: 100%; margin-right: 0; }
+  body.is-student-selector-open .deck { transform: none; }
+  body.is-student-selector-open .deck-controls { right: 0; }
+}

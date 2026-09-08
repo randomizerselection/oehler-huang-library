@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { CONTENT_FILES, validateContentCatalog } from "@oehler-huang/contracts/content";
 
 export function normalizeFillBlank(value) {
   return String(value ?? "")
@@ -14,8 +15,9 @@ export function normalizeFillBlank(value) {
 }
 
 export function createContentCatalog(libraryRoot) {
-  const manifest = JSON.parse(readFileSync(join(libraryRoot, "generated", "content-manifest.json"), "utf8"));
-  const bank = JSON.parse(readFileSync(join(libraryRoot, "generated", "quiz-bank.json"), "utf8"));
+  const manifest = JSON.parse(readFileSync(join(libraryRoot, CONTENT_FILES.manifest), "utf8"));
+  const bank = JSON.parse(readFileSync(join(libraryRoot, CONTENT_FILES.bank), "utf8"));
+  validateContentCatalog(manifest, bank);
   const items = new Map(manifest.items.map((item) => [item.id, item]));
   const quizzes = new Map(bank.quizzes.map((quiz) => [quiz.id, quiz]));
 

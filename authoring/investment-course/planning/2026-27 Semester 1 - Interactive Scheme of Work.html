@@ -1,0 +1,4732 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Investment Scheme of Work</title>
+  <style>
+    /* MAINTENANCE: change colours and spacing here; lesson content is in COURSE DATA below. */
+    :root {
+      --navy: #173a55;
+      --blue: #315f76;
+      --green: #5b8c43;
+      --green-dark: #426d30;
+      --ink: #193650;
+      --muted: #617184;
+      --line: #c8d4dc;
+      --page: #f3f6f2;
+      --card: #ffffff;
+      --cream: #fff6df;
+      --peach: #f7e7da;
+      --sage: #edf5e9;
+      --ice: #f1f6fa;
+      --shadow: 0 10px 28px rgba(23, 58, 85, .08);
+      --radius: 16px;
+      --content-width: 1720px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: Inter, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.45;
+    }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(23, 58, 85, .16);
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(12px);
+    }
+    .toolbar__inner {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      margin-right: auto;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    .control, .button {
+      min-height: 38px;
+      border: 1px solid #b9c8d2;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--navy);
+    }
+    .control { padding: 7px 9px; }
+    .search { width: min(220px, 42vw); }
+    #group-filter { width: 190px; max-width: 24vw; }
+    .button {
+      padding: 7px 9px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .button:hover, .button:focus-visible { border-color: var(--green); box-shadow: 0 0 0 3px rgba(91, 140, 67, .14); }
+    .button--primary { border-color: var(--green); background: var(--green); color: #fff; }
+    .button--primary:hover { background: var(--green-dark); }
+    .button[aria-pressed="true"] { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .status {
+      width: min(var(--content-width), calc(100% - 32px));
+      min-height: 20px;
+      margin: 0 auto;
+      padding: 0 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .shift-panel {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 10px 0 12px;
+      display: none;
+      align-items: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      color: var(--navy);
+      font-size: 13px;
+    }
+    .editing .shift-panel { display: flex; }
+    .shift-panel input { width: 72px; }
+
+    .hero {
+      color: #fff;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(128, 172, 91, .34), transparent 28%),
+        linear-gradient(135deg, #173a55 0%, #244e69 64%, #315f76 100%);
+    }
+    .hero__inner {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(42px, 7vw, 92px) 0 46px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #d8ead0;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 1050px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1.03;
+      letter-spacing: -.035em;
+    }
+    .intro {
+      max-width: 1220px;
+      margin: 20px 0 0;
+      color: #e9f0f4;
+      font-size: clamp(15px, 1.7vw, 20px);
+    }
+    .intro--zh { margin-top: 8px; color: #d2e3ea; }
+    .metrics {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    .metric {
+      padding: 8px 11px;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .overview {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: -22px auto 34px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .overview__card {
+      padding: 18px 20px;
+      border: 1px solid #d6e0e5;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .overview__card h2 { margin: 0 0 7px; color: var(--green-dark); font-size: 17px; }
+    .overview__card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .overview__card .zh { margin-top: 5px; color: #526a7c; }
+
+    .subject-content, .glossary, .detail-intro {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .subject-content { margin-bottom: 48px; }
+    .section-intro {
+      margin-bottom: 18px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--green);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .section-intro h2 { margin: 2px 0 7px; color: var(--navy); font-size: clamp(24px, 3vw, 38px); }
+    .section-intro p { max-width: 1120px; margin: 0; color: var(--muted); }
+    .topic-block {
+      margin: 0 0 28px;
+      border: 1px solid #d3dde3;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .topic__header {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 12px;
+      padding: 20px 22px 17px;
+      border-bottom: 1px solid var(--line);
+    }
+    .topic__number { color: #111; font-size: 30px; font-weight: 900; line-height: 1.1; }
+    .topic__title { margin: 0; color: #111; font-size: clamp(23px, 2.5vw, 34px); line-height: 1.12; }
+    .topic__title .zh { display: block; margin-top: 4px; color: var(--muted); font-size: 14px; font-weight: 600; }
+    .topic__intro { grid-column: 1 / -1; margin: 2px 0 0; color: #243f53; font-size: 16px; }
+    .topic__intro--zh { margin-top: -5px; color: var(--muted); font-size: 13px; }
+    .subtopic { padding: 0 14px 15px; }
+    .subtopic + .subtopic { padding-top: 2px; }
+    .subtopic__header {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 0;
+      margin: 0 0 4px;
+      padding: 10px 14px;
+      background: var(--peach);
+    }
+    .subtopic__number, .subtopic__title { color: #111; font-size: 17px; font-weight: 900; }
+    .subtopic__title .zh { margin-left: 8px; color: #6f6158; font-size: 13px; font-weight: 600; }
+    .content-statement {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr) auto;
+      column-gap: 10px;
+      padding: 11px 14px 12px;
+      border-bottom: 1px solid #e1e7eb;
+    }
+    .content-statement:last-child { border-bottom: 0; }
+    .content-ref { color: #111; font-size: 15px; font-weight: 700; }
+    .content-statement h4 { margin: 0; color: #111; font-size: 16px; }
+    .content-points { grid-column: 2 / 3; margin: 7px 0 0; padding-left: 21px; color: #213d52; }
+    .content-points li { margin: 3px 0; padding-left: 2px; }
+    .content-terms { grid-column: 2 / 3; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .content-terms a { color: var(--green-dark); font-weight: 700; text-decoration: none; }
+    .content-terms a:hover, .content-terms a:focus-visible { text-decoration: underline; }
+    .content-lesson {
+      grid-column: 3;
+      grid-row: 1 / 3;
+      align-self: start;
+      min-width: 104px;
+      padding: 4px 7px;
+      border: 1px solid #c7d3da;
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .detail-intro { margin-bottom: 14px; }
+    .detail-intro h2 { margin: 0; color: var(--navy); font-size: clamp(25px, 3vw, 38px); }
+    .detail-intro p { max-width: 1050px; margin: 6px 0 0; color: var(--muted); }
+
+    .scheme {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto 80px;
+    }
+    .unit { margin: 0 0 42px; scroll-margin-top: 102px; }
+    .unit__header {
+      position: relative;
+      margin-bottom: 12px;
+      padding: 15px 18px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: var(--shadow);
+    }
+    .unit__header h2 { margin: 0; font-size: clamp(18px, 2vw, 25px); }
+    .unit__header .zh { margin-left: 7px; color: #dcebf1; font-weight: 600; }
+    .unit__count { margin-top: 3px; color: #dcebf1; font-size: 12px; font-weight: 700; }
+
+    .lesson-list { display: grid; gap: 13px; }
+    .lesson {
+      overflow: hidden;
+      border: 1px solid #ced9df;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    .lesson--taught { border-color: #9fbe90; }
+    .lesson__header {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      border-bottom: 1px solid var(--line);
+    }
+    .lesson__meta { padding: 15px 17px; background: var(--cream); }
+    .lesson--taught .lesson__meta { background: var(--sage); }
+    .lesson__number-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .lesson__number { color: var(--green-dark); font-size: 19px; font-weight: 900; }
+    .lesson__content-ref { margin-top: 2px; color: var(--navy); font-size: 13px; font-weight: 900; }
+    .lesson-status {
+      padding: 2px 7px;
+      border: 1px solid #83ab70;
+      border-radius: 999px;
+      color: #355d25;
+      background: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .lesson__date { margin-top: 3px; font-weight: 800; }
+    .lesson__focus { margin-top: 5px; color: var(--navy); }
+    .lesson__note { margin-top: 6px; color: #826b31; font-size: 12px; }
+    .lesson__source { margin-top: 7px; color: #536d48; font-size: 10px; line-height: 1.3; }
+    .lesson__source strong { color: #355d25; }
+    .print-unit-label { display: none; }
+    .lesson__enquiry { padding: 15px 20px; background: linear-gradient(90deg, var(--sage), #f7faf5); }
+    .kicker { color: var(--green-dark); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .lesson__enquiry h3 { margin: 4px 0 0; color: var(--navy); font-size: clamp(18px, 2vw, 25px); line-height: 1.22; }
+
+    .lesson__grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 1.06fr) minmax(360px, 1.55fr) minmax(220px, .82fr) minmax(220px, .82fr);
+    }
+    .panel { min-width: 0; padding: 15px 17px 17px; border-right: 1px solid var(--line); }
+    .panel:last-child { border-right: 0; }
+    .panel--objectives { background: #fbfdf9; }
+    .panel--progression { background: var(--ice); }
+    .panel--evidence { background: var(--sage); }
+    .panel--knowledge { background: #f6f8fa; }
+    .panel h4 { margin: 0 0 10px; color: var(--green-dark); font-size: 13px; letter-spacing: .02em; }
+    .objectives { margin: 0; padding: 0; list-style: none; counter-reset: objectives; }
+    .objectives li {
+      counter-increment: objectives;
+      position: relative;
+      margin: 0 0 10px;
+      padding-left: 29px;
+    }
+    .objectives li::before {
+      content: counter(objectives);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 21px;
+      height: 21px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .objective__en { font-size: 13px; font-weight: 700; }
+    .objective__zh { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
+
+    .phases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .phase {
+      min-width: 0;
+      padding: 9px 10px;
+      border: 1px solid #d5e0e7;
+      border-radius: 9px;
+      background: #fff;
+    }
+    .phase__head { display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px; }
+    .phase__time { color: var(--green-dark); font-size: 11px; font-weight: 900; }
+    .phase__name { color: var(--navy); font-size: 12px; font-weight: 900; }
+    .phase__task { color: #334f66; font-size: 12px; }
+
+    .evidence-block + .evidence-block { margin-top: 14px; padding-top: 12px; border-top: 1px solid #cbdac5; }
+    .evidence-block strong { display: block; margin-bottom: 3px; color: var(--navy); font-size: 12px; }
+    .evidence-block div { font-size: 12px; }
+    .terms { margin: 0; padding-left: 17px; }
+    .terms li { margin-bottom: 5px; font-size: 12px; }
+    .definition-link { margin-left: 3px; color: var(--green-dark); font-size: 10px; font-weight: 800; text-decoration: none; }
+    .definition-link:hover, .definition-link:focus-visible { text-decoration: underline; }
+    .formula { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--navy); font-size: 12px; }
+    .formula strong { color: var(--green-dark); }
+
+    .glossary { margin-top: 54px; margin-bottom: 80px; }
+    .glossary__sources { margin-top: 8px; color: #6d7d89; font-size: 11px; }
+    .glossary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+    .glossary-card {
+      scroll-margin-top: 92px;
+      padding: 13px 14px;
+      border: 1px solid #ced9df;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 5px 16px rgba(23, 58, 85, .05);
+    }
+    .glossary-card h3 { margin: 0; color: var(--navy); font-size: 14px; }
+    .glossary-card h3 .zh { margin-left: 5px; color: var(--green-dark); font-size: 12px; font-weight: 700; }
+    .glossary-card p { margin: 6px 0 0; color: #334f66; font-size: 12px; }
+    .glossary-card__meta { margin-top: 7px; color: var(--muted); font-size: 9px; }
+
+    .edit-actions { display: none; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .editing .edit-actions { display: flex; }
+    .mini-button {
+      padding: 4px 8px;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .12);
+      color: inherit;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .lesson .mini-button { border-color: #b9c8d2; background: #fff; color: var(--navy); }
+
+    .editable { border-radius: 3px; }
+    .editing .editable {
+      outline: 1px dashed rgba(91, 140, 67, .8);
+      outline-offset: 2px;
+      background: rgba(255, 255, 255, .72);
+      cursor: text;
+    }
+    .editing .editable:focus { outline: 2px solid var(--green); background: #fff; }
+    .empty { color: #8795a1; font-style: italic; }
+    .no-results { padding: 38px; border: 1px dashed #aebdc7; border-radius: 14px; text-align: center; background: #fff; }
+
+    @media (max-width: 1250px) {
+      .lesson__grid { grid-template-columns: 1fr 1.4fr; }
+      .panel:nth-child(2) { border-right: 0; }
+      .panel:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .glossary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 820px) {
+      .toolbar { position: static; }
+      .toolbar__inner { align-items: stretch; }
+      .brand { width: 100%; }
+      .search { width: 100%; }
+      #group-filter { width: 100%; max-width: none; }
+      .overview { grid-template-columns: 1fr; }
+      .lesson__header, .lesson__grid { grid-template-columns: 1fr; }
+      .lesson__meta, .panel { border-right: 0; border-bottom: 1px solid var(--line); }
+      .panel:last-child { border-bottom: 0; }
+      .phases { grid-template-columns: 1fr; }
+      .hero__inner { padding-top: 38px; }
+      .topic__header { grid-template-columns: 42px minmax(0, 1fr); padding: 16px 14px 14px; }
+      .topic__number { font-size: 25px; }
+      .topic__intro { font-size: 14px; }
+      .subtopic { padding-left: 7px; padding-right: 7px; }
+      .subtopic__header { grid-template-columns: 58px minmax(0, 1fr); padding: 9px 10px; }
+      .content-statement { grid-template-columns: 66px minmax(0, 1fr); padding: 10px 8px; }
+      .content-points { grid-column: 2; }
+      .content-terms { grid-column: 2; }
+      .content-lesson { grid-column: 2; grid-row: auto; justify-self: start; margin-top: 7px; }
+      .glossary-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      @page { size: A4 landscape; margin: 9mm; }
+      body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .toolbar, .status, .shift-panel, .edit-actions { display: none !important; }
+      .hero__inner, .overview, .scheme, .subject-content, .glossary, .detail-intro { width: 100%; }
+      .hero__inner { padding: 10mm 0 7mm; }
+      h1 { font-size: 30pt; }
+      .intro { font-size: 10pt; }
+      .overview { margin: -5mm 0 6mm; gap: 7px; }
+      .overview__card { padding: 10px 12px; }
+      .overview__card { box-shadow: none; }
+      .section-intro { padding: 7px 9px; box-shadow: none; }
+      .section-intro h2 { font-size: 15pt; }
+      .section-intro p { font-size: 7pt; }
+      .topic-block { break-before: page; margin: 0; box-shadow: none; }
+      .topic__header { grid-template-columns: 12mm 1fr; padding: 6px 8px; }
+      .topic__number { font-size: 17pt; }
+      .topic__title { font-size: 16pt; }
+      .topic__title .zh, .topic__intro--zh { font-size: 6.5pt; }
+      .topic__intro { font-size: 8pt; }
+      .subtopic { padding: 0 5px 5px; }
+      .subtopic__header { grid-template-columns: 16mm 1fr; padding: 4px 6px; }
+      .subtopic__number, .subtopic__title { font-size: 8pt; }
+      .subtopic__title .zh { font-size: 6pt; }
+      .content-statement { grid-template-columns: 18mm 1fr 24mm; padding: 4px 6px; }
+      .content-ref, .content-statement h4 { font-size: 7pt; }
+      .content-points { margin-top: 2px; padding-left: 12px; font-size: 6.2pt; line-height: 1.18; }
+      .content-points li { margin: 1px 0; }
+      .content-terms { margin-top: 2px; font-size: 5.4pt; }
+      .content-lesson { min-width: 0; padding: 2px 3px; font-size: 5.2pt; }
+      .detail-intro { break-before: page; }
+      .unit { break-before: page; margin-bottom: 0; }
+      .unit__header { margin-bottom: 4px; padding: 5px 8px; border-radius: 0; box-shadow: none; }
+      .unit__header h2 { font-size: 9pt; }
+      .unit__count { display: none; }
+      .lesson-list { gap: 4px; }
+      .lesson { break-inside: avoid; border-radius: 0; box-shadow: none; margin-bottom: 0; }
+      .lesson__header { grid-template-columns: 36mm 1fr; }
+      .lesson__grid { grid-template-columns: 1.05fr 1.45fr .85fr .8fr; }
+      .panel, .lesson__meta, .lesson__enquiry { padding: 4px 6px; }
+      .lesson__number { font-size: 9pt; }
+      .lesson-status { padding: 1px 4px; font-size: 4.8pt; }
+      .lesson__date, .lesson__focus { margin-top: 1px; font-size: 6.3pt; }
+      .lesson__note { margin-top: 2px; font-size: 5.8pt; }
+      .lesson__source { margin-top: 2px; font-size: 5.2pt; }
+      .print-unit-label { display: block; margin-bottom: 2px; color: var(--muted); font-size: 5.3pt; font-weight: 800; }
+      .kicker { font-size: 5.8pt; }
+      .lesson__enquiry h3 { margin-top: 1px; font-size: 8pt; }
+      .panel h4 { margin-bottom: 4px; font-size: 6.6pt; }
+      .objectives li { margin-bottom: 3px; padding-left: 17px; line-height: 1.16; }
+      .objectives li::before { width: 13px; height: 13px; font-size: 5.5pt; }
+      .objective__en, .phase__task, .evidence-block div, .terms li, .formula { font-size: 6.1pt; line-height: 1.18; }
+      .objective__zh, .phase__time, .phase__name { font-size: 5.7pt; line-height: 1.15; }
+      .phases { gap: 3px; }
+      .phase { padding: 3px 4px; border-radius: 3px; }
+      .phase__head { gap: 3px; margin-bottom: 1px; }
+      .evidence-block + .evidence-block { margin-top: 5px; padding-top: 4px; }
+      .evidence-block strong { margin-bottom: 1px; font-size: 6pt; }
+      .terms { padding-left: 11px; }
+      .terms li { margin-bottom: 1px; }
+      .formula { margin-top: 4px; padding-top: 3px; }
+      .glossary { break-before: page; margin: 0; }
+      .glossary-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+      .glossary-card { break-inside: avoid; padding: 4px 5px; border-radius: 0; box-shadow: none; }
+      .glossary-card h3 { font-size: 6.5pt; }
+      .glossary-card h3 .zh, .glossary-card p { font-size: 5.8pt; line-height: 1.18; }
+      .glossary-card__meta, .glossary__sources { font-size: 4.8pt; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="Scheme controls">
+    <div class="toolbar__inner">
+      <div class="brand">Investment scheme of work</div>
+      <input id="search" class="control search" type="search" placeholder="Search lessons, terms or objectives" aria-label="Search lessons">
+      <select id="group-filter" class="control" aria-label="Filter by unit"></select>
+      <a class="button" href="#subject-content">Subject content</a>
+      <a class="button" href="#glossary">Definitions</a>
+      <button id="edit-toggle" class="button" type="button" aria-pressed="false">Edit mode</button>
+      <button id="save-draft" class="button" type="button">Save draft</button>
+      <button id="restore-draft" class="button" type="button">Restore draft</button>
+      <button id="download" class="button button--primary" type="button">Download updated HTML</button>
+      <button id="print" class="button" type="button">Print / PDF</button>
+    </div>
+    <div id="status" class="status" aria-live="polite"></div>
+    <div class="shift-panel" aria-label="Pacing shift controls">
+      <strong>Shift pacing:</strong>
+      <label>from Lesson <input id="shift-from" class="control" type="number" min="1" value="2"></label>
+      <label>by weeks <input id="shift-weeks" class="control" type="number" value="1"></label>
+      <button id="apply-shift" class="button" type="button">Apply shift</button>
+      <span>Dates stay on Wednesday/Friday because the shift is in whole weeks.</span>
+    </div>
+  </nav>
+
+  <main id="app"></main>
+
+  <!-- COURSE DATA: this is the only content block the renderer needs. -->
+  <script id="course-data" type="application/json">
+{
+  "schemaVersion": 3,
+  "courseId": "investment-financial-decision-making-2026-27-s1",
+  "storageKey": "investment-scheme-2026-27-s1-draft-v3",
+  "calendarStartYear": 2026,
+  "yearRolloverLesson": 28,
+  "eyebrow": "IC Junior High  |  Detailed Investment Scheme of Work  |  2026/27 Semester 1",
+  "title": "Investment and Financial Decision-Making - Syllabus and Scheme of Work",
+  "introEn": "This detailed scheme of work turns the lesson-by-lesson syllabus into a teachable sequence. Every 40-minute lesson begins with retrieval and an answerable dilemma, then moves through explicit modelling, guided practice, independent analysis and an individual evidence check. The repeated architecture is stable, but the thinking task changes: students classify, calculate, compare, analyse evidence, evaluate trade-offs and finally recommend and defend.",
+  "introZh": "本详细教学计划把逐课课程大纲转化为可实施的课堂流程。每节40分钟课程先进行知识回顾和可回答的判断问题，再进入明确示范、指导练习、独立分析与个人证据检查。课堂结构保持稳定，但思维任务逐步提升：学生先分类和计算，再进行比较、证据分析、权衡评估，最终提出并论证建议。",
+  "architectureTitle": "Common 40-minute learning architecture / 40分钟课堂结构",
+  "architectureEn": "0-4 Retrieve prior knowledge -> 4-7 commit to an initial judgement -> 7-15 learn through a concise model -> 15-25 practise with feedback -> 25-35 analyse an unfamiliar case -> 35-40 submit an individual exit response.",
+  "architectureZh": "0-4分钟回顾 -> 4-7分钟作出初步判断 -> 7-15分钟学习示范 -> 15-25分钟练习与反馈 -> 25-35分钟分析新情境 -> 35-40分钟个人退出任务。",
+  "progressionTitle": "What increases across the semester / 学期内逐步提高的要求",
+  "progression": "Knowledge load: terms -> formulas -> linked concepts -> multi-source evidence.  Reasoning load: classify -> calculate -> compare -> explain causation -> evaluate -> defend.  Independence: teacher model -> guided practice -> paired audit -> individual judgement.  Evidence standard: answer -> working -> reason -> counterargument -> caveat.",
+  "planningTitle": "Planning notes / 备课说明",
+  "planningNotes": "Use frozen classroom figures, not live prices. Require students to show working and label assumptions. Reveal models only after an attempt. Preserve the stated individual output even when discussion is collaborative. The Fri Jan 1 lesson remains provisional pending the school's New Year timetable.",
+  "subjectContentTitle": "Subject content",
+  "subjectContentIntro": "The subject content is organised using a three-level syllabus hierarchy: major topic, subtopic and numbered content section. Each content section is taught through one lesson in the detailed scheme of work below.",
+  "glossaryTitle": "Key term definitions",
+  "glossaryIntro": "Definitions use the established classroom wording from the active and retained Investment Analysis term banks in oehler-huang-platform. Syllabus-specific definitions are added only where this course plan requires a term not recorded in those banks.",
+  "glossarySources": [
+    "oehler-huang-platform/apps/library/investment-analysis/course-map-financial-decisions-data.js",
+    "oehler-huang-platform/apps/library/investment-analysis/_archive/personal-finance-course-map-data.js"
+  ],
+  "topics": [
+    {
+      "id": "topic-1",
+      "number": "1",
+      "titleEn": "Investment foundations and return",
+      "titleZh": "投资基础与回报",
+      "introEn": "This topic introduces the fundamental ideas and calculations that underpin investment decision-making, including the distinction between investment, saving and speculation, total return, compound growth, inflation, risk, investor suitability and investment policy.",
+      "introZh": "本主题介绍投资决策的基本概念与计算，包括投资、储蓄与投机的区别，总回报、复利增长、通货膨胀、风险、投资者适合度与投资政策。"
+    },
+    {
+      "id": "topic-2",
+      "number": "2",
+      "titleEn": "Investment instruments and portfolio construction",
+      "titleZh": "投资工具与投资组合构建",
+      "introEn": "This topic introduces the main investment instruments and the principles used to combine them, including cash and deposits, bonds, shares, funds, fees, diversification, regular investing, asset allocation and portfolio construction.",
+      "introZh": "本主题介绍主要投资工具及其组合原则，包括现金与存款、债券、股票、基金、费用、分散投资、定期投资、资产配置与投资组合构建。"
+    },
+    {
+      "id": "topic-3",
+      "number": "3",
+      "titleEn": "Markets and company analysis",
+      "titleZh": "市场与公司分析",
+      "introEn": "This topic introduces how securities are issued and traded and how company evidence is analysed, including market structure, orders and transaction costs, prices and market capitalisation, price discovery, financial statements, valuation and evidence-based company conclusions.",
+      "introZh": "本主题介绍证券如何发行与交易以及如何分析公司证据，包括市场结构、订单与交易成本、价格与市值、价格发现、财务报表、估值与基于证据的公司结论。"
+    },
+    {
+      "id": "topic-4",
+      "number": "4",
+      "titleEn": "Portfolio evaluation and investment decisions",
+      "titleZh": "投资组合评估与投资决策",
+      "introEn": "This topic develops the analysis and evaluation of portfolios, including benchmarked performance, evidence quality, concentration and geographic risk, rebalancing, behavioural biases, stress testing and the defence of a final investment recommendation.",
+      "introZh": "本主题培养对投资组合进行分析与评估的能力，包括基准化业绩、证据质量、集中度与地域风险、再平衡、行为偏误、压力测试与最终投资建议的答辩。"
+    }
+  ],
+  "groups": [
+    {
+      "id": "group-1",
+      "titleEn": "Investment, saving and return",
+      "titleZh": "投资、储蓄与回报",
+      "number": "1.1",
+      "topicId": "topic-1"
+    },
+    {
+      "id": "group-2",
+      "titleEn": "Risk, suitability and investment policy",
+      "titleZh": "风险、适合度与投资政策",
+      "number": "1.2",
+      "topicId": "topic-1"
+    },
+    {
+      "id": "group-3",
+      "titleEn": "Investment instruments, returns and costs",
+      "titleZh": "投资工具、回报与成本",
+      "number": "2.1",
+      "topicId": "topic-2"
+    },
+    {
+      "id": "group-4",
+      "titleEn": "Diversification and portfolio construction",
+      "titleZh": "分散投资与投资组合构建",
+      "number": "2.2",
+      "topicId": "topic-2"
+    },
+    {
+      "id": "group-5",
+      "titleEn": "Market structure, trading and prices",
+      "titleZh": "市场结构、交易与价格",
+      "number": "3.1",
+      "topicId": "topic-3"
+    },
+    {
+      "id": "group-6",
+      "titleEn": "Company evidence and valuation",
+      "titleZh": "公司证据与估值",
+      "number": "3.2",
+      "topicId": "topic-3"
+    },
+    {
+      "id": "group-7",
+      "titleEn": "Performance and portfolio risk",
+      "titleZh": "业绩与投资组合风险",
+      "number": "4.1",
+      "topicId": "topic-4"
+    },
+    {
+      "id": "group-8",
+      "titleEn": "Rebalancing, behaviour and final judgement",
+      "titleZh": "再平衡、行为与最终判断",
+      "number": "4.2",
+      "topicId": "topic-4"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "number": 1,
+      "groupId": "group-1",
+      "date": "Wed Sep 2",
+      "focus": "What is investment?",
+      "scheduleNote": "",
+      "question": "Where are you using money or other resources now because you expect a future benefit?",
+      "objectives": [
+        {
+          "en": "What is investment?",
+          "zh": "什么是投资？"
+        },
+        {
+          "en": "What is financial investment?",
+          "zh": "什么是金融投资？"
+        },
+        {
+          "en": "Distinguish between investment, saving and speculation.",
+          "zh": "区分投资、储蓄与投机。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "Slides 2-3",
+          "name": "Open",
+          "task": "Answer the opening question and establish the three lesson objectives."
+        },
+        {
+          "time": "Slides 4-6",
+          "name": "Investment",
+          "task": "Define investment as using money or other resources now because you expect a future benefit; apply the idea to skills, qualifications and machinery."
+        },
+        {
+          "time": "Slides 7-10",
+          "name": "Financial investment",
+          "task": "Define financial investment as putting money into financial assets to seek future total return; introduce total return and long-run asset-return evidence."
+        },
+        {
+          "time": "Slides 11-20",
+          "name": "Compare",
+          "task": "Distinguish investment from speculation and saving using expected income, underlying value, predicted price change, capital preservation and liquidity."
+        },
+        {
+          "time": "Slides 21-31",
+          "name": "Check",
+          "task": "Complete the definition check, classify 13 cases as investment, speculation or saving, and answer five MCQs."
+        },
+        {
+          "time": "Slides 32-38",
+          "name": "Apply",
+          "task": "Judge three unfamiliar scenarios and justify decisions using emergency fund, time horizon, liquidity, possible loss and repayment obligation."
+        }
+      ],
+      "output": "Investment/speculation/saving classifications, five MCQs and three short-answer judgements with model-answer comparison.",
+      "checkpoint": "A sound judgement uses the decision basis: expected income or evidence about underlying value for investment, a predicted price change for speculation, and safety or liquidity for saving.",
+      "terms": [
+        "investment（投资）",
+        "future benefit（未来收益）",
+        "financial investment（金融投资）",
+        "financial asset（金融资产）",
+        "total return（总回报）",
+        "speculation（投机）",
+        "predicted price change（预测的价格变动）",
+        "saving（储蓄）",
+        "capital preservation（保本）",
+        "liquidity（流动性）"
+      ],
+      "formula": "",
+      "status": "taught",
+      "sourceDeck": "lesson-01/Lesson 01 - What is investment.pptx",
+      "sourceSlides": "Slides 1-38",
+      "sourceSha256": "61914381E5B929558EEC9916B2D21D57CDFFDA156D683A8B98411B61F6291F80",
+      "sequenceTitle": "Taught sequence from PowerPoint",
+      "contentRef": "1.1.1",
+      "contentPoints": [
+        "definition of investment as the current use of money or other resources for an expected future benefit",
+        "examples of investment in human capital, productive assets and financial assets",
+        "definition of financial investment and its relationship to total return",
+        "distinction between investment, saving and speculation using purpose, evidence, liquidity and possible loss"
+      ],
+      "definitions": [
+        {
+          "key": "investment",
+          "term": "investment",
+          "zh": "投资",
+          "definition": "Investment is putting money into an asset to seek future return while accepting possible loss.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "investment"
+        },
+        {
+          "key": "future-benefit",
+          "term": "future benefit",
+          "zh": "未来收益",
+          "definition": "A future benefit is an expected later gain, income, service or capability resulting from a current commitment of money or other resources.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "future benefit"
+        },
+        {
+          "key": "financial-investment",
+          "term": "financial investment",
+          "zh": "金融投资",
+          "definition": "Financial investment means putting money into an asset to seek future total return. Total return equals income plus the change in market value. Evidence can support the expectation, but possible loss remains.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "financial investment"
+        },
+        {
+          "key": "financial-asset",
+          "term": "financial asset",
+          "zh": "金融资产",
+          "definition": "A financial asset is a claim, contract or ownership interest with monetary value, such as a deposit, bond, share or fund unit.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "financial asset"
+        },
+        {
+          "key": "total-return",
+          "term": "total return",
+          "zh": "总回报",
+          "definition": "Total return combines price change and income received over a stated holding period.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "total return"
+        },
+        {
+          "key": "speculation",
+          "term": "speculation",
+          "zh": "投机",
+          "definition": "Speculation means trading mainly to profit from a predicted price change. Income or underlying value is not the main basis for the trade.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "speculation"
+        },
+        {
+          "key": "predicted-price-change",
+          "term": "predicted price change",
+          "zh": "预测的价格变动",
+          "definition": "A predicted price change is an expected rise or fall in market price; when it is the main basis for a trade, the decision is speculative.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "predicted price change"
+        },
+        {
+          "key": "saving",
+          "term": "saving",
+          "zh": "储蓄",
+          "definition": "Saving is current income not spent now. Saving emphasises capital preservation and liquidity.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "saving"
+        },
+        {
+          "key": "capital-preservation",
+          "term": "capital preservation",
+          "zh": "保本",
+          "definition": "Capital preservation is prioritising protection of the amount invested over seeking high return.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "capital preservation"
+        },
+        {
+          "key": "liquidity",
+          "term": "liquidity",
+          "zh": "流动性",
+          "definition": "Liquidity is the ability to access or trade an asset quickly at relatively low cost without a large price change.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "liquidity"
+        }
+      ]
+    },
+    {
+      "id": "lesson-2",
+      "number": 2,
+      "groupId": "group-1",
+      "date": "Fri Sep 4",
+      "focus": "Measuring investment return",
+      "scheduleNote": "",
+      "question": "Investment A earns CNY 200 and Investment B earns CNY 600. Which performed better?",
+      "objectives": [
+        {
+          "en": "Explain the components of total return.",
+          "zh": "解释总回报的构成。"
+        },
+        {
+          "en": "Calculate return amount and percentage return.",
+          "zh": "计算回报金额与回报率。"
+        },
+        {
+          "en": "Use percentage return to compare investments fairly.",
+          "zh": "运用回报率公平比较投资。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Recall the two sources of total return from Lesson 1."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose A, B or insufficient information; defend the choice."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model return amount and percentage return step by step."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Complete three examples, including income and a capital loss."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare two unequal starting amounts and explain the fair metric."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Solve one calculation and interpret it in words."
+        }
+      ],
+      "output": "Worked comparison showing formula, substitution, answer and interpretation.",
+      "checkpoint": "Hinge: CNY 1,000 becomes CNY 1,100 and pays CNY 20; total return is 12%.",
+      "terms": [
+        "total return（总回报）",
+        "income（收入）",
+        "capital gain/loss（资本利得／损失）",
+        "percentage return（回报率）"
+      ],
+      "formula": "Total return = ending value - starting value + income; return % = total return / starting value x 100",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.1.2",
+      "contentPoints": [
+        "components of total return: income and the change in an investment's value",
+        "calculation of total return amount",
+        "calculation of percentage return",
+        "use of percentage return to compare investments with different starting values"
+      ],
+      "definitions": [
+        {
+          "key": "total-return",
+          "term": "total return",
+          "zh": "总回报",
+          "definition": "Total return combines price change and income received over a stated holding period.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "total return"
+        },
+        {
+          "key": "income",
+          "term": "income",
+          "zh": "收入",
+          "definition": "Investment income is cash received from holding an asset, such as interest, coupons, dividends or rent.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "income"
+        },
+        {
+          "key": "capital-gain-loss",
+          "term": "capital gain/loss",
+          "zh": "资本利得／损失",
+          "definition": "A capital gain or loss is the increase or decrease in an asset's value relative to its starting or purchase value.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "capital gain/loss"
+        },
+        {
+          "key": "percentage-return",
+          "term": "percentage return",
+          "zh": "回报率",
+          "definition": "Percentage return expresses total return as a percentage of the investment's starting value.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "percentage return"
+        }
+      ]
+    },
+    {
+      "id": "lesson-3",
+      "number": 3,
+      "groupId": "group-1",
+      "date": "Wed Sep 9",
+      "focus": "Compound growth",
+      "scheduleNote": "",
+      "question": "Can an investment grow even when the investor adds no new money?",
+      "objectives": [
+        {
+          "en": "Explain reinvestment and compound growth.",
+          "zh": "解释再投资与复利增长。"
+        },
+        {
+          "en": "Calculate future value over several periods.",
+          "zh": "计算多个期间后的终值。"
+        },
+        {
+          "en": "Distinguish a projection from a guaranteed outcome.",
+          "zh": "区分预测结果与保证结果。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Calculate one-period growth using percentage return."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict which grows faster: simple or compound growth."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Build a three-year value table and derive the formula."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate two scenarios with different rates and horizons."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Explain why later-year growth is larger and label assumptions."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Correct a projection that is written as a promise."
+        }
+      ],
+      "output": "Three-year compound-growth table plus an assumptions statement.",
+      "checkpoint": "Students must apply the return to the new balance, not repeatedly to the starting amount.",
+      "terms": [
+        "compound growth（复利增长）",
+        "reinvestment（再投资）",
+        "future value（终值）",
+        "assumed return（假设回报率）"
+      ],
+      "formula": "Future value = P(1 + r)^n",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.1.3",
+      "contentPoints": [
+        "meaning of reinvestment and compound growth",
+        "calculation of future value over several periods",
+        "effects of the assumed return and time horizon on compound growth",
+        "distinction between a projection based on assumptions and a guaranteed outcome"
+      ],
+      "definitions": [
+        {
+          "key": "compound-growth",
+          "term": "compound growth",
+          "zh": "复利增长",
+          "definition": "Compounding is growth in which later returns build on earlier returns.",
+          "source": "Active Investment Analysis term bank · definition aligned to compounding",
+          "sourceTerm": "compounding"
+        },
+        {
+          "key": "reinvestment",
+          "term": "reinvestment",
+          "zh": "再投资",
+          "definition": "Reinvestment is using income or gains to acquire additional assets rather than withdrawing them.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "reinvestment"
+        },
+        {
+          "key": "future-value",
+          "term": "future value",
+          "zh": "终值",
+          "definition": "Future value is the projected value of money after growth over a stated period and assumed return.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "future value"
+        },
+        {
+          "key": "assumed-return",
+          "term": "assumed return",
+          "zh": "假设回报率",
+          "definition": "An assumed return is a rate used in a projection; it is an input and not a promised outcome.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "assumed return"
+        }
+      ]
+    },
+    {
+      "id": "lesson-4",
+      "number": 4,
+      "groupId": "group-1",
+      "date": "Fri Sep 11",
+      "focus": "Nominal and real return",
+      "scheduleNote": "",
+      "question": "If an investment rises 4% while prices rise 5%, is the investor better off?",
+      "objectives": [
+        {
+          "en": "Distinguish nominal return from real return.",
+          "zh": "区分名义回报与实际回报。"
+        },
+        {
+          "en": "Calculate approximate real return.",
+          "zh": "计算近似实际回报。"
+        },
+        {
+          "en": "Interpret changes in purchasing power.",
+          "zh": "解读购买力变化。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve nominal return and the meaning of inflation."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge the 4% versus 5% case before calculating."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model nominal, inflation and real-return relationships."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate four cases, including positive nominal but negative real return."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Rank three investments by purchasing-power outcome."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Explain one misleading nominal-return claim."
+        }
+      ],
+      "output": "Nominal-real comparison table with a written purchasing-power conclusion.",
+      "checkpoint": "Hinge: 7% nominal return and 3% inflation gives about 4% real return.",
+      "terms": [
+        "nominal return（名义回报）",
+        "real return（实际回报）",
+        "inflation（通货膨胀）",
+        "purchasing power（购买力）"
+      ],
+      "formula": "Approximate real return = nominal return - inflation rate",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.1.4",
+      "contentPoints": [
+        "distinction between nominal return and real return",
+        "effect of inflation on purchasing power",
+        "calculation of approximate real return",
+        "interpretation of positive and negative real returns"
+      ],
+      "definitions": [
+        {
+          "key": "nominal-return",
+          "term": "nominal return",
+          "zh": "名义回报",
+          "definition": "Return before adjusting for inflation.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "nominal return"
+        },
+        {
+          "key": "real-return",
+          "term": "real return",
+          "zh": "实际回报",
+          "definition": "Real return is investment return after allowing for inflation.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "real return"
+        },
+        {
+          "key": "inflation",
+          "term": "inflation",
+          "zh": "通货膨胀",
+          "definition": "Inflation is a sustained increase in the general price level that reduces the purchasing power of money.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "inflation"
+        },
+        {
+          "key": "purchasing-power",
+          "term": "purchasing power",
+          "zh": "购买力",
+          "definition": "Purchasing power is the quantity of goods and services that money can buy.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "purchasing power"
+        }
+      ]
+    },
+    {
+      "id": "lesson-5",
+      "number": 5,
+      "groupId": "group-2",
+      "date": "Wed Sep 16",
+      "focus": "Risk and possible return",
+      "scheduleNote": "",
+      "question": "Does a higher expected return mean an investor will earn more?",
+      "objectives": [
+        {
+          "en": "Distinguish expected return from realised return.",
+          "zh": "区分预期回报与已实现回报。"
+        },
+        {
+          "en": "Interpret outcome ranges and volatility.",
+          "zh": "解读结果区间与波动性。"
+        },
+        {
+          "en": "Explain the risk-return trade-off without making promises.",
+          "zh": "在不作保证的前提下解释风险回报权衡。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Recall the difference between projection and outcome."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose between a certain 3% and an uncertain range."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model probability-free range and volatility diagrams."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Match four return patterns to risk descriptions."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare two choices and write a qualified judgement."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Rewrite a statement that confuses expected and realised return."
+        }
+      ],
+      "output": "Risk-return map and one qualified comparison paragraph.",
+      "checkpoint": "A sound answer mentions both possible upside and possible loss or variability.",
+      "terms": [
+        "risk（风险）",
+        "expected return（预期回报）",
+        "realised return（已实现回报）",
+        "volatility（波动性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.2.1",
+      "contentPoints": [
+        "distinction between expected return and realised return",
+        "interpretation of outcome ranges and volatility",
+        "relationship between risk and possible return",
+        "limitations of the claim that taking greater risk guarantees a greater return"
+      ],
+      "definitions": [
+        {
+          "key": "risk",
+          "term": "risk",
+          "zh": "风险",
+          "definition": "Risk is the possibility that results, returns or prices are worse than expected.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "risk"
+        },
+        {
+          "key": "expected-return",
+          "term": "expected return",
+          "zh": "预期回报",
+          "definition": "Expected return is a reasoned estimate of possible average return, not a guaranteed outcome.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "expected return"
+        },
+        {
+          "key": "realised-return",
+          "term": "realised return",
+          "zh": "已实现回报",
+          "definition": "Realised return is the return actually earned over a completed period.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "realised return"
+        },
+        {
+          "key": "volatility",
+          "term": "volatility",
+          "zh": "波动性",
+          "definition": "How much an investment price moves up and down over time.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "volatility"
+        }
+      ]
+    },
+    {
+      "id": "lesson-6",
+      "number": 6,
+      "groupId": "group-2",
+      "date": "Fri Sep 18",
+      "focus": "Investor profile and suitability",
+      "scheduleNote": "",
+      "question": "Could the same risky asset be sensible for one investor and unsuitable for another?",
+      "objectives": [
+        {
+          "en": "Explain risk tolerance and risk capacity.",
+          "zh": "解释风险承受意愿与承受能力。"
+        },
+        {
+          "en": "Assess horizon and liquidity needs.",
+          "zh": "评估投资期限与流动性需求。"
+        },
+        {
+          "en": "Judge suitability using several constraints.",
+          "zh": "运用多项限制判断适合性。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve risk, liquidity and time horizon."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Compare two investors facing the same market fall."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model a four-part investor profile."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Build profiles from three short evidence cards."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Recommend only a broad risk level and justify it."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Identify the missing fact that could change one judgement."
+        }
+      ],
+      "output": "Two investor profiles and a conditional suitability judgement.",
+      "checkpoint": "Students must not treat willingness to lose as the same as financial capacity to lose.",
+      "terms": [
+        "risk tolerance（风险承受意愿）",
+        "risk capacity（风险承受能力）",
+        "time horizon（投资期限）",
+        "liquidity（流动性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.2.2",
+      "contentPoints": [
+        "definition and distinction between risk tolerance and risk capacity",
+        "effects of time horizon, liquidity needs and loss consequences on an investor profile",
+        "assessment of investment suitability using objectives and constraints"
+      ],
+      "definitions": [
+        {
+          "key": "risk-tolerance",
+          "term": "risk tolerance",
+          "zh": "风险承受意愿",
+          "definition": "Risk tolerance is a person's willingness to accept uncertainty and investment losses.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "risk tolerance"
+        },
+        {
+          "key": "risk-capacity",
+          "term": "risk capacity",
+          "zh": "风险承受能力",
+          "definition": "Risk capacity is a person's financial ability to withstand loss without damaging important goals.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "risk capacity"
+        },
+        {
+          "key": "time-horizon",
+          "term": "time horizon",
+          "zh": "投资期限",
+          "definition": "Time horizon is the period before invested money is expected to be needed.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "time horizon"
+        },
+        {
+          "key": "liquidity",
+          "term": "liquidity",
+          "zh": "流动性",
+          "definition": "Liquidity is the ability to access or trade an asset quickly at relatively low cost without a large price change.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "liquidity"
+        }
+      ]
+    },
+    {
+      "id": "lesson-7",
+      "number": 7,
+      "groupId": "group-2",
+      "date": "Wed Sep 23",
+      "focus": "Investor objectives and constraints",
+      "scheduleNote": "",
+      "question": "What information turns a vague aim into an investable objective?",
+      "objectives": [
+        {
+          "en": "Quantify an investment objective.",
+          "zh": "量化投资目标。"
+        },
+        {
+          "en": "Derive horizon, liquidity and loss constraints.",
+          "zh": "推导期限、流动性与损失限制。"
+        },
+        {
+          "en": "Identify when evidence is insufficient for a decision.",
+          "zh": "识别证据不足以决策的情况。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve the components of an investor profile."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Improve the vague aim: make my money grow."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model target amount, date, flexibility and contribution data."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Convert two aims into measurable objectives and constraints."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Calculate a simple funding gap and test feasibility."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "State the most decision-relevant missing information."
+        }
+      ],
+      "output": "Objective-and-constraints sheet with one funding-gap calculation.",
+      "checkpoint": "A complete objective contains amount, date and flexibility; it does not assume a promised return.",
+      "terms": [
+        "investment objective（投资目标）",
+        "constraint（限制条件）",
+        "capital preservation（资本保全）",
+        "loss limit（损失上限）"
+      ],
+      "formula": "Funding gap = target amount - projected available amount",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.2.3",
+      "contentPoints": [
+        "features of a measurable investment objective, including amount, date and flexibility",
+        "derivation of time-horizon, liquidity and loss constraints",
+        "calculation of a simple funding gap",
+        "identification of missing information that could change a decision"
+      ],
+      "definitions": [
+        {
+          "key": "investment-objective",
+          "term": "investment objective",
+          "zh": "投资目标",
+          "definition": "An investment objective is a measurable result sought by an investor, stated with a purpose, target amount or outcome, time horizon and relevant flexibility.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "investment objective"
+        },
+        {
+          "key": "constraint",
+          "term": "constraint",
+          "zh": "限制条件",
+          "definition": "An investment constraint is a limit such as a short horizon, liquidity need, loss limit or restricted asset or instrument type.",
+          "source": "Active Investment Analysis term bank · definition aligned to investment constraint",
+          "sourceTerm": "investment constraint"
+        },
+        {
+          "key": "capital-preservation",
+          "term": "capital preservation",
+          "zh": "资本保全",
+          "definition": "Capital preservation is prioritising protection of the amount invested over seeking high return.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "capital preservation"
+        },
+        {
+          "key": "loss-limit",
+          "term": "loss limit",
+          "zh": "损失上限",
+          "definition": "A loss limit is the maximum loss an investor or policy is prepared or able to accept before a decision must be reviewed.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "loss limit"
+        }
+      ]
+    },
+    {
+      "id": "lesson-8",
+      "number": 8,
+      "groupId": "group-2",
+      "date": "Fri Sep 25",
+      "focus": "Investment policy and decision rules",
+      "scheduleNote": "",
+      "question": "Can written rules improve an investment decision made under uncertainty?",
+      "objectives": [
+        {
+          "en": "Explain the purpose of an investment policy.",
+          "zh": "解释投资政策的作用。"
+        },
+        {
+          "en": "Write evidence, allocation and review rules.",
+          "zh": "撰写证据、配置与复审规则。"
+        },
+        {
+          "en": "Defend rules using investor constraints.",
+          "zh": "运用投资者限制论证规则。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve objective, horizon, liquidity and loss limit."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose which of three vague rules is usable."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model a concise investment-policy structure."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Turn weak statements into measurable decision rules."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Draft and peer-audit a mini policy for consistency."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Defend the rule most likely to prevent a poor decision."
+        }
+      ],
+      "output": "One-page mini investment policy with four testable rules.",
+      "checkpoint": "Peer audit checks whether every rule follows from stated evidence or constraints.",
+      "terms": [
+        "investment policy（投资政策）",
+        "decision rule（决策规则）",
+        "evidence standard（证据标准）",
+        "review trigger（复审触发条件）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "1.2.4",
+      "contentPoints": [
+        "purpose and main elements of an investment policy",
+        "rules concerning evidence, allocation, risk limits and review",
+        "use of investor objectives and constraints to justify decision rules",
+        "role of pre-commitment in disciplined investment decisions"
+      ],
+      "definitions": [
+        {
+          "key": "investment-policy",
+          "term": "investment policy",
+          "zh": "投资政策",
+          "definition": "An investment plan records goals, horizon, risk limits, permitted asset types and review arrangements before investment choices are compared.",
+          "source": "Active Investment Analysis term bank · definition aligned to investment plan",
+          "sourceTerm": "investment plan"
+        },
+        {
+          "key": "decision-rule",
+          "term": "decision rule",
+          "zh": "决策规则",
+          "definition": "A decision rule is a written condition used to make choices consistently rather than emotionally.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "decision rule"
+        },
+        {
+          "key": "evidence-standard",
+          "term": "evidence standard",
+          "zh": "证据标准",
+          "definition": "An evidence standard specifies the quality, relevance, date and completeness information must meet before it supports a decision.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "evidence standard"
+        },
+        {
+          "key": "review-trigger",
+          "term": "review trigger",
+          "zh": "复审触发条件",
+          "definition": "A review trigger is an event or evidence threshold that requires a decision to be reconsidered.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "review trigger"
+        }
+      ]
+    },
+    {
+      "id": "lesson-9",
+      "number": 9,
+      "groupId": "group-3",
+      "date": "Wed Oct 14",
+      "focus": "Cash deposits and bonds",
+      "scheduleNote": "",
+      "question": "Why can two investments that both pay interest have different risks?",
+      "objectives": [
+        {
+          "en": "Explain deposit and bond claims.",
+          "zh": "解释存款与债券所代表的权益。"
+        },
+        {
+          "en": "Calculate coupon income.",
+          "zh": "计算票息收入。"
+        },
+        {
+          "en": "Compare maturity, liquidity, inflation and credit risk.",
+          "zh": "比较到期、流动性、通胀与信用风险。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve return sources and liquidity."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict which product offers more certainty and why."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model claims, cash flows, maturity and default risk."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate coupon income for three bonds."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Complete an aligned deposit-bond comparison grid."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Select the decisive risk for one short case."
+        }
+      ],
+      "output": "Deposit-bond comparison grid and one coupon calculation.",
+      "checkpoint": "Students distinguish interest-rate wording from a guarantee that all money will be repaid.",
+      "terms": [
+        "cash deposit（现金存款）",
+        "bond（债券）",
+        "coupon（票息）",
+        "credit risk（信用风险）"
+      ],
+      "formula": "Annual coupon income = face value x coupon rate",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.1.1",
+      "contentPoints": [
+        "characteristics of cash deposits and bonds as financial claims",
+        "calculation of annual coupon income",
+        "comparison of maturity, liquidity, inflation and credit risk",
+        "evidence required before comparing interest-paying investments"
+      ],
+      "definitions": [
+        {
+          "key": "cash-deposit",
+          "term": "cash deposit",
+          "zh": "现金存款",
+          "definition": "A deposit is money held with a financial institution under stated access, interest and protection terms.",
+          "source": "Active Investment Analysis term bank · definition aligned to deposit",
+          "sourceTerm": "deposit"
+        },
+        {
+          "key": "bond",
+          "term": "bond",
+          "zh": "债券",
+          "definition": "A bond is a security representing money lent to an issuer in return for promised payments under stated terms.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "bond"
+        },
+        {
+          "key": "coupon",
+          "term": "coupon",
+          "zh": "票息",
+          "definition": "A coupon is the periodic interest payment specified by a bond.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "coupon"
+        },
+        {
+          "key": "credit-risk",
+          "term": "credit risk",
+          "zh": "信用风险",
+          "definition": "Risk that the issuer or borrowers do not meet payment obligations.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "credit risk"
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "number": 10,
+      "groupId": "group-3",
+      "date": "Fri Oct 16",
+      "focus": "Shares and shareholder returns",
+      "scheduleNote": "",
+      "question": "What exactly does a shareholder own, and where can the return come from?",
+      "objectives": [
+        {
+          "en": "Explain share ownership and limited liability.",
+          "zh": "解释股票所有权与有限责任。"
+        },
+        {
+          "en": "Distinguish dividends from capital gains.",
+          "zh": "区分股息与资本利得。"
+        },
+        {
+          "en": "Calculate a share's total return.",
+          "zh": "计算股票总回报。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve total-return components."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Decide whether buying one share means owning company assets directly."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model ownership rights, dividends and price change."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate three share-return cases, including a loss."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Explain what limited liability does and does not protect."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Correct one misconception about shareholder ownership."
+        }
+      ],
+      "output": "Annotated shareholder-rights diagram and worked total-return case.",
+      "checkpoint": "Hinge: limited liability limits obligations; it does not prevent the share price falling.",
+      "terms": [
+        "share（股票）",
+        "shareholder（股东）",
+        "dividend（股息）",
+        "limited liability（有限责任）"
+      ],
+      "formula": "Total return = ending value - starting value + dividends",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.1.2",
+      "contentPoints": [
+        "meaning of share ownership and limited liability",
+        "sources of shareholder return: dividends and capital gains or losses",
+        "calculation of a share's total return",
+        "reasons why shareholder return is uncertain"
+      ],
+      "definitions": [
+        {
+          "key": "share",
+          "term": "share",
+          "zh": "股票",
+          "definition": "A share is one unit of ownership in a company and gives a claim on part of its equity.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "share"
+        },
+        {
+          "key": "shareholder",
+          "term": "shareholder",
+          "zh": "股东",
+          "definition": "A shareholder is a person or organisation that owns one or more shares in a company.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "shareholder"
+        },
+        {
+          "key": "dividend",
+          "term": "dividend",
+          "zh": "股息",
+          "definition": "A dividend is a distribution a company makes to shareholders from available resources.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "dividend"
+        },
+        {
+          "key": "limited-liability",
+          "term": "limited liability",
+          "zh": "有限责任",
+          "definition": "Limited liability means a shareholder's loss is normally limited to the amount invested, provided there is no separate obligation.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "limited liability"
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "number": 11,
+      "groupId": "group-3",
+      "date": "Wed Oct 21",
+      "focus": "Funds, ETFs and index investing",
+      "scheduleNote": "",
+      "question": "Is owning a fund the same as owning every company inside it directly?",
+      "objectives": [
+        {
+          "en": "Explain how investment funds pool assets.",
+          "zh": "解释投资基金如何汇集资产。"
+        },
+        {
+          "en": "Compare ETFs, index funds and active funds.",
+          "zh": "比较ETF、指数基金与主动基金。"
+        },
+        {
+          "en": "Evaluate ownership, diversification and management trade-offs.",
+          "zh": "评估所有权、分散程度与管理方式的权衡。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve share ownership and diversification."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Sort four claims about direct and pooled ownership."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model fund structure, benchmark and management method."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Complete an aligned four-product comparison."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Choose a product for a stated brief and qualify the choice."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Name one benefit and one remaining risk of a broad fund."
+        }
+      ],
+      "output": "Four-product comparison matrix and a conditional product judgement.",
+      "checkpoint": "A correct answer does not claim that diversification removes market risk.",
+      "terms": [
+        "investment fund（投资基金）",
+        "ETF（交易所交易基金）",
+        "index fund（指数基金）",
+        "active management（主动管理）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.1.3",
+      "contentPoints": [
+        "meaning of pooled investment through a fund",
+        "characteristics of ETFs, index funds and actively managed funds",
+        "comparison of ownership, management, trading and cost features",
+        "benefits and limitations of diversification through funds"
+      ],
+      "definitions": [
+        {
+          "key": "investment-fund",
+          "term": "investment fund",
+          "zh": "投资基金",
+          "definition": "An investment fund pools money from investors to hold a portfolio under stated objectives and rules.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "investment fund"
+        },
+        {
+          "key": "etf",
+          "term": "ETF",
+          "zh": "交易所交易基金",
+          "definition": "An ETF is a fund whose units trade on an exchange during the trading day.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "ETF"
+        },
+        {
+          "key": "index-fund",
+          "term": "index fund",
+          "zh": "指数基金",
+          "definition": "An index fund aims to track a specified market index rather than select securities to outperform it.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "index fund"
+        },
+        {
+          "key": "active-management",
+          "term": "active management",
+          "zh": "主动管理",
+          "definition": "Active management is the selection and adjustment of investments in an attempt to meet an objective or outperform a benchmark.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "active management"
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "number": 12,
+      "groupId": "group-3",
+      "date": "Fri Oct 23",
+      "focus": "Fees and the compounding drag",
+      "scheduleNote": "",
+      "question": "Can a fee below 1% materially change a long-term result?",
+      "objectives": [
+        {
+          "en": "Calculate transaction and annual fund costs.",
+          "zh": "计算交易成本与年度基金费用。"
+        },
+        {
+          "en": "Explain how fees reduce net return.",
+          "zh": "解释费用如何降低净回报。"
+        },
+        {
+          "en": "Model the compound effect of recurring fees.",
+          "zh": "模拟持续费用的复利影响。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve compound growth and percentage calculations."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Estimate whether a 0.8% annual fee matters over ten years."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model gross return, fee and net return in one period."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate costs for three products on the same amount."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare two multi-year projections using equal assumptions."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Explain why headline return without fees is incomplete."
+        }
+      ],
+      "output": "Like-for-like fee comparison and a short compounding explanation.",
+      "checkpoint": "Students use the same investment amount, horizon and gross-return assumption for comparison.",
+      "terms": [
+        "fee（费用）",
+        "expense ratio（费用率）",
+        "transaction cost（交易成本）",
+        "net return（净回报）"
+      ],
+      "formula": "Annual fee = invested amount x fee rate; approximate net return = gross return - fees",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.1.4",
+      "contentPoints": [
+        "types of investment fee, including transaction and recurring fund costs",
+        "calculation of annual fees and approximate net return",
+        "effect of recurring fees on compound growth",
+        "limitations of choosing an investment on cost alone"
+      ],
+      "definitions": [
+        {
+          "key": "fee",
+          "term": "fee",
+          "zh": "费用",
+          "definition": "A charge paid by the investor or deducted from investment value.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "fee"
+        },
+        {
+          "key": "expense-ratio",
+          "term": "expense ratio",
+          "zh": "费用率",
+          "definition": "Expense ratio is the annual operating cost of a fund expressed as a percentage of fund assets.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "expense ratio"
+        },
+        {
+          "key": "transaction-cost",
+          "term": "transaction cost",
+          "zh": "交易成本",
+          "definition": "Transaction cost is a cost caused by buying, selling or administering an investment.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "transaction cost"
+        },
+        {
+          "key": "net-return",
+          "term": "net return",
+          "zh": "净回报",
+          "definition": "Net return is the return remaining after relevant fees and costs.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "net return"
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "number": 13,
+      "groupId": "group-4",
+      "date": "Wed Oct 28",
+      "focus": "Diversification and correlation",
+      "scheduleNote": "",
+      "question": "Does owning ten investments always mean a portfolio is diversified?",
+      "objectives": [
+        {
+          "en": "Explain diversification and concentration risk.",
+          "zh": "解释分散投资与集中度风险。"
+        },
+        {
+          "en": "Interpret exposure and simple correlation.",
+          "zh": "解读风险敞口与简单相关性。"
+        },
+        {
+          "en": "Diagnose hidden concentration.",
+          "zh": "诊断隐性集中风险。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve asset allocation and market risk."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge a ten-company portfolio concentrated in one sector."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model weights, shared exposures and correlation direction."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Colour-code company, sector and geographic exposures."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Redesign a concentrated portfolio using broad categories."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Explain why number of holdings is an incomplete measure."
+        }
+      ],
+      "output": "Exposure map and one evidence-based diversification improvement.",
+      "checkpoint": "Hinge: many holdings with the same main risk can remain highly concentrated.",
+      "terms": [
+        "diversification（分散投资）",
+        "correlation（相关性）",
+        "exposure（风险敞口）",
+        "concentration risk（集中度风险）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.2.1",
+      "contentPoints": [
+        "meaning of diversification and concentration risk",
+        "interpretation of portfolio exposure and simple correlation",
+        "effects of company, sector, geographic and holdings overlap",
+        "diagnosis of hidden concentration in a portfolio"
+      ],
+      "definitions": [
+        {
+          "key": "diversification",
+          "term": "diversification",
+          "zh": "分散投资",
+          "definition": "Diversification is spreading investments across different exposures to reduce dependence on any single one.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "diversification"
+        },
+        {
+          "key": "correlation",
+          "term": "correlation",
+          "zh": "相关性",
+          "definition": "Correlation describes the degree to which two investments tend to move together.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "correlation"
+        },
+        {
+          "key": "exposure",
+          "term": "exposure",
+          "zh": "风险敞口",
+          "definition": "Exposure is the amount or proportion of a portfolio affected by a particular asset, company, sector, country, currency or risk.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "exposure"
+        },
+        {
+          "key": "concentration-risk",
+          "term": "concentration risk",
+          "zh": "集中度风险",
+          "definition": "Concentration risk is the risk created when too much of a portfolio depends on one exposure.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "concentration risk"
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "number": 14,
+      "groupId": "group-4",
+      "date": "Fri Oct 30",
+      "focus": "Asset allocation",
+      "scheduleNote": "",
+      "question": "How should an investor profile change the weights in a portfolio?",
+      "objectives": [
+        {
+          "en": "Calculate portfolio weights.",
+          "zh": "计算投资组合权重。"
+        },
+        {
+          "en": "Link allocation to investor constraints.",
+          "zh": "把资产配置与投资者限制联系起来。"
+        },
+        {
+          "en": "Justify return, liquidity and risk trade-offs.",
+          "zh": "论证回报、流动性与风险的权衡。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve risk capacity, horizon and asset features."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose between two allocations for one investor."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model weight calculations and an allocation rationale."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate missing weights and check that they total 100%."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Construct allocations for two contrasting profiles."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Defend the largest difference between the allocations."
+        }
+      ],
+      "output": "Two weighted allocations with a constraint-linked rationale.",
+      "checkpoint": "Every weight must be justified by the profile, not by a claim about the best asset.",
+      "terms": [
+        "asset allocation（资产配置）",
+        "portfolio weight（组合权重）",
+        "investor profile（投资者特征）",
+        "risk budget（风险预算）"
+      ],
+      "formula": "Portfolio weight = holding value / total portfolio value x 100",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.2.2",
+      "contentPoints": [
+        "purpose of asset allocation",
+        "calculation of portfolio weights",
+        "relationship between allocation and goals, horizon, liquidity and risk capacity",
+        "justification of return, liquidity and risk trade-offs"
+      ],
+      "definitions": [
+        {
+          "key": "asset-allocation",
+          "term": "asset allocation",
+          "zh": "资产配置",
+          "definition": "Asset allocation is the division of a portfolio among asset classes such as cash, bonds and shares.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "asset allocation"
+        },
+        {
+          "key": "portfolio-weight",
+          "term": "portfolio weight",
+          "zh": "组合权重",
+          "definition": "Portfolio weight is the percentage of a portfolio represented by one holding or asset class.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "portfolio weight"
+        },
+        {
+          "key": "investor-profile",
+          "term": "investor profile",
+          "zh": "投资者特征",
+          "definition": "An investor profile summarises goals, horizon, liquidity needs, knowledge and ability and willingness to accept risk.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "investor profile"
+        },
+        {
+          "key": "risk-budget",
+          "term": "risk budget",
+          "zh": "风险预算",
+          "definition": "A risk budget is the amount of risk that may be allocated across a portfolio within an investor's capacity and constraints.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "risk budget"
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "number": 15,
+      "groupId": "group-4",
+      "date": "Wed Nov 4",
+      "focus": "Regular versus lump-sum investing",
+      "scheduleNote": "",
+      "question": "Is investing gradually always safer or more profitable than investing at once?",
+      "objectives": [
+        {
+          "en": "Model lump-sum and regular investing.",
+          "zh": "模拟一次性投资与定期投资。"
+        },
+        {
+          "en": "Calculate average purchase price.",
+          "zh": "计算平均买入价格。"
+        },
+        {
+          "en": "Evaluate timing risk without claiming a guaranteed winner.",
+          "zh": "评估时点风险且不声称存在必胜方法。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve units, price and percentage change."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict the winner under rising and falling price paths."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model units purchased across a frozen three-period path."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate both strategies in two contrasting scenarios."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare timing exposure, cash delay and final value."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Write a conclusion that remains valid across both cases."
+        }
+      ],
+      "output": "Two-scenario calculation table and a qualified strategy comparison.",
+      "checkpoint": "Students recognise that the result depends on the price path and assumptions.",
+      "terms": [
+        "regular investing（定期投资）",
+        "lump-sum investing（一次性投资）",
+        "timing risk（时点风险）",
+        "average purchase price（平均买入价）"
+      ],
+      "formula": "Average purchase price = total amount invested / total units purchased",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.2.3",
+      "contentPoints": [
+        "characteristics of regular and lump-sum investing",
+        "calculation of average purchase price",
+        "effect of entry timing on investment outcomes",
+        "limitations of claims that either method guarantees safety or profit"
+      ],
+      "definitions": [
+        {
+          "key": "regular-investing",
+          "term": "regular investing",
+          "zh": "定期投资",
+          "definition": "Regular investing is adding money to investments on a repeated schedule rather than waiting for a perfect date.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "regular investing"
+        },
+        {
+          "key": "lump-sum-investing",
+          "term": "lump-sum investing",
+          "zh": "一次性投资",
+          "definition": "Lump-sum investing is investing an available amount at one time.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "lump-sum investing"
+        },
+        {
+          "key": "timing-risk",
+          "term": "timing risk",
+          "zh": "时点风险",
+          "definition": "Timing risk is the risk that the chosen entry or exit date leads to an unfavourable result.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "timing risk"
+        },
+        {
+          "key": "average-purchase-price",
+          "term": "average purchase price",
+          "zh": "平均买入价",
+          "definition": "Average purchase price is the total amount invested divided by the total number of units purchased.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "average purchase price"
+        }
+      ]
+    },
+    {
+      "id": "lesson-16",
+      "number": 16,
+      "groupId": "group-4",
+      "date": "Fri Nov 6",
+      "focus": "Portfolio construction case",
+      "scheduleNote": "",
+      "question": "Can one portfolio satisfy all investor constraints at the same time?",
+      "objectives": [
+        {
+          "en": "Integrate asset features, fees and diversification.",
+          "zh": "整合资产特征、费用与分散投资。"
+        },
+        {
+          "en": "Construct a constraint-matched model portfolio.",
+          "zh": "构建符合限制的模拟投资组合。"
+        },
+        {
+          "en": "Defend assumptions, trade-offs and limitations.",
+          "zh": "论证假设、权衡与局限。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve the allocation decision rule."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Identify the hardest constraint in a new investor brief."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model an evidence chain from profile to portfolio weight."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Audit four proposed portfolios for contradictions."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Build and defend a complete model allocation in teams."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Record one unresolved risk or evidence need individually."
+        }
+      ],
+      "output": "Weighted model portfolio, written rationale and limitation log.",
+      "checkpoint": "Weights total 100% and each major choice traces to evidence or a constraint.",
+      "terms": [
+        "model portfolio（模拟投资组合）",
+        "rationale（论证理由）",
+        "trade-off（权衡）",
+        "limitation（局限性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "2.2.4",
+      "contentPoints": [
+        "integration of asset features, fees, diversification and investor constraints",
+        "construction of a constraint-matched model portfolio",
+        "use of assumptions, rationale and trade-offs to justify portfolio weights",
+        "identification of portfolio limitations and missing evidence"
+      ],
+      "definitions": [
+        {
+          "key": "model-portfolio",
+          "term": "model portfolio",
+          "zh": "模拟投资组合",
+          "definition": "A model portfolio is a hypothetical set of investments and weights constructed to illustrate how an investment approach could meet stated objectives and constraints.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "model portfolio"
+        },
+        {
+          "key": "rationale",
+          "term": "rationale",
+          "zh": "论证理由",
+          "definition": "A rationale is a reasoned explanation that links a decision to relevant evidence, objectives and constraints.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "rationale"
+        },
+        {
+          "key": "trade-off",
+          "term": "trade-off",
+          "zh": "权衡",
+          "definition": "A trade-off is a choice in which improving one objective requires accepting a disadvantage or reduced outcome elsewhere.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "trade-off"
+        },
+        {
+          "key": "limitation",
+          "term": "limitation",
+          "zh": "局限性",
+          "definition": "A caveat is a stated limitation or condition that qualifies a conclusion.",
+          "source": "Active Investment Analysis term bank · definition aligned to caveat",
+          "sourceTerm": "caveat"
+        }
+      ]
+    },
+    {
+      "id": "lesson-17",
+      "number": 17,
+      "groupId": "group-5",
+      "date": "Wed Nov 25",
+      "focus": "Primary and secondary markets",
+      "scheduleNote": "",
+      "question": "When shares trade between investors, does the company receive the money?",
+      "objectives": [
+        {
+          "en": "Distinguish primary and secondary markets.",
+          "zh": "区分一级市场与二级市场。"
+        },
+        {
+          "en": "Trace cash and securities through issuance and trading.",
+          "zh": "追踪发行与交易中的资金和证券。"
+        },
+        {
+          "en": "Explain the functions of market liquidity.",
+          "zh": "解释市场流动性的作用。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve share ownership and capital raising."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Answer the company-money question before seeing a diagram."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model issuer, investor, exchange and cash-flow roles."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Sequence eight issuance and trading cards."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Analyse who benefits from an active secondary market."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Draw the correct cash arrow for one transaction."
+        }
+      ],
+      "output": "Annotated primary-secondary market flow diagram.",
+      "checkpoint": "Hinge: proceeds from a normal secondary-market sale go to the selling investor.",
+      "terms": [
+        "primary market（一级市场）",
+        "secondary market（二级市场）",
+        "security issuance（证券发行）",
+        "liquidity（流动性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.1.1",
+      "contentPoints": [
+        "distinction between primary and secondary markets",
+        "flow of money and securities through issuance and subsequent trading",
+        "role of security issuance in raising capital",
+        "functions of liquidity in secondary markets"
+      ],
+      "definitions": [
+        {
+          "key": "primary-market",
+          "term": "primary market",
+          "zh": "一级市场",
+          "definition": "The primary market is where newly issued securities are sold and the issuer receives the proceeds.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "primary market"
+        },
+        {
+          "key": "secondary-market",
+          "term": "secondary market",
+          "zh": "二级市场",
+          "definition": "The secondary market is where investors trade existing securities with one another.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "secondary market"
+        },
+        {
+          "key": "security-issuance",
+          "term": "security issuance",
+          "zh": "证券发行",
+          "definition": "Security issuance is the creation and sale of new securities by an issuer to raise capital.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "security issuance"
+        },
+        {
+          "key": "liquidity",
+          "term": "liquidity",
+          "zh": "流动性",
+          "definition": "Liquidity is the ability to access or trade an asset quickly at relatively low cost without a large price change.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "liquidity"
+        }
+      ]
+    },
+    {
+      "id": "lesson-18",
+      "number": 18,
+      "groupId": "group-5",
+      "date": "Fri Nov 27",
+      "focus": "How a trade reaches the market",
+      "scheduleNote": "",
+      "question": "Why might the price paid differ from the price first seen on screen?",
+      "objectives": [
+        {
+          "en": "Trace an order from investor to market.",
+          "zh": "追踪订单从投资者到市场的过程。"
+        },
+        {
+          "en": "Interpret bid, ask and spread.",
+          "zh": "解读买入价、卖出价与价差。"
+        },
+        {
+          "en": "Compare market and limit orders.",
+          "zh": "比较市价单与限价单。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve secondary-market roles."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose whether certainty of execution or price matters more."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model an order book, spread and execution path."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate spreads and match orders to outcomes."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Select an order type for three constrained cases."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Explain one cost or risk not visible in the headline price."
+        }
+      ],
+      "output": "Order-journey diagram and three justified order-type decisions.",
+      "checkpoint": "Students distinguish a market order's execution priority from a guaranteed price.",
+      "terms": [
+        "broker（经纪商）",
+        "market order（市价单）",
+        "limit order（限价单）",
+        "bid-ask spread（买卖价差）"
+      ],
+      "formula": "Bid-ask spread = ask price - bid price",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.1.2",
+      "contentPoints": [
+        "roles of investors, brokers and markets in the order process",
+        "interpretation and calculation of bid, ask and bid-ask spread",
+        "comparison of market orders and limit orders",
+        "reasons why an execution price may differ from an earlier displayed price"
+      ],
+      "definitions": [
+        {
+          "key": "broker",
+          "term": "broker",
+          "zh": "经纪商",
+          "definition": "A broker is an authorised intermediary that receives and executes client orders in financial markets.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "broker"
+        },
+        {
+          "key": "market-order",
+          "term": "market order",
+          "zh": "市价单",
+          "definition": "A market order instructs a broker to trade promptly at the best available price; execution is likely, but the exact price is not guaranteed.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "market order"
+        },
+        {
+          "key": "limit-order",
+          "term": "limit order",
+          "zh": "限价单",
+          "definition": "A limit order instructs a broker to trade only at a stated price or better; the price is controlled, but execution is not guaranteed.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "limit order"
+        },
+        {
+          "key": "bid-ask-spread",
+          "term": "bid-ask spread",
+          "zh": "买卖价差",
+          "definition": "Bid-ask spread is the difference between the ask price and the bid price.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "bid-ask spread"
+        }
+      ]
+    },
+    {
+      "id": "lesson-19",
+      "number": 19,
+      "groupId": "group-5",
+      "date": "Wed Dec 2",
+      "focus": "Share price, value and market capitalisation",
+      "scheduleNote": "",
+      "question": "Is a CNY 5 share cheaper than a CNY 500 share?",
+      "objectives": [
+        {
+          "en": "Distinguish share price from company value.",
+          "zh": "区分股价与公司价值。"
+        },
+        {
+          "en": "Calculate market capitalisation.",
+          "zh": "计算市值。"
+        },
+        {
+          "en": "Reject low-price-equals-cheap reasoning.",
+          "zh": "辨析低股价等于便宜的错误推理。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve ownership per share and total shares."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Vote on the CNY 5 versus CNY 500 comparison."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model price, shares outstanding and market capitalisation."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate market caps for four simplified companies."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare companies and identify missing valuation evidence."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Correct the original claim in one precise sentence."
+        }
+      ],
+      "output": "Market-cap calculation grid and misconception correction.",
+      "checkpoint": "Hinge: price per share alone cannot show whether a company is expensive or cheap.",
+      "terms": [
+        "share price（股价）",
+        "company value（公司价值）",
+        "market capitalisation（市值）",
+        "shares outstanding（已发行股份）"
+      ],
+      "formula": "Market capitalisation = share price x shares outstanding",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.1.3",
+      "contentPoints": [
+        "distinction between share price and company value",
+        "calculation of market capitalisation",
+        "relationship between share price, shares outstanding and market capitalisation",
+        "limitations of using a low nominal share price as evidence that a share is cheap"
+      ],
+      "definitions": [
+        {
+          "key": "share-price",
+          "term": "share price",
+          "zh": "股价",
+          "definition": "Share price is the market price of one share at a stated time.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "share price"
+        },
+        {
+          "key": "company-value",
+          "term": "company value",
+          "zh": "公司价值",
+          "definition": "Company value is an assessment of what a company's business or equity is worth; the nominal price of one share does not determine it.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "company value"
+        },
+        {
+          "key": "market-capitalisation",
+          "term": "market capitalisation",
+          "zh": "市值",
+          "definition": "Market capitalisation is share price multiplied by shares outstanding.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "market capitalisation"
+        },
+        {
+          "key": "shares-outstanding",
+          "term": "shares outstanding",
+          "zh": "已发行股份",
+          "definition": "Shares outstanding are the shares issued and currently held by investors.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "shares outstanding"
+        }
+      ]
+    },
+    {
+      "id": "lesson-20",
+      "number": 20,
+      "groupId": "group-5",
+      "date": "Fri Dec 4",
+      "focus": "Information and price discovery",
+      "scheduleNote": "",
+      "question": "Why can a share price fall after a company reports higher profit?",
+      "objectives": [
+        {
+          "en": "Explain price discovery through demand and supply.",
+          "zh": "解释供求形成价格的过程。"
+        },
+        {
+          "en": "Analyse how information changes expectations.",
+          "zh": "分析信息如何改变预期。"
+        },
+        {
+          "en": "Separate evidence-based explanation from hindsight.",
+          "zh": "区分基于证据的解释与事后叙事。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve price, value and expectations."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict price direction from profit alone."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model expected news versus surprise news."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Apply four news cards to demand-supply diagrams."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Analyse a positive result below market expectations."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Write a causal explanation with one uncertainty caveat."
+        }
+      ],
+      "output": "Information-expectations-price causal chain.",
+      "checkpoint": "A strong answer compares new information with prior expectations, not only good or bad news.",
+      "terms": [
+        "price discovery（价格发现）",
+        "expectations（预期）",
+        "demand and supply（需求与供给）",
+        "new information（新信息）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.1.4",
+      "contentPoints": [
+        "role of demand and supply in price discovery",
+        "effect of expectations and new information on market price",
+        "reasons why prices may fall after apparently positive company results",
+        "distinction between evidence-based explanation and hindsight"
+      ],
+      "definitions": [
+        {
+          "key": "price-discovery",
+          "term": "price discovery",
+          "zh": "价格发现",
+          "definition": "Price discovery is the process through which trading, information, demand and supply establish a market price.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "price discovery"
+        },
+        {
+          "key": "expectations",
+          "term": "expectations",
+          "zh": "预期",
+          "definition": "Market expectations are investors' collective views about future company or economic outcomes.",
+          "source": "Active Investment Analysis term bank · definition aligned to market expectations",
+          "sourceTerm": "market expectations"
+        },
+        {
+          "key": "demand-and-supply",
+          "term": "demand and supply",
+          "zh": "需求与供给",
+          "definition": "Demand and supply describe buyers' willingness to buy and sellers' willingness to sell at different prices.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "demand and supply"
+        },
+        {
+          "key": "new-information",
+          "term": "new information",
+          "zh": "新信息",
+          "definition": "Market information is news, data or disclosure that may change expectations and trading decisions.",
+          "source": "Active Investment Analysis term bank · definition aligned to market information",
+          "sourceTerm": "market information"
+        }
+      ]
+    },
+    {
+      "id": "lesson-21",
+      "number": 21,
+      "groupId": "group-6",
+      "date": "Wed Dec 9",
+      "focus": "Business models, revenue and margins",
+      "scheduleNote": "",
+      "question": "Can rapidly growing revenue hide a weakening business?",
+      "objectives": [
+        {
+          "en": "Explain how a business model creates value.",
+          "zh": "解释商业模式如何创造价值。"
+        },
+        {
+          "en": "Calculate and interpret profit margin.",
+          "zh": "计算并解读利润率。"
+        },
+        {
+          "en": "Compare revenue and margins across time or peers.",
+          "zh": "跨时期或同业比较收入与利润率。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve revenue, cost and profit relationships."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge a high-growth, falling-margin case."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model a simple business-model and income statement."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate margins for three years and one peer."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Explain whether growth quality improved or weakened."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "State one question the numbers cannot answer."
+        }
+      ],
+      "output": "Business-model map and margin trend comparison.",
+      "checkpoint": "Students use both the direction and level of margins rather than revenue growth alone.",
+      "terms": [
+        "business model（商业模式）",
+        "revenue（营业收入）",
+        "profit margin（利润率）",
+        "peer comparison（同业比较）"
+      ],
+      "formula": "Profit margin = profit / revenue x 100",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.2.1",
+      "contentPoints": [
+        "meaning of a business model and its main revenue drivers",
+        "distinction between revenue and profit",
+        "calculation and interpretation of profit margin",
+        "comparison of revenue and margins across time or between similar companies"
+      ],
+      "definitions": [
+        {
+          "key": "business-model",
+          "term": "business model",
+          "zh": "商业模式",
+          "definition": "A business model explains how a company creates value, serves customers and earns revenue.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "business model"
+        },
+        {
+          "key": "revenue",
+          "term": "revenue",
+          "zh": "营业收入",
+          "definition": "Revenue is income generated from ordinary business activities before expenses are deducted.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "revenue"
+        },
+        {
+          "key": "profit-margin",
+          "term": "profit margin",
+          "zh": "利润率",
+          "definition": "Profit margin expresses a measure of profit as a percentage of revenue.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "profit margin"
+        },
+        {
+          "key": "peer-comparison",
+          "term": "peer comparison",
+          "zh": "同业比较",
+          "definition": "Peer comparison evaluates similar companies using aligned periods and definitions.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "peer comparison"
+        }
+      ]
+    },
+    {
+      "id": "lesson-22",
+      "number": 22,
+      "groupId": "group-6",
+      "date": "Fri Dec 11",
+      "focus": "Cash flow, debt and resilience",
+      "scheduleNote": "",
+      "question": "Can a profitable company still run into financial difficulty?",
+      "objectives": [
+        {
+          "en": "Distinguish profit from cash flow.",
+          "zh": "区分利润与现金流。"
+        },
+        {
+          "en": "Interpret assets, liabilities and debt.",
+          "zh": "解读资产、负债与债务。"
+        },
+        {
+          "en": "Assess resilience using several indicators.",
+          "zh": "运用多项指标评估企业韧性。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve profit margin and financial statements."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge a profitable company with negative cash flow and rising debt."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model links among income statement, balance sheet and cash flow."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Annotate a simplified three-statement evidence set."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Rank two companies by resilience with a counterpoint."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Identify the single most concerning evidence item."
+        }
+      ],
+      "output": "Three-statement evidence annotation and resilience judgement.",
+      "checkpoint": "The conclusion combines at least two indicators and acknowledges a limitation.",
+      "terms": [
+        "cash flow（现金流）",
+        "balance sheet（资产负债表）",
+        "debt（债务）",
+        "financial resilience（财务韧性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.2.2",
+      "contentPoints": [
+        "distinction between accounting profit and cash flow",
+        "interpretation of assets, liabilities and debt on a balance sheet",
+        "assessment of financial resilience using several indicators",
+        "reasons why a profitable company may still face financial difficulty"
+      ],
+      "definitions": [
+        {
+          "key": "cash-flow",
+          "term": "cash flow",
+          "zh": "现金流",
+          "definition": "Cash moving into or out of a business.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "cash flow"
+        },
+        {
+          "key": "balance-sheet",
+          "term": "balance sheet",
+          "zh": "资产负债表",
+          "definition": "A balance sheet reports assets, liabilities and equity at a point in time.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "balance sheet"
+        },
+        {
+          "key": "debt",
+          "term": "debt",
+          "zh": "债务",
+          "definition": "Debt is money owed under repayment and interest obligations.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "debt"
+        },
+        {
+          "key": "financial-resilience",
+          "term": "financial resilience",
+          "zh": "财务韧性",
+          "definition": "Financial resilience is a company's ability to meet obligations and continue operating when conditions deteriorate.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "financial resilience"
+        }
+      ]
+    },
+    {
+      "id": "lesson-23",
+      "number": 23,
+      "groupId": "group-6",
+      "date": "Wed Dec 16",
+      "focus": "Valuation and the P/E ratio",
+      "scheduleNote": "",
+      "question": "Does a lower P/E ratio always identify the better investment?",
+      "objectives": [
+        {
+          "en": "Calculate and interpret P/E.",
+          "zh": "计算并解读市盈率。"
+        },
+        {
+          "en": "Compare valuation with peers and history.",
+          "zh": "把估值与同业及历史比较。"
+        },
+        {
+          "en": "Evaluate growth and risk assumptions behind a multiple.",
+          "zh": "评估估值倍数背后的增长与风险假设。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve price, earnings and market value."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose the lower-P/E company and state the hidden assumption."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model P/E calculation and three possible interpretations."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate and compare four simplified company cases."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Explain how growth quality or risk could justify a difference."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Write a conclusion that avoids cheaper-equals-better."
+        }
+      ],
+      "output": "Peer valuation table and a qualified P/E interpretation.",
+      "checkpoint": "Hinge: P/E is a comparison tool, not a stand-alone buy signal.",
+      "terms": [
+        "P/E ratio（市盈率）",
+        "valuation（估值）",
+        "peer comparison（同业比较）",
+        "assumption（假设）"
+      ],
+      "formula": "P/E ratio = market price per share / earnings per share",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.2.3",
+      "contentPoints": [
+        "calculation and interpretation of the P/E ratio",
+        "comparison of valuation with peers and historical evidence",
+        "growth and risk assumptions reflected in a valuation multiple",
+        "limitations of the claim that a lower P/E ratio always identifies a better investment"
+      ],
+      "definitions": [
+        {
+          "key": "p-e-ratio",
+          "term": "P/E ratio",
+          "zh": "市盈率",
+          "definition": "The P/E ratio is share price divided by earnings per share.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "P/E ratio"
+        },
+        {
+          "key": "valuation",
+          "term": "valuation",
+          "zh": "估值",
+          "definition": "Judging price compared with evidence such as earnings, growth and risk.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "valuation"
+        },
+        {
+          "key": "peer-comparison",
+          "term": "peer comparison",
+          "zh": "同业比较",
+          "definition": "Peer comparison evaluates similar companies using aligned periods and definitions.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "peer comparison"
+        },
+        {
+          "key": "assumption",
+          "term": "assumption",
+          "zh": "假设",
+          "definition": "A condition used in a calculation that may not happen in reality.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "assumption"
+        }
+      ]
+    },
+    {
+      "id": "lesson-24",
+      "number": 24,
+      "groupId": "group-6",
+      "date": "Fri Dec 18",
+      "focus": "Evidence-based company memo",
+      "scheduleNote": "",
+      "question": "What makes an investment conclusion analytical rather than promotional?",
+      "objectives": [
+        {
+          "en": "Select relevant business, financial and valuation evidence.",
+          "zh": "选择相关的商业、财务与估值证据。"
+        },
+        {
+          "en": "Build a balanced evidence chain.",
+          "zh": "构建平衡的证据链。"
+        },
+        {
+          "en": "Write a qualified conclusion with risks and uncertainty.",
+          "zh": "撰写包含风险与不确定性的有条件结论。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve the strongest evidence from Lessons 21-23."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Rank two conclusions for analytical quality."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model claim-evidence-reasoning-counterargument structure."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Sort evidence into supports, challenges and missing data."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Draft and peer-review a concise company memo."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Revise one sentence to make uncertainty explicit."
+        }
+      ],
+      "output": "One-page evidence-based company memo.",
+      "checkpoint": "Rubric checks evidence relevance, reasoning, counterargument and qualified language.",
+      "terms": [
+        "evidence-based conclusion（基于证据的结论）",
+        "company risk（公司风险）",
+        "counterargument（反方观点）",
+        "uncertainty（不确定性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "3.2.4",
+      "contentPoints": [
+        "selection of relevant business, financial and valuation evidence",
+        "construction of a claim-evidence-reasoning chain",
+        "use of counterarguments, risks and uncertainty in analysis",
+        "writing of a qualified evidence-based company conclusion"
+      ],
+      "definitions": [
+        {
+          "key": "evidence-based-conclusion",
+          "term": "evidence-based conclusion",
+          "zh": "基于证据的结论",
+          "definition": "An evidence-based verdict is a conclusion explicitly supported by dated evidence and limitations.",
+          "source": "Active Investment Analysis term bank · definition aligned to evidence-based verdict",
+          "sourceTerm": "evidence-based verdict"
+        },
+        {
+          "key": "company-risk",
+          "term": "company risk",
+          "zh": "公司风险",
+          "definition": "Business risk is uncertainty arising from a company's operations, customers, costs and competitive environment.",
+          "source": "Active Investment Analysis term bank · definition aligned to business risk",
+          "sourceTerm": "business risk"
+        },
+        {
+          "key": "counterargument",
+          "term": "counterargument",
+          "zh": "反方观点",
+          "definition": "A counterargument is a relevant reason or item of evidence that challenges a conclusion.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "counterargument"
+        },
+        {
+          "key": "uncertainty",
+          "term": "uncertainty",
+          "zh": "不确定性",
+          "definition": "Uncertainty is limited knowledge about which future outcome will occur.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "uncertainty"
+        }
+      ]
+    },
+    {
+      "id": "lesson-25",
+      "number": 25,
+      "groupId": "group-7",
+      "date": "Wed Dec 23",
+      "focus": "Performance and benchmarks",
+      "scheduleNote": "",
+      "question": "A portfolio gained 8%. Was that good performance?",
+      "objectives": [
+        {
+          "en": "Select a relevant benchmark and period.",
+          "zh": "选择相关业绩基准与期间。"
+        },
+        {
+          "en": "Calculate excess return and drawdown.",
+          "zh": "计算超额回报与回撤。"
+        },
+        {
+          "en": "Evaluate performance without inferring skill from one period.",
+          "zh": "在不凭单一期间推断能力的情况下评估表现。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve total return and fair comparison."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge the 8% result before benchmark evidence is shown."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model matched-period benchmark and drawdown calculations."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate performance for three portfolios."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Choose the most informative benchmark and justify it."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Write what the evidence supports and cannot support."
+        }
+      ],
+      "output": "Benchmark comparison with excess return, drawdown and caveat.",
+      "checkpoint": "Students match asset mix, currency and period before comparing performance.",
+      "terms": [
+        "benchmark（业绩基准）",
+        "excess return（超额回报）",
+        "drawdown（回撤）",
+        "performance period（业绩期间）"
+      ],
+      "formula": "Excess return = portfolio return - benchmark return; drawdown = (peak - trough) / peak x 100",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.1.1",
+      "contentPoints": [
+        "selection of a relevant benchmark and matched performance period",
+        "calculation and interpretation of excess return",
+        "calculation and interpretation of drawdown",
+        "limitations of inferring investment skill from one performance period"
+      ],
+      "definitions": [
+        {
+          "key": "benchmark",
+          "term": "benchmark",
+          "zh": "业绩基准",
+          "definition": "A benchmark is a stated standard used to compare investment performance or risk.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "benchmark"
+        },
+        {
+          "key": "excess-return",
+          "term": "excess return",
+          "zh": "超额回报",
+          "definition": "Excess return is the portfolio return minus the return of a relevant benchmark over the same period.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "excess return"
+        },
+        {
+          "key": "drawdown",
+          "term": "drawdown",
+          "zh": "回撤",
+          "definition": "Drawdown is the percentage fall in value from a previous peak to a subsequent trough.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "drawdown"
+        },
+        {
+          "key": "performance-period",
+          "term": "performance period",
+          "zh": "业绩期间",
+          "definition": "A performance period is the stated interval over which investment return and risk are measured.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "performance period"
+        }
+      ]
+    },
+    {
+      "id": "lesson-26",
+      "number": 26,
+      "groupId": "group-7",
+      "date": "Fri Dec 25",
+      "focus": "Evidence quality and performance claims",
+      "scheduleNote": "",
+      "question": "Which is stronger evidence: a provider's best chart or a complete performance record?",
+      "objectives": [
+        {
+          "en": "Evaluate source quality and incentives.",
+          "zh": "评估信息来源质量与激励。"
+        },
+        {
+          "en": "Identify conflicts and selective presentation.",
+          "zh": "识别利益冲突与选择性呈现。"
+        },
+        {
+          "en": "Test past-performance claims against complete evidence.",
+          "zh": "用完整证据检验历史表现说法。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve benchmark and matched-period rules."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose between two conflicting performance charts."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model source, incentive, method, omission and verification checks."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Audit four claims and highlight missing context."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Reconstruct a fairer comparison from frozen data."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Label one claim supported, unsupported or misleading."
+        }
+      ],
+      "output": "Performance-claim audit with a revised evidence statement.",
+      "checkpoint": "A credible source can still present selectively; students must inspect method and omissions.",
+      "terms": [
+        "source quality（信息来源质量）",
+        "conflict of interest（利益冲突）",
+        "past performance（历史表现）",
+        "misleading claim（误导性说法）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.1.2",
+      "contentPoints": [
+        "evaluation of source quality, incentives and evidence completeness",
+        "identification of conflicts of interest and selective presentation",
+        "testing of past-performance claims against complete, matched evidence",
+        "classification of claims as supported, unsupported or misleading"
+      ],
+      "definitions": [
+        {
+          "key": "source-quality",
+          "term": "source quality",
+          "zh": "信息来源质量",
+          "definition": "Source quality is the reliability, relevance, date and limitations of evidence used in analysis.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "source quality"
+        },
+        {
+          "key": "conflict-of-interest",
+          "term": "conflict of interest",
+          "zh": "利益冲突",
+          "definition": "A conflict of interest is a situation in which another interest could impair objective professional judgement.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "conflict of interest"
+        },
+        {
+          "key": "past-performance",
+          "term": "past performance",
+          "zh": "历史表现",
+          "definition": "Historical return data, which does not guarantee future returns.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "past performance"
+        },
+        {
+          "key": "misleading-claim",
+          "term": "misleading claim",
+          "zh": "误导性说法",
+          "definition": "A misleading claim creates an inaccurate impression by using false information, selective evidence or missing context.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "misleading claim"
+        }
+      ]
+    },
+    {
+      "id": "lesson-27",
+      "number": 27,
+      "groupId": "group-7",
+      "date": "Wed Dec 30",
+      "focus": "Portfolio weights and concentration",
+      "scheduleNote": "",
+      "question": "Can a portfolio with many holdings still be dominated by one risk?",
+      "objectives": [
+        {
+          "en": "Calculate portfolio weights and exposures.",
+          "zh": "计算投资组合权重与风险敞口。"
+        },
+        {
+          "en": "Diagnose company and sector concentration.",
+          "zh": "诊断公司与行业集中度。"
+        },
+        {
+          "en": "Test diversification claims using data.",
+          "zh": "运用数据检验分散投资说法。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve diversification and weight formulas."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Judge a twenty-holding portfolio from names alone."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model look-through exposure across funds and shares."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate weights and aggregate overlapping exposures."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Identify the dominant portfolio risk and propose a change."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Defend whether the diversification claim is supported."
+        }
+      ],
+      "output": "Look-through exposure table and concentration diagnosis.",
+      "checkpoint": "Overlapping fund and direct holdings must not be counted as independent risks.",
+      "terms": [
+        "portfolio weight（投资组合权重）",
+        "exposure（风险敞口）",
+        "concentration risk（集中度风险）",
+        "diversification（分散投资）"
+      ],
+      "formula": "Portfolio weight = holding value / portfolio value x 100",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.1.3",
+      "contentPoints": [
+        "calculation of portfolio weights and exposures",
+        "aggregation of overlapping exposures across direct holdings and funds",
+        "diagnosis of company and sector concentration",
+        "testing of diversification claims using portfolio data"
+      ],
+      "definitions": [
+        {
+          "key": "portfolio-weight",
+          "term": "portfolio weight",
+          "zh": "投资组合权重",
+          "definition": "Portfolio weight is the percentage of a portfolio represented by one holding or asset class.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "portfolio weight"
+        },
+        {
+          "key": "exposure",
+          "term": "exposure",
+          "zh": "风险敞口",
+          "definition": "Exposure is the amount or proportion of a portfolio affected by a particular asset, company, sector, country, currency or risk.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "exposure"
+        },
+        {
+          "key": "concentration-risk",
+          "term": "concentration risk",
+          "zh": "集中度风险",
+          "definition": "Concentration risk is the risk created when too much of a portfolio depends on one exposure.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "concentration risk"
+        },
+        {
+          "key": "diversification",
+          "term": "diversification",
+          "zh": "分散投资",
+          "definition": "Diversification is spreading investments across different exposures to reduce dependence on any single one.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "diversification"
+        }
+      ]
+    },
+    {
+      "id": "lesson-28",
+      "number": 28,
+      "groupId": "group-7",
+      "date": "Fri Jan 1*",
+      "focus": "Geographic, sector and currency risk",
+      "scheduleNote": "Provisional: confirm New Year timetable.",
+      "question": "Why might a globally diversified portfolio still fall sharply at the same time?",
+      "objectives": [
+        {
+          "en": "Analyse geographic, sector, currency and market exposure.",
+          "zh": "分析地域、行业、汇率与市场风险敞口。"
+        },
+        {
+          "en": "Explain changing correlation under stress.",
+          "zh": "解释压力时期相关性的变化。"
+        },
+        {
+          "en": "Propose an evidence-based risk control.",
+          "zh": "提出基于证据的风险控制措施。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve exposure, correlation and concentration."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict which risks remain in a global portfolio."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model direct, indirect and shared market exposures."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Map four holdings across geography, sector and currency."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Stress one common shock and evaluate the diversification response."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Propose one control and state what it cannot prevent."
+        }
+      ],
+      "output": "Multi-dimensional exposure map and qualified risk-control proposal.",
+      "checkpoint": "Students distinguish risk reduction from risk elimination.",
+      "terms": [
+        "geographic risk（地域风险）",
+        "sector risk（行业风险）",
+        "currency risk（汇率风险）",
+        "market risk（市场风险）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.1.4",
+      "contentPoints": [
+        "geographic, sector, currency and broad market risks",
+        "distinction between direct, indirect and shared market exposures",
+        "changes in correlation during periods of market stress",
+        "use and limitations of evidence-based portfolio risk controls"
+      ],
+      "definitions": [
+        {
+          "key": "geographic-risk",
+          "term": "geographic risk",
+          "zh": "地域风险",
+          "definition": "Geographic risk is exposure to political, economic, regulatory or market conditions in a country or region.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "geographic risk"
+        },
+        {
+          "key": "sector-risk",
+          "term": "sector risk",
+          "zh": "行业风险",
+          "definition": "Risk connected to the conditions facing one industry or sector.",
+          "source": "Retained Investment Analysis term bank",
+          "sourceTerm": "sector risk"
+        },
+        {
+          "key": "currency-risk",
+          "term": "currency risk",
+          "zh": "汇率风险",
+          "definition": "Currency risk is the possibility that exchange-rate changes affect investment value or return.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "currency risk"
+        },
+        {
+          "key": "market-risk",
+          "term": "market risk",
+          "zh": "市场风险",
+          "definition": "Market risk is the risk of broad price movements affecting many investments at the same time.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "market risk"
+        }
+      ]
+    },
+    {
+      "id": "lesson-29",
+      "number": 29,
+      "groupId": "group-8",
+      "date": "Wed Jan 6",
+      "focus": "Rebalancing and transaction costs",
+      "scheduleNote": "",
+      "question": "When market movements change portfolio weights, is doing nothing still a decision?",
+      "objectives": [
+        {
+          "en": "Calculate weight drift.",
+          "zh": "计算权重偏离。"
+        },
+        {
+          "en": "Compare rebalancing methods and costs.",
+          "zh": "比较再平衡方法与成本。"
+        },
+        {
+          "en": "Recommend an action using target bands and constraints.",
+          "zh": "依据目标区间与限制提出行动建议。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve target allocation and portfolio weights."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose act or wait before seeing transaction costs."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model drift, tolerance bands and three response options."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Calculate current weights and required trades."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Compare no action, new contributions and trading after costs."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Issue a rebalance decision with a review trigger."
+        }
+      ],
+      "output": "Rebalancing worksheet and a cost-aware decision note.",
+      "checkpoint": "Hinge: a target breach prompts review, not an automatic trade regardless of costs.",
+      "terms": [
+        "rebalancing（再平衡）",
+        "weight drift（权重偏离）",
+        "target band（目标区间）",
+        "transaction cost（交易成本）"
+      ],
+      "formula": "Weight drift = actual weight - target weight",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.2.1",
+      "contentPoints": [
+        "calculation of portfolio weight drift",
+        "comparison of no action, new contributions and trading as rebalancing methods",
+        "effect of transaction costs on a rebalancing decision",
+        "use of target bands, constraints and review triggers"
+      ],
+      "definitions": [
+        {
+          "key": "rebalancing",
+          "term": "rebalancing",
+          "zh": "再平衡",
+          "definition": "Rebalancing is adjusting portfolio weights toward stated targets after they have changed.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "rebalancing"
+        },
+        {
+          "key": "weight-drift",
+          "term": "weight drift",
+          "zh": "权重偏离",
+          "definition": "Weight drift is the difference between a portfolio's current weight and its target weight after values or cash flows change.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "weight drift"
+        },
+        {
+          "key": "target-band",
+          "term": "target band",
+          "zh": "目标区间",
+          "definition": "A target band is an allowed range around a portfolio target weight that determines when review is required.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "target band"
+        },
+        {
+          "key": "transaction-cost",
+          "term": "transaction cost",
+          "zh": "交易成本",
+          "definition": "Transaction cost is a cost caused by buying, selling or administering an investment.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "transaction cost"
+        }
+      ]
+    },
+    {
+      "id": "lesson-30",
+      "number": 30,
+      "groupId": "group-8",
+      "date": "Fri Jan 8",
+      "focus": "Behavioural finance and decision rules",
+      "scheduleNote": "",
+      "question": "Why can an intelligent investor make a poor decision with accurate information?",
+      "objectives": [
+        {
+          "en": "Identify common behavioural biases.",
+          "zh": "识别常见行为偏误。"
+        },
+        {
+          "en": "Analyse how bias changes evidence use.",
+          "zh": "分析偏误如何改变证据使用。"
+        },
+        {
+          "en": "Design pre-committed decision rules.",
+          "zh": "设计预先承诺的决策规则。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve evidence standards and review triggers."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Choose a response to a sudden price fall."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model loss aversion, confirmation, recency and FOMO."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Diagnose bias in four decision-journal entries."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Rewrite each decision using an evidence-based rule."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Commit to one rule that delays impulsive action."
+        }
+      ],
+      "output": "Bias diagnosis table and four corrective decision rules.",
+      "checkpoint": "Students must identify the distorted reasoning, not merely label the emotion.",
+      "terms": [
+        "loss aversion（损失厌恶）",
+        "confirmation bias（确认偏误）",
+        "recency bias（近因偏差）",
+        "FOMO（错失恐惧）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.2.2",
+      "contentPoints": [
+        "meaning of loss aversion, confirmation bias, recency bias and FOMO",
+        "effects of behavioural bias on the selection and interpretation of evidence",
+        "design of pre-committed decision rules",
+        "use of review delays and evidence checks to reduce impulsive action"
+      ],
+      "definitions": [
+        {
+          "key": "loss-aversion",
+          "term": "loss aversion",
+          "zh": "损失厌恶",
+          "definition": "Loss aversion is the tendency to feel losses more strongly than equivalent gains, which can distort decisions.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "loss aversion"
+        },
+        {
+          "key": "confirmation-bias",
+          "term": "confirmation bias",
+          "zh": "确认偏误",
+          "definition": "Confirmation bias is the tendency to seek or favour evidence that supports an existing belief and neglect contrary evidence.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "confirmation bias"
+        },
+        {
+          "key": "recency-bias",
+          "term": "recency bias",
+          "zh": "近因偏差",
+          "definition": "Recency bias is giving too much weight to recent events when judging the future.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "recency bias"
+        },
+        {
+          "key": "fomo",
+          "term": "FOMO",
+          "zh": "错失恐惧",
+          "definition": "FOMO is fear of missing out that can push an investor to act without sufficient evidence.",
+          "source": "Active Investment Analysis term bank",
+          "sourceTerm": "FOMO"
+        }
+      ]
+    },
+    {
+      "id": "lesson-31",
+      "number": 31,
+      "groupId": "group-8",
+      "date": "Wed Jan 13",
+      "focus": "Portfolio stress testing",
+      "scheduleNote": "",
+      "question": "Which portfolio rule breaks first when the investor's circumstances change?",
+      "objectives": [
+        {
+          "en": "Apply scenario and stress testing.",
+          "zh": "运用情境分析与压力测试。"
+        },
+        {
+          "en": "Identify the binding portfolio constraint.",
+          "zh": "识别投资组合的关键限制。"
+        },
+        {
+          "en": "Revise allocation or rules while preserving logical consistency.",
+          "zh": "在保持逻辑一致的前提下修订配置或规则。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve constraints, exposures and rebalancing rules."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Predict the weakest point under a combined shock."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model scenario variables and first-order portfolio effects."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Run inflation, income-loss and market-fall stress cases."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Revise one allocation and one policy rule with reasons."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "State the remaining downside after the revision."
+        }
+      ],
+      "output": "Three-scenario stress test and a documented policy revision.",
+      "checkpoint": "Revisions must address the binding constraint rather than chase recent performance.",
+      "terms": [
+        "scenario analysis（情境分析）",
+        "stress test（压力测试）",
+        "downside risk（下行风险）",
+        "binding constraint（关键限制）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.2.3",
+      "contentPoints": [
+        "purpose of scenario analysis and portfolio stress testing",
+        "identification of the binding portfolio constraint",
+        "revision of allocation or decision rules in response to a stress scenario",
+        "evaluation of remaining downside risk and limitations after revision"
+      ],
+      "definitions": [
+        {
+          "key": "scenario-analysis",
+          "term": "scenario analysis",
+          "zh": "情境分析",
+          "definition": "Scenario analysis examines how an investment or portfolio could be affected by a specified set of possible future conditions.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "scenario analysis"
+        },
+        {
+          "key": "stress-test",
+          "term": "stress test",
+          "zh": "压力测试",
+          "definition": "A stress test examines how an investment or portfolio would respond to a severe but plausible adverse scenario.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "stress test"
+        },
+        {
+          "key": "downside-risk",
+          "term": "downside risk",
+          "zh": "下行风险",
+          "definition": "Downside risk is the possibility and potential size of outcomes below a required or expected result.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "downside risk"
+        },
+        {
+          "key": "binding-constraint",
+          "term": "binding constraint",
+          "zh": "关键限制",
+          "definition": "A binding constraint is the limit that most restricts the available investment decision in a particular case.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "binding constraint"
+        }
+      ]
+    },
+    {
+      "id": "lesson-32",
+      "number": 32,
+      "groupId": "group-8",
+      "date": "Fri Jan 15",
+      "focus": "Final investment recommendation and defence",
+      "scheduleNote": "",
+      "question": "What would make a final investment recommendation defensible but not overconfident?",
+      "objectives": [
+        {
+          "en": "Integrate return, risk, asset and company evidence.",
+          "zh": "整合回报、风险、资产与公司证据。"
+        },
+        {
+          "en": "Present a coherent portfolio recommendation.",
+          "zh": "展示逻辑一致的投资组合建议。"
+        },
+        {
+          "en": "Defend the recommendation against challenge and acknowledge limitations.",
+          "zh": "回应质疑并承认建议的局限。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-4",
+          "name": "Retrieve",
+          "task": "Retrieve the course decision chain from objective to review rule."
+        },
+        {
+          "time": "4-7",
+          "name": "Judge",
+          "task": "Rank three recommendations for analytical quality."
+        },
+        {
+          "time": "7-15",
+          "name": "Learn",
+          "task": "Model a concise claim-evidence-reasoning defence."
+        },
+        {
+          "time": "15-25",
+          "name": "Practise",
+          "task": "Complete a final consistency and calculation audit."
+        },
+        {
+          "time": "25-35",
+          "name": "Analyse",
+          "task": "Present the recommendation and answer structured challenges."
+        },
+        {
+          "time": "35-40",
+          "name": "Exit",
+          "task": "Submit an individual limitation and next-evidence statement."
+        }
+      ],
+      "output": "Final portfolio recommendation, oral defence and individual reflection.",
+      "checkpoint": "Final rubric tests calculations, evidence, suitability, trade-offs, uncertainty and response to challenge.",
+      "terms": [
+        "recommendation（建议）",
+        "supporting evidence（支持性证据）",
+        "challenge（质疑）",
+        "limitation（局限性）"
+      ],
+      "formula": "",
+      "status": "planned",
+      "sourceDeck": "",
+      "sourceSlides": "",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute progression",
+      "contentRef": "4.2.4",
+      "contentPoints": [
+        "integration of return, risk, asset, company and portfolio evidence",
+        "presentation of a coherent investment recommendation",
+        "use of claims, evidence, reasoning and caveats in a final defence",
+        "response to challenge and acknowledgement of limitations and further evidence needs"
+      ],
+      "definitions": [
+        {
+          "key": "recommendation",
+          "term": "recommendation",
+          "zh": "建议",
+          "definition": "An investment recommendation is a reasoned proposed course of action supported by evidence, objectives, risks and limitations.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "recommendation"
+        },
+        {
+          "key": "supporting-evidence",
+          "term": "supporting evidence",
+          "zh": "支持性证据",
+          "definition": "Investment evidence is dated information used to support or challenge an investment judgement.",
+          "source": "Active Investment Analysis term bank · definition aligned to investment evidence",
+          "sourceTerm": "investment evidence"
+        },
+        {
+          "key": "challenge",
+          "term": "challenge",
+          "zh": "质疑",
+          "definition": "A challenge is a question or counterargument used to test the evidence and reasoning behind a recommendation.",
+          "source": "Syllabus-specific definition",
+          "sourceTerm": "challenge"
+        },
+        {
+          "key": "limitation",
+          "term": "limitation",
+          "zh": "局限性",
+          "definition": "A caveat is a stated limitation or condition that qualifies a conclusion.",
+          "source": "Active Investment Analysis term bank · definition aligned to caveat",
+          "sourceTerm": "caveat"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const dataElement = document.getElementById('course-data');
+      const embeddedData = JSON.parse(dataElement.textContent);
+      let state = structuredClone(embeddedData);
+      let query = '';
+      let groupFilter = 'all';
+      let editing = false;
+
+      const app = document.getElementById('app');
+      const search = document.getElementById('search');
+      const groupSelect = document.getElementById('group-filter');
+      const editToggle = document.getElementById('edit-toggle');
+      const status = document.getElementById('status');
+
+      const escapeHtml = value => String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+
+      const editable = (value, path, className = '') => {
+        const blank = value ? '' : ' empty';
+        const text = value || (editing ? 'Click to edit' : '');
+        return `<span class="editable ${className}${blank}" data-path="${escapeHtml(path)}" ${editing ? 'contenteditable="true" spellcheck="true"' : ''}>${escapeHtml(text)}</span>`;
+      };
+
+      const setStatus = message => { status.textContent = message; };
+
+      function setByPath(root, path, value) {
+        const parts = path.split('.');
+        let target = root;
+        for (let i = 0; i < parts.length - 1; i += 1) target = target[parts[i]];
+        target[parts.at(-1)] = value;
+      }
+
+      function fillGroupSelect() {
+        groupSelect.innerHTML = '<option value="all">All units</option>' + state.groups.map(group =>
+          `<option value="${escapeHtml(group.id)}">${escapeHtml(group.number)} ${escapeHtml(group.titleEn)}</option>`
+        ).join('');
+        groupSelect.value = state.groups.some(group => group.id === groupFilter) ? groupFilter : 'all';
+      }
+
+      function lessonSearchText(lesson) {
+        return JSON.stringify(lesson).toLowerCase();
+      }
+
+      function renderOverview() {
+        return `
+          <section class="overview" aria-label="Course architecture">
+            <article class="overview__card">
+              <h2>${editable(state.architectureTitle, 'architectureTitle')}</h2>
+              <p>${editable(state.architectureEn, 'architectureEn')}</p>
+              <p class="zh">${editable(state.architectureZh, 'architectureZh')}</p>
+            </article>
+            <article class="overview__card">
+              <h2>${editable(state.progressionTitle, 'progressionTitle')}</h2>
+              <p>${editable(state.progression, 'progression')}</p>
+            </article>
+            <article class="overview__card">
+              <h2>${editable(state.planningTitle, 'planningTitle')}</h2>
+              <p>${editable(state.planningNotes, 'planningNotes')}</p>
+            </article>
+          </section>`;
+      }
+
+      function renderSubjectContent(visibleLessons) {
+        const topicMarkup = state.topics.map((topic, topicIndex) => {
+          const subtopics = state.groups.filter(group => group.topicId === topic.id).map(group => {
+            const groupIndex = state.groups.indexOf(group);
+            const lessons = visibleLessons.filter(lesson => lesson.groupId === group.id);
+            if (!lessons.length) return '';
+            const statements = lessons.map(lesson => {
+              const lessonIndex = state.lessons.indexOf(lesson);
+              const points = lesson.contentPoints.map((point, pointIndex) =>
+                `<li>${editable(point, `lessons.${lessonIndex}.contentPoints.${pointIndex}`)}</li>`
+              ).join('');
+              const termLinks = lesson.definitions.map(definition =>
+                `<a href="#term-${escapeHtml(definition.key)}">${escapeHtml(definition.term)}</a>`
+              ).join(' · ');
+              return `
+                <article class="content-statement">
+                  <div class="content-ref">${editable(lesson.contentRef, `lessons.${lessonIndex}.contentRef`)}</div>
+                  <h4>${editable(lesson.focus, `lessons.${lessonIndex}.focus`)}</h4>
+                  <ul class="content-points">${points}</ul>
+                  <div class="content-terms"><strong>Key terms:</strong> ${termLinks}</div>
+                  <div class="content-lesson">Lesson ${lesson.number}<br>${escapeHtml(lesson.date)}${lesson.status === 'taught' ? '<br><strong>Taught</strong>' : ''}</div>
+                </article>`;
+            }).join('');
+            return `
+              <section class="subtopic">
+                <header class="subtopic__header">
+                  <div class="subtopic__number">${editable(group.number, `groups.${groupIndex}.number`)}</div>
+                  <div class="subtopic__title">${editable(group.titleEn, `groups.${groupIndex}.titleEn`)} <span class="zh">${editable(group.titleZh, `groups.${groupIndex}.titleZh`)}</span></div>
+                </header>
+                ${statements}
+              </section>`;
+          }).join('');
+          if (!subtopics) return '';
+          return `
+            <article class="topic-block" id="${escapeHtml(topic.id)}">
+              <header class="topic__header">
+                <div class="topic__number">${editable(topic.number, `topics.${topicIndex}.number`)}</div>
+                <h2 class="topic__title">${editable(topic.titleEn, `topics.${topicIndex}.titleEn`)} <span class="zh">${editable(topic.titleZh, `topics.${topicIndex}.titleZh`)}</span></h2>
+                <p class="topic__intro">${editable(topic.introEn, `topics.${topicIndex}.introEn`)}</p>
+                <p class="topic__intro topic__intro--zh">${editable(topic.introZh, `topics.${topicIndex}.introZh`)}</p>
+              </header>
+              ${subtopics}
+            </article>`;
+        }).join('');
+
+        return `
+          <section class="subject-content" id="subject-content" aria-labelledby="subject-content-title">
+            <header class="section-intro">
+              <div class="kicker">Syllabus hierarchy</div>
+              <h2 id="subject-content-title">${editable(state.subjectContentTitle, 'subjectContentTitle')}</h2>
+              <p>${editable(state.subjectContentIntro, 'subjectContentIntro')}</p>
+            </header>
+            ${topicMarkup}
+          </section>`;
+      }
+
+      function renderGlossary(visibleLessons) {
+        const entries = new Map();
+        visibleLessons.forEach(lesson => {
+          const lessonIndex = state.lessons.indexOf(lesson);
+          lesson.definitions.forEach((definition, definitionIndex) => {
+            if (!entries.has(definition.key)) {
+              entries.set(definition.key, {
+                ...definition,
+                refs: [],
+                definitionPath: `lessons.${lessonIndex}.definitions.${definitionIndex}.definition`
+              });
+            }
+            const entry = entries.get(definition.key);
+            if (!entry.refs.includes(lesson.contentRef)) entry.refs.push(lesson.contentRef);
+          });
+        });
+        const cards = [...entries.values()].sort((a, b) => a.term.localeCompare(b.term)).map(entry => `
+          <article class="glossary-card" id="term-${escapeHtml(entry.key)}">
+            <h3>${escapeHtml(entry.term)}${entry.zh ? ` <span class="zh">${escapeHtml(entry.zh)}</span>` : ''}</h3>
+            <p>${editable(entry.definition, entry.definitionPath)}</p>
+            <div class="glossary-card__meta">Content ${entry.refs.map(escapeHtml).join(', ')} · ${escapeHtml(entry.source)}</div>
+          </article>`).join('');
+        return `
+          <section class="glossary" id="glossary" aria-labelledby="glossary-title">
+            <header class="section-intro">
+              <div class="kicker">Course glossary</div>
+              <h2 id="glossary-title">${editable(state.glossaryTitle, 'glossaryTitle')}</h2>
+              <p>${editable(state.glossaryIntro, 'glossaryIntro')}</p>
+              <div class="glossary__sources">Sources: ${state.glossarySources.map(escapeHtml).join(' · ')}</div>
+            </header>
+            <div class="glossary-grid">${cards}</div>
+          </section>`;
+      }
+
+      function renderLesson(lesson, lessonIndex) {
+        const lessonGroup = state.groups.find(group => group.id === lesson.groupId);
+        const objectives = lesson.objectives.map((objective, objectiveIndex) => `
+          <li>
+            <span class="objective__en">${editable(objective.en, `lessons.${lessonIndex}.objectives.${objectiveIndex}.en`)}</span>
+            <span class="objective__zh">${editable(objective.zh, `lessons.${lessonIndex}.objectives.${objectiveIndex}.zh`)}</span>
+          </li>`).join('');
+
+        const phases = lesson.phases.map((phase, phaseIndex) => `
+          <div class="phase">
+            <div class="phase__head">
+              <span class="phase__time">${editable(phase.time, `lessons.${lessonIndex}.phases.${phaseIndex}.time`)}</span>
+              <span class="phase__name">${editable(phase.name, `lessons.${lessonIndex}.phases.${phaseIndex}.name`)}</span>
+            </div>
+            <div class="phase__task">${editable(phase.task, `lessons.${lessonIndex}.phases.${phaseIndex}.task`)}</div>
+          </div>`).join('');
+
+        const terms = lesson.terms.map((term, termIndex) =>
+          `<li>${editable(term, `lessons.${lessonIndex}.terms.${termIndex}`)} <a class="definition-link" href="#term-${escapeHtml(lesson.definitions[termIndex]?.key || '')}">definition</a></li>`
+        ).join('');
+
+        return `
+          <article class="lesson${lesson.status === 'taught' ? ' lesson--taught' : ''}" id="${escapeHtml(lesson.id)}" data-lesson-id="${escapeHtml(lesson.id)}">
+            <header class="lesson__header">
+              <div class="lesson__meta">
+                <div class="print-unit-label">${escapeHtml(lessonGroup?.titleEn || '')}</div>
+                <div class="lesson__number-row">
+                  <div class="lesson__number">Lesson ${lesson.number}</div>
+                  ${lesson.status === 'taught' ? '<span class="lesson-status">Taught</span>' : ''}
+                </div>
+                <div class="lesson__content-ref">Content ${editable(lesson.contentRef, `lessons.${lessonIndex}.contentRef`)}</div>
+                <div class="lesson__date">${editable(lesson.date, `lessons.${lessonIndex}.date`)}</div>
+                <div class="lesson__focus">${editable(lesson.focus, `lessons.${lessonIndex}.focus`)}</div>
+                ${lesson.scheduleNote || editing ? `<div class="lesson__note">${editable(lesson.scheduleNote, `lessons.${lessonIndex}.scheduleNote`)}</div>` : ''}
+                ${lesson.sourceDeck ? `<div class="lesson__source"><strong>Source of truth</strong><br>${escapeHtml(lesson.sourceDeck)} · ${escapeHtml(lesson.sourceSlides || '')}</div>` : ''}
+                <div class="edit-actions">
+                  <button class="mini-button" type="button" data-action="up" data-id="${escapeHtml(lesson.id)}">Move up</button>
+                  <button class="mini-button" type="button" data-action="down" data-id="${escapeHtml(lesson.id)}">Move down</button>
+                  <button class="mini-button" type="button" data-action="toggle-status" data-id="${escapeHtml(lesson.id)}">Mark ${lesson.status === 'taught' ? 'planned' : 'taught'}</button>
+                  <button class="mini-button" type="button" data-action="duplicate" data-id="${escapeHtml(lesson.id)}">Duplicate</button>
+                  <button class="mini-button" type="button" data-action="remove" data-id="${escapeHtml(lesson.id)}">Remove</button>
+                </div>
+              </div>
+              <div class="lesson__enquiry">
+                <div class="kicker">Enquiry question</div>
+                <h3>${editable(lesson.question, `lessons.${lessonIndex}.question`)}</h3>
+              </div>
+            </header>
+            <div class="lesson__grid">
+              <section class="panel panel--objectives">
+                <h4>Three bilingual objectives</h4>
+                <ol class="objectives">${objectives}</ol>
+              </section>
+              <section class="panel panel--progression">
+                <h4>${editable(lesson.sequenceTitle || '40-minute progression', `lessons.${lessonIndex}.sequenceTitle`)}</h4>
+                <div class="phases">${phases}</div>
+              </section>
+              <section class="panel panel--evidence">
+                <h4>Student evidence</h4>
+                <div class="evidence-block"><strong>Output</strong><div>${editable(lesson.output, `lessons.${lessonIndex}.output`)}</div></div>
+                <div class="evidence-block"><strong>Checkpoint</strong><div>${editable(lesson.checkpoint, `lessons.${lessonIndex}.checkpoint`)}</div></div>
+              </section>
+              <aside class="panel panel--knowledge">
+                <h4>Key knowledge</h4>
+                <ul class="terms">${terms}</ul>
+                ${lesson.formula || editing ? `<div class="formula"><strong>Formula</strong><br>${editable(lesson.formula, `lessons.${lessonIndex}.formula`)}</div>` : ''}
+              </aside>
+            </div>
+          </article>`;
+      }
+
+      function renderUnit(group, groupIndex, visibleLessons) {
+        const titlePath = `groups.${groupIndex}`;
+        return `
+          <section class="unit" id="${escapeHtml(group.id)}">
+            <header class="unit__header">
+              <h2>${editable(group.number, `${titlePath}.number`)} ${editable(group.titleEn, `${titlePath}.titleEn`)} <span class="zh">${editable(group.titleZh, `${titlePath}.titleZh`)}</span></h2>
+              <div class="unit__count">${visibleLessons.length} lesson${visibleLessons.length === 1 ? '' : 's'} shown</div>
+              <div class="edit-actions"><button class="mini-button" type="button" data-action="add" data-group-id="${escapeHtml(group.id)}">Add lesson to this unit</button></div>
+            </header>
+            <div class="lesson-list">${visibleLessons.map(lesson => renderLesson(lesson, state.lessons.indexOf(lesson))).join('')}</div>
+          </section>`;
+      }
+
+      function render() {
+        document.body.classList.toggle('editing', editing);
+        editToggle.setAttribute('aria-pressed', String(editing));
+        editToggle.textContent = editing ? 'Finish editing' : 'Edit mode';
+        fillGroupSelect();
+
+        const needle = query.trim().toLowerCase();
+        const visible = state.lessons.filter(lesson =>
+          (groupFilter === 'all' || lesson.groupId === groupFilter) &&
+          (!needle || lessonSearchText(lesson).includes(needle))
+        );
+        const definitionCount = new Set(state.lessons.flatMap(lesson => lesson.definitions.map(definition => definition.key))).size;
+
+        const hero = `
+          <section class="hero">
+            <div class="hero__inner">
+              <p class="eyebrow">${editable(state.eyebrow, 'eyebrow')}</p>
+              <h1>${editable(state.title, 'title')}</h1>
+              <p class="intro">${editable(state.introEn, 'introEn')}</p>
+              <p class="intro intro--zh">${editable(state.introZh, 'introZh')}</p>
+              <div class="metrics">
+                <span class="metric">${state.lessons.length} lessons</span>
+                <span class="metric">${state.lessons.filter(lesson => lesson.status === 'taught').length} taught · ${state.lessons.filter(lesson => lesson.status !== 'taught').length} planned</span>
+                <span class="metric">${state.topics.length} topics · ${state.groups.length} subtopics</span>
+                <span class="metric">${definitionCount} key definitions</span>
+                <span class="metric">3 objectives per lesson</span>
+                <span class="metric">6 phases per lesson</span>
+              </div>
+            </div>
+          </section>`;
+
+        const units = state.groups.map((group, groupIndex) => {
+          const lessons = visible.filter(lesson => lesson.groupId === group.id);
+          return lessons.length || editing ? renderUnit(group, groupIndex, lessons) : '';
+        }).join('');
+
+        const detailIntro = `
+          <header class="detail-intro">
+            <div class="kicker">Scheme of work</div>
+            <h2>Detailed lesson sequence</h2>
+            <p>Dates, enquiry questions, learning objectives, classroom progression and evidence checks translate the numbered subject content into teachable 40-minute lessons.</p>
+          </header>`;
+        app.innerHTML = hero + renderOverview() + renderSubjectContent(visible) + detailIntro + `<div class="scheme">${units || '<div class="no-results">No lessons match this search.</div>'}</div>` + renderGlossary(visible);
+        setStatus(`${visible.length} of ${state.lessons.length} lessons shown${editing ? ' · click outlined text to edit' : ''}`);
+      }
+
+      function renumberLessons() {
+        let number = 1;
+        state.groups.forEach(group => {
+          state.lessons.filter(lesson => lesson.groupId === group.id).forEach((lesson, contentIndex) => {
+            lesson.number = number++;
+            lesson.contentRef = `${group.number}.${contentIndex + 1}`;
+          });
+        });
+      }
+
+      function blankLesson(groupId) {
+        return {
+          id: `lesson-${Date.now()}`,
+          number: state.lessons.length + 1,
+          groupId,
+          date: 'Wed Sep 2',
+          focus: 'New lesson focus',
+          scheduleNote: '',
+          question: 'Add an answerable enquiry question.',
+          contentRef: '',
+          contentPoints: [
+            'definition of the lesson\'s central concept',
+            'application of the concept to a relevant investment context',
+            'interpretation or evaluation using appropriate evidence'
+          ],
+          objectives: [
+            { en: 'Add objective one.', zh: '添加目标一。' },
+            { en: 'Add objective two.', zh: '添加目标二。' },
+            { en: 'Add objective three.', zh: '添加目标三。' }
+          ],
+          phases: [
+            { time: '0-4', name: 'Retrieve', task: 'Retrieve prior knowledge.' },
+            { time: '4-7', name: 'Judge', task: 'Commit to an initial judgement.' },
+            { time: '7-15', name: 'Learn', task: 'Learn through a concise model.' },
+            { time: '15-25', name: 'Practise', task: 'Practise with feedback.' },
+            { time: '25-35', name: 'Analyse', task: 'Analyse an unfamiliar case.' },
+            { time: '35-40', name: 'Exit', task: 'Submit an individual response.' }
+          ],
+          output: 'Define the student evidence to collect.',
+          checkpoint: 'Define the success criterion.',
+          terms: ['new term（新术语）'],
+          definitions: [{
+            key: `new-term-${Date.now()}`,
+            term: 'new term',
+            zh: '新术语',
+            definition: 'Add a precise, self-contained classroom definition.',
+            source: 'Syllabus-specific definition',
+            sourceTerm: 'new term'
+          }],
+          formula: '',
+          status: 'planned',
+          sourceDeck: '',
+          sourceSlides: '',
+          sourceSha256: '',
+          sequenceTitle: '40-minute progression'
+        };
+      }
+
+      function handleAction(button) {
+        const action = button.dataset.action;
+        if (action === 'add') {
+          const groupId = button.dataset.groupId;
+          const indices = state.lessons.map((lesson, index) => ({ lesson, index })).filter(item => item.lesson.groupId === groupId);
+          const insertAt = indices.length ? indices.at(-1).index + 1 : state.lessons.length;
+          state.lessons.splice(insertAt, 0, blankLesson(groupId));
+        } else {
+          const index = state.lessons.findIndex(lesson => lesson.id === button.dataset.id);
+          if (index < 0) return;
+          const lesson = state.lessons[index];
+          const sameGroup = state.lessons.map((item, itemIndex) => ({ item, itemIndex })).filter(entry => entry.item.groupId === lesson.groupId);
+          const position = sameGroup.findIndex(entry => entry.itemIndex === index);
+          if (action === 'up' && position > 0) {
+            const otherIndex = sameGroup[position - 1].itemIndex;
+            [state.lessons[index], state.lessons[otherIndex]] = [state.lessons[otherIndex], state.lessons[index]];
+          }
+          if (action === 'down' && position < sameGroup.length - 1) {
+            const otherIndex = sameGroup[position + 1].itemIndex;
+            [state.lessons[index], state.lessons[otherIndex]] = [state.lessons[otherIndex], state.lessons[index]];
+          }
+          if (action === 'duplicate') {
+            const copy = structuredClone(lesson);
+            copy.id = `lesson-${Date.now()}`;
+            copy.focus += ' (copy)';
+            copy.status = 'planned';
+            copy.sourceDeck = '';
+            copy.sourceSlides = '';
+            copy.sourceSha256 = '';
+            copy.sequenceTitle = '40-minute progression';
+            state.lessons.splice(index + 1, 0, copy);
+          }
+          if (action === 'toggle-status') lesson.status = lesson.status === 'taught' ? 'planned' : 'taught';
+          if (action === 'remove' && confirm(`Remove Lesson ${lesson.number}: ${lesson.focus}?`)) state.lessons.splice(index, 1);
+        }
+        renumberLessons();
+        render();
+      }
+
+      function parseLessonDate(lesson) {
+        const match = lesson.date.replace('*', '').match(/(?:Wed|Fri)\s+([A-Z][a-z]{2})\s+(\d+)/);
+        if (!match) return null;
+        const year = lesson.number >= state.yearRolloverLesson ? state.calendarStartYear + 1 : state.calendarStartYear;
+        return new Date(`${match[1]} ${match[2]}, ${year} 12:00:00`);
+      }
+
+      function formatLessonDate(date, provisional) {
+        const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const month = date.toLocaleDateString('en-US', { month: 'short' });
+        return `${weekday} ${month} ${date.getDate()}${provisional ? '*' : ''}`;
+      }
+
+      function shiftPacing() {
+        const from = Number(document.getElementById('shift-from').value);
+        const weeks = Number(document.getElementById('shift-weeks').value);
+        if (!Number.isInteger(from) || !Number.isInteger(weeks)) return setStatus('Enter whole numbers for the starting lesson and week shift.');
+        let changed = 0;
+        let protectedCount = 0;
+        state.lessons.forEach(lesson => {
+          if (lesson.number < from) return;
+          if (lesson.status === 'taught') {
+            protectedCount += 1;
+            return;
+          }
+          const date = parseLessonDate(lesson);
+          if (!date) return;
+          const provisional = lesson.date.includes('*');
+          date.setDate(date.getDate() + weeks * 7);
+          lesson.date = formatLessonDate(date, provisional);
+          changed += 1;
+        });
+        render();
+        setStatus(`Shifted ${changed} planned lesson dates by ${weeks} week${Math.abs(weeks) === 1 ? '' : 's'}${protectedCount ? `; ${protectedCount} taught lesson${protectedCount === 1 ? '' : 's'} protected` : ''}.`);
+      }
+
+      function saveDraft() {
+        localStorage.setItem(state.storageKey, JSON.stringify(state));
+        setStatus('Draft saved in this browser. Download updated HTML for a portable, permanent copy.');
+      }
+
+      function restoreDraft() {
+        const saved = localStorage.getItem(state.storageKey);
+        if (!saved) return setStatus('No browser draft is saved yet.');
+        state = JSON.parse(saved);
+        render();
+        setStatus('Browser draft restored.');
+      }
+
+      function downloadHtml() {
+        const clone = document.documentElement.cloneNode(true);
+        const cloneData = clone.querySelector('#course-data');
+        const safeJson = JSON.stringify(state, null, 2).replaceAll('</script', '<\\/script');
+        cloneData.textContent = `\n${safeJson}\n  `;
+        clone.querySelector('#app').innerHTML = '';
+        clone.querySelector('#status').textContent = '';
+        clone.querySelector('body').classList.remove('editing');
+        const html = '<!doctype html>\n' + clone.outerHTML;
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Investment Scheme of Work - updated.html';
+        link.click();
+        URL.revokeObjectURL(url);
+        setStatus('Downloaded a new self-contained HTML file containing the current edits.');
+      }
+
+      search.addEventListener('input', event => { query = event.target.value; render(); });
+      groupSelect.addEventListener('change', event => { groupFilter = event.target.value; render(); });
+      editToggle.addEventListener('click', () => { editing = !editing; render(); });
+      document.getElementById('save-draft').addEventListener('click', saveDraft);
+      document.getElementById('restore-draft').addEventListener('click', restoreDraft);
+      document.getElementById('download').addEventListener('click', downloadHtml);
+      document.getElementById('print').addEventListener('click', () => window.print());
+      document.getElementById('apply-shift').addEventListener('click', shiftPacing);
+
+      document.addEventListener('input', event => {
+        const target = event.target.closest('[data-path]');
+        if (!target || !editing) return;
+        target.classList.remove('empty');
+        const definitionMatch = target.dataset.path.match(/^lessons\.(\d+)\.definitions\.(\d+)\.definition$/);
+        const definitionKey = definitionMatch
+          ? state.lessons[Number(definitionMatch[1])].definitions[Number(definitionMatch[2])].key
+          : null;
+        setByPath(state, target.dataset.path, target.textContent.trim());
+        if (definitionKey) {
+          state.lessons.forEach(lesson => lesson.definitions.forEach(definition => {
+            if (definition.key === definitionKey) definition.definition = target.textContent.trim();
+          }));
+        }
+        setStatus('Unsaved edit · use Save draft or Download updated HTML.');
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.target.matches('[contenteditable="true"]') && event.key === 'Enter') {
+          event.preventDefault();
+          event.target.blur();
+        }
+      });
+
+      document.addEventListener('click', event => {
+        const button = event.target.closest('[data-action]');
+        if (button && editing) handleAction(button);
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

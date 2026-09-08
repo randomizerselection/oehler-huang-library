@@ -1,0 +1,6 @@
+Intentional deviations
+1. All multiplier-specific text is replaced with Lesson 2 investment-return content.
+2. Four inherited photographs are replaced with newly downloaded, high-resolution, return-analysis images.
+3. Source slide numbers are replaced with output slide numbers.
+4. The original analytical structure, typography, spacing, shapes, tables and colour logic are retained.
+5. No new slides are added and no whole-slide overlay panels are introduced.

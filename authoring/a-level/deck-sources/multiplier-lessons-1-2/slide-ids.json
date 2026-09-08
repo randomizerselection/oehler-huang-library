@@ -1,0 +1,362 @@
+[
+  {
+    "id": "original-01",
+    "slideNumber": 1,
+    "slideId": "y90nupkv",
+    "sourceSlide": 1
+  },
+  {
+    "id": "original-02",
+    "slideNumber": 2,
+    "slideId": "hwbqtkby",
+    "sourceSlide": 2
+  },
+  {
+    "id": "original-03",
+    "slideNumber": 3,
+    "slideId": "ofy9wn61",
+    "sourceSlide": 3
+  },
+  {
+    "id": "original-04",
+    "slideNumber": 4,
+    "slideId": "jyx0ra1s",
+    "sourceSlide": 4
+  },
+  {
+    "id": "original-05",
+    "slideNumber": 5,
+    "slideId": "i107q5of",
+    "sourceSlide": 5
+  },
+  {
+    "id": "original-06",
+    "slideNumber": 6,
+    "slideId": "x8f69ofe",
+    "sourceSlide": 6
+  },
+  {
+    "id": "original-07",
+    "slideNumber": 7,
+    "slideId": "gnmp4jqx",
+    "sourceSlide": 7
+  },
+  {
+    "id": "original-08",
+    "slideNumber": 8,
+    "slideId": "fu1gfa1s",
+    "sourceSlide": 8
+  },
+  {
+    "id": "original-09",
+    "slideNumber": 9,
+    "slideId": "udsvah03",
+    "sourceSlide": 9
+  },
+  {
+    "id": "original-10",
+    "slideNumber": 10,
+    "slideId": "m90b6t0r",
+    "sourceSlide": 10
+  },
+  {
+    "id": "original-11",
+    "slideNumber": 11,
+    "slideId": "jetc3ut0",
+    "sourceSlide": 11
+  },
+  {
+    "id": "original-12",
+    "slideNumber": 12,
+    "slideId": "8f2psfyx",
+    "sourceSlide": 12
+  },
+  {
+    "id": "original-13",
+    "slideNumber": 13,
+    "slideId": "hgzapcr6",
+    "sourceSlide": 13
+  },
+  {
+    "id": "original-14",
+    "slideNumber": 14,
+    "slideId": "6lsnupw7",
+    "sourceSlide": 14
+  },
+  {
+    "id": "original-15",
+    "slideNumber": 15,
+    "slideId": "vaxsvy10",
+    "sourceSlide": 15
+  },
+  {
+    "id": "original-16",
+    "slideNumber": 16,
+    "slideId": "gny5sjyp",
+    "sourceSlide": 16
+  },
+  {
+    "id": "original-17",
+    "slideNumber": 17,
+    "slideId": "14bup87q",
+    "sourceSlide": 17
+  },
+  {
+    "id": "original-18",
+    "slideNumber": 18,
+    "slideId": "y5wne50z",
+    "sourceSlide": 18
+  },
+  {
+    "id": "original-19",
+    "slideNumber": 19,
+    "slideId": "nid43ytk",
+    "sourceSlide": 19
+  },
+  {
+    "id": "original-20",
+    "slideNumber": 20,
+    "slideId": "zyxsni5k",
+    "sourceSlide": 20
+  },
+  {
+    "id": "original-21",
+    "slideNumber": 21,
+    "slideId": "m1wvqtk3",
+    "sourceSlide": 21
+  },
+  {
+    "id": "original-22",
+    "slideNumber": 22,
+    "slideId": "5onypobq",
+    "sourceSlide": 22
+  },
+  {
+    "id": "original-23",
+    "slideNumber": 23,
+    "slideId": "c7uhcr6t",
+    "sourceSlide": 23
+  },
+  {
+    "id": "original-24",
+    "slideNumber": 24,
+    "slideId": "7qto7e10",
+    "sourceSlide": 24
+  },
+  {
+    "id": "as-bridge",
+    "slideNumber": 25,
+    "slideId": "69wfm9o7",
+    "sourceSlide": 18
+  },
+  {
+    "id": "ae-axes",
+    "slideNumber": 26,
+    "slideId": "l0bepsfm",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-equality-line",
+    "slideNumber": 27,
+    "slideId": "4vyxknqp",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-spending-table",
+    "slideNumber": 28,
+    "slideId": "3mdove10",
+    "sourceSlide": 8
+  },
+  {
+    "id": "ae-spending-line",
+    "slideNumber": 29,
+    "slideId": "i5o3q10v",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-equilibrium",
+    "slideNumber": 30,
+    "slideId": "wnqh07ex",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-below-equilibrium",
+    "slideNumber": 31,
+    "slideId": "lcn6tkb6",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-above-equilibrium",
+    "slideNumber": 32,
+    "slideId": "6l0j294r",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-injection-shift",
+    "slideNumber": 33,
+    "slideId": "nax4b2dk",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-spending-rounds",
+    "slideNumber": 34,
+    "slideId": "ofu103u5",
+    "sourceSlide": 8
+  },
+  {
+    "id": "ae-new-equilibrium",
+    "slideNumber": 35,
+    "slideId": "1obmtofm",
+    "sourceSlide": 25
+  },
+  {
+    "id": "ae-injections-leakages",
+    "slideNumber": 36,
+    "slideId": "m9s3ehgf",
+    "sourceSlide": 22
+  },
+  {
+    "id": "ae-draw-and-explain",
+    "slideNumber": 37,
+    "slideId": "jyhsreh4",
+    "sourceSlide": 18
+  },
+  {
+    "id": "ae-negative-multiplier",
+    "slideNumber": 38,
+    "slideId": "ofahkri5",
+    "sourceSlide": 25
+  },
+  {
+    "id": "adas-recall",
+    "slideNumber": 39,
+    "slideId": "twb2lg7e",
+    "sourceSlide": 26
+  },
+  {
+    "id": "adas-initial-injection",
+    "slideNumber": 40,
+    "slideId": "5ojatgfe",
+    "sourceSlide": 26
+  },
+  {
+    "id": "adas-multiplier-outcome",
+    "slideNumber": 41,
+    "slideId": "cnmpwjmp",
+    "sourceSlide": 26
+  },
+  {
+    "id": "original-27",
+    "slideNumber": 42,
+    "slideId": "7mdw7yh8",
+    "sourceSlide": 27
+  },
+  {
+    "id": "original-28",
+    "slideNumber": 43,
+    "slideId": "qhkbqxoz",
+    "sourceSlide": 28
+  },
+  {
+    "id": "original-30",
+    "slideNumber": 44,
+    "slideId": "pcvutcvy",
+    "sourceSlide": 30
+  },
+  {
+    "id": "core-feedback",
+    "slideNumber": 45,
+    "slideId": "kvipwnmh",
+    "sourceSlide": 31
+  },
+  {
+    "id": "original-32",
+    "slideNumber": 46,
+    "slideId": "zixsf2ps",
+    "sourceSlide": 32
+  },
+  {
+    "id": "original-33",
+    "slideNumber": 47,
+    "slideId": "atcnytkf",
+    "sourceSlide": 33
+  },
+  {
+    "id": "original-34",
+    "slideNumber": 48,
+    "slideId": "pwb6x4jy",
+    "sourceSlide": 34
+  },
+  {
+    "id": "original-35",
+    "slideNumber": 49,
+    "slideId": "oz2xg3q1",
+    "sourceSlide": 35
+  },
+  {
+    "id": "original-36",
+    "slideNumber": 50,
+    "slideId": "a9gvuxsb",
+    "sourceSlide": 36
+  },
+  {
+    "id": "original-37",
+    "slideNumber": 51,
+    "slideId": "36hsrmts",
+    "sourceSlide": 37
+  },
+  {
+    "id": "original-38",
+    "slideNumber": 52,
+    "slideId": "gfe1wbu1",
+    "sourceSlide": 38
+  },
+  {
+    "id": "original-39",
+    "slideNumber": 53,
+    "slideId": "9w7yt8zy",
+    "sourceSlide": 39
+  },
+  {
+    "id": "later-consumption-question",
+    "slideNumber": 54,
+    "slideId": "uhgfqdcf",
+    "sourceSlide": 29
+  },
+  {
+    "id": "original-40",
+    "slideNumber": 55,
+    "slideId": "vyd8bips",
+    "sourceSlide": 40
+  },
+  {
+    "id": "original-41",
+    "slideNumber": 56,
+    "slideId": "83ix4rex",
+    "sourceSlide": 41
+  },
+  {
+    "id": "original-42",
+    "slideNumber": 57,
+    "slideId": "p8vetc3e",
+    "sourceSlide": 42
+  },
+  {
+    "id": "original-43",
+    "slideNumber": 58,
+    "slideId": "mdo3u583",
+    "sourceSlide": 43
+  },
+  {
+    "id": "original-44",
+    "slideNumber": 59,
+    "slideId": "7uxozyps",
+    "sourceSlide": 44
+  },
+  {
+    "id": "later-study-guide",
+    "slideNumber": 60,
+    "slideId": "bapcne9c",
+    "sourceSlide": 45
+  }
+]

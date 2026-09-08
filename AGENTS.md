@@ -5,8 +5,37 @@
 - `apps/library`: public lessons and Investment Analysis content.
 - `apps/platform`: authenticated Node/SQLite application and EconMark.
 - `apps/student-selector`: teacher-only selector UI and its preserved history.
+- `packages/contracts`: app-independent content contracts and public-file policy, shared by builders, server and release tooling. Apps must declare this dependency and must not import sibling app implementations.
+- `authoring/investment-course` and `authoring/a-level`: non-public course planning, preferences, export/check tools and retained PowerPoint references. Start all new course work in this repository.
+
+## Course ownership and legacy material
+
+- Course landing pages determine which lessons are active. Lessons and lesson types not linked from the relevant course landing page are legacy. Preserve them as references; do not use them as default templates or add them back to the catalogue without a user request.
+- Edit Investment HTML directly under `apps/library/investment-analysis/lessons/`, using its `course-assets/` renderer. Read that course's `AGENTS.md` and `authoring/investment-course/planning/LESSON_DECK_PREFERENCES.md` first. The older `unit-1/`, `_template/` and Economics-renderer Investment system are legacy.
+- Edit A-level HTML directly under `apps/library/a-level/lessons/`, using `apps/library/a-level/shared-html/`. Read that course's `AGENTS.md` and `authoring/a-level/AGENTS.md` first.
+- Use the slide kinds demonstrated by the linked lessons. An unused renderer branch or an old all-types demonstration does not make a lesson type current. Preserve each course's own design and interactions.
+- The sibling `investment-course` and `a-level` projects are deprecated recovery copies. Do not edit them, sync from them, or create another HTML source under `authoring/`.
+- Keep planning, templates, PowerPoint builders and classroom export files outside `apps/library`. See `authoring/README.md` for the current paths and external reference archive.
+- Complete a new HTML lesson by linking it from its course landing page and updating the relevant catalogue checks; until then, label it explicitly as a draft.
 
 Run root commands from this directory. Do not deploy public roster CSV files or add secrets, databases, uploads, backups, generated reports, or provider credentials to Git.
+
+Read `docs/ARCHITECTURE.md` for architecture work. Keep course renderers owned by
+their courses. New shared application contracts belong under `packages/`; private
+authoring stays outside public roots. `npm run check:architecture` enforces module
+boundaries. `npm run release:plan` previews the explicit release inputs. Legacy
+generator checks run through `npm run test:legacy`, not the active lesson baseline.
+
+## Teaching preference: introduce the logic before the definition
+
+For future topic introductions, first demonstrate how the idea works through a
+concrete example. Make the visual or content structure follow the concept's
+logic, using a sequence, comparison or cause-and-effect chain as appropriate.
+Let students see and explain the mechanism before presenting a concise definition
+to consolidate it. For example, show money earning interest, that interest staying
+invested, and the larger balance earning interest again before defining compounding.
+Apply this when creating or revising introductions; preserve each course's own
+design and interactions.
 
 ## Required validation
 

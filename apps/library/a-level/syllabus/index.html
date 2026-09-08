@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A Level Economics 9708 sections 9–11: syllabus coverage and 48 lesson plans, with teaching activities, checks and personal planning notes.">
+  <title>A Level Economics syllabus and lesson planner - Oehler-Huang Learning Platform</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/app-shell.css">
+  <link rel="stylesheet" href="../../assets/css/course-home.css">
+  <link rel="stylesheet" href="../syllabus.css">
+  <script src="../../assets/js/baidu-analytics.js"></script>
+</head>
+<body class="bg-ambient course-home a-level-home syllabus-planner">
+  <a class="skip-link" href="#planner">Skip to planner</a>
+  <main class="site" id="top">
+    <header class="landing-nav oh-app-header" aria-label="Course navigation">
+      <a class="oh-app-brand" href="../../index.html" aria-label="Oehler-Huang Learning Platform home">
+        <span class="oh-app-mark" aria-hidden="true">OH</span>
+        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
+      </a>
+      <nav class="oh-primary-nav" aria-label="Primary destinations">
+        <a data-oh-nav="economics" href="../../economics/index.html">IGCSE Economics</a>
+        <a data-oh-nav="a-level" href="../index.html" class="is-current">A Level Economics</a>
+        <a data-oh-nav="investment" href="../../investment-analysis/index.html">Investment and finance</a>
+        <a data-oh-nav="homework" href="/econmark/">Homework</a>
+      </nav>
+      <div class="oh-header-account platformAccountMount" data-platform-account></div>
+    </header>
+    <a class="course-back" href="../index.html">← A Level Economics</a>
+    <header class="hero" aria-labelledby="planner-title">
+      <p class="eyebrow">Cambridge 9708 · 2026–2028 · Sections 9–11</p>
+      <h1 id="planner-title">Syllabus and lesson planner</h1>
+      <p class="course-title-zh" lang="zh-Hans">课程大纲与逐课教学计划</p>
+      <p class="lead">Lesson-by-lesson planning for the macroeconomy, government intervention and international economic issues.</p>
+      <p class="plan-summary" id="plan-summary"></p>
+    </header>
+
+    <section class="planning-basis" aria-labelledby="basis-title">
+      <h2 id="basis-title">Pacing</h2>
+      <p>Sections 9–10 retain the workbook’s <strong>28¾ lesson units</strong>. Section 11 adds <strong>19 provisional units</strong> from the earlier coverage planner. A quarter-lesson review at the end of section 9 brings the sequence to <strong>48 lessons</strong>.</p>
+      <div class="pacing-line">
+        <label for="lessons-per-week">Lessons per week</label>
+        <input id="lessons-per-week" type="number" min="1" max="10" step="1" value="2">
+        <output id="weeks-output" for="lessons-per-week"></output>
+      </div>
+      <details class="source-notes">
+        <summary>Planning assumptions and workbook sources</summary>
+        <p>The complete plan takes 24 teaching weeks at two lessons per week. It exceeds the earlier 16-week, 32-lesson model by 16 lessons. It includes the quarter-lesson review above, but no separate assessment lessons or holiday allowance. Dates are left blank for your timetable.</p>
+        <p>Lesson shares preserve the workbook’s allocations in syllabus order. A shared lesson divides its time between the listed points. Teaching activities, checks and follow-up tasks are planning suggestions, not prescribed syllabus wording or teaching hours.</p>
+        <ul id="source-list"></ul>
+      </details>
+    </section>
+
+    <section class="planner" id="planner" aria-labelledby="view-title">
+      <div class="planner-toolbar">
+        <div class="planner-views" aria-label="Planner views">
+          <button type="button" data-view="lessons" aria-pressed="true">Lesson plan</button>
+          <button type="button" data-view="syllabus" aria-pressed="false">Syllabus coverage</button>
+        </div>
+        <label class="search-label">Search <input id="planner-search" type="search" placeholder="Topic, code or activity"></label>
+        <label>Section <select id="section-filter"><option value="all">All sections</option><option value="9">9 · The macroeconomy</option><option value="10">10 · Government intervention</option><option value="11">11 · International issues</option></select></label>
+        <button type="button" id="clear-filters">Clear filters</button>
+      </div>
+      <div class="planner-actions">
+        <h2 id="view-title">Lesson plan</h2>
+        <button type="button" id="expand-plans">Expand all</button>
+        <button type="button" id="collapse-plans">Collapse all</button>
+        <button type="button" id="download-plan">Download plan CSV</button>
+        <button type="button" id="print-plan">Print / PDF</button>
+      </div>
+      <p id="filter-status" class="filter-status" role="status"></p>
+      <p class="draft-help">Dates, teaching status and notes save automatically in this browser. Download the plan CSV to keep a copy; these entries do not change the shared course plan.</p>
+      <p id="draft-status" class="draft-status" role="status"></p>
+      <div id="lesson-plans"></div>
+      <div id="syllabus-points" hidden></div>
+      <p id="empty-results" hidden>No matches. Try a topic name or syllabus code, or clear the filters.</p>
+      <noscript><p>Enable JavaScript to view the syllabus and lesson plans. The planner works locally without an internet connection.</p></noscript>
+    </section>
+
+    <footer class="site-foot">
+      <span>Samuel Oehler-Huang · Suzhou Foreign Language School</span>
+      <span>Independent resources; not endorsed by Cambridge International Education.</span>
+    </footer>
+  </main>
+  <script src="../syllabus-data.js"></script>
+  <script src="../syllabus.js"></script>
+  <script src="../../assets/js/platform-auth.js"></script>
+  <script src="../../assets/js/library-home.js"></script>
+</body>
+</html>

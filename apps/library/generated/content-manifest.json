@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-content/1.0.0",
-  "source_hash": "b5a9751b41e9430184547f87627e00818a16e00763e0675f2347ba8917b70eec",
+  "source_hash": "9f0d422419a5c87904d9aeb7b7e291262854b59a19d91e023899b138663704c0",
   "items": [
     {
       "id": "library:home",
@@ -12,10 +12,55 @@
       "slide_id_pattern": "library:home:slide-{1-based-index}"
     },
     {
+      "id": "a-level",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "A Level Economics - Oehler-Huang Learning Platform",
+      "route": "/a-level/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:slide-{1-based-index}"
+    },
+    {
+      "id": "a-level:lessons:9-1-1-multiplier",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "The multiplier · A Level Economics",
+      "route": "/a-level/lessons/9-1-1-multiplier/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:lessons:9-1-1-multiplier:slide-{1-based-index}"
+    },
+    {
+      "id": "a-level:lessons:9-1-2-aggregate-demand",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Components of aggregate demand · A Level Economics",
+      "route": "/a-level/lessons/9-1-2-aggregate-demand/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:lessons:9-1-2-aggregate-demand:slide-{1-based-index}"
+    },
+    {
+      "id": "a-level:syllabus",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "A Level Economics syllabus and lesson planner - Oehler-Huang Learning Platform",
+      "route": "/a-level/syllabus/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:syllabus:slide-{1-based-index}"
+    },
+    {
+      "id": "economics",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "IGCSE Economics - Oehler-Huang Learning Platform",
+      "route": "/economics/",
+      "quiz_id": null,
+      "slide_id_pattern": "economics:slide-{1-based-index}"
+    },
+    {
       "id": "investment-analysis",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Investment and Financial Decision-Making - Oehler-Huang Library",
+      "title": "Investment and finance - Oehler-Huang Learning Platform",
       "route": "/investment-analysis/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:slide-{1-based-index}"
@@ -30,67 +75,31 @@
       "slide_id_pattern": "investment-analysis:definitions:slide-{1-based-index}"
     },
     {
-      "id": "investment-analysis:smg-team-evidence-log",
+      "id": "investment-analysis:lessons:1-1-2-measuring-investment-return",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "SMG Team Evidence Log - Investment and Financial Decision-Making",
-      "route": "/investment-analysis/smg-team-evidence-log/",
+      "title": "Lesson 2 · Measuring investment return",
+      "route": "/investment-analysis/lessons/1-1-2-measuring-investment-return/",
       "quiz_id": null,
-      "slide_id_pattern": "investment-analysis:smg-team-evidence-log:slide-{1-based-index}"
+      "slide_id_pattern": "investment-analysis:lessons:1-1-2-measuring-investment-return:slide-{1-based-index}"
     },
     {
-      "id": "investment-analysis:smg-workbook-course-guide",
+      "id": "investment-analysis:lessons:1-1-3-compound-growth",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "SMG Workbook Course Guide - Investment and Financial Decision-Making",
-      "route": "/investment-analysis/smg-workbook-course-guide/",
+      "title": "Lesson 3 · Compound growth",
+      "route": "/investment-analysis/lessons/1-1-3-compound-growth/",
       "quiz_id": null,
-      "slide_id_pattern": "investment-analysis:smg-workbook-course-guide:slide-{1-based-index}"
+      "slide_id_pattern": "investment-analysis:lessons:1-1-3-compound-growth:slide-{1-based-index}"
     },
     {
-      "id": "investment-analysis:syllabus-company-analysis",
+      "id": "investment-analysis:syllabus-2026-27",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Archived Company-Analysis Syllabus - Oehler-Huang Library",
-      "route": "/investment-analysis/syllabus-company-analysis/",
+      "title": "Investment Scheme of Work",
+      "route": "/investment-analysis/syllabus-2026-27/",
       "quiz_id": null,
-      "slide_id_pattern": "investment-analysis:syllabus-company-analysis:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:syllabus",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Investment and Financial Decision-Making Syllabus - Oehler-Huang Library",
-      "route": "/investment-analysis/syllabus/",
-      "quiz_id": null,
-      "slide_id_pattern": "investment-analysis:syllabus:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-1",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "What is investment? - Investment and Financial Decision-Making",
-      "route": "/investment-analysis/unit-1/lesson-1/",
-      "quiz_id": "investment-analysis-unit-1-lesson-1",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-1:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-2",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "Why do people and families invest? - Investment and Financial Decision-Making",
-      "route": "/investment-analysis/unit-1/lesson-2/",
-      "quiz_id": "investment-analysis-unit-1-lesson-2",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-2:slide-{1-based-index}"
-    },
-    {
-      "id": "investment-analysis:unit-1:lesson-3",
-      "version": "1.0.0",
-      "kind": "investment",
-      "title": "How do goals change investment decisions? - Investment and Financial Decision-Making",
-      "route": "/investment-analysis/unit-1/lesson-3/",
-      "quiz_id": "investment-analysis-unit-1-lesson-3",
-      "slide_id_pattern": "investment-analysis:unit-1:lesson-3:slide-{1-based-index}"
+      "slide_id_pattern": "investment-analysis:syllabus-2026-27:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-1-basic-economic-problem:1-1-basic-economic-problem",
@@ -109,15 +118,6 @@
       "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/",
       "quiz_id": "1-2-1-factors-of-production",
       "slide_id_pattern": "lessons:unit-1-basic-economic-problem:1-2-factors-of-production:slide-{1-based-index}"
-    },
-    {
-      "id": "lessons:unit-2-allocation:2-8-market-economic-system",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Market economic system decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-2-allocation/2-8-market-economic-system/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-2-allocation:2-8-market-economic-system:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-2-allocation:2-8-market-economic-system:lesson-1",
@@ -154,15 +154,6 @@
       "route": "/lessons/unit-2-allocation/2-8-market-economic-system/lesson-4/",
       "quiz_id": "2-8-market-economic-system-lesson-4",
       "slide_id_pattern": "lessons:unit-2-allocation:2-8-market-economic-system:lesson-4:slide-{1-based-index}"
-    },
-    {
-      "id": "lessons:unit-2-allocation:2-9-market-failure",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Market failure decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-2-allocation/2-9-market-failure/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-2-allocation:2-9-market-failure:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-2-allocation:2-9-market-failure:lesson-1",
@@ -219,15 +210,6 @@
       "slide_id_pattern": "lessons:unit-2-allocation:2-review-market-failure-section-a:slide-{1-based-index}"
     },
     {
-      "id": "lessons:unit-3-decision-makers:3-1-money-and-banking",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Money and banking decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-3-decision-makers:3-1-money-and-banking:slide-{1-based-index}"
-    },
-    {
       "id": "lessons:unit-3-decision-makers:3-1-money-and-banking:lesson-1",
       "version": "1.0.0",
       "kind": "lesson",
@@ -253,15 +235,6 @@
       "route": "/lessons/unit-4-government/4-1-macroeconomic-aims/",
       "quiz_id": "4-1-1-macroeconomic-aims",
       "slide_id_pattern": "lessons:unit-4-government:4-1-macroeconomic-aims:slide-{1-based-index}"
-    },
-    {
-      "id": "lessons:unit-4-government:4-2-fiscal-policy",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Fiscal policy decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-4-government/4-2-fiscal-policy/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-4-government:4-2-fiscal-policy:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-4-government:4-2-fiscal-policy:lesson-1",
@@ -309,15 +282,6 @@
       "slide_id_pattern": "lessons:unit-4-government:4-2-fiscal-policy:lesson-5:slide-{1-based-index}"
     },
     {
-      "id": "lessons:unit-4-government:4-3-monetary-policy",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Monetary policy decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-4-government/4-3-monetary-policy/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-4-government:4-3-monetary-policy:slide-{1-based-index}"
-    },
-    {
       "id": "lessons:unit-4-government:4-3-monetary-policy:lesson-1",
       "version": "1.0.0",
       "kind": "lesson",
@@ -352,15 +316,6 @@
       "route": "/lessons/unit-4-government/4-3-monetary-policy/lesson-4/",
       "quiz_id": "4-3-monetary-policy-lesson-4",
       "slide_id_pattern": "lessons:unit-4-government:4-3-monetary-policy:lesson-4:slide-{1-based-index}"
-    },
-    {
-      "id": "lessons:unit-4-government:4-4-supply-side-policy",
-      "version": "1.0.0",
-      "kind": "lesson",
-      "title": "Supply-side policy decks - IGCSE Economics 0455",
-      "route": "/lessons/unit-4-government/4-4-supply-side-policy/",
-      "quiz_id": null,
-      "slide_id_pattern": "lessons:unit-4-government:4-4-supply-side-policy:slide-{1-based-index}"
     },
     {
       "id": "lessons:unit-4-government:4-4-supply-side-policy:lesson-1",

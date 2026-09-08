@@ -1,0 +1,673 @@
+{
+  "sources": [
+    {
+      "name": "Syllabus planner.xlsx",
+      "sha256": "00e46fd11933841fb55ce517f346bd05b8f97e40313a4adb28b5b9d26940e760"
+    },
+    {
+      "name": "A-Level_Macro_International_32-Lesson_Coverage_Planner.xlsx",
+      "sha256": "0f5a50f719f05fd100369fcffb4528dd68dae80a8227dff5f8d4b046cb4328d0"
+    }
+  ],
+  "sections": [
+    {
+      "id": "9",
+      "title": "The macroeconomy",
+      "sheet": "9 Macroeconomy",
+      "points": [
+        {
+          "code": "9.1.1",
+          "topic": "9.1",
+          "topicTitle": "The circular flow of income",
+          "wording": "the multiplier process:",
+          "bullets": "• definition of the multiplier\n• formulae for and calculation of multiplier in a closed and open economy, with and without a government sector\n• calculation of:\n   – average and marginal propensities to save (aps and mps)\n   – average and marginal propensities to consume (apc and mpc)\n   – average and marginal propensities to import (apm and mpm)\n   – average and marginal rates of tax (art and mrt)\n• national income determination using AD and income approach with the multiplier process\n• calculation of effect of changing AD on national income using the multiplier",
+          "sourceAllocation": 2,
+          "allocation": 2,
+          "provisional": false,
+          "sourceRange": "C3:F3"
+        },
+        {
+          "code": "9.1.2",
+          "topic": "9.1",
+          "topicTitle": "The circular flow of income",
+          "wording": "components of Aggregate Demand (AD) and their determinants:",
+          "bullets": "• consumption function: autonomous and induced consumer expenditure\n• savings function: autonomous and induced savings\n• autonomous and induced investment; the accelerator\n• government spending\n• net exports (exports minus imports)",
+          "sourceAllocation": 1.5,
+          "allocation": 1.5,
+          "provisional": false,
+          "sourceRange": "C4:F4"
+        },
+        {
+          "code": "9.1.3",
+          "topic": "9.1",
+          "topicTitle": "The circular flow of income",
+          "wording": "full employment level of national income and equilibrium level of national income:",
+          "bullets": "• inflationary and deflationary gaps",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C5:F5"
+        },
+        {
+          "code": "9.2.1",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "actual growth versus potential growth in national output",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C6:F6"
+        },
+        {
+          "code": "9.2.2",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "positive and negative output gaps",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C7:F7"
+        },
+        {
+          "code": "9.2.3",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "business (trade) cycle:",
+          "bullets": "• phases of the cycle\n• causes of the cycle\n• role of automatic stabilisers",
+          "sourceAllocation": 0.75,
+          "allocation": 0.75,
+          "provisional": false,
+          "sourceRange": "C8:F8"
+        },
+        {
+          "code": "9.2.4",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "policies to promote economic growth and their effectiveness",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C9:F9"
+        },
+        {
+          "code": "9.2.5",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "inclusive economic growth:",
+          "bullets": "• definition of inclusive economic growth\n• impact of economic growth on equity and equality\n• policies to promote inclusive growth",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C10:F10"
+        },
+        {
+          "code": "9.2.6",
+          "topic": "9.2",
+          "topicTitle": "Economic growth and sustainability",
+          "wording": "sustainable economic growth:",
+          "bullets": "• definition of sustainable economic growth\n• using and conserving resources\n• impact of economic growth on the environment and climate change\n• policies to mitigate the impact of economic growth on the environment and climate change",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C11:F11"
+        },
+        {
+          "code": "9.3.1",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "definition of full employment",
+          "bullets": "",
+          "sourceAllocation": 0.25,
+          "allocation": 0.25,
+          "provisional": false,
+          "sourceRange": "C12:F12"
+        },
+        {
+          "code": "9.3.2",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "equilibrium and disequilibrium unemployment (including hysteresis)",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C13:F13"
+        },
+        {
+          "code": "9.3.3",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "voluntary and involuntary unemployment",
+          "bullets": "",
+          "sourceAllocation": 0.25,
+          "allocation": 0.25,
+          "provisional": false,
+          "sourceRange": "C14:F14"
+        },
+        {
+          "code": "9.3.4",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "natural rate of unemployment:",
+          "bullets": "• definition\n• determinants\n• policy implications",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C15:F15"
+        },
+        {
+          "code": "9.3.5",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "patterns and trends in (un)employment",
+          "bullets": "",
+          "sourceAllocation": 0.25,
+          "allocation": 0.25,
+          "provisional": false,
+          "sourceRange": "C16:F16"
+        },
+        {
+          "code": "9.3.6",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "mobility of labour:",
+          "bullets": "• forms of labour mobility: geographical and occupational\n• factors affecting labour mobility",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C17:F17"
+        },
+        {
+          "code": "9.3.7",
+          "topic": "9.3",
+          "topicTitle": "Employment/unemployment",
+          "wording": "policies to reduce unemployment and their effectiveness",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C18:F18"
+        },
+        {
+          "code": "9.4.1",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "definition, functions and characteristics of money",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C19:F19"
+        },
+        {
+          "code": "9.4.2",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "definition of money supply",
+          "bullets": "",
+          "sourceAllocation": 0.25,
+          "allocation": 0.25,
+          "provisional": false,
+          "sourceRange": "C20:F20"
+        },
+        {
+          "code": "9.4.3",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "quantity theory of money (MV = PT)",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C21:F21"
+        },
+        {
+          "code": "9.4.4",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "functions of commercial banks:",
+          "bullets": "• providing deposit accounts (demand deposit account, savings account)\n• lending money (overdrafts, loans)\n• holding or providing cash, securities, loans, deposits, equity\n• reserve ratio and capital ratio\n• objectives of commercial banks: liquidity, security, profitability",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C22:F22"
+        },
+        {
+          "code": "9.4.5",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "causes of changes in the money supply in an open economy:",
+          "bullets": "• commercial banks as sources of credit creation and the bank credit multiplier\n• role of a central bank\n• government deficit financing\n• quantitative easing\n• changes in the balance of payments",
+          "sourceAllocation": 2,
+          "allocation": 2,
+          "provisional": false,
+          "sourceRange": "C23:F23"
+        },
+        {
+          "code": "9.4.6",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "policies to reduce inflation and their effectiveness",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C24:F24"
+        },
+        {
+          "code": "9.4.7",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "demand for money: liquidity preference theory",
+          "bullets": "",
+          "sourceAllocation": 2,
+          "allocation": 2,
+          "provisional": false,
+          "sourceRange": "C25:F25"
+        },
+        {
+          "code": "9.4.8",
+          "topic": "9.4",
+          "topicTitle": "Money and banking",
+          "wording": "interest rate determination: loanable funds theory and Keynesian theory",
+          "bullets": "",
+          "sourceAllocation": 1.5,
+          "allocation": 1.5,
+          "provisional": false,
+          "sourceRange": "C26:F26"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Government macroeconomic intervention",
+      "sheet": "10 Government Macro",
+      "points": [
+        {
+          "code": "10.1.1",
+          "topic": "10.1",
+          "topicTitle": "Government macroeconomic policy objectives",
+          "wording": "objectives in terms of inflation, balance of payments, unemployment, growth, development, sustainability and redistribution of income and wealth",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C3:F3"
+        },
+        {
+          "code": "10.2.1",
+          "topic": "10.2",
+          "topicTitle": "Links between macroeconomic problems and their interrelatedness",
+          "wording": "relationship between the internal value of money and the external value of money",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C4:F4"
+        },
+        {
+          "code": "10.2.2",
+          "topic": "10.2",
+          "topicTitle": "Links between macroeconomic problems and their interrelatedness",
+          "wording": "relationship between the balance of payments and inflation",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C5:F5"
+        },
+        {
+          "code": "10.2.3",
+          "topic": "10.2",
+          "topicTitle": "Links between macroeconomic problems and their interrelatedness",
+          "wording": "relationship between growth and inflation",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C6:F6"
+        },
+        {
+          "code": "10.2.4",
+          "topic": "10.2",
+          "topicTitle": "Links between macroeconomic problems and their interrelatedness",
+          "wording": "relationship between growth and the balance of payments",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C7:F7"
+        },
+        {
+          "code": "10.2.5",
+          "topic": "10.2",
+          "topicTitle": "Links between macroeconomic problems and their interrelatedness",
+          "wording": "relationship between inflation and unemployment:",
+          "bullets": "• traditional Phillips curve\n• expectations-augmented Phillips curve (short- and long-run Phillips curve)",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C8:F8"
+        },
+        {
+          "code": "10.3.1",
+          "topic": "10.3",
+          "topicTitle": "Effectiveness of policy options to meet all macroeconomic objectives",
+          "wording": "effectiveness of different policies in relation to different macroeconomic objectives:",
+          "bullets": "• fiscal policy including Laffer curve analysis\n• monetary policy\n• supply-side policy including market-based and interventionist policies\n• exchange rate policy\n• international trade policy",
+          "sourceAllocation": 2,
+          "allocation": 2,
+          "provisional": false,
+          "sourceRange": "C9:F9"
+        },
+        {
+          "code": "10.3.2",
+          "topic": "10.3",
+          "topicTitle": "Effectiveness of policy options to meet all macroeconomic objectives",
+          "wording": "problems and conflicts arising from the outcome of these policies",
+          "bullets": "",
+          "sourceAllocation": 0.5,
+          "allocation": 0.5,
+          "provisional": false,
+          "sourceRange": "C10:F10"
+        },
+        {
+          "code": "10.3.3",
+          "topic": "10.3",
+          "topicTitle": "Effectiveness of policy options to meet all macroeconomic objectives",
+          "wording": "existence of government failure in macroeconomic policies",
+          "bullets": "",
+          "sourceAllocation": 1,
+          "allocation": 1,
+          "provisional": false,
+          "sourceRange": "C11:F11"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "International economic issues",
+      "sheet": "11 International",
+      "points": [
+        {
+          "code": "11.1.1",
+          "topic": "11.1",
+          "topicTitle": "Policies to correct disequilibrium in the balance of payments",
+          "wording": "components of the balance of payments accounts: current account, financial account and capital account",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C3:F3"
+        },
+        {
+          "code": "11.1.2",
+          "topic": "11.1",
+          "topicTitle": "Policies to correct disequilibrium in the balance of payments",
+          "wording": "effect of fiscal, monetary, supply-side, protectionist and exchange rate policies on the balance of payments",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C4:F4"
+        },
+        {
+          "code": "11.1.3",
+          "topic": "11.1",
+          "topicTitle": "Policies to correct disequilibrium in the balance of payments",
+          "wording": "difference between expenditure-switching and expenditure-reducing policies",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C5:F5"
+        },
+        {
+          "code": "11.2.1",
+          "topic": "11.2",
+          "topicTitle": "Exchange rates",
+          "wording": "measurement of exchange rates:",
+          "bullets": "• distinction between nominal and real exchange rates\n• trade-weighted exchange rates",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C6:F6"
+        },
+        {
+          "code": "11.2.2",
+          "topic": "11.2",
+          "topicTitle": "Exchange rates",
+          "wording": "determination of exchange rates under fixed and managed systems",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C7:F7"
+        },
+        {
+          "code": "11.2.3",
+          "topic": "11.2",
+          "topicTitle": "Exchange rates",
+          "wording": "distinction between revaluation and devaluation of a fixed exchange rate",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.25,
+          "provisional": true,
+          "sourceRange": "C8:F8"
+        },
+        {
+          "code": "11.2.4",
+          "topic": "11.2",
+          "topicTitle": "Exchange rates",
+          "wording": "changes in the exchange rate under different exchange rate systems",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C9:F9"
+        },
+        {
+          "code": "11.2.5",
+          "topic": "11.2",
+          "topicTitle": "Exchange rates",
+          "wording": "the effects of changing exchange rates on the external economy using Marshall-Lerner and J curve analysis",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C10:F10"
+        },
+        {
+          "code": "11.3.1",
+          "topic": "11.3",
+          "topicTitle": "Economic development",
+          "wording": "classification of economies in terms of their level of development",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C11:F11"
+        },
+        {
+          "code": "11.3.2",
+          "topic": "11.3",
+          "topicTitle": "Economic development",
+          "wording": "classification of economies in terms of their level of national income",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C12:F12"
+        },
+        {
+          "code": "11.3.3",
+          "topic": "11.3",
+          "topicTitle": "Economic development",
+          "wording": "indicators of living standards and economic development:",
+          "bullets": "• monetary indicators including real per capita national income statistics (GDP, GNI, NNI) and purchasing power parity\n• issues of comparison using monetary indicators\n• non-monetary indicators\n• composite indicators:\n   – Human Development Index (HDI)\n   – Measure of Economic Welfare (MEW)\n   – Multidimensional Poverty Index (MPI)\n• the Kuznets curve",
+          "sourceAllocation": null,
+          "allocation": 2,
+          "provisional": true,
+          "sourceRange": "C13:F13"
+        },
+        {
+          "code": "11.3.4",
+          "topic": "11.3",
+          "topicTitle": "Economic development",
+          "wording": "comparison of economic growth rates and living standards:",
+          "bullets": "• over time\n• between countries",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C14:F14"
+        },
+        {
+          "code": "11.4.1",
+          "topic": "11.4",
+          "topicTitle": "Characteristics of countries at different levels of development",
+          "wording": "population growth and structure:",
+          "bullets": "• measurement and causes of changes in birth rate, death rate, infant mortality and net migration\n• optimum population\n• level of urbanisation",
+          "sourceAllocation": null,
+          "allocation": 1.25,
+          "provisional": true,
+          "sourceRange": "C15:F15"
+        },
+        {
+          "code": "11.4.2",
+          "topic": "11.4",
+          "topicTitle": "Characteristics of countries at different levels of development",
+          "wording": "income distribution:",
+          "bullets": "• calculation of Gini coefficient and Lorenz curve analysis",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C16:F16"
+        },
+        {
+          "code": "11.4.3",
+          "topic": "11.4",
+          "topicTitle": "Characteristics of countries at different levels of development",
+          "wording": "economic structure:",
+          "bullets": "• employment composition: primary, secondary and tertiary sectors\n• pattern of trade at different levels of development",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C17:F17"
+        },
+        {
+          "code": "11.5.1",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "international aid:",
+          "bullets": "• forms of aid\n• reasons for giving aid\n• effects of aid\n• importance of aid",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C18:F18"
+        },
+        {
+          "code": "11.5.2",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "trade and investment",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C19:F19"
+        },
+        {
+          "code": "11.5.3",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "role of multinational companies (MNCs):",
+          "bullets": "• definition of MNC\n• activities of MNCs\n• consequences of MNCs",
+          "sourceAllocation": null,
+          "allocation": 0.75,
+          "provisional": true,
+          "sourceRange": "C20:F20"
+        },
+        {
+          "code": "11.5.4",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "Foreign Direct Investment (FDI):",
+          "bullets": "• definition of FDI\n• consequences of FDI",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C21:F21"
+        },
+        {
+          "code": "11.5.5",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "external debt:",
+          "bullets": "• causes of debt\n• consequences of debt",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C22:F22"
+        },
+        {
+          "code": "11.5.6",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "role of the International Monetary Fund (IMF)",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C23:F23"
+        },
+        {
+          "code": "11.5.7",
+          "topic": "11.5",
+          "topicTitle": "Relationship between countries at different levels of development",
+          "wording": "role of the World Bank",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 0.5,
+          "provisional": true,
+          "sourceRange": "C24:F24"
+        },
+        {
+          "code": "11.6.1",
+          "topic": "11.6",
+          "topicTitle": "Globalisation",
+          "wording": "meaning of globalisation and its causes and consequences",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C25:F25"
+        },
+        {
+          "code": "11.6.2",
+          "topic": "11.6",
+          "topicTitle": "Globalisation",
+          "wording": "distinction between a free trade area, a customs union, a monetary union and full economic union",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C26:F26"
+        },
+        {
+          "code": "11.6.3",
+          "topic": "11.6",
+          "topicTitle": "Globalisation",
+          "wording": "trade creation and trade diversion",
+          "bullets": "",
+          "sourceAllocation": null,
+          "allocation": 1,
+          "provisional": true,
+          "sourceRange": "C27:F27"
+        }
+      ]
+    }
+  ]
+}

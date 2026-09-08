@@ -1,0 +1,183 @@
+/* Lesson-local layouts: retain the shared slide engine and reveal behaviour. */
+.is-layout-money-forms .cardgrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+.is-layout-money-forms .cardgrid .card {
+  padding: 1rem;
+  gap: .8rem;
+}
+.is-layout-money-forms .cardgrid .cardVisual {
+  aspect-ratio: 4 / 3;
+}
+.is-layout-money-forms .cardgrid .cardVisual img {
+  object-fit: contain;
+  background: #fff;
+}
+.is-layout-money-forms .cardgrid .card b {
+  font-size: clamp(24px, 2vw, 38px);
+}
+.is-layout-money-forms .cardgrid .cardBody {
+  font-size: clamp(21px, 1.65vw, 29px);
+  line-height: 1.25;
+}
+
+/* One illustrated table, not two arbitrarily split groups. */
+.is-layout-money-characteristics .content {
+  grid-template-columns: minmax(0, 1fr);
+}
+.is-layout-money-characteristics h2 {
+  font-size: clamp(32px, 3vw, 52px);
+  margin-bottom: 1.2rem;
+}
+.is-layout-money-characteristics .cardgrid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.is-layout-money-characteristics .cardgrid .card {
+  display: grid;
+  grid-template-columns: clamp(112px, 11vw, 190px) minmax(220px, .8fr) minmax(0, 1.6fr);
+  grid-template-rows: auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: .4rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.is-layout-money-characteristics .cardgrid .cardVisual {
+  height: clamp(64px, 7.4vh, 90px);
+  width: 100%;
+  aspect-ratio: auto;
+  border-radius: 7px;
+}
+.is-layout-money-characteristics .cardgrid .cardVisual img {
+  object-fit: cover;
+}
+.is-layout-money-characteristics .card:nth-child(2) .cardVisual img {
+  object-position: 50% 68%;
+}
+.is-layout-money-characteristics .card:nth-child(4) .cardVisual img {
+  object-position: 59% 54%;
+}
+.is-layout-money-characteristics .card:nth-child(6) .cardVisual img {
+  object-fit: contain;
+  background: #203469;
+}
+.is-layout-money-characteristics .cardgrid .card b {
+  font-size: clamp(21px, 1.8vw, 32px);
+  line-height: 1.12;
+}
+.is-layout-money-characteristics .cardgrid .cardTitleZh {
+  display: block;
+  margin-top: .25rem;
+  color: var(--ink-dim);
+  font-size: .67em;
+}
+.is-layout-money-characteristics .cardgrid .cardBody {
+  font-size: clamp(20px, 1.6vw, 29px);
+  line-height: 1.2;
+}
+
+/* Questions only: no labels, answer buttons, hints or teaching chrome. */
+.is-layout-question-only .topline,
+.is-layout-question-only .slide-footer,
+.is-layout-diamond-question .topline,
+.is-layout-diamond-question .slide-footer {
+  display: none;
+}
+.slide.is-layout-question-only,
+.slide.is-layout-diamond-question {
+  grid-template-rows: 1fr;
+}
+.is-layout-question-only .discussionContent {
+  justify-self: center;
+  width: min(1200px, 90vw);
+  max-width: none;
+  padding: 0;
+}
+.is-layout-question-only .discussionPrompt {
+  justify-items: center;
+}
+.is-layout-question-only .discussionPrompt p {
+  max-width: 26ch;
+  font-size: clamp(36px, 4.5vw, 76px);
+  text-align: center;
+}
+body:has(.is-active.is-layout-question-only) .lessonModeSwitch,
+body:has(.is-active.is-layout-question-only) .help,
+body:has(.is-active.is-layout-question-only) #progress,
+body:has(.is-active.is-layout-diamond-question) .lessonModeSwitch,
+body:has(.is-active.is-layout-diamond-question) .help,
+body:has(.is-active.is-layout-diamond-question) #progress {
+  display: none;
+}
+.slide.is-layout-diamond-question::after {
+  background: linear-gradient(90deg, rgba(3,10,20,.25), transparent 55%);
+}
+.is-layout-diamond-question .discussionBg {
+  object-position: 65% 50%;
+}
+.is-layout-diamond-question .discussionContent {
+  align-self: start;
+  margin-top: 10vh;
+  max-width: 38%;
+  padding: 0;
+}
+.is-layout-diamond-question .discussionPrompt p {
+  font-size: clamp(32px, 3.6vw, 66px);
+  max-width: 13ch;
+}
+.is-layout-diamond-question .discussionCredit {
+  position: absolute;
+  bottom: 1.2rem;
+}
+
+@media (max-width: 760px) {
+  .is-layout-money-forms .cardgrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .65rem;
+  }
+  .is-layout-money-forms .cardgrid .card {
+    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: .4rem .75rem;
+    padding: .7rem;
+  }
+  .is-layout-money-forms .cardgrid .cardVisual {
+    grid-row: 1 / 3;
+    width: 100px;
+    height: 90px;
+  }
+  .is-layout-money-forms .cardgrid .card b { font-size: 23px; }
+  .is-layout-money-forms .cardgrid .cardBody { font-size: 18px; }
+  .is-layout-money-characteristics .cardgrid .card {
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: .2rem .65rem;
+    padding: .6rem 0;
+  }
+  .is-layout-money-characteristics .cardgrid .cardVisual {
+    grid-row: 1 / 3;
+    height: 70px;
+  }
+  .is-layout-money-characteristics .cardgrid .card b { font-size: 21px; }
+  .is-layout-money-characteristics .cardgrid .cardTitleZh { display: inline; margin-left: .4rem; }
+  .is-layout-money-characteristics .cardgrid .cardBody { font-size: 18px; grid-column: 2; }
+  .is-layout-money-characteristics .content { align-items: start; }
+  .slide.is-layout-diamond-question { padding: 0; background: #0c1725; }
+  .slide.is-layout-diamond-question::after { display: none; }
+  .is-layout-diamond-question .discussionBg {
+    top: 30%;
+    height: 65%;
+    object-position: 75% 50%;
+  }
+  .is-layout-diamond-question .discussionContent {
+    margin: 6vh 6vw 0;
+    max-width: 88vw;
+  }
+  .is-layout-diamond-question .discussionPrompt p { max-width: 22ch; font-size: 34px; }
+  .is-layout-diamond-question .discussionCredit { font-size: 11px; bottom: 1rem; }
+}

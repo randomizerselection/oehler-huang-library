@@ -1,6 +1,11 @@
 # Investment and Financial Decision-Making Lesson Template
 
-Use this folder for every new `investment-analysis/unit-x/lesson-y/` deck.
+> Legacy reference. This template belongs to the unlinked Economics-renderer
+> Investment lessons. For current and future course work, follow `../AGENTS.md`
+> and the lessons linked from `../index.html`. The historical instructions below
+> apply only when explicitly restoring or editing that legacy system.
+
+This folder was used for the legacy `investment-analysis/unit-x/lesson-y/` decks.
 
 ## Canonical slide generator
 

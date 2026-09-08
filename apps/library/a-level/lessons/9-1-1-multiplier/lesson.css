@@ -1,0 +1,108 @@
+@media(min-width:701px){
+  .slide-hook .hook-image{overflow:hidden}
+  .slide-hero[data-slide-id="multiplier"] h1{font-size:7.4cqw}
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-image,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-image,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-image,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-image{inset:0}
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-image:after,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-image:after,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-image:after,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-image:after{
+    background:linear-gradient(90deg,#103a35f7 0%,#103a35df 36%,#103a3577 59%,#103a3514 83%),linear-gradient(0deg,#103a3577,#103a3511 55%)
+  }
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-copy,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-copy,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-copy,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-copy{top:6.6cqw;width:62%}
+  .slide-hook[data-slide-id="income-spending-puzzle"] h1,
+  .slide-hook[data-slide-id="leakage-choices"] h1,
+  .slide-hook[data-slide-id="production-decision-pause"] h1,
+  .slide-hook[data-slide-id="spare-capacity-pause"] h1{font-size:4.15cqw;max-width:22ch}
+}
+.slide-table[data-slide-id="spending-rounds"] th,
+.slide-table[data-slide-id="spending-rounds"] td,
+.slide-table[data-slide-id="marginal-data-feedback"] th,
+.slide-table[data-slide-id="marginal-data-feedback"] td{font-size:1.48cqw;padding:.82cqw 1cqw}
+.slide-table[data-slide-id="propensity-measures"] th,
+.slide-table[data-slide-id="propensity-measures"] td,
+.slide-table[data-slide-id="multiplier-formulae"] th,
+.slide-table[data-slide-id="multiplier-formulae"] td{font-size:1.58cqw;padding:.95cqw 1.1cqw}
+.slide-mcq[data-slide-id="past-paper-closed-calculation"] .paper-question,
+.slide-mcq[data-slide-id="past-paper-tax-revenue"] .paper-question{font-size:2.35cqw;line-height:1.3}
+.slide-paper[data-slide-id="ghana-multiplier-question"] .paper-photo-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:3.2cqw;flex:1;min-height:0}
+.slide-paper[data-slide-id="ghana-multiplier-question"] figure{position:relative;margin:0;min-height:0;overflow:hidden}
+.slide-paper[data-slide-id="ghana-multiplier-question"] figure img{width:100%;height:100%;object-fit:cover}
+.slide-paper[data-slide-id="ghana-multiplier-question"] figcaption{position:absolute;left:0;right:0;bottom:0;padding:.75cqw 1cqw;background:#103a35d9;color:#fff;font-size:.92cqw;line-height:1.25}
+.slide-paper[data-slide-id="ghana-multiplier-question"] .paper-photo-question{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.slide-paper[data-slide-id="ghana-multiplier-question"] .exam-question{font-size:2.15cqw;margin:0;max-width:none;padding:2cqw 0 2cqw 2.4cqw}
+.slide-paper[data-slide-id="ghana-multiplier-question"] .takeaway{margin-top:2cqw;font-size:1.45cqw}
+.slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2{grid-template-columns:1.55fr .85fr;gap:2.8cqw}
+.slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2 article{padding-top:1.7cqw}
+.slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2 h2{font-size:1.35cqw}
+.slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2 p{font-size:1.62cqw;line-height:1.38;margin-bottom:.82cqw}
+.slide-answers[data-slide-id="ghana-multiplier-answer"] .takeaway{font-size:1.55cqw}
+.slide-model-contrast[data-slide-id="planned-ae-versus-ad"] .slide-body{gap:1cqw}
+.model-contrast-layout{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0}
+.model-contrast-figure{margin:0;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:0 2.7cqw 0 0}
+.model-contrast-figure+.model-contrast-figure{border-left:1px solid var(--line);padding:0 0 0 3.1cqw}
+.model-contrast-figure figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:1.2cqw;margin:0 0 .25cqw}
+.model-contrast-figure figcaption strong{font-size:1.8cqw;line-height:1.2;color:var(--forest)}
+.model-contrast-figure figcaption span{font-size:1.05cqw;line-height:1.2;color:var(--muted)}
+.model-contrast-figure svg{width:100%;height:auto;max-height:24.5cqw;overflow:visible}
+.model-axis{stroke:var(--ink);stroke-width:2.5}
+.model-curve{fill:none;stroke-linecap:round;stroke-width:5}
+.model-curve-ae{stroke:var(--teal)}
+.model-curve-ad{stroke:var(--blue)}
+.model-curve-label{font:700 24px var(--sans)}
+.model-curve-label-ae{fill:var(--teal)}
+.model-curve-label-ad{fill:var(--blue)}
+.model-axis-label{fill:var(--ink);font:600 19px var(--sans);text-anchor:middle}
+.model-contrast-takeaway{margin:0!important;padding-top:1cqw;border-top:2px solid var(--forest);font-size:1.75cqw!important;line-height:1.25!important;font-weight:700;color:var(--forest);text-align:center}
+@media(max-width:700px){
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-image,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-image,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-image,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-image{inset:0}
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-image:after,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-image:after,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-image:after,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-image:after{
+    background:linear-gradient(180deg,#103a35f7 0%,#103a35df 37%,#103a3577 60%,#103a3514 84%)
+  }
+  .slide-hook[data-slide-id="income-spending-puzzle"] .hook-copy,
+  .slide-hook[data-slide-id="leakage-choices"] .hook-copy,
+  .slide-hook[data-slide-id="production-decision-pause"] .hook-copy,
+  .slide-hook[data-slide-id="spare-capacity-pause"] .hook-copy{inset:46px 28px auto;width:auto}
+  .slide-hook[data-slide-id="income-spending-puzzle"] h1,
+  .slide-hook[data-slide-id="leakage-choices"] h1,
+  .slide-hook[data-slide-id="production-decision-pause"] h1,
+  .slide-hook[data-slide-id="spare-capacity-pause"] h1{font-size:30px;max-width:none}
+  .slide-table[data-slide-id="spending-rounds"] th,
+  .slide-table[data-slide-id="spending-rounds"] td,
+  .slide-table[data-slide-id="marginal-data-feedback"] th,
+  .slide-table[data-slide-id="marginal-data-feedback"] td,
+  .slide-table[data-slide-id="propensity-measures"] th,
+  .slide-table[data-slide-id="propensity-measures"] td,
+  .slide-table[data-slide-id="multiplier-formulae"] th,
+  .slide-table[data-slide-id="multiplier-formulae"] td{font-size:18px;padding:10px 12px}
+  .slide-mcq[data-slide-id="past-paper-closed-calculation"] .paper-question,
+  .slide-mcq[data-slide-id="past-paper-tax-revenue"] .paper-question{font-size:20px;line-height:1.4}
+  .slide-paper[data-slide-id="ghana-multiplier-question"] .paper-photo-layout{display:flex;flex-direction:column;gap:22px}
+  .slide-paper[data-slide-id="ghana-multiplier-question"] figure{height:235px;flex:none}
+  .slide-paper[data-slide-id="ghana-multiplier-question"] figcaption{font-size:13px;padding:9px 11px}
+  .slide-paper[data-slide-id="ghana-multiplier-question"] .exam-question{font-size:22px;padding:8px 0 8px 18px}
+  .slide-paper[data-slide-id="ghana-multiplier-question"] .takeaway{font-size:18px;margin-top:18px}
+  .slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2{display:flex;gap:25px}
+  .slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2 h2{font-size:20px}
+  .slide-answers[data-slide-id="ghana-multiplier-answer"] .columns-2 p{font-size:19px;line-height:1.45}
+  .slide-model-contrast[data-slide-id="planned-ae-versus-ad"] .slide-body{gap:18px}
+  .model-contrast-layout{display:flex;flex-direction:column;gap:20px;flex:none}
+  .model-contrast-figure,.model-contrast-figure+.model-contrast-figure{padding:0;border-left:0}
+  .model-contrast-figure+.model-contrast-figure{border-top:1px solid var(--line);padding-top:18px}
+  .model-contrast-figure figcaption{margin-bottom:0}
+  .model-contrast-figure figcaption strong{font-size:21px}
+  .model-contrast-figure figcaption span{font-size:14px}
+  .model-contrast-figure svg{max-height:none}
+  .model-contrast-takeaway{font-size:19px!important;padding-top:16px}
+}

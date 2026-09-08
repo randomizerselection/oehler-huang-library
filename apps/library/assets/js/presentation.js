@@ -9,6 +9,17 @@
    ============================================================ */
 
 window.IGCSE = window.IGCSE || {};
+const navigationAssetUrl = new URL('deck-navigation.js', document.currentScript.src);
+function loadLessonNavigation() {
+  if (window.LessonNavigation) return Promise.resolve(window.LessonNavigation);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = navigationAssetUrl.href;
+    script.onload = () => resolve(window.LessonNavigation);
+    script.onerror = reject;
+    document.head.append(script);
+  });
+}
 
 const igcsePlatformAuthSource = document.currentScript?.src
   ? new URL('platform-auth.js', document.currentScript.src).href
@@ -2029,19 +2040,19 @@ function loadStudentSelectorAsset(tagName, attrs) {
       element.setAttribute(key, value);
     });
     element.addEventListener('load', () => resolve(element), { once: true });
-    element.addEventListener('error', () => reject(new Error(`Could not load ${attrs.href || attrs.src}`)), { once: true });
+    element.addEventListener('error', () => { element.remove(); reject(new Error(`Could not load ${attrs.href || attrs.src}`)); }, { once: true });
     document.head.appendChild(element);
   });
 }
 
 let mountedStudentSelector = null;
+let studentSelectorLoading = false;
 
 function syncStudentSelectorButtons() {
   const isOpen = Boolean(mountedStudentSelector?.panel?.isConnected);
-  const isTeacher = !window.OHPlatform || window.OHPlatform.session.account?.role === 'teacher';
-  if (!isTeacher && isOpen) closeStudentSelectorPanel();
   document.querySelectorAll('[data-student-selector]').forEach((button) => {
-    button.hidden = !isTeacher;
+    button.hidden = false;
+    button.disabled = studentSelectorLoading;
     button.setAttribute('aria-pressed', isOpen ? 'true' : 'false');
   });
 }
@@ -2049,6 +2060,7 @@ function syncStudentSelectorButtons() {
 window.addEventListener('oh:authchange', syncStudentSelectorButtons);
 
 function closeStudentSelectorPanel() {
+  const wasOpen = Boolean(mountedStudentSelector?.panel?.isConnected);
   try {
     mountedStudentSelector?.app?.destroy?.();
   } catch (error) {
@@ -2059,6 +2071,7 @@ function closeStudentSelectorPanel() {
   mountedStudentSelector = null;
   document.body.classList.remove('is-student-selector-open');
   syncStudentSelectorButtons();
+  if (wasOpen) document.querySelector('[data-student-selector]')?.focus({ preventScroll: true });
 }
 
 function selectorModalIsOpen(panel) {
@@ -2121,14 +2134,13 @@ async function openStudentSelector() {
     return;
   }
 
+  if (studentSelectorLoading) return;
+  studentSelectorLoading = true;
+  syncStudentSelectorButtons();
+
   try {
-    if (window.OHPlatform) {
-      await window.OHPlatform.ready();
-      if (window.OHPlatform.session.account?.role !== 'teacher') {
-        window.OHPlatform.openAccountDialog('login');
-        return;
-      }
-    }
+    if (window.OHPlatform) await window.OHPlatform.ready().catch(() => {});
+    const usePlatformClasses = window.OHPlatform?.session.account?.role === 'teacher';
     if (!window.StudentSelector?.open) {
       await loadStudentSelectorAsset('script', {
         src: new URL('selector.js', baseUrl).href,
@@ -2149,13 +2161,14 @@ async function openStudentSelector() {
         content_id: window.OHPlatform?.content?.id || window.IGCSE?.lesson?.meta?.code || null,
         learning_assignment_id: new URLSearchParams(location.search).get('assignment'),
       };
-      const platformAdapters = window.OHPlatform?.selectorAdapters?.(lessonContext) || {};
+      const platformAdapters = usePlatformClasses ? window.OHPlatform.selectorAdapters(lessonContext) : {};
       const app = window.StudentSelector.mount(panel.querySelector('.studentSelectorMount'), {
         basePath: baseUrl,
         skipStyles: true,
         onClose: closeStudentSelectorPanel,
         defaultClassId: new URLSearchParams(location.search).get('class'),
         lessonContext,
+        classroomMode: !usePlatformClasses,
         ...platformAdapters,
       });
       panel.querySelector('[data-student-selector-close]')?.addEventListener('click', closeStudentSelectorPanel);
@@ -2171,6 +2184,9 @@ async function openStudentSelector() {
     console.error(error);
     closeStudentSelectorPanel();
     window.open(baseUrl, '_blank', 'noopener');
+  } finally {
+    studentSelectorLoading = false;
+    syncStudentSelectorButtons();
   }
 }
 
@@ -2875,7 +2891,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   const slideEls = [...mountEl.querySelectorAll('.slide')];
   const progressBar = document.querySelector('#progress > span');
   const notesEl = document.getElementById('notes');
-  const overviewEl = document.getElementById('overview');
+  let navigation;
 
   let idx = 0;
   const partialProgress = slides.map(() => 0);
@@ -2903,6 +2919,16 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
       item.classList.toggle('is-visible', isVisible);
       item.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
     });
+    if (n === idx) updateNavigationState();
+  }
+
+  function updateNavigationState() {
+    const status = document.getElementById('slideStatus');
+    if (status) status.textContent = `${idx + 1} / ${slides.length}`;
+    const previous = document.getElementById('previousSlide');
+    const next = document.getElementById('nextSlide');
+    if (previous) previous.disabled = idx === 0 && partialProgress[idx] === 0;
+    if (next) next.disabled = idx === slides.length - 1 && partialProgress[idx] >= slideEls[idx].querySelectorAll('.partial-item').length;
   }
 
   function revealNextPartial() {
@@ -2957,32 +2983,8 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     if (session?.account?.role === 'teacher') notesEl.classList.add('is-visible');
   }
 
-  function buildOverview() {
-    if (!overviewEl) return;
-    overviewEl.innerHTML = `
-      <h2>${esc(meta.title || 'Lesson overview')}</h2>
-      <div class="thumbGrid">
-        ${slides.map((s, i) => `
-          <button class="thumb" data-jump="${i}">
-            <span class="n">${pad(i + 1)} · ${esc(s.eyebrow || s.type)}</span>
-            <span class="t">${esc((s.title || '').replace(/\n/g, ' '))}</span>
-          </button>
-        `).join('')}
-      </div>
-    `;
-    overviewEl.querySelectorAll('.thumb').forEach((b) => {
-      b.addEventListener('click', () => {
-        const n = parseInt(b.dataset.jump, 10);
-        overviewEl.classList.remove('is-visible');
-        show(n);
-      });
-    });
-  }
-
   function toggleOverview() {
-    if (!overviewEl) return;
-    if (!overviewEl.dataset.built) { buildOverview(); overviewEl.dataset.built = '1'; }
-    overviewEl.classList.toggle('is-visible');
+    navigation?.toggleOverview();
   }
 
   function toggleFullscreen() {
@@ -3122,10 +3124,12 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
 
   // Keyboard
   document.addEventListener('keydown', (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey || navigation?.dialog.open) return;
     if (document.querySelector('.selector-overlay-host, .studentSelectorSidePanel')) return;
     // Don't hijack keys when typing somewhere
     const target = e.target?.closest ? e.target : null;
-    if (target?.closest('input, textarea, [contenteditable]')) return;
+    if (target?.closest('input, textarea, select, [contenteditable]')) return;
+    if (target?.closest('button, a, summary') && [' ', 'Enter'].includes(e.key)) return;
     const k = e.key;
     if (chinaDialog && !chinaDialog.hidden) {
       if (['Escape', 'ArrowLeft', 'PageUp'].includes(k)) {
@@ -3157,9 +3161,10 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
     else if (k === 'Home')                            { e.preventDefault(); show(0); }
     else if (k === 'End')                             { e.preventDefault(); show(slides.length - 1); }
     else if (k.toLowerCase() === 'n')                 { toggleNotes(); }
-    else if (k.toLowerCase() === 'o')                 { toggleOverview(); }
+    else if (k.toLowerCase() === 'o')                 { e.preventDefault(); toggleOverview(); }
     else if (k.toLowerCase() === 'f')                 { toggleFullscreen(); }
-    else if (k === 'Escape')                          { overviewEl?.classList.remove('is-visible'); }
+    else if (k.toLowerCase() === 's')                 { toggleStudentSelector(); }
+    else if (k === 'Escape')                          { notesEl?.classList.remove('is-visible'); }
   });
 
   mountEl.addEventListener('change', (event) => {
@@ -3243,6 +3248,31 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   show(Number.isFinite(fromHash) ? fromHash - 1 : 0);
   window.addEventListener('hashchange', showFromHash);
   window.addEventListener('resize', () => fitActiveQuestionTitles(mountEl));
+
+  loadLessonNavigation().then(api => {
+    const controls = document.querySelector('.lessonModeSwitch');
+    const selector = controls.querySelector('[data-student-selector]');
+    const account = controls.querySelector('[data-platform-account]');
+    const viewLinks = [...controls.querySelectorAll('.lessonModeTab:not(.is-active)')].map(a => ({ label: a.textContent.trim(), href: a.href }));
+    function button(id, label, action, ariaLabel) {
+      const element = document.createElement('button');
+      element.type = 'button'; element.id = id; element.textContent = label;
+      if (ariaLabel) element.setAttribute('aria-label', ariaLabel);
+      element.onclick = action;
+      return element;
+    }
+    const previous = button('previousSlide', '←', () => { if (!hidePreviousPartial()) show(idx - 1); else show(idx); }, 'Previous step or slide');
+    const next = button('nextSlide', '→', () => { if (!revealNextPartial()) show(idx + 1); else show(idx); }, 'Next step or slide');
+    const status = document.createElement('span'); status.id = 'slideStatus'; status.setAttribute('aria-live', 'polite');
+    const overviewButton = button('overviewButton', 'Overview', toggleOverview);
+    navigation = api.mount({ controls, slides, getCurrent: () => idx, show, previous, next, status, overviewButton, selector,
+      title: meta.title, dialog: document.getElementById('overview'),
+      tools: [button('notesButton', 'Notes & sources', toggleNotes), button('fullscreenButton', 'Fullscreen', toggleFullscreen)],
+      links: [{ label: meta.courseIndexLabel || (meta.subject === 'business' ? 'Business course' : 'Economics course'), href: meta.courseIndexUrl ? courseIndexUrl() : new URL(`../../${meta.subject === 'business' ? 'business' : 'economics'}/index.html`, navigationAssetUrl).href }, ...viewLinks],
+      extras: [account]
+    });
+    show(idx);
+  }).catch(error => console.error('Lesson navigation could not load', error));
 
   return { show, toggleNotes, toggleOverview };
 }

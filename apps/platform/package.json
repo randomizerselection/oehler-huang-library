@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "private": true,
   "type": "module",
-  "description": "Portable source of truth and competition prototype for EconMark.",
+  "description": "Combined HTTP server, shared accounts and persistence, and EconMark application.",
   "scripts": {
     "start": "node scripts/serve.mjs",
     "test": "node --test",
@@ -16,9 +16,10 @@
     "storage:check": "node scripts/check-storage.mjs"
   },
   "engines": {
-    "node": ">=22.5"
+    "node": ">=24"
   },
   "dependencies": {
+    "@oehler-huang/contracts": "1.0.0",
     "ajv": "8.20.0",
     "argon2": "^0.45.1"
   }

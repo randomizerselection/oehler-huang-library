@@ -1,0 +1,75 @@
+/* Scoped to the supply-side decks; diagram-first layout inspired by the
+   A-level multiplier's diagram frame and adjacent teaching states. */
+.slide.is-layout-ppc-teaching {
+  background: #f8f7f3; color: #173747;
+  --ink: #173747; --ink-dim: #536c78; --muted: #64747b;
+}
+.slide.is-layout-ppc-teaching .topline,
+.slide.is-layout-ppc-teaching .slide-footer { visibility: hidden; }
+.slide.is-layout-ppc-teaching .sspPpcPanel h2 { color: #173747; }
+.slide.is-layout-ppc-teaching .sspPpcPanel p { color: #173747; }
+.slide.is-layout-ppc-teaching .sspPpcPanel .sspPpcZh { color: #64747b; }
+.slide.is-layout-ppc-teaching .sspPpcPanel .sspPpcTakeaway { color: #087366; }
+.slide.is-layout-ppc-teaching .content {
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 3vw;
+  align-items: center;
+}
+.slide.is-layout-ppc-teaching .content > aside.visual { grid-column: 1; grid-row: 1; min-height: 0; }
+.slide.is-layout-ppc-teaching .content > main { grid-column: 2; grid-row: 1; }
+.sspPpc { width: 100%; display: block; max-height: 66vh; overflow: visible; }
+.sspPpc text { font-family: Arial, sans-serif; fill: #173747; font-size: 24px; }
+.sspPpc .sspAxis { stroke: #173747; stroke-width: 2.5; fill: none; }
+.sspPpc .sspCurve { fill: none; stroke: #397fc1; stroke-width: 4; }
+.sspPpc .sspOriginal { stroke: #849297; stroke-dasharray: 9 7; stroke-width: 3; }
+.sspPpc .sspNew { stroke: #087f75; }
+.sspPpc .sspGuide { fill: none; stroke: #8a999f; stroke-width: 1.5; stroke-dasharray: 5 5; }
+.sspPpc .sspChange { fill: none; stroke: #ad613b; stroke-width: 3; }
+.sspPpc .sspPoint { fill: #087f75; stroke: #fff; stroke-width: 2; }
+.sspPpc .sspOldPoint { fill: #849297; }
+.sspPpc .sspLabel { font-weight: 700; }
+.sspPpc .sspNewLabel { fill: #087f75; }
+.sspPpc .sspOldLabel { fill: #64747b; }
+.sspPpcStepCount { font-size: clamp(13px, 1vw, 18px); font-weight: 700; color: #ad613b; letter-spacing: .08em; margin: 0 0 1.2rem; }
+.sspPpcPanel h2 { font-size: clamp(25px, 2.25vw, 40px); line-height: 1.12; margin: 0 0 1.2rem; }
+.sspPpcPanel p { font-size: clamp(20px, 1.65vw, 29px); line-height: 1.36; margin: 0 0 1rem; }
+.sspPpcPanel .sspPpcZh { color: #64747b; font-size: clamp(17px, 1.25vw, 23px); }
+.sspPpcPanel .sspPpcTakeaway { color: #087366; border-top: 1px solid #cad7dc; padding-top: 1rem; font-weight: 700; }
+.sspPpcControls { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; }
+.sspPpcControls button { color: #173747; background: #fff; border: 1px solid #bbcdd3; border-radius: 5px; padding: .6rem .9rem; box-shadow: none; font-size: 16px; }
+.sspPpcControls button[data-ppc-action="next"] { color: #fff; background: #166b63; border-color: #166b63; }
+.sspPpcControls button:disabled { opacity: .35; cursor: default; }
+.sspPpcControls button:focus-visible { outline: 3px solid #397fc1; outline-offset: 3px; }
+.sspPpcContext { font-size: clamp(15px, 1.2vw, 21px); color: #536c78; margin-bottom: 1.1rem; }
+.sspPpc [data-ppc-stage] { transition: opacity .2s ease; }
+.sspPpc [data-ppc-stage][hidden] { display: none; }
+.sspPpcHandout { margin: 1rem auto; max-width: 620px; break-inside: avoid; }
+.sspPpcHandout .sspPpc { max-height: none; }
+.sspPpcHandout figcaption { color: #173747; font-size: 15px; line-height: 1.4; }
+/* Same full-slide question surface as the recent money lessons. */
+.is-layout-question-only .topline,
+.is-layout-question-only .slide-footer { display: none; }
+.slide.is-layout-question-only { grid-template-rows: 1fr; }
+.slide.is-layout-question-only .discussionContent {
+  justify-self: center; width: min(1200px, 90vw); max-width: none; padding: 0;
+}
+.is-layout-question-only .discussionPrompt { justify-items: center; }
+.slide.is-layout-question-only .discussionPrompt p {
+  max-width: 27ch; font-size: clamp(36px, 4.2vw, 72px); line-height: 1.14; text-align: center; text-shadow: none;
+}
+body:has(.is-active.is-layout-question-only) .lessonModeSwitch,
+body:has(.is-active.is-layout-question-only) .help,
+body:has(.is-active.is-layout-question-only) #progress { display: none; }
+@media (max-width: 960px) {
+  .slide.is-layout-ppc-teaching .content { grid-template-columns: 1fr; gap: 1rem; }
+  .slide.is-layout-ppc-teaching .content > aside.visual { grid-column: 1; grid-row: 1; }
+  .slide.is-layout-ppc-teaching .content > main { grid-column: 1; grid-row: 2; }
+  .sspPpc { max-height: 45vh; }
+  .sspPpcPanel h2 { font-size: 24px; margin-bottom: .65rem; }
+  .sspPpcPanel p { font-size: 19px; }
+  .sspPpcStepCount { margin-bottom: .7rem; }
+  .sspPpcControls { margin-top: .6rem; }
+  .slide.is-layout-question-only .discussionPrompt p { font-size: clamp(29px, 6vw, 48px); }
+}
+@media (prefers-reduced-motion: reduce) { .sspPpc [data-ppc-stage] { transition: none; } }
+@media print { .sspPpcControls { display: none; } }

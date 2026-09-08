@@ -557,7 +557,21 @@ async function expectCompactCardGridFits(page, options = {}) {
   }
 }
 
+async function jumpToOverviewSlide(page, number) {
+  await expect(page.locator('.lesson-navigation')).toBeVisible();
+  await page.keyboard.press('o');
+  await page.locator('.lesson-overview input').fill(String(number));
+  await page.locator(`.lesson-overview [data-go="${number - 1}"]`).click();
+}
+
 async function expectLessonModeTabs(page, activeMode) {
+  if (activeMode === 'Slides') {
+    await expect(page.locator('.lesson-navigation')).toBeVisible();
+    await page.locator('.lesson-navigation-more > summary').click();
+    for (const label of ['Handout', 'Quiz', 'Flashcards']) await expect(page.locator('.lesson-navigation-menu').getByRole('link', { name: label, exact: true })).toBeVisible();
+    await page.locator('.lesson-navigation-more > summary').click();
+    return;
+  }
   const tabs = page.locator('.lessonModeTabs');
   await expect(tabs.getByRole('link', { name: /^Slides$/i })).toBeVisible();
   await expect(tabs.getByRole('link', { name: /^Handout$/i })).toBeVisible();
@@ -567,6 +581,13 @@ async function expectLessonModeTabs(page, activeMode) {
 }
 
 async function expectLessonModeTabsOnly(page, activeMode, labels) {
+  if (activeMode === 'Slides') {
+    await expect(page.locator('.lesson-navigation')).toBeVisible();
+    await page.locator('.lesson-navigation-more > summary').click();
+    for (const label of labels.filter(label => label !== 'Slides')) await expect(page.locator('.lesson-navigation-menu').getByRole('link', { name: label, exact: true })).toBeVisible();
+    await page.locator('.lesson-navigation-more > summary').click();
+    return;
+  }
   const tabs = page.locator('.lessonModeTabs');
   for (const label of labels) {
     await expect(tabs.getByRole('link', { name: new RegExp(`^${label}$`, 'i') })).toBeVisible();
@@ -576,7 +597,9 @@ async function expectLessonModeTabsOnly(page, activeMode, labels) {
 }
 
 async function openLessonModeMenu(page) {
-  await page.locator('.lessonModeMenuButton').click();
+  // Classroom controls intentionally hide while idle; wake them as a user would.
+  await page.mouse.move(10, 10);
+  await page.locator('.lesson-navigation-more > summary, .lessonModeMenuButton').click();
 }
 
 async function expectNoRemoteImageAssets(page) {
@@ -654,23 +677,57 @@ test.describe('site smoke', () => {
     await expect(page.locator('.hero-summary-number, .course-index')).toHaveCount(0);
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
     await expect(page.getByText('Lessons are public. Homework submission requires an account.')).toBeVisible();
-    await expect(page.getByRole('link', { name: /^Economics definitions$/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^IGCSE definitions$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Teaching approach$/i })).toHaveAttribute('href', 'pedagogy.html');
-    await expect(page.locator('.oh-primary-nav a')).toHaveCount(3);
+    await expect(page.locator('.oh-primary-nav a')).toHaveCount(4);
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.locator('[data-entry="a-level"]')).toHaveAttribute('href', 'a-level/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.locator('.homework-nav-link')).toHaveAttribute('href', localHomeworkUrl);
     await expect(page.locator('.hero, .hero-routes')).toHaveCount(0);
-    await expect(page.locator('.entry-card')).toHaveCount(3);
-    await expect(page.locator('.entry-media img')).toHaveCount(2);
-    await expect(page.locator('.entry-title-zh')).toHaveText(['经济学课程', '投资与财务决策', '作业提交与反馈']);
+    await expect(page.locator('.entry-card')).toHaveCount(4);
+    await expect(page.locator('.entry-media img')).toHaveCount(3);
+    await expect(page.locator('.entry-title-zh')).toHaveText(['IGCSE 经济学', 'A Level 经济学', '投资与金融', '作业提交与反馈']);
     const cardWidths = await page.locator('.entry-card').evaluateAll((cards) => cards.map((card) => card.getBoundingClientRect().width));
     expect(Math.max(...cardWidths) - Math.min(...cardWidths)).toBeLessThan(2);
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
     await expect(page.locator('a[href^="lessons/"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke A Level course landing exposes the current macroeconomics lessons', async ({ page }) => {
+    await page.goto(pageUrl('a-level/index.html'));
+
+    await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
+    await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(2);
+    await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Components of aggregate demand' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('@smoke A Level lesson decks load from the course page', async ({ page }) => {
+    const lessons = [
+      { path: 'a-level/lessons/9-1-1-multiplier/index.html', title: 'The multiplier', heroTitle: 'The multiplier' },
+      { path: 'a-level/lessons/9-1-2-aggregate-demand/index.html', title: 'Components of aggregate demand', heroTitle: 'Aggregate demand' },
+    ];
+
+    for (const lesson of lessons) {
+      const context = { window: {} };
+      vm.runInNewContext(fs.readFileSync(path.join(root, path.dirname(lesson.path), 'slides.js'), 'utf8'), context);
+      const slideCount = context.window.ALEVEL_LESSON.slides.length;
+      expect(slideCount).toBeGreaterThan(0);
+      await page.goto(pageUrl(lesson.path));
+      await expect(page).toHaveTitle(new RegExp(lesson.title, 'i'));
+      await expect(page.locator('#stage .slide:not([hidden])')).toBeVisible();
+      await expect(page.locator('#stage .slide:not([hidden])')).toContainText(lesson.heroTitle);
+      await expect(page.locator('#status')).toContainText(`1 / ${slideCount}`);
+      await expect(page.locator('#stage .slide')).toHaveCount(slideCount);
+      await expect(page.locator('script[src="../../shared-html/presentation.js"]')).toHaveCount(1);
+      await expectNoHorizontalOverflow(page);
+    }
   });
 
   test('@smoke editable site text does not contain protected Chinese mojibake', () => {
@@ -966,8 +1023,10 @@ test.describe('site smoke', () => {
         width: element.naturalWidth,
         height: element.naturalHeight,
       }));
-      expect(dimensions.width).toBeGreaterThanOrEqual(2200);
-      expect(dimensions.height).toBeGreaterThanOrEqual(1500);
+      // Keep the historic Jobs photo at native resolution rather than upscaling it.
+      const isHistoricPhoto = visual.src.endsWith('/enterprise-steve-jobs-keynote.jpg');
+      expect(dimensions.width).toBeGreaterThanOrEqual(isHistoricPhoto ? 1200 : 2200);
+      expect(dimensions.height).toBeGreaterThanOrEqual(isHistoricPhoto ? 900 : 1500);
       await expectNoHorizontalOverflow(page);
     }
 
@@ -996,60 +1055,59 @@ test.describe('site smoke', () => {
 
     await page.goto(pageUrl('index.html'));
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
-    await expect(page.locator('.entry-card')).toHaveCount(3);
+    await expect(page.locator('.entry-card')).toHaveCount(4);
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
-    await expect(page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^IGCSE Economics$/i })).toBeVisible();
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html'));
     await expect(page.locator('.slide.is-active')).toBeVisible();
-    await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeHidden();
+    await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeVisible();
     await expect(page.locator('.lessonModeMenu')).toBeHidden();
     await expectNoHorizontalOverflow(page);
   });
 
-  test('landing page renders at desktop and phone widths', async ({ page }) => {
+  test('@responsive landing page renders at desktop and phone widths', async ({ page }) => {
     await page.goto(pageUrl('index.html'));
 
     await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
+    await expect(page.locator('[data-entry="a-level"]')).toHaveAttribute('href', 'a-level/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
-    await expect(page.getByText(/Study syllabus-led lessons, quizzes, flashcards, handouts and exam practice/i)).toBeVisible();
-    await expect(page.getByText(/Explore financial goals, markets, company analysis, portfolios and evidence-based investment decisions/i)).toBeVisible();
-    await expect(page.getByText(/Enter your assignment code, upload a clear photo of your answer/i)).toBeVisible();
+    await expect(page.getByText(/Study economic concepts through lessons, quizzes and exam practice/i)).toBeVisible();
+    await expect(page.getByText(/Study macroeconomics through lessons, interactive diagrams and exam practice/i)).toBeVisible();
+    await expect(page.getByText(/Study investment returns, financial markets and financial decision-making/i)).toBeVisible();
+    await expect(page.getByText(/Enter your assignment code, upload your answer and view feedback/i)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
-    await expect(page.getByRole('link', { name: /^Economics definitions$/i })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^IGCSE definitions$/i })).toHaveAttribute('href', 'definitions.html');
     await expect(page.getByRole('link', { name: /^Teaching approach$/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: /^Open lesson$/i })).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
-    await expect(page.locator('link[href="../assets/css/landing.css"]')).toHaveCount(1);
-    await expect(page.locator('link[href="../assets/css/economics-home.css"]')).toHaveCount(1);
+    await expect(page.locator('link[href="../assets/css/course-home.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /^Investment & Finance$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
-    await expect(page.getByRole('link', { name: /^Key definitions$/i })).toHaveAttribute('href', '../definitions.html');
+    await expect(page.getByRole('link', { name: /^Investment and finance$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
+    await expect(page.getByRole('link', { name: /^Definitions$/i })).toHaveAttribute('href', '../definitions.html');
     await expect(page.locator('#unit-2')).toBeVisible();
     await expect(page.locator('#unit-3')).toBeVisible();
     await expect(page.locator('#unit-4')).toBeVisible();
     await expect(page.locator('.unit-step.is-empty').first()).toBeHidden();
-    await expect(page.getByRole('link', { name: /Teaching philosophy \/ 教学理念/i }).first()).toHaveAttribute('href', '../pedagogy.html');
-    await expect(page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Teaching approach/i }).first()).toHaveAttribute('href', '../pedagogy.html');
+    await expect(page.getByRole('heading', { name: /^IGCSE Economics$/i })).toBeVisible();
     await expect(page.locator('.hero .author-line')).toHaveCount(0);
     await expect(page.getByText(/Not endorsed by Cambridge International Education/i)).toBeVisible();
-    await expect(page.getByRole('link', { name: /Slide view/i }).first()).toBeVisible();
-    await expect(page.getByRole('link', { name: /Handout view/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Open lesson$/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Handout$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toBeVisible();
-    await expect(
-      page.locator('.section-head').filter({ has: page.getByRole('heading', { name: /^IGCSE Economics Lesson Library$/i }) }).locator('.section-title-zh')
-    ).toHaveText(hierarchyTitleTranslations.section['IGCSE Economics Lesson Library']);
+    await expect(page.locator('.section-title-zh')).toHaveText('课件');
 
     for (const [title, translation] of Object.entries(hierarchyTitleTranslations.units)) {
       const unit = page.locator('.unit-summary').filter({ hasText: title });
@@ -1069,11 +1127,11 @@ test.describe('site smoke', () => {
       await expect(page.locator('.lesson-card .deck-title-zh', { hasText: translation }).first()).toBeVisible();
     }
 
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(27);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(27);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(25);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(25);
-    await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
+    await expect(page.getByRole('link', { name: /^Open lesson$/i })).toHaveCount(28);
+    await expect(page.getByRole('link', { name: /^Handout$/i })).toHaveCount(28);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(26);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(26);
+    await expect(page.getByRole('link', { name: /^Handout$/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);
 
@@ -1090,61 +1148,73 @@ test.describe('site smoke', () => {
     expect(macroHeadingBox.x).toBeGreaterThanOrEqual(0);
     expect(macroHeadingBox.x + macroHeadingBox.width).toBeLessThanOrEqual(viewport.width + 1);
 
-    await page.goto(pageUrl('investment-analysis/index.html'));
-    await expect(page.locator('link[href="../assets/css/investment-home.css"]')).toHaveCount(1);
-    await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
-    await expect(page.locator('.investment-title-zh')).toHaveText('投资与财务决策');
-    await expect(page.getByRole('link', { name: /Start Lesson 1/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
-    await expect(page.getByRole('link', { name: /See available lessons/i })).toHaveAttribute('href', '#start-course');
-    await expect(page.getByText(/Learn it\. Apply it in SMG\. Defend it\./i)).toBeVisible();
-    await expect(page.locator('.investment-skip-link')).toHaveAttribute('href', '#main-content');
-    await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
-    await expect(page.locator('.investment-unit-list li')).toHaveCount(6);
-    await expect(page.locator('.investment-resource-list a')).toHaveCount(4);
-    await expect(page.locator('a[href="syllabus-company-analysis.html"]')).toHaveCount(0);
-
-    const investmentLandingLayout = await page.evaluate(() => {
-      const hero = document.querySelector('.investment-hero');
-      const nav = document.querySelector('.investment-nav');
-      const flow = document.querySelector('.investment-decision-flow');
-      const lessonList = document.querySelector('.investment-lesson-list');
-      const unitList = document.querySelector('.investment-unit-list');
-      const resourceList = document.querySelector('.investment-resource-list');
-      const sectionTitleZh = document.querySelector('.investment-section-title-zh');
-      const footer = document.querySelector('.investment-footer');
-      return {
-        viewportWidth: document.documentElement.clientWidth,
-        heroHeight: hero?.getBoundingClientRect().height || 0,
-        navHeight: nav?.getBoundingClientRect().height || 0,
-        flowColumns: getComputedStyle(flow).gridTemplateColumns.split(' ').length,
-        lessonColumns: getComputedStyle(lessonList).gridTemplateColumns.split(' ').length,
-        unitColumns: getComputedStyle(unitList).gridTemplateColumns.split(' ').length,
-        resourceColumns: getComputedStyle(resourceList).gridTemplateColumns.split(' ').length,
-        sectionTitleZhDisplay: getComputedStyle(sectionTitleZh).display,
-        footerDisplay: getComputedStyle(footer).display
-      };
-    });
-
-    expect(investmentLandingLayout.sectionTitleZhDisplay).toBe('block');
-    expect(investmentLandingLayout.flowColumns).toBe(5);
-    if (investmentLandingLayout.viewportWidth <= 420) {
-      expect(investmentLandingLayout.heroHeight).toBeLessThan(1020);
-      expect(investmentLandingLayout.navHeight).toBeLessThan(120);
-      expect(investmentLandingLayout.footerDisplay).toBe('grid');
-      expect(investmentLandingLayout.lessonColumns).toBe(1);
-      expect(investmentLandingLayout.unitColumns).toBe(1);
-      expect(investmentLandingLayout.resourceColumns).toBe(1);
-    } else {
-      expect(investmentLandingLayout.heroHeight).toBeLessThan(680);
-      expect(investmentLandingLayout.lessonColumns).toBe(2);
-      expect(investmentLandingLayout.unitColumns).toBe(2);
-      expect(investmentLandingLayout.resourceColumns).toBe(2);
+    for (const course of [
+      { route: 'economics/index.html', name: 'IGCSE Economics', count: 28, section: '#course-map' },
+      { route: 'a-level/index.html', name: 'A Level Economics', count: 2, section: '#lessons' },
+      { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 2, section: '#course-map' },
+    ]) {
+      await page.goto(pageUrl(course.route));
+      await expect(page.getByRole('heading', { name: course.name, exact: true })).toBeVisible();
+      await expect(page.locator('.oh-primary-nav [aria-current="page"]')).toHaveText(course.name);
+      await expect(page.locator('.oh-primary-nav a')).toHaveText(['IGCSE Economics', 'A Level Economics', 'Investment and finance', 'Homework']);
+      await expect(page.locator('.oh-primary-nav a[data-oh-nav="homework"]')).toHaveAttribute('href', localHomeworkUrl);
+      await expect(page.getByRole('link', { name: 'View lessons', exact: true })).toHaveAttribute('href', course.section);
+      await page.getByRole('link', { name: 'View lessons', exact: true }).click();
+      await expect(page.getByRole('heading', { name: 'Lessons', exact: true })).toBeInViewport();
+      await expect(page.locator('.lesson-card')).toHaveCount(course.count);
+      await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveText(Array(course.count).fill('Open lesson'));
+      await expect(page.locator('.section-title-zh')).toHaveText('课件');
+      const columns = await page.locator('.topic-lessons').first().evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' ').length);
+      expect(columns).toBe(page.viewportSize().width <= 700 ? 1 : 2);
+      await expectNoHorizontalOverflow(page);
     }
 
+    await expect(page.getByRole('link', { name: 'Syllabus', exact: true })).toHaveAttribute('href', 'syllabus-2026-27.html');
+    await expect(page.getByRole('link', { name: 'Definitions', exact: true })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.locator('.lesson-card a[href="lessons/1-1-2-measuring-investment-return/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.lesson-card a[href="lessons/1-1-3-compound-growth/index.html"]')).toHaveCount(1);
+    await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
+  });
+
+  test('@smoke Investment Course landing mirrors the Economics course overview', async ({ page }) => {
+    await page.goto(pageUrl('investment-analysis/index.html'));
+    await expect(page.locator('body')).toHaveClass(/course-home/);
+    await expect(page.locator('body')).toHaveClass(/investment-course-home/);
+    await expect(page.locator('.hero')).toBeVisible();
+    await expect(page.locator('.economics-priority-panel')).toHaveCount(0);
+    await expect(page.locator('.course-roadmap .unit-step.is-live')).toHaveCount(1);
+    await expect(page.locator('.unit-topics .topic-group')).toHaveCount(1);
+    await expect(page.locator('.lesson-card')).toHaveCount(2);
+    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(2);
+    await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
+    await expect(page.locator('a[href="syllabus-2026-27.html"]')).toHaveCount(1);
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke investment course page and lesson interactions work', async ({ page }, testInfo) => {
+  test('@smoke current Investment Course HTML lessons load from student navigation', async ({ page }) => {
+    const lessons = [
+      { path: 'investment-analysis/lessons/1-1-2-measuring-investment-return/index.html', title: /Measuring investment return/i },
+      { path: 'investment-analysis/lessons/1-1-3-compound-growth/index.html', title: /Compound growth/i },
+    ];
+
+    for (const lesson of lessons) {
+      await page.goto(pageUrl(lesson.path));
+      const context = { window: {} };
+      vm.runInNewContext(fs.readFileSync(path.join(root, path.dirname(lesson.path), 'slides.js'), 'utf8'), context);
+      const slideCount = context.window.INVESTMENT_COURSE.lesson.slides.length;
+      expect(slideCount).toBeGreaterThan(0);
+      await expect(page.locator('.slide')).toHaveCount(slideCount);
+      await expect(page.locator('.slide.is-active')).toHaveAttribute('data-index', '0');
+      await expect(page.locator('.slide.is-active')).toContainText(lesson.title);
+      await openLessonModeMenu(page);
+      await expect(page.getByRole('link', { name: 'Investment course', exact: true })).toHaveAttribute('href', /investment-analysis\/index\.html$/);
+      await page.keyboard.press('Escape');
+      await expect(page.locator('script[src="../../course-assets/js/presentation.js"]')).toHaveCount(1);
+      await expectNoHorizontalOverflow(page);
+    }
+  });
+
+  test('@legacy investment course page and lesson interactions work', async ({ page }, testInfo) => {
     test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(180000);
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment test.');
@@ -1157,26 +1227,23 @@ test.describe('site smoke', () => {
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.getByRole('link', { name: /Economics/i })).toHaveAttribute('href', '../economics/index.html');
     await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
-    await expect(page.getByRole('link', { name: /Syllabus/i }).first()).toHaveAttribute('href', 'syllabus.html');
+    await expect(page.getByRole('link', { name: /Syllabus/i }).first()).toHaveAttribute('href', 'syllabus-2026-27.html');
     await expect(page.getByRole('link', { name: /Definitions/i }).first()).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /Start Lesson 1/i })).toHaveAttribute('href', 'unit-1/lesson-1/index.html');
-    await expect(page.getByText(/Learn to make investment decisions by connecting goals, evidence, risk and portfolio choices/i)).toBeVisible();
-    await expect(page.getByText(/Learn it\. Apply it in SMG\. Defend it\./i)).toBeVisible();
-    await expect(page.locator('body')).toContainText(/Personal Investment Foundations/i);
-    await expect(page.locator('body')).toContainText(/Analysing Companies/i);
+    await expect(page.getByRole('link', { name: /Open Lesson 2/i })).toHaveAttribute('href', 'lessons/1-1-2-measuring-investment-return/index.html');
+    await expect(page.getByText(/Study investment foundations, returns, markets, company evidence and portfolio decisions/i)).toBeVisible();
+    await expect(page.getByText(/Learn it\. Apply it\. Defend it\./i)).toBeVisible();
+    await expect(page.locator('body')).toContainText(/Investment foundations and return/i);
+    await expect(page.locator('body')).toContainText(/Markets and company analysis/i);
 
-    await expect(page.locator('.investment-lesson-list article')).toHaveCount(3);
-    await expect(page.locator('.investment-lesson-list .investment-card-title-zh')).toHaveText(['什么是投资？', '个人与家庭为什么要投资？', '财务目标如何改变投资决策？']);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-1/index.html?view=quiz"]')).toHaveCount(1);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-2/index.html?view=quiz"]')).toHaveCount(1);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-3/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.investment-lesson-list a[href="unit-1/lesson-3/index.html?view=quiz"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list article')).toHaveCount(2);
+    await expect(page.locator('.investment-lesson-list .investment-card-title-zh')).toHaveText(['衡量投资回报', '复利增长']);
+    await expect(page.locator('.investment-lesson-list a[href="lessons/1-1-2-measuring-investment-return/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href="lessons/1-1-3-compound-growth/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.investment-lesson-list a[href*="unit-1/lesson-"]')).toHaveCount(0);
     await expect(page.locator('#start-course + #investment-overview')).toHaveCount(1);
 
     await expect(page.getByRole('heading', { name: /Keep learning/i })).toBeVisible();
-    await expect(page.locator('.investment-resource-list a[href="syllabus.html"]')).toContainText(/Units, lesson questions and assessments/i);
+    await expect(page.locator('.investment-resource-list a[href="syllabus-2026-27.html"]')).toContainText(/All 32 lessons, objectives, phases and definitions/i);
     await expect(page.locator('.investment-resource-list a')).toHaveCount(4);
     await expect(page.locator('a[href="syllabus-company-analysis.html"]')).toHaveCount(0);
     await expect(page.locator('a[href*="lesson-1-all-types"]')).toHaveCount(0);
@@ -1558,7 +1625,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke investment lesson 1 classification workshop and quiz work', async ({ page }, testInfo) => {
+  test('@legacy investment lesson 1 classification workshop and quiz work', async ({ page }, testInfo) => {
     test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(90000);
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment test.');
@@ -1600,7 +1667,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke investment lesson 2 page and quiz work', async ({ page }, testInfo) => {
+  test('@legacy investment lesson 2 page and quiz work', async ({ page }, testInfo) => {
     test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(90000);
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment lesson 2 test.');
@@ -1700,7 +1767,7 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('@smoke investment @responsive investment template new slide types render', async ({ page }, testInfo) => {
+  test('@legacy investment @responsive investment template new slide types render', async ({ page }, testInfo) => {
     test.skip(true, 'Superseded by the native Economics-renderer Investment Analysis coverage.');
     test.setTimeout(90000);
     const lessonPath = 'investment-analysis/_template/index.html';
@@ -1927,7 +1994,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke @responsive native Investment Analysis lessons use the Economics renderer and fit', async ({ page }) => {
+  test('@legacy @responsive native Investment Analysis lessons use the Economics renderer and fit', async ({ page }) => {
     test.setTimeout(180000);
 
     const lessons = [
@@ -1937,7 +2004,7 @@ test.describe('site smoke', () => {
     ];
 
     await page.goto(pageUrl('investment-analysis/index.html'));
-    await expect(page.getByRole('heading', { name: /Investment and Financial Decision-Making/i }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^Investment and finance$/i })).toBeVisible();
     await expect(page.locator('a[href*="generator-comparison"], a[href*="lesson-1-all-types"]')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
@@ -2021,7 +2088,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke investment course map page works', async ({ page }, testInfo) => {
+  test('@legacy investment course map page works', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage is handled by the responsive investment course map test.');
 
     await page.goto(pageUrl('investment-analysis/syllabus.html'));
@@ -2072,7 +2139,7 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('@smoke investment SMG workbook guide and team log work', async ({ page }) => {
+  test('@legacy investment SMG workbook guide and team log work', async ({ page }) => {
 
     await page.goto(pageUrl('investment-analysis/smg-workbook-course-guide.html'));
     await expect(page.getByRole('heading', { name: /SMG Workbook Course Guide/i })).toBeVisible();
@@ -2095,7 +2162,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('.workbook-log-sheet')).toHaveCount(2);
   });
 
-  test('@smoke investment print views use complete definitions without fill-in-the-blanks', async ({ page }) => {
+  test('@legacy investment print views use complete definitions without fill-in-the-blanks', async ({ page }) => {
     const handouts = [
       { path: 'investment-analysis/unit-1/lesson-1/index.html', sectionCount: 5, terms: ['Financial investment', 'Speculation', 'Saving'] },
       { path: 'investment-analysis/unit-1/lesson-2/index.html', sectionCount: 3, terms: ['Investment', 'Return', 'Financial goal'] },
@@ -2116,7 +2183,7 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('@smoke investment company-analysis syllabus option works', async ({ page }, testInfo) => {
+  test('@legacy investment company-analysis syllabus option works', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name.includes('phone'), 'Phone coverage stays on the default syllabus map.');
 
     await page.goto(pageUrl('investment-analysis/syllabus-company-analysis.html'));
@@ -4475,33 +4542,75 @@ test.describe('site smoke', () => {
     await expectNoHorizontalOverflow(page);
   });
 
-  test('teaching philosophy page renders bilingual pedagogy at desktop and phone widths', async ({ page }) => {
+  test('teaching approach compares active courses at desktop and phone widths @smoke @responsive', async ({ page }, testInfo) => {
     await page.goto(pageUrl('pedagogy.html'));
-
-    await expect(page.getByRole('link', { name: /Oehler-Huang Learning Platform home/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Teaching Philosophy/i })).toBeVisible();
-    await expect(page.getByText('教学理念', { exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Teaching approach', exact: true })).toBeVisible();
+    await expect(page.getByText('教学方式', { exact: true })).toBeVisible();
     await expect(page.getByRole('img', { name: /Samuel Oehler-Huang/i })).toBeVisible();
-    await expect(page.getByText(/Economics teacher, Suzhou Foreign Language School/i)).toBeVisible();
-    await expect(page.getByText(/苏州外国语学校经济学教师/)).toBeVisible();
-    await expect(page.getByRole('heading', { name: /What the materials show/i })).toHaveCount(0);
-    await expect(page.getByText(/Economics is not learned by memorising definitions alone/i)).toBeVisible();
-    await expect(page.getByRole('heading', { name: /From economic problem to transferable judgement/i })).toBeVisible();
-    await expect(page.getByText('经济问题', { exact: true })).toBeVisible();
-    await expect(page.getByText(/从稀缺、激励、市场变化或政策选择出发/)).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Aligned with Cambridge teaching principles/i })).toBeVisible();
-    await expect(page.getByText(/Confident 自信/)).toBeVisible();
-    await expect(page.getByText(/Cambridge teaching principles: active learning/i)).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Active learning/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Assessment for learning/i })).toBeVisible();
-    await expect(page.getByText(/课程以 Cambridge IGCSE Economics 0455 和剑桥教学原则为核心/)).toBeVisible();
-    await expect(page.getByRole('heading', { name: /For parents/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /面向家长/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /For teachers/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /面向教师/i })).toBeVisible();
-    await expect(page.getByText(/Effective Economics revision is active skill practice/i)).toBeVisible();
-    await expect(page.getByText(/does not claim formal endorsement/i)).toBeVisible();
 
+    const comparison = page.getByRole('region', { name: 'Classroom approach comparison', exact: true });
+    await expect(comparison.getByRole('columnheader')).toHaveCount(4);
+    await expect(comparison.getByRole('rowheader')).toHaveCount(7);
+    const rows = comparison.locator('tbody tr');
+    for (const row of await rows.all()) {
+      await expect(row.getByRole('cell')).toHaveCount(3);
+      await expect(row.locator('td [lang="zh-CN"]')).toHaveCount(3);
+    }
+    for (const link of await comparison.getByRole('link').all()) {
+      const href = await link.getAttribute('href');
+      expect(fs.existsSync(path.join(root, href))).toBeTruthy();
+    }
+
+    // Table paragraphs must not inherit the large, pale text used by lesson slides.
+    const paragraphStyles = await page.locator('.comparison td p').evaluateAll(paragraphs => {
+      const luminance = color => {
+        const channels = color.match(/[\d.]+/g).slice(0, 3).map(Number).map(value => {
+          const channel = value / 255;
+          return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+        });
+        return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+      };
+      return paragraphs.map(paragraph => {
+        const style = getComputedStyle(paragraph);
+        const foreground = luminance(style.color);
+        const background = luminance(getComputedStyle(paragraph.closest('td')).backgroundColor);
+        return {
+          size: parseFloat(style.fontSize),
+          contrast: (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05)
+        };
+      });
+    });
+    for (const { size, contrast } of paragraphStyles) {
+      expect(size).toBeGreaterThanOrEqual(14);
+      expect(size).toBeLessThanOrEqual(16);
+      expect(contrast).toBeGreaterThanOrEqual(4.5);
+    }
+
+    const support = page.getByRole('region', { name: 'Home and school support comparison', exact: true });
+    await expect(support.getByRole('rowheader')).toHaveCount(2);
+    await expect(support.getByRole('rowheader', { name: /For parents/ })).toBeVisible();
+    await expect(support.getByRole('rowheader', { name: /For teachers/ })).toBeVisible();
+    await page.getByRole('link', { name: 'Shared principles', exact: true }).click();
+    await expect(page).toHaveURL(/#shared-title$/);
+    await expect(page.getByRole('heading', { name: /What the courses share/i })).toBeVisible();
+
+    if (testInfo.project.name.includes('phone')) {
+      await expect(page.locator('#comparison-hint')).toBeVisible();
+      const region = comparison;
+      const firstColumn = comparison.locator('tbody th').first();
+      const leftBefore = (await firstColumn.boundingBox()).x;
+      await region.evaluate(element => { element.scrollLeft = element.scrollWidth; });
+      expect(await region.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
+      expect(Math.abs((await firstColumn.boundingBox()).x - leftBefore)).toBeLessThan(2);
+      const investment = comparison.locator('#investment');
+      const regionBox = await region.boundingBox();
+      const investmentBox = await investment.boundingBox();
+      const labelBox = await firstColumn.boundingBox();
+      expect(investmentBox.x).toBeGreaterThanOrEqual(labelBox.x + labelBox.width - 2);
+      expect(investmentBox.x + investmentBox.width).toBeLessThanOrEqual(regionBox.x + regionBox.width + 2);
+    } else {
+      expect(await comparison.evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBeTruthy();
+    }
     await expectNoHorizontalOverflow(page);
   });
 
@@ -4513,7 +4622,7 @@ test.describe('site smoke', () => {
     await expect(page.locator('#progress')).toBeVisible();
     await expectLessonModeTabs(page, 'Slides');
     if (testInfo.project.name.includes('phone')) {
-      await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeHidden();
+      await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeVisible();
       await expect(page.locator('.lessonModeMenu')).toBeHidden();
       const navBox = await page.locator('.lessonModeSwitch').boundingBox();
       expect(navBox.height).toBeLessThanOrEqual(60);
@@ -4521,11 +4630,11 @@ test.describe('site smoke', () => {
       await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeVisible();
       await expect(page.locator('.lessonModeSelectorToggle')).toHaveText('Selector');
       await expect(page.getByRole('button', { name: /^Student selector$/i })).toHaveAttribute('aria-pressed', 'false');
-      await expect(page.locator('.lessonModeMenuButton')).toBeVisible();
+      await expect(page.locator('.lesson-navigation-more > summary')).toBeVisible();
       await expect(page.getByRole('link', { name: /Library index/i })).toBeHidden();
       await openLessonModeMenu(page);
       await expect(page.getByRole('link', { name: /Library index/i })).toBeVisible();
-      await expect(page.getByRole('link', { name: /Lesson start/i })).toBeVisible();
+      await expect(page.getByRole('link', { name: /Lesson start/i })).toHaveCount(0);
     }
 
     await expectNoHorizontalOverflow(page);
@@ -4558,40 +4667,21 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('slide counter selects direct slide numbers', async ({ page }) => {
+  test('slide overview selects direct slide numbers', async ({ page }) => {
     await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html'));
-
-    const activeSlide = page.locator('.slide.is-active');
-    const activeJump = page.locator('.slide.is-active [data-slide-jump]');
     const total = await page.evaluate(() => window.IGCSE.lesson.slides.length);
-
-    await expect(activeJump).toHaveValue('1');
-    await expect(activeJump.locator('option')).toHaveCount(total);
-    await activeJump.selectOption('5');
-    await expect(activeSlide).toHaveAttribute('data-idx', '4');
+    await jumpToOverviewSlide(page, 5);
+    await expect(page.locator('.slide.is-active')).toHaveAttribute('data-idx', '4');
     await expect(page).toHaveURL(/#5$/);
-    await expect(activeJump).toHaveValue('5');
-
-    await activeJump.selectOption(String(total));
-    await expect(activeSlide).toHaveAttribute('data-idx', String(total - 1));
-    await expect(page).toHaveURL(new RegExp(`#${total}$`));
-    await expect(activeJump).toHaveValue(String(total));
-
+    await jumpToOverviewSlide(page, total);
+    await expect(page.locator('.slide.is-active')).toHaveAttribute('data-idx', String(total - 1));
     await expectNoHorizontalOverflow(page);
   });
 
-  test('lesson start link returns slide view to the first slide', async ({ page }, testInfo) => {
+  test('Home returns slide view to the first slide', async ({ page }) => {
     await page.goto(pageUrl('lessons/unit-4-government/4-1-macroeconomic-aims/index.html') + '#5');
-
     await expect(page.locator('.slide.is-active h2')).toHaveText(/The six macroeconomic aims/i);
-    if (testInfo.project.name.includes('phone')) {
-      await expectLessonModeTabs(page, 'Slides');
-      await expect(page.locator('.lessonModeMenu')).toBeHidden();
-      return;
-    }
-
-    await openLessonModeMenu(page);
-    await page.getByRole('link', { name: /Lesson start/i }).click();
+    await page.keyboard.press('Home');
     await expect(page.locator('.slide.is-active h1')).toHaveText(/Macroeconomic aims/i);
     await expect(page).toHaveURL(/#1$/);
   });
@@ -4714,7 +4804,7 @@ test.describe('site smoke', () => {
     if (testInfo.project.name.includes('phone')) {
       await page.goto(pageUrl('lessons/unit-2-allocation/2-8-market-economic-system/lesson-1.html'));
       await expectLessonModeTabs(page, 'Slides');
-      await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeHidden();
+      await expect(page.getByRole('button', { name: /^Student selector$/i })).toBeVisible();
       return;
     }
 
@@ -5053,7 +5143,7 @@ test.describe('site smoke', () => {
       };
     });
     expect(photoSlideNumbers.starter).toBeGreaterThan(0);
-    await page.locator('.slide.is-active [data-slide-jump]').selectOption(String(photoSlideNumbers.starter));
+    await jumpToOverviewSlide(page, photoSlideNumbers.starter);
     await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGrid/);
     await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGridFour/);
     await expect(page.locator('.slide.is-active .card')).toHaveCount(4);
@@ -5061,7 +5151,7 @@ test.describe('site smoke', () => {
 
     const sixPhotoSlideNumber = photoSlideNumbers.sixPhoto;
     expect(sixPhotoSlideNumber).toBeGreaterThan(0);
-    await page.locator('.slide.is-active [data-slide-jump]').selectOption(String(sixPhotoSlideNumber));
+    await jumpToOverviewSlide(page, sixPhotoSlideNumber);
     await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGrid/);
     await expect(page.locator('.slide.is-active .cardgrid')).toHaveClass(/is-photoGridSix/);
     await expect(page.locator('.slide.is-active .card')).toHaveCount(6);

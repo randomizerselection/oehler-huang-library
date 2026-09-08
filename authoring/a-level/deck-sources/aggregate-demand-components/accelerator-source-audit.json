@@ -1,0 +1,101 @@
+{
+  "verified": "2026-09-08",
+  "method": "Original local question-paper pages visually checked; published mark schemes checked. Wording, figures and option order retained. Typesetting adapted; m26 Q16 table reflowed into labelled options. Feedback is teacher-written.",
+  "questions": [
+    {
+      "paper": "9708/32",
+      "series": "m23",
+      "question": 21,
+      "questionPage": 9,
+      "markSchemePage": 2,
+      "answer": "C",
+      "examDemand": "Definition and causal direction",
+      "files": [
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Question Paper\\2023-march\\Paper 3\\9708_m23_qp_32.pdf",
+          "sha256": "eaae10006b5662713a6b7f7c89fbf8db91b7ae125cba6140995c3c3154fd763f"
+        },
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Mark Scheme\\2023-march\\Paper 3\\9708_m23_ms_32.pdf",
+          "sha256": "8a10911d4ed1d31d2daf2b819baede0a7995c781d068008a944f6a1e08fe758e"
+        }
+      ]
+    },
+    {
+      "paper": "9708/33",
+      "series": "w23",
+      "question": 21,
+      "questionPage": 7,
+      "markSchemePage": 2,
+      "answer": "B",
+      "examDemand": "Accelerator versus other investment determinants",
+      "files": [
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Question Paper\\2023-oct-nov\\Paper 3\\9708_w23_qp_33.pdf",
+          "sha256": "3333a25d17b5a724d191ace01936f8d496df103687e2d3af1c1c320c7b454453"
+        },
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Mark Scheme\\2023-oct-nov\\Paper 3\\9708_w23_ms_33.pdf",
+          "sha256": "e8dba85911b91b873dc7b51e72d7e8ad4477f069746877533fd7b715f8c919ea"
+        }
+      ]
+    },
+    {
+      "paper": "9708/34",
+      "series": "s25",
+      "question": 15,
+      "questionPage": 7,
+      "markSchemePage": 2,
+      "answer": "D",
+      "examDemand": "Smaller rise versus smaller fall in income",
+      "files": [
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Question Paper\\2025-may-june\\Paper 3\\9708_s25_qp_34.pdf",
+          "sha256": "6c15761c661e0f903df350edd13f3e9b198364bbaa829f1a9680cecec43fbf9a"
+        },
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Mark Scheme\\2025-may-june\\Paper 3\\9708_s25_ms_34.pdf",
+          "sha256": "d11991a39c5cc5c0193ebc285ff8a853f336659c8ca86c2a11f7d8222eade151"
+        }
+      ]
+    },
+    {
+      "paper": "9708/31",
+      "series": "s26",
+      "question": 15,
+      "questionPage": 6,
+      "markSchemePage": 2,
+      "answer": "C",
+      "examDemand": "Compare successive absolute income changes",
+      "files": [
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Question Paper\\2026-may-june\\Paper 3\\9708_s26_qp_31.pdf",
+          "sha256": "a0a00097a1794dbf9733c2b13288c0e54f741573b4a4a19b6c4365884e1de1ff"
+        },
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Mark Scheme\\2026-may-june\\Paper 3\\9708_s26_ms_31.pdf",
+          "sha256": "cd69a3b2ca9c94f6d79033eb47613a99d485aefdab3c8a1aee6006841cb0f2de"
+        }
+      ]
+    },
+    {
+      "paper": "9708/32",
+      "series": "m26",
+      "question": 16,
+      "questionPage": 7,
+      "markSchemePage": 2,
+      "answer": "C",
+      "examDemand": "Induced versus autonomous investment",
+      "files": [
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Question Paper\\2026-march\\Paper 3\\9708_m26_qp_32.pdf",
+          "sha256": "422d36255b06d2b8519286ab7f0064ad6a6715672acabcfe66175abee6b71505"
+        },
+        {
+          "path": "C:\\Users\\oehle\\Documents\\past-papers\\economics_9708_a_level\\Mark Scheme\\2026-march\\Paper 3\\9708_m26_ms_32.pdf",
+          "sha256": "35fc75cec2eb69ec68c1c72b66e5f280f1e59c47b35b7827fa6c377fd836ac39"
+        }
+      ]
+    }
+  ]
+}

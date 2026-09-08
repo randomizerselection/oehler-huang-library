@@ -42,6 +42,11 @@ cd "$release_dir"
 npm ci --omit=dev --ignore-scripts=false
 npm run build:content
 
+# Existing environment files contain live provider settings and deployment paths.
+# Seed defaults only on first installation; upgrades must preserve them verbatim.
+new_environment=false
+if [[ ! -f "$env_file" ]]; then
+new_environment=true
 cat >"$env_file" <<EOF
 NODE_ENV=production
 OH_HOST=127.0.0.1
@@ -63,10 +68,11 @@ OH_DISK_UPLOAD_STOP_PERCENT=80
 ECONMARK_STUDENT_CLASSES=IC 1.1,IC 1.2,IC 1.3,IC 2.1,IC 2.2,IC 3.1,IC 3.2
 OH_ALLOW_LEGACY_REGISTRATION=false
 EOF
+fi
 
 # Preserve secret provider and legacy invitation settings during the first
 # production cutover without copying obsolete paths, ports, or storage limits.
-if [[ "$environment" == "production" && -f /etc/econmark/econmark.env ]]; then
+if [[ "$new_environment" == true && "$environment" == "production" && -f /etc/econmark/econmark.env ]]; then
   for key in \
     DASHSCOPE_API_KEY \
     ECONMARK_DEFAULT_PROVIDER \
@@ -81,6 +87,28 @@ if [[ "$environment" == "production" && -f /etc/econmark/econmark.env ]]; then
 fi
 chmod 0640 "$env_file"
 chown root:econmark "$env_file"
+
+previous=""
+[[ -L "$current" ]] && previous=$(readlink -f "$current")
+switched=false
+service_stopped=false
+rollback() {
+  if [[ "$switched" == true && -n "$previous" && -d "$previous" ]]; then
+    ln -s "$previous" "$base/.rollback-$release_id"
+    mv -Tf "$base/.rollback-$release_id" "$current"
+  fi
+  if [[ "$service_stopped" == true || "$switched" == true ]]; then
+    systemctl restart "$service" || true
+  fi
+}
+trap rollback ERR
+
+# Quiesce writes only after installation/build succeeds, so the database and
+# images form one consistent backup and no request races a migration.
+if systemctl is-active --quiet "$service"; then
+  systemctl stop "$service"
+  service_stopped=true
+fi
 
 if [[ -f "$data_dir/econmark.sqlite" ]]; then
   backup_id="pre-release-$release_id"
@@ -108,22 +136,13 @@ chmod 0644 "/etc/systemd/system/$service"
 install -m 0644 "$release_dir/deploy/oehler-huang-storage-check.service" /etc/systemd/system/oehler-huang-storage-check.service
 install -m 0644 "$release_dir/deploy/oehler-huang-storage-check.timer" /etc/systemd/system/oehler-huang-storage-check.timer
 
-previous=""
-[[ -L "$current" ]] && previous=$(readlink -f "$current")
 next_link="$base/.current-$release_id"
 ln -s "$release_dir" "$next_link"
 mv -Tf "$next_link" "$current"
-
-rollback() {
-  if [[ -n "$previous" && -d "$previous" ]]; then
-    ln -s "$previous" "$base/.rollback-current"
-    mv -Tf "$base/.rollback-current" "$current"
-    systemctl restart "$service" || true
-  fi
-}
-trap rollback ERR
+switched=true
 systemctl daemon-reload
-systemctl enable --now "$service"
+systemctl enable "$service"
+systemctl restart "$service"
 if [[ "$environment" == "production" ]]; then systemctl enable --now oehler-huang-storage-check.timer; fi
 for _ in {1..30}; do
   if curl --fail --silent "http://127.0.0.1:$port/api/health" >/dev/null; then
@@ -134,4 +153,5 @@ for _ in {1..30}; do
   sleep 1
 done
 echo "Health check failed for release $release_id" >&2
+rollback
 exit 5

@@ -4,17 +4,25 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "engines": {
     "node": ">=24"
   },
   "scripts": {
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "test:architecture": "node --test scripts/tests/*.test.mjs && npm test --workspace=@oehler-huang/contracts",
+    "release:plan": "node deploy/release-files.mjs",
+    "check:courses": "node authoring/scripts/check-courses.mjs",
+    "export:a-level": "node authoring/a-level/deck-sources/multiplier-lessons-1-2/export-html.mjs && node authoring/a-level/deck-sources/aggregate-demand-components/export-html.mjs",
+    "check:a-level": "node authoring/a-level/deck-sources/multiplier-lessons-1-2/verify-html.mjs && node authoring/a-level/deck-sources/aggregate-demand-components/verify-html.mjs",
     "start": "npm run start --workspace=@oehler-huang/platform",
     "build:content": "npm run build:content --workspace=@oehler-huang/library",
-    "check": "npm run check --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library",
-    "test": "npm run test --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library && npm run test --workspace=@oehler-huang/student-selector",
-    "test:full": "npm test && npm run test --workspace=@oehler-huang/library",
+    "check": "npm run check:architecture && npm run check --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library",
+    "test": "npm run check:architecture && npm run test:architecture && npm run test --workspace=@oehler-huang/platform && npm run test:content --workspace=@oehler-huang/library && npm run test --workspace=@oehler-huang/student-selector",
+    "test:full": "npm test && npm run test:legacy && npm run test --workspace=@oehler-huang/library",
+    "test:legacy": "npm run test:legacy --workspace=@oehler-huang/library",
     "test:platform": "npm run test --workspace=@oehler-huang/platform",
     "test:content": "npm run test:content --workspace=@oehler-huang/library",
     "test:selector": "npm run test --workspace=@oehler-huang/student-selector",

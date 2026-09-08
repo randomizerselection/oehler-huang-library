@@ -14,6 +14,7 @@ test("public learning entrances use the canonical routes and account mount", asy
   const pages = [
     "apps/library/index.html",
     "apps/library/economics/index.html",
+    "apps/library/a-level/index.html",
     "apps/library/investment-analysis/index.html",
     "apps/library/definitions.html",
     "apps/library/investment-analysis/definitions.html",
@@ -25,7 +26,8 @@ test("public learning entrances use the canonical routes and account mount", asy
     assert.doesNotMatch(html, /href="\/mark\//, `${page} should not link to the retired /mark route`);
   }
   const landing = await source("apps/library/index.html");
-  assert.equal((landing.match(/class="entry-card/g) || []).length, 3);
+  assert.equal((landing.match(/class="entry-card/g) || []).length, 4);
+  assert.match(landing, /href="a-level\/index\.html" data-entry="a-level"/);
   assert.match(landing, /href="\/econmark\/" data-entry="homework"/);
 });
 

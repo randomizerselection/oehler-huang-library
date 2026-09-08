@@ -149,12 +149,12 @@ window.IGCSE = window.IGCSE || {};
       'J E / Pexels',
       'https://www.pexels.com/photo/a-large-machine-in-a-factory-with-a-large-machine-18569745/'
     ),
-    enterpriseOnlineShop: photo(
+    enterpriseSteveJobs: photo(
       'factors-of-production',
-      'enterprise-online-shop.jpg',
-      'Two entrepreneurs organising stock and orders for an online clothing shop.',
-      'Kampus Production / Pexels',
-      'https://www.pexels.com/photo/women-running-an-online-shop-7857537/'
+      'enterprise-steve-jobs-keynote.jpg',
+      'Steve Jobs demonstrating a product during his Macworld keynote in January 2007.',
+      'JD Lasica / Wikimedia Commons / CC BY 2.0',
+      'https://commons.wikimedia.org/wiki/File:Steve_Jobs_(352583119).jpg'
     ),
   };
 
