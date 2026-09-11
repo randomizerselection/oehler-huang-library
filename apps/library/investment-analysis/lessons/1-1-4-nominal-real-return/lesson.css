@@ -1,0 +1,10 @@
+/* Keep the current course components; these objectives need no decorative icons. */
+.lesson-05 .objectives-roadmap--compact .roadmap-visual { display: none; }
+.lesson-05 .objectives-roadmap--compact .roadmap-stage { justify-content: center; }
+@media (min-width: 821px) {
+  .lesson-05 [data-slide-id="four-real-return-cases"] th:first-child { width: 10%; }
+  .lesson-05 [data-slide-id="four-real-return-cases"] thead th:last-child { width: 30%; }
+  .lesson-05 [data-slide-id="mei-moving-goal"] .retrieval-question { padding: 10px 0; }
+  .lesson-05 [data-slide-id="mei-moving-goal"] .retrieval-answer > div { padding-top: .3em; }
+  .lesson-05 [data-slide-id="mei-moving-goal"] .retrieval-equation { margin: .15em 0; }
+}

@@ -6,7 +6,8 @@ Class 1 finished after the four functions were taught. Characteristics are new c
 | --- | --- | --- |
 | 1 | Definition, forms, payment tools and four functions | Functions review and exit ticket |
 | 2 | Characteristics, application and developed exam answers | Characteristics exit ticket |
-| 3 | Central and commercial banks, syllabus 3.1.2 | Plan banking separately after class 2 |
+| 3 | Commercial banks, syllabus 3.1.2 | [Commercial banks](./lesson-3.html); [teaching notes](./LESSON-3-NOTES.md). Prepared 9 September; teaching completion not recorded. |
+| 4 | Central banks, syllabus 3.1.2 | [Central banks](./lesson-4.html); [teaching notes](./LESSON-4-NOTES.md). Prepared continuation; teaching completion not recorded. |
 
 ## This afternoon: suggested 40-minute sequence
 

@@ -4,16 +4,16 @@ The HTML lesson is now maintained independently of the PowerPoint. The PowerPoin
 
 ## Open it
 
-- Live editable source: `apps/library/a-level/lessons/9-1-1-multiplier/index.html` (repository root).
-- Portable classroom output: `authoring/a-level/outputs/multiplier-html/A-Level_Multiplier_Lessons_1-2.html`. This is one self-contained offline file; it needs no fonts, images or scripts from the internet.
+- Live editable sources: `apps/library/a-level/lessons/9-1-1-multiplier/index.html` and `apps/library/a-level/lessons/9-1-1-national-income-determination/index.html` (repository root).
+- Portable classroom outputs: `authoring/a-level/outputs/multiplier-html/A-Level_Multiplier.html` and `authoring/a-level/outputs/multiplier-html/A-Level_National_Income_Determination.html`. Each is a self-contained offline lesson.
 - Local preview: run `npm start` from the repository root and open `http://127.0.0.1:4173/a-level/lessons/9-1-1-multiplier/`. Reload after source edits.
 
 ## The fast editing path
 
 | Change | Edit |
 |---|---|
-| Wording, question, table, teacher notes, sources, order | `apps/library/a-level/lessons/9-1-1-multiplier/slides.js` |
-| A diagram's teaching steps or numerical model | `apps/library/a-level/lessons/9-1-1-multiplier/diagram-scenes.js` |
+| Wording, question, table, teacher notes, sources, order | The relevant lesson's `slides.js` |
+| A diagram's teaching steps or numerical model | `apps/library/a-level/lessons/9-1-1-national-income-determination/diagram-scenes.js` |
 | Reusable diagram geometry, shifts, point movements | `apps/library/a-level/shared-html/diagrams.js` |
 | Typography, spacing, palette, responsive layouts | `apps/library/a-level/shared-html/presentation.css` |
 | Slide types, controls and interactions | `apps/library/a-level/shared-html/presentation.js` |
@@ -30,7 +30,7 @@ node authoring/a-level/deck-sources/multiplier-lessons-1-2/verify-html.mjs
 
 For a focused content change, inspect that slide and its immediate neighbours. For shared styles or diagrams, also check the affected layouts at 1280×720, 1920×1080 and 390×844. Inspect before, during and after each changed transition. Screenshots do not prove that animation works.
 
-The export command simply inlines the existing CSS, JavaScript and local image into one file. Do not edit the generated portable HTML, or run `import-html.mjs` over later HTML changes. The importer remains only in the deprecated original project as a historical record; it is not a dependency.
+The export command inlines the existing CSS, JavaScript and images into one file per lesson. Do not edit the generated portable HTML, or run `import-html.mjs` over later HTML changes. The importer remains only in the deprecated original project as a historical record; it is not a dependency.
 
 ## Diagram conventions
 
@@ -50,7 +50,7 @@ Right arrow / Space / Page Down reveals the next step, then advances. Left arrow
 
 The in-app browser may block the Fullscreen API; the button then shows “Use browser F11”. For full-screen classroom delivery, open the portable HTML in Edge or Chrome and use F11. The in-app browser also blocks direct `file:` navigation, so the offline file was checked for complete inlining, syntax and content; the source version was tested interactively over the local preview server.
 
-All 66 slides belong to the two-lesson teaching sequence. Lesson 2 begins at `income-section`, slide 32. The previous deferred appendix has been removed. Six past-paper questions and their choices are copied exactly from the verified source deck, including the available 2026 question. Sources stay in the teacher panel rather than tiny projected footers.
+The original 66 slides are split into independent lessons: The multiplier has 31 slides; National income determination has 35 and opens at `income-section`. Slide counters and section numbers restart in the second lesson. Original sourceSlide values and stable IDs are retained for traceability. Six past-paper questions and their choices remain unchanged. Sources stay in the teacher panel rather than tiny projected footers.
 
 The deck includes one generated cover, three distinct visual pauses, one road-project photo case and one Ghana extraction image. Each image is used once. The prompts ask students to infer the spending chain, identify leakages or evaluate spare capacity before formal explanation.
 

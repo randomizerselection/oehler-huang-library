@@ -1,4 +1,4 @@
-// Export the canonical classroom renderer, including every animated diagram state.
+// Export one completed view per source slide, with separate question/answer pages.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -24,6 +24,8 @@ try {
     .app-shell{display:block!important;padding:0!important;min-height:0!important;height:auto!important}
     .stage{width:1600px!important;height:900px!important;max-width:none!important;max-height:none!important;aspect-ratio:16/9!important;box-shadow:none!important;container-type:inline-size!important}
     .controls,dialog,#blankScreen,.diagram-controls,.reveal-button{display:none!important}
+    /* Full-height photos must not create an inline-image baseline gap. */
+    .hook-image img{display:block!important}
     *,*::before,*::after{animation:none!important;transition:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
     @page{size:1600px 900px;margin:0}
     .pdf-page{position:relative!important;break-inside:avoid;break-after:page;page-break-after:always}
@@ -42,6 +44,15 @@ try {
       const source = sourceStage.querySelector(`[data-index="${index}"]`);
       const clone = source.cloneNode(true);
       clone.hidden = false;
+      // Keep the consumption and equality labels clear of both plotted lines.
+      if (slide.id === 'consumption-function-graph') {
+        for (const [selector, x, y] of [['.consumption-label', 630, 165], ['.equality-label', 490, 48]]) {
+          const label = clone.querySelector(selector);
+          label.setAttribute('x', x);
+          label.setAttribute('y', y);
+          label.setAttribute('text-anchor', 'end');
+        }
+      }
       // The final rounds curve rises through the source's y-axis heading.
       // Give that heading its own space without moving economic geometry.
       if (slide.scene?.model === 'adas' && slide.scene?.mode === 'rounds') {
@@ -58,7 +69,7 @@ try {
           label.style.strokeLinejoin = 'round';
         });
       }
-      // Repeated diagram stages must never share SVG marker/title IDs. Chromium
+      // Exported slides must never share SVG marker/title IDs. Chromium
       // otherwise resolves url(#...) against another page, losing arrowheads.
       const prefix = `pdf-${pages.length + 1}-`, idMap = new Map();
       for (const element of [clone, ...clone.querySelectorAll('[id]')]) {
@@ -76,18 +87,21 @@ try {
         }
       }
       const folio = clone.querySelector('.folio');
-      folio.textContent += state === 'diagram' ? ` · ${step + 1}/${slide.scene.steps.length}` : state === 'answer' ? ' · Answer' : '';
+      folio.textContent += state === 'answer' ? ' · Answer' : '';
       const wrapper = document.createElement('div');
       wrapper.className = 'stage pdf-page';
       wrapper.append(clone);
       pages.push(wrapper);
-      records.push({ page: pages.length, slide: index + 1, id: slide.id, title: slide.title, kind: slide.kind, state, step: state === 'diagram' ? step + 1 : null });
+      records.push({ page: pages.length, slide: index + 1, id: slide.id, title: slide.title, kind: slide.kind, state, step: state === 'diagram' ? step + 1 : null, totalSteps: state === 'diagram' ? slide.scene.steps.length : null });
     }
     deck.lesson.slides.forEach((slide, index) => {
       if (slide.kind === 'diagram') {
-        slide.scene.steps.forEach((_, step) => { deck.show(index, step); capture(slide, index, 'diagram', step); });
+        const step = slide.scene.steps.length - 1;
+        deck.show(index, step);
+        capture(slide, index, 'diagram', step);
       } else {
-        deck.show(index, ['steps', 'chain'].includes(slide.kind) ? slide.items.length - 1 : 0);
+        deck.show(index, 0);
+        deck.show(index, deck.maxStep);
         capture(slide, index, 'slide', 0);
         const current = sourceStage.querySelector(`[data-index="${index}"]`);
         const reveal = current.querySelector('[data-reveal]');
@@ -100,7 +114,7 @@ try {
     });
     document.body.replaceChildren(...pages);
     document.title = `${deck.lesson.meta.title} - student PDF`;
-    return { sourceSlides: deck.lesson.slides.length, pages: records };
+    return { convention: 'completed-slide-with-answer-reveals', sourceSlides: deck.lesson.slides.length, pages: records };
   });
   await page.evaluate(async () => {
     await document.fonts.ready;
@@ -131,6 +145,13 @@ try {
   await page.pdf({ path: output, width: '1600px', height: '900px', margin: { top: 0, right: 0, bottom: 0, left: 0 }, printBackground: true, preferCSSPageSize: true });
   // Browser references for independent comparison with the PDF renderer.
   for (const record of manifest.pages.filter(record => record.kind === 'diagram')) {
+    // Isolate the page so long-document scrolling cannot clip the reference.
+    await page.evaluate(pageNumber => {
+      document.querySelectorAll('.pdf-page').forEach((wrapper, index) => {
+        wrapper.hidden = index !== pageNumber - 1;
+      });
+      window.scrollTo(0, 0);
+    }, record.page);
     await page.locator('.pdf-page').nth(record.page - 1).screenshot({ path: path.join(qa, `browser-${String(record.page).padStart(3, '0')}.png`) });
   }
   console.log(JSON.stringify({ output, sourceSlides: manifest.sourceSlides, pdfPages: manifest.pages.length, diagramPages: audit.diagramPages, qa }, null, 2));

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cambridge A Level Economics: national income determination, income-expenditure diagrams and multiplier applications.">
+  <title>National income determination and the multiplier · A Level Economics</title>
+  <link rel="stylesheet" href="../../shared-html/presentation.css">
+  <link rel="stylesheet" href="../../../assets/css/lesson-student-selector.css">
+  <link rel="stylesheet" href="../../shared-html/student-selector.css">
+  <link rel="stylesheet" href="lesson.css">
+  <link rel="stylesheet" href="../../../assets/css/deck-navigation.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="stage" id="stage" aria-label="Lesson slide"></div>
+    <nav class="controls" aria-label="Presentation controls">
+      <button id="previous" aria-label="Previous step or slide" title="Left arrow">←</button>
+      <button id="overviewButton" title="O">Overview</button>
+      <span id="status" aria-live="polite"></span>
+      <button id="notesButton" title="N">Notes & sources</button>
+      <button id="studentSelectorButton" aria-label="Open student selector" aria-pressed="false" title="S">Selector</button>
+      <button id="fullscreen" title="F">Fullscreen</button>
+      <button id="helpButton" aria-label="Keyboard shortcuts" title="?">?</button>
+      <button id="next" aria-label="Next step or slide" title="Right arrow / Space">→</button>
+    </nav>
+  </main>
+  <dialog id="overview" aria-labelledby="overviewTitle">
+    <header class="dialog-head"><h2 id="overviewTitle">National income determination</h2><button data-close aria-label="Close overview">×</button></header>
+    <label class="search-label">Find a slide <input id="slideSearch" type="search" placeholder="Title, topic or paper reference…"></label>
+    <div id="overviewList"></div>
+  </dialog>
+  <dialog id="notes" aria-labelledby="notesTitle">
+    <header class="dialog-head"><h2 id="notesTitle">Teacher notes & sources</h2><button data-close aria-label="Close notes">×</button></header>
+    <div id="noteContent"></div>
+  </dialog>
+  <dialog id="help" aria-labelledby="helpTitle">
+    <header class="dialog-head"><h2 id="helpTitle">Presentation controls</h2><button data-close aria-label="Close shortcuts">×</button></header>
+    <dl class="shortcuts"><dt>→ / Space / Page Down</dt><dd>Reveal the next step, then advance</dd><dt>← / Page Up</dt><dd>Reverse the last step, then go back</dd><dt>Shift + → / ←</dt><dd>Skip directly to the next / previous slide</dd><dt>Home / End</dt><dd>First / last slide</dd><dt>O / N / S / F</dt><dd>Overview / notes / side-panel selector / fullscreen</dd><dt>D / R</dt><dd>Enlarge diagram / reset current slide</dd><dt>B / Escape</dt><dd>Blank screen / close or return</dd></dl>
+    <p>Diagram steps are reversible. Replay animates the same steps; any navigation stops replay. Questions and answers remain separate.</p>
+  </dialog>
+  <div id="blankScreen" hidden role="button" tabindex="0" aria-label="Blank screen. Press Escape or click to return."></div>
+  <script src="slides.js"></script>
+  <script src="diagram-scenes.js"></script>
+  <script src="../../shared-html/diagrams.js"></script>
+  <script src="../../../assets/js/lesson-student-selector.js"></script>
+  <script src="../../shared-html/presentation.js"></script>
+  <script src="../../../assets/js/deck-navigation.js"></script>
+  <script>window.EconPresentation.mount(window.ALEVEL_LESSON);</script>
+</body>
+</html>

@@ -1,13 +1,37 @@
-Maintained HTML deck: Components of Aggregate Demand (9708 section 9.1.2)
+Maintained HTML lessons: Components of Aggregate Demand (9708 section 9.1.2)
 
-The source in apps/library/a-level/lessons/9-1-2-aggregate-demand/ is authoritative (repository root). The portable classroom output is generated at:
+The canonical sources are under apps/library/a-level/lessons/ (repository root):
+9-1-2-aggregate-demand/ — Part 1: consumption and saving, 22 slides.
+9-1-2-investment-accelerator/ — Part 2: investment and the accelerator,
+government spending, net exports, synthesis and assessment, 41 slides.
+
+Split on 10 September 2026 at investment-section (formerly slide 23).
+The original teaching slides retain their stable IDs and order. Part 2 adds
+learning objectives after its opening section slide. Both lessons are linked
+from the course landing page and the relevant syllabus planner sessions.
+
+The Part 2 opening now uses a factory photograph. Comparison sides and investment
+determinants reveal on successive clicks. A separate diagram compares autonomous
+and induced investment against income growth, and the AE shift reaches its new
+equilibrium at £600m. The accelerator definition highlights its defining phrases.
+
+The factory sequence now pairs the table with countable machine icons: demand
++25% needs two additions, tripling annual purchases from one to three (+200%).
+The former second output table is an independent calculation hinge, followed by
+the output/investment graph as feedback. Retrieval, stock/flow, equal-growth and
+capacity checks include diagnostic teaching notes. The Year 5 explanation repeats
+the original question, data and options beside its revealed method. The conditions
+table explicitly contrasts stronger and weaker responses to the same demand rise.
+
+Portable classroom outputs are generated at:
 authoring/a-level/outputs/aggregate-demand-html/A-Level_Aggregate_Demand_Components.html
+authoring/a-level/outputs/aggregate-demand-html/A-Level_Investment_and_the_Accelerator.html
 
-The deck follows the taught multiplier lessons and covers the planner's complete 1.5-lesson allocation:
+Together the lessons follow the taught multiplier lessons and cover the planner's complete 1.5-lesson allocation:
 consumption and saving functions; autonomous and induced expenditure; investment and the accelerator;
 government spending; net exports; synthesis and assessment.
 
-Stable slide IDs live in apps/library/a-level/lessons/9-1-2-aggregate-demand/slides.js. Diagram teaching states live in apps/library/a-level/lessons/9-1-2-aggregate-demand/diagram-scenes.js.
+Stable slide IDs live in each lesson's slides.js. Diagram teaching states live in its diagram-scenes.js.
 Reusable geometry and classroom interaction remain under apps/library/a-level/shared-html/.
 
 Slide titles follow the project-wide two-level classroom convention in AGENTS.md: a small
@@ -30,4 +54,5 @@ Classroom controls include a Selector button and the S shortcut. They open the s
 Student Selector used by the Economics lessons while keeping the slide visible beside it. The
 deck itself remains portable and offline; opening the selector needs an internet connection.
 
-The output is one offline HTML file. Do not edit the generated file directly.
+Each lesson has its own offline HTML file. The export and verify commands handle both parts.
+Do not edit the generated files directly.

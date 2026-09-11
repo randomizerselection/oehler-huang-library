@@ -1,0 +1,157 @@
+@media(min-width:701px){
+  #investment-retrieval .statement-copy{font-size:2.55cqw;line-height:1.35;max-width:58ch;text-wrap:pretty}
+  #investment-retrieval .quick-check-answer{max-width:65ch}
+  #investment-retrieval .quick-check-answer p{font-size:2cqw}
+  #accelerator-factory .intro{font-size:1.7cqw;line-height:1.4;color:var(--forest);font-weight:600}
+  #accelerator-worked .given p{font-size:1.7cqw;line-height:1.4;margin-bottom:1.1cqw}
+  #accelerator-worked .solution-text p{font-size:1.8cqw;line-height:1.4}
+  #accelerator-paper-income-method .worked-layout{grid-template-columns:1.15fr 1fr;gap:3cqw}
+  #accelerator-paper-income-method .worked-layout article+article{padding-left:2.5cqw}
+  #accelerator-paper-income-method .stimulus-source{font-size:1.25cqw;color:var(--muted);margin:.4cqw 0 .8cqw}
+  #accelerator-paper-income-method .stimulus-question{font-size:1.5cqw;line-height:1.32;margin:.5cqw 0 .8cqw}
+  #accelerator-paper-income-method .table-wrap{margin:0;flex:none}
+  #accelerator-paper-income-method th,#accelerator-paper-income-method td{font-size:1.35cqw;padding:.3cqw .8cqw}
+  #accelerator-paper-income-method .stimulus-options{font-size:1.3cqw;margin:.8cqw 0 0}
+  #accelerator-paper-income-method .given p{font-size:1.65cqw;line-height:1.35;margin:.5cqw 0 .8cqw}
+  #accelerator-paper-income-method .solution-text p{font-size:1.55cqw;line-height:1.35;margin:.7cqw 0}
+  #accelerator-limitations .intro{font-size:1.75cqw}
+  #accelerator-limitations td:nth-child(2){color:var(--teal);font-weight:600}
+  #accelerator-limitations td:nth-child(3){color:var(--copper);font-weight:600}
+  #accelerator-limitations th,#accelerator-limitations td{font-size:1.5cqw;padding:.7cqw .8cqw}
+  #accelerator-machine-visual .step-title{font-size:1.95cqw}
+  #accelerator-machine-visual .step-copy p{font-size:1.75cqw}
+  #accelerator-machine-visual .step-takeaway{font-size:1.55cqw}
+  #investment-section .hero-copy{width:62%;top:7cqw}
+  #investment-section h1{font-size:5.6cqw;max-width:19ch;line-height:1.05;letter-spacing:-.035em}
+  #investment-section .hero-subtitle{font-size:2.35cqw;line-height:1.35;max-width:32ch;margin-top:2.4cqw}
+  #investment-section .hero-code{margin:1.9cqw 0 1.6cqw}
+  #investment-section .hero-syllabus{font-size:1.2cqw}
+  .slide-compare .heading-zh{font-size:1.65cqw;line-height:1.35;color:var(--forest)}
+  .slide-compare .text-zh{font-size:1.65cqw!important;line-height:1.45!important}
+  #autonomous-induced-investment .columns{align-content:start;margin-top:2cqw}
+  #autonomous-induced-investment .columns p{font-size:1.85cqw;line-height:1.36}
+  #autonomous-induced-investment .item-detail{font-size:1.65cqw}
+  #accelerator-principle .definition-text{max-width:36ch;font-size:3.3cqw!important;line-height:1.32!important}
+  #accelerator-principle .definition-text-zh{font-size:2cqw!important;max-width:none}
+  #autonomous-investment-shift .step-title{font-size:1.8cqw;line-height:1.25}
+  #autonomous-investment-shift .step-copy p{font-size:1.65cqw}
+  #autonomous-investment-shift .step-takeaway{font-size:1.5cqw}
+  /* Keep the original exam stimulus, question and answers visible together. */
+  #accelerator-paper-income-table .slide-body{display:grid;grid-template-columns:32% 1fr;grid-template-rows:auto auto 1fr auto;gap:.7cqw 2.5cqw;align-content:start}
+  #accelerator-paper-income-table .intro{grid-column:1/-1;margin:0;font-size:1.5cqw}
+  #accelerator-paper-income-table .table-wrap{grid-column:1;grid-row:2/5;align-self:start}
+  #accelerator-paper-income-table .paper-question{grid-column:2;grid-row:2;margin:0;font-size:1.8cqw}
+  #accelerator-paper-income-table .mcq-options{grid-column:2;grid-row:3;margin:0;align-self:start;gap:.6cqw}
+  #accelerator-paper-income-table .mcq-option{padding:.7cqw 1cqw;font-size:1.65cqw}
+  #accelerator-paper-income-table .mcq-feedback{grid-column:2;grid-row:4;font-size:1.4cqw;padding:.7cqw 1cqw}
+  #accelerator-paper-income-table th,#accelerator-paper-income-table td{padding:.65cqw 1cqw;font-size:1.5cqw}
+  #accelerator-factory th,#accelerator-factory td{font-size:1.5cqw;padding:.8cqw .75cqw;text-align:center}
+  #accelerator-factory tbody tr:nth-child(4){background:#a8644320}
+  #accelerator-data tbody tr:nth-child(3),#accelerator-data tbody tr:nth-child(5){background:#a8644320}
+  #accelerator-data td:nth-child(2){color:var(--blue)}
+  #accelerator-data td:nth-child(3){color:var(--copper);font-weight:700}
+  #accelerator-data td:nth-child(4){color:var(--teal);font-weight:700}
+  #accelerator-paper-smaller-rise .mcq-option{font-size:1.6cqw;padding:.8cqw 1.1cqw}
+  #accelerator-paper-smaller-rise .mcq-feedback{font-size:1.45cqw}
+  #accelerator-paper-income-method .solution-text{font-size:1.65cqw}
+  .slide-hero[data-slide-id="aggregate-demand-components"] h1{font-size:6.2cqw}
+  .slide-section[data-slide-id="government-net-exports-section"] h1{max-width:20ch}
+}
+.machine-heading{font-size:23px;font-weight:700;fill:var(--forest)}
+.machine-row-title{font-size:23px;font-weight:600}
+.machine-caption,.machine-purchases{font-size:23px;font-weight:700;fill:var(--forest)}
+.machine-legend{font-size:17px;fill:var(--muted)}
+.machine-icon rect{stroke:currentColor;stroke-width:2;fill:currentColor;fill-opacity:.14}
+.machine-icon path,.machine-icon circle{stroke:currentColor;stroke-width:2;fill:none}
+.machine-retained{color:#82938e}.machine-replacement{color:var(--copper)}.machine-extra{color:var(--teal)}
+#investment-section .hero-image{inset:0}
+#investment-section .hero-image:after{background:linear-gradient(90deg,#103a35f5 0%,#103a35e6 38%,#103a3588 65%,#103a3522 100%)}
+.econ-svg .comparison-title{font-size:21px;font-weight:700;fill:var(--forest)}
+.econ-svg .comparison-zh{font-size:21px;fill:var(--muted)}
+.econ-svg .comparison-axis{font-size:18px;font-weight:600}
+.econ-svg .comparison-autonomous{font-size:20px;font-weight:600;fill:var(--copper)}
+.slide-formula[data-slide-id="ad-identity"] .big-formula{font-size:3.9cqw;white-space:nowrap}
+.slide .big-formula,
+.slide .math-inline,
+.slide .definition-formula{font-family:var(--sans);font-style:normal;font-weight:500}
+.slide .big-formula var,
+.slide .math-inline var,
+.slide .definition-formula var{font-family:inherit;font-style:normal;font-weight:inherit}
+.slide .big-formula sub{font-size:.5em;line-height:0;vertical-align:-.25em;margin-left:.025em}
+.slide .math-inline{white-space:nowrap;letter-spacing:0}
+.slide .math-inline sub{font-size:.68em;line-height:0;vertical-align:-.27em;margin-left:.02em}
+.slide .math-symbol{font-style:normal}
+.slide-section[data-slide-id="government-net-exports-section"] h1{white-space:pre-line;text-wrap:wrap}
+.slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-image,
+.slide-hook[data-slide-id="accelerator-intuition"] .hook-image,
+.slide-hook[data-slide-id="net-exports-intuition"] .hook-image{inset:0}
+.slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-image:after,
+.slide-hook[data-slide-id="accelerator-intuition"] .hook-image:after,
+.slide-hook[data-slide-id="net-exports-intuition"] .hook-image:after{background:linear-gradient(90deg,#103a35f5 0%,#103a35dd 35%,#103a3577 58%,#103a3518 82%),linear-gradient(0deg,#103a3577,#103a3511 55%)}
+.slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-copy,
+.slide-hook[data-slide-id="accelerator-intuition"] .hook-copy,
+.slide-hook[data-slide-id="net-exports-intuition"] .hook-copy{top:6.6cqw;width:62%}
+.slide-hook[data-slide-id="autonomous-consumption-intuition"] h1,
+.slide-hook[data-slide-id="accelerator-intuition"] h1,
+.slide-hook[data-slide-id="net-exports-intuition"] h1{font-size:4.15cqw;max-width:23ch}
+.slide-hook[data-slide-id="autonomous-consumption-intuition"] h1{white-space:pre-line;text-wrap:wrap}
+.slide-formula[data-slide-id="consumption-function"] .big-formula,
+.slide-formula[data-slide-id="saving-function"] .big-formula{font-size:4.5cqw}
+.slide-table[data-slide-id="accelerator-data"] th,
+.slide-table[data-slide-id="accelerator-data"] td,
+.slide-table[data-slide-id="synthesis-table"] th,
+.slide-table[data-slide-id="synthesis-table"] td{font-size:1.42cqw;padding:.85cqw 1cqw}
+.slide-table[data-slide-id="function-table"] th,
+.slide-table[data-slide-id="function-table"] td{font-size:1.6cqw}
+.econ-svg .consumption-curve{stroke:var(--blue);stroke-width:4}
+.econ-svg .consumption-label{fill:var(--blue);font-size:22px;font-weight:700}
+.econ-svg .zone-label{font-size:19px;font-weight:700}
+.econ-svg .zone-label.copper{fill:var(--copper)}
+.econ-svg .zone-label.green{fill:var(--teal)}
+.econ-svg .zone-dissaving{fill:var(--copper);opacity:.11}
+.econ-svg .zone-saving{fill:var(--teal);opacity:.10}
+.econ-svg .panel-rule{stroke:var(--line);stroke-width:1.5}
+.econ-svg .panel-label{font-size:15px;letter-spacing:.09em;font-weight:700;fill:var(--muted)}
+.econ-svg .series-line{fill:none;stroke:var(--blue);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.econ-svg .series-value{fill:var(--blue);font-size:19px;font-weight:700}
+.econ-svg .delta-label{fill:var(--copper);font-size:18px;font-weight:700}
+.econ-svg .bar-investment{fill:var(--teal);opacity:.88}
+.econ-svg .bar-label{fill:var(--forest);font-size:18px;font-weight:700}
+.econ-svg .highlight-ring{fill:none;stroke:var(--copper);stroke-width:3;stroke-dasharray:6 5}
+.econ-svg .highlight-label{fill:var(--copper);font-size:20px;font-weight:700}
+.econ-svg .math-var,
+.econ-svg .math-symbol,
+.econ-svg .math-sub{font-family:var(--sans);font-style:normal;font-weight:500}
+.econ-svg .math-sub{font-size:70%;baseline-shift:sub}
+@media(max-width:700px){
+  #investment-section .hero-copy{width:auto;inset:44px 28px 35px}
+  #investment-section h1{font-size:40px;max-width:17ch;line-height:1.06}
+  #investment-section .hero-code{margin:20px 0 18px;font-size:18px}
+  #investment-section .hero-subtitle{font-size:23px;line-height:1.35;max-width:28ch}
+  #investment-section .hero-syllabus{font-size:15px;max-width:28ch}
+  #investment-section .hero-image:after{background:linear-gradient(180deg,#103a35ee,#103a35c9 65%,#103a3566)}
+  .slide-compare .heading-zh,.slide-compare .text-zh{font-size:20px!important;line-height:1.45!important}
+  .slide-section[data-slide-id="government-net-exports-section"] h1{font-size:30px;max-width:none}
+  .slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-image,
+  .slide-hook[data-slide-id="accelerator-intuition"] .hook-image,
+  .slide-hook[data-slide-id="net-exports-intuition"] .hook-image{inset:0}
+  .slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-image:after,
+  .slide-hook[data-slide-id="accelerator-intuition"] .hook-image:after,
+  .slide-hook[data-slide-id="net-exports-intuition"] .hook-image:after{background:linear-gradient(180deg,#103a35f5 0%,#103a35dd 35%,#103a3577 58%,#103a3518 82%),linear-gradient(0deg,#103a3577,#103a3511 55%)}
+  .slide-hook[data-slide-id="autonomous-consumption-intuition"] .hook-copy,
+  .slide-hook[data-slide-id="accelerator-intuition"] .hook-copy,
+  .slide-hook[data-slide-id="net-exports-intuition"] .hook-copy{inset:46px 28px auto;width:auto}
+  .slide-hook[data-slide-id="autonomous-consumption-intuition"] h1,
+  .slide-hook[data-slide-id="accelerator-intuition"] h1,
+  .slide-hook[data-slide-id="net-exports-intuition"] h1{font-size:30px;max-width:none}
+  .slide-hook[data-slide-id="autonomous-consumption-intuition"] h1{font-size:28px}
+  .slide-formula[data-slide-id="consumption-function"] .big-formula,
+  .slide-formula[data-slide-id="saving-function"] .big-formula{font-size:39px}
+  .slide-formula[data-slide-id="ad-identity"] .big-formula{font-size:32px}
+  .slide-table[data-slide-id="function-table"] th,
+  .slide-table[data-slide-id="function-table"] td,
+  .slide-table[data-slide-id="accelerator-data"] th,
+  .slide-table[data-slide-id="accelerator-data"] td,
+  .slide-table[data-slide-id="synthesis-table"] th,
+  .slide-table[data-slide-id="synthesis-table"] td{font-size:18px;padding:10px 12px}
+}

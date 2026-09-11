@@ -1,8 +1,13 @@
-// Package the maintained, build-free source as ONE portable, offline HTML file.
+// Package each maintained lesson as its own portable, offline HTML file.
 // Native Node only; no application build, browser, Python or presentation export.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-const here=import.meta.dirname,source=path.resolve(here, '../../../../apps/library/a-level/lessons/9-1-1-multiplier'),root=path.resolve(here,'../..');
+const here=import.meta.dirname,root=path.resolve(here,'../..');
+for (const [slug,filename] of [
+  ['9-1-1-multiplier','A-Level_Multiplier.html'],
+  ['9-1-1-national-income-determination','A-Level_National_Income_Determination.html']
+]) {
+const source=path.resolve(here, '../../../../apps/library/a-level/lessons',slug);
 let html=await fs.readFile(path.join(source,'index.html'),'utf8');
 html = html.replace(/<script>window\.ALEVEL_STUDENT_SELECTOR_BASE_URL\s*=\s*"\/student-selector\/";<\/script>\s*/g, '');
 for(const match of [...html.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)]){
@@ -30,7 +35,8 @@ for(const match of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)]){
 }
 // The portable file never connects to the development live-reload server.
 html=html.replace("if(/^https?:$/.test(location.protocol)&&['127.0.0.1','localhost'].includes(location.hostname)){",'if(false){');
-const output=path.join(root,'outputs/multiplier-html/A-Level_Multiplier_Lessons_1-2.html');
+const output=path.join(root,'outputs/multiplier-html',filename);
 await fs.mkdir(path.dirname(output),{recursive:true});
 await fs.writeFile(output,html);
 console.log(JSON.stringify({output,bytes:Buffer.byteLength(html),externalDependencies:0}));
+}

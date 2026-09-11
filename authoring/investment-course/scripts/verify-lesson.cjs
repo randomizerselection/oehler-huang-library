@@ -10,7 +10,7 @@ const course = path.join(root, 'investment-analysis');
 const lessonFolder = process.argv[2] || 'lesson-03';
 const selected = process.argv.slice(3).map(Number);
 assert.match(lessonFolder, /^lesson-\d{2}$/);
-const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth'};
+const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth', 'lesson-04': '1-1-3-assumed-return', 'lesson-05': '1-1-4-nominal-real-return'};
 const lessonSlug = aliases[lessonFolder];
 assert.ok(lessonSlug, 'Use a linked lesson alias; add a new alias when publishing a lesson');
 const lessonRoute = `investment-analysis/lessons/${lessonSlug}`;
@@ -45,12 +45,17 @@ const server=http.createServer((req,res)=>{
       await slide.waitFor({state:'visible'});
       const partials=await slide.locator('.partial-item').count();
       for(let p=0;p<partials;p++) {
-        await page.locator('#nextSlide').click();
+        await page.keyboard.press('ArrowRight');
         assert.equal(await slide.locator('.partial-item.is-visible').count(),p+1,'one reveal per click');
       }
       if(width===1280) await page.screenshot({path:path.join(out,`${String(i+1).padStart(2,'0')}-question.png`)});
       for(const b of await slide.locator('.blank-answer,.inline-reveal').all()){
         await b.click(); assert.equal(await b.getAttribute('aria-expanded'),'true');
+      }
+      for(const answer of await slide.locator('details.retrieval-answer').all()) {
+        assert.equal(await answer.getAttribute('open'), null, 'model answer starts hidden');
+        await answer.locator('summary').click();
+        assert.notEqual(await answer.getAttribute('open'), null, 'model answer reveals');
       }
       const mcq=slide.locator('.mcq-grid');
       if(await mcq.count()){
@@ -68,6 +73,10 @@ const server=http.createServer((req,res)=>{
           let hidden=false;
           for(let a=node.parentElement;a&&a!==el.parentElement;a=a.parentElement){const s=getComputedStyle(a);if(s.display==='none'||s.visibility==='hidden'||Number(s.opacity)===0){hidden=true;break;}}
           if(hidden)continue;
+          // The course deliberately keeps chart labels readable in a labelled,
+          // keyboard-focusable horizontal scroller on phones.
+          const scroller=node.parentElement.closest('.concept-chart-plot');
+          if(width<821&&scroller&&scroller.scrollWidth>scroller.clientWidth&&['auto','scroll'].includes(getComputedStyle(scroller).overflowX))continue;
           const range=document.createRange();range.selectNodeContents(node);
           for(const r of range.getClientRects())for(let a=node.parentElement;a&&a!==el.parentElement;a=a.parentElement){
             const s=getComputedStyle(a),b=a.getBoundingClientRect();
@@ -76,6 +85,7 @@ const server=http.createServer((req,res)=>{
         }
         const body=el.querySelector('.slide-body'),heading=el.querySelector('.slide-header h1');
         if(width>820&&body&&heading&&heading.getBoundingClientRect().bottom>body.getBoundingClientRect().top+2)found.push({text:'Header overlaps body'});
+        if(width>820&&heading){const context=el.querySelector('.retrieval-context');if(context&&context.getBoundingClientRect().top<heading.getBoundingClientRect().bottom+8)found.push({text:'Retrieval context overlaps heading'});}
         if(width>820&&body){const b=body.getBoundingClientRect();for(const child of body.children){const r=child.getBoundingClientRect();if(r.bottom>b.bottom+3)found.push({text:'Body child exceeds available height',child:child.className,by:r.bottom-b.bottom});}}
         if(width<821&&el.scrollWidth>width+2)found.push({text:'Mobile horizontal overflow',scrollWidth:el.scrollWidth});
         if(/Write first|click each blank|Complete the glossary|REMEMBER|Hinge check/.test(el.innerText))found.push({text:'Projected teacher guidance'});
@@ -85,9 +95,9 @@ const server=http.createServer((req,res)=>{
       if(width===1280)await page.screenshot({path:path.join(out,`${String(i+1).padStart(2,'0')}-revealed.png`)});
       if(width===390&&[2,11,17,26,31,34].includes(i+1))await page.screenshot({path:path.join(out,`${String(i+1).padStart(2,'0')}-mobile.png`),fullPage:true});
     }
-    await page.locator('#overviewButton').click();assert.equal(await page.locator('#overviewDialog').evaluate(e=>e.open),true);
-    assert.equal(await page.locator('#overviewGrid button').count(),lesson.slides.length);
-    await page.locator('#closeOverview').click();
+    await page.keyboard.press('o');assert.equal(await page.locator('#overviewDialog').evaluate(e=>e.open),true);
+    assert.equal(await page.locator('.lesson-overview [data-go]').count(),lesson.slides.length);
+    await page.keyboard.press('Escape');
     console.log(`Checked ${selected.length||lesson.slides.length} slides at ${width}×${height}`);
     await page.close();
   }

@@ -15,6 +15,18 @@
   }
   const e=(s='')=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
   const typesetMath=s=>{
+    // Explicit fractions keep prose and existing inline notation unchanged.
+    const fraction = /\\frac\{([^{}]+)\}\{([^{}]+)\}/g;
+    const parts = [...String(s).matchAll(fraction)];
+    if(parts.length){
+      let start=0,html='';
+      for(const match of parts){
+        html+=typesetMath(String(s).slice(start,match.index));
+        html+=`<span class="math-fraction"><span class="math-numerator">${typesetMath(match[1])}</span><span class="math-denominator">${typesetMath(match[2])}</span></span>`;
+        start=match.index+match[0].length;
+      }
+      return html+typesetMath(String(s).slice(start));
+    }
     let out=e(s)
       .replaceAll('ΔY_d','@@DELTA_Y_SUB_D@@')
       .replaceAll('Y_d','@@Y_SUB_D@@')
@@ -42,12 +54,12 @@
   const itemPhoto=item=>`<img src="${e(item.image)}" alt="${e(item.imageAlt||'Lesson photograph')}" loading="lazy" style="object-position:${e(item.imagePosition||'center')};object-fit:${e(item.imageFit||'cover')};${item.imageBackground?`background:${e(item.imageBackground)};`:''}">`;
   const translatedHeading=item=>`${e(item.heading||'')}${item.headingZh?`<span class="heading-zh" lang="zh-Hans">${e(item.headingZh)}</span>`:''}`;
   const applyHighlights=(html,highlights=[])=>highlights.reduce((out,phrase)=>out.replaceAll(e(phrase),`<strong class="key-point">${e(phrase)}</strong>`),html);
-  const translatedText=item=>`${applyHighlights(paragraphs(item.text),item.highlights)}${item.textZh?`<p class="text-zh" lang="zh-Hans">${inlineMath(item.textZh)}</p>`:''}`;
+  const translatedText=item=>`${applyHighlights(paragraphs(item.text),item.highlights)}${item.textZh?`<p class="text-zh" lang="zh-Hans">${applyHighlights(inlineMath(item.textZh),item.highlightsZh)}</p>`:''}`;
   function tableMarkup(s){
     const [head,...rows]=s.table;
-    return `<div class="table-wrap"><table><thead><tr>${head.map(x=>`<th scope="col">${rich(x)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map((x,i)=>`<${i?'td':'th'} ${i?'':'scope="row"'} data-label="${e(head[i])}">${rich(x)}</${i?'td':'th'}>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    return `<div class="table-wrap"><table><thead><tr>${head.map(x=>`<th scope="col">${rich(x)}</th>`).join('')}</tr></thead><tbody>${rows.map((row,index)=>`<tr${s.reveal?` data-reveal-step="${index+1}"`:''}>${row.map((x,i)=>`<${i?'td':'th'} ${i?'':'scope="row"'} data-label="${e(head[i])}">${rich(x)}</${i?'td':'th'}>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
-  function columns(s,staged=false){return `<div class="columns columns-${s.items.length}">${s.items.map((x,i)=>`<article ${staged?`data-reveal-step="${i}"`:''}>${/^\d/.test(x.heading||'')?'':`<span class="item-number">${String(i+1).padStart(2,'0')}</span>`}<h2>${translatedHeading(x)}</h2><div class="item-text">${translatedText(x)}</div>${x.detail?`<p class="item-detail">${rich(x.detail)}</p>`:''}</article>`).join('')}</div>`;}
+  function columns(s,staged=false){return `<div class="columns columns-${s.items.length}">${s.items.map((x,i)=>`<article ${staged?`data-reveal-step="${i+(s.reveal?1:0)}"`:''}>${/^\d/.test(x.heading||'')?'':`<span class="item-number">${String(i+1).padStart(2,'0')}</span>`}<h2>${translatedHeading(x)}</h2><div class="item-text">${translatedText(x)}</div>${x.detail?`<p class="item-detail">${rich(x.detail)}</p>`:''}</article>`).join('')}</div>`;}
   function chain(s){return `<div class="chain-layout chain-${s.items.length}">${s.items.map((x,i)=>`<article class="chain-step" data-reveal-step="${i}"><div class="chain-marker"><span>${String(i+1).padStart(2,'0')}</span></div><h2>${translatedHeading(x)}</h2><div class="chain-text">${translatedText(x)}</div></article>${i<s.items.length-1?`<div class="chain-connector" data-reveal-step="${i+1}"><span>${rich(x.link||'leads to')}</span></div>`:''}`).join('')}</div>`;}
   function visualGrid(s){return `<div class="visual-grid visual-grid-${s.items.length}">${s.items.map(x=>`<article><figure>${itemPhoto(x)}</figure><h2>${translatedHeading(x)}</h2><div class="visual-grid-text">${translatedText(x)}</div></article>`).join('')}</div>`;}
   function diagramBody(s){
@@ -68,6 +80,10 @@
     };
     return `<div class="model-contrast-layout">${s.models.map(modelFigure).join('')}</div><p class="model-contrast-takeaway">${inlineMath(s.takeaway)}</p>`;
   }
+  function workedWithStimulus(s){
+    const q=s.stimulus;
+    return `<div class="worked-layout worked-with-stimulus"><article class="worked-stimulus"><h2>Original question</h2><p class="stimulus-source">${e(q.sourceLabel)}</p><p class="stimulus-question" data-verbatim>${inlineMath(q.question)}</p>${tableMarkup(q)}<p class="stimulus-options" data-verbatim>${q.options.map(e).join(' · ')}</p></article><article class="solution"><h2>Your explanation</h2><div class="given">${paragraphs(s.prompt)}</div>${revealButton}<div class="solution-text" hidden>${paragraphs(s.solution)}</div></article></div>`;
+  }
   function render(s,i){
     let body='';
     switch(s.kind){
@@ -81,14 +97,14 @@
       case 'chain':body=(s.intro?`<p class="intro">${inlineMath(s.intro)}</p>`:'')+chain(s);break;
       case 'visual-grid':body=visualGrid(s);break;
       case 'tasks':body=(s.intro?`<p class="intro">${inlineMath(s.intro)}</p>`:'')+columns(s)+takeaway(s.takeaway);break;
-      case 'answers':case 'compare':body=columns(s)+takeaway(s.takeaway);break;
+      case 'answers':case 'compare':body=columns(s,!!s.reveal)+takeaway(s.takeaway);break;
       case 'adjustment':body=`<div class="adjustment-layout">${s.rows.map(row=>`<div class="adjustment-row"><p>${inlineMath(row.condition)}</p><span class="adjustment-connector" aria-hidden="true"></span><p>${inlineMath(row.signal)}</p><span class="adjustment-connector" aria-hidden="true"></span><p>${inlineMath(row.response)}</p></div>`).join('')}</div>`;break;
       case 'model-contrast':body=modelContrast(s);break;
       case 'flow':body=`<div class="flow-layout"><article class="flow-in"><h2>Injections</h2>${paragraphs(s.items[0].text)}</article><div class="flow-center"><span class="flow-arrow">→</span><div>National<br>income<br><strong>flow</strong></div><span class="flow-arrow outward">→</span></div><article class="flow-out"><h2>Leakages</h2>${paragraphs(s.items[1].text)}</article></div>`;break;
       case 'table':body=(s.intro?`<p class="intro">${inlineMath(s.intro)}</p>`:'')+tableMarkup(s)+takeaway(s.takeaway);break;
       case 'formula':body=`<div class="formula-layout"><div><p class="big-formula">${s.math?typesetMath(s.formula):e(s.formula)}</p><p class="definition">${rich(s.definition)}</p></div><article><h2>${e(s.heading)}</h2>${paragraphs(s.text)}</article></div>`+takeaway(s.takeaway);break;
-      case 'definition':body=`<div class="definition-layout"><p class="definition-term-zh" lang="zh-Hans">${e(s.termZh)}</p><p class="definition-text">${inlineMath(s.definition)}</p><p class="definition-text-zh" lang="zh-Hans">${inlineMath(s.definitionZh)}</p>${s.formula?`<p class="definition-formula">${typesetMath(s.formula)}</p>`:''}</div>`;break;
-      case 'worked':body=`<div class="worked-layout"><article><h2>Given</h2><div class="given">${paragraphs(s.prompt)}</div></article><article class="solution"><h2>Method</h2>${revealButton}<div class="solution-text" hidden>${paragraphs(s.solution)}</div></article></div>`+(s.takeaway?`<p class="takeaway solution-takeaway" hidden>${e(s.takeaway)}</p>`:'');break;
+      case 'definition':body=`<div class="definition-layout"><p class="definition-term-zh" lang="zh-Hans">${e(s.termZh)}</p><p class="definition-text">${applyHighlights(inlineMath(s.definition),s.highlights)}</p><p class="definition-text-zh" lang="zh-Hans">${applyHighlights(inlineMath(s.definitionZh),s.highlightsZh)}</p>${s.formula?`<p class="definition-formula">${typesetMath(s.formula)}</p>`:''}</div>`;break;
+      case 'worked':body=s.stimulus?workedWithStimulus(s):`<div class="worked-layout"><article><h2>Given</h2><div class="given">${paragraphs(s.prompt)}</div></article><article class="solution"><h2>Method</h2>${revealButton}<div class="solution-text" hidden>${paragraphs(s.solution)}</div></article></div>`+(s.takeaway?`<p class="takeaway solution-takeaway" hidden>${e(s.takeaway)}</p>`:'');break;
       case 'diagram':body=diagramBody(s);break;
       case 'mcq':body=(s.intro?`<p class="intro">${inlineMath(s.intro)}</p>`:'')+(s.table?tableMarkup(s):'')+`<p class="paper-question" data-verbatim>${inlineMath(s.question)}</p><div class="mcq-options">${s.options.map((x,j)=>`<button class="mcq-option" data-option="${j}"><span>${e(x.slice(0,1))}</span><span data-verbatim>${inlineMath(x.slice(1).trim())}</span></button>`).join('')}</div><div class="mcq-feedback" role="status" hidden></div>`;break;
       case 'paper':body=s.image
@@ -110,7 +126,7 @@
     const roots=[...stage.querySelectorAll('.slide')], progress=slides.map(()=>0),answerState=new Map();
     let current=0,replay=null,focus=false;
     const byId=new Map(slides.map((s,i)=>[s.id,i])), dialogs=[...document.querySelectorAll('dialog')];
-    function maxStep(s){return s.kind==='diagram'?s.scene.steps.length-1:['steps','chain'].includes(s.kind)?s.items.length-1:0;}
+    function maxStep(s){return s.kind==='diagram'?s.scene.steps.length-1:s.reveal?(s.kind==='table'?s.table.length-1:s.items.length):['steps','chain'].includes(s.kind)?s.items.length-1:0;}
     function stopReplay(){clearInterval(replay);replay=null;}
     function updateChrome(instant=false){
       const s=slides[current],root=roots[current],step=progress[current],max=maxStep(s);

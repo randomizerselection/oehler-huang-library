@@ -14,6 +14,13 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Teacher-reported coverage, 10 September 2026: the cohort using the pre-class
+multiplier starter has studied the multiplier lesson but has NOT yet studied
+the consumption and saving / AD Part 1 lesson. Keep its starter within the
+multiplier prerequisites. MPC/MPS and the multiplier formula appear in the
+taught multiplier deck; consumption-function and saving-function applications
+are not yet suitable. Do not infer that a prepared lesson was taught.
+
 Standing teaching preference, recorded 8 September 2026:
 
 - Prioritise real Cambridge 9708 past-paper questions over made-up questions. Include both Paper 3 multiple-choice questions and Paper 4 written questions in relevant lessons and course materials. Search the local question-paper and mark-scheme corpus before authoring substitutes.
@@ -27,12 +34,21 @@ Standing teaching preference, recorded 8 September 2026:
 ## Student PDF requests
 
 For student PDF exports, follow [PDF-EXPORT.md](PDF-EXPORT.md) and use
-`scripts/export-pdf.mjs` against the canonical active HTML deck. Preserve every
-diagram stage with its explanation and keep questions before revealed answers.
-Verify the rendered PDF, including all diagram stages, before delivery. Do not
+`scripts/export-pdf.mjs` against the canonical active HTML deck. Use one completed
+view per source slide: final diagram state and completed animated lists, without
+extra pages for animation steps. Keep questions before separately revealed answers.
+This compact convention reflects the user's feedback on 10 September 2026.
+Verify the rendered PDF, including every completed diagram, before delivery. Do not
 use ordinary browser Print or the retained legacy PowerPoint as the export source.
 
 ## Default edit mode
+
+For short classroom starter PowerPoints, preserve the user's removal of timing
+labels, general notebook instructions, class-monitor logistics and early-finisher
+captions from projected task slides (10 September 2026). Keep this guidance in
+teacher notes. Retain concise academic titles and past-paper references. State
+any essential adaptation of a longer exam task visibly so its scope is clear.
+Start later edits from the manually edited deck; do not regenerate deleted labels.
 
 Default to a fast, focused edit for an existing classroom deck when the user asks to change wording, explanations, questions, answers, notes, pacing, or a small number of slides. Treat a new deck, substantial rewrite, redesign, template change, or final publication as a full presentation job.
 
@@ -63,6 +79,13 @@ Do not leave the only reusable authoring or edit logic in `tmp` for a deck that 
 - Template, master, or shared-helper change: inspect representative descendants during iteration and every final slide before delivery.
 - Final publication or handoff: run the complete presentation quality workflow once after all requested changes are settled.
 
+## Lesson deck titles
+
+Name active lesson decks after the specific syllabus content they teach. Keep the
+cover, browser title, course card, Chinese title and planner resource label aligned.
+For split topics, name the content of each part rather than using the broad topic
+heading for both. This preference was confirmed on 10 September 2026.
+
 ## Senior high classroom slide titles
 
 Use a two-level title system for senior high classroom decks:
@@ -85,6 +108,7 @@ Use a two-level title system for senior high classroom decks:
 
 ## Mathematical notation
 
+- Present short algebraic explanations as a visible derivation, with one reversible reveal per logical step and the model assumptions stated. Use upright sans-serif equations, stacked fractions for ratios and multiplier formulae, and a clear vertical order for formula, substitution and final result. Keep equivalent expressions aligned across comparison columns. This preference was reinforced while revising the multiplier deck on 10 September 2026.
 - Match the current multiplier-deck convention: set equations in the deck's clean sans-serif typeface, with variables, symbols, numerals, units, and explanatory prose upright.
 - Use proper mathematical symbols such as `Δ`, `×`, `÷`, and `−` rather than improvised `d`, `x`, `/`, or hyphen-minus notation.
 - Use true subscripts and superscripts instead of baseline approximations. For example, show disposable income as `Y` with a subscript `d`, not `Yd`.
@@ -93,6 +117,22 @@ Use a two-level title system for senior high classroom decks:
 - Keep short inline expressions together so a variable and its subscript do not split across lines.
 
 ## Lists, definitions, and causal structure
+
+Preferences recorded 10 September 2026 from Investment and the accelerator:
+
+- Use a directly relevant background photograph and an engaging question or subtitle on the hero that points to the lesson's economic mechanism.
+- Highlight the distinguishing phrases in English and Chinese. Size Chinese support explicitly at a readable classroom size; avoid nested relative sizes that render it like a footnote.
+- Reveal comparison sides one per click, and determinant tables one complete row per click. Keep unrevealed content hidden and make the sequence reversible.
+- Follow important conceptual comparisons with diagrams. For autonomous versus induced investment, distinguish independence from income changes from the accelerator response to changes in income; do not confuse the income level with income growth.
+- Show the new equilibrium and its income after an autonomous expenditure shift, with both the initial shift and subsequent induced spending visible. State the relationship in step titles, for example: "Autonomous investment shifts the line; induced spending moves the economy along it." This user-requested explanatory title can exceed the usual short-title guideline.
+- Define the accelerator directly: "A change in the growth of demand can cause a larger percentage change in investment." Highlight the demand-growth change and the larger percentage investment change. Keep causal introduction and conditions in surrounding teaching, not an extra opening definition sentence.
+- Save future slide feedback in this guidance and the root standing preferences as part of the edit.
+- Give each data slide an explicit lesson in its title or prominent explanation. For the accelerator, distinguish amplification of annual purchases from the effect of slower output growth. Repeated tables should serve a new task, such as independent calculation, or be removed.
+- Use countable machine diagrams to make the difference between the operating capital stock and purchases during the year memorable. Include replacement when comparing gross purchases and state unchanged prices when inferring changes in spending.
+- State exactly what students must calculate or explain on every worked example. Keep the formula available and reveal the method after an attempt.
+- Keep the complete original exam question, numerical stimulus and answer options visible on the feedback slide. A paper reference or "Why is Year 5 correct?" is not enough context.
+- Build retrieval and formative assessment into the sequence. Hinge questions should diagnose level-versus-change, stock-versus-flow and capacity misconceptions; collect simultaneous responses and use incorrect answers to decide whether to reteach and repoll.
+- Evaluation tables should use neutral factor names and paired stronger/weaker circumstances. For example, high capacity utilisation strengthens the induced response; spare capacity can weaken it. Do not claim every technological change weakens the accelerator: identify capital-saving productivity improvements in that specific comparison.
 
 - Do not default to the same numbered-list layout for unrelated content types. Match the layout to the intellectual relationship between the points.
 - For determinant sets and other concrete categories, use a specifically relevant photograph for each point when the images help students distinguish the factors, following the investment-course visual-card pattern.

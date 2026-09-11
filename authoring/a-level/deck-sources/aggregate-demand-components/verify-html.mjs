@@ -13,7 +13,21 @@ for (const file of ['html/slides.js', 'html/diagram-scenes.js', '../shared-html/
   vm.runInContext(await fs.readFile((file.startsWith('html/') ? path.join(source, file.slice(5)) : path.resolve(source, '../../shared-html/diagrams.js')), 'utf8'), sandbox, { filename: file });
 }
 
-const { slides, meta } = sandbox.window.ALEVEL_LESSON;
+const firstLesson = sandbox.window.ALEVEL_LESSON;
+const secondSource = path.resolve(source, '../9-1-2-investment-accelerator');
+for (const file of ['slides.js', 'diagram-scenes.js']) {
+  vm.runInContext(await fs.readFile(path.join(secondSource, file), 'utf8'), sandbox, { filename: file });
+}
+const secondLesson = sandbox.window.ALEVEL_LESSON;
+for (const [lesson, count] of [[firstLesson, 22], [secondLesson, 41]]) {
+  assert.equal(lesson.slides.length, count);
+  assert.equal(lesson.slides.at(-1).id, lesson.meta.coreEnd);
+  assert.equal(lesson.meta.syllabus, '9708 · 9.1.2');
+}
+assert.equal(secondLesson.slides[0].id, 'investment-section');
+assert.ok(!firstLesson.slides.some(slide => /accelerator|investment/.test(slide.id)));
+assert.equal(firstLesson.meta.plannedLessons + secondLesson.meta.plannedLessons, 1.5);
+const slides = [...firstLesson.slides, ...secondLesson.slides];
 const lessonCss = await fs.readFile(path.join(source, 'lesson.css'), 'utf8');
 const fullSlideKinds = new Set(['hero', 'hook', 'section']);
 const classroomLabels = new Set([
@@ -22,11 +36,8 @@ const classroomLabels = new Set([
   'EXAM PRACTICE', 'MODEL ANSWER', 'SUMMARY', 'PHOTO CASE', 'KEY DEFINITION',
   'CAUSAL CHAIN'
 ]);
-assert.equal(slides.length, 56);
+assert.equal(slides.length, 63);
 assert.equal(new Set(slides.map(slide => slide.id)).size, slides.length);
-assert.equal(slides.findIndex(slide => slide.id === meta.coreEnd), slides.length - 1);
-assert.equal(meta.syllabus, '9708 · 9.1.2');
-assert.equal(meta.plannedLessons, 1.5);
 assert.ok(!/\bYd\b/.test(JSON.stringify(slides)), 'Disposable income must use subscript notation');
 assert.match(lessonCss, /\.slide \.definition-formula\{font-family:var\(--sans\);font-style:normal;font-weight:500\}/, 'Lesson formulae must follow the upright sans-serif convention');
 for (const id of ['ad-identity', 'consumption-function', 'saving-function']) {
@@ -81,12 +92,17 @@ for (const row of table) {
   assert.equal(consumption, 100 + 0.8 * income);
   assert.equal(saving, income - consumption);
 }
-const accelerator = slides.find(slide => slide.id === 'accelerator-data').table.slice(2);
-for (const row of accelerator) {
-  const change = Number(row[2].replace('+', ''));
-  assert.equal(Number(row[3]), 2 * change);
+const accelerator = slides.find(slide => slide.id === 'accelerator-response').scene;
+const induced = accelerator.output.slice(1).map((value,index)=>(value-accelerator.output[index])*accelerator.coefficient);
+assert.deepEqual(Array.from(induced), [20,30,20,10,0]);
+assert.equal(slides.find(slide => slide.id === 'accelerator-data').answer, 0);
+const machines = slides.find(slide => slide.id === 'accelerator-machine-visual').scene.years;
+for (const year of machines) {
+  assert.equal(year.stock, year.retained+year.replacement+year.extra);
+  assert.equal(year.demand, 100*year.stock);
 }
-assert.equal(slides.find(slide => slide.id === 'accelerator-data').table[1][3], '—', 'Initial investment is unknown without earlier income');
+assert.equal((machines[1].demand/machines[0].demand-1)*100,25);
+assert.equal(((machines[1].replacement+machines[1].extra)/(machines[0].replacement+machines[0].extra)-1)*100,200);
 const paperKeys = {
   'accelerator-paper-definition': 2,
   'accelerator-paper-fall': 1,
@@ -100,6 +116,10 @@ for (const [id, answer] of Object.entries(paperKeys)) {
   assert.ok(question.paper && question.sources.some(ref => /mark scheme/i.test(ref)));
 }
 const incomeQuestion = slides.find(slide => slide.id === 'accelerator-paper-income-table');
+const incomeMethod = slides.find(slide => slide.id === 'accelerator-paper-income-method');
+assert.deepEqual(incomeMethod.stimulus.table, incomeQuestion.table);
+assert.deepEqual(incomeMethod.stimulus.options, incomeQuestion.options);
+assert.equal(incomeMethod.stimulus.question, incomeQuestion.question);
 const income = incomeQuestion.table.slice(1).map(row => Number(row[1]));
 const additions = income.slice(1).map((value, index) => value - income[index]);
 assert.deepEqual(Array.from(additions), [40, 20, 20, 30, 40]);
@@ -117,16 +137,22 @@ const imageEntries = slides.flatMap(slide => [
     id: `${slide.id}.items[${index}]`, image: item.image, imageAlt: item.imageAlt
   }))
 ]);
-assert.equal(imageEntries.length, 6);
+assert.equal(imageEntries.length, 7);
 assert.equal(directImageSlides.filter(slide => slide.kind === 'hook').length, 3);
 assert.equal(directImageSlides.filter(slide => slide.kind === 'scenario').length, 2);
 for (const entry of imageEntries) {
   assert.ok(entry.imageAlt, `${entry.id}: missing image alternative text`);
-  const asset = path.join(source, entry.image);
+  const asset = path.join(firstLesson.slides.some(slide => slide.id === entry.id) ? source : secondSource, entry.image);
   assert.ok((await fs.stat(asset)).size > 40000, `${entry.id}: image asset is unexpectedly small`);
 }
-const output = path.join(root, 'outputs/aggregate-demand-html/A-Level_Aggregate_Demand_Components.html');
+let portableHtmlBytes = 0;
+for (const [lesson, filename] of [
+  [firstLesson, 'A-Level_Aggregate_Demand_Components.html'],
+  [secondLesson, 'A-Level_Investment_and_the_Accelerator.html']
+]) {
+const output = path.join(root, 'outputs/aggregate-demand-html', filename);
 const html = await fs.readFile(output, 'utf8');
+portableHtmlBytes += Buffer.byteLength(html);
 assert.ok(!/<script src=|<link rel="stylesheet"/.test(html), 'External code dependency');
 assert.ok(!html.includes('image: "assets/'), 'External image dependency');
 assert.ok(html.includes('id="studentSelectorButton"'), 'Student selector control missing');
@@ -137,9 +163,10 @@ assert.ok(html.includes('.studentSelectorSidePanel'), 'Student selector side-pan
 assert.ok(html.includes('body.is-student-selector-open .stage'), 'Slide resizing rule missing');
 assert.ok(html.lastIndexOf('font-family:var(--sans);font-style:normal;font-weight:500') > html.lastIndexOf('Cambria Math'), 'Lesson formula override must follow the shared stylesheet');
 assert.ok(html.includes('<sub>d</sub>'), 'Semantic disposable-income subscript missing');
-assert.equal((html.match(/data:image\/(?:png|jpeg);base64,/g) || []).length, imageEntries.length);
+assert.equal((html.match(/data:image\/(?:png|jpeg);base64,/g) || []).length, lesson.slides.filter(slide => slide.image).length);
 for (const [i, script] of [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].entries()) {
   new vm.Script(script[1], { filename: `offline-script-${i}` });
+}
 }
 
 console.log(JSON.stringify({
@@ -148,5 +175,5 @@ console.log(JSON.stringify({
   mcqs: slides.filter(slide => slide.kind === 'mcq').length,
   diagrams: slides.filter(slide => slide.kind === 'diagram').length,
   diagramStates,
-  portableHtmlBytes: Buffer.byteLength(html)
+  portableHtmlBytes
 }, null, 2));

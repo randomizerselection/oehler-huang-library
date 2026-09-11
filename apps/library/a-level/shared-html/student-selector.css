@@ -5,8 +5,7 @@ body.is-student-selector-open .app-shell { width: calc(100vw - var(--student-sel
 body.is-student-selector-open .stage { width: min(calc(100vw - var(--student-selector-panel-width) - 24px), calc((100svh - 60px) * 16 / 9)); }
 body.is-student-selector-open .controls { max-width: calc(100vw - var(--student-selector-panel-width)); gap: 16px; }
 body.is-student-selector-open #studentSelectorButton { color: #eeb890; }
-:fullscreen body.is-student-selector-open .app-shell { width: 100%; margin-right: 0; }
-@media (min-width: 761px) { :fullscreen body.is-student-selector-open .stage { width: min(100vw, calc(100dvh * 16 / 9)); } }
+/* Keep the same space beside the selector in windowed and fullscreen views. */
 @media (max-width: 760px) {
   body { --student-selector-panel-width: 100vw; }
   body.is-student-selector-open .app-shell { width: 100%; margin-right: 0; }

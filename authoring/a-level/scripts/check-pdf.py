@@ -16,6 +16,14 @@ pdf = root / 'authoring/a-level/outputs/pdf' / f'{slug}.pdf'
 manifest = json.loads((qa / 'manifest.json').read_text(encoding='utf-8'))
 reader = PdfReader(pdf)
 assert len(reader.pages) == len(manifest['pages']), 'PDF page count differs from export manifest'
+assert manifest['convention'] == 'completed-slide-with-answer-reveals'
+base_pages = [record for record in manifest['pages'] if record['state'] != 'answer']
+assert [record['slide'] for record in base_pages] == list(range(1, manifest['sourceSlides'] + 1)), 'Expected exactly one completed view per source slide'
+for index, record in enumerate(manifest['pages']):
+    if record['state'] == 'diagram':
+        assert record['step'] == record['totalSteps'], 'Diagram must show its final state'
+    if record['state'] == 'answer':
+        assert index > 0 and manifest['pages'][index - 1]['slide'] == record['slide'] and manifest['pages'][index - 1]['state'] == 'slide', 'Answer must follow its question'
 renders = sorted(qa.glob('pdf-*.png'))
 assert len(renders) == len(reader.pages), 'Render every PDF page before checking'
 comparisons = []
@@ -49,6 +57,6 @@ for offset in range(0, len(renders), 12):
         record = manifest['pages'][offset + item]
         draw.text((x + 8, y + 230), f"PDF {record['page']} | Slide {record['slide']} | {record['state']}" + (f" {record['step']}" if record['step'] else ''), fill='black')
     sheet.save(qa / f'contact-{offset // 12 + 1:02}.jpg', quality=90)
-report = {'pages': len(reader.pages), 'diagram_states_compared': len(comparisons), 'maximum_mean_pixel_difference': max(x['mean_pixel_difference'] for x in comparisons), 'comparisons': comparisons}
+report = {'pages': len(reader.pages), 'completed_diagrams_compared': len(comparisons), 'maximum_mean_pixel_difference': max((x['mean_pixel_difference'] for x in comparisons), default=0), 'comparisons': comparisons}
 (qa / 'pdf-check.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
 print(json.dumps({key: value for key, value in report.items() if key != 'comparisons'}, indent=2))

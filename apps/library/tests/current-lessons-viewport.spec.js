@@ -6,8 +6,12 @@ const { readFile } = require('node:fs/promises');
 const lessons = [
   ['investment-analysis/lessons/1-1-2-measuring-investment-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-3-compound-growth', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/1-1-3-assumed-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/1-1-4-nominal-real-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['a-level/lessons/9-1-1-multiplier', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-1-1-national-income-determination', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-2-aggregate-demand', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-1-2-investment-accelerator', '#stage', '.controls', '#fullscreen', '#status'],
 ];
 
 for (const [route] of [...lessons, ['lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem']]) {
@@ -38,7 +42,8 @@ for (const [route] of [...lessons, ['lessons/unit-1-basic-economic-problem/1-1-b
     await dialog.locator('input').fill('');
     const section = await dialog.locator('h3').nth(1).textContent();
     await dialog.locator('input').fill(section);
-    await expect(dialog.locator('h3')).toHaveCount(1);
+    // A section title can also occur in slides belonging to other sections.
+    await expect(dialog.getByRole('heading', { name: section, exact: true, level: 3 })).toBeVisible();
     const target = await dialog.locator('[data-go]').first().getAttribute('data-go');
     await dialog.locator('[data-go]').first().click();
     await expect(dialog).not.toBeVisible();
@@ -69,6 +74,57 @@ async function expectLargestCanvas(page, selector) {
   expect(Math.abs(canvas.x - (viewport.width - width) / 2)).toBeLessThan(1);
   expect(Math.abs(canvas.y - (viewport.height - height) / 2)).toBeLessThan(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.documentElement.scrollHeight <= innerHeight)).toBe(true);
+}
+
+for (const [route, canvas] of [
+  ...lessons,
+  ['lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem', '#deck'],
+  ['business/unit-5-financial-information-decisions/5-2-1-cash-flow-forecasts', '#deck']
+]) {
+  test(`@smoke fullscreen selector never overlaps the slide: ${route}`, async ({ page, isMobile }) => {
+    test.skip(isMobile, 'Desktop fullscreen side panel.');
+    await prepareLessonSelector(page, null);
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto(`http://lesson.test/${route}/index.html`);
+    const panel = page.locator('.studentSelectorSidePanel');
+    const slide = page.locator(canvas);
+    const toggleFullscreen = async () => {
+      await page.mouse.move(10, 10);
+      await page.locator('.lesson-navigation-more > summary').click();
+      await page.getByRole('button', { name: 'Fullscreen', exact: true }).click();
+    };
+    const expectBesidePanel = async () => {
+      await expect(panel).toBeVisible();
+      await expect.poll(async () => {
+        const s = await slide.boundingBox(), p = await panel.boundingBox();
+        return s.x >= -1 && s.width > 0 && s.x + s.width <= p.x + 1 &&
+          s.y >= -1 && s.y + s.height <= page.viewportSize().height + 1;
+      }).toBe(true);
+    };
+    // Enter fullscreen first, then open the selector.
+    await toggleFullscreen();
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement))).toBe(true);
+    await page.keyboard.press('s');
+    await expectBesidePanel();
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 1920, height: 900 }]) {
+      await page.setViewportSize(viewport);
+      await expectBesidePanel();
+    }
+    // Leave and re-enter fullscreen with the selector already open.
+    await toggleFullscreen();
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement))).toBe(false);
+    await expectBesidePanel();
+    await toggleFullscreen();
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement))).toBe(true);
+    await expectBesidePanel();
+    await page.getByRole('button', { name: 'Close student selector', exact: true }).click();
+    await expect(panel).toHaveCount(0);
+    if (route.startsWith('a-level/') || route.startsWith('investment-analysis/')) {
+      await expectLargestCanvas(page, canvas);
+    } else {
+      expect((await slide.boundingBox()).width).toBe(page.viewportSize().width);
+    }
+  });
 }
 
 // Exercise the real selector runtime with synthetic teacher data, without a

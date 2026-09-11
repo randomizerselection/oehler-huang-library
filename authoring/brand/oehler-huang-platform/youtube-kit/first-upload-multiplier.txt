@@ -1,0 +1,43 @@
+TITLE
+The Multiplier: Income–Expenditure Explained | A Level Economics
+
+DESCRIPTION
+How can £50 million of extra investment increase national income by £200 million? Follow the income–expenditure diagram to see the multiplier work step by step.
+
+This lesson explains the upward shift in planned aggregate expenditure, the successive rounds of induced consumption, and the movement towards a new equilibrium.
+
+Course: Cambridge A Level Economics 9708 — national income determination, 9.1.1.
+Model: a closed economy without government, fixed prices, and spare capacity. MPC = 0.75; planned investment rises from £100m to £150m; equilibrium income rises from £400m to £600m.
+
+Chapters
+00:00 How does the multiplier work?
+00:14 Axes and model assumptions
+00:43 Planned expenditure and the 45° line
+01:10 Initial equilibrium
+01:26 Extra investment shifts planned expenditure
+01:40 Stocks fall and output rises
+02:05 Induced consumption and spending rounds
+02:49 New equilibrium
+03:04 Calculating the multiplier
+03:19 Reading the total income change
+
+About this channel
+Oehler-Huang Economics offers clear, carefully explained economics lessons for students following international curricula. Part of Oehler-Huang Platform.
+
+Subscribe for explanations of economic concepts, diagrams, and calculations.
+
+Narration: synthetic British male voice. Original opening and closing audio cues.
+
+#ALevelEconomics #Multiplier #NationalIncome
+
+PINNED COMMENT
+Quick check: if MPC were 0.8, how much would equilibrium income rise after the same £50m increase in investment? Assume the same model conditions. Show your calculation.
+
+TEACHER’S REPLY — keep separate from the question
+k = 1 ÷ (1 − 0.8) = 5, so ΔY = 5 × £50m = £250m.
+
+OPTIONAL VIDEO TAGS
+income expenditure approach, Keynesian multiplier, national income determination, A Level economics, marginal propensity to consume
+
+STUDENT MESSAGE
+Please watch this video to strengthen your understanding of national income determination using the income–expenditure approach: [paste the video link]

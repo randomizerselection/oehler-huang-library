@@ -29,14 +29,16 @@ Use another active lesson's folder slug to export it through the same renderer.
   zero PDF margins and printed background colours. Keep SVG diagrams and text
   as vectors/selectable text. Do not rebuild the deck from screenshots or PPTX.
 - Force lazy images to load eagerly, await image decoding and `document.fonts.ready`.
-- Visit every diagram step through `EconPresentation.deck.show(index, step)`.
-  Capture the initialized state, including transforms, staged visibility and
-  the matching explanation. A static final diagram alone loses intermediate
-  teaching content. Making every SVG element visible simultaneously is incorrect:
-  some elements deliberately disappear at later stages.
-- Include one page for each diagram state. Preserve the original slide number
-  and add its diagram step number. For ordinary staged lists/chains, show the
-  completed content on one page.
+- Default to **one completed view per source slide**, following the user's
+  10 September 2026 feedback that animation-by-animation exports are too long.
+  Do not create extra pages for diagram steps, bullet reveals, rows or builds.
+- Show each diagram's final step through `EconPresentation.deck.show(index, step)`.
+  Capture its initialized transforms, staged visibility and final explanation.
+  Do not force every SVG element visible: some deliberately disappear at later
+  stages. Earlier step explanations remain in the interactive lesson; do not
+  duplicate the slide just to preserve each animation's narration.
+- Preserve original slide numbers. Show ordinary staged lists/chains completely
+  on one page. Do not add diagram-stage numbers to the PDF folio.
 - Keep questions before their answers. Capture a second page after the existing
   answer/method reveal or correct MCQ selection. Preserve dedicated answer slides.
 - Give every cloned SVG ID a unique per-page prefix and update marker URLs and
@@ -65,7 +67,8 @@ they are not on PATH. Python needs `pypdf` and `Pillow`. If applying the Codex P
 skill, follow its artifact-operation marker requirement before initial authoring.
 
 The checker verifies page count, 16:9 dimensions, nonempty selectable text and
-vector drawing commands. It compares **every diagram stage** against a browser
+vector drawing commands, exactly one base page per source slide, final diagram
+states and question-before-answer order. It compares **every completed diagram** against a browser
 reference image with a small tolerance for different text antialiasing. Inspect
 all generated contact sheets, plus full-size complex diagram pages, to catch
 overlap, clipped axes/labels, missing curves/arrowheads, bad equations, and absent
@@ -77,9 +80,10 @@ Export-only work does not require content builds, unrelated platform tests, or
 EconMark flows. If canonical lessons or shared rendering are edited, follow the
 repository's validation rules for those changes.
 
-## Verified first export
+## Current convention
 
-On 8 September 2026, the multiplier deck contained 66 source slides. The student
-export contains 108 PDF pages, including 47 diagram stages and separate answer
-reveals. Future source changes may legitimately change these counts; the manifest
-is authoritative for each run.
+The 8 September 2026 animation-by-animation convention is superseded. Page count
+now equals the source slide count plus separately revealed answer/method pages.
+The manifest records `completed-slide-with-answer-reveals` and is authoritative
+for each run. Remove stale generated page PNGs and contact sheets from that
+lesson's scratch directory before rendering a shorter replacement PDF.

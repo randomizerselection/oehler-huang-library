@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>The multiplier: income–expenditure animation</title>
+<style>html,body{margin:0;background:#f6f2e9;overflow:hidden}canvas{display:block;width:1920px;height:1080px}</style>
+<canvas id="film" width="1920" height="1080" aria-label="Animated income-expenditure diagram"></canvas>
+<script>
+const canvas=document.getElementById('film'),ctx=canvas.getContext('2d');
+const P={paper:'#f6f2e9',ink:'#182d31',forest:'#164b43',teal:'#067467',blue:'#2767a0',copper:'#b65b35',muted:'#647073',line:'#cecfc4',gold:'#aa7518'};
+const X=y=>110+430*y/800,Y=ae=>580-430*ae/800;
+function text(t,x,y,size=22,color=P.ink,weight=400,align='left') {ctx.font=`${weight} ${size}px Arial`;ctx.fillStyle=color;ctx.textAlign=align;ctx.fillText(t,x,y);}
+function line(x1,y1,x2,y2,color=P.line,width=1,dash=[]) {ctx.beginPath();ctx.setLineDash(dash);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.setLineDash([]);}
+function dot(x,y,color=P.teal,r=6){ctx.beginPath();ctx.fillStyle=color;ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
+function wrap(t,x,y,width,size=23,color=P.ink,weight=400,leading=1.45){ctx.font=`${weight} ${size}px Arial`;let row='',n=0;for(const word of t.split(' ')){const next=row?row+' '+word:word;if(ctx.measureText(next).width>width&&row){text(row,x,y+n*size*leading,size,color,weight);row=word;n++;}else row=next;}text(row,x,y+n*size*leading,size,color,weight);return y+(n+1)*size*leading;}
+function arrow(x1,y1,x2,y2,color=P.teal,width=3){line(x1,y1,x2,y2,color,width);const a=Math.atan2(y2-y1,x2-x1);ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-10*Math.cos(a-.42),y2-10*Math.sin(a-.42));ctx.lineTo(x2-10*Math.cos(a+.42),y2-10*Math.sin(a+.42));ctx.closePath();ctx.fillStyle=color;ctx.fill();}
+function guides(y,color=P.line){line(X(y),Y(y),X(y),580,color,1.3,[5,5]);line(110,Y(y),X(y),Y(y),color,1.3,[5,5]);}
+function eqLabel(t,y,color,offset=-16){dot(X(y),Y(y),color);text(t,X(y)-14,Y(y)+offset,23,color,700,'right');}
+function fraction(left,numerator,denominator,right,x,y){text(left,x,y+12,29,P.forest,500);ctx.font='27px Arial';const w=Math.max(ctx.measureText(numerator).width,ctx.measureText(denominator).width)+18,fx=x+62;text(numerator,fx+w/2,y-9,27,P.forest,400,'center');line(fx,y,fx+w,y,P.forest,2);text(denominator,fx+w/2,y+33,27,P.forest,400,'center');text(right,fx+w+14,y+12,29,P.forest,500);}
+const pathPoints=[[400,450]];let income=400;for(let n=0;n<25;n++){income=150+.75*income;pathPoints.push([income,income]);pathPoints.push([income,150+.75*income]);}
+function path(progress){const full=Math.floor(progress),part=progress-full;ctx.beginPath();ctx.strokeStyle=P.gold;ctx.lineWidth=2.6;ctx.moveTo(X(pathPoints[0][0]),Y(pathPoints[0][1]));for(let k=1;k<=Math.min(full,pathPoints.length-1);k++)ctx.lineTo(X(pathPoints[k][0]),Y(pathPoints[k][1]));let pos=pathPoints[Math.min(full,pathPoints.length-1)];if(full<pathPoints.length-1){const next=pathPoints[full+1];pos=[pos[0]+(next[0]-pos[0])*part,pos[1]+(next[1]-pos[1])*part];ctx.lineTo(X(pos[0]),Y(pos[1]));}ctx.stroke();dot(X(pos[0]),Y(pos[1]),P.gold,6);return pos;}
+const ease=p=>p*p*(3-2*p),clamp=p=>Math.max(0,Math.min(1,p));
+function side(s,p){
+  const x=770,w=440;
+  line(735,148,735,600,P.line,1);
+  text('THE ECONOMIC LOGIC',x,169,12,P.copper,700);
+  if(s===0){wrap('£50m of investment',x,249,w,36,P.forest,700);text('↓',x+178,330,45,P.copper);wrap('£200m of income',x,395,w,36,P.forest,700);wrap('Follow the shift, then the spending rounds.',x,512,w,24);}
+  if(s===1){wrap('Horizontal axis',x,236,w,24,P.forest,700);wrap('National income and output, Y',x,278,w,26);wrap('Vertical axis',x,373,w,24,P.forest,700);wrap('Planned aggregate expenditure, AE',x,415,w,26);}
+  if(s===2){text('Consumption',x,238,22,P.muted);text('C = 0.75Y',x,289,37,P.forest,700);text('Planned investment',x,363,22,P.muted);text('I = £100m',x,414,37,P.blue,700);wrap('Fixed prices · Spare capacity',x,523,w,23);wrap('No government · No foreign trade',x,562,w,22);}
+  if(s===3){text('AE₀ = C + I',x,250,32,P.blue,700);text('AE₀ = £100m + 0.75Y',x,309,30,P.blue,700);line(x,352,x+w,352,P.line);text('Intercept = £100m',x,412,27);text('Slope = MPC = 0.75',x,467,27);}
+  if(s===4){text('On the 45° line',x,242,25,P.muted);text('AE = Y',x,309,44,P.forest,700);wrap('Equilibrium is the intersection of the two lines.',x,404,w,28,P.ink,500);}
+  if(s===5){text('At Y₀ = £400m',x,241,34,P.blue,700);text('C = 0.75 × £400m = £300m',x,320,25);text('I = £100m',x,369,25);line(x,403,x+w,403,P.line);text('AE₀ = £400m = Y₀',x,455,32,P.forest,700);wrap('No unplanned stock change',x,525,w,25);}
+  if(s===6){text('I: £100m → £150m',x,249,32,P.teal,700);text('ΔI = +£50m',x,310,36,P.copper,700);line(x,351,x+w,351,P.line);text('AE₁ = £150m + 0.75Y',x,414,30,P.teal,700);wrap('The intercept rises. The slope stays at 0.75.',x,487,w,26);}
+  if(s===7){text('At Y = £400m',x,239,32,P.ink,700);text('Planned AE = £450m',x,301,31,P.teal,700);text('AE exceeds Y by £50m',x,360,27,P.copper,700);wrap('Stocks fall unexpectedly',x,445,w,27);text('↓',x+190,496,33,P.copper);wrap('Firms increase production',x,550,w,27,P.forest,700);}
+  if(s===8){text('First output response',x,242,25,P.muted);text('Y: £400m → £450m',x,309,32,P.forest,700);text('Extra income = £50m',x,395,30,P.gold,700);wrap('Output creates income for households.',x,483,w,27);}
+  if(s===9){text('MPC = 0.75',x,238,31,P.forest,700);text('ΔC = 0.75 × £50m',x,313,30);text('ΔC = £37.5m',x,367,37,P.gold,700);line(x,405,x+w,405,P.line);text('AE = £450m + £37.5m',x,461,27);text('AE = £487.5m',x,519,34,P.teal,700);}
+  if(s===10){text('Next output response',x,233,23,P.muted);text('Y: £450m → £487.5m',x,283,30,P.forest,700);text('Extra income = £37.5m',x,354,29);text('Next consumption increase',x,430,23,P.muted);text('0.75 × £37.5m',x,479,31);text('= £28.125m',x,535,36,P.gold,700);}
+  if(s===11){text('Successive income increases',x,230,25,P.muted);['£50m','£37.5m','£28.125m','£21.094m …'].forEach((v,i)=>text(v,x+30,282+i*56,32,P.gold,700));text('× 0.75',x+250,369,29,P.forest,700);wrap('Saving reduces the next round.',x,557,w,25);}
+  if(s===12){text('At Y₁ = £600m',x,241,34,P.teal,700);text('C = 0.75 × £600m = £450m',x,320,25);text('I = £150m',x,369,25);line(x,403,x+w,403,P.line);text('AE₁ = £600m = Y₁',x,455,32,P.forest,700);text('ΔY = £200m',x,539,36,P.teal,700);}
+  if(s===13){fraction('k =','1','1 − MPC','',x,243);fraction('k =','1','1 − 0.75','= 4',x,362);line(x,425,x+w,425,P.line);text('ΔY = k × ΔI',x,483,30);text('ΔY = 4 × £50m = £200m',x,544,31,P.forest,700);}
+  if(s===14){text('VERTICAL SHIFT',x,226,15,P.copper,700);text('ΔI = £50m',x,279,38,P.copper,700);text('HORIZONTAL INCOME CHANGE',x,357,15,P.teal,700);text('ΔY = £200m',x,410,38,P.teal,700);line(x,454,x+w,454,P.line);text('£50m + £150m = £200m',x,512,30,P.forest,700);wrap('Initial investment + induced consumption',x,553,w,23,P.muted);}
+}
+window.renderFrame=(seconds)=>{
+  const timeline=window.timeline;let index=timeline.findIndex(x=>seconds<x.end);if(index<0)index=timeline.length-1;
+  const item=timeline[index],s=item.sceneIndex,local=seconds-item.start,duration=item.end-item.start;
+  const p=ease(clamp((local-.5)/Math.min(5,duration*.65)));
+  ctx.setTransform(1.5,0,0,1.5,0,0);ctx.fillStyle=P.paper;ctx.fillRect(0,0,1280,720);
+  if(item.brand){
+    ctx.globalAlpha=ease(clamp(local/.7))*ease(clamp((duration-local)/.7));
+    ctx.drawImage(window.brandLogo,0,0,1280,720);ctx.globalAlpha=1;
+    return {scene:item.id,time:seconds};
+  }
+  ctx.fillStyle=P.forest;ctx.fillRect(0,0,8,720);
+  text('CAMBRIDGE A LEVEL ECONOMICS · 9708 · 9.1.1',54,37,12,P.copper,700);
+  text(item.title,54,88,32,P.ink,700);line(54,112,1226,112,P.line);
+  text(`${String(s+1).padStart(2,'0')} / 15`,1226,36,12,P.muted,400,'right');
+  text('Planned expenditure, AE (£m)',110,141,21,P.ink,700);
+  line(110,580,590,580,P.ink,2.2);line(110,580,110,152,P.ink,2.2);
+  for(let v=0;v<=800;v+=200){line(X(v),580,X(v),586,P.ink);text(String(v),X(v),611,19,P.muted,400,'center');if(v){line(104,Y(v),110,Y(v),P.ink);text(String(v),94,Y(v)+6,19,P.muted,400,'right');}}
+  text('National income / output, Y (£m)',346,642,21,P.ink,700,'center');
+  if(s>=3){const end=s===3?p*800:800;line(X(0),Y(100),X(end),Y(100+.75*end),s>=6?'#83969a':P.blue,3.6,s>=6?[7,5]:[]);if(p>.8||s>3)text('AE₀',X(800)+16,Y(700)+7,23,s>=6?P.muted:P.blue,700);}
+  if(s>=4){const end=s===4?p*800:800;line(X(0),Y(0),X(end),Y(end),P.ink,2.2);if(p>.8||s>4){text('AE = Y',X(800)+14,Y(800)+4,21);ctx.beginPath();ctx.strokeStyle=P.muted;ctx.lineWidth=1.2;ctx.arc(110,580,60,-Math.PI/4,0);ctx.stroke();text('45°',179,558,16,P.muted);}}
+  if(s>=5){guides(400,s<6?'#7996ab':'#aab7b5');if(s<7){eqLabel('E₀',400,s<6?P.blue:P.muted);}else{dot(X(400),Y(400),P.muted);text('E₀',X(400)+13,Y(400)+27,22,P.muted,700);}}
+  if(s>=6){const i=100+50*(s===6?p:1);line(X(0),Y(i),X(800),Y(i+600),P.teal,4);text('AE₁',X(800)+16,Y(i+600)+6,24,P.teal,700);if(s===6){for(const y of [100,400,700])arrow(X(y),Y(100+.75*y),X(y),Y(i+.75*y),P.copper,2);}}
+  if(s>=7){const bx=X(400)-23;line(bx,Y(400),bx,Y(450),P.copper,3);line(bx-5,Y(400),bx+5,Y(400),P.copper,2);line(bx-5,Y(450),bx+5,Y(450),P.copper,2);text('ΔI = £50m',bx-12,Y(450)-15,20,P.copper,700,'right');if(s===7){dot(X(400),Y(450),P.copper);line(X(400),Y(450),110,Y(450),P.copper,1,[4,4]);text('450',94,Y(450)+6,18,P.copper,700,'right');}}
+  let progress=0;if(s===8)progress=p;if(s===9)progress=1+p;if(s===10)progress=2+2*p;if(s===11)progress=4+(pathPoints.length-5)*ease(clamp(local/(duration-1)));if(s>11)progress=pathPoints.length-1;
+  if(s>=8){ctx.globalAlpha=s>=12?.4:1;path(progress);ctx.globalAlpha=1;}
+  if(s>=12){guides(600,'#65a89b');eqLabel('E₁',600,P.teal,-20);arrow(X(400),553,X(600),553,P.teal,3);text('ΔY = £200m',(X(400)+X(600))/2,536,21,P.teal,700,'center');}
+  side(s,p);
+  ctx.fillStyle=P.forest;ctx.fillRect(0,665,1280,55);ctx.font='22px Arial';let capSize=22;while(ctx.measureText(item.caption).width>1160){capSize--;ctx.font=`${capSize}px Arial`;}text(item.caption,640,700,capSize,'#fffdf8',400,'center');
+  ctx.fillStyle=P.copper;ctx.fillRect(0,716,1280*(s+1)/15,4);
+  return {scene:item.id,time:seconds};
+};
+</script></html>

@@ -3,8 +3,12 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const here = import.meta.dirname;
-const source = path.resolve(here, '../../../../apps/library/a-level/lessons/9-1-2-aggregate-demand');
 const root = path.resolve(here, '../..');
+for (const [slug, filename] of [
+  ['9-1-2-aggregate-demand', 'A-Level_Aggregate_Demand_Components.html'],
+  ['9-1-2-investment-accelerator', 'A-Level_Investment_and_the_Accelerator.html']
+]) {
+const source = path.resolve(here, '../../../../apps/library/a-level/lessons', slug);
 let html = await fs.readFile(path.join(source, 'index.html'), 'utf8');
 html = html.replace(/<script>window\.ALEVEL_STUDENT_SELECTOR_BASE_URL\s*=\s*"\/student-selector\/";<\/script>\s*/g, '');
 
@@ -38,7 +42,8 @@ html = html.replace(
   'if(false){'
 );
 
-const output = path.join(root, 'outputs/aggregate-demand-html/A-Level_Aggregate_Demand_Components.html');
+const output = path.join(root, 'outputs/aggregate-demand-html', filename);
 await fs.mkdir(path.dirname(output), { recursive: true });
 await fs.writeFile(output, html);
 console.log(JSON.stringify({ output, bytes: Buffer.byteLength(html), externalDependencies: 0 }));
+}

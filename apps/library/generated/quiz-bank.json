@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-quiz-bank/1.0.0",
-  "source_hash": "9f0d422419a5c87904d9aeb7b7e291262854b59a19d91e023899b138663704c0",
+  "source_hash": "c943a35261d7d316ecad5bf4f6febeee926ad8726b464bcc3c3db892c26b2ce5",
   "quizzes": [
     {
       "id": "1-1-1-basic-economic-problem",
@@ -1408,6 +1408,346 @@
               "label": "Paper 2 source",
               "ref": "0455_w25_23 Q3(b)",
               "note": "Recent 4-mark explain question: one mark for each characteristic and one for each linked development."
+            }
+          ],
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "3-1-money-and-banking-lesson-3",
+      "version": "2.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-1-money-and-banking",
+      "lesson_title": "Commercial banks",
+      "title": "Commercial banks quiz",
+      "description": "Banking knowledge and explanation choices supporting Paper 2 answers. Complete after the core teaching.",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-3/",
+      "source": "lessons/unit-3-decision-makers/3-1-money-and-banking/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "commercial-service",
+          "type": "multipleChoice",
+          "prompt": "Which service does a commercial bank provide for a cafe?",
+          "choices": [
+            "Setting national monetary policy.",
+            "Issuing official banknotes.",
+            "Processing a payment to its supplier.",
+            "Setting income tax."
+          ],
+          "answer": 2,
+          "explanation": "Commercial banks process payments for customers, including firms.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "deposit",
+          "type": "fillBlank",
+          "prompt": "Money placed in a bank account is a __________.",
+          "acceptedAnswers": [
+            "deposit",
+            "bank deposit"
+          ],
+          "explanation": "Banks accept deposits for safekeeping, payments and later use.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "loan-effect",
+          "type": "multipleChoice",
+          "prompt": "A bakery borrows to buy an oven. How can the loan help it?",
+          "choices": [
+            "It finances equipment before the bakery has saved the full price.",
+            "It guarantees higher profit.",
+            "It removes all future payments.",
+            "It lets the bakery issue official notes."
+          ],
+          "answer": 0,
+          "explanation": "A loan can finance investment now. The bakery must repay it, usually with interest, and sales depend on demand.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "interest",
+          "type": "fillBlank",
+          "prompt": "The charge normally paid for borrowing money is __________.",
+          "acceptedAnswers": [
+            "interest"
+          ],
+          "explanation": "Borrowers normally repay the amount borrowed plus interest.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "explained-role",
+          "type": "multipleChoice",
+          "prompt": "Which answer develops a commercial-bank role for a firm?",
+          "choices": [
+            "Banks are important.",
+            "Banks lend money and process payments.",
+            "A loan is useful.",
+            "Banks provide loans, allowing a firm to finance equipment before it has saved enough."
+          ],
+          "answer": 3,
+          "explanation": "It identifies a role and explains its use for a firm, following the 1 + 1 structure in 2023MJ-23 Q2(b).",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            },
+            {
+              "label": "Paper 2 archive",
+              "ref": "2023MJ-23 Q2(b)",
+              "question": "Explain two roles of commercial banks for firms.",
+              "extract": "MS basis: one mark for each role and one for each explanation."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "attract-two-customers",
+          "type": "multipleChoice",
+          "prompt": "Which change could attract both borrowers and savers?",
+          "choices": [
+            "Higher loan rates and lower savings rates.",
+            "Lower loan rates and higher savings rates.",
+            "Higher loan rates and fewer services.",
+            "Lower savings rates and higher fees."
+          ],
+          "answer": 1,
+          "explanation": "Lower loan rates reduce borrowing costs. Higher savings rates increase the saving reward. Specify the rate and customer type.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            },
+            {
+              "label": "Paper 2 archive",
+              "ref": "2024ON-23 Q5(b)",
+              "question": "Explain two ways a commercial bank could attract more customers.",
+              "extract": "MS basis: lower loan rates attract borrowers; higher savings rates attract savers."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "overdraft",
+          "type": "fillBlank",
+          "prompt": "Permission to spend beyond a current-account balance up to an agreed limit is an __________.",
+          "acceptedAnswers": [
+            "overdraft",
+            "agreed overdraft"
+          ],
+          "explanation": "An overdraft is a form of bank lending that can help cover a temporary shortage of funds.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            },
+            {
+              "label": "Paper 2 archive",
+              "ref": "2025ON-23 Q3(c)",
+              "question": "Analyse the services provided to households by commercial banks.",
+              "extract": "MS basis: lending includes loans, overdrafts and mortgages."
+            }
+          ],
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "3-1-money-and-banking-lesson-4",
+      "version": "2.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-1-money-and-banking",
+      "lesson_title": "Central banks",
+      "title": "Central banks quiz",
+      "description": "Banking knowledge and explanation choices supporting Paper 2 answers. Complete after the core teaching.",
+      "route": "/lessons/unit-3-decision-makers/3-1-money-and-banking/lesson-4/",
+      "source": "lessons/unit-3-decision-makers/3-1-money-and-banking/quiz-lesson-4.js",
+      "questions": [
+        {
+          "id": "central-customer",
+          "type": "multipleChoice",
+          "prompt": "Which relationship is characteristic of a central bank?",
+          "choices": [
+            "Providing a teenager’s debit card.",
+            "Banking for government and commercial banks.",
+            "Taking household savings deposits.",
+            "Lending to a cafe for a fridge."
+          ],
+          "answer": 1,
+          "explanation": "A central bank serves government and the banking system.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "last-resort",
+          "type": "fillBlank",
+          "prompt": "When a central bank lends emergency funds to banks unable to obtain them elsewhere, it acts as __________.",
+          "acceptedAnswers": [
+            "lender of last resort",
+            "a lender of last resort",
+            "the lender of last resort"
+          ],
+          "explanation": "Emergency lending can help banks meet withdrawals and maintain confidence. It is not an automatic rescue.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "government-banker",
+          "type": "multipleChoice",
+          "prompt": "Which action illustrates the central bank as banker to government?",
+          "choices": [
+            "Choosing a tax rate.",
+            "Setting a shop’s prices.",
+            "Deciding how many schools to build.",
+            "Handling payments from government accounts."
+          ],
+          "answer": 3,
+          "explanation": "Account management and payment processing are banking services. Tax and spending choices belong to government.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "foreign-reserves",
+          "type": "multipleChoice",
+          "prompt": "What are foreign currency reserves?",
+          "choices": [
+            "Food stored by a cafe.",
+            "A household’s unpaid bills.",
+            "Other countries’ currencies held by a central bank.",
+            "All domestic currency in shops."
+          ],
+          "answer": 2,
+          "explanation": "Central banks may hold foreign currencies for international payments or to influence the exchange rate.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "policy-purpose",
+          "type": "multipleChoice",
+          "prompt": "Why might a central bank influence interest rates?",
+          "choices": [
+            "To influence borrowing and spending and help maintain price stability.",
+            "To guarantee every bank’s profit.",
+            "To cancel all private debts.",
+            "To decide all prices directly."
+          ],
+          "answer": 0,
+          "explanation": "Monetary policy influences economic decisions, including borrowing and spending, which can affect price pressure.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "analyse-importance",
+          "type": "multipleChoice",
+          "prompt": "Which statement develops why a central bank is important?",
+          "choices": [
+            "It has several functions.",
+            "It is a bank.",
+            "It monitors banks’ risks, which may reduce bank failures and help protect depositors’ savings.",
+            "It is important to everyone."
+          ],
+          "answer": 2,
+          "explanation": "It links an action to a mechanism and a consequence, as required by an Analyse question.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            },
+            {
+              "label": "Paper 2 archive",
+              "ref": "2025ON-21 Q3(c)",
+              "question": "Analyse reasons why central banks are important for an economy.",
+              "extract": "MS basis: monitoring banks can support stability and protect savings."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "linked-difference",
+          "type": "multipleChoice",
+          "prompt": "Which is a linked positive difference between the banks?",
+          "choices": [
+            "Central banks are different from commercial banks.",
+            "Central banks set policy but commercial banks do not.",
+            "Central banks hold reserves and issue notes.",
+            "Central banks usually aim for price stability, whereas commercial banks usually aim for profit."
+          ],
+          "answer": 3,
+          "explanation": "It compares the same feature, main aim, using a positive statement about each bank.",
+          "sources": [
+            {
+              "label": "Syllabus and definitions",
+              "ref": "3.1.2 Banking",
+              "note": "Teacher-written question based on the local syllabus and definitions."
+            },
+            {
+              "label": "Paper 2 archive",
+              "ref": "2025ON-23 Q3(a)",
+              "question": "Identify two ways central banks differ from commercial banks.",
+              "extract": "MS basis: a central-bank characteristic and a linked positive commercial-bank characteristic."
             }
           ],
           "points": 1

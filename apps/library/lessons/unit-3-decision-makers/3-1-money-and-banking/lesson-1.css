@@ -181,3 +181,7 @@ body:has(.is-active.is-layout-diamond-question) #progress {
   .is-layout-diamond-question .discussionPrompt p { max-width: 22ch; font-size: 34px; }
   .is-layout-diamond-question .discussionCredit { font-size: 11px; bottom: 1rem; }
 }
+.is-layout-money-forms .card:nth-child(3) .cardVisual img {
+  object-fit: cover;
+  object-position: 50% 55%;
+}

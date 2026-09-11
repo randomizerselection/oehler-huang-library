@@ -555,9 +555,9 @@
   "progressionTitle": "What increases across the semester / 学期内逐步提高的要求",
   "progression": "Knowledge load: terms -> formulas -> linked concepts -> multi-source evidence.  Reasoning load: classify -> calculate -> compare -> explain causation -> evaluate -> defend.  Independence: teacher model -> guided practice -> paired audit -> individual judgement.  Evidence standard: answer -> working -> reason -> counterargument -> caveat.",
   "planningTitle": "Planning notes / 备课说明",
-  "planningNotes": "Use frozen classroom figures, not live prices. Require students to show working and label assumptions. Reveal models only after an attempt. Preserve the stated individual output even when discussion is collaborative. The Fri Jan 1 lesson remains provisional pending the school's New Year timetable.",
+  "planningNotes": "Use frozen classroom figures, not live prices. Require students to show working and label assumptions. Reveal models only after an attempt. Preserve the stated individual output even when discussion is collaborative. The Fri Jan 1 lesson remains provisional pending the school's New Year timetable. Pacing update reported 9 September: Compound growth was taught through future value but Assumed return was not started. Reserve Fri Sep 11 for that continuation. Later content shifts one existing teaching slot; the final additional period is TBC rather than assumed. Keep all syllabus content and review the calendar before compressing lessons. For future decks, allow discussion and independent work time, retain a 2-minute buffer, and keep extensions after the core ending.",
   "subjectContentTitle": "Subject content",
-  "subjectContentIntro": "The subject content is organised using a three-level syllabus hierarchy: major topic, subtopic and numbered content section. Each content section is taught through one lesson in the detailed scheme of work below.",
+  "subjectContentIntro": "The subject content uses a three-level syllabus hierarchy. A content section may take more than one teaching period; the sequence below records actual coverage and planned continuations.",
   "glossaryTitle": "Key term definitions",
   "glossaryIntro": "Definitions use the established classroom wording from the active and retained Investment Analysis term banks in oehler-huang-platform. Syllabus-specific definitions are added only where this course plan requires a term not recorded in those banks.",
   "glossarySources": [
@@ -937,7 +937,7 @@
       "groupId": "group-1",
       "date": "Wed Sep 9",
       "focus": "Compound growth",
-      "scheduleNote": "",
+      "scheduleNote": "Teacher report, 9 September 2026: covered slides 1–22, ending with Rates and periods in the formula. Stopped BEFORE the Assumed return divider (slide 23). Remaining teaching continues in Lesson 4; do not mark it completed.",
       "question": "Can an investment grow even when the investor adds no new money?",
       "objectives": [
         {
@@ -947,64 +947,42 @@
         {
           "en": "Calculate future value over several periods.",
           "zh": "计算多个期间后的终值。"
-        },
-        {
-          "en": "Distinguish a projection from a guaranteed outcome.",
-          "zh": "区分预测结果与保证结果。"
         }
       ],
       "phases": [
         {
-          "time": "0-4",
-          "name": "Retrieve",
-          "task": "Calculate one-period growth using percentage return."
+          "time": "Covered",
+          "name": "Compound growth",
+          "task": "Opening historical challenge, retained returns earning further returns, definitions and simple-versus-compound comparison."
         },
         {
-          "time": "4-7",
-          "name": "Judge",
-          "task": "Predict which grows faster: simple or compound growth."
+          "time": "Covered",
+          "name": "Future value",
+          "task": "FV formula and meaning, Mei’s phone case, Lin’s camera practice, and rates/periods check."
         },
         {
-          "time": "7-15",
-          "name": "Learn",
-          "task": "Build a three-year value table and derive the formula."
-        },
-        {
-          "time": "15-25",
-          "name": "Practise",
-          "task": "Calculate two scenarios with different rates and horizons."
-        },
-        {
-          "time": "25-35",
-          "name": "Analyse",
-          "task": "Explain why later-year growth is larger and label assumptions."
-        },
-        {
-          "time": "35-40",
-          "name": "Exit",
-          "task": "Correct a projection that is written as a promise."
+          "time": "Not reached",
+          "name": "Assumed return",
+          "task": "Divider section-projections and all following core material carried into Lesson 4. Optional questions were not confirmed as taught."
         }
       ],
-      "output": "Three-year compound-growth table plus an assumptions statement.",
+      "output": "Future-value calculations and interpretation through the rates-and-periods check. Forecast assumptions remain to be taught.",
       "checkpoint": "Students must apply the return to the new balance, not repeatedly to the starting amount.",
       "terms": [
         "compound growth（复利增长）",
         "reinvestment（再投资）",
-        "future value（终值）",
-        "assumed return（假设回报率）"
+        "future value（终值）"
       ],
       "formula": "Future value = P(1 + r)^n",
-      "status": "planned",
-      "sourceDeck": "",
-      "sourceSlides": "",
+      "status": "taught",
+      "sourceDeck": "lessons/1-1-3-compound-growth/index.html",
+      "sourceSlides": "1–22 taught; stop before section-projections (23)",
       "sourceSha256": "",
-      "sequenceTitle": "40-minute progression",
+      "sequenceTitle": "Coverage reported by the teacher (timings not recorded)",
       "contentRef": "1.1.3",
       "contentPoints": [
         "meaning of reinvestment and compound growth",
-        "calculation of future value over several periods",
-        "effects of the assumed return and time horizon on compound growth",
-        "distinction between a projection based on assumptions and a guaranteed outcome"
+        "calculation of future value over several periods"
       ],
       "definitions": [
         {
@@ -1030,7 +1008,97 @@
           "definition": "Future value is the projected value of money after growth over a stated period and assumed return.",
           "source": "Active Investment Analysis term bank",
           "sourceTerm": "future value"
+        }
+      ],
+      "coverage": {
+        "reportedOn": "2026-09-09",
+        "lastTaughtSlideId": "mcq-exponent",
+        "firstUntaughtSlideId": "section-projections",
+        "continuationLessonId": "lesson-3-continuation"
+      }
+    },
+    {
+      "id": "lesson-3-continuation",
+      "number": 4,
+      "groupId": "group-1",
+      "date": "Fri Sep 11",
+      "focus": "Assumed return",
+      "scheduleNote": "Continuation of 1.1.3. Lesson 3 stopped before Assumed return; this is new teaching. Nominal and real return moves to Wed Sep 16. Main lesson: 18 slides; 2 optional questions after the exit.",
+      "question": "Can changing an assumed rate make Lin’s camera plan succeed?",
+      "objectives": [
+        {
+          "en": "Explain an assumed return as an input to a forecast.",
+          "zh": "解释假设回报率是预测的输入条件。"
         },
+        {
+          "en": "Calculate and interpret an annualised return from starting value, ending value and years.",
+          "zh": "由初始金额、期末金额和年数计算并解释年化回报率。"
+        },
+        {
+          "en": "Test a forecast against changing returns and explicit assumptions.",
+          "zh": "结合变化的回报率和明确的假设检验预测。"
+        }
+      ],
+      "phases": [
+        {
+          "time": "0-3",
+          "name": "Opening and objectives",
+          "task": "Revisit Lin’s camera dilemma. Establish the new calculation goal."
+        },
+        {
+          "time": "3-7",
+          "name": "Assumed return",
+          "task": "Compare Lin’s forecasts and define r as an input."
+        },
+        {
+          "time": "7-18",
+          "name": "Calculate annualised return",
+          "task": "Reverse FV growth using an nth root; model ¥2,000 → ¥2,662 in 3 years; students solve the required rate for Lin’s ¥2,400 goal."
+        },
+        {
+          "time": "18-26",
+          "name": "Read the historical evidence",
+          "task": "Use the US/China asset cards and actual paths to distinguish annualised growth from individual-year returns."
+        },
+        {
+          "time": "26-32",
+          "name": "Test assumptions",
+          "task": "List forecast conditions; calculate +20% then −20% using successive factors, identifying the misleading arithmetic mean."
+        },
+        {
+          "time": "32-38",
+          "name": "Independent exit",
+          "task": "Calculate annualised growth from ¥1,000 to ¥1,210 in two years; reject a guaranteed-rate interpretation and state two conditions."
+        },
+        {
+          "time": "38-40",
+          "name": "Feedback and buffer",
+          "task": "Check calculator method and interpretation. Optional tasks follow only if time remains."
+        }
+      ],
+      "output": "An independent annualised-return calculation, a required-rate calculation for Lin, and an interpretation distinguishing historical growth from a promised future return.",
+      "checkpoint": "Calculate 10% from ¥1,000 → ¥1,210 over 2 years, showing the growth factor and square root. Explain why it is not a guaranteed yearly payment. Name two forecast assumptions.",
+      "terms": [
+        "assumed return（假设回报率）",
+        "annualised return（年化回报率）",
+        "projection（预测）"
+      ],
+      "formula": "r = (FV ÷ P)^(1/n) − 1; FV = P(1 + r)^n",
+      "status": "planned",
+      "sourceDeck": "lessons/1-1-3-assumed-return/index.html",
+      "sourceSlides": "1–18 core; 19–20 optional",
+      "sourceSha256": "",
+      "sequenceTitle": "40-minute plan, including a 2-minute buffer",
+      "contentRef": "1.1.3",
+      "contentPoints": [
+        "assumed return as a model input",
+        "annualised return from endpoints using an nth root",
+        "required return for a savings target versus historical and assumed rates",
+        "US/China annualised returns and actual annual paths",
+        "changing annual returns: multiply growth factors, do not average percentages",
+        "conditions implicit in a forecast"
+      ],
+      "definitions": [
         {
           "key": "assumed-return",
           "term": "assumed return",
@@ -1038,16 +1106,22 @@
           "definition": "An assumed return is a rate used in a projection; it is an input and not a promised outcome.",
           "source": "Syllabus-specific definition",
           "sourceTerm": "assumed return"
+        },
+        {
+          "key": "annualised-return",
+          "term": "annualised return",
+          "zh": "年化回报率",
+          "definition": "The constant yearly rate that matches growth over the whole period. With no external cash flows: r = (FV ÷ P)^(1/n) − 1."
         }
       ]
     },
     {
       "id": "lesson-4",
-      "number": 4,
+      "number": 5,
       "groupId": "group-1",
-      "date": "Fri Sep 11",
+      "date": "Wed Sep 16",
       "focus": "Nominal and real return",
-      "scheduleNote": "",
+      "scheduleNote": "Prepared for the next planned slot after Assumed return; actual Lesson 4 coverage is not yet confirmed. 24 core slides and 2 optional extensions, with a two-minute feedback buffer.",
       "question": "If an investment rises 4% while prices rise 5%, is the investor better off?",
       "objectives": [
         {
@@ -1067,7 +1141,7 @@
         {
           "time": "0-4",
           "name": "Retrieve",
-          "task": "Retrieve nominal return and the meaning of inflation."
+          "task": "Retrieve the taught return-percentage calculation; collect predictions about 4% money growth and 5% price growth."
         },
         {
           "time": "4-7",
@@ -1105,8 +1179,8 @@
       ],
       "formula": "Approximate real return = nominal return - inflation rate",
       "status": "planned",
-      "sourceDeck": "",
-      "sourceSlides": "",
+      "sourceDeck": "lessons/1-1-4-nominal-real-return/index.html",
+      "sourceSlides": "1–24 core; 25–26 optional",
       "sourceSha256": "",
       "sequenceTitle": "40-minute progression",
       "contentRef": "1.1.4",
@@ -1153,11 +1227,11 @@
     },
     {
       "id": "lesson-5",
-      "number": 5,
+      "number": 6,
       "groupId": "group-2",
-      "date": "Wed Sep 16",
+      "date": "Fri Sep 18",
       "focus": "Risk and possible return",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Does a higher expected return mean an investor will earn more?",
       "objectives": [
         {
@@ -1263,11 +1337,11 @@
     },
     {
       "id": "lesson-6",
-      "number": 6,
+      "number": 7,
       "groupId": "group-2",
-      "date": "Fri Sep 18",
+      "date": "Wed Sep 23",
       "focus": "Investor profile and suitability",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Could the same risky asset be sensible for one investor and unsuitable for another?",
       "objectives": [
         {
@@ -1372,11 +1446,11 @@
     },
     {
       "id": "lesson-7",
-      "number": 7,
+      "number": 8,
       "groupId": "group-2",
-      "date": "Wed Sep 23",
+      "date": "Fri Sep 25",
       "focus": "Investor objectives and constraints",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "What information turns a vague aim into an investable objective?",
       "objectives": [
         {
@@ -1482,11 +1556,11 @@
     },
     {
       "id": "lesson-8",
-      "number": 8,
+      "number": 9,
       "groupId": "group-2",
-      "date": "Fri Sep 25",
+      "date": "Wed Oct 14",
       "focus": "Investment policy and decision rules",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can written rules improve an investment decision made under uncertainty?",
       "objectives": [
         {
@@ -1592,11 +1666,11 @@
     },
     {
       "id": "lesson-9",
-      "number": 9,
+      "number": 10,
       "groupId": "group-3",
-      "date": "Wed Oct 14",
+      "date": "Fri Oct 16",
       "focus": "Cash deposits and bonds",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Why can two investments that both pay interest have different risks?",
       "objectives": [
         {
@@ -1702,11 +1776,11 @@
     },
     {
       "id": "lesson-10",
-      "number": 10,
+      "number": 11,
       "groupId": "group-3",
-      "date": "Fri Oct 16",
+      "date": "Wed Oct 21",
       "focus": "Shares and shareholder returns",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "What exactly does a shareholder own, and where can the return come from?",
       "objectives": [
         {
@@ -1812,11 +1886,11 @@
     },
     {
       "id": "lesson-11",
-      "number": 11,
+      "number": 12,
       "groupId": "group-3",
-      "date": "Wed Oct 21",
+      "date": "Fri Oct 23",
       "focus": "Funds, ETFs and index investing",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Is owning a fund the same as owning every company inside it directly?",
       "objectives": [
         {
@@ -1922,11 +1996,11 @@
     },
     {
       "id": "lesson-12",
-      "number": 12,
+      "number": 13,
       "groupId": "group-3",
-      "date": "Fri Oct 23",
+      "date": "Wed Oct 28",
       "focus": "Fees and the compounding drag",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can a fee below 1% materially change a long-term result?",
       "objectives": [
         {
@@ -2032,11 +2106,11 @@
     },
     {
       "id": "lesson-13",
-      "number": 13,
+      "number": 14,
       "groupId": "group-4",
-      "date": "Wed Oct 28",
+      "date": "Fri Oct 30",
       "focus": "Diversification and correlation",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Does owning ten investments always mean a portfolio is diversified?",
       "objectives": [
         {
@@ -2142,11 +2216,11 @@
     },
     {
       "id": "lesson-14",
-      "number": 14,
+      "number": 15,
       "groupId": "group-4",
-      "date": "Fri Oct 30",
+      "date": "Wed Nov 4",
       "focus": "Asset allocation",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "How should an investor profile change the weights in a portfolio?",
       "objectives": [
         {
@@ -2252,11 +2326,11 @@
     },
     {
       "id": "lesson-15",
-      "number": 15,
+      "number": 16,
       "groupId": "group-4",
-      "date": "Wed Nov 4",
+      "date": "Fri Nov 6",
       "focus": "Regular versus lump-sum investing",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Is investing gradually always safer or more profitable than investing at once?",
       "objectives": [
         {
@@ -2362,11 +2436,11 @@
     },
     {
       "id": "lesson-16",
-      "number": 16,
+      "number": 17,
       "groupId": "group-4",
-      "date": "Fri Nov 6",
+      "date": "Wed Nov 25",
       "focus": "Portfolio construction case",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can one portfolio satisfy all investor constraints at the same time?",
       "objectives": [
         {
@@ -2472,11 +2546,11 @@
     },
     {
       "id": "lesson-17",
-      "number": 17,
+      "number": 18,
       "groupId": "group-5",
-      "date": "Wed Nov 25",
+      "date": "Fri Nov 27",
       "focus": "Primary and secondary markets",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "When shares trade between investors, does the company receive the money?",
       "objectives": [
         {
@@ -2582,11 +2656,11 @@
     },
     {
       "id": "lesson-18",
-      "number": 18,
+      "number": 19,
       "groupId": "group-5",
-      "date": "Fri Nov 27",
+      "date": "Wed Dec 2",
       "focus": "How a trade reaches the market",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Why might the price paid differ from the price first seen on screen?",
       "objectives": [
         {
@@ -2692,11 +2766,11 @@
     },
     {
       "id": "lesson-19",
-      "number": 19,
+      "number": 20,
       "groupId": "group-5",
-      "date": "Wed Dec 2",
+      "date": "Fri Dec 4",
       "focus": "Share price, value and market capitalisation",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Is a CNY 5 share cheaper than a CNY 500 share?",
       "objectives": [
         {
@@ -2802,11 +2876,11 @@
     },
     {
       "id": "lesson-20",
-      "number": 20,
+      "number": 21,
       "groupId": "group-5",
-      "date": "Fri Dec 4",
+      "date": "Wed Dec 9",
       "focus": "Information and price discovery",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Why can a share price fall after a company reports higher profit?",
       "objectives": [
         {
@@ -2912,11 +2986,11 @@
     },
     {
       "id": "lesson-21",
-      "number": 21,
+      "number": 22,
       "groupId": "group-6",
-      "date": "Wed Dec 9",
+      "date": "Fri Dec 11",
       "focus": "Business models, revenue and margins",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can rapidly growing revenue hide a weakening business?",
       "objectives": [
         {
@@ -3022,11 +3096,11 @@
     },
     {
       "id": "lesson-22",
-      "number": 22,
+      "number": 23,
       "groupId": "group-6",
-      "date": "Fri Dec 11",
+      "date": "Wed Dec 16",
       "focus": "Cash flow, debt and resilience",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can a profitable company still run into financial difficulty?",
       "objectives": [
         {
@@ -3132,11 +3206,11 @@
     },
     {
       "id": "lesson-23",
-      "number": 23,
+      "number": 24,
       "groupId": "group-6",
-      "date": "Wed Dec 16",
+      "date": "Fri Dec 18",
       "focus": "Valuation and the P/E ratio",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Does a lower P/E ratio always identify the better investment?",
       "objectives": [
         {
@@ -3242,11 +3316,11 @@
     },
     {
       "id": "lesson-24",
-      "number": 24,
+      "number": 25,
       "groupId": "group-6",
-      "date": "Fri Dec 18",
+      "date": "Wed Dec 23",
       "focus": "Evidence-based company memo",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "What makes an investment conclusion analytical rather than promotional?",
       "objectives": [
         {
@@ -3352,11 +3426,11 @@
     },
     {
       "id": "lesson-25",
-      "number": 25,
+      "number": 26,
       "groupId": "group-7",
-      "date": "Wed Dec 23",
+      "date": "Fri Dec 25",
       "focus": "Performance and benchmarks",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "A portfolio gained 8%. Was that good performance?",
       "objectives": [
         {
@@ -3462,11 +3536,11 @@
     },
     {
       "id": "lesson-26",
-      "number": 26,
+      "number": 27,
       "groupId": "group-7",
-      "date": "Fri Dec 25",
+      "date": "Wed Dec 30",
       "focus": "Evidence quality and performance claims",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Which is stronger evidence: a provider's best chart or a complete performance record?",
       "objectives": [
         {
@@ -3572,11 +3646,11 @@
     },
     {
       "id": "lesson-27",
-      "number": 27,
+      "number": 28,
       "groupId": "group-7",
-      "date": "Wed Dec 30",
+      "date": "Fri Jan 1*",
       "focus": "Portfolio weights and concentration",
-      "scheduleNote": "",
+      "scheduleNote": "Provisional: confirm New Year timetable.  Shifted one teaching slot after the 9 September pacing update.",
       "question": "Can a portfolio with many holdings still be dominated by one risk?",
       "objectives": [
         {
@@ -3682,11 +3756,11 @@
     },
     {
       "id": "lesson-28",
-      "number": 28,
+      "number": 29,
       "groupId": "group-7",
-      "date": "Fri Jan 1*",
+      "date": "Wed Jan 6",
       "focus": "Geographic, sector and currency risk",
-      "scheduleNote": "Provisional: confirm New Year timetable.",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Why might a globally diversified portfolio still fall sharply at the same time?",
       "objectives": [
         {
@@ -3792,11 +3866,11 @@
     },
     {
       "id": "lesson-29",
-      "number": 29,
+      "number": 30,
       "groupId": "group-8",
-      "date": "Wed Jan 6",
+      "date": "Fri Jan 8",
       "focus": "Rebalancing and transaction costs",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "When market movements change portfolio weights, is doing nothing still a decision?",
       "objectives": [
         {
@@ -3902,11 +3976,11 @@
     },
     {
       "id": "lesson-30",
-      "number": 30,
+      "number": 31,
       "groupId": "group-8",
-      "date": "Fri Jan 8",
+      "date": "Wed Jan 13",
       "focus": "Behavioural finance and decision rules",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Why can an intelligent investor make a poor decision with accurate information?",
       "objectives": [
         {
@@ -4012,11 +4086,11 @@
     },
     {
       "id": "lesson-31",
-      "number": 31,
+      "number": 32,
       "groupId": "group-8",
-      "date": "Wed Jan 13",
+      "date": "Fri Jan 15",
       "focus": "Portfolio stress testing",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update.",
       "question": "Which portfolio rule breaks first when the investor's circumstances change?",
       "objectives": [
         {
@@ -4122,11 +4196,11 @@
     },
     {
       "id": "lesson-32",
-      "number": 32,
+      "number": 33,
       "groupId": "group-8",
-      "date": "Fri Jan 15",
+      "date": "TBC",
       "focus": "Final investment recommendation and defence",
-      "scheduleNote": "",
+      "scheduleNote": "Shifted one teaching slot after the 9 September pacing update. Additional period needed; final teaching date is not yet allocated.",
       "question": "What would make a final investment recommendation defensible but not overconfident?",
       "objectives": [
         {
@@ -4230,7 +4304,14 @@
         }
       ]
     }
-  ]
+  ],
+  "pacingRevision": {
+    "date": "2026-09-09",
+    "reason": "Teacher stopped before Assumed return in Lesson 3",
+    "periods": 33,
+    "unallocatedLessonId": "lesson-32",
+    "nextLessonId": "lesson-3-continuation"
+  }
 }
   </script>
 

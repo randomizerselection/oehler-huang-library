@@ -1,0 +1,7 @@
+# YouTube profile image
+
+File: `youtube-profile.png`. Square, opaque icon-only adaptation of the approved three-curve logo, keeping all three strokes inside a circular crop. Lettering omitted for thumbnail readability. Created using the built-in image-generation tool on 10 September 2026. Original generated file preserved.
+
+## Edit prompt
+
+Use case: precise-object-edit. Input image is the edit target: approved Oehler-Huang Platform logo. Create its square profile-avatar adaptation. Keep ONLY the existing three separate forest-green sweeping indifference curves; remove all lettering. Preserve the curves' distinctive tapering shapes, relative arrangement and non-intersecting topology faithfully. Reposition and scale the entire symbol as a unit for a balanced square avatar: optically centred, substantial and easily recognisable at thumbnail size. Every tip must fit comfortably inside the inscribed circular crop, with at least 12 percent of the circle's radius as breathing room from its edge. Keep sufficient ivory gaps between all three strokes for small-size readability. Flat warm ivory #f6f2e9 background, deep forest-green #164b43 symbol, crisp edges. Square 1024x1024 opaque PNG. No text, no initials, no axes, no diagonal budget line, no points, no added border or circle, no shadow, no gradient, no texture, no mockup. One finished upload-ready square image, not a presentation sheet.

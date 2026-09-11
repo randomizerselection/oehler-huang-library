@@ -8,6 +8,12 @@ const indexPath = path.join(courseRoot, 'index.html');
 const syllabusPath = path.join(courseRoot, 'syllabus-2026-27.html');
 const expectedLessons = [
   {
+    route: 'lessons/stock-market-game-launch/index.html',
+    directory: 'stock-market-game-launch',
+    number: 4,
+    title: 'Stock Market Game: weekend launch',
+  },
+  {
     route: 'lessons/1-1-2-measuring-investment-return/index.html',
     directory: '1-1-2-measuring-investment-return',
     number: 2,
@@ -18,6 +24,18 @@ const expectedLessons = [
     directory: '1-1-3-compound-growth',
     number: 3,
     title: 'Compound growth',
+  },
+  {
+    route: 'lessons/1-1-3-assumed-return/index.html',
+    directory: '1-1-3-assumed-return',
+    number: 4,
+    title: 'Assumed return',
+  },
+  {
+    route: 'lessons/1-1-4-nominal-real-return/index.html',
+    directory: '1-1-4-nominal-real-return',
+    number: 5,
+    title: 'Nominal and real return',
   },
 ];
 
@@ -33,7 +51,7 @@ const publishedRoutes = [...new Set(
 
 check(
   JSON.stringify(publishedRoutes.sort()) === JSON.stringify(expectedLessons.map((lesson) => lesson.route).sort()),
-  `investment-analysis/index.html must publish only the two current HTML lessons; found ${publishedRoutes.join(', ') || 'none'}`,
+  `investment-analysis/index.html must publish the current HTML lessons; found ${publishedRoutes.join(', ') || 'none'}`,
 );
 check(!/unit-1\/lesson-\d+\/index\.html/.test(indexSource), 'investment-analysis/index.html must not link older platform-native lessons');
 check(indexSource.includes('syllabus-2026-27.html'), 'investment-analysis/index.html must link the current 2026/27 syllabus');
@@ -77,9 +95,15 @@ const courseDataMatch = syllabusSource.match(/<script id="course-data" type="app
 check(Boolean(courseDataMatch), 'syllabus-2026-27.html: embedded course data is missing');
 if (courseDataMatch) {
   const courseData = JSON.parse(courseDataMatch[1]);
-  check(courseData.lessons?.length === 32, 'syllabus-2026-27.html: expected 32 syllabus lessons');
+  check(courseData.lessons?.length === 33, 'syllabus-2026-27.html: expected 33 teaching periods after the pacing revision');
   check(courseData.lessons?.find((lesson) => lesson.number === 2)?.focus === 'Measuring investment return', 'syllabus-2026-27.html: Lesson 2 does not match the published HTML lesson');
   check(courseData.lessons?.find((lesson) => lesson.number === 3)?.focus === 'Compound growth', 'syllabus-2026-27.html: Lesson 3 does not match the published HTML lesson');
+  check(courseData.lessons?.find((lesson) => lesson.number === 3)?.coverage?.firstUntaughtSlideId === 'section-projections', 'The teacher-reported stopping point must be preserved');
+  check(courseData.lessons?.find((lesson) => lesson.number === 4)?.focus === 'Assumed return', 'Lesson 4 must teach the untaught continuation');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.focus === 'Nominal and real return', 'Nominal and real return must follow the continuation');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.date === 'Wed Sep 16', 'Nominal and real return must use the next existing teaching slot');
+  check(courseData.lessons?.at(-1)?.date === 'TBC', 'The additional final session must not invent an unconfirmed date');
+  check(new Set(courseData.lessons.map(lesson => lesson.id)).size === 33, 'Syllabus lesson IDs must remain unique');
 }
 
 check(fs.existsSync(path.join(courseRoot, 'course-assets', 'css', 'presentation.css')), 'Investment Course shared stylesheet is missing');

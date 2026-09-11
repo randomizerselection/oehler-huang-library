@@ -23,6 +23,7 @@ const deckTitleTranslations = {
   'Arguments against markets': '反对市场的论点',
   'Money: forms and functions': '货币：形式与职能',
   'Money: characteristics and exam practice': '货币：特征与考试练习',
+  'Banking: commercial and central banks': '银行：商业银行与中央银行',
   'Macroeconomic aims': '宏观经济目标',
   'Government budget and spending': '政府预算与支出',
   'Taxation foundations': '税收基础',
@@ -702,16 +703,19 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
     await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
-    await expect(page.locator('.a-level-lesson-card')).toHaveCount(2);
-    await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
-    await expect(page.locator('.lesson-card').filter({ hasText: 'Components of aggregate demand' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(4);
+    await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier process' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Consumption and saving functions' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Investment, government spending and net exports' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-investment-accelerator/index.html');
     await expectNoHorizontalOverflow(page);
   });
 
   test('@smoke A Level lesson decks load from the course page', async ({ page }) => {
     const lessons = [
-      { path: 'a-level/lessons/9-1-1-multiplier/index.html', title: 'The multiplier', heroTitle: 'The multiplier' },
-      { path: 'a-level/lessons/9-1-2-aggregate-demand/index.html', title: 'Components of aggregate demand', heroTitle: 'Aggregate demand' },
+      { path: 'a-level/lessons/9-1-1-multiplier/index.html', title: 'The multiplier process', heroTitle: 'The multiplier process' },
+      { path: 'a-level/lessons/9-1-1-national-income-determination/index.html', title: 'National income determination and the multiplier', heroTitle: 'National income determination and the multiplier' },
+      { path: 'a-level/lessons/9-1-2-aggregate-demand/index.html', title: 'Consumption and saving functions', heroTitle: 'Consumption and saving functions' },
+      { path: 'a-level/lessons/9-1-2-investment-accelerator/index.html', title: 'Investment, government spending and net exports', heroTitle: 'Investment, government spending and net exports' },
     ];
 
     for (const lesson of lessons) {
@@ -1150,8 +1154,8 @@ test.describe('site smoke', () => {
 
     for (const course of [
       { route: 'economics/index.html', name: 'IGCSE Economics', count: 28, section: '#course-map' },
-      { route: 'a-level/index.html', name: 'A Level Economics', count: 2, section: '#lessons' },
-      { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 2, section: '#course-map' },
+      { route: 'a-level/index.html', name: 'A Level Economics', count: 4, section: '#lessons' },
+      { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 3, section: '#course-map' },
     ]) {
       await page.goto(pageUrl(course.route));
       await expect(page.getByRole('heading', { name: course.name, exact: true })).toBeVisible();
@@ -1173,6 +1177,7 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: 'Definitions', exact: true })).toHaveAttribute('href', 'definitions.html');
     await expect(page.locator('.lesson-card a[href="lessons/1-1-2-measuring-investment-return/index.html"]')).toHaveCount(1);
     await expect(page.locator('.lesson-card a[href="lessons/1-1-3-compound-growth/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.lesson-card a[href="lessons/1-1-3-assumed-return/index.html"]')).toHaveCount(1);
     await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
   });
 
@@ -1184,8 +1189,8 @@ test.describe('site smoke', () => {
     await expect(page.locator('.economics-priority-panel')).toHaveCount(0);
     await expect(page.locator('.course-roadmap .unit-step.is-live')).toHaveCount(1);
     await expect(page.locator('.unit-topics .topic-group')).toHaveCount(1);
-    await expect(page.locator('.lesson-card')).toHaveCount(2);
-    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(2);
+    await expect(page.locator('.lesson-card')).toHaveCount(5);
+    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(5);
     await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
     await expect(page.locator('a[href="syllabus-2026-27.html"]')).toHaveCount(1);
     await expectNoHorizontalOverflow(page);
@@ -1193,8 +1198,11 @@ test.describe('site smoke', () => {
 
   test('@smoke current Investment Course HTML lessons load from student navigation', async ({ page }) => {
     const lessons = [
+      { path: 'investment-analysis/lessons/stock-market-game-launch/index.html', title: /The Stock Market Game/i },
       { path: 'investment-analysis/lessons/1-1-2-measuring-investment-return/index.html', title: /Measuring investment return/i },
       { path: 'investment-analysis/lessons/1-1-3-compound-growth/index.html', title: /Compound growth/i },
+      { path: 'investment-analysis/lessons/1-1-3-assumed-return/index.html', title: /Assumed return/i },
+      { path: 'investment-analysis/lessons/1-1-4-nominal-real-return/index.html', title: /Nominal and real return/i },
     ];
 
     for (const lesson of lessons) {
@@ -2734,6 +2742,7 @@ test.describe('site smoke', () => {
         titles: [
           'Money: forms and functions',
           'Money: characteristics and exam practice',
+          'Banking: commercial and central banks',
         ],
       },
       {

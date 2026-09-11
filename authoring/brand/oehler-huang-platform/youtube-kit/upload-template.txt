@@ -1,0 +1,35 @@
+TITLE
+[Topic]: [Specific explanation] | [Course] Economics
+
+DESCRIPTION — replace every bracketed field and remove unused lines
+[One sentence explaining the economic question and what this video helps students understand.]
+
+In this lesson:
+• [Concept or relationship]
+• [Diagram, mechanism, or worked calculation]
+• [Common misconception or application]
+
+Course: [Curriculum, level, and syllabus reference if checked]
+Model assumptions: [Only assumptions relevant to this video]
+
+Chapters
+00:00 [Opening question]
+[MM:SS] [Model or diagram]
+[MM:SS] [Worked explanation]
+[MM:SS] [Conclusion]
+
+Related lesson: [Published URL — remove until available]
+Resources: [Published URL — remove until available]
+
+About this channel
+Oehler-Huang Economics offers clear, carefully explained economics lessons for students following international curricula. Part of Oehler-Huang Platform.
+
+Subscribe for explanations of economic concepts, diagrams, and calculations.
+
+[Optional credits for sources, images, or narration used in this video]
+
+PINNED COMMENT
+Quick check: [One question requiring students to apply or explain the idea]. Give your reasoning as well as your answer.
+
+STUDENT MESSAGE
+Please watch this video to strengthen your understanding of [topic]: [video link]

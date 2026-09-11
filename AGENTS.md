@@ -37,7 +37,45 @@ invested, and the larger balance earning interest again before defining compound
 Apply this when creating or revising introductions; preserve each course's own
 design and interactions.
 
+## Standing classroom-deck preferences
+
+- Use English given names for fictional student cases, including within Chinese support. Keep names consistent across a connected case and its questions, answers and notes. Preserve real people's names in sources and credits (11 September 2026).
+
+- For mathematical explanations, prefer a short visible derivation with stated assumptions. Use consistent upright notation, readable stacked fractions and vertically arranged worked calculations, with clear emphasis on the final result (multiplier-deck feedback, 10 September 2026).
+- For classroom-deck PDFs, use one completed view per source slide. Export the
+  final diagram state and completed animated content; do not add a page per
+  animation step. Keep question pages before separately revealed answers.
+  This compact PDF preference was requested on 10 September 2026.
+
+Carry forward the user's feedback across deck revisions and future decks:
+
+- Treat slide feedback as a durable preference: update the relevant saved course guidance whenever the user revises a deck. Use a relevant background picture on the hero and a concrete, engaging subtitle that suggests the mechanism students will investigate.
+- Highlight only the phrases that distinguish concepts or define the causal relationship. Make Chinese support large enough to read comfortably in class, with explicit sizing rather than small inherited text.
+- Reveal comparison sides and determinant-table rows one at a time with reversible clicks. Follow an important conceptual comparison with a diagram of the same distinction.
+- Make diagram-stage titles state the economic relationship rather than a generic instruction. Complete equilibrium diagrams with the new equilibrium, labelled income and the change from the original position.
+- Keep definitions concise and direct. Put the defining relationship first, highlight its key phrases, and move introductory commentary into the explanation or teacher notes.
+- Make each example's title and visible explanation identify what students should learn from its data. Remove repeated exposition or turn it into independent practice. Use memorable, countable visuals to connect quantities to mechanisms.
+- Give every worked example an explicit question before revealing the method. Keep the original question, data and options visible during exam feedback. Add retrieval and hinge checks between conceptual steps, with explanations of distractors and guidance for reteaching before moving on.
+- Name evaluation factors neutrally, and show clearly which circumstances strengthen versus weaken or delay the effect; avoid listing obstacles under a title that implies they all strengthen it.
+
+- Make hooks concrete, student-answerable and directly connected to the mechanism being taught. Include a directly relevant picture and selective Chinese support for difficult terms; avoid translating the whole opening challenge. For investment lessons, a dated long-term investment guessing challenge with a closest-answer prize is a useful pattern.
+- Keep three concise bilingual learning objectives prominent. Remove secondary captions and other labels that distract from them; use simple visuals only when they clarify the goals.
+- Name sections after specific knowledge points. Add Chinese support to important teaching titles and chart labels while preserving each course's design.
+- Remove detours and repeated explanations that dilute the main lesson. In compound growth, do not restore the removed withdrawing-versus-reinvesting comparison by default.
+- Put section-introduction questions after the relevant divider. In a calculation section, show the main formula on the first teaching slide and keep it available through worked examples and practice. Demonstrating the mechanism in an earlier section already satisfies the logic-before-definition preference; it is not a reason to bury the formula.
+- Teach the effect of a changing input by holding the others constant. Use a concrete knowledge point such as the effects of return rate and investment time instead of a vague section on assumptions and projections.
+- Ask an explicit question before showing a worked solution, keep the answer hidden for an initial attempt, and state what students should do with follow-up diagrams. Explain essential terms when first used, preferably concisely on the formula slide. Quick checks should require application rather than obvious recall. When showing accumulation over time, use a long enough period and click-by-click steps so students can see the difference develop.
+
+- Use connected student cases with a named person, specific goal, budget and deadline. Tie visual pauses to the following case, carry the case through later comparisons, and remove generic repeated exercises. Show complete modelled reasoning when a question needs multiple steps. A section must build a coherent explanation around its stated teaching question.
+- Use student goals that match the class’s current interests and support substantive cases with pictures. Name a section after its core concept and state forecast assumptions explicitly. Place a couple of optional questions with revealed model answers after the main lesson ending for spare time.
+
 ## Required validation
+
+Future Investment lessons need a concrete new skill or rigorous knowledge point, with explicit teaching, a full worked model, independent practice and an assessed exit. Asset pictures, evidence and general discussion should support that learning. See the saved lesson preferences for the Assumed return example.
+
+For Investment lesson planning, read `authoring/investment-course/planning/TEACHING_PROGRESS.md` before creating the next deck. Teacher-reported coverage overrides the original pacing estimate. On 9 September 2026 the class finished Compound growth through slide 22 and stopped before Assumed return; Lesson 4 is the untaught continuation. Do not infer that prepared slides were taught. Preserve time for discussion, independent answers and feedback, and keep extensions after the core ending.
+
+Carry forward highlighted bilingual definition terms, image-led asset comparisons followed by sourced historical line graphs, and a single sequential list for forecast assumptions. Match the visual structure to the idea being taught.
 
 - Run `npm test` after cross-application changes.
 - For a content-only edit to an existing `slides.js` or `slides-lesson-*.js`, use the fast lesson-edit path: check the changed file's JavaScript syntax, open the affected lesson, and inspect the changed slides plus their immediate neighbours at the normal classroom viewport. Do not run unrelated browser suites.
@@ -49,6 +87,10 @@ design and interactions.
 - Reload the controlled browser tab after source changes before inspecting the DOM or taking screenshots.
 
 ## Fast classroom-deck edits
+
+For short A-level starter PowerPoints, keep timing and classroom-management
+guidance in teacher notes and preserve manually removed task-slide labels. See
+`authoring/a-level/AGENTS.md` for the 10 September 2026 starter preference.
 
 Default to a focused content edit when the user asks to change wording, explanations, questions, answers, teacher notes, lesson pace, or a small number of slides in an existing deck.
 
@@ -63,3 +105,11 @@ Default to a focused content edit when the user asks to change wording, explanat
 - Public DNS remains unchanged until ICP approval and explicit user authorization.
 - Production code is release-versioned and read-only to the service account. Persistent data stays outside release directories.
 - Never automatically delete uploads or learning records. At the configured disk stop threshold, reject only new uploads.
+
+## IGCSE Economics lesson preferences
+
+Before creating or substantially revising IGCSE Economics decks, read
+`authoring/igcse-economics/LESSON_DECK_PREFERENCES.md`. It records the latest
+user feedback on syllabus/mark-scheme wording, Paper 2 modelling, question
+difficulty, discussion layouts, definition slides and banking visuals, and
+overrides older conflicting lesson-builder defaults.

@@ -1,0 +1,213 @@
+1
+00:00:04,100 --> 00:00:10,461
+How can fifty million pounds of extra investment
+create two hundred million pounds of extra
+income?
+
+2
+00:00:10,471 --> 00:00:13,879
+The income expenditure diagram shows how.
+
+3
+00:00:14,788 --> 00:00:18,781
+National income and output are on the horizontal
+axis.
+
+4
+00:00:18,791 --> 00:00:22,623
+Planned aggregate expenditure is on the vertical
+axis.
+
+5
+00:00:22,633 --> 00:00:27,225
+Both axes measure millions of pounds, using
+equal scales.
+
+6
+00:00:28,140 --> 00:00:33,948
+Assume a closed economy without government,
+fixed prices, and enough spare capacity.
+
+7
+00:00:33,958 --> 00:00:37,856
+Households consume seventy five percent of
+income.
+
+8
+00:00:37,866 --> 00:00:42,458
+Initially, planned investment is one hundred
+million pounds.
+
+9
+00:00:43,364 --> 00:00:47,488
+Planned expenditure equals consumption plus
+investment.
+
+10
+00:00:47,498 --> 00:00:51,383
+The line starts at one hundred on the vertical
+axis.
+
+11
+00:00:51,393 --> 00:00:56,985
+Its slope is the marginal propensity to consume:
+zero point seven five.
+
+12
+00:00:57,892 --> 00:01:03,437
+The forty five degree line shows every point
+where planned expenditure equals output.
+
+13
+00:01:03,447 --> 00:01:05,793
+It is a reference line.
+
+14
+00:01:05,803 --> 00:01:10,079
+Equilibrium occurs where the planned expenditure
+line crosses it.
+
+15
+00:01:10,980 --> 00:01:15,709
+Initially, equilibrium income is four hundred
+million pounds.
+
+16
+00:01:15,719 --> 00:01:20,881
+Consumption is three hundred million, and
+investment is one hundred million.
+
+17
+00:01:20,891 --> 00:01:26,009
+Planned purchases equal output, so stocks do not
+change unexpectedly.
+
+18
+00:01:26,924 --> 00:01:31,325
+Now planned investment rises by fifty million
+pounds.
+
+19
+00:01:31,335 --> 00:01:36,009
+At every income, planned expenditure is fifty
+million higher.
+
+20
+00:01:36,019 --> 00:01:39,598
+The whole line shifts upward, with the same
+slope.
+
+21
+00:01:40,516 --> 00:01:46,772
+At the old income of four hundred million,
+buyers now plan to spend four hundred and fifty
+million.
+
+22
+00:01:46,782 --> 00:01:51,690
+Stocks fall unexpectedly, signalling that firms
+should increase production.
+
+23
+00:01:52,596 --> 00:01:59,852
+In this simplified round by round adjustment,
+firms first raise output to four hundred and
+fifty million pounds.
+
+24
+00:01:59,862 --> 00:02:04,559
+The additional fifty million of output creates
+fifty million of income.
+
+25
+00:02:05,468 --> 00:02:09,645
+Households spend seventy five percent of the
+extra income.
+
+26
+00:02:09,655 --> 00:02:14,474
+Consumption rises by thirty seven point five
+million pounds.
+
+27
+00:02:14,484 --> 00:02:19,760
+Planned expenditure therefore reaches four
+hundred and eighty seven point five million.
+
+28
+00:02:20,668 --> 00:02:23,213
+Firms raise output again.
+
+29
+00:02:23,223 --> 00:02:29,200
+The next income increase creates another twenty
+eight point one two five million of consumption.
+
+30
+00:02:29,210 --> 00:02:33,618
+Each successive round is three quarters of the
+previous round.
+
+31
+00:02:34,524 --> 00:02:38,753
+The rounds continue, but saving makes each round
+smaller.
+
+32
+00:02:38,763 --> 00:02:42,832
+Income and planned expenditure approach the new
+intersection.
+
+33
+00:02:42,842 --> 00:02:49,171
+Induced consumption is movement along the new
+expenditure line; it does not shift that line
+again.
+
+34
+00:02:50,084 --> 00:02:54,090
+The new equilibrium is six hundred million
+pounds.
+
+35
+00:02:54,100 --> 00:03:00,208
+Consumption is four hundred and fifty million,
+and investment is one hundred and fifty million.
+
+36
+00:03:00,218 --> 00:03:03,876
+Planned expenditure once again equals output.
+
+37
+00:03:04,780 --> 00:03:10,325
+The multiplier is one divided by one minus the
+marginal propensity to consume.
+
+38
+00:03:10,335 --> 00:03:12,088
+That gives four.
+
+39
+00:03:12,098 --> 00:03:18,862
+Fifty million pounds of extra investment
+therefore raises equilibrium income by two
+hundred million pounds.
+
+40
+00:03:19,764 --> 00:03:22,257
+Read the diagram carefully.
+
+41
+00:03:22,267 --> 00:03:26,059
+The vertical shift is fifty million pounds.
+
+42
+00:03:26,069 --> 00:03:30,612
+The horizontal change in equilibrium income is
+two hundred million.
+
+43
+00:03:30,622 --> 00:03:36,740
+The total includes the initial investment plus
+one hundred and fifty million of induced
+consumption.

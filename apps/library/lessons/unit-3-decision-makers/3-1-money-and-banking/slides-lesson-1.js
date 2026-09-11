@@ -10,6 +10,13 @@
 window.IGCSE = window.IGCSE || {};
 
 const photos = IGCSE.photos.moneyBanking;
+const bankDepositPhoto = {
+  src: '../../../assets/images/money-and-banking/customer-using-atm.jpg',
+  alt: 'A customer using an ATM to access a bank account.',
+  caption: 'Bank-account access at an ATM',
+  credit: 'Boris Hamer / Pexels',
+  source: 'https://www.pexels.com/photo/a-woman-withdrawing-cash-from-an-atm-16075858/'
+};
 const imageCredit = (photo) => ({ label: 'Image credit', ref: photo.credit, note: photo.source });
 
 IGCSE.lesson = {
@@ -130,11 +137,11 @@ IGCSE.lesson = {
       cards: [
         { title: 'Coins', zhTitle: '硬币', body: 'small-value physical currency', visual: photos.coinDenominations },
         { title: 'Banknotes', zhTitle: '纸币', body: 'paper or polymer currency', visual: photos.matchingBanknotes },
-        { title: 'Bank deposits', zhTitle: '银行存款', body: 'account balances used for payments', visual: photos.bankDepositBalance },
+        { title: 'Bank deposits', zhTitle: '银行存款', body: 'account balances used for payments', visual: bankDepositPhoto },
       ],
       partialReview: ['.cardgrid > .card'],
       footer: 'Exam distinction: the card or phone is usually the payment method; the deposit balance is the money.',
-      sources: [photos.coinDenominations, photos.matchingBanknotes, photos.bankDepositBalance].map(imageCredit),
+      sources: [photos.coinDenominations, photos.matchingBanknotes, bankDepositPhoto].map(imageCredit),
     },
 
     {

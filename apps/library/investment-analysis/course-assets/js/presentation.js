@@ -62,9 +62,9 @@
       <header class="slide-header">
         <div class="eyebrow"><span></span>LESSON ${String(lesson.meta.lesson).padStart(2, '0')} / ${escapeHtml(slide.group || lesson.meta.folio || 'RETURN')}</div>
         <div class="folio">${escapeHtml(lesson.meta.folio || 'RETURN')} / ${String(index + 1).padStart(2, '0')}</div>
-        <h1>${escapeHtml(slide.title || '')}</h1>
+        <h1>${escapeHtml(slide.title || '')}${slide.titleZh ? `<span class="title-translation" lang="zh-CN">${escapeHtml(slide.titleZh)}</span>` : ''}</h1>
       </header>
-      <div class="slide-body">${body}</div>
+      <div class="slide-body${slide.formula ? ' slide-body--formula' : ''}">${slide.formula ? `<div class="formula-reference">${mathMarkup(slide.formula)}</div><div class="formula-content">${body}</div>` : body}</div>
       <div class="slide-page" aria-hidden="true">${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</div>
     </section>`;
   }
@@ -86,6 +86,7 @@
         ${syllabus}
         <h1>${escapeHtml(slide.title)}</h1>
         <p class="hero-zh" lang="zh-CN">${escapeHtml(slide.zh)}</p>
+        ${slide.subtitle ? `<p class="hero-subtitle">${escapeHtml(slide.subtitle)}</p>` : ''}
         <div class="hero-folio">${escapeHtml(syllabusCode)} / ${String(index + 1).padStart(2, '0')}</div>
       </div>
       ${photoMarkup(slide.photo, 'hero-photo')}
@@ -115,6 +116,20 @@
   }
 
   function renderObjectives(lesson, slide, index) {
+    if (slide.variant === 'visual-roadmap') {
+      const illustrations = {
+        growth: '<path class="roadmap-axis" d="M25 155H275"/><rect class="roadmap-principal" x="42" y="87" width="46" height="68"/><rect class="roadmap-principal" x="127" y="87" width="46" height="68"/><rect class="roadmap-gain" x="127" y="62" width="46" height="25"/><rect class="roadmap-principal" x="212" y="87" width="46" height="68"/><rect class="roadmap-gain" x="212" y="29" width="46" height="58"/><path class="roadmap-link" d="M66 63Q105 22 143 40M136 31L144 40L132 43"/><text x="150" y="192">Returns stay invested</text>',
+        timeline: '<path class="roadmap-link" d="M40 100H262M251 91L262 100L251 109"/><circle class="roadmap-dot" cx="48" cy="100" r="7"/><circle class="roadmap-dot" cx="116" cy="100" r="5"/><circle class="roadmap-dot" cx="184" cy="100" r="5"/><circle class="roadmap-end" cx="252" cy="100" r="7"/><text x="48" y="65">¥</text><text class="roadmap-question" x="252" y="66">?</text><text x="48" y="145">Now</text><text x="252" y="145">Later</text><text x="150" y="192">Follow the money through time</text>',
+        projection: '<path class="roadmap-possible" d="M38 120C110 120 165 62 261 32M38 120C110 120 172 102 261 89M38 120C110 120 172 144 261 151"/><circle class="roadmap-dot" cx="38" cy="120" r="7"/><circle class="roadmap-end" cx="261" cy="32" r="6"/><circle class="roadmap-end" cx="261" cy="89" r="6"/><circle class="roadmap-end" cx="261" cy="151" r="6"/><text x="150" y="192">Different assumptions, different futures</text>',
+      };
+      const stages = slide.items.map(([number, en, zh, visual], itemIndex) => `<article class="objective-row roadmap-stage">
+        ${slide.compact ? '' : `<span class="roadmap-number">${escapeHtml(number)}</span>`}
+        ${itemIndex && !slide.compact ? '<span class="roadmap-connector" aria-hidden="true">→</span>' : ''}
+        <svg class="roadmap-visual" viewBox="0 0 300 215" aria-hidden="true">${slide.compact ? (illustrations[visual] || '').replace(/<text\b[^>]*>[\s\S]*?<\/text>/g, '') : illustrations[visual] || ''}</svg>
+        <div class="roadmap-copy"><strong>${escapeHtml(en)}</strong><span lang="zh-CN">${escapeHtml(zh)}</span></div>
+      </article>`).join('');
+      return standardFrame(lesson, slide, index, `<div class="objectives-roadmap${slide.compact ? ' objectives-roadmap--compact' : ''}">${stages}</div>`);
+    }
     const rows = slide.items.map(([number, en, zh], itemIndex) => `<article class="objective-row objective-row--${itemIndex === 1 ? 'copper' : 'forest'}">
       <span class="objective-number">${escapeHtml(number)}</span>
       <div><strong>${escapeHtml(en)}</strong><span lang="zh-CN">${escapeHtml(zh)}</span></div>
@@ -124,8 +139,9 @@
 
   function renderRecall(lesson, slide, index) {
     if (slide.variant === 'retrieval') {
-      const questions = slide.items.map((item) => `<article class="retrieval-question"><h2>${escapeHtml(item.question)}</h2><details class="retrieval-answer"><summary>Show answer</summary><div>${(item.equations || []).map(equation => `<div class="retrieval-equation">${mathMarkup(equation)}</div>`).join('')}${item.answer ? `<p>${escapeHtml(item.answer)}</p>` : ''}</div></details></article>`).join('');
-      return standardFrame(lesson, slide, index, `<div class="retrieval-scene ${slide.photo ? 'retrieval-scene--photo' : ''}">${slide.photo ? photoMarkup(slide.photo, 'evidence-photo') : ''}<div class="retrieval-copy">${slide.context ? `<p class="retrieval-context">${escapeHtml(slide.context)}</p>` : ''}<div class="retrieval-questions">${questions}</div></div></div>`);
+      const answerTable = table => table ? `<div class="retrieval-table-wrap"><table class="retrieval-table"><thead><tr>${table.columns.map(column => `<th scope="col">${escapeHtml(column)}</th>`).join('')}</tr></thead><tbody>${table.rows.map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : '';
+      const questions = slide.items.map((item) => `<article class="retrieval-question"><h2>${escapeHtml(item.question)}</h2>${item.questionZh ? `<p class="retrieval-translation" lang="zh-CN">${escapeHtml(item.questionZh)}</p>` : ''}<details class="retrieval-answer"><summary>Show answer</summary><div>${(item.equations || []).map(equation => `<div class="retrieval-equation">${mathMarkup(equation)}</div>`).join('')}${answerTable(item.table)}${item.answer ? `<p>${escapeHtml(item.answer)}</p>` : ''}${item.answerZh ? `<p class="retrieval-translation" lang="zh-CN">${escapeHtml(item.answerZh)}</p>` : ''}</div></details></article>`).join('');
+      return standardFrame(lesson, slide, index, `<div class="retrieval-scene ${slide.photo ? 'retrieval-scene--photo' : ''}">${slide.photo ? photoMarkup(slide.photo, 'evidence-photo') : ''}<div class="retrieval-copy">${slide.context ? `<p class="retrieval-context">${escapeHtml(slide.context)}</p>` : ''}${slide.contextZh ? `<p class="retrieval-translation" lang="zh-CN">${escapeHtml(slide.contextZh)}</p>` : ''}<div class="retrieval-questions">${questions}</div></div></div>`);
     }
     const cards = slide.items.map((item) => {
       const data = Array.isArray(item)
@@ -161,7 +177,7 @@
 
   function renderVisual(slide, index) {
     if (slide.prompt) {
-      return `<section class="slide slide--visual slide--visual-pause" data-slide-id="${escapeHtml(slide.id)}" data-index="${index}" hidden>${photoMarkup(slide.photo, 'visual-photo', slide.position)}<div class="visual-pause-shade"></div><h1>${escapeHtml(slide.prompt)}</h1></section>`;
+      return `<section class="slide slide--visual slide--visual-pause" data-slide-id="${escapeHtml(slide.id)}" data-index="${index}" hidden>${photoMarkup(slide.photo, 'visual-photo', slide.position)}<div class="visual-pause-shade"></div><h1>${escapeHtml(slide.prompt)}${slide.promptZh ? `<span class="visual-translation" lang="zh-CN">${escapeHtml(slide.promptZh)}</span>` : ''}</h1></section>`;
     }
     if (slide.comparison) {
       const panel = (items, tone) => `<article class="visual-compare-card visual-compare-card--${tone}"><h2>${escapeHtml(items[0])}</h2>${items.slice(1).map((item) => `<p>${escapeHtml(item)}</p>`).join('')}</article>`;
@@ -190,13 +206,39 @@
     </section>`;
   }
 
+  function highlightedDefinition(value, terms = [], answers = []) {
+    if (!terms.length) return richText(value, answers);
+    // Match source text before escaping; author emphasis never permits raw HTML.
+    const text = String(value || '');
+    const candidates = terms.filter(term => typeof term === 'string' && term.length);
+    let cursor = 0, output = '';
+    while (cursor < text.length) {
+      const match = candidates.map(term => ({term, at: text.indexOf(term, cursor)}))
+        .filter(item => item.at >= 0).sort((a, b) => a.at - b.at || b.term.length - a.term.length)[0];
+      if (!match) { output += escapeHtml(text.slice(cursor)); break; }
+      output += escapeHtml(text.slice(cursor, match.at)) + `<strong class="definition-emphasis">${escapeHtml(match.term)}</strong>`;
+      cursor = match.at + match.term.length;
+    }
+    return output.replaceAll('\n', '<br>');
+  }
+
   function renderDefinition(lesson, slide, index) {
     const body = `${slide.key ? `<div class="term-label">${escapeHtml(slide.key)}</div>` : ''}
-      <div class="definition-panel ${slide.translation ? 'definition-panel--bilingual' : ''}"><p>${richText(slide.prompt, slide.blankAnswers)}</p>${slide.translation ? `<p class="definition-translation" lang="zh-CN">${escapeHtml(slide.translation)}</p>` : ''}</div>`;
+      <div class="definition-panel ${slide.translation ? 'definition-panel--bilingual' : ''} ${slide.highlights ? 'definition-panel--highlighted' : ''}"><p>${highlightedDefinition(slide.prompt, slide.highlights, slide.blankAnswers)}</p>${slide.translation ? `<p class="definition-translation" lang="zh-CN">${highlightedDefinition(slide.translation, slide.highlightsZh)}</p>` : ''}</div>`;
     return standardFrame(lesson, slide, index, body);
   }
 
   function renderThree(lesson, slide, index) {
+    if (slide.variant === 'return-history') {
+      const cards = slide.items.map(item => `<article class="history-card history-card--${escapeHtml(item.tone || 'forest')}">
+        <div class="history-photo">${photoMarkup(item.photo, 'market-photo')}<h2>${bilingualLabel(item.title, item.zh)}</h2></div>
+        <div class="history-copy"><p class="history-benchmark">${escapeHtml(item.benchmark)}</p>
+        <div class="history-result"><div class="history-rate"><strong>${Number(item.rate).toFixed(2)}<span>%</span></strong><span>per year<small lang="zh-CN">年化回报</small></span></div>
+        <strong class="history-growth">${escapeHtml(item.growth)}</strong><p class="history-treatment">${escapeHtml(item.treatment)}</p>
+        ${item.comparisonRate == null ? '' : `<div class="history-reference">US reference (USD)<strong>${Number(item.comparisonRate).toFixed(2)}%</strong></div>`}</div></div>
+      </article>`).join('');
+      return standardFrame(lesson, slide, index, `<div class="return-history"><div class="history-intro"><strong>${escapeHtml(slide.period)}</strong><p>${escapeHtml(slide.context)}</p></div><div class="history-grid">${cards}</div><div class="history-footer"><p>${escapeHtml(slide.footnote)}</p><small>${escapeHtml(slide.sourceCaption)}</small></div></div>`, 'slide--return-history');
+    }
     if (slide.variant === 'market-data') {
       const cards = slide.items.map((item) => `<article class="market-card">
         ${photoMarkup(item.photo, 'market-photo')}
@@ -272,9 +314,16 @@
   // Structured fractions and explicit powers keep lesson equations editable,
   // upright and safely escaped; ordinary prose is never interpreted as HTML.
   function mathMarkup(value) {
-    const power = text => escapeHtml(text).replace(/\^([a-zA-Z]|\d+)/g, '<sup>$1</sup>');
+    const fraction = (top, bottom) => `<span class="math-fraction"><span>${escapeHtml(top)}</span><span>${escapeHtml(bottom)}</span></span>`;
+    const exponent = text => {
+      const parts = String(text).split('/');
+      return parts.length === 2 ? `<sup class="math-exponent-fraction">${fraction(parts[0], parts[1])}</sup>` : `<sup>${escapeHtml(text)}</sup>`;
+    };
+    const power = text => escapeHtml(text).replace(/\^\(([^()]+)\)|\^([a-zA-Z]|\d+)/g, (_, grouped, simple) => exponent(grouped || simple));
     if (value && typeof value === 'object' && value.fraction) {
-      return `<span class="math-expression">${power(value.before || '')}<span class="math-fraction"><span>${power(value.fraction[0])}</span><span>${power(value.fraction[1])}</span></span>${power(value.after || '')}</span>`;
+      const ratio = fraction(value.fraction[0], value.fraction[1]);
+      const base = value.exponent ? `<span class="math-powered-ratio"><span class="math-ratio-base"><span class="math-bracket">(</span>${ratio}<span class="math-bracket">)</span></span>${exponent(value.exponent)}</span>` : ratio;
+      return `<span class="math-expression">${power(value.before || '')}${base}${power(value.after || '')}</span>`;
     }
     return `<span class="math-expression">${power(value)}</span>`;
   }
@@ -285,10 +334,14 @@
       return standardFrame(lesson, slide, index, `<div class="equation-scene">${slide.context ? `<p class="equation-context">${escapeHtml(slide.context)}</p>` : ''}<div class="equation-steps">${steps}</div></div>`);
     }
     if (slide.variant === 'compound-formula') {
-      const terms = slide.terms.map(([symbol, label, zh, meaning]) => `<article class="formula-term"><strong>${escapeHtml(symbol)}</strong><div><h2>${bilingualLabel(label, zh)}</h2><p>${escapeHtml(meaning)}</p></div></article>`).join('');
-      return standardFrame(lesson, slide, index, `<div class="compound-formula"><div class="compound-equation">FV = P(1 + r)<sup>n</sup></div><div class="formula-terms">${terms}</div></div>`);
+      const terms = slide.terms.map(([symbol, label, zh, meaning, meaningZh]) => `<article class="formula-term"><strong>${escapeHtml(symbol)}</strong><div><h2>${bilingualLabel(label, zh)}</h2><p>${escapeHtml(meaning)}</p>${meaningZh ? `<p lang="zh-CN">${escapeHtml(meaningZh)}</p>` : ''}</div></article>`).join('');
+      return standardFrame(lesson, slide, index, `<div class="compound-formula"><div class="compound-equation">${mathMarkup(slide.equation || 'FV = P(1 + r)^n')}</div><div class="formula-terms">${terms}</div></div>`);
     }
-    const rows = slide.steps.map(([number, text, answers], itemIndex) => `<article class="method-row"><span class="method-number ${itemIndex % 2 ? 'is-copper' : ''}">${escapeHtml(number)}</span><p>${richText(text, answers)}</p></article>`).join('');
+    const rows = slide.steps.map((step, itemIndex) => {
+      const [number, text, answers] = Array.isArray(step) ? step : [String(itemIndex + 1), step.text, []];
+      const copy = `<p>${richText(text, answers)}</p>`;
+      return `<article class="method-row"><span class="method-number ${itemIndex % 2 ? 'is-copper' : ''}">${escapeHtml(number)}</span>${step.zh ? `<div>${copy}<p class="method-translation" lang="zh-CN">${escapeHtml(step.zh)}</p></div>` : copy}</article>`;
+    }).join('');
     return standardFrame(lesson, slide, index, `<div class="method-list">${rows}</div>`);
   }
 
@@ -403,7 +456,7 @@
   }
 
   function renderConceptChart(lesson, slide, index) {
-    const amount = value => '¥' + value.toLocaleString('en-GB', { maximumFractionDigits: 2 });
+    const amount = value => (slide.currency || '¥') + value.toLocaleString('en-GB', { maximumFractionDigits: 2 });
     const future = (principal, rate, year) => principal * (1 + rate) ** year;
     const legend = (tone, text) => `<span><i class="chart-key chart-key--${escapeHtml(tone)}"></i>${escapeHtml(text)}</span>`;
     if (slide.variant === 'future-timeline') {
@@ -411,14 +464,14 @@
         const value = future(slide.principal, slide.rate, year);
         return `<article class="timeline-stage ${i === slide.years.length - 1 ? 'timeline-stage--end' : ''}">${i ? `<div class="timeline-link"><span>× ${(1 + slide.rate).toFixed(2)}</span><b aria-hidden="true">→</b></div>` : ''}<span class="timeline-year">${year ? `End of year ${year}` : 'Today'}</span><strong>${amount(value)}</strong><span class="timeline-meaning">${year ? `${amount(value - slide.principal)} accumulated growth` : 'Starting money'}</span>${i === slide.years.length - 1 ? `<p>Goal: ${amount(slide.target)}<br>${amount(value - slide.target)} above the goal</p>` : ''}</article>`;
       }).join('');
-      return standardFrame(lesson, slide, index, `<div class="concept-chart concept-chart--timeline"><p class="chart-context">${escapeHtml(slide.context)}</p><div class="future-timeline">${stages}</div></div>`);
+      return standardFrame(lesson, slide, index, `<div class="concept-chart concept-chart--timeline"><p class="chart-context">${escapeHtml(slide.context)}</p>${slide.question ? `<p class="chart-question">${escapeHtml(slide.question)}</p>` : ''}<div class="future-timeline">${stages}</div></div>`);
     }
-    const left = 85, right = 920, top = 40, bottom = 310;
+    const left = 85, right = slide.plotRight || 920, top = 40, bottom = slide.plotBottom || 310;
     const y = value => bottom - (value - (slide.min || 0)) * (bottom - top) / (slide.max - (slide.min || 0));
-    const axes = slide.ticks.map(v => `<g class="concept-axis"><line x1="${left}" y1="${y(v)}" x2="${right}" y2="${y(v)}"/><text x="${left - 14}" y="${y(v) + 6}" text-anchor="end">${v.toLocaleString('en-GB')}</text></g>`).join('');
+    const axes = slide.ticks.map(v => `<g class="concept-axis"><line x1="${left}" y1="${y(v)}" x2="${right}" y2="${y(v)}"/><text x="${left - 14}" y="${y(v) + 6}" text-anchor="end">${slide.compactTicks && v ? `${v / 1000}k` : v.toLocaleString('en-GB')}</text></g>`).join('');
     let drawing = '', key = '', alt = '';
     if (slide.variant === 'growth-bars') {
-      key = legend('forest', 'Original money') + legend('copper', 'Accumulated returns');
+      key = legend('forest', slide.bilingual ? 'Original money · 本金' : 'Original money') + legend('copper', slide.bilingual ? 'Accumulated returns · 累积回报' : 'Accumulated returns');
       alt = 'Balance in yuan. ';
       drawing = slide.years.map((year,i) => {
         const value = future(slide.principal, slide.rate, year);
@@ -433,22 +486,33 @@
       drawing = `<line class="starting-reference" x1="${left}" y1="${y(slide.principal)}" x2="${right}" y2="${y(slide.principal)}"/>` + slide.rates.map((rate,i) => {
         const value = future(slide.principal, rate, 1), x = 230 + i * 265;
         alt += `${rate * 100}%: ${amount(value)}. `;
-        return `<g class="scenario-stage"><rect class="${rate < 0 ? 'bar-loss' : 'bar-principal'}" x="${x - 62}" y="${y(value)}" width="124" height="${bottom - y(value)}"/><text class="concept-value" x="${x}" y="${y(value) - 16}" text-anchor="middle">${amount(value)}</text><text x="${x}" y="344" text-anchor="middle">${rate < 0 ? '−' : '+'}${Math.abs(rate * 100)}% return</text></g>`;
+        return `<g class="scenario-stage"><rect class="${rate < 0 ? 'bar-loss' : 'bar-principal'}" x="${x - 62}" y="${y(value)}" width="124" height="${bottom - y(value)}"/><text class="concept-value" x="${x}" y="${y(value) + 34}" text-anchor="middle">${amount(value)}</text><text x="${x}" y="344" text-anchor="middle">${rate < 0 ? '−' : '+'}${Math.abs(rate * 100)}% return</text></g>`;
       }).join('');
     } else if (slide.variant === 'comparison-lines') {
       const firstYear = slide.years[0], lastYear = slide.years.at(-1);
       const x = i => left + (slide.years[i] - firstYear) * (right - left) / (lastYear - firstYear);
-      alt = 'Value in yuan across years. ';
-      key = slide.series.map(series => legend(series.tone, `${series.label}: ${amount(series.values.at(-1))}`)).join('');
+      if (slide.yearByYear) {
+        const readouts = slide.years.map((year, i) => `<div class="comparison-readout" data-year-index="${i}"${i ? ' hidden' : ''}><div><span>Year · 年</span><strong>${year}</strong></div>${slide.series.map(series => `<div class="comparison-balance comparison-balance--${escapeHtml(series.tone)}"><span>${escapeHtml(series.label)}</span><strong>${amount(series.values[i])}</strong></div>`).join('')}${slide.showGap === false ? '' : `<div><span>Gap · 差额</span><strong>${amount(slide.series[0].values[i] - slide.series[1].values[i])}</strong></div>`}${slide.stagePrompts?.[i] ? `<p class="comparison-prompt">${escapeHtml(slide.stagePrompts[i])}</p>` : ''}</div>`).join('');
+        const points = i => slide.series.map(series => `<g class="concept-series concept-series--${escapeHtml(series.tone)}">${i ? `<path d="M ${x(i - 1)} ${y(series.values[i - 1])} L ${x(i)} ${y(series.values[i])}"/>` : ''}<circle cx="${x(i)}" cy="${y(series.values[i])}" r="4"/></g>`).join('');
+        const segments = points(0) + slide.years.slice(1).map((year, i) => `<g class="comparison-year" aria-label="Year ${year}">${points(i + 1)}</g>`).join('');
+        const labels = slide.years.map((year, i) => slide.years.length <= 6 || year % 5 === 0 ? `<text x="${x(i)}" y="${bottom + 34}" text-anchor="middle">${year}</text>` : '').join('');
+        const target = slide.target === undefined ? '' : `<g class="chart-target"><line x1="${left}" y1="${y(slide.target)}" x2="${right}" y2="${y(slide.target)}"/><text x="${left + 12}" y="${y(slide.target) - 12}">${escapeHtml(slide.targetLabel || `Goal: ${amount(slide.target)}`)}</text></g>`;
+        return standardFrame(lesson, slide, index, `<div class="concept-chart concept-chart--yearly"><p class="chart-context">${escapeHtml(slide.context)}</p><div class="comparison-readouts" aria-live="polite">${readouts}</div><div class="concept-chart-plot" tabindex="0" aria-label="Chart; scroll horizontally on a narrow screen"><svg viewBox="0 0 1000 ${slide.plotHeight || 390}" role="img" aria-label="${escapeHtml(slide.title)}. Each forward click adds one year."><text class="axis-unit" x="12" y="24">${escapeHtml(slide.unit || 'Yuan (¥)')}</text>${axes}${target}${segments}${labels}<text x="500" y="${bottom + 67}" text-anchor="middle">Years · 年数</text></svg></div></div>`);
+      }
+      alt = `Value in ${slide.unit || 'yuan'} across years. `;
+      key = slide.series.map(series => legend(series.tone, slide.milestones || slide.legendValues === false ? series.label : `${series.label}: ${amount(series.values.at(-1))}`)).join('');
       drawing = slide.series.map(series => {
         alt += `${series.label}: ${series.values.map((v,i) => `year ${slide.years[i]} ${amount(v)}`).join(', ')}. `;
         const path = series.values.map((v,i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ');
-        return `<g class="concept-series concept-series--${escapeHtml(series.tone)}"><path d="${path}"/>${series.values.map((v,i) => `<circle cx="${x(i)}" cy="${y(v)}" r="5"/>`).join('')}</g>`;
-      }).join('') + slide.years.map((year,i) => `<text x="${x(i)}" y="344" text-anchor="middle">${year}</text>`).join('') + '<text x="500" y="377" text-anchor="middle">Years</text>';
+        return `<g class="concept-series concept-series--${escapeHtml(series.tone)}"><path d="${path}"/>${series.values.map((v,i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${slide.pointRadius ?? (slide.milestones ? 2 : 5)}"/>`).join('')}</g>`;
+      }).join('') + (slide.xTicks || slide.years).map(year => `<text x="${left + (year - firstYear) * (right - left) / (lastYear - firstYear)}" y="${bottom + 34}" text-anchor="middle">${year}</text>`).join('') + `<text x="500" y="${bottom + 67}" text-anchor="middle">${escapeHtml(slide.axisLabel || 'Years')}</text>`;
+      if (slide.endLabels) drawing += slide.series.map(series => `<text class="chart-end-label chart-end-label--${escapeHtml(series.tone)}" x="${right + 14}" y="${y(series.values.at(-1)) + 6}">${escapeHtml((slide.currency || '¥') + Math.round(series.values.at(-1)).toLocaleString('en-GB'))}</text>`).join('');
+      if (slide.target !== undefined) drawing = `<g class="chart-target"><line x1="${left}" y1="${y(slide.target)}" x2="${right}" y2="${y(slide.target)}"/><text x="${left + 12}" y="${y(slide.target) - 12}">${escapeHtml(slide.targetLabel || `Goal: ${amount(slide.target)}`)}</text></g>` + drawing;
+      if (slide.milestones) drawing += slide.milestones.map(point => `<g class="chart-milestone"><circle cx="${x(point.index)}" cy="${y(slide.series[0].values[point.index])}" r="5"/><text x="${x(point.index)}" y="${y(slide.series[0].values[point.index]) + point.dy}" text-anchor="${escapeHtml(point.anchor || 'middle')}">${escapeHtml(point.label)}</text></g>`).join('');
     } else {
       throw new Error(`Unknown concept-chart variant: ${slide.variant}`);
     }
-    return standardFrame(lesson, slide, index, `<div class="concept-chart"><p class="chart-context">${escapeHtml(slide.context)}</p><div class="concept-legend">${key}</div><svg viewBox="0 0 1000 390" role="img" aria-label="${escapeHtml(alt)}"><text class="axis-unit" x="12" y="24">Yuan (¥)</text>${axes}${drawing}</svg>${slide.conclusion ? `<p class="chart-reading">${escapeHtml(slide.conclusion)}</p>` : ''}</div>`);
+    return standardFrame(lesson, slide, index, `<div class="concept-chart${slide.historical ? ' concept-chart--historical' : ''}"><p class="chart-context">${escapeHtml(slide.context)}</p><div class="concept-legend">${key}</div><div class="concept-chart-plot" tabindex="0" aria-label="Chart; scroll horizontally on a narrow screen"><svg viewBox="0 0 1000 ${slide.plotHeight || 390}" role="img" aria-label="${escapeHtml(alt)}"><text class="axis-unit" x="12" y="24">${escapeHtml(slide.unit || 'Yuan (¥)')}</text>${axes}${drawing}</svg></div>${slide.conclusion ? `<p class="chart-reading">${escapeHtml(slide.conclusion)}</p>` : ''}${slide.sourceCaption ? `<small class="chart-source">${escapeHtml(slide.sourceCaption)}</small>` : ''}</div>`);
   }
 
   function renderSlide(lesson, slide, index) {
@@ -613,6 +677,9 @@
         const visible = itemIndex < partialProgress[index];
         item.classList.toggle('is-visible', visible);
         item.setAttribute('aria-hidden', String(!visible));
+      });
+      renderedSlides[index].querySelectorAll('.comparison-readout').forEach((readout) => {
+        readout.hidden = Number(readout.dataset.yearIndex) !== partialProgress[index];
       });
     }
 

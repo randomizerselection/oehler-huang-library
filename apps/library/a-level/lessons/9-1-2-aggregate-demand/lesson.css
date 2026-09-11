@@ -17,7 +17,7 @@
   #accelerator-paper-smaller-rise .mcq-option{font-size:1.6cqw;padding:.8cqw 1.1cqw}
   #accelerator-paper-smaller-rise .mcq-feedback{font-size:1.45cqw}
   #accelerator-paper-income-method .solution-text{font-size:1.65cqw}
-  .slide-hero[data-slide-id="aggregate-demand-components"] h1{font-size:6.2cqw}
+  .slide-hero[data-slide-id="aggregate-demand-components"] h1{font-size:5.5cqw;max-width:none}
   .slide-section[data-slide-id="government-net-exports-section"] h1{max-width:20ch}
 }
 .slide-formula[data-slide-id="ad-identity"] .big-formula{font-size:3.9cqw;white-space:nowrap}

@@ -7,12 +7,25 @@ import crypto from 'node:crypto';
 
 const here=import.meta.dirname,root=path.resolve(here,'../..'),sandbox={window:{}};
 const source = path.resolve(here, '../../../../apps/library/a-level/lessons/9-1-1-multiplier');
+const secondSource = path.resolve(source, '../9-1-1-national-income-determination');
 vm.createContext(sandbox);
-for(const file of ['html/slides.js','html/diagram-scenes.js','../shared-html/diagrams.js']){
-  vm.runInContext(await fs.readFile((file.startsWith('html/') ? path.join(source, file.slice(5)) : path.resolve(source, '../../shared-html/diagrams.js')),'utf8'),sandbox,{filename:file});
+vm.runInContext(await fs.readFile(path.join(source,'slides.js'),'utf8'),sandbox);
+const firstLesson=sandbox.window.ALEVEL_LESSON;
+for(const file of [path.join(secondSource,'slides.js'),path.join(secondSource,'diagram-scenes.js'),path.resolve(source,'../../shared-html/diagrams.js')]){
+  vm.runInContext(await fs.readFile(file,'utf8'),sandbox,{filename:file});
 }
-
-const {slides,meta}=sandbox.window.ALEVEL_LESSON;
+const secondLesson=sandbox.window.ALEVEL_LESSON;
+const slides=[...firstLesson.slides,...secondLesson.slides],meta=firstLesson.meta;
+for(const [lesson,count] of [[firstLesson,31],[secondLesson,35]]){
+  assert.equal(lesson.slides.length,count);
+  assert.equal(lesson.slides.at(-1).id,lesson.meta.coreEnd);
+  assert.equal(lesson.meta.plannedLessons,1);
+  assert.equal(lesson.meta.syllabus,'9708 · 9.1.1');
+  assert.equal(lesson.meta.lessonBreak,undefined);
+}
+assert.equal(secondLesson.slides[0].id,'income-section');
+assert.ok(!firstLesson.slides.some(slide=>slide.kind==='diagram'));
+assert.equal(secondLesson.slides.find(slide=>slide.id==='ae-injections-leakages').kind,'steps');
 const fullSlideKinds=new Set(['hero','hook','section']);
 const classroomLabels=new Set([
   'STARTER','LESSON OVERVIEW','RETRIEVAL','CONCEPT','DIAGRAM','WORKED EXAMPLE',
@@ -21,10 +34,7 @@ const classroomLabels=new Set([
 ]);
 assert.equal(slides.length,66);
 assert.equal(new Set(slides.map(slide=>slide.id)).size,slides.length);
-assert.equal(slides.findIndex(slide=>slide.id===meta.coreEnd),slides.length-1);
 assert.equal(meta.syllabus,'9708 · 9.1.1');
-assert.equal(meta.plannedLessons,2);
-assert.equal(slides.findIndex(slide=>slide.id===meta.lessonBreak),31);
 
 let diagramStates=0;
 for(const [index,slide] of slides.entries()){
@@ -96,7 +106,8 @@ assert.equal(new Set(imageSlides.map(slide=>slide.image)).size,imageSlides.lengt
 assert.equal(imageSlides.filter(slide=>slide.kind==='hook').length,4);
 for(const slide of imageSlides){
   assert.ok(slide.imageAlt,`${slide.id}: missing image alternative text`);
-  assert.ok((await fs.stat(path.join(source,slide.image))).size>100000,`${slide.id}: image too small`);
+  const base=firstLesson.slides.includes(slide)?source:secondSource;
+  assert.ok((await fs.stat(path.join(base,slide.image))).size>100000,`${slide.id}: image too small`);
 }
 const ghanaAnswer=slides.find(slide=>slide.id==='ghana-multiplier-answer');
 assert.equal(ghanaAnswer.kind,'answers');
@@ -105,7 +116,10 @@ assert.ok(ghanaAnswer.items[0].highlights.length>=4);
 const equilibriumCheck=slides.find(slide=>slide.id==='ae-equilibrium-check');
 assert.ok(equilibriumCheck.sampleAnswer?.includes('stocks rise unexpectedly'));
 
-const html=await fs.readFile(path.join(root,'outputs/multiplier-html/A-Level_Multiplier_Lessons_1-2.html'),'utf8');
+let portableHtmlBytes=0;
+for(const [lesson,filename] of [[firstLesson,'A-Level_Multiplier.html'],[secondLesson,'A-Level_National_Income_Determination.html']]){
+const html=await fs.readFile(path.join(root,'outputs/multiplier-html',filename),'utf8');
+portableHtmlBytes+=Buffer.byteLength(html);
 assert.ok(!/<script src=|<link rel="stylesheet"/.test(html),'External code dependency');
 assert.ok(!html.includes('image: "assets/'),'External image dependency');
 assert.ok(html.includes('id="studentSelectorButton"'),'Student selector control missing');
@@ -114,13 +128,14 @@ assert.ok(html.includes('StudentSelector.mount'),'In-deck student selector integ
 assert.ok(html.includes("k==='s'"),'Student selector keyboard shortcut missing');
 assert.ok(html.includes('.studentSelectorSidePanel'),'Student selector side-panel styles missing');
 assert.ok(html.includes('body.is-student-selector-open .stage'),'Slide resizing rule missing');
-assert.equal((html.match(/data:image\/(?:png|jpeg);base64,/g)||[]).length,imageSlides.length);
+assert.equal((html.match(/data:image\/(?:png|jpeg);base64,/g)||[]).length,lesson.slides.filter(slide=>slide.image).length);
 for(const [index,script] of [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].entries()){
   new vm.Script(script[1],{filename:`offline-script-${index}`});
+}
 }
 
 console.log(JSON.stringify({
   status:'pass',slides:slides.length,pastPaperQuestions:paperSlides.length,
   diagrams:slides.filter(slide=>slide.kind==='diagram').length,diagramStates,
-  images:imageSlides.length,sourcePptxUnchanged:true,portableHtmlBytes:Buffer.byteLength(html)
+  images:imageSlides.length,sourcePptxUnchanged:true,portableHtmlBytes
 },null,2));

@@ -54,7 +54,7 @@
       state('Start at the old equilibrium', 'AE₀ = £100m + 0.75Y.\nIncome is £400m.', 'Keep the original line as a reference.'),
       state('First: an autonomous shift', 'Investment rises by £50m.\nAE shifts upward by £50m at every income.', 'Investment rises from £100m to £150m.'),
       state('Then: move along the new AE line', 'Extra income induces extra consumption.\nThe economy moves toward E₁ on AE₁.', 'Income-induced consumption does not shift AE again.'),
-      state('Read the final change in income', 'Y rises from £400m to £600m.\nk = 1 / (1 − 0.75) = 4.', 'ΔY = £200m = £50m of extra I + £150m of extra C.')
+      state('Read the final change in income', 'Y rises from £400m to £600m.\n$k = \\frac{1}{1 − 0.75} = 4$', 'ΔY = £200m = £50m of extra I + £150m of extra C.')
     ]},
     'ae-negative-multiplier': { mode: 'multiplier', delta: -50, steps: [
       state('Reset to the original equilibrium', 'Investment is £100m and Y is £400m.\nMPC remains 0.75.', 'This is a new experiment, not a second change after £600m.'),

@@ -682,7 +682,7 @@ window.ALEVEL_SYLLABUS = {
       "check": "Calculate the income change from a stated injection and explain one assumption behind the answer.",
       "followUp": "Complete two multiplier calculations, showing the formula, substitution and interpretation.",
       "resource": {
-        "label": "The multiplier slides",
+        "label": "The multiplier process slides",
         "href": "lessons/9-1-1-multiplier/index.html"
       }
     },
@@ -705,8 +705,8 @@ window.ALEVEL_SYLLABUS = {
       "check": "Explain why a change in autonomous spending creates a larger income change, then calculate it.",
       "followUp": "Correct a worked example containing an average/marginal propensity error.",
       "resource": {
-        "label": "The multiplier slides",
-        "href": "lessons/9-1-1-multiplier/index.html"
+        "label": "National income determination and the multiplier slides",
+        "href": "lessons/9-1-1-national-income-determination/index.html"
       }
     },
     {
@@ -720,15 +720,15 @@ window.ALEVEL_SYLLABUS = {
         }
       ],
       "load": 1,
-      "title": "Consumption, saving and investment",
+      "title": "Consumption and saving",
       "outcome": "Distinguish autonomous and induced expenditure and explain consumption and saving functions.",
       "retrieve": "Recall disposable income, marginal propensities and autonomous spending.",
-      "teach": "Build consumption and saving functions; identify intercepts, slopes and the break-even income. Introduce autonomous and induced investment.",
-      "practice": "Use a household data table to calculate consumption and saving, then explain how an investment decision differs from consumer spending.",
+      "teach": "Build consumption and saving functions; identify intercepts, slopes and the break-even income. Distinguish autonomous and induced consumption.",
+      "practice": "Use a household data table to calculate consumption and saving, then distinguish a movement along the consumption function from a shift.",
       "check": "Sketch consistent consumption and saving functions and label one autonomous and one induced component.",
-      "followUp": "Explain two determinants that shift consumption or investment, using a causal chain.",
+      "followUp": "Explain two determinants that shift consumption, using a causal chain.",
       "resource": {
-        "label": "Aggregate demand slides",
+        "label": "Consumption and saving functions slides",
         "href": "lessons/9-1-2-aggregate-demand/index.html",
         "note": ""
       }
@@ -756,8 +756,8 @@ window.ALEVEL_SYLLABUS = {
       "check": "Explain why equilibrium income need not equal full-employment income.",
       "followUp": "Draw and explain one inflationary gap and one deflationary gap.",
       "resource": {
-        "label": "Aggregate demand slides",
-        "href": "lessons/9-1-2-aggregate-demand/index.html",
+        "label": "Investment, government spending and net exports slides",
+        "href": "lessons/9-1-2-investment-accelerator/index.html",
         "note": "These slides cover 9.1.2; the income-gap segment needs additional preparation."
       }
     },

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Stock Market Game: form teams, allocate roles and log in over the weekend before continuing Assumed return." />
+  <title>Stock Market Game · Weekend launch</title>
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../course-assets/css/presentation.css" />
+  <link rel="stylesheet" href="../../../assets/css/lesson-student-selector.css" />
+  <link rel="stylesheet" href="../../course-assets/css/student-selector.css" />
+  <link rel="stylesheet" href="lesson.css?v=20260911-launch-video" />
+  <script src="../../../assets/js/baidu-analytics.js"></script>
+</head>
+<body class="smg-launch">
+  <main class="app-shell">
+    <div id="deck" class="deck" aria-live="polite"></div>
+    <nav class="deck-controls" aria-label="Lesson navigation">
+      <a class="course-home-link" href="../../index.html">Course</a>
+      <button id="previousSlide" type="button" aria-label="Previous slide">←</button>
+      <button id="overviewButton" type="button">Overview</button>
+      <span id="slideStatus" aria-live="polite"></span>
+      <button id="notesButton" type="button">Notes</button>
+      <a class="launch-link" href="https://www.stockmarketgame.org/login.html" target="_blank" rel="noopener noreferrer">SMG login</a>
+      <button id="fullscreenButton" type="button">Fullscreen</button>
+      <button id="nextSlide" type="button" aria-label="Next slide">→</button><a class="launch-link" href="../1-1-3-assumed-return/index.html">Assumed return →</a>
+    </nav>
+  </main>
+  <dialog id="overviewDialog" class="overview-dialog" aria-labelledby="overviewTitle">
+    <div class="overview-head"><div><span class="mini-label">Lesson map</span><h2 id="overviewTitle">Stock Market Game</h2></div><button id="closeOverview" type="button" aria-label="Close overview">×</button></div>
+    <div id="overviewGrid" class="overview-grid"></div>
+  </dialog>
+  <aside id="notesPanel" class="notes-panel" aria-label="Teacher notes" aria-hidden="true">
+    <button id="closeNotes" type="button" aria-label="Close notes">×</button>
+    <span class="mini-label">Teacher note</span><p id="notesText"></p><div id="notesSource" class="notes-source"></div>
+  </aside>
+  <script src="../../../assets/js/platform-auth.js"></script>
+  <script src="../../../assets/js/lesson-student-selector.js"></script>
+  <script src="../../course-assets/js/presentation.js"></script>
+  <script src="slides.js?v=20260911-launch-video"></script>
+  <script>
+    window.InvestmentPresentation.mount(window.INVESTMENT_COURSE.lesson);
+    for (const [slideId, label, href, external] of [
+      ['weekend-login', 'Open Stock Market Game login ↗', 'https://www.stockmarketgame.org/login.html', true],
+      ['weekend-checklist', 'Continue to Assumed return →', '../1-1-3-assumed-return/index.html', false]
+    ]) {
+      const link = document.createElement('a');
+      link.className = 'slide-link';
+      link.textContent = label;
+      link.href = href;
+      if (external) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+      document.querySelector(`[data-slide-id="${slideId}"]`).append(link);
+    }
+  </script>
+  <script src="visuals.js?v=20260911-launch-video"></script>
+  <script src="launch-video.js?v=20260911-launch-video"></script>
+</body>
+</html>

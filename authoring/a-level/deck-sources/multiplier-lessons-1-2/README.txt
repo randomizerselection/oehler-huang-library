@@ -1,22 +1,25 @@
-Maintained HTML deck: The Multiplier (9708 section 9.1.1)
+Maintained HTML lessons: The multiplier and National income determination (9708 section 9.1.1)
 
-The authoritative classroom source is apps/library/a-level/lessons/9-1-1-multiplier/ in the repository root. The portable offline output is:
-authoring/a-level/outputs/multiplier-html/A-Level_Multiplier_Lessons_1-2.html
+The authoritative sources are apps/library/a-level/lessons/9-1-1-multiplier/ (31 slides)
+and apps/library/a-level/lessons/9-1-1-national-income-determination/ (35 slides).
+Portable offline outputs under authoring/a-level/outputs/multiplier-html/:
+A-Level_Multiplier.html and A-Level_National_Income_Determination.html.
 
-The 66-slide sequence has an explicit lesson break at slide 32. Lesson 1 covers the multiplier
+Split into two independent lessons on 10 September 2026. Lesson 1 covers the multiplier
 process, size and calculation. Lesson 2 begins with national income determination, builds planned
 aggregate expenditure from consumption and investment one component at a time, explains the 45°
 line and equilibrium through stock changes, then reconnects the result to diminishing AD shifts.
 Every slide belongs to the taught sequence. There is no deferred appendix.
 
 Stable slide IDs live in apps/library/a-level/lessons/9-1-1-multiplier/slides.js. Diagram teaching states live in
-apps/library/a-level/lessons/9-1-1-multiplier/diagram-scenes.js. Reusable layouts, interaction and diagram geometry remain under
+apps/library/a-level/lessons/9-1-1-national-income-determination/diagram-scenes.js. Both lessons have their own slides.js and lesson.css. Reusable layouts, interaction and diagram geometry remain under
 apps/library/a-level/shared-html/. The visual system and classroom rhythm match the maintained
 Aggregate Demand lesson.
 
 Build and check:
 node --check apps/library/a-level/lessons/9-1-1-multiplier/slides.js
-node --check apps/library/a-level/lessons/9-1-1-multiplier/diagram-scenes.js
+node --check apps/library/a-level/lessons/9-1-1-national-income-determination/slides.js
+node --check apps/library/a-level/lessons/9-1-1-national-income-determination/diagram-scenes.js
 node authoring/a-level/deck-sources/multiplier-lessons-1-2/export-html.mjs
 node authoring/a-level/deck-sources/multiplier-lessons-1-2/verify-html.mjs
 

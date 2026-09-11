@@ -1,0 +1,141 @@
+/* Scoped visual briefing: regular body type, readable Chinese and native diagrams. */
+.smg-launch .smg-video-slide { display: flex; flex-direction: column; background: #081d1a; color: #f5f3e9; }
+.smg-launch .smg-video-stage { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.smg-launch .smg-video-stage video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.smg-launch .smg-video-play { position: absolute; top: 73%; left: 50%; transform: translate(-50%, -50%); max-width: 92%; padding: .7em 1.2em; border: 1px solid #7de0bc; border-radius: 8px; color: #f5f3e9; background: #0c3029; font-size: clamp(16px, 1.7vw, 30px); font-weight: 400; }
+.smg-launch .smg-video-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; padding: 10px 3%; font-size: clamp(12px, 1vw, 19px); }
+.smg-launch .smg-video-footer a, .smg-launch .smg-video-footer button { color: #a8e6ce; background: none; border: 0; font: inherit; padding: 6px 0; text-underline-offset: .2em; }
+.smg-launch .smg-video-print-poster { display: none; }
+@media (max-width: 820px) {
+  .smg-launch .smg-video-slide { min-height: calc(100svh - 58px); justify-content: center; padding-bottom: 80px; }
+  .smg-launch .smg-video-stage { flex: 0 0 auto; aspect-ratio: 16 / 9; }
+  .smg-launch .smg-video-footer { justify-content: center; text-align: center; padding: 18px; font-size: 16px; }
+  .smg-launch .smg-video-play { top: 70%; width: max-content; padding: .5em .7em; font-size: 15px; }
+}
+@media print {
+  .smg-launch .smg-video-stage video, .smg-launch .smg-video-play, .smg-launch .smg-video-footer { display: none; }
+  .smg-launch .smg-video-print-poster { display: block; width: 100%; }
+}
+.smg-launch { --smg-body: clamp(17px, 1.55vw, 29px); --smg-zh: clamp(17px, 1.48vw, 28px); }
+.smg-launch .slide-header h1 { font-weight: 600; }
+.smg-launch .title-translation { font-size: clamp(18px, 1.6vw, 30px); font-weight: 400; }
+.smg-launch .smg-en, .smg-launch .smg-zh { display: block; font-weight: 400; line-height: 1.38; }
+.smg-launch .smg-en { font-size: var(--smg-body); }
+.smg-launch .smg-zh { font-size: var(--smg-zh); color: #45675b; margin: .22em 0 .72em; }
+.smg-launch .smg-zh:last-child { margin-bottom: 0; }
+.smg-launch .hero-copy h1 { font-size: clamp(32px, 4.1vw, 78px); font-weight: 600; }
+.smg-launch .hero-subtitle .smg-en { font-size: clamp(20px, 2vw, 38px); }
+.smg-launch .hero-subtitle .smg-zh { font-size: clamp(19px, 1.7vw, 32px); }
+.smg-launch .form-card { padding: 1.4vw; display: flex; flex-direction: column; justify-content: flex-start; gap: 1vw; }
+.smg-launch .form-card h2 { margin: 0; }
+.smg-launch .form-card h2 .smg-en { font-size: clamp(20px, 1.9vw, 36px); font-weight: 600; }
+.smg-launch .form-card h2 .smg-zh { font-size: var(--smg-zh); }
+.smg-launch .form-card p { margin: auto 0; text-align: left; font-weight: 400; }
+.smg-launch .smg-icon { width: 3.6vw; height: 3.6vw; color: var(--forest); flex-shrink: 0; }
+.smg-launch .smg-card-icon { text-align: center; padding: .5vw; }
+.smg-launch .smg-card-icon .smg-icon { width: 5.7vw; height: 5.7vw; }
+.smg-launch .smg-game-visual { min-height: 6vw; display: flex; align-items: center; justify-content: center; gap: 1vw; font-size: var(--smg-zh); color: var(--forest); font-weight: 400; }
+.smg-launch .smg-game-visual > svg:not(.smg-icon) { width: 100%; max-height: 7vw; }
+.smg-launch .smg-starting-cash { font-size: clamp(30px,3vw,56px); font-weight: 500; text-align: center; }
+.smg-launch .smg-starting-cash > span { display: block; font-size: var(--smg-zh); font-weight: 400; }
+.smg-launch .smg-teams { display: grid; grid-template-columns: repeat(4,1fr); gap: .6vw; margin: .2vw 0; }
+.smg-launch .smg-trio { border: 1px solid #b8c8bc; border-radius: 8px; padding: .35vw .1vw; text-align: center; }
+.smg-launch .smg-trio > span { font-size: 12px; color: #587267; }
+.smg-launch .smg-trio > div { display: flex; justify-content: center; }
+.smg-launch .smg-trio .smg-icon { width: 1.5vw; height: 1.7vw; }
+.smg-launch .smg-trio:nth-child(even) .smg-icon { color: #a45430; }
+.smg-launch .table-context, .smg-launch .table-interpretation { font-weight: 400; margin: 0; }
+.smg-launch .table-copy { gap: 1.2vw; }
+.smg-launch .lesson-table th, .smg-launch .lesson-table td { font-weight: 400; padding: .65vw .8vw; }
+.smg-launch .lesson-table th:first-child { width: 38%; }
+.smg-launch .lesson-table thead th { font-size: var(--smg-body); font-weight: 600; }
+.smg-launch .smg-role-label { display: flex; align-items: center; gap: .8vw; }
+.smg-launch .smg-role-label .smg-en { font-weight: 500; }
+.smg-launch .flow-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5vw; }
+.smg-launch .flow-card { display: flex; flex-direction: column; gap: 1vw; padding: 1.2vw; }
+.smg-launch .flow-card > span { position: static; align-self: flex-start; }
+.smg-launch .flow-card p { font-weight: 400; margin: auto 0; }
+.smg-launch .smg-mini-ui { min-height: 9.6vw; background: #fff; border: 1px solid #bfcfc3; border-radius: 6px; overflow: hidden; color: var(--forest); font-size: clamp(13px,1.15vw,22px); }
+.smg-launch .smg-browser-bar { background: #dfe9e1; padding: .7vw; font-size: clamp(13px,1.15vw,22px); font-weight: 500; }
+.smg-launch .smg-mini-site { padding: 1vw; text-align: center; }
+.smg-launch .smg-fake-button { background: var(--forest); color: white; padding: .5vw 1vw; margin: .6vw auto 0; width: fit-content; border-radius: 4px; }
+.smg-launch .smg-field { margin: .55vw .8vw; }
+.smg-launch .smg-field > span { display: block; border: 1px solid #d5dad5; color: #6a736e; padding: .35vw; margin-top: .15vw; font-size: clamp(12px,1vw,20px); }
+.smg-launch .smg-summary-line { display: flex; justify-content: space-between; padding: .7vw; border-bottom: 1px solid #e1e5df; }
+.smg-launch .flow-card .smg-mini-ui { width: 100%; box-sizing: border-box; }
+.smg-launch [data-slide-id="screenshot-example"] .slide-body { display: flex; flex-direction: column; gap: 1vw; }
+.smg-launch .smg-real-screen { padding: 1vw; background: white; border: 1px solid #d0d0d0; color: #454545; font-family: Arial, "Microsoft YaHei", sans-serif; }
+.smg-launch .smg-site-nav { display: flex; gap: 3vw; padding: .85vw 1.2vw; background: #58585a; color: white; font-size: clamp(14px,1.3vw,24px); font-weight: 400; }
+.smg-launch .smg-info-heading { margin-top: 1vw; border-bottom: 1px solid #009bd1; }
+.smg-launch .smg-info-tab { display: inline-block; background: #009bd1; color: white; padding: .45vw .75vw; font-size: clamp(16px,1.7vw,29px); font-weight: 500; }
+.smg-launch .smg-site-info { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2vw; padding: .5vw .5vw; font-size: clamp(14px,1.3vw,24px); line-height: 1.4; }
+.smg-launch .smg-capture-id { font-size: clamp(19px,1.8vw,31px); font-weight: 500; margin-bottom: .2vw; }
+.smg-launch .smg-capture-id > span:last-child { font-size: clamp(16px,1.4vw,25px); font-weight: 400; }
+.smg-launch .smg-site-rankings > div { font-size: clamp(18px,1.65vw,29px); font-weight: 500; }
+.smg-launch .smg-site-rankings p { display: flex; justify-content: space-between; margin: 0; padding: .2vw .7vw; font-size: inherit; font-weight: 400; }
+.smg-launch .smg-site-rankings p:nth-child(even) { background: #f3f3f3; }
+.smg-launch .smg-site-rankings p span:first-child { color: #008ec0; }
+.smg-launch .smg-site-date { display: flex; align-items: center; gap: .65vw; margin: .35vw 0 .8vw; font-size: clamp(16px,1.4vw,25px); }
+.smg-launch .smg-date-field { border: 1px solid #ccc; border-radius: 3px; padding: .4vw 1vw; color: #707070; }
+.smg-launch .smg-refresh { color: #009bd1; font-size: 28px; }
+.smg-launch .smg-site-balances { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.4vw; }
+.smg-launch .smg-site-balances > div { border: 1px solid #d4d4d4; border-radius: 17px; padding: .65vw .3vw; text-align: center; }
+.smg-launch .smg-site-balances h3 { margin: 0; color: #008fc8; font-size: clamp(16px,1.55vw,28px); font-weight: 500; }
+.smg-launch .smg-site-balances p { margin: .35vw 0 .65vw; font-size: clamp(16px,1.4vw,25px); font-weight: 400; color: #536b61; }
+.smg-launch .smg-site-balances > div > span { font-size: clamp(15px,1.3vw,24px); }
+.smg-launch .smg-guide-number { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; width: 1.65em; height: 1.65em; background: #ad623d; color: white; font-size: .78em; font-weight: 500; vertical-align: middle; }
+.smg-launch .smg-capture-caption { margin: 0; }
+.smg-launch .smg-capture-caption .smg-en, .smg-launch .smg-capture-caption .smg-zh { font-size: clamp(17px,1.4vw,27px); margin-bottom: 0; }
+.smg-launch [data-slide-id="weekend-checklist"] .slide-body { display: flex; flex-direction: column; gap: 1vw; }
+.smg-launch .smg-deadline { border-left: 4px solid var(--copper); padding-left: 1vw; }
+.smg-launch .smg-deadline .smg-en { font-weight: 500; }
+.smg-launch .smg-submit-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.6vw; min-height: 0; }
+.smg-launch .smg-message { border: 1px solid #b9cbbd; border-radius: 12px; background: #e5eee8; overflow: hidden; }
+.smg-launch .smg-message-head { padding: .7vw 1vw; background: #d5e2d8; }
+.smg-launch .smg-message-head .smg-zh { margin: 0; }
+.smg-launch .smg-message-body { margin: .8vw; background: #fffdf8; border-radius: 9px; padding: .7vw 1vw; }
+.smg-launch .smg-message-body small { font-size: clamp(12px,1vw,20px); color: #66736b; }
+.smg-launch .smg-message-body p { font-size: var(--smg-body); font-weight: 400; line-height: 1.6; margin: .45vw 0; }
+.smg-launch .smg-attachment { display: flex; gap: .6vw; align-items: center; border-top: 1px solid #dce2d9; padding-top: .5vw; font-size: clamp(15px,1.35vw,26px); line-height: 1.4; }
+.smg-launch .smg-screenshot-guide h2 { margin: 0 0 .6vw; }
+.smg-launch .smg-screenshot-guide h2 .smg-en { font-weight: 500; }
+.smg-launch .smg-account-preview { border: 2px dashed #a9bfb0; border-radius: 7px; background: white; padding: .35vw; }
+.smg-launch .smg-account-preview > div:not(:first-child) { padding: .35vw .55vw; display: flex; justify-content: space-between; font-size: clamp(15px,1.3vw,25px); border-bottom: 1px solid #e3e6df; }
+.smg-launch .smg-account-preview > div > span { color: #758177; }
+.smg-launch .smg-screenshot-guide > p { margin: .7vw 0 0; }
+.smg-launch .smg-screenshot-guide > p .smg-en, .smg-launch .smg-screenshot-guide > p .smg-zh { font-size: clamp(16px,1.4vw,27px); }
+.smg-launch .smg-no-trades { margin: auto 0 0; padding: .6vw 1vw; background: #eddfd2; border-left: 4px solid var(--copper); }
+.smg-launch .smg-no-trades .smg-en, .smg-launch .smg-no-trades .smg-zh { font-size: clamp(16px,1.45vw,28px); margin: 0; }
+.smg-launch .slide-link { position: absolute; bottom: 4%; left: 7.2%; color: var(--forest); font-size: clamp(16px,1.4vw,26px); font-weight: 500; text-underline-offset: .2em; }
+@media (max-width: 800px) {
+  .smg-launch .smg-real-screen { padding: 12px; }
+  .smg-launch .smg-site-nav { flex-wrap: wrap; gap: 10px 18px; padding: 12px; }
+  .smg-launch .smg-site-info { grid-template-columns: 1fr; gap: 15px; padding: 12px 0; }
+  .smg-launch .smg-info-heading { margin-top: 12px; }
+  .smg-launch .smg-info-tab { padding: 7px 10px; }
+  .smg-launch .smg-site-date { flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .smg-launch .smg-date-field { padding: 6px; }
+  .smg-launch .smg-site-balances { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .smg-launch .smg-site-balances > div { padding: 12px 4px; }
+  .smg-launch .smg-site-balances p { margin: 7px 0; }
+  .smg-launch .smg-capture-caption { margin: 14px 0; }
+  .smg-launch { --smg-body: 19px; --smg-zh: 18px; }
+  .smg-launch .form-card, .smg-launch .flow-card { padding: 20px; gap: 18px; }
+  .smg-launch .smg-submit-grid, .smg-launch .flow-grid { grid-template-columns: 1fr; gap: 20px; }
+  .smg-launch .smg-teams { gap: 10px; }
+  .smg-launch .smg-trio { padding: 8px 0; }
+  .smg-launch .smg-trio .smg-icon { width: 18px; height: 24px; }
+  .smg-launch .smg-icon, .smg-launch .smg-card-icon .smg-icon { width: 48px; height: 48px; }
+  .smg-launch .smg-game-visual { min-height: 85px; gap: 16px; }
+  .smg-launch .smg-game-visual > svg:not(.smg-icon) { max-height: 90px; }
+  .smg-launch .smg-role-label { gap: 10px; }
+  .smg-launch .lesson-table th:first-child { width: auto; }
+  .smg-launch .smg-mini-ui { min-height: 135px; }
+  .smg-launch .smg-browser-bar, .smg-launch .smg-mini-site, .smg-launch .smg-summary-line, .smg-launch .smg-field { padding: 10px; font-size: 16px; }
+  .smg-launch .smg-field > span { padding: 8px; font-size: 15px; }
+  .smg-launch .smg-submit-grid { margin: 16px 0; }
+  .smg-launch .smg-message-head, .smg-launch .smg-message-body, .smg-launch .smg-no-trades { padding: 12px; }
+  .smg-launch .smg-message-body { margin: 10px; }
+  .smg-launch .smg-account-preview > div:not(:first-child) { padding: 10px; }
+  .smg-launch .slide-link { position: static; display: block; margin: 15px 7% 90px; font-size: 18px; }
+}

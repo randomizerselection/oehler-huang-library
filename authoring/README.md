@@ -21,7 +21,9 @@ Run commands below from the repository root.
 
 The course landing pages are authoritative for active status. Currently they link
 Investment Lesson 2 (Measuring investment return), Lesson 3 (Compound growth),
-A-level 9.1.1 (The multiplier) and 9.1.2 (Components of aggregate demand).
+A-level 9.1.1 Part 1 (The multiplier), 9.1.1 Part 2 (National income determination), 9.1.2 Part 1 (Components of aggregate demand:
+consumption and saving) and 9.1.2 Part 2 (Investment and the accelerator,
+government spending and net exports).
 
 Unlinked lessons and unused lesson types are legacy. Start new HTML lessons from
 the linked course's existing content and renderer, preserve its design identity,
@@ -51,7 +53,7 @@ Run `npm start`, then open `http://127.0.0.1:4173/investment-analysis/` or
 for the narrow checks appropriate to the change.
 
 - `npm run check:courses` checks the landing-page lesson routes and local assets.
-- `npm run export:a-level` regenerates both portable A-level HTML files directly
+- `npm run export:a-level` regenerates the four portable A-level HTML files directly
   from the canonical HTML lessons, under `authoring/a-level/outputs/`.
 - `npm run check:a-level` runs the retained content, diagram and offline checks
   after export.
