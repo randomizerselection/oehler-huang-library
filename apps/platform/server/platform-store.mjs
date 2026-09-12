@@ -74,7 +74,7 @@ function withTransaction(database, operation) {
   }
 }
 
-export function createPlatformStore({ dataDir, studentClasses = [], now = () => new Date() }) {
+export function createPlatformStore({ dataDir, studentClasses = [], classJoinRequired = false, now = () => new Date() }) {
   mkdirSync(dataDir, { recursive: true, mode: 0o750 });
   chmodSync(dataDir, 0o750);
   const database = new DatabaseSync(join(dataDir, "econmark.sqlite"));
@@ -183,6 +183,9 @@ export function createPlatformStore({ dataDir, studentClasses = [], now = () => 
 
   async function registerStudent(value) {
     const rawJoinCode = String(value.join_code ?? "").trim().toUpperCase();
+    if (classJoinRequired && !rawJoinCode) {
+      throw new PlatformStoreError("请输入老师提供的班级邀请码。A teacher-issued class invitation is required.", "CLASS_INVITATION_REQUIRED", 403);
+    }
     const classroom = rawJoinCode
       ? database.prepare("SELECT * FROM classes WHERE join_code_hash = ? AND status = 'active'").get(hash(rawJoinCode))
       : null;

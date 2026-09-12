@@ -57,7 +57,7 @@
 .oh-app-brand small {
   margin-top: 3px;
   color: var(--oh-shell-muted);
-  font: 650 9px/1.1 ui-sans-serif, system-ui, sans-serif;
+  font: 650 11px/1.3 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }

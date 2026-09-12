@@ -8,7 +8,7 @@ import { createEconMarkServer } from '../server/app-server.mjs';
 test('combined server serves shared assets and compatibility routes without exposing repository internals', async t => {
   const dataDir = await mkdtemp(join(tmpdir(), 'oh-public-boundaries-'));
   const app = await createEconMarkServer({
-    root: process.cwd(), env: { OH_DATA_DIR: dataDir },
+    root: process.cwd(), env: { OH_DATA_DIR: dataDir, OH_ECONMARK_PRIVATE: "false" },
     storageStatus: () => ({ allowed: true, uploads_allowed: true, level: 'normal' }),
     gateway: { status: () => ({ ready: false, roles: {} }) },
   });

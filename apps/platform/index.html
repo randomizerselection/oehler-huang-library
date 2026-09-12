@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
     <meta name="theme-color" content="#123f3b" />
-    <meta name="description" content="EconMark IGCSE 经济学手写论述题证据锁定智评助手。" />
-    <title>EconMark · 经济学论述题智评助手</title>
+    <meta name="description" content="学思札记个人网站的作业辅助工具：EconMark IGCSE 经济学手写论述题证据锁定智评助手。" />
+    <title>EconMark · 经济学论述题智评助手 - 学思札记</title>
     <link rel="stylesheet" href="/econmark/src/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="/econmark/single#top" aria-label="EconMark 单份评分">
         <span class="brand-mark" aria-hidden="true">E</span>
-        <span><strong>EconMark</strong><small>经济学论述题智评助手</small></span>
+        <span><strong>EconMark</strong><small>学思札记 · 单份作业评分辅助</small></span>
       </a>
-      <nav class="app-nav" aria-label="主要导航">
+      <nav class="app-nav" aria-label="主要导航"><a href="/">学思札记</a>
         <a href="/econmark/">学生入口</a>
         <a href="/econmark/teacher">作业库</a>
         <a href="/econmark/single" aria-current="page">单份评分</a>
@@ -33,7 +34,7 @@
       </section>
 
       <div id="notice" class="notice notice-info" role="status">
-        <strong>访客可直接使用公开样例。</strong> 登录后可上传作答并保存评分记录；自动结果须经教师确认。
+        <strong>本工具仅供登录账户使用。</strong> 可使用合成样例，或上传作答并保存评分记录；自动结果须经教师确认。
       </div>
 
       <nav class="steps" aria-label="评分流程">
@@ -127,7 +128,7 @@
             <span>评分标准（Mark scheme）</span>
             <textarea id="mark-scheme" rows="10" readonly></textarea>
           </label>
-          <div class="inline-note"><span aria-hidden="true">©</span> 公开样例采用原创评分标准；官方材料仅可在经批准的登录账户流程中使用。</div>
+          <div class="inline-note"><span aria-hidden="true">©</span> 合成样例采用原创评分标准；官方材料仅可在经批准的登录账户流程中使用。</div>
           <button id="confirm-rubric" class="button button-secondary">确认题目与评分标准</button>
 
           <button id="run-grading" class="button button-primary button-run" disabled>
@@ -212,7 +213,7 @@
     <footer>
       <p><strong>EconMark</strong> · 原创合成演示 · 机器评分仅为暂定结果</p>
       <p>暂不支持：图表、计算题、缺少评分标准、未经确认的转写、多题边界不清或非 6/8 分题型。</p>
-    </footer>
+    <p>学思札记 · 个人学习与教学资料 · <a href="/pedagogy.html#site-about">关于本站</a></p></footer>
 
     <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
     <script type="module" src="/econmark/src/app.js"></script>

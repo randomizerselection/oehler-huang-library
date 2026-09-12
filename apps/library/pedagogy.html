@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="How teaching varies across IGCSE Economics, A Level Economics and Investment: classroom activities, assessment and revision, explained in English and Chinese." />
-  <meta name="author" content="Samuel Oehler-Huang, Suzhou Foreign Language School" />
-  <title>Teaching approach - Oehler-Huang Library</title>
+  <meta name="author" content="Samuel Oehler-Huang" />
+  <title>Teaching approach - 学思札记</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
   <link rel="stylesheet" href="assets/css/theme.css" />
@@ -31,6 +31,8 @@
     .author strong { display: block; font-size: 15px; color: #f0f5fa; margin-bottom: 5px; }
     .author span { display: block; font-size: 13px; line-height: 1.5; color: #b8cad7; }
     .section { margin-top: 36px; scroll-margin-top: 20px; }
+    #site-about > p { max-width: 85ch; margin-top: 14px; color: #cbdbe7; line-height: 1.7; }
+    #site-about > p[lang="zh-Hans"] { font-size: 18px; color: #e0e9f0; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
     h2 { margin: 7px 0 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; letter-spacing: -.02em; color: #f4f8fc; }
     h2 .zh { display: block; font-size: 17px; font-weight: 500; color: #b8cad7; margin-top: 7px; letter-spacing: 0; }
@@ -112,15 +114,15 @@
 <body class="bg-ambient">
   <main class="site">
     <header class="landing-nav oh-app-header" aria-label="Platform navigation">
-      <a class="landing-brand oh-app-brand" href="index.html" aria-label="Oehler-Huang Learning Platform home">
+      <a class="landing-brand oh-app-brand" href="index.html" aria-label="学思札记首页">
         <span class="landing-brand-mark oh-app-mark" aria-hidden="true">OH</span>
-        <span><strong>Oehler-Huang</strong><small>Learning Platform</small></span>
+        <span><strong lang="zh-Hans">学思札记</strong><small lang="zh-Hans">学习笔记与课堂资料</small></span>
       </a>
       <nav class="landing-nav-links oh-primary-nav" aria-label="Primary destinations">
-        <a class="landing-nav-link" data-oh-nav="economics" href="economics/index.html">IGCSE Economics</a>
-        <a class="landing-nav-link" data-oh-nav="a-level" href="a-level/index.html">A Level Economics</a>
-        <a class="landing-nav-link" data-oh-nav="investment" href="investment-analysis/index.html">Investment and finance</a>
-        <a class="landing-nav-link" data-oh-nav="homework" href="/econmark/">Homework</a>
+        <a class="landing-nav-link" data-oh-nav="economics" href="economics/index.html">IGCSE 经济学</a>
+        <a class="landing-nav-link" data-oh-nav="a-level" href="a-level/index.html">A Level 经济学</a>
+        <a class="landing-nav-link" data-oh-nav="investment" href="investment-analysis/index.html">投资与金融</a>
+        <a class="landing-nav-link" data-oh-nav="homework" href="/econmark/">作业入口</a>
       </nav>
       <div class="oh-header-account" data-platform-account></div>
     </header>
@@ -146,6 +148,13 @@
         <div><strong>Samuel Oehler-Huang</strong><span>Economics teacher, Suzhou Foreign Language School</span><span lang="zh-CN">苏州外国语学校经济学教师</span></div>
       </div>
     </header>
+
+    <section class="section" id="site-about" aria-labelledby="site-about-title" lang="zh-Hans">
+      <div class="section-head"><h2 id="site-about-title">关于学思札记</h2></div>
+      <p lang="zh-Hans">学思札记是个人非经营性网站，分享经济学学习笔记、课堂材料与教学心得，不开展招生、收费培训或商品交易。作者简介中的任职信息仅用于说明教学背景。</p>
+      <p lang="zh-Hans">课件与学习资料可公开浏览，保留原有中英文教学内容。EconMark 作业工具及其合成示例需登录访问；新增学生账户需要老师提供的班级邀请码，教师账户需要管理员提供的邀请码。</p>
+      <p lang="zh-Hans">作业工具辅助教学中的作答提交、整理、自动评分与反馈。学生使用老师分享的作业代码提交作答；显示成绩为暂定结果，教师可复核。批量工具提供自动终审和异常复核功能。</p>
+    </section>
 
     <section class="section" aria-labelledby="courses-title">
       <div class="section-head">
@@ -251,7 +260,7 @@
     </aside>
 
     <footer class="site-foot">
-      <span>Oehler-Huang Library - independent classroom resources. / 为课堂学习与复习而建</span>
+      <span>学思札记 · 个人学习与教学资料</span>
       <span><a href="index.html">Return to library / 返回课程主页</a></span>
     </footer>
   </main>

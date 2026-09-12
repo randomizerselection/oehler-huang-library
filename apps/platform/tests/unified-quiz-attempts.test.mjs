@@ -29,7 +29,7 @@ test("unified quiz attempts are server graded, immutable, isolated, class-snapsh
   const app = await createEconMarkServer({
     root: process.cwd(),
     env: {
-      ...process.env,
+      ...process.env, OH_ECONMARK_PRIVATE: "false",
       OH_DATA_DIR: dataDir,
       OH_ALLOW_LEGACY_REGISTRATION: "true",
       ECONMARK_TEACHER_INVITE_CODE: "school-teacher-code",

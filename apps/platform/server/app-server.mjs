@@ -247,11 +247,13 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "GET" && rawPath === "/api/providers/status") {
+      if (config.econmarkPrivate) requireSession(request);
       json(response, 200, gradingGateway.status());
       return true;
     }
     const publicAssignmentMatch = rawPath.match(/^\/api\/student\/assignments\/([^/]+)$/);
     if (request.method === "GET" && publicAssignmentMatch) {
+      if (config.econmarkPrivate) requireSession(request);
       const assignment = accountStore.publishedAssignmentByCode(decodeURIComponent(publicAssignmentMatch[1]));
       if (!assignment) throw new HttpError("This assignment code is invalid, archived, or unavailable.", "STUDENT_ASSIGNMENT_NOT_FOUND", 404);
       json(response, 200, assignment);
@@ -734,6 +736,18 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
         response.writeHead(404, securityHeaders({ "content-type": "text/plain; charset=utf-8" })).end("Not found");
         return;
       }
+      // Protect the application and its compatibility asset paths, not just its menu links.
+      // The account shell stays public so visitors can sign in from the Library.
+      if (config.econmarkPrivate && staticRoot === root && relative !== "src/platform-account-shell.js") {
+        const { session } = sessionFromRequest(request);
+        if (!session && extname(relative).toLowerCase() === ".html") {
+          const next = encodeURIComponent(`${rawPath}${requestUrl.search}`);
+          response.writeHead(302, securityHeaders({ location: `/?signin=1&next=${next}`, "cache-control": "no-store", "x-robots-tag": "noindex, noarchive" })).end();
+          return;
+        }
+        requireSession(request);
+        if (["index.html", "teacher.html", "batch.html"].includes(normalize(relative).replaceAll("\\", "/"))) requireRole(request, ["teacher", "admin"]);
+      }
       const filePath = normalize(join(staticRoot, relative));
       const rootRelative = relativePath(staticRoot, filePath);
       if (rootRelative.startsWith("..") || rootRelative.includes(":")) {
@@ -759,8 +773,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
           .replaceAll('href="/single.html', 'href="/econmark/single')
           .replaceAll('href="/single"', 'href="/econmark/single"')
           .replaceAll('href="/batch"', 'href="/econmark/batch"')
-          .replaceAll('href="/teacher"', 'href="/econmark/teacher"')
-          .replaceAll('href="/"', 'href="/econmark/"');
+          .replaceAll('href="/teacher"', 'href="/econmark/teacher"');
         response.writeHead(200, securityHeaders({
           "content-type": "text/html; charset=utf-8",
           "cache-control": "private, no-store",

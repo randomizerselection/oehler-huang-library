@@ -37,7 +37,7 @@
     if (!platform) return { session: { authenticated: false, account: null }, config: { student_classes: [] } };
     return platform.initialize({
       mount: accountMount(options.mount),
-      locale: 'en',
+      locale: document.documentElement.lang.startsWith('zh') ? 'zh' : 'en',
       context: options.context || 'library',
       roleHint: options.roleHint || 'student'
     });

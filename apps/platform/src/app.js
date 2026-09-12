@@ -345,7 +345,7 @@ async function runGrading() {
     renderResult();
     toast(state.record.persistence
       ? "暂定结果与原始图片已永久写入您的服务器账户。"
-      : "样例结果已生成；公开样例不会写入账户历史。"
+      : "样例结果已生成；合成样例不会写入账户历史。"
     );
     await renderHistory();
   } catch (error) {

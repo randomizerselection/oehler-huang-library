@@ -1,12 +1,12 @@
 {
   "schema_version": "oehler-huang-content/1.0.0",
-  "source_hash": "c943a35261d7d316ecad5bf4f6febeee926ad8726b464bcc3c3db892c26b2ce5",
+  "source_hash": "3994775ce4d6ac13e6f5238ca598b8df129113bb9285c1e3b926d3612f9b66d7",
   "items": [
     {
       "id": "library:home",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "Oehler-Huang Learning Platform",
+      "title": "学思札记",
       "route": "/",
       "quiz_id": null,
       "slide_id_pattern": "library:home:slide-{1-based-index}"
@@ -15,7 +15,7 @@
       "id": "a-level",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "A Level Economics - Oehler-Huang Learning Platform",
+      "title": "A Level Economics - 学思札记",
       "route": "/a-level/",
       "quiz_id": null,
       "slide_id_pattern": "a-level:slide-{1-based-index}"
@@ -60,7 +60,7 @@
       "id": "a-level:syllabus",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "A Level Economics syllabus and lesson planner - Oehler-Huang Learning Platform",
+      "title": "A Level Economics syllabus and lesson planner - 学思札记",
       "route": "/a-level/syllabus/",
       "quiz_id": null,
       "slide_id_pattern": "a-level:syllabus:slide-{1-based-index}"
@@ -69,7 +69,7 @@
       "id": "economics",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "IGCSE Economics - Oehler-Huang Learning Platform",
+      "title": "IGCSE Economics - 学思札记",
       "route": "/economics/",
       "quiz_id": null,
       "slide_id_pattern": "economics:slide-{1-based-index}"
@@ -78,7 +78,7 @@
       "id": "investment-analysis",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Investment and finance - Oehler-Huang Learning Platform",
+      "title": "Investment and finance - 学思札记",
       "route": "/investment-analysis/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:slide-{1-based-index}"
@@ -87,7 +87,7 @@
       "id": "investment-analysis:definitions",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Investment and Financial Decision-Making Definitions - Oehler-Huang Library",
+      "title": "Investment and Financial Decision-Making Definitions - 学思札记",
       "route": "/investment-analysis/definitions/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:definitions:slide-{1-based-index}"
@@ -141,7 +141,7 @@
       "id": "investment-analysis:syllabus-2026-27",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Investment Scheme of Work",
+      "title": "Investment Scheme of Work - 学思札记",
       "route": "/investment-analysis/syllabus-2026-27/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:syllabus-2026-27:slide-{1-based-index}"
@@ -150,7 +150,7 @@
       "id": "lessons:unit-1-basic-economic-problem:1-1-basic-economic-problem",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "1.1.1 Finite resources and infinite wants - Oehler-Huang Library",
+      "title": "1.1.1 Finite resources and infinite wants - 学思札记",
       "route": "/lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/",
       "quiz_id": "1-1-1-basic-economic-problem",
       "slide_id_pattern": "lessons:unit-1-basic-economic-problem:1-1-basic-economic-problem:slide-{1-based-index}"
@@ -159,7 +159,7 @@
       "id": "lessons:unit-1-basic-economic-problem:1-2-factors-of-production",
       "version": "1.0.0",
       "kind": "lesson",
-      "title": "1.2.1 Factors of production and rewards - Oehler-Huang Library",
+      "title": "1.2.1 Factors of production and rewards - 学思札记",
       "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/",
       "quiz_id": "1-2-1-factors-of-production",
       "slide_id_pattern": "lessons:unit-1-basic-economic-problem:1-2-factors-of-production:slide-{1-based-index}"

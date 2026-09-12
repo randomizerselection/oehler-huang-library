@@ -16,14 +16,15 @@
       signIn: 'Sign in', create: 'Create account', account: 'Account', settings: 'Account settings', logout: 'Log out',
       student: 'Student', teacher: 'Teacher', username: 'Username', password: 'Password', displayName: 'Display name',
       className: 'Class', chooseClass: 'Choose class', invite: 'Teacher invite code', currentPassword: 'Current password',
+      joinCode: 'Class invitation code', privateRegisterHelp: 'Registration is by invitation. Students need a teacher-issued class code; teachers need an administrator-issued invitation.',
       newPassword: 'New password', save: 'Save changes', changePassword: 'Change password', cancel: 'Close', loading: 'Please wait…',
       loginTitle: 'Sign in to your learning account', registerTitle: 'Create your learning account', settingsTitle: 'Account settings',
-      loginHelp: 'One account works across EconMark, Economics and Investment.',
-      registerHelp: 'Students choose a class. Teachers need the school invite code.',
+      loginHelp: 'One 学思札记 account works across EconMark and the course materials.',
+      registerHelp: 'Students choose a class. Teacher registration requires an administrator-issued invite code.',
       profileHelp: 'Your current class is saved on future quiz attempts; earlier results keep their original class.',
       wrongTitle: 'This area needs a different account', switchAccount: 'Switch account',
       studentRequired: 'Student access is required to mark and submit this quiz.',
-      teacherRequired: 'Teacher access is required for notes and school-wide results.',
+      teacherRequired: 'Teacher access is required for teaching notes and class results.',
       classRequired: 'Choose your class before continuing.', history: 'Quiz history', gradebook: 'Teacher gradebook',
       loginInstead: 'Already have an account? Sign in', registerInstead: 'Need an account? Create one',
       saved: 'Account settings saved.', passwordChanged: 'Password changed. Other sessions were signed out.',
@@ -33,13 +34,14 @@
       signIn: '登录', create: '创建账户', account: '账户', settings: '账户设置', logout: '退出',
       student: '学生', teacher: '教师', username: '用户名', password: '密码', displayName: '显示名称',
       className: '班级', chooseClass: '选择班级', invite: '教师邀请码', currentPassword: '当前密码',
+      joinCode: '班级邀请码', privateRegisterHelp: '本站采用邀请注册。学生需使用老师提供的班级邀请码；教师需使用管理员提供的邀请码。',
       newPassword: '新密码', save: '保存更改', changePassword: '更改密码', cancel: '关闭', loading: '请稍候…',
       loginTitle: '登录统一学习账户', registerTitle: '创建统一学习账户', settingsTitle: '账户设置',
-      loginHelp: '同一账户可用于 EconMark、经济学与投资课程。',
-      registerHelp: '学生必须选择班级；教师注册需要学校邀请码。',
+      loginHelp: '同一学思札记账户可用于 EconMark 和各科课堂材料。',
+      registerHelp: '学生必须选择班级；教师注册需要本站管理员提供的邀请码。',
       profileHelp: '今后的测验会保存当时的班级；以前的记录不会随资料更改。',
       wrongTitle: '此区域需要另一种账户', switchAccount: '切换账户',
-      studentRequired: '测验评分与提交需要学生账户。', teacherRequired: '教师笔记与全校成绩需要教师账户。',
+      studentRequired: '测验评分与提交需要学生账户。', teacherRequired: '教师笔记与班级成绩需要教师账户。',
       classRequired: '继续前请先选择班级。', history: '测验记录', gradebook: '教师成绩册',
       loginInstead: '已有账户？登录', registerInstead: '没有账户？创建一个',
       saved: '账户设置已保存。', passwordChanged: '密码已更改，其他会话已退出。', retry: '重试'
@@ -214,15 +216,17 @@
             ${register ? `<label class="field"><span>${t.displayName}</span><input name="display_name" required maxlength="80" autocomplete="name"></label>` : ''}
             <label class="field"><span>${t.username}</span><input name="username" required minlength="3" maxlength="60" autocomplete="username"></label>
             <label class="field"><span>${t.password}</span><input name="password" type="password" required minlength="10" maxlength="128" autocomplete="${register ? 'new-password' : 'current-password'}"></label>
-            ${register && this.requiredRole === 'student' ? `<label class="field"><span>${t.className}</span><select name="class_name" required><option value="">${t.chooseClass}</option>${classOptions}</select></label>` : ''}
+            ${register && this.requiredRole === 'student' ? state.config.class_join_required
+              ? `<label class="field"><span>${t.joinCode}</span><input name="join_code" required maxlength="80" autocomplete="off"></label>`
+              : `<label class="field"><span>${t.className}</span><select name="class_name" required><option value="">${t.chooseClass}</option>${classOptions}</select></label>` : ''}
             ${register && this.requiredRole === 'teacher' ? `<label class="field"><span>${t.invite}</span><input name="invitation_code" type="password" required maxlength="160"></label>` : ''}
             <p class="error" data-error>${this.escape(this.message)}</p>
             <div class="actions"><button class="submit" type="submit">${register ? t.create : t.signIn}</button><button class="link" type="button" data-action="toggle">${register ? t.loginInstead : t.registerInstead}</button></div>
           </form>`;
       }
       const title = this.mode === 'settings' ? t.settingsTitle : this.mode === 'register' ? t.registerTitle : this.mode === 'mismatch' ? t.wrongTitle : t.loginTitle;
-      const help = this.mode === 'register' ? t.registerHelp : this.mode === 'login' ? t.loginHelp : '';
-      dialog.innerHTML = `<section class="modal"><header class="heading"><div><p class="eyebrow">EconMark · Oehler-Huang Library</p><h2 id="platform-account-title">${title}</h2></div><button class="close" type="button" data-action="close" aria-label="${t.cancel}">×</button></header>${help ? `<p class="help">${help}</p>` : ''}${content}</section>`;
+      const help = this.mode === 'register' ? (state.config.class_join_required ? t.privateRegisterHelp : t.registerHelp) : this.mode === 'login' ? t.loginHelp : '';
+      dialog.innerHTML = `<section class="modal"><header class="heading"><div><p class="eyebrow">学思札记 · EconMark</p><h2 id="platform-account-title">${title}</h2></div><button class="close" type="button" data-action="close" aria-label="${t.cancel}">×</button></header>${help ? `<p class="help">${help}</p>` : ''}${content}</section>`;
       this.bindModal();
     }
 
@@ -364,6 +368,7 @@
       try { await parseResponse(await authFetch('/api/auth/logout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' })); } catch (_error) { /* local state still clears */ }
       state.session = anonymous(); dispatchChange();
       if (close) this.shadowRoot.querySelector('dialog')?.close();
+      if (close && state.config.econmark_private && /^\/econmark(?:\/|$)/.test(location.pathname)) location.assign('/');
     }
   }
 
@@ -377,7 +382,7 @@
       mount.append(element);
     }
     if (element) {
-      element.setAttribute('locale', options.locale === 'zh' ? 'zh' : 'en');
+      element.setAttribute('locale', options.locale || element.getAttribute('locale') || (document.documentElement.lang.startsWith('zh') ? 'zh' : 'en'));
       element.setAttribute('context', options.context || 'library');
       element.setAttribute('role-hint', options.roleHint === 'teacher' ? 'teacher' : 'student');
       element.requiredRole = options.roleHint === 'teacher' ? 'teacher' : 'student';

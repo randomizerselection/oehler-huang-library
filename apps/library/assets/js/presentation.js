@@ -283,7 +283,7 @@ const topline = (slide, idx, total) => `
 const footer = (meta, slide) => `
   <div class="slide-footer">
     <span>${esc(meta.courseLabel || 'IGCSE Economics Lesson Library')}</span>
-    <span class="creator">${esc(meta.creatorLabel || 'Oehler-Huang Library')}</span>
+    <span class="creator">${esc(meta.creatorLabel || '学思札记')}</span>
     <span>${esc(slide.eyebrow || meta.lessonLabel || '')}</span>
   </div>
 `;

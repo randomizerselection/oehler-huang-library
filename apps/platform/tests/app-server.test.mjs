@@ -49,7 +49,7 @@ test("student-first HTTP routes enforce roles, assignment lifecycle, rubric auth
   let lastGatewayPayload = null;
   const app = await createEconMarkServer({
     root: process.cwd(),
-    env: { ...process.env, ECONMARK_DATA_DIR: directory, ECONMARK_TEACHER_INVITE_CODE: "school-teacher-code", OH_ALLOW_LEGACY_REGISTRATION: "true", OH_DISK_UPLOAD_STOP_PERCENT: "100", ECONMARK_MAX_FILE_MB: "1", ECONMARK_MAX_BATCH_SIZE: "5", ECONMARK_MAX_BATCH_TOTAL_MB: "5" },
+    env: { ...process.env, OH_ECONMARK_PRIVATE: "false", ECONMARK_DATA_DIR: directory, ECONMARK_TEACHER_INVITE_CODE: "school-teacher-code", OH_ALLOW_LEGACY_REGISTRATION: "true", OH_DISK_UPLOAD_STOP_PERCENT: "100", ECONMARK_MAX_FILE_MB: "1", ECONMARK_MAX_BATCH_SIZE: "5", ECONMARK_MAX_BATCH_TOTAL_MB: "5" },
     storageStatus: () => ({ total_bytes: 1_000_000, free_bytes: 900_000, used_percent: 10, level: "normal", allowed: true, uploads_allowed: true }),
     gateway: { status: () => ({ ready: true, roles: {} }), grade: async (payload) => { lastGatewayPayload = payload; return fakeWorkflow(payload); } }
   });
@@ -60,7 +60,7 @@ test("student-first HTTP routes enforce roles, assignment lifecycle, rubric auth
   const landingResponse = await fetch(`${base}/`);
   assert.equal(landingResponse.headers.get("permissions-policy"), "camera=(self), microphone=(), geolocation=()");
   const landing = await landingResponse.text();
-  assert.match(landing, /Oehler-Huang Learning Platform/);
+  assert.match(landing, /学思札记/);
   /* Consolidated root now serves the Library; the former student-entry assertion below is retained for migration history.
   assert.match(landing, /输入老师分享的作业代码/);
   */

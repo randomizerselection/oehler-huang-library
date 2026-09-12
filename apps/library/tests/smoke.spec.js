@@ -676,10 +676,10 @@ test.describe('site smoke', () => {
     await expect(page.locator('script[src="assets/js/library-home.js"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
     await expect(page.locator('.hero-summary-number, .course-index')).toHaveCount(0);
-    await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
-    await expect(page.getByText('Lessons are public. Homework submission requires an account.')).toBeVisible();
-    await expect(page.getByRole('link', { name: /^IGCSE definitions$/i })).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /^Teaching approach$/i })).toHaveAttribute('href', 'pedagogy.html');
+    await expect(page.getByRole('heading', { name: /^课件与作业$/ })).toBeVisible();
+    await expect(page.locator('.section-intro').filter({ hasText: '新增账户采用邀请注册' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^IGCSE 术语$/ })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^教学心得与网站说明$/ })).toHaveAttribute('href', 'pedagogy.html');
     await expect(page.locator('.oh-primary-nav a')).toHaveCount(4);
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="a-level"]')).toHaveAttribute('href', 'a-level/index.html');
@@ -1058,7 +1058,7 @@ test.describe('site smoke', () => {
     test.skip(!testInfo.project.name.includes('phone'), 'Responsive smoke is phone-only.');
 
     await page.goto(pageUrl('index.html'));
-    await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^课件与作业$/ })).toBeVisible();
     await expect(page.locator('.entry-card')).toHaveCount(4);
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
     await expectNoHorizontalOverflow(page);
@@ -1077,36 +1077,36 @@ test.describe('site smoke', () => {
   test('@responsive landing page renders at desktop and phone widths', async ({ page }) => {
     await page.goto(pageUrl('index.html'));
 
-    await expect(page.getByRole('heading', { name: /^Courses and homework$/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /^课件与作业$/ })).toBeVisible();
     await expect(page.locator('[data-entry="economics"]')).toHaveAttribute('href', 'economics/index.html');
     await expect(page.locator('[data-entry="a-level"]')).toHaveAttribute('href', 'a-level/index.html');
     await expect(page.locator('[data-entry="investment"]')).toHaveAttribute('href', 'investment-analysis/index.html');
     await expect(page.locator('[data-entry="homework"]')).toHaveAttribute('href', localHomeworkUrl);
-    await expect(page.getByText(/Study economic concepts through lessons, quizzes and exam practice/i)).toBeVisible();
-    await expect(page.getByText(/Study macroeconomics through lessons, interactive diagrams and exam practice/i)).toBeVisible();
-    await expect(page.getByText(/Study investment returns, financial markets and financial decision-making/i)).toBeVisible();
-    await expect(page.getByText(/Enter your assignment code, upload your answer and view feedback/i)).toBeVisible();
+    await expect(page.getByText('通过课件、测验和考试练习学习经济学概念。')).toBeVisible();
+    await expect(page.getByText('结合课件、交互图表和考试练习学习宏观经济学。')).toBeVisible();
+    await expect(page.getByText('通过课堂案例和计算练习学习投资回报、金融市场与财务决策。')).toBeVisible();
+    await expect(page.getByText('登录已有账户，使用老师分享的作业代码提交作答并查看暂定反馈。')).toBeVisible();
     await expect(page.getByRole('link', { name: /^Start Lesson 1$/i })).toHaveCount(0);
     await expect(page.getByRole('link', { name: /Business 0264/i })).toHaveCount(0);
     await expect(page.locator('a[href^="business/"]')).toHaveCount(0);
-    await expect(page.getByRole('link', { name: /^IGCSE definitions$/i })).toHaveAttribute('href', 'definitions.html');
-    await expect(page.getByRole('link', { name: /^Teaching approach$/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^IGCSE 术语$/ })).toHaveAttribute('href', 'definitions.html');
+    await expect(page.getByRole('link', { name: /^教学心得与网站说明$/ })).toBeVisible();
     await expect(page.getByRole('link', { name: /^Open lesson$/i })).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(pageUrl('economics/index.html'));
     await expect(page.locator('link[href="../assets/css/course-home.css"]')).toHaveCount(1);
     await expect(page.locator('.landing-nav')).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /^Investment and finance$/i })).toHaveAttribute('href', '../investment-analysis/index.html');
+    await expect(page.getByRole('link', { name: /^投资与金融$/ })).toHaveAttribute('href', '../investment-analysis/index.html');
     await expect(page.getByRole('link', { name: /^Definitions$/i })).toHaveAttribute('href', '../definitions.html');
     await expect(page.locator('#unit-2')).toBeVisible();
     await expect(page.locator('#unit-3')).toBeVisible();
     await expect(page.locator('#unit-4')).toBeVisible();
     await expect(page.locator('.unit-step.is-empty').first()).toBeHidden();
-    await expect(page.getByRole('link', { name: /Teaching approach/i }).first()).toHaveAttribute('href', '../pedagogy.html');
+    await expect(page.getByRole('link', { name: /教学心得与网站说明/ }).first()).toHaveAttribute('href', '../pedagogy.html');
     await expect(page.getByRole('heading', { name: /^IGCSE Economics$/i })).toBeVisible();
     await expect(page.locator('.hero .author-line')).toHaveCount(0);
-    await expect(page.getByText(/Not endorsed by Cambridge International Education/i)).toBeVisible();
+    await expect(page.getByText(/未经 Cambridge International Education 背书/)).toBeVisible();
     await expect(page.getByRole('link', { name: /^Open lesson$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Handout$/i }).first()).toBeVisible();
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toBeVisible();
@@ -1160,7 +1160,7 @@ test.describe('site smoke', () => {
       await page.goto(pageUrl(course.route));
       await expect(page.getByRole('heading', { name: course.name, exact: true })).toBeVisible();
       await expect(page.locator('.oh-primary-nav [aria-current="page"]')).toHaveText(course.name);
-      await expect(page.locator('.oh-primary-nav a')).toHaveText(['IGCSE Economics', 'A Level Economics', 'Investment and finance', 'Homework']);
+      await expect(page.locator('.oh-primary-nav a')).toHaveText(['IGCSE 经济学', 'A Level 经济学', '投资与金融', '作业入口']);
       await expect(page.locator('.oh-primary-nav a[data-oh-nav="homework"]')).toHaveAttribute('href', localHomeworkUrl);
       await expect(page.getByRole('link', { name: 'View lessons', exact: true })).toHaveAttribute('href', course.section);
       await page.getByRole('link', { name: 'View lessons', exact: true }).click();

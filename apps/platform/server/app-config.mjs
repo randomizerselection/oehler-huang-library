@@ -42,7 +42,10 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
   );
   const teacherInviteCode = String(env.ECONMARK_TEACHER_INVITE_CODE ?? "").trim();
   const studentClasses = commaSeparated(env.ECONMARK_STUDENT_CLASSES, DEFAULT_STUDENT_CLASSES);
+  const econmarkPrivate = booleanValue(env.OH_ECONMARK_PRIVATE, true);
   return Object.freeze({
+    econmarkPrivate,
+    classJoinRequired: econmarkPrivate,
     dataDir: resolve(root, env.OH_DATA_DIR || env.ECONMARK_DATA_DIR || "../../.platform-data"),
     libraryRoot: resolve(root, env.OH_LIBRARY_ROOT || "../library"),
     selectorRoot: resolve(root, env.OH_SELECTOR_ROOT || "../student-selector"),
@@ -67,7 +70,7 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
     gradingRequestsPerHour,
     cookieSecure: booleanValue(env.ECONMARK_COOKIE_SECURE, false),
     cookieName: "oh_session",
-    allowLegacyRegistration: booleanValue(env.OH_ALLOW_LEGACY_REGISTRATION, false),
+    allowLegacyRegistration: !econmarkPrivate && booleanValue(env.OH_ALLOW_LEGACY_REGISTRATION, false),
     diskWarnPercent: boundedInteger(env.OH_DISK_WARN_PERCENT, 60, 1, 99),
     diskCriticalPercent: boundedInteger(env.OH_DISK_CRITICAL_PERCENT, 70, 1, 99),
     diskUploadStopPercent: boundedInteger(env.OH_DISK_UPLOAD_STOP_PERCENT, 80, 1, 99),
@@ -82,9 +85,10 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
       teacher_storage_mb: teacherStorageMb,
       permanent_storage: true,
       account_required_for_uploads: true,
-      public_samples_enabled: true,
+      econmark_private: econmarkPrivate,
+      public_samples_enabled: !econmarkPrivate,
       teacher_registration_enabled: true,
-      class_join_required: false,
+      class_join_required: econmarkPrivate,
       student_classes: studentClasses,
       platform_base_path: "/econmark",
       disk_warn_percent: boundedInteger(env.OH_DISK_WARN_PERCENT, 60, 1, 99),

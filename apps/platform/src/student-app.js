@@ -245,7 +245,7 @@ async function submitAnswer() {
   if (!state.file || !state.assignment || !elements.consent.checked) return;
   if (!ensureAuthenticated()) return;
   if (getAuthState().account?.role !== "student") {
-    const message = "真实自评提交需要学生账户。教师可在教师工作台测试公开样例。";
+    const message = "真实自评提交需要学生账户。教师可在教师工作台测试合成样例。";
     showAlert(message, "error"); toast(message, "error"); return;
   }
   startProcessing();
