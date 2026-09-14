@@ -756,9 +756,9 @@ window.ALEVEL_SYLLABUS = {
       "check": "Explain why equilibrium income need not equal full-employment income.",
       "followUp": "Draw and explain one inflationary gap and one deflationary gap.",
       "resource": {
-        "label": "Investment, government spending and net exports slides",
-        "href": "lessons/9-1-2-investment-accelerator/index.html",
-        "note": "These slides cover 9.1.2; the income-gap segment needs additional preparation."
+        "label": "Equilibrium income and expenditure gaps slides",
+        "href": "lessons/9-1-3-income-gaps/index.html",
+        "note": "Second segment of this session (9.1.3). Begin with the preceding Investment, government spending and net exports deck (9.1.2). Both decks are linked on the course page; preparation does not record taught coverage."
       }
     },
     {

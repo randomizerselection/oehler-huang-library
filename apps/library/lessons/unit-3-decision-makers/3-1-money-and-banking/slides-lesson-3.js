@@ -340,7 +340,7 @@ IGCSE.lesson = {
           "extract": "MS basis: Coherent analysis of deposits and interest, payments, lending, advice, insurance or currency exchange. Do not reward more than three services: development is required."
         }
       ],
-      "notes": "A concrete contrast: Mei pays suppliers regularly; a household sets money aside for next term. Some current accounts pay interest and savings-account access varies. Teach typical purposes, not an absolute rule that savings cannot be withdrawn. Photos illustrate the purposes: making payments and saving. The piggy bank is a visual analogy for saving, not a bank account.",
+      "notes": "A concrete contrast: Emma pays suppliers regularly; a household sets money aside for next term. Some current accounts pay interest and savings-account access varies. Teach typical purposes, not an absolute rule that savings cannot be withdrawn. Photos illustrate the purposes: making payments and saving. The piggy bank is a visual analogy for saving, not a bank account.",
       "layout": "bank-accounts",
       "leftVisual": IGCSE.photos.moneyBanking.contactlessPayment,
       "rightVisual": IGCSE.photos.monetaryPolicy.householdSaving
@@ -352,7 +352,7 @@ IGCSE.lesson = {
       "layout": "written-check-wide",
       "items": [
         {
-          "text": "Mei pays suppliers several times a week. Which account suits this use?",
+          "text": "Emma pays suppliers several times a week. Which account suits this use?",
           "answer": "Current account",
           "reason": "It supports regular payments and transfers."
         },
@@ -481,9 +481,9 @@ IGCSE.lesson = {
             "zh": "银行提供3,000元贷款"
           },
           {
-            "text": "Mei finances __________ in a fridge",
+            "text": "Emma finances __________ in a fridge",
             "answer": "investment",
-            "zh": "Mei为购买冰箱的投资筹资"
+            "zh": "Emma为购买冰箱的投资筹资"
           },
           {
             "text": "Greater food storage can help the cafe __________",
@@ -500,7 +500,7 @@ IGCSE.lesson = {
           "extract": "MS basis: one mark for each role and one for each explanation. Loans finance investment or operations; payments include fund transfers; deposits provide safekeeping."
         }
       ],
-      "notes": "The loan plus Mei’s RMB 3,000 funds the RMB 6,000 fridge. More sales depend on demand. Repayments and interest must be affordable. This is business investment, not a claim that a loan guarantees profit."
+      "notes": "The loan plus Emma’s RMB 3,000 funds the RMB 6,000 fridge. More sales depend on demand. Repayments and interest must be affordable. This is business investment, not a claim that a loan guarantees profit."
     },
     {
       "type": "quiz",
@@ -758,7 +758,7 @@ IGCSE.lesson = {
     {
       "type": "discussion",
       "question": "A bank wants more borrowers and savers. How should it change loan rates and savings rates? Explain each choice.",
-      "notes": "Use Mei as borrower and a household as saver. Revisit interest as a borrowing cost and saving reward. Ask for directions before displaying the comparison.",
+      "notes": "Use Emma as borrower and a household as saver. Revisit interest as a borrowing cost and saving reward. Ask for directions before displaying the comparison.",
       "visual": {
         "src": "../../../assets/images/money-and-banking/hsbc-hong-kong.jpg",
         "alt": "HSBC’s Hong Kong headquarters.",

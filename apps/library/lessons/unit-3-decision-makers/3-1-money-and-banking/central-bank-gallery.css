@@ -1,0 +1,32 @@
+/* Photo first; the native card partial reveals the complete bilingual identity. */
+.slide.is-layout-central-bank-guess { isolation: isolate; background: #07151c; }
+.is-layout-central-bank-guess .content { display: block; position: static; }
+.is-layout-central-bank-guess .content aside.visual { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; margin: 0; }
+.is-layout-central-bank-guess .photoPanel { width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; background: #07151c; box-shadow: none; }
+.is-layout-central-bank-guess .photoPanel img { display: block; width: 100%; height: 100%; max-height: none; object-fit: cover; }
+.is-layout-central-bank-guess .photoPanel::after { display: none; }
+.is-layout-central-bank-guess::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(2,12,20,.64), transparent 27%, transparent 48%, rgba(2,12,20,.86) 100%); }
+.is-layout-central-bank-guess .photoPanel figcaption { display: none; }
+.is-layout-central-bank-guess .content main > div { display: contents; }
+.is-layout-central-bank-guess h2 { position: absolute; top: 12vh; left: 5.8vw; margin: 0; color: #fff; font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; text-shadow: 0 2px 12px #001017; }
+.is-layout-central-bank-guess h2 .inlineZh { display: block; margin-top: .4rem; color: #fff; font-size: clamp(21px, 1.7vw, 28px); }
+.is-layout-central-bank-guess .cardgrid { position: absolute; left: 5.8vw; right: 5.8vw; bottom: 12vh; display: block; }
+.is-layout-central-bank-guess .card { min-height: 0; padding: 0 0 0 1.35rem; border: 0; border-left: 5px solid #ffd166; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+.is-layout-central-bank-guess .cardTitle { color: #fff; font-size: clamp(38px, 4.6vw, 72px); line-height: 1.07; text-shadow: 0 2px 14px #001017; }
+.is-layout-central-bank-guess .cardTitleZh { display: block; margin-top: .5rem; color: #ffe3a0; font-size: clamp(26px, 2.5vw, 40px); font-weight: 550; }
+.is-layout-central-bank-guess .cardBody { display: block; margin-top: .7rem; color: #fff; font-size: clamp(23px, 1.9vw, 31px); line-height: 1.2; text-shadow: 0 2px 10px #001017; }
+.is-layout-central-bank-guess .topline,
+.is-layout-central-bank-guess .slide-footer,
+.is-layout-central-bank-guess .slide-footer .creator { color: #fff; text-shadow: 0 2px 8px #001017; }
+.is-layout-central-bank-guess:has(img[src$="people-bank-of-china-2020.jpg"]) .photoPanel img { object-position: 50% 45%; }
+.is-layout-central-bank-guess:has(img[src$="bank-of-england-facade.jpg"]) .photoPanel img { object-position: 50% 40%; }
+@media (max-width: 900px) {
+  .slide.is-layout-central-bank-guess { min-height: 100svh; height: 100svh; }
+  .is-layout-central-bank-guess h2 { top: 17vh; left: 5vw; right: 5vw; font-size: 27px; }
+  .is-layout-central-bank-guess h2 .inlineZh { font-size: 21px; }
+  .is-layout-central-bank-guess .cardgrid { left: 5vw; right: 5vw; bottom: 17vh; }
+  .is-layout-central-bank-guess .card { padding-left: .8rem; border-left-width: 4px; }
+  .is-layout-central-bank-guess .cardTitle { font-size: clamp(32px, 8.4vw, 46px); }
+  .is-layout-central-bank-guess .cardTitleZh { font-size: 25px; }
+  .is-layout-central-bank-guess .cardBody { font-size: 21px; }
+}

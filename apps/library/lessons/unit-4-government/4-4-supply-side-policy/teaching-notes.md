@@ -1,29 +1,35 @@
 # Supply-side policy: 4 September pacing
 
+## 14 September continuation revision
+
+The former Effects and evaluation deck is now split into **Lesson 4: Effects of supply-side policy** and **Lesson 5: Limitations and evaluation**. See [EFFECTS-SOURCES.md](./EFFECTS-SOURCES.md) for the coverage audit, original question/page references and teaching qualifications. This update supersedes the old Lesson 4 pacing and optional-question notes below.
+
+Lesson 4 has 23 core slides and a three-slide optional inflation extension after Summary. Allow about 45 minutes for the core, including the original current-account six-mark answer. Lesson 5 has 28 slides; allow 50–55 minutes for complete writing on both original Discuss questions, or use the education question for guided planning in a shorter period and protect the independent budget-deficit exit. Each deck has its own recall, objectives, teaching, assessed writing, model feedback and study views. Prepared decks do not establish taught coverage.
+
 The first class stopped at **Two types of supply-side policy**. Nothing after that point is assumed taught. In particular, **Capacity, efficiency and output** is new content in lesson 2, not retrieval.
 
 ## Lesson 2: policy introduction plus the existing core
 
-Open [lesson 2](./lesson-2.html). The new numbered policy lists and identification checks on **slides 5–8** add about six minutes to the existing 40-minute core. Each list reads across: policy name, government action, supply-side effect. Teach through the **first Exit ticket, slide 36**. For a 40-minute period, continue the writing and exit check next time rather than rushing the introduction.
+Open [lesson 2](./lesson-2.html). The new numbered policy lists and identification checks on **slides 5–8** add about six minutes to the existing 40-minute core. Each list reads across: policy name, government action, supply-side effect. Teach through the **first Exit ticket, slide 34**. For a 40-minute period, continue the writing and exit check next time rather than rushing the introduction.
 
 | Time | Slides | Teaching focus |
 | --- | --- | --- |
 | 0–5 min | 1–4 | Recall supply-side policy and the two policy types; a classification MCQ; objectives. |
 | 5–11 min | 5–8 | List four interventionist measures and five market-based measures. After each list, identify policies from examples and explain one effect. |
-| 11–23 min | 9–20 | Teach output, productivity, efficiency and capacity. Calculate output per mechanic. Use both staged PPC diagrams, then check the distinction. |
-| 23–31 min | 21–27 | Mechanics photograph and full-slide question; education versus training; explain how skills raise productivity and capacity. |
-| 31–37 min | 28–33 | Skills mismatch, occupational mobility and retraining. Check why a course does not guarantee a job. |
-| 37–44 min | 34–35 | Four-minute independent explanation, then model answer and improvement. |
-| 44–46 min | 36 | Individual exit ticket. Stop here. |
+| 11–23 min | 9–18 | Teach output, productivity, efficiency and capacity. Calculate output per mechanic. Use the staged outward PPC shift; allow time for students to explain the increase in productive capacity. |
+| 23–31 min | 19–25 | Mechanics photograph and full-slide question; education versus training; explain how skills raise productivity and capacity. |
+| 31–37 min | 26–31 | Skills mismatch, occupational mobility and retraining. Check why a course does not guarantee a job. |
+| 37–44 min | 32–33 | Four-minute independent explanation, then model answer and improvement. |
+| 44–46 min | 34 | Individual exit ticket. Stop here. |
 
-If discussion takes longer, use the missing-sentence task on slide 27 orally. Protect the independent writing and exit check. Keep question slides to a brief think, one or two responses, and the next teaching step.
+If discussion takes longer, use the missing-sentence task on slide 25 orally. Protect the independent writing and exit check. Keep question slides to a brief think, one or two responses, and the next teaching step.
 
-**After the core:** resume lesson 2 at **slide 37, Healthcare and productivity**. Continue through infrastructure and subsidies, then the six-mark question and final exit. Do this before opening the market-based policy deck (lesson 3). The lesson 2 quiz and flashcards still cover the whole interventionist topic; use them after the continuation.
+**After the core:** resume lesson 2 at **slide 35, Healthcare and productivity**. Continue through infrastructure and subsidies, then the six-mark question and final exit. Do this before opening the market-based policy deck (lesson 3). The lesson 2 quiz and flashcards still cover the whole interventionist topic; use them after the continuation.
 
 ## PPC teaching
 
 - **Slide 18:** axes → existing PPC → outward shift → compare possible output at the same capital-goods output.
-- **Slide 19:** axes → point inside the PPC → use idle resources → higher actual output on the unchanged frontier.
+- The four supply-side decks retain outward-shift diagrams only (11 September 2026). Slides illustrating movement towards an unchanged PPC and the dependent distinction check were removed.
 - Use **Next step**, **Back** and **Reset**, or Right/Space and Left. At the final step, Right continues to the next slide.
 - The diagrams retain the old frontier as a reference. They are schematic: axis distances are not measured data.
 - The completed diagrams are also included in Handout view.

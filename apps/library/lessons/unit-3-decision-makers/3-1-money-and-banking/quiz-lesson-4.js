@@ -86,15 +86,15 @@ IGCSE.quiz = {
     {
       "id": "policy-purpose",
       "type": "multipleChoice",
-      "prompt": "Why might a central bank influence interest rates?",
+      "prompt": "Why does a central bank operate monetary policy?",
       "choices": [
-        "To influence borrowing and spending and help maintain price stability.",
+        "To control inflation and help maintain price stability.",
         "To guarantee every bank’s profit.",
         "To cancel all private debts.",
         "To decide all prices directly."
       ],
       "answer": 0,
-      "explanation": "Monetary policy influences economic decisions, including borrowing and spending, which can affect price pressure.",
+      "explanation": "A central bank uses monetary policy to control inflation and help protect purchasing power.",
       "sources": [
         {
           "label": "Syllabus and definitions",

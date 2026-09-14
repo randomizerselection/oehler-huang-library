@@ -13,7 +13,7 @@ The [current syllabus, 1.1.3](../../syllabus-2026-27.html) specifies:
 3. Effects of the assumed return and the time horizon: vary one at a time in charts.
 4. A projection based on assumptions is distinct from a guaranteed outcome.
 
-The 30-slide deck uses one historical hook and two connected fictional goals. The final teaching section is **Assumed return**: compare Lin’s rate scenarios, define the concept, make all assumptions explicit, then write a conditional conclusion. Two optional questions follow the main closing slide. The first contains Lin’s three-year table and an extra-year calculation; the second tests changing annual returns. The generic projection and unrelated Microsoft example remain removed.
+The 30-slide deck uses one historical hook and two connected fictional goals. The final teaching section is **Assumed return**: compare Lucy’s rate scenarios, define the concept, make all assumptions explicit, then write a conditional conclusion. Two optional questions follow the main closing slide. The first contains Lucy’s three-year table and an extra-year calculation; the second tests changing annual returns. The generic projection and unrelated Microsoft example remain removed.
 
 ## Historical opening challenge
 
@@ -37,15 +37,15 @@ The red-packet scenario, savings target, named students and share-calculation fi
 | Year 2: return on original money + return on earlier interest | ¥100 + ¥10 = ¥110 |
 | Simple vs compound at 10% over 20 years | ¥3,000 vs ¥6,727.50; gap ¥3,727.50, counting all interest |
 | Third-year interest: ¥2,000 at 5%, fully reinvested | ¥2,000 → ¥2,100 → ¥2,205; year 3 interest ¥110.25 |
-| Mei’s new-iPhone budget | ¥8,000 in 3 years; ¥6,500 at 10% gives ¥8,651.50, a ¥651.50 surplus |
-| Mei’s annual balances | ¥7,150; ¥7,865; ¥8,651.50; first reaches the goal in year 3 |
-| Lin’s photography-club camera budget | ¥2,400 in 3 years; ¥2,000 at 5% gives ¥2,315.25, a ¥84.75 shortfall |
-| Lin’s annual balances at 5% | ¥2,100; ¥2,205; ¥2,315.25 |
-| Lin waits a fourth year at 5% | ¥2,431.01; extra growth ¥115.76; surplus ¥31.01 |
-| Lin’s 3-year results at 3%, 5%, 7% | ¥2,185.45; ¥2,315.25; ¥2,450.09 |
-| Optional: Jun’s ¥2,000 gains 20%, then loses 20% | ¥2,400 then ¥1,920; loss ¥80 |
+| Emma’s new-iPhone budget | ¥8,000 in 3 years; ¥6,500 at 10% gives ¥8,651.50, a ¥651.50 surplus |
+| Emma’s annual balances | ¥7,150; ¥7,865; ¥8,651.50; first reaches the goal in year 3 |
+| Lucy’s photography-club camera budget | ¥2,400 in 3 years; ¥2,000 at 5% gives ¥2,315.25, a ¥84.75 shortfall |
+| Lucy’s annual balances at 5% | ¥2,100; ¥2,205; ¥2,315.25 |
+| Lucy waits a fourth year at 5% | ¥2,431.01; extra growth ¥115.76; surplus ¥31.01 |
+| Lucy’s 3-year results at 3%, 5%, 7% | ¥2,185.45; ¥2,315.25; ¥2,450.09 |
+| Optional: Jack’s ¥2,000 gains 20%, then loses 20% | ¥2,400 then ¥1,920; loss ¥80 |
 
-Full precision is retained until monetary display. These are fictional savings plans, not observed performance. All bar charts have a zero baseline; principal and accumulated returns are proportional to value. Hold Lin’s starting money and budget fixed, changing only time or the assumed rate. Both the three-year and four-year results are conditional.
+Full precision is retained until monetary display. These are fictional savings plans, not observed performance. All bar charts have a zero baseline; principal and accumulated returns are proportional to value. Hold Lucy’s starting money and budget fixed, changing only time or the assumed rate. Both the three-year and four-year results are conditional.
 
 ## Definitions
 
@@ -66,14 +66,14 @@ Two concise columns contrast interest on the original principal with interest on
 
 ## Photographs and visual pauses
 
-Original downloaded photographs remain unmodified; CSS fits them for classroom display. The cover is an AI-generated conceptual illustration of increasingly large additions to coin stacks, not a historical photo or scaled chart. The opening uses only difficult-term Chinese. The new-iPhone pause introduces the same Mei, goal and photograph as the calculation. Its image is an iPhone 17 Pro representing a future phone purchase; it is not described as an iPhone 18 or a forecast of a future model. The ¥8,000 future budget is fictional. Lin’s camera case now includes a camera photograph.
+Original downloaded photographs remain unmodified; CSS fits them for classroom display. The cover is an AI-generated conceptual illustration of increasingly large additions to coin stacks, not a historical photo or scaled chart. The opening uses only difficult-term Chinese. The new-iPhone pause introduces the same Emma, goal and photograph as the calculation. Its image is an iPhone 17 Pro representing a future phone purchase; it is not described as an iPhone 18 or a forecast of a future model. The ¥8,000 future budget is fictional. Lucy’s camera case now includes a camera photograph.
 
 | Local course asset | Credit / licence | Source and teaching purpose |
 |---|---|---|
 | `lesson-03/compound-growth-coins.png` | OpenAI ImageGen, built-in tool, 9 September 2026 | Conceptual cover, saved in the course asset directory. |
 | `lesson-02/nasdaq-stock-market-display.jpg` | bfishadow, CC BY 2.0 | [Original](https://commons.wikimedia.org/wiki/File:NASDAQ_stock_market_display.jpg): a US share-market scene for the hook, not a depiction of the S&P 500 index or a claim that NASDAQ and S&P 500 returns are identical. |
-| `lesson-03/iphone-17-pro.jpg` | 茅野ふたば, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Original](https://commons.wikimedia.org/wiki/File:IPhone_17_Pro.jpg): a representative iPhone for Mei’s future purchase. Original unchanged; CSS framing only. |
-| `lesson-03/camera-canon-eos.jpg` | Thomas Wolf, [www.foto-tw.de](https://www.foto-tw.de), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [Original on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canon_EOS_400D.jpg): camera for Lin’s photography goal. Original unchanged; CSS fits the whole camera. |
+| `lesson-03/iphone-17-pro.jpg` | 茅野ふたば, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Original](https://commons.wikimedia.org/wiki/File:IPhone_17_Pro.jpg): a representative iPhone for Emma’s future purchase. Original unchanged; CSS framing only. |
+| `lesson-03/camera-canon-eos.jpg` | Thomas Wolf, [www.foto-tw.de](https://www.foto-tw.de), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [Original on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canon_EOS_400D.jpg): camera for Lucy’s photography goal. Original unchanged; CSS fits the whole camera. |
 | `lesson-02/apple-fifth-avenue-new.jpg` | Ed Uthman, CC BY-SA 2.5 | [Original](https://commons.wikimedia.org/wiki/File:Apple_store_fifth_avenue.jpg): company identification in retrieval. |
 
 Cover prompt (built-in ImageGen): “Use case: photorealistic-natural. Asset type: wide 16:9 cover photograph for a classroom lesson titled Compound growth, with title overlay on the left. Primary request: an elegant macro still life representing compound interest: five stacks of coins increasing in height by increasingly large increments across the right two-thirds of the frame, each stack visibly retaining a base of silver coins with additional warm copper coins above, showing returns building on earlier returns. A small green seedling beside the largest stack reinforces growth. Realistic metal texture, natural side lighting, warm paper and deep forest tones, dark softly blurred negative space on the left for the lesson title. Editorial photographic style, believable physical stacks, no charts, no arrows, no written text, no numbers, no logos, no watermark. This is a conceptual illustration, not historical evidence.”
@@ -82,9 +82,9 @@ Cover prompt (built-in ImageGen): “Use case: photorealistic-natural. Asset typ
 
 - 0–4 minutes: opening prediction and Lesson 2 retrieval/calculations.
 - 4–14: compound growth; retained-interest chart; interest on earlier interest; definitions; simple-versus-compound comparison and balance checkpoint.
-- 14–28: **FV = P(1 + r)ⁿ first**, with FV immediately explained as the final total (principal plus growth) in English and Chinese. After the phone picture, calculate whether Mei reaches ¥8,000. Check the same result year by year; then apply the formula independently to Lin’s camera case with a picture. The formula stays visible through practice.
-- 28–40: compare Lin’s 3-year scenarios at 3%, 5% and 7%; define assumed return; compare historical US and Chinese asset returns, then apply the distinction between a long-run average and an annual outcome to Lin; explicitly list the forecast conditions; evaluate her claim and return to the opening investment. Allow about 4 minutes for the new evidence sequence, or extend the main lesson slightly if discussion runs longer.
-- If time remains: two clearly labelled optional tasks after the ending, both with full hidden answers. Lin’s annual table plus a fourth-year calculation explores time; Jun’s gain/loss question shows why changing annual returns require separate yearly factors.
+- 14–28: **FV = P(1 + r)ⁿ first**, with FV immediately explained as the final total (principal plus growth) in English and Chinese. After the phone picture, calculate whether Emma reaches ¥8,000. Check the same result year by year; then apply the formula independently to Lucy’s camera case with a picture. The formula stays visible through practice.
+- 28–40: compare Lucy’s 3-year scenarios at 3%, 5% and 7%; define assumed return; compare historical US and Chinese asset returns, then apply the distinction between a long-run average and an annual outcome to Lucy; explicitly list the forecast conditions; evaluate her claim and return to the opening investment. Allow about 4 minutes for the new evidence sequence, or extend the main lesson slightly if discussion runs longer.
+- If time remains: two clearly labelled optional tasks after the ending, both with full hidden answers. Lucy’s annual table plus a fourth-year calculation explores time; Jack’s gain/loss question shows why changing annual returns require separate yearly factors.
 
 Use the same forward/back controls for chart stages. Retrieval methods stay hidden until “Show answer” is opened. Equations use upright type, true superscripts and stacked fractions. Narrow screens allow horizontal chart scrolling rather than shrinking all labels to illegibility. No lesson route or title changed; content-manifest rebuilding is unnecessary.
 
@@ -108,7 +108,7 @@ The Treasury figure includes bond-price changes, not just coupons. Gold narrowly
 
 [Chen Peng / 有知有行, SBBI China Yearbook 2025, chapter 1](https://youzhiyouxing.cn/sbbi2025/cumulative-chart/) provides the annualised figures: CSI 300 total return **9.71%**; ChinaBond 7–10-year Treasury wealth index **4.36%**; Shanghai Gold Exchange Au9999 **10.57%**. These are broad portfolios/indices, not single securities. [Appendix](https://youzhiyouxing.cn/sbbi2025/appendix/) gives end-2025 multiples on an end-2004 base of 1: **7.00, 2.45, 8.26**. Multiplying these published rounded multiples by 1,000 gives the approximate slide endpoints.
 
-The [estimation appendix](https://youzhiyouxing.cn/sbbi2025/estimated-data/) documents estimated 2005 CSI 300 dividends and estimated early 2005–2006 government-bond observations. It also reports the CSI 300's **−65.61%** total return in 2008, used to distinguish the 21-year compound equivalent from annual outcomes. US/China bond maturities and index construction differ; this is a comparison of representative asset categories, not perfectly identical instruments. The scenario question returns to Lin's three-year deadline and her stated forecast conditions.
+The [estimation appendix](https://youzhiyouxing.cn/sbbi2025/estimated-data/) documents estimated 2005 CSI 300 dividends and estimated early 2005–2006 government-bond observations. It also reports the CSI 300's **−65.61%** total return in 2008, used to distinguish the 21-year compound equivalent from annual outcomes. US/China bond maturities and index construction differ; this is a comparison of representative asset categories, not perfectly identical instruments. The scenario question returns to Lucy's three-year deadline and her stated forecast conditions.
 
 ### Added and reused asset photographs
 
@@ -119,7 +119,7 @@ All originals are unchanged; CSS frames them for the slide. New Chinese-market i
 | `lesson-03/shanghai-stock-exchange.jpg` | 钉钉, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Shanghai Stock Exchange6.jpg](https://commons.wikimedia.org/wiki/File:Shanghai_Stock_Exchange6.jpg), 26 June 2022; represents the Chinese share market, while CSI 300 also includes Shenzhen. |
 | `lesson-03/china-finance-ministry.jpg` | N509FZ, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Ministry of Finance of PRC, south wing](https://commons.wikimedia.org/wiki/File:Ministry_of_Finance_of_PRC,_south_wing_(20201028170321).jpg), 28 October 2020; identifies the government bond issuer. |
 | `lesson-02/us-treasury-building.jpg` | MeanieHyaena, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [US Treasury building](https://commons.wikimedia.org/wiki/File:Us-treasury-building.jpg); identifies the issuer, not a particular bond security. |
-| `lesson-02/gold-bullion-bars.jpg` | Stevebidmead, CC0 | [Gold bullion bars](https://commons.wikimedia.org/wiki/File:Gold_bullion_bars.jpg); accompanies Jun’s retrieval calculation and gold in both currencies. |
+| `lesson-02/gold-bullion-bars.jpg` | Stevebidmead, CC0 | [Gold bullion bars](https://commons.wikimedia.org/wiki/File:Gold_bullion_bars.jpg); accompanies Jack’s retrieval calculation and gold in both currencies. |
 
 Selective copper/bold emphasis now marks key definition terms and meaning-bearing phrases in both languages; English and Chinese wording is preserved. This preference and visual historical comparisons are recorded in the course-wide teaching brief.
 
@@ -130,4 +130,4 @@ Each country’s snapshot now leads directly into a three-series line graph. Bot
 
 The US paths use NYU’s cumulative-wealth columns for S&P 500, 10-year Treasury bonds and gold: divide each year’s cumulative value by its end-2004 value and multiply by 1,000. The China paths multiply the published SBBI Appendix 1.1 wealth multiples by 1,000. China’s source rounds its multiples to two decimals, making plotted balances approximate to about ¥10. Full numerical series are frozen in the lesson source as `usAssetWealth` and `chinaAssetWealth`.
 
-These are historical paths, not smooth curves computed from the annualised rates. Straight segments connect annual observations and omit within-year movements. Shares and bonds include reinvested income; gold has none. Preserve the earlier benchmark and estimated-observation caveats. The US question asks whether the eventual winner always led. The China question directs attention to the 2008 fall and returns to Lin’s three-year deadline. Allow another 2–3 minutes to discuss both graphs.
+These are historical paths, not smooth curves computed from the annualised rates. Straight segments connect annual observations and omit within-year movements. Shares and bonds include reinvested income; gold has none. Preserve the earlier benchmark and estimated-observation caveats. The US question asks whether the eventual winner always led. The China question directs attention to the 2008 fall and returns to Lucy’s three-year deadline. Allow another 2–3 minutes to discuss both graphs.

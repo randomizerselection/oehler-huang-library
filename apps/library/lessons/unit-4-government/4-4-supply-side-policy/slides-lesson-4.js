@@ -1,225 +1,278 @@
-/* Supply-side policy, lesson 4.
-   Syllabus: ../../../references/igcse-economics-syllabus-2027-2029.md (4.4).
-   Definitions: ../../../references/igcse-economics-definitions-2026.md.
-   Paper 2: ../../../references/paper-2-mark-schemes-2023-2025/
-   Teaching sequence revised 4 September 2026 after lesson 1 stopped at
-   Two types of supply-side policy. See hero notes for classroom pacing.
-*/
+/* Source-checked continuation: EFFECTS-SOURCES.md. */
 window.IGCSE = window.IGCSE || {};
-const photos = IGCSE.photos.supplySidePolicy;
 IGCSE.lesson = {
   "meta": {
     "code": "4.4.3",
     "unit": "Unit 4 - Government and the macroeconomy",
-    "title": "Supply-side policy lesson 4: effects and evaluation - Cambridge IGCSE Economics 0455",
+    "title": "Supply-side policy lesson 4: effects of supply-side policy - Cambridge IGCSE Economics 0455",
     "lessonLabel": "Supply-side policy lesson 4",
     "courseLabel": "Cambridge IGCSE Economics 0455",
-    "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School"
+    "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
+    "deliveryPlan": {
+      "durationMinutes": 45,
+      "coreEndSlide": 23,
+      "status": "Prepared; not evidence of taught coverage"
+    }
   },
   "slides": [
     {
       "type": "hero",
-      "eyebrow": "Overview",
-      "title": "Effects and evaluation",
-      "zhTitle": "影响与评价",
-      "subtitle": "Supply-side policy lesson 4 - 4.4.3",
-      "kicker": "How do capacity, productivity and competitiveness affect macroeconomic aims?",
-      "visual": photos.portTerminal,
-      "notes": "Suggested 40 minutes: recall 4; growth and employment 9; prices and competitiveness 8; evaluation 7; one eight-mark plan/answer and feedback 9; exit 3. Use the education question as the core writing task; the inflation question is optional consolidation. Ask for one quick response on each full-slide question, then check the taught mechanism."
-    },
-    {
-      "type": "peerTask",
-      "taskType": "definitionRecall",
-      "eyebrow": "Recall",
-      "title": "Recall last lesson",
-      "prompt": "On paper, write one sentence for each term.",
-      "stepsLabel": "Write these definitions",
-      "definitionItems": [
+      "layout": "ssp-hero",
+      "eyebrow": "Lesson 4 · 4.4.3",
+      "title": "Effects of supply-side policy",
+      "zhTitle": "供给侧政策的影响",
+      "kicker": "Growth, employment, prices and competitiveness",
+      "visual": IGCSE.photos.supplySidePolicy.portTerminal,
+      "sources": [
         {
-          "label": "1",
-          "term": "Supply-side policy",
-          "answer": "Policy measures designed to increase productive capacity and total supply by improving resources, efficiency or factor mobility."
-        },
-        {
-          "label": "2",
-          "term": "Privatisation",
-          "answer": "The sale or transfer of assets from the public sector to the private sector."
-        },
-        {
-          "label": "3",
-          "term": "Deregulation",
-          "answer": "The removal or reduction of government rules and regulations affecting firms."
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
         }
       ],
-      "sharePrompt": "Compare with a partner before revealing the model answers."
+      "notes": "Prepared continuation, not reported taught. Allow about 45 minutes, including independent writing and feedback. Lesson 5 may need a second period if both full Discuss answers are written. Protect writing time; stop at a section boundary and resume. Optional material follows the core Summary.",
+      "partialReview": false
     },
     {
-      "type": "discussion",
-      "question": "If firms become more productive, which macroeconomic aims might improve at the same time?",
-      "notes": "如果企业生产率提高，哪些宏观经济目标可能同时改善？ Possible answer: Growth, employment, price stability and the current account may improve, but only if the policy is effective and well targeted. 经济增长、就业、价格稳定和经常账户都可能改善，但前提是政策有效且目标明确。",
-      "layout": "question-only"
+      "type": "classificationTask",
+      "layout": "ssp-written",
+      "eyebrow": "Recall",
+      "title": "Recall: policies and incentives",
+      "items": [
+        {
+          "text": "Name two interventionist policies.",
+          "answer": "Education and training; infrastructure spending. Healthcare and subsidies are also valid."
+        },
+        {
+          "text": "How can a corporation tax cut encourage investment?",
+          "answer": "Firms keep more profit, leaving more funds to buy capital goods."
+        },
+        {
+          "text": "What does an outward PPC shift show?",
+          "answer": "An increase in productive capacity: more possible output with improved resources or technology."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ]
     },
     {
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
       "bullets": [
-        "Explain supply-side effects on growth, employment and prices.",
-        "Explain effects on competitiveness and the current account.",
-        "Evaluate supply-side policy in Paper 2 answers."
+        "Explain effects on growth and employment.",
+        "Explain lower costs and international competitiveness.",
+        "Develop a six-mark past-paper answer."
       ],
       "zhBullets": [
-        "解释供给侧政策对增长、就业和价格的影响。",
-        "解释对竞争力和经常账户的影响。",
-        "在 Paper 2 答案中评价供给侧政策。"
-      ]
+        "解释对经济增长与就业的影响。",
+        "解释成本下降与国际竞争力。",
+        "完成有分析深度的六分真题。"
+      ],
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ],
+      "partialReview": false
     },
     {
       "type": "section",
       "eyebrow": "Part 1",
-      "title": "Growth and employment",
-      "zhTitle": "增长与就业"
+      "title": "Productivity, growth and employment",
+      "zhTitle": "生产率、增长与就业",
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ],
+      "partialReview": false
     },
     {
-      "type": "visualPause",
-      "title": "Visual pause: Exam archive",
-      "visual": photos.vwApprentices,
-      "notes": "Example: Exam archive / China. Former fact context: Recent Paper 2 mark schemes link education, training, healthcare and infrastructure to productivity and lower unemployment. | China planned a modern vocational education system by 2025 to support high-quality development. Teacher question: Which macroeconomic aim is shown, and what cost can unemployment create? Possible answer: The aim is low unemployment; unemployment wastes labour and reduces household income. Source: Source: Cambridge IGCSE Economics 0455 Paper 2 archive, 2023-2025. | Source: China State Council vocational education guidelines, 2021."
+      "type": "cards",
+      "eyebrow": "Learn",
+      "title": "Skills improve production across the economy",
+      "zhTitle": "技能改善整个经济体的生产",
+      "cards": [
+        {
+          "title": "1. The same workers and hours",
+          "body": "Training improves production in food, machinery and transport."
+        },
+        {
+          "title": "2. More output from each worker",
+          "body": "Each sector produces more with unchanged worker-hours."
+        },
+        {
+          "title": "3. Higher productive capacity",
+          "body": "The economy can produce more goods and services."
+        }
+      ],
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        }
+      ],
+      "layout": "ssp-capacity-scene",
+      "notes": "Teacher-created illustration, not measured data. Three sectors represent the economy; their different outputs are not added as physical units. Hold worker-hours and other inputs constant. Ask what changes before advancing. Distinguish possible output from actual sales. The diagram controls are reversible."
     },
     {
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
-      "title": "How productivity supports growth",
-      "zhTitle": "生产率如何支持经济增长",
+      "title": "Effect on economic growth",
+      "zhTitle": "对经济增长的影响",
       "nodes": [
         [
           {
-            "text": "Output per worker __________",
-            "answer": "rises",
-            "zh": "每名工人的产出增加"
+            "text": "Skills and productivity __________",
+            "answer": "increase",
+            "zh": "技能与生产率提高"
           },
           {
-            "text": "Productive capacity __________",
-            "answer": "increases",
+            "text": "Productive __________ rises",
+            "answer": "capacity",
             "zh": "生产能力提高"
           },
           {
-            "text": "Firms can produce more __________",
-            "answer": "output",
-            "zh": "企业能够生产更多产出"
-          },
-          {
-            "text": "Real GDP may __________",
-            "answer": "rise",
-            "zh": "实际国内生产总值可能增加"
+            "text": "Real output can __________",
+            "answer": "increase",
+            "zh": "实际产出能够增加"
           }
         ]
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        }
       ]
     },
     {
-      "type": "quiz",
-      "eyebrow": "Check",
-      "question": "Why can higher productivity support economic growth?",
-      "choices": [
-        "It automatically makes everyone buy more.",
-        "It allows more real output to be produced from available resources.",
-        "It always raises the price of every product.",
-        "It removes every need for investment."
-      ],
-      "answer": 1,
-      "prompt": "Higher productivity can raise productive capacity and real output. Demand still affects how much of that capacity firms use."
-    },
-    {
       "type": "cards",
-      "eyebrow": "PPC reasoning",
-      "title": "Growth on a PPC",
-      "cards": [
-        [
-          "Growth route",
-          "productivity or capital increases maximum possible output"
-        ],
-        [
-          "Policy route",
-          "education, infrastructure, investment or technology improves supply conditions"
-        ],
-        [
-          "Capacity route",
-          "maximum possible output rises"
-        ],
-        [
-          "Analysis",
-          "state that productive capacity and long-run output rise"
-        ]
+      "eyebrow": "Learn",
+      "title": "Higher capacity allows more output",
+      "zhTitle": "生产能力提高使更多产出成为可能",
+      "cards": [],
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        }
       ],
+      "layout": "ppc-teaching",
       "visual": {
         "type": "diagram",
         "kind": "ppc",
         "mode": "rightShift",
-        "title": "PPC: long-run growth",
-        "caption": "Higher productivity, capital or technology can shift PPC1 to PPC2.",
+        "title": "Productive capacity increases",
+        "caption": "An outward shift from PPC1 to PPC2.",
         "checklist": false
       },
-      "layout": "ppc-teaching",
       "ppcTeaching": {
         "mode": "capacity",
         "steps": [
           {
-            "title": "Read the two output axes",
-            "text": "Capital goods are on the vertical axis; consumer goods are on the horizontal axis.",
-            "zh": "纵轴是资本品，横轴是消费品。",
-            "takeaway": "Both axes show output, not prices or time."
+            "title": "Two types of output",
+            "text": "Capital goods and consumer goods are quantities of output.",
+            "zh": "资本品与消费品：两个轴都表示产量。",
+            "takeaway": "The axes do not show prices."
           },
           {
-            "title": "Start with the existing capacity",
-            "text": "PPC1 shows the maximum combinations possible with current resources and technology.",
-            "zh": "PPC1表示现有资源和技术下的最大产出组合。",
-            "takeaway": "The curve is the boundary of possible production."
+            "title": "PPC1 shows existing capacity",
+            "text": "The frontier shows maximum possible output combinations.",
+            "zh": "PPC1表示现有最大产出组合。",
+            "takeaway": "Current resources and technology set this boundary."
           },
           {
-            "title": "Improve the ability to produce",
-            "text": "Better skills, more capital or better technology allow the economy to produce more.",
-            "zh": "资源数量、质量或技术改善，生产能力提高。",
-            "takeaway": "PPC1 → PPC2: the whole frontier shifts outwards."
+            "title": "Better resources shift the PPC outwards",
+            "text": "Skills, capital or technology raise the economy’s productive capacity.",
+            "zh": "技能、资本或技术改善，生产能力提高。",
+            "takeaway": "PPC1 → PPC2: more output becomes possible."
           },
           {
-            "title": "Read what the shift means",
-            "text": "At the same output of capital goods, the economy can produce more consumer goods.",
-            "zh": "资本品产量不变时，经济体能生产更多消费品。",
-            "takeaway": "Higher capacity means more possible output; demand affects how much is used."
+            "title": "More consumer goods at the same capital-goods output",
+            "text": "Trace the horizontal guide and compare the two possible outputs.",
+            "zh": "沿水平辅助线，比较消费品产量。",
+            "takeaway": "Demand still affects how much firms actually produce."
           }
         ]
       },
-      "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
+      "notes": "Ask students to draw and label both axes and PPC1 → PPC2. Use one explanation: better resources increase productive capacity. Retain the outward-shift scope; do not teach movement towards an unchanged frontier."
     },
     {
-      "type": "discussion",
-      "layout": "question-only",
-      "question": "Why can a country have unemployed workers and unfilled jobs at the same time?",
-      "notes": "Workers may lack the skills or location employers need. 一个国家为什么可能同时有失业工人和空缺岗位？"
+      "type": "classificationTask",
+      "layout": "ssp-written",
+      "eyebrow": "Check",
+      "title": "Explain why capacity is not guaranteed growth",
+      "items": [
+        {
+          "text": "New equipment raises capacity, but total spending is weak. Must real GDP rise by the same amount?",
+          "answer": "No. Firms may lack buyers, so actual production may rise less than productive capacity."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ]
     },
     {
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
-      "title": "How better skills support employment",
-      "zhTitle": "更好的技能如何促进就业",
+      "title": "Effect on unemployment",
+      "zhTitle": "对失业的影响",
       "nodes": [
         [
           {
-            "text": "Training improves workers’ __________",
+            "text": "Training improves __________",
             "answer": "skills",
-            "zh": "培训提高工人技能"
+            "zh": "培训提高技能"
           },
           {
-            "text": "Workers match available __________",
+            "text": "Workers can move between __________",
+            "answer": "occupations",
+            "zh": "劳动者更能转换职业"
+          },
+          {
+            "text": "More workers fill suitable __________",
             "answer": "vacancies",
-            "zh": "工人与现有空缺岗位匹配"
-          },
-          {
-            "text": "Firms may __________ more workers",
-            "answer": "hire",
-            "zh": "企业可能雇用更多工人"
+            "zh": "填补适合的职位空缺"
           },
           {
             "text": "Structural unemployment may __________",
@@ -227,454 +280,532 @@ IGCSE.lesson = {
             "zh": "结构性失业可能减少"
           }
         ]
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        }
       ]
     },
     {
-      "type": "yesNoCheck",
+      "type": "classificationTask",
+      "layout": "ssp-written",
       "eyebrow": "Check",
-      "title": "Will every training course reduce unemployment?",
+      "title": "Explain the employment condition",
       "items": [
         {
-          "statement": "A course teaches skills that local employers do not need.",
-          "answer": false,
-          "reason": "It may fail to improve job matching; policy must target real skills shortages."
+          "text": "A country trains more mechanics while employers need nurses. Explain the likely limit.",
+          "answer": "The new skills do not match vacancies. Training may do little to reduce structural unemployment."
         }
       ],
-      "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
-    },
-    {
-      "type": "cards",
-      "eyebrow": "PPC reasoning",
-      "title": "Employment on a PPC",
-      "cards": [
-        [
-          "Problem",
-          "structural unemployment can leave output inside the PPC"
-        ],
-        [
-          "Policy",
-          "skills or mobility improve"
-        ],
-        [
-          "Effect",
-          "workers match vacancies and output moves closer to the PPC"
-        ],
-        [
-          "Limit",
-          "this is not automatically a rightward shift"
-        ]
-      ],
-      "visual": {
-        "type": "diagram",
-        "kind": "ppc",
-        "mode": "insideToOn",
-        "title": "PPC: employment effect",
-        "caption": "Lower structural unemployment can move output from inside the PPC towards the PPC.",
-        "checklist": false
-      },
-      "layout": "ppc-teaching",
-      "ppcTeaching": {
-        "mode": "use",
-        "steps": [
-          {
-            "title": "Keep the same output axes",
-            "text": "Read capital goods vertically and consumer goods horizontally.",
-            "zh": "纵轴是资本品，横轴是消费品。",
-            "takeaway": "Keep resources and technology unchanged in this example."
-          },
-          {
-            "title": "Start inside the frontier",
-            "text": "Point A is inside the PPC: some resources are unemployed or used inefficiently.",
-            "zh": "A点在PPC内部：部分资源失业或未得到有效利用。",
-            "takeaway": "Actual output is below productive capacity."
-          },
-          {
-            "title": "Use existing resources better",
-            "text": "Helping suitable workers reach existing vacancies brings unemployed labour into production.",
-            "zh": "更充分地利用现有资源，实际产量从A点增加到B点。",
-            "takeaway": "A → B: output increases towards the existing frontier."
-          },
-          {
-            "title": "Distinguish output from capacity",
-            "text": "Point B lies on the same PPC. Both outputs are higher than at A, but the frontier has not shifted.",
-            "zh": "B点仍在同一条PPC上：实际产量增加，生产能力没有改变。",
-            "takeaway": "Using spare capacity is different from creating new capacity."
-          }
-        ]
-      },
-      "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ]
     },
     {
       "type": "section",
       "eyebrow": "Part 2",
-      "title": "Prices and competitiveness",
-      "zhTitle": "价格与竞争力"
-    },
-    {
-      "type": "discussion",
-      "question": "Why might a supply-side policy reduce inflation without reducing employment?",
-      "notes": "为什么供给侧政策可能在不减少就业的情况下降低通货膨胀？ Possible answer: If productivity rises and unit costs fall, firms may increase supply and lower prices rather than cut output. 如果生产率上升、单位成本下降，企业可能增加供给并降低价格，而不是削减产出。",
-      "layout": "question-only"
-    },
-    {
-      "type": "flow",
-      "mode": "fillBlanks",
-      "eyebrow": "Learn",
-      "title": "How supply-side policy eases price pressure",
-      "zhTitle": "供给侧政策如何缓解价格压力",
-      "nodes": [
-        [
-          {
-            "text": "Workers become more __________",
-            "answer": "productive",
-            "zh": "工人生产率提高"
-          },
-          {
-            "text": "Costs per unit may __________",
-            "answer": "fall",
-            "zh": "单位成本可能下降"
-          },
-          {
-            "text": "Firms can increase total __________",
-            "answer": "supply",
-            "zh": "企业能够增加总供给"
-          },
-          {
-            "text": "Cost-push inflationary pressure may __________",
-            "answer": "fall",
-            "zh": "成本推动的通胀压力可能下降"
-          }
-        ]
-      ]
-    },
-    {
-      "type": "quiz",
-      "eyebrow": "Check",
-      "question": "Which link explains lower cost-push inflationary pressure?",
-      "choices": [
-        "Higher productivity can lower unit costs.",
-        "Higher productivity guarantees higher wages only.",
-        "Supply-side policy always lowers interest rates.",
-        "More skills always reduce output."
-      ],
-      "answer": 0,
-      "prompt": "Lower costs per unit make firms less likely to raise prices as quickly."
-    },
-    {
-      "type": "discussion",
-      "layout": "question-only",
-      "question": "If two countries sell equally good bicycles, how could lower production costs help one country sell abroad?",
-      "notes": "Lower costs may allow a more competitive price. Keep this as the simple exports link; detailed current-account analysis belongs in Unit 6. 自行车质量相同，较低的生产成本怎样帮助出口？"
-    },
-    {
-      "type": "flow",
-      "mode": "fillBlanks",
-      "eyebrow": "Learn",
-      "title": "How competitiveness can improve trade",
-      "zhTitle": "竞争力如何改善贸易",
-      "nodes": [
-        [
-          {
-            "text": "Quality improves or unit costs __________",
-            "answer": "fall",
-            "zh": "质量改善或单位成本下降"
-          },
-          {
-            "text": "Exports become more __________",
-            "answer": "competitive",
-            "zh": "出口产品更有竞争力"
-          },
-          {
-            "text": "Export sales may __________",
-            "answer": "rise",
-            "zh": "出口销售可能增加"
-          },
-          {
-            "text": "The current account may __________",
-            "answer": "improve",
-            "zh": "经常账户可能改善"
-          }
-        ]
-      ]
-    },
-    {
-      "type": "yesNoCheck",
-      "eyebrow": "Check",
-      "title": "Must the current account improve?",
-      "items": [
+      "title": "Prices and international competitiveness",
+      "zhTitle": "价格与国际竞争力",
+      "sources": [
         {
-          "statement": "Exports rise, but import spending rises by even more.",
-          "answer": false,
-          "reason": "Higher exports alone do not guarantee an improved trade balance or current account."
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
         }
       ],
-      "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
+      "partialReview": false
     },
     {
       "type": "cards",
       "eyebrow": "Learn",
-      "title": "Effects on macro aims",
+      "title": "More output spreads the same costs",
+      "zhTitle": "更多产出分摊相同成本",
       "cards": [
-        [
-          "Economic growth",
-          "higher capacity can raise real GDP"
-        ],
-        [
-          "Employment",
-          "skills and expansion can reduce unemployment"
-        ],
-        [
-          "Price stability",
-          "lower unit costs can reduce cost-push pressure"
-        ],
-        [
-          "Current account",
-          "competitiveness can raise exports or reduce imports"
-        ]
+        {
+          "title": "Before training",
+          "body": "¥1,200 total cost ÷ 100 units = ¥12 per unit."
+        },
+        {
+          "title": "After training",
+          "body": "¥1,200 total cost ÷ 150 units = ¥8 per unit."
+        }
       ],
-      "visual": {
-        "type": "diagram",
-        "kind": "ppc",
-        "mode": "rightShift",
-        "title": "PPC: long-run growth",
-        "caption": "Higher productivity, capital or technology can shift PPC1 to PPC2.",
-        "checklist": false
-      },
-      "layout": "ppc-teaching",
-      "ppcTeaching": {
-        "mode": "capacity",
-        "steps": [
-          {
-            "title": "Read the two output axes",
-            "text": "Capital goods are on the vertical axis; consumer goods are on the horizontal axis.",
-            "zh": "纵轴是资本品，横轴是消费品。",
-            "takeaway": "Both axes show output, not prices or time."
-          },
-          {
-            "title": "Start with the existing capacity",
-            "text": "PPC1 shows the maximum combinations possible with current resources and technology.",
-            "zh": "PPC1表示现有资源和技术下的最大产出组合。",
-            "takeaway": "The curve is the boundary of possible production."
-          },
-          {
-            "title": "Improve the ability to produce",
-            "text": "Better skills, more capital or better technology allow the economy to produce more.",
-            "zh": "资源数量、质量或技术改善，生产能力提高。",
-            "takeaway": "PPC1 → PPC2: the whole frontier shifts outwards."
-          },
-          {
-            "title": "Read what the shift means",
-            "text": "At the same output of capital goods, the economy can produce more consumer goods.",
-            "zh": "资本品产量不变时，经济体能生产更多消费品。",
-            "takeaway": "Higher capacity means more possible output; demand affects how much is used."
-          }
-        ]
-      },
-      "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
+      "partialReview": [
+        ".cardgrid > .card"
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        }
+      ],
+      "layout": "ssp-costs",
+      "lead": "Total cost stays ¥1,200; output rises from 100 to 150 units. What is the new average cost?",
+      "notes": "Illustrative calculation, holding total cost constant and excluding the one-off training cost. Ask students to calculate the second average cost before reveal. A firm illustrates the unit-cost link; sustained lower inflation requires effects across the economy, not one price change."
     },
     {
-      "type": "answer",
-      "eyebrow": "Check",
-      "title": "Fill in the blanks",
+      "type": "flow",
       "mode": "fillBlanks",
-      "steps": [
+      "eyebrow": "Learn",
+      "title": "Effect on price stability",
+      "zhTitle": "对价格稳定的影响",
+      "nodes": [
         [
-          "1",
-          "Higher productivity can reduce average __________.",
-          "costs"
-        ],
-        [
-          "2",
-          "Lower costs may reduce cost-push __________.",
-          "inflation"
-        ],
-        [
-          "3",
-          "More competitive exports may improve the current __________.",
-          "account"
-        ],
-        [
-          "4",
-          "Better skills may reduce structural __________.",
-          "unemployment"
+          {
+            "text": "Economy-wide productivity __________",
+            "answer": "rises",
+            "zh": "全经济的生产率提高"
+          },
+          {
+            "text": "Average production costs may __________",
+            "answer": "fall",
+            "zh": "平均生产成本可能下降"
+          },
+          {
+            "text": "Cost-push inflation pressure __________",
+            "answer": "eases",
+            "zh": "成本推动型通胀压力缓解"
+          }
         ]
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(d)",
+          "question": "Discuss why some countries may experience lower inflation in the future and some may not.",
+          "marks": 8,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 16,
+          "extract": "Accepted reasons for lower inflation: technology lowers costs; education and healthcare raise productivity; international competition; slower wage growth; policies that reduce demand. Opposing reasons: optimism and spending; more government spending; lower interest rates and higher total demand; scarce raw materials; rising energy and food prices."
+        }
+      ]
+    },
+    {
+      "type": "classificationTask",
+      "layout": "ssp-written",
+      "eyebrow": "Check",
+      "title": "Distinguish lower inflation from falling prices",
+      "items": [
+        {
+          "text": "Inflation falls from 6% to 2%. Explain what happens to the general price level.",
+          "answer": "Prices still rise, but more slowly. Lower inflation does not mean that past price increases are reversed."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "eyebrow": "Learn",
+      "title": "When productivity gains do not lower inflation",
+      "zhTitle": "生产率提高未必降低通胀",
+      "cards": [
+        {
+          "title": "Rising input costs 投入成本上升",
+          "body": "Higher energy or raw-material prices may outweigh the saving from higher productivity."
+        },
+        {
+          "title": "Rising total demand 总需求上升",
+          "body": "Spending may grow faster than productive capacity, maintaining upward pressure on prices."
+        }
+      ],
+      "partialReview": [
+        ".cardgrid > .card"
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(d)",
+          "question": "Discuss why some countries may experience lower inflation in the future and some may not.",
+          "marks": 8,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 16,
+          "extract": "Accepted reasons for lower inflation: technology lowers costs; education and healthcare raise productivity; international competition; slower wage growth; policies that reduce demand. Opposing reasons: optimism and spending; more government spending; lower interest rates and higher total demand; scarce raw materials; rising energy and food prices."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "mode": "fillBlanks",
+      "eyebrow": "Learn",
+      "title": "Effect on export revenue",
+      "zhTitle": "对出口收入的影响",
+      "nodes": [
+        [
+          {
+            "text": "Average costs may __________",
+            "answer": "fall",
+            "zh": "平均成本可能下降"
+          },
+          {
+            "text": "Export prices become more __________",
+            "answer": "competitive",
+            "zh": "出口价格更有竞争力"
+          },
+          {
+            "text": "Foreign demand may __________",
+            "answer": "rise",
+            "zh": "国外需求可能增加"
+          },
+          {
+            "text": "Export revenue may __________",
+            "answer": "increase",
+            "zh": "出口收入可能增加"
+          }
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "mode": "fillBlanks",
+      "eyebrow": "Learn",
+      "title": "Effect on import expenditure",
+      "zhTitle": "对进口支出的影响",
+      "nodes": [
+        [
+          {
+            "text": "Domestic goods become cheaper or __________",
+            "answer": "better",
+            "zh": "本国产品更便宜或质量更高"
+          },
+          {
+            "text": "Consumers switch from __________",
+            "answer": "imports",
+            "zh": "消费者转向本国产品"
+          },
+          {
+            "text": "Import expenditure may __________",
+            "answer": "fall",
+            "zh": "进口支出可能下降"
+          }
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "eyebrow": "Learn",
+      "title": "Effect on the current account",
+      "zhTitle": "对经常账户的影响",
+      "cards": [
+        {
+          "title": "Exports 出口",
+          "body": "Higher export revenue increases money received from abroad."
+        },
+        {
+          "title": "Imports 进口",
+          "body": "Lower import expenditure reduces money paid abroad."
+        },
+        {
+          "title": "Current account 经常账户",
+          "body": "Together, these may reduce a deficit or increase a surplus, other items unchanged."
+        }
+      ],
+      "partialReview": [
+        ".cardgrid > .card"
+      ],
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ],
+      "notes": "This is the trade component of the current account. The current account also contains primary and secondary income; do not equate it with the government budget or teach a full Unit 6 taxonomy here. Lower export prices need a sufficient quantity response for revenue to rise. More investment may initially require imported machinery."
+    },
+    {
+      "type": "classificationTask",
+      "layout": "ssp-written",
+      "eyebrow": "Check",
+      "title": "Explain why higher exports are not enough",
+      "items": [
+        {
+          "text": "Export revenue rises by ¥20m; import expenditure rises by ¥30m. Other current-account items are unchanged. What happens?",
+          "answer": "The current-account balance worsens by ¥10m. A deficit widens or a surplus shrinks."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
       ]
     },
     {
       "type": "section",
       "eyebrow": "Part 3",
-      "title": "Evaluation",
-      "zhTitle": "评价"
+      "title": "Past paper questions",
+      "zhTitle": "历年真题",
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ],
+      "partialReview": false
     },
     {
-      "type": "discussion",
-      "layout": "question-only",
-      "question": "The government opens a new school today. Will factories become more productive tomorrow?",
-      "notes": "Schooling takes time before students enter the workforce. 政府今天开办新学校，工厂明天就会更有生产率吗？"
+      "type": "exam",
+      "eyebrow": "Exit ticket",
+      "title": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments. [6]",
+      "prompt": "Independent writing · 6 minutes. Explain the export effect and the import effect, then link both to the current-account surplus. This is the assessed exit.",
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ],
+      "notes": "Allow an independent written attempt before the model. The source controls preserve the exact question and original scheme. This is an original question; the following prose is a teacher model, not an official answer.",
+      "examSpec": {
+        "pattern": "2023MJ-21 Q3(c)"
+      }
+    },
+    {
+      "type": "modelAnswer",
+      "eyebrow": "Teaching model",
+      "title": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments. [6]",
+      "paragraphs": [
+        "Higher labour productivity means more output per worker. This may reduce average costs of production and allow firms to lower prices. Exports become more internationally competitive, so foreign demand and export revenue may rise.",
+        "Domestic products also become more competitive relative to imports. Residents may switch to domestic goods, reducing import expenditure. Higher export revenue and lower import expenditure increase the current-account surplus, other items unchanged."
+      ],
+      "answer": "Higher labour productivity means more output per worker. This may reduce average costs of production and allow firms to lower prices. Exports become more internationally competitive, so foreign demand and export revenue may rise.\n\nDomestic products also become more competitive relative to imports. Residents may switch to domestic goods, reducing import expenditure. Higher export revenue and lower import expenditure increase the current-account surplus, other items unchanged.",
+      "partialReview": [
+        ".modelAnswerParagraphs > p"
+      ],
+      "links": [
+        "average costs",
+        "export revenue",
+        "import expenditure",
+        "productivity",
+        "tax revenue",
+        "government spending",
+        "suitable jobs",
+        "short run",
+        "long run"
+      ],
+      "showLinkChips": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ],
+      "examSpec": {
+        "pattern": "2023MJ-21 Q3(c)"
+      }
     },
     {
       "type": "cards",
       "eyebrow": "Learn",
-      "title": "Time lags and opportunity cost",
+      "title": "Summary",
+      "zhTitle": "总结",
       "cards": [
-        [
-          "Time lag 时间滞后",
-          "Education can take years to change workers’ skills and output."
-        ],
-        [
-          "Opportunity cost 机会成本",
-          "Money spent on training cannot also fund the next-best alternative, such as healthcare."
-        ]
+        {
+          "title": "Growth and employment",
+          "body": "Higher capacity allows more real output; relevant skills help workers fill vacancies."
+        },
+        {
+          "title": "Prices",
+          "body": "Lower average costs may ease inflation across the economy."
+        },
+        {
+          "title": "Competitiveness",
+          "body": "Exports may rise and imports may fall; the outcome depends on demand and costs."
+        }
+      ],
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
       ]
     },
     {
-      "type": "quiz",
-      "eyebrow": "Check",
-      "question": "Which statement identifies an opportunity cost?",
-      "choices": [
-        "Training benefits take five years to appear.",
-        "Funding training means giving up a planned healthcare improvement.",
-        "The training teaches useful skills.",
-        "Productivity rises after the course."
+      "type": "section",
+      "eyebrow": "Part Optional",
+      "title": "Inflation: extended practice",
+      "zhTitle": "通胀：拓展练习",
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
       ],
-      "answer": 1,
-      "prompt": "Opportunity cost is the next-best alternative forgone, not the delay before benefits appear."
-    },
-    {
-      "type": "discussion",
-      "layout": "question-only",
-      "question": "A training programme raises average skills. Could some people still gain little from it?",
-      "notes": "Access may be limited by income, region or course requirements; skills may not match available jobs. 平均技能提高时，为什么有些人仍可能受益很少？"
-    },
-    {
-      "type": "cards",
-      "eyebrow": "Learn",
-      "title": "Targeting and access",
-      "cards": [
-        [
-          "Targeting 针对性",
-          "Courses must match the skills firms actually need."
-        ],
-        [
-          "Access 获得机会",
-          "Benefits may favour workers or regions that can access the programme."
-        ]
-      ]
-    },
-    {
-      "type": "peerTask",
-      "taskType": "missingSentence",
-      "eyebrow": "Pair task",
-      "title": "Complete the missing sentence",
-      "zhPrompt": "与同伴一起，写出一条有条件的政策判断。",
-      "steps": [
-        [
-          "1",
-          "Government-funded training may reduce unemployment."
-        ],
-        [
-          "2",
-          "__________",
-          "It is more likely to work if the course teaches skills needed for available jobs."
-        ],
-        [
-          "3",
-          "A course with no suitable job opportunities may have little effect."
-        ]
-      ],
-      "missingSentenceStep": 2,
-      "missingSentenceAnswer": "It is more likely to work if the course teaches skills needed for available jobs."
+      "partialReview": false
     },
     {
       "type": "exam",
       "eyebrow": "Exam practice",
-      "title": "Discuss whether improving education can help a government achieve its macroeconomic aims. [8]",
-      "keywords": [
-        "productivity",
-        "employment",
-        "prices",
-        "exports",
-        "opportunity cost"
+      "title": "Discuss why some countries may experience lower inflation in the future and some may not. [8]",
+      "prompt": "Optional independent Discuss answer. Develop reasons for lower inflation and reasons it may remain high. Decide which conditions matter most.",
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(d)",
+          "question": "Discuss why some countries may experience lower inflation in the future and some may not.",
+          "marks": 8,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 16,
+          "extract": "Accepted reasons for lower inflation: technology lowers costs; education and healthcare raise productivity; international competition; slower wage growth; policies that reduce demand. Opposing reasons: optimism and spending; more government spending; lower interest rates and higher total demand; scarce raw materials; rising energy and food prices."
+        }
       ],
-      "prompt": "Plan a developed benefit, a developed limitation and a judgement explaining when the policy is most effective."
+      "notes": "Allow an independent written attempt before the model. The source controls preserve the exact question and original scheme. This is an original question; the following prose is a teacher model, not an official answer.",
+      "examSpec": {
+        "pattern": "2023MJ-21 Q3(d)"
+      }
     },
     {
       "type": "modelAnswer",
+      "eyebrow": "Teaching model",
+      "title": "Discuss why some countries may experience lower inflation in the future and some may not. [8]",
+      "paragraphs": [
+        "Countries investing successfully in education, healthcare and technology may raise productivity and reduce average costs. This eases cost-push inflation. International competition may also pressure firms to restrain prices.",
+        "However, energy and food prices may rise, increasing production costs. More optimistic consumers or higher government spending may raise total demand faster than output, causing demand-pull inflation.",
+        "Lower inflation is more likely where productivity gains outweigh cost increases and demand growth remains consistent with the growth of productive capacity."
+      ],
+      "answer": "Countries investing successfully in education, healthcare and technology may raise productivity and reduce average costs. This eases cost-push inflation. International competition may also pressure firms to restrain prices.\n\nHowever, energy and food prices may rise, increasing production costs. More optimistic consumers or higher government spending may raise total demand faster than output, causing demand-pull inflation.\n\nLower inflation is more likely where productivity gains outweigh cost increases and demand growth remains consistent with the growth of productive capacity.",
       "partialReview": [
-        ".modelAnswerCard"
+        ".modelAnswerParagraphs > p"
+      ],
+      "links": [
+        "average costs",
+        "export revenue",
+        "import expenditure",
+        "productivity",
+        "tax revenue",
+        "government spending",
+        "suitable jobs",
+        "short run",
+        "long run"
       ],
       "showLinkChips": false,
-      "eyebrow": "Model answer",
-      "title": "Discuss whether improving education can help a government achieve its macroeconomic aims. [8]",
-      "answer": "Improving education can raise workers’ skills and productivity. Firms can then produce more output per worker, raising productive capacity and allowing real GDP to increase. Better qualifications can also help unemployed workers match vacancies. However, education takes years to affect the workforce and has an opportunity cost: funding it may mean giving up healthcare improvements. If courses do not teach the skills employers need, unemployment may remain high. Education is therefore more likely to help when it targets skills shortages, is accessible to the people who need it and is supported by demand for their work.",
-      "links": [
-        "productivity",
-        "employment",
-        "prices",
-        "exports",
-        "opportunity cost"
-      ]
-    },
-    {
-      "type": "exam",
-      "eyebrow": "Exam practice",
-      "title": "Discuss whether supply-side policies are the best way to reduce inflation. [8]",
-      "keywords": [
-        "productivity",
-        "costs",
-        "time lag",
-        "demand-pull inflation",
-        "monetary policy"
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(d)",
+          "question": "Discuss why some countries may experience lower inflation in the future and some may not.",
+          "marks": 8,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 16,
+          "extract": "Accepted reasons for lower inflation: technology lowers costs; education and healthcare raise productivity; international competition; slower wage growth; policies that reduce demand. Opposing reasons: optimism and spending; more government spending; lower interest rates and higher total demand; scarce raw materials; rising energy and food prices."
+        }
       ],
-      "prompt": "Plan a developed benefit, a developed limitation and a judgement explaining when the policy is most effective.",
-      "notes": "Optional consolidation after the core education writing task. For a 40-minute class, skip this question and its model if needed and go to Exit ticket."
-    },
-    {
-      "type": "modelAnswer",
-      "partialReview": [
-        ".modelAnswerCard"
-      ],
-      "showLinkChips": false,
-      "eyebrow": "Model answer",
-      "title": "Discuss whether supply-side policies are the best way to reduce inflation. [8]",
-      "answer": "Supply-side policies can reduce inflation if they raise productivity and lower firms' costs. Lower costs can reduce cost-push inflation and higher output can reduce pressure on prices. However, there may be a long time lag, and these policies may not solve demand-pull inflation quickly. Monetary policy may be more effective if inflation is caused by excessive spending.",
-      "links": [
-        "productivity",
-        "costs",
-        "time lag",
-        "demand-pull inflation",
-        "monetary policy"
-      ]
-    },
-    {
-      "type": "answer",
-      "eyebrow": "Check",
-      "title": "Exit ticket",
-      "zhTitle": "离堂小测",
-      "mode": "fillBlanks",
-      "steps": [
-        [
-          "1",
-          "Supply-side policy can raise long-run output by increasing productive __________.",
-          "capacity"
-        ],
-        [
-          "2",
-          "It may improve price stability by lowering production __________.",
-          "costs"
-        ],
-        [
-          "3",
-          "It may improve the current account by raising international __________.",
-          "competitiveness"
-        ],
-        [
-          "4",
-          "Evaluation should mention time lags, targeting or opportunity __________.",
-          "cost"
-        ]
-      ],
-      "cue": "Answer before leaving."
+      "examSpec": {
+        "pattern": "2023MJ-21 Q3(d)"
+      }
     }
   ]
 };

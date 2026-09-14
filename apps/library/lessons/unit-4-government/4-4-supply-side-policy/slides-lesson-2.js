@@ -51,8 +51,8 @@ IGCSE.lesson = {
         }
       ],
       "nextSession": "Resume this deck at Healthcare and productivity, then teach infrastructure and subsidies before opening lesson 3.",
-      "coreEndSlide": 36,
-      "continuationStartSlide": 37
+      "coreEndSlide": 34,
+      "continuationStartSlide": 35
     }
   },
   "slides": [
@@ -64,7 +64,7 @@ IGCSE.lesson = {
       "subtitle": "Supply-side policy — lesson 2",
       "kicker": "Identify the policies and explain how they help production",
       "visual": photos.autoMechanicsTraining,
-      "notes": "Previous class stopped at Two types of supply-side policy; Capacity, efficiency and output was NOT taught. The new policy lists and identification checks add about 6 minutes before the existing 40-minute core, giving about 46 minutes in total. Read each list across: policy name, government action, supply-side effect. Students need a simple first explanation; develop the full mechanisms in the later teaching. Stop at the FIRST Exit ticket (slide 36). Healthcare, infrastructure and subsidies from slide 37 are the continuation before lesson 3. If the class is limited to 40 minutes, continue the writing and exit check next time rather than rushing the new introduction."
+      "notes": "Previous class stopped at Two types of supply-side policy; Capacity, efficiency and output was NOT taught. The new policy lists and identification checks add about 6 minutes before the existing 40-minute core, giving about 46 minutes in total. Read each list across: policy name, government action, supply-side effect. Students need a simple first explanation; develop the full mechanisms in the later teaching. Stop at the FIRST Exit ticket (slide 34). Healthcare, infrastructure and subsidies from slide 35 are the continuation before lesson 3. If the class is limited to 40 minutes, continue the writing and exit check next time rather than rushing the new introduction."
     },
     {
       "type": "peerTask",
@@ -389,7 +389,7 @@ IGCSE.lesson = {
         "caption": "PPC2 lies outside PPC1: more output is possible.",
         "checklist": false
       },
-      "notes": "Point to PPC1, then PPC2. The curve represents possible combinations of output. Distinguish an outward shift from simply using idle workers. Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view. 2 minutes: point to each axis, identify the old boundary, reveal the shift, then read the output comparison.",
+      "notes": "Point to PPC1, then PPC2. The curve represents possible combinations of output. Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view. 2 minutes: point to each axis, identify the old boundary, reveal the shift, then read the output comparison.",
       "layout": "ppc-teaching",
       "ppcTeaching": {
         "mode": "capacity",
@@ -420,79 +420,6 @@ IGCSE.lesson = {
           }
         ]
       }
-    },
-    {
-      "type": "cards",
-      "eyebrow": "Learn",
-      "title": "Using spare capacity",
-      "zhTitle": "利用闲置生产能力",
-      "cards": [
-        [
-          "Idle resources",
-          "Some workers or machines are not fully used."
-        ],
-        [
-          "More actual output",
-          "Using them raises output towards the existing PPC."
-        ]
-      ],
-      "visual": {
-        "type": "diagram",
-        "kind": "ppc",
-        "mode": "insideToOn",
-        "title": "Using spare capacity",
-        "caption": "A to B raises actual output; the frontier is unchanged.",
-        "checklist": false
-      },
-      "notes": "Contrast with the preceding outward shift. Keep this example to employing existing idle resources, without new skills, resources or technology. One minute: click through the diagram, then use the following yes/no check. Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view.",
-      "layout": "ppc-teaching",
-      "ppcTeaching": {
-        "mode": "use",
-        "steps": [
-          {
-            "title": "Keep the same output axes",
-            "text": "Read capital goods vertically and consumer goods horizontally.",
-            "zh": "纵轴是资本品，横轴是消费品。",
-            "takeaway": "Keep resources and technology unchanged in this example."
-          },
-          {
-            "title": "Start inside the frontier",
-            "text": "Point A is inside the PPC: some resources are unemployed or used inefficiently.",
-            "zh": "A点在PPC内部：部分资源失业或未得到有效利用。",
-            "takeaway": "Actual output is below productive capacity."
-          },
-          {
-            "title": "Use existing resources better",
-            "text": "Employing idle workers and machines allows more output from the existing productive resources.",
-            "zh": "更充分地利用现有资源，实际产量从A点增加到B点。",
-            "takeaway": "A → B: output increases towards the existing frontier."
-          },
-          {
-            "title": "Distinguish output from capacity",
-            "text": "Point B lies on the same PPC. Both outputs are higher than at A, but the frontier has not shifted.",
-            "zh": "B点仍在同一条PPC上：实际产量增加，生产能力没有改变。",
-            "takeaway": "Using spare capacity is different from creating new capacity."
-          }
-        ]
-      }
-    },
-    {
-      "type": "yesNoCheck",
-      "eyebrow": "Check",
-      "title": "Does productive capacity increase?",
-      "items": [
-        {
-          "statement": "Better skills allow the same workers to produce more per hour.",
-          "answer": true,
-          "reason": "Higher labour productivity can raise maximum possible output and shift the PPC outwards."
-        },
-        {
-          "statement": "More orders use existing idle machines; skills and technology do not change.",
-          "answer": false,
-          "reason": "Actual output rises towards the existing PPC. A rise in demand alone does not create extra capacity."
-        }
-      ],
-      "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
       "type": "section",
@@ -957,61 +884,6 @@ IGCSE.lesson = {
       ],
       "missingSentenceStep": 2,
       "missingSentenceAnswer": "Materials arrive more reliably, so machines spend less time waiting for inputs."
-    },
-    {
-      "type": "cards",
-      "eyebrow": "Learn",
-      "title": "Reaching jobs in another place",
-      "zhTitle": "前往其他地区就业",
-      "cards": [
-        [
-          "Geographical mobility 地理流动性",
-          "Workers can move or travel between places to reach jobs."
-        ],
-        [
-          "Transport link",
-          "A reliable bus service can help unemployed workers reach existing vacancies."
-        ]
-      ],
-      "visual": {
-        "type": "diagram",
-        "kind": "ppc",
-        "mode": "insideToOn",
-        "title": "Using spare resources",
-        "caption": "Output moves towards the existing PPC; capacity has not changed.",
-        "checklist": false
-      },
-      "notes": "Contrast geographical with occupational mobility. Filling existing vacancies uses spare resources and moves actual output towards the existing PPC; it need not shift capacity. Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view.",
-      "layout": "ppc-teaching",
-      "ppcTeaching": {
-        "mode": "use",
-        "steps": [
-          {
-            "title": "Keep the same output axes",
-            "text": "Read capital goods vertically and consumer goods horizontally.",
-            "zh": "纵轴是资本品，横轴是消费品。",
-            "takeaway": "Keep resources and technology unchanged in this example."
-          },
-          {
-            "title": "Start inside the frontier",
-            "text": "Point A is inside the PPC: some resources are unemployed or used inefficiently.",
-            "zh": "A点在PPC内部：部分资源失业或未得到有效利用。",
-            "takeaway": "Actual output is below productive capacity."
-          },
-          {
-            "title": "Use existing resources better",
-            "text": "Helping suitable workers reach existing vacancies brings unemployed labour into production.",
-            "zh": "更充分地利用现有资源，实际产量从A点增加到B点。",
-            "takeaway": "A → B: output increases towards the existing frontier."
-          },
-          {
-            "title": "Distinguish output from capacity",
-            "text": "Point B lies on the same PPC. Both outputs are higher than at A, but the frontier has not shifted.",
-            "zh": "B点仍在同一条PPC上：实际产量增加，生产能力没有改变。",
-            "takeaway": "Using spare capacity is different from creating new capacity."
-          }
-        ]
-      }
     },
     {
       "type": "yesNoCheck",

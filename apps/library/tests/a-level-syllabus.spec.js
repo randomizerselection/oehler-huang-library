@@ -46,7 +46,8 @@ test('@smoke @responsive A Level syllabus navigation, coverage and filtering', a
 test('@smoke @responsive A Level personal planning survives reload and exports safely', async ({ page }, testInfo) => {
   await page.goto(pageUrl('syllabus/index.html') + '#al-004');
   await expect(page.locator('#al-004')).toHaveAttribute('open', '');
-  await expect(page.locator('#al-004 .lesson-resource')).toContainText('income-gap segment needs additional preparation');
+  await expect(page.locator('#al-004 .lesson-resource a')).toHaveAttribute('href', '../lessons/9-1-3-income-gaps/index.html');
+  await expect(page.locator('#al-004 .lesson-resource')).toContainText('preparation does not record taught coverage');
   await page.locator('#date-al-004').fill('2026-10-12');
   await page.locator('#status-al-004').selectOption('Taught');
   const notes = '=SUM(1,2)\n<not-html> "quote"';

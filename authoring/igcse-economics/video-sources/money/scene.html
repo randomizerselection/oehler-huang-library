@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Money | IGCSE Economics | Oehler-Huang Platform</title>
+<style>html,body{margin:0;background:#102b43}canvas{display:block;width:100vw;height:auto}</style>
+<canvas id="film" width="1920" height="1080"></canvas><script>
+const ctx=document.querySelector('canvas').getContext('2d');
+const C={navy:'#102b43',ink:'#16364d',paper:'#f6f2e9',cyan:'#57d7dd',gold:'#efbd66',red:'#f59b8e',white:'#fffdf8',muted:'#a8bec9',line:'#365369',green:'#164b43'};
+let fg,bg,accent;window.timeline=[];window.captions=[];window.bounds=[];
+function text(t,x,y,size=28,color=fg,weight=400,align='left'){ctx.font=`${weight} ${size}px "Segoe UI",Arial`;ctx.fillStyle=color;ctx.textAlign=align;ctx.fillText(t,x,y);const w=ctx.measureText(t).width,l=align==='center'?x-w/2:align==='right'?x-w:x;const m=ctx.getTransform(),left=(m.a*l+m.e)/1.5,right=(m.a*(l+w)+m.e)/1.5,base=(m.d*y+m.f)/1.5;if(left<25||right>1255||base>708)bounds.push({t,left,right,base});}
+function wrap(t,x,y,w,size=28,color=fg,weight=400){ctx.font=`${weight} ${size}px "Segoe UI",Arial`;let a='',lines=[];for(const p of t.split(' ')){if(ctx.measureText(a+' '+p).width>w&&a){lines.push(a);a=p}else a+=(a?' ':'')+p}if(a)lines.push(a);lines.forEach((l,i)=>text(l,x,y+i*size*1.32,size,color,weight));return y+lines.length*size*1.32}
+function box(x,y,w,h,col,r=16){ctx.fillStyle=col;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function line(x,y,x2,y2,col=accent,w=3){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke()}
+function arrow(x,y,x2,y2,col=accent){line(x,y,x2,y2,col,4);let a=Math.atan2(y2-y,x2-x);ctx.fillStyle=col;ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-13*Math.cos(a-.45),y2-13*Math.sin(a-.45));ctx.lineTo(x2-13*Math.cos(a+.45),y2-13*Math.sin(a+.45));ctx.fill()}
+function circle(x,y,r,col,fill=false){ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.strokeStyle=col;ctx.lineWidth=4;if(fill){ctx.fillStyle=col;ctx.fill()}else ctx.stroke()}
+const ease=t=>{t=Math.max(0,Math.min(1,t));return 1-(1-t)**3};
+function note(x,y,value=10,scale=1){ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);box(-90,-48,180,96,C.green,9);ctx.strokeStyle=C.cyan;ctx.lineWidth=2;ctx.strokeRect(-80,-38,160,76);circle(0,0,27,C.gold);text(String(value),0,10,29,C.white,700,'center');text('RMB',-68,-17,12,C.cyan,600);ctx.restore()}
+function coin(x,y,value=1,r=33){circle(x,y,r,C.gold,true);circle(x,y,r-6,C.navy);text(String(value),x,y+10,28,C.navy,700,'center')}
+function book(x,y,col=C.cyan){box(x-50,y-66,100,132,col,8);line(x-34,y-58,x-34,y+58,C.navy,3);for(let j=0;j<3;j++)line(x-19,y-29+j*20,x+32,y-29+j*20,C.navy,3)}
+function sandwich(x,y){ctx.fillStyle=C.gold;ctx.beginPath();ctx.moveTo(x-75,y+42);ctx.lineTo(x,y-58);ctx.lineTo(x+75,y+42);ctx.closePath();ctx.fill();line(x-61,y+27,x+60,y+27,C.green,10);line(x-68,y+40,x+67,y+40,C.red,7)}
+function ice(x,y,melt=0){ctx.fillStyle=C.gold;ctx.beginPath();ctx.moveTo(x-35,y);ctx.lineTo(x+35,y);ctx.lineTo(x,y+95);ctx.closePath();ctx.fill();circle(x,y-15,43,C.red,true);if(melt){box(x-47,y+113,94,12,C.red,12);line(x+18,y+5,x+18,y+40,C.red,8)}}
+function rock(x,y){ctx.fillStyle='#8696a0';ctx.beginPath();[[x-80,y+45],[x-93,y-12],[x-46,y-68],[x+33,y-81],[x+86,y-12],[x+78,y+52]].forEach(([a,b],i)=>i?ctx.lineTo(a,b):ctx.moveTo(a,b));ctx.closePath();ctx.fill();line(x-42,y-43,x+28,y-54,'#c2ccd0',4)}
+function painting(x,y){box(x-63,y-69,126,138,C.gold,3);box(x-52,y-58,104,116,C.white,1);circle(x+15,y-27,22,C.red,true);ctx.fillStyle=C.green;ctx.beginPath();ctx.moveTo(x-49,y+52);ctx.lineTo(x-12,y-17);ctx.lineTo(x+46,y+52);ctx.fill()}
+function label(t,x,y,col=accent){text(t,x,y,23,col,600,'center')}
+function takeaway(t,col=accent){box(60,523,1160,61,bg===C.navy?'#1d3d52':'#e5e9df',9);text(t,640,563,27,col,600,'center')}
+function panel(x,y,w,h,title,body){box(x,y,w,h,bg===C.navy?'#1c3c53':'#fffdf8');text(title,x+25,y+44,28,accent,700);wrap(body,x+25,y+94,w-50,28)}
+function checkRows(s,answers){const qs=s.kind==='exit'?['Define money.','Alex saves RMB 40 for next week.','Two genuine RMB 10 notes are interchangeable.']:['A shop displays a price of RMB 80.','Alex agrees to repay RMB 80 next month.'];qs.forEach((q,i)=>{const y=(s.kind==='exit'?167:194)+i*(s.kind==='exit'?118:156);box(60,y,1160,s.kind==='exit'?104:133,'#1c3c53');text(String(i+1).padStart(2,'0'),83,y+43,27,C.gold,700);text(q,146,y+42,29,C.white,500);if(s.answer)text(answers[i],146,y+84,s.kind==='exit'&&i===0?26:29,C.cyan,700);else text('Your answer: ______________________',146,y+83,25,C.muted);});if(!s.answer)text('PAUSE • Say the term and explain the clue.',640,578,24,C.gold,600,'center')}
+window.renderFrame=seconds=>{bounds=[];let i=timeline.findIndex(s=>seconds<s.end);if(i<0)i=timeline.length-1;const s=timeline[i],u=seconds-s.start,p=ease(u/2.4);ctx.setTransform(1.5,0,0,1.5,0,0);
+if(s.brand){ctx.fillStyle=C.paper;ctx.fillRect(0,0,1280,720);if(window.brandLogo){ctx.globalAlpha=ease(u/.7)*ease((s.end-seconds)/.7);ctx.drawImage(brandLogo,190,80,900,506);text('IGCSE ECONOMICS 0455',640,654,23,C.green,600,'center');ctx.globalAlpha=1;}return {bounds};}
+bg=['definition','unit','divisible','uniform','map','model'].includes(s.kind)?C.paper:C.navy;fg=bg===C.navy?C.white:C.ink;accent=bg===C.navy?C.cyan:C.green;ctx.fillStyle=bg;ctx.fillRect(0,0,1280,720);
+text('OEHLER-HUANG  /  PLATFORM',60,38,17,accent,600);text('IGCSE ECONOMICS 0455  ·  3.1.1',1220,38,17,bg===C.navy?C.muted:C.ink,500,'right');line(60,59,1220,59,bg===C.navy?C.line:'#d2d8cf',1);text(s.section.toUpperCase(),60,93,16,bg===C.navy?C.gold:C.green,700);text(s.title,60,143,s.title.length>47?36:42,fg,700);
+switch(s.kind){
+case 'barter':
+ sandwich(250,315);book(1030,315);text('ALEX',250,433,26,accent,700,'center');text('NOTEBOOK SELLER',1030,433,26,accent,700,'center');
+ if(!s.answer){arrow(383,305,855,305,C.red);text('“I am not hungry.”',640,375,30,C.red,600,'center');circle(640,265,27,C.navy,true);text('×',640,276,41,C.red,700,'center');takeaway('Valuable does not automatically mean acceptable.',C.gold)}
+ else{note(415+450*p,291,20,.75);arrow(390,295,889,295);label('Money can be spent elsewhere',640,420);takeaway('Money removes the need for a double coincidence of wants.')}break;
+case 'definition':
+ text('Anything',83,231,48,C.ink);text('generally accepted',83,296,55,C.green,700);text('as a means of payment.',83,361,48,C.ink);line(84,311,570,311,C.gold,5);note(1010,274,20,1.3);['Coins','Banknotes','Bank deposits'].forEach((t,j)=>{box(80+j*383,435,353,65,'#e3e9df');text(t,256+j*383,478,27,C.green,600,'center')});break;
+case 'phone':
+ box(100,198,171,268,C.white,22);box(112,220,147,196,'#23465a',8);text('PAY',185,331,38,C.cyan,700,'center');circle(185,442,9,C.navy);label('Payment tool',186,509);panel(421,236,295,204,"Alex’s account",'Bank deposit');panel(895,236,295,204,"Seller’s account",'Bank deposit');arrow(730,338,878,338);note(769+60*p,326,20,.39);takeaway('In this direct bank payment, the deposit is the money.');break;
+case 'four':
+ [['1','PAY','Medium of exchange'],['2','COMPARE','Unit of account'],['3','SAVE','Store of value'],['4','AGREE TO PAY LATER','Standard of deferred payment']].forEach(([n,a,b],j)=>{let x=60+j%2*595,y=180+Math.floor(j/2)*193;box(x,y,570,170,'#1c3c53');text(n,x+25,y+61,48,C.gold,700);text(a,x+95,y+50,21,C.cyan,700);wrap(b,x+95,y+103,450,30,C.white,600)});break;
+case 'exchange':
+ text('ALEX',216,255,30,accent,700,'center');text('SELLER',1050,255,30,accent,700,'center');arrow(330,300,909,300);note(340+560*p,294,20,.85);arrow(911,436,330,436,C.gold);book(905-560*p,421,C.gold);label('RMB 20 →',640,231);label('← notebook',640,490,C.gold);takeaway('Buying goods and services');break;
+case 'unit':
+ book(279,297);book(999,297,C.gold);text('RMB 20',279,430,46,C.green,700,'center');text('RMB 30',999,430,46,C.green,700,'center');text('30 − 20 = 10',640,317,49,C.ink,700,'center');text('RMB 10 more',640,373,28,C.green,600,'center');takeaway('A common unit makes values comparable.');break;
+case 'store':
+ note(235,304,100,1.2);arrow(391,307,839,307);box(903,222,209,190,'#1c3c53');text('NEXT MONTH',1007,267,21,C.cyan,700,'center');text('School trip',1007,340,31,C.white,600,'center');label('RMB 100 saved today',235,443);label('Purchasing power for later',944,473);takeaway('Saving allows spending to be postponed.');break;
+case 'inflation':
+ ['Before','After'].forEach((t,j)=>{text(t,105+j*595,218,28,accent,700);text(j?'RMB 25 per notebook':'RMB 20 per notebook',105+j*595,265,28,fg);for(let k=0;k<(j?4:5);k++){ctx.save();ctx.translate(133+j*595+k*105,357);ctx.scale(.65,.65);book(0,0,j?C.gold:C.cyan);ctx.restore()}text(j?'100 ÷ 25 = 4':'100 ÷ 20 = 5',300+j*595,472,39,fg,700,'center')});takeaway('Same RMB 100 • fewer goods • lower purchasing power',C.gold);break;
+case 'deferred':
+ panel(70,215,417,244,'TODAY','Borrow RMB 50');panel(793,215,417,244,'NEXT FRIDAY','Repay RMB 50');arrow(517,332,762,332);text('Agreed debt',640,291,24,C.gold,600,'center');text('No interest in this example',640,487,22,C.muted,400,'center');takeaway('Money expresses and settles a future debt.');break;
+case 'function-check':checkRows(s,['Unit of account → measures value','Standard of deferred payment → a future debt']);break;
+case 'objects':
+ ice(255,283);rock(640,306);painting(1025,306);label('Ice cream',255,453,C.gold);label('Huge rocks',640,453,C.gold);label('Unique paintings',1025,453,C.gold);takeaway('Which property would each struggle to provide?');break;
+case 'durable':
+ ice(269,277,p);coin(970,298,1,76);text('Melts / perishes',269,462,29,C.red,600,'center');text('Lasts through repeated use',933,462,29,accent,600,'center');line(625,204,625,480,C.line,2);takeaway('Physical durability ≠ stable purchasing power',C.gold);break;
+case 'portable':
+ rock(262,326);box(824,252,254,170,'#57778a',12);line(841,283,1061,283,C.white,2);note(950,263,10,.9);text('Heavy and awkward',262,472,29,C.red,600,'center');text('Fits in a pocket',952,472,29,accent,600,'center');takeaway('Easy to carry → convenient payments');break;
+case 'divisible':
+ note(255,294,10,1.25);arrow(415,294,718,294);sandwich(949,264);text('RMB 7',949,381,31,C.green,700,'center');[0,1,2].forEach(k=>coin(565+k*91,435,1));text('RMB 3 change',655,499,27,C.green,600,'center');takeaway('Different denominations • no cutting up banknotes');break;
+case 'uniform':
+ note(301,303,10,1.55);note(979,303,10,1.55);text('=',640,329,81,C.green,600,'center');text('Genuine RMB 10',301,448,29,C.green,600,'center');text('Genuine RMB 10',979,448,29,C.green,600,'center');takeaway('Same denomination → same monetary value');break;
+case 'recognisable':
+ note(350,334,10,1.8);circle(419,335,71,C.gold);line(470,389,523,442,C.gold,10);panel(695,212,504,277,'Can you identify it?','Currency\n');text('• Denomination',721,335,31);text('• Security features',721,393,31);takeaway('Identify the currency, value and authenticity.');break;
+case 'acceptable':
+ note(640,336,20,1.3);['SHOP','BUS','CAFÉ'].forEach((t,j)=>{let x=240+j*400;box(x-100,201,200,65,'#1c3c53');text(t,x,244,25,accent,700,'center');if(j!==1)arrow(640+(j?110:-110),338,x,279);});text('People expect others to accept it too.',640,469,33,fg,600,'center');takeaway('General acceptance makes exchange possible.');break;
+case 'limited':
+ box(72,207,405,260,'#1c3c53');text('CONTROLLED SUPPLY',275,251,24,C.cyan,700,'center');note(275,350,10,1.1);wrap('Helps money retain value',592,261,585,41,fg,700);wrap('Scarcity alone is not enough: general acceptance still matters.',592,380,575,28,C.gold);takeaway('Limited supply does not mean a permanently fixed quantity.');break;
+case 'map':
+ [['Durable','Lasts over time','Store of value'],['Divisible','Different payment sizes','Medium of exchange']].forEach((a,j)=>{let y=220+j*171;[85,495,932].forEach((x,k)=>{box(x-20,y, k===2?295:340,112,'#e2e8dc');wrap(a[k],x,y+45,k===2?259:298,k===1?25:29,C.green,700)});arrow(428,y+55,467,y+55,C.green);arrow(843,y+55,902,y+55,C.green)});text('CHARACTERISTIC',85,193,17,C.green,700);text('WHY IT HELPS',495,193,17,C.green,700);text('FUNCTION',932,193,17,C.green,700);break;
+case 'exam':
+ text('Cambridge 0455/22 · May/June 2024 · Q4(b)',60,196,21,C.muted);[['01','Choose a characteristic. Explain it.'],['02','Choose another characteristic. Explain it.']].forEach(([n,t],j)=>{text(n,87,284+j*115,39,C.gold,700);text(t,178,280+j*115,32,fg,500);line(178,307+j*115,1180,307+j*115,C.line,2)});takeaway('PAUSE • Write two complete explanations.',C.gold);break;
+case 'model':
+ [['Portable','Easy to carry when making payments.'],['Divisible','Different denominations allow payments of different values.']].forEach(([a,b],j)=>{let y=200+j*157;box(65,y,1150,135,C.white);text(a,91,y+53,32,C.green,700);wrap(b,354,y+47,763,29,C.ink);text('1 + 1',1149,y+113,20,C.green,600,'right')});text('For this question: 1 identification + 1 explanation, twice.',75,537,26,C.green,600);text('A function alone does not answer a characteristics question.',75,579,25,C.ink);break;
+case 'exit':checkRows(s,['Anything generally accepted as a means of payment.','Store of value','Uniformity']);break;
+}
+// A quiet progress rule and two-line English speech captions, below the teaching area.
+const caption=captions.find(c=>seconds>=c.start&&seconds<c.end);box(0,611,1280,109,C.navy,0);if(caption){ctx.font='400 24px "Segoe UI",Arial';let words=caption.text.split(' '),rows=[],row='';for(const w of words){if(ctx.measureText(row+' '+w).width>1130&&row){rows.push(row);row=w}else row+=(row?' ':'')+w}if(row)rows.push(row);if(rows.length>2)bounds.push({captionOverflow:caption.text,rows:rows.length});rows.forEach((r,j)=>text(r,640,(rows.length===1?666:649)+j*32,24,C.white,400,'center'));}
+if(s.pause&&u>s.audioDuration){const remaining=Math.ceil(s.end-seconds);text('THINK  '+remaining+'s',1199,598,16,bg===C.navy?C.gold:C.green,600,'right')}
+ctx.fillStyle=C.cyan;ctx.fillRect(0,715,1280*seconds/timeline.at(-1).end,5);return {bounds};};
+</script></html>
+

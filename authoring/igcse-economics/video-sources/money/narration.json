@@ -1,0 +1,147 @@
+[
+  {
+    "id": "hook",
+    "section": "Money",
+    "title": "Could you pay with a sandwich?",
+    "kind": "barter",
+    "speech": "Alex offers a sandwich for a notebook. The seller is not hungry. How does money solve this problem?",
+    "pause": 0.35
+  },
+  {
+    "id": "definition",
+    "section": "Definition",
+    "title": "What is money?",
+    "kind": "definition",
+    "speech": "Money is anything generally accepted as a means of payment. Valuable is not enough: people must normally accept it. Common forms include notes, coins and bank deposits. A phone or card is a payment tool, not the money itself.",
+    "pause": 0.35
+  },
+  {
+    "id": "exchange",
+    "section": "Functions · 1 of 4",
+    "title": "Medium of exchange",
+    "kind": "exchange",
+    "speech": "Alex pays twenty yuan for a notebook. Money is a medium of exchange: it buys goods and services. The seller can spend it elsewhere, without wanting Alex's sandwich.",
+    "pause": 0.35
+  },
+  {
+    "id": "unit",
+    "section": "Functions · 2 of 4",
+    "title": "Unit of account",
+    "kind": "unit",
+    "speech": "Alex compares notebooks priced at twenty and thirty yuan. Money is a unit of account, or measure of value. A common unit lets him compare prices. No purchase is needed.",
+    "pause": 0.35
+  },
+  {
+    "id": "store",
+    "section": "Functions · 3 of 4",
+    "title": "Store of value",
+    "kind": "store",
+    "speech": "Alex saves one hundred yuan for next month's trip. Money is a store of value: it carries purchasing power into the future. Inflation can weaken this function because rising prices mean the same money buys less.",
+    "pause": 0.35
+  },
+  {
+    "id": "deferred",
+    "section": "Functions · 4 of 4",
+    "title": "Standard of deferred payment",
+    "kind": "deferred",
+    "speech": "Alex borrows fifty yuan and agrees to repay it next Friday. Money is a standard of deferred payment: future debts are expressed and settled in money. The clue is an agreed future payment, rather than simply saving.",
+    "pause": 0.35
+  },
+  {
+    "id": "check-functions",
+    "section": "Your turn",
+    "title": "Which function is being illustrated?",
+    "kind": "function-check",
+    "pause": 2,
+    "speech": "Which functions do these examples show? A displayed price; an agreement to repay next month. Choose before the answers appear."
+  },
+  {
+    "id": "answer-functions",
+    "section": "Check your reasoning",
+    "title": "Price measurement versus a future debt",
+    "kind": "function-check",
+    "answer": true,
+    "speech": "The price shows unit of account. The repayment agreement shows standard of deferred payment. Identify the action, then name its function.",
+    "pause": 0.35
+  },
+  {
+    "id": "characteristics",
+    "section": "Characteristics",
+    "title": "What would make good money?",
+    "kind": "objects",
+    "speech": "Functions are money's jobs. Characteristics are properties that help it perform those jobs. Remember these seven.",
+    "pause": 0.35
+  },
+  {
+    "id": "durable",
+    "section": "Characteristics · 1 of 7",
+    "title": "Durable: it lasts",
+    "kind": "durable",
+    "speech": "Durable: money lasts through repeated use. Ice cream melts; coins do not quickly perish. Durability supports saving, but physical durability does not guarantee stable purchasing power.",
+    "pause": 0.35
+  },
+  {
+    "id": "portable",
+    "section": "Characteristics · 2 of 7",
+    "title": "Portable: easy to carry",
+    "kind": "portable",
+    "speech": "Portable: money is easy to carry, making payments convenient. Notes fit in a pocket; a huge rock does not.",
+    "pause": 0.35
+  },
+  {
+    "id": "divisible",
+    "section": "Characteristics · 3 of 7",
+    "title": "Divisible: useful smaller units",
+    "kind": "divisible",
+    "speech": "Divisible: different denominations allow payments of different sizes. For a seven yuan sandwich, a ten yuan note gets three yuan change. Do not cut up banknotes.",
+    "pause": 0.35
+  },
+  {
+    "id": "uniform",
+    "section": "Characteristics · 4 of 7",
+    "title": "Uniform: equal units are interchangeable",
+    "kind": "uniform",
+    "speech": "Uniform: genuine notes of the same denomination have the same monetary value. Two ten yuan notes are interchangeable, even with different serial numbers.",
+    "pause": 0.35
+  },
+  {
+    "id": "recognisable",
+    "section": "Characteristics · 5 of 7",
+    "title": "Recognisable: easy to identify",
+    "kind": "recognisable",
+    "speech": "Recognisable: people can identify the currency and its value. Clear denominations and security features help them recognise genuine money.",
+    "pause": 0.35
+  },
+  {
+    "id": "acceptable",
+    "section": "Characteristics · 6 of 7",
+    "title": "Generally acceptable: people receive it",
+    "kind": "acceptable",
+    "speech": "Generally acceptable: people are willing to receive it in payment because others accept it too. This supports its medium of exchange function.",
+    "pause": 0.35
+  },
+  {
+    "id": "limited",
+    "section": "Characteristics · 7 of 7",
+    "title": "Limited in supply: not freely reproducible",
+    "kind": "limited",
+    "speech": "Limited in supply: money cannot be freely reproduced without limit. This helps maintain value. Limited does not mean its quantity never changes, and scarcity alone does not make something money.",
+    "pause": 0.35
+  },
+  {
+    "id": "exam",
+    "section": "Paper 2 practice",
+    "title": "Explain two characteristics of money. [4]",
+    "kind": "exam",
+    "pause": 2,
+    "speech": "Exam check: explain two characteristics of money. Four marks. Pause and write two explanations before continuing."
+  },
+  {
+    "id": "model",
+    "section": "Paper 2 · teacher-written model",
+    "title": "Two characteristics, each explained",
+    "kind": "model",
+    "speech": "Money is portable: it is easy to carry when making payments. Money is divisible: different denominations allow payments of different values. Here, each characteristic and explanation earns two marks. Keep functions and characteristics distinct.",
+    "pause": 0.35
+  }
+]

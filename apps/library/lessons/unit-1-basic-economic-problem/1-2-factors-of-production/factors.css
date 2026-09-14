@@ -1,0 +1,112 @@
+/* Local classroom layouts: no other course or renderer is changed. */
+.modelAnswerText { white-space: pre-line; }
+.is-layout-photo-term .termBlock .inlineZh { font-size:27px; line-height:1.3; }
+.is-layout-photo-term .termBox .termDefinitionZh { font-size:25px; line-height:1.4; }
+.is-layout-factor-written .classificationItems { grid-template-columns: 1fr; gap: 0; }
+.is-layout-factor-written .classificationBadge { display: none; }
+.is-layout-factor-written .classificationItem { display: grid; grid-template-columns: 1fr 1.25fr; grid-template-rows: auto; min-height: 0; align-items: center; gap: 1.5rem; padding: 1rem 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
+.is-layout-factor-written .classificationItemTop p { font-size: clamp(23px, 1.9vw, 31px); line-height: 1.3; }
+.is-layout-factor-written .classificationResult { align-self: center; min-height: 110px; display: flex; align-items: center; padding: 0 0 0 1.2rem; border: 0; border-left: 3px solid var(--gold); transform: none; }
+.is-layout-factor-written .classificationAnswer { display: block; width: auto; padding: 0; background: none; color: var(--gold); font-size: clamp(24px, 1.9vw, 31px); line-height: 1.3; font-weight: 600; }
+.is-layout-factor-written .classificationShare { padding: .5rem 0; background: none; border: 0; }
+.factor-enhanced .content main > div > h2,
+.factor-enhanced .content main > div > .lead,
+.factor-enhanced .content main > div > .cardgrid { display: none; }
+.factor-film { width: 100%; padding: 1.1rem 1.7rem; background: #fcf8ee; border-radius: 12px; color: #102b46; box-sizing: border-box; }
+.factor-film-heading { display: flex; align-items: center; gap: 1rem; justify-content: space-between; }
+.factor-film-heading h2 { font-size: clamp(28px, 2.9vw, 43px); line-height: 1.12; margin: 0; color: #102b46; }
+.factor-film-heading span { flex-shrink: 0; font-size: 18px; font-weight: 700; }
+.is-layout-factor-assembly .factor-film-heading h2 { font-size: clamp(26px, 2.45vw, 37px); }
+.factor-context { margin: .5rem 0 0; color: #335266; font-size: clamp(20px, 1.7vw, 25px); line-height: 1.25; }
+.factor-film svg { display: block; width: 100%; max-height: 54vh; font-family: inherit; }
+.factor-caption { margin: .2rem 0 0; padding: .65rem 1rem; background: #102b46; color: white; border-radius: 6px; font-size: clamp(22px, 1.8vw, 29px); line-height: 1.25; text-align: center; }
+@media(max-width: 760px) {
+ .is-layout-factor-written .classificationItem { grid-template-columns: 1fr; gap: .7rem; padding: .8rem 0; }
+ .is-layout-factor-written .classificationItemTop p,.is-layout-factor-written .classificationAnswer { font-size: 20px; }
+ .is-layout-factor-written .classificationResult { margin-left: 2.4rem; }
+ .factor-film { padding: 1rem .6rem; }
+ .factor-film-heading h2 { font-size: 26px; }
+ .factor-film-heading span { font-size: 14px; }
+ .factor-film svg { max-height: none; }
+ .factor-caption { font-size: 20px; padding: .6rem; }
+}
+@media print {
+ .factor-film { break-inside: avoid; }
+ .factor-film svg { max-height: none; }
+}
+
+/* Strong hero with a single scene; the live title occupies the dark left space. */
+@media screen {
+ .slide.is-layout-enterprise-hero { isolation: isolate; background:#08182b; }
+ .slide.is-layout-enterprise-hero .content { display:flex; align-items:center; }
+ .slide.is-layout-enterprise-hero .content main { position:relative; z-index:2; display:block; width:43%; }
+ .slide.is-layout-enterprise-hero .content aside.visual { position:absolute; inset:0; z-index:-1; width:100%; height:100%; margin:0; }
+ .slide.is-layout-enterprise-hero .photoPanel { width:100%; height:100%; min-height:0; max-width:none; border:0; border-radius:0; aspect-ratio:auto; }
+ .slide.is-layout-enterprise-hero .photoPanel img { object-fit:cover; object-position:62% center; }
+ .slide.is-layout-enterprise-hero .photoPanel::after { background:linear-gradient(90deg,rgba(4,17,32,.82),rgba(4,17,32,.24) 46%,transparent 70%); }
+ .slide.is-layout-enterprise-hero h1 { font-size:clamp(48px,5.1vw,80px); line-height:1.03; overflow-wrap:normal; word-break:normal; }
+ .slide.is-layout-enterprise-hero .heroTitleZh { font-size:clamp(25px,2.15vw,36px); }
+ .slide.is-layout-enterprise-hero .kicker { font-size:clamp(21px,1.85vw,29px); max-width:25ch; }
+ .slide.is-layout-enterprise-hero figcaption { display:none; }
+}
+.is-layout-factor-case .content { grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:2rem; }
+.is-layout-factor-case .visual { display:grid; }
+.is-layout-factor-case .photoPanel { height:auto; min-height:0; aspect-ratio:650/630; border:0; background:transparent; }
+.is-layout-factor-case .photoPanel img { object-fit:contain; }
+.is-layout-factor-case .photoPanel::after { display:none; }
+.is-layout-factor-case h2 { font-size:clamp(30px,2.5vw,42px); }
+.is-layout-factor-case .lead { font-size:clamp(23px,1.85vw,29px); }
+.is-layout-factor-case .cardgrid { grid-template-columns:1fr; gap:.65rem; }
+.is-layout-factor-case .card { min-height:0; padding:.8rem 1rem; }
+.is-layout-factor-case .cardTitle { font-size:25px; }
+.is-layout-factor-case .cardBody { font-size:23px; }
+.is-layout-factor-image-check .classificationBadge { display:none; }
+.is-layout-factor-image-check .classificationItems { grid-template-columns:1fr; gap:0; }
+.is-layout-factor-image-check .classificationItem { grid-template-columns:1.3fr 1fr; grid-template-rows:auto; min-height:0; gap:1rem; padding:.5rem 0; background:transparent; border:0; border-bottom:1px solid var(--line); border-radius:0; }
+.is-layout-factor-image-check .classificationItemTop { grid-template-columns:90px minmax(0,1fr); align-items:center; }
+.is-layout-factor-image-check .classificationItemNumber { display:none; }
+.factor-check-icon { width:90px; height:82px; background:#fcf8ee; border-radius:10px; }
+.factor-check-icon svg { width:100%; height:100%; }
+.is-layout-factor-image-check .classificationItem p { font-size:clamp(22px,1.7vw,27px); line-height:1.25; }
+.is-layout-factor-image-check .classificationResult { align-self:center; border:0; padding:0 0 0 1rem; border-left:3px solid var(--gold); transform:none; }
+.is-layout-factor-image-check .classificationAnswer { display:block; padding:0; background:none; color:var(--gold); font-size:clamp(23px,1.8vw,29px); line-height:1.25; }
+.is-layout-factor-motives .cardgrid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.4rem; }
+.is-layout-factor-motives .card { padding:0 0 1rem; overflow:hidden; background:rgba(255,255,255,.05); }
+.is-layout-factor-motives .cardVisual { width:100%; aspect-ratio:640/440; height:auto; margin:0; border:0; }
+.is-layout-factor-motives .cardVisual img { object-fit:contain; }
+.is-layout-factor-motives .cardTitle { padding:0 1rem; font-size:clamp(25px,2vw,31px); line-height:1.3; }
+.is-layout-factor-motives .cardBody { padding:0 1rem; font-size:clamp(23px,1.7vw,28px); line-height:1.3; min-height:112px; }
+.is-layout-factor-motives .partial-item { transform:none; }
+.is-quiz .quizBlock { width:100%; gap:.7rem; }
+.is-quiz .quizEyebrow { display:none; }
+.is-quiz .quizBlock>.lead { max-width:none; white-space:pre-line; font-size:clamp(25px,2.1vw,32px); line-height:1.25; }
+.is-quiz .choices.is-mcq { gap:.55rem; }
+.is-quiz .choices.is-mcq .choice { min-height:60px; padding:.65rem 1rem; font-size:clamp(23px,1.85vw,29px); }
+.is-quiz .mcqExplanation { min-height:4em; box-sizing:border-box; padding:.7rem 1rem; font-size:clamp(21px,1.65vw,26px); line-height:1.25; }
+.is-quiz .mcqExplanation[hidden] { display:block; visibility:hidden; }
+.factor-option-head { display:grid; grid-template-columns:48px 1fr 1fr; gap:.8rem; color:var(--gold); font-size:25px; margin-bottom:.5rem; }
+.factor-table-mcq .choices { grid-template-columns:1fr; gap:.4rem; }
+.factor-table-mcq .choice { min-height:0; padding:.65rem .9rem; }
+.factor-option-pair { display:grid; grid-template-columns:1fr 1fr; width:100%; }
+.factor-table-mcq .choice>span:last-child { flex:1; }
+@media(max-width:760px) {
+ .is-layout-factor-written .classificationResult { min-height:0; }
+ .is-layout-factor-image-check .classificationItem { grid-template-columns:1fr; gap:.6rem; padding:.8rem 0; }
+ .is-layout-factor-image-check .classificationItemTop { grid-template-columns:65px 1fr; }
+ .factor-check-icon { width:65px; height:65px; }
+ .is-layout-factor-image-check .classificationItem p,.is-layout-factor-image-check .classificationAnswer { font-size:20px; }
+ .is-layout-factor-motives .cardgrid { grid-template-columns:1fr; }
+ .is-layout-factor-motives .cardVisual { max-height:220px; }
+ .is-layout-factor-motives .cardBody { min-height:0; }
+ .is-layout-factor-case .content { grid-template-columns:1fr; }
+ .is-layout-factor-case .cardTitle,.is-layout-factor-case .cardBody { font-size:21px; }
+ .is-quiz .quizBlock>.lead { font-size:23px; }
+ .is-quiz .mcqExplanation { font-size:20px; }
+ .factor-option-head { grid-template-columns:40px 1fr 1fr; font-size:20px; }
+ .slide.is-layout-enterprise-hero .content { display:block; }
+ .slide.is-layout-enterprise-hero .content main { width:100%; }
+ .slide.is-layout-enterprise-hero .content aside.visual { position:relative; inset:auto; z-index:0; height:310px; margin-top:1rem; }
+ .slide.is-layout-enterprise-hero .photoPanel img { object-position:78% center; }
+ .slide.is-layout-enterprise-hero .photoPanel::after { display:none; }
+ .slide.is-layout-enterprise-hero h1 { font-size:43px; }
+}

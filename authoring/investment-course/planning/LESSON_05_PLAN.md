@@ -11,29 +11,29 @@ Students distinguish nominal and real return, calculate **approximate real retur
 
 | Minutes | Slides | Teaching and output |
 |---|---|---|
-| 0–4 | 1–4 | Jun’s 4%-return/5%-inflation puzzle, objectives, independent return retrieval. Leave opening answer hidden. |
+| 0–4 | 1–4 | Jack’s 4%-return/5%-inflation puzzle, objectives, independent return retrieval. Leave opening answer hidden. |
 | 4–9 | 5–10 | Photo pause, affordable basket equivalents, then concise highlighted bilingual definitions. The three definition slides are brief consolidation of one mechanism, not three new activities. |
 | 9–13 | 11–12 | Trace money against the cost of the same goods over ten years; distinguish one product price from general inflation. |
-| 13–19 | 13–16 | Formula immediately after divider; explain approximation and matching periods, fully model Jun, then required 7%/3% hinge. |
+| 13–19 | 13–16 | Formula immediately after divider; explain approximation and matching periods, fully model Jack, then required 7%/3% hinge. |
 | 19–25 | 17–18 | Four independent cases, including nominal gain/real loss, zero real return and nominal loss. Reveal individual cells after work. Check the meaning of negative real return. |
-| 25–30 | 19–21 | Brief phone pause, then Mei’s connected three-year case. Calculate savings, rising target and shortfall; explain why positive real return can coexist with missing a goal. |
+| 25–30 | 19–21 | Brief phone pause, then Emma’s connected three-year case. Calculate savings, rising target and shortfall; explain why positive real return can coexist with missing a goal. |
 | 30–35 | 22–23 | Rank three returns under common inflation. Write the ranking with rates and distinguish past purchasing-power evidence from future suitability. |
-| 35–38 | 24 | Independent assessed exit: calculate Lin’s nominal 6% and approximate real −2%, correct her claim, and resolve Jun’s opening puzzle. |
+| 35–38 | 24 | Independent assessed exit: calculate Lucy’s nominal 6% and approximate real −2%, correct her claim, and resolve Jack’s opening puzzle. |
 | 38–40 | 24 | Feedback and buffer. Record actual coverage and misconceptions. |
 
 There are 24 core slides, but six are the cover, roadmap, brief dividers and a short pause; definitions consolidate the demonstrated mechanism quickly. Do not rush calculator practice to finish every discussion prompt. If needed shorten chart discussion and the second photo pause; preserve the four-case table and exit. The plan is an estimate, not evidence that the lesson fits this class’s pace.
 
 ## Full calculation models
 
-- Jun: (1040−1000)/1000 ×100 = 4%; approximate real return 4%−5% = −1%. Exact basket change is (1040/105)/(1000/100)−1 = −0.95238%, so keep “about” on −1%.
+- Jack: (1040−1000)/1000 ×100 = 4%; approximate real return 4%−5% = −1%. Exact basket change is (1040/105)/(1000/100)−1 = −0.95238%, so keep “about” on −1%.
 - Practice A–D: +4%, −2%, 0%, −5%; purchasing power rises, falls, stays unchanged, falls.
-- Mei: 6500×1.10³ = 8651.50; goal 8000×1.03³ = 8741.816; shortfall 90.316 → **¥90.32**. Annual real return is approximately 7%. The phone price is separately assumed to grow with general inflation; it need not do so in reality. Do not compound the approximate 7% as an exact adjusted balance.
+- Emma: 6500×1.10³ = 8651.50; goal 8000×1.03³ = 8741.816; shortfall 90.316 → **¥90.32**. Annual real return is approximately 7%. The phone price is separately assumed to grow with general inflation; it need not do so in reality. Do not compound the approximate 7% as an exact adjusted balance.
 - Ranking: C (+4%) > B (+2%) > A (−1%), one completed year, all RMB, common 3% inflation. This ranking is a past-outcome comparison, not a recommendation.
-- Exit: (2120−2000)/2000 ×100 = 6%; 6%−8% ≈ −2%. Lin’s account grew while purchasing power fell. Jun similarly lost about 1% in purchasing power.
+- Exit: (2120−2000)/2000 ×100 = 6%; 6%−8% ≈ −2%. Lucy’s account grew while purchasing power fell. Jack similarly lost about 1% in purchasing power.
 
 ## Exit evidence and reteaching
 
-Award one check for each: correct nominal method/result; correct approximate real calculation; correct money-versus-quantity interpretation; Jun’s approximately −1% with the causal reason. Students must write independently before revealing answers. If they subtract inflation from the account balance, return to the two-row money/basket-price model. If they reverse subtraction, revisit the 7%/3% hinge. If they infer general inflation from a phone price, revisit slide 12.
+Award one check for each: correct nominal method/result; correct approximate real calculation; correct money-versus-quantity interpretation; Jack’s approximately −1% with the causal reason. Students must write independently before revealing answers. If they subtract inflation from the account balance, return to the two-row money/basket-price model. If they reverse subtraction, revisit the 7%/3% hinge. If they infer general inflation from a phone price, revisit slide 12.
 
 ## Optional after the ending
 

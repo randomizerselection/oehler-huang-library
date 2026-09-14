@@ -1,0 +1,24 @@
+/* Lending introduction and later emergency-lending story. */
+.slide:is(.is-layout-central-bank-film, .is-layout-central-bank-intro) { padding: 0; background: #f6f2e9; }
+.slide:is(.is-layout-central-bank-film, .is-layout-central-bank-intro).is-active { display: block; animation: none; }
+:is(.is-layout-central-bank-film, .is-layout-central-bank-intro) > :not(.content) { display: none; }
+:is(.is-layout-central-bank-film, .is-layout-central-bank-intro) .content { display: block; height: 100%; }
+:is(.is-layout-central-bank-film, .is-layout-central-bank-intro) main,
+:is(.is-layout-central-bank-film, .is-layout-central-bank-intro) main > div { height: 100%; min-width: 0; }
+:is(.is-layout-central-bank-film, .is-layout-central-bank-intro).cb-enhanced main > div > :not(.cb-film) { display: none; }
+.cb-film { width: 100%; height: 100%; color: #182d31; }
+.cb-film svg { display: block; width: 100%; height: 100%; font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; }
+.cb-film text { fill: #182d31; }
+.cb-film .cb-label { font-size: 27px; font-weight: 650; }
+.cb-film .cb-detail { font-size: 23px; fill: #647073; }
+.cb-film .cb-money-label { font-size: 28px; font-weight: 750; fill: #164b43; }
+.cb-film .cb-waiting { fill: #b65b35; }
+.cb-film .cb-small { font-size: 17px; letter-spacing: 1.5px; font-weight: 650; }
+.cb-film .cb-caption { fill: #fffdf8; font-size: 29px; font-weight: 600; }
+.cb-film .cb-note-label { font-size: 14px; font-weight: 750; fill: #fffdf8; }
+.cb-film .cb-request { fill: #fffdf8; stroke: #b65b35; stroke-width: 2; stroke-dasharray: 5 4; }
+.cb-film .cb-ghost { fill: none; stroke: #a8afa7; stroke-width: 3; stroke-dasharray: 8 7; }
+@media print {
+  .cb-film { break-inside: avoid; height: auto; aspect-ratio: 16 / 9; }
+  :is(.is-layout-central-bank-film, .is-layout-central-bank-intro) { break-inside: avoid; }
+}

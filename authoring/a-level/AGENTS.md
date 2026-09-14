@@ -14,6 +14,22 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Feedback, 14 September 2026 (income-gap lesson):
+
+- Introduce essay planning by breaking the original question into student-facing guiding sub-questions, labelled by AO, rather than describing each AO abstractly. Ask students explicitly to draw, label and use diagrams at the relevant explanation and policy-analysis stages. Keep the original question intact and identify the sub-questions as teaching scaffolding.
+
+- Complete opening retrieval before the topic's visual explanation, then keep the visual introduction adjacent to the concepts it introduces. Do not interrupt that teaching sequence with retrieval.
+- Use descriptive academic titles for past-paper slides; show the paper code, series and question number as a smaller reference, not the main title.
+- Teach output-gap terminology alongside inflationary/deflationary expenditure gaps. Make actual minus potential output, its sign, and the horizontal-versus-vertical distinction explicit; distinguish notional fixed-price intersections from actual output.
+- Name formula slides after the quantity or relationship being calculated, and state the formula's purpose. End with a slide titled “Summary” containing a concise list of the key lessons, not a contrast layout.
+
+- Use original past-paper questions for opening retrieval, practice and the exit. Do not invent or silently adapt assessed questions. Teacher-written worked explanations and models must be identified separately from the official key or mark scheme.
+- Open a topic like a concise educational explainer: a clear puzzle or claim, an economy-wide visual mechanism, and a purposeful transition. Avoid starting with a lengthy fictional numerical case.
+- Put definitions directly in a revealing comparison when that comparison teaches the distinction. Avoid definition slides followed by the same contrast again. Teach complementary opposites, such as inflationary and deflationary gaps, together on consistent axes and at the same benchmark.
+- Add small on-demand source controls, following the IGCSE pattern. Identify exactly which textbook section/PDF page, original question, mark-scheme page or website supports the content. Distinguish official material from teaching interpretation.
+- Teach essay construction explicitly through the applicable assessment objectives. Keep the original question visible, reveal coherent model prose in stages, highlight the key economic relationships and align short AO annotations with the relevant sentences. Show the plan, developed analysis, conditional evaluation, comparison and reasoned conclusion. Do not use a generic Given/Method split for essay models.
+- Preserve historical mark schemes: current AO labels may be used as a teaching lens for an older question, but do not invent an AO mark allocation or imply that an old 25-mark essay has the current format. Include a readable complete-model view alongside staged teaching.
+
 Teacher-reported coverage, 10 September 2026: the cohort using the pre-class
 multiplier starter has studied the multiplier lesson but has NOT yet studied
 the consumption and saving / AD Part 1 lesson. Keep its starter within the
@@ -99,6 +115,7 @@ Use a two-level title system for senior high classroom decks:
 
 ## Concept-led classroom visuals
 
+- For macroeconomic concepts, use economy-wide examples and explicitly trace aggregate spending, income, output and employment (feedback, 14 September 2026). A single firm's sales or spare capacity does not demonstrate national-income equilibrium, and a single product's price rise does not demonstrate inflation. Use household or firm behaviour only to explain a clearly identified link in the aggregate mechanism. Keep units, time periods and price-level assumptions consistent across connected examples.
 - Use photographs and generated images as teaching evidence, prompts, or scenarios rather than decoration. Each visual should make a mechanism, distinction, assumption, or applied context easier to reason about.
 - Include visual-pause slides at useful changes of pace. Show one strong image with one genuine question, allow silent looking time, and use the teacher notes to guide the intended inference before introducing the formal concept.
 - Prefer high-quality real photography when a real setting can carry the idea, including households, workplaces, infrastructure, production, and trade. Use AI-generated photographs when a counterfactual or carefully staged scenario is needed to make an abstract model visible.

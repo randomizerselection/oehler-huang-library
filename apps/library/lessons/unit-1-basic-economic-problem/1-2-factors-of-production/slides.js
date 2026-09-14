@@ -59,48 +59,48 @@ const landExamplesSource = {
 
 IGCSE.lesson = {
   meta: {
-    code: '1.2.1',
-    unit: 'Unit 1 - The basic economic problem',
-    title: '1.2.1 Factors of production and rewards - Cambridge IGCSE Economics 0455',
-    lessonLabel: 'Lesson 2: Factors of production and rewards',
-    courseLabel: 'Cambridge IGCSE Economics 0455',
-    creatorLabel: 'Created by Samuel Oehler-Huang, Suzhou Foreign Language School',
-  },
+  "code": "1.2.1",
+  "unit": "Unit 1 - The basic economic problem",
+  "title": "1.2.1 Factors of production - Cambridge IGCSE Economics 0455",
+  "lessonLabel": "Factors of production · Lesson 1",
+  "courseLabel": "Cambridge IGCSE Economics 0455",
+  "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
+  "deliveryPlan": {
+    "previousEndpoint": "Land, labour or capital?",
+    "coreEndSlide": 20,
+    "nextSession": "Continue in lesson-2.html: Enterprise and factor rewards."
+  }
+},
 
   slides: [
     {
       type: 'hero',
       eyebrow: 'Overview',
-      title: '1.2.1 Factors of production and rewards',
-      zhTitle: '生产要素及其报酬',
-      kicker: 'What does it take to produce one loaf of bread?',
+      title: '1.2.1 Factors of production',
+      zhTitle: '生产要素',
+      kicker: 'Land, labour and capital',
       visual: photos.bakeryProductionTeam,
     },
     {
-      type: 'peerTask',
-      taskType: 'definitionRecall',
-      eyebrow: 'Recall',
-      title: 'Recall last lesson',
-      prompt: 'On paper, write one precise sentence for each term.',
-      stepsLabel: 'Write these definitions',
-      definitionItems: [
+      "type": "classificationTask",
+      "layout": "factor-written",
+      "eyebrow": "Recall",
+      "title": "Recall last lesson",
+      "items": [
         {
-          label: '1',
-          term: 'Want',
-          answer: 'A good, service or experience that a person would like to have or use.',
+          "text": "Define want.",
+          "answer": "A good, service or experience that a person would like to have or use."
         },
         {
-          label: '2',
-          term: 'Scarcity',
-          answer: 'A situation where infinite wants exceed the finite resources available to satisfy them.',
+          "text": "Define scarcity.",
+          "answer": "A situation where infinite wants exceed the finite resources available to satisfy them."
         },
         {
-          label: '3',
-          term: 'Factor of production',
-          answer: 'A resource or input used to produce goods and services.',
-        },
+          "text": "Define factor of production.",
+          "answer": "A resource or input used to produce goods and services."
+        }
       ],
-      sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
+      "sharePrompt": "Write your answers first. Reveal each model separately."
     },
     {
       type: 'discussion',
@@ -113,19 +113,19 @@ IGCSE.lesson = {
       visual: { ...photos.bakeryProductionTeam, caption: '', credit: '' },
     },
     {
-      type: 'outcomes',
-      eyebrow: 'Objectives',
-      title: 'By the end, you can',
-      bullets: [
-        'Define a factor of production and identify land, labour, capital and enterprise.',
-        'Distinguish the four factors using familiar and unfamiliar examples.',
-        'Match each factor of production with its reward.',
+      "type": "outcomes",
+      "eyebrow": "Objectives",
+      "title": "By the end, you can",
+      "bullets": [
+        "Define a factor of production.",
+        "Identify land, labour and capital.",
+        "Justify classifications using precise definitions."
       ],
-      zhBullets: [
-        '定义生产要素，并识别土地、劳动、资本和企业家才能。',
-        '使用熟悉和陌生的例子区分四种生产要素。',
-        '将每种生产要素与其报酬正确配对。',
-      ],
+      "zhBullets": [
+        "定义生产要素。",
+        "识别土地、劳动与资本。",
+        "用准确的定义解释分类。"
+      ]
     },
     {
       type: 'section',
@@ -359,191 +359,6 @@ IGCSE.lesson = {
       ],
       sharePrompt: 'For one item, begin your explanation with the words “It is…” and quote the defining feature.',
       sources: [definitionsSource],
-    },
-    {
-      type: 'section',
-      eyebrow: 'Part 3',
-      title: 'Enterprise and factor rewards',
-      zhTitle: '企业家才能与要素报酬',
-    },
-    {
-      type: 'visualPause',
-      title: 'Someone must organise the business and take the risk.',
-      visual: photos.enterpriseSteveJobs,
-      notes: 'Identify Steve Jobs at Apple. Ask: what had to be organised before a new product could be sold? Draw out materials, workers and equipment, then explain that resources are committed before customer demand is certain. This leads into enterprise as organisation and risk-taking.',
-      sources: [enterprisePhotoSource],
-    },
-    {
-      type: 'term',
-      eyebrow: 'Learn',
-      definitionCue: 'Factor 4',
-      title: 'Enterprise and entrepreneur',
-      zhTitle: '企业家才能与企业家',
-      term: 'enterprise',
-      definition: 'Enterprise is the factor that organises the other factors of production and takes risks. An entrepreneur runs or owns a business and is willing to take risks.',
-      definitionZh: '企业家才能是组织其他生产要素并承担风险的要素。企业家经营或拥有企业，并愿意承担风险。',
-      keyTerms: [
-        { term: 'organises', zh: '组织', note: 'brings land, labour and capital together' },
-        { term: 'takes risks', zh: '承担风险', note: 'may lose money if the business is unsuccessful' },
-        { term: 'entrepreneur', zh: '企业家', note: 'the person who supplies enterprise' },
-      ],
-      showExamples: false,
-      sources: [definitionsSource],
-    },
-    {
-      type: 'discussion',
-      eyebrow: 'Discuss',
-      title: 'Where is the risk?',
-      question: 'Think of Steve Jobs at Apple. Launching a new product means paying for design, equipment and workers before knowing how many customers will buy it. What happens if sales revenue is too low?',
-      zh: '以史蒂夫·乔布斯和苹果公司为例。推出新产品需要先支付设计、设备和员工的费用，而顾客会购买多少还不确定。如果销售收入太低，会发生什么？',
-      answer: 'Sales revenue may not cover the costs, so the business may make a loss. Committing resources before demand is known involves business risk.',
-      answerZh: '销售收入可能无法弥补成本，企业就可能亏损。在需求尚不确定时投入资源，就要承担经营风险。',
-      visual: { ...photos.enterpriseSteveJobs, caption: '', credit: '' },
-      sources: [enterprisePhotoSource],
-    },
-    {
-      type: 'cards',
-      eyebrow: 'Learn',
-      title: 'Each factor receives a different reward',
-      cardStyle: 'compactVisual',
-      partialReview: true,
-      cards: [
-        {
-          title: 'Land',
-          zhTitle: '土地',
-          body: 'Reward: rent. Received for supplying land or natural resources.',
-          highlightTerms: ['rent'],
-          visual: photos.landWheatField,
-        },
-        {
-          title: 'Labour',
-          zhTitle: '劳动',
-          body: 'Reward: wages or salaries. Workers receive them for supplying human effort.',
-          highlightTerms: ['wages or salaries'],
-          visual: photos.labourBakerKneading,
-        },
-        {
-          title: 'Capital',
-          zhTitle: '资本',
-          body: 'Reward: interest. Received for supplying capital.',
-          highlightTerms: ['interest'],
-          visual: photos.capitalIndustrialMachine,
-        },
-        {
-          title: 'Enterprise',
-          zhTitle: '企业家才能',
-          body: 'Reward: profit. Organisation and risk-taking — Steve Jobs at Apple.',
-          highlightTerms: ['profit'],
-          visual: photos.enterpriseSteveJobs,
-        },
-      ],
-      notes: 'Return to Steve Jobs and Apple as the example of enterprise. Ask: why is profit uncertain when a business launches a new product? Draw out that resources are committed before sales are known; revenue may fail to cover costs.',
-      sources: [syllabusSource, definitionsSource, rewardsSource, enterprisePhotoSource],
-    },
-    {
-      type: 'yesNoCheck',
-      eyebrow: 'Check',
-      title: 'Factors and rewards: Yes or No?',
-      zhTitle: '生产要素与报酬：是或否？',
-      prompt: 'Read every statement. Decide Yes or No for each, then reveal one answer at a time.',
-      items: [
-        {
-          statement: 'The reward for labour is wages or salaries.',
-          answer: true,
-          reason: 'Workers receive wages or salaries for supplying human effort.',
-        },
-        {
-          statement: 'The reward for capital is profit.',
-          answer: false,
-          reason: 'Capital receives interest; enterprise receives profit.',
-        },
-        {
-          statement: 'The reward for land is rent.',
-          answer: true,
-          reason: 'Rent is paid for the use of land or natural resources.',
-        },
-        {
-          statement: 'The reward for enterprise is profit.',
-          answer: true,
-          reason: 'Profit rewards the entrepreneur for organising the factors and taking risks.',
-        },
-      ],
-      sources: [syllabusSource, rewardsSource],
-    },
-    {
-      type: 'classificationTask',
-      eyebrow: 'Review',
-      title: 'A bicycle factory uses all four factors',
-      zhTitle: '自行车厂使用四种生产要素',
-      prompt: 'Classify each input, then state its reward where one is named.',
-      zhPrompt: '给每项投入分类，并在适用时说出其报酬。',
-      categories: [
-        { title: 'Land', zhTitle: '土地', clue: 'reward: rent' },
-        { title: 'Labour', zhTitle: '劳动', clue: 'reward: wages' },
-        { title: 'Capital', zhTitle: '资本', clue: 'reward: interest' },
-        { title: 'Enterprise', zhTitle: '企业家才能', clue: 'reward: profit' },
-      ],
-      items: [
-        { label: 'A', text: 'Metal ore used to make the bicycle frames', answer: 'Land', reason: 'Metal ore is a natural resource. The reward to land is rent.' },
-        { label: 'B', text: 'Workers assembling and testing bicycles', answer: 'Labour', reason: 'The workers supply human effort. Their reward is wages.' },
-        { label: 'C', text: 'Machines that cut and shape the frames', answer: 'Capital', reason: 'The machines are human-made goods used in production. The reward to capital is interest.' },
-        { label: 'D', text: 'The owner who coordinates production and risks money', answer: 'Enterprise', reason: 'The owner organises the other factors and takes risks. The reward is profit.' },
-      ],
-      sharePrompt: 'Explain one answer without using the category name until the final word.',
-      sources: [syllabusSource, definitionsSource],
-    },
-    {
-      type: 'exam',
-      eyebrow: 'Exam practice',
-      title: 'Define factor of production. [2]',
-      keywordLabel: 'Include both marking points',
-      keywords: ['resource or input', 'used to produce', 'goods and services'],
-      prompt: 'Write one precise sentence. Examples alone do not answer the question.',
-      sources: [definitionsSource, factorDefinitionSource],
-    },
-    {
-      type: 'modelAnswer',
-      eyebrow: 'Model answer',
-      title: 'Define factor of production. [2]',
-      answer: 'A factor of production is a resource or input used to produce goods and services.',
-      links: ['resource or input', 'used to produce goods and services'],
-      showLinkChips: false,
-      partialReview: ['.modelAnswerCard'],
-      sources: [definitionsSource, factorDefinitionSource],
-    },
-    {
-      type: 'exam',
-      eyebrow: 'Exam practice',
-      title: 'Define, with an example, a capital good. [2]',
-      keywordLabel: 'One definition point and one example',
-      keywords: ['human-made good', 'used in production', 'machine'],
-      prompt: 'Write the definition first, then give one clear example.',
-      sources: [definitionsSource, capitalGoodSource],
-    },
-    {
-      type: 'modelAnswer',
-      eyebrow: 'Model answer',
-      title: 'Define, with an example, a capital good. [2]',
-      answer: 'A capital good is a human-made good used to produce another good or service, for example a machine used in a factory.',
-      links: ['human-made good', 'used to produce another good or service', 'machine'],
-      showLinkChips: false,
-      partialReview: ['.modelAnswerCard'],
-      sources: [definitionsSource, capitalGoodSource],
-    },
-    {
-      type: 'answer',
-      eyebrow: 'Check',
-      title: 'Exit ticket',
-      zhTitle: '离堂小测',
-      mode: 'fillBlanks',
-      steps: [
-        ['1', 'Natural resources used in production are called __________.', 'land'],
-        ['2', 'Human effort used in production is called __________.', 'labour'],
-        ['3', 'Human-made goods used in production are called __________.', 'capital'],
-        ['4', 'The factor that organises the others and takes risks is __________.', 'enterprise'],
-        ['5', 'Land, labour, capital and enterprise receive rent, wages, __________ and profit.', 'interest'],
-      ],
-      sources: [syllabusSource, definitionsSource, rewardsSource],
     },
   ],
 };

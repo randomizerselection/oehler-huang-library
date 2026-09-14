@@ -17,7 +17,7 @@ test('supply-side lesson 2 teaches the missed foundation before detailed policy 
     };
   });
   expect(sequence.recall).toEqual(['Supply-side policy','Interventionist supply-side policy','Market-based supply-side policy']);
-  for(const title of ['Productivity','Efficiency','Productive capacity','Using spare capacity']) {
+  for(const title of ['Productivity','Efficiency','Productive capacity']) {
     expect(sequence.titles.indexOf(title)).toBeGreaterThan(0);
     expect(sequence.titles.indexOf(title)).toBeLessThan(sequence.titles.indexOf('Education and training'));
   }
@@ -87,7 +87,7 @@ test('PPC controls reveal, reverse and reset without skipping the diagram', asyn
 
 test('handout retains complete PPC diagrams and formative answers stay hidden until attempted',async({page})=>{
   await page.goto(lessonUrl(2)+'?view=print');
-  await expect(page.locator('.sspPpcHandout .sspPpc')).toHaveCount(3);
+  await expect(page.locator('.sspPpcHandout .sspPpc')).toHaveCount(1);
   await expect(page.locator('.sspPpcControls')).toHaveCount(0);
   await page.goto(lessonUrl(2));
   const idx=await page.locator('.slide.is-quiz').first().getAttribute('data-idx');

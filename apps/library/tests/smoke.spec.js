@@ -12,7 +12,8 @@ const localHomeworkUrl = 'http://127.0.0.1:4173/econmark/';
 const remoteUrlPattern = /^https?:\/\//i;
 const deckTitleTranslations = {
   'The basic economic problem': '基本经济问题',
-  'Factors of production and rewards': '生产要素及其报酬',
+  'Factors of production': '生产要素',
+  'Enterprise and factor rewards': '企业家才能与要素报酬',
   'External costs and benefits': '外部成本与外部收益',
   'Merit and demerit goods': '有益品与有害品',
   'Public goods': '公共物品',
@@ -703,10 +704,11 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
     await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
-    await expect(page.locator('.a-level-lesson-card')).toHaveCount(4);
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(5);
     await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier process' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Consumption and saving functions' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Investment, government spending and net exports' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-investment-accelerator/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Equilibrium income and expenditure gaps' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-income-gaps/index.html');
     await expectNoHorizontalOverflow(page);
   });
 
@@ -716,6 +718,7 @@ test.describe('site smoke', () => {
       { path: 'a-level/lessons/9-1-1-national-income-determination/index.html', title: 'National income determination and the multiplier', heroTitle: 'National income determination and the multiplier' },
       { path: 'a-level/lessons/9-1-2-aggregate-demand/index.html', title: 'Consumption and saving functions', heroTitle: 'Consumption and saving functions' },
       { path: 'a-level/lessons/9-1-2-investment-accelerator/index.html', title: 'Investment, government spending and net exports', heroTitle: 'Investment, government spending and net exports' },
+      { path: 'a-level/lessons/9-1-3-income-gaps/index.html', title: 'Equilibrium income and expenditure gaps', heroTitle: 'Equilibrium income and expenditure gaps' },
     ];
 
     for (const lesson of lessons) {
@@ -962,13 +965,13 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('@smoke @responsive factors of production lesson uses local photos and a three-part sequence', async ({ page }) => {
+  test('@smoke @responsive factors of production lesson ends at the reported classroom stopping point', async ({ page }) => {
     const lessonPath = 'lessons/unit-1-basic-economic-problem/1-2-factors-of-production/index.html';
     await page.goto(pageUrl(lessonPath));
 
-    await expect(page).toHaveTitle(/1\.2\.1 Factors of production and rewards/i);
-    await expect(page.locator('.slide.is-active h1')).toHaveText('1.2.1 Factors of production and rewards');
-    await expect(page.locator('.slide.is-active .heroTitleZh')).toHaveText('生产要素及其报酬');
+    await expect(page).toHaveTitle(/1\.2\.1 Factors of production/i);
+    await expect(page.locator('.slide.is-active h1')).toHaveText('1.2.1 Factors of production');
+    await expect(page.locator('.slide.is-active .heroTitleZh')).toHaveText('生产要素');
     await expect(page.locator('.slide.is-active .sub')).toHaveCount(0);
     await expectNoHorizontalOverflow(page);
 
@@ -988,22 +991,20 @@ test.describe('site smoke', () => {
     });
 
     expect(lessonShape.hasWelcome).toBe(false);
-    expect(lessonShape.recall.type).toBe('peerTask');
-    expect(lessonShape.recall.taskType).toBe('definitionRecall');
-    expect(lessonShape.recall.definitionItems).toHaveLength(3);
+    expect(lessonShape.recall.type).toBe('classificationTask');
+    expect(lessonShape.recall.items).toHaveLength(3);
+    expect(await page.evaluate(() => IGCSE.lesson.slides.at(-1).title)).toBe('Land, labour or capital?');
     expect(lessonShape.sections).toEqual([
       'The four factors of production',
       'Land, labour and capital',
-      'Enterprise and factor rewards',
     ]);
     expect(lessonShape.terms).toEqual([
       'Factor of production',
       'Land',
       'Labour',
       'Capital',
-      'Enterprise and entrepreneur',
     ]);
-    expect(lessonShape.visualSlides).toHaveLength(6);
+    expect(lessonShape.visualSlides).toHaveLength(5);
     expect(lessonShape.visualSlides.every(({ src }) => (
       src.includes('../../../assets/images/factors-of-production/') && !/^https?:/i.test(src)
     ))).toBe(true);
@@ -1011,7 +1012,6 @@ test.describe('site smoke', () => {
       'Syllabus 1.2.1',
       '2025FM-22 Q3(a)',
       '2023ON-22 Q2(a)',
-      '2025MJ-21 Q3(a)',
       '2025MJ-22 Q1(b)',
     ]));
 
@@ -1042,11 +1042,11 @@ test.describe('site smoke', () => {
     await expect(page.locator('.slide.is-active .yesNoAnswer.is-visible')).toHaveCount(0);
 
     await page.goto(`${pageUrl(lessonPath)}?view=quiz`);
-    await expect(page.locator('.quizQuestion')).toHaveCount(10);
+    await expect(page.locator('.quizQuestion')).toHaveCount(5);
     await expectNoHorizontalOverflow(page);
 
     await page.goto(`${pageUrl(lessonPath)}?view=flashcards`);
-    await expect(page.locator('.flashcardPosition')).toHaveText('10 left');
+    await expect(page.locator('.flashcardPosition')).toHaveText('5 left');
     await expectNoHorizontalOverflow(page);
 
     await page.goto(`${pageUrl(lessonPath)}?view=print`);
@@ -5265,7 +5265,6 @@ test.describe('site smoke', () => {
       'lessons/unit-4-government/4-4-supply-side-policy/lesson-1.html',
       'lessons/unit-4-government/4-4-supply-side-policy/lesson-2.html',
       'lessons/unit-4-government/4-4-supply-side-policy/lesson-3.html',
-      'lessons/unit-4-government/4-4-supply-side-policy/lesson-4.html',
     ];
 
     for (const flashcardPath of flashcardPaths) {
@@ -5711,10 +5710,10 @@ test.describe('site smoke', () => {
     await page.goto(pageUrl('lessons/unit-4-government/4-4-supply-side-policy/index.html'));
 
     await expect(page.getByRole('link', { name: /Library index/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(4);
-    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(4);
+    await expect(page.getByRole('link', { name: /Slide view/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /Handout view/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /^Quiz$/i })).toHaveCount(5);
+    await expect(page.getByRole('link', { name: /^Flashcards$/i })).toHaveCount(5);
     await expect(page.getByRole('link', { name: /Handout view/i }).first()).toHaveAttribute('href', /view=print/);
     await expect(page.getByRole('link', { name: /^Quiz$/i }).first()).toHaveAttribute('href', /view=quiz/);
     await expect(page.getByRole('link', { name: /^Flashcards$/i }).first()).toHaveAttribute('href', /view=flashcards/);

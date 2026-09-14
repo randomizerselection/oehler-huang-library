@@ -1,0 +1,148 @@
+/* Numbered functions: a specific picture beside the credited explanation. */
+.slide.is-layout-central-bank-function {
+  --ink: #173e39;
+  --ink-dim: #527168;
+  --line: #d0d9d2;
+  --gold: #8a641d;
+  background: #f7f5ee;
+  color: var(--ink);
+}
+.is-layout-central-bank-function .content {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1rem 3.4vw;
+}
+.is-layout-central-bank-function .content main,
+.is-layout-central-bank-function .content main > div { display: contents; }
+.is-layout-central-bank-function h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: none;
+  color: var(--ink);
+  font-size: clamp(34px, 3.25vw, 52px);
+  line-height: 1.1;
+}
+.is-layout-central-bank-function .lead {
+  grid-column: 1 / -1;
+  margin: -.35rem 0 .3rem;
+  font-size: clamp(22px, 1.8vw, 29px);
+  color: var(--ink-dim);
+}
+.is-layout-central-bank-function .slide-footer,
+.is-layout-central-bank-function .slide-footer .creator { color: #60766c; }
+.is-layout-central-bank-function .content aside.visual {
+  grid-column: 1;
+  grid-row: 3;
+  min-height: 0;
+  height: clamp(330px, 49vh, 490px);
+}
+.is-layout-central-bank-function .photoPanel {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.is-layout-central-bank-function .photoPanel::after { display: none; }
+.is-layout-central-bank-function .photoPanel img { width: 100%; height: 100%; min-height: 0; object-fit: cover; }
+.is-layout-central-bank-function .photoPanel img[src$=".svg"] { object-fit: contain; }
+.is-layout-central-bank-function .photoPanel figcaption {
+  position: static;
+  background: transparent;
+  color: var(--ink-dim);
+  padding: .5rem 0 0;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.is-layout-central-bank-function .cardgrid {
+  grid-column: 2;
+  grid-row: 3;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+.is-layout-central-bank-function .cardgrid .card {
+  position: relative;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  transform: none;
+}
+.is-layout-central-bank-function .cardTitle {
+  display: block;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(25px, 2.15vw, 35px);
+  font-weight: 650;
+  line-height: 1.16;
+}
+.is-layout-central-bank-function .cardTitleZh {
+  display: block;
+  margin-top: .35rem;
+  color: var(--ink-dim);
+  font-size: clamp(20px, 1.55vw, 25px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.is-layout-central-bank-function .is-function-issue .cardTitle { font-size: clamp(32px, 2.9vw, 46px); line-height: 1.2; }
+.is-layout-central-bank-function .is-function-roles .card { border-left: 4px solid var(--gold); padding-left: 1.2rem; }
+.is-layout-central-bank-function .is-function-flow .card + .card::before {
+  content: "↓";
+  position: absolute;
+  top: -1.45rem;
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .is-layout-central-bank-function .content { grid-template-columns: 1fr; gap: .7rem; }
+  .is-layout-central-bank-function .content aside.visual { grid-column: 1; grid-row: 3; height: 235px; }
+  .is-layout-central-bank-function .cardgrid { grid-column: 1; grid-row: 4; gap: 1.4rem; }
+  .is-layout-central-bank-function h2 { font-size: 30px; }
+  .is-layout-central-bank-function .lead { font-size: 21px; }
+  .is-layout-central-bank-function .cardTitle { font-size: 22px; }
+  .is-layout-central-bank-function .cardTitleZh { font-size: 19px; }
+  .is-layout-central-bank-function .is-function-issue .cardTitle { font-size: 29px; }
+}
+
+/* A short historical fact: one picture, one figure, one sentence. */
+.is-layout-central-bank-example .content { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 3.4vw; }
+.is-layout-central-bank-example h2 { font-size: clamp(34px, 3.2vw, 52px); line-height: 1.1; margin-bottom: 1.5rem; }
+.is-layout-central-bank-example .cardgrid { grid-template-columns: 1fr; }
+.is-layout-central-bank-example .card { min-height: 0; padding: 0; border: 0; border-radius: 0; overflow: visible; background: none; box-shadow: none; }
+.is-layout-central-bank-example .cardTitle { font-size: clamp(40px, 4vw, 64px); color: var(--gold); line-height: 1.1; }
+.is-layout-central-bank-example .cardBody { font-size: clamp(25px, 2.05vw, 33px); line-height: 1.3; }
+.is-layout-central-bank-example .photoPanel { height: clamp(310px, 53vh, 480px); }
+.is-layout-central-bank-example .photoPanel img { height: 100%; object-fit: cover; }
+.is-layout-central-bank-example .photoPanel img[src$="bank-of-china-hk-1000-sample.png"] { object-fit: contain; background: #f7f5ee; }
+
+/* Decisions and reasons remain legible, with all prompts fixed in place. */
+.is-layout-central-bank-check .content { grid-template-columns: minmax(0, 1fr); }
+.is-layout-central-bank-check .yesNoCheckBlock { width: 100%; gap: 1rem; }
+.is-layout-central-bank-check .yesNoCheckBlock h2 { max-width: none; font-size: clamp(34px, 3.2vw, 52px); line-height: 1.1; }
+.is-layout-central-bank-check .yesNoCheckBlock .lead { max-width: none; font-size: clamp(22px, 1.75vw, 28px); }
+.is-layout-central-bank-check .yesNoRow { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1rem; }
+.is-layout-central-bank-check .yesNoStatement,
+.is-layout-central-bank-check .yesNoAnswer { padding: .9rem 1rem; }
+.is-layout-central-bank-check .yesNoStatement b { font-size: clamp(25px, 1.85vw, 30px); line-height: 1.22; font-weight: 600; }
+.is-layout-central-bank-check .yesNoAnswer { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .85rem; }
+.is-layout-central-bank-check .yesNoAnswer em { font-size: clamp(24px, 1.7vw, 28px); line-height: 1.22; color: #fff0c8; }
+.is-layout-central-bank-check .yesNoBadge { font-size: clamp(25px, 2vw, 32px); min-width: 3.8rem; }
+@media (max-width: 900px) {
+  .is-layout-central-bank-example .content { grid-template-columns: 1fr; gap: 1rem; }
+  .is-layout-central-bank-example h2 { font-size: 30px; margin-bottom: 1rem; }
+  .is-layout-central-bank-example .cardTitle { font-size: 38px; }
+  .is-layout-central-bank-example .cardBody { font-size: 23px; }
+  .is-layout-central-bank-example .photoPanel { height: 260px; }
+  .is-layout-central-bank-check .yesNoRow { grid-template-columns: 1fr; gap: .5rem; }
+  .is-layout-central-bank-check .yesNoCheckBlock h2 { font-size: 30px; }
+  .is-layout-central-bank-check .yesNoStatement b,
+  .is-layout-central-bank-check .yesNoAnswer em { font-size: 21px; }
+  .is-layout-central-bank-check .yesNoBadge { font-size: 24px; }
+}

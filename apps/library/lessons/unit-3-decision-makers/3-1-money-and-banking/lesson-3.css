@@ -133,3 +133,77 @@
 }
 /* Fade table rows in place: translated hidden rows otherwise create a scrollbar. */
 .dataTable tbody > tr.partial-item { transform: none; }
+
+/* Keep the comparison grid and its labels visible while filling answer cells. */
+.is-layout-bank-comparison .dataTable th + th,
+.is-layout-bank-comparison .dataTable td { border-left: 1px solid var(--line); }
+.is-layout-bank-comparison .dataTable td.partial-item {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: color .24s var(--ease);
+}
+.is-layout-bank-comparison .dataTable td.partial-item:not(.is-visible) { color: transparent; }
+@media print {
+  .is-layout-bank-comparison .dataTable td.partial-item:not(.is-visible) { color: inherit; }
+}
+
+/* Written recall: three question/model rows with reserved answer space. */
+.is-layout-banking-recall .classificationTaskBlock { width: 100%; gap: 1rem; }
+.is-layout-banking-recall .classificationBadge { display: none; }
+.is-layout-banking-recall .classificationItems { grid-template-columns: 1fr; gap: 0; }
+.is-layout-banking-recall .classificationItem {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr);
+  grid-template-rows: auto;
+  align-items: center;
+  min-height: 0;
+  padding: .85rem 0;
+  gap: 2rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+.is-layout-banking-recall .classificationItemTop { align-items: center; }
+.is-layout-banking-recall .classificationItem p {
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 1.22;
+}
+.is-layout-banking-recall .classificationItemNumber {
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 22px;
+}
+.is-layout-banking-recall .classificationResult {
+  align-self: center;
+  padding: 0 0 0 1.3rem;
+  border-top: 0;
+  border-left: 3px solid var(--gold);
+  transform: none;
+}
+.is-layout-banking-recall .classificationAnswer {
+  display: block;
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: clamp(26px, 2.15vw, 34px);
+  line-height: 1.25;
+  font-weight: 600;
+}
+.is-layout-banking-recall .classificationShare {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: clamp(20px, 1.55vw, 25px);
+}
+@media (max-width: 900px) {
+  .is-layout-banking-recall .classificationTaskBlock { gap: .75rem; }
+  .is-layout-banking-recall .classificationItem { grid-template-columns: 1fr; gap: .6rem; padding: .75rem 0; }
+  .is-layout-banking-recall .classificationItem p,
+  .is-layout-banking-recall .classificationAnswer { font-size: 20px; }
+  .is-layout-banking-recall .classificationResult { margin-left: 2.5rem; padding-left: .7rem; }
+  .is-layout-banking-recall .classificationItemNumber { width: 1.85rem; height: 1.85rem; font-size: 18px; }
+  .is-layout-banking-recall .classificationShare { font-size: 17px; }
+}

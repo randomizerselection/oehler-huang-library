@@ -236,43 +236,6 @@ IGCSE.lesson = {
       "zhTitle": "能力、效率与产出"
     },
     {
-      "type": "flow",
-      "mode": "fillBlanks",
-      "eyebrow": "Learn",
-      "title": "What sets the PPC?",
-      "question": "The PPC is the boundary of what an economy can produce with its current resources and technology.",
-      "zhTitle": "什么决定PPC？",
-      "nodes": [
-        [
-          {
-            "text": "__________",
-            "answer": "resources",
-            "zh": "中文提示： resources"
-          },
-          {
-            "text": "__________",
-            "answer": "technology",
-            "zh": "中文提示： technology"
-          },
-          {
-            "text": "__________",
-            "answer": "productivity",
-            "zh": "中文提示： productivity"
-          },
-          {
-            "text": "productive __________",
-            "answer": "capacity",
-            "zh": "中文提示： productive capacity"
-          },
-          {
-            "text": "PPC __________",
-            "answer": "boundary",
-            "zh": "生产可能性曲线边界"
-          }
-        ]
-      ]
-    },
-    {
       "type": "cards",
       "eyebrow": "Learn",
       "title": "From policy to PPC shift",

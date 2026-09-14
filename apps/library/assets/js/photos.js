@@ -1016,6 +1016,27 @@ window.IGCSE = window.IGCSE || {};
     };
 
   const supplySidePolicy = {
+    britishAirwaysTakeoff: photo(
+      'supply-side-policy',
+      'british-airways-takeoff.jpg',
+      'A British Airways Boeing 747-400 taking off at London Heathrow Airport.',
+      'NMOS332 / Wikimedia Commons / CC BY-SA 2.0; resized',
+      'https://commons.wikimedia.org/wiki/File:Boeing_747-400_of_British_Airways_taking_off_at_London_Heathrow_Airport_(1).jpg'
+    ),
+    londonBus: photo(
+      'supply-side-policy',
+      'london-bus-at-night.jpg',
+      'A red double-decker bus at night in London; an illustration for a hypothetical ownership case.',
+      '0x010C / Wikimedia Commons / CC BY-SA 4.0; resized',
+      'https://commons.wikimedia.org/wiki/File:2016-02_red_double-decker_bus_london_07.jpg'
+    ),
+    taxIncentive: photo(
+      'supply-side-policy',
+      'tax-incentive-oven.svg',
+      'Illustrative tax cut: on £100,000 profit, tax falls from £30,000 to £20,000; profit kept rises from £70,000 to £80,000, enough for a £75,000 oven.',
+      'Original classroom diagram; hypothetical figures',
+      '../../../assets/images/supply-side-policy/tax-incentive-oven.svg'
+    ),
     singaporeIte: photo(
       'supply-side-policy',
       'singapore-ite-headquarters.jpg',

@@ -165,7 +165,7 @@ test('@smoke retrieval hides methods until requested and preserves mathematical 
   const formula=await open(page,'formula-substitution');
   await expect(formula.locator('.formula-reference sup')).toHaveText('n');
   await expect(formula.locator('.retrieval-answer > div')).not.toBeVisible();
-  await expect(formula).toContainText('Will Mei reach her ¥8,000 target?');
+  await expect(formula).toContainText('Will Emma reach her ¥8,000 target?');
   await formula.locator('summary').click();
   await expect(formula.locator('.retrieval-equation sup')).toHaveText('3');
   await expect(formula.locator('.retrieval-answer > div')).toContainText('¥8,651.50');

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">A tax cut can make investment affordable</title>
+<desc id="desc">Alex earns 100,000 pounds before tax. At 30 percent tax, 70,000 pounds remain; at 20 percent tax, 80,000 pounds remain. The extra 10,000 pounds makes a 75,000-pound oven affordable. All profit is kept and there are no other funds.</desc>
+<rect width="1600" height="900" fill="#10263b"/>
+<text x="85" y="98" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="51" font-weight="700">Tax incentives: more profit available to invest</text>
+<text x="85" y="155" fill="#c9d8e5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="31" font-weight="400">Alex’s bakery • £100,000 profit before tax in both cases</text>
+<rect x="85" y="208" width="680" height="408" rx="12" fill="#18344d"/>
+<text x="115" y="264" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="40" font-weight="700">30% corporation tax</text>
+<rect x="117" y="305" width="49" height="76" rx="7" fill="#eb936d"/>
+<rect x="179" y="305" width="49" height="76" rx="7" fill="#eb936d"/>
+<rect x="241" y="305" width="49" height="76" rx="7" fill="#eb936d"/>
+<rect x="303" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="365" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="427" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="489" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="551" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="613" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="675" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<text x="115" y="429" fill="#efb59a" font-family="Arial, Microsoft YaHei, sans-serif" font-size="34" font-weight="400">Tax paid: £30,000</text>
+<text x="115" y="484" fill="#78dce0" font-family="Arial, Microsoft YaHei, sans-serif" font-size="44" font-weight="700">Profit kept: £70,000</text>
+<text x="115" y="544" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="29" font-weight="700">£5,000 short of the oven</text>
+<text x="115" y="585" fill="#c9d8e5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="25" font-weight="400">每个色块 = £10,000</text>
+<rect x="835" y="208" width="680" height="408" rx="12" fill="#18344d"/>
+<text x="865" y="264" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="40" font-weight="700">20% corporation tax</text>
+<rect x="867" y="305" width="49" height="76" rx="7" fill="#eb936d"/>
+<rect x="929" y="305" width="49" height="76" rx="7" fill="#eb936d"/>
+<rect x="991" y="305" width="49" height="76" rx="7" fill="#f6ce68"/>
+<rect x="1053" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1115" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1177" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1239" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1301" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1363" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<rect x="1425" y="305" width="49" height="76" rx="7" fill="#52c8ca"/>
+<text x="865" y="429" fill="#efb59a" font-family="Arial, Microsoft YaHei, sans-serif" font-size="34" font-weight="400">Tax paid: £20,000</text>
+<text x="865" y="484" fill="#78dce0" font-family="Arial, Microsoft YaHei, sans-serif" font-size="44" font-weight="700">Profit kept: £80,000</text>
+<text x="865" y="544" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="29" font-weight="700">Enough for the £75,000 oven</text>
+<text x="865" y="585" fill="#c9d8e5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="25" font-weight="400">每个色块 = £10,000</text>
+<rect x="85" y="655" width="960" height="155" rx="12" fill="#264254"/>
+<text x="115" y="711" fill="#f6ce68" font-family="Arial, Microsoft YaHei, sans-serif" font-size="35" font-weight="700">£10,000 less tax → £10,000 more to invest</text>
+<text x="115" y="760" fill="#c9d8e5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="31" font-weight="400">减税 → 更多可用于投资的税后利润</text>
+<rect x="1100" y="657" width="135" height="139" rx="12" fill="#d4e3ed"/>
+<rect x="1112" y="696" width="110" height="80" rx="4" fill="#18344d"/>
+<circle cx="1120" cy="677" r="6" fill="#18344d"/>
+<circle cx="1151" cy="677" r="6" fill="#18344d"/>
+<circle cx="1182" cy="677" r="6" fill="#18344d"/>
+<rect x="1128" y="716" width="31" height="15" rx="7" fill="#f6ce68"/>
+<rect x="1166" y="716" width="31" height="15" rx="7" fill="#f6ce68"/>
+<rect x="1128" y="743" width="31" height="15" rx="7" fill="#f6ce68"/>
+<rect x="1166" y="743" width="31" height="15" rx="7" fill="#f6ce68"/>
+<text x="1260" y="711" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="31" font-weight="700">New oven</text>
+<text x="1260" y="759" fill="#f6ce68" font-family="Arial, Microsoft YaHei, sans-serif" font-size="39" font-weight="700">£75,000</text>
+<text x="85" y="862" fill="#aabfcf" font-family="Arial, Microsoft YaHei, sans-serif" font-size="25" font-weight="400">Illustrative rates • All after-tax profit kept • No borrowing or other savings</text>
+</svg>

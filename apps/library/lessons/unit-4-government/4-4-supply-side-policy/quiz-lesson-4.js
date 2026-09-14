@@ -1,90 +1,231 @@
 window.IGCSE = window.IGCSE || {};
-
 IGCSE.quiz = {
-  id: '4-4-supply-side-policy-lesson-4',
-  version: '1.0.0',
-  title: 'Supply-side effects and evaluation quiz',
-  description: 'Check syllabus 4.4.3: effects on growth, employment, prices, competitiveness and the current account.',
-  questions: [
+  "id": "4-4-supply-side-policy-lesson-4",
+  "version": "2.0.0",
+  "title": "Effects of supply-side policy quiz",
+  "description": "Teacher-written retrieval aligned with this lesson and its cited schemes.",
+  "questions": [
     {
-      id: 'growth',
-      type: 'multipleChoice',
-      prompt: 'How can supply-side policy increase economic growth?',
-      choices: [
-        'By raising productive capacity and long-run output.',
-        'By permanently reducing every worker\'s skill.',
-        'By making firms unable to produce.',
-        'By lowering total supply.',
+      "id": "capacity",
+      "type": "multipleChoice",
+      "prompt": "A policy raises capacity but demand is weak. Why might real GDP rise less?",
+      "choices": [
+        "Firms may lack buyers for the extra possible output.",
+        "The PPC must shift inwards.",
+        "Productivity means the general price level.",
+        "Training directly reduces all consumer incomes."
       ],
-      answer: 0,
-      explanation: 'Supply-side policy can raise real GDP by increasing capacity and productivity.',
+      "answer": 0,
+      "explanation": "Productive capacity is possible output; actual production also depends on demand.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
     },
     {
-      id: 'costs',
-      type: 'fillBlank',
-      prompt: 'Higher productivity can reduce average production __________.',
-      acceptedAnswers: ['costs', 'cost'],
-      explanation: 'Lower unit costs can reduce cost-push inflationary pressure.',
-    },
-    {
-      id: 'inflation',
-      type: 'multipleChoice',
-      prompt: 'How can supply-side policy help price stability?',
-      choices: [
-        'Lower costs can reduce cost-push inflationary pressure.',
-        'Higher costs always reduce inflation.',
-        'Less output always means lower inflation with no risk.',
-        'It can only affect income tax revenue.',
+      "id": "employment",
+      "type": "multipleChoice",
+      "prompt": "Which condition makes training more likely to reduce structural unemployment?",
+      "choices": [
+        "Courses award more certificates, regardless of content.",
+        "The skills taught match available vacancies.",
+        "All workers stay in the same occupation.",
+        "Firms cut every job vacancy."
       ],
-      answer: 0,
-      explanation: 'Productivity gains can lower average costs and increase supply.',
+      "answer": 1,
+      "explanation": "Relevant skills help workers move into available occupations.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
     },
     {
-      id: 'exports',
-      type: 'fillBlank',
-      prompt: 'If firms become more competitive, exports may __________.',
-      acceptedAnswers: ['rise', 'increase', 'grow'],
-      explanation: 'Lower prices or higher quality can raise export demand.',
-    },
-    {
-      id: 'current-account',
-      type: 'multipleChoice',
-      prompt: 'Which chain links supply-side policy to the current account?',
-      choices: [
-        'Productivity rises -> costs fall -> exports become more competitive -> current account may improve.',
-        'Skills fall -> costs rise -> exports rise automatically.',
-        'Infrastructure worsens -> imports must disappear.',
-        'Workers train less -> current account must improve.',
+      "id": "costs",
+      "type": "multipleChoice",
+      "prompt": "Total production cost stays ¥1,200 while output rises from 100 to 150 units. New average cost is:",
+      "choices": [
+        "¥12",
+        "¥18",
+        "¥8",
+        "¥6"
       ],
-      answer: 0,
-      explanation: 'Competitiveness is the key link to exports and the current account.',
+      "answer": 2,
+      "explanation": "Average cost = ¥1,200 / 150 = ¥8. The training cost is excluded from these illustrative figures.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
     },
     {
-      id: 'unemployment',
-      type: 'fillBlank',
-      prompt: 'Better skills and mobility may reduce structural __________.',
-      acceptedAnswers: ['unemployment'],
-      explanation: 'Structural unemployment falls when workers can match available jobs.',
-    },
-    {
-      id: 'evaluation',
-      type: 'multipleChoice',
-      prompt: 'Which is the strongest evaluation point?',
-      choices: [
-        'Supply-side policies may take years and have opportunity cost.',
-        'Supply-side policies work instantly in every case.',
-        'Supply-side policies never need funding.',
-        'Supply-side policies cannot affect firms.',
+      "id": "prices",
+      "type": "multipleChoice",
+      "prompt": "Inflation falls from 6% to 2%. What follows?",
+      "choices": [
+        "All prices return to their original level.",
+        "Prices are unchanged.",
+        "The price level falls by 4%.",
+        "The general price level still rises, more slowly."
       ],
-      answer: 0,
-      explanation: 'Time lags and opportunity cost are core evaluation points.',
+      "answer": 3,
+      "explanation": "Lower positive inflation is slower price growth, not deflation.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
     },
     {
-      id: 'opportunity-cost',
-      type: 'fillBlank',
-      prompt: 'Money spent on training has an opportunity __________.',
-      acceptedAnswers: ['cost'],
-      explanation: 'Government spending on one policy cannot be used for another priority.',
+      "id": "exports",
+      "type": "multipleChoice",
+      "prompt": "Lower domestic average costs can increase export revenue if:",
+      "choices": [
+        "Foreign demand responds sufficiently to more competitive prices.",
+        "Foreign buyers stop buying domestic goods.",
+        "Every firm keeps prices and quantities unchanged.",
+        "Import spending rises by the same amount."
+      ],
+      "answer": 0,
+      "explanation": "Lower costs may allow lower prices and higher foreign demand; the revenue response is conditional.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
     },
-  ],
+    {
+      "id": "balance",
+      "type": "multipleChoice",
+      "prompt": "Exports rise by ¥20m and imports by ¥30m; other current-account items are unchanged. The balance:",
+      "choices": [
+        "Improves by ¥50m.",
+        "Worsens by ¥10m.",
+        "Improves by ¥10m.",
+        "Is unchanged."
+      ],
+      "answer": 1,
+      "explanation": "The additional import outflow exceeds the additional export inflow by ¥10m.",
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024ON-21 Q3(d)",
+          "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+          "marks": 8,
+          "qp": "0455_w24_qp_21",
+          "qpPage": 4,
+          "ms": "0455_w24_ms_21",
+          "msPage": 18,
+          "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+        },
+        {
+          "label": "Paper 2",
+          "ref": "2023MJ-21 Q3(c)",
+          "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+          "marks": 6,
+          "qp": "0455_s23_qp_21",
+          "qpPage": 4,
+          "ms": "0455_s23_ms_21",
+          "msPage": 15,
+          "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+        }
+      ]
+    }
+  ]
 };

@@ -12,9 +12,9 @@ The optional exact formula follows directly from quantity = money / price: the r
 
 ## Chart and calculations
 
-Slide 11 is a conditional projection, not a historical series. Year n: Jun’s money = 1000×1.04ⁿ; cost of his original goods = 1000×1.05ⁿ, n=0…10. Same currency, starting value and time axis. The fixed zero-based scale is shared. Year 10 endpoints are ¥1,480.24 and ¥1,628.89. In the one-year basket example, ¥1,040/¥105 ≈ 9.90 basket equivalents, down from 10.
+Slide 11 is a conditional projection, not a historical series. Year n: Jack’s money = 1000×1.04ⁿ; cost of his original goods = 1000×1.05ⁿ, n=0…10. Same currency, starting value and time axis. The fixed zero-based scale is shared. Year 10 endpoints are ¥1,480.24 and ¥1,628.89. In the one-year basket example, ¥1,040/¥105 ≈ 9.90 basket equivalents, down from 10.
 
-Mei’s existing ¥6,500 starting amount, ¥8,000 current phone target and three-year horizon continue the earlier case. Assuming 10% nominal growth and 3% growth of both the general price level and phone budget gives savings ¥8,651.50 and target ¥8,741.82, a ¥90.32 shortfall. The phone’s price growth is a separate assumption; no claim about Apple’s actual pricing is intended.
+Emma’s existing ¥6,500 starting amount, ¥8,000 current phone target and three-year horizon continue the earlier case. Assuming 10% nominal growth and 3% growth of both the general price level and phone budget gives savings ¥8,651.50 and target ¥8,741.82, a ¥90.32 shortfall. The phone’s price growth is a separate assumption; no claim about Apple’s actual pricing is intended.
 
 ## Fresh original photographs
 
@@ -23,6 +23,6 @@ Files are stored locally under `course-assets/images/lesson-05/`. Downloaded 10 
 | Local file | Original page and creator | Licence | Teaching role |
 |---|---|---|---|
 | `supermarket-interior.jpg` | [Taste supermarket in Hopewell Centre, Hong Kong](https://commons.wikimedia.org/wiki/File:HK_Wan_Chai_合和中心_Hopewell_Centre_night_sidewalk_shop_Taste_supermarket_interior.jpg), Ogdlmare, 14 April 2010 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Consumption and what money buys; no claim about prices pictured. |
-| `iphone-16-pro-series.jpg` | [iPhone 16 Pro series](https://commons.wikimedia.org/wiki/File:IPhone_16_Pro_series.jpg), Jakub CA, 27 March 2025 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Mei’s future phone goal. Photo shows existing models in Slovakia; displayed euro prices are not inputs to the assumed CNY case. |
+| `iphone-16-pro-series.jpg` | [iPhone 16 Pro series](https://commons.wikimedia.org/wiki/File:IPhone_16_Pro_series.jpg), Jakub CA, 27 March 2025 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Emma’s future phone goal. Photo shows existing models in Slovakia; displayed euro prices are not inputs to the assumed CNY case. |
 
 The lesson uses the current course renderer. Private timing, assessment and teaching guidance: `authoring/investment-course/planning/LESSON_05_PLAN.md` in the repository.

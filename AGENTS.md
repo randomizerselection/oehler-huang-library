@@ -39,7 +39,15 @@ design and interactions.
 
 ## Standing classroom-deck preferences
 
-- Use English given names for fictional student cases, including within Chinese support. Keep names consistent across a connected case and its questions, answers and notes. Preserve real people's names in sources and credits (11 September 2026).
+- For essay workshops, break the original question into clear guiding sub-questions labelled by AO. Prompt students to draw, label and use diagrams where they support explanation or policy analysis (14 September 2026).
+
+- Finish opening retrieval before beginning the topic's visual explanation and keep that explanation connected to the following teaching. Give past-paper slides descriptive academic titles with paper codes as smaller references. Name formula slides for what they calculate. End with “Summary” and a concise list of the key lessons, rather than a contrast layout (14 September 2026).
+
+- A-level feedback, 14 September 2026: use original past-paper questions for retrieval, practice and exits; open with a concise educational-explainer mechanism rather than a long fictional case. Integrate definitions into meaningful comparisons and teach opposite concepts together. Provide small on-demand source controls. Model essays with the original question visible, staged prose, highlighted causal relationships and aligned AO annotations; teach planning, analysis, conditional evaluation and judgement instead of using Given/Method columns. Preserve each question's original mark scheme and distinguish teacher models from official answers.
+
+- Teach macroeconomic concepts with economy-wide examples and aggregate spending–income feedback. Do not substitute a single firm's sales/capacity for national-income equilibrium or one product's price rise for inflation. Household and firm examples should explain a specified link in the aggregate mechanism, with the scope clear (14 September 2026).
+
+- Use English given names for all fictional scenarios, including Chinese support. Use Emma instead of Mei, Lucy instead of Lin, and Jack instead of Jun; keep each name consistent through connected cases, questions, answers, image descriptions and teacher notes. Preserve real names in sources and credits. (reaffirmed 13 September 2026).
 
 - For mathematical explanations, prefer a short visible derivation with stated assumptions. Use consistent upright notation, readable stacked fractions and vertically arranged worked calculations, with clear emphasis on the final result (multiplier-deck feedback, 10 September 2026).
 - For classroom-deck PDFs, use one completed view per source slide. Export the

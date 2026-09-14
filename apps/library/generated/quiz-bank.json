@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-quiz-bank/1.0.0",
-  "source_hash": "3994775ce4d6ac13e6f5238ca598b8df129113bb9285c1e3b926d3612f9b66d7",
+  "source_hash": "a5f1717b0cc631ade4cbf26e77cf9657358abeb754213754cba511ec014038be",
   "quizzes": [
     {
       "id": "1-1-1-basic-economic-problem",
@@ -147,14 +147,112 @@
       ]
     },
     {
-      "id": "1-2-1-factors-of-production",
+      "id": "1-2-1-enterprise-rewards",
       "version": "1.0.0",
       "course_id": "economics",
       "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "1-2-1-enterprise-rewards",
+      "lesson_title": "Enterprise and factor rewards",
+      "title": "Enterprise and factor rewards quiz",
+      "description": "Organisation, risk-taking, factor rewards and uncertain profit.",
+      "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/lesson-2/",
+      "source": "lessons/unit-1-basic-economic-problem/1-2-factors-of-production/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "enterprise-definition",
+          "type": "multipleChoice",
+          "prompt": "What does enterprise contribute to production?",
+          "choices": [
+            "It organises the other factors and takes risks.",
+            "It provides only natural resources.",
+            "It provides only physical human effort.",
+            "It turns every machine into money."
+          ],
+          "answer": 0,
+          "explanation": "Enterprise coordinates land, labour and capital and accepts business risk.",
+          "points": 1
+        },
+        {
+          "id": "land-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for land is __________.",
+          "acceptedAnswers": [
+            "rent"
+          ],
+          "explanation": "Rent is the reward for supplying land or natural resources.",
+          "points": 1
+        },
+        {
+          "id": "labour-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for labour is wages or __________.",
+          "acceptedAnswers": [
+            "salaries",
+            "salary"
+          ],
+          "explanation": "Workers receive wages or salaries for supplying labour.",
+          "points": 1
+        },
+        {
+          "id": "capital-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for capital is __________.",
+          "acceptedAnswers": [
+            "interest"
+          ],
+          "explanation": "Interest is the reward for supplying capital.",
+          "points": 1
+        },
+        {
+          "id": "enterprise-reward",
+          "type": "fillBlank",
+          "prompt": "The reward for enterprise is __________.",
+          "acceptedAnswers": [
+            "profit",
+            "profits"
+          ],
+          "explanation": "Profit rewards the entrepreneur for organising production and taking risks.",
+          "points": 1
+        },
+        {
+          "id": "profit-loss",
+          "type": "multipleChoice",
+          "prompt": "A stall sells 6 boxes at ¥15 each. Total cost is ¥120. What is the result?",
+          "choices": [
+            "¥90 profit",
+            "¥30 loss",
+            "¥120 loss",
+            "¥30 profit"
+          ],
+          "answer": 1,
+          "explanation": "Revenue is ¥90. Profit = ¥90 − ¥120 = −¥30, so there is a ¥30 loss.",
+          "points": 1
+        },
+        {
+          "id": "same-person",
+          "type": "multipleChoice",
+          "prompt": "Emma kneads dough, then decides to risk savings on a new product. Which factors do these actions supply, in order?",
+          "choices": [
+            "Enterprise, labour",
+            "Capital, enterprise",
+            "Labour, enterprise",
+            "Labour, capital"
+          ],
+          "answer": 2,
+          "explanation": "Kneading supplies human effort; organising and bearing business risk supplies enterprise.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "1-2-1-factors-of-production",
+      "version": "1.1.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
       "lesson_id": "1-2-1-factors-of-production",
-      "lesson_title": "Factors of production and rewards",
-      "title": "Factors of production and rewards quiz",
-      "description": "Identify land, labour, capital and enterprise, then match each factor with its reward.",
+      "lesson_title": "Factors of production",
+      "title": "Factors of production quiz",
+      "description": "Retrieve the definitions and classify land, labour and capital.",
       "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/",
       "source": "lessons/unit-1-basic-economic-problem/1-2-factors-of-production/quiz.js",
       "questions": [
@@ -219,62 +317,6 @@
           ],
           "answer": 0,
           "explanation": "The sewing machine is a human-made good used in production.",
-          "points": 1
-        },
-        {
-          "id": "enterprise-definition",
-          "type": "multipleChoice",
-          "prompt": "What does enterprise contribute to production?",
-          "choices": [
-            "It organises the other factors and takes risks.",
-            "It provides only natural resources.",
-            "It provides only physical human effort.",
-            "It turns every machine into money."
-          ],
-          "answer": 0,
-          "explanation": "Enterprise coordinates land, labour and capital and accepts business risk.",
-          "points": 1
-        },
-        {
-          "id": "land-reward",
-          "type": "fillBlank",
-          "prompt": "The reward for land is __________.",
-          "acceptedAnswers": [
-            "rent"
-          ],
-          "explanation": "Rent is the reward for supplying land or natural resources.",
-          "points": 1
-        },
-        {
-          "id": "labour-reward",
-          "type": "fillBlank",
-          "prompt": "The reward for labour is wages or __________.",
-          "acceptedAnswers": [
-            "salaries",
-            "salary"
-          ],
-          "explanation": "Workers receive wages or salaries for supplying labour.",
-          "points": 1
-        },
-        {
-          "id": "capital-reward",
-          "type": "fillBlank",
-          "prompt": "The reward for capital is __________.",
-          "acceptedAnswers": [
-            "interest"
-          ],
-          "explanation": "Interest is the reward for supplying capital.",
-          "points": 1
-        },
-        {
-          "id": "enterprise-reward",
-          "type": "fillBlank",
-          "prompt": "The reward for enterprise is __________.",
-          "acceptedAnswers": [
-            "profit",
-            "profits"
-          ],
-          "explanation": "Profit rewards the entrepreneur for organising production and taking risks.",
           "points": 1
         }
       ]
@@ -1680,15 +1722,15 @@
         {
           "id": "policy-purpose",
           "type": "multipleChoice",
-          "prompt": "Why might a central bank influence interest rates?",
+          "prompt": "Why does a central bank operate monetary policy?",
           "choices": [
-            "To influence borrowing and spending and help maintain price stability.",
+            "To control inflation and help maintain price stability.",
             "To guarantee every bank’s profit.",
             "To cancel all private debts.",
             "To decide all prices directly."
           ],
           "answer": 0,
-          "explanation": "Monetary policy influences economic decisions, including borrowing and spending, which can affect price pressure.",
+          "explanation": "A central bank uses monetary policy to control inflation and help protect purchasing power.",
           "sources": [
             {
               "label": "Syllabus and definitions",
@@ -3324,113 +3366,522 @@
     },
     {
       "id": "4-4-supply-side-policy-lesson-4",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "course_id": "economics",
       "course_title": "Cambridge IGCSE Economics 0455",
       "lesson_id": "4-4-supply-side-policy",
-      "lesson_title": "Supply-side effects and evaluation",
-      "title": "Supply-side effects and evaluation quiz",
-      "description": "Check syllabus 4.4.3: effects on growth, employment, prices, competitiveness and the current account.",
+      "lesson_title": "Effects of supply-side policy",
+      "title": "Effects of supply-side policy quiz",
+      "description": "Teacher-written retrieval aligned with this lesson and its cited schemes.",
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-4/",
       "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-4.js",
       "questions": [
         {
-          "id": "growth",
+          "id": "capacity",
           "type": "multipleChoice",
-          "prompt": "How can supply-side policy increase economic growth?",
+          "prompt": "A policy raises capacity but demand is weak. Why might real GDP rise less?",
           "choices": [
-            "By raising productive capacity and long-run output.",
-            "By permanently reducing every worker's skill.",
-            "By making firms unable to produce.",
-            "By lowering total supply."
+            "Firms may lack buyers for the extra possible output.",
+            "The PPC must shift inwards.",
+            "Productivity means the general price level.",
+            "Training directly reduces all consumer incomes."
           ],
           "answer": 0,
-          "explanation": "Supply-side policy can raise real GDP by increasing capacity and productivity.",
+          "explanation": "Productive capacity is possible output; actual production also depends on demand.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "employment",
+          "type": "multipleChoice",
+          "prompt": "Which condition makes training more likely to reduce structural unemployment?",
+          "choices": [
+            "Courses award more certificates, regardless of content.",
+            "The skills taught match available vacancies.",
+            "All workers stay in the same occupation.",
+            "Firms cut every job vacancy."
+          ],
+          "answer": 1,
+          "explanation": "Relevant skills help workers move into available occupations.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
+          ],
           "points": 1
         },
         {
           "id": "costs",
-          "type": "fillBlank",
-          "prompt": "Higher productivity can reduce average production __________.",
-          "acceptedAnswers": [
-            "costs",
-            "cost"
+          "type": "multipleChoice",
+          "prompt": "Total production cost stays ¥1,200 while output rises from 100 to 150 units. New average cost is:",
+          "choices": [
+            "¥12",
+            "¥18",
+            "¥8",
+            "¥6"
           ],
-          "explanation": "Lower unit costs can reduce cost-push inflationary pressure.",
+          "answer": 2,
+          "explanation": "Average cost = ¥1,200 / 150 = ¥8. The training cost is excluded from these illustrative figures.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
+          ],
           "points": 1
         },
         {
-          "id": "inflation",
+          "id": "prices",
           "type": "multipleChoice",
-          "prompt": "How can supply-side policy help price stability?",
+          "prompt": "Inflation falls from 6% to 2%. What follows?",
           "choices": [
-            "Lower costs can reduce cost-push inflationary pressure.",
-            "Higher costs always reduce inflation.",
-            "Less output always means lower inflation with no risk.",
-            "It can only affect income tax revenue."
+            "All prices return to their original level.",
+            "Prices are unchanged.",
+            "The price level falls by 4%.",
+            "The general price level still rises, more slowly."
           ],
-          "answer": 0,
-          "explanation": "Productivity gains can lower average costs and increase supply.",
+          "answer": 3,
+          "explanation": "Lower positive inflation is slower price growth, not deflation.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
+          ],
           "points": 1
         },
         {
           "id": "exports",
-          "type": "fillBlank",
-          "prompt": "If firms become more competitive, exports may __________.",
-          "acceptedAnswers": [
-            "rise",
-            "increase",
-            "grow"
-          ],
-          "explanation": "Lower prices or higher quality can raise export demand.",
-          "points": 1
-        },
-        {
-          "id": "current-account",
           "type": "multipleChoice",
-          "prompt": "Which chain links supply-side policy to the current account?",
+          "prompt": "Lower domestic average costs can increase export revenue if:",
           "choices": [
-            "Productivity rises -> costs fall -> exports become more competitive -> current account may improve.",
-            "Skills fall -> costs rise -> exports rise automatically.",
-            "Infrastructure worsens -> imports must disappear.",
-            "Workers train less -> current account must improve."
+            "Foreign demand responds sufficiently to more competitive prices.",
+            "Foreign buyers stop buying domestic goods.",
+            "Every firm keeps prices and quantities unchanged.",
+            "Import spending rises by the same amount."
           ],
           "answer": 0,
-          "explanation": "Competitiveness is the key link to exports and the current account.",
-          "points": 1
-        },
-        {
-          "id": "unemployment",
-          "type": "fillBlank",
-          "prompt": "Better skills and mobility may reduce structural __________.",
-          "acceptedAnswers": [
-            "unemployment"
+          "explanation": "Lower costs may allow lower prices and higher foreign demand; the revenue response is conditional.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
           ],
-          "explanation": "Structural unemployment falls when workers can match available jobs.",
           "points": 1
         },
         {
-          "id": "evaluation",
+          "id": "balance",
           "type": "multipleChoice",
-          "prompt": "Which is the strongest evaluation point?",
+          "prompt": "Exports rise by ¥20m and imports by ¥30m; other current-account items are unchanged. The balance:",
           "choices": [
-            "Supply-side policies may take years and have opportunity cost.",
-            "Supply-side policies work instantly in every case.",
-            "Supply-side policies never need funding.",
-            "Supply-side policies cannot affect firms."
+            "Improves by ¥50m.",
+            "Worsens by ¥10m.",
+            "Improves by ¥10m.",
+            "Is unchanged."
+          ],
+          "answer": 1,
+          "explanation": "The additional import outflow exceeds the additional export inflow by ¥10m.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2023MJ-21 Q3(c)",
+              "question": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments.",
+              "marks": 6,
+              "qp": "0455_s23_qp_21",
+              "qpPage": 4,
+              "ms": "0455_s23_ms_21",
+              "msPage": 15,
+              "extract": "Accepted links: output per worker rises; average costs and prices may fall; quality may improve; export competitiveness and revenue may rise; domestic goods may replace imports, reducing import expenditure. Credit coherent analysis; do not invent one compulsory mark per teaching step."
+            }
+          ],
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "4-4-supply-side-policy-lesson-5",
+      "version": "2.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "4-4-supply-side-policy",
+      "lesson_title": "Limitations and evaluation",
+      "title": "Limitations and evaluation quiz",
+      "description": "Teacher-written retrieval aligned with this lesson and its cited schemes.",
+      "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-5/",
+      "source": "lessons/unit-4-government/4-4-supply-side-policy/quiz-lesson-5.js",
+      "questions": [
+        {
+          "id": "lag",
+          "type": "multipleChoice",
+          "prompt": "Education spending rises now but skills improve later. With little spare capacity, what may happen first?",
+          "choices": [
+            "Total supply immediately doubles.",
+            "All prices fall.",
+            "Higher demand creates inflation pressure.",
+            "The budget deficit must fall."
+          ],
+          "answer": 2,
+          "explanation": "Spending raises total demand before the supply benefit fully appears.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "access",
+          "type": "multipleChoice",
+          "prompt": "Improved schools are accessible only to high-income families. Which limit is most relevant?",
+          "choices": [
+            "Income inequality may widen.",
+            "Every household gains equally.",
+            "The policy must lower all wages.",
+            "This is a budget surplus."
           ],
           "answer": 0,
-          "explanation": "Time lags and opportunity cost are core evaluation points.",
+          "explanation": "Restricted access may widen differences in qualifications and future earnings.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
           "points": 1
         },
         {
-          "id": "opportunity-cost",
-          "type": "fillBlank",
-          "prompt": "Money spent on training has an opportunity __________.",
-          "acceptedAnswers": [
-            "cost"
+          "id": "migration",
+          "type": "multipleChoice",
+          "prompt": "Skilled graduates emigrate. Why can this weaken the policy’s home-country benefit?",
+          "choices": [
+            "Their skills cease to exist.",
+            "All export demand disappears.",
+            "Education spending is automatically refunded.",
+            "The home economy loses some expected skilled labour and tax revenue."
           ],
-          "explanation": "Government spending on one policy cannot be used for another priority.",
+          "answer": 3,
+          "explanation": "Skills are used abroad; do not assume all domestic output or tax benefits are retained.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "opportunity",
+          "type": "multipleChoice",
+          "prompt": "Training replaces the next-best planned hospital improvement. The opportunity cost is:",
+          "choices": [
+            "The delay before training works.",
+            "The hospital improvement forgone.",
+            "The certificates issued.",
+            "All government spending."
+          ],
+          "answer": 1,
+          "explanation": "Opportunity cost is the next-best alternative forgone.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "budget",
+          "type": "multipleChoice",
+          "prompt": "Government spends ¥120bn and receives ¥100bn. This is:",
+          "choices": [
+            "A ¥20bn current-account deficit.",
+            "A ¥20bn budget surplus.",
+            "A ¥20bn budget deficit.",
+            "A ¥220bn budget deficit."
+          ],
+          "answer": 2,
+          "explanation": "Government spending exceeds government revenue by ¥20bn.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "privatisation",
+          "type": "multipleChoice",
+          "prompt": "Why might selling a profitable state firm weaken future government finances?",
+          "choices": [
+            "Sale revenue is received every year forever.",
+            "The government loses future profit income from that firm.",
+            "Private firms cannot pay taxes.",
+            "All public spending stops."
+          ],
+          "answer": 1,
+          "explanation": "Sale proceeds are an initial receipt; foregone future profits may offset the benefit.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
+          "points": 1
+        },
+        {
+          "id": "judgement",
+          "type": "multipleChoice",
+          "prompt": "Which judgement best answers whether supply-side measures reduce the budget deficit?",
+          "choices": [
+            "They always work because output rises.",
+            "It depends, with no further explanation.",
+            "Exports equal government revenue.",
+            "The deficit may rise first, then fall if taxable incomes grow enough to offset the cost."
+          ],
+          "answer": 3,
+          "explanation": "Tie the time period and policy effectiveness to government spending and revenue.",
+          "sources": [
+            {
+              "label": "Paper 2",
+              "ref": "2024ON-21 Q3(d)",
+              "question": "Discuss whether or not improving education can help a government achieve its macroeconomic aims.",
+              "marks": 8,
+              "qp": "0455_w24_qp_21",
+              "qpPage": 4,
+              "ms": "0455_w24_ms_21",
+              "msPage": 18,
+              "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
+            },
+            {
+              "label": "Paper 2",
+              "ref": "2025FM-22 Q5(d)",
+              "question": "Discuss whether supply-side policy measures will reduce a government’s budget deficit.",
+              "marks": 8,
+              "qp": "0455_m25_qp_22",
+              "qpPage": 5,
+              "ms": "0455_m25_ms_22",
+              "msPage": 27,
+              "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
+            }
+          ],
           "points": 1
         }
       ]

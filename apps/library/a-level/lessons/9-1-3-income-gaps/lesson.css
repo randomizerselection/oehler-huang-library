@@ -1,0 +1,134 @@
+/* Additions belong to this lesson; retain the A-level forest/cream design. */
+.slide .math-inline,.slide .big-formula,.slide var{font-family:var(--sans);font-style:normal}
+.slide .math-inline{white-space:nowrap}
+.slide-hero .hero-image{inset:0}
+.slide-hero .hero-image:after{background:linear-gradient(90deg,#103a35f5 0%,#103a35e6 40%,#103a3577 72%,#103a3533)}
+#income-gaps h1{max-width:15ch;font-size:5.9cqw}
+#income-gaps .hero-subtitle{max-width:32ch}
+#income-gaps .hero-syllabus{font-size:1.7cqw;max-width:35ch}
+.slide-section h1{white-space:pre-line}
+#gaps-section h1{font-size:5.4cqw;max-width:none}
+.slide-compare .heading-zh,.slide-compare .text-zh{font-size:1.8cqw!important;line-height:1.4!important}
+#income-comparison .columns p,#gaps-compared .columns p{font-size:1.95cqw}
+.slide .comparison-rule{font-size:1.75cqw;color:var(--forest);font-weight:600;margin:0}
+#gaps-compared .columns{align-content:start}
+#gaps-compared .columns-2 article{padding-top:1.4cqw}
+.slide-formula .big-formula{font-size:4.8cqw}
+.slide-formula .definition{white-space:pre-line;line-height:1.6}
+.gap-svg .gap-axis-label,.gap-svg .gap-curve-label{font-size:19px;fill:var(--ink)}
+.gap-svg .gap-zh{font-size:20px;fill:var(--muted)}
+.gap-svg .gap-eq-label{font-size:22px;font-weight:700}
+.gap-svg .gap-capacity{stroke:var(--copper);stroke-width:2;stroke-dasharray:7 5}
+.gap-svg .gap-capacity-label{font-size:18px;font-weight:600;fill:var(--copper)}
+.gap-svg .gap-value{font-size:22px;font-weight:700;fill:var(--copper)}
+.gap-svg .gap-value-backed{paint-order:stroke;stroke:#f6f3eb;stroke-width:5px;stroke-linejoin:round}
+.gap-svg .gap-income-label{font-size:19px;font-weight:600;fill:var(--teal)}
+.gap-svg .gap-notional{font-size:18px;fill:var(--muted)}
+.gap-svg .capacity-title{font-size:30px;font-weight:700}
+.gap-svg .capacity-label,.gap-svg .capacity-result{font-size:25px;font-weight:600}
+.gap-svg .flow-small{font-size:20px;fill:var(--muted)}
+.gap-svg .paired-high{stroke:var(--copper);stroke-width:3;fill:none}
+.gap-svg text.paired-high{stroke:none;fill:var(--copper)}
+.gap-svg .paired-bracket{stroke-width:6}
+.batch{stroke-width:1.5}
+.batch-used{fill:var(--teal);stroke:var(--teal)}
+.batch-idle{fill:none;stroke:var(--muted);stroke-dasharray:4 3}
+/* Compact, on-demand provenance, following the IGCSE source-control pattern. */
+.lesson-sources{position:absolute;right:5.5cqw;top:2.15cqw;display:flex;flex-wrap:wrap;gap:.35cqw;justify-content:flex-end;z-index:4;max-width:62%}
+.lesson-sources button{font:500 .87cqw var(--sans);border:1px solid #32615940;border-radius:3px;background:#f6f3ebe8;color:var(--forest);padding:.25cqw .48cqw;cursor:pointer}
+.lesson-sources button:hover,.lesson-sources button:focus-visible{background:var(--forest);color:white;outline:2px solid var(--copper);outline-offset:2px}
+.slide-hero .lesson-sources,.slide-section .lesson-sources{top:2cqw}
+.lesson-source-dialog,.complete-model-dialog{width:min(1100px,92vw);max-height:90vh;padding:24px;background:var(--paper);color:var(--ink)}
+.lesson-source-dialog .modal-content,.complete-model-dialog .modal-content{overflow-y:auto;max-height:72vh;padding:8px 12px}
+.lesson-source-dialog h3{font-size:22px;line-height:1.4;margin:8px 0 16px}
+.lesson-source-dialog p,.lesson-source-dialog a{font-size:20px;line-height:1.5}
+.lesson-source-dialog img{display:block;width:100%;height:auto;margin-top:20px;background:white}
+.source-type{color:var(--copper);font-size:14px!important;text-transform:uppercase;letter-spacing:.1em}
+/* Model writing: full question, continuous prose, and aligned AO annotations. */
+.layout-essay,.layout-exam{padding-top:3.7cqw;gap:1.25cqw}
+.layout-essay .slide-header,.layout-exam .slide-header{padding-bottom:.8cqw}
+.layout-essay h1,.layout-exam h1{font-size:2.95cqw}
+.layout-essay .slide-body,.layout-exam .slide-body{gap:.65cqw}
+.essay-question{border-left:3px solid var(--copper);padding:.5cqw 1cqw;background:#ebe8df88}
+.essay-question span{display:block;font-size:1cqw;font-weight:700;color:var(--copper);margin-bottom:.3cqw}
+.slide .essay-question p{font-size:1.35cqw;line-height:1.35;margin:0}
+.slide .essay-focus{font-size:1.45cqw;font-weight:600;color:var(--forest);margin:.35cqw 0 .45cqw}
+.essay-rows{display:flex;flex-direction:column;gap:1.05cqw;flex:1}
+.essay-row{display:grid;grid-template-columns:2.15fr 1fr;gap:2.1cqw;transition:opacity .25s,transform .25s}
+.essay-row .model-prose{font-size:1.72cqw;line-height:1.43;margin:0}
+.essay-row aside{border-left:3px solid var(--teal);padding-left:1cqw}
+.essay-row aside h2{font-size:1.25cqw;line-height:1.3;margin:0 0 .35cqw}
+.essay-row aside p{font-size:1.25cqw;line-height:1.4;margin:0;color:var(--muted)}
+.essay-row.ao-3 aside{border-color:var(--copper)}
+.essay-row.ao-3 aside h2,.essay-row.ao-3 .key-point{color:var(--copper)}
+.lesson-reveal-controls{position:absolute;bottom:3.2cqw;right:5.5cqw;display:flex;gap:1cqw;align-items:center}
+.lesson-reveal-controls button{font:500 1.05cqw var(--sans);border:0;border-bottom:1px solid var(--line);color:var(--forest);background:none;padding:.35cqw .2cqw;cursor:pointer}
+.complete-model-dialog .model-status{font-size:16px;color:var(--muted);line-height:1.5}
+.complete-model-dialog blockquote{border-left:3px solid var(--copper);padding-left:20px;font-size:19px;line-height:1.5}
+.complete-model-dialog section h3{font-size:18px;color:var(--copper);margin:26px 0 8px}
+.complete-model-dialog section p{font-size:21px;line-height:1.65}
+/* Original stimulus never disappears while its reasoning is revealed. */
+.slide .exam-reference{font-size:1.1cqw;color:var(--copper);font-weight:600;margin:0}
+.slide-header .exam-reference{margin-top:.6cqw}
+#output-gaps .columns p{font-size:1.95cqw}
+#output-gaps .columns{align-content:start}
+#output-gaps .columns-2 article{padding-top:1.4cqw}
+#lesson-conclusion .objective-list{grid-template-rows:repeat(5,1fr)}
+#lesson-conclusion .objective-list article{grid-template-columns:4cqw 1fr;gap:1.6cqw}
+#lesson-conclusion .objective-list article p{font-size:1.95cqw;max-width:none;line-height:1.3}
+#lesson-conclusion .objective-list article span{font-size:2.5cqw}
+.exam-workshop{display:grid;grid-template-columns:1.1fr 1fr;gap:2cqw;flex:1;min-height:0;padding-bottom:2.9cqw}
+.exam-original{min-width:0}
+.exam-original figure{margin:0;height:34cqw;display:flex;flex-direction:column;align-items:flex-start}
+.exam-original figure img{display:block;width:100%;max-height:32cqw;object-fit:contain;object-position:top;background:white}
+.slide .exam-original-text p{font-size:1.8cqw;line-height:1.5;margin:.5cqw 0 1cqw}
+.original-options{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:1cqw;font-size:1.8cqw;line-height:1.4}
+.exam-reasoning{border-left:1px solid var(--line);padding-left:1.8cqw}
+.slide .attempt-label{font-size:1.1cqw;color:var(--muted);margin:0 0 1.1cqw}
+.exam-step{border-top:1px solid var(--line);padding-top:.7cqw;margin-bottom:1.1cqw;transition:opacity .25s,transform .25s}
+.exam-step h2{font-size:1.5cqw;margin-bottom:.4cqw}
+.exam-step p{font-size:1.7cqw;line-height:1.35;margin-bottom:.35cqw}
+.exam-step .exam-credit{font-size:1.24cqw;line-height:1.35;color:var(--muted);margin:0}
+.exam-image-button{font:500 1cqw var(--sans);color:var(--forest);background:none;border:0;text-decoration:underline;padding:.5cqw 0;cursor:pointer}
+.exam-lightbox{width:min(1400px,95vw);max-width:95vw;max-height:95vh;padding:16px;background:white}
+.exam-lightbox img{display:block;max-width:100%;width:auto;height:78vh;object-fit:contain;margin:auto}
+.slide-mcq .mcq-feedback{font-size:1.65cqw;line-height:1.35}
+@media(prefers-reduced-motion:reduce){.essay-row,.exam-step,.shift-line,.traveller{transition:none!important}}
+@media(max-width:760px){
+ #income-gaps h1{font-size:38px}#income-gaps .hero-syllabus{font-size:18px}
+ #gaps-section h1{font-size:38px}
+ .slide-compare .heading-zh,.slide-compare .text-zh{font-size:20px!important}
+ #income-comparison .columns p,#gaps-compared .columns p{font-size:22px}
+ .slide .comparison-rule{font-size:20px}
+ .slide-formula .big-formula{font-size:40px}
+ .lesson-sources{position:static;max-width:none;order:-1;justify-content:flex-start;gap:6px;flex-shrink:0}
+ .lesson-sources button{font-size:12px;padding:5px 7px}
+ .slide-hero .lesson-sources{position:absolute;left:24px;right:24px;top:16px}
+ .slide-hero .hero-copy{top:90px}
+ .layout-essay,.layout-exam{padding-top:24px;gap:18px}
+ .layout-essay h1,.layout-exam h1{font-size:30px}
+ .layout-essay .slide-body,.layout-exam .slide-body{gap:16px}
+ .essay-question{padding:12px}.essay-question span{font-size:13px;margin-bottom:6px}
+ .slide .essay-question p{font-size:17px}.slide .essay-focus{font-size:20px}
+ .essay-rows{gap:24px}.essay-row{display:flex;flex-direction:column;gap:10px}
+ .essay-row .model-prose{font-size:21px;line-height:1.5}.essay-row aside{padding-left:14px}
+ .essay-row aside h2,.essay-row aside p{font-size:17px}
+ .lesson-reveal-controls{position:static;flex-wrap:wrap;gap:12px;margin:16px 0}.lesson-reveal-controls button{font-size:16px;padding:6px 0}
+ .slide .exam-reference{font-size:15px}.exam-workshop{display:flex;flex-direction:column;gap:20px;padding-bottom:0}
+ .exam-original figure{height:auto}.exam-original figure img{max-height:none;width:100%;height:auto}
+ .slide .exam-original-text p,.original-options{font-size:21px}.original-options{gap:12px}
+ .exam-reasoning{border:0;padding:0}.slide .attempt-label{font-size:15px;margin-bottom:12px}
+ .exam-step{padding-top:14px;margin-bottom:20px}.exam-step h2{font-size:21px}.exam-step p{font-size:22px}.exam-step .exam-credit{font-size:17px}
+ .exam-image-button{font-size:16px;padding:10px 0}.slide-mcq .mcq-feedback{font-size:20px}
+}
+@media print{.lesson-sources,.lesson-reveal-controls{display:none!important}}
+
+.gap-svg text.ae-curve{stroke:none;fill:var(--blue)}
+.complete-model-dialog .model-diagram{max-width:650px;margin:24px auto;background:var(--paper)}
+.complete-model-dialog .model-diagram svg{width:100%;height:auto;display:block}
+.complete-model-dialog .model-diagram figcaption{font-size:16px;line-height:1.4;color:var(--muted);padding:15px}
+
+@media(min-width:761px){.slide-mcq .slide-body{padding-bottom:2cqw}.essay-question,.essay-focus{flex-shrink:0}}
+.lesson-reveal-controls button:disabled{opacity:.45;cursor:default}
+@media(min-width:761px){.slide-diagram .diagram-layout{padding-bottom:1.8cqw}}
+@media(max-width:760px){#lesson-conclusion .objective-list article{grid-template-columns:35px 1fr;gap:20px}#lesson-conclusion .objective-list article p,#output-gaps .columns p{font-size:20px}#lesson-conclusion .objective-list article span{font-size:25px}}
