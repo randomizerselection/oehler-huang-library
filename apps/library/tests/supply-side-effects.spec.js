@@ -4,6 +4,12 @@ const fs=require('node:fs');
 const {pathToFileURL}=require('node:url');
 const root=path.resolve(__dirname,'../lessons/unit-4-government/4-4-supply-side-policy');
 const url=n=>pathToFileURL(path.join(root,`lesson-${n}.html`)).href;
+// Measure within the teaching block so phone auto-scrolling is not mistaken
+// for a layout shift when Playwright brings the next answer button into view.
+const answerGeometry=el=>{
+ const r=el.getBoundingClientRect(),p=el.closest('.flowRow,.slide').getBoundingClientRect();
+ return {x:r.x-p.x,y:r.y-p.y,width:r.width,height:r.height};
+};
 
 for(const n of [4,5])test(`effects ${n}: completed slides fit classroom and phone @smoke @responsive`,async({page},info)=>{
  test.setTimeout(180000);
@@ -18,7 +24,10 @@ for(const n of [4,5])test(`effects ${n}: completed slides fit classroom and phon
    const active=page.locator('.slide.is-active');
    const partials=await active.locator('.partial-item:not(.is-visible)').count();
    for(let j=0;j<partials;j++)await page.keyboard.press('ArrowRight');
-   for(const button of await active.locator('.blankAnswer').all())await button.click();
+   for(const button of await active.locator('.blankAnswer').all()){
+    const before=await button.evaluate(answerGeometry);await button.click();const after=await button.evaluate(answerGeometry);
+    for(const dimension of ['x','y','width','height'])expect(Math.abs(after[dimension]-before[dimension]),`L${n} slide ${i}: revealing a term keeps its position`).toBeLessThan(1);
+   }
    if(await active.locator('.ssp-scene').count())for(let j=0;j<2;j++)await active.locator('[data-next]').click();
    if(await active.locator('.sspPpc').count())for(let j=0;j<3;j++)await active.getByRole('button',{name:'Next step',exact:true}).click();
    await active.evaluate(async el=>{await document.fonts.ready;await Promise.all(el.getAnimations({subtree:true}).map(a=>a.finished.catch(()=>{})));});
@@ -27,9 +36,9 @@ for(const n of [4,5])test(`effects ${n}: completed slides fit classroom and phon
    if(!phone){
     const clipped=await active.evaluate(el=>[...el.querySelectorAll('h1,h2,.classificationItems,.modelAnswerCard,.flowRow,.cardgrid,.ssp-scene,.sspPpcShell,.choices.is-outcomes')].filter(x=>x.getBoundingClientRect().height>0).map(x=>({tag:x.className||x.tagName,r:x.getBoundingClientRect().toJSON()})).filter(({r})=>r.x<0||r.right>innerWidth+2||r.top<0||r.bottom>innerHeight-36));
     expect.soft(clipped,`L${n} slide ${i} at ${size.width}`).toEqual([]);
-    const tiny=await active.evaluate(el=>[...el.querySelectorAll('.cardBody,.classificationAnswer,.classificationItemTop p,.modelAnswerText p,.flowText')].filter(x=>x.getBoundingClientRect().height>0&&parseFloat(getComputedStyle(x).fontSize)<27).map(x=>({tag:x.className,size:getComputedStyle(x).fontSize})));
+    const tiny=await active.evaluate(el=>[...el.querySelectorAll('.cardBody,.classificationAnswer,.classificationItemTop p,.modelAnswerText p,.flowText,.ssp-fraction>span,.ssp-equals')].filter(x=>x.getBoundingClientRect().height>0&&parseFloat(getComputedStyle(x).fontSize)<27).map(x=>({tag:x.className,size:getComputedStyle(x).fontSize})));
     expect.soft(tiny,`L${n} slide ${i} font sizes`).toEqual([]);
-    if(process.env.SSP_SCREENSHOTS&&size.width===1440){const out=path.resolve(__dirname,'../../..','authoring/igcse-economics/review/supply-side-effects');fs.mkdirSync(out,{recursive:true});await page.screenshot({path:path.join(out,`L${n}-${String(i).padStart(2,'0')}.png`)});}
+    if(process.env.SSP_SCREENSHOTS&&size.width===1440){const out=process.env.SSP_SCREENSHOT_DIR||path.resolve(__dirname,'../../..','authoring/igcse-economics/review/supply-side-effects');fs.mkdirSync(out,{recursive:true});await page.screenshot({path:path.join(out,`L${n}-${String(i).padStart(2,'0')}.png`)});}
    }
   }
  }

@@ -14,6 +14,12 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Feedback, 15 September 2026 (full-employment income):
+
+- For expenditure-gap diagrams, omit the confusing E* point, its projection and the student-facing explanation of a notional fixed-price intersection. Focus on spending at full-employment income. Include dated real-world examples of both gaps, with source evidence before a revealed causal explanation; distinguish demand pressure from supply-driven inflation.
+
+- Explain explicitly on student-facing slides that full employment does not mean zero unemployment. Connect sustainable full-employment output to the absence of cyclical (demand-deficient) unemployment, and explain why job-search frictions and structural mismatches can remain. Ground the distinction in syllabus scope, the coursebook and an original mark scheme. Do not present one unemployment percentage as a universal threshold or imply that all remaining unemployment is voluntary.
+
 Feedback, 14 September 2026 (income-gap lesson):
 
 - Introduce essay planning by breaking the original question into student-facing guiding sub-questions, labelled by AO, rather than describing each AO abstractly. Ask students explicitly to draw, label and use diagrams at the relevant explanation and policy-analysis stages. Keep the original question intact and identify the sub-questions as teaching scaffolding.

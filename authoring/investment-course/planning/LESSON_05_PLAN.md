@@ -1,6 +1,8 @@
-# Lesson 5: Nominal and real return
+# Lesson 7: Nominal and real return
 
-**Wednesday 16 September 2026 · 40 minutes · syllabus 1.1.4.**
+**Wednesday 23 September 2026 · 40 minutes · syllabus 1.1.4.**
+
+Rescheduled on 14 September to make space for first-trade preparation and the Friday risk workshop. This filename is retained for existing references; the lesson is now session 7. See `LESSON_05_FIRST_TRADES_PLAN.md` for the new session 5.
 Deck: `apps/library/investment-analysis/lessons/1-1-4-nominal-real-return/index.html`.
 
 Prepared after Lesson 4, Assumed return. Preparation is not evidence of teaching: the last confirmed stopping point remains Lesson 3 slide 22. Do not update actual coverage until the teacher reports it. Retrieval uses confirmed return-percentage and compound-growth learning; the historical-versus-future distinction is explained again in this lesson where needed.

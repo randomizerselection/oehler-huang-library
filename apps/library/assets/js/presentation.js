@@ -2059,6 +2059,16 @@ function syncStudentSelectorButtons() {
 
 window.addEventListener('oh:authchange', syncStudentSelectorButtons);
 
+function fitDeckBesideStudentSelector() {
+  const panel = mountedStudentSelector?.panel;
+  if (!panel?.isConnected) return;
+  const availableWidth = Math.max(0, window.innerWidth - panel.getBoundingClientRect().width);
+  document.body.style.setProperty('--student-selector-deck-scale', String(availableWidth / window.innerWidth));
+}
+
+window.addEventListener('resize', fitDeckBesideStudentSelector);
+document.addEventListener('fullscreenchange', fitDeckBesideStudentSelector);
+
 function closeStudentSelectorPanel() {
   const wasOpen = Boolean(mountedStudentSelector?.panel?.isConnected);
   try {
@@ -2070,6 +2080,7 @@ function closeStudentSelectorPanel() {
   mountedStudentSelector?.panel?.remove();
   mountedStudentSelector = null;
   document.body.classList.remove('is-student-selector-open');
+  document.body.style.removeProperty('--student-selector-deck-scale');
   syncStudentSelectorButtons();
   if (wasOpen) document.querySelector('[data-student-selector]')?.focus({ preventScroll: true });
 }
@@ -2175,6 +2186,7 @@ async function openStudentSelector() {
       const observer = attachStudentSelectorStageObserver(panel);
       mountedStudentSelector = { panel, app, observer };
       document.body.classList.add('is-student-selector-open');
+      fitDeckBesideStudentSelector();
       syncStudentSelectorButtons();
       panel.focus({ preventScroll: true });
       return;

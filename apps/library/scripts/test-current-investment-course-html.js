@@ -32,9 +32,15 @@ const expectedLessons = [
     title: 'Assumed return',
   },
   {
+    route: 'lessons/first-stock-trades/index.html',
+    directory: 'first-stock-trades',
+    number: 5,
+    title: 'Planning your first stock trades',
+  },
+  {
     route: 'lessons/1-1-4-nominal-real-return/index.html',
     directory: '1-1-4-nominal-real-return',
-    number: 5,
+    number: 7,
     title: 'Nominal and real return',
   },
 ];
@@ -100,8 +106,11 @@ if (courseDataMatch) {
   check(courseData.lessons?.find((lesson) => lesson.number === 3)?.focus === 'Compound growth', 'syllabus-2026-27.html: Lesson 3 does not match the published HTML lesson');
   check(courseData.lessons?.find((lesson) => lesson.number === 3)?.coverage?.firstUntaughtSlideId === 'section-projections', 'The teacher-reported stopping point must be preserved');
   check(courseData.lessons?.find((lesson) => lesson.number === 4)?.focus === 'Assumed return', 'Lesson 4 must teach the untaught continuation');
-  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.focus === 'Nominal and real return', 'Nominal and real return must follow the continuation');
-  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.date === 'Wed Sep 16', 'Nominal and real return must use the next existing teaching slot');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.id === 'lesson-18', 'Move the existing execution period before the first trading weekend');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.date === 'Wed Sep 16', 'First trades preparation must use the next existing teaching slot');
+  check(courseData.lessons?.find((lesson) => lesson.number === 6)?.date === 'Fri Sep 18', 'Risk and order rehearsal must precede the weekend');
+  check(courseData.lessons?.find((lesson) => lesson.number === 7)?.focus === 'Nominal and real return', 'Preserve nominal and real return after the first-trade preparation');
+  check(courseData.lessons?.find((lesson) => lesson.number === 7)?.date === 'Wed Sep 23', 'Nominal and real return must use the following Wednesday slot');
   check(courseData.lessons?.at(-1)?.date === 'TBC', 'The additional final session must not invent an unconfirmed date');
   check(new Set(courseData.lessons.map(lesson => lesson.id)).size === 33, 'Syllabus lesson IDs must remain unique');
 }

@@ -1,7 +1,7 @@
 # Equilibrium income and expenditure gaps
 
 Canonical classroom source: `apps/library/a-level/lessons/9-1-3-income-gaps/`.
-Prepared and revised 14 September 2026. The active deck has 30 slides.
+Prepared 14 September 2026, revised 15 September 2026. The active deck has 33 slides.
 HTML is the deliverable; no second editable HTML or PowerPoint copy exists here.
 
 ## Teaching sequence and explicit feedback
@@ -11,12 +11,17 @@ HTML is the deliverable; no second editable HTML or PowerPoint copy exists here.
    lower income and a new equilibrium with unused resources. It replaces both
    bakery and fictional numerical opening cases. Teacher narration is in notes.
 3. Equilibrium and full-employment definitions appear within one reversible
-   contrast, immediately followed by the diagram.
+   contrast. A short clarification explains frictional and structural unemployment
+   alongside the absence of demand-deficient unemployment at full employment,
+   before the diagram. Full employment explicitly does not mean zero unemployment.
 4. Deflationary and inflationary gaps are taught as opposites: one definition
    comparison and a common-axis diagram at the same full-employment benchmark.
    The diagram also measures the negative output gap horizontally. A following
    comparison teaches actual minus potential output, negative/positive gaps and
-   sustainable capacity. The notional high AE intersection is not actual output.
+   sustainable capacity. The E* label, point and projection are omitted to keep
+   attention on expenditure at full employment. Two examples then connect the
+   diagrams to UK demand weakness in 2009 and Canadian excess demand in July 2022.
+   Each reveals the source evidence before the explanation.
 5. Original gap-reading, inflationary-calculation and injection questions have
    staged explanations, highlighting and a persistent original stimulus.
 6. A substantive essay workshop uses the full original 2021 Q6. The sequence
@@ -36,11 +41,26 @@ slide explicitly calculates the spending adjustment to reach full employment.
 There are no teacher-created assessed questions or shortened essay adaptations.
 Teacher-authored illustrations, explanations and model answers are explicitly
 identified. Treat the expanded essay workshop as a continuation if necessary;
-do not infer all 30 slides and independent essay writing fit the planner's
+do not infer all 33 slides and independent essay writing fit the planner's
 half-session allocation. Prepared content does not establish taught coverage.
 The planner's allocation and session IDs remain unchanged.
 
 ## Source audit
+
+Real-world examples, 15 September 2026: Bank of England, *Inflation Report*,
+November 2009, Overview, printed pp.5–7 (PDF pp.7–9); Bank of Canada, policy
+announcement of 13 July 2022. Small Website source controls link directly to
+the originals. Gap mechanisms are teacher interpretations of the historical
+evidence, without invented estimates of the expenditure gaps. The Canadian
+example also recognises supply disruptions as a source of inflation.
+
+Full-employment clarification, 15 September 2026: Cambridge 9708 syllabus
+2026–2028 §9.1.3 (p.29) and §9.3.1–9.3.4 (p.30); Bamford & Grant §43.1–43.4
+(retained PDF pp.369–372); 9708/41 May/June 2025 Q1(a), mark scheme p.9.
+The mark scheme explicitly includes frictional and structural unemployment in
+the natural rate. The coursebook explains why full employment need not mean
+zero unemployment. The illustrative 4% in teacher notes is an assumption,
+not a universal full-employment threshold. No new assessed question was added.
 
 All original examination PDFs were checked under
 `C:/Users/oehle/Documents/past-papers/economics_9708_a_level/`.
@@ -98,7 +118,7 @@ The old bakery asset is retained unused.
 Introductory and paired-gap diagrams are labelled teaching illustrations:
 AE = 100 + 0.75Y versus AE = 200 + 0.75Y, with full employment 600, annual £m.
 They are not invented exam questions. Both gaps are £50m measured vertically;
-above-capacity intersections are explicitly notional.
+the higher AE curve illustrates excess spending at full-employment income.
 
 The policy-shift diagram now derives from original Q26: C = 0.8Y, initial
 I = 200, equilibrium 1000, full employment 1200, all $ billion. Increasing I
@@ -114,6 +134,18 @@ and IGCSE renderers were not changed. Source buttons identify type, exact locati
 what was drawn from it and whether the displayed reasoning is teacher-written.
 
 ## Validation
+
+15 September 2026 examples and diagram simplification: syntax and whitespace
+checks passed. Both focused tests in `tests/income-gaps.spec.js` passed, covering
+33 completed slides without bounds errors, source and reveal interactions,
+original questions, narrow-screen layouts and reduced motion. Visually inspected
+the simplified diagram and both examples in the in-app Browser.
+
+15 September 2026 clarification: JavaScript syntax and whitespace checks passed.
+Inspected the changed comparison, new clarification and both immediate neighbours
+in the in-app Browser. Verified the new reversible reveal and mark-scheme source
+control. The existing localhost server returned `/api/config` successfully.
+Used the focused content-edit path; no shared renderer or layout files changed.
 
 Use syntax checks, `npm run check:courses`, the required library smoke suite,
 and `tests/income-gaps.spec.js`. The focused check covers source-dialog keyboard

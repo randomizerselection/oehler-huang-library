@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-content/1.0.0",
-  "source_hash": "a5f1717b0cc631ade4cbf26e77cf9657358abeb754213754cba511ec014038be",
+  "source_hash": "5e08945909e8e2ea47e22b56a86672288743ced365d3baf16d4a9e6f5e868eb8",
   "items": [
     {
       "id": "library:home",
@@ -132,10 +132,19 @@
       "id": "investment-analysis:lessons:1-1-4-nominal-real-return",
       "version": "1.0.0",
       "kind": "investment",
-      "title": "Lesson 5 · Nominal and real return",
+      "title": "Lesson 7 · Nominal and real return",
       "route": "/investment-analysis/lessons/1-1-4-nominal-real-return/",
       "quiz_id": null,
       "slide_id_pattern": "investment-analysis:lessons:1-1-4-nominal-real-return:slide-{1-based-index}"
+    },
+    {
+      "id": "investment-analysis:lessons:first-stock-trades",
+      "version": "1.0.0",
+      "kind": "investment",
+      "title": "Lesson 5 · Planning your first stock trades",
+      "route": "/investment-analysis/lessons/first-stock-trades/",
+      "quiz_id": null,
+      "slide_id_pattern": "investment-analysis:lessons:first-stock-trades:slide-{1-based-index}"
     },
     {
       "id": "investment-analysis:lessons:stock-market-game-launch",

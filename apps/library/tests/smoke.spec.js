@@ -1189,8 +1189,8 @@ test.describe('site smoke', () => {
     await expect(page.locator('.economics-priority-panel')).toHaveCount(0);
     await expect(page.locator('.course-roadmap .unit-step.is-live')).toHaveCount(1);
     await expect(page.locator('.unit-topics .topic-group')).toHaveCount(1);
-    await expect(page.locator('.lesson-card')).toHaveCount(5);
-    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(5);
+    await expect(page.locator('.lesson-card')).toHaveCount(6);
+    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(6);
     await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
     await expect(page.locator('a[href="syllabus-2026-27.html"]')).toHaveCount(1);
     await expectNoHorizontalOverflow(page);
@@ -1198,10 +1198,11 @@ test.describe('site smoke', () => {
 
   test('@smoke current Investment Course HTML lessons load from student navigation', async ({ page }) => {
     const lessons = [
-      { path: 'investment-analysis/lessons/stock-market-game-launch/index.html', title: /The Stock Market Game/i },
+      { path: 'investment-analysis/lessons/stock-market-game-launch/index.html', title: /Launch film/i },
       { path: 'investment-analysis/lessons/1-1-2-measuring-investment-return/index.html', title: /Measuring investment return/i },
       { path: 'investment-analysis/lessons/1-1-3-compound-growth/index.html', title: /Compound growth/i },
       { path: 'investment-analysis/lessons/1-1-3-assumed-return/index.html', title: /Assumed return/i },
+      { path: 'investment-analysis/lessons/first-stock-trades/index.html', title: /Planning your first stock trades/i },
       { path: 'investment-analysis/lessons/1-1-4-nominal-real-return/index.html', title: /Nominal and real return/i },
     ];
 
@@ -1220,6 +1221,20 @@ test.describe('site smoke', () => {
       await expect(page.locator('script[src="../../course-assets/js/presentation.js"]')).toHaveCount(1);
       await expectNoHorizontalOverflow(page);
     }
+  });
+
+  test('@smoke Investment teaching sequence brings orders before the first weekend', async ({ page }) => {
+    await page.goto(pageUrl('investment-analysis/syllabus-2026-27.html'));
+    await expect(page.locator('.lesson')).toHaveCount(33);
+    const numbers = await page.locator('.lesson__number').allTextContents();
+    expect(numbers).toEqual(Array.from({length: 33}, (_, i) => `Lesson ${i + 1}`));
+    await expect(page.locator('#lesson-18')).toContainText('Wed Sep 16');
+    await expect(page.locator('#lesson-4')).toContainText('Wed Sep 23');
+    const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
+    expect(new Set(ids).size).toBe(ids.length);
+    await page.locator('#group-filter').selectOption('group-5');
+    await expect(page.locator('#lesson-18')).toBeVisible();
+    await expect(page.locator('#lesson-4')).toHaveCount(0);
   });
 
   test('@legacy investment course page and lesson interactions work', async ({ page }, testInfo) => {

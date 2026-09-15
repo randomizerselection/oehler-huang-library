@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" role="img" aria-labelledby="title desc">
+<title id="title">Labour paid by the hour</title><desc id="desc">A worker packs bread at a workbench beside a clock labelled one hour of work.</desc>
+<rect width="560" height="180" rx="5" fill="#e7efeb"/>
+<path d="M0 167H560" stroke="#bacdc7" stroke-width="3"/>
+<circle cx="133" cy="49" r="23" fill="#d7a37f"/>
+<path d="M109 46Q102 9 138 17Q159 21 157 40L136 31 119 43Z" fill="#142f43"/>
+<path d="M94 136V92Q95 72 131 72Q164 72 171 95L179 133" fill="#166c72"/>
+<path d="M125 74L124 135H163L153 77" fill="#d6b975"/>
+<path d="M104 96L118 126 181 119M157 96L179 116 207 111" fill="none" stroke="#d7a37f" stroke-width="14" stroke-linecap="round"/>
+<rect x="58" y="138" width="223" height="12" rx="3" fill="#142f43"/><path d="M74 149V179M263 149V179" stroke="#142f43" stroke-width="9"/>
+<path d="M177 136V112H239V136Z" fill="#d6a34a"/><path d="M185 112Q187 87 201 108Q211 82 221 109Q230 91 233 112" fill="#a77735"/>
+<circle cx="367" cy="68" r="45" fill="#f7f7f2" stroke="#166c72" stroke-width="4"/>
+<path d="M367 33V68L392 82M367 25V32M410 68H403M367 111V104M324 68H331" fill="none" stroke="#142f43" stroke-width="4" stroke-linecap="round"/>
+<text x="411" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#142f43">1 hour of work</text>
+</svg>

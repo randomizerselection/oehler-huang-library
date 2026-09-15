@@ -9,9 +9,9 @@ IGCSE.lesson = {
     "courseLabel": "Cambridge IGCSE Economics 0455",
     "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
     "deliveryPlan": {
-      "durationMinutes": 45,
+      "durationMinutes": 56,
       "previousEndpoint": "Land, labour or capital?",
-      "coreEndSlide": 24,
+      "coreEndSlide": 29,
       "optionalStartSlide": null,
       "nextSession": "Prepared continuation for 15 September 2026; not yet reported taught.",
       "coreEnd": "Original Paper 2 exit questions and separate model answers"
@@ -32,7 +32,7 @@ IGCSE.lesson = {
         "credit": "OpenAI image generation · fictional business",
         "source": ""
       },
-      "notes": "Continuation for 15 September 2026. Previous lesson ended after Land, labour or capital? Enterprise was named in the overview but its detailed teaching and rewards remain untaught. Suggested core: 45–50 minutes, including writing and feedback. New hero illustration commissioned for this lesson: organisation and a new product launch. It does not depict a real company.",
+      "notes": "Continuation for 15 September 2026. Previous lesson ended after Land, labour or capital? Enterprise was named in the overview but its detailed teaching and rewards remain untaught. Suggested core: 55–60 minutes, including writing and feedback. New hero illustration commissioned for this lesson: organisation and a new product launch. It does not depict a real company.",
       "layout": "enterprise-hero"
     },
     {
@@ -230,8 +230,8 @@ IGCSE.lesson = {
           "extract": "Official answer: A. Original local question paper and mark scheme checked, including option order; see PAPER-SOURCES.md."
         }
       ],
-      "notes": "Original stem and option order. Reveal the teacher-written explanation only after an option is selected. A. Equipment is capital, natural inputs are land, and the business organiser supplies enterprise. B omits land; C omits enterprise; D omits capital.",
-      "prompt": "A. Equipment is capital, natural inputs are land, and the business organiser supplies enterprise. B omits land; C omits enterprise; D omits capital."
+      "notes": "Original stem and option order preserved. Reveal the teacher-written examples only after an option is selected. The toaster/fridge are human-made production goods. Wheat and water are natural inputs; bread and processed flour are not examples of land. The two sandwich makers supply labour. The owner supplies enterprise by organising production and bearing business risk. A. Capital: toaster and fridge. Land: wheat grown for bread and water used in production. Enterprise: the owner organises staff and equipment, risking a loss if sales do not cover costs. B omits land; C omits enterprise; D omits capital.",
+      "prompt": "A. Capital: toaster and fridge. Land: wheat grown for bread and water used in production. Enterprise: the owner organises staff and equipment, risking a loss if sales do not cover costs. B omits land; C omits enterprise; D omits capital."
     },
     {
       "type": "section",
@@ -274,6 +274,53 @@ IGCSE.lesson = {
           "note": "Enterprise organises the other factors and takes risks. Land: rent; labour: wages; capital: interest; enterprise: profit."
         }
       ]
+    },
+    {
+      "type": "compare",
+      "eyebrow": "Example",
+      "title": "Real payments for land and labour",
+      "zhTitle": "现实中的地租与工资",
+      "leftTitle": "Land → rent 地租",
+      "left": [
+        "$160",
+        "per acre per year · average rent",
+        "Farmer pays the landowner",
+        "US cropland · 2024"
+      ],
+      "rightTitle": "Labour → wages 工资",
+      "right": [
+        "£12.21",
+        "per hour · minimum wage",
+        "Employer pays the worker",
+        "UK, ages 21+ · Apr 2025–Mar 2026"
+      ],
+      "partialReview": [
+        ".splitCols > .card"
+      ],
+      "sources": [
+        {
+          "label": "Real-world data",
+          "ref": "USDA NASS · Land Values and Cash Rents · 2024",
+          "url": "https://www.nass.usda.gov/Statistics_by_State/Regional_Office/Southern/includes/Publications/Economic_and_Demographic_Releases/Land_Value/LANDVALCR2024.pdf",
+          "note": "Average annual US cropland cash rent paid to landlords: $160 per acre in 2024; excludes Alaska and Hawaii. This is a rent payment, not the sale price of land."
+        },
+        {
+          "label": "Real-world data",
+          "ref": "UK Low Pay Commission · Minimum wage rates for 2025",
+          "url": "https://www.gov.uk/government/publications/minimum-wage-rates-for-2025",
+          "note": "National Living Wage for eligible workers aged 21 and over: £12.21 per hour from 1 April 2025; the rate applies through March 2026. This is a legal minimum, not the average wage or every worker’s wage."
+        }
+      ],
+      "notes": "Two dated real-world examples, not a comparison of living standards or a claim about today’s rates. An acre is a unit of land area (about 0.4 hectares). The farmland payment illustrates land → rent without confusing a building with land. An hourly wage illustrates labour → wages; earnings need not wait for the employer to calculate its profit. Allow two minutes, reveal each example separately, then use the existing factor/reward check. Capital → interest remains the syllabus convention from the preceding diagram; do not label equipment-hire payments as interest. The original teaching illustrations show a marked acre and an hour of work; they do not depict a particular surveyed farm or UK employee. Each whole panel reveals separately. Read the amount together with its unit before identifying the payer and recipient.",
+      "layout": "factor-real-payments",
+      "leftVisual": {
+        "src": "assets/land-rent-example.svg",
+        "alt": "Illustration of cropland with one acre outlined. One acre is about 0.4 hectares."
+      },
+      "rightVisual": {
+        "src": "assets/labour-wage-example.svg",
+        "alt": "Illustration of a worker packing bread beside a clock representing one hour of work."
+      }
     },
     {
       "type": "classificationTask",
@@ -351,7 +398,7 @@ IGCSE.lesson = {
       "partialReview": [
         ".cardgrid > .card"
       ],
-      "notes": "Six countable money tokens each stand for ¥30. First show all ¥180 from customers, then allocate four tokens to the ¥120 cost and leave two tokens as ¥60 profit. This is a simple one-day case, not a taxonomy of costs. Keep the formula visible throughout."
+      "notes": "The six rectangles are a picture of the sales money: each shows ¥30, so together they show ¥180. They are not coins, vouchers or a special currency. Four rectangles show the ¥120 spent on costs; the other two show the ¥60 left as profit. Say “amounts of money”, not “tokens”. Keep the profit formula visible throughout."
     },
     {
       "type": "cards",
@@ -388,21 +435,68 @@ IGCSE.lesson = {
     {
       "type": "compare",
       "eyebrow": "Learn",
-      "title": "Agreed payments and uncertain profit",
-      "leftTitle": "Rent, wages and interest",
+      "title": "Why is profit not guaranteed?",
+      "leftTitle": "Before sales 销售前",
       "left": [
-        "Agreed before production. 生产前约定",
-        "Lucy knows her wage before she starts work."
+        "Rent, wages and interest can be agreed in advance.",
+        "Emma’s agreed costs total ¥120, including Lucy’s wage.",
+        "In this case, the ¥120 cost stays the same even if fewer boxes sell."
       ],
-      "rightTitle": "Profit",
+      "rightTitle": "After sales 销售后",
       "right": [
-        "Known after sales and costs. 销售后确定",
-        "Emma may make a profit, break even or make a loss."
+        "Profit depends on sales revenue minus total costs.",
+        "Sell 12 boxes: ¥180 − ¥120 = ¥60 profit.",
+        "Sell 6 boxes: ¥90 − ¥120 = −¥30, a loss."
       ],
-      "notes": "Prepare the exact distinction in 0455/11/O/N/24 Q2. These rewards can be agreed in advance; do not claim every payment is fixed in all real-world contracts. Profit is the uncertain residual. The production costs in the case include all agreed payments.",
+      "notes": "Keep the Before sales / After sales headings visible. Reveal the matching rows in order: first the rule, then the 12-sale result, then the 6-sale result. Within each row reveal the left statement before the right; reverse to revisit any statement. Agreed does not mean every real-world wage or interest contract is fixed forever. Emma’s one-day example has a total cost of ¥120 including all agreed payments. Students should explain why Lucy’s wage can be agreed while Emma’s final profit cannot. This directly prepares the next original question about setting factor rewards before production.",
+      "partialReview": [
+        ".splitCols > .card .choice:nth-child(1)",
+        ".splitCols > .card .choice:nth-child(2)",
+        ".splitCols > .card .choice:nth-child(3)"
+      ],
+      "layout": "factor-payment-timing",
+      "sources": [
+        {
+          "label": "Original Cambridge question",
+          "ref": "0455/11/O/N/24 Q2",
+          "question": "In which case is it possible to set the level of reward before production takes place for the first factor of production but not for the second factor?",
+          "extract": "Official key D: land / enterprise. Rent can be agreed before production; profit is uncertain. The Emma calculations are a teacher-written illustration."
+        },
+        {
+          "label": "Syllabus and definitions",
+          "ref": "Syllabus 1.2.1; Definitions 2026",
+          "note": "Factor rewards: land—rent; labour—wages; capital—interest; enterprise—profit."
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "eyebrow": "Example",
+      "title": "Greggs: sales do not guarantee profit",
+      "zhTitle": "有销售收入，也可能亏损",
+      "question": "Greggs is a UK bakery chain. COVID-19 temporarily closed its shops in 2020.",
+      "leftTitle": "2019: before the pandemic",
+      "left": [
+        "Sales revenue: £1,167.9 million.",
+        "Profit before tax: £108.3 million."
+      ],
+      "rightTitle": "2020: pandemic disruption",
+      "right": [
+        "Sales revenue: £811.3 million.",
+        "Loss before tax: £13.7 million."
+      ],
       "partialReview": [
         ".splitCols > .card"
-      ]
+      ],
+      "sources": [
+        {
+          "label": "Real-world data",
+          "ref": "Greggs plc · 2020 preliminary results · 16 March 2021",
+          "url": "https://www.investegate.co.uk/announcement/rns/greggs--grg/preliminary-results/6180938",
+          "note": "Company-issued results, distributed through RNS: 2020 revenue £811.3m and loss before tax £13.7m; 2019 revenue £1,167.9m and profit before tax £108.3m. The company reports temporary shop closures from March 2020 in response to COVID-19."
+        }
+      ],
+      "notes": "Real historical company figures, not the fictional Emma case. Allow two minutes: reveal 2019, ask whether an established business is guaranteed a profit, then reveal 2020. Sales still exceeded £800m but the company made a loss: revenue is not profit. Before tax means before deducting corporation tax; this is not profit paid personally to a founder. The 2020 reporting year had 53 weeks versus 52 in 2019. Closure, sales disruption and costs all matter; do not present the comparison as a controlled experiment or claim sales alone caused the exact change. Greggs received support and reduced costs, so do not imply all costs stayed fixed. Connect back to Emma’s uncertainty and forward to the original reward-timing MCQ."
     },
     {
       "type": "quiz",
@@ -438,7 +532,7 @@ IGCSE.lesson = {
       "cards": [
         {
           "title": "Earn a profit 赚取利润",
-          "body": "Keep what remains after costs.",
+          "body": "Aim to make money after paying costs.",
           "visual": {
             "type": "photo",
             "src": "./assets/motive-profit.svg",
@@ -447,7 +541,7 @@ IGCSE.lesson = {
         },
         {
           "title": "Be independent 独立自主",
-          "body": "Choose how to run the business.",
+          "body": "Make decisions without being told what to do.",
           "visual": {
             "type": "photo",
             "src": "./assets/motive-independence.svg",
@@ -455,8 +549,8 @@ IGCSE.lesson = {
           }
         },
         {
-          "title": "Develop an idea 实现创意",
-          "body": "Turn an idea into a product.",
+          "title": "Be innovative 创新",
+          "body": "Put a new idea into practice in a business.",
           "visual": {
             "type": "photo",
             "src": "./assets/motive-idea.svg",
@@ -465,17 +559,22 @@ IGCSE.lesson = {
         }
       ],
       "partialReview": [
-        ".cardgrid > .card > .cardBody"
+        ".cardgrid > .card"
       ],
       "sources": [
         {
           "label": "Cambridge Paper 2",
           "ref": "2023FM-22 Q2(a)",
           "question": "Identify two reasons why people become entrepreneurs.",
-          "extract": "Accepted reasons include profit, independence, following an interest, innovation and flexible working hours."
+          "extract": "Official MS, p.15: “make money / earn a profit”; “be independent / not having to be told what to do”; “follow an interest / be innovative / to run / own business”. Each distinct accepted reason can earn 1 mark. These are three accepted examples, not an exhaustive list."
+        },
+        {
+          "label": "Syllabus and definitions",
+          "ref": "Syllabus 1.2.1; Definitions 2026",
+          "note": "Syllabus 1.2.1 covers definitions of factors of production and their rewards. The three motivations are selected from the original 2023 Paper 2 scheme, not presented as a separate exhaustive syllabus list."
         }
       ],
-      "notes": "Accepted reasons from 0455/22/F/M/23 Q2(a). Three visual possibilities, not a canonical exhaustive list. Ask students which motivation would matter most to them, then reveal each short explanation. Images stay visible before the text is revealed.",
+      "notes": "Verified against the original 0455/22/F/M/23 Q2(a) mark scheme, page 15. Reveal one entire card at a time, including its picture, title and explanation. Initial view has the title only; Right reveals profit, then independence, then innovation, and Left reverses each step. The exact accepted reasons used are earn a profit, be independent and be innovative. One distinct accepted reason earns one mark in the two-mark Identify question. These are examples from the wider accepted list, not the only motives or three compulsory syllabus items. Syllabus 1.2.1 supplies the enterprise/reward context.",
       "layout": "factor-motives",
       "lead": "Three possible motivations — people may value them differently."
     },
@@ -504,8 +603,92 @@ IGCSE.lesson = {
           "extract": "Official answer: A. Original local question paper and mark scheme checked, including option order; see PAPER-SOURCES.md."
         }
       ],
-      "notes": "Original stem and option order. Reveal the teacher-written explanation only after an option is selected. A. Additional vans increase capital; additional drivers increase labour. The owner’s decision involves enterprise, but the stated changes are to vans and drivers.",
-      "prompt": "A. Additional vans increase capital; additional drivers increase labour. The owner’s decision involves enterprise, but the stated changes are to vans and drivers."
+      "notes": "Original stem and option order. Reveal the teacher-written explanation only after an option is selected. A. Additional vans increase capital; additional drivers increase labour. The owner’s decision involves enterprise, but the stated changes are to vans and drivers. The photograph illustrates a delivery driver and van; it does not depict Sonia or claim to show her business. Keep the original question full width, with choices and photograph beneath it and feedback below. Do not label the picture with factor categories before students answer.",
+      "prompt": "A. Additional vans increase capital; additional drivers increase labour. The owner’s decision involves enterprise, but the stated changes are to vans and drivers.",
+      "layout": "factor-photo-mcq",
+      "visual": {
+        "type": "photo",
+        "src": "./assets/delivery-driver-van.jpg",
+        "alt": "A delivery driver standing beside a delivery van.",
+        "caption": "A driver and delivery van · illustrative photograph",
+        "credit": "RDNE Stock project / Pexels",
+        "source": "https://www.pexels.com/photo/man-standing-outside-a-delivery-van-7363101/",
+        "objectPosition": "50% 68%"
+      }
+    },
+    {
+      "type": "quiz",
+      "eyebrow": "0455/13/O/N/20 Q2",
+      "question": "What is the key role of an entrepreneur?",
+      "choices": [
+        "inventor",
+        "risk taker",
+        "shareholder",
+        "worker"
+      ],
+      "answer": 1,
+      "prompt": "B. The entrepreneur bears the risk that sales may not cover costs. Inventing, owning shares or working alone does not define this role.",
+      "sources": [
+        {
+          "label": "Original Cambridge question",
+          "ref": "0455/13/O/N/20 Q2",
+          "question": "What is the key role of an entrepreneur?",
+          "extract": "Official answer: B. Original local question paper (page 2) and mark scheme (page 2) checked, including option order; see PAPER-SOURCES.md."
+        }
+      ],
+      "notes": "Allow one minute. Ask students to connect their choice to Emma paying before sales are known. A shareholder owns shares in a company; clarify this option if needed. The official key is B; feedback is teacher-written.",
+      "questionPaperPage": 2
+    },
+    {
+      "type": "quiz",
+      "eyebrow": "0455/11/O/N/20 Q2",
+      "question": "On which factor of production does innovation directly depend?",
+      "choices": [
+        "decisions of entrepreneurs",
+        "high inputs of capital",
+        "long hours of manual labour",
+        "plentiful supplies of land"
+      ],
+      "answer": 0,
+      "prompt": "A. Entrepreneurs decide to put new ideas into production. More equipment, longer working hours or more land alone does not ensure innovation.",
+      "sources": [
+        {
+          "label": "Original Cambridge question",
+          "ref": "0455/11/O/N/20 Q2",
+          "question": "On which factor of production does innovation directly depend?",
+          "extract": "Official answer: A. Original local question paper (page 2) and mark scheme (page 2) checked, including option order; see PAPER-SOURCES.md."
+        }
+      ],
+      "notes": "Allow one minute. Place after the motivation slide, which teaches putting an idea into practice. Innovation means introducing a new idea, product or method. Ask why merely increasing another input is insufficient. Official key A; teacher-written explanation.",
+      "questionPaperPage": 2
+    },
+    {
+      "type": "quiz",
+      "eyebrow": "0455/11/M/J/20 Q13",
+      "question": "The following information refers to a firm producing shoes.\nAt which level of output does the firm maximise profits?",
+      "choices": [
+        "100 — 1000 — 1300",
+        "200 — 1800 — 2200",
+        "300 — 2700 — 3000",
+        "400 — 3200 — 3400"
+      ],
+      "answer": 1,
+      "prompt": "B. Profit = total revenue − total cost. A: $300; B: $400; C: $300; D: $200. The highest profit is $400 at 200 pairs, even though D has the highest revenue.",
+      "sources": [
+        {
+          "label": "Original Cambridge question",
+          "ref": "0455/11/M/J/20 Q13",
+          "question": "The following information refers to a firm producing shoes.\nAt which level of output does the firm maximise profits?",
+          "extract": "Official answer: B. Original local question paper (page 5) and mark scheme (page 2) checked, including option order; see PAPER-SOURCES.md."
+        }
+      ],
+      "notes": "Allow three minutes to calculate all four profits independently, then select an option. Maximise means make as large as possible. This applies the already-taught revenue-minus-cost formula; no fixed, variable, average or marginal cost theory is needed. Keep the full table visible during feedback. Official key B; calculations are teacher-written.",
+      "questionPaperPage": 5,
+      "optionColumns": [
+        "total output of pairs of shoes",
+        "total cost ($)",
+        "total revenue ($)"
+      ]
     },
     {
       "type": "exam",

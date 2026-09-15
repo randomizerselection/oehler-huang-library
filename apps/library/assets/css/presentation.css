@@ -4845,8 +4845,18 @@ body.is-student-selector-open .lessonModeMenu {
   display: none;
 }
 
-body.is-student-selector-open:not(.is-handout-mode):not(.is-quiz-mode):not(.is-flashcard-mode) #deck {
-  width: calc(100vw - var(--student-selector-panel-width));
+@media screen and (min-width: 761px) {
+  body.is-student-selector-open:not(.is-handout-mode):not(.is-quiz-mode):not(.is-flashcard-mode) #deck {
+    /* Keep the full slide layout: narrowing it clips viewport-sized content. */
+    transform: scale(var(--student-selector-deck-scale, 1));
+    transform-origin: left center;
+  }
+
+  body.has-deck-navigation.is-student-selector-open .lesson-navigation {
+    left: calc((100vw - var(--student-selector-panel-width)) / 2);
+    right: auto;
+    max-width: calc(100vw - var(--student-selector-panel-width) - 20px);
+  }
 }
 
 body.is-student-selector-open:not(.is-handout-mode):not(.is-quiz-mode):not(.is-flashcard-mode) #progress {

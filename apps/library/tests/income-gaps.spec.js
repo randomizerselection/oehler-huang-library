@@ -10,7 +10,7 @@ test('income gaps: authentic questions, reversible modelling and source controls
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(lesson);
   const data=await page.evaluate(()=>window.ALEVEL_LESSON);
-  expect(data.slides).toHaveLength(30);
+  expect(data.slides).toHaveLength(33);
   expect(data.slides.some(s=>s.kind==='worked'||s.id==='bakery-case')).toBe(false);
   expect(data.slides.filter(s=>s.kind==='mcq'||s.layout==='exam').every(s=>s.sourceRefs.some(k=>data.sourceLibrary[k].type==='Question paper')&&s.sourceRefs.some(k=>data.sourceLibrary[k].type==='Mark scheme'))).toBe(true);
   const show=async(id,step=0)=>page.evaluate(({id,step})=>{const d=window.EconPresentation.deck;d.show(d.lesson.slides.findIndex(s=>s.id===id),step);},{id,step});
@@ -76,7 +76,7 @@ test('income gaps: authentic questions, reversible modelling and source controls
 
 test('income gaps: new layouts on narrow screens and reduced motion',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
-  for(const [id,step] of [['paper-four-model-diagnosis',3],['paper-inflationary-gap',3],['gaps-compared',2],['gaps-both',3],['output-gaps',2],['lesson-conclusion',0]]){
+  for(const [id,step] of [['paper-four-model-diagnosis',3],['paper-inflationary-gap',3],['gaps-compared',2],['gaps-both',3],['output-gaps',2],['full-employment-unemployment',2],['uk-deflationary-example',2],['canada-inflationary-example',2],['lesson-conclusion',0]]){
     await page.goto(lesson+`#${id}/${step}`);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
   }

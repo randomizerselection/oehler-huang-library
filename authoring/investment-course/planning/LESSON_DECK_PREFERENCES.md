@@ -26,6 +26,19 @@ Current HTML reference: `apps/library/investment-analysis/lessons/1-1-2-measurin
 
 ## Communication and teaching structure
 
+### Investment design reference, 14 September 2026
+
+- Teacher request: use the recent IGCSE supply-side-policy Lesson 4, especially slide 21, to make the first-trades deck more engaging. Retain Investment's forest, copper and warm-paper identity and its own renderer.
+- Applied design interpretation: give the student question visual priority; keep data visible beside revealed reasoning; use large bilingual teaching text and small on-demand source controls. Match the layout to the idea: causal stages, a counted exposure comparison, alternative price scenarios and a dated timeline.
+- Use meaningful illustrations and quantities students can explain. Ask students to predict a result before a reversible reveal. Engagement should support evidence, calculation and accurate decisions rather than reward short-term profits.
+- Keep refinements lesson-local until a wider course redesign is requested. Preserve teacher tools, course navigation and the core/extension boundary.
+
+### First portfolio trades, 14 September 2026
+
+- Teacher priority: students should make their first portfolio trades during 19–20 September. Teach the necessary ownership, research, position-size and order-status concepts before entry. Bring the execution period forward and use Friday's risk session for a team rehearsal; retain deeper asset, diversification and company analysis later.
+- Distinguish weekend order submission from market-day execution. Retain the established simple roles, shared decisions and one operator with a second checker. Use virtual SMG accounts identified in the existing launch context. Local account rules must govern tickets; classroom limits must be labelled separately.
+- This scheduling request does not confirm that prepared Assumed return content was taught. Preserve recorded coverage and assess decision quality and accurate records rather than a short-term profit target.
+
 ### Stock Market Game setup, 11 September 2026
 
 - Make printed role overviews fact based and specific: state when each role works, which fields to record, the original sources or actual SMG pages to consult, and the checks before reporting. Keep the three simple role names and bilingual wording. Distinguish classroom record requirements from official SMG duties; use the supplied account example without publishing account IDs. Keep research and trading after instruction, separate from the login-only weekend.

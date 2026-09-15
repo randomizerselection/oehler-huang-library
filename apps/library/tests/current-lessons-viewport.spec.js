@@ -7,6 +7,7 @@ const lessons = [
   ['investment-analysis/lessons/1-1-2-measuring-investment-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-3-compound-growth', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-3-assumed-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/first-stock-trades', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-4-nominal-real-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['a-level/lessons/9-1-1-multiplier', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-1-national-income-determination', '#stage', '.controls', '#fullscreen', '#status'],

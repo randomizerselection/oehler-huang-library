@@ -20,9 +20,7 @@
     b+=line(X(0),Y(0),X(s.max),Y(s.max),'equality')+text(X(s.max)+8,Y(s.max)+6,'AE = Y','gap-curve-label');
     b+=line(X(0),Y(s.autonomous),X(s.max),Y(ae(s.max)),close?'old-curve':'ae-curve')+text(X(s.max)+8,Y(ae(s.max))+(infl?34:close?23:7),close?'AE₀':'AE','gap-curve-label');
     const eqStage=intro?1:infl?3:0;
-    b+=group(eqLabel(eq,infl?'E*':'E₀',infl?'muted':''),eqStage);
-    if(!infl)b+=group(sub(X(eq),501,'Y','0'),eqStage);
-    else b+=group(text(90,78,'E*: notional equilibrium','gap-notional'),3);
+    if(!infl)b+=group(eqLabel(eq,'E₀','')+sub(X(eq),501,'Y','0'),eqStage);
     const fullStage=intro?2:0;
     b+=group(line(X(full),450,X(full),90,'gap-capacity')+text(X(full),478,String(full),'gap-axis-label','middle')+sub(X(full),501,'Y','F')+text(X(full)-12,100,'Full employment','gap-capacity-label','end')+text(X(full)-12,124,'充分就业','gap-zh','end'),fullStage);
     if(intro)return svg(b,id);
@@ -59,7 +57,7 @@
     b+=line(90,450,535,450,'axis')+line(90,450,90,64,'axis')+line(X(0),Y(0),X(900),Y(900),'equality')+text(505,55,'AE = Y','gap-curve-label');
     b+=text(90,478,'0','gap-axis-label','middle')+text(315,527,'National income / output, Y (£m)','axis-title','middle')+text(315,555,'国民收入 / 产出','gap-zh','middle');
     b+=line(X(600),450,X(600),82,'gap-capacity')+text(X(600),478,'600','gap-axis-label','middle')+sub(X(600),501,'Y','F')+text(X(600)-12,92,'Full employment','gap-capacity-label','end')+text(X(600)-12,117,'充分就业','gap-zh','end')+dot(X(600),Y(600),'neutral');
-    const side=(a,eq,at,label,c,st)=>group(line(X(0),Y(a),X(900),Y(a+.75*900),c)+text(505,Y(a+.75*900)+6,label,'gap-curve-label '+c)+line(90,Y(at),X(600),Y(at),'guide')+text(76,Y(at)+6,String(at),'gap-axis-label','end')+dot(X(600),Y(at),c)+line(X(600),Y(600),X(600),Y(at),c+' paired-bracket')+text(X(600)+(st===1?14:-14),Y((600+at)/2)+6,'£50m','gap-value gap-value-backed',st===1?'start':'end')+dot(X(eq),Y(eq),c)+line(X(eq),450,X(eq),Y(eq),'guide')+text(X(eq),478,String(eq),'gap-axis-label','middle')+text(X(eq)-12,Y(eq)-10,st===1?'E₀':'E*','gap-eq-label', 'end'),st);
+    const side=(a,eq,at,label,c,st)=>group(line(X(0),Y(a),X(900),Y(a+.75*900),c)+text(505,Y(a+.75*900)+6,label,'gap-curve-label '+c)+line(90,Y(at),X(600),Y(at),'guide')+text(76,Y(at)+6,String(at),'gap-axis-label','end')+dot(X(600),Y(at),c)+line(X(600),Y(600),X(600),Y(at),c+' paired-bracket')+text(X(600)+(st===1?14:-14),Y((600+at)/2)+6,'£50m','gap-value gap-value-backed',st===1?'start':'end')+(st===1?dot(X(eq),Y(eq),c)+line(X(eq),450,X(eq),Y(eq),'guide')+text(X(eq),478,String(eq),'gap-axis-label','middle')+text(X(eq)-12,Y(eq)-10,'E₀','gap-eq-label','end'):''),st);
     b+=side(100,400,550,'Low AE','ae-curve',1);
     b+=side(200,800,650,'High AE','paired-high',2);
     b+=group(line(X(400),417,X(600),417,'income-change')+line(X(400),411,X(400),423,'income-change')+line(X(600),411,X(600),423,'income-change')+text((X(400)+X(600))/2,401,'Output gap: −£200m','gap-income-label','middle'),3);

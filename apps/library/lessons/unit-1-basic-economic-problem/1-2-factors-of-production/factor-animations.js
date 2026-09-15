@@ -67,7 +67,7 @@ window.IGCSE = window.IGCSE || {};
   function revenue(stage,mobile){
     const w=mobile?620:1120;let out='';
     out+=text('12 boxes × ¥15 = ¥180',w/2,55,mobile?29:34);
-    out+=text('Each token = ¥30',w/2,96,23,teal);
+    if(stage>0)out+=text('Each rectangle shows ¥30 of sales money.',w/2,96,mobile?24:27,teal);
     for(let i=0;i<6;i++){
       if(stage===0)continue;
       const moved=stage>=2&&i<4;
@@ -114,6 +114,21 @@ window.IGCSE = window.IGCSE || {};
         if(parts)el.innerHTML=esc(parts[1].trim())+`<span class="inlineZh" lang="zh-Hans">${esc(parts[2])}</span>`;
       });
     }
+    // Preserve the existing reveal nodes, but read the timing comparison across rows.
+    const timing=document.querySelector('.is-layout-factor-payment-timing .splitCols');
+    if(timing){
+      const columns=[...timing.children];
+      const rows=columns.map(column=>[...column.querySelectorAll('.choice')]);
+      const table=document.createElement('table');table.className='paymentTimingTable';
+      const header=table.createTHead().insertRow();
+      columns.forEach(column=>{const th=document.createElement('th');th.scope='col';th.textContent=column.querySelector('b').textContent;header.append(th);});
+      const body=table.createTBody();
+      for(let i=0;i<rows[0].length;i++){
+        const row=body.insertRow();
+        rows.forEach(column=>row.insertCell().append(column[i]));
+      }
+      timing.replaceWith(table);
+    }
     for(const kind of Object.keys(captions)){
       const slide=document.querySelector(`.slide.is-layout-${kind}`);if(!slide)continue;
       const steps=[...slide.querySelectorAll('.partial-item')];
@@ -153,8 +168,9 @@ window.IGCSE = window.IGCSE || {};
       if(!data?.optionColumns)return;
       slide.classList.add('factor-table-mcq');
       const choices=slide.querySelector('.choices');const header=document.createElement('div');header.className='factor-option-head';
-      header.innerHTML=`<span></span><b>${esc(data.optionColumns[0])}</b><b>${esc(data.optionColumns[1])}</b>`;choices.before(header);
-      choices.querySelectorAll('.choice > span:last-child').forEach(span=>{const cols=span.textContent.split(' — ');span.className='factor-option-pair';span.innerHTML=cols.map(s=>`<span>${esc(s)}</span>`).join('');});
+      header.innerHTML=`<span></span>${data.optionColumns.map(column=>`<b>${esc(column)}</b>`).join('')}`;choices.before(header);
+      if(data.optionColumns.length>2)header.style.gridTemplateColumns=`48px repeat(${data.optionColumns.length}, minmax(0, 1fr))`;
+      choices.querySelectorAll('.choice > span:last-child').forEach(span=>{const cols=span.textContent.split(' — ');span.className='factor-option-pair';if(data.optionColumns.length>2)span.style.gridTemplateColumns=`repeat(${data.optionColumns.length}, minmax(0, 1fr))`;span.innerHTML=cols.map(s=>`<span>${esc(s)}</span>`).join('');});
     });
   };
 })();

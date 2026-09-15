@@ -136,3 +136,164 @@
  .ssp-scene-caption {font-size:23px;}
 }
 @media print {.classroom-source-buttons,.classroom-source-dialog,.classroom-slide-number,.ssp-scene-controls {display:none!important;}}
+
+/* Refined teaching components: shape follows the relationship being taught. */
+@media screen {
+ .ssp-classroom #deck .slide {--ssp-paper:#fff;--ssp-tint:#e8f0ec;--ssp-border:#cadbd5;--ssp-answer:#166c72;}
+ .ssp-classroom #progress {height:3px;background:#cadbd5;}
+ .ssp-classroom #progress>span {background:#166c72;box-shadow:none;}
+ .ssp-classroom #deck .slide .content {height:100%;min-height:0;}
+ .ssp-classroom #deck .slide:not(.is-hero):not(.is-section) .content>main {height:100%;min-height:0;}
+ .ssp-classroom #deck .slide:not(.is-hero):not(.is-section) .content>main:has(>.ssp-content-stack) {display:flex;flex-direction:column;align-items:stretch;}
+ .ssp-classroom #deck .ssp-content-stack {display:flex;flex-direction:column;height:100%;min-height:0;gap:0;}
+ .ssp-classroom #deck .ssp-content-stack>h2 {flex:none;max-width:none;width:100%;}
+ .ssp-classroom #deck .ssp-content-stack>.cardgrid,
+ .ssp-classroom #deck .ssp-content-stack>.classificationItems,
+ .ssp-classroom #deck .ssp-content-stack>.choices.is-outcomes {margin-block:auto;}
+ .ssp-classroom #deck .slide .inlineZh {margin-top:12px;}
+ .ssp-classroom #deck .slide .blankAnswer {min-width:4.2ch;max-width:100%;width:auto;height:auto;line-height:1.25;padding:.08em .25em;margin:0 .04em;vertical-align:baseline;border-radius:5px;border:0;border-bottom:2px solid #559890;background:#dfece6;box-shadow:none;font-weight:700;}
+ .ssp-classroom #deck .slide .blankAnswer:hover {background:#d1e5db;}
+ .ssp-classroom #deck .slide .blankAnswer:focus-visible {outline:3px solid #b5812d;outline-offset:4px;}
+ .ssp-classroom #deck .slide .blankAnswer.is-revealed {color:#fff;background:#166c72;border-color:#166c72;}
+ .ssp-classroom #deck .slide .blankAnswer.is-revealed span {color:#fff;}
+
+ /* Causal explanations: generous stages, real arrows, a clear final effect. */
+ .ssp-classroom #deck .slide.ssp-causal .flowRow {display:grid;grid-template-columns:repeat(var(--ssp-stages),minmax(0,1fr));gap:32px;width:100%;align-items:stretch;margin-block:auto;padding:25px 0 30px;}
+ .ssp-classroom #deck .slide.ssp-causal .flowChip {display:grid;grid-template-columns:1fr;grid-template-rows:112px minmax(132px,1fr) 90px;align-content:start;align-items:start;justify-items:center;position:relative;gap:26px;padding:30px 14px 24px;min-height:330px;border:0;border-radius:18px;background:none;box-shadow:none;text-align:center;overflow:visible;}
+ .ssp-classroom #deck .slide.ssp-causal .flowChip:last-child {background:#e4eeea;box-shadow:inset 0 -4px #166c72;}
+ .ssp-classroom #deck .slide.ssp-causal .flowChip::after {display:none;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-glyph {display:grid;place-items:center;width:104px;height:104px;border:1px solid #c7dcd3;border-radius:50%;background:#fff;color:#166c72;z-index:1;}
+ .ssp-flow-glyph svg {display:block;width:70px;height:70px;}
+ .ssp-classroom #deck .slide.ssp-causal .flowNumber {position:absolute;left:18px;top:15px;display:block;min-width:0;height:auto;background:none;border:0;color:#61786f;font-size:17px;font-weight:500;line-height:1;}
+ .ssp-classroom #deck .slide.ssp-causal .flowText {display:block;align-self:center;font-size:clamp(29px,2.15vw,38px);line-height:1.45;font-weight:600;max-width:100%;text-wrap:pretty;overflow-wrap:normal;word-break:normal;}
+ .ssp-classroom #deck .slide.ssp-causal .flowText .blankAnswer {font-size:inherit;}
+ .ssp-classroom #deck .slide.ssp-causal .flowTextZh {display:block;align-self:start;font-size:clamp(24px,1.75vw,30px);line-height:1.5;font-weight:400;color:#52685f;border-top:1px solid #ccdcd5;width:100%;padding-top:16px;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-link {display:block;position:absolute;left:calc(50% + 67px);top:70px;width:calc(100% - 102px);height:24px;color:#7a9a8e;z-index:2;}
+ .ssp-flow-link svg {display:block;width:100%;height:100%;}
+
+ /* Paired conditions and policy comparisons share scale, not the same logic. */
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardgrid {grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto 1fr;gap:38px;padding-block:20px;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardgrid>.card {display:grid;grid-template-columns:76px 1fr;grid-template-rows:subgrid;grid-row:span 2;gap:24px;padding:32px;border:1px solid #d2ded8;border-radius:14px;background:#fff;min-height:300px;align-content:start;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardTitle {align-self:center;font-size:clamp(29px,2.05vw,37px);line-height:1.25;color:#142f43;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardBody {grid-column:1/-1;border-top:1px solid #dce5df;padding-top:24px;line-height:1.45;font-size:clamp(28px,2vw,36px);}
+ .ssp-classroom #deck .slide.ssp-comparison .card:last-child {background:#edf2ee;border-top:4px solid #166c72;padding-top:29px;}
+ .ssp-classroom #deck .slide.ssp-sequence .cardgrid {gap:64px;}
+ .ssp-classroom #deck .slide.ssp-sequence .cardgrid>.card {position:relative;overflow:visible;}
+ .ssp-classroom #deck .slide.ssp-sequence .card:first-child::after {content:'';display:block;position:absolute;top:50%;left:calc(100% + 15px);width:34px;height:18px;clip-path:polygon(0 42%,70% 42%,70% 0,100% 50%,70% 100%,70% 58%,0 58%);background:#7a9a8e;}
+ .ssp-classroom #deck .ssp-card-glyph {display:grid;place-items:center;width:76px;height:76px;border-radius:18px;background:#e8f0ec;color:#166c72;}
+ .ssp-card-glyph svg {width:54px;height:54px;display:block;}
+ .ssp-classroom #deck .ssp-card-zh {display:block;font-size:clamp(24px,1.75vw,30px);line-height:1.35;font-weight:400;color:#61746a;margin-top:10px;}
+
+ /* Three stages of a time lag are laid on one visible time line. */
+ .ssp-classroom #deck .slide.ssp-timeline .cardgrid {grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding:20px 0;}
+ .ssp-classroom #deck .slide.ssp-timeline .cardgrid>.card {display:grid;grid-template-columns:1fr;grid-template-rows:100px auto 1fr;gap:24px;position:relative;border:0;padding:0 10px 0 0;background:none;}
+ .ssp-classroom #deck .slide.ssp-timeline .ssp-card-glyph {border-radius:50%;background:#e6eee9;position:relative;z-index:1;}
+ .ssp-classroom #deck .slide.ssp-timeline .card::before {content:'';position:absolute;top:36px;left:0;right:-40px;height:2px;background:#adcbc0;}
+ .ssp-classroom #deck .slide.ssp-timeline .card:last-child::before {right:0;}
+ .ssp-classroom #deck .slide.ssp-timeline .cardBody {margin:0;font-size:clamp(28px,2vw,36px);line-height:1.45;}
+ .ssp-classroom #deck .slide.ssp-timeline .cardTitle {font-size:31px;}
+
+ /* Two calculations use proper fractions and emphasise the result. */
+ .ssp-classroom #deck .slide.ssp-calculation .cardgrid {grid-template-columns:1fr 1fr;gap:40px;}
+ .ssp-classroom #deck .slide.ssp-calculation .cardgrid>.card {display:grid;grid-template-columns:1fr;gap:30px;background:#fff;border:1px solid #d1ded7;border-radius:14px;padding:30px 36px;}
+ .ssp-classroom #deck .slide.ssp-calculation .card:last-child {background:#e4eeea;border-color:#bfd5cb;}
+ .ssp-classroom #deck .slide.ssp-calculation .cardTitle {font-size:30px;color:#142f43;}
+ .ssp-classroom #deck .slide.ssp-calculation .cardBody {display:flex;justify-content:center;align-items:center;gap:25px;font-size:34px;}
+ .ssp-fraction {display:grid;text-align:center;line-height:1.25;font-variant-numeric:tabular-nums;}
+ .ssp-classroom #deck .ssp-fraction>span {padding:10px 15px;color:#142f43;font-size:34px;line-height:1.25;}
+ .ssp-fraction>span:first-child {border-bottom:2px solid #142f43;}
+ .ssp-classroom #deck .ssp-equals {color:#52685f;font-size:34px;font-weight:400;}
+ .ssp-cost-result {display:grid;text-align:center;gap:4px;}
+ .ssp-cost-result strong {font-size:64px;line-height:1.1;color:#166c72;font-weight:700;}
+ .ssp-cost-result>span {font-size:24px;color:#61746a;}
+
+ /* A balance has two contributing sides and a resulting position. */
+ .ssp-classroom #deck .slide.ssp-balance .cardgrid {display:grid;grid-template-columns:1fr 1fr;gap:22px 34px;}
+ .ssp-classroom #deck .slide.ssp-balance .cardgrid>.card {display:grid;grid-template-columns:76px 1fr;gap:12px 24px;border:0;border-top:2px solid #b7cfc3;padding:24px;background:none;}
+ .ssp-classroom #deck .slide.ssp-balance .ssp-card-glyph {grid-row:1/3;}
+ .ssp-classroom #deck .slide.ssp-balance .cardBody {grid-column:2;font-size:28px;line-height:1.4;}
+ .ssp-classroom #deck .slide.ssp-balance .card:last-child {grid-column:1/-1;background:#e4eeea;border:0;border-radius:14px;}
+
+ /* Summary and writing guidance stay concise, with an ordered visual rhythm. */
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardgrid {gap:12px;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardgrid>.card {grid-template-columns:64px .9fr 1.7fr;gap:24px;align-items:center;padding:22px 0;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .ssp-card-glyph {width:64px;height:64px;border-radius:16px;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .ssp-card-glyph svg {width:44px;height:44px;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardTitle {font-size:29px;line-height:1.25;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardBody {font-size:29px;line-height:1.4;}
+
+ /* Written answers occupy a stable, recognisable feedback area. */
+ .ssp-classroom #deck .classificationItems {gap:14px;}
+ .ssp-classroom #deck .classificationItem {padding:8px 0;gap:32px;border:0;align-items:stretch;}
+ .ssp-classroom #deck .classificationItemTop {align-content:center;padding-block:14px;}
+ .ssp-classroom #deck .classificationResult {display:flex;align-items:center;min-height:120px;border:0;border-left:3px solid #166c72;background:#e8f0ec;border-radius:0 10px 10px 0;padding:18px 24px;}
+ .ssp-classroom #deck .classificationAnswer {font-size:28px;line-height:1.4;color:#166c72;font-weight:400;}
+ .ssp-classroom #deck [data-ssp-items="1"] .classificationItem {min-height:260px;}
+ .ssp-classroom #deck [data-ssp-items="1"] .classificationItemTop p,
+ .ssp-classroom #deck [data-ssp-items="1"] .classificationAnswer {font-size:clamp(30px,2.25vw,40px);line-height:1.4;}
+ .ssp-classroom #deck [data-ssp-items="2"] .classificationItem {min-height:165px;}
+
+ /* Exam questions and source references stay visible over the revealed prose. */
+ .ssp-classroom #deck .slide.is-exam .examBlock .prompt {margin-block:auto;padding:28px 34px;background:#e8f0ec;border-radius:0 12px 12px 0;line-height:1.55;}
+ .ssp-classroom #deck .slide.is-modelAnswer .modelAnswerCard {margin-top:auto;margin-bottom:auto;}
+ .ssp-classroom #deck .slide.is-modelAnswer .modelAnswerParagraphs p {border-left:3px solid #166c72;padding:14px 22px;margin:0 0 16px;border-radius:0 9px 9px 0;background:#edf3ee;line-height:1.38;}
+ .ssp-classroom #deck .modelAnswerText mark {padding:.02em .05em;border-radius:2px;background:#d3e5dc;color:#125a5f;border-bottom:none;box-shadow:none;}
+ .ssp-classroom #deck .examSpecChips {margin-bottom:20px;}
+ .ssp-classroom #deck .examSpecChip {letter-spacing:.04em;color:#61746a;}
+ .ssp-classroom #deck .slide.is-hero .photoPanel {height:69vh;border-radius:3px 20px 20px 3px;}
+ .ssp-classroom #deck .slide.is-hero .content {grid-template-columns:.94fr 1.06fr;gap:4vw;}
+ .ssp-classroom #deck .slide.is-hero h1 {font-size:clamp(52px,4.6vw,84px);}
+}
+@media screen and (min-width:761px) and (max-height:850px) {
+ .ssp-classroom #deck .slide.ssp-causal .flowChip {gap:18px;min-height:310px;grid-template-rows:100px minmax(132px,1fr) 86px;padding-top:26px;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-glyph {width:92px;height:92px;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-link {top:61px;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardgrid>.card {min-height:285px;padding:28px;gap:22px;}
+ .ssp-classroom #deck .slide .classificationResult {min-height:110px;}
+}
+@media screen and (max-width:960px) {
+ .ssp-classroom #deck .slide.ssp-causal .flowRow {grid-template-columns:1fr;gap:25px;padding:18px 0;}
+ .ssp-classroom #deck .slide.ssp-causal .flowChip {grid-template-columns:74px 1fr;grid-template-rows:auto auto;gap:14px 22px;min-height:0;padding:22px 16px;text-align:left;justify-items:start;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-glyph {grid-row:1/3;width:70px;height:70px;border-radius:18px;align-self:center;}
+ .ssp-flow-glyph svg {width:48px;height:48px;}
+ .ssp-classroom #deck .slide.ssp-causal .flowNumber {display:none;}
+ .ssp-classroom #deck .slide.ssp-causal .flowText {grid-column:2;font-size:26px;line-height:1.4;}
+ .ssp-classroom #deck .slide.ssp-causal .flowTextZh {grid-column:2;font-size:23px;padding-top:10px;text-wrap:balance;}
+ .ssp-classroom #deck .slide.ssp-causal .ssp-flow-link {left:39px;top:auto;bottom:-25px;width:25px;height:24px;transform:rotate(90deg);}
+ .ssp-classroom #deck .ssp-content-stack {height:auto;min-height:100%;}
+ .ssp-classroom #deck .slide:not(.is-hero):not(.is-section) .content>main {height:auto;}
+ .ssp-classroom #deck .ssp-content-stack>.cardgrid,.ssp-classroom #deck .ssp-content-stack>.classificationItems {margin-block:16px;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence,.ssp-timeline,.ssp-calculation,.ssp-balance) .cardgrid {grid-template-columns:1fr;gap:28px;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardgrid {grid-template-rows:none;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardgrid>.card {min-height:0;gap:18px;padding:24px;grid-template-columns:64px 1fr;grid-template-rows:auto 1fr;grid-row:auto;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardBody {font-size:24px;}
+ .ssp-classroom #deck .slide:is(.ssp-paired,.ssp-comparison,.ssp-sequence) .cardTitle {font-size:27px;}
+ .ssp-classroom #deck .ssp-card-glyph {width:64px;height:64px;}
+ .ssp-classroom #deck .ssp-card-glyph svg {width:46px;height:46px;}
+ .ssp-classroom #deck .ssp-card-zh {font-size:22px;}
+ .ssp-classroom #deck .slide.ssp-sequence .card:first-child::after {left:calc(50% - 17px);top:auto;bottom:-24px;transform:rotate(90deg);}
+ .ssp-classroom #deck .slide.ssp-timeline .cardgrid>.card {grid-template-columns:64px 1fr;grid-template-rows:auto auto;gap:18px 24px;padding:16px 0;}
+ .ssp-classroom #deck .slide.ssp-timeline .ssp-card-glyph {grid-row:1/3;}
+ .ssp-classroom #deck .slide.ssp-timeline .cardBody {grid-column:2;font-size:24px;}
+ .ssp-classroom #deck .slide.ssp-timeline .card::before {top:30px;bottom:-45px;left:31px;width:2px;height:auto;right:auto;}
+ .ssp-classroom #deck .slide.ssp-timeline .card:last-child::before {display:none;}
+ .ssp-classroom #deck .slide.ssp-calculation .cardgrid>.card {padding:24px;gap:18px;}
+ .ssp-classroom #deck .slide.ssp-calculation .cardBody {font-size:29px;gap:15px;}
+ .ssp-cost-result strong {font-size:52px;}
+ .ssp-classroom #deck .slide.ssp-balance .cardgrid>.card {grid-template-columns:64px 1fr;padding:20px 10px;gap:14px;}
+ .ssp-classroom #deck .slide.ssp-balance .cardBody {font-size:24px;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardgrid>.card {grid-template-columns:52px 1fr;gap:12px 18px;padding:18px 0;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .ssp-card-glyph {width:52px;height:52px;grid-row:1/3;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardTitle {font-size:26px;}
+ .ssp-classroom #deck .slide:is(.ssp-summary,.ssp-principles) .cardBody {grid-column:2;font-size:24px;}
+ .ssp-classroom #deck .classificationItem {grid-template-columns:1fr;gap:16px;min-height:0!important;}
+ .ssp-classroom #deck .classificationResult {min-height:100px;padding:18px;}
+ .ssp-classroom #deck .classificationAnswer,.ssp-classroom #deck [data-ssp-items="1"] .classificationAnswer,.ssp-classroom #deck [data-ssp-items="1"] .classificationItemTop p {font-size:24px;}
+ .ssp-classroom #deck .slide.is-hero .content {grid-template-columns:1fr;}
+ .ssp-classroom #deck .slide.is-hero .photoPanel {height:310px;}
+ .ssp-classroom #deck .slide.is-hero h1 {font-size:46px;}
+ .ssp-classroom #deck .slide.is-exam .examBlock .prompt {padding:22px;margin-block:25px;font-size:24px;}
+ .ssp-classroom #deck .slide.is-modelAnswer .modelAnswerParagraphs p {font-size:24px;line-height:1.5;padding:18px;margin-bottom:18px;}
+ .ssp-classroom #deck .slide.is-modelAnswer .modelAnswerCard {margin-block:22px;}
+}
+@media print {.ssp-flow-glyph,.ssp-flow-link,.ssp-card-glyph {display:none!important;}}

@@ -10,7 +10,7 @@ const course = path.join(root, 'investment-analysis');
 const lessonFolder = process.argv[2] || 'lesson-03';
 const selected = process.argv.slice(3).map(Number);
 assert.match(lessonFolder, /^lesson-\d{2}$/);
-const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth', 'lesson-04': '1-1-3-assumed-return', 'lesson-05': '1-1-4-nominal-real-return'};
+const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth', 'lesson-04': '1-1-3-assumed-return', 'lesson-05': 'first-stock-trades', 'lesson-07': '1-1-4-nominal-real-return'};
 const lessonSlug = aliases[lessonFolder];
 assert.ok(lessonSlug, 'Use a linked lesson alias; add a new alias when publishing a lesson');
 const lessonRoute = `investment-analysis/lessons/${lessonSlug}`;
@@ -87,6 +87,7 @@ const server=http.createServer((req,res)=>{
         if(width>820&&body&&heading&&heading.getBoundingClientRect().bottom>body.getBoundingClientRect().top+2)found.push({text:'Header overlaps body'});
         if(width>820&&heading){const context=el.querySelector('.retrieval-context');if(context&&context.getBoundingClientRect().top<heading.getBoundingClientRect().bottom+8)found.push({text:'Retrieval context overlaps heading'});}
         if(width>820&&body){const b=body.getBoundingClientRect();for(const child of body.children){const r=child.getBoundingClientRect();if(r.bottom>b.bottom+3)found.push({text:'Body child exceeds available height',child:child.className,by:r.bottom-b.bottom});}}
+        if(width>820&&body){const b=body.getBoundingClientRect();for(const child of el.querySelectorAll('.table-copy > *')){const r=child.getBoundingClientRect();if(r.top<b.top-3||r.bottom>b.bottom+3)found.push({text:'Table content exceeds body area',child:child.className});}}
         if(width<821&&el.scrollWidth>width+2)found.push({text:'Mobile horizontal overflow',scrollWidth:el.scrollWidth});
         if(/Write first|click each blank|Complete the glossary|REMEMBER|Hinge check/.test(el.innerText))found.push({text:'Projected teacher guidance'});
         return found;
@@ -104,8 +105,10 @@ const server=http.createServer((req,res)=>{
   // Verify motion is present when not explicitly reduced.
   const page=await browser.newPage({viewport:{width:1280,height:720}});
   await page.goto(`http://127.0.0.1:${server.address().port}/${lessonRoute}/index.html#4`);
-  const motion=await page.locator('.blank-answer').first().evaluate(e=>getComputedStyle(e).transitionDuration);
-  assert.ok(motion.split(',').some(t=>parseFloat(t)>0),'animated answer transitions');
+  if(await page.locator('.blank-answer').count()) {
+    const motion=await page.locator('.blank-answer').first().evaluate(e=>getComputedStyle(e).transitionDuration);
+    assert.ok(motion.split(',').some(t=>parseFloat(t)>0),'animated answer transitions');
+  }
   await page.keyboard.press('Home');
   assert.equal(await page.evaluate(()=>location.hash),'#1');
   await page.keyboard.press('End');
@@ -127,6 +130,29 @@ const server=http.createServer((req,res)=>{
   await page.waitForFunction(()=>Boolean(document.fullscreenElement));
   await page.keyboard.press('f');
   await page.waitForFunction(()=>!document.fullscreenElement);
+  if(lessonSlug==='first-stock-trades') {
+    const blocks=await page.locator('.ft-exposure .ft-panel').evaluateAll(panels=>panels.map(p=>({
+      total:p.querySelectorAll('.ft-money-grid i').length,
+      invested:p.querySelectorAll('.ft-money-grid .ft-invested').length,
+      lost:p.querySelectorAll('.ft-money-grid .ft-lost').length,
+      cash:p.querySelectorAll('.ft-money-grid .ft-cash').length
+    })));
+    assert.deepEqual(blocks,[{total:100,invested:8,lost:2,cash:90},{total:100,invested:40,lost:10,cash:50}], 'counted diagrams reconcile a 20% stock fall to each $100,000 portfolio');
+    for(const id of ['position-loss','market-limit','limit-outcomes']) {
+      await page.evaluate(n=>{location.hash=String(n)},lesson.slides.findIndex(s=>s.id===id)+1);
+      const active=page.locator(`[data-slide-id="${id}"]`);
+      await active.waitFor({state:'visible'});
+      assert.equal(await active.locator('.partial-item.is-visible').count(),0);
+      await page.keyboard.press('ArrowRight');
+      assert.equal(await active.locator('.partial-item.is-visible').count(),1);
+      await page.keyboard.press('ArrowLeft');
+      assert.equal(await active.locator('.partial-item.is-visible').count(),0,'new visual reverses without leaving the slide');
+    }
+    await page.locator('[data-slide-id="limit-outcomes"] .ft-source').click();
+    assert.equal(await page.locator('#notesPanel').getAttribute('aria-hidden'),'false');
+    assert.ok(await page.locator('#notesSource a').count(),'source control opens actual source links');
+    await page.keyboard.press('n');
+  }
   await browser.close();
   // A fresh browser tests a genuine cold offline opening, independently of the
   // decoded-image cache accumulated during three complete render passes.

@@ -16,7 +16,7 @@
   function records(s) {
     const list=[];
     if(s.type==='quiz'){
-      list.push({type:'Question paper',ref:`Cambridge ${s.eyebrow} · printed page 2`,detail:s.question,choices:s.choices,columns:s.optionColumns});
+      list.push({type:'Question paper',ref:`Cambridge ${s.eyebrow} · printed page ${s.questionPaperPage||2}`,detail:s.question,choices:s.choices,columns:s.optionColumns});
       list.push({type:'Mark scheme',ref:`Cambridge ${s.eyebrow} · official mark scheme, page 2`,detail:`Official answer: ${String.fromCharCode(65+s.answer)} — ${s.choices[s.answer]}.`});
       list.push({type:'Teaching model',ref:'Teacher-written answer explanation',detail:s.prompt});
     } else {
@@ -26,7 +26,7 @@
           list.push({type:'Question paper',ref:`Cambridge ${original.ref} · printed page 4`,detail:original.question});
           list.push({type:'Mark scheme',ref:`Cambridge ${original.ref} · official mark scheme, page ${original.msPage}`,detail:original.answer});
         } else if(source.label==='Syllabus and definitions') list.push(syllabus,definitions);
-        else list.push({type:'Course reference',ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n')});
+        else list.push({type:source.label==='Real-world data'?'Real-world data':'Course reference',ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n'),url:source.url});
       }
       if(['hero','section','outcomes'].includes(s.type)) list.push(syllabus);
       if(s.type==='classificationTask') list.push(definitions);

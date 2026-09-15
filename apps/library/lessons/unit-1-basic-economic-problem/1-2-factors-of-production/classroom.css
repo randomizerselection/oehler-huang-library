@@ -113,6 +113,30 @@
  .enterprise-classroom .is-quiz .mcqExplanation { margin-top:8px; min-height:112px; padding:16px 0 0; border-top:2px solid #166c72; color:#166c72; font-size:25px; font-weight:400; line-height:1.35; }
  .enterprise-classroom .factor-option-head { margin:0; color:#51616b; font-size:23px; grid-template-columns:48px 1fr 1fr; }
 
+ /* Scenario photographs support the full original question and remain during feedback. */
+ .enterprise-classroom .is-layout-factor-photo-mcq .content {
+  display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  grid-template-rows:auto auto auto; gap:18px 36px;
+ }
+ .enterprise-classroom .is-layout-factor-photo-mcq .content main,
+ .enterprise-classroom .is-layout-factor-photo-mcq .quizBlock { display:contents; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .quizBlock>.lead { grid-column:1 / -1; grid-row:1; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .choices { grid-column:1; grid-row:2; margin:0; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .visual { display:block; grid-column:2; grid-row:2; min-height:0; align-self:stretch; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .photoPanel { height:100%; min-height:0; margin:0; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .photoPanel img { height:100%; width:100%; object-fit:cover; object-position:50% 68%; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .photoPanel::after { display:none; }
+ .enterprise-classroom .is-layout-factor-photo-mcq figcaption { display:none; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .mcqExplanation { grid-column:1 / -1; grid-row:3; margin:0; }
+
+ /* Read the timing comparison across matching rows. */
+ .enterprise-classroom .paymentTimingTable { width:100%; table-layout:fixed; border-collapse:collapse; margin-top:28px; }
+ .enterprise-classroom .paymentTimingTable th { width:50%; text-align:left; padding:20px 24px; color:#166c72; font-size:30px; border-top:3px solid #166c72; }
+ .enterprise-classroom .paymentTimingTable td { padding:18px 24px; vertical-align:top; border-top:1px solid #d4dedc; }
+ .enterprise-classroom .paymentTimingTable th+th,
+ .enterprise-classroom .paymentTimingTable td+td { border-left:1px solid #d4dedc; }
+ .enterprise-classroom .is-layout-factor-payment-timing .choice { margin:0; }
+
  .enterprise-classroom .is-compare .content { grid-template-columns:1fr; }
  .enterprise-classroom .is-compare .splitCols { gap:54px; margin-top:30px; }
  .enterprise-classroom .is-compare .card { padding:22px 0 0; border-top:3px solid #166c72; }
@@ -141,6 +165,19 @@
  .enterprise-classroom .modelAnswerCard { background:#e7efeb; border:0; border-left:4px solid #166c72; border-radius:0; padding:32px; box-shadow:none; }
  .enterprise-classroom .modelAnswerText { font-size:36px; color:#142f43; font-weight:400; line-height:1.45; }
  .enterprise-classroom .modelAnswerLabel { color:#166c72; font-size:19px; }
+}
+/* Dated factor payments: illustration, amount, unit, payer and context. */
+@media screen {
+ .enterprise-classroom .is-layout-factor-real-payments .splitCols { gap:48px; margin-top:24px; }
+ .enterprise-classroom .is-layout-factor-real-payments .card { padding-top:16px; }
+ .enterprise-classroom .is-layout-factor-real-payments .card>b { font-size:30px; }
+ .enterprise-classroom .is-layout-factor-real-payments .compareVisual { margin:18px 0 16px; height:auto; border:0; border-radius:5px; background:none; aspect-ratio:560 / 180; }
+ .enterprise-classroom .is-layout-factor-real-payments .compareVisual img { width:100%; height:100%; object-fit:contain; }
+ .enterprise-classroom .is-layout-factor-real-payments .choices { gap:10px; margin:0; }
+ .enterprise-classroom .slide.is-compare.is-layout-factor-real-payments .content.is-full .compareBlock .choice { font-size:26px; line-height:1.3; }
+ .enterprise-classroom .slide.is-compare.is-layout-factor-real-payments .content.is-full .compareBlock .choice:first-child { color:#166c72; font-size:60px; font-weight:700; line-height:1; }
+ .enterprise-classroom .slide.is-compare.is-layout-factor-real-payments .content.is-full .compareBlock .choice:nth-child(3) { margin-top:10px; padding-top:12px; border-top:1px solid #b9cdca; }
+ .enterprise-classroom .slide.is-compare.is-layout-factor-real-payments .content.is-full .compareBlock .choice:last-child { font-size:24px; color:#51616b; }
 }
 /* Same provenance interaction and quiet header structure as the latest A-level
    lesson, implemented locally rather than importing its renderer. */
@@ -241,4 +278,14 @@
  .enterprise-classroom .is-compare .splitCols { grid-template-columns:1fr; gap:25px; }
  .enterprise-classroom .is-compare .card li { font-size:24px; }
  .enterprise-classroom .modelAnswerText { font-size:28px; }
+}
+
+@media screen and (max-width:760px) {
+ .enterprise-classroom .is-layout-factor-photo-mcq .content { grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto auto auto; gap:20px; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .visual { grid-column:1; grid-row:2; height:220px; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .choices { grid-column:1; grid-row:3; }
+ .enterprise-classroom .is-layout-factor-photo-mcq .mcqExplanation { grid-column:1; grid-row:4; }
+ .enterprise-classroom .paymentTimingTable th { font-size:23px; padding:12px 8px; word-break:keep-all; }
+ .enterprise-classroom .paymentTimingTable td { padding:14px 8px; }
+ .enterprise-classroom .slide.is-layout-factor-payment-timing .paymentTimingTable .choice { font-size:23px !important; line-height:1.35 !important; }
 }
