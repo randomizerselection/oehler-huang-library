@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'arguments-against-markets',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Arguments against markets',
@@ -27,6 +28,7 @@ IGCSE.lesson = {
       visual: photos.factorySmoke,
     },
     {
+      id: 'what-markets-may-ignore',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'What markets may ignore',
@@ -37,6 +39,7 @@ IGCSE.lesson = {
       visual: photos.factorySmoke,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -52,18 +55,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'inequality',
       type: 'section',
       eyebrow: 'New section',
       title: 'Inequality',
       zhTitle: '不平等',
     },
         {
+      id: 'visual-pause-world',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.socialSecurity,
       notes: 'Example: World / China. Former fact context: The richest 10% of the global population receive about half of global income. | China’s official urban-rural disposable income ratio remained above 2.3 to 1 in 2024. Teacher question: Why might a market economy create unequal income distribution? Possible answer: Markets reward ownership, skills and enterprise unequally, so income can become uneven without redistribution. Source: Source: World Inequality Report 2022. | Source: National Bureau of Statistics of China, 2025.',
     },
     {
+      id: 'inequality-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -79,18 +85,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'market-failure',
       type: 'section',
       eyebrow: 'New section',
       title: 'Market failure',
       zhTitle: '市场失灵',
     },
         {
+      id: 'visual-pause-world-2',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.factorySmoke,
       notes: 'Example: World / China. Former fact context: Air pollution is linked to 6.7 million premature deaths annually. | China’s city PM2.5 average was 29.3 micrograms per m3 in 2024. Teacher question: Why might market activity create external costs for third parties? Possible answer: The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers. Source: Source: World Health Organization. | Source: Ministry of Ecology and Environment of China, 2025.',
     },
     {
+      id: 'external-costs',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -106,12 +115,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'under-provision',
       type: 'section',
       eyebrow: 'New section',
       title: 'Under-provision',
       zhTitle: '供给不足',
     },
     {
+      id: 'who-pays-for-the-light',
       type: 'discussion',
       eyebrow: 'Explore',
       title: 'Who pays for the light?',
@@ -122,12 +133,14 @@ IGCSE.lesson = {
       visual: photos.streetLight,
     },
         {
+      id: 'visual-pause-united-kingdom',
       type: 'visualPause',
       title: 'Visual pause: United Kingdom',
       visual: photos.floodBarrier,
       notes: 'Example: United Kingdom / China. Former fact context: The UK government planned GBP 5.2 billion for flood and coastal erosion schemes from 2021 to 2027. | China increased central support for flood-control and disaster-prevention projects after major 2023 floods. Teacher question: Why might government provide goods or services that markets underprovide? Possible answer: Government may provide it because private firms may not find enough paying customers despite wider social benefits. Source: Source: UK Environment Agency. | Source: China State Council, 2024.',
     },
     {
+      id: 'public-goods-may-be-under-provided',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -143,6 +156,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'for-and-against-markets',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Review',
@@ -161,6 +175,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which statement is the strongest argument against markets?',
@@ -173,6 +188,7 @@ IGCSE.lesson = {
       prompt: 'Identify the cause and consequence.',
     },
     {
+      id: 'discuss-whether-a-market-economic-system-is-the-best-way-to-alloc',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Discuss whether a market economic system is the best way to allocate resources. [8]',
@@ -181,6 +197,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'discuss-whether-a-market-economic-system-is-the-best-way-to-alloc-2',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -192,6 +209,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

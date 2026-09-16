@@ -19,6 +19,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'macroeconomic-aims',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Macroeconomic aims',
@@ -28,6 +29,7 @@ IGCSE.lesson = {
       visual: photos.worldBankHeadquarters,
     },
     {
+      id: 'which-aim-is-under-pressure',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Which aim is under pressure?',
@@ -38,6 +40,7 @@ IGCSE.lesson = {
       visual: photos.pollution,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -53,6 +56,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'choose-the-priority',
       type: 'quiz',
       eyebrow: 'Starter',
       title: 'Choose the priority',
@@ -63,6 +67,7 @@ IGCSE.lesson = {
       partialReview: ['.choices > .choice', '.prompt'],
     },
     {
+      id: 'the-six-macroeconomic-aims',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'The six macroeconomic aims',
@@ -79,12 +84,14 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
         {
+      id: 'visual-pause-world-economy',
       type: 'visualPause',
       title: 'Visual pause: World economy',
       visual: photos.worldBankHeadquarters,
       notes: 'Example: World economy / China. Former fact context: Global growth was projected at 2.6% in 2024, below the 3.1% average in the decade before COVID-19. | Real GDP grew 5.0% in 2024,. Teacher question: Which macroeconomic aim is shown, and why might governments care about it? Possible answer: The aim is economic growth; governments care because growth can raise incomes, output and living standards. Source: Source: World Bank Global Economic Prospects, June 2024. | Source: National Bureau of Statistics of China, 2025.',
     },
     {
+      id: 'growth-can-raise-living-standards',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -100,12 +107,14 @@ IGCSE.lesson = {
       ],
     },
         {
+      id: 'visual-pause-world-economy-2',
       type: 'visualPause',
       title: 'Visual pause: World economy',
       visual: photos.inflationShelf,
       notes: 'Example: World economy / China. Former fact context: Global inflation was expected to fall to 3.5% in 2024 and 2.9% in 2025, so stable prices remained a policy aim. | Consumer prices rose 0.2% in 2024,. Teacher question: Which macroeconomic aim is shown, and what problem can high inflation create? Possible answer: The aim is stable prices; high inflation reduces purchasing power and creates uncertainty. Source: Source: World Bank Global Economic Prospects, June 2024. | Source: National Bureau of Statistics of China, 2025.',
     },
     {
+      id: 'stable-prices-protect-confidence',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -121,12 +130,14 @@ IGCSE.lesson = {
       ],
     },
         {
+      id: 'visual-pause-global-labour-market',
       type: 'visualPause',
       title: 'Visual pause: Global labour market',
       visual: photos.youthCareerFair,
       notes: 'Example: Global labour market / China. Former fact context: Global unemployment was steady at 5% in 2024, while youth unemployment remained much higher at 12.6%. | The surveyed urban unemployment rate averaged 5.1% in 2024. Teacher question: Which macroeconomic aim is shown, and what cost can unemployment create? Possible answer: The aim is low unemployment; unemployment wastes labour and reduces household income. Source: Source: ILO World Employment and Social Outlook: Trends 2025. | Source: National Bureau of Statistics of China, 2025.',
     },
     {
+      id: 'aims-can-clash',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Aims can clash',
@@ -141,6 +152,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'which-conflict-is-shown',
       type: 'quiz',
       eyebrow: 'Check',
       title: 'Which conflict is shown?',
@@ -150,6 +162,7 @@ IGCSE.lesson = {
       partialReview: ['.choices > .choice', '.prompt'],
     },
     {
+      id: 'explain-why-economic-growth-may-conflict-with-environmental-susta',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain why economic growth may conflict with environmental sustainability. [4]',
@@ -159,6 +172,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'explain-why-economic-growth-may-conflict-with-environmental-susta-2',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -170,6 +184,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       mode: 'fillBlanks',
       eyebrow: 'Check',

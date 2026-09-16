@@ -20,6 +20,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'expansionary-and-contractionary-fiscal-policy',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Expansionary and contractionary fiscal policy',
@@ -29,6 +30,7 @@ IGCSE.lesson = {
       visual: photos.budgetMeeting,
     },
     {
+      id: 'changing-demand',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Changing demand',
@@ -39,6 +41,7 @@ IGCSE.lesson = {
       visual: photos.budgetMeeting,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -54,18 +57,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-fiscal-policy-decisions',
       type: 'visualPause',
       title: 'Visual pause: fiscal-policy decisions',
       visual: photos.visualPauseBudgetNegotiation,
       notes: 'Visual pause: connect the image to government choices over spending, taxation and macroeconomic aims.',
     },
     {
+      id: 'fiscal-policy-tools',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Fiscal policy tools',
       zhTitle: '财政政策工具',
     },
     {
+      id: 'fiscal-policy',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -88,6 +94,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -99,24 +106,28 @@ IGCSE.lesson = {
       ],
     },
         {
+      id: 'visual-pause-india',
       type: 'visualPause',
       title: 'Visual pause: India',
       visual: factPhotos.indiaBudget2024,
       notes: 'Example: India / China. Former fact context: India budgeted INR 11.11 trillion for capital expenditure in 2024-25. | China allocated RMB 1 trillion in 2024 treasury bond funds for major projects. Teacher question: Which fiscal-policy tool is shown, and which macro aim might it support? Possible answer: It is government capital spending and it may support growth, employment or productivity. Source: Source: Government of India Budget 2024-25. | Source: China State Council/Xinhua, 2024.',
     },
     {
+      id: 'expansionary-fiscal-policy',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Expansionary fiscal policy',
       zhTitle: '扩张性财政政策',
     },
     {
+      id: 'visual-pause-infrastructure-spending',
       type: 'visualPause',
       title: 'Visual pause: infrastructure spending',
       visual: photos.visualPauseRoadCrew,
       notes: 'Visual pause: ask students what kind of government spending this image could represent.',
     },
     {
+      id: 'expansionary-fiscal-policy-2',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -132,6 +143,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which change is expansionary fiscal policy?',
@@ -145,6 +157,7 @@ IGCSE.lesson = {
       prompt: 'Expansionary fiscal policy increases aggregate demand.',
     },
     {
+      id: 'expansionary-policy',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Expansionary policy',
@@ -160,12 +173,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-aggregate-demand',
       type: 'visualPause',
       title: 'Visual pause: aggregate demand',
       visual: photos.visualPauseSupermarketLine,
       notes: 'Visual pause: connect higher disposable income to more consumer spending and aggregate demand.',
     },
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -180,18 +195,21 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Consumer spending and aggregate demand may rise, so firms may increase output.',
     },
     {
+      id: 'contractionary-fiscal-policy',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Contractionary fiscal policy',
       zhTitle: '紧缩性财政政策',
     },
     {
+      id: 'visual-pause-higher-taxation',
       type: 'visualPause',
       title: 'Visual pause: higher taxation',
       visual: photos.visualPauseTaxForm,
       notes: 'Visual pause: use the image as a quiet bridge into taxation and contractionary policy.',
     },
     {
+      id: 'contractionary-fiscal-policy-2',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -207,6 +225,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'fill-in-the-blanks-2',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -218,6 +237,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'contractionary-policy',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Contractionary policy',
@@ -233,12 +253,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-price-pressure',
       type: 'visualPause',
       title: 'Visual pause: price pressure',
       visual: photos.visualPauseBudgetNegotiation,
       notes: 'Visual pause: bridge from fiscal-policy decisions to lower aggregate demand and easing demand-pull inflationary pressure.',
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which fiscal-policy effect is most likely to reduce demand-pull inflation?',
@@ -252,6 +274,7 @@ IGCSE.lesson = {
       prompt: 'Lower aggregate demand can reduce demand-pull inflationary pressure.',
     },
     {
+      id: 'explain-how-fiscal-policy-can-increase-employment-6',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain how fiscal policy can increase employment. [6]',      keywordLabel: 'One-sided explanation points',
@@ -280,6 +303,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'explain-how-fiscal-policy-can-increase-employment-4',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -291,6 +315,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

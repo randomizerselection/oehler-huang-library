@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'external-costs-and-benefits',
       type: 'hero',
       eyebrow: 'Market failure type 1',
       title: 'External costs and benefits',
@@ -28,6 +29,7 @@ IGCSE.lesson = {
       visual: photos.factorySmoke,
     },
     {
+      id: 'private-decision-third-party-effect',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Private decision, third-party effect',
@@ -38,6 +40,7 @@ IGCSE.lesson = {
       visual: photos.factorySmoke,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -53,18 +56,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'key-language',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Key language',
       zhTitle: '关键词汇',
     },
     {
+      id: 'visual-pause-market-failure',
       type: 'visualPause',
       title: 'Visual pause: market failure',
       visual: photos.factorySmoke,
       notes: 'Visual pause: use the smoke image to ask what the free-market decision misses before defining market failure.',
     },
     {
+      id: 'market-failure',
       type: 'term',
       eyebrow: 'Definition',
       title: 'Market failure',
@@ -80,6 +86,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'visual-pause-private-cost',
       type: 'visualPause',
       title: 'Visual pause: private cost',
       visual: photos.bakeryBread,
@@ -87,6 +94,7 @@ IGCSE.lesson = {
       notes: 'Visual pause: use the bread-making image to name costs paid inside the transaction, such as labour and ingredients.',
     },
     {
+      id: 'private-cost',
       type: 'term',
       eyebrow: 'Definition',
       title: 'Private cost',
@@ -102,6 +110,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'who-pays-the-private-cost',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Who pays the private cost?',
@@ -119,18 +128,21 @@ IGCSE.lesson = {
     },
     
     {
+      id: 'external-costs',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'External costs',
       zhTitle: '外部成本',
     },
     {
+      id: 'visual-pause-harmed-third-parties',
       type: 'visualPause',
       title: 'Visual pause: harmed third parties',
       visual: photos.factorySmoke,
       notes: 'Visual pause: ask students to silently identify one private cost and one external cost before revealing the definition.',
     },
     {
+      id: 'spot-the-third-party',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Spot the third party',
@@ -147,6 +159,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'external-cost',
       type: 'term',
       eyebrow: 'Definition',
       title: 'External cost',
@@ -162,6 +175,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'private-cost-or-external-cost',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Private cost or external cost?',
@@ -178,18 +192,21 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'external-benefits',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'External benefits',
       zhTitle: '外部收益',
     },
     {
+      id: 'visual-pause-private-benefit',
       type: 'visualPause',
       title: 'Visual pause: private benefit',
       visual: photos.classroom,
       notes: 'Visual pause: ask what the student personally gains from education before defining private benefit.',
     },
     {
+      id: 'private-benefit',
       type: 'term',
       eyebrow: 'Definition',
       title: 'Private benefit',
@@ -205,6 +222,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'who-gains-the-private-benefit',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Who gains the private benefit?',
@@ -221,6 +239,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'visual-pause-external-benefit',
       type: 'visualPause',
       title: 'Visual pause: external benefit',
       visual: photos.vaccination,
@@ -228,6 +247,7 @@ IGCSE.lesson = {
       notes: 'Visual pause: focus on who benefits beyond the patient before defining external benefit.',
     },
     {
+      id: 'external-benefit',
       type: 'term',
       eyebrow: 'Definition',
       title: 'External benefit',
@@ -243,6 +263,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'private-benefit-or-external-benefit',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Private benefit or external benefit?',
@@ -259,6 +280,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'exam-distinction',
       type: 'compare',
       eyebrow: 'Exam distinction',
       title: '',
@@ -279,6 +301,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'social-cost-and-social-benefit',
       type: 'socialEffectsVenn',
       eyebrow: 'Language toolkit',
       title: 'Social cost and social benefit',
@@ -304,6 +327,7 @@ IGCSE.lesson = {
       partialReview: ['.vennBox', '.prompt'],
     },
     {
+      id: 'sort-the-four-effects',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Sort the four effects',
@@ -321,6 +345,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'external-costs-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -337,12 +362,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-local-external-cost',
       type: 'visualPause',
       title: 'Visual pause: local external cost',
       visual: photos.trafficJam,
       notes: 'Visual pause: use congestion to prompt a local example where road users outside the transaction are harmed.',
     },
     {
+      id: 'find-one-local-external-cost',
       type: 'peerTask',
       eyebrow: 'Pair example hunt',
       title: 'Find one local external cost',
@@ -359,6 +386,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'external-benefits-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -375,12 +403,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-external-benefit-hunt',
       type: 'visualPause',
       title: 'Visual pause: external benefit hunt',
       visual: photos.rainforestCanopy,
       notes: 'Visual pause: use the rainforest image to prompt benefits received by people who are not directly buying or selling the service.',
     },
     {
+      id: 'find-one-external-benefit',
       type: 'peerTask',
       eyebrow: 'Pair example hunt',
       title: 'Find one external benefit',
@@ -397,6 +427,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'A tourist beach becomes crowded and noisy, reducing local residents quality of life. What is this?',
@@ -405,6 +436,7 @@ IGCSE.lesson = {
       prompt: 'Explain who the third party is.',
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

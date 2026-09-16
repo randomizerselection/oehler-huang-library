@@ -25,6 +25,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'money-supply-and-exchange-rates',
       type: 'hero',
       eyebrow: 'Overview',
       title: 'Money supply and exchange rates',
@@ -34,6 +35,7 @@ IGCSE.lesson = {
       visual: photos.helicopterMoneyDrop,
     },
     {
+      id: 'recall-last-lesson',
       type: 'peerTask',
       taskType: 'definitionRecall',
       eyebrow: 'Recall',
@@ -60,6 +62,7 @@ IGCSE.lesson = {
       sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
     },
     {
+      id: 'a-helicopter-drops-new-money',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'A helicopter drops new money',
@@ -70,6 +73,7 @@ IGCSE.lesson = {
       visual: photos.helicopterMoneyDrop,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -85,18 +89,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'money-supply-measures',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Money supply measures',
       zhTitle: '货币供给措施',
     },
     {
+      id: 'visual-pause-extra-liquidity',
       type: 'visualPause',
       title: 'Visual pause: extra liquidity',
       visual: photos.helicopterMoneyDrop,
       notes: 'Before teaching money-supply directions, let students observe the image silently. Ask: if more money enters the economy, who may spend or lend first, and what macro aim might improve? Keep the model answer to liquidity, bank lending, spending, output and employment; save inflation risk for the later pause.',
     },
     {
+      id: 'increasing-money-supply',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Increasing money supply',
@@ -104,6 +111,7 @@ IGCSE.lesson = {
       subtitle: 'Expansionary use',
     },
     {
+      id: 'visual-pause-money-reaches-borrowers',
       type: 'visualPause',
       title: 'Visual pause: money reaches borrowers',
       visual: photos.bankLendingCashier,
@@ -111,6 +119,7 @@ IGCSE.lesson = {
       notes: 'Before the increasing-money-supply flow, ask students to identify the action in the image. Bridge to the chain: more liquidity can make banks more willing or able to lend, so households and firms may spend or invest more.',
     },
     {
+      id: 'increasing-money-supply-2',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Increasing money supply',
@@ -134,6 +143,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -148,6 +158,7 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Households may spend more and firms may invest more.',
     },
     {
+      id: 'reducing-money-supply',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Reducing money supply',
@@ -155,12 +166,14 @@ IGCSE.lesson = {
       subtitle: 'Contractionary use',
     },
     {
+      id: 'visual-pause-price-pressure',
       type: 'visualPause',
       title: 'Visual pause: price pressure',
       visual: photos.visualPauseFomcBoardRoom,
       notes: 'Before the reducing-money-supply flow, ask why policymakers might worry if extra lending pushes demand up faster than output. Bridge to demand-pull inflationary pressure and the reason a central bank may reduce the money supply.',
     },
     {
+      id: 'reducing-money-supply-2',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Reducing money supply',
@@ -176,6 +189,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'review',
       type: 'compare',
       eyebrow: 'Review',
       mode: 'fillBlanks',
@@ -195,6 +209,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'classify-the-money-supply-change',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Classify the money-supply change',
@@ -214,6 +229,7 @@ IGCSE.lesson = {
       sharePrompt: 'Share one classification and the macro aim it targets.',
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -226,6 +242,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'discuss-whether-or-not-an-increase-in-the-money-supply-will-benef',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Discuss whether or not an increase in the money supply will benefit an economy. [8]',
@@ -246,6 +263,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'discuss-whether-or-not-an-increase-in-the-money-supply-will-benef-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Discuss whether or not an increase in the money supply will benefit an economy. [8]',
@@ -264,12 +282,14 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard', '.modelAnswerNote'],
     },
     {
+      id: 'visual-pause-trade-prices',
       type: 'visualPause',
       title: 'Visual pause: trade prices',
       visual: fiscalPhotos.visualPausePortTacoma,
       notes: 'Before the exchange-rate price link, ask students what kinds of goods cross this port and who pays for them. Bridge to the simple price rule only: exchange rates can change the prices of exports and imports.',
     },
     {
+      id: 'imported-phones-and-exchange-rates',
       type: 'discussion',
       eyebrow: 'Brief link',
       title: 'Imported phones and exchange rates',
@@ -280,6 +300,7 @@ IGCSE.lesson = {
       visual: photos.currencyExchangeStall,
     },
     {
+      id: 'visual-pause-currency-exchange',
       type: 'visualPause',
       title: 'Visual pause: currency exchange',
       visual: photos.currencyExchangeStall,
@@ -287,6 +308,7 @@ IGCSE.lesson = {
       notes: 'Before the foreign-exchange-rate definition, ask students what the exchange counter is pricing and why the price has to compare two currencies. Keep the answer simple: it is the price of one currency in terms of another currency.',
     },
     {
+      id: 'foreign-exchange-rate',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -302,6 +324,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'exchange-rate-direction',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Exchange-rate direction',
@@ -320,6 +343,7 @@ IGCSE.lesson = {
       sharePrompt: 'Share one price effect only; detailed current-account analysis comes in Unit 6.',
     },
     {
+      id: 'brief-link',
       type: 'compare',
       eyebrow: 'Brief link',
       mode: 'fillBlanks',
@@ -335,6 +359,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which pair lists two monetary policy measures?',
@@ -357,6 +382,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

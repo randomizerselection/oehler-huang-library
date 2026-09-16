@@ -23,6 +23,66 @@
     more.className = 'lesson-navigation-more';
     more.innerHTML = '<summary>More</summary><div class="lesson-navigation-menu"></div>';
     const menu = more.lastElementChild;
+    // A source file plus a persisted slide ID identifies a slide across title and
+    // order changes. Derive paths relative to Library so localhost and live URLs agree.
+    const libraryBase = new URL('../', assetBase);
+    const sourceScript = [...document.scripts].find(script => /\/slides[^/]*\.js$/.test(new URL(script.src || location.href).pathname));
+    const relativePath = url => decodeURIComponent(url.pathname.startsWith(libraryBase.pathname) ? url.pathname.slice(libraryBase.pathname.length) : url.pathname);
+    const deckRef = sourceScript ? relativePath(new URL(sourceScript.src)) : relativePath(new URL(location.href));
+    const titleOf = (slide, index) => slide.title || slide.term || slide.question || slide.prompt || slide.eyebrow || `Slide ${index + 1}`;
+    const referenceOf = index => `${deckRef}#${slides[index].id || index + 1}`;
+    function referenceText() {
+      const index = getCurrent(), slide = slides[index];
+      const url = new URL(location.href);
+      // Keep explicit A-level animation steps, but omit assignment/query context.
+      const step = location.hash.match(/\/(\d+)$/)?.[1];
+      url.search = '';
+      url.hash = `${slide.id || index + 1}${step ? `/${step}` : ''}`;
+      return `${options.title}\nSlide ${index + 1}: ${titleOf(slide, index)}\nReference: ${referenceOf(index)}${step ? `\nReveal step: ${Number(step) + 1}` : ''}\n${url.href}`;
+    }
+    const copyButton = document.createElement('button');
+    copyButton.type = 'button';
+    copyButton.textContent = 'Copy slide reference';
+    menu.prepend(copyButton);
+    const feedback = document.createElement('span');
+    feedback.className = 'lesson-reference-feedback';
+    feedback.setAttribute('role', 'status');
+    let feedbackTimer;
+    async function copyReference() {
+      const text = referenceText();
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        feedback.textContent = 'Slide reference copied';
+        clearTimeout(feedbackTimer);
+        feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 2200);
+        overviewFeedback.textContent = 'Slide reference copied';
+        status.title = 'Slide reference copied — paste it into Codex';
+      } catch {
+        // Local files and HTTP hosts may disallow clipboard access. Keep a
+        // selectable copy in the overview rather than claiming success.
+        toggleOverview(true);
+        referenceField.value = text;
+        referenceField.hidden = false;
+        referenceField.focus();
+        referenceField.select();
+        overviewFeedback.textContent = 'Press Ctrl+C (or Command+C) to copy the selected reference.';
+      }
+    }
+    copyButton.onclick = copyReference;
+    status.setAttribute('role', 'button');
+    status.tabIndex = 0;
+    status.onclick = copyReference;
+    status.addEventListener('keydown', event => {
+      if (['Enter', ' '].includes(event.key)) { event.preventDefault(); event.stopPropagation(); copyReference(); }
+    });
+    function updateReference() {
+      status.title = `Copy slide reference: ${referenceOf(getCurrent())}`;
+      status.setAttribute('aria-label', `Copy slide reference, slide ${getCurrent() + 1} of ${slides.length}`);
+      feedback.textContent = '';
+    }
+    new MutationObserver(updateReference).observe(status, { childList: true, characterData: true, subtree: true });
+    updateReference();
     const libraryLink = { label: 'Library index', href: new URL('../index.html', assetBase).href };
     const destinations = new Set();
     for (const link of portable ? [] : [...links, libraryLink]) {
@@ -49,6 +109,7 @@
     hide.title = 'Move the pointer, tap, or press Tab to show controls again';
     menu.append(hide);
     controls.replaceChildren(previous, overviewButton, status, next, ...(selector ? [selector] : []), more);
+    controls.append(feedback);
 
     let dialog = options.dialog;
     if (!dialog || dialog.tagName !== 'DIALOG') {
@@ -60,22 +121,32 @@
     dialog.className = 'lesson-overview';
     dialog.setAttribute('aria-labelledby', 'lessonOverviewTitle');
     dialog.innerHTML = `<header class="lesson-overview-head"><div><p>Slide overview</p><h2 id="lessonOverviewTitle">${escape(options.title)}</h2></div><button type="button" data-close aria-label="Close overview">×</button></header><label class="lesson-overview-search">Find a slide<input type="search" id="slideSearch" placeholder="Title, section or slide number…" autocomplete="off"></label><div class="lesson-overview-list"></div>`;
+    const referencePanel = document.createElement('div');
+    referencePanel.className = 'lesson-overview-reference';
+    referencePanel.innerHTML = '<code></code><button type="button">Copy current slide reference</button><span aria-live="polite"></span><textarea aria-label="Slide reference to copy" readonly hidden></textarea>';
+    dialog.querySelector('header').after(referencePanel);
+    referencePanel.querySelector('button').onclick = copyReference;
+    const overviewFeedback = referencePanel.querySelector('[aria-live]');
+    const referenceField = referencePanel.querySelector('textarea');
     const search = dialog.querySelector('input');
+    search.placeholder = 'Title, section, slide number or ID…';
     const list = dialog.querySelector('.lesson-overview-list');
     let section = 'Opening';
     const entries = slides.map((slide, index) => {
       if ((slide.kind || slide.type) === 'section') section = slide.title || slide.eyebrow || 'Section';
       const group = slide.section || section;
-      const title = slide.title || slide.term || slide.question || slide.eyebrow || ((slide.kind || slide.type) === 'visual' || slide.type === 'visualPause' ? 'Visual pause' : `Slide ${index + 1}`);
-      return { index, group, title, search: `${index + 1} ${title} ${group} ${slide.id || ''} ${slide.paper || ''} ${slide.zhTitle || ''} ${slide.zh || ''}`.toLowerCase() };
+      const title = titleOf(slide, index);
+      return { index, group, title, search: `${index + 1} ${title} ${group} ${referenceOf(index)} ${slide.paper || ''} ${slide.zhTitle || ''} ${slide.zh || ''}`.toLowerCase() };
     });
     function renderOverview() {
       const query = search.value.trim().toLowerCase();
+      const exact = entries.filter(entry => referenceOf(entry.index).toLowerCase() === query || (slides[entry.index].id && String(slides[entry.index].id).toLowerCase() === query));
+      const matches = exact.length ? exact : entries.filter(entry => !query || entry.search.includes(query));
       let last = null;
-      list.innerHTML = entries.filter(entry => !query || entry.search.includes(query)).map(entry => {
+      list.innerHTML = matches.map(entry => {
         const heading = entry.group !== last ? `<h3>${escape(entry.group)}</h3>` : '';
         last = entry.group;
-        return `${heading}<button type="button" class="lesson-overview-item${entry.index === getCurrent() ? ' is-current' : ''}" data-go="${entry.index}"${entry.index === getCurrent() ? ' aria-current="step"' : ''}><span>${String(entry.index + 1).padStart(2, '0')}</span><strong>${escape(entry.title)}</strong></button>`;
+        return `${heading}<button type="button" class="lesson-overview-item${entry.index === getCurrent() ? ' is-current' : ''}" data-go="${entry.index}"${entry.index === getCurrent() ? ' aria-current="step"' : ''}><span>${String(entry.index + 1).padStart(2, '0')}</span><strong>${escape(entry.title)}<small>${escape(slides[entry.index].id || `Slide ${entry.index + 1}`)}</small></strong></button>`;
       }).join('') || '<p class="lesson-overview-empty" role="status">No slides match your search.</p>';
     }
     function toggleOverview(force) {
@@ -83,6 +154,9 @@
       if (!open) { if (dialog.open) dialog.close(); return; }
       options.beforeOverview?.();
       more.open = false;
+      referencePanel.querySelector('code').textContent = referenceOf(getCurrent());
+      overviewFeedback.textContent = '';
+      referenceField.hidden = true;
       search.value = '';
       renderOverview();
       if (!dialog.open) dialog.showModal();

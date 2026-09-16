@@ -23,9 +23,13 @@ try {
     html,body{margin:0!important;padding:0!important;width:1600px!important;height:auto!important;overflow:visible!important}
     .app-shell{display:block!important;padding:0!important;min-height:0!important;height:auto!important}
     .stage{width:1600px!important;height:900px!important;max-width:none!important;max-height:none!important;aspect-ratio:16/9!important;box-shadow:none!important;container-type:inline-size!important}
-    .controls,dialog,#blankScreen,.diagram-controls,.reveal-button{display:none!important}
+    .controls,dialog,#blankScreen,.diagram-controls,.reveal-button,
+    .lesson-reveal-controls,.lesson-sources,.exam-image-button{display:none!important}
     /* Full-height photos must not create an inline-image baseline gap. */
     .hook-image img{display:block!important}
+    /* Fit the full-employment comparison without changing its wording or type size. */
+    #full-employment-unemployment .columns article{padding-top:1.4cqw;padding-bottom:.5cqw}
+    #full-employment-unemployment .columns p{margin-bottom:.8cqw}
     *,*::before,*::after{animation:none!important;transition:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
     @page{size:1600px 900px;margin:0}
     .pdf-page{position:relative!important;break-inside:avoid;break-after:page;page-break-after:always}
@@ -73,7 +77,7 @@ try {
       // otherwise resolves url(#...) against another page, losing arrowheads.
       const prefix = `pdf-${pages.length + 1}-`, idMap = new Map();
       for (const element of [clone, ...clone.querySelectorAll('[id]')]) {
-        if (element.id) { idMap.set(element.id, prefix + element.id); element.id = prefix + element.id; }
+        if (element.id) { element.dataset.pdfOriginalId = element.id; idMap.set(element.id, prefix + element.id); element.id = prefix + element.id; }
       }
       for (const element of [clone, ...clone.querySelectorAll('*')]) {
         for (const attribute of [...element.attributes]) {
@@ -99,6 +103,12 @@ try {
         const step = slide.scene.steps.length - 1;
         deck.show(index, step);
         capture(slide, index, 'diagram', step);
+      } else if (slide.layout === 'exam') {
+        // Lesson-owned exam layouts reveal worked reasoning through deck steps.
+        deck.show(index, 0);
+        capture(slide, index, 'slide', 0);
+        deck.show(index, deck.maxStep);
+        capture(slide, index, 'answer', 0);
       } else {
         deck.show(index, 0);
         deck.show(index, deck.maxStep);
@@ -113,6 +123,16 @@ try {
       }
     });
     document.body.replaceChildren(...pages);
+    // Preserve lesson-specific ID styles after making cloned IDs unique.
+    // Amend this export document's CSSOM only; classroom files stay unchanged.
+    const originalIds = new Set([...document.querySelectorAll('[data-pdf-original-id]')].map(element => element.dataset.pdfOriginalId));
+    function preserveIdStyles(rules) {
+      for (const rule of rules) {
+        if (rule.selectorText) rule.selectorText = rule.selectorText.replace(/#([\w-]+)/g, (selector, id) => originalIds.has(id) ? `:is(${selector},[data-pdf-original-id="${id}"])` : selector);
+        if (rule.cssRules) preserveIdStyles(rule.cssRules);
+      }
+    }
+    for (const sheet of document.styleSheets) preserveIdStyles(sheet.cssRules);
     document.title = `${deck.lesson.meta.title} - student PDF`;
     return { convention: 'completed-slide-with-answer-reveals', sourceSlides: deck.lesson.slides.length, pages: records };
   });
@@ -127,7 +147,7 @@ try {
     for (const [i, wrapper] of [...document.querySelectorAll('.pdf-page')].entries()) {
       const slide = wrapper.querySelector('.slide'), bounds = slide.getBoundingClientRect();
       if (Math.abs(bounds.width - 1600) > 1 || Math.abs(bounds.height - 900) > 1) issues.push(`Page ${i + 1}: wrong slide size`);
-      if (slide.scrollHeight > slide.clientHeight + 2) issues.push(`Page ${i + 1}: vertical overflow`);
+      if (slide.scrollHeight > slide.clientHeight + 2) issues.push(`Page ${i + 1}: vertical overflow (${slide.scrollHeight} > ${slide.clientHeight})`);
       for (const element of slide.querySelectorAll('h1,h2,p,td,th,svg,img')) {
         if (!element.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
         const box = element.getBoundingClientRect();
@@ -141,7 +161,16 @@ try {
     return { issues, imageCount: document.images.length, diagramPages: document.querySelectorAll('.econ-svg').length };
   });
   await fs.writeFile(path.join(qa, 'manifest.json'), JSON.stringify({ ...manifest, audit, errors }, null, 2));
-  if (errors.length || audit.issues.length) throw Error(JSON.stringify({ errors, audit }, null, 2));
+  if (errors.length || audit.issues.length) {
+    for (const number of new Set(audit.issues.map(issue => Number(/^Page (\d+):/.exec(issue)?.[1])).filter(Boolean))) {
+      await page.evaluate(number => {
+        document.querySelectorAll('.pdf-page').forEach((wrapper, index) => wrapper.hidden = index !== number - 1);
+        window.scrollTo(0, 0);
+      }, number);
+      await page.locator('.pdf-page').nth(number - 1).screenshot({path: path.join(qa, `failed-${number}.png`)});
+    }
+    throw Error(JSON.stringify({ errors, audit }, null, 2));
+  }
   await page.pdf({ path: output, width: '1600px', height: '900px', margin: { top: 0, right: 0, bottom: 0, left: 0 }, printBackground: true, preferCSSPageSize: true });
   // Browser references for independent comparison with the PDF renderer.
   for (const record of manifest.pages.filter(record => record.kind === 'diagram')) {

@@ -41,6 +41,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'market-failure-review',
       type: 'hero',
       eyebrow: 'Review',
       title: 'Market failure review',
@@ -50,6 +51,7 @@ IGCSE.lesson = {
       visual: photos.protectedBikeLane,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -65,6 +67,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'from-the-picture-name-the-problem',
       type: 'cards',
       eyebrow: 'Starter',
       title: 'From the picture, name the problem',
@@ -97,12 +100,14 @@ IGCSE.lesson = {
       sources: [definitionsSource],
     },
     {
+      id: 'classify-fast',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Classify fast',
       zhTitle: '快速分类',
     },
     {
+      id: 'six-photo-clues',
       type: 'cards',
       eyebrow: 'Classify',
       title: 'Six photo clues',
@@ -145,6 +150,7 @@ IGCSE.lesson = {
       sources: [definitionsSource],
     },
     {
+      id: 'external-benefit-external-cost-merit-good-or-demerit-good-4',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'External benefit, external cost, merit good or demerit good? [4]',
@@ -196,6 +202,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'previously-studied-definitions',
       type: 'cards',
       eyebrow: 'Review',
       title: 'Previously studied definitions',
@@ -227,12 +234,14 @@ IGCSE.lesson = {
       sources: [definitionsSource],
     },
     {
+      id: 'explain-over-consumption',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Explain over-consumption',
       zhTitle: '解释消费过度',
     },
     {
+      id: 'visual-pause-energy-drink-display',
       type: 'visualPause',
       title: 'Visual pause: energy drink display',
       visual: photos.energyDrinkFridge,
@@ -240,6 +249,7 @@ IGCSE.lesson = {
       notes: 'Ask students what a buyer notices immediately, then separate private costs from third-party costs before the explanation practice.',
     },
     {
+      id: 'two-chains-over-consumption',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -262,6 +272,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'explain-two-reasons-why-high-caffeine-energy-drinks-may-be-over-c',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain two reasons why high-caffeine energy drinks may be over-consumed. [4]',
@@ -272,6 +283,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'mark-scheme-explain-two-reasons-why-high-caffeine-energy-drinks-m',
       type: 'cards',
       eyebrow: 'Model answer',
       title: 'Mark scheme: Explain two reasons why high-caffeine energy drinks may be over-consumed. [4]',
@@ -287,6 +299,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'explain-two-reasons-why-high-caffeine-energy-drinks-may-be-over-c-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain two reasons why high-caffeine energy drinks may be over-consumed. [4]',
@@ -298,12 +311,14 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'analyse-under-consumption',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Analyse under-consumption',
       zhTitle: '分析消费不足',
     },
     {
+      id: 'visual-pause-cycle-helmet',
       type: 'visualPause',
       title: 'Visual pause: cycle helmet',
       visual: photos.cycleHelmetRoad,
@@ -311,6 +326,7 @@ IGCSE.lesson = {
       notes: 'Ask what protection the rider may not value enough before linking beneficial products to under-consumption.',
     },
     {
+      id: 'cycle-helmets-under-consumption',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -326,6 +342,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'analyse-why-cycle-helmets-may-be-under-used-6',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Analyse why cycle helmets may be under-used. [6]',
@@ -336,6 +353,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'analyse-why-cycle-helmets-may-be-under-used-6-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Analyse why cycle helmets may be under-used. [6]',
@@ -351,12 +369,14 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'diagram-practice',
       type: 'section',
       eyebrow: 'Part 4',
       title: 'Diagram practice',
       zhTitle: '图表练习',
     },
     {
+      id: 'visual-pause-cycle-helmet-support',
       type: 'visualPause',
       title: 'Visual pause: cycle helmet support',
       visual: photos.cycleHelmetRoad,
@@ -364,6 +384,7 @@ IGCSE.lesson = {
       notes: 'Ask how a lower cost of supplying helmets could affect price and quantity, without using a demand-reduction mechanism.',
     },
     {
+      id: 'using-a-demand-and-supply-diagram-analyse-the-effect-of-a-produce',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Using a demand and supply diagram, analyse the effect of a producer subsidy on cycle helmets. [6]',
@@ -374,6 +395,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'model-diagram-supply-shifts-right',
       type: 'answer',
       eyebrow: 'Model answer',
       title: 'Model diagram: supply shifts right',
@@ -391,6 +413,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'using-a-demand-and-supply-diagram-analyse-the-effect-of-a-produce-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Using a demand and supply diagram, analyse the effect of a producer subsidy on cycle helmets. [6]',
@@ -402,6 +425,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, paper2Source],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

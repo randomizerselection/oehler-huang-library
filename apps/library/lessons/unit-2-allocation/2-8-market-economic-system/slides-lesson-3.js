@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'arguments-for-markets',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Arguments for markets',
@@ -27,6 +28,7 @@ IGCSE.lesson = {
       visual: photos.phoneDisplay,
     },
     {
+      id: 'competing-for-customers',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Competing for customers',
@@ -37,6 +39,7 @@ IGCSE.lesson = {
       visual: photos.phoneDisplay,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -52,12 +55,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'consumer-sovereignty',
       type: 'section',
       eyebrow: 'New section',
       title: 'Consumer sovereignty',
       zhTitle: '消费者主权',
     },
     {
+      id: 'consumer-sovereignty-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -73,18 +78,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'choice',
       type: 'section',
       eyebrow: 'New section',
       title: 'Choice',
       zhTitle: '选择',
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.phoneDisplay,
       notes: 'Example: United States / China. Former fact context: The US App Store ecosystem facilitated USD 406 billion in developer billings and sales in 2024. | China’s App Store ecosystem reached RMB 3.76 trillion in 2023. Teacher question: How can competition in digital markets benefit consumers and producers? Possible answer: Competition can push firms to improve quality, reduce prices and offer more choice to users and developers. Source: Source: Apple Newsroom, 2025. | Source: Apple China Newsroom, 2024.',
     },
     {
+      id: 'choice-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -100,12 +108,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'quality-and-innovation',
       type: 'section',
       eyebrow: 'New section',
       title: 'Quality and innovation',
       zhTitle: '质量与创新',
     },
     {
+      id: 'profit-pressure',
       type: 'discussion',
       eyebrow: 'Explore',
       title: 'Profit pressure',
@@ -116,12 +126,14 @@ IGCSE.lesson = {
       visual: photos.bubbleTeaShop,
     },
         {
+      id: 'visual-pause-world',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.evCharging,
       notes: 'Example: World / China. Former fact context: Electric car sales topped 17 million in 2024 as firms competed for a fast-growing market. | Chinese-headquartered car makers accounted for about 80% of domestic EV sales in China in 2024. Teacher question: How could competition affect price, quality or choice in this market? Possible answer: A strong answer should name the concept, link the context to the first economic effect, and then explain the likely outcome. Source: Source: IEA Global EV Outlook 2025.',
     },
     {
+      id: 'quality-and-innovation-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -137,18 +149,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'efficiency',
       type: 'section',
       eyebrow: 'New section',
       title: 'Efficiency',
       zhTitle: '效率',
     },
         {
+      id: 'visual-pause-united-states-2',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.amazonWarehouse,
       notes: 'Example: United States / China. Former fact context: Amazon’s fulfilment centers use large-scale logistics systems to reduce delivery times and unit handling costs. | China’s express delivery volume exceeded 130 billion parcels in 2023,. Teacher question: How can large-scale production lower average costs or improve service? Possible answer: Large-scale operations can spread fixed costs and use specialised systems, lowering average costs or improving speed. Source: Source: Amazon operations reporting and public fulfilment-center materials. | Source: State Post Bureau of China, 2024.',
     },
     {
+      id: 'efficiency-2',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -164,11 +179,13 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'follow-the-market-signal',
       type: 'marketSignalGame',
       eyebrow: 'Apply',
       title: 'Follow the market signal',
     },
     {
+      id: 'weak-answer-or-strong-answer',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Exam practice',
@@ -187,6 +204,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'analyse-two-advantages-of-a-market-economic-system-6',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Analyse two advantages of a market economic system. [6]',
@@ -195,6 +213,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'analyse-two-advantages-of-a-market-economic-system-6-2',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -206,6 +225,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

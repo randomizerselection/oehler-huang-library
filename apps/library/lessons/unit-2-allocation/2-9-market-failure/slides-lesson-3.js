@@ -56,6 +56,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'public-goods',
       type: 'hero',
       eyebrow: 'Market failure type 3',
       title: 'Public goods',
@@ -65,6 +66,7 @@ IGCSE.lesson = {
       visual: photos.streetLight,
     },
     {
+      id: 'who-would-actually-pay',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Who would actually pay?',
@@ -75,6 +77,7 @@ IGCSE.lesson = {
       visual: photos.streetLight,
     },
     {
+      id: 'recall-last-lesson',
       type: 'peerTask',
       taskType: 'definitionRecall',
       eyebrow: 'Recall',
@@ -102,6 +105,7 @@ IGCSE.lesson = {
       sharePrompt: 'Correct one definition so it uses precise exam language.',
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -117,12 +121,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'two-features',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Two features',
       zhTitle: '两个特征',
     },
     {
+      id: 'two-public-good-features',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Two public-good features',
@@ -148,12 +154,14 @@ IGCSE.lesson = {
       sources: [publicGoodSources.definition],
     },
     {
+      id: 'visual-pause-street-lighting',
       type: 'visualPause',
       title: 'Visual pause: street lighting',
       visual: photos.streetLightingRoad,
       notes: 'Ask students to name everyone who benefits from the lit road. Then bridge to the two features: many users can benefit at once, and it is difficult to block non-payers on a public road.',
     },
     {
+      id: 'why-is-street-lighting-a-public-good',
       type: 'cards',
       eyebrow: 'Example',
       title: 'Why is street lighting a public good?',
@@ -177,6 +185,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.definition],
     },
     {
+      id: 'visual-pause-national-defence',
       type: 'visualPause',
       title: 'Visual pause: national defence',
       visual: photos.defenceFighterJets,
@@ -184,6 +193,7 @@ IGCSE.lesson = {
       notes: 'Use actual defence as the second example. Ask: If a country is protected, can protection be sold only to one paying household? Does protecting one more citizen reduce protection for others?',
     },
     {
+      id: 'why-is-defence-a-public-good',
       type: 'cards',
       eyebrow: 'Example',
       title: 'Why is defence a public good?',
@@ -207,6 +217,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'public-good',
       type: 'term',
       eyebrow: 'Key idea',
       title: 'Public good',
@@ -229,6 +240,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.definition, publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'explain-with-an-example-of-each-the-difference-between-a-merit-go',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain, with an example of each, the difference between a merit good and a public good. [4]',
@@ -238,6 +250,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'mark-scheme-merit-good-vs-public-good-4',
       type: 'cards',
       eyebrow: 'Mark scheme',
       title: 'Mark scheme: merit good vs public good [4]',
@@ -269,6 +282,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'classify-the-example',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Classify the example',
@@ -289,12 +303,14 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'free-riders',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Free riders',
       zhTitle: '搭便车者',
     },
     {
+      id: 'visual-pause-free-riders',
       type: 'visualPause',
       title: 'Visual pause: free riders',
       visual: photos.publicFireworksCrowd,
@@ -302,6 +318,7 @@ IGCSE.lesson = {
       notes: 'Open the free-rider part with a public fireworks display. Ask: Once the fireworks are paid for and visible from the street, can organisers easily stop non-payers from watching? Bridge to people benefiting without paying, weak private revenue and non-provision.',
     },
     {
+      id: 'the-free-rider-problem',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'The free-rider problem',
@@ -319,6 +336,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.consequences, publicGoodSources.intervention],
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -330,6 +348,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'explain-why-street-lighting-may-not-be-provided-by-private-firms',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain why street lighting may not be provided by private firms. [4]',
@@ -339,6 +358,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.definition, publicGoodSources.consequences, publicGoodSources.intervention],
     },
     {
+      id: 'explain-why-street-lighting-may-not-be-provided-by-private-firms-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain why street lighting may not be provided by private firms. [4]',
@@ -353,18 +373,21 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.consequences, publicGoodSources.intervention],
     },
     {
+      id: 'visual-pause-flood-protection',
       type: 'visualPause',
       title: 'Visual pause: flood protection',
       visual: photos.floodBarrier,
       notes: 'Use flood protection as a second public-good example: a barrier can protect many nearby homes at once, and it is difficult to exclude individual non-payers from the protection.',
     },
     {
+      id: 'exam-distinctions',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Exam distinctions',
       zhTitle: '考试区分',
     },
     {
+      id: 'private-good-or-public-good',
       type: 'compare',
       eyebrow: 'Exam practice',
       title: 'Private good or public good?',
@@ -387,6 +410,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.definition, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'classify-more-examples',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Classify more examples',
@@ -407,6 +431,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'public-good-or-merit-good',
       type: 'compare',
       eyebrow: 'Exam practice',
       title: 'Public good or merit good?',
@@ -429,6 +454,7 @@ IGCSE.lesson = {
       sources: [publicGoodSources.syllabus, publicGoodSources.meritPublic, publicGoodSources.meritPublic2025],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which pair of features best defines a public good?',
@@ -437,6 +463,7 @@ IGCSE.lesson = {
       prompt: 'Give one public good example and one reason it is not easy for private firms to sell to every user.',
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

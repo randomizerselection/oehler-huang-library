@@ -66,6 +66,16 @@ body.has-deck-navigation .lesson-overview-item { display: grid; grid-template-co
 body.has-deck-navigation .lesson-overview-item:is(.is-current, :hover) { background: #e4ede5; }
 .lesson-overview :is(button, input):focus-visible { outline: 2px solid #27644f; outline-offset: -2px; }
 .lesson-overview-empty { padding: 25px 10px; }
+.lesson-navigation-status[role="button"] { cursor: pointer; border-radius: 4px; }
+.lesson-navigation-status[role="button"]:focus-visible { outline: 2px solid #e8bb8e; outline-offset: 3px; }
+.lesson-reference-feedback:empty { display: none; }
+.lesson-reference-feedback { position: absolute; inset: auto 0 calc(100% + 8px) auto; padding: 8px 12px; border-radius: 5px; background: #132626; color: #f4f4ee; font-size: 12px; white-space: nowrap; }
+.lesson-overview-reference { flex: none; padding: 12px 26px; border-bottom: 1px solid #d9ddd5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.lesson-overview-reference code { flex-basis: 100%; overflow-wrap: anywhere; font: 12px/1.4 monospace; color: #52645c; }
+.lesson-overview-reference button { border: 1px solid #c3cec5; border-radius: 4px; padding: 8px 12px; color: #182d2a; background: #e4ede5; cursor: pointer; font: 14px Arial, sans-serif; }
+.lesson-overview-reference [aria-live] { font-size: 13px; }
+.lesson-overview-reference textarea { width: 100%; height: 110px; font: 13px/1.4 monospace; }
+.lesson-overview-item small { display: block; margin-top: 4px; color: #61706a; font: 12px/1.4 monospace; }
 @media (min-width: 901px) {
   body.has-deck-navigation.is-student-selector-open .lesson-navigation {
     left: calc((100vw - var(--student-selector-panel-width)) / 2); right: auto;

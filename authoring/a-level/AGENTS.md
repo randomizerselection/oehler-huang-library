@@ -14,7 +14,23 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Teacher-reported coverage, 16 September 2026: the class finished **Equilibrium
+income and expenditure gaps** through `closing-deflationary-gap`, slide 20,
+reveal step 4, before starting the essay workshop. The workshop is **untaught**.
+The continuation is now `9-1-3-full-employment-essay` (Full-employment policies:
+essay workshop), including the original essay, model, independent writing and
+exit question. Keep the theory lesson and essay workshop separate. The new
+Part 1 summary was added after class and is not recorded as taught. Allow a
+separate teaching slot for the workshop instead of treating the old half-session
+planning allocation as evidence of coverage.
+
 Feedback, 15 September 2026 (full-employment income):
+
+- Keep real-world example slides to about one sentence over a suitable full-screen photo, with details in teacher notes and on-demand sources. In essay workshops, move directly from the guiding sub-questions to model sentences; omit an extra argument-plan slide between them (15 September 2026).
+
+- Explain expenditure gaps intuitively as the initial spending adjustment needed for full employment: an extra autonomous injection for a deflationary gap, and a spending reduction to remove excess demand for an inflationary gap. Keep the formal definitions alongside this explanation. Show the two gaps on separate diagrams, using consistent scales and benchmarks; distinguish the spending adjustment from the multiplied change in income (15 September 2026).
+
+- Before defining equilibrium and full employment, show a simple visualization of spending matching output while some productive resources remain unused. Reveal the unused capacity after students see the matching amounts, then name the concepts on the following comparison slide. Do not repeat the definitions in an opening text comparison or introduce inventory adjustment and income feedback here (15 September 2026).
 
 - For expenditure-gap diagrams, omit the confusing E* point, its projection and the student-facing explanation of a notional fixed-price intersection. Focus on spending at full-employment income. Include dated real-world examples of both gaps, with source evidence before a revealed causal explanation; distinguish demand pressure from supply-driven inflation.
 

@@ -26,6 +26,23 @@ Current HTML reference: `apps/library/investment-analysis/lessons/1-1-2-measurin
 
 ## Communication and teaching structure
 
+### Course direction and writing, 16 September 2026
+
+- Treat simulated stock trading as a continuing learning activity from September: research, shared decision, recorded reason, checked order and later review. Use team holdings and watchlists in suitable calculations, diversification tasks and company analysis. Preserve rigorous teaching and individual assessment; assess reasoning and evidence rather than short-term gains or trading frequency.
+- Connect trading experience to long-term investing. Offer optional individual investment writing alongside the team simulation. The current syllabus contains the Fall 2026 InvestWrite preparation milestones; keep drafts before its December deadline, not after the later company-analysis unit.
+- Published InvestWrite rules require US residency. Participation by this China-based class remains conditional on written SIFMA confirmation. Preserve this distinction in student introductions; an internal writing project remains available if external entry is unavailable. See `INVESTWRITE_FALL_2026.md` for the teacher action and an unsent enquiry draft.
+- Preserve the existing 33 sessions, breaks and final TBC. Do not infer new coverage from this curriculum revision. Use application time and optional independent writing rather than adding unallocated lessons or mandatory holiday work.
+
+### First stock trades rewrite, 16 September 2026
+
+- For this special practical first-trading lesson, omit opening retrieval. Recap the assignment from the Friday 11 September four-minute Stock Market Game launch without assuming it was completed.
+- Start with beginner knowledge such as what a share/stock is. Replace abstract business-to-return causal chains with concrete ownership and account examples. Objectives should lead to students being able to enter a first trade and explain what they are doing.
+- Use teacher-supplied SMG screenshots as the visual authority. Add readable English–Chinese annotations at the relevant fields and explain what each screen shows. Keep source images accurate; use editable HTML callouts and close views to make details readable.
+- Protect time within the lesson for groups to agree a strategy and first-order plan. In this rewrite, four minutes for the idea and six minutes for the ticket are core learning time.
+- Follow the supplied Market-order example, explain its price uncertainty and compare a buy limit briefly. Do not impose the previous buy-limit-only structure or assumed general fee over account evidence. Distinguish cash from buying power and confirmation from execution.
+
+These explicit instructions supersede conflicting retrieval and causal-chain expectations for this lesson. They do not remove retrieval from other Investment lessons.
+
 ### Investment design reference, 14 September 2026
 
 - Teacher request: use the recent IGCSE supply-side-policy Lesson 4, especially slide 21, to make the first-trades deck more engaging. Retain Investment's forest, copper and warm-paper identity and its own renderer.
@@ -191,7 +208,7 @@ The previously confirmed preferences continue below.
 - Include four or five MCQs with plausible misconceptions as distractors.
 - Include two or three short-answer tasks with a small bilingual term bank.
 - Model answers should visibly highlight the reasoning chain and key terms using the accent palette.
-- Avoid personalised investment advice, live-price dependence and short-term trading instructions.
+- Keep trading instruction within the virtual SMG course activity. Teach account checks, order mechanics and evidence-based decisions; use dated records for assessment. Avoid personalised real-money advice or making frequent short-term trading the learning goal.
 
 ## Source and production expectations
 
@@ -202,3 +219,9 @@ The previously confirmed preferences continue below.
 - Keep externally sourced claims and visuals traceable in speaker notes.
 - Preserve editability in the final PowerPoint.
 - Render and inspect every slide before delivery; fix clipping, unintended overlap, weak contrast and unresolved placeholders.
+
+### SMG execution and access fallback (16 September 2026)
+
+For first-order teaching, show a visibly clear, dated Opens/Closes comparison of US Eastern and Beijing time. Keep daylight-saving mechanics and weekend examples in teacher notes, rather than crowding the student reminder. Use official SMG guidance for fees; distinguish cash cost from buying-power adjustments. Prepare a bilingual printable worksheet, one per group, for the in-class strategy and exact order. If the site loads slowly or fails in China, students submit the agreed worksheet to the teacher for entry. Include existing-submission status and prevent duplicate entry; keep passwords off the sheet. Protect group planning time.
+
+Teacher correction, 16 September: one student enters the group’s agreed trade. Do not add a separate checker role or Checker / 核对者 field to lessons or worksheets.

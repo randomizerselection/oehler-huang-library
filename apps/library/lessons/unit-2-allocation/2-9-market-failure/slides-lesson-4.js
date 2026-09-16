@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'monopoly-power-and-evaluation',
       type: 'hero',
       eyebrow: 'Market failure type 4',
       title: 'Monopoly power and evaluation',
@@ -28,6 +29,7 @@ IGCSE.lesson = {
       visual: photos.waterUtilityTreatmentPlant,
     },
     {
+      id: 'if-one-water-company-dominates',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'If one water company dominates',
@@ -38,6 +40,7 @@ IGCSE.lesson = {
       visual: photos.waterUtilityTreatmentPlant,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -53,18 +56,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'monopoly-power',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Monopoly power',
       zhTitle: '垄断力量',
     },
     {
+      id: 'visual-pause-water-utility',
       type: 'visualPause',
       title: 'Visual pause: water utility',
       visual: photos.waterUtilityTreatmentPlant,
       notes: 'Visual pause before the monopoly-power definition: ask students why a city might have only one water utility and what consumers can do if prices rise.',
     },
     {
+      id: 'abuse-of-monopoly-power',
       type: 'term',
       eyebrow: 'Key term',
       title: 'Abuse of monopoly power',
@@ -85,6 +91,7 @@ IGCSE.lesson = {
       showExamples: false,
     },
     {
+      id: 'monopoly-power-as-a-cause',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Monopoly power as a cause',
@@ -101,6 +108,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'why-does-weak-competition-matter',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Why does weak competition matter?',
@@ -117,6 +125,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'monopoly-power-one-simple-idea',
       type: 'monopolyPowerSim',
       eyebrow: 'Explore',
       title: 'Monopoly power: one simple idea',
@@ -124,6 +133,7 @@ IGCSE.lesson = {
       defaultCompetition: 30,
     },
     {
+      id: 'read-the-simulation',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Read the simulation',
@@ -140,12 +150,14 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'effects-and-evaluation',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Effects and evaluation',
       zhTitle: '影响与评价',
     },
     {
+      id: 'restricted-monopoly-supply',
       type: 'flow',
       eyebrow: 'Consequence',
       title: 'Restricted monopoly supply',
@@ -162,6 +174,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'explain-how-abuse-of-monopoly-power-can-cause-market-failure-4',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain how abuse of monopoly power can cause market failure. [4]',
@@ -171,6 +184,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'explain-how-abuse-of-monopoly-power-can-cause-market-failure-4-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain how abuse of monopoly power can cause market failure. [4]',
@@ -185,12 +199,14 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
         {
+      id: 'visual-pause-paper-2',
       type: 'visualPause',
       title: 'Visual pause: Paper 2',
       visual: photos.waterUtilityTreatmentPlant,
       notes: 'Example: Paper 2 / China. Former fact context: Exam answers may credit higher prices, lower output and less choice when fewer firms have strong market power. | Competition policy can be used to stop dominant firms from harming consumers or smaller rivals. Teacher question: How could monopoly power reduce consumer welfare? Possible answer: Monopoly power can reduce welfare through higher prices, lower output and less consumer choice. Source: Source: Cambridge IGCSE Economics Paper 2 archive, 2023ON-22 Q3(d). | Source: general competition-policy teaching example.',
     },
     {
+      id: 'why-monopoly-is-not-always-simple',
       type: 'compare',
       eyebrow: 'Balanced thinking',
       title: 'Why monopoly is not always simple',
@@ -211,6 +227,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'one-reason-for-one-reason-against',
       type: 'peerTask',
       eyebrow: 'Pair evaluation',
       title: 'One reason for, one reason against',
@@ -227,18 +244,21 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'review-all-four-types',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Review all four types',
       zhTitle: '复习四种类型',
     },
     {
+      id: 'classify-the-market-failure',
       type: 'marketFailureScenarioGame',
       eyebrow: 'Apply',
       title: 'Classify the market failure',
       lead: 'Choose the best label, then read the explanation steps in the feedback.',
     },
     {
+      id: 'make-your-own-scenario',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Make your own scenario',
@@ -255,6 +275,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'weak-answer-or-strong-answer',
       type: 'compare',
       eyebrow: 'Exam practice',
       title: 'Weak answer or strong answer?',
@@ -273,6 +294,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which consequence is most directly linked to abuse of monopoly power?',
@@ -281,6 +303,7 @@ IGCSE.lesson = {
       prompt: 'Explain why weak competition matters.',
     },
     {
+      id: 'discuss-whether-a-market-economic-system-is-the-best-way-to-alloc',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Discuss whether a market economic system is the best way to allocate resources. [8]',      keywordLabel: 'Use these keywords',
@@ -289,6 +312,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'discuss-whether-a-market-economic-system-is-the-best-way-to-alloc-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Discuss whether a market economic system is the best way to allocate resources. [8]',
@@ -299,6 +323,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: '3-1-2-commercial-banks',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "3.1.2 Commercial banks",
@@ -35,6 +36,7 @@ IGCSE.lesson = {
       "notes": "Teach after Money lesson 2. This is the commercial-bank half of syllabus 3.1.2. Central banks follow in lesson 4. Allow writing and feedback time. Optional government and lending questions follow the core exit."
     },
     {
+      id: 'recall-last-lesson',
       "type": "classificationTask",
       "eyebrow": "Recall",
       "title": "Recall last lesson",
@@ -59,6 +61,7 @@ IGCSE.lesson = {
       "notes": "Use short written recall. Reveal each model answer after students have tried. No pair-task layout."
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -74,12 +77,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'definition-of-a-commercial-bank',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Definition of a commercial bank",
       "zhTitle": "商业银行的定义"
     },
     {
+      id: 'discuss',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "Which commercial banks do you know?",
@@ -88,6 +93,7 @@ IGCSE.lesson = {
       "notes": "Ask students to name commercial banks they know before showing the following photo gallery. Take a few responses, then move directly to the examples; keep this introduction brief. The suggested answer is hidden until requested."
     },
     {
+      id: 'examples-of-commercial-banks',
       "type": "cards",
       "eyebrow": "Starter",
       "title": "Examples of commercial banks 商业银行实例",
@@ -151,6 +157,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: 'commercial-banks-as-financial-intermediaries',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Commercial banks as financial intermediaries 金融中介",
@@ -210,6 +217,7 @@ IGCSE.lesson = {
       "footer": "The bank connects savers and borrowers. 银行连接存款人与借款人。"
     },
     {
+      id: 'commercial-bank',
       "type": "term",
       "eyebrow": "Learn",
       "title": "Commercial bank",
@@ -251,12 +259,14 @@ IGCSE.lesson = {
       "layout": "photo-term"
     },
     {
+      id: 'functions-of-a-commercial-bank',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Functions of a commercial bank",
       "zhTitle": "商业银行的职能"
     },
     {
+      id: 'functions-of-a-commercial-bank-2',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Functions of a commercial bank 商业银行的职能",
@@ -303,6 +313,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: 'learn',
       "type": "compare",
       "eyebrow": "Learn",
       "mode": "fillBlanks",
@@ -346,6 +357,7 @@ IGCSE.lesson = {
       "rightVisual": IGCSE.photos.monetaryPolicy.householdSaving
     },
     {
+      id: 'choose-an-account-and-explain-why',
       "type": "classificationTask",
       "eyebrow": "Check",
       "title": "Choose an account and explain why",
@@ -366,6 +378,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'loan',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -402,6 +415,7 @@ IGCSE.lesson = {
       "notes": "Interest is the price paid for borrowing. A loan provides finance now but requires repayment. Banks consider the ability to repay. An agreed overdraft lets a customer spend more than the current-account balance up to a limit. A mortgage is a loan to buy property, secured on that property. Keep these examples brief."
     },
     {
+      id: 'types-of-bank-lending',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Types of bank lending",
@@ -448,6 +462,7 @@ IGCSE.lesson = {
       "footer": "Secured on property 以房产作抵押: the lender may take the home if the loan is not repaid. 不还款可能失去房屋。"
     },
     {
+      id: 'name-the-borrowing-product',
       "type": "classificationTask",
       "eyebrow": "Check",
       "title": "Name the borrowing product",
@@ -468,6 +483,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'how-bank-lending-supports-investment',
       "type": "flow",
       "eyebrow": "Example",
       "title": "How bank lending supports investment",
@@ -503,6 +519,7 @@ IGCSE.lesson = {
       "notes": "The loan plus Emma’s RMB 3,000 funds the RMB 6,000 fridge. More sales depend on demand. Repayments and interest must be affordable. This is business investment, not a claim that a loan guarantees profit."
     },
     {
+      id: 'check',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "What is an advantage to a country of having an efficient commercial banking system?",
@@ -525,6 +542,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'discuss-2',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "What else do commercial banks do?",
@@ -553,6 +571,7 @@ IGCSE.lesson = {
       "notes": "Invite examples from students’ experience before revealing the suggested answer. The next slide teaches these further functions; this is an introduction, not a retrieval test."
     },
     {
+      id: 'functions-of-a-commercial-bank-3',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Functions of a commercial bank 商业银行的职能",
@@ -621,6 +640,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: 'explain-two-roles-of-commercial-banks-for-firms-4',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain two roles of commercial banks for firms. [4]",
@@ -653,6 +673,7 @@ IGCSE.lesson = {
       "layout": "exam-pairs"
     },
     {
+      id: 'explain-two-roles-of-commercial-banks-for-firms-4-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain two roles of commercial banks for firms. [4]",
@@ -683,6 +704,7 @@ IGCSE.lesson = {
       "notes": "Reveal one paragraph at a time. Ask which phrase names the role and which explains its use. These are teacher-written models based on the official mark scheme."
     },
     {
+      id: 'analyse-the-services-provided-to-households-by-commercial-banks-6',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Analyse the services provided to households by commercial banks. [6]",
@@ -714,6 +736,7 @@ IGCSE.lesson = {
       "layout": "exam-reasoning"
     },
     {
+      id: 'analyse-the-services-provided-to-households-by-commercial-banks-6-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Analyse the services provided to households by commercial banks. [6]",
@@ -749,6 +772,7 @@ IGCSE.lesson = {
       "notes": "Reveal one paragraph at a time and identify service, operation and consequence. Do not claim one mark per sentence or automatic two marks per paragraph: the official scheme credits valid developed analysis."
     },
     {
+      id: 'competition-and-choice-of-bank',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Competition and choice of bank",
@@ -756,6 +780,7 @@ IGCSE.lesson = {
       "notes": "An examined application of syllabus 3.1.2, not a separately named syllabus heading. Direct questions: 2023MJ-22 Q2(a), 2024ON-23 Q5(b) and 2024MJ-21 Q2(b)."
     },
     {
+      id: 'discuss-3',
       "type": "discussion",
       "question": "A bank wants more borrowers and savers. How should it change loan rates and savings rates? Explain each choice.",
       "notes": "Use Emma as borrower and a household as saver. Revisit interest as a borrowing cost and saving reward. Ask for directions before displaying the comparison.",
@@ -770,6 +795,7 @@ IGCSE.lesson = {
       "eyebrow": "Discuss"
     },
     {
+      id: 'learn-2',
       "type": "compare",
       "eyebrow": "Learn",
       "mode": "fillBlanks",
@@ -826,6 +852,7 @@ IGCSE.lesson = {
       "notes": "This is competition between commercial banks, not a central-bank policy-direction lesson. Specify the interest rate and customer type. Saying increase interest rates without stating savings or loans is ambiguous."
     },
     {
+      id: 'check-2',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "If interest rates fall, what will be the most likely effect on saving and borrowing?",
@@ -848,6 +875,7 @@ IGCSE.lesson = {
       "notes": "Original question and option table verified in 0455_s25_qp_11.pdf, page 5. Official answer B verified in 0455_s25_ms_11.pdf, page 2. The table headings Saving and Borrowing are repeated in each choice to suit the MCQ layout; wording, combinations and A–D order are preserved. Place after the borrower/saver interest-rate comparison. Explanatory feedback is teacher-written."
     },
     {
+      id: 'non-price-competition-between-banks',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Non-price competition between banks",
@@ -897,6 +925,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'identify-two-influences-other-than-price-on-a-customer-s-choice-o',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Identify two influences, other than price, on a customer’s choice of bank. [2]",
@@ -926,6 +955,7 @@ IGCSE.lesson = {
       "layout": "exam-identify"
     },
     {
+      id: 'identify-two-influences-other-than-price-on-a-customer-s-choice-o-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Identify two influences, other than price, on a customer’s choice of bank. [2]",
@@ -954,6 +984,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'explain-two-ways-a-commercial-bank-could-attract-more-customers-4',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain two ways a commercial bank could attract more customers. [4]",
@@ -986,6 +1017,7 @@ IGCSE.lesson = {
       "layout": "exam-pairs"
     },
     {
+      id: 'explain-two-ways-a-commercial-bank-could-attract-more-customers-4-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain two ways a commercial bank could attract more customers. [4]",
@@ -1016,6 +1048,7 @@ IGCSE.lesson = {
       "notes": "This is the worked model for the following independent transfer question. A higher savings rate linked to a larger saving reward is another accepted answer."
     },
     {
+      id: 'why-more-banks-can-benefit-customers',
       "type": "flow",
       "eyebrow": "Learn",
       "title": "Why more banks can benefit customers",
@@ -1051,6 +1084,7 @@ IGCSE.lesson = {
       "notes": "This supplies the causal link needed for the next question. More banks may also improve convenience through nearby branches. Do not claim more banks necessarily create more competition in every case."
     },
     {
+      id: 'explain-two-benefits-that-consumers-may-gain-from-having-more-com',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain two benefits that consumers may gain from having more commercial banks. [4]",
@@ -1083,6 +1117,7 @@ IGCSE.lesson = {
       "layout": "exam-pairs"
     },
     {
+      id: 'explain-two-benefits-that-consumers-may-gain-from-having-more-com-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain two benefits that consumers may gain from having more commercial banks. [4]",
@@ -1113,6 +1148,7 @@ IGCSE.lesson = {
       "notes": "Students underline each benefit and its explanation in their own response. Accept other developed scheme points such as improved saving/borrowing rates, service range or access to loans."
     },
     {
+      id: 'exit-ticket',
       "type": "classificationTask",
       "eyebrow": "Check",
       "title": "Exit ticket",
@@ -1138,6 +1174,7 @@ IGCSE.lesson = {
       "notes": "Core ending for Commercial banks. Optional government and lending questions follow."
     },
     {
+      id: 'importance-of-commercial-banks-to-governments',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Importance of commercial banks to governments",
@@ -1176,6 +1213,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-the-importance-of-commercial-banks-to-governments-4',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain the importance of commercial banks to governments. [4]",
@@ -1205,6 +1243,7 @@ IGCSE.lesson = {
       "notes": "Optional. Original wording verified in 0455_s25_qp_23.pdf page 4. It does not ask for two roles of a central bank. Do not impose 2 x (1 + 1) as the only possible structure on this wording."
     },
     {
+      id: 'explain-the-importance-of-commercial-banks-to-governments-4-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain the importance of commercial banks to governments. [4]",
@@ -1235,6 +1274,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'reasons-for-increased-bank-lending',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Reasons for increased bank lending",
@@ -1274,6 +1314,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-why-commercial-banks-may-increase-their-lending-4',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain why commercial banks may increase their lending. [4]",
@@ -1303,6 +1344,7 @@ IGCSE.lesson = {
       "notes": "Optional. Original wording verified in 0455_m25_qp_22.pdf page 5. The mark scheme rewards logical explanation and is not restricted to two isolated reasons."
     },
     {
+      id: 'explain-why-commercial-banks-may-increase-their-lending-4-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain why commercial banks may increase their lending. [4]",

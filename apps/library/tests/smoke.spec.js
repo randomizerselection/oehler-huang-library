@@ -704,11 +704,12 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
     await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
-    await expect(page.locator('.a-level-lesson-card')).toHaveCount(5);
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(6);
     await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier process' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Consumption and saving functions' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Investment, government spending and net exports' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-investment-accelerator/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Equilibrium income and expenditure gaps' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-income-gaps/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Full-employment policies: essay workshop' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-full-employment-essay/index.html');
     await expectNoHorizontalOverflow(page);
   });
 
@@ -719,6 +720,7 @@ test.describe('site smoke', () => {
       { path: 'a-level/lessons/9-1-2-aggregate-demand/index.html', title: 'Consumption and saving functions', heroTitle: 'Consumption and saving functions' },
       { path: 'a-level/lessons/9-1-2-investment-accelerator/index.html', title: 'Investment, government spending and net exports', heroTitle: 'Investment, government spending and net exports' },
       { path: 'a-level/lessons/9-1-3-income-gaps/index.html', title: 'Equilibrium income and expenditure gaps', heroTitle: 'Equilibrium income and expenditure gaps' },
+      { path: 'a-level/lessons/9-1-3-full-employment-essay/index.html', title: 'Full-employment policies: essay workshop', heroTitle: 'Full-employment policies: essay workshop' },
     ];
 
     for (const lesson of lessons) {

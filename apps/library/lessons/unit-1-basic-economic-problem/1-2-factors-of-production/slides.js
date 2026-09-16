@@ -74,6 +74,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: '1-2-1-factors-of-production',
       type: 'hero',
       eyebrow: 'Overview',
       title: '1.2.1 Factors of production',
@@ -82,6 +83,7 @@ IGCSE.lesson = {
       visual: photos.bakeryProductionTeam,
     },
     {
+      id: 'slide',
       "type": "classificationTask",
       "layout": "factor-written",
       "eyebrow": "Recall",
@@ -103,6 +105,7 @@ IGCSE.lesson = {
       "sharePrompt": "Write your answers first. Reveal each model separately."
     },
     {
+      id: 'what-must-the-bakery-bring-together',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'What must the bakery bring together?',
@@ -113,6 +116,7 @@ IGCSE.lesson = {
       visual: { ...photos.bakeryProductionTeam, caption: '', credit: '' },
     },
     {
+      id: 'slide-2',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -128,18 +132,21 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'the-four-factors-of-production',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'The four factors of production',
       zhTitle: '四种生产要素',
     },
     {
+      id: 'bread-needs-several-kinds-of-productive-resource',
       type: 'visualPause',
       title: 'Bread needs several kinds of productive resource.',
       visual: photos.bakeryProductionTeam,
       notes: 'Ask students to point to resources in the image before naming any category. Add wheat, water and the business organiser when students cannot see them directly.',
     },
     {
+      id: 'factor-of-production',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -156,6 +163,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, factorDefinitionSource],
     },
     {
+      id: 'four-different-kinds-of-productive-resource',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Four different kinds of productive resource',
@@ -191,6 +199,7 @@ IGCSE.lesson = {
       sources: [syllabusSource, definitionsSource, enterprisePhotoSource],
     },
     {
+      id: 'classify-the-bakery-inputs',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Classify the bakery inputs',
@@ -213,18 +222,21 @@ IGCSE.lesson = {
       sources: [syllabusSource, definitionsSource],
     },
     {
+      id: 'land-labour-and-capital',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Land, labour and capital',
       zhTitle: '土地、劳动与资本',
     },
     {
+      id: 'land-includes-resources-that-grow-in-nature',
       type: 'visualPause',
       title: 'Land includes resources that grow in nature.',
       visual: photos.landWheatField,
       notes: 'Ask what part of this scene is used to produce bread. Draw out soil, water and wheat before showing the definition.',
     },
     {
+      id: 'land',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Factor 1',
@@ -243,12 +255,14 @@ IGCSE.lesson = {
       sources: [definitionsSource, landExamplesSource],
     },
     {
+      id: 'the-sea-reefs-and-fish-are-also-land',
       type: 'visualPause',
       title: 'The sea, reefs and fish are also land.',
       visual: photos.landCoralReef,
       notes: 'Ask: Is this land even though it is underwater? Use the economic definition: land includes all natural resources used in production.',
     },
     {
+      id: 'land-yes-or-no',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Land: Yes or No?',
@@ -274,12 +288,14 @@ IGCSE.lesson = {
       sources: [definitionsSource, landExamplesSource],
     },
     {
+      id: 'labour-is-the-human-contribution-to-production',
       type: 'visualPause',
       title: 'Labour is the human contribution to production.',
       visual: photos.labourBakerKneading,
       notes: 'Ask students to distinguish the worker from the effort and skill being supplied. Labour is the human effort used in production.',
     },
     {
+      id: 'labour',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Factor 2',
@@ -298,12 +314,14 @@ IGCSE.lesson = {
       sources: [definitionsSource],
     },
     {
+      id: 'capital-is-made-by-people-to-help-production',
       type: 'visualPause',
       title: 'Capital is made by people to help production.',
       visual: photos.capitalIndustrialMachine,
       notes: 'Ask what the machine is used to do. Establish that it is human-made and used for production.',
     },
     {
+      id: 'capital',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Factor 3',
@@ -323,6 +341,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, capitalGoodSource],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which item is capital?',
@@ -338,6 +357,7 @@ IGCSE.lesson = {
       sources: [definitionsSource, capitalGoodSource],
     },
     {
+      id: 'land-labour-or-capital',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Land, labour or capital?',

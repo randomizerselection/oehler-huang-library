@@ -16,6 +16,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: 'effects-of-supply-side-policy',
       "type": "hero",
       "layout": "ssp-hero",
       "eyebrow": "Lesson 4 · 4.4.3",
@@ -34,6 +35,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'recall-policies-and-incentives',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Recall",
@@ -61,6 +63,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -84,6 +87,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'productivity-growth-and-employment',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Productivity, growth and employment",
@@ -98,6 +102,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'skills-improve-production-across-the-economy',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Skills improve production across the economy",
@@ -134,6 +139,7 @@ IGCSE.lesson = {
       "notes": "Teacher-created illustration, not measured data. Three sectors represent the economy; their different outputs are not added as physical units. Hold worker-hours and other inputs constant. Ask what changes before advancing. Distinguish possible output from actual sales. The diagram controls are reversible."
     },
     {
+      id: 'effect-on-economic-growth',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -173,6 +179,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'higher-capacity-allows-more-output',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Higher capacity allows more output",
@@ -233,6 +240,7 @@ IGCSE.lesson = {
       "notes": "Ask students to draw and label both axes and PPC1 → PPC2. Use one explanation: better resources increase productive capacity. Retain the outward-shift scope; do not teach movement towards an unchanged frontier."
     },
     {
+      id: 'explain-why-capacity-is-not-guaranteed-growth',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -252,6 +260,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'effect-on-unemployment',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -296,6 +305,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-the-employment-condition',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -315,6 +325,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'prices-and-international-competitiveness',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Prices and international competitiveness",
@@ -329,6 +340,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'more-output-spreads-the-same-costs',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "More output spreads the same costs",
@@ -364,6 +376,7 @@ IGCSE.lesson = {
       "notes": "Illustrative calculation, holding total cost constant and excluding the one-off training cost. Ask students to calculate the second average cost before reveal. A firm illustrates the unit-cost link; sustained lower inflation requires effects across the economy, not one price change."
     },
     {
+      id: 'effect-on-price-stability',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -414,6 +427,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'distinguish-lower-inflation-from-falling-prices',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -433,6 +447,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'when-productivity-gains-do-not-lower-inflation',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "When productivity gains do not lower inflation",
@@ -465,6 +480,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'effect-on-export-revenue',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -509,6 +525,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'effect-on-import-expenditure',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -548,6 +565,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'effect-on-the-current-account',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Effect on the current account",
@@ -585,6 +603,7 @@ IGCSE.lesson = {
       "notes": "This is the trade component of the current account. The current account also contains primary and secondary income; do not equate it with the government budget or teach a full Unit 6 taxonomy here. Lower export prices need a sufficient quantity response for revenue to rise. More investment may initially require imported machinery."
     },
     {
+      id: 'explain-why-higher-exports-are-not-enough',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -604,6 +623,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'past-paper-questions',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Past paper questions",
@@ -618,6 +638,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'analyse-how-an-increase-in-labour-productivity-in-a-country-can-i',
       "type": "exam",
       "eyebrow": "Exit ticket",
       "title": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments. [6]",
@@ -642,6 +663,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'analyse-how-an-increase-in-labour-productivity-in-a-country-can-i-2',
       "type": "modelAnswer",
       "eyebrow": "Teaching model",
       "title": "Analyse how an increase in labour productivity in a country can increase a surplus on the current account of its balance of payments. [6]",
@@ -683,6 +705,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'summary',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Summary",
@@ -728,6 +751,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'inflation-extended-practice',
       "type": "section",
       "eyebrow": "Part Optional",
       "title": "Inflation: extended practice",
@@ -742,6 +766,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'discuss-why-some-countries-may-experience-lower-inflation-in-the',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Discuss why some countries may experience lower inflation in the future and some may not. [8]",
@@ -766,6 +791,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-why-some-countries-may-experience-lower-inflation-in-the-2',
       "type": "modelAnswer",
       "eyebrow": "Teaching model",
       "title": "Discuss why some countries may experience lower inflation in the future and some may not. [8]",

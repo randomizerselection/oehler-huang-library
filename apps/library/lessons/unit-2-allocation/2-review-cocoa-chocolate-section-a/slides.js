@@ -85,6 +85,7 @@ IGCSE.lesson = {
     },
   slides: [
     {
+      id: 'cocoa-and-chocolate-markets',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Cocoa and chocolate markets',
@@ -94,12 +95,14 @@ IGCSE.lesson = {
       visual: photos.cocoaPods,
     },
         {
+      id: 'visual-pause-world-cocoa-market',
       type: 'visualPause',
       title: 'Visual pause: World cocoa market',
       visual: photos.cocoaPods,
       notes: 'Example: World cocoa market / Case visual. Former fact context: In June 2024, cocoa prices moved above US$10,000 per metric tonne after poor harvests in West Africa. | Cocoa starts as pods and beans before it becomes chocolate, so harvest problems can travel through the supply chain. Teacher question: How could poor harvests affect supply and the market price of cocoa? Possible answer: Poor harvests reduce supply, shifting supply left and increasing the market price if demand remains strong. Source: Source: IC1 Section A case extract.',
     },
     {
+      id: 'discussion',
       type: 'discussion',
       question: 'Before we mark answers, what single market problem connects the cocoa case to all six questions?',
       zh: '在评分答案之前，这个可可案例中的哪一个市场问题把六道题联系起来？',
@@ -109,12 +112,14 @@ IGCSE.lesson = {
       sources: [examSource, elasticitySource, marketSystemSource],
     },
     {
+      id: 'question-1-pes-of-cocoa-beans',
       type: 'section',
       eyebrow: 'New section',
       title: 'Question 1: PES of cocoa beans',
       zhTitle: '问题1：可可豆的供给价格弹性',
     },
     {
+      id: 'question-paper',
       type: 'paperExtract',
       eyebrow: 'Question paper',
       title: numberedQuestions.q1,
@@ -124,6 +129,7 @@ IGCSE.lesson = {
       sources: [q1ExamSource],
     },
     {
+      id: 'exam-answer',
       type: 'modelAnswer',
       showLinkChips: false,
       eyebrow: 'Exam answer',
@@ -135,12 +141,14 @@ IGCSE.lesson = {
       sources: [q1ExamSource, elasticitySource],
     },
     {
+      id: 'question-2-ped-for-chocolate-products',
       type: 'section',
       eyebrow: 'New section',
       title: 'Question 2: PED for chocolate products',
       zhTitle: '问题2：巧克力产品的需求价格弹性',
     },
     {
+      id: 'question-paper-2',
       type: 'paperExtract',
       eyebrow: 'Question paper',
       title: numberedQuestions.q2,
@@ -150,12 +158,14 @@ IGCSE.lesson = {
       sources: [q2ExamSource],
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.confectioneryShelf,
       notes: 'Example: United States / Case clue. Former fact context: Consumers had many alternatives to chocolate, including non-chocolate candy, gum, mints, biscuits and other snacks. | Average spending per confectionery shopping trip was US$7.73, so the share of income may be small for many buyers. Teacher question: How would many substitutes affect the price elasticity of demand for chocolate? Possible answer: Many substitutes make demand more price elastic because consumers can switch away when chocolate becomes more expensive. Source: Source: IC1 Section A case extract.',
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which product is likely to have the most elastic demand?',
@@ -169,6 +179,7 @@ IGCSE.lesson = {
       visual: photos.chocolateShopDisplay,
     },
     {
+      id: 'exam-answer-2',
       type: 'modelAnswer',
       showLinkChips: false,
       eyebrow: 'Exam answer',
@@ -180,12 +191,14 @@ IGCSE.lesson = {
       sources: [q2ExamSource, elasticitySource],
     },
     {
+      id: 'question-3-supply-shock-diagram',
       type: 'section',
       eyebrow: 'New section',
       title: 'Question 3: supply shock diagram',
       zhTitle: '问题3：供给冲击图',
     },
     {
+      id: 'question-paper-3',
       type: 'paperExtract',
       eyebrow: 'Question paper',
       title: numberedQuestions.q3,
@@ -195,6 +208,7 @@ IGCSE.lesson = {
       sources: [q3ExamSource],
     },
     {
+      id: 'exam-practice',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: numberedQuestions.q3,
@@ -205,6 +219,7 @@ IGCSE.lesson = {
       sources: [q3ExamSource],
     },
     {
+      id: 'exam-answer-3',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -217,6 +232,7 @@ IGCSE.lesson = {
       sources: [q3ExamSource],
     },
     {
+      id: 'q3-model-diagram',
       type: 'answer',
       eyebrow: 'Exam answer',
       title: 'Q3 model diagram',
@@ -234,12 +250,14 @@ IGCSE.lesson = {
       sources: [q3ExamSource],
     },
     {
+      id: 'questions-4-and-5-sectors-and-systems',
       type: 'section',
       eyebrow: 'New section',
       title: 'Questions 4 and 5: sectors and systems',
       zhTitle: '问题4和5：部门与经济体制',
     },
     {
+      id: 'question-paper-4',
       type: 'paperExtract',
       eyebrow: 'Question paper',
       title: `${numberedQuestions.q4} / ${numberedQuestions.q5}`,
@@ -249,6 +267,7 @@ IGCSE.lesson = {
       sources: [q4ExamSource, q5ExamSource],
     },
     {
+      id: 'private-sector-and-public-sector',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -267,6 +286,7 @@ IGCSE.lesson = {
       ],      visual: photos.confectioneryShelf,      sources: [marketSystemSource, q4ExamSource],
     },
     {
+      id: 'exam-answer-4',
       type: 'modelAnswer',
       showLinkChips: false,
       eyebrow: 'Exam answer',
@@ -278,6 +298,7 @@ IGCSE.lesson = {
       sources: [q4ExamSource, marketSystemSource],
     },
     {
+      id: 'market-economic-system',
       type: 'term',
       keyTerms: [
         { term: 'resources', zh: '资源', note: 'what is allocated' },
@@ -301,6 +322,7 @@ IGCSE.lesson = {
       sources: [q5ExamSource, marketSystemSource],
     },
     {
+      id: 'exam-answer-5',
       type: 'modelAnswer',
       showLinkChips: false,
       eyebrow: 'Exam answer',
@@ -312,12 +334,14 @@ IGCSE.lesson = {
       sources: [q5ExamSource, marketSystemSource],
     },
     {
+      id: 'question-6-advantages-of-markets',
       type: 'section',
       eyebrow: 'New section',
       title: 'Question 6: advantages of markets',
       zhTitle: '问题6：市场的优点',
     },
     {
+      id: 'question-paper-5',
       type: 'paperExtract',
       eyebrow: 'Question paper',
       title: numberedQuestions.q6,
@@ -327,6 +351,7 @@ IGCSE.lesson = {
       sources: [q6ExamSource],
     },
     {
+      id: 'build-two-advantage-chains',
       type: 'cards',
       eyebrow: 'Apply',
       title: 'Build two advantage chains',
@@ -343,6 +368,7 @@ IGCSE.lesson = {
       sources: [q6ExamSource, marketSystemSource],
     },
     {
+      id: 'exam-answer-6',
       type: 'modelAnswer',
       showLinkChips: false,
       eyebrow: 'Exam answer',
@@ -354,6 +380,7 @@ IGCSE.lesson = {
       sources: [q6ExamSource, marketSystemSource],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

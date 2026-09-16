@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'merit-and-demerit-goods',
       type: 'hero',
       eyebrow: 'Market failure type 2',
       title: 'Merit and demerit goods',
@@ -28,6 +29,7 @@ IGCSE.lesson = {
       visual: photos.visualPauseFreshFruitShelf,
     },
     {
+      id: 'should-school-sell-large-sugary-drinks',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Should school sell large sugary drinks?',
@@ -38,6 +40,7 @@ IGCSE.lesson = {
       visual: photos.visualPauseSoftDrinkShelf,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -53,18 +56,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'merit-goods',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Merit goods',
       zhTitle: '有益品',
     },
     {
+      id: 'visual-pause-fresh-fruit',
       type: 'visualPause',
       title: 'Visual pause: fresh fruit',
       visual: photos.visualPauseFreshFruitShelf,
       notes: 'Visual pause before the merit-good definition: ask students what personal health benefits a consumer might notice now and what long-term benefits they might under-estimate.',
     },
     {
+      id: 'merit-good',
       type: 'term',
       eyebrow: 'Key term',
       title: 'Merit good',
@@ -84,6 +90,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'is-it-beneficial',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Is it beneficial?',
@@ -100,6 +107,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'why-merit-goods-are-under-consumed',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -114,6 +122,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'explain-why-education-may-be-a-merit-good-4',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain why education may be a merit good. [4]',
@@ -128,6 +137,7 @@ IGCSE.lesson = {
       prompt: 'Write one short paragraph. Use at least four keywords.',
     },
     {
+      id: 'explain-why-education-may-be-a-merit-good-4-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain why education may be a merit good. [4]',
@@ -142,18 +152,21 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
         {
+      id: 'visual-pause-world',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.classroom,
       notes: 'Example: World / China. Former fact context: 251 million children and youth were out of school in 2023. | China reports near-universal completion of nine-year compulsory education. Teacher question: Why might education be a merit good that is under-consumed? Possible answer: Education can be under-consumed because people may not recognise its long-term benefits, so demand may be too low. Source: Source: UNESCO, 2024. | Source: China Ministry of Education, 2024.',
     },
     {
+      id: 'demerit-goods',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Demerit goods',
       zhTitle: '有害品',
     },
     {
+      id: 'visual-pause-sugary-drinks',
       type: 'visualPause',
       title: 'Visual pause: sugary drinks',
       visual: photos.visualPauseSoftDrinkShelf,
@@ -161,6 +174,7 @@ IGCSE.lesson = {
       notes: 'Visual pause before the demerit-good definition: ask students what the buyer notices immediately and what costs may be hidden or delayed.',
     },
     {
+      id: 'demerit-good',
       type: 'term',
       eyebrow: 'Key term',
       title: 'Demerit good',
@@ -180,6 +194,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'is-it-harmful',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Is it harmful?',
@@ -196,6 +211,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'smoking-hidden-long-term-costs',
       type: 'cards',
       eyebrow: 'Example',
       title: 'Smoking: hidden long-term costs',
@@ -243,6 +259,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'why-demerit-goods-are-over-consumed',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -257,6 +274,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'complete-the-demerit-explanation',
       type: 'peerTask',
       eyebrow: 'Pair check',
       title: 'Complete the demerit explanation',
@@ -273,18 +291,21 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
         {
+      id: 'visual-pause-world-2',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.tobacco,
       notes: 'Example: World / China. Former fact context: Tobacco kills more than 8 million people each year. | China has over 300 million smokers, the largest number in the world. Teacher question: Why might tobacco be a demerit good that is over-consumed? Possible answer: Tobacco can be over-consumed because consumers may not fully recognise addiction and long-term health costs. Source: Source: World Health Organization tobacco fact sheet. | Source: World Health Organization China tobacco profile.',
     },
     {
+      id: 'exam-distinctions',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Exam distinctions',
       zhTitle: '考试区分',
     },
     {
+      id: 'merit-good-or-demerit-good',
       type: 'compare',
       eyebrow: 'Exam distinction',
       title: 'Merit good or demerit good?',
@@ -305,6 +326,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'sort-and-justify',
       type: 'peerTask',
       eyebrow: 'Pair sorting',
       title: 'Sort and justify',
@@ -321,6 +343,7 @@ IGCSE.lesson = {
       partialReview: ['.steps > .step', '.peerTaskShare', '.peerTaskSamples > .choice'],
     },
     {
+      id: 'merit-good-or-public-good',
       type: 'compare',
       eyebrow: 'Common confusion',
       title: 'Merit good or public good?',
@@ -341,6 +364,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which explanation best describes a merit good?',
@@ -349,6 +373,7 @@ IGCSE.lesson = {
       prompt: 'Name one suitable example.',
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

@@ -16,6 +16,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: 'limitations-and-evaluation',
       "type": "hero",
       "layout": "ssp-hero",
       "eyebrow": "Lesson 5 · 4.4.3",
@@ -34,6 +35,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'recall-effects-and-fiscal-policy',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Recall",
@@ -62,6 +64,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -85,6 +88,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'conditions-for-effective-policy',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Conditions for effective policy",
@@ -99,6 +103,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'spending-now-benefits-later',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Spending now, benefits later",
@@ -148,6 +153,7 @@ IGCSE.lesson = {
       "notes": "The timing is schematic, not a fixed estimate for every policy. Teacher explanation extends the budget scheme’s explicit short-run/long-run distinction. Adult retraining may act sooner than schooling; both depend on programme quality."
     },
     {
+      id: 'short-run-demand-may-rise-before-supply',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Short-run demand may rise before supply",
@@ -180,6 +186,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'skills-must-match-available-jobs',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Skills must match available jobs",
@@ -213,6 +220,7 @@ IGCSE.lesson = {
       "notes": "Underemployment includes workers taking jobs below their skill level or wanting more hours. Distinguish skills mismatch from an economy-wide shortage of demand; more qualifications alone solve neither automatically."
     },
     {
+      id: 'skilled-workers-may-emigrate',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Skilled workers may emigrate",
@@ -246,6 +254,7 @@ IGCSE.lesson = {
       "notes": "The original scheme accepts emigration as a limit on home-country growth. Do not claim all educated workers emigrate or ignore possible remittances; remittances do not replace the lost domestic labour input."
     },
     {
+      id: 'access-affects-income-distribution',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Access affects income distribution",
@@ -278,6 +287,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-the-policy-failure',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -301,6 +311,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'costs-and-policy-trade-offs',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Costs and policy trade-offs",
@@ -315,6 +326,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'opportunity-cost-is-the-alternative-forgone',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Opportunity cost is the alternative forgone",
@@ -348,6 +360,7 @@ IGCSE.lesson = {
       "notes": "Definition: next best alternative forgone (definitions reference 1.3.1). The hospital/training choice is a teacher-created application, not a verbatim scheme point."
     },
     {
+      id: 'tax-cuts-may-not-finance-new-investment',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Tax cuts may not finance new investment",
@@ -381,6 +394,7 @@ IGCSE.lesson = {
       "notes": "Lower tax revenue is an explicit scheme point. Saving/dividends and confidence develop Lesson 3’s already-taught conditional investment mechanism. Do not claim the lower tax rate necessarily reduces total revenue in the long run."
     },
     {
+      id: 'privatisation-changes-more-than-ownership',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Privatisation changes more than ownership",
@@ -414,6 +428,7 @@ IGCSE.lesson = {
       "notes": "Budget points: 2025FM-22 Q5(d). Consumer/worker trade-offs retrieve Lesson 3’s original 2023MJ-22 Q2(d) private/public prices discussion and bus case; this is synthesis, not a new claim that privatisation necessarily reduces competition."
     },
     {
+      id: 'deregulation-and-flexibility-involve-trade-offs',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Deregulation and flexibility involve trade-offs",
@@ -441,6 +456,7 @@ IGCSE.lesson = {
       "notes": "Synthesis of Lesson 3, including its source-verified employment-protection examples. Distinguish unnecessary entry restrictions from protective rules. These are conditional applications, not a verbatim accepted list from the education question."
     },
     {
+      id: 'turn-a-limitation-into-a-reasoned-judgement',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -464,6 +480,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'education-can-widen-the-budget-deficit-first',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Education can widen the budget deficit first",
@@ -497,6 +514,7 @@ IGCSE.lesson = {
       "notes": "At unchanged other spending/revenue, the deficit rises initially. Long-run revenue depends on successful policy and a sufficiently large tax base; it is not guaranteed to repay every cost."
     },
     {
+      id: 'growth-can-improve-government-finances',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -541,6 +559,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'keep-the-two-deficits-separate',
       "type": "classificationTask",
       "layout": "ssp-written",
       "eyebrow": "Check",
@@ -570,6 +589,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'develop-both-sides-of-a-discuss-answer',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Develop both sides of a Discuss answer",
@@ -618,6 +638,7 @@ IGCSE.lesson = {
       "notes": "The original level-3 descriptor (6–8) requires reasoned discussion and developed analysis of both sides, with thoughtful evaluation. One side may be more developed. These are thinking prompts, not a fixed paragraph formula or a universal allocation of marks."
     },
     {
+      id: 'past-paper-questions',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Past paper questions",
@@ -632,6 +653,7 @@ IGCSE.lesson = {
       "partialReview": false
     },
     {
+      id: 'discuss-whether-or-not-improving-education-can-help-a-government',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Discuss whether or not improving education can help a government achieve its macroeconomic aims. [8]",
@@ -656,6 +678,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-whether-or-not-improving-education-can-help-a-government-2',
       "type": "modelAnswer",
       "eyebrow": "Teaching model · benefits",
       "title": "Discuss whether or not improving education can help a government achieve its macroeconomic aims. [8]",
@@ -697,6 +720,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-whether-or-not-improving-education-can-help-a-government-3',
       "type": "modelAnswer",
       "eyebrow": "Teaching model · limits and judgement",
       "title": "Discuss whether or not improving education can help a government achieve its macroeconomic aims. [8]",
@@ -738,6 +762,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-whether-supply-side-policy-measures-will-reduce-a-governm',
       "type": "exam",
       "eyebrow": "Exit ticket",
       "title": "Discuss whether supply-side policy measures will reduce a government’s budget deficit. [8]",
@@ -762,6 +787,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-whether-supply-side-policy-measures-will-reduce-a-governm-2',
       "type": "modelAnswer",
       "eyebrow": "Teaching model · why it may fall",
       "title": "Discuss whether supply-side policy measures will reduce a government’s budget deficit. [8]",
@@ -803,6 +829,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'discuss-whether-supply-side-policy-measures-will-reduce-a-governm-3',
       "type": "modelAnswer",
       "eyebrow": "Teaching model · limits and judgement",
       "title": "Discuss whether supply-side policy measures will reduce a government’s budget deficit. [8]",
@@ -844,6 +871,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'summary',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Summary",

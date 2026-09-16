@@ -14,6 +14,7 @@ const lessons = [
   ['a-level/lessons/9-1-2-aggregate-demand', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-2-investment-accelerator', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-3-income-gaps', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-1-3-full-employment-essay', '#stage', '.controls', '#fullscreen', '#status'],
 ];
 
 for (const [route] of [...lessons, ['lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem']]) {

@@ -27,6 +27,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'money-supply-and-monetary-policy',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Money supply and monetary policy',
@@ -36,6 +37,7 @@ IGCSE.lesson = {
       visual: photos.pboc,
     },
     {
+      id: 'a-helicopter-drops-money',
       type: 'discussion',
       eyebrow: 'Hook',
       title: 'A helicopter drops money',
@@ -48,6 +50,7 @@ IGCSE.lesson = {
       visual: helicopterMoneyDrop,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -63,18 +66,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'money-supply',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Money supply',
       zhTitle: '货币供给',
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.bankLendingCashier,
       notes: 'Example: United States / China. Former fact context: Federal Reserve education materials separate currency and bank deposits from other privately owned assets. | China publishes M0, M1 and M2 money supply indicators for the economy. Teacher question: Which items count in money supply: currency, deposits, or a privately owned car? Possible answer: Currency and bank deposits count in money supply; a privately owned car is an asset, not money. Source: Source: Federal Reserve education materials. | Source: People\'s Bank of China statistical releases.',
     },
     {
+      id: 'money-supply-2',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -90,6 +96,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'money-supply-or-not',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Money supply or not?',
@@ -108,6 +115,7 @@ IGCSE.lesson = {
       sharePrompt: 'Share one classification and the reason using payments or deposits.',
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -119,12 +127,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'central-banks',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Central banks',
       zhTitle: '中央银行',
     },
     {
+      id: 'why-not-ordinary-banks',
       type: 'discussion',
       eyebrow: 'Explore',
       title: 'Why not ordinary banks?',
@@ -135,6 +145,7 @@ IGCSE.lesson = {
       visual: photos.pboc,
     },
     {
+      id: 'central-bank-functions',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Central-bank functions',
@@ -166,6 +177,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'central-or-commercial-bank',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Central or commercial bank?',
@@ -184,6 +196,7 @@ IGCSE.lesson = {
       sharePrompt: 'Share one answer and the clue that proves it.',
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'What is not normally a function of the central bank of a country?',
@@ -205,12 +218,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'monetary-policy-tools',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Monetary policy tools',
       zhTitle: '货币政策工具',
     },
     {
+      id: 'monetary-policy',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -239,6 +254,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'learn',
       type: 'compare',
       eyebrow: 'Learn',
       mode: 'fillBlanks',
@@ -256,6 +272,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'policy-type',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Policy type?',
@@ -275,6 +292,7 @@ IGCSE.lesson = {
       sharePrompt: 'Share one classification and the policy tool that proves it.',
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'What is not a monetary policy measure?',
@@ -296,6 +314,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

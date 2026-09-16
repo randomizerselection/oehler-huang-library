@@ -29,6 +29,16 @@ Actual Lesson 4 coverage and completion of the login task have not been newly co
 
 ## Preferences carried forward
 
+### Syllabus direction revised 16 September 2026
+
+The teacher requested a stronger stock-trading focus and an opportunity for Grade 9 students to enter InvestWrite Fall 2026. The current syllabus now carries a continuing virtual-portfolio journal, applications to team holdings and optional individual writing. The school final-draft deadline is 4 December; the published competition deadline is 9 December. External entry remains conditional on SIFMA confirming eligibility for the China-based class under its published residency rules. See `INVESTWRITE_FALL_2026.md`.
+
+All 33 teaching slots, existing dates and breaks, provisional 1 January and final TBC are preserved. Writing preparation uses existing application tasks and optional independent work. This revision reports no additional taught coverage.
+
+### Lesson 5 rewrite requested 16 September 2026
+
+The teacher requested a practical beginner rewrite of Planning your first stock trades: recap the Friday launch assignment instead of retrieval, explain share ownership, use annotated bilingual SMG screenshots, and protect group strategy/first-order planning time. The prepared deck now has 27 core slides plus two optional extensions, with ten minutes of group work. It uses the supplied Market-order example and checks quantity, estimated cost and order status. This supersedes the earlier fee-inclusive buy-limit-sizing focus; the dates and later lesson slots are unchanged. No new taught-coverage claim is made.
+
 The authoritative design brief is `LESSON_DECK_PREFERENCES.md`: English-first bilingual support; highlighted definition terms; concise objectives; question before modelled answer; formula visible when needed; relevant asset/case photos; clearly named sections; historical snapshot comparisons followed by actual line graphs; one list for forecast assumptions; useful cases continued across sections; optional questions after the core ending.
 
 Record the next actual stopping point after Lesson 4. Replan from that evidence rather than treating every prepared slide as taught.

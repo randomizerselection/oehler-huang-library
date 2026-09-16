@@ -23,6 +23,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'slide',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "3.1.1 Money",
@@ -34,6 +35,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-2',
       "type": "peerTask",
       "taskType": "definitionRecall",
       "eyebrow": "Recall",
@@ -62,6 +64,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'name-the-function',
       type: 'classificationTask',
       eyebrow: 'Recall',
       title: 'Name the function',
@@ -84,6 +87,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-3',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -100,6 +104,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'characteristics-of-effective-money',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Characteristics of effective money',
@@ -107,6 +112,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'discussion',
       type: 'discussion',
       layout: 'diamond-question',
       question: 'Would diamonds be a good form of money?',
@@ -115,6 +121,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-4',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -149,6 +156,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-5',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Yes or no?",
@@ -163,6 +171,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-6',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "Would you want to carry a heavy stone to pay for your lunch?",
@@ -171,6 +180,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-7',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -205,6 +215,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-8',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Fill in the blanks",
@@ -219,6 +230,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-9',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "How could a shopkeeper tell whether a banknote is genuine?",
@@ -227,6 +239,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-10',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -261,6 +274,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-11',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "A cashier checks the watermark on a banknote. Which characteristic is being checked?",
@@ -275,6 +289,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-12',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "What would happen if money fell apart after being used a few times?",
@@ -283,6 +298,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-13',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -317,6 +333,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-14',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Fill in the blanks",
@@ -331,6 +348,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-15',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "Would money keep its value if anyone could print as much as they wanted?",
@@ -339,6 +357,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-16',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -373,6 +392,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-17',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Why should money be limited in supply?",
@@ -387,6 +407,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-18',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "How could you pay exactly RMB 3 if every banknote was worth RMB 100?",
@@ -395,6 +416,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-19',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -429,6 +451,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-20',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which example shows that money is divisible?",
@@ -443,6 +466,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-21',
       "type": "discussion",
       "layout": "diamond-question",
       "question": "Should two genuine RMB 10 notes buy the same amount?",
@@ -451,6 +475,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-22',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -485,6 +510,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-23',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Yes or no?",
@@ -504,6 +530,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'yes-or-no',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Yes or no?',
@@ -517,6 +544,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'characteristics-of-money',
       type: 'visualPause',
       layout: 'contain-overview',
       title: 'Characteristics of money',
@@ -525,6 +553,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       mode: 'fillBlanks',
@@ -537,6 +566,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-24',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Using the characteristics",
@@ -544,6 +574,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-25',
       "type": "discussion",
       "layout": "question-only",
       "question": "Which of the characteristics does the IC Buck have? Which ones does it not have? How can we improve it so it can have more of the characteristics?",
@@ -551,6 +582,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'review-the-characteristics-of-money',
       type: 'visualPause',
       layout: 'contain-overview',
       title: 'Review the characteristics of money',
@@ -559,6 +591,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'paper-1-check',
       type: 'quiz',
       eyebrow: 'Paper 1 check',
       question: 'Why do banknotes function as money?',
@@ -580,6 +613,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-26',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Explaining characteristics",
@@ -587,6 +621,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-27',
       "type": "discussion",
       "layout": "question-only",
       "question": "Would naming two characteristics be enough for four marks?",
@@ -594,6 +629,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-characteristics-of-money-4',
       type: 'exam',
       eyebrow: 'Paper 2 practice',
       title: 'Explain two characteristics of money. [4]',
@@ -612,6 +648,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-characteristics-of-money-4-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain two characteristics of money. [4]',
@@ -635,6 +672,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'paper-1-check-2',
       type: 'quiz',
       eyebrow: 'Paper 1 check',
       question: 'What is not a function of money?',
@@ -656,6 +694,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-characteristics-that-coins-possess-which-mean-they-ca',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain two characteristics that coins possess which mean they can perform the functions of money. [4]',
@@ -674,6 +713,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-characteristics-that-coins-possess-which-mean-they-ca-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain two characteristics that coins possess which mean they can perform the functions of money. [4]',
@@ -697,6 +737,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide-28',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",
@@ -723,6 +764,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'identify-two-functions-of-money-2',
       type: 'exam',
       eyebrow: 'Paper 2 practice',
       title: 'Identify two functions of money. [2]',
@@ -742,6 +784,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'identify-two-functions-of-money-2-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Identify two functions of money. [2]',
@@ -765,6 +808,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-functions-of-money-4',
       type: 'exam',
       eyebrow: 'Paper 2 practice',
       title: 'Explain two functions of money. [4]',
@@ -784,6 +828,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-functions-of-money-4-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain two functions of money. [4]',

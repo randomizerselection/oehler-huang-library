@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'market-economic-system',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Market economic system',
@@ -27,6 +28,7 @@ IGCSE.lesson = {
       visual: photos.starbucks,
     },
     {
+      id: 'who-decides',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Who decides?',
@@ -37,6 +39,7 @@ IGCSE.lesson = {
       visual: photos.starbucks,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -52,18 +55,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'market-economy-basics',
       type: 'section',
       eyebrow: 'New section',
       title: 'Market economy basics',
       zhTitle: '市场经济基础',
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.starbucks,
       notes: 'Example: United States / China. Former fact context: Starbucks operated over 16,000 stores in the United States in 2024,. | Starbucks had more than 7,600 stores in China at the end of fiscal 2024. Teacher question: How does this show private firms responding to consumer demand? Possible answer: It shows private enterprise because firms choose where to open stores when they expect enough consumer demand and profit. Source: Source: Starbucks FY2024 Form 10-K.',
     },
     {
+      id: 'three-economic-systems',
       type: 'systemCompare',
       eyebrow: 'Learn',
       title: 'Three economic systems',
@@ -88,6 +94,7 @@ IGCSE.lesson = {
       partialReview: ['.systemCompare > .systemCard', '.prompt'],
     },
     {
+      id: 'market-economic-system-2',
       type: 'term',
       keyTerms: [
         { term: 'resources', zh: '资源', note: 'what is allocated' },
@@ -110,6 +117,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'four-core-features',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Four core features',
@@ -124,12 +132,14 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
         {
+      id: 'visual-pause-united-states-2',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.bubbleTeaShop,
       notes: 'Example: United States / China. Former fact context: In 2024, small businesses made up 99.9% of all US businesses. | China said private enterprises account for more than 90% of all enterprises. Teacher question: How does this show the role of private enterprise in a market economy? Possible answer: It shows that private firms make many production and employment decisions in a market economy. Source: Source: US Small Business Administration, 2024 Small Business Profile. | Source: State Council Information Office, 2024.',
     },
     {
+      id: 'private-sector-and-public-sector',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -148,6 +158,7 @@ IGCSE.lesson = {
       ],
       visual: photos.healthcare,    },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which phrase best proves an economy is mainly a market economic system?',
@@ -160,12 +171,14 @@ IGCSE.lesson = {
       prompt: 'Use the exact syllabus wording.',
     },
         {
+      id: 'visual-pause-global',
       type: 'visualPause',
       title: 'Visual pause: Global',
       visual: photos.phoneDisplay,
       notes: 'Example: Global / China. Former fact context: In 2024, global retail e-commerce sales were estimated at over USD 6 trillion,. | China remained the world’s largest online retail market in 2024. Teacher question: How do online markets help coordinate buyers and sellers? Possible answer: Online markets bring buyers and sellers together, so prices, orders and delivery systems help coordinate resource allocation. Source: Source: eMarketer/Insider Intelligence, 2024 estimate. | Source: China Ministry of Commerce, 2024 retail reporting.',
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

@@ -39,6 +39,12 @@ design and interactions.
 
 ## Standing classroom-deck preferences
 
+- Keep real-world example slides to about one sentence over a suitable full-screen photo, with details in teacher notes and on-demand sources. In essay workshops, move directly from the guiding sub-questions to model sentences; omit an extra argument-plan slide between them (15 September 2026).
+
+- Explain expenditure gaps intuitively as the initial spending adjustment needed for full employment: an extra autonomous injection for a deflationary gap, and a spending reduction to remove excess demand for an inflationary gap. Keep the formal definitions alongside this explanation. Show the two gaps on separate diagrams, using consistent scales and benchmarks; distinguish the spending adjustment from the multiplied change in income (15 September 2026).
+
+- Before defining equilibrium and full employment, show a simple visualization of spending matching output while some productive resources remain unused. Reveal the unused capacity after students see the matching amounts, then name the concepts on the following comparison slide. Do not repeat the definitions in an opening text comparison or introduce inventory adjustment and income feedback here (15 September 2026).
+
 - For essay workshops, break the original question into clear guiding sub-questions labelled by AO. Prompt students to draw, label and use diagrams where they support explanation or policy analysis (14 September 2026).
 
 - Finish opening retrieval before beginning the topic's visual explanation and keep that explanation connected to the following teaching. Give past-paper slides descriptive academic titles with paper codes as smaller references. Name formula slides for what they calculate. End with “Summary” and a concise list of the key lessons, rather than a contrast layout (14 September 2026).
@@ -95,6 +101,14 @@ Carry forward highlighted bilingual definition terms, image-led asset comparison
 - Reload the controlled browser tab after source changes before inspecting the DOM or taking screenshots.
 
 ## Fast classroom-deck edits
+
+### Stable slide references
+
+All active HTML decks expose a copyable source-file-plus-slide-ID reference through
+the slide counter, More menu and Overview. See `docs/SLIDE_REFERENCES.md`. Resolve
+pasted references under `apps/library/` and edit the object with that exact `id`.
+Preserve IDs through wording changes and reordering; give new or duplicated slides
+new unique IDs. Never renumber or regenerate existing IDs from titles or positions.
 
 For short A-level starter PowerPoints, keep timing and classroom-management
 guidance in teacher notes and preserve manually removed task-slide labels. See

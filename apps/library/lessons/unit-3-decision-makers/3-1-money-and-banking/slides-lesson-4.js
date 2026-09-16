@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: '3-1-2-central-banks',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "3.1.2 Central banks",
@@ -29,6 +30,7 @@ IGCSE.lesson = {
       "notes": "Teach after Commercial banks. This lesson covers the central-bank half of syllabus 3.1.2, with original Paper 2 questions and teacher-written models."
     },
     {
+      id: 'recall-banks-and-money',
       "type": "classificationTask",
       "layout": "banking-recall",
       "eyebrow": "Recall",
@@ -51,6 +53,7 @@ IGCSE.lesson = {
       "notes": "Independent retrieval: questions 1 and 3 revisit Commercial banks; question 2 revisits Money lesson 1, Store of value and its rapid-inflation check (syllabus 3.1.1). It asks for the purchasing-power explanation already taught there and prepares the later price-stability discussion. Allow about three minutes before feedback. Keep all questions visible; reveal each large model answer separately with Right/Next and reverse with Left."
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -66,12 +69,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'definition-of-a-central-bank',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Definition of a central bank",
       "zhTitle": "中央银行的定义"
     },
     {
+      id: 'who-lends-to-a-bank',
       "type": "cards",
       "layout": "central-bank-intro",
       "eyebrow": "Opening story",
@@ -93,6 +98,7 @@ IGCSE.lesson = {
       "notes": "Start with the familiar relationship: a commercial bank lends to households buying a home and firms buying equipment. On the next click, ask who could lend to the commercial bank; pause before revealing the central bank. Use only the distinction between the borrowers at each level. The arrows show lending relationships, not a claim that each customer loan is financed by central-bank borrowing. Commercial banks have other funding sources and can lend to each other. Central-bank lending is one example of its banking services; the following examples and definition establish its wider role. Save withdrawals, funding shortages and lender of last resort for the illustrated example in Part 2."
     },
     {
+      id: 'examples-of-central-banks',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Examples of central banks 中央银行实例",
@@ -138,6 +144,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: 'central-bank',
       "type": "term",
       "layout": "photo-term",
       "eyebrow": "Learn",
@@ -179,6 +186,7 @@ IGCSE.lesson = {
       "notes": "Use two independent details for the actual two-mark definition: who it serves, and monetary policy. Avoid relying on the vague phrase manages the banking system for a second mark. Government ownership is another accepted detail in this paper, but ownership arrangements are not universal."
     },
     {
+      id: 'central-and-commercial-banks',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Central and commercial banks",
@@ -218,12 +226,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'functions-of-a-central-bank',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Functions of a central bank",
       "zhTitle": "中央银行的职能"
     },
     {
+      id: '1-issue-notes-and-coins',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 1 of 6",
@@ -256,6 +266,7 @@ IGCSE.lesson = {
       "notes": "Use the illustration to identify controlled currency issue, then reveal the qualified monopoly point credited in 2023ON-23 Q3(b). The picture shows fictional notes, not an actual central-bank factory. Issue arrangements vary, so retain often."
     },
     {
+      id: 'hong-kong-banknote-issuers',
       "type": "cards",
       "layout": "central-bank-example",
       "eyebrow": "Real example · Hong Kong",
@@ -291,6 +302,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: '2-act-as-banker-to-government',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 2 of 6",
@@ -333,6 +345,7 @@ IGCSE.lesson = {
       "notes": "The three statements are parallel operations, not a causal chain. Each is accepted in 2023ON-23 Q3(b). National debt means government borrowing. The illustration represents the government account and payments; it is not a retail customer account."
     },
     {
+      id: '3-hold-foreign-currency-reserves',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 3 of 6",
@@ -377,6 +390,7 @@ IGCSE.lesson = {
       "notes": "The holding function is in the title and vault illustration; the two revealed statements link currency transactions to the exchange rate, as credited in both selected schemes. Explain exchange rate as one currency’s price in another."
     },
     {
+      id: 'banking-operations-yes-or-no',
       "type": "yesNoCheck",
       "layout": "central-bank-check",
       "eyebrow": "Check",
@@ -419,6 +433,7 @@ IGCSE.lesson = {
       "notes": "Teacher-written application check, not a past-paper question. All questions appear immediately. Take an individual decision and a reason before each reversible answer reveal. The Hong Kong example qualifies often the only bank allowed to issue currency; do not turn it into a rule that note-issuing banks are central banks. For question 2, distinguish executing payments from choosing expenditure. For question 3, return to the reserves diagram if students think interest rates are the only instrument."
     },
     {
+      id: '4-lender-of-last-resort-emergency-funds',
       "type": "cards",
       "layout": "central-bank-film",
       "eyebrow": "Function 4 · Example",
@@ -456,6 +471,7 @@ IGCSE.lesson = {
       "notes": "A seven-frame illustrated story, controlled by the normal Next/Right and Previous/Left controls. Let students predict on frames 0, 2 and 4. Each banknote bundle represents ¥100,000; these are units of value, not denominations. Initially the fictional bank has ¥1.1m in funds, financed by ¥1m in deposits and ¥100,000 of owners’ capital. It lends ¥900,000, leaving ¥200,000 available. Assume the loans retain their value, will be repaid later, and cannot be converted into money today. Four savers each request ¥100,000. After two are paid, the bank needs another ¥200,000. If it qualifies for central-bank assistance, an emergency loan meets the remaining withdrawals. This illustrates a liquidity shortage, not loan losses, automatic rescue, or a general model of deposit creation. Students already know what a central bank is. Use this example to introduce lender of last resort immediately before the numbered explanation of function 4. Keep narration conversational and off-screen; allow about three minutes."
     },
     {
+      id: '4-act-as-lender-of-last-resort',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 4 of 6",
@@ -500,6 +516,7 @@ IGCSE.lesson = {
       "notes": "Consolidate the preceding animation using the precise lending and liquidity points in the two schemes. Liquidity means funds available to meet immediate payments. Emergency support is conditional."
     },
     {
+      id: 'northern-rock-emergency-support',
       "type": "cards",
       "layout": "central-bank-example",
       "eyebrow": "Real example · United Kingdom",
@@ -535,6 +552,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: '5-regulate-the-banking-system',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 5 of 6",
@@ -587,6 +605,7 @@ IGCSE.lesson = {
       "notes": "Read down the consequences of supervision, using the development credited in 2025ON-21 Q3(c). Regulation may be shared with other authorities; it reduces risk rather than guaranteeing that no bank fails."
     },
     {
+      id: 'financial-stability-yes-or-no',
       "type": "yesNoCheck",
       "layout": "central-bank-check",
       "eyebrow": "Check",
@@ -619,6 +638,7 @@ IGCSE.lesson = {
       "notes": "Teacher-written application check, not a past-paper question. All questions appear immediately. Take an individual decision and a reason before each reversible answer reveal. Question 1 transfers the animation to a new judgement: sound assets do not remove an immediate shortage of funds. Assistance is conditional, not automatic. Question 2 asks students to distinguish two mechanisms despite their shared contribution to financial stability."
     },
     {
+      id: '6-operate-monetary-policy',
       "type": "cards",
       "layout": "central-bank-function",
       "eyebrow": "Function 6 of 6",
@@ -667,6 +687,7 @@ IGCSE.lesson = {
       "notes": "Follow the monetary-policy development in 2025ON-21 Q3(c), with the interest-rate and money-supply instruments credited in 2023ON-23 Q3(b). Protecting purchasing power means limiting its deterioration; lower inflation does not necessarily mean falling prices. The photograph is an actual FOMC policy meeting in January 2024. Keep this at the 3.1.2 role-and-aim level. Teach the effects of rate changes on borrowing, saving, spending and inflation in Unit 4.3, using the dedicated Interest rates deck; do not insert a transmission-mechanism discussion here."
     },
     {
+      id: 'uk-interest-rate-rises',
       "type": "cards",
       "layout": "central-bank-example",
       "eyebrow": "Real example · United Kingdom",
@@ -695,6 +716,7 @@ IGCSE.lesson = {
       "handoutVisuals": true
     },
     {
+      id: 'price-stability-yes-or-no',
       "type": "yesNoCheck",
       "layout": "central-bank-check",
       "eyebrow": "Check",
@@ -732,6 +754,7 @@ IGCSE.lesson = {
       "notes": "Teacher-written application check, not a past-paper question. All questions appear immediately. Take an individual decision and a reason before each reversible answer reveal. Both cases are hypothetical applications. Question 1 revisits inflation and money as a store of value from Money lesson 1: lower inflation does not reverse earlier price rises. Question 2 applies the central/commercial-bank comparison: judge a central bank against its price-stability aim rather than commercial profitability. Neither question requires the interest-rate transmission mechanism from Unit 4.3. Reteach weak links before the original past-paper questions; the six-mark independent attempt remains the assessed exit."
     },
     {
+      id: 'past-paper-practice',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Past paper practice",
@@ -739,6 +762,7 @@ IGCSE.lesson = {
       "notes": "All remaining slides are original past-paper questions followed by separate teacher-written models. Preserve time for independent writing. The final six-mark question assesses the functions and their economic consequences."
     },
     {
+      id: 'define-a-central-bank-2',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Define a central bank. [2]",
@@ -767,6 +791,7 @@ IGCSE.lesson = {
       "notes": "Original wording and allocation verified in 0455_w24_qp_23.pdf page 5 and 0455_w24_ms_23.pdf page 22."
     },
     {
+      id: 'define-a-central-bank-2-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Define a central bank. [2]",
@@ -794,6 +819,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'identify-two-ways-central-banks-differ-from-commercial-banks-2',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Identify two ways central banks differ from commercial banks. [2]",
@@ -822,6 +848,7 @@ IGCSE.lesson = {
       "notes": "The actual wording asks for two ways. The mark scheme awards a central-bank characteristic and a linked commercial-bank characteristic, not an automatic mark for each separate sentence. Students can give two paired contrasts; the maximum remains two marks."
     },
     {
+      id: 'identify-two-ways-central-banks-differ-from-commercial-banks-2-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Identify two ways central banks differ from commercial banks. [2]",
@@ -852,6 +879,7 @@ IGCSE.lesson = {
       "notes": "These are two valid paired contrasts. The first complete linked contrast already contains both credited sides in this particular mark scheme. Do not imply four marks or one automatic mark for each contrast."
     },
     {
+      id: 'explain-two-functions-of-a-central-bank-4',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain two functions of a central bank. [4]",
@@ -884,6 +912,7 @@ IGCSE.lesson = {
       "layout": "exam-pairs"
     },
     {
+      id: 'explain-two-functions-of-a-central-bank-4-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain two functions of a central bank. [4]",
@@ -915,6 +944,7 @@ IGCSE.lesson = {
       "notes": ""
     },
     {
+      id: 'analyse-reasons-why-central-banks-are-important-for-an-economy-6',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Analyse reasons why central banks are important for an economy. [6]",
@@ -945,6 +975,7 @@ IGCSE.lesson = {
       "notes": "Original wording verified in 0455_w25_qp_21.pdf page 4. Move beyond the previous four-mark role explanation. The six-mark scheme accepts developed reasons, not a compulsory number of paragraphs. Use this independent attempt as the assessed exit; collect responses before revealing the model."
     },
     {
+      id: 'analyse-reasons-why-central-banks-are-important-for-an-economy-6-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Analyse reasons why central banks are important for an economy. [6]",

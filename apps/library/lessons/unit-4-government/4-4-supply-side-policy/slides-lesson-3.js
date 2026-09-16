@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: 'market-based-supply-side-policies',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "Market-based supply-side policies",
@@ -35,6 +36,7 @@ IGCSE.lesson = {
       "notes": "Begin after finishing lesson 2. Structure: Part 1 gathers the four numbered market-based measures; Part 2 is Past paper questions. Preserve time for independent writing and feedback; the five questions are a practice bank, not a requirement to complete the whole deck in forty minutes. Teacher-reported coverage determines where to resume. Keep original question wording and marks visible during model feedback."
     },
     {
+      id: 'recall-last-lesson',
       "type": "answer",
       "eyebrow": "Recall",
       "title": "Recall last lesson",
@@ -50,6 +52,7 @@ IGCSE.lesson = {
       "notes": "Allow an independent attempt before revealing the four model answers one at a time. Count education and training as one policy group, matching the previous lesson’s Four forms of government support review. Use after the lesson 2 continuation has been taught."
     },
     {
+      id: 'starter',
       "type": "discussion",
       "eyebrow": "Starter",
       "question": "Alex’s bakery earns £100,000 before tax. A new oven costs £75,000. Could a tax cut from 30% to 20% make it affordable?",
@@ -60,6 +63,7 @@ IGCSE.lesson = {
       "notes": "Teacher-written hypothetical example, with simplified tax rates. The photograph illustrates a bakery, not a real person named Alex. Take a calculation and a reason before revealing; connect funds to investment incentives."
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -75,12 +79,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'market-based-supply-side-policies-2',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Market-based supply-side policies",
       "zhTitle": "市场型供给侧政策"
     },
     {
+      id: 'market-based-supply-side-policies-3',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Market-based supply-side policies",
@@ -125,6 +131,7 @@ IGCSE.lesson = {
       "notes": "Reveal one policy row at a time; Left reverses. The pictures introduce investment, airline ownership, market entry and recruitment. Develop effects and limits in the following sections."
     },
     {
+      id: 'check',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which measure is most clearly market-based supply-side policy?",
@@ -138,12 +145,14 @@ IGCSE.lesson = {
       "prompt": "Market-based policies work through incentives, competition and flexibility."
     },
     {
+      id: 'tax-incentives-more-profit-available-for-investment',
       "type": "visualPause",
       "title": "Tax incentives: more profit available for investment",
       "visual": photos.taxIncentive,
       "notes": "Return to Alex’s oven decision. Ask: where does the extra £10,000 come from? Tax falls, while the same pre-tax profit is assumed. Follow the cyan profit blocks and the gold tax-saving block. The next discussion tests whether affordable investment is guaranteed. Retained profit is profit kept in the business after tax and distributions; assume no dividends here."
     },
     {
+      id: 'discuss',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "Alex can now afford the oven. If bread sales are falling, should the bakery still buy it?",
@@ -152,6 +161,7 @@ IGCSE.lesson = {
       "answer": "Not necessarily. The tax cut provides funds, but Alex must expect enough extra sales to justify the cost. Alex could keep the money as cash or distribute it to owners. A tax cut can encourage investment; it does not guarantee it."
     },
     {
+      id: 'uk-corporation-tax-cuts',
       "type": "cards",
       "eyebrow": "Example",
       "title": "UK corporation tax cuts",
@@ -173,6 +183,7 @@ IGCSE.lesson = {
       "notes": "Historical main rates, not today’s rates. The bakery photo is illustrative, not evidence about a particular UK business. Ask students to transfer Alex’s logic to this real policy."
     },
     {
+      id: 'effect-of-a-corporation-tax-cut',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -212,6 +223,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check-2',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "When is a corporation tax cut most likely to raise productive capacity?",
@@ -225,6 +237,7 @@ IGCSE.lesson = {
       "prompt": "The investment improves capital and the economy’s ability to produce. A tax cut alone does not guarantee that link."
     },
     {
+      id: 'investment-on-a-ppc',
       "type": "cards",
       "eyebrow": "PPC reasoning",
       "title": "Investment on a PPC",
@@ -287,6 +300,7 @@ IGCSE.lesson = {
       "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
     },
     {
+      id: 'discuss-2',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "A state-owned bus company is sold to private owners. What changes: its ownership, its competition, or both?",
@@ -295,6 +309,7 @@ IGCSE.lesson = {
       "answer": "Its ownership changes from public to private: this is privatisation. Competition changes only if rival operators can enter or compete for routes. A sale could leave a private monopoly with little pressure to lower fares or improve service."
     },
     {
+      id: 'privatisation',
       "type": "term",
       "keyTerms": [
         {
@@ -331,6 +346,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'has-privatisation-happened',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Has privatisation happened?",
@@ -349,6 +365,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'british-airways-privatisation-in-1987',
       "type": "cards",
       "eyebrow": "Example",
       "title": "British Airways: privatisation in 1987",
@@ -371,6 +388,7 @@ IGCSE.lesson = {
       "notes": "The photograph shows a later BA aircraft, not the 1987 sale. Efficiency is a possible mechanism, not a causal claim proved by the date of privatisation."
     },
     {
+      id: 'effect-of-privatisation',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -402,6 +420,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'does-private-ownership-guarantee-efficiency',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Does private ownership guarantee efficiency?",
@@ -415,6 +434,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'discuss-3',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "A town removes an unnecessary licence that stopped new bubble-tea shops opening. What might change for customers?",
@@ -423,6 +443,7 @@ IGCSE.lesson = {
       "answer": "More shops may enter, increasing competition and choice. Existing shops may cut prices, improve quality or reduce waste to retain customers. Entry still depends on demand and costs. Food-safety rules should remain: deregulation need not remove useful protection."
     },
     {
+      id: 'deregulation',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -446,6 +467,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'european-airline-deregulation',
       "type": "cards",
       "eyebrow": "Example",
       "title": "European airline deregulation",
@@ -468,6 +490,7 @@ IGCSE.lesson = {
       "notes": "Contrast opening routes to competition with selling a state-owned airline. This example does not claim all fares fell or all barriers disappeared."
     },
     {
+      id: 'effect-of-deregulation',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -500,6 +523,7 @@ IGCSE.lesson = {
       "notes": "Competition can also lower prices or improve quality. Removing a rule does not guarantee entry; firms need resources and sufficient demand."
     },
     {
+      id: 'check-3',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which change illustrates deregulation?",
@@ -513,6 +537,7 @@ IGCSE.lesson = {
       "prompt": "Removing a regulatory requirement is deregulation. Selling state assets is privatisation."
     },
     {
+      id: 'discuss-4',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "A bakery has enough orders to hire two workers, but fears a costly dismissal if sales fall. Could easier dismissal create jobs?",
@@ -521,6 +546,7 @@ IGCSE.lesson = {
       "answer": "It may. Lower expected dismissal costs can make hiring less risky, so the bakery may take on workers now. But existing workers may lose job security, and easier dismissal can also increase job losses. The net employment effect depends on demand and how firms respond."
     },
     {
+      id: 'employment-protection-in-germany',
       "type": "cards",
       "eyebrow": "Example",
       "title": "Employment protection in Germany",
@@ -548,6 +574,7 @@ IGCSE.lesson = {
       "notes": "Germany: the general law usually covers establishments with more than ten employees and workers with more than six months’ service; special and transitional rules exist. Personal, conduct-related and operational reasons can justify dismissal. Do not teach that Europeans cannot be fired. Across countries, temporary-contract limits, procedures and compensation vary. “Excessive” is an evaluation: weigh security for existing employees against opportunities for jobseekers."
     },
     {
+      id: 'france-s-dismissal-reform',
       "type": "cards",
       "eyebrow": "Example",
       "title": "France’s dismissal reform",
@@ -570,6 +597,7 @@ IGCSE.lesson = {
       "notes": "Historical example. Ceilings depend on service and firm size; some dismissals, such as discriminatory ones, are excluded. Other reforms occurred, so do not attribute employment changes to this measure alone. The bakery photo illustrates a hiring decision; it is not identified as a French business."
     },
     {
+      id: 'effect-of-more-flexible-employment-rules',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -602,6 +630,7 @@ IGCSE.lesson = {
       "notes": "Apply France’s reform to the bakery decision. Additional hiring can raise employment and output, but does not by itself prove productivity has increased. Easier dismissal can also increase job losses; weak demand may break the hiring link."
     },
     {
+      id: 'effects-of-labour-market-reform',
       "type": "compare",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -635,6 +664,7 @@ IGCSE.lesson = {
       "zhTitle": "劳动力市场改革的影响"
     },
     {
+      id: 'is-the-employment-effect-certain',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Is the employment effect certain?",
@@ -653,6 +683,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'discuss-5',
       "type": "discussion",
       "eyebrow": "Discuss",
       "question": "A private bus operator cuts costs by reducing staff and cancelling quiet routes. Who gains, and who might lose?",
@@ -661,6 +692,7 @@ IGCSE.lesson = {
       "answer": "Owners may earn more profit; passengers on busy routes may gain if savings reduce fares. Redundant workers lose income, and people on quiet routes may lose essential transport. Whether society benefits depends on the savings, service quality and protection for affected people."
     },
     {
+      id: 'fill-in-the-blanks',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Fill in the blanks",
@@ -689,6 +721,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'past-paper-questions',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Past paper questions",
@@ -696,6 +729,7 @@ IGCSE.lesson = {
       "notes": "Five original Cambridge Paper 2 questions, ordered from definition to explanation, analysis and discussion. Let students attempt before revealing each model. The final eight-mark discussion may be held for the next lesson; all exam practice stays in this final section."
     },
     {
+      id: 'q3-a-define-privatisation-2',
       "title": "Q3(a): Define privatisation. [2]",
       "layout": "policy-paper",
       "examSpec": {
@@ -721,6 +755,7 @@ IGCSE.lesson = {
       "notes": "Do not equate private ownership with increased competition. Original context: private schools in Macao; no context-specific calculation or fact is required. The original Section B instruction permits reference to the stimulus and/or other studied examples. No additional stimulus is required to answer this generic question."
     },
     {
+      id: 'q3-a-define-privatisation-2-2',
       "title": "Q3(a): Define privatisation. [2]",
       "layout": "policy-paper",
       "examSpec": {
@@ -752,6 +787,7 @@ IGCSE.lesson = {
       "notes": "Do not equate private ownership with increased competition. Original context: private schools in Macao; no context-specific calculation or fact is required. Teacher-written model, not a quoted examiner answer. Reveal after independent writing; accept other valid developed mark-scheme points."
     },
     {
+      id: 'q4-b-explain-the-difference-between-the-private-sector-and-the-pu',
       "title": "Q4(b): Explain the difference between the private sector and the public sector. [4]",
       "layout": "policy-paper",
       "examSpec": {
@@ -777,6 +813,7 @@ IGCSE.lesson = {
       "notes": "The scheme awards ownership and decision-making motives for each sector; this is not an Explain two benefits question. Original context: private- and public-sector leaders meeting in Davos. Link to the private bus versus public service example before independent writing. The original Section B instruction permits reference to the stimulus and/or other studied examples. No additional stimulus is required to answer this generic question."
     },
     {
+      id: 'q4-b-explain-the-difference-between-the-private-sector-and-the-pu-2',
       "title": "Q4(b): Explain the difference between the private sector and the public sector. [4]",
       "layout": "policy-paper",
       "examSpec": {
@@ -810,6 +847,7 @@ IGCSE.lesson = {
       "notes": "The scheme awards ownership and decision-making motives for each sector; this is not an Explain two benefits question. Original context: private- and public-sector leaders meeting in Davos. Link to the private bus versus public service example before independent writing. Teacher-written model, not a quoted examiner answer. Reveal after independent writing; accept other valid developed mark-scheme points."
     },
     {
+      id: 'q4-c-analyse-how-a-cut-in-the-corporation-corporate-income-tax-ra',
       "title": "Q4(c): Analyse how a cut in the corporation (corporate income) tax rate can increase economic growth. [6]",
       "layout": "policy-paper",
       "examSpec": {
@@ -837,6 +875,7 @@ IGCSE.lesson = {
       "notes": "Original wording restored, including “the corporation (corporate income) tax rate”. Use corporation tax, not personal income tax. The scheme also accepts investment increasing aggregate demand. Do not imply every point must receive a separate mark. The original Section B instruction permits reference to the stimulus and/or other studied examples. No additional stimulus is required to answer this generic question."
     },
     {
+      id: 'q4-c-analyse-how-a-cut-in-the-corporation-corporate-income-tax-ra-2',
       "title": "Q4(c): Analyse how a cut in the corporation (corporate income) tax rate can increase economic growth. [6]",
       "layout": "policy-paper",
       "examSpec": {
@@ -871,6 +910,7 @@ IGCSE.lesson = {
       "notes": "Original wording restored, including “the corporation (corporate income) tax rate”. Use corporation tax, not personal income tax. The scheme also accepts investment increasing aggregate demand. Do not imply every point must receive a separate mark. Teacher-written model, not a quoted examiner answer. Reveal after independent writing; accept other valid developed mark-scheme points."
     },
     {
+      id: 'q3-c-analyse-how-supply-side-policy-measures-could-reduce-unemplo',
       "title": "Q3(c): Analyse how supply-side policy measures could reduce unemployment. [6]",
       "layout": "policy-paper",
       "examSpec": {
@@ -897,6 +937,7 @@ IGCSE.lesson = {
       "notes": "Original context: firms closing and unemployment rising in Suriname. The original question accepts interventionist policies too; the practice instruction focuses on this lesson’s market-based measures. Net job creation is conditional: capital may substitute for labour and easier dismissal can also increase job losses. Reward each repeated point only once. The original Section B instruction permits reference to the stimulus and/or other studied examples. No additional stimulus is required to answer this generic question."
     },
     {
+      id: 'q3-c-analyse-how-supply-side-policy-measures-could-reduce-unemplo-2',
       "title": "Q3(c): Analyse how supply-side policy measures could reduce unemployment. [6]",
       "layout": "policy-paper",
       "examSpec": {
@@ -932,6 +973,7 @@ IGCSE.lesson = {
       "notes": "Original context: firms closing and unemployment rising in Suriname. The original question accepts interventionist policies too; the practice instruction focuses on this lesson’s market-based measures. Net job creation is conditional: capital may substitute for labour and easier dismissal can also increase job losses. Reward each repeated point only once. Teacher-written model, not a quoted examiner answer. Reveal after independent writing; accept other valid developed mark-scheme points."
     },
     {
+      id: 'q2-d-discuss-whether-or-not-private-sector-firms-are-likely-to-ch',
       "title": "Q2(d): Discuss whether or not private sector firms are likely to charge lower prices than public sector firms. [8]",
       "layout": "policy-paper",
       "examSpec": {
@@ -958,6 +1000,7 @@ IGCSE.lesson = {
       "notes": "Original context: firms in Vietnam competing with MNCs and public firms. Use the bus example if helpful; do not assume privatisation itself creates competition. This longer discussion may be used in a follow-up lesson. No fixed number of arguments or marks per paragraph is imposed. The original Section B instruction permits reference to the stimulus and/or other studied examples. No additional stimulus is required to answer this generic question."
     },
     {
+      id: 'q2-d-discuss-whether-or-not-private-sector-firms-are-likely-to-ch-2',
       "title": "Q2(d): Discuss whether or not private sector firms are likely to charge lower prices than public sector firms. [8]",
       "layout": "policy-paper",
       "examSpec": {
@@ -994,6 +1037,7 @@ IGCSE.lesson = {
       "notes": "Original context: firms in Vietnam competing with MNCs and public firms. Use the bus example if helpful; do not assume privatisation itself creates competition. This longer discussion may be used in a follow-up lesson. No fixed number of arguments or marks per paragraph is imposed. Teacher-written model, not a quoted examiner answer. Reveal after independent writing; accept other valid developed mark-scheme points."
     },
     {
+      id: 'exit-ticket',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",

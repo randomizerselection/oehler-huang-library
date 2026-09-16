@@ -2977,8 +2977,12 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   }
 
   function showFromHash() {
-    const fromHash = parseInt(location.hash.replace('#', ''), 10);
-    if (Number.isFinite(fromHash)) show(fromHash - 1);
+    let hash;
+    try { hash = decodeURIComponent(location.hash.slice(1)); } catch { hash = ''; }
+    const byId = slides.findIndex(slide => slide.id === hash);
+    if (byId >= 0) show(byId);
+    else if (/^\d+$/.test(hash)) show(Number(hash) - 1);
+    else show(0);
   }
 
   async function toggleNotes() {
@@ -3256,8 +3260,7 @@ IGCSE.mountLesson = function(lesson, mountEl = document.getElementById('deck')) 
   });
 
   // Initial
-  const fromHash = parseInt(location.hash.replace('#', ''), 10);
-  show(Number.isFinite(fromHash) ? fromHash - 1 : 0);
+  showFromHash();
   window.addEventListener('hashchange', showFromHash);
   window.addEventListener('resize', () => fitActiveQuestionTitles(mountEl));
 

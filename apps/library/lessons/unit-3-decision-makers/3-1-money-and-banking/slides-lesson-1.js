@@ -31,6 +31,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: '3-1-1-money',
       type: 'hero',
       eyebrow: 'Overview',
       title: '3.1.1 Money',
@@ -42,6 +43,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'is-the-phone-the-money',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Is the phone the money?',
@@ -53,6 +55,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -69,6 +72,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'what-counts-as-money',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'What counts as money?',
@@ -76,6 +80,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'what-makes-this-money',
       type: 'visualPause',
       title: 'What makes this money?',
       visual: photos.cashAndCoins,
@@ -84,6 +89,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'money',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -112,6 +118,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which item best fits the definition of money?',
@@ -128,6 +135,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'common-forms-of-money-today',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Common forms of money today',
@@ -145,6 +153,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'money-or-payment-tool',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Money or payment tool?',
@@ -165,6 +174,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'the-four-functions-of-money',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'The four functions of money',
@@ -172,6 +182,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'discussion',
       type: 'discussion',
       layout: 'question-only',
       question: 'How would you buy things if there was no money?',
@@ -179,6 +190,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'medium-of-exchange',
       type: 'term',
       layout: 'photo-term',
       eyebrow: 'Learn',
@@ -209,6 +221,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'is-money-completing-an-exchange-now',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Is money completing an exchange now?',
@@ -222,6 +235,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'discussion-2',
       type: 'discussion',
       layout: 'question-only',
       question: 'How could you compare the value of a bicycle and a phone without prices?',
@@ -229,6 +243,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'unit-of-account',
       type: 'term',
       layout: 'photo-term',
       eyebrow: 'Learn',
@@ -259,6 +274,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'paper-1-check',
       type: 'quiz',
       eyebrow: 'Paper 1 check',
       question: 'One function of money is to act as a measure of value. What does this mean?',
@@ -280,6 +296,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'discussion-3',
       type: 'discussion',
       layout: 'question-only',
       question: 'You earn money today but want to spend it next month. What could you do?',
@@ -287,6 +304,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'store-of-value',
       type: 'term',
       layout: 'photo-term',
       eyebrow: 'Learn',
@@ -317,6 +335,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'paper-1-check-2',
       type: 'quiz',
       eyebrow: 'Paper 1 check',
       question: 'During rapid inflation, why may cash perform poorly as a store of value?',
@@ -338,6 +357,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'discussion-4',
       type: 'discussion',
       layout: 'question-only',
       question: 'If you buy a bicycle now but pay next month, how could you agree the amount owed?',
@@ -345,6 +365,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'standard-of-deferred-payment',
       type: 'term',
       layout: 'photo-term',
       eyebrow: 'Learn',
@@ -375,6 +396,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -390,6 +412,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'four-functions-of-money',
       type: 'visualPause',
       layout: 'contain-overview',
       title: 'Four functions of money',
@@ -398,6 +421,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'name-the-function',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Name the function',
@@ -420,6 +444,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'review-the-four-functions-of-money',
       type: 'visualPause',
       layout: 'contain-overview',
       title: 'Review the four functions of money',
@@ -428,6 +453,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'slide',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",
@@ -454,6 +480,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'identify-two-functions-of-money-2',
       type: 'exam',
       eyebrow: 'Paper 2 practice',
       title: 'Identify two functions of money. [2]',
@@ -473,6 +500,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'identify-two-functions-of-money-2-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Identify two functions of money. [2]',
@@ -496,6 +524,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-functions-of-money-4',
       type: 'exam',
       eyebrow: 'Paper 2 practice',
       title: 'Explain two functions of money. [4]',
@@ -515,6 +544,7 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'explain-two-functions-of-money-4-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain two functions of money. [4]',

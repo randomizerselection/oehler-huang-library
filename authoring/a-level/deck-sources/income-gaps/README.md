@@ -1,5 +1,23 @@
 # Equilibrium income and expenditure gaps
 
+## Classroom split, 16 September 2026
+
+The teacher completed slide 20, `closing-deflationary-gap`, through reveal step 4
+and stopped before the essay workshop. Part 1 remains in `9-1-3-income-gaps`:
+the original first 20 slides, followed by a new recap summary (not yet taught).
+
+The untaught continuation is
+`apps/library/a-level/lessons/9-1-3-full-employment-essay/`, titled
+**Full-employment policies: essay workshop**. It has its own cover, objectives
+and summary, with the original workshop, independent writing and exit question.
+Moved slides retain their IDs and original question/mark-scheme content.
+Both lessons are linked from the course page. The workshop reuses the original
+lesson's CSS, diagram scenes, diagram renderer, interaction helpers and source
+images; its slide content is maintained in its own `slides.js`.
+
+The original planner allocation is retained as a source-workbook estimate;
+allow a separate workshop slot and do not infer taught coverage from it.
+
 Canonical classroom source: `apps/library/a-level/lessons/9-1-3-income-gaps/`.
 Prepared 14 September 2026, revised 15 September 2026. The active deck has 33 slides.
 HTML is the deliverable; no second editable HTML or PowerPoint copy exists here.

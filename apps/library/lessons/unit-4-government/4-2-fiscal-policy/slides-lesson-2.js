@@ -30,6 +30,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+          id: 'taxation',
           type: 'hero',
           eyebrow:  'Lesson overview',
           title:    'Taxation',
@@ -39,6 +40,7 @@ IGCSE.lesson = {
           visual:   photos.shopping,
         },
     {
+          id: 'every-receipt-is-a-policy-choice',
           type: 'discussion',
           eyebrow: 'Starter',
           title:   'Every receipt is a policy choice',
@@ -49,6 +51,7 @@ IGCSE.lesson = {
           visual: photos.shopping,
         },
     {
+          id: 'by-the-end-you-can',
           type: 'outcomes',
           eyebrow: 'Objectives',
           title:   'By the end, you can',
@@ -64,18 +67,21 @@ IGCSE.lesson = {
           ],
     },
     {
+          id: 'why-governments-tax',
           type: 'section',
           eyebrow: 'New section',
           title:   'Why governments tax',
           zhTitle: '政府征税的原因',
         },
         {
+      id: 'visual-pause-denmark',
       type: 'visualPause',
       title: 'Visual pause: Denmark',
       visual: factPhotos.denmarkTax,
       notes: 'Example: Denmark / China. Former fact context: Denmark’s tax revenue was 45.2% of GDP in 2024. | China’s tax revenue was 20.4% of GDP in 2023. Teacher question: How does tax revenue help finance government spending? Possible answer: Tax revenue gives the government funds to pay for public services, transfers and investment. Source: Source: OECD Revenue Statistics 2025. | Source: OECD Revenue Statistics in Asia and the Pacific 2025.',
     },
     {
+          id: '1-raise-revenue',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -90,6 +96,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: '2-reduce-demerit-goods',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -105,12 +112,14 @@ IGCSE.lesson = {
       ],
     },
         {
+      id: 'visual-pause-australia',
       type: 'visualPause',
       title: 'Visual pause: Australia',
       visual: factPhotos.philippinesTobacco,
       notes: 'Example: Australia / China. Former fact context: Australia charged AUD 1.40312 excise tax per cigarette in March 2025. | China uses excise taxes on cigarettes, including production and wholesale taxes. Teacher question: How could a cigarette tax reduce consumption of a demerit good? Possible answer: Education can be under-consumed because people may underestimate its private and external benefits. Source: Source: Australian Taxation Office. | Source: China consumption tax rate table.',
     },
     {
+          id: '3-reduce-imports',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -126,6 +135,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: 'check',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A government increases tax on alcohol. Which reason for taxation is most direct?',
@@ -139,6 +149,7 @@ IGCSE.lesson = {
           visual: photos.tobacco,
         },
     {
+          id: '4-redistribute-income',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -154,6 +165,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: '5-influence-demand',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -169,6 +181,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: '6-encourage-environmental-sustainability',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -183,6 +196,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: 'check-2',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A pollution tax raises money and makes pollution more expensive. Which answer is strongest?',
@@ -196,6 +210,7 @@ IGCSE.lesson = {
           visual: photos.pollution,
         },
     {
+          id: 'fill-in-the-blanks',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Fill in the blanks',
@@ -208,12 +223,14 @@ IGCSE.lesson = {
           ],
     },
     {
+          id: 'direct-and-indirect-taxes',
           type: 'section',
           eyebrow: 'New section',
           title:   'Direct and indirect\ntaxes',
           zhTitle: '直接税与间接税',
         },
     {
+          id: 'who-should-pay',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'Who should pay?',
@@ -224,6 +241,7 @@ IGCSE.lesson = {
           visual: photos.healthcare,
         },
     {
+          id: 'direct-tax',
           type: 'term',
           showExamples: false,
           eyebrow: 'Learn',
@@ -242,6 +260,7 @@ IGCSE.lesson = {
           ],
     },
     {
+          id: 'indirect-tax',
           type: 'term',
           showExamples: false,
           eyebrow: 'Learn',
@@ -260,12 +279,14 @@ IGCSE.lesson = {
           ],
     },
         {
+      id: 'visual-pause-united-kingdom',
       type: 'visualPause',
       title: 'Visual pause: United Kingdom',
       visual: factPhotos.ukSugar,
       notes: 'Example: United Kingdom / China. Former fact context: After the UK sugar levy, sugar in taxed soft drinks fell 46% from 2015 to 2020. | China has no national sugar-sweetened beverage excise tax in this international policy dataset. Teacher question: How could a tax change firms\' incentives and consumer choices? Possible answer: A tax can raise prices or encourage reformulation, so consumers buy less and firms reduce sugar content. Source: Source: HM Treasury and HMRC. | Source: World Bank Global SSB Tax Database.',
     },
     {
+          id: 'two-direct-taxes',
           type: 'compare',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -280,6 +301,7 @@ IGCSE.lesson = {
         ['1', 'tax on company __________', 'profits'],
       ],          visual: photos.industry,        },
     {
+          id: 'taxing-company-profits',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'Taxing company profits',
@@ -290,6 +312,7 @@ IGCSE.lesson = {
           visual: photos.industry,
         },
     {
+          id: 'vat-sales-tax-and-other-indirect-taxes',
           type: 'compare',
           mode: 'fillBlanks',
           eyebrow: 'Learn',
@@ -308,6 +331,7 @@ IGCSE.lesson = {
       ],
           visual: photos.tobacco,        },
     {
+          id: 'taxing-harmful-goods',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'Taxing harmful goods',
@@ -318,6 +342,7 @@ IGCSE.lesson = {
           visual: photos.tobacco,
         },
     {
+          id: 'indirect-tax-on-tobacco',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Example',
@@ -334,6 +359,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: 'import-tariff',
           type: 'term',
           showExamples: false,
           eyebrow: 'Learn',
@@ -352,6 +378,7 @@ IGCSE.lesson = {
           ],
     },
     {
+          id: 'at-the-port',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'At the port',
@@ -362,12 +389,14 @@ IGCSE.lesson = {
           visual: photos.port,
         },
         {
+      id: 'visual-pause-sweden',
       type: 'visualPause',
       title: 'Visual pause: Sweden',
       visual: factPhotos.swedenCarbon,
       notes: 'Example: Sweden / China. Former fact context: Sweden introduced a carbon tax in 1991. | China started a national carbon market in 2021, covering power-sector emissions. Teacher question: How could a pollution charge or carbon market reduce external costs? Possible answer: The third party is people affected by pollution; they face health costs that are not fully paid by producers or consumers. Source: Source: Government Offices of Sweden. | Source: Gov.cn and MEE reporting.',
     },
     {
+          id: 'the-smoke-stack',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'The smoke stack',
@@ -378,6 +407,7 @@ IGCSE.lesson = {
           visual: photos.pollution,
         },
     {
+          id: 'exit-ticket',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Exit ticket',

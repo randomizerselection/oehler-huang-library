@@ -132,3 +132,16 @@
 .lesson-reveal-controls button:disabled{opacity:.45;cursor:default}
 @media(min-width:761px){.slide-diagram .diagram-layout{padding-bottom:1.8cqw}}
 @media(max-width:760px){#lesson-conclusion .objective-list article{grid-template-columns:35px 1fr;gap:20px}#lesson-conclusion .objective-list article p,#output-gaps .columns p{font-size:20px}#lesson-conclusion .objective-list article span{font-size:25px}}
+
+/* Real-world examples: one sentence over a full-slide contextual photograph. */
+:is(#uk-deflationary-example,#canada-inflationary-example) .hook-image{inset:0}
+:is(#uk-deflationary-example,#canada-inflationary-example) .hook-image:after{background:linear-gradient(0deg,#103a35ed 0%,#103a3590 48%,#103a351a 100%)}
+:is(#uk-deflationary-example,#canada-inflationary-example) .hook-copy{inset:auto 7cqw 7cqw; width:auto}
+:is(#uk-deflationary-example,#canada-inflationary-example) .hook-copy .eyebrow{margin-bottom:2cqw}
+:is(#uk-deflationary-example,#canada-inflationary-example) h1{font-size:4.2cqw;line-height:1.18;max-width:none;letter-spacing:-.025em}
+@media(max-width:760px){
+ :is(#uk-deflationary-example,#canada-inflationary-example) .hook-copy{inset:auto 26px 65px}
+ :is(#uk-deflationary-example,#canada-inflationary-example) h1{font-size:30px}
+ :is(#uk-deflationary-example,#canada-inflationary-example) .hook-copy .eyebrow{font-size:12px;margin-bottom:20px}
+ :is(#uk-deflationary-example,#canada-inflationary-example) .lesson-sources{position:absolute;top:18px;left:26px;right:26px}
+}

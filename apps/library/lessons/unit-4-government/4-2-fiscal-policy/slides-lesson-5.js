@@ -20,6 +20,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'fiscal-policy-and-macro-aims',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Fiscal policy and macro aims',
@@ -29,6 +30,7 @@ IGCSE.lesson = {
       visual: photos.budgetHearing,
     },
     {
+      id: 'one-policy-many-effects',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'One policy, many effects',
@@ -39,6 +41,7 @@ IGCSE.lesson = {
       visual: photos.budgetHearing,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -54,18 +57,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-macroeconomic-aims',
       type: 'visualPause',
       title: 'Visual pause: macroeconomic aims',
       visual: photos.visualPauseCityGrowth,
       notes: 'Visual pause: use the city image to frame macroeconomic aims as whole-economy outcomes.',
     },
     {
+      id: 'six-macro-aims',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Six macro aims',
       zhTitle: '六个宏观目标',
     },
     {
+      id: 'the-six-macroeconomic-aims',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'The six macroeconomic aims',
@@ -82,6 +88,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'The government raises taxes because firms are already near full capacity and prices are rising quickly. Which macro aim is this measure mainly trying to support?',
@@ -95,12 +102,14 @@ IGCSE.lesson = {
       prompt: 'The key clue is excess demand near full capacity: contractionary fiscal policy may reduce demand-pull inflation.',
     },
     {
+      id: 'effects-on-each-aim',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Effects on each aim',
       zhTitle: '对每个目标的影响',
     },
     {
+      id: '1-economic-growth',
       type: 'flow',
       eyebrow: 'Effect',
       title: '1. Economic growth',
@@ -116,6 +125,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -127,12 +137,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-employment',
       type: 'visualPause',
       title: 'Visual pause: employment',
       visual: photos.visualPauseJobInterview,
       notes: 'Visual pause: connect stronger demand and output to derived demand for labour.',
     },
     {
+      id: '2-full-employment-low-unemployment',
       type: 'flow',
       eyebrow: 'Effect',
       title: '2. Full employment / low unemployment',
@@ -148,6 +160,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -162,12 +175,14 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Because labour is a derived demand, firms increase output and demand more labour.',
     },
     {
+      id: 'visual-pause-stable-prices',
       type: 'visualPause',
       title: 'Visual pause: stable prices',
       visual: photos.visualPauseBudgetNegotiation,
       notes: 'Visual pause: connect budget decisions to aggregate demand and demand-pull inflationary pressure.',
     },
     {
+      id: '3-stable-prices-low-inflation',
       type: 'flow',
       eyebrow: 'Effect',
       title: '3. Stable prices / low inflation',
@@ -183,6 +198,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'A cut in government spending is most likely to reduce inflation when the main cause is:',
@@ -196,12 +212,14 @@ IGCSE.lesson = {
       prompt: 'Fiscal tightening works most directly by reducing aggregate demand, so it fits demand-pull inflation best.',
     },
     {
+      id: 'visual-pause-imports-and-exports',
       type: 'visualPause',
       title: 'Visual pause: imports and exports',
       visual: photos.visualPausePortTacoma,
       notes: 'Visual pause: use the port image to connect domestic demand with spending on imports.',
     },
     {
+      id: '4-balance-of-payments-stability',
       type: 'flow',
       eyebrow: 'Effect',
       title: '4. Balance of payments stability',
@@ -217,6 +235,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'complete-the-missing-sentence-2',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -231,6 +250,7 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Households and firms may spend less on imports.',
     },
     {
+      id: '5-redistribution-of-income',
       type: 'flow',
       eyebrow: 'Effect',
       title: '5. Redistribution of income',
@@ -246,6 +266,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-2',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -257,12 +278,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-environmental-sustainability',
       type: 'visualPause',
       title: 'Visual pause: environmental sustainability',
       visual: photos.visualPauseSolarFarm,
       notes: 'Visual pause: connect green taxes or spending to incentives and sustainable development.',
     },
     {
+      id: '6-environmental-sustainability',
       type: 'flow',
       eyebrow: 'Effect',
       title: '6. Environmental sustainability',
@@ -278,6 +301,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-3',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -290,6 +314,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-fiscal-policy-limits',
       type: 'visualPause',
       title: 'Visual pause: fiscal-policy limits',
       visual: photos.visualPauseDebtClock,
@@ -297,12 +322,14 @@ IGCSE.lesson = {
       notes: 'Visual pause: bridge into limitations such as borrowing, budget burden and delayed effects.',
     },
     {
+      id: 'limitations',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Limitations',
       zhTitle: '局限性',
     },
     {
+      id: 'what-could-go-wrong',
       type: 'discussion',
       eyebrow: 'Evaluate',
       title: 'What could go wrong?',
@@ -313,6 +340,7 @@ IGCSE.lesson = {
       visual: photos.budgetHearing,
     },
     {
+      id: 'four-limitations-of-fiscal-policy',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Four limitations of fiscal policy',
@@ -327,6 +355,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
     {
+      id: 'check-3',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'A recession starts in March, but a new infrastructure programme is not approved and paid out until November. Which limitation is shown?',
@@ -340,12 +369,14 @@ IGCSE.lesson = {
       prompt: 'A time lag means there is a delay before the policy changes spending, output or prices.',
     },
     {
+      id: 'visual-pause-policy-delay',
       type: 'visualPause',
       title: 'Visual pause: policy delay',
       visual: photos.visualPauseBudgetNegotiation,
       notes: 'Visual pause: budget negotiation makes the time lag visible - recognition, approval, delivery and household or firm response do not happen at the same moment.',
     },
     {
+      id: '1-time-lag',
       type: 'flow',
       eyebrow: 'Limitation',
       title: '1. Time lag',
@@ -360,6 +391,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-4',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Why can a time lag make expansionary fiscal policy less effective during a downturn?',
@@ -372,6 +404,7 @@ IGCSE.lesson = {
       answer: 0,
     },
     {
+      id: 'visual-pause-confidence-and-spending',
       type: 'visualPause',
       title: 'Visual pause: confidence and spending',
       visual: {
@@ -385,6 +418,7 @@ IGCSE.lesson = {
       notes: 'Visual pause: use the confidence chart to ask whether a tax cut is spent or saved when households feel insecure about jobs and future income.',
     },
     {
+      id: '2-weak-response',
       type: 'flow',
       eyebrow: 'Limitation',
       title: '2. Weak response',
@@ -399,6 +433,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-5',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Income tax is cut, but households expect unemployment to rise and decide to save most of the extra income. What is the best evaluation?',
@@ -411,6 +446,7 @@ IGCSE.lesson = {
       answer: 0,
     },
     {
+      id: 'visual-pause-debt-and-future-choices',
       type: 'visualPause',
       title: 'Visual pause: debt and future choices',
       visual: photos.visualPauseDebtClock,
@@ -418,6 +454,7 @@ IGCSE.lesson = {
       notes: 'Visual pause: connect extra borrowing to debt interest, opportunity cost and limits on future government spending.',
     },
     {
+      id: '3-budget-burden',
       type: 'flow',
       eyebrow: 'Limitation',
       title: '3. Budget burden',
@@ -432,6 +469,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-6',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'The government borrows to fund a short-term spending increase. Debt interest then takes a larger share of future tax revenue. Which limitation is this?',
@@ -444,12 +482,14 @@ IGCSE.lesson = {
       answer: 0,
     },
     {
+      id: 'visual-pause-import-leakage',
       type: 'visualPause',
       title: 'Visual pause: import leakage',
       visual: photos.visualPausePortTacoma,
       notes: 'Visual pause: container terminals make the import leakage clear - extra domestic spending can become demand for foreign output.',
     },
     {
+      id: '4-imports',
       type: 'flow',
       eyebrow: 'Limitation',
       title: '4. Imports',
@@ -464,6 +504,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-7',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'A tax cut raises household spending, but many households buy imported electronics and clothing. Why may domestic output rise by less than expected?',
@@ -476,6 +517,7 @@ IGCSE.lesson = {
       answer: 0,
     },
     {
+      id: 'discuss-whether-a-decrease-in-government-spending-will-reduce-inf',
       type: 'compare',
       mode: 'fillBlanks',
       variant: 'examDiscussion',
@@ -510,6 +552,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'discuss-whether-a-decrease-in-government-spending-will-reduce-inf-2',
       type: 'modelAnswer',
       eyebrow: 'Exam answer',
       title: 'Discuss whether a decrease in government spending will reduce inflation. [8]',
@@ -523,6 +566,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

@@ -1,6 +1,6 @@
 # IGCSE Economics lesson-deck preferences
 
-Updated through 14 September 2026. Apply these to future IGCSE decks and relevant revisions; do not silently redesign every older lesson. Preserve the Economics course's renderer, selective Chinese support and answer reveals. Visual conventions may be overridden when they harm classroom readability.
+Updated through 15 September 2026. Apply these to future IGCSE decks and relevant revisions; do not silently redesign every older lesson. Preserve the Economics course's renderer, selective Chinese support and answer reveals. Visual conventions may be overridden when they harm classroom readability.
 
 ## Classroom design takes priority — 14 September 2026
 
@@ -42,6 +42,7 @@ Updated through 14 September 2026. Apply these to future IGCSE decks and relevan
 
 ## Questions and slide types
 
+- Make syllabus and overview lists notebook copy-ready: number the items clearly and use precise key words as the visible headings, for example `1. Disposable income` and `2. Rate of interest`. Do not compress a list students should record into a subtitle or sentence (Households feedback, 15 September 2026).
 - Enterprise clarification, 15 September 2026: use plain labels for abstract diagram symbols; explain what a money rectangle represents rather than calling it a “token”. Structure factor-payment comparisons around when payments can be agreed versus when profit can be known, with aligned examples and reversible reveals. For motivation/list slides, reveal each complete item (picture, heading and explanation) one at a time. Verify reasons against original mark schemes and the syllabus, and distinguish accepted examples from an exhaustive syllabus list. Add relevant photographs to scenario-based past-paper questions, including the driver and vans in Sonia’s delivery-service question; preserve original wording/options and do not label pictures with answers in advance.
 
 

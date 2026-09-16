@@ -24,6 +24,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'effects-and-limitations-of-monetary-policy',
       type: 'hero',
       eyebrow: 'Overview',
       title: 'Effects and limitations of monetary policy',
@@ -40,6 +41,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'recall-last-lesson',
       type: 'peerTask',
       taskType: 'definitionRecall',
       eyebrow: 'Recall',
@@ -73,6 +75,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'one-policy-several-aims',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'One policy, several aims',
@@ -83,6 +86,7 @@ IGCSE.lesson = {
       visual: photos.bankLendingCashier,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -98,18 +102,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'effects-on-macro-aims',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Effects on macro aims',
       zhTitle: '对宏观目标的影响',
     },
     {
+      id: 'visual-pause-lending',
       type: 'visualPause',
       title: 'Visual pause: lending',
       visual: photos.bankLendingCashier,
       notes: 'Ask students what happens when banks have more funds to lend. Bridge to spending, investment, aggregate demand and output.',
     },
     {
+      id: '1-economic-growth',
       type: 'flow',
       eyebrow: 'Learn',
       title: '1. Economic growth',
@@ -125,6 +132,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -136,12 +144,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-jobs',
       type: 'visualPause',
       title: 'Visual pause: jobs',
       visual: photos.householdSaving,
       notes: 'Ask students why a household might care about firm output. Bridge to labour as a derived demand and cyclical unemployment.',
     },
     {
+      id: '2-full-employment-low-unemployment',
       type: 'flow',
       eyebrow: 'Learn',
       title: '2. Full employment / low unemployment',
@@ -157,6 +167,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -171,6 +182,7 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Because labour is a derived demand, firms may increase output and demand more workers.',
     },
     {
+      id: 'visual-pause-stable-prices',
       type: 'visualPause',
       title: 'Visual pause: stable prices',
       visual: photos.visualPauseFomcBoardRoom,
@@ -178,6 +190,7 @@ IGCSE.lesson = {
       notes: 'Ask students why a central bank may worry when aggregate demand rises faster than output. Bridge to price stability and demand-pull inflation.',
     },
     {
+      id: '3-price-stability',
       type: 'flow',
       eyebrow: 'Learn',
       title: '3. Price stability',
@@ -193,6 +206,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Which statement is most accurate?',
@@ -206,6 +220,7 @@ IGCSE.lesson = {
       prompt: 'Contractionary monetary policy is strongest when inflation is caused by high aggregate demand.',
     },
     {
+      id: 'visual-pause-imports',
       type: 'visualPause',
       title: 'Visual pause: imports',
       visual: photos.visualPauseShippingContainersPort,
@@ -213,6 +228,7 @@ IGCSE.lesson = {
       notes: 'Ask students why containers matter when household spending rises. Bridge only to the simple import-spending link.',
     },
     {
+      id: '4-balance-of-payments-stability',
       type: 'flow',
       eyebrow: 'Brief link',
       title: '4. Balance of payments stability',
@@ -228,6 +244,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-2',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -239,12 +256,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'limitations-of-monetary-policy',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Limitations of monetary policy',
       zhTitle: '货币政策的局限性',
     },
     {
+      id: 'visual-pause-time-lag',
       type: 'visualPause',
       title: 'Visual pause: time lag',
       visual: photos.visualPauseFomcBoardRoom,
@@ -252,6 +271,7 @@ IGCSE.lesson = {
       notes: 'Ask students why a central-bank decision is not the same as an immediate change in shopping, investment, output or prices.',
     },
     {
+      id: '1-time-lag',
       type: 'flow',
       eyebrow: 'Learn',
       title: '1. Time lag',
@@ -267,6 +287,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-3',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -278,6 +299,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-low-confidence',
       type: 'visualPause',
       title: 'Visual pause: low confidence',
       visual: photos.visualPauseClosedMallShops,
@@ -285,6 +307,7 @@ IGCSE.lesson = {
       notes: 'Ask students why low confidence could stop lower interest rates from raising spending or investment.',
     },
     {
+      id: '2-consumer-and-business-confidence',
       type: 'flow',
       eyebrow: 'Learn',
       title: '2. Consumer and business confidence',
@@ -300,6 +323,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'If confidence is low, what may happen even when interest rates fall?',
@@ -313,6 +337,7 @@ IGCSE.lesson = {
       prompt: 'Confidence affects whether households and firms choose to spend, borrow and invest.',
     },
     {
+      id: 'visual-pause-cost-pressure',
       type: 'visualPause',
       title: 'Visual pause: cost pressure',
       visual: photos.visualPauseGasStationPricing,
@@ -320,6 +345,7 @@ IGCSE.lesson = {
       notes: 'Ask students whether higher fuel prices are caused by too much aggregate demand or higher production costs. Bridge to cost-push inflation.',
     },
     {
+      id: '3-cannot-reduce-cost-push-inflation',
       type: 'flow',
       eyebrow: 'Learn',
       title: '3. Cannot reduce cost-push inflation',
@@ -335,6 +361,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-3',
       type: 'quiz',
       eyebrow: 'Check',
       question: '2024ON-23 Q5(d) asks whether a cut in the interest rate will reduce inflation. Which evaluation fits that question?',
@@ -356,6 +383,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-debt-risk',
       type: 'visualPause',
       title: 'Visual pause: debt risk',
       visual: photos.visualPauseCreditCardDebt,
@@ -363,6 +391,7 @@ IGCSE.lesson = {
       notes: 'Ask students when extra borrowing helps and when it becomes a future problem. Bridge to over-indebted households and firms.',
     },
     {
+      id: '4-debt-may-rise',
       type: 'flow',
       eyebrow: 'Learn',
       title: '4. Debt may rise',
@@ -378,6 +407,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-4',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -389,6 +419,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'visual-pause-imported-goods',
       type: 'visualPause',
       title: 'Visual pause: imported goods',
       visual: photos.visualPauseShippingContainersPort,
@@ -396,6 +427,7 @@ IGCSE.lesson = {
       notes: 'Ask students why a boom in spending may not only help domestic firms. Bridge to imports as a limitation.',
     },
     {
+      id: '5-imports-may-rise',
       type: 'flow',
       eyebrow: 'Brief link',
       title: '5. Imports may rise',
@@ -411,6 +443,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-4',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Why can higher aggregate demand create an imports trade-off?',
@@ -424,12 +457,14 @@ IGCSE.lesson = {
       prompt: 'This is only the simple bridge: more spending can mean more imports.',
     },
     {
+      id: 'paper-2-discuss-practice',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Paper 2 discuss practice',
       zhTitle: 'Paper 2 讨论题练习',
     },
     {
+      id: 'discuss-whether-or-not-an-increase-in-the-money-supply-will-benef',
       type: 'compare',
       mode: 'fillBlanks',
       variant: 'examDiscussion',
@@ -459,6 +494,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'one-side-it-may-benefit',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'One side: it may benefit',
@@ -492,6 +528,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'other-side-it-may-not-benefit',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Other side: it may not benefit',
@@ -519,6 +556,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

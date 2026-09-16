@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: 'supply-side-policy',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "Supply-side policy",
@@ -28,6 +29,7 @@ IGCSE.lesson = {
       "notes": "Actual first-class endpoint: Two types of supply-side policy (4 September 2026). Do not assume the later productivity, capacity or PPC slides were taught. Lesson 2 now starts with recall of the definition and policy types, then teaches those missing foundations. Slides after that endpoint in this deck remain reference/consolidation."
     },
     {
+      id: 'more-demand-or-more-capacity',
       "type": "discussion",
       "eyebrow": "Starter",
       "title": "More demand or more capacity?",
@@ -38,6 +40,7 @@ IGCSE.lesson = {
       "visual": photos.vwApprentices
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -53,18 +56,21 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'supply-side-policy-2',
       "type": "section",
       "eyebrow": "New section",
       "title": "Supply-side policy",
       "zhTitle": "供给侧政策"
     },
     {
+      id: 'visual-pause-singapore',
       "type": "visualPause",
       "title": "Visual pause: Singapore",
       "visual": photos.singaporeIte,
       "notes": "Example: Singapore / China. Former fact context: SkillsFuture Credit began with a S$500 opening credit for eligible adults to support skills development. | China reported about 10 million technical and skilled workers trained each year by vocational colleges and schools. Teacher question: How could training subsidies increase labour productivity? Possible answer: Training improves workers' skills, so each worker can produce more output per hour. Source: Source: SkillsFuture Singapore, 2015 launch materials. | Source: China Ministry of Education, 13th Five-Year Plan vocational education briefing."
     },
     {
+      id: 'supply-side-policy-3',
       "type": "term",
       "keyTerms": [
         {
@@ -111,6 +117,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'demand-side-vs-supply-side',
       "type": "compare",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -153,6 +160,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'two-types-of-supply-side-policy',
       "type": "compare",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -196,6 +204,7 @@ IGCSE.lesson = {
       "notes": "Actual end of the first class. Begin the next class with lesson 2; it now includes the untaught productivity and PPC work."
     },
     {
+      id: 'long-run-output',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Long-run output",
@@ -216,6 +225,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which answer best describes the aim of supply-side policy?",
@@ -230,12 +240,14 @@ IGCSE.lesson = {
       "visual": photos.industrialRobot
     },
     {
+      id: 'capacity-efficiency-and-output',
       "type": "section",
       "eyebrow": "New section",
       "title": "Capacity, efficiency and output",
       "zhTitle": "能力、效率与产出"
     },
     {
+      id: 'from-policy-to-ppc-shift',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "From policy to PPC shift",
@@ -299,6 +311,7 @@ IGCSE.lesson = {
       "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
     },
     {
+      id: 'past-paper-right-shift-causes',
       "type": "cards",
       "eyebrow": "Past paper reasoning",
       "title": "Past paper right-shift causes",
@@ -361,6 +374,7 @@ IGCSE.lesson = {
       "notes": " Progressive diagram: use Right/Space or Next step; Back and Reset replay the explanation. The complete native diagram is retained in Handout view."
     },
     {
+      id: 'fill-in-the-blanks',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Fill in the blanks",
@@ -389,12 +403,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'exam-distinction',
       "type": "section",
       "eyebrow": "New section",
       "title": "Exam distinction",
       "zhTitle": "考试区分"
     },
     {
+      id: 'explain-one-difference-between-monetary-policy-and-supply-side-po',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain one difference between monetary policy and supply-side policy. [4]",
@@ -412,6 +428,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-one-difference-between-monetary-policy-and-supply-side-po-2',
       "type": "modelAnswer",
       "partialReview": [
         ".modelAnswerCard"
@@ -429,6 +446,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'exit-ticket',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",

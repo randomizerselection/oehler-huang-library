@@ -41,14 +41,16 @@
   }
   function opening(s,id){
     let b=text(40,40,'Across the whole economy','capacity-title');
-    b+=text(40,98,'Planned spending · 计划支出','capacity-label')+text(40,250,'Actual output · 实际产出','capacity-label');
-    b+=line(520,120,520,354,'gap-capacity')+text(520,390,'Full-employment capacity','gap-zh','end');
-    const state=(ae,y,copy,step)=>group(`<rect x="60" y="120" width="${ae}" height="62" rx="3" class="batch batch-used"/><rect x="60" y="272" width="${y}" height="62" rx="3" class="batch batch-used"/>`+text(40,452,copy,'capacity-result'),step,step);
-    b+=state(360,460,'Unplanned inventories rise',0);
-    b+=state(300,380,'Income ↓ → Consumption ↓',1);
-    b+=state(280,280,'AE = Y, but resources remain unused',2);
-    b+=group(`<rect x="340" y="272" width="180" height="62" class="batch batch-idle"/>`+text(430,365,'Unused capacity','gap-value','middle'),2);
-    b+=text(40,516,'Illustration of adjustment · not measured data','flow-small');
+    b+=text(40,78,'Each block = £100m per year','flow-small');
+    b+=text(40,132,'Planned spending · 计划支出','capacity-label');
+    b+=text(40,274,'Actual output · 实际产出','capacity-label');
+    const blocks=(y,start,end,idle=false)=>Array.from({length:end-start},(_,i)=>`<rect x="${40+(i+start)*86}" y="${y}" width="76" height="64" rx="3" class="batch ${idle?'batch-idle':'batch-used'}"/>`).join('');
+    b+=blocks(151,0,4)+blocks(293,0,4);
+    b+=text(40,242,'£400m','gap-value')+text(40,384,'£400m','gap-value');
+    b+=group(blocks(293,4,6,true)+text(465,387,'Unused · 闲置','gap-value','middle')+text(40,433,'Could sustainably produce £600m','capacity-label'),1);
+    b+=group(text(40,487,'Spending = output','capacity-result'),0,0);
+    b+=group(text(40,487,'Spending = output, yet resources sit idle','capacity-result'),1);
+    b+=text(40,534,'Illustration · unchanged prices','flow-small');
     return svg(b,id);
   }
   function paired(s,id){

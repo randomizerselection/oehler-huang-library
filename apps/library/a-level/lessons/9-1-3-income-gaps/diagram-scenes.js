@@ -3,20 +3,24 @@
   const low={model:'income-gap',autonomous:100,mpc:.75,full:600,max:900};
   const scenes={
     'opening-story':{model:'opening-story',steps:[
-      step('Spending falls before production adjusts','Across the economy, planned purchases fall below current output.\nUnsold inventories rise.','Firms now have a reason to cut production.'),
-      step('Lower output also means lower incomes','Firms reduce production and employment.\nLower incomes reduce consumption, adding to the initial fall in demand.','Spending and income influence each other.'),
-      step('Balance returns before full employment does','Output eventually matches planned spending again.\nBut workers and productive equipment remain unused.','Equilibrium describes a balance; full employment describes resource use.')
+      step('Spending matches output','£400m of planned spending.\n£400m of actual output.','Do the two amounts match?'),
+      step('The economy could produce more','Available resources could sustainably produce £600m.','Does matching spending mean resources are fully used?')
     ]},
     'equilibrium-below-capacity':{...low,mode:'equilibrium',steps:[
       step('The 45° line marks AE = Y','Both axes use annual £m at unchanged prices.\nAE = 100 + 0.75Y.','The intersection identifies equilibrium income.'),
       step('Equilibrium income is £400m','At E₀, planned spending equals output.\nThere is no unplanned inventory change.','Spending provides no signal for aggregate production to expand.'),
       step('Full-employment income is £600m','Available resources could sustainably produce £600m.\nThis lies to the right of equilibrium income.','The economy can be in equilibrium with unused resources.')
     ]},
-    'gaps-both':{model:'paired-gaps',steps:[
-      step('Use one full-employment benchmark','At full-employment income of £600m, expenditure of £600m would buy all that output.','Measure both gaps here, at the existing price level.'),
-      step('£550m planned: a £50m deflationary gap','Low AE = 100 + 0.75Y.\nAt Y = 600, AE = 550.\nShortfall: 600 − 550 = £50m.','Planned spending is below the expenditure needed for full employment.'),
-      step('£650m planned: a £50m inflationary gap','High AE = 200 + 0.75Y.\nAt Y = 600, AE = 650.\nExcess: 650 − 600 = £50m.','Excess demand puts upward pressure on prices.'),
-      step('The negative output gap is £200m','Output gap = actual output − potential output.\nAt E₀: 400 − 600 = −£200m.\nThe horizontal shortfall is 200; the vertical spending gap is 50.','Measure the output gap horizontally and the spending gap vertically.')
+    'gaps-both':{...low,mode:'deflation',steps:[
+      step('Full employment requires £600m of spending','At full-employment output of £600m, planned spending must also be £600m.','The diagram shows only the deflationary case.'),
+      step('Planned spending is only £550m','At Y = 600, AE = 100 + 0.75 × 600 = 550.','Spending falls short of the amount needed for full employment.'),
+      step('An extra £50m injection closes the spending gap','600 − 550 = £50m.\nRaise autonomous spending by £50m to bring equilibrium to full employment.','The deflationary gap is the vertical spending shortfall at YF.'),
+      step('£50m more spending raises income by £200m','The multiplier is 4: £50m × 4 = £200m.\nIncome rises from £400m to £600m.','The initial injection is £50m; the output shortfall is £200m.')
+    ]},
+    'inflationary-gap-diagram':{...low,autonomous:200,mode:'inflation',steps:[
+      step('Full employment requires £600m of spending','At full-employment output of £600m, planned spending must also be £600m.','The diagram shows only the inflationary case.'),
+      step('Planned spending is £650m','At Y = 600, AE = 200 + 0.75 × 600 = 650.','Spending exceeds full-employment output, creating inflationary pressure.'),
+      step('A £50m spending reduction removes excess demand','650 − 600 = £50m.\nReduce autonomous spending by £50m so planned spending at full employment is £600m.','The inflationary gap is the vertical spending excess at YF.')
     ]},
     'closing-deflationary-gap':{model:'income-gap',autonomous:200,mpc:.8,full:1200,max:1600,currency:'$',unit:'bn',axisUnit:'$ billion',mode:'close',steps:[
       step('The original answer is an initial $40bn increase','Q26: ΔY = $200bn and k = 5.\nΔA = 200 ÷ 5 = +$40bn.','Derived diagram: C = 0.8Y; initial autonomous spending = 200.'),

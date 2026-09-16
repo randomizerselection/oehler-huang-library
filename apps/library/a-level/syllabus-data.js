@@ -758,7 +758,7 @@ window.ALEVEL_SYLLABUS = {
       "resource": {
         "label": "Equilibrium income and expenditure gaps slides",
         "href": "lessons/9-1-3-income-gaps/index.html",
-        "note": "Second segment of this session (9.1.3). Begin with the preceding Investment, government spending and net exports deck (9.1.2). Both decks are linked on the course page; preparation does not record taught coverage."
+        "note": "Original half-session allocation retained. Teacher report, 16 September 2026: completed Part 1 through closing-deflationary-gap, reveal step 4; the essay workshop remains untaught. Continue with Full-employment policies: essay workshop (Part 2), linked on the course page, in a separate teaching slot. The added Part 1 summary is available for recap and is not recorded as taught."
       }
     },
     {

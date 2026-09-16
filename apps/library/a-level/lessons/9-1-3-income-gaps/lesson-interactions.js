@@ -45,11 +45,13 @@
     return `<p class="exam-reference">${e(s.paperRef)} · original question and options</p><div class="exam-workshop"><div class="exam-original">${q}</div><div class="exam-reasoning"><p class="attempt-label">Attempt first · reveal after choosing</p>${s.items.slice(1).map((p,i)=>`<article class="exam-step" data-reveal-step="${i+1}"><h2>${e(p.heading)}</h2><p>${marked(p.text,p.highlights)}</p><p class="exam-credit">${e(p.note)}</p></article>`).join('')}</div></div><div class="lesson-reveal-controls"><button type="button" data-step-back aria-label="Previous explanation step">←</button><button type="button" data-step-next>Reveal next part →</button></div>`;
   }
   const modelSlides=lesson.slides.filter(s=>s.modelParagraph);
+  if(modelSlides.length){
   const diagramText='In the diagram, AE intersects the 45° line at E₀, to the left of full-employment income. At E₀ there is no unplanned inventory change to encourage expansion. Production at full employment would exceed planned purchases, so firms would cut output again.';
   modelDialog.querySelector('.modal-content').innerHTML=`<p class="model-status">Teacher-written response · current AO labels for teaching · original 2021 holistic mark scheme</p><blockquote>${e(lesson.essayQuestion)} [25]</blockquote>${modelSlides.map((s,i)=>`<section><h3>${e(s.focus.split(' · ')[0])}</h3><p>${s.items.slice(1).map(p=>marked(p.text,p.highlights)).join(' ')}</p>${i===0?`<p>${e(diagramText)}</p>`:''}</section>`).join('')}<p class="model-status">Read the model with the labelled diagram on “Using the diagram as part of the argument”. The source button supplies the original L4 criteria; this model has no guaranteed mark.</p>`;
   const modelFigure=document.createElement('figure');modelFigure.className='model-diagram';
   modelFigure.innerHTML=window.EconDiagrams.markup(lesson.slides.find(s=>s.id==='essay-diagram').scene,'complete-essay-diagram')+'<figcaption>Teacher illustration: E₀ lies below full-employment income. Numerical values are not supplied by Q6.</figcaption>';
   modelDialog.querySelector('.modal-content section').append(modelFigure);
+  }
   for(const s of lesson.slides){
     const root=document.getElementById(s.id);
     if(s.paper){
@@ -76,9 +78,10 @@
     if(fb)fb.innerHTML=marked(fb.textContent,s.feedbackHighlights);
   });
   // Old classroom bookmarks lead to the new explanation of the same concept.
-  const aliases={'bakery-case':'opening-story','bakery-capacity':'opening-story','equilibrium-income':'income-comparison','full-employment-income':'income-comparison','deflationary-gap':'gaps-compared','inflationary-gap':'gaps-compared','deflationary-measure':'gaps-both','inflationary-measure':'gaps-both','bakery-excess-demand':'gaps-both'};
+  const aliases={'paper-four-plan':'paper-four-model-diagnosis','bakery-case':'opening-story','bakery-capacity':'opening-story','equilibrium-income':'income-comparison','full-employment-income':'income-comparison','deflationary-gap':'gaps-compared','inflationary-gap':'gaps-compared','deflationary-measure':'gaps-both','inflationary-measure':'inflationary-gap-diagram','bakery-excess-demand':'inflationary-gap-diagram'};
   const old=(window.ALEVEL_INITIAL_HASH||location.hash).slice(1).split('/')[0];const deck=window.EconPresentation.deck;
-  if(aliases[old])deck.show(lesson.slides.findIndex(s=>s.id===aliases[old]),0);else deck.show(deck.current,deck.step);
+  const aliasIndex=lesson.slides.findIndex(s=>s.id===aliases[old]);
+  if(aliasIndex>=0)deck.show(aliasIndex,0);else deck.show(deck.current,deck.step);
   const syncRevealControls=()=>{
     const s=lesson.slides[deck.current];if(!s.layout)return;
     const root=document.getElementById(s.id),last=deck.step===deck.maxStep;

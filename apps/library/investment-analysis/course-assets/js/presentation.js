@@ -662,7 +662,13 @@
     const notesPanel = document.querySelector('#notesPanel');
     const notesText = document.querySelector('#notesText');
     const notesSource = document.querySelector('#notesSource');
-    let current = Math.max(0, Math.min(lesson.slides.length - 1, Number(location.hash.slice(1)) - 1 || 0));
+    function indexFromHash() {
+      let hash;
+      try { hash = decodeURIComponent(location.hash.slice(1)); } catch { hash = ''; }
+      const byId = lesson.slides.findIndex(slide => slide.id === hash);
+      return byId >= 0 ? byId : /^\d+$/.test(hash) ? Number(hash) - 1 : 0;
+    }
+    let current = Math.max(0, Math.min(lesson.slides.length - 1, indexFromHash()));
     const partialProgress = lesson.slides.map(() => 0);
 
     deck.innerHTML = lesson.slides.map((slide, index) => renderSlide(lesson, slide, index)).join('');
@@ -763,7 +769,7 @@
       if (event.target.closest('a, button, summary, details')) return;
       if (!revealNextPartial()) show(current + 1);
     });
-    addEventListener('hashchange', () => show(Number(location.hash.slice(1)) - 1 || 0));
+    addEventListener('hashchange', () => show(indexFromHash()));
     addEventListener('keydown', (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       const editing = event.target.closest('input,textarea,select,[contenteditable="true"]');

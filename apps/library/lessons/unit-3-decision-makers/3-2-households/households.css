@@ -1,0 +1,212 @@
+/* Course-owned adaptation of the September 2026 Enterprise classroom language. */
+@media screen {
+ body.household-classroom{background:#f7f7f2}
+ .household-classroom #deck .slide{--ink:#142f43;--muted:#51616b;--gold:#166c72;--accent:#166c72;--line:#d4dedc;--t-body:clamp(24px,2.05vw,36px);background:#f7f7f2;color:#142f43;padding:4vh 5.8vw 5vh;gap:2vh;font-family:Arial,'Microsoft YaHei',sans-serif;grid-template-rows:26px minmax(0,1fr) 15px;animation:none}
+ .household-classroom #deck .slide::before,.household-classroom #deck .slide::after{display:none}
+ .household-classroom .slide .content{align-items:start;gap:3vw;padding-top:2vh}
+ .household-classroom .slide .content main{align-content:start}
+ .household-classroom .slide h2{font-size:clamp(36px,3.2vw,60px);line-height:1.15;font-weight:700;letter-spacing:-.025em;margin:0 0 24px;padding-bottom:17px;border-bottom:1px solid #d4dedc;text-wrap:pretty}
+ .household-classroom .slide .lead{font-size:clamp(27px,2.1vw,39px);line-height:1.35;color:#51616b;font-weight:400;margin:0 0 23px;max-width:none}
+ .household-classroom .slide .inlineZh{display:block;font-size:clamp(24px,1.8vw,34px);color:#51616b;margin-top:12px;line-height:1.35;font-weight:400;letter-spacing:0}
+ .household-classroom .slide .badge{background:none;border:0;box-shadow:none;padding:0;font-size:17px;color:#51616b;letter-spacing:.04em}
+ .household-classroom .slide .badge::before,.household-classroom .slideSourceControl{display:none}
+ .household-classroom .slide-footer{font-size:13px;color:#64737b}
+ .household-classroom .slide-footer .creator,.household-classroom .slide-footer>span:not(:first-child):not(.classroom-slide-number){display:none}
+ .household-classroom .slide-footer .classroom-slide-number{margin-left:auto;font-size:14px}
+ .household-classroom .slide .partial-item{transform:none;filter:none;transition:opacity .15s}
+ .household-classroom .slide .card{border:0;border-radius:0;box-shadow:none;background:none;padding:16px 0}
+ .household-classroom .slide .card::after{display:none}
+ .household-classroom .slide .cardgrid{gap:24px;grid-template-columns:1fr}
+ .household-classroom .slide .cardTitle{color:#166c72;font-size:clamp(27px,2vw,38px);font-weight:600}
+ .household-classroom .slide .cardBody{color:#142f43;font-size:clamp(28px,2.05vw,39px);line-height:1.35;font-weight:400;margin-top:10px}
+ .household-classroom .slide .prompt{padding:14px 0;border:0;border-radius:0;background:none;box-shadow:none;font-size:25px;line-height:1.4;color:#51616b}
+ .household-classroom .slide .photoPanel{border:0;box-shadow:none;border-radius:4px;min-height:0}
+ .household-classroom .slide .photoPanel figcaption{display:none}
+ .household-classroom .slide:not(.is-hero) .photoPanel::after{display:none}
+ .household-classroom #deck .slide:is(.is-hero,.is-section){--ink:#fff;--muted:#d9e5e4;background:#142f43;color:white}
+ .household-classroom .slide:is(.is-hero,.is-section) .badge,.household-classroom .slide:is(.is-hero,.is-section) .inlineZh{color:#d9e5e4}
+ .household-classroom .slide:is(.is-hero,.is-section) .content{align-items:center}
+ .household-classroom .slide.is-section .content{grid-template-columns:1fr}
+ .household-classroom .slide.is-section .visual{display:none}
+ .household-classroom .slide.is-section .sectionTitle{color:white;background:none;-webkit-text-fill-color:currentColor;font-size:clamp(46px,4.7vw,86px);line-height:1.15;font-weight:700}
+ .household-classroom .is-layout-household-influence-overview .content.is-section>div{display:grid;grid-template-columns:minmax(0,.85fr) minmax(460px,1.15fr);grid-template-rows:auto auto;gap:28px 6vw;align-items:center;width:100%}
+ .household-classroom .is-layout-household-influence-overview .sectionTitle{grid-column:1;grid-row:1;font-size:clamp(44px,4vw,70px)}
+ .household-classroom .is-layout-household-influence-overview .sectionProgress{grid-column:1;grid-row:2;margin:0}
+ .household-classroom .household-influence-list{grid-column:2;grid-row:1/3;list-style:none;margin:0;padding:0;border-top:1px solid #64737b}
+ .household-classroom .household-influence-list li{display:grid;grid-template-columns:50px 1fr;gap:12px;align-items:baseline;padding:15px 0;border-bottom:1px solid #64737b}
+ .household-classroom .household-influence-number{color:#d6a34a;font-size:27px;font-weight:700;font-variant-numeric:tabular-nums}
+ .household-classroom .household-influence-list strong{display:block;color:#fff;font-size:clamp(28px,2.2vw,38px);line-height:1.2;font-weight:600}
+ .household-classroom .household-influence-list small{display:block;color:#d9e5e4;font-size:24px;line-height:1.35;margin-top:4px}
+ .household-classroom .slide.is-hero .content{grid-template-columns:1fr}
+ .household-classroom .slide.is-hero .content main{z-index:2;width:63%;align-content:center}
+ .household-classroom .slide.is-hero h1{font-size:clamp(48px,4.8vw,92px);font-weight:700;line-height:1.05;letter-spacing:-.03em}
+ .household-classroom .slide.is-hero .heroTitleZh{font-size:30px;color:#d9e5e4;margin-top:25px}
+ .household-classroom .slide.is-hero .kicker{font-size:28px;color:#d9e5e4;margin-top:30px}
+ .household-classroom .slide.is-hero .visual{position:absolute;inset:0 0 0 48%;height:100%;opacity:.8}
+ .household-classroom .slide.is-hero .photoPanel{width:100%;height:100%;border-radius:0;margin:0}
+ .household-classroom .slide.is-hero .photoPanel img{height:100%;width:100%;object-fit:cover;object-position:60% 50%}
+ .household-classroom .slide.is-hero .visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#142f43,transparent 70%)}
+ .household-classroom .slide .topline{z-index:3}
+ .household-classroom .is-outcomes .choices{grid-template-columns:1fr;gap:0;counter-reset:objective}
+ .household-classroom .is-outcomes .choice{display:grid;grid-template-columns:60px 1fr;gap:8px 24px;background:none;border:0;border-bottom:1px solid #d4dedc;border-radius:0;box-shadow:none;padding:26px 0;min-height:0;counter-increment:objective;font-size:31px;font-weight:400;color:#142f43}
+ .household-classroom .is-outcomes .choice::before{content:'0' counter(objective);grid-row:1/3;background:none;border:0;color:#166c72;font-size:30px;width:auto;height:auto}
+ .household-classroom .is-outcomes .choice>span:first-child{font-size:31px;border:0;padding:0;font-weight:400}
+ .household-classroom .is-outcomes .outcomeZh{grid-column:2;font-size:25px;color:#51616b;font-weight:400}
+ .household-classroom .classificationTaskBlock{max-width:none;width:100%}
+ .household-classroom .classificationBadge,.household-classroom .quizEyebrow{display:none}
+ .household-classroom .classificationItems{grid-template-columns:1fr;gap:0}
+ .household-classroom .classificationItem{grid-template-columns:1fr 1.15fr;gap:35px;padding:18px 0;min-height:0;border-bottom:1px solid #d4dedc}
+ .household-classroom .classificationItem{grid-template-rows:auto;align-items:center;border-radius:0;background:none;border-top:0;border-left:0;border-right:0}
+ .household-classroom .classificationItemTop p{font-size:28px;line-height:1.35;font-weight:400}
+ .household-classroom .classificationItemNumber{background:none;border:0;color:#64737b}
+ .household-classroom .classificationResult{min-height:110px;padding-left:25px;border-left:2px solid #d4dedc}
+ .household-classroom .classificationAnswer{font-size:28px;line-height:1.35;color:#166c72;font-weight:600}
+ .household-classroom .classificationAnswer{display:block;width:auto;padding:0;border-radius:0;background:none;box-shadow:none}
+ .household-classroom .classificationResult{border-top:0}
+ .household-classroom .classificationShare{display:none}
+ .household-classroom .is-term .definitionCue,.household-classroom .is-term .termBox::before{display:none}
+ .household-classroom .is-term .termBox{padding:0;background:none;border:0;border-radius:0;box-shadow:none;margin-top:36px}
+ .household-classroom #deck .is-term .termDefinitionText{font-size:clamp(36px,3vw,56px);line-height:1.45;color:#142f43;font-weight:400}
+ .household-classroom .is-term .termDefinitionZh{font-size:27px;color:#51616b;margin-top:28px}
+ .household-classroom .is-term .definitionBlankAnswer{background:#dce9e6;border:0;border-bottom:3px solid #166c72;border-radius:0;color:transparent}
+ .household-classroom .is-term .definitionBlankAnswer.is-revealed{color:#166c72}
+ .household-classroom .is-term .photoPanel{height:53vh}
+ .household-classroom .is-layout-household-brief .content{grid-template-columns:1.3fr .8fr}
+ .household-classroom .is-layout-household-brief .photoPanel{height:48vh}
+ .household-classroom .is-layout-household-brief img{object-fit:contain}
+ .household-classroom .has-household-scene .cardgrid{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;overflow:hidden}
+ .household-classroom .household-scene svg{display:block;width:100%;max-height:44vh;margin:18px 0}
+ .household-classroom .scene-caption{font-size:28px;color:#166c72;line-height:1.35;border-top:2px solid #d4dedc;padding-top:20px;min-height:85px;margin:0}
+ .household-classroom .is-compare .content{grid-template-columns:1fr}
+ .household-classroom .splitCols{gap:48px}
+ .household-classroom .compareBlock .card{padding-top:22px;border-top:3px solid #166c72}
+ .household-classroom .compareBlock .card>b{font-size:31px;line-height:1.35;color:#166c72;font-weight:600}
+ .household-classroom .compareBlock .choices{display:block;margin-top:25px}
+ .household-classroom .slide.is-compare .content.is-full .compareBlock .choice{font-size:clamp(29px,2.05vw,39px);line-height:1.4;background:none;border:0;border-bottom:1px solid #d4dedc;box-shadow:none;border-radius:0;padding:20px 0;min-height:0;font-weight:400;color:#142f43;display:block}
+ .household-classroom .compareBlock .choice::before{display:none}
+ .household-classroom .household-interest-table{width:100%;border-collapse:collapse;table-layout:fixed}
+ .household-classroom .household-interest-table th{font-size:30px;color:#166c72;text-align:left;padding:18px 22px;border-top:3px solid #166c72}
+ .household-classroom .household-interest-table td{padding:8px 22px;border-top:1px solid #d4dedc;width:50%;vertical-align:top}
+ .household-classroom .household-interest-table td+td,.household-classroom .household-interest-table th+th{border-left:1px solid #d4dedc}
+ .household-classroom .household-interest-table .choice{border:0;padding:15px 0}
+ .household-classroom .flowBlock{max-width:none}
+ .household-classroom .flowChain{gap:55px;margin-top:60px;align-items:stretch}
+ .household-classroom .flowChip{background:none;border:0;border-top:3px solid #166c72;border-radius:0;box-shadow:none;padding:23px 4px;min-height:245px;display:flex;flex-direction:column;justify-content:flex-start}
+ .household-classroom .flowText{font-size:31px;line-height:1.45;color:#142f43;font-weight:600}
+ .household-classroom .flowChip .flowTextZh{font-size:26px;line-height:1.45;color:#51616b;margin-top:24px;font-weight:400}
+ .household-classroom .flowNumber{font-size:19px;color:#64737b;background:none;border:0;margin-bottom:18px}
+ .household-classroom .flowChip:not(:last-child)::after{content:'→';right:-43px;top:90px;color:#166c72;font-size:40px;background:none;transform:none;border:0;box-shadow:none;width:auto;height:auto;display:block}
+ .household-classroom .blankAnswer{background:#dce9e6;border-color:#166c72;box-shadow:none;border-radius:0}
+ .household-classroom .is-layout-household-age .cardgrid{grid-template-columns:repeat(3,1fr);gap:40px;margin-top:30px}
+ .household-classroom .is-layout-household-age .card{border-top:3px solid #166c72;padding-top:115px;position:relative}
+ .household-classroom .is-layout-household-age .card::before{content:'';position:absolute;top:12px;left:0;width:75px;height:85px;background:url('assets/person.svg') center/contain no-repeat}
+ .household-classroom .is-layout-household-age .card:nth-child(2)::before{filter:grayscale(.4)}
+ .household-classroom .is-layout-household-age .card:nth-child(3)::before{filter:grayscale(1)}
+ .household-classroom .is-layout-household-age .cardBody{font-size:28px}
+ .household-classroom .quizBlock{gap:12px;align-content:start;min-height:0}
+ .household-classroom .quizBlock>.lead{font-size:30px;font-weight:600;color:#142f43;border-bottom:1px solid #d4dedc;padding-bottom:16px;margin:0 0 8px;white-space:pre-line}
+ .household-classroom .choices.is-mcq{gap:10px}
+ .household-classroom .choices.is-mcq .choice{font-size:27px;line-height:1.3;padding:12px 17px;min-height:58px;border:2px solid transparent;border-radius:4px;background:#edf1ed;color:#142f43;font-weight:400;box-shadow:none}
+ .household-classroom .choiceLetter{background:none;border:0;color:#166c72;font-weight:700}
+ .household-classroom .choices.is-mcq .choice.is-correct{background:#dce9e6;border-color:#166c72}
+ .household-classroom .choices.is-mcq .choice.is-incorrect{background:#f3e5df;border-color:#a8423c}
+ .household-classroom .mcqExplanation{min-height:95px;margin:8px 0 0;padding:15px 0 0;border-top:2px solid #166c72;font-size:25px;line-height:1.4;color:#166c72;background:none}
+ .household-classroom .mcqExplanation[hidden]{display:block!important;visibility:hidden}
+ .household-classroom .household-option-head,.household-classroom .is-layout-household-options-table .choice{display:grid;grid-template-columns:50px 1fr 1fr;gap:20px}
+ .household-classroom .household-option-head{font-size:26px;color:#51616b;padding:5px 19px}
+ .household-classroom .is-layout-household-data-mcq .quizBlock{display:grid;grid-template-columns:1fr 1fr;gap:18px 50px}
+ .household-classroom .is-layout-household-data-mcq .quizBlock>.lead{grid-column:1/-1}
+ .household-classroom .is-layout-household-data-mcq .mcqExplanation{grid-column:1/-1}
+ .household-classroom .household-exam-table{width:100%;border-collapse:collapse;font-size:26px;line-height:1.2}
+ .household-classroom .household-exam-table th{color:#166c72;border-bottom:2px solid #166c72;font-weight:600}
+ .household-classroom .household-exam-table td,.household-classroom .household-exam-table th{padding:7px 15px;text-align:center}
+ .household-classroom .household-exam-table td{border-bottom:1px solid #d4dedc}
+ .household-classroom .examBlock .examChainLabel,.household-classroom .examBlock .num{display:none}
+ .household-classroom .examSpecChips{display:none}
+ .household-classroom .examBlock .cardgrid:empty{display:none}
+ .household-classroom .is-layout-household-explain .cardgrid{grid-template-columns:1fr 1fr;gap:0 25px;margin-top:35px}
+ .household-classroom .examChainLink{border-bottom:1px solid #d4dedc!important;font-size:28px}
+ .household-classroom .examChainLink b{font-size:28px;color:#166c72;line-height:1.4}
+ .household-classroom .modelAnswerCard{border:0;background:none;box-shadow:none;padding:0}
+ .household-classroom .modelAnswerLabel{font-size:18px;color:#51616b;margin-bottom:16px}
+ .household-classroom .modelAnswerText{font-size:29px;line-height:1.48;font-weight:400;color:#142f43}
+ .household-classroom .modelAnswerText>p{border-left:3px solid #166c72;padding:10px 0 10px 25px;margin:0 0 20px}
+ .household-classroom #deck .is-modelAnswer .modelAnswerText p{color:#142f43;font-size:clamp(29px,2.05vw,39px);line-height:1.45;font-weight:400}
+ .household-classroom .modelAnswerText mark{background:#dce9e6;color:#166c72;box-shadow:none;border:0}
+ .household-classroom .paperExtractPanel{background:none;border:0;border-left:3px solid #166c72;border-radius:0;padding:18px 30px;box-shadow:none}
+ .household-classroom .paperExtractText{font-size:30px;line-height:1.55;color:#142f43}
+ .household-classroom #deck .paperExtractText p{font-size:clamp(30px,2.1vw,40px);line-height:1.55;color:#142f43;font-weight:400}
+ .household-classroom .paperExtractLabel{font-size:18px;color:#51616b}
+ .household-classroom .household-context{font-size:20px;color:#51616b;margin-top:22px}
+ .household-classroom .household-context[open]{max-height:170px;overflow:auto}
+ .household-classroom .household-context summary{cursor:pointer;color:#166c72}
+ .household-classroom .is-layout-household-summary .card{border-bottom:1px solid #d4dedc;padding:12px 0}
+ .household-classroom .classroom-source-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto;max-width:70%;justify-content:flex-end}
+ .household-classroom .classroom-source-buttons button{background:none;color:#51616b;border:1px solid #b9cdca;border-radius:3px;padding:5px 10px;font-size:13px;cursor:pointer}
+ .household-classroom .slide:is(.is-hero,.is-section) .classroom-source-buttons button{color:#d9e5e4;border-color:#64737b}
+}
+.classroom-source-dialog{width:min(1040px,92vw);max-height:86vh;padding:25px;border:1px solid #d4dedc;border-radius:3px;background:#f7f7f2;color:#142f43;font-family:Arial,'Microsoft YaHei',sans-serif;box-sizing:border-box}
+.classroom-source-dialog[open]{display:flex;flex-direction:column}
+.classroom-source-dialog::backdrop{background:#142f43aa}
+.classroom-dialog-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d4dedc;padding-bottom:15px;gap:20px}
+.classroom-dialog-head h2{font-size:28px;margin:0;color:#142f43}
+.classroom-dialog-head button{font-size:32px;border:0;background:none;color:#142f43;cursor:pointer}
+.classroom-source-content{overflow:auto;padding-top:20px}
+.classroom-source-content h3{font-size:24px;color:#166c72}
+.classroom-source-content p,.classroom-source-content li{font-size:22px;line-height:1.5;white-space:pre-line}
+.classroom-source-content table{border-collapse:collapse;width:100%;font-size:22px}
+.classroom-source-content th,.classroom-source-content td{padding:10px;text-align:left;border-bottom:1px solid #d4dedc}
+@media screen and (min-width:1700px){.household-classroom .classificationItemTop p,.household-classroom .classificationAnswer,.household-classroom .scene-caption,.household-classroom .modelAnswerText,.household-classroom .compareBlock .choice{font-size:36px}.household-classroom .classificationResult{min-height:145px}.household-classroom .choices.is-mcq .choice{font-size:34px;min-height:72px}.household-classroom .mcqExplanation{font-size:30px}.household-classroom .quizBlock>.lead{font-size:38px}.household-classroom .household-exam-table{font-size:32px}.household-classroom .household-exam-table td{padding:12px}.household-classroom .flowText{font-size:39px}.household-classroom .flowTextZh{font-size:32px}}
+@media screen and (max-width:760px){
+ .household-classroom #deck .slide{padding:24px 22px 95px;grid-template-rows:auto 1fr auto;gap:18px;overflow-y:auto}
+ .household-classroom .topline{flex-wrap:wrap;gap:10px}
+ .household-classroom .classroom-source-buttons{max-width:100%;margin:0;justify-content:flex-start}
+ .household-classroom .classroom-source-buttons button{font-size:11px}
+ .household-classroom .slide .content,.household-classroom .is-layout-household-brief .content{display:block;padding-top:10px}
+ .household-classroom .slide h2{font-size:30px;margin-bottom:18px}
+ .household-classroom .slide .lead,.household-classroom .slide .cardBody,.household-classroom .slide .cardTitle{font-size:23px}
+ .household-classroom .slide .inlineZh{font-size:21px}
+ .household-classroom .slide.is-hero .content main{width:100%}
+ .household-classroom .slide.is-hero .visual{inset:35% 0 0;opacity:.4}
+ .household-classroom .slide.is-hero h1{font-size:44px}
+ .household-classroom .slide.is-hero .kicker{font-size:24px}
+ .household-classroom .is-layout-household-influence-overview .content.is-section>div{display:block}
+ .household-classroom .is-layout-household-influence-overview .sectionTitle{font-size:38px}
+ .household-classroom .is-layout-household-influence-overview .sectionProgress{margin-top:22px}
+ .household-classroom .household-influence-list{margin-top:28px}
+ .household-classroom .household-influence-list li{grid-template-columns:38px 1fr;padding:13px 0}
+ .household-classroom .household-influence-number{font-size:23px}
+ .household-classroom .household-influence-list strong{font-size:25px}
+ .household-classroom .household-influence-list small{font-size:21px}
+ .household-classroom .classificationItem{grid-template-columns:1fr;gap:12px;padding:18px 0}
+ .household-classroom .classificationItemTop p,.household-classroom .classificationAnswer{font-size:23px}
+ .household-classroom .classificationResult{min-height:90px;padding-left:16px}
+ .household-classroom .is-outcomes .choice{grid-template-columns:40px 1fr;padding:20px 0;gap:8px 12px}
+ .household-classroom .is-outcomes .choice>span:first-child{font-size:24px}
+ .household-classroom .is-outcomes .outcomeZh{font-size:21px}
+ .household-classroom .has-household-scene .cardgrid{position:static;opacity:1;width:auto;height:auto;pointer-events:auto}
+ .household-classroom .household-scene{display:none}
+ .household-classroom .splitCols,.household-classroom .is-layout-household-age .cardgrid{display:grid;grid-template-columns:1fr;gap:22px}
+ .household-classroom .compareBlock .card>b{font-size:25px}
+ .household-classroom .slide.is-compare .content.is-full .compareBlock .choice{font-size:23px;padding:13px 0}
+ .household-classroom .household-interest-table th{font-size:21px;padding:12px 8px}
+ .household-classroom .household-interest-table td{padding:6px 8px}
+ .household-classroom .flowChain{display:flex;flex-direction:column;margin-top:20px;gap:25px}
+ .household-classroom .flowChip{min-height:0;padding:16px 0}
+ .household-classroom .flowText{font-size:25px}
+ .household-classroom .flowTextZh{font-size:22px;margin-top:15px}
+ .household-classroom .flowChip:not(:last-child)::after{content:'↓';top:auto;bottom:-40px;right:10px;font-size:32px}
+ .household-classroom .is-layout-household-data-mcq .quizBlock{display:flex;flex-direction:column;gap:18px}
+ .household-classroom .quizBlock>.lead{font-size:25px}
+ .household-classroom .choices.is-mcq .choice{font-size:22px;min-height:54px}
+ .household-classroom .mcqExplanation{font-size:22px}
+ .household-classroom .household-exam-table{font-size:22px}
+ .household-classroom .household-option-head{font-size:21px}
+ .household-classroom .is-layout-household-options-table .choice{grid-template-columns:30px 1fr 1fr;gap:10px;padding:12px 9px}
+ .household-classroom .modelAnswerText,.household-classroom .paperExtractText{font-size:24px}
+ .household-classroom #deck .is-modelAnswer .modelAnswerText p,.household-classroom #deck .paperExtractText p{font-size:24px}
+ .household-classroom #deck .is-term .termDefinitionText{font-size:30px}
+ .household-classroom .is-layout-household-explain .cardgrid{grid-template-columns:1fr 1fr;gap:12px}
+ .household-classroom .examChainLink b{font-size:20px}
+}
+@media print{.classroom-source-buttons,.classroom-source-dialog,.classroom-slide-number,.household-scene{display:none!important}.household-classroom .has-household-scene .cardgrid{position:static;opacity:1;width:auto;height:auto}.household-exam-table{border-collapse:collapse;width:100%}.household-exam-table td,.household-exam-table th{border:1px solid #777;padding:6px}}

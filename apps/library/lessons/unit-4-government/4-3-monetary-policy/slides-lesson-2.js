@@ -30,6 +30,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'interest-rates',
       type: 'hero',
       eyebrow: 'Overview',
       title: 'Interest rates',
@@ -39,6 +40,7 @@ IGCSE.lesson = {
       visual: photos.bankEngland,
     },
     {
+      id: 'recall-last-lesson',
       type: 'peerTask',
       taskType: 'definitionRecall',
       eyebrow: 'Recall',
@@ -65,6 +67,7 @@ IGCSE.lesson = {
       sharePrompt: 'Compare your definitions with a partner before revealing the model answers.',
     },
     {
+      id: 'borrow-or-save',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Borrow or save?',
@@ -75,6 +78,7 @@ IGCSE.lesson = {
       visual: photos.bankEngland,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -90,12 +94,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'interest-rate-definition',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Interest rate definition',
       zhTitle: '利率定义',
     },
     {
+      id: 'buy-now-repay-later',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Buy now, repay later',
@@ -106,6 +112,7 @@ IGCSE.lesson = {
       visual: stakeholderPhotos.firm,
     },
     {
+      id: 'interest-rate-cost-and-reward',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Interest rate: cost and reward',
@@ -118,6 +125,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -129,6 +137,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'interest-rate',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -144,6 +153,7 @@ IGCSE.lesson = {
       ],
       showExamples: false,    },
     {
+      id: 'right-or-wrong',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Right or wrong?',
@@ -156,6 +166,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'The central bank raises the interest rate from 1% to 4%. What is the most likely effect on savers and borrowers?',
@@ -177,6 +188,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'key-idea',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Key idea',
@@ -195,6 +207,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-2',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -205,6 +218,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'lower-interest-rates',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Lower interest rates',
@@ -212,6 +226,7 @@ IGCSE.lesson = {
       subtitle: 'Expansionary monetary policy',
     },
     {
+      id: 'cheaper-loans',
       type: 'discussion',
       eyebrow: 'Discuss',
       title: 'Cheaper loans',
@@ -222,6 +237,7 @@ IGCSE.lesson = {
       visual: photos.fed,
     },
     {
+      id: 'effect-of-a-lower-interest-rate',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Effect of a lower interest rate',
@@ -243,6 +259,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-3',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -254,6 +271,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'who-is-affected-by-lower-rates',
       type: 'cards',
       eyebrow: 'Discuss',
       title: 'Who is affected by lower rates?',
@@ -267,6 +285,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card .cardBody', '.prompt'],
     },
     {
+      id: 'complete-the-missing-sentence',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -281,6 +300,7 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Households may spend more and firms may invest more.',
     },
     {
+      id: 'fill-in-the-blanks-4',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -293,6 +313,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'higher-interest-rates',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Higher interest rates',
@@ -300,6 +321,7 @@ IGCSE.lesson = {
       subtitle: 'Contractionary monetary policy',
     },
     {
+      id: 'cooling-demand',
       type: 'discussion',
       eyebrow: 'Discuss',
       title: 'Cooling demand',
@@ -310,6 +332,7 @@ IGCSE.lesson = {
       visual: photos.bankEngland,
     },
     {
+      id: 'effect-of-a-higher-interest-rate',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Effect of a higher interest rate',
@@ -331,6 +354,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'fill-in-the-blanks-5',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Fill in the blanks',
@@ -342,6 +366,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'higher-interest-rates-exam-trade-off',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Higher interest rates: exam trade-off',
@@ -355,6 +380,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'complete-the-missing-sentence-2',
       type: 'peerTask',
       taskType: 'missingSentence',
       eyebrow: 'Pair task',
@@ -369,6 +395,7 @@ IGCSE.lesson = {
       missingSentenceAnswer: 'Households and firms may spend or invest less.',
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Governments use monetary policy such as increasing the rate of interest. What is a result of increasing the rate of interest?',
@@ -390,6 +417,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'explain-how-higher-interest-rates-may-reduce-inflation-4',
       type: 'exam',
       title: 'Explain how higher interest rates may reduce inflation. [4]',
       eyebrow: 'Exam practice',      marks: 4,
@@ -407,6 +435,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+      id: 'explain-how-higher-interest-rates-may-reduce-inflation-4-2',
       type: 'modelAnswer',
       partialReview: ['.modelAnswerCard'],
       showLinkChips: false,
@@ -418,6 +447,7 @@ IGCSE.lesson = {
       partialReview: ['.modelAnswerCard'],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

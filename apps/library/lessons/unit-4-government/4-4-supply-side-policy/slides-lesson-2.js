@@ -57,6 +57,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: '4-4-2-supply-side-measures',
       "type": "hero",
       "eyebrow": "Overview",
       "title": "4.4.2 Supply-side measures",
@@ -67,6 +68,7 @@ IGCSE.lesson = {
       "notes": "Previous class stopped at Two types of supply-side policy; Capacity, efficiency and output was NOT taught. The new policy lists and identification checks add about 6 minutes before the existing 40-minute core, giving about 46 minutes in total. Read each list across: policy name, government action, supply-side effect. Students need a simple first explanation; develop the full mechanisms in the later teaching. Stop at the FIRST Exit ticket (slide 34). Healthcare, infrastructure and subsidies from slide 35 are the continuation before lesson 3. If the class is limited to 40 minutes, continue the writing and exit check next time rather than rushing the new introduction."
     },
     {
+      id: 'recall-last-lesson',
       "type": "peerTask",
       "taskType": "definitionRecall",
       "eyebrow": "Recall",
@@ -94,6 +96,7 @@ IGCSE.lesson = {
       "notes": "3 minutes. Retrieve only the policy definition and the two policy types actually reached in lesson 1. Accept a clear paraphrase; do not ask students to recall productivity or the PPC application yet."
     },
     {
+      id: 'check',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which policy is interventionist?",
@@ -107,6 +110,7 @@ IGCSE.lesson = {
       "prompt": "Funding training provides direct government support. The other policies work mainly through market incentives."
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -122,6 +126,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'interventionist-policies',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Interventionist policies",
@@ -144,6 +149,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'name-the-policy-and-explain-its-effect',
       "type": "classificationTask",
       "eyebrow": "Check",
       "title": "Name the policy and explain its effect",
@@ -164,6 +170,7 @@ IGCSE.lesson = {
       "notes": "1 minute. Students write a policy name and one because sentence for each case. Reveal answers only after they try. For the first case accept infrastructure spending; for the second require subsidy rather than just government spending."
     },
     {
+      id: 'market-based-policies',
       "type": "dataTable",
       "eyebrow": "Learn",
       "title": "Market-based policies",
@@ -188,6 +195,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'name-the-policy-and-explain-its-effect-2',
       "type": "classificationTask",
       "eyebrow": "Check",
       "title": "Name the policy and explain its effect",
@@ -208,6 +216,7 @@ IGCSE.lesson = {
       "notes": "1 minute. Students identify and explain before revealing. Privatisation changes ownership; deregulation changes rules. Accept relevant alternative explanations, such as lower compliance costs for deregulation. Now develop the terms productivity, efficiency and capacity to make these first explanations more precise."
     },
     {
+      id: 'capacity-efficiency-and-output',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Capacity, efficiency and output",
@@ -215,12 +224,14 @@ IGCSE.lesson = {
       "notes": "12 minutes for this section. Treat the whole section as new teaching: this is the part not reached in lesson 1. Define output as total production before distinguishing output per worker, efficiency and maximum possible output."
     },
     {
+      id: 'discussion',
       "type": "discussion",
       "layout": "question-only",
       "question": "A workshop doubles its workers and doubles its output. Has productivity increased?",
       "notes": "Think for 20 seconds, then justify. No: output per worker is unchanged. Keep the working day and equipment per worker comparable. 一个车间的工人数和产量都翻倍，生产率提高了吗？"
     },
     {
+      id: 'productivity',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -252,6 +263,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'fill-in-the-blanks',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Fill in the blanks",
@@ -276,6 +288,7 @@ IGCSE.lesson = {
       "notes": "2 minutes. Students calculate on paper before reveal. The same working day is assumed; 12 cars is total output, not productivity."
     },
     {
+      id: 'efficiency',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -300,6 +313,7 @@ IGCSE.lesson = {
       "notes": "Here efficiency means avoiding waste and getting more from productive resources. This is not a new lesson on allocative efficiency. Distinguish efficiency from merely increasing total output by using more inputs."
     },
     {
+      id: 'is-the-workshop-more-efficient',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Is the workshop more efficient?",
@@ -318,6 +332,7 @@ IGCSE.lesson = {
       "notes": "One minute: thumbs up/down, then reveal each reason. Do not treat an increase in total output alone as evidence of higher efficiency."
     },
     {
+      id: 'productive-capacity',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -348,6 +363,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check-2',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "A workshop can repair 12 cars a day, but has orders for only 8. What are its output and capacity?",
@@ -361,12 +377,14 @@ IGCSE.lesson = {
       "prompt": "Output is what is actually produced. Capacity is the maximum possible output, even when demand is too low to use it all."
     },
     {
+      id: 'discussion-2',
       "type": "discussion",
       "layout": "question-only",
       "question": "If better skills let the economy produce more with the same workers, what happens to its PPC?",
       "notes": "Let students sketch the direction first. Better-quality labour raises maximum possible output, so the PPC shifts outwards. 技能提高使同样数量的工人能够生产更多，PPC会怎样变化？"
     },
     {
+      id: 'higher-capacity-shifts-the-ppc',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Higher capacity shifts the PPC",
@@ -422,6 +440,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'education-and-training',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Education and training",
@@ -429,6 +448,7 @@ IGCSE.lesson = {
       "notes": "8 minutes. Focus on one concrete workshop example before generalising. Keep the discussion and yes/no check brief; the explanation flow and student writing carry the main teaching."
     },
     {
+      id: 'learning-a-practical-skill',
       "type": "visualPause",
       "title": "Learning a practical skill",
       "visual": photos.autoMechanicsTraining,
@@ -436,12 +456,14 @@ IGCSE.lesson = {
       "notes": "30 seconds: what is this student learning to do? Identify practical skills and bridge to job-specific training. The local photo shows mechanics training in Zambia; no claim is made about a current programme."
     },
     {
+      id: 'discussion-3',
       "type": "discussion",
       "layout": "question-only",
       "question": "Why might funding a mechanics course increase supply more than giving customers money to buy repairs?",
       "notes": "Partners suggest one difference. The course improves mechanics’ skills and productive capacity; more customer spending mainly raises demand. 为什么资助汽修培训比给顾客钱购买维修服务更可能提高生产能力？"
     },
     {
+      id: 'education-and-training-2',
       "type": "compare",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -474,6 +496,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'education-or-training',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Education or training?",
@@ -492,6 +515,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'how-training-raises-capacity',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -524,6 +548,7 @@ IGCSE.lesson = {
       "notes": "2 minutes. Show all steps at once and ask for the missing economics terms. Supply-side improvement is greater output per input, not merely more spending."
     },
     {
+      id: 'complete-the-missing-sentence',
       "type": "peerTask",
       "taskType": "missingSentence",
       "eyebrow": "Pair task",
@@ -549,6 +574,7 @@ IGCSE.lesson = {
       "notes": "2 minutes. Both partners write the missing explanation. If behind schedule, take one oral response and move on."
     },
     {
+      id: 'retraining-and-unemployment',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Retraining and unemployment",
@@ -556,12 +582,14 @@ IGCSE.lesson = {
       "notes": "6 minutes. Teach skills mismatch without requiring a full unemployment taxonomy."
     },
     {
+      id: 'discussion-4',
       "type": "discussion",
       "layout": "question-only",
       "question": "A factory closes, but local garages need mechanics. Why might the unemployed workers still struggle to get jobs?",
       "notes": "They may lack the skills the vacancies require. Retraining can help workers move between occupations. 工厂关闭，但当地汽修厂缺人。失业工人为什么仍可能找不到工作？"
     },
     {
+      id: 'occupational-mobility',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -580,6 +608,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check-3',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which change most directly improves occupational mobility?",
@@ -593,6 +622,7 @@ IGCSE.lesson = {
       "prompt": "Retraining gives workers skills for a different occupation. Better transport mainly helps them reach jobs in different places."
     },
     {
+      id: 'how-retraining-can-reduce-unemployment',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -633,6 +663,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'does-retraining-guarantee-a-job',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Does retraining guarantee a job?",
@@ -646,6 +677,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'explain-how-government-funded-retraining-may-reduce-unemployment',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Explain how government-funded retraining may reduce unemployment. [4]",
@@ -667,6 +699,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'explain-how-government-funded-retraining-may-reduce-unemployment-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Explain how government-funded retraining may reduce unemployment. [4]",
@@ -692,6 +725,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'exit-ticket',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",
@@ -717,6 +751,7 @@ IGCSE.lesson = {
       "notes": "STOP HERE for today’s 40-minute lesson (slide 32). Take individual answers before revealing. Next class: resume this same deck at Healthcare and productivity (slide 33)."
     },
     {
+      id: 'healthcare-and-productivity',
       "type": "section",
       "eyebrow": "Part 4",
       "title": "Healthcare and productivity",
@@ -724,18 +759,21 @@ IGCSE.lesson = {
       "notes": "CONTINUATION FOR THE NEXT CLASS. Resume here after the first Exit ticket; spend about 25–30 minutes on healthcare, infrastructure and subsidies, including the six-mark practice. Open lesson 3 only after this continuation."
     },
     {
+      id: 'a-healthier-workforce',
       "type": "visualPause",
       "title": "A healthier workforce",
       "visual": photos.healthcareWorkforce,
       "notes": "Observe the healthcare setting. Ask how access to treatment could change the time workers lose to illness. Bridge to productive working time and output."
     },
     {
+      id: 'discussion-5',
       "type": "discussion",
       "layout": "question-only",
       "question": "Two firms have equally skilled workers. Why might the firm with fewer days lost to illness produce more?",
       "notes": "Healthier workers have more working time and may work more effectively. 两家企业的工人技能相同，为什么因病缺勤更少的企业可能生产更多？"
     },
     {
+      id: 'how-healthcare-supports-output',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -767,6 +805,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check-4',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which explanation shows a supply-side effect of healthcare?",
@@ -780,24 +819,28 @@ IGCSE.lesson = {
       "prompt": "The supply-side link is healthier, more productive workers and increased output capacity."
     },
     {
+      id: 'infrastructure',
       "type": "section",
       "eyebrow": "Part 5",
       "title": "Infrastructure",
       "zhTitle": "基础设施"
     },
     {
+      id: 'moving-goods-to-market',
       "type": "visualPause",
       "title": "Moving goods to market",
       "visual": photos.portTerminal,
       "notes": "Point to cranes, containers and transport links. Ask what happens to firms if goods wait at a congested port. Bridge to reliable transport, fewer delays and lower business costs."
     },
     {
+      id: 'discussion-6',
       "type": "discussion",
       "layout": "question-only",
       "question": "A firm has workers and machines, but deliveries are delayed for days. What could better transport change?",
       "notes": "Fewer delays lower costs and allow inputs and finished goods to move more reliably. 企业有工人和机器，但运输总是延误。更好的交通设施能改变什么？"
     },
     {
+      id: 'infrastructure-2',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -818,6 +861,7 @@ IGCSE.lesson = {
       "visual": photos.portTerminal
     },
     {
+      id: 'check-5',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which is an example of infrastructure?",
@@ -831,6 +875,7 @@ IGCSE.lesson = {
       "prompt": "An electricity network supports production across many firms. Infrastructure is the supporting network, rather than a skill or tax incentive."
     },
     {
+      id: 'how-infrastructure-raises-capacity',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -862,6 +907,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'complete-the-missing-sentence-2',
       "type": "peerTask",
       "taskType": "missingSentence",
       "eyebrow": "Pair task",
@@ -886,6 +932,7 @@ IGCSE.lesson = {
       "missingSentenceAnswer": "Materials arrive more reliably, so machines spend less time waiting for inputs."
     },
     {
+      id: 'which-kind-of-mobility',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Which kind of mobility?",
@@ -904,18 +951,21 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'subsidies',
       "type": "section",
       "eyebrow": "Part 6",
       "title": "Subsidies",
       "zhTitle": "补贴"
     },
     {
+      id: 'discussion-7',
       "type": "discussion",
       "layout": "question-only",
       "question": "A small garage cannot afford to train apprentices. How could the government make training cheaper?",
       "notes": "A training subsidy can pay part of the cost. This is a classroom scenario, not an assertion about a particular scheme. 小汽修厂负担不起学徒培训费，政府怎样使培训更便宜？"
     },
     {
+      id: 'subsidy',
       "type": "term",
       "eyebrow": "Learn",
       "definitionCue": "Key term",
@@ -946,6 +996,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'check-6',
       "type": "quiz",
       "eyebrow": "Check",
       "question": "Which action is a training subsidy?",
@@ -959,6 +1010,7 @@ IGCSE.lesson = {
       "prompt": "The government provides financial support that lowers the private cost of training."
     },
     {
+      id: 'how-a-training-subsidy-helps',
       "type": "flow",
       "mode": "fillBlanks",
       "eyebrow": "Learn",
@@ -990,6 +1042,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'will-every-subsidy-raise-capacity',
       "type": "yesNoCheck",
       "eyebrow": "Check",
       "title": "Will every subsidy raise capacity?",
@@ -1003,6 +1056,7 @@ IGCSE.lesson = {
       "notes": "Thumbs up or down. Show one statement, take every student’s vote, then reveal the reason before continuing."
     },
     {
+      id: 'four-forms-of-government-support',
       "type": "cards",
       "eyebrow": "Review",
       "title": "Four forms of government support",
@@ -1035,6 +1089,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'analyse-how-supply-side-policy-measures-could-reduce-unemployment',
       "type": "exam",
       "eyebrow": "Exam practice",
       "title": "Analyse how supply-side policy measures could reduce unemployment. [6]",
@@ -1056,6 +1111,7 @@ IGCSE.lesson = {
       "notes": "Original 2023ON-22 Q3(c). Use after the continuation, not as the compulsory end of the first 40-minute session."
     },
     {
+      id: 'analyse-how-supply-side-policy-measures-could-reduce-unemployment-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Analyse how supply-side policy measures could reduce unemployment. [6]",
@@ -1081,6 +1137,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'exit-ticket-2',
       "type": "answer",
       "eyebrow": "Check",
       "title": "Exit ticket",

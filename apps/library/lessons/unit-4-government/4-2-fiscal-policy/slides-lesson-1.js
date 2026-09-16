@@ -30,6 +30,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'government-budget-and-spending',
       type: 'hero',
       eyebrow:  'Lesson overview',
       title:    'Government budget and spending',
@@ -39,6 +40,7 @@ IGCSE.lesson = {
       visual:   photos.budgetMeeting,
     },
     {
+      id: 'trade-offs',
       type: 'discussion',
       eyebrow: 'Starter',
       title:   'Trade-offs',
@@ -49,6 +51,7 @@ IGCSE.lesson = {
       visual: photos.budgetMeeting,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title:   'By the end, you can',
@@ -64,12 +67,14 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'government-budget',
       type: 'section',
       eyebrow: 'New section',
       title:   'Government budget',
       zhTitle: '政府预算',
     },
     {
+      id: 'public-money',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Public money',
@@ -80,6 +85,7 @@ IGCSE.lesson = {
       visual: photos.budgetHearing,
     },
     {
+      id: 'budget-balance',
       type: 'term',
       keyTerms: [
         { term: 'government revenue', zh: '政府收入', note: 'money received by government' },
@@ -99,12 +105,14 @@ IGCSE.lesson = {
       ],
     },
         {
+      id: 'visual-pause-united-kingdom',
       type: 'visualPause',
       title: 'Visual pause: United Kingdom',
       visual: factPhotos.ukBudget,
       notes: 'Example: United Kingdom / China. Former fact context: UK public borrowing was GBP 131.1 billion (about RMB 1.2 trillion) in 2023/24. | China planned a RMB 4.06 trillion budget deficit in 2024, equal to 3% of GDP. Teacher question: How is a budget deficit linked to government borrowing? Possible answer: A budget deficit means government spending exceeds revenue, so the government usually needs to borrow. Source: Source: UK ONS; RMB conversion approximate. | Source: 2024 Government Work Report.',
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Government revenue = $420m. Government expenditure = $510m.',
@@ -114,6 +122,7 @@ IGCSE.lesson = {
       visual:  photos.taxForms,
     },
     {
+      id: 'answer',
       type: 'answer',
       eyebrow: 'Check',
       title:   'Answer',
@@ -123,6 +132,7 @@ IGCSE.lesson = {
       partialReview: ['.answerBox'],
     },
     {
+      id: 'deficit-or-surplus',
       type: 'compare',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -138,6 +148,7 @@ IGCSE.lesson = {
         ['2', 'may reduce borrowing or __________', 'debt'],
       ],      visual: photos.budgetHearing,    },
     {
+      id: 'fill-in-the-blanks',
       type: 'answer',
       eyebrow: 'Check',
       title:   'Fill in the blanks',
@@ -151,12 +162,14 @@ IGCSE.lesson = {
     },
 
     {
+      id: 'government-spending',
       type: 'section',
       eyebrow: 'New section',
       title:   'Government spending',
       zhTitle: '政府支出',
     },
     {
+      id: 'priorities',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Priorities',
@@ -167,6 +180,7 @@ IGCSE.lesson = {
       visual: photos.budgetHearing,
     },
     {
+      id: 'main-areas-of-spending',
       type: 'cards',
       eyebrow: 'Learn',
       title:   'Main areas of spending',
@@ -183,12 +197,14 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
         {
+      id: 'visual-pause-finland',
       type: 'visualPause',
       title: 'Visual pause: Finland',
       visual: factPhotos.finlandEducation,
       notes: 'Example: Finland / China. Former fact context: Finland’s government education spending was 6.38% of GDP in 2022. | China spent RMB 6.4595 trillion on education in 2023. Teacher question: Which government spending aim could education support? Possible answer: Education spending can support long-run growth by improving human capital and productivity. Source: Source: World Bank, based on UNESCO UIS data. | Source: China Ministry of Education.',
     },
     {
+      id: 'why-spend',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Why spend?',
@@ -199,6 +215,7 @@ IGCSE.lesson = {
       visual: photos.classroom,
     },
     {
+      id: 'why-governments-spend',
       type: 'cards',
       eyebrow: 'Learn',
       title:   'Why governments spend',
@@ -215,6 +232,7 @@ IGCSE.lesson = {
       partialReview: ['.cardgrid > .card'],
     },
     {
+      id: 'education-and-healthcare',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Education and healthcare',
@@ -225,6 +243,7 @@ IGCSE.lesson = {
       visual: photos.classroom,
     },
     {
+      id: '1-provide-merit-goods',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -241,6 +260,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'free-rider-problem',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Free rider problem',
@@ -251,6 +271,7 @@ IGCSE.lesson = {
       visual: photos.defence,
     },
     {
+      id: '2-provide-public-goods',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -267,6 +288,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'roads-rail-and-ports',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Roads, rail and ports',
@@ -277,6 +299,7 @@ IGCSE.lesson = {
       visual: photos.roadwork,
     },
     {
+      id: '3-invest-in-infrastructure',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -292,6 +315,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-2',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'The government builds a new railway between factories and a port. Which reason for spending is most direct?',
@@ -305,6 +329,7 @@ IGCSE.lesson = {
       visual: photos.roadwork,
     },
     {
+      id: 'picking-winners',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Picking winners',
@@ -315,12 +340,14 @@ IGCSE.lesson = {
       visual: photos.industry,
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: factPhotos.usSemiconductors,
       notes: 'Example: United States / China. Former fact context: The US CHIPS Act offered $52.7 billion (about RMB 380 billion) for semiconductors. | China’s Big Fund III had RMB 344 billion registered capital. Teacher question: How could this support investment, output and employment? Possible answer: It can raise investment first, then increase productive capacity, output and employment if firms expand. Source: Source: NIST; RMB conversion approximate. | Source: Gov.cn.',
     },
     {
+      id: '4-support-key-industries',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -337,6 +364,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'welfare-support',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Welfare support',
@@ -347,6 +375,7 @@ IGCSE.lesson = {
       visual: photos.socialSecurity,
     },
     {
+      id: '5-reduce-inequality',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -361,6 +390,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'managing-demand',
       type: 'discussion',
       eyebrow: 'Explore',
       title:   'Managing demand',
@@ -371,6 +401,7 @@ IGCSE.lesson = {
       visual: photos.budgetMeeting,
     },
     {
+      id: '6-manage-the-macroeconomy',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -387,6 +418,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check-3',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'The government increases unemployment benefits during a downturn. Which reason fits best?',
@@ -400,6 +432,7 @@ IGCSE.lesson = {
       visual: photos.socialSecurity,
     },
     {
+      id: 'apply',
       type: 'quiz',
       eyebrow: 'Apply',
       question: 'Which spending decision most directly supports environmental sustainability?',
@@ -413,6 +446,7 @@ IGCSE.lesson = {
       visual: photos.pollution,
     },
     {
+      id: 'fill-in-the-blanks-2',
       type: 'answer',
       eyebrow: 'Check',
       title:   'Fill in the blanks',

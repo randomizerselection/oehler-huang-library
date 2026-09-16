@@ -30,6 +30,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'progressive-regressive-and-proportional-taxes',
       type: 'hero',
       eyebrow:  'Lesson overview',
       title:    'Progressive, regressive and proportional taxes',
@@ -39,6 +40,7 @@ IGCSE.lesson = {
       visual:   photos.taxForms,
     },
     {
+          id: 'income-and-wealth',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'Income and wealth',
@@ -49,6 +51,7 @@ IGCSE.lesson = {
           visual: photos.taxForms,
         },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title:   'By the end, you can',
@@ -64,30 +67,35 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: 'progressive-regressive-and-proportional-taxes-2',
           type: 'section',
           eyebrow: 'New section',
           title:   'Progressive, regressive\nand proportional taxes',
           zhTitle: '累进税、累退税和比例税',
         },
         {
+      id: 'visual-pause-united-kingdom',
       type: 'visualPause',
       title: 'Visual pause: United Kingdom',
       visual: factPhotos.hmrcLondon,
       notes: 'Example: United Kingdom. Former fact context: The UK income tax system has bands of 0%, 20%, 40% and 45% in the 2026-27 tax year. Teacher question: Why is this an example of progressive taxation? Possible answer: It is progressive because people with higher taxable income face a higher tax rate. Source: Source: GOV.UK Income Tax rates and Personal Allowances, 2026-27.',
     },
         {
+      id: 'visual-pause-japan',
       type: 'visualPause',
       title: 'Visual pause: Japan',
       visual: photos.shopping,
       notes: 'Example: Japan. Former fact context: Japan has a 10% standard consumption tax rate, with an 8% reduced rate for some items. Teacher question: Why can a consumption tax be regressive? Possible answer: It can be regressive because lower-income households may spend a larger share of income on taxed consumption. Source: Source: Japan National Tax Agency consumption tax rate table; regressive effect is classroom inference.',
     },
         {
+      id: 'visual-pause-hungary',
       type: 'visualPause',
       title: 'Visual pause: Hungary',
       visual: photos.taxForms,
       notes: 'Example: Hungary. Former fact context: Hungary sets personal income tax at 15% in 2026. Teacher question: Why is this an example of proportional taxation? Possible answer: It is proportional because the same percentage tax rate is applied to income. Source: Source: Hungarian National Tax and Customs Administration, short summary on private-person taxation in 2026.',
     },
     {
+          id: 'progressive-regressive-and-proportional-taxes-3',
           type: 'cards',
           eyebrow: 'Learn',
           title:   'Progressive, regressive and proportional taxes',
@@ -126,6 +134,7 @@ IGCSE.lesson = {
           partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+          id: 'check',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A low-income worker pays 10% of income in tax. A high-income worker pays 25% of income in tax. What type of tax is this?',
@@ -139,6 +148,7 @@ IGCSE.lesson = {
           visual: photos.taxForms,
         },
     {
+          id: 'check-2',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A tax takes 15% of income from every taxpayer. Higher earners pay more money in total, but the same percentage. What type of tax is this?',
@@ -152,6 +162,7 @@ IGCSE.lesson = {
           visual: 'proportional',
         },
     {
+          id: 'fill-in-the-blanks',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Fill in the blanks',
@@ -164,6 +175,7 @@ IGCSE.lesson = {
           cue: 'Look at what happens to the percentage of income paid as income changes.',
         },
     {
+          id: 'check-3',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'Which tax is most likely to be progressive?',
@@ -177,6 +189,7 @@ IGCSE.lesson = {
           visual: photos.socialSecurity,
         },
     {
+          id: 'check-4',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'Which tax is most likely to be regressive?',
@@ -190,6 +203,7 @@ IGCSE.lesson = {
           visual: photos.shopping,
         },
     {
+          id: 'sort-the-examples',
           type: 'cards',
           eyebrow: 'Practice',
           title:   'Sort the examples',
@@ -203,6 +217,7 @@ IGCSE.lesson = {
           partialReview: ['.cardgrid > .card', '.prompt'],
     },
     {
+          id: 'tax-rate-diagrams',
           type: 'taxRateDiagramCompare',
           eyebrow: 'Diagram',
           title:   'Tax rate diagrams',
@@ -231,6 +246,7 @@ IGCSE.lesson = {
           partialReview: ['.taxRateDiagramCard', '.prompt'],
     },
     {
+          id: 'check-5',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'On a tax-rate diagram, the line slopes downward as income taxed rises. Which classification fits best?',
@@ -244,6 +260,7 @@ IGCSE.lesson = {
           visual: 'regressive',
         },
     {
+          id: 'check-6',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A tax-rate diagram shows a flat horizontal line. What does this mean?',
@@ -257,12 +274,14 @@ IGCSE.lesson = {
           visual: 'proportional',
         },
     {
+          id: 'progressive-or-regressive',
           type: 'taxSim',
           eyebrow: 'Explore',
           title:   'Progressive or regressive?',
           defaultMode: 'progressive',
         },
     {
+          id: 'mainland-china-income-tax',
           type: 'chinaIncomeTaxSim',
           eyebrow: 'Example',
           title:   'Mainland China income tax',
@@ -272,6 +291,7 @@ IGCSE.lesson = {
           source: 'Resident comprehensive income; simplified classroom estimate. Sources: STA Individual Income Tax Law; PwC Worldwide Tax Summaries.',
         },
     {
+          id: 'at-the-checkout',
           type: 'discussion',
           eyebrow: 'Explore',
           title:   'At the checkout',
@@ -282,12 +302,14 @@ IGCSE.lesson = {
           visual: photos.shopping,
         },
     {
+          id: 'why-indirect-taxes-can-be-regressive',
           type: 'indirectTaxSim',
           eyebrow: 'Explore',
           title:   'Why indirect taxes can be regressive',
           taxRate: 10,
         },
     {
+          id: 'sales-tax-can-be-regressive',
           type: 'flow',
           mode: 'fillBlanks',
           eyebrow: 'Example',
@@ -304,6 +326,7 @@ IGCSE.lesson = {
       ],
     },
     {
+          id: 'check-7',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A student says: "A sales tax cannot be regressive because the same rate is charged at the checkout." What is the best correction?',
@@ -317,6 +340,7 @@ IGCSE.lesson = {
           visual: photos.shopping,
         },
     {
+          id: 'fill-in-the-blanks-2',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Fill in the blanks',
@@ -329,6 +353,7 @@ IGCSE.lesson = {
           cue: 'Each answer must link the tax type to the proportion of income paid.',
         },
     {
+          id: 'fill-in-the-blanks-3',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Fill in the blanks',
@@ -341,12 +366,14 @@ IGCSE.lesson = {
           ],
     },
     {
+          id: 'classify-and-explain',
           type: 'section',
           eyebrow: 'New section',
           title:   'Classify and explain',
           zhTitle: '分类并解释',
         },
     {
+          id: 'check-8',
           type: 'quiz',
           eyebrow: 'Check',
           question: 'A government charges a percentage tax on company profits and uses the revenue to fund schools.',
@@ -360,6 +387,7 @@ IGCSE.lesson = {
           visual: photos.industry,
         },
     {
+          id: 'exit-ticket',
           type: 'answer',
           eyebrow: 'Check',
           title:   'Exit ticket',

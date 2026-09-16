@@ -19,6 +19,7 @@ IGCSE.lesson = {
   },
   "slides": [
     {
+      id: 'enterprise-and-factor-rewards',
       "type": "hero",
       "eyebrow": "Lesson 2 · 1.2.1",
       "title": "Enterprise and factor rewards",
@@ -36,6 +37,7 @@ IGCSE.lesson = {
       "layout": "enterprise-hero"
     },
     {
+      id: 'recall-productive-resources',
       "type": "classificationTask",
       "layout": "factor-written",
       "eyebrow": "Recall",
@@ -58,6 +60,7 @@ IGCSE.lesson = {
       "notes": "3 minutes independent writing, then reveal. All content was taught before the reported stopping point."
     },
     {
+      id: 'by-the-end-you-can',
       "type": "outcomes",
       "eyebrow": "Objectives",
       "title": "By the end, you can",
@@ -73,12 +76,14 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'enterprise-organisation-and-risk',
       "type": "section",
       "eyebrow": "Part 1",
       "title": "Enterprise: organisation and risk",
       "zhTitle": "企业家才能：组织与风险"
     },
     {
+      id: 'emma-s-first-school-fair-stall',
       "type": "cards",
       "layout": "factor-case",
       "eyebrow": "Meet Emma",
@@ -111,6 +116,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'how-emma-organises-production',
       "type": "cards",
       "layout": "factor-assembly",
       "eyebrow": "Explore",
@@ -143,6 +149,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'enterprise',
       "type": "term",
       "eyebrow": "Learn",
       "title": "Enterprise",
@@ -183,6 +190,7 @@ IGCSE.lesson = {
       "notes": "A named example of an entrepreneur alongside the definition. Organisation and risk-taking are the two defining contributions; enterprise is the factor, entrepreneur is the person. Keep the definition blanks interactive."
     },
     {
+      id: 'one-entrepreneur-two-essential-roles',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "One entrepreneur, two essential roles",
@@ -212,6 +220,7 @@ IGCSE.lesson = {
       "lead": "The entrepreneur is the person. Enterprise is the contribution."
     },
     {
+      id: '0455-12-f-m-22-q1',
       "type": "quiz",
       "eyebrow": "0455/12/F/M/22 Q1",
       "question": "A business person employs two people to make sandwiches to sell in a café.\nAs well as labour, which factors of production are involved in this activity?",
@@ -234,12 +243,14 @@ IGCSE.lesson = {
       "prompt": "A. Capital: toaster and fridge. Land: wheat grown for bread and water used in production. Enterprise: the owner organises staff and equipment, risking a loss if sales do not cover costs. B omits land; C omits enterprise; D omits capital."
     },
     {
+      id: 'factor-rewards-and-uncertain-profit',
       "type": "section",
       "eyebrow": "Part 2",
       "title": "Factor rewards and uncertain profit",
       "zhTitle": "要素报酬与不确定的利润"
     },
     {
+      id: 'four-factors-four-rewards',
       "type": "cards",
       "layout": "factor-rewards",
       "eyebrow": "Explore",
@@ -276,6 +287,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'real-payments-for-land-and-labour',
       "type": "compare",
       "eyebrow": "Example",
       "title": "Real payments for land and labour",
@@ -323,6 +335,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: 'name-each-factor-and-its-reward',
       "type": "classificationTask",
       "layout": "factor-image-check",
       "eyebrow": "Check",
@@ -349,6 +362,7 @@ IGCSE.lesson = {
       "notes": "The small illustrations show the resource contribution; answers remain hidden. Capital → interest is the syllabus convention, not a claim that an oven receives a payment or that equipment-hire charges are called interest."
     },
     {
+      id: '0455-13-m-j-22-q1',
       "type": "quiz",
       "eyebrow": "0455/13/M/J/22 Q1",
       "question": "Which factor has the correct factor reward identified?",
@@ -375,6 +389,7 @@ IGCSE.lesson = {
       "prompt": "D. Land earns rent. Capital earns interest, enterprise earns profit and labour earns wages."
     },
     {
+      id: 'sales-revenue-is-not-profit',
       "type": "cards",
       "layout": "factor-revenue",
       "eyebrow": "Learn",
@@ -401,6 +416,7 @@ IGCSE.lesson = {
       "notes": "The six rectangles are a picture of the sales money: each shows ¥30, so together they show ¥180. They are not coins, vouchers or a special currency. Four rectangles show the ¥120 spent on costs; the other two show the ¥60 left as profit. Say “amounts of money”, not “tokens”. Keep the profit formula visible throughout."
     },
     {
+      id: 'same-production-different-sales',
       "type": "cards",
       "layout": "factor-risk",
       "eyebrow": "Explore",
@@ -433,6 +449,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'why-is-profit-not-guaranteed',
       "type": "compare",
       "eyebrow": "Learn",
       "title": "Why is profit not guaranteed?",
@@ -470,6 +487,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'greggs-sales-do-not-guarantee-profit',
       "type": "compare",
       "eyebrow": "Example",
       "title": "Greggs: sales do not guarantee profit",
@@ -499,6 +517,7 @@ IGCSE.lesson = {
       "notes": "Real historical company figures, not the fictional Emma case. Allow two minutes: reveal 2019, ask whether an established business is guaranteed a profit, then reveal 2020. Sales still exceeded £800m but the company made a loss: revenue is not profit. Before tax means before deducting corporation tax; this is not profit paid personally to a founder. The 2020 reporting year had 53 weeks versus 52 in 2019. Closure, sales disruption and costs all matter; do not present the comparison as a controlled experiment or claim sales alone caused the exact change. Greggs received support and reduced costs, so do not imply all costs stayed fixed. Connect back to Emma’s uncertainty and forward to the original reward-timing MCQ."
     },
     {
+      id: '0455-11-o-n-24-q2',
       "type": "quiz",
       "eyebrow": "0455/11/O/N/24 Q2",
       "question": "In which case is it possible to set the level of reward before production takes place for the first factor of production but not for the second factor?",
@@ -525,6 +544,7 @@ IGCSE.lesson = {
       "prompt": "D. Rent for land can be agreed before production. Profit for enterprise depends on revenue and costs. A and C pair rewards that can both be agreed; B puts the uncertain reward first."
     },
     {
+      id: 'why-become-an-entrepreneur',
       "type": "cards",
       "eyebrow": "Learn",
       "title": "Why become an entrepreneur?",
@@ -579,12 +599,14 @@ IGCSE.lesson = {
       "lead": "Three possible motivations — people may value them differently."
     },
     {
+      id: 'past-paper-questions',
       "type": "section",
       "eyebrow": "Part 3",
       "title": "Past-paper questions",
       "zhTitle": "历年真题"
     },
     {
+      id: '0455-11-m-j-25-q2',
       "type": "quiz",
       "eyebrow": "0455/11/M/J/25 Q2",
       "question": "Sonia owns a takeaway food delivery service. She decides to expand the firm, buying more vans and hiring additional drivers.\nWhich factors of production were changed?",
@@ -617,6 +639,7 @@ IGCSE.lesson = {
       }
     },
     {
+      id: '0455-13-o-n-20-q2',
       "type": "quiz",
       "eyebrow": "0455/13/O/N/20 Q2",
       "question": "What is the key role of an entrepreneur?",
@@ -640,6 +663,7 @@ IGCSE.lesson = {
       "questionPaperPage": 2
     },
     {
+      id: '0455-11-o-n-20-q2',
       "type": "quiz",
       "eyebrow": "0455/11/O/N/20 Q2",
       "question": "On which factor of production does innovation directly depend?",
@@ -663,6 +687,7 @@ IGCSE.lesson = {
       "questionPaperPage": 2
     },
     {
+      id: '0455-11-m-j-20-q13',
       "type": "quiz",
       "eyebrow": "0455/11/M/J/20 Q13",
       "question": "The following information refers to a firm producing shoes.\nAt which level of output does the firm maximise profits?",
@@ -691,6 +716,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'identify-the-rewards-to-capital-and-land-2',
       "type": "exam",
       "eyebrow": "2025MJ-21 Q3(a)",
       "title": "Identify the rewards to capital and land. [2]",
@@ -705,6 +731,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'identify-the-rewards-to-capital-and-land-2-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Identify the rewards to capital and land. [2]",
@@ -723,6 +750,7 @@ IGCSE.lesson = {
       ]
     },
     {
+      id: 'identify-two-reasons-why-people-become-entrepreneurs-2',
       "type": "exam",
       "eyebrow": "Exit ticket · 0455/22/F/M/23 Q2(a)",
       "title": "Identify two reasons why people become entrepreneurs. [2]",
@@ -738,6 +766,7 @@ IGCSE.lesson = {
       "notes": "Assessed core exit: answer independently without the motivation images. Two distinct accepted reasons, one mark each. The preceding reward question checks the other main objective. Models remain on separate slides."
     },
     {
+      id: 'identify-two-reasons-why-people-become-entrepreneurs-2-2',
       "type": "modelAnswer",
       "eyebrow": "Model answer",
       "title": "Identify two reasons why people become entrepreneurs. [2]",

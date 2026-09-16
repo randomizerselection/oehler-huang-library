@@ -1,0 +1,7 @@
+# Local research extracts, one-off bootstrap scripts and visual QA output.
+review/
+*.log
+*.txt
+*.png
+*.py
+*.cjs

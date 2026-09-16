@@ -34,7 +34,8 @@ const server=http.createServer((req,res)=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const browser=await chromium.launch({headless:true,channel:'chrome'});
   const issues=[],errors=[];
-  for(const [width,height] of [[1280,720],[1920,1080],[390,844]]) {
+  const viewports=[[1280,720],[1920,1080],...(lessonSlug==='first-stock-trades'?[[845,900]]:[]),[390,844]];
+  for(const [width,height] of viewports) {
     const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
     page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`http://127.0.0.1:${server.address().port}/${lessonRoute}/index.html`);
@@ -131,14 +132,16 @@ const server=http.createServer((req,res)=>{
   await page.keyboard.press('f');
   await page.waitForFunction(()=>!document.fullscreenElement);
   if(lessonSlug==='first-stock-trades') {
-    const blocks=await page.locator('.ft-exposure .ft-panel').evaluateAll(panels=>panels.map(p=>({
-      total:p.querySelectorAll('.ft-money-grid i').length,
-      invested:p.querySelectorAll('.ft-money-grid .ft-invested').length,
-      lost:p.querySelectorAll('.ft-money-grid .ft-lost').length,
-      cash:p.querySelectorAll('.ft-money-grid .ft-cash').length
-    })));
-    assert.deepEqual(blocks,[{total:100,invested:8,lost:2,cash:90},{total:100,invested:40,lost:10,cash:50}], 'counted diagrams reconcile a 20% stock fall to each $100,000 portfolio');
-    for(const id of ['position-loss','market-limit','limit-outcomes']) {
+    assert.equal(await page.locator('.ft-share-grid i').count(),100,'100 ownership pieces');
+    assert.equal(await page.locator('.ft-emma-share').count(),10,'Emma owns ten pieces');
+    assert.equal(lesson.slides[1].id,'launch-recap','special lesson begins with assignment recap');
+    assert.equal(lesson.slides.some(s=>s.group==='RETRIEVAL'),false,'no opening retrieval');
+    assert.equal(await page.locator('.ft-screen').count(),lesson.slides.filter(s=>s.screenshot).length);
+    for(const s of lesson.slides.filter(s=>s.screenshot)) {
+      assert.equal(await page.locator(`[data-slide-id="${s.id}"] .ft-highlight`).count(),s.rows.length,'each explanation has a numbered screenshot annotation');
+      assert.equal(s.screenshot.boxes.length,s.rows.length);
+    }
+    for(const id of ['ownership-example','market-limit','summary']) {
       await page.evaluate(n=>{location.hash=String(n)},lesson.slides.findIndex(s=>s.id===id)+1);
       const active=page.locator(`[data-slide-id="${id}"]`);
       await active.waitFor({state:'visible'});
@@ -148,7 +151,8 @@ const server=http.createServer((req,res)=>{
       await page.keyboard.press('ArrowLeft');
       assert.equal(await active.locator('.partial-item.is-visible').count(),0,'new visual reverses without leaving the slide');
     }
-    await page.locator('[data-slide-id="limit-outcomes"] .ft-source').click();
+    await page.evaluate(n=>{location.hash=String(n)},lesson.slides.findIndex(s=>s.id==='order-status')+1);
+    await page.locator('[data-slide-id="order-status"] .ft-source').click();
     assert.equal(await page.locator('#notesPanel').getAttribute('aria-hidden'),'false');
     assert.ok(await page.locator('#notesSource a').count(),'source control opens actual source links');
     await page.keyboard.press('n');
@@ -169,7 +173,7 @@ const server=http.createServer((req,res)=>{
     assert.equal(await offline.locator('.slide:not([hidden])').count(),1,'opens directly as a local file');
   } finally { await offlineBrowser.close(); }
   server.close();
-  const report={lesson:lesson.meta.title,slideCount:lesson.slides.length,checkedSlides:selected.length?selected:lesson.slides.map((s,i)=>i+1),viewports:['1280x720','1920x1080','390x844'],checked:new Date().toISOString(),issues,errors};
+  const report={lesson:lesson.meta.title,slideCount:lesson.slides.length,checkedSlides:selected.length?selected:lesson.slides.map((s,i)=>i+1),viewports:viewports.map(([w,h])=>`${w}x${h}`),checked:new Date().toISOString(),issues,errors};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));
   console.log(JSON.stringify({slideCount:lesson.slides.length,issues,errors},null,2));
   if(issues.length||errors.length)process.exitCode=1;

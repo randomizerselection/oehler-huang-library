@@ -18,6 +18,7 @@ IGCSE.lesson = {
   },
   slides: [
     {
+      id: 'price-mechanism',
       type: 'hero',
       eyebrow: 'Lesson overview',
       title: 'Price mechanism',
@@ -27,6 +28,7 @@ IGCSE.lesson = {
       visual: photos.vegetables,
     },
     {
+      id: 'signals-on-the-shelf',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Signals on the shelf',
@@ -37,6 +39,7 @@ IGCSE.lesson = {
       visual: photos.vegetables,
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -52,18 +55,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'price-signals',
       type: 'section',
       eyebrow: 'New section',
       title: 'Price signals',
       zhTitle: '价格信号',
     },
         {
+      id: 'visual-pause-world',
       type: 'visualPause',
       title: 'Visual pause: World',
       visual: photos.evCharging,
       notes: 'Example: World / China. Former fact context: Electric car sales topped 17 million worldwide in 2024 as consumer demand rose. | China sold over 11 million electric cars in 2024, more than the world sold two years earlier. Teacher question: How could higher demand for electric cars affect price and output? Possible answer: Higher demand can raise price at first and encourage firms to increase output if they expect profit. Source: Source: IEA Global EV Outlook 2025.',
     },
     {
+      id: 'demand-price-profit-and-resources',
       type: 'marketMechanismSim',
       eyebrow: 'Explore',
       title: 'Demand, price, profit and resources',
@@ -71,6 +77,7 @@ IGCSE.lesson = {
       defaultCost: 18,
     },
     {
+      id: 'demand-rises',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -87,6 +94,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'e-bike-demand',
       type: 'discussion',
       eyebrow: 'Apply',
       title: 'E-bike demand',
@@ -97,12 +105,14 @@ IGCSE.lesson = {
       visual: photos.eBikeShop,
     },
         {
+      id: 'visual-pause-united-states',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.eBikeShop,
       notes: 'Example: United States / China. Former fact context: US e-bike imports rose sharply after 2020, reflecting stronger demand for electric bicycles. | China produces most of the world’s electric bicycles and has a large domestic e-bike market. Teacher question: What market signal could encourage firms to supply more e-bikes? Possible answer: Rising demand or higher prices signal profit opportunities, so firms may increase supply. Source: Source: USITC DataWeb and industry reporting. | Source: China Bicycle Association industry reports.',
     },
     {
+      id: 'demand-falls',
       type: 'flow',
       mode: 'fillBlanks',
       eyebrow: 'Learn',
@@ -119,6 +129,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'consumer-sovereignty',
       type: 'term',
       keyTerms: [
         { term: 'consumers demand', zh: '消费者需求', note: 'what buyers want' },
@@ -139,6 +150,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'check',
       type: 'quiz',
       eyebrow: 'Check',
       question: 'Demand for electric cars rises. Which chain best shows the price mechanism?',
@@ -151,12 +163,14 @@ IGCSE.lesson = {
       prompt: 'Name one resource that may move into production.',
     },
         {
+      id: 'visual-pause-united-states-2',
       type: 'visualPause',
       title: 'Visual pause: United States',
       visual: photos.vegetables,
       notes: 'Example: United States / China. Former fact context: Plant-based food sales reached USD 8.1 billion in the United States in 2024. | China’s plant-based meat market was estimated at about USD 428 million in 2023. Teacher question: How could changing consumer tastes affect demand and supply for plant-based food? Possible answer: If tastes shift toward plant-based food, demand rises and firms may increase supply to earn revenue. Source: Source: Good Food Institute, 2024 retail sales data. | Source: Grand View Research, 2023 market estimate.',
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',

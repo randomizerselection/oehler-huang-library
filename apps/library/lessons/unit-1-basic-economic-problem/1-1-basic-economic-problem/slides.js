@@ -64,6 +64,7 @@ IGCSE.lesson = {
 
   slides: [
     {
+      id: 'welcome-to-economics',
       type: 'welcome',
       eyebrow: 'Welcome',
       title: 'Welcome to Economics',
@@ -117,6 +118,7 @@ IGCSE.lesson = {
       notes: 'Use this welcome slide only at the beginning of the first lesson in the syllabus.',
     },
     {
+      id: '1-1-1-finite-resources-and-infinite-wants',
       type: 'hero',
       eyebrow: 'Overview',
       title: '1.1.1 Finite resources and infinite wants',
@@ -125,6 +127,7 @@ IGCSE.lesson = {
       visual: photos.projectCostChoice,
     },
     {
+      id: 'make-the-longest-list-you-can',
       type: 'discussion',
       eyebrow: 'Starter',
       title: 'Make the longest list you can.',
@@ -140,6 +143,7 @@ IGCSE.lesson = {
       },
     },
     {
+      id: 'by-the-end-you-can',
       type: 'outcomes',
       eyebrow: 'Objectives',
       title: 'By the end, you can',
@@ -155,18 +159,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'wants-and-infinite-wants',
       type: 'section',
       eyebrow: 'Part 1',
       title: 'Wants and infinite wants',
       zhTitle: '欲望与无限欲望',
     },
     {
+      id: 'one-completed-project-does-not-end-wanting',
       type: 'visualPause',
       title: 'One completed project does not end wanting.',
       visual: photos.projectCostChoice,
       notes: 'Ask: What do these students want to complete or improve? First establish what a want is. Only then ask what they might want next and bridge to why economists describe wants as infinite.',
     },
     {
+      id: 'want',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key idea',
@@ -183,24 +190,28 @@ IGCSE.lesson = {
       sources: [wantSource],
     },
     {
+      id: 'a-want-for-a-good',
       type: 'visualPause',
       title: 'A want for a good',
       visual: photos.wantGoodToyTrain,
       notes: 'Ask: What physical item might this child want? Take one answer, then identify the toy train as a good: a physical item a person can have or use.',
     },
     {
+      id: 'a-want-for-a-service',
       type: 'visualPause',
       title: 'A want for a service',
       visual: photos.wantServiceChildHaircut,
       notes: 'Ask: What is the child receiving? Establish that the haircut is a service: an action done for someone.',
     },
     {
+      id: 'a-want-for-an-experience',
       type: 'visualPause',
       title: 'A want for an experience',
       visual: photos.wantExperienceAquarium,
       notes: 'Ask: What experience might these children have wanted? Establish that a want can be for an activity or experience, not only for an object.',
     },
     {
+      id: 'which-sentences-describe-wants',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Which sentences describe wants?',
@@ -221,6 +232,7 @@ IGCSE.lesson = {
       sources: [wantSource],
     },
     {
+      id: 'why-wants-are-described-as-infinite',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'Why wants are described as infinite',
@@ -250,6 +262,7 @@ IGCSE.lesson = {
       sources: [basicProblemSources[0]],
     },
     {
+      id: 'yes-or-no',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Yes or No?',
@@ -274,18 +287,21 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'finite-resources',
       type: 'section',
       eyebrow: 'Part 2',
       title: 'Finite resources',
       zhTitle: '有限资源',
     },
     {
+      id: 'every-project-needs-resources',
       type: 'visualPause',
       title: 'Every project needs resources.',
       visual: photos.projectCostChoice,
       notes: 'Ask students to name what must be used to complete the project. Draw out materials, workers, tools and equipment. Explain that productive resources are called factors of production; the four types are taught later in syllabus 1.2.1.',
     },
     {
+      id: 'factor-of-production',
       type: 'term',
       eyebrow: 'Brief link',
       definitionCue: 'Useful term',
@@ -302,12 +318,14 @@ IGCSE.lesson = {
       sources: [factorOfProductionSource],
     },
     {
+      id: 'a-limited-area-of-farmland',
       type: 'visualPause',
       title: 'A limited area of farmland',
       visual: photos.finiteResourceFarmland,
       notes: 'Ask students to identify what is used to grow the crops: the fields, soil and water. Establish that productive land and other natural resources are available only in limited amounts.',
     },
     {
+      id: 'a-limited-number-of-workers',
       type: 'visualPause',
       title: 'A limited number of workers',
       visual: photos.finiteResourceFarmWorkers,
@@ -315,12 +333,14 @@ IGCSE.lesson = {
       notes: 'Ask students to find the people harvesting rice. Establish that production can use only the human effort and workers available at that time.',
     },
     {
+      id: 'a-limited-amount-of-machinery-and-materials',
       type: 'visualPause',
       title: 'A limited amount of machinery and materials',
       visual: photos.finiteResourceConstructionSite,
       notes: 'Ask students to point out the machinery and stacks of building materials. Establish that these productive resources are also available only in limited amounts.',
     },
     {
+      id: 'what-finite-resources-means',
       type: 'cards',
       eyebrow: 'Learn',
       title: 'What finite resources means',
@@ -348,6 +368,7 @@ IGCSE.lesson = {
       sources: [basicProblemSources[0], factorOfProductionSource],
     },
     {
+      id: 'want-or-productive-resource',
       type: 'classificationTask',
       eyebrow: 'Classify',
       title: 'Want or productive resource?',
@@ -368,12 +389,14 @@ IGCSE.lesson = {
       sources: [factorOfProductionSource],
     },
     {
+      id: 'scarcity-and-choice',
       type: 'section',
       eyebrow: 'Part 3',
       title: 'Scarcity and choice',
       zhTitle: '稀缺性与选择',
     },
     {
+      id: 'full-shelves-unlimited-resources',
       type: 'discussion',
       eyebrow: 'Discuss',
       title: 'Full shelves: unlimited resources?',
@@ -388,6 +411,7 @@ IGCSE.lesson = {
       },
     },
     {
+      id: 'from-wants-and-resources-to-scarcity',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'From wants and resources to scarcity',
@@ -402,6 +426,7 @@ IGCSE.lesson = {
       sources: basicProblemSources,
     },
     {
+      id: 'scarcity',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -419,6 +444,7 @@ IGCSE.lesson = {
       sources: basicProblemSources,
     },
     {
+      id: 'yes-or-no-2',
       type: 'yesNoCheck',
       eyebrow: 'Check',
       title: 'Yes or No?',
@@ -443,6 +469,7 @@ IGCSE.lesson = {
       ],
     },
     {
+      id: 'return-to-the-school-list',
       type: 'discussion',
       eyebrow: 'Discuss',
       title: 'Return to the school list.',
@@ -458,6 +485,7 @@ IGCSE.lesson = {
       },
     },
     {
+      id: 'why-scarcity-forces-choice',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'Why scarcity forces choice',
@@ -472,6 +500,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, consumerChoiceSource],
     },
     {
+      id: 'explain-the-school-choice',
       type: 'peerTask',
       eyebrow: 'Pair task',
       title: 'Explain the school choice',
@@ -490,12 +519,14 @@ IGCSE.lesson = {
       partialReview: ['.peerTaskSamples > .choice'],
     },
     {
+      id: 'the-basic-economic-problem',
       type: 'section',
       eyebrow: 'Part 4',
       title: 'The basic economic problem',
       zhTitle: '基本经济问题',
     },
     {
+      id: 'the-basic-economic-problem-2',
       type: 'term',
       eyebrow: 'Learn',
       definitionCue: 'Key term',
@@ -513,6 +544,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, definitionQuestionSource],
     },
     {
+      id: 'what-economics-examines',
       type: 'flow',
       eyebrow: 'Learn',
       title: 'What Economics examines',
@@ -527,6 +559,7 @@ IGCSE.lesson = {
       sources: basicProblemSources,
     },
     {
+      id: 'define-the-basic-economic-problem-2',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Define the basic economic problem. [2]',
@@ -536,6 +569,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, definitionQuestionSource],
     },
     {
+      id: 'define-the-basic-economic-problem-2-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Define the basic economic problem. [2]',
@@ -546,6 +580,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, definitionQuestionSource],
     },
     {
+      id: 'explain-how-the-economic-problem-results-in-consumers-having-to-m',
       type: 'exam',
       eyebrow: 'Exam practice',
       title: 'Explain how the economic problem results in consumers having to make choices. [4]',
@@ -555,6 +590,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, consumerChoiceSource],
     },
     {
+      id: 'explain-how-the-economic-problem-results-in-consumers-having-to-m-2',
       type: 'modelAnswer',
       eyebrow: 'Model answer',
       title: 'Explain how the economic problem results in consumers having to make choices. [4]',
@@ -565,6 +601,7 @@ IGCSE.lesson = {
       sources: [...basicProblemSources, consumerChoiceSource],
     },
     {
+      id: 'exit-ticket',
       type: 'answer',
       eyebrow: 'Check',
       title: 'Exit ticket',
