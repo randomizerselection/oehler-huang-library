@@ -17,7 +17,7 @@ The original local **IGCSE Economics Syllabus (2027–2029).pdf**, printed/PDF p
 
 The five listed influences are income, rate of interest, confidence, age and culture. All five receive explicit teaching. The preceding row is 3.1.2 Banking; the next topic is 3.3 Workers.
 
-The retained 2026 definitions reference, rows 3.2.1, supplies saving as income not spent and borrowing as obtaining money now to repay later. Spending is buying goods and services. Explain disposable income as income available after direct tax; all fictional budget figures are already after tax.
+The retained 2026 definitions reference, rows 3.2.1, supplies saving as income not spent and borrowing as obtaining money now to repay later. Spending is buying goods and services. Define disposable income precisely as **income remaining after direct taxes have been deducted**; all fictional budget figures are already after tax. Define the rate of interest as the cost of borrowing and reward for saving. Confidence refers to expectations about future income, employment and economic conditions. Culture means shared values, customs and social conventions that influence choices.
 
 Scope is household decision-making. Interest-rate incentives belong here explicitly because the syllabus lists them; aggregate spending/inflation transmission and policy evaluation remain Unit 4. Do not turn the age section into a population-policy lesson.
 
@@ -41,11 +41,11 @@ Original Cambridge wording, data and option order are preserved. MCQ explanation
 
 ## Pacing and teaching logic
 
-36 source slides; approximately 65–75 minutes with writing and feedback. Do not speed through independent attempts to fit one period. A natural pause is after slide 19, the interest-rate MCQ. If pausing, briefly retrieve interest incentives before continuing with confidence.
+45 source slides; approximately 75–85 minutes with writing and feedback. Do not speed through independent attempts to fit one period. A natural pause is after slide 24, the interest-rate MCQ. If pausing, briefly retrieve interest incentives before continuing with confidence.
 
 1. **Slides 1–10: choices.** Finish the three recall answers before starting new material. Introduce Lucy, her after-tax income, spending and laptop goal. Move ten countable ¥500 amounts into current spending and saving. Consolidate saving only after students explain the division. The borrowing timeline is a separate alternative and makes future repayment visible. Original numerical MCQ checks income minus spending.
-2. **Slides 11–25: five influences.** Compare budgets on the same scale and distinguish amounts from percentages. Separate credit access from a desire to borrow. Hold principal and time constant when comparing interest rates. Teach confidence before the two-case check on desire versus ability to save. Compare preparation for retirement with actual retirement, and explain cultural attitudes without national or ethnic stereotypes. End with independent application.
-3. **Slides 26–36: original questions and summary.** Two short Identify questions, then original Romania source, independent Explain attempt, complete separately revealed model, independent four-mark age exit, separate model, and Summary. Use the official scheme, not a fixed number of sentences, to judge the exit.
+2. **Slides 11–34: five influences.** Keep the divider free of the list. Ask one broad small-group question about monthly spending, then show all five factors on one illustrated, numbered overview. Before factors 2–5, use one picture-led discussion question that leads directly into the next factor. Begin every factor with the same three-row Spending/Saving/Borrowing note-taking overview and a factor-specific photograph. Keep all three row labels visible, ask students to predict ↑, ↓ or ↕, then reveal each arrow and explanation together before developing the calculation, distinction or life-stage mechanism. Compare budgets on the same scale and distinguish amounts from percentages. Separate credit access from a desire to borrow. Hold principal and time constant when comparing interest rates. Teach confidence before the two-case check on desire versus ability to save. Compare preparation for retirement with actual retirement, and explain cultural attitudes without national or ethnic stereotypes. End with independent application.
+3. **Slides 35–45: original questions and summary.** Two short Identify questions, then original Romania source, independent Explain attempt, complete separately revealed model, independent four-mark age exit, separate model, and Summary. Use the official scheme, not a fixed number of sentences, to judge the exit.
 
 ## Assumptions and conceptual safeguards
 
@@ -60,7 +60,7 @@ Original Cambridge wording, data and option order are preserved. MCQ explanation
 
 The September Enterprise classroom palette and type hierarchy informed the local design: warm white, navy, teal, restrained amber for countable money. Banking’s reversible visual teaching informed the mechanisms. The current IGCSE shared renderer and navigation remain intact.
 
-Photographs reuse credited course assets: the Pexels savings jar and loan agreement. The local Lucy/person SVGs and numerical scenes are original classroom illustrations. No new real-world statistical claims or downloaded photos were introduced.
+Photographs reuse credited course assets from Pexels, Unsplash and Wikimedia Commons. Each factor now has a specific discussion or overview image: a wallet for disposable income, saving and credit images for interest rates, job security and financial planning for confidence, young-adult and retirement images for age, and celebration/goal images for culture. The local Lucy/person SVGs and numerical scenes are original classroom illustrations. No new real-world statistical claims were introduced.
 
 On phones the numerical scenes use the same complete native teaching statements with reversible reveals, avoiding an unreadably small diagram. The handout retains the original question tables, options and separate feedback, including all Paper 2 models. The eight-question online quiz and nine flashcards are deliberately short teacher-written retrieval.
 
@@ -70,9 +70,9 @@ On phones the numerical scenes use the same complete native teaching statements 
 - `npm run build:content`: generated 51 content items and 31 quizzes.
 - `npm run test:content --workspace=@oehler-huang/library`: passed.
 - Library smoke suite: 118 passed, 1 skipped.
-- `tests/households.spec.js`: checks catalogue registration, forward/back animation, original data/option tables, hidden MCQ feedback, modal keyboard isolation/focus return, every completed slide at 1440×810 and 1920×1080, every slide at 390×844, and all study views. Screenshots and overflow findings are in `review/`.
-- All 72 classroom views were visually reviewed; inherited recall-card, definition and model-answer styling was corrected locally. Final classroom overflow findings are empty.
-- Broader responsive suite: 45 passed, 2 skipped; two existing catalogue expectations failed (retired combined-banking title/old landing counts, and Investment syllabus expecting 51 rows where the current page has 32). The new lesson’s own phone and catalogue checks pass. Do not change other courses merely to satisfy these older fixtures.
+- `tests/households.spec.js`: checks catalogue registration, factor-prompt order, three arrow/status rows and a photo for every factor, forward/back animation, original data/option tables, hidden MCQ feedback, modal keyboard isolation/focus return, every completed slide at 1440×810 and 1920×1080, every slide at 390×844, and all study views. All three tests pass; screenshots and overflow findings are in `review/`.
+- All 90 classroom views were rendered at 1440×810 and 1920×1080; final overflow and broken-image findings are empty. The factor rows were also checked in the narrower in-app lesson panel, with a dedicated intermediate breakpoint to preserve readable arrows, labels, explanations and photographs.
+- Broader responsive suite: 48 passed, 2 skipped; two existing catalogue expectations failed (the Investment landing-page Chinese description has changed, and the Investment syllabus fixture expects 51 rows where the current page has 32). The Households lesson’s own phone, classroom and catalogue checks pass. Do not change other courses merely to satisfy these older fixtures.
 - Sixteen isolated platform/server, batch and feedback-pack checks passed, including the 30-student synthetic class. `/api/config` was verified against the running local service. The actual service has public samples disabled and private EconMark enabled, so public sample browser flows were not enabled or run against it.
 - The identified local preview server was restarted after the content build; `/api/config` now confirms 31 loaded quizzes. Private EconMark and disabled public samples remain configured as before.
 

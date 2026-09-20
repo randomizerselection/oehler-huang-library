@@ -24,6 +24,7 @@
     "test:full": "npm test && npm run test:legacy && npm run test --workspace=@oehler-huang/library",
     "test:legacy": "npm run test:legacy --workspace=@oehler-huang/library",
     "test:platform": "npm run test --workspace=@oehler-huang/platform",
+    "test:homework": "python apps/platform/homework/test.py",
     "test:content": "npm run test:content --workspace=@oehler-huang/library",
     "test:selector": "npm run test --workspace=@oehler-huang/student-selector",
     "test:library": "npm run test --workspace=@oehler-huang/library"

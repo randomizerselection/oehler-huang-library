@@ -18,10 +18,43 @@ test('@smoke @responsive Households catalogue, native reveal and original questi
  await page.goto('http://127.0.0.1:4173/economics/');
  await expect(page.locator('.topic-group').filter({hasText:'Households'}).getByRole('link',{name:'Open lesson',exact:true})).toHaveAttribute('href',/3-2-households/);
  await page.goto(route+'#five-household-influences');
+ await expect(page.locator('.slide.is-active')).toHaveClass(/is-section/);
+ await expect(page.locator('.is-active')).not.toContainText('Disposable income');
+ await page.keyboard.press('ArrowRight');
+ await expect(page.locator('.slide.is-active')).toHaveClass(/is-discussion/);
+ await expect(page.locator('.is-active')).toContainText('spend more or less');
+ await page.locator('.is-active .discussionAnswerButton').click();
+ await expect(page.locator('.discussionAnswerDialog')).toBeVisible();
+ await page.keyboard.press('Escape');
+ await page.keyboard.press('ArrowRight');
  await expect(page.locator('.slide.is-active')).toHaveClass(/is-layout-household-influence-overview/);
- await expect(page.locator('.is-active .household-influence-list li')).toHaveCount(5);
- await expect(page.locator('.is-active .household-influence-list')).toContainText('1.Disposable income');
- await expect(page.locator('.is-active .household-influence-list')).toContainText('5.Culture');
+ await expect(page.locator('.is-active .household-factor-picture svg')).toHaveCount(5);
+ await expect(page.locator('.is-active')).toContainText('1. Disposable income');
+ await expect(page.locator('.is-active')).toContainText('5. Culture');
+ const factorPairs=[
+  ['income-three-choices','household-influences-overview'],
+  ['interest-three-choices','discuss-interest-rates'],
+  ['confidence-household-choices','discuss-confidence'],
+  ['age-three-choices','discuss-age'],
+  ['culture-household-choices','discuss-culture']
+ ];
+ for(const [factor,prompt] of factorPairs){
+  const i=slides.findIndex(s=>s.id===factor);expect(slides[i-1].id).toBe(prompt);
+  await page.goto(route+'#'+factor);
+  await expect(page.locator('.is-active .cardTitle')).toHaveCount(3);
+  await expect(page.locator('.is-active .cardBody.is-visible')).toHaveCount(0);
+  await expect(page.locator('.is-active .household-effect-signal')).toHaveCount(3);
+  await expect(page.locator('.is-active .photoPanel img')).toHaveCount(1);
+ }
+ await page.goto(route+'#income-three-choices');
+ await expect(page.locator('.is-active')).toContainText('income remaining after direct taxes have been deducted');
+ await expect(page.locator('.is-active .partial-item.is-visible')).toHaveCount(0);
+ await expect(page.locator('.is-active .cardTitle')).toHaveCount(3);
+ await page.keyboard.press('ArrowRight');
+ await expect(page.locator('.is-active .partial-item.is-visible')).toHaveCount(1);
+ await expect(page.locator('.is-active .cardTitle')).toHaveCount(3);
+ await page.keyboard.press('ArrowLeft');
+ await expect(page.locator('.is-active .partial-item.is-visible')).toHaveCount(0);
  await page.goto(route+'#income-splits-between-spending-and-saving');
  await expect(page.locator('.is-active .household-scene')).toHaveAttribute('data-stage','0');
  await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowRight');

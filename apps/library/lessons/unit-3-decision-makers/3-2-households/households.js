@@ -67,12 +67,36 @@ IGCSE.mountHouseholds=()=>{
  const slides=[...document.querySelectorAll('#deck .slide')];
  slides.forEach((el,i)=>{
   const s=IGCSE.lesson.slides[i];
-  if(s.overviewItems){
-   if(s.layout)el.classList.add('is-layout-'+s.layout);
-   const list=document.createElement('ol');list.className='household-influence-list';
-   list.innerHTML=s.overviewItems.map((item,j)=>`<li><span class="household-influence-number">${j+1}.</span><span><strong>${esc(item.term)}</strong><small>${esc(item.zh)}</small></span></li>`).join('');
-   const sectionBody=el.querySelector('.content.is-section > div');
-   sectionBody.insertBefore(list,sectionBody.querySelector('.sectionProgress'));
+  if(s.layout==='household-influence-overview'){
+   const pictures=[
+    '<rect x="12" y="30" width="76" height="47" rx="4" fill="#b9d9d4"/><path d="M22 30V18h56v12M24 43h52M24 63h16"/><circle cx="65" cy="60" r="11" fill="#d6a34a"/>',
+    '<path d="M15 80V20M15 80h73M26 67l23-23 16 9 20-32M73 21h12v12"/><circle cx="40" cy="25" r="7" fill="#d6a34a"/><circle cx="66" cy="76" r="7" fill="#b9d9d4"/>',
+    '<circle cx="30" cy="36" r="15" fill="#d6a34a"/><path d="M10 84V70q0-21 20-21t20 21v14" fill="#b9d9d4"/><path d="M57 15h33v33H69L57 59V15Z" fill="#fff"/><path d="M65 33l7 7 12-15"/>',
+    '<path d="M8 82h84M21 65V44M47 65V33M77 65V39M14 54h14M37 45h20M67 50h20"/><circle cx="21" cy="32" r="9" fill="#d6a34a"/><circle cx="47" cy="19" r="11" fill="#d6a34a"/><circle cx="77" cy="25" r="11" fill="#d4dedc"/><path d="M87 52v24"/>',
+    '<rect x="18" y="48" width="64" height="36" fill="#b9d9d4"/><path d="M14 38h72v13H14ZM50 38v46M50 38C15 39 25 8 42 22ZM50 38C85 39 75 8 58 22Z" fill="#d6a34a"/>'
+   ];
+   const descriptions=['Income received after tax','Interest as a percentage rate','A person thinking about the future','People at different stages of life','A gift representing shared customs'];
+   el.querySelectorAll('.cardgrid > .card').forEach((card,j)=>{
+    const picture=document.createElement('div');picture.className='household-factor-picture';
+    picture.innerHTML=`<svg viewBox="0 0 100 100" role="img" aria-label="${descriptions[j]}" fill="none" stroke="#142f43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${pictures[j]}</svg>`;
+    card.prepend(picture);
+    });
+  }
+  if(s.layout==='household-effects'){
+   el.querySelectorAll('.cardgrid > .card').forEach((card,j)=>{
+    const effect=s.cards?.[j];
+    if(!effect?.signal)return;
+    const signal=document.createElement('div');
+    signal.className='household-effect-signal';
+    signal.setAttribute('aria-label',effect.signalLabel||effect.signal);
+    signal.innerHTML=`<strong aria-hidden="true">${esc(effect.signal)}</strong><span>${esc(effect.signalLabel)}</span>`;
+    const body=card.querySelector('.cardBody');
+    if(!body)return;
+    const copy=document.createElement('span');
+    copy.className='household-effect-copy';
+    while(body.firstChild)copy.append(body.firstChild);
+    body.append(signal,copy);
+   });
   }
   // Preserve exact question tables as accessible HTML; never infer columns from PDF extraction.
   if(s.optionColumns){

@@ -11,6 +11,12 @@
 .syllabus-planner .planning-basis { margin: 24px 0; border-left: 3px solid var(--course-accent); padding: 4px 0 4px 22px; }
 .syllabus-planner h2 { font-size: 24px; }
 .syllabus-planner .planning-basis p { margin-top: 10px; max-width: 100ch; font-size: 15px; line-height: 1.6; }
+.syllabus-planner .semester-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0;font-size:14px;line-height:1.5}
+.syllabus-planner .semester-table th,.syllabus-planner .semester-table td{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.syllabus-planner .semester-table th:first-child{width:21%}
+.syllabus-planner .semester-table small,.syllabus-planner .semester-kind{display:block;color:var(--muted);font-size:12px;margin:3px 0}
+.syllabus-planner #download-semester{margin-top:14px}
+@media(max-width:600px){.syllabus-planner .semester-table{font-size:12px}.syllabus-planner .semester-table th,.syllabus-planner .semester-table td{padding:9px 5px}.syllabus-planner .semester-table th:first-child{width:25%}.syllabus-planner .semester-table small,.syllabus-planner .semester-kind{font-size:11px}}
 .syllabus-planner .pacing-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; font-size: 14px; }
 .syllabus-planner .pacing-line input { width: 68px; }
 .syllabus-planner output { color: var(--course-accent); }
@@ -57,6 +63,11 @@
 .syllabus-planner .lesson-codes { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
 .syllabus-planner .personal-status { color: var(--muted); font-size: 12px; }
 .syllabus-planner .personal-status[data-status="Taught"] { color: var(--green); }
+.syllabus-planner .personal-status[data-status="In progress"]{color:#f0c078}
+.syllabus-planner .record-timing{display:block;font-size:12px;line-height:1.6;color:var(--ink-dim);margin-top:8px}
+.syllabus-planner .coverage-note{font-size:14px;line-height:1.6;margin-top:16px;color:var(--ink-dim)}
+.syllabus-planner .continuation-record{padding:18px;border:1px solid var(--line);border-radius:12px;margin-top:16px;background:rgba(14,30,47,.86)}
+.syllabus-planner .continuation-record h3{font-size:17px;margin-bottom:8px}
 .syllabus-planner .plan-body { padding: 0 24px 24px; }
 .syllabus-planner .outcome { border-top: 1px solid var(--line); padding-top: 18px; font-size: 16px; line-height: 1.6; }
 .syllabus-planner .allocation { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
@@ -74,7 +85,9 @@
 .syllabus-planner .exact-wording p { font-size: 14px; line-height: 1.55; }
 .syllabus-planner .exact-wording .source-reference { color: var(--muted); font-size: 11px; margin-top: 9px; }
 .syllabus-planner .syllabus-bullets { white-space: pre-wrap; margin-top: 8px; color: var(--muted); font: inherit; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
-.syllabus-planner .personal-plan { display: grid; grid-template-columns: 170px 170px minmax(0,1fr); gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.syllabus-planner .personal-plan { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.syllabus-planner .personal-plan label:last-child{grid-column:1 / -1}
+.syllabus-planner .personal-plan input{min-width:0;max-width:100%}
 .syllabus-planner .personal-plan label { display: grid; align-content: start; gap: 7px; color: var(--muted); font-size: 12px; }
 .syllabus-planner .personal-plan textarea { resize: vertical; min-height: 76px; width: 100%; border: 1px solid var(--line-strong); border-radius: 8px; background: #102238; color: var(--ink); padding: 10px; font-size: 14px; }
 .syllabus-planner .print-personal { display: none; }
@@ -109,6 +122,8 @@
   .syllabus-planner .personal-plan input { min-width: 0; width: 100%; }
 }
 @media print {
+  .syllabus-planner #semester-content .source-notes{display:block!important}
+  .syllabus-planner #download-semester,.syllabus-planner #semester-download-status{display:none!important}
   @page { size: A4; margin: 15mm; }
   .syllabus-planner { background: white; color: #111; }
   .syllabus-planner .site { width: 100%; max-width: none; padding: 0; }

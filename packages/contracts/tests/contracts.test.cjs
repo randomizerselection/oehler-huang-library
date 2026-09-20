@@ -30,11 +30,11 @@ test('content producer and consumer reject incompatible builds and broken gradin
   }
 });
 
-test('public assets preserve teaching sources and historical pages while excluding private work', () => {
-  for (const file of ['index.html', 'assets/js/presentation.js', 'investment-analysis/unit-1/lesson-1-archive-price-graph/index.html', 'investment-analysis/lessons/current/SOURCE-NOTES.md']) {
+test('public assets preserve teaching sources and compatibility lessons while excluding archive and template work', () => {
+  for (const file of ['index.html', 'assets/js/presentation.js', 'investment-analysis/unit-1/lesson-1/index.html', 'investment-analysis/lessons/current/SOURCE-NOTES.md']) {
     assert.equal(isPublicAsset('library', file), true, file);
   }
-  for (const file of ['generated/quiz-bank.json', 'assets/data/quiz-bank.json', 'investment-analysis/.codex/cache.json', 'investment-analysis/.tmp/export.html', 'investment-analysis/references/book.pdf', 'investment-analysis/planning/plan.json', 'archive/function.js', 'android-definitions/app.js', 'lessons/topic/scripts/build.js', 'student-performance-report.html', '../platform/server/app-server.mjs', 'assets\\..\\server\\secret.json', 'package.json', 'playwright.config.js', 'authoring/plan.json', 'secret.env']) {
+  for (const file of ['generated/quiz-bank.json', 'assets/data/quiz-bank.json', 'investment-analysis/.codex/cache.json', 'investment-analysis/.tmp/export.html', 'investment-analysis/references/book.pdf', 'investment-analysis/planning/plan.json', 'archive/function.js', 'investment-analysis/_archive/course-map.js', 'investment-analysis/_template/index.html', 'investment-analysis/unit-1/lesson-1-archive-price-graph/index.html', 'investment-analysis/unit-1/lesson-1-generator-comparison-archive-economics/index.html', 'investment-analysis/unit-1/lesson-1-all-types/index.html', 'android-definitions/app.js', 'lessons/topic/scripts/build.js', 'student-performance-report.html', '../platform/server/app-server.mjs', 'assets\\..\\server\\secret.json', 'package.json', 'playwright.config.js', 'authoring/plan.json', 'secret.env']) {
     assert.equal(isPublicAsset('library', file), false, file);
   }
   assert.equal(isPublicAsset('student-selector', 'assets/messages.csv'), true);

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-label="Fourteen births minus nine deaths leaves five more residents.">
+  <defs>
+    <g id="p">
+      <circle cx="12" cy="10" r="9" fill="#d6a34a"/>
+      <path d="M2 40V30Q2 20 12 20Q22 20 22 30V40" fill="#166c72"/>
+    </g>
+    <g id="pd">
+      <circle cx="12" cy="10" r="9" fill="#c3cbcd"/>
+      <path d="M2 40V30Q2 20 12 20Q22 20 22 30V40" fill="#9aa7ab"/>
+    </g>
+    <g id="pt">
+      <circle cx="12" cy="10" r="9" fill="#d6a34a"/>
+      <path d="M2 40V30Q2 20 12 20Q22 20 22 30V40" fill="#166c72"/>
+    </g>
+  </defs>
+  <rect width="800" height="300" fill="#f7f7f2"/>
+  <text x="30" y="45" font-family="Arial,Microsoft YaHei,sans-serif" font-size="26" fill="#142f43">14 births 出生</text>
+  <g>
+    <use href="#p" x="30" y="70"/><use href="#p" x="65" y="70"/><use href="#p" x="100" y="70"/><use href="#p" x="135" y="70"/><use href="#p" x="170" y="70"/><use href="#p" x="205" y="70"/><use href="#p" x="240" y="70"/>
+    <use href="#p" x="30" y="125"/><use href="#p" x="65" y="125"/><use href="#p" x="100" y="125"/><use href="#p" x="135" y="125"/><use href="#p" x="170" y="125"/><use href="#p" x="205" y="125"/><use href="#p" x="240" y="125"/>
+  </g>
+  <text x="300" y="140" font-family="Arial,sans-serif" font-size="44" fill="#51616b">−</text>
+  <text x="345" y="45" font-family="Arial,Microsoft YaHei,sans-serif" font-size="26" fill="#142f43">9 deaths 死亡</text>
+  <g>
+    <use href="#pd" x="345" y="70"/><use href="#pd" x="380" y="70"/><use href="#pd" x="415" y="70"/><use href="#pd" x="450" y="70"/><use href="#pd" x="485" y="70"/>
+    <use href="#pd" x="345" y="125"/><use href="#pd" x="380" y="125"/><use href="#pd" x="415" y="125"/><use href="#pd" x="450" y="125"/>
+  </g>
+  <text x="540" y="140" font-family="Arial,sans-serif" font-size="44" fill="#51616b">=</text>
+  <text x="600" y="45" font-family="Arial,Microsoft YaHei,sans-serif" font-size="26" fill="#166c72">+5 more residents</text>
+  <g>
+    <use href="#pt" x="600" y="70"/><use href="#pt" x="635" y="70"/><use href="#pt" x="670" y="70"/><use href="#pt" x="705" y="70"/><use href="#pt" x="740" y="70"/>
+  </g>
+  <text x="30" y="230" font-family="Arial,Microsoft YaHei,sans-serif" font-size="30" fill="#166c72">Natural increase: births exceed deaths</text>
+  <text x="30" y="272" font-family="Arial,Microsoft YaHei,sans-serif" font-size="24" fill="#51616b">自然增长：出生人数超过死亡人数</text>
+</svg>

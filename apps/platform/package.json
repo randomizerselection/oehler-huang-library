@@ -6,6 +6,7 @@
   "description": "Combined HTTP server, shared accounts and persistence, and EconMark application.",
   "scripts": {
     "start": "node scripts/serve.mjs",
+    "dev": "node scripts/serve.mjs",
     "test": "node --test",
     "evaluate": "node scripts/evaluate.mjs",
     "check": "node scripts/check-project.mjs",

@@ -2,8 +2,15 @@
   'use strict';
   const data = window.ALEVEL_SYLLABUS;
   const storageKey = 'oh-a-level-syllabus-personal-v1';
-  const statuses = ['Planned', 'In progress', 'Taught'];
+  const statuses = ['Planned', 'In progress', 'Taught', 'Not confirmed'];
   const byId = new Map(data.lessons.map(lesson => [lesson.id, lesson]));
+  const extras = data.extraSessions || [];
+  const recordIds = new Set([...byId.keys(), ...extras.map(item => item.id)]);
+  const schedule = new Map();
+  data.semesterPlan.weeks.forEach(week => week.slots.forEach((slot, index) => {
+    if (slot.lessonId) schedule.set(slot.lessonId, {plannedWeek:week.start,slot:index+1});
+  }));
+  extras.forEach(item => schedule.set(item.id,item));
   const points = new Map(data.sections.flatMap(section => section.points.map(point => [point.code, { ...point, section: section.id, sheet: section.sheet }])));
   const $ = id => document.getElementById(id);
   const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -17,9 +24,10 @@
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
     for (const [id, entry] of Object.entries(saved)) {
-      if (!byId.has(id) || !entry || typeof entry !== 'object') continue;
+      if (!recordIds.has(id) || !entry || typeof entry !== 'object') continue;
       personal[id] = {
         date: /^\d{4}-\d{2}-\d{2}$/.test(entry.date || '') ? entry.date : '',
+        actualDate: /^\d{4}-\d{2}-\d{2}$/.test(entry.actualDate || '') ? entry.actualDate : '',
         status: statuses.includes(entry.status) ? entry.status : 'Planned',
         notes: typeof entry.notes === 'string' ? entry.notes.slice(0, 5000) : '',
       };
@@ -27,7 +35,22 @@
   } catch {
     $('draft-status').textContent = 'Saved entries could not be loaded. You can still plan here and download a CSV copy.';
   }
-  const entryFor = id => personal[id] || { date: '', status: 'Planned', notes: '' };
+  const entryFor = id => ({date:'',actualDate:'',status:'Planned',notes:'',...(data.teachingRecords?.[id] || {}),...(personal[id] || {})});
+  const plannedFor = id => {
+    const entry=entryFor(id), planned=schedule.get(id);
+    if(entry.date) return entry.date;
+    if(planned) return `Week of ${planned.plannedWeek}${planned.homework?' · homework':` · class ${planned.slot}`}`;
+    return byId.get(id)?.section === '11' ? 'After 14 January 2027 · next-term dates TBC' : 'Earlier plan date not recorded';
+  };
+  const actualFor = id => {
+    const entry=entryFor(id);
+    return entry.actualDate || (entry.status==='Planned'?'Not yet taught':`Exact date unconfirmed${entry.reportedOn?' · reported '+entry.reportedOn:''}`);
+  };
+  const timingText = id => `Planned: ${plannedFor(id)} · Actually taught: ${actualFor(id)}`;
+  const recordControls = id => {
+    const entry=entryFor(id);
+    return `<div class="personal-plan"><label for="date-${id}">Planned class date (optional override)<input id="date-${id}" type="date" data-field="date" value="${escape(entry.date)}"></label><label for="actual-${id}">Actual teaching date<input id="actual-${id}" type="date" data-field="actualDate" value="${escape(entry.actualDate)}"></label><label for="status-${id}">Teaching status<select id="status-${id}" data-field="status">${statuses.map(status=>`<option${entry.status===status?' selected':''}>${status}</option>`).join('')}</select></label><label for="notes-${id}">Planning notes<textarea id="notes-${id}" data-field="notes" rows="2" maxlength="5000">${escape(entry.notes)}</textarea></label></div>`;
+  };
   const lessonCodes = lesson => lesson.allocations.map(allocation => allocation.code);
   const lessonSearch = lesson => [lesson.title, lesson.outcome, lesson.retrieve, lesson.teach, lesson.practice, lesson.check, lesson.followUp, ...lessonCodes(lesson).map(code => {
     const point = points.get(code);
@@ -36,25 +59,22 @@
   const matches = (section, haystack) => ($('section-filter').value === 'all' || $('section-filter').value === section) && haystack.toLowerCase().includes($('planner-search').value.trim().toLowerCase());
   const visibleLessons = () => data.lessons.filter(lesson => matches(lesson.section, lessonSearch(lesson)));
   const exactWording = point => `<div class="exact-wording"><p><strong>${escape(point.code)}</strong> ${escape(point.wording)}</p>${point.bullets ? `<div class="syllabus-bullets">${escape(point.bullets)}</div>` : ''}<p class="source-reference">Syllabus planner.xlsx · ${escape(point.sheet)} · ${escape(point.sourceRange)}</p></div>`;
-  const personalPrint = entry => `Date: ${entry.date || 'Not set'} · Status: ${entry.status}${entry.notes ? '\nNotes: ' + entry.notes : ''}`;
+  const personalPrint = (entry,id) => `${timingText(id)} · Status: ${entry.status}${entry.notes ? '\nNotes: ' + entry.notes : ''}`;
   function lessonMarkup(lesson) {
     const entry = entryFor(lesson.id);
     const allocation = lesson.allocations.map(item => `${item.code}: ${quantity(item.lessons)}`).join(' · ') + (lesson.consolidation ? ` · Consolidation: ${quantity(lesson.consolidation)}` : '');
     return `<details class="lesson-plan" id="${lesson.id}" data-lesson="${lesson.id}"${openLessons.has(lesson.id) ? ' open' : ''}>
-      <summary><span class="lesson-number">Lesson ${lesson.number}</span><span class="lesson-summary-copy"><strong class="lesson-heading">${escape(lesson.title)}</strong><span class="lesson-codes">${escape(lessonCodes(lesson).join(' · '))}</span></span><span class="personal-status" data-status="${entry.status}">${entry.status}</span></summary>
+      <summary><span class="lesson-number">Lesson ${lesson.number}</span><span class="lesson-summary-copy"><strong class="lesson-heading">${escape(lesson.title)}</strong><span class="lesson-codes">${escape(lessonCodes(lesson).join(' · '))}</span><span class="record-timing">${escape(timingText(lesson.id))}</span></span><span class="personal-status" data-status="${entry.status}">${entry.status}</span></summary>
       <div class="plan-body">
+        ${entry.note?`<p class="coverage-note"><strong>Coverage record.</strong> ${escape(entry.note)}</p>`:''}
         <p class="outcome"><strong>Learning outcome.</strong> ${escape(lesson.outcome)}</p>
         <p class="allocation">${escape(allocation)}${lesson.section === '11' ? ' · Provisional allocation' : ''}</p>
         <dl class="lesson-sequence">${[['Retrieve', lesson.retrieve], ['Teach and model', lesson.teach], ['Practise and apply', lesson.practice], ['Exit check', lesson.check]].map(([label, content]) => `<div><dt>${label}</dt><dd>${escape(content)}</dd></div>`).join('')}</dl>
         <p class="follow-up"><strong>Follow-up.</strong> ${escape(lesson.followUp)}</p>
         ${lesson.resource ? `<div class="lesson-resource"><a href="../${escape(lesson.resource.href)}">${escape(lesson.resource.label)}</a>${lesson.resource.note ? `<p>${escape(lesson.resource.note)}</p>` : ''}</div>` : ''}
         <details class="lesson-syllabus"><summary>Original syllabus wording</summary>${lessonCodes(lesson).map(code => exactWording(points.get(code))).join('')}</details>
-        <div class="personal-plan">
-          <label for="date-${lesson.id}">Planned date<input id="date-${lesson.id}" type="date" data-field="date" value="${escape(entry.date)}"></label>
-          <label for="status-${lesson.id}">Teaching status<select id="status-${lesson.id}" data-field="status">${statuses.map(status => `<option${entry.status === status ? ' selected' : ''}>${status}</option>`).join('')}</select></label>
-          <label for="notes-${lesson.id}">Planning notes<textarea id="notes-${lesson.id}" data-field="notes" rows="2" maxlength="5000" placeholder="Adjustments, resources or next steps">${escape(entry.notes)}</textarea></label>
-        </div>
-        <p class="print-personal">${escape(personalPrint(entry))}</p>
+        ${recordControls(lesson.id)}
+        <p class="print-personal">${escape(personalPrint(entry,lesson.id))}</p>
       </div>
     </details>`;
   }
@@ -112,14 +132,24 @@
     element.scrollIntoView({ block: 'start' });
     element.querySelector('summary').focus({ preventScroll: true });
   }
-  function downloadCsv() {
-    const weekly = Number($('lessons-per-week').value);
-    const validWeekly = Number.isInteger(weekly) && weekly >= 1 && weekly <= 10;
-    const rows = [['Lesson', 'Section', 'Title', 'Syllabus codes', 'Allocation', 'Suggested week', 'Planned date', 'Teaching status', 'Learning outcome', 'Retrieve', 'Teach and model', 'Practise and apply', 'Exit check', 'Follow-up', 'Planning notes']];
-    visibleLessons().forEach(lesson => {
-      const entry = entryFor(lesson.id);
-      rows.push([lesson.number, lesson.section, lesson.title, lessonCodes(lesson).join('; '), lesson.allocations.map(a => `${a.code}: ${a.lessons}`).join('; ') + (lesson.consolidation ? `; consolidation: ${lesson.consolidation}` : ''), validWeekly ? Math.ceil(lesson.number / weekly) : '', entry.date, entry.status, lesson.outcome, lesson.retrieve, lesson.teach, lesson.practice, lesson.check, lesson.followUp, entry.notes]);
-    });
+  const semester = data.semesterPlan;
+  const semesterSlot = slot => slot.lessonId ? { ...slot, title: byId.get(slot.lessonId).title, href: '#' + slot.lessonId, codes: lessonCodes(byId.get(slot.lessonId)) } : slot;
+  function renderSemester() {
+    const slotHtml = raw => {
+      const slot = semesterSlot(raw);
+      const id=slot.lessonId || (slot.kind==='teaching'?'fiscal-continuation':null);
+      return `<td><span class="semester-kind">${escape({teaching:'Teaching',reserve:'Reserved',review:'Assessment / review'}[slot.kind])}</span>${slot.href ? `<a href="${escape(slot.href)}">${escape(slot.title)}</a>` : escape(slot.title)}${slot.codes ? `<small>${escape(slot.codes.join(' · '))}</small>` : ''}${id?`<small data-semester-record="${id}">${escape(entryFor(id).status)} · Actually taught: ${escape(actualFor(id))}</small>`:''}</td>`;
+    };
+    $('semester-content').innerHTML = `<p><strong>Two 40-minute lessons per week · finish sections 9–10 before approximately 14 January 2027.</strong> Section 11 follows later.</p>
+      <p><strong>32 nominal slots = 25 teaching + 4 holiday/disruption reserves + 3 assessment/review.</strong> The 16 full weeks run from 21 September to 10 January; any lessons on 11–14 January are additional contingency, not required to make this plan fit.</p>
+      <p><strong>Reported coverage:</strong> growth/output gaps reached slide 20, <em>Output gaps and expenditure gaps</em>. Next: <a href="../lessons/9-2-2-fiscal-expansion-multiplier/index.html">Fiscal expansion and the multiplier</a>, still untaught. The schedule then covers reference lessons 6–29, targeting completion of new content in the week of 21 December.</p>
+      <p>Keep model teaching, calculation/diagram practice and a short assessed response in class. Set complete essays and optional extensions as homework; use retrieval and feedback to address errors. The earlier full-employment essay workshop has no confirmed completion: assign its essay as diagnostic homework and use reserve/review time if further teaching is needed.</p>
+      <details class="source-notes"><summary>Weekly semester schedule and assumptions</summary>
+      <p>These are week windows, not fixed lesson dates. Holiday reserves around early October and New Year are planning allowances, not a confirmed school calendar; move them to match the actual timetable. If more than four slots are lost, use the final partial week and review the remaining budget. Prepared lessons and this schedule do not mark anything as taught.</p>
+      <table class="semester-table"><caption>Forward plan from the teacher-reported stopping point</caption><thead><tr><th scope="col">Week beginning</th><th scope="col">First slot</th><th scope="col">Second slot</th></tr></thead><tbody>${semester.weeks.map(week => `<tr><th scope="row">${escape(week.start)}</th>${week.slots.map(slotHtml).join('')}</tr>`).join('')}</tbody></table>
+      <p><strong>11–14 January:</strong> final corrections or catch-up if the timetable permits. No new syllabus topic is scheduled here.</p></details>`;
+  }
+  function saveCsv(rows, filename) {
     const cell = value => {
       let text = String(value ?? '');
       if (/^[\s]*[=+@-]/.test(text) || /^[\t\r]/.test(text)) text = "'" + text;
@@ -129,12 +159,38 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'a-level-lesson-plan.csv';
+    link.download = filename;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  function downloadSemester() {
+    const rows = [['Week beginning', 'Slot', 'Type', 'Topic', 'Reference lesson', 'Syllabus codes','Planned date override','Actual teaching date','Status']];
+    semester.weeks.forEach(week => week.slots.forEach((raw, i) => {
+      const slot = semesterSlot(raw);
+      const id=slot.lessonId || (slot.kind==='teaching'?'fiscal-continuation':null),entry=id?entryFor(id):{};
+      rows.push([week.start, i + 1, slot.kind, slot.title, slot.lessonId || '', (slot.codes || []).join('; '),entry.date||'',entry.actualDate||'',entry.status||slot.kind]);
+    }));
+    saveCsv(rows, 'a-level-semester-to-2027-01-14.csv');
+    $('semester-download-status').textContent = 'Downloaded 32 slots: 25 teaching, 4 reserves and 3 assessment/review.';
+  }
+  function downloadCsv() {
+    const weekly = Number($('lessons-per-week').value);
+    const validWeekly = Number.isInteger(weekly) && weekly >= 1 && weekly <= 10;
+    const rows = [['Lesson', 'Section', 'Title', 'Syllabus codes', 'Allocation', 'Suggested week', 'Planned date', 'Teaching status', 'Learning outcome', 'Retrieve', 'Teach and model', 'Practise and apply', 'Exit check', 'Follow-up', 'Planning notes','Scheduled window','Actual teaching date','Coverage report date','Confirmed coverage']];
+    visibleLessons().forEach(lesson => {
+      const entry = entryFor(lesson.id);
+      rows.push([lesson.number, lesson.section, lesson.title, lessonCodes(lesson).join('; '), lesson.allocations.map(a => `${a.code}: ${a.lessons}`).join('; ') + (lesson.consolidation ? `; consolidation: ${lesson.consolidation}` : ''), validWeekly ? Math.ceil(lesson.number / weekly) : '', entry.date, entry.status, lesson.outcome, lesson.retrieve, lesson.teach, lesson.practice, lesson.check, lesson.followUp, entry.notes,plannedFor(lesson.id),entry.actualDate,entry.reportedOn||'',entry.note||'']);
+    });
+    saveCsv(rows, 'a-level-lesson-plan.csv');
     $('draft-status').textContent = `Downloaded ${rows.length - 1} lesson plans with your dates, status and notes.`;
   }
   $('plan-summary').textContent = `${data.lessons.length} lessons · ${points.size} syllabus points · ${data.sections.length} sections`;
+  renderSemester();
+  $('continuation-records').innerHTML=extras.map(item=>{
+    const entry=entryFor(item.id);
+    return `<article class="continuation-record" data-lesson="${item.id}" id="${item.id}"><h3><a href="${escape(item.href)}">${escape(item.title)}</a></h3><span class="personal-status" data-status="${entry.status}">${entry.status}</span><p class="record-timing">${escape(timingText(item.id))}</p><p class="coverage-note">${escape(entry.note)}</p>${recordControls(item.id)}<p class="print-personal">${escape(personalPrint(entry,item.id))}</p></article>`;
+  }).join('');
+  $('download-semester').addEventListener('click', downloadSemester);
   $('source-list').innerHTML = data.sources.map(source => `<li><strong>${escape(source.name)}</strong> — ${escape(source.role)}</li>`).join('');
   $('planner-search').addEventListener('input', render);
   $('section-filter').addEventListener('change', render);
@@ -150,16 +206,18 @@
     history.replaceState(null, '', '#' + link.dataset.openLesson);
     openLesson(link.dataset.openLesson);
   });
-  $('lesson-plans').addEventListener('input', event => {
+  document.addEventListener('input', event => {
     const field = event.target.dataset.field;
     const lesson = event.target.closest('[data-lesson]');
-    if (!lesson || !['date', 'status', 'notes'].includes(field)) return;
+    if (!lesson || !['date', 'actualDate', 'status', 'notes'].includes(field)) return;
     const entry = { ...entryFor(lesson.dataset.lesson), [field]: event.target.value };
     personal[lesson.dataset.lesson] = entry;
     const status = lesson.querySelector('.personal-status');
     status.textContent = entry.status;
     status.dataset.status = entry.status;
-    lesson.querySelector('.print-personal').textContent = personalPrint(entry);
+    lesson.querySelector('.print-personal').textContent = personalPrint(entry,lesson.dataset.lesson);
+    lesson.querySelector('.record-timing').textContent = timingText(lesson.dataset.lesson);
+    document.querySelectorAll(`[data-semester-record="${lesson.dataset.lesson}"]`).forEach(el=>{el.textContent=`${entry.status} · Actually taught: ${actualFor(lesson.dataset.lesson)}`;});
     try {
       localStorage.setItem(storageKey, JSON.stringify(personal));
       $('draft-status').textContent = 'Dates, status and notes saved in this browser.';
@@ -170,7 +228,7 @@
   $('download-plan').addEventListener('click', downloadCsv);
   $('print-plan').addEventListener('click', () => window.print());
   window.addEventListener('beforeprint', () => {
-    const visible = document.querySelectorAll(view === 'lessons' ? '.lesson-plan' : '.syllabus-point');
+    const visible = document.querySelectorAll((view === 'lessons' ? '.lesson-plan' : '.syllabus-point') + ', #semester-content details');
     printOpen = [...visible].map(el => [el, el.open]);
     visible.forEach(el => { el.open = true; });
   });

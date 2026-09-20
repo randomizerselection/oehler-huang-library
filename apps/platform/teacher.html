@@ -1,100 +1,148 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <meta name="theme-color" content="#123f3b" />
-    <meta name="description" content="学思札记个人网站的作业辅助工具：EconMark 教师作业库与学生提交审核" />
-    <title>EconMark Teacher · 作业库与审核中心 - 学思札记</title>
+    <meta name="description" content="EconMark teacher dashboard for assignments, assessment review, quiz results and student records" />
+    <title>EconMark Teacher · Teacher dashboard</title>
     <link rel="stylesheet" href="/econmark/src/styles.css" />
-    <link rel="stylesheet" href="/econmark/src/teacher-styles.css" />
+    <link rel="stylesheet" href="/econmark/src/teacher-styles.css?v=20260917.7" />
   </head>
   <body class="teacher-body">
     <header class="site-header teacher-header">
-      <a class="brand" href="/econmark/teacher" aria-label="EconMark Teacher 首页"><span class="brand-mark">E</span><span><strong>EconMark <span class="brand-role">Teacher</span></strong><small>学思札记 · 作业整理与审核</small></span></a>
-      <nav class="app-nav" aria-label="主要导航"><a href="/">学思札记</a><a href="/econmark/">学生入口</a><a href="/econmark/teacher" aria-current="page">作业库</a><a href="/econmark/single">单份评分</a><a href="/econmark/batch">批量评分</a></nav>
+      <a class="brand" href="/econmark/teacher" aria-label="EconMark Teacher home"><span class="brand-mark">E</span><span><strong>EconMark <span class="brand-role">Teacher</span></strong><small>Teacher workspace</small></span></a>
+      <nav class="app-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/econmark/">Student view</a><a href="/econmark/single">Single marking</a><a href="/econmark/batch">Batch marking</a></nav>
       <div class="header-actions" data-platform-account></div>
     </header>
 
     <main class="teacher-main">
       <section class="teacher-hero app-hero">
-        <div><p class="eyebrow">教师工作台</p><h1>创建作业，<em>审核提交。</em></h1><p>题目与评分标准集中维护，并用于学生反馈、单份评分和整班批量评分。</p></div>
-        <button id="new-assignment" class="button button-primary" hidden>＋ 新建作业</button>
+        <div><p class="eyebrow">Teacher workspace</p><h1>Assignments, results and student progress</h1><p>Review questions and mark schemes, monitor attendance and identify students who need follow-up.</p></div>
+        <button id="new-assignment" class="button button-primary" hidden>＋ New assignment</button>
       </section>
 
       <div id="teacher-notice" class="teacher-notice" role="status" aria-live="polite"></div>
 
       <nav class="teacher-area-tabs" aria-label="Teacher tools">
-        <a href="/econmark/teacher" data-teacher-tab="assignments">作业与评分</a>
-        <a href="/econmark/teacher?tab=quizzes" data-teacher-tab="quizzes">课程测验成绩</a>
+        <a href="/econmark/teacher" data-teacher-tab="assignments">Assignments</a>
+        <a href="/econmark/teacher?tab=quizzes" data-teacher-tab="quizzes">Quiz results</a>
+        <a href="/econmark/teacher?tab=students" data-teacher-tab="students">Students</a>
       </nav>
 
       <section id="teacher-auth-gate" class="teacher-auth-gate">
-        <h2 id="teacher-gate-title">登录后管理作业</h2><p id="teacher-gate-help">创建新账户需要管理员提供的邀请码。</p>
-        <div><button id="teacher-gate-login" class="button button-primary">登录</button><button id="teacher-gate-register" class="button button-secondary">使用邀请码注册</button></div>
+        <h2 id="teacher-gate-title">Sign in to manage assignments</h2><p id="teacher-gate-help">An administrator invitation is required to create a new account.</p>
+        <div><button id="teacher-gate-login" class="button button-primary">Sign in</button><button id="teacher-gate-register" class="button button-secondary">Register with an invitation</button></div>
       </section>
 
       <div id="teacher-workspace" class="teacher-workspace" hidden>
         <section class="teacher-library-panel">
-          <div class="teacher-section-heading"><div><p class="section-kicker">作业库</p><h2>我的作业</h2></div><div class="assignment-filters" role="group" aria-label="筛选作业"><button class="active" data-filter="all">全部</button><button data-filter="draft">草稿</button><button data-filter="published">已发布</button><button data-filter="archived">已归档</button></div></div>
+          <div class="teacher-section-heading"><div><p class="section-kicker">Assignment library</p><h2>My assignments</h2></div><div class="assignment-filters" role="group" aria-label="Filter assignments"><button class="active" data-filter="all">All</button><button data-filter="draft">Drafts</button><button data-filter="published">Published</button><button data-filter="archived">Archived</button></div></div>
           <div id="assignment-list" class="assignment-list"></div>
         </section>
 
         <aside id="teacher-inbox-panel" class="teacher-inbox-panel">
-          <div class="teacher-section-heading"><div><p class="section-kicker">提交审核</p><h2 id="inbox-title">学生提交</h2></div><span id="inbox-count" class="inbox-count">0</span></div>
-          <p id="inbox-description" class="inbox-description">选择一项已发布作业，查看学生自评提交。</p>
+          <div class="teacher-section-heading"><div><p class="section-kicker">Submission review</p><h2 id="inbox-title">Student submissions</h2></div><span id="inbox-count" class="inbox-count">0</span></div>
+          <p id="inbox-description" class="inbox-description">Select a published assignment to review student submissions.</p>
           <div id="submission-list" class="submission-list"></div>
         </aside>
       </div>
 
       <section id="quiz-gradebook" class="quiz-gradebook" hidden>
-        <header class="teacher-section-heading"><div><p class="section-kicker">全校课程测验</p><h2>Quiz gradebook · 测验成绩册</h2></div><a id="quiz-export" class="button button-secondary" href="/api/teacher/quiz-attempts.csv">导出 CSV</a></header>
+        <header class="teacher-section-heading"><div><p class="section-kicker">Course quizzes</p><h2>Quiz gradebook</h2></div><a id="quiz-export" class="button button-secondary" href="/api/teacher/quiz-attempts.csv">Export CSV</a></header>
         <form id="quiz-filters" class="quiz-filters">
-          <label>班级<select name="class_name"><option value="">全部班级</option></select></label>
-          <label>学生<input name="student" autocomplete="off" placeholder="姓名或用户名" /></label>
-          <label>课程<select name="course_id"><option value="">全部课程</option><option value="economics">Economics</option><option value="investment-analysis">Investment</option></select></label>
-          <label>课次<input name="lesson_id" autocomplete="off" placeholder="Lesson ID" /></label>
-          <label>测验<input name="quiz_id" autocomplete="off" placeholder="Quiz ID" /></label>
-          <label>显示<select name="view"><option value="latest">最新一次</option><option value="best">最佳一次</option><option value="all">全部尝试</option></select></label>
-          <label>开始日期<input name="date_from" type="date" /></label>
-          <label>结束日期<input name="date_to" type="date" /></label>
-          <button class="button button-primary" type="submit">筛选</button>
+          <label>Class<select name="class_name"><option value="">All classes</option></select></label>
+          <label>Student<input name="student" autocomplete="off" placeholder="Name or username" /></label>
+          <label>Course<select name="course_id"><option value="">All courses</option><option value="economics">Economics</option><option value="investment-analysis">Investment</option></select></label>
+          <label>Lesson<input name="lesson_id" autocomplete="off" placeholder="Lesson ID" /></label>
+          <label>Quiz<input name="quiz_id" autocomplete="off" placeholder="Quiz ID" /></label>
+          <label>View<select name="view"><option value="latest">Latest attempt</option><option value="best">Best attempt</option><option value="all">All attempts</option></select></label>
+          <label>From<input name="date_from" type="date" /></label>
+          <label>To<input name="date_to" type="date" /></label>
+          <button class="button button-primary" type="submit">Apply filters</button>
         </form>
         <p id="quiz-gradebook-summary" class="inbox-description"></p>
         <div class="quiz-gradebook-table-wrap">
-          <table class="quiz-gradebook-table"><thead><tr><th>时间</th><th>班级</th><th>学生</th><th>课程 / 课次</th><th>测验版本</th><th>成绩</th></tr></thead><tbody id="quiz-gradebook-rows"></tbody></table>
+          <table class="quiz-gradebook-table"><thead><tr><th>Time</th><th>Class</th><th>Student</th><th>Course / lesson</th><th>Quiz version</th><th>Score</th></tr></thead><tbody id="quiz-gradebook-rows"></tbody></table>
         </div>
+      </section>
+      <section id="students-panel" class="students-panel" hidden>
+        <header class="students-heading">
+          <div><p class="section-kicker">Student records</p><h2>Student progress</h2><p>Attendance, homework, class ratings and selection history from the platform database.</p></div>
+        </header>
+        <div class="students-toolbar" aria-label="Student filters">
+          <label class="students-class-picker">Course class<select id="students-class-select" name="class_id"></select></label>
+          <label class="students-class-picker">Form class<select id="students-form-class-select" name="form_class"><option value="">All form classes</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option></select></label>
+          <label class="students-class-picker students-search">Find student<input id="students-search" type="search" autocomplete="off" placeholder="Name or student ID" /></label>
+          <label class="students-attention-toggle"><input id="students-attention-only" type="checkbox" /><span>Needs attention only</span></label>
+        </div>
+        <p id="students-summary" class="inbox-description"></p>
+        <div id="students-stats" class="students-stats"></div>
+        <section id="students-attention" class="students-attention" aria-label="Attention needed"></section>
+        <div class="students-table-wrap">
+          <table class="students-table">
+            <thead><tr><th>Student</th><th>Form class</th><th>Course class</th><th>Attendance</th><th>Homework</th><th>Class ratings</th><th>Selected</th></tr></thead>
+            <tbody id="students-rows"></tbody>
+          </table>
+        </div>
+        <details class="students-log-panel">
+          <summary>Attendance history <span>Date, time and lesson for each roll call</span></summary>
+          <div class="students-table-wrap">
+            <table class="students-table students-log-table">
+              <thead><tr><th>Date</th><th>Time</th><th>Lesson</th><th>Record</th><th>Present</th><th>Absent</th><th>Attendance rate</th><th>Absence follow-up</th></tr></thead>
+              <tbody id="students-attendance-log"></tbody>
+            </table>
+          </div>
+        </details>
       </section>
     </main>
 
     <dialog id="assignment-dialog" class="assignment-dialog">
       <form id="assignment-form" class="assignment-form">
-        <header><div><p class="section-kicker">唯一题目与评分依据</p><h2 id="assignment-dialog-title">新建作业</h2></div><button id="assignment-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button></header>
+        <header><div><p class="section-kicker">Question and marking source</p><h2 id="assignment-dialog-title">New assignment</h2></div><button id="assignment-dialog-close" type="button" class="dialog-close" aria-label="Close">×</button></header>
         <input id="assignment-edit-id" type="hidden" />
-        <label class="field" for="assignment-title"><span>作业标题</span><input id="assignment-title" required maxlength="160" placeholder="例如：利率与通货膨胀" /></label>
-        <label class="field" for="assignment-instructions"><span>给学生的说明</span><textarea id="assignment-instructions" rows="2" maxlength="2000" placeholder="拍摄完整答题页，并确保字迹清晰。"></textarea></label>
-        <label class="field" for="assignment-question"><span>题目（Question）</span><textarea id="assignment-question" required rows="3"></textarea></label>
-        <div class="field-row"><label class="field" for="assignment-command"><span>指令词</span><select id="assignment-command"><option value="Discuss">Discuss（讨论）</option><option value="Analyse">Analyse（分析）</option></select></label><label class="field" for="assignment-max-mark"><span>满分</span><select id="assignment-max-mark"><option value="8">8 分</option><option value="6">6 分</option></select></label></div>
-        <label class="field" for="assignment-mark-scheme"><span>评分标准（Mark scheme）</span><textarea id="assignment-mark-scheme" required rows="10" placeholder="粘贴本题完整评分标准。它将成为所有评分模式的唯一依据。"></textarea></label>
-        <p class="assignment-form-note">草稿可以继续编辑；发布后内容永久冻结。需要修改时，系统会创建新的版本和分享代码。</p>
+        <label class="field" for="assignment-title"><span>Assignment title</span><input id="assignment-title" required maxlength="160" placeholder="For example: Interest rates and inflation" /></label>
+        <label class="field" for="assignment-instructions"><span>Instructions for students</span><textarea id="assignment-instructions" rows="2" maxlength="2000" placeholder="Photograph the complete answer page and make sure the writing is clear."></textarea></label>
+        <label class="field" for="assignment-question"><span>Question</span><textarea id="assignment-question" required rows="3"></textarea></label>
+        <div class="field-row"><label class="field" for="assignment-command"><span>Command word</span><select id="assignment-command"><option value="Discuss">Discuss</option><option value="Analyse">Analyse</option></select></label><label class="field" for="assignment-max-mark"><span>Maximum mark</span><select id="assignment-max-mark"><option value="8">8 marks</option><option value="6">6 marks</option></select></label></div>
+        <label class="field" for="assignment-mark-scheme"><span>Mark scheme</span><textarea id="assignment-mark-scheme" required rows="10" placeholder="Paste the complete mark scheme. It will be the single source used by every marking mode."></textarea></label>
+        <p class="assignment-form-note">Drafts remain editable. Publishing freezes the content permanently; later changes create a new version and share code.</p>
         <p id="assignment-form-error" class="account-error" role="alert"></p>
-        <button id="assignment-save" class="button button-primary" type="submit">保存草稿</button>
+        <button id="assignment-save" class="button button-primary" type="submit">Save draft</button>
       </form>
     </dialog>
 
     <dialog id="submission-dialog" class="submission-dialog">
       <div class="submission-detail">
-        <header><div><p class="section-kicker">学生提交审核</p><h2 id="submission-student">—</h2><p id="submission-meta">—</p></div><button id="submission-dialog-close" type="button" class="dialog-close" aria-label="关闭">×</button></header>
+        <header><div><p class="section-kicker">Student submission review</p><h2 id="submission-student">—</h2><p id="submission-meta">—</p></div><button id="submission-dialog-close" type="button" class="dialog-close" aria-label="Close">×</button></header>
         <div class="submission-detail-grid">
-          <section><img id="submission-image" alt="学生手写作答" /><h3>安全转写</h3><div id="submission-transcript" class="submission-transcript"></div><h3>评分证据</h3><div id="submission-evidence" class="evidence-list"></div></section>
-          <aside><div class="submission-score"><strong id="submission-score">—</strong><span id="submission-max">/8</span><p id="submission-confidence">—</p></div><div id="submission-feedback" class="submission-feedback"></div><h3>教师决定</h3><div id="submission-decision" class="decision-status">等待教师复核。</div><div class="decision-buttons"><button id="submission-approve" class="button button-approve">认可暂定分数</button><button id="submission-adjust-toggle" class="button button-secondary">调整</button><button id="submission-reject" class="button button-ghost">拒绝</button></div><div id="submission-adjust-form" class="adjust-form" hidden><label class="field" for="submission-adjust-mark"><span>最终分数</span><input id="submission-adjust-mark" type="number" min="0" max="8" /></label><label class="field" for="submission-adjust-reason"><span>调整理由</span><textarea id="submission-adjust-reason" rows="3"></textarea></label><button id="submission-adjust-save" class="button button-primary">保存调整</button></div></aside>
+          <section><img id="submission-image" alt="Student's handwritten answer" /><h3>Verified transcript</h3><div id="submission-transcript" class="submission-transcript"></div><h3>Marking evidence</h3><div id="submission-evidence" class="evidence-list"></div></section>
+          <aside><div class="submission-score"><strong id="submission-score">—</strong><span id="submission-max">/8</span><p id="submission-confidence">—</p></div><div id="submission-feedback" class="submission-feedback"></div><h3>Teacher decision</h3><div id="submission-decision" class="decision-status">Awaiting teacher review.</div><div class="decision-buttons"><button id="submission-approve" class="button button-approve">Approve provisional mark</button><button id="submission-adjust-toggle" class="button button-secondary">Adjust</button><button id="submission-reject" class="button button-ghost">Reject</button></div><div id="submission-adjust-form" class="adjust-form" hidden><label class="field" for="submission-adjust-mark"><span>Final mark</span><input id="submission-adjust-mark" type="number" min="0" max="8" /></label><label class="field" for="submission-adjust-reason"><span>Reason for adjustment</span><textarea id="submission-adjust-reason" rows="3"></textarea></label><button id="submission-adjust-save" class="button button-primary">Save adjustment</button></div></aside>
         </div>
       </div>
     </dialog>
 
-    <footer><p>学思札记 · 个人学习与教学资料 · <a href="/pedagogy.html#site-about">关于本站</a></p></footer>
+    <dialog id="student-dialog" class="submission-dialog">
+      <div class="submission-detail">
+        <header><div><p class="section-kicker">Student profile</p><h2 id="student-dialog-name">—</h2><p id="student-dialog-meta">—</p></div><button id="student-dialog-close" type="button" class="dialog-close" aria-label="Close">×</button></header>
+        <h3>Attendance</h3>
+        <div class="students-table-wrap student-dialog-table-wrap">
+          <table class="students-table"><thead><tr><th>Date</th><th>Time</th><th>Class</th><th>Lesson</th><th>Status</th><th>Absence reason</th></tr></thead><tbody id="student-attendance"></tbody></table>
+        </div>
+        <h3>Homework</h3>
+        <div class="students-table-wrap student-dialog-table-wrap">
+          <table class="students-table"><thead><tr><th>Date</th><th>Assignment</th><th>Status</th><th>Note</th></tr></thead><tbody id="student-homework"></tbody></table>
+        </div>
+        <h3>Class selections and ratings</h3>
+        <div class="students-table-wrap student-dialog-table-wrap">
+          <table class="students-table"><thead><tr><th>Time</th><th>Class</th><th>Rating</th></tr></thead><tbody id="student-selector"></tbody></table>
+        </div>
+      </div>
+    </dialog>
+
+    <footer><p>Oehler-Huang learning and teaching resources · <a href="/pedagogy.html#site-about">About this site</a></p></footer>
     <div id="teacher-toast" class="toast" role="alert" aria-live="assertive"></div>
-    <script type="module" src="/econmark/src/teacher-app.js"></script>
+    <script type="module" src="/econmark/src/teacher-app.js?v=20260917.8"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 # IGCSE Economics lesson-deck preferences
 
-Updated through 15 September 2026. Apply these to future IGCSE decks and relevant revisions; do not silently redesign every older lesson. Preserve the Economics course's renderer, selective Chinese support and answer reveals. Visual conventions may be overridden when they harm classroom readability.
+Updated through 16 September 2026. Apply these to future IGCSE decks and relevant revisions; do not silently redesign every older lesson. Preserve the Economics course's renderer, selective Chinese support and answer reveals. Visual conventions may be overridden when they harm classroom readability.
 
 ## Classroom design takes priority — 14 September 2026
 
@@ -41,6 +41,11 @@ Updated through 15 September 2026. Apply these to future IGCSE decks and relevan
 - Respect syllabus boundaries when introducing central-bank functions in 3.1.2. Identify monetary policy, its instruments and the usual price-stability aim, but teach how interest-rate changes affect borrowing, saving, spending and inflation in Unit 4.3. Do not add the “Interest rates rise…” discussion or checks/models that require its untaught transmission mechanism here. Keep any real rate-setting example brief and institutional. A retail price label is a poor visual for a central-bank policy decision; use the relevant policy meeting or institution (14 September 2026 scope correction).
 
 ## Questions and slide types
+
+- Households feedback, 16 September 2026: keep the factor list off the section divider. Ask one broad small-group question about monthly spending, then show all five influences together on one numbered overview with a small relevant picture for each. Before each later factor, use one picture-led discussion prompt that leads directly into that factor. Begin every factor with the same clear three-row Spending/Saving/Borrowing overview before developing examples or calculations. Use a factor-specific photograph, separate direction/status labels from the explanation, and keep the factor name and number prominent. Define disposable income as income remaining after direct taxes have been deducted; align all definitions and causal wording with the retained definitions and relevant mark schemes. Distinguish conditional responses from automatic increases or decreases.
+- Use syllabus-like language for section dividers. For Households, prefer “Household spending, saving and borrowing” and “Five influences on households’ spending, saving and borrowing” over conversational headings such as “Spending now or later” or “What shapes household choices?” (16 September 2026).
+- On each household-influence overview, show the Spending, Saving and Borrowing row labels immediately. Ask students to predict ↑, ↓ or ↕, then reveal each arrow, direction label and concise explanation together, one row at a time (16 September 2026).
+
 
 - Make syllabus and overview lists notebook copy-ready: number the items clearly and use precise key words as the visible headings, for example `1. Disposable income` and `2. Rate of interest`. Do not compress a list students should record into a subtitle or sentence (Households feedback, 15 September 2026).
 - Enterprise clarification, 15 September 2026: use plain labels for abstract diagram symbols; explain what a money rectangle represents rather than calling it a “token”. Structure factor-payment comparisons around when payments can be agreed versus when profit can be known, with aligned examples and reversible reveals. For motivation/list slides, reveal each complete item (picture, heading and explanation) one at a time. Verify reasons against original mark schemes and the syllabus, and distinguish accepted examples from an exhaustive syllabus list. Add relevant photographs to scenario-based past-paper questions, including the driver and vans in Sonia’s delivery-service question; preserve original wording/options and do not label pictures with answers in advance.
@@ -132,3 +137,17 @@ The active examples are apps/library/lessons/unit-3-decision-makers/3-1-money-an
 - Apply removals to the HTML slide source before exporting all four decks. Export completed diagram and animated-content states; keep question pages before separately revealed model answers.
 
 - For real-world payment/data examples, use aligned illustrated panels with a clear visual hierarchy: resource or activity, prominent amount, explicit unit, payer and recipient, then dated context. Explain unfamiliar units visually (e.g. a marked acre) and distinguish average payments from legal minimums. Reveal each complete example separately and reversibly; retain primary-source details on demand (15 September 2026 enterprise feedback).
+
+## 8-mark discuss questions: no final judgement — 19 September 2026
+
+- For IGCSE Economics 8-mark "discuss" questions, a final judgement or conclusion is **not** required. Marks come from developing **both sides of the argument**; never withhold marks, or ask a student to add a judgement, conclusion or extended evaluation.
+- Mark 5(d) "Discuss whether or not supply-side policy measures always promote economic growth" (8 marks) against the level descriptors: Level 3 (6-8) both sides developed with sound reasoning, Level 2 (3-5) some reasoning, possibly one-sided, Level 1 (1-2) simple statements using terms. Award the top of a level when both sides are developed, whether or not the answer concludes.
+- When giving written feedback on such answers, name the single most useful improvement: the missing or weaker side, an undeveloped causal chain, or an unsupported assertion. Do not request judgement or evaluation.
+- The model answer supplied on 19 September 2026 is the reference for this question and is sent to students with their marked score.
+
+## Answers must be written in full sentences — 19 September 2026
+
+- An IGCSE Economics answer that is only a list of points, headings or bullet fragments is **not an accepted answer**, however many valid points it names. Students must write their reasoning in full sentences; lists are notes, not an answer.
+- Record such a submission as incomplete (needs work) rather than accepted, ask once for the answer to be rewritten in full sentences, and do not send a completion confirmation.
+- The same expectation applies when marking: reasoning written as lists cannot earn level-descriptor credit, and where part of an accepted answer is still a list, name writing it out in sentences as the improvement in feedback.
+- Context: an IC3.2 5(d) submission that combined full-sentence analysis with list-form counter-arguments prompted this rule on 19 September 2026.

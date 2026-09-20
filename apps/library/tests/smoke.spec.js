@@ -704,12 +704,13 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
     await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
-    await expect(page.locator('.a-level-lesson-card')).toHaveCount(6);
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(8);
     await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier process' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Consumption and saving functions' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Investment, government spending and net exports' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-investment-accelerator/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Equilibrium income and expenditure gaps' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-income-gaps/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Full-employment policies: essay workshop' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-full-employment-essay/index.html');
+    await expect(page.locator('.lesson-card').filter({ hasText: 'Fiscal expansion and the multiplier' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-2-2-fiscal-expansion-multiplier/index.html');
     await expectNoHorizontalOverflow(page);
   });
 
@@ -721,6 +722,8 @@ test.describe('site smoke', () => {
       { path: 'a-level/lessons/9-1-2-investment-accelerator/index.html', title: 'Investment, government spending and net exports', heroTitle: 'Investment, government spending and net exports' },
       { path: 'a-level/lessons/9-1-3-income-gaps/index.html', title: 'Equilibrium income and expenditure gaps', heroTitle: 'Equilibrium income and expenditure gaps' },
       { path: 'a-level/lessons/9-1-3-full-employment-essay/index.html', title: 'Full-employment policies: essay workshop', heroTitle: 'Full-employment policies: essay workshop' },
+      { path: 'a-level/lessons/9-2-1-growth-output-gaps/index.html', title: 'Actual growth, potential growth and output gaps', heroTitle: 'Actual growth, potential growth and output gaps' },
+      { path: 'a-level/lessons/9-2-2-fiscal-expansion-multiplier/index.html', title: 'Fiscal expansion and the multiplier', heroTitle: 'Fiscal expansion and the multiplier' },
     ];
 
     for (const lesson of lessons) {
@@ -1155,7 +1158,7 @@ test.describe('site smoke', () => {
     expect(macroHeadingBox.x + macroHeadingBox.width).toBeLessThanOrEqual(viewport.width + 1);
 
     for (const course of [
-      { route: 'economics/index.html', name: 'IGCSE Economics', count: 28, section: '#course-map' },
+      { route: 'economics/index.html', name: 'IGCSE Economics', count: 29, section: '#course-map' },
       { route: 'a-level/index.html', name: 'A Level Economics', count: 4, section: '#lessons' },
       { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 3, section: '#course-map' },
     ]) {
@@ -4834,10 +4837,10 @@ test.describe('site smoke', () => {
       return;
     }
 
-    await page.route('https://randomizerselection.github.io/studentselector/selector.css', async (route) => {
+    await page.route('**/student-selector/selector.css', async (route) => {
       await route.fulfill({ status: 200, contentType: 'text/css', body: '.selector-overlay-host{position:fixed;inset:0;z-index:9999;background:#fff}' });
     });
-    await page.route('https://randomizerselection.github.io/studentselector/selector.js', async (route) => {
+    await page.route('**/student-selector/selector.js', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/javascript',
@@ -4957,6 +4960,18 @@ test.describe('site smoke', () => {
     await startButton.click();
     await expect(page.locator('.studentSelectorSidePanel')).toHaveClass(/is-stage-overlay/);
     await expect(page.locator('[data-test-reel]')).toBeVisible();
+
+    const selectedStudent = await page.locator('[data-current-name]').textContent();
+    await page.getByRole('button', { name: 'Minimize student selector', exact: true }).click();
+    await expect(page.locator('.studentSelectorSidePanel')).toHaveClass(/is-minimized/);
+    await expect(page.getByRole('button', { name: 'Restore student selector', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: /^Student selector$/i })).toHaveAttribute('aria-pressed', 'false');
+    await expect.poll(() => page.evaluate(() => document.querySelector('#deck').getBoundingClientRect().right)).toBeGreaterThanOrEqual(page.viewportSize().width - 1);
+    await page.getByRole('button', { name: 'Restore student selector', exact: true }).click();
+    await expect(page.locator('.studentSelectorSidePanel')).not.toHaveClass(/is-minimized/);
+    await expect(page.locator('[data-current-name]')).toHaveText(selectedStudent);
+    await expect(page.locator('.selector-outcomes')).toBeVisible();
+    await expect(page.getByRole('button', { name: /^Student selector$/i })).toHaveAttribute('aria-pressed', 'true');
 
     const panelFit = await page.locator('.studentSelectorSidePanel').evaluate((panel) => ({
       clientHeight: panel.clientHeight,

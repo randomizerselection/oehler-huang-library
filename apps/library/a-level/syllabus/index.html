@@ -37,8 +37,21 @@
       <p class="plan-summary" id="plan-summary"></p>
     </header>
 
+    <section class="planning-basis semester-plan" id="semester-plan" aria-labelledby="semester-title">
+      <h2 id="semester-title">This semester: macroeconomics and policy</h2>
+      <div id="semester-content"></div>
+      <button type="button" id="download-semester">Download semester CSV</button>
+      <p id="semester-download-status" role="status"></p>
+    </section>
+
+    <section class="planning-basis" aria-labelledby="continuation-title">
+      <h2 id="continuation-title">Continuation lessons and homework</h2>
+      <p>These sessions supplement the original lesson allocations. Their status and actual teaching dates are recorded separately.</p>
+      <div id="continuation-records"></div>
+    </section>
+
     <section class="planning-basis" aria-labelledby="basis-title">
-      <h2 id="basis-title">Pacing</h2>
+      <h2 id="basis-title">Whole-course reference allocation</h2>
       <p>Sections 9–10 retain the workbook’s <strong>28¾ lesson units</strong>. Section 11 adds <strong>19 provisional units</strong> from the earlier coverage planner. A quarter-lesson review at the end of section 9 brings the sequence to <strong>48 lessons</strong>.</p>
       <div class="pacing-line">
         <label for="lessons-per-week">Lessons per week</label>
@@ -47,7 +60,7 @@
       </div>
       <details class="source-notes">
         <summary>Planning assumptions and workbook sources</summary>
-        <p>The complete plan takes 24 teaching weeks at two lessons per week. It exceeds the earlier 16-week, 32-lesson model by 16 lessons. It includes the quarter-lesson review above, but no separate assessment lessons or holiday allowance. Dates are left blank for your timetable.</p>
+        <p>This whole-course reference includes section 11, which follows the semester priority above. It takes 24 teaching weeks at two lessons per week, before holidays and separate assessments. Workbook allocations stay intact below; the semester schedule above records the actual continuation and forward pacing. Personal lesson dates remain available for your exact timetable.</p>
         <p>Lesson shares preserve the workbook’s allocations in syllabus order. A shared lesson divides its time between the listed points. Teaching activities, checks and follow-up tasks are planning suggestions, not prescribed syllabus wording or teaching hours.</p>
         <ul id="source-list"></ul>
       </details>
@@ -71,7 +84,7 @@
         <button type="button" id="print-plan">Print / PDF</button>
       </div>
       <p id="filter-status" class="filter-status" role="status"></p>
-      <p class="draft-help">Dates, teaching status and notes save automatically in this browser. Download the plan CSV to keep a copy; these entries do not change the shared course plan.</p>
+      <p class="draft-help">Scheduled weeks and confirmed coverage come from the shared course record. Set an exact planned date, actual teaching date and status below; your changes save in this browser and override the shared defaults. Report dates are kept separate from actual class dates. File and localhost pages have separate browser storage. Download the plan CSV to keep a copy.</p>
       <p id="draft-status" class="draft-status" role="status"></p>
       <div id="lesson-plans"></div>
       <div id="syllabus-points" hidden></div>

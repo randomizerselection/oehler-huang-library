@@ -14,6 +14,55 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Semester pacing confirmed 20 September 2026: two 40-minute lessons weekly,
+finishing all section 9 macroeconomics and section 10 macroeconomic policy by
+approximately 14 January 2027. Follow `planning/TEACHING_PROGRESS.md` and the
+visible planner's `semesterPlan`: 25 forward teaching slots, four reserves and
+three assessment/review slots. Target new-content completion in December;
+section 11 follows later. Use full essays/optional extensions as homework while
+retaining short independent application and feedback in class. This faster
+forward plan supersedes older assumptions of extra compulsory essay-workshop
+lessons; diagnose unfinished workshop needs and use review/reserve time.
+
+Teacher-reported coverage, 20 September 2026: the 40-minute growth/output-gap
+lesson covered all content through `gap-measures` (slide 20), stopping **before**
+`fiscal-expansion-section` (Fiscal expansion and the multiplier). That section,
+the 2026 essay and all later optional work remain untaught. The next prepared
+lesson is `9-2-2-fiscal-expansion-multiplier`, a separate 40-minute continuation
+with 17 core slides, an eight-minute two-paragraph task, feedback and an original
+Paper 3 exit. Its complete model and full 20-mark essay are after Summary for
+homework/later independent writing. Do not advance to the business cycle merely
+because the workbook allotted one slot to growth/output gaps. Preserve source
+workbook allocations and record actual pacing separately in
+`planning/TEACHING_PROGRESS.md`. This report does not establish that the earlier
+full-employment essay workshop was taught.
+
+- Diagram-axis preference, 20 September 2026: use English-only labels on diagram axes. Omit Chinese axis translations, including output, price level, expenditure, time and PPC goods axes. This overrides earlier general guidance to add Chinese to chart labels; Chinese support elsewhere is unchanged.
+- Position axis titles visibly beside their own axes: compact horizontal lines above the vertical-axis endpoint, and a right-aligned horizontal-axis title near its right-hand end. Reserve enough space below all tick labels and output subscripts, including any second row; check the completed diagram states for collisions. Do not leave titles floating far above or centrally below the plot merely because a translation was removed (20 September 2026).
+
+Further feedback, 20 September 2026 (assumed knowledge and scope):
+
+- This class already knows AD/AS. Apply Keynesian AS to the new topic directly; do not reteach its three ranges or add a generic Keynesian-versus-SRAS/LRAS introduction. The earlier preference for Keynesian diagrams means choosing that model where appropriate, not repeating prerequisite instruction.
+- Separate explicitly specified syllabus content, reasoning required by the selected original mark schemes, and optional supporting techniques. For growth/output gaps, time-series interpretation is useful (especially for the following business-cycle topic), but neither that diagram nor the percentage-gap formula is separately specified in 9.2.2 or required by the selected essays. Keep them out of the core assessed sequence unless an actual question makes them necessary; do not claim they can never be examined.
+- Follow the textbook's sequence: PPC and AD/AS for actual/potential growth (§42.1), AD/SRAS/LRAS for signed output gaps (§42.2); retrieve expenditure–output analysis (§41.1) when the task turns to the multiplier, spending injection and expenditure gap. Compare the models at their point of application.
+- In the coursebook/selected Paper 3 Keynesian convention, align full-employment output with the vertical AS section; in SRAS/LRAS align it with LRAS. Do not shift the benchmark slightly left without explaining a different model convention. 9708/32 Feb/March 2022 Q25 uses the vertical part of the new AS curve as potential output (official answer D).
+
+Feedback, 20 September 2026 (definitions, titles and model choice):
+
+- Introduce every key term with a concise, mark-scheme-aligned definition containing its defining characteristics. An equivalence such as “potential output is full-employment output” is a clarification, not a definition. Define potential output as the maximum real output an economy can sustain with its available resources fully and efficiently employed, given technology; then connect it to full-employment output. Identify teacher-worded syntheses honestly rather than presenting them as official quotations.
+- Remove empty labels such as “same sustainable benchmark”. Main titles should identify the concept and its place in the teaching sequence, e.g. “Negative output gaps in a Keynesian AD/AS diagram”. Keep causal takeaways in diagram-stage titles and explanation where they clarify the mechanism.
+- Teach the horizontal, upward-sloping and vertical ranges of Keynesian AS explicitly, and lead relevant A-level AD/AS teaching with this model. Teach separate SRAS/LRAS as a useful accepted alternative, particularly for temporary positive output gaps and supply shocks. This is a teaching preference, not a claim that Cambridge requires one diagram exclusively.
+- Integrate models through the same economic change and explicitly compare axes, assumptions and conclusions. Use PPC for resource use versus capacity growth; AD/AS for output, price-level and capacity effects; expenditure–output for fixed-price multiplier equilibrium and the required initial injection. Distinguish an output shortfall from an expenditure gap. Audit the actual question's mark scheme before deciding which diagrams deserve lesson time.
+- Use proper subscripts and stacked fractions throughout projected prose, formulas, diagrams, worked answers and complete-model dialogs. Never show baseline approximations such as “Yfe”.
+- Retain worked examples only when they teach relevant assessed knowledge or reasoning. When the main essay changes, remove obsolete supporting detours: the infrastructure section was removed from the growth/output-gap lesson after the 2026 multiplier essay became its core assessment.
+
+Feedback, 19 September 2026 (growth and output gaps):
+
+- Prioritise Paper 4 essay questions from the newest applicable syllabus and the latest available papers, preserving their exact current command wording. For the 2026–2028 syllabus, search 2026 papers first. Use recent 20-mark essays with their actual mark schemes as the main workshop; label older formats as optional historical practice, rather than leading with them. Topic relevance still matters: do not substitute a newer unrelated question.
+- Clarify potential output and full-employment output against the syllabus and textbook. In the coursebook output-gap model they share the sustainable benchmark Yfe (Figures 42.6–42.7); full employment does not mean zero unemployment, and temporary output above the benchmark is possible. Distinguish this from short-run equilibrium output and an immutable physical ceiling.
+- Audit relevant original essay mark schemes before finalising the models taught. Explicitly teach each required diagram, its assumptions, curve shifts, equilibria, causal explanation and limitations. For growth/output gaps, include PPC, Keynesian AD–AS, SRAS with vertical LRAS, and the AE–Y multiplier bridge where relevant. Explain that a supply shock can combine inflation with a negative gap. Provide additional original Paper 3 and Paper 4 practice, not merely a model-name list.
+
+
 Teacher-reported coverage, 16 September 2026: the class finished **Equilibrium
 income and expenditure gaps** through `closing-deflationary-gap`, slide 20,
 reveal step 4, before starting the essay workshop. The workshop is **untaught**.

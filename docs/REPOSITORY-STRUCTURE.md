@@ -43,7 +43,9 @@ C:\Users\oehle\Documents\oehler-huang-legacy-sources\
     library-tmp\                screenshots and extracted textbook caches
 ```
 
-These paths are preservation records only. Changes made there do not affect local development or production.
+These paths are preservation records only. Changes made there do not affect local
+development or production. The former standalone EconMark launcher is guarded and
+uses a non-production port only when an explicit archive opt-in is supplied.
 
 ## Course authoring consolidation (7 September 2026)
 
@@ -61,12 +63,17 @@ deployment archive's explicit inputs. Keep future private course material there.
 
 Course landing pages determine active status. Unlinked lessons and unused lesson
 types, including the old Investment `unit-1/` and `_template/` system, are legacy.
-Their continued presence preserves references and historical URLs; it does not
-make them templates for future lessons.
+The stable `unit-1/lesson-1` through `lesson-3` routes remain compatibility pages;
+templates and archive-named experiments are retained only as local references.
 
 ## Intentional archives inside the Library
 
-Archived Business pages and archive-named Investment lesson folders remain in `apps/library` to preserve historical URLs and source context. Content generation reads the course landing pages instead of recursively collecting HTML, so unlinked material is not treated as active lessons or quizzes. Exact `archive/` directories are private reference material. Removing historical URLs is a separate content-retention decision.
+Archived Business pages and archive-named Investment lesson folders remain in
+`apps/library` as source context. Content generation reads the course landing pages
+instead of recursively collecting HTML, so unlinked material is not treated as
+active lessons or quizzes. Exact `archive/`, `_archive/`, `_template/`, archive-named
+experiments, generator comparisons and all-types galleries are private reference
+material and are excluded from HTTP and release inputs.
 
 ## Required verification
 

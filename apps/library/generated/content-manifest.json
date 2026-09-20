@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-content/1.0.0",
-  "source_hash": "c99d5d3b526eb16b34812d19a2040ec03e0f019c29ced74fea93ed89323cc43a",
+  "source_hash": "47768e9c0702e38005b2bf0a0b55fb005df56190a07e43bb25346f9e33fc96c2",
   "items": [
     {
       "id": "library:home",
@@ -73,6 +73,24 @@
       "route": "/a-level/lessons/9-1-3-income-gaps/",
       "quiz_id": null,
       "slide_id_pattern": "a-level:lessons:9-1-3-income-gaps:slide-{1-based-index}"
+    },
+    {
+      "id": "a-level:lessons:9-2-1-growth-output-gaps",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Actual growth, potential growth and output gaps · A Level Economics",
+      "route": "/a-level/lessons/9-2-1-growth-output-gaps/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:lessons:9-2-1-growth-output-gaps:slide-{1-based-index}"
+    },
+    {
+      "id": "a-level:lessons:9-2-2-fiscal-expansion-multiplier",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Fiscal expansion and the multiplier · A Level Economics",
+      "route": "/a-level/lessons/9-2-2-fiscal-expansion-multiplier/",
+      "quiz_id": null,
+      "slide_id_pattern": "a-level:lessons:9-2-2-fiscal-expansion-multiplier:slide-{1-based-index}"
     },
     {
       "id": "a-level:syllabus",
@@ -469,6 +487,15 @@
       "route": "/lessons/unit-4-government/4-4-supply-side-policy/lesson-5/",
       "quiz_id": "4-4-supply-side-policy-lesson-5",
       "slide_id_pattern": "lessons:unit-4-government:4-4-supply-side-policy:lesson-5:slide-{1-based-index}"
+    },
+    {
+      "id": "lessons:unit-5-economic-development:5-3-population",
+      "version": "1.0.0",
+      "kind": "lesson",
+      "title": "Population growth - IGCSE Economics 0455",
+      "route": "/lessons/unit-5-economic-development/5-3-population/",
+      "quiz_id": "5-3-1-population-growth",
+      "slide_id_pattern": "lessons:unit-5-economic-development:5-3-population:slide-{1-based-index}"
     }
   ]
 }

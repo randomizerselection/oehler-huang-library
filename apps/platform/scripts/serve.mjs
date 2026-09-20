@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 process.umask(0o027);
 const envFile = resolve(import.meta.dirname, "..", "..", "..", ".env");
 if (existsSync(envFile) && process.loadEnvFile) process.loadEnvFile(envFile);
-const port = Number(process.env.OH_PORT ?? process.env.ECONMARK_PORT ?? 4173);
+const port = Number(process.env.OH_PORT ?? process.env.ECONMARK_PORT ?? process.env.PORT ?? 4173);
 const host = process.env.OH_HOST ?? process.env.ECONMARK_HOST ?? "127.0.0.1";
 const applicationRoot = resolve(import.meta.dirname, "..");
 const application = await createEconMarkServer({ root: applicationRoot });

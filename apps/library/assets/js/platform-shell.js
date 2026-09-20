@@ -2,6 +2,8 @@
   "use strict";
   if (window.OHPlatform) return;
 
+  const SHELL_SCRIPT_URL = document.currentScript?.src || location.href;
+
   const state = {
     initialized: false,
     session: { authenticated: false, account: null, csrf_token: null },
@@ -39,7 +41,8 @@
         return;
       }
       const script = document.createElement("script");
-      script.src = "/assets/js/platform-auth.js?v=20260813.1";
+      // Resolve relative to this file so decks opened from disk (file://) find it too.
+      script.src = new URL("platform-auth.js?v=20260813.1", SHELL_SCRIPT_URL).href;
       script.dataset.ohPlatformAuth = "";
       script.addEventListener("load", () => resolve(window.LibraryPlatform || null), { once: true });
       script.addEventListener("error", reject, { once: true });
@@ -51,8 +54,15 @@
     await ensureLibraryPlatform();
     const response = window.PlatformAuth
       ? await window.PlatformAuth.authFetch(path, options)
-      : await fetch(path, { ...options, credentials: "same-origin" });
+      : await fetch(apiUrl(path), { ...options, credentials: "include" });
     return parse(response);
+  }
+
+  function apiUrl(path) {
+    // On file:// pages the account shell is loaded from the local platform server
+    // and prefixes requests itself; otherwise requests stay same-origin relative.
+    const base = window.PlatformAuth?.apiBase ?? window.LibraryPlatform?.apiBase?.() ?? "";
+    return `${base}${path}`;
   }
 
   function currentRoute() {
@@ -162,22 +172,27 @@
         start: (value) => api("/api/selector/sessions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...value, ...lessonContext }) }),
         get: (sessionId) => api(`/api/selector/sessions/${encodeURIComponent(sessionId)}`),
         recordEvents: (sessionId, value) => api(`/api/selector/sessions/${encodeURIComponent(sessionId)}/events/batch`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(value) }),
+        saveAttendance: (sessionId, value) => api(`/api/selector/sessions/${encodeURIComponent(sessionId)}/attendance`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(value) }),
         complete: (sessionId, value) => api(`/api/selector/sessions/${encodeURIComponent(sessionId)}/complete`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(value) })
       }
     };
   }
 
-  async function initialize() {
-    if (state.initialized) return state;
-    state.initialized = true;
-    const manifestPromise = fetch("/api/content/manifest").then(parse);
-    await mountAccount();
-    state.manifest = await manifestPromise;
-    state.content = findContent();
-    state.session = window.PlatformAuth?.getSession?.() || state.session;
-    startTelemetry();
-    if (new URLSearchParams(location.search).get("signin") === "1" && !state.session.authenticated) window.PlatformAuth?.open?.("login", "student");
-    return state;
+  function initialize() {
+    // Return the same in-flight promise to every caller so awaiting ready()
+    // actually waits for the account stack (platform-auth + account shell).
+    if (state.initializing) return state.initializing;
+    state.initializing = (async () => {
+      state.initialized = true;
+      await mountAccount();
+      state.manifest = await fetch(apiUrl("/api/content/manifest"), { credentials: "include" }).then(parse).catch(() => ({ items: [] }));
+      state.content = findContent();
+      state.session = window.PlatformAuth?.getSession?.() || state.session;
+      startTelemetry();
+      if (new URLSearchParams(location.search).get("signin") === "1" && !state.session.authenticated) window.PlatformAuth?.open?.("login", "student");
+      return state;
+    })();
+    return state.initializing;
   }
 
   addEventListener("platform:authchange", (event) => {
@@ -193,6 +208,7 @@
     track,
     flush,
     selectorAdapters,
+    get apiBase() { return window.PlatformAuth?.apiBase ?? window.LibraryPlatform?.apiBase?.() ?? ""; },
     submitQuiz: (quizId, value) => api("/api/quiz-attempts", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...value, attempt_id: value.attempt_id || value.idempotency_key, quiz_id: quizId, quiz_version: value.quiz_version }) }),
     get session() { return clone(state.session); },
     get content() { return clone(state.content); },

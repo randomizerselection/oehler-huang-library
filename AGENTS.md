@@ -39,6 +39,14 @@ design and interactions.
 
 ## Standing classroom-deck preferences
 
+- A-level coverage, 20 September 2026: the 40-minute growth/output-gap lesson ended after `gap-measures` (slide 20), before `fiscal-expansion-section`. Next is the prepared 40-minute `9-2-2-fiscal-expansion-multiplier` continuation, not the business cycle. Keep eight minutes for independent paragraphs; the complete essay is homework/later writing. See `authoring/a-level/planning/TEACHING_PROGRESS.md`; prepared content is not taught coverage.
+
+- A-level diagram axes use English-only labels, without Chinese translations (20 September 2026). This overrides the broader bilingual chart-label preference for axes.
+
+- A-level clarification, 20 September 2026: AD/AS is already known by this class. Use Keynesian diagrams without reteaching their ranges or a generic comparison with SRAS/LRAS. Distinguish core syllabus/mark-scheme requirements from optional techniques; time-series output gaps and percentage-gap calculations are optional in the growth/output-gap deck. Retrieve expenditure–output analysis when applying the multiplier, in line with the textbook sequence. Details and diagram-benchmark evidence are in `authoring/a-level/AGENTS.md`.
+
+- A-level feedback, 20 September 2026: give key terms complete mark-scheme-aligned definitions; equivalences alone are insufficient. Remove empty labels, and use academic titles that identify the concept/model and teaching sequence. Lead AD/AS teaching with the three ranges of Keynesian AS, while teaching SRAS/LRAS where useful. Compare PPC, AD/AS and expenditure–output using connected examples and explicit model assumptions. Use true subscripts and stacked fractions throughout. Remove obsolete case studies when the assessed question changes, and retain worked examples only for relevant assessed reasoning. See `authoring/a-level/AGENTS.md` for details.
+
 - Keep real-world example slides to about one sentence over a suitable full-screen photo, with details in teacher notes and on-demand sources. In essay workshops, move directly from the guiding sub-questions to model sentences; omit an extra argument-plan slide between them (15 September 2026).
 
 - Explain expenditure gaps intuitively as the initial spending adjustment needed for full employment: an extra autonomous injection for a deflationary gap, and a spending reduction to remove excess demand for an inflationary gap. Keep the formal definitions alongside this explanation. Show the two gaps on separate diagrams, using consistent scales and benchmarks; distinguish the spending adjustment from the multiplied change in income (15 September 2026).
@@ -135,3 +143,13 @@ Before creating or substantially revising IGCSE Economics decks, read
 user feedback on syllabus/mark-scheme wording, Paper 2 modelling, question
 difficulty, discussion layouts, definition slides and banking visuals, and
 overrides older conflicting lesson-builder defaults.
+
+## Student data: platform database is the source of truth
+
+- Student rosters, class memberships, attendance and homework records live in the platform database (`.platform-data/econmark.sqlite`, git-ignored). This replaces the `C:\Users\oehle\Documents\name-lists\outputs\20260910-s3-name-list` Excel workflow; that workbook is a historical snapshot only — do not regenerate spreadsheet name lists as the working copy (17 September 2026).
+- View and manage students through the teacher "学生数据" tab (`/econmark/teacher?tab=students`) or the platform store/API. The student selector, the DingTalk homework checker and future integrations should all read from this shared data pool rather than keeping separate copies.
+- QQ homework submissions (IC3 classes) flow through the same pool: the `qq-ic3` automation at `C:\Users\oehle\Documents\name-lists\automation\qq-ic3\` (NapCatQQ OneBot v11 transport, teacher QQ 1507125549) writes `homework_submissions` with `source='qq'` and links students via `student_integrations(provider='qq', external_id=<QQ number>)` (18 September 2026).
+- Homework automation source and shared orchestration now belong to `apps/platform/homework/`. Read its `README.md` and `REVIEW.md` for changes or regular checks. The private `.platform-data/homework/runtime.json` registry preserves existing QQ/S3 runtime directories and delivery histories; legacy Python paths are compatibility launchers. Preserve the Codex S3.3/S3.4, Kimi S3.6, and Kimi QQ class/model boundaries. Run `npm run test:homework` after changes. Do not duplicate or reset live state, or move the running transport/credential stores (19 September 2026).
+- Student account credentials live only in git-ignored `authoring/**/outputs/` PRIVATE files. Never commit credentials or `.platform-data/`.
+- Student IDs (`accounts.student_id`) use the school-issued 学号 wherever the name-list workbook provides one (currently S3.3/S3.4/S3.6, 8-digit `2024xxxx`). IC classes had no school IDs in the 20260910 workbook (IC2.2/IC2.3's "Student No." column is class-internal numbering, not a school ID); they keep provisional `STU-####` IDs until the school list is supplied. When a school 学号 becomes available, prefer it over the provisional ID.
+- Administrative/form class is stored separately in `accounts.form_class`. For current eight-digit school IDs, the fifth digit is the form class (`20241025` → class 1, `20244019` → class 4); valid values are 1–6. Course-class membership remains in `class_memberships` because students from several form classes may share one Economics course.

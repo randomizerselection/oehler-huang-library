@@ -2024,6 +2024,47 @@ function studentSelectorBaseUrl() {
   return new URL(configured, location.href).href;
 }
 
+let selectorPlatformPromise;
+let selectorSignInPromptDismissed = false;
+
+function loadSelectorPlatformShell() {
+  if (window.OHPlatform) return Promise.resolve(window.OHPlatform);
+  if (selectorPlatformPromise) return selectorPlatformPromise;
+  selectorPlatformPromise = new Promise((resolve) => {
+    const script = document.createElement('script');
+    // platform-shell.js lives next to this file in apps/library/assets/js/.
+    script.src = new URL('platform-shell.js', navigationAssetUrl).href;
+    script.onload = () => resolve(window.OHPlatform || null);
+    script.onerror = () => resolve(null);
+    document.head.append(script);
+  });
+  return selectorPlatformPromise;
+}
+
+async function selectorPrefersPlatformClasses() {
+  const platform = await loadSelectorPlatformShell();
+  if (platform) await platform.ready().catch(() => {});
+  // platform-shell initialize() returns before its async account mount finishes;
+  // wait until the auth stack is actually loaded (or the server proved absent).
+  if (window.LibraryPlatform?.initialize) {
+    await window.LibraryPlatform.initialize({ context: 'library', roleHint: 'teacher' }).catch(() => null);
+  }
+  let usePlatformClasses = window.OHPlatform?.session.account?.role === 'teacher';
+  // Decks opened from disk connect to the local platform; offer sign-in once
+  // per page load so the panel can use real rosters instead of the public list.
+  if (!usePlatformClasses && location.protocol === 'file:' && window.LibraryPlatform && window.PlatformAuth && !selectorSignInPromptDismissed) {
+    // The deck's own account mount lives inside the collapsed More menu, where a
+    // modal dialog cannot render; prompt through a body-level element instead.
+    const promptElement = document.createElement('platform-account');
+    promptElement.setAttribute('role-hint', 'teacher');
+    document.body.append(promptElement);
+    const session = await window.LibraryPlatform.requireRole('teacher', { roleHint: 'teacher', element: promptElement }).catch(() => null);
+    if (!session) selectorSignInPromptDismissed = true;
+    usePlatformClasses = window.OHPlatform?.session.account?.role === 'teacher';
+  }
+  return usePlatformClasses;
+}
+
 function loadStudentSelectorAsset(tagName, attrs) {
   return new Promise((resolve, reject) => {
     const selector = attrs.href
@@ -2049,7 +2090,10 @@ let mountedStudentSelector = null;
 let studentSelectorLoading = false;
 
 function syncStudentSelectorButtons() {
-  const isOpen = Boolean(mountedStudentSelector?.panel?.isConnected);
+  const isOpen = Boolean(
+    mountedStudentSelector?.panel?.isConnected &&
+    !mountedStudentSelector.panel.classList.contains('is-minimized')
+  );
   document.querySelectorAll('[data-student-selector]').forEach((button) => {
     button.hidden = false;
     button.disabled = studentSelectorLoading;
@@ -2062,6 +2106,10 @@ window.addEventListener('oh:authchange', syncStudentSelectorButtons);
 function fitDeckBesideStudentSelector() {
   const panel = mountedStudentSelector?.panel;
   if (!panel?.isConnected) return;
+  if (panel.classList.contains('is-minimized')) {
+    document.body.style.removeProperty('--student-selector-deck-scale');
+    return;
+  }
   const availableWidth = Math.max(0, window.innerWidth - panel.getBoundingClientRect().width);
   document.body.style.setProperty('--student-selector-deck-scale', String(availableWidth / window.innerWidth));
 }
@@ -2080,6 +2128,8 @@ function closeStudentSelectorPanel() {
   mountedStudentSelector?.panel?.remove();
   mountedStudentSelector = null;
   document.body.classList.remove('is-student-selector-open');
+  document.body.classList.remove('is-student-selector-minimized');
+  document.body.classList.remove('is-selector-attendance-active');
   document.body.style.removeProperty('--student-selector-deck-scale');
   syncStudentSelectorButtons();
   if (wasOpen) document.querySelector('[data-student-selector]')?.focus({ preventScroll: true });
@@ -2102,6 +2152,31 @@ function syncStudentSelectorStageMode(panel) {
     (!looksIdle && Boolean(panel.querySelector('.selector-stage')));
 
   panel.classList.toggle('is-stage-overlay', shouldOverlay);
+  const attendanceActive = Boolean(panel.querySelector('.selector-modal.is-attendance:not([hidden])'));
+  panel.classList.toggle('is-attendance-active', attendanceActive);
+  document.body.classList.toggle('is-selector-attendance-active', attendanceActive);
+}
+
+function minimizeStudentSelectorPanel() {
+  const panel = mountedStudentSelector?.panel;
+  if (!panel?.isConnected || panel.classList.contains('is-attendance-active')) return;
+  panel.classList.add('is-minimized');
+  document.body.classList.remove('is-student-selector-open');
+  document.body.classList.add('is-student-selector-minimized');
+  document.body.style.removeProperty('--student-selector-deck-scale');
+  syncStudentSelectorButtons();
+  panel.querySelector('[data-student-selector-restore]')?.focus({ preventScroll: true });
+}
+
+function restoreStudentSelectorPanel() {
+  const panel = mountedStudentSelector?.panel;
+  if (!panel?.isConnected) return;
+  panel.classList.remove('is-minimized');
+  document.body.classList.remove('is-student-selector-minimized');
+  document.body.classList.add('is-student-selector-open');
+  fitDeckBesideStudentSelector();
+  syncStudentSelectorButtons();
+  panel.focus({ preventScroll: true });
 }
 
 function attachStudentSelectorStageObserver(panel) {
@@ -2139,9 +2214,16 @@ function attachStudentSelectorStageObserver(panel) {
 }
 
 async function openStudentSelector() {
-  const baseUrl = studentSelectorBaseUrl();
+  const usePlatformClasses = await selectorPrefersPlatformClasses();
+  const baseUrl = usePlatformClasses && window.OHPlatform?.apiBase
+    ? `${window.OHPlatform.apiBase}/student-selector/`
+    : studentSelectorBaseUrl();
+  const runtimeBaseUrl = location.protocol === 'file:' && !window.IGCSE?.studentSelectorBaseUrl
+    ? new URL('../../../student-selector/', navigationAssetUrl).href
+    : baseUrl;
   if (mountedStudentSelector?.panel?.isConnected) {
-    mountedStudentSelector.panel.focus({ preventScroll: true });
+    if (mountedStudentSelector.panel.classList.contains('is-minimized')) restoreStudentSelectorPanel();
+    else mountedStudentSelector.panel.focus({ preventScroll: true });
     return;
   }
 
@@ -2150,11 +2232,10 @@ async function openStudentSelector() {
   syncStudentSelectorButtons();
 
   try {
-    if (window.OHPlatform) await window.OHPlatform.ready().catch(() => {});
-    const usePlatformClasses = window.OHPlatform?.session.account?.role === 'teacher';
+
     if (!window.StudentSelector?.open) {
       await loadStudentSelectorAsset('script', {
-        src: new URL('selector.js', baseUrl).href,
+        src: new URL('selector.js', runtimeBaseUrl).href,
       });
     }
     if (window.StudentSelector?.mount) {
@@ -2163,10 +2244,21 @@ async function openStudentSelector() {
       panel.setAttribute('aria-label', 'Student selector');
       panel.setAttribute('tabindex', '-1');
       panel.innerHTML = `
+        <button type="button" class="studentSelectorPanelMinimize" data-student-selector-minimize aria-label="Minimize student selector" title="Minimize student selector">−</button>
         <button type="button" class="studentSelectorPanelClose" data-student-selector-close aria-label="Close student selector">×</button>
+        <button type="button" class="studentSelectorPanelRestore" data-student-selector-restore aria-label="Restore student selector" title="Restore student selector"><span>Selector</span><span aria-hidden="true">‹</span></button>
         <div class="studentSelectorMount"></div>
       `;
       document.body.appendChild(panel);
+
+      // On file:// decks without the platform server there is no roster homework
+      // data, so badges silently disappear; tell the teacher how to reconnect.
+      if (!usePlatformClasses && location.protocol === 'file:' && !window.PlatformAuth) {
+        const hint = document.createElement('p');
+        hint.className = 'lesson-selector-platform-hint';
+        hint.textContent = 'Local platform not connected — homework badges (🏆/🐢) are hidden. Start the platform server (npm start), then close and reopen this panel and sign in as teacher. 本地平台未连接：请先运行 npm start 启动平台，再关闭并重新打开本面板、登录教师账号，即可显示作业徽章。';
+        panel.querySelector('.studentSelectorMount').before(hint);
+      }
 
       const lessonContext = {
         content_id: window.OHPlatform?.content?.id || window.IGCSE?.lesson?.meta?.code || null,
@@ -2183,6 +2275,8 @@ async function openStudentSelector() {
         ...platformAdapters,
       });
       panel.querySelector('[data-student-selector-close]')?.addEventListener('click', closeStudentSelectorPanel);
+      panel.querySelector('[data-student-selector-minimize]')?.addEventListener('click', minimizeStudentSelectorPanel);
+      panel.querySelector('[data-student-selector-restore]')?.addEventListener('click', restoreStudentSelectorPanel);
       const observer = attachStudentSelectorStageObserver(panel);
       mountedStudentSelector = { panel, app, observer };
       document.body.classList.add('is-student-selector-open');
@@ -2204,7 +2298,8 @@ async function openStudentSelector() {
 
 function toggleStudentSelector() {
   if (mountedStudentSelector?.panel?.isConnected) {
-    closeStudentSelectorPanel();
+    if (mountedStudentSelector.panel.classList.contains('is-minimized')) restoreStudentSelectorPanel();
+    else closeStudentSelectorPanel();
     return;
   }
   openStudentSelector();

@@ -1,7 +1,8 @@
 'use strict';
 
 // Shared by the HTTP server and release planner: deployment must not widen HTTP access.
-const PRIVATE_SEGMENTS = /^(?:node_modules|server|config|scripts|tests?|docs?|archive|authoring|planning|references|grading|android-definitions|deploy|coze|evals|prompts|spec|tmp|temp|outputs?|backups?|uploads?|reports?|test-results|playwright-report|coverage|dist|__pycache__)$/i;
+const PRIVATE_SEGMENTS = /^(?:node_modules|server|config|scripts|tests?|docs?|archive|_archive|_template|authoring|planning|references|grading|android-definitions|deploy|coze|evals|prompts|spec|tmp|temp|outputs?|backups?|uploads?|reports?|test-results|playwright-report|coverage|dist|__pycache__)$/i;
+const LEGACY_SCRATCH_SEGMENT = /(?:^|[-_])archive(?:[-_]|$)|generator-comparison|all-types/i;
 const PUBLIC_EXTENSIONS = /\.(?:html|css|js|mjs|json|svg|png|jpe?g|webp|gif|avif|ico|woff2?|ttf|mp3|wav|ogg|mp4|webm|pdf)$/i;
 
 function isSafeRelativePath(file) {
@@ -12,7 +13,7 @@ function isSafeRelativePath(file) {
 function isPublicFile(app, file) {
   if (!isSafeRelativePath(file)) return false;
   const parts = file.split('/');
-  if (parts.some(part => part.startsWith('.') || PRIVATE_SEGMENTS.test(part))) return false;
+  if (parts.some(part => part.startsWith('.') || PRIVATE_SEGMENTS.test(part) || LEGACY_SCRATCH_SEGMENT.test(part))) return false;
   if (/(?:^|\/)(?:package(?:-lock)?\.json|[^/]*\.config\.[^/]+|students\.csv|quiz-submissions\.csv|quiz-bank\.json|student-performance-report\.html)$/i.test(file)) return false;
   const extensionAllowed = PUBLIC_EXTENSIONS.test(file) || /(?:^|\/)SOURCE-NOTES\.md$/i.test(file);
   if (!extensionAllowed) return false;

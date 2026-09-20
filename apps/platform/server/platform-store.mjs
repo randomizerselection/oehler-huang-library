@@ -8,6 +8,7 @@ import { runPlatformMigrations } from "./migration-runner.mjs";
 const USERNAME_PATTERN = /^[\p{L}\p{N}._-]{3,60}$/u;
 const CODE_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 const OUTCOMES = new Set(["A*", "A", "B", "C", "No Grade", "Absent"]);
+const HOMEWORK_STATUSES = new Set(["submitted", "late", "missing", "exempt", "awaiting_working"]);
 
 export class PlatformStoreError extends Error {
   constructor(message, code = "PLATFORM_STORE_ERROR", status = 400) {
@@ -35,6 +36,13 @@ function jsonParse(value, fallback) {
   try { return JSON.parse(value); } catch { return fallback; }
 }
 
+function optionalTimestamp(value, codeName) {
+  if (value === undefined || value === null || value === "") return null;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) throw new PlatformStoreError("Homework timestamp is invalid.", codeName);
+  return parsed.toISOString();
+}
+
 function publicAccount(row) {
   if (!row) return null;
   return {
@@ -43,6 +51,10 @@ function publicAccount(row) {
     display_name: row.display_name,
     role: row.role,
     class_name: row.class_name ?? null,
+    student_id: row.student_id ?? null,
+    form_class: row.form_class ?? null,
+    legal_name: row.legal_name ?? null,
+    preferred_name: row.preferred_name ?? null,
     status: row.status,
     created_at: row.created_at,
     last_login_at: row.last_login_at
@@ -126,6 +138,12 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       .run(`recovery_${randomUUID()}`, accountId, hash(rawCode), createdAt);
   }
 
+  function nextStudentId() {
+    const row = database.prepare("SELECT student_id FROM accounts WHERE student_id LIKE 'STU-%' ORDER BY LENGTH(student_id) DESC, student_id DESC LIMIT 1").get();
+    const current = row ? Number(String(row.student_id).replace(/\D+/g, "")) : 0;
+    return `STU-${String((Number.isFinite(current) ? current : 0) + 1).padStart(4, "0")}`;
+  }
+
   async function insertAccountWithRecovery(value, role, extraOperation) {
     const valid = credentials(value);
     const encoded = await passwordHash(valid.password);
@@ -134,8 +152,8 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     const createdAt = timestamp(now());
     try {
       withTransaction(database, () => {
-        database.prepare("INSERT INTO accounts (id, username, display_name, password_hash, created_at, updated_at, status, role, class_name) VALUES (?, ?, ?, ?, ?, ?, 'active', ?, ?)")
-          .run(accountId, valid.username, valid.displayName, encoded, createdAt, createdAt, role, role === "student" ? value.class_name : null);
+        database.prepare("INSERT INTO accounts (id, username, display_name, password_hash, created_at, updated_at, status, role, class_name, student_id) VALUES (?, ?, ?, ?, ?, ?, 'active', ?, ?, ?)")
+          .run(accountId, valid.username, valid.displayName, encoded, createdAt, createdAt, role, role === "student" ? value.class_name : null, role === "student" ? nextStudentId() : null);
         insertRecoveryCode(accountId, recoveryCode, createdAt);
         extraOperation?.({ accountId, createdAt });
       });
@@ -332,11 +350,24 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
 
   function roster(teacherId, classId) {
     const classroom = teacherClass(teacherId, classId);
-    const students = database.prepare(`SELECT a.id, a.username, a.display_name, m.joined_at
+    const students = database.prepare(`SELECT a.id, a.username, a.display_name, a.student_id, a.form_class, a.legal_name, a.preferred_name, m.roster_number, m.joined_at
       FROM class_memberships m JOIN accounts a ON a.id=m.account_id
       WHERE m.class_id=? AND m.status='active' AND a.status='active' AND a.role='student'
-      ORDER BY a.display_name COLLATE NOCASE, a.username COLLATE NOCASE`).all(classId);
-    return { class: classRecord(classroom), students: students.map((row) => ({ account_id: row.id, username: row.username, display_name: row.display_name, joined_at: row.joined_at })) };
+      ORDER BY CASE WHEN m.roster_number IS NULL THEN 1 ELSE 0 END, m.roster_number, a.display_name COLLATE NOCASE, a.username COLLATE NOCASE`).all(classId);
+    return {
+      class: classRecord(classroom),
+      students: students.map((row) => ({
+        account_id: row.id,
+        username: row.username,
+        display_name: row.display_name,
+        student_id: row.student_id ?? null,
+        form_class: row.form_class ?? null,
+        legal_name: row.legal_name ?? null,
+        preferred_name: row.preferred_name ?? null,
+        roster_number: row.roster_number ?? null,
+        joined_at: row.joined_at
+      }))
+    };
   }
 
   function createLearningAssignment(teacherId, classId, value, contentCatalog) {
@@ -466,11 +497,11 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     const limit = Math.max(1, Math.min(Number(filters.limit) || 250, 10000));
     const offset = Math.max(0, Number(filters.offset) || 0);
     const where = clauses.join(" AND ");
-    const base = `SELECT qa.*,a.username,a.display_name,ROW_NUMBER() OVER (PARTITION BY qa.account_id,qa.quiz_id ORDER BY ${partitionOrder}) AS attempt_rank FROM quiz_attempts qa JOIN accounts a ON a.id=qa.account_id WHERE ${where}`;
+    const base = `SELECT qa.*,a.username,a.display_name,a.student_id,ROW_NUMBER() OVER (PARTITION BY qa.account_id,qa.quiz_id ORDER BY ${partitionOrder}) AS attempt_rank FROM quiz_attempts qa JOIN accounts a ON a.id=qa.account_id WHERE ${where}`;
     const rankedFilter = view === "all" ? "" : "WHERE attempt_rank=1";
     const total = Number(database.prepare(`SELECT COUNT(*) AS value FROM (${base}) ${rankedFilter}`).get(...params).value);
     const rows = database.prepare(`SELECT * FROM (${base}) ${rankedFilter} ORDER BY ${order.replaceAll("qa.", "")} LIMIT ? OFFSET ?`).all(...params, limit, offset);
-    const items = rows.map((row) => ({ ...quizAttempt(row), username: row.username, display_name: row.display_name }));
+    const items = rows.map((row) => ({ ...quizAttempt(row), username: row.username, display_name: row.display_name, student_id: row.student_id ?? null }));
     return { total, view, items };
   }
 
@@ -557,16 +588,89 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
 
   function selectorSessionRecord(row) {
     if (!row) return null;
-    return { session_id: row.id, class_id: row.class_id, lesson_content_id: row.lesson_content_id, learning_assignment_id: row.learning_assignment_id, selection_policy: row.selection_policy, status: row.status, version: row.version, started_at: row.started_at, updated_at: row.updated_at, completed_at: row.completed_at };
+    return { session_id: row.id, class_id: row.class_id, lesson_content_id: row.lesson_content_id, learning_assignment_id: row.learning_assignment_id, selection_policy: row.selection_policy, status: row.status, version: row.version, started_at: row.started_at, updated_at: row.updated_at, completed_at: row.completed_at, attendance_finalized_at: row.attendance_finalized_at };
+  }
+
+  function selectorRosterContext(classId, sessionId) {
+    const attendanceByStudent = new Map();
+    for (const item of database.prepare(`SELECT l.student_account_id AS account_id,l.status,l.marked_at
+      FROM selector_attendance_log l
+      JOIN selector_sessions se ON se.id=l.session_id AND se.attendance_finalized_at IS NOT NULL
+      JOIN selector_session_roster r ON r.student_account_id=l.student_account_id AND r.session_id=?
+      WHERE l.class_id=? AND l.session_id<>?
+      ORDER BY l.marked_at DESC,l.recorded_at DESC`).all(sessionId, classId, sessionId)) {
+      const summary = attendanceByStudent.get(item.account_id) || { marks: 0, present: 0, absent: 0, recent: [] };
+      summary.marks += 1;
+      summary[item.status] = Number(summary[item.status] || 0) + 1;
+      if (summary.recent.length < 5) summary.recent.push({ status: item.status, marked_at: item.marked_at });
+      attendanceByStudent.set(item.account_id, summary);
+    }
+
+    const homeworkByStudent = new Map();
+    for (const item of database.prepare(`SELECT h.student_account_id AS account_id,h.assignment_title,h.assigned_on,h.status
+      FROM homework_submissions h
+      JOIN selector_session_roster r ON r.student_account_id=h.student_account_id AND r.session_id=?
+      WHERE h.class_id=?
+      ORDER BY h.assigned_on DESC,h.recorded_at DESC`).all(sessionId, classId)) {
+      const summary = homeworkByStudent.get(item.account_id) || {
+        total: 0, eligible: 0, completed: 0, submitted: 0, late: 0,
+        missing: 0, awaiting_working: 0, exempt: 0, last: null, outstanding: []
+      };
+      summary.total += 1;
+      summary[item.status] = Number(summary[item.status] || 0) + 1;
+      if (item.status !== "exempt") summary.eligible += 1;
+      if (item.status === "submitted" || item.status === "late") summary.completed += 1;
+      if (!summary.last) summary.last = { assignment_title: item.assignment_title, assigned_on: item.assigned_on, status: item.status };
+      if ((item.status === "missing" || item.status === "awaiting_working") && summary.outstanding.length < 3) {
+        summary.outstanding.push({ assignment_title: item.assignment_title, assigned_on: item.assigned_on, status: item.status });
+      }
+      homeworkByStudent.set(item.account_id, summary);
+    }
+
+    return { attendanceByStudent, homeworkByStudent };
   }
 
   function selectorSessionState(teacherId, sessionId) {
     const row = database.prepare("SELECT * FROM selector_sessions WHERE id=? AND teacher_account_id=?").get(sessionId, teacherId);
     if (!row) throw new PlatformStoreError("Selector session was not found.", "SELECTOR_SESSION_NOT_FOUND", 404);
+    const attendanceSummary = database.prepare(`SELECT
+      (SELECT COUNT(*) FROM selector_session_roster WHERE session_id=?) AS roster_total,
+      COUNT(*) AS marked,
+      SUM(CASE WHEN status='present' THEN 1 ELSE 0 END) AS present,
+      SUM(CASE WHEN status='absent' THEN 1 ELSE 0 END) AS absent
+      FROM selector_attendance WHERE session_id=?`).get(sessionId, sessionId);
+    const context = selectorRosterContext(row.class_id, sessionId);
+    const roster = database.prepare("SELECT student_account_id AS account_id,student_display_name AS display_name,roster_position FROM selector_session_roster WHERE session_id=? ORDER BY roster_position").all(sessionId)
+      .map((student) => {
+        const attendance = context.attendanceByStudent.get(student.account_id) || { marks: 0, present: 0, absent: 0, recent: [] };
+        const homework = context.homeworkByStudent.get(student.account_id) || {
+          total: 0, eligible: 0, completed: 0, submitted: 0, late: 0,
+          missing: 0, awaiting_working: 0, exempt: 0, last: null, outstanding: []
+        };
+        return {
+          ...student,
+          attendance_history: {
+            ...attendance,
+            rate: attendance.marks ? Math.round((attendance.present / attendance.marks) * 100) : null
+          },
+          homework: {
+            ...homework,
+            completion_rate: homework.eligible ? Math.round((homework.completed / homework.eligible) * 100) : null
+          }
+        };
+      });
     return {
       ...selectorSessionRecord(row),
-      roster: database.prepare("SELECT student_account_id AS account_id,student_display_name AS display_name,roster_position FROM selector_session_roster WHERE session_id=? ORDER BY roster_position").all(sessionId),
+      roster,
       attendance: database.prepare("SELECT student_account_id AS account_id,status,marked_at FROM selector_attendance WHERE session_id=?").all(sessionId),
+      attendance_summary: {
+        roster_total: Number(attendanceSummary.roster_total || 0),
+        marked: Number(attendanceSummary.marked || 0),
+        present: Number(attendanceSummary.present || 0),
+        absent: Number(attendanceSummary.absent || 0),
+        finalized: Boolean(row.attendance_finalized_at) && Number(attendanceSummary.marked || 0) === Number(attendanceSummary.roster_total || 0),
+        finalized_at: row.attendance_finalized_at ?? null
+      },
       selections: database.prepare("SELECT id AS selection_id,event_id,student_account_id AS account_id,sequence_number,selected_at,outcome,outcome_at FROM selector_selections WHERE session_id=? ORDER BY sequence_number").all(sessionId)
     };
   }
@@ -576,8 +680,30 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     closeStaleSelectorSessions();
     const classId = String(value.class_id ?? "");
     teacherClass(teacherId, classId);
+    const requestedContentId = String(value.lesson_content_id ?? "").trim().slice(0, 200) || null;
+    const requestedAssignmentId = String(value.learning_assignment_id ?? "").trim().slice(0, 200) || null;
     const active = database.prepare("SELECT * FROM selector_sessions WHERE teacher_account_id=? AND class_id=? AND status='active'").get(teacherId, classId);
-    if (active) return selectorSessionState(teacherId, active.id);
+    if (active) {
+      const contentChanged = requestedContentId && active.lesson_content_id && requestedContentId !== active.lesson_content_id;
+      const assignmentChanged = requestedAssignmentId && active.learning_assignment_id && requestedAssignmentId !== active.learning_assignment_id;
+      if (!contentChanged && !assignmentChanged) {
+        if ((requestedContentId && !active.lesson_content_id) || (requestedAssignmentId && !active.learning_assignment_id)) {
+          database.prepare(`UPDATE selector_sessions SET lesson_content_id=COALESCE(lesson_content_id,?),
+            learning_assignment_id=COALESCE(learning_assignment_id,?),updated_at=? WHERE id=?`)
+            .run(requestedContentId, requestedAssignmentId, timestamp(now()), active.id);
+        }
+        return selectorSessionState(teacherId, active.id);
+      }
+      const changedAt = timestamp(now());
+      database.prepare("UPDATE selector_sessions SET status='completed',completed_at=?,updated_at=?,version=version+1 WHERE id=?")
+        .run(changedAt, changedAt, active.id);
+      audit(teacherId, "selector.context_complete", "selector_session", active.id, {
+        previous_content_id: active.lesson_content_id,
+        next_content_id: requestedContentId,
+        previous_assignment_id: active.learning_assignment_id,
+        next_assignment_id: requestedAssignmentId
+      });
+    }
     const students = roster(teacherId, classId).students;
     if (!students.length) throw new PlatformStoreError("This class has no active student accounts.", "SELECTOR_ROSTER_EMPTY", 409);
     const sessionId = `selector_${randomUUID()}`;
@@ -586,7 +712,7 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       database.prepare(`INSERT INTO selector_sessions
         (id,teacher_account_id,class_id,lesson_content_id,learning_assignment_id,selection_policy,status,version,started_at,updated_at)
         VALUES (?,?,?,?,?,'session_random','active',1,?,?)`)
-        .run(sessionId, teacherId, classId, value.lesson_content_id ?? null, value.learning_assignment_id ?? null, startedAt, startedAt);
+        .run(sessionId, teacherId, classId, requestedContentId, requestedAssignmentId, startedAt, startedAt);
       const insert = database.prepare("INSERT INTO selector_session_roster (session_id,student_account_id,student_display_name,roster_position) VALUES (?,?,?,?)");
       students.forEach((student, index) => insert.run(sessionId, student.account_id, student.display_name, index));
     });
@@ -603,6 +729,12 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     for (const event of events) {
       event.event_id = String(event.event_id ?? "").slice(0, 120);
       if (!event.event_id) throw new PlatformStoreError("Selector events require an event_id.", "IDEMPOTENCY_REQUIRED");
+      if (/^(verify|test|synthetic|demo)-/i.test(event.event_id)) {
+        throw new PlatformStoreError("Synthetic selector events cannot be written to a live attendance session.", "SELECTOR_SYNTHETIC_EVENT_REJECTED", 400);
+      }
+    }
+    if (events.filter((event) => event.type === "attendance").length > 1) {
+      throw new PlatformStoreError("A full roll call must be reviewed and saved through the attendance endpoint.", "SELECTOR_ATTENDANCE_BATCH_REQUIRES_FINALIZE", 400);
     }
     if (Number(value.version) !== Number(session.version)) {
       const replay = events.length > 0 && events.every((event) => database.prepare("SELECT 1 FROM selector_event_log WHERE session_id=? AND event_id=?").get(sessionId, event.event_id));
@@ -610,18 +742,33 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       throw new PlatformStoreError("Selector session changed in another tab. Reload its latest state.", "SELECTOR_VERSION_CONFLICT", 409);
     }
     const changedAt = timestamp(now());
+    const contextContentId = String(value.lesson_content_id ?? "").trim().slice(0, 200) || null;
+    if (contextContentId && session.lesson_content_id && contextContentId !== session.lesson_content_id) {
+      throw new PlatformStoreError("Selector lesson context changed. Start a new selector session for this lesson.", "SELECTOR_CONTEXT_MISMATCH", 409);
+    }
     let changed = 0;
     withTransaction(database, () => {
+      if (contextContentId && !session.lesson_content_id) {
+        database.prepare("UPDATE selector_sessions SET lesson_content_id=? WHERE id=?").run(contextContentId, sessionId);
+        session.lesson_content_id = contextContentId;
+      }
       for (const event of events) {
         if (database.prepare("SELECT 1 FROM selector_event_log WHERE session_id=? AND event_id=?").get(sessionId, event.event_id)) continue;
         const studentId = String(event.student_account_id ?? "");
         const rostered = database.prepare("SELECT 1 FROM selector_session_roster WHERE session_id=? AND student_account_id=?").get(sessionId, studentId);
         if (!rostered) throw new PlatformStoreError("Selector event references a student outside the session roster.", "SELECTOR_STUDENT_INVALID", 400);
         if (event.type === "attendance") {
-          const status = event.status === "absent" ? "absent" : "present";
+          const status = String(event.status ?? "");
+          if (status !== "present" && status !== "absent") throw new PlatformStoreError("Attendance status must be present or absent.", "SELECTOR_ATTENDANCE_STATUS_INVALID");
+          const markedAt = String(event.occurred_at ?? changedAt);
           database.prepare(`INSERT INTO selector_attendance (session_id,student_account_id,status,marked_at) VALUES (?,?,?,?)
             ON CONFLICT(session_id,student_account_id) DO UPDATE SET status=excluded.status,marked_at=excluded.marked_at`)
-            .run(sessionId, studentId, status, String(event.occurred_at ?? changedAt));
+            .run(sessionId, studentId, status, markedAt);
+          database.prepare(`INSERT INTO selector_attendance_log (id,session_id,class_id,student_account_id,status,lesson_content_id,marked_at,recorded_at)
+            VALUES (?,?,?,?,?,?,?,?)
+            ON CONFLICT(session_id,student_account_id) DO UPDATE SET
+              status=excluded.status,lesson_content_id=excluded.lesson_content_id,marked_at=excluded.marked_at,recorded_at=excluded.recorded_at`)
+            .run(`attlog_${randomUUID()}`, sessionId, session.class_id, studentId, status, session.lesson_content_id ?? null, markedAt, changedAt);
         } else if (event.type === "selection") {
           if (database.prepare("SELECT 1 FROM selector_selections WHERE session_id=? AND student_account_id=?").get(sessionId, studentId)) {
             throw new PlatformStoreError("That student has already been selected in this session.", "SELECTOR_ALREADY_SELECTED", 409);
@@ -646,6 +793,65 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       }
       if (changed) database.prepare("UPDATE selector_sessions SET version=version+1,updated_at=? WHERE id=?").run(changedAt, sessionId);
     });
+    return selectorSessionState(teacherId, sessionId);
+  }
+
+  function recordSelectorAttendance(teacherId, sessionId, value = {}) {
+    requireRole(teacherId, ["teacher"]);
+    const session = database.prepare("SELECT * FROM selector_sessions WHERE id=? AND teacher_account_id=?").get(sessionId, teacherId);
+    if (!session) throw new PlatformStoreError("Selector session was not found.", "SELECTOR_SESSION_NOT_FOUND", 404);
+    if (session.status !== "active") throw new PlatformStoreError("Selector session is already closed.", "SELECTOR_SESSION_CLOSED", 409);
+    const contextContentId = String(value.lesson_content_id ?? "").trim().slice(0, 200) || null;
+    if (contextContentId && session.lesson_content_id && contextContentId !== session.lesson_content_id) {
+      throw new PlatformStoreError("Selector lesson context changed. Start a new selector session for this lesson.", "SELECTOR_CONTEXT_MISMATCH", 409);
+    }
+    const roster = database.prepare("SELECT student_account_id AS account_id FROM selector_session_roster WHERE session_id=? ORDER BY roster_position").all(sessionId);
+    const rosterIds = new Set(roster.map((item) => item.account_id));
+    const marks = Array.isArray(value.marks) ? value.marks : [];
+    if (marks.length !== roster.length) {
+      throw new PlatformStoreError(`Attendance must include all ${roster.length} students before it can be saved.`, "SELECTOR_ATTENDANCE_INCOMPLETE", 400);
+    }
+    const normalized = new Map();
+    for (const mark of marks) {
+      const studentId = String(mark.student_account_id ?? "");
+      const status = String(mark.status ?? "");
+      if (!rosterIds.has(studentId)) throw new PlatformStoreError("Attendance references a student outside the session roster.", "SELECTOR_STUDENT_INVALID", 400);
+      if (normalized.has(studentId)) throw new PlatformStoreError("Attendance contains a duplicate student.", "SELECTOR_ATTENDANCE_DUPLICATE", 400);
+      if (status !== "present" && status !== "absent") throw new PlatformStoreError("Attendance status must be present or absent.", "SELECTOR_ATTENDANCE_STATUS_INVALID", 400);
+      normalized.set(studentId, status);
+    }
+    if (normalized.size !== roster.length) throw new PlatformStoreError("Attendance must include every rostered student.", "SELECTOR_ATTENDANCE_INCOMPLETE", 400);
+
+    if (Number(value.version) !== Number(session.version)) {
+      const existing = database.prepare("SELECT student_account_id AS account_id,status FROM selector_attendance WHERE session_id=?").all(sessionId);
+      const identicalReplay = Boolean(session.attendance_finalized_at) && existing.length === normalized.size
+        && existing.every((item) => normalized.get(item.account_id) === item.status);
+      if (identicalReplay) return selectorSessionState(teacherId, sessionId);
+      throw new PlatformStoreError("Selector session changed in another tab. Review the latest attendance before saving.", "SELECTOR_VERSION_CONFLICT", 409);
+    }
+
+    const changedAt = timestamp(now());
+    const action = session.attendance_finalized_at ? "selector.attendance_correct" : "selector.attendance_finalize";
+    withTransaction(database, () => {
+      if (contextContentId && !session.lesson_content_id) {
+        database.prepare("UPDATE selector_sessions SET lesson_content_id=? WHERE id=?").run(contextContentId, sessionId);
+        session.lesson_content_id = contextContentId;
+      }
+      const saveCurrent = database.prepare(`INSERT INTO selector_attendance (session_id,student_account_id,status,marked_at) VALUES (?,?,?,?)
+        ON CONFLICT(session_id,student_account_id) DO UPDATE SET status=excluded.status,marked_at=excluded.marked_at`);
+      const saveLog = database.prepare(`INSERT INTO selector_attendance_log (id,session_id,class_id,student_account_id,status,lesson_content_id,marked_at,recorded_at)
+        VALUES (?,?,?,?,?,?,?,?)
+        ON CONFLICT(session_id,student_account_id) DO UPDATE SET
+          status=excluded.status,lesson_content_id=excluded.lesson_content_id,marked_at=excluded.marked_at,recorded_at=excluded.recorded_at`);
+      for (const [studentId, status] of normalized) {
+        saveCurrent.run(sessionId, studentId, status, changedAt);
+        saveLog.run(`attlog_${randomUUID()}`, sessionId, session.class_id, studentId, status, session.lesson_content_id ?? null, changedAt, changedAt);
+      }
+      database.prepare("UPDATE selector_sessions SET attendance_finalized_at=?,version=version+1,updated_at=? WHERE id=?")
+        .run(changedAt, changedAt, sessionId);
+    });
+    const absent = [...normalized.values()].filter((status) => status === "absent").length;
+    audit(teacherId, action, "selector_session", sessionId, { class_id: session.class_id, lesson_content_id: session.lesson_content_id ?? null, roster_total: roster.length, present: roster.length - absent, absent });
     return selectorSessionState(teacherId, sessionId);
   }
 
@@ -679,6 +885,261 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     };
   }
 
+  function recordHomeworkSubmissions(teacherId, classId, value = {}) {
+    teacherClass(teacherId, classId);
+    const title = String(value.assignment_title ?? "").normalize("NFKC").trim().slice(0, 180);
+    if (!title) throw new PlatformStoreError("Assignment title is required.", "HOMEWORK_TITLE_REQUIRED");
+    const assignedOn = String(value.assigned_on ?? "").slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(assignedOn)) throw new PlatformStoreError("A valid assigned date (YYYY-MM-DD) is required.", "HOMEWORK_DATE_INVALID");
+    const source = String(value.source ?? "manual").normalize("NFKC").trim().slice(0, 60) || "manual";
+    const dueAt = optionalTimestamp(value.due_at, "HOMEWORK_DUE_AT_INVALID");
+    const items = Array.isArray(value.items) ? value.items.slice(0, 200) : [];
+    if (!items.length) throw new PlatformStoreError("At least one student entry is required.", "HOMEWORK_ITEMS_REQUIRED");
+    const changedAt = timestamp(now());
+    let written = 0;
+    withTransaction(database, () => {
+      for (const item of items) {
+        const studentId = String(item.student_account_id ?? "");
+        const status = String(item.status ?? "");
+        if (!HOMEWORK_STATUSES.has(status)) throw new PlatformStoreError("Homework status is invalid.", "HOMEWORK_STATUS_INVALID");
+        const rostered = database.prepare("SELECT 1 FROM class_memberships WHERE class_id=? AND account_id=? AND status='active'").get(classId, studentId);
+        if (!rostered) throw new PlatformStoreError("Homework entry references a student outside the class roster.", "HOMEWORK_STUDENT_INVALID", 400);
+        const note = String(item.note ?? "").slice(0, 500) || null;
+        const completedAt = optionalTimestamp(item.completed_at, "HOMEWORK_COMPLETED_AT_INVALID");
+        const confirmationSentAt = optionalTimestamp(item.confirmation_sent_at, "HOMEWORK_CONFIRMATION_AT_INVALID");
+        const lastActivityAt = optionalTimestamp(item.last_activity_at, "HOMEWORK_ACTIVITY_AT_INVALID") ?? completedAt;
+        const isLate = item.is_late === true || item.is_late === 1 ? 1 : item.is_late === false || item.is_late === 0 ? 0 : null;
+        const teacherAccepted = item.teacher_accepted ? 1 : 0;
+        const sourceMessageId = String(item.source_message_id ?? "").trim().slice(0, 240) || null;
+        const evidenceJson = item.evidence === undefined ? null : JSON.stringify(item.evidence).slice(0, 8000);
+        const score = item.score === undefined || item.score === null ? null : Number(item.score);
+        if (score !== null && (!Number.isInteger(score) || score < 0 || score > 1000)) throw new PlatformStoreError("Homework score must be a whole number.", "HOMEWORK_SCORE_INVALID");
+        const scoreMax = item.score_max === undefined || item.score_max === null ? null : Number(item.score_max);
+        if (scoreMax !== null && (!Number.isInteger(scoreMax) || scoreMax < 1 || scoreMax > 1000)) throw new PlatformStoreError("Homework maximum score must be a positive whole number.", "HOMEWORK_SCORE_MAX_INVALID");
+        if (score !== null && scoreMax !== null && score > scoreMax) throw new PlatformStoreError("Homework score cannot exceed its maximum.", "HOMEWORK_SCORE_RANGE_INVALID");
+        if (score !== null && scoreMax === null) throw new PlatformStoreError("A maximum score is required alongside a score.", "HOMEWORK_SCORE_MAX_REQUIRED");
+        const feedback = String(item.feedback ?? "").normalize("NFKC").trim().slice(0, 500) || null;
+        const gradedAt = optionalTimestamp(item.graded_at, "HOMEWORK_GRADED_AT_INVALID") ?? (score !== null ? changedAt : null);
+        database.prepare(`INSERT INTO homework_submissions
+          (id,class_id,student_account_id,assignment_title,assigned_on,due_at,status,completed_at,is_late,teacher_accepted,source,source_message_id,evidence_json,note,confirmation_sent_at,last_activity_at,score,score_max,feedback,graded_at,recorded_by_account_id,recorded_at,updated_at)
+          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+          ON CONFLICT(class_id,student_account_id,assignment_title,assigned_on) DO UPDATE SET
+            due_at=COALESCE(excluded.due_at,homework_submissions.due_at),status=excluded.status,
+            completed_at=COALESCE(excluded.completed_at,homework_submissions.completed_at),is_late=COALESCE(excluded.is_late,homework_submissions.is_late),
+            teacher_accepted=excluded.teacher_accepted,source=excluded.source,
+            source_message_id=COALESCE(excluded.source_message_id,homework_submissions.source_message_id),
+            evidence_json=COALESCE(excluded.evidence_json,homework_submissions.evidence_json),note=excluded.note,
+            confirmation_sent_at=COALESCE(excluded.confirmation_sent_at,homework_submissions.confirmation_sent_at),
+            last_activity_at=COALESCE(excluded.last_activity_at,homework_submissions.last_activity_at),
+            score=COALESCE(excluded.score,homework_submissions.score),
+            score_max=COALESCE(excluded.score_max,homework_submissions.score_max),
+            feedback=COALESCE(excluded.feedback,homework_submissions.feedback),
+            graded_at=COALESCE(excluded.graded_at,homework_submissions.graded_at),
+            recorded_by_account_id=excluded.recorded_by_account_id,updated_at=excluded.updated_at`)
+          .run(`homework_${randomUUID()}`, classId, studentId, title, assignedOn, dueAt, status, completedAt, isLate, teacherAccepted, source, sourceMessageId, evidenceJson, note, confirmationSentAt, lastActivityAt, score, scoreMax, feedback, gradedAt, teacherId, changedAt, changedAt);
+        written += 1;
+      }
+    });
+    audit(teacherId, "homework.record", "class", classId, { assignment_title: title, assigned_on: assignedOn, entries: written, source });
+    return { class_id: classId, assignment_title: title, assigned_on: assignedOn, recorded: written };
+  }
+
+  function classStudentOverview(teacherId, classId, contentCatalog = null) {
+    const classroom = teacherClass(teacherId, classId);
+    const lessonTitle = (contentId) => (contentId ? contentCatalog?.get?.(contentId)?.title ?? null : null);
+    const students = database.prepare(`SELECT a.id AS account_id, a.username, a.display_name, a.student_id, a.form_class, a.legal_name, a.preferred_name, m.roster_number
+      FROM class_memberships m JOIN accounts a ON a.id=m.account_id
+      WHERE m.class_id=? AND m.status='active' AND a.status='active' AND a.role='student'
+      ORDER BY CASE WHEN m.roster_number IS NULL THEN 1 ELSE 0 END, m.roster_number, a.display_name COLLATE NOCASE, a.username COLLATE NOCASE`).all(classId);
+    const attendanceTotals = new Map(database.prepare(`SELECT sa.student_account_id AS account_id,
+        COUNT(*) AS marks,
+        SUM(CASE WHEN sa.status='present' THEN 1 ELSE 0 END) AS presents,
+        SUM(CASE WHEN sa.status='absent' THEN 1 ELSE 0 END) AS absences
+      FROM selector_attendance sa JOIN selector_sessions se ON se.id=sa.session_id
+      WHERE se.class_id=? GROUP BY sa.student_account_id`).all(classId).map((row) => [row.account_id, row]));
+    const latestAttendance = new Map();
+    for (const row of database.prepare(`SELECT l.student_account_id AS account_id, l.status, l.marked_at, l.lesson_content_id
+      FROM selector_attendance_log l
+      WHERE l.class_id=? ORDER BY l.marked_at DESC`).all(classId)) {
+      if (!latestAttendance.has(row.account_id)) latestAttendance.set(row.account_id, row);
+    }
+    const attendanceLog = database.prepare(`SELECT l.session_id, se.started_at, se.attendance_finalized_at, l.lesson_content_id,
+        (SELECT COUNT(*) FROM selector_session_roster r WHERE r.session_id=l.session_id) AS roster_total,
+        COUNT(*) AS marked,
+        MIN(l.marked_at) AS first_marked_at, MAX(l.marked_at) AS last_marked_at,
+        SUM(CASE WHEN l.status='present' THEN 1 ELSE 0 END) AS present,
+        SUM(CASE WHEN l.status='absent' THEN 1 ELSE 0 END) AS absent,
+        SUM(CASE WHEN l.status='absent' AND f.status IN ('sent','responded') THEN 1 ELSE 0 END) AS followup_sent,
+        SUM(CASE WHEN l.status='absent' AND f.reason_text IS NOT NULL THEN 1 ELSE 0 END) AS reasons_received,
+        SUM(CASE WHEN l.status='absent' AND si.external_id IS NULL THEN 1 ELSE 0 END) AS dingtalk_unlinked
+      FROM selector_attendance_log l
+      JOIN selector_sessions se ON se.id=l.session_id
+      LEFT JOIN absence_followups f ON f.attendance_log_id=l.id
+      LEFT JOIN student_integrations si ON si.account_id=l.student_account_id AND si.provider='dingtalk'
+      WHERE l.class_id=? GROUP BY l.session_id,l.lesson_content_id ORDER BY last_marked_at DESC LIMIT 30`).all(classId)
+      .map((row) => ({ ...row, class_name: classroom.name, lesson_title: lessonTitle(row.lesson_content_id) }));
+    const attendanceLogByFormClass = database.prepare(`SELECT l.session_id, a.form_class, se.started_at, se.attendance_finalized_at, l.lesson_content_id,
+        (SELECT COUNT(*) FROM selector_session_roster r JOIN accounts ra ON ra.id=r.student_account_id
+          WHERE r.session_id=l.session_id AND ra.form_class=a.form_class) AS roster_total,
+        COUNT(*) AS marked,
+        MIN(l.marked_at) AS first_marked_at, MAX(l.marked_at) AS last_marked_at,
+        SUM(CASE WHEN l.status='present' THEN 1 ELSE 0 END) AS present,
+        SUM(CASE WHEN l.status='absent' THEN 1 ELSE 0 END) AS absent
+      FROM selector_attendance_log l
+      JOIN selector_sessions se ON se.id=l.session_id
+      JOIN accounts a ON a.id=l.student_account_id
+      WHERE l.class_id=? AND a.form_class IS NOT NULL
+      GROUP BY l.session_id,l.lesson_content_id,a.form_class ORDER BY last_marked_at DESC`).all(classId)
+      .map((row) => ({ ...row, class_name: classroom.name, lesson_title: lessonTitle(row.lesson_content_id) }));
+    const homeworkTotals = new Map(database.prepare(`SELECT student_account_id AS account_id,
+        COUNT(*) AS total,
+        SUM(CASE WHEN status='submitted' THEN 1 ELSE 0 END) AS submitted,
+        SUM(CASE WHEN status='late' THEN 1 ELSE 0 END) AS late,
+        SUM(CASE WHEN status='missing' THEN 1 ELSE 0 END) AS missing,
+        SUM(CASE WHEN status='awaiting_working' THEN 1 ELSE 0 END) AS awaiting_working,
+        SUM(CASE WHEN status='exempt' THEN 1 ELSE 0 END) AS exempt
+      FROM homework_submissions WHERE class_id=? GROUP BY student_account_id`).all(classId).map((row) => [row.account_id, row]));
+    const latestHomework = new Map();
+    for (const row of database.prepare(`SELECT student_account_id AS account_id, assignment_title, assigned_on, status, score, score_max, feedback, graded_at
+      FROM homework_submissions WHERE class_id=? ORDER BY assigned_on DESC, recorded_at DESC`).all(classId)) {
+      if (!latestHomework.has(row.account_id)) latestHomework.set(row.account_id, row);
+    }
+    const selectorByStudent = new Map(selectorReport(teacherId, classId).students.map((row) => [row.account_id, row]));
+    return {
+      class: classRecord(classroom),
+      attendance_log: attendanceLog,
+      attendance_log_by_form_class: attendanceLogByFormClass,
+      students: students.map((student) => {
+        const attendance = attendanceTotals.get(student.account_id);
+        const lastAttendance = latestAttendance.get(student.account_id);
+        const homework = homeworkTotals.get(student.account_id);
+        const lastHomework = latestHomework.get(student.account_id);
+        const selector = selectorByStudent.get(student.account_id);
+        return {
+          ...student,
+          attendance: {
+            marks: Number(attendance?.marks ?? 0),
+            presents: Number(attendance?.presents ?? 0),
+            absences: Number(attendance?.absences ?? 0),
+            last_status: lastAttendance?.status ?? null,
+            last_marked_at: lastAttendance?.marked_at ?? null,
+            last_lesson_content_id: lastAttendance?.lesson_content_id ?? null,
+            last_lesson_title: lessonTitle(lastAttendance?.lesson_content_id)
+          },
+          homework: {
+            total: Number(homework?.total ?? 0),
+            submitted: Number(homework?.submitted ?? 0),
+            late: Number(homework?.late ?? 0),
+            missing: Number(homework?.missing ?? 0),
+            awaiting_working: Number(homework?.awaiting_working ?? 0),
+            exempt: Number(homework?.exempt ?? 0),
+            last_assignment_title: lastHomework?.assignment_title ?? null,
+            last_assigned_on: lastHomework?.assigned_on ?? null,
+            last_status: lastHomework?.status ?? null,
+            last_score: lastHomework?.score ?? null,
+            last_score_max: lastHomework?.score_max ?? null,
+            last_feedback: lastHomework?.feedback ?? null,
+            last_graded_at: lastHomework?.graded_at ?? null
+          },
+          selector: {
+            selected_count: Number(selector?.selected_count ?? 0),
+            a_star: Number(selector?.a_star ?? 0),
+            a_count: Number(selector?.a_count ?? 0),
+            b_count: Number(selector?.b_count ?? 0),
+            c_count: Number(selector?.c_count ?? 0),
+            no_grade: Number(selector?.no_grade ?? 0),
+            last_selected_at: selector?.last_selected_at ?? null
+          }
+        };
+      })
+    };
+  }
+
+  function teacherStudentOverview(teacherId, contentCatalog = null) {
+    requireRole(teacherId, ["teacher"]);
+    const classes = database.prepare("SELECT id,name FROM classes WHERE owner_account_id=? AND status='active' ORDER BY name").all(teacherId);
+    const overviews = classes.map((classroom) => classStudentOverview(teacherId, classroom.id, contentCatalog));
+    const combined = new Map();
+    const newest = (left, right) => String(right ?? "") > String(left ?? "");
+    for (const overview of overviews) {
+      for (const student of overview.students) {
+        const existing = combined.get(student.account_id);
+        if (!existing) {
+          combined.set(student.account_id, { ...student, course_classes: [overview.class.name] });
+          continue;
+        }
+        existing.course_classes.push(overview.class.name);
+        for (const key of ["marks", "presents", "absences"]) existing.attendance[key] += student.attendance[key];
+        if (newest(existing.attendance.last_marked_at, student.attendance.last_marked_at)) {
+          Object.assign(existing.attendance, {
+            last_status: student.attendance.last_status,
+            last_marked_at: student.attendance.last_marked_at,
+            last_lesson_content_id: student.attendance.last_lesson_content_id,
+            last_lesson_title: student.attendance.last_lesson_title
+          });
+        }
+        for (const key of ["total", "submitted", "late", "missing", "awaiting_working", "exempt"]) existing.homework[key] += student.homework[key];
+        if (newest(existing.homework.last_assigned_on, student.homework.last_assigned_on)) {
+          Object.assign(existing.homework, {
+            last_assignment_title: student.homework.last_assignment_title,
+            last_assigned_on: student.homework.last_assigned_on,
+            last_status: student.homework.last_status
+          });
+        }
+        for (const key of ["selected_count", "a_star", "a_count", "b_count", "c_count", "no_grade"]) existing.selector[key] += student.selector[key];
+        if (newest(existing.selector.last_selected_at, student.selector.last_selected_at)) existing.selector.last_selected_at = student.selector.last_selected_at;
+      }
+    }
+    const students = [...combined.values()].sort((a, b) =>
+      (a.form_class ?? 99) - (b.form_class ?? 99)
+      || String(a.student_id ?? "").localeCompare(String(b.student_id ?? ""), undefined, { numeric: true })
+      || a.display_name.localeCompare(b.display_name));
+    const attendanceLog = overviews.flatMap((overview) => overview.attendance_log)
+      .sort((a, b) => String(b.last_marked_at).localeCompare(String(a.last_marked_at))).slice(0, 60);
+    const attendanceLogByFormClass = overviews.flatMap((overview) => overview.attendance_log_by_form_class)
+      .sort((a, b) => String(b.last_marked_at).localeCompare(String(a.last_marked_at))).slice(0, 360);
+    return {
+      class: { class_id: null, name: "全部课程" },
+      course_classes: classes.map((item) => ({ class_id: item.id, name: item.name })),
+      attendance_log: attendanceLog,
+      attendance_log_by_form_class: attendanceLogByFormClass,
+      students
+    };
+  }
+
+  function studentProfile(teacherId, accountId, contentCatalog = null) {
+    requireRole(teacherId, ["teacher"]);
+    const account = accountById(accountId);
+    if (!account || account.role !== "student") throw new PlatformStoreError("Student was not found.", "STUDENT_NOT_FOUND", 404);
+    const classes = database.prepare(`SELECT c.id AS class_id, c.name
+      FROM class_memberships m JOIN classes c ON c.id=m.class_id
+      WHERE m.account_id=? AND c.owner_account_id=? AND m.status='active' ORDER BY c.name`).all(accountId, teacherId);
+    if (!classes.length) throw new PlatformStoreError("That student is not in any of your classes.", "STUDENT_NOT_FOUND", 404);
+    const attendance = database.prepare(`SELECT l.class_id, c.name AS class_name, l.status, l.marked_at, l.lesson_content_id,
+          f.status AS followup_status, f.sent_at AS followup_sent_at, f.reason_text, f.responded_at
+        FROM selector_attendance_log l
+        JOIN classes c ON c.id=l.class_id AND c.owner_account_id=?
+        LEFT JOIN absence_followups f ON f.attendance_log_id=l.id
+        WHERE l.student_account_id=? ORDER BY l.marked_at DESC LIMIT 100`).all(teacherId, accountId)
+      .map((row) => ({ ...row, lesson_title: row.lesson_content_id ? contentCatalog?.get?.(row.lesson_content_id)?.title ?? null : null }));
+    return {
+      student: publicAccount(account),
+      classes,
+      attendance,
+      homework: database.prepare(`SELECT hs.class_id, hs.assignment_title, hs.assigned_on, hs.due_at, hs.status, hs.completed_at, hs.is_late,
+          hs.teacher_accepted, hs.source, hs.source_message_id, hs.evidence_json, hs.note, hs.confirmation_sent_at, hs.last_activity_at,
+          hs.score, hs.score_max, hs.feedback, hs.graded_at, hs.recorded_at
+        FROM homework_submissions hs
+        JOIN classes c ON c.id=hs.class_id AND c.owner_account_id=?
+        WHERE hs.student_account_id=? ORDER BY hs.assigned_on DESC, hs.recorded_at DESC LIMIT 100`).all(teacherId, accountId),
+      selector: database.prepare(`SELECT se.class_id, ss.selected_at, ss.outcome, ss.outcome_at
+        FROM selector_selections ss
+        JOIN selector_sessions se ON se.id=ss.session_id
+        JOIN classes c ON c.id=se.class_id AND c.owner_account_id=?
+        WHERE ss.student_account_id=? ORDER BY ss.selected_at DESC LIMIT 100`).all(teacherId, accountId)
+    };
+  }
+
   function privacyExport(accountId) {
     const account = requireRole(accountId, ["student", "teacher", "admin"]);
     const result = {
@@ -690,6 +1151,11 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       learning_events: database.prepare("SELECT event_id,content_id,content_version,event_type,event_json,occurred_at FROM learning_events WHERE account_id=? ORDER BY occurred_at").all(accountId).map((row) => ({ ...row, event: jsonParse(row.event_json, {}) })),
       lesson_progress: database.prepare("SELECT * FROM lesson_progress WHERE account_id=?").all(accountId),
       selector_participation: database.prepare("SELECT se.class_id,ss.sequence_number,ss.selected_at,ss.outcome,ss.outcome_at FROM selector_selections ss JOIN selector_sessions se ON se.id=ss.session_id WHERE ss.student_account_id=? ORDER BY ss.selected_at").all(accountId),
+      selector_attendance: database.prepare("SELECT class_id,status,lesson_content_id,marked_at FROM selector_attendance_log WHERE student_account_id=? ORDER BY marked_at").all(accountId),
+      absence_followups: database.prepare(`SELECT l.class_id,l.lesson_content_id,l.marked_at,f.status,f.sent_at,f.reason_text,f.responded_at
+        FROM absence_followups f JOIN selector_attendance_log l ON l.id=f.attendance_log_id
+        WHERE l.student_account_id=? ORDER BY l.marked_at`).all(accountId),
+      homework_submissions: database.prepare("SELECT class_id,assignment_title,assigned_on,due_at,status,completed_at,is_late,teacher_accepted,source,source_message_id,evidence_json,note,confirmation_sent_at,last_activity_at,score,score_max,feedback,graded_at,recorded_at FROM homework_submissions WHERE student_account_id=? ORDER BY assigned_on").all(accountId),
       econmark_runs: database.prepare("SELECT id,assignment_id,student_ref,source_name,status,created_at,updated_at,final_mark,max_mark,confidence FROM runs WHERE account_id=? ORDER BY created_at").all(accountId),
       uploads: database.prepare("SELECT id,original_name,mime_type,byte_size,sha256,created_at FROM images WHERE account_id=? ORDER BY created_at").all(accountId)
     };
@@ -732,6 +1198,7 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       learning_active_seconds: Number(database.prepare("SELECT COALESCE(SUM(seconds),0) AS value FROM learning_active_time WHERE account_id=?").get(account.id).value),
       quiz_attempts: Number(database.prepare("SELECT COUNT(*) AS value FROM quiz_attempts WHERE account_id=?").get(account.id).value),
       selector_selections: Number(database.prepare("SELECT COUNT(*) AS value FROM selector_selections WHERE student_account_id=?").get(account.id).value),
+      homework_submissions: Number(database.prepare("SELECT COUNT(*) AS value FROM homework_submissions WHERE student_account_id=?").get(account.id).value),
       econmark_runs: Number(database.prepare("SELECT COUNT(*) AS value FROM runs WHERE account_id=?").get(account.id).value),
       upload_bytes: Number(database.prepare("SELECT COALESCE(SUM(byte_size),0) AS value FROM images WHERE account_id=?").get(account.id).value)
     };
@@ -746,13 +1213,15 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       database.prepare("DELETE FROM lesson_progress WHERE account_id=?").run(account.id);
       database.prepare("DELETE FROM quiz_attempts WHERE account_id=?").run(account.id);
       database.prepare("DELETE FROM selector_attendance WHERE student_account_id=?").run(account.id);
+      database.prepare("DELETE FROM selector_attendance_log WHERE student_account_id=?").run(account.id);
       database.prepare("DELETE FROM selector_selections WHERE student_account_id=?").run(account.id);
       database.prepare("DELETE FROM selector_session_roster WHERE student_account_id=?").run(account.id);
+      database.prepare("DELETE FROM homework_submissions WHERE student_account_id=?").run(account.id);
       database.prepare("DELETE FROM class_memberships WHERE account_id=?").run(account.id);
       database.prepare("DELETE FROM images WHERE account_id=?").run(account.id);
       database.prepare("DELETE FROM runs WHERE account_id=?").run(account.id);
       database.prepare("DELETE FROM batches WHERE account_id=?").run(account.id);
-      database.prepare("UPDATE accounts SET username=?,display_name='Deleted account',password_hash=?,status='deleted',deleted_at=?,updated_at=? WHERE id=?")
+      database.prepare("UPDATE accounts SET username=?,display_name='Deleted account',student_id=NULL,form_class=NULL,password_hash=?,status='deleted',deleted_at=?,updated_at=? WHERE id=?")
         .run(tombstone, encoded, completedAt, completedAt, account.id);
       database.prepare("UPDATE privacy_requests SET status='completed',completed_at=?,handled_by_account_id=? WHERE id=?").run(completedAt, adminId, requestId);
     });
@@ -793,8 +1262,13 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     startSelectorSession,
     selectorSessionState,
     recordSelectorEvents,
+    recordSelectorAttendance,
     completeSelectorSession,
     selectorReport,
+    recordHomeworkSubmissions,
+    classStudentOverview,
+    teacherStudentOverview,
+    studentProfile,
     privacyExport,
     requestDeletion,
     correctAccount,

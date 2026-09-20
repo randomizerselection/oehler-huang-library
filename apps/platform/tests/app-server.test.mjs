@@ -68,7 +68,7 @@ test("student-first HTTP routes enforce roles, assignment lifecycle, rubric auth
   const legacyTeacherRedirect = await fetch(`${base}/teacher?tab=quizzes`, { redirect: "manual" });
   assert.equal(legacyTeacherRedirect.status, 308);
   assert.equal(legacyTeacherRedirect.headers.get("location"), "/econmark/teacher?tab=quizzes");
-  assert.match(await fetch(`${base}/teacher`).then((response) => response.text()), /题目与评分标准/);
+  assert.match(await fetch(`${base}/teacher`).then((response) => response.text()), /questions and mark schemes/i);
   assert.match(await fetch(`${base}/single`).then((response) => response.text()), /从中央作业库选择/);
   assert.match(await fetch(`${base}/batch`).then((response) => response.text()), /从中央作业库选择/);
 

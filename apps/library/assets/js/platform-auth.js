@@ -3,16 +3,34 @@
 
   let loader = null;
 
+  const DEFAULT_LOCAL_PLATFORM_ORIGIN = 'http://127.0.0.1:4173';
+
+  // Decks opened from disk talk to the local platform server. Override with
+  // <meta name="oh-platform-origin" content="http://host:port"> when the server
+  // runs on a different port.
+  function localPlatformOrigin() {
+    const configured = document.querySelector('meta[name="oh-platform-origin"]')?.content || window.OH_PLATFORM_ORIGIN || '';
+    return String(configured || DEFAULT_LOCAL_PLATFORM_ORIGIN).replace(/\/+$/, '');
+  }
+
+  function apiBase() {
+    return location.protocol === 'file:' ? localPlatformOrigin() : '';
+  }
+
   function loadAccountShell() {
     if (window.PlatformAuth) return Promise.resolve(window.PlatformAuth);
-    if (location.protocol === 'file:') return Promise.resolve(null);
     if (!loader) {
       loader = new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = '/platform/account-shell.js';
+        const local = location.protocol === 'file:';
+        script.src = local ? `${localPlatformOrigin()}/platform/account-shell.js` : '/platform/account-shell.js';
         script.async = true;
         script.addEventListener('load', () => resolve(window.PlatformAuth || null), { once: true });
-        script.addEventListener('error', () => reject(new Error('Account service is unavailable.')), { once: true });
+        script.addEventListener('error', () => {
+          // Local decks keep working (public class list) when the platform server is not running.
+          if (local) { loader = null; resolve(null); }
+          else reject(new Error('Account service is unavailable.'));
+        }, { once: true });
         document.head.append(script);
       });
     }
@@ -71,6 +89,7 @@
     initialize,
     requireRole,
     submitAttempt,
+    apiBase,
     getSession: () => window.PlatformAuth?.getSession?.() || { authenticated: false, account: null },
     createAttemptId: () => window.PlatformAuth?.createAttemptId?.() || `attempt_${Date.now()}-${Math.random().toString(36).slice(2)}`
   });

@@ -1,6 +1,16 @@
 (function () {
   if (window.PlatformAuth) return;
 
+  // The shell may be loaded cross-origin: decks opened from disk load it from the
+  // local platform server. Derive the API base from our own script URL so every
+  // request reaches the origin that served this file.
+  const SCRIPT_ORIGIN = (() => {
+    try { return new URL(document.currentScript?.src || location.href).origin; } catch (_error) { return location.origin; }
+  })();
+  // On file:// pages location.origin is the string "null", so this is true there.
+  const crossOrigin = SCRIPT_ORIGIN !== location.origin;
+  const apiUrl = (path) => new URL(path, `${SCRIPT_ORIGIN}/`).href;
+
   const anonymous = () => ({ authenticated: false, account: null, csrf_token: null, expires_at: null });
   const state = {
     session: anonymous(),
@@ -81,8 +91,8 @@
   async function refresh() {
     try {
       const [session, config] = await Promise.all([
-        fetch('/api/auth/me', { credentials: 'same-origin', headers: { accept: 'application/json' } }).then(parseResponse),
-        fetch('/api/config', { credentials: 'same-origin', headers: { accept: 'application/json' } }).then(parseResponse)
+        fetch(apiUrl('/api/auth/me'), { credentials: 'include', headers: { accept: 'application/json' } }).then(parseResponse),
+        fetch(apiUrl('/api/config'), { credentials: 'include', headers: { accept: 'application/json' } }).then(parseResponse)
       ]);
       state.session = session;
       state.config = config;
@@ -97,7 +107,7 @@
     const method = String(options.method || 'GET').toUpperCase();
     const headers = new Headers(options.headers || {});
     if (!['GET', 'HEAD', 'OPTIONS'].includes(method) && state.session.csrf_token) headers.set('x-csrf-token', state.session.csrf_token);
-    const response = await fetch(url, { ...options, method, headers, credentials: 'same-origin' });
+    const response = await fetch(apiUrl(url), { ...options, method, headers, credentials: 'include' });
     if (response.status === 401) {
       state.session = anonymous();
       dispatchChange();
@@ -200,10 +210,10 @@
             <p class="error" data-error></p><div class="actions"><button class="submit" type="submit">${t.changePassword}</button></div>
           </form>
           <div class="footer-links">
-            ${account?.role === 'student' ? `<a href="/econmark/?tab=quizzes">${t.history}</a><button class="link" type="button" data-action="join-class">Join a teacher class</button>` : ''}
-            ${account?.role === 'teacher' ? `<a href="/econmark/teacher?tab=quizzes">${t.gradebook}</a><button class="link" type="button" data-action="manage-classes">Manage classes</button><a href="/selector/">Student selector</a>` : ''}
+            ${account?.role === 'student' ? `<a href="${apiUrl('/econmark/?tab=quizzes')}">${t.history}</a><button class="link" type="button" data-action="join-class">Join a teacher class</button>` : ''}
+            ${account?.role === 'teacher' ? `<a href="${apiUrl('/econmark/teacher?tab=quizzes')}">${t.gradebook}</a><button class="link" type="button" data-action="manage-classes">Manage classes</button><a href="${apiUrl('/selector/')}">Student selector</a>` : ''}
             ${account?.role === 'admin' ? '<button class="link" type="button" data-action="teacher-invite">Create teacher invitation</button>' : ''}
-            <a href="/api/privacy/export" download>Export my data</a>
+            <a href="${apiUrl('/api/privacy/export')}" download>Export my data</a>
             <button class="link" type="button" data-action="logout">${t.logout}</button>
           </div>`;
       } else if (this.mode === 'mismatch') {
@@ -260,8 +270,8 @@
       this.setFormState(form, true, this.text.loading);
       try {
         const endpoint = register ? `/api/auth/register/${this.requiredRole}` : '/api/auth/login';
-        state.session = await parseResponse(await fetch(endpoint, {
-          method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload)
+        state.session = await parseResponse(await fetch(apiUrl(endpoint), {
+          method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload)
         }));
         if (state.session.recovery_code) {
           window.prompt('Save this one-time recovery code. It will not be shown again.', state.session.recovery_code);
@@ -274,7 +284,7 @@
         if (state.session.account?.role === 'student' && !state.session.account.class_name) { this.mode = 'settings'; this.message = this.text.classRequired; this.renderModal(); return; }
         this.shadowRoot.querySelector('dialog').close();
         const next = new URLSearchParams(location.search).get('next');
-        if (next?.startsWith('/') && !next.startsWith('//') && !state.pending.size) location.assign(next);
+        if (!crossOrigin && next?.startsWith('/') && !next.startsWith('//') && !state.pending.size) location.assign(next);
       } catch (error) { this.setFormState(form, false, error.message); }
     }
 
@@ -368,7 +378,7 @@
       try { await parseResponse(await authFetch('/api/auth/logout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' })); } catch (_error) { /* local state still clears */ }
       state.session = anonymous(); dispatchChange();
       if (close) this.shadowRoot.querySelector('dialog')?.close();
-      if (close && state.config.econmark_private && /^\/econmark(?:\/|$)/.test(location.pathname)) location.assign('/');
+      if (close && !crossOrigin && state.config.econmark_private && /^\/econmark(?:\/|$)/.test(location.pathname)) location.assign('/');
     }
   }
 
@@ -416,6 +426,9 @@
     refresh,
     authFetch,
     parseResponse,
+    apiUrl,
+    apiBase: SCRIPT_ORIGIN,
+    crossOrigin,
     getSession: () => clone(state.session),
     getConfig: () => clone(state.config),
     open(mode = 'login', role = 'student', options = {}) { activeElement(options)?.open(mode, role, options.message || ''); },

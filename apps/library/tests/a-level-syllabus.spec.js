@@ -4,6 +4,32 @@ const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 const root = path.resolve(__dirname, '..');
 const pageUrl = file => pathToFileURL(path.join(root, 'a-level', file)).href;
+
+test('@smoke @responsive semester plan preserves coverage within the January budget', async ({page}, testInfo) => {
+  await page.goto(pageUrl('syllabus/index.html'));
+  const plan = await page.evaluate(() => window.ALEVEL_SYLLABUS.semesterPlan);
+  const slots = plan.weeks.flatMap(week => week.slots);
+  expect(plan.deadline).toBe('2027-01-14');
+  expect(slots).toHaveLength(32);
+  expect(slots.filter(s => s.kind === 'teaching')).toHaveLength(25);
+  expect(slots.filter(s => s.kind === 'reserve')).toHaveLength(4);
+  expect(slots.filter(s => s.kind === 'review')).toHaveLength(3);
+  expect(slots.filter(s => s.lessonId).map(s => s.lessonId)).toEqual(Array.from({length:24},(_,i)=>'al-'+String(i+6).padStart(3,'0')));
+  await page.getByText('Weekly semester schedule and assumptions', {exact:true}).click();
+  await expect(page.locator('.semester-table tbody tr')).toHaveCount(16);
+  await expect(page.locator('.semester-table')).toContainText('2026-12-21');
+  await expect(page.locator('.semester-table a').first()).toHaveAttribute('href','../lessons/9-2-2-fiscal-expansion-multiplier/index.html');
+  await noOverflow(page);
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button',{name:'Download semester CSV',exact:true}).click();
+  const download = await pending;
+  const target = testInfo.outputPath('semester.csv');
+  await download.saveAs(target);
+  const csv = fs.readFileSync(target,'utf8');
+  expect(csv).toContain('Fiscal expansion and the multiplier');
+  expect(csv).toContain('Government failure in macroeconomic policy');
+  expect(csv.trim().split('\r\n')).toHaveLength(33);
+});
 const noOverflow = async page => expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
 
 test('@smoke @responsive A Level syllabus navigation, coverage and filtering', async ({ page }) => {

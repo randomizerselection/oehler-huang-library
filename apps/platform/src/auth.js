@@ -29,9 +29,9 @@ export function ensureAuthenticated() {
   return false;
 }
 
-export async function initializeAccountUI() {
+export async function initializeAccountUI({ locale = "zh" } = {}) {
   const mount = document.querySelector(".header-actions");
-  return platform.initialize({ mount, locale: "zh", context: "econmark", roleHint: pageRole() });
+  return platform.initialize({ mount, locale, context: "econmark", roleHint: pageRole() });
 }
 
 export async function listStoredRuns({ limit = 100, offset = 0 } = {}) {

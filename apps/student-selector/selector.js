@@ -325,10 +325,12 @@
       this.classes = {};
       this.classLabels = {};
       this.studentLabels = {};
+      this.studentContext = {};
       this.messages = {};
       this.storageKey = options.classroomMode ? 'student-selector-classroom-session-v1' : STORAGE_KEY;
       this.state = loadStoredState(this.storageKey);
       this.remoteSession = null;
+      this.attendanceRecords = {};
       this.destroyed = false;
       this.loading = false;
       this.ready = false;
@@ -352,6 +354,7 @@
     }
 
     clearTimers() {
+      window.cancelAnimationFrame(this.selectionFrame);
       for (const id of this.timers) {
         window.clearTimeout(id);
         window.clearInterval(id);
@@ -397,12 +400,12 @@
       this.render();
       try {
         const loadClasses = async () => {
-          const classes = {}, classLabels = {}, studentLabels = {};
+          const classes = {}, classLabels = {}, studentLabels = {}, studentContext = {};
           if (this.options.classroomMode) {
             // The existing standalone Economics selector uses this public list.
             // Keep it separate from private platform rosters and server sessions.
             const text = await loadPublicText('https://randomizerselection.github.io/studentselector/assets/students.csv');
-            return { classes: this.parseStudents(text), classLabels, studentLabels };
+            return { classes: this.parseStudents(text), classLabels, studentLabels, studentContext };
           }
           if (!this.options.dataAdapter?.listClasses || !this.options.dataAdapter?.loadRoster) {
             throw new Error("Authenticated class and roster adapters are required.");
@@ -417,9 +420,13 @@
               const studentId = String(student.account_id || student.id);
               classes[classId].push(studentId);
               studentLabels[studentId] = student.display_name || student.username || studentId;
+              studentContext[studentId] = {
+                attendance_history: student.attendance_history,
+                homework: student.homework
+              };
             }
           }
-          return { classes, classLabels, studentLabels };
+          return { classes, classLabels, studentLabels, studentContext };
         };
         const [data, messageText] = await Promise.all([
           loadClasses(), loadPublicText(assetUrl('assets/messages.csv', this.basePath))
@@ -452,6 +459,51 @@
       return this.studentLabels[studentId] || studentId || "";
     }
 
+    contextForStudent(studentId) {
+      return this.studentContext[String(studentId)] || {};
+    }
+
+    contextDate(value) {
+      if (!value) return "";
+      const date = new Date(value.length === 10 ? `${value}T00:00:00` : value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      return date.toLocaleDateString([], { month: "short", day: "numeric" });
+    }
+
+    homeworkStatusLabel(status) {
+      return ({ submitted: "Submitted", late: "Late", missing: "Missing", awaiting_working: "Working needed", exempt: "Exempt" })[status] || status || "No record";
+    }
+
+    homeworkBadge(studentId) {
+      // Use recorded counts, not the rounded percentage: 199/200 is not full completion.
+      const homework = this.contextForStudent(studentId).homework;
+      const eligible = Number(homework?.eligible || 0);
+      if (!eligible) {
+        if (Number(homework?.total || 0) > 0) {
+          return { icon: "➖", tone: "neutral", label: "Homework: no eligible assignments (exempt)" };
+        }
+        const classHasHomework = (this.classes[this.state.selectedClass] || []).some((id) =>
+          Number(this.contextForStudent(id).homework?.total || 0) > 0
+        );
+        return classHasHomework
+          ? { icon: "📋", tone: "neutral", label: "Homework: no records available for this student" }
+          : null;
+      }
+      const completed = Number(homework?.completed || 0);
+      const rate = completed / eligible;
+      const badge = rate >= 1 ? { icon: "🏆", tone: "trophy", message: "All homework completed" }
+        : rate >= 0.75 ? { icon: "🥇", tone: "gold", message: "Nearly there" }
+        : rate >= 0.5 ? { icon: "🥈", tone: "silver", message: "Building momentum" }
+        : rate > 0 ? { icon: "🥉", tone: "bronze", message: "Making a start" }
+        : { icon: "🌱", tone: "seedling", message: "Ready to begin" };
+      const percent = rate > 0 && rate < 1 ? Math.max(1, Math.min(99, Math.round(rate * 100))) : Math.round(rate * 100);
+      return { ...badge, percent, label: `Homework: ${completed} of ${eligible} completed (${percent}%) — ${badge.message}` };
+    }
+
+    renderHomeworkBadge(badge) {
+      return badge ? `<span class="selector-homework-badge is-${badge.tone}" role="img" title="${escapeHtml(badge.label)}" aria-label="${escapeHtml(badge.label)}">${badge.icon}</span>` : "";
+    }
+
     async ensureRemoteSession(classId = this.state.selectedClass) {
       if (!this.options.sessionAdapter || !classId) return null;
       if (this.remoteSession?.class_id === classId && this.remoteSession.status === "active") return this.remoteSession;
@@ -470,7 +522,12 @@
       if (Array.isArray(session.roster)) {
         this.classes[classId] = session.roster.map((item) => String(item.account_id));
         session.roster.forEach((item) => {
-          this.studentLabels[String(item.account_id)] = item.display_name || item.username || String(item.account_id);
+          const studentId = String(item.account_id);
+          this.studentLabels[studentId] = item.display_name || item.username || studentId;
+          this.studentContext[studentId] = {
+            attendance_history: item.attendance_history,
+            homework: item.homework
+          };
         });
       }
       this.state.selectedClass = classId;
@@ -478,6 +535,13 @@
       this.state.studentGradesByClass[classId] = {};
       this.state.studentUngradedByClass[classId] = [];
       this.state.absentStudentsByClass[classId] = (session.attendance || []).filter((item) => item.status === "absent").map((item) => item.account_id);
+      if (session.attendance_summary?.finalized && Array.isArray(session.roster)) {
+        this.attendanceRecords[classId] = {
+          roster: session.roster.map((item) => String(item.account_id)),
+          marks: Object.fromEntries((session.attendance || []).map((item) => [String(item.account_id), item.status])),
+          finalizedAt: session.attendance_summary.finalized_at || session.attendance_finalized_at
+        };
+      }
       for (const selection of session.selections || []) {
         uniquePush(this.state.selectedStudentsByClass[classId], selection.account_id);
         if (["A*", "A", "B", "C"].includes(selection.outcome)) this.state.studentGradesByClass[classId][selection.account_id] = selection.outcome;
@@ -494,7 +558,7 @@
         ...event
       }));
       try {
-        const updated = await this.options.sessionAdapter.recordEvents(session.session_id, { version: session.version, events: stableEvents });
+        const updated = await this.options.sessionAdapter.recordEvents(session.session_id, { version: session.version, lesson_content_id: this.options.lessonContext?.content_id || null, events: stableEvents });
         this.remoteSession = updated;
         return updated;
       } catch (error) {
@@ -611,6 +675,12 @@
       this.render();
     }
 
+    toggleAttendanceSound() {
+      this.toggle('soundEnabled');
+      if (this.state.soundEnabled) this.sound.playAttendance('present');
+      this.container.querySelector('[data-action="attendance-sound"]')?.focus();
+    }
+
     playIntro() {
       this.sound.play(AUDIO.intro);
     }
@@ -644,13 +714,27 @@
       const finalStudent = choice(roster);
       const duration = Math.max(1, Number(this.state.timerSeconds) || 5);
       const slotEffectEnabled = Boolean(this.state.slotEffectEnabled);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const steps = Math.max(12, Math.ceil(duration * 5));
+      // A single ordered reel, ending on the already randomly chosen student.
+      // Animation never changes the selection probability.
+      const sequenceIds = [];
+      for (let index = 0; index < steps + 4; index++) {
+        const candidates = roster.length > 1 ? roster.filter(student => student !== sequenceIds[index - 1]) : roster;
+        sequenceIds.push(choice(candidates));
+      }
+      const sequence = sequenceIds.map(student => this.studentLabel(student));
+      sequence[steps + 1] = this.studentLabel(finalStudent);
       this.clearTimers();
       this.stage = {
         mode: "selecting",
         className,
         finalStudent,
         pool: roster,
-        names: slotEffectEnabled ? [this.studentLabel(choice(roster)), this.studentLabel(choice(roster)), this.studentLabel(choice(roster))] : ["", "Get ready", ""],
+        names: slotEffectEnabled && !reducedMotion ? sequence.slice(0, 4) : ["", "Get ready", "", ""],
+        sequence,
+        steps,
+        animateReel: slotEffectEnabled && !reducedMotion,
         startedAt: Date.now(),
         duration,
         progress: 0
@@ -659,8 +743,8 @@
 
       if (slotEffectEnabled) {
         this.sound.play(this.slotSound(duration), { loop: true });
-        this.setInterval(() => this.tickSelection(), 90);
       }
+      this.selectionFrame = window.requestAnimationFrame(() => this.tickSelection());
 
       this.setTimeout(() => this.finalizeSelection(), duration * 1000);
       this.setTimeout(() => this.sound.playOverlay(AUDIO.timeup), Math.max(0, duration * 1000 - 200));
@@ -675,13 +759,25 @@
     tickSelection() {
       if (this.stage.mode !== "selecting") return;
       const elapsed = Date.now() - this.stage.startedAt;
-      this.stage.progress = Math.min(100, (elapsed / (this.stage.duration * 1000)) * 100);
-      this.stage.names = [this.studentLabel(choice(this.stage.pool)), this.studentLabel(choice(this.stage.pool)), this.studentLabel(choice(this.stage.pool))];
+      const time = Math.min(1, elapsed / (this.stage.duration * 1000));
+      this.stage.progress = time * 100;
+      if (this.stage.animateReel) {
+        // Cruise, then smoothly decelerate over the final two seconds.
+        const brake = Math.min(0.65, 2 / this.stage.duration);
+        const cruise = 1 - brake;
+        const tail = Math.max(0, (time - cruise) / brake);
+        const distance = this.stage.steps * (time <= cruise ? time : cruise + brake * (tail - tail * tail / 2)) / (1 - brake / 2);
+        const index = Math.min(this.stage.steps, Math.floor(distance));
+        this.stage.names = this.stage.sequence.slice(index, index + 4);
+        this.stage.reelOffset = distance - index;
+      }
       this.updateStageOnly();
+      this.selectionFrame = window.requestAnimationFrame(() => this.tickSelection());
     }
 
     async finalizeSelection() {
       if (this.stage.mode !== "selecting") return;
+      window.cancelAnimationFrame(this.selectionFrame);
       this.sound.stopMusic(); // Let the original time-up cue finish naturally.
       const className = this.stage.className;
       const student = this.stage.finalStudent;
@@ -772,13 +868,17 @@
         this.showMessage("No students", "This class has no students in the roster.");
         return;
       }
-      this.modal = {
-        type: "attendance",
-        className,
-        roster,
-        index: 0,
-        absent: []
-      };
+      this.sound.unlock().catch(error => this.sound.reportError(error));
+      const remoteMarks = Object.fromEntries((this.remoteSession?.attendance || []).map((item) => [item.account_id, item.status]));
+      const saved = this.attendanceRecords[className];
+      const marks = saved?.marks || remoteMarks;
+      const hasCompleteRecord = roster.every((student) => marks[student] === "present" || marks[student] === "absent")
+        && Boolean(saved?.finalizedAt || this.remoteSession?.attendance_summary?.finalized);
+      if (hasCompleteRecord) {
+        this.modal = { type: "attendance-review", className, roster: [...roster], marks: { ...marks }, error: "", isSaving: false, isCorrection: true };
+      } else {
+        this.modal = { type: "attendance", className, roster: [...roster], index: 0, marks: {} };
+      }
       this.render();
     }
 
@@ -787,38 +887,88 @@
       const current = this.modal.roster[this.modal.index];
       if (!current) return;
       this.sound.playAttendance(isPresent ? "present" : "absent");
-      if (!isPresent) this.modal.absent.push(current);
+      this.modal.marks[current] = isPresent ? "present" : "absent";
       this.modal.index += 1;
-      if (this.modal.index >= this.modal.roster.length) {
-        this.finishAttendance();
-      } else {
-        this.renderModal();
-      }
+      if (this.modal.index >= this.modal.roster.length) this.finishAttendance();
+      else this.renderModal();
     }
 
-    async finishAttendance() {
-      this.sound.playAttendance("complete");
+    previousAttendance() {
+      if (!this.modal || this.modal.type !== "attendance" || this.modal.index <= 0) return;
+      this.modal.index -= 1;
+      this.renderModal();
+    }
+
+    finishAttendance() {
+      if (!this.modal || this.modal.type !== "attendance") return;
+      const { className, roster, marks } = this.modal;
+      this.modal = { type: "attendance-review", className, roster, marks: { ...marks }, error: "", isSaving: false, isCorrection: false };
+      this.renderModal();
+    }
+
+    setAttendanceMark(student, status) {
+      if (!this.modal || this.modal.type !== "attendance-review" || this.modal.isSaving) return;
+      if (!this.modal.roster.includes(student) || !["present", "absent"].includes(status)) return;
+      if (this.modal.marks[student] === status) return;
+      this.sound.playAttendance(status);
+      this.modal.marks[student] = status;
+      this.modal.error = "";
+      this.renderModal();
+    }
+
+    editAttendance() {
+      if (!this.modal || this.modal.type !== "attendance-result") return;
+      this.modal = { type: "attendance-review", className: this.modal.className, roster: [...this.modal.roster], marks: { ...this.modal.marks }, error: "", isSaving: false, isCorrection: true };
+      this.renderModal();
+    }
+
+    async saveAttendance() {
+      if (!this.modal || this.modal.type !== "attendance-review" || this.modal.isSaving) return;
       const className = this.modal.className;
-      const absent = Array.from(new Set(this.modal.absent));
-      this.classState(className).absent = absent;
-      this.state.absentStudentsByClass[className] = absent;
-      this.save();
-      this.modal = {
-        type: "attendance-result",
-        className,
-        absent
-      };
-      this.render();
+      const roster = [...this.modal.roster];
+      const marks = { ...this.modal.marks };
+      const incomplete = roster.filter((student) => !["present", "absent"].includes(marks[student]));
+      if (incomplete.length) {
+        this.modal.error = `${incomplete.length} student${incomplete.length === 1 ? " is" : "s are"} still unmarked.`;
+        this.renderModal();
+        return;
+      }
+      this.modal.isSaving = true;
+      this.modal.error = "";
+      this.renderModal();
       try {
-        const absentSet = new Set(absent);
-        await this.recordRemoteEvents((this.classes[className] || []).map((student) => ({
-          type: "attendance",
-          student_account_id: student,
-          status: absentSet.has(student) ? "absent" : "present",
-          occurred_at: new Date().toISOString()
-        })));
+        let finalizedAt = new Date().toISOString();
+        if (this.options.sessionAdapter) {
+          const session = await this.ensureRemoteSession(className);
+          if (typeof this.options.sessionAdapter.saveAttendance !== "function") throw new Error("This page is out of date. Reload it before saving attendance.");
+          const updated = await this.options.sessionAdapter.saveAttendance(session.session_id, {
+            version: session.version,
+            lesson_content_id: this.options.lessonContext?.content_id || null,
+            marks: roster.map((student) => ({ student_account_id: student, status: marks[student] }))
+          });
+          this.remoteSession = updated;
+          finalizedAt = updated.attendance_summary?.finalized_at || updated.attendance_finalized_at || finalizedAt;
+          this.hydrateRemoteSession(updated);
+        }
+        const absent = roster.filter((student) => marks[student] === "absent");
+        this.classState(className).absent = absent;
+        this.state.absentStudentsByClass[className] = absent;
+        this.attendanceRecords[className] = { roster, marks, finalizedAt };
+        this.save();
+        this.sound.playAttendance("complete");
+        this.modal = { type: "attendance-result", className, roster, marks, absent, finalizedAt, notice: "" };
+        this.render();
       } catch (error) {
-        this.showMessage("Attendance save failed", error.message || "Attendance was not saved.");
+        if (!this.modal || this.modal.type !== "attendance-review") return;
+        this.modal.isSaving = false;
+        this.modal.error = error.message || "Attendance was not saved. Review the marks and try again.";
+        if (error.code === "SELECTOR_VERSION_CONFLICT" && this.options.sessionAdapter?.get && this.remoteSession) {
+          try {
+            this.remoteSession = await this.options.sessionAdapter.get(this.remoteSession.session_id);
+            this.modal.error = "Attendance changed in another tab. Close and reopen attendance to review the latest record.";
+          } catch (_refreshError) { /* keep the actionable save error */ }
+        }
+        this.renderModal();
       }
     }
 
@@ -826,9 +976,39 @@
       if (!this.modal || this.modal.type !== "attendance-result") return;
       const text = this.modal.absent.length ? this.modal.absent.map((student) => this.studentLabel(student)).join("\n") : "(none)";
       navigator.clipboard?.writeText(text).then(
-        () => this.showMessage("Copied", "Absent list copied to clipboard."),
-        () => this.showMessage("Copy failed", "Unable to copy the absent list in this browser.")
+        () => { if (this.modal?.type === "attendance-result") { this.modal.notice = "Absent list copied."; this.renderModal(); } },
+        () => { if (this.modal?.type === "attendance-result") { this.modal.notice = "Could not copy the absent list in this browser."; this.renderModal(); } }
       );
+    }
+
+    downloadAttendanceCsv() {
+      if (!this.modal || this.modal.type !== "attendance-result") return;
+      const className = this.modal.className;
+      const roster = this.modal.roster || this.classes[className] || [];
+      if (!roster.length) {
+        this.showMessage("No students", "This class has no students in the roster.");
+        return;
+      }
+      const now = new Date();
+      const pad = (value) => String(value).padStart(2, "0");
+      const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+      const absent = new Set(this.modal.absent);
+      const cell = (value) => (/[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value);
+      const rows = [
+        ["Student", date],
+        ...roster.map((student) => [this.studentLabel(student), absent.has(student) ? "Absent" : "Present"])
+      ];
+      const csv = `\ufeff${rows.map((row) => row.map(cell).join(",")).join("\r\n")}\r\n`;
+      const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `attendance-${String(className).replace(/[^\w.-]+/g, "-")}-${date}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      this.modal.notice = `CSV downloaded for ${roster.length} students (${date}).`;
+      this.renderModal();
     }
 
     showSummary() {
@@ -847,6 +1027,12 @@
     }
 
     closeModal() {
+      // Feedback follows a recorded outcome; dismissing it completes that turn.
+      if (this.modal?.type === 'feedback') {
+        this.returnToDock();
+        this.container.querySelector('[data-action="start"]')?.focus();
+        return;
+      }
       this.modal = null;
       this.render();
     }
@@ -899,8 +1085,10 @@
         if (event.key === "Escape" && this.modal) this.closeModal();
         return;
       }
+      // Opening the explanatory disclosure must not mark a student present.
+      if (event.target.closest?.('.selector-calculation-note, [data-action="attendance-sound"]')) return;
       const presentKeys = ["Enter", " ", "ArrowRight", "p", "P"];
-      const absentKeys = ["Backspace", "ArrowLeft", "a", "A"];
+      const absentKeys = ["ArrowLeft", "a", "A"];
       if (presentKeys.includes(event.key)) {
         event.preventDefault();
         this.markAttendance(true);
@@ -908,6 +1096,10 @@
       if (absentKeys.includes(event.key)) {
         event.preventDefault();
         this.markAttendance(false);
+      }
+      if (event.key === "Backspace") {
+        event.preventDefault();
+        this.previousAttendance();
       }
       if (event.key === "Escape") this.closeModal();
     }
@@ -918,23 +1110,34 @@
       const current = root.querySelector("[data-current-name]");
       const prev = root.querySelector("[data-prev-name]");
       const next = root.querySelector("[data-next-name]");
+      const incoming = root.querySelector("[data-incoming-name]");
       const progress = root.querySelector("[data-progress]");
-      if (prev) prev.textContent = this.stage.names[0] || "";
-      if (current) current.textContent = this.stage.names[1] || "";
-      if (next) next.textContent = this.stage.names[2] || "";
+      [prev, current, next, incoming].forEach((node, index) => {
+        const label = this.stage.names[index] || "";
+        if (node && node.textContent !== label) node.textContent = label;
+      });
+      const stack = root.querySelector('.selector-name-stack');
+      const offset = this.stage.reelOffset || 0;
+      if (stack) {
+        stack.style.setProperty('--reel-offset', offset);
+        [...stack.children].forEach((row, index) => row.style.setProperty('--row-focus', index === 1 ? 1 - offset : index === 2 ? offset : 0));
+      }
       if (progress) progress.style.width = `${Math.round(this.stage.progress || 0)}%`;
+      const countdown = root.querySelector('[data-countdown]');
+      if (countdown) countdown.textContent = `${Math.max(0, Math.ceil(this.stage.duration * (1 - this.stage.progress / 100)))}s`;
     }
 
     render() {
       if (this.destroyed) return;
       this.container.classList.add("selector-root");
+      this.container.classList.toggle("is-attendance-active", this.modal?.type === "attendance");
       this.container.setAttribute('aria-busy', String(this.loading));
       this.container.innerHTML = `
         <div class="selector-shell">
           ${this.renderDock()}
           ${this.renderStage()}
         </div>
-        <div class="selector-modal" data-modal ${this.modal ? "" : "hidden"}>
+        <div class="selector-modal ${this.modal?.type === "attendance" ? "is-attendance" : ""}" data-modal ${this.modal ? "" : "hidden"}>
           ${this.modal ? this.renderModalContent() : ""}
         </div>
       `;
@@ -945,6 +1148,11 @@
       const classNames = Object.keys(this.classes).sort((a, b) => this.classLabel(a).localeCompare(this.classLabel(b)));
       const metrics = this.metrics();
       const selected = this.state.selectedClass;
+      const savedAttendance = this.attendanceRecords[selected];
+      const remoteAttendance = this.remoteSession?.class_id === selected ? this.remoteSession.attendance_summary : null;
+      const attendanceStatus = savedAttendance
+        ? { finalized: true, present: savedAttendance.roster.length - Object.values(savedAttendance.marks).filter((status) => status === "absent").length, absent: Object.values(savedAttendance.marks).filter((status) => status === "absent").length }
+        : remoteAttendance;
       return `
         <section class="selector-dock" aria-label="Selector controls">
           <div class="selector-titlebar">
@@ -976,6 +1184,8 @@
             ${this.metric("Absent", metrics.absent)}
           </div>
 
+          ${attendanceStatus?.finalized ? `<div class="selector-attendance-status" role="status"><span aria-hidden="true">✓</span><div><strong>Attendance saved</strong><small>${Number(attendanceStatus.present) || 0} present · ${Number(attendanceStatus.absent) || 0} absent</small></div></div>` : ""}
+
           <div class="selector-section">
             <span class="selector-section-label">Timer</span>
             <div class="selector-segmented">
@@ -991,7 +1201,7 @@
           </div>
 
           <div class="selector-actions">
-            <button class="selector-button" type="button" data-action="attendance" ${this.ready && selected ? '' : 'disabled'}>Attendance</button>
+            <button class="selector-button" type="button" data-action="attendance" ${this.ready && selected ? '' : 'disabled'}>${attendanceStatus?.finalized ? "Review Attendance" : "Take Attendance"}</button>
             <button class="selector-button" type="button" data-action="summary" ${this.ready && selected ? '' : 'disabled'}>View Summary</button>
             <button class="selector-button" type="button" data-action="intro">Play Intro</button>
             <button class="selector-button" type="button" data-action="closing">Play Closing</button>
@@ -1025,8 +1235,9 @@
             ? "Ready"
             : "Select a class";
       const currentName = this.stage.mode === "idle" ? current : names[1];
+      const badge = this.stage.mode === "selected" ? this.homeworkBadge(this.stage.finalStudent) : null;
       return `
-        <section class="selector-stage" data-stage aria-label="Selection stage">
+        <section class="selector-stage selector-stage--reel" data-mode="${this.stage.mode}" data-stage aria-label="Selection stage">
           <header class="selector-stage-header">
             <div>
               <h2>${escapeHtml(className)}</h2>
@@ -1040,18 +1251,24 @@
           </header>
 
           <div class="selector-reel">
+            <div class="selector-reel-caption"><span>${this.stage.mode === 'selected' ? 'Your turn' : this.stage.mode === 'selecting' ? 'Choosing a student' : 'Ready to begin'}</span><span data-countdown>${this.stage.mode === 'selecting' ? `${this.stage.duration}s` : this.stage.mode === 'selected' ? 'Selected' : ''}</span></div>
             <div class="selector-reel-window">
-              <div class="selector-name-stack">
-                <div class="selector-name" data-prev-name>${escapeHtml(names[0] || "")}</div>
+              <div class="selector-name-stack" ${this.stage.mode === 'selecting' ? 'aria-hidden="true"' : ''}>
+                <div class="selector-name" data-prev-name aria-hidden="true">${escapeHtml(names[0] || "")}</div>
+                <div class="selector-current-row" style="--row-focus: 1">
                 <div class="selector-name is-current ${this.stage.mode === "selected" ? "is-selected" : ""}" data-current-name>${escapeHtml(currentName || "")}</div>
-                <div class="selector-name" data-next-name>${escapeHtml(names[2] || "")}</div>
+                ${this.renderHomeworkBadge(badge)}
+                </div>
+                <div class="selector-name" data-next-name aria-hidden="true">${escapeHtml(names[2] || "")}</div>
+                <div class="selector-name" data-incoming-name aria-hidden="true">${escapeHtml(names[3] || "")}</div>
               </div>
             </div>
+            <p class="selector-selection-status" role="status">${this.stage.mode === 'selected' ? `${escapeHtml(currentName)} — your turn.` : this.stage.mode === 'selecting' ? 'Selection in progress.' : ''}</p>
             <div class="selector-progress" aria-hidden="true"><span data-progress style="width: ${Math.round(this.stage.progress || 0)}%"></span></div>
           </div>
 
           <footer class="selector-stage-footer">
-            ${this.stage.mode === "selected" ? this.renderOutcomeControls() : `<p class="selector-help">Ask the question, protect thinking time, then start selection.</p>`}
+            ${this.stage.mode === "selected" ? this.renderOutcomeControls() : `<p class="selector-help">${this.stage.mode === 'selecting' ? 'Everyone: get your answer ready.' : 'Ask the question, protect thinking time, then start selection.'}</p>`}
           </footer>
         </section>
       `;
@@ -1085,6 +1302,7 @@
     renderModalContent() {
       if (!this.modal) return "";
       if (this.modal.type === "attendance") return this.renderAttendance();
+      if (this.modal.type === "attendance-review") return this.renderAttendanceReview();
       if (this.modal.type === "attendance-result") return this.renderAttendanceResult();
       if (this.modal.type === "summary") return this.renderSummary();
       if (this.modal.type === "feedback") return this.renderFeedback();
@@ -1095,6 +1313,8 @@
       const modal = this.container.querySelector("[data-modal]");
       if (!modal) return;
       modal.hidden = !this.modal;
+      modal.classList.toggle("is-attendance", this.modal?.type === "attendance");
+      this.container.classList.toggle("is-attendance-active", this.modal?.type === "attendance");
       modal.innerHTML = this.modal ? this.renderModalContent() : "";
       this.bind();
     }
@@ -1106,35 +1326,143 @@
             <h2>${escapeHtml(title)}</h2>
             ${meta ? `<p class="selector-meta">${escapeHtml(meta)}</p>` : ""}
           </div>
-          <button class="selector-close" type="button" data-action="close-modal" aria-label="Close">x</button>
+          <button class="selector-close" type="button" data-action="close-modal" aria-label="Close">×</button>
         </div>
       `;
     }
 
     renderAttendance() {
-      const current = this.studentLabel(this.modal.roster[this.modal.index] || "");
+      const currentId = this.modal.roster[this.modal.index] || "";
+      const current = this.studentLabel(currentId);
+      const context = this.contextForStudent(currentId);
+      const attendance = context.attendance_history || { marks: 0, present: 0, absent: 0, recent: [], rate: null };
+      const homework = context.homework || { total: 0, eligible: 0, completed: 0, late: 0, missing: 0, awaiting_working: 0, outstanding: [], last: null, completion_rate: null };
+      const badge = this.homeworkBadge(currentId);
+      const completed = this.modal.index;
+      const progress = Math.round((completed / this.modal.roster.length) * 100);
+      const homeworkIssues = Number(homework.missing || 0) + Number(homework.awaiting_working || 0);
+      const concerns = [];
+      if (attendance.absent) concerns.push(`${attendance.absent} previous ${attendance.absent === 1 ? "absence" : "absences"}`);
+      if (homeworkIssues) concerns.push(`${homeworkIssues} homework ${homeworkIssues === 1 ? "item" : "items"} to follow up`);
+      if (homework.late) concerns.push(`${homework.late} late ${homework.late === 1 ? "submission" : "submissions"}`);
+      const limitedHistory = !attendance.marks || !homework.total;
+      const attendanceRate = attendance.marks ? `${attendance.rate ?? Math.round((attendance.present / attendance.marks) * 100)}%` : "—";
+      const homeworkRate = homework.eligible ? `${badge.percent}%` : "—";
       return `
-        <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="Roll call">
-          ${this.renderPanelHeader(this.classLabel(this.modal.className), `Student ${this.modal.index + 1} of ${this.modal.roster.length}`)}
-          <div class="selector-rollcall-name">${escapeHtml(current)}</div>
-          <p class="selector-help">Present: Enter, Space, P, Right Arrow. Absent: A, Backspace, Left Arrow.</p>
-          <div class="selector-actions">
-            <button class="selector-button selector-primary" type="button" data-action="attendance-present">Present</button>
-            <button class="selector-button" type="button" data-action="attendance-absent">Absent</button>
+        <section class="selector-modal__panel selector-rollcall-screen" role="dialog" aria-modal="true" aria-label="Roll call">
+          <header class="selector-rollcall-header">
+            <div>
+              <span class="selector-rollcall-kicker">Roll call · ${escapeHtml(this.classLabel(this.modal.className))}</span>
+              <strong>Student ${this.modal.index + 1} of ${this.modal.roster.length}</strong>
+            </div>
+            <div class="selector-rollcall-tools">
+              <button class="selector-button selector-attendance-sound" type="button" data-action="attendance-sound" aria-pressed="${this.state.soundEnabled}" title="Present: one high tone. Absent: two lower tones.">${this.state.soundEnabled ? 'Sound on' : 'Sound off'}</button>
+              <button class="selector-close" type="button" data-action="close-modal" aria-label="Close">×</button>
+            </div>
+          </header>
+          <div class="selector-attendance-progress" aria-label="${completed} of ${this.modal.roster.length} marked"><span style="width:${progress}%"></span></div>
+          <div class="selector-rollcall-layout">
+            <section class="selector-rollcall-identity" aria-label="Current student">
+              <div class="selector-rollcall-person">
+                <span class="selector-rollcall-now">Calling now</span>
+                <div class="selector-rollcall-name-row"><h2>${escapeHtml(current)}</h2>${this.renderHomeworkBadge(badge)}</div>
+              </div>
+              <div class="selector-concern-banner ${concerns.length ? "has-concerns" : limitedHistory ? "is-unknown" : "is-clear"}">
+                <span aria-hidden="true">${concerns.length ? "!" : limitedHistory ? "i" : "✓"}</span>
+                <div><strong>${concerns.length ? "Worth checking" : limitedHistory ? "Limited history" : "No recorded concerns"}</strong><small>${escapeHtml(concerns.join(" · ") || (limitedHistory ? "Attendance or homework history is not available yet." : "Previous attendance and homework look clear."))}</small></div>
+              </div>
+            </section>
+            <aside class="selector-student-insights" aria-label="Student history">
+              <article class="selector-insight-card">
+                <div class="selector-insight-heading"><div><span>Previous attendance</span><strong>${attendanceRate}</strong></div><small>${attendance.marks ? `${attendance.present} present · ${attendance.absent} absent` : "No previous marks"}</small></div>
+                ${attendance.recent?.length ? `<div class="selector-history-strip" aria-label="Recent attendance">${attendance.recent.map((mark) => `<div><span class="is-${escapeHtml(mark.status)}" title="${escapeHtml(this.contextDate(mark.marked_at))}: ${escapeHtml(mark.status)}">${mark.status === "present" ? "P" : "A"}</span><small>${escapeHtml(this.contextDate(mark.marked_at))}</small></div>`).join("")}</div><p class="selector-history-caption">Newest first · ${Number(attendance.marks)} recorded lessons</p>` : `<p class="selector-insight-empty">No previous attendance recorded for this class.</p>`}
+              </article>
+              <article class="selector-insight-card">
+                <div class="selector-insight-heading"><div><span>Homework completion</span><strong>${homeworkRate}</strong></div><small>${homework.eligible ? `${homework.completed} of ${homework.eligible} completed` : homework.total ? "All recorded assignments exempt" : "No homework records"}</small></div>
+                ${homework.eligible ? `<div class="selector-homework-meter" aria-hidden="true"><span style="width:${Math.max(0, Math.min(100, Number(badge.percent)))}%"></span></div>` : ""}
+                ${homework.total ? `<dl class="selector-homework-stats" aria-label="Homework statistics">
+                  <div class="${homework.missing ? "needs-attention" : ""}"><dt>Missing</dt><dd>${Number(homework.missing || 0)}</dd></div>
+                  <div class="${homework.awaiting_working ? "needs-attention" : ""}"><dt>Working needed</dt><dd>${Number(homework.awaiting_working || 0)}</dd></div>
+                  <div><dt>Late</dt><dd>${Number(homework.late || 0)}</dd></div>
+                  <div><dt>Exempt</dt><dd>${Number(homework.exempt || 0)}</dd></div>
+                </dl>` : ""}
+                ${homework.outstanding?.length ? `<div class="selector-outstanding-list"><span>Needs attention</span>${homework.outstanding.map((item) => `<div><strong>${escapeHtml(item.assignment_title)}</strong><small>${escapeHtml(this.homeworkStatusLabel(item.status))}${item.assigned_on ? ` · ${escapeHtml(this.contextDate(item.assigned_on))}` : ""}</small></div>`).join("")}</div>` : homework.last ? `<div class="selector-latest-homework"><span>Latest</span><strong>${escapeHtml(homework.last.assignment_title)}</strong><small>${escapeHtml(this.homeworkStatusLabel(homework.last.status))}${homework.last.assigned_on ? ` · ${escapeHtml(this.contextDate(homework.last.assigned_on))}` : ""}</small></div>` : `<p class="selector-insight-empty">No homework records available for this class.</p>`}
+                ${homework.total ? `<details class="selector-calculation-note"><summary>How completion is calculated</summary><p>Recorded homework in this class. Late work counts as completed; exemptions are excluded.</p></details>` : ""}
+              </article>
+            </aside>
+          </div>
+          <footer class="selector-rollcall-footer">
+            <p class="selector-help">Enter / Space / P: Present · A / Left Arrow: Absent · Backspace: Previous</p>
+            <div class="selector-actions selector-rollcall-actions">
+              <button class="selector-button" type="button" data-action="attendance-previous" ${this.modal.index ? "" : "disabled"}>← Previous</button>
+              <button class="selector-button selector-primary" type="button" data-action="attendance-present">Present <kbd>Enter</kbd></button>
+              <button class="selector-button selector-attendance-absent" type="button" data-action="attendance-absent">Absent <kbd>A</kbd></button>
+            </div>
+          </footer>
+        </section>
+      `;
+    }
+
+    renderAttendanceReview() {
+      const present = this.modal.roster.filter((student) => this.modal.marks[student] === "present").length;
+      const absent = this.modal.roster.filter((student) => this.modal.marks[student] === "absent").length;
+      return `
+        <section class="selector-modal__panel selector-attendance-review" role="dialog" aria-modal="true" aria-label="Review attendance">
+          ${this.renderPanelHeader(this.modal.isCorrection ? "Review saved attendance" : "Review before saving", this.classLabel(this.modal.className))}
+          <div class="selector-save-state ${this.modal.isCorrection ? "is-correction" : ""}">
+            <strong>${this.modal.isCorrection ? "Changes are not saved yet" : "Not saved yet"}</strong>
+            <span>Check every mark, then confirm the complete roll call.</span>
+          </div>
+          <div class="selector-attendance-totals" aria-label="Attendance totals">
+            ${this.metric("Present", present)}
+            ${this.metric("Absent", absent)}
+            ${this.metric("Total", this.modal.roster.length)}
+          </div>
+          <div class="selector-attendance-roster">
+            ${this.modal.roster.map((student, index) => {
+              const status = this.modal.marks[student];
+              return `<div class="selector-attendance-row">
+                <span class="selector-attendance-number">${index + 1}</span>
+                <strong>${escapeHtml(this.studentLabel(student))}</strong>
+                <div class="selector-attendance-choice" role="group" aria-label="Attendance for ${escapeHtml(this.studentLabel(student))}">
+                  <button type="button" data-action="attendance-set" data-student="${escapeHtml(student)}" data-status="present" class="${status === "present" ? "is-present" : ""}" ${this.modal.isSaving ? "disabled" : ""}>Present</button>
+                  <button type="button" data-action="attendance-set" data-student="${escapeHtml(student)}" data-status="absent" class="${status === "absent" ? "is-absent" : ""}" ${this.modal.isSaving ? "disabled" : ""}>Absent</button>
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+          ${this.modal.error ? `<p class="selector-attendance-error" role="alert">${escapeHtml(this.modal.error)}</p>` : ""}
+          <div class="selector-actions selector-attendance-save-actions">
+            <button class="selector-button selector-primary" type="button" data-action="attendance-save" ${this.modal.isSaving ? "disabled" : ""}>${this.modal.isSaving ? "Saving…" : this.modal.isCorrection ? "Save Changes" : "Save Attendance"}</button>
+            <button class="selector-button" type="button" data-action="close-modal" ${this.modal.isSaving ? "disabled" : ""}>Cancel</button>
           </div>
         </section>
       `;
     }
 
     renderAttendanceResult() {
-      const absentText = this.modal.absent.length ? this.modal.absent.map((student) => this.studentLabel(student)).join("\n") : "(none)";
+      const present = this.modal.roster.length - this.modal.absent.length;
+      const savedAt = new Date(this.modal.finalizedAt);
+      const savedLabel = Number.isNaN(savedAt.getTime()) ? "Saved" : `Saved ${savedAt.toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`;
       return `
-        <section class="selector-modal__panel" role="dialog" aria-modal="true" aria-label="Absent students">
-          ${this.renderPanelHeader(`${this.classLabel(this.modal.className)} - Absent Students`, `${this.modal.absent.length} absent`)}
-          <textarea rows="10" readonly>${escapeHtml(absentText)}</textarea>
+        <section class="selector-modal__panel selector-attendance-result" role="dialog" aria-modal="true" aria-label="Attendance saved">
+          ${this.renderPanelHeader("Attendance saved", this.classLabel(this.modal.className))}
+          <div class="selector-saved-banner"><span aria-hidden="true">✓</span><div><strong>Complete roll call recorded</strong><small>${escapeHtml(savedLabel)}</small></div></div>
+          <div class="selector-attendance-totals" aria-label="Attendance totals">
+            ${this.metric("Present", present)}
+            ${this.metric("Absent", this.modal.absent.length)}
+            ${this.metric("Total", this.modal.roster.length)}
+          </div>
+          <div class="selector-absent-summary">
+            <h3>Absent students</h3>
+            ${this.modal.absent.length ? `<div class="selector-absent-list">${this.modal.absent.map((student) => `<span>${escapeHtml(this.studentLabel(student))}</span>`).join("")}</div>` : `<p class="selector-empty">Everyone is present.</p>`}
+          </div>
+          ${this.modal.notice ? `<p class="selector-attendance-notice" role="status">${escapeHtml(this.modal.notice)}</p>` : ""}
           <div class="selector-actions">
-            <button class="selector-button selector-primary" type="button" data-action="copy-absent">Copy Absent List</button>
-            <button class="selector-button" type="button" data-action="close-modal">Close</button>
+            <button class="selector-button selector-primary" type="button" data-action="close-modal">Done</button>
+            <button class="selector-button" type="button" data-action="attendance-edit">Edit Attendance</button>
+            <button class="selector-button" type="button" data-action="download-attendance">Download CSV</button>
+            <button class="selector-button" type="button" data-action="copy-absent">Copy Absent List</button>
           </div>
         </section>
       `;
@@ -1216,6 +1544,7 @@
           if (action === 'retry-load') this.loadData();
           if (action === "timer") this.setTimer(Number(event.currentTarget.dataset.seconds));
           if (action === "toggle") this.toggle(event.currentTarget.dataset.key);
+          if (action === "attendance-sound") this.toggleAttendanceSound();
           if (action === "attendance") this.startAttendance();
           if (action === "summary") this.showSummary();
           if (action === "intro") this.playIntro();
@@ -1228,6 +1557,11 @@
           if (action === "absent") this.markAbsent();
           if (action === "attendance-present") this.markAttendance(true);
           if (action === "attendance-absent") this.markAttendance(false);
+          if (action === "attendance-previous") this.previousAttendance();
+          if (action === "attendance-set") this.setAttendanceMark(event.currentTarget.dataset.student, event.currentTarget.dataset.status);
+          if (action === "attendance-save") this.saveAttendance();
+          if (action === "attendance-edit") this.editAttendance();
+          if (action === "download-attendance") this.downloadAttendanceCsv();
           if (action === "copy-absent") this.copyAbsentList();
           if (action === "next-student") this.nextStudent();
           if (action === "return-dock") this.returnToDock();

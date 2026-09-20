@@ -9,8 +9,8 @@ IGCSE.lesson={
     "courseLabel": "Cambridge IGCSE Economics 0455",
     "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
     "deliveryPlan": {
-      "durationMinutes": 70,
-      "coreEndSlide": 36,
+      "durationMinutes": 75,
+      "coreEndSlide": 45,
       "previousEndpoint": "Central banks",
       "status": "Prepared; not yet reported taught",
       "suggestedPause": "After interest-rates-paper1, if taught across two sessions"
@@ -40,7 +40,7 @@ IGCSE.lesson={
           "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
         }
       ],
-      "notes": "Next deck after Central banks. Prepared, not reported taught. Allow 65–75 minutes including independent writing and feedback; a natural pause is after the interest-rate MCQ. Three sections: choices; five influences; original papers. Use household-level reasoning; no aggregate-demand transmission, multiplier or demographic policy is required."
+      "notes": "Next deck after Central banks. Prepared, not reported taught. Allow 70–80 minutes including independent writing and feedback; a natural pause is after the interest-rate MCQ. Three sections: choices; five influences; original papers. Use household-level reasoning; no aggregate-demand transmission, multiplier or demographic policy is required."
     },
     {
       "id": "recall-money-and-banks",
@@ -92,8 +92,8 @@ IGCSE.lesson={
       "id": "household-choices",
       "type": "section",
       "eyebrow": "Part 1",
-      "title": "Spending now or later",
-      "zhTitle": "现在消费，还是留待以后",
+      "title": "Household spending, saving and borrowing",
+      "zhTitle": "家庭消费、储蓄与借款",
       "sources": [
         {
           "label": "Syllabus",
@@ -329,31 +329,8 @@ IGCSE.lesson={
       "id": "five-household-influences",
       "type": "section",
       "eyebrow": "Part 2",
-      "title": "Five influences on household choices",
-      "zhTitle": "影响家庭选择的五个因素",
-      "layout": "household-influence-overview",
-      "overviewItems": [
-        {
-          "term": "Disposable income",
-          "zh": "可支配收入"
-        },
-        {
-          "term": "Rate of interest",
-          "zh": "利率"
-        },
-        {
-          "term": "Confidence about the future",
-          "zh": "对未来的信心"
-        },
-        {
-          "term": "Age",
-          "zh": "年龄"
-        },
-        {
-          "term": "Culture",
-          "zh": "文化"
-        }
-      ],
+      "title": "Five influences on households’ spending, saving and borrowing",
+      "zhTitle": "影响家庭消费、储蓄与借款的五个因素",
       "sources": [
         {
           "label": "Syllabus",
@@ -361,14 +338,128 @@ IGCSE.lesson={
           "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
         }
       ],
-      "notes": "Give students time to copy the five numbered key terms. The syllabus says income; disposable income is the more precise household decision term and is explicitly accepted in 0455/23 O/N 2024 Q2(a)."
+      "notes": "Introduce Part 2 without revealing the five factors. Use the next small-group question to elicit initial ideas, then show the five-factor overview. Later discussion prompts introduce one factor at a time."
+    },
+    {
+      "id": "discuss-household-spending",
+      "type": "discussion",
+      "eyebrow": "Small-group discussion",
+      "layout": "household-discussion",
+      "question": "What might make a household spend more or less each month?",
+      "followUp": "Suggest two factors. For each, explain how it could change spending.",
+      "answer": "Higher disposable income can make more purchases affordable. Greater confidence about future jobs can encourage spending now. Higher borrowing costs may delay purchases. Accept other reasoned ideas; the following overview organises five syllabus influences.",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/money-and-banking/cash-payment-cashier.jpg",
+        "alt": "A customer paying a cashier with banknotes.",
+        "caption": "",
+        "credit": "RDNE Stock project / Pexels",
+        "source": "https://www.pexels.com/photo/person-paying-on-a-cashier-4921262/"
+      },
+      "notes": "Groups of 3–4: allow about one minute, then invite a reasoned example. Do not ask for personal family finances. Keep suggested answers hidden until groups have shared."
+    },
+    {
+      "id": "household-influences-overview",
+      "type": "cards",
+      "eyebrow": "Overview",
+      "title": "Five influences on household choices",
+      "layout": "household-influence-overview",
+      "cards": [
+        {
+          "title": "1. Disposable income",
+          "body": "可支配收入"
+        },
+        {
+          "title": "2. Rate of interest",
+          "body": "利率"
+        },
+        {
+          "title": "3. Confidence about the future",
+          "body": "对未来的信心"
+        },
+        {
+          "title": "4. Age",
+          "body": "年龄"
+        },
+        {
+          "title": "5. Culture",
+          "body": "文化"
+        }
+      ],
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Syllabus",
+          "ref": "Cambridge 0455 · 2027–2029 · page 16 · 3.2.1",
+          "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
+        }
+      ],
+      "notes": "Show all five numbered influences together. Give students time to copy the headings. The small illustrations represent income, interest, expectations, life stages and shared customs. Income means disposable income here: income after direct taxes."
+    },
+    {
+      "id": "income-three-choices",
+      "type": "cards",
+      "eyebrow": "1 · Income 收入",
+      "title": "1. Disposable income 可支配收入",
+      "lead": "Disposable income = income remaining after direct taxes have been deducted.",
+      "layout": "household-effects",
+      "cards": [
+        {
+          "title": "Spending 消费",
+          "signal": "↑",
+          "signalLabel": "Can rise",
+          "body": "Households can afford more goods and services."
+        },
+        {
+          "title": "Saving 储蓄",
+          "signal": "↑",
+          "signalLabel": "Can rise",
+          "body": "Basic needs may take a smaller share of income."
+        },
+        {
+          "title": "Borrowing 借款",
+          "signal": "↕",
+          "signalLabel": "May vary",
+          "body": "Repayment capacity and access to credit improve, but the need to borrow may fall."
+        }
+      ],
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/money-and-banking/banknotes-in-wallet.jpg",
+        "alt": "A person taking banknotes from a leather wallet.",
+        "caption": "More disposable income increases the choices available.",
+        "credit": "Kaboompics.com / Pexels",
+        "source": "https://www.pexels.com/photo/crop-man-getting-dollars-from-wallet-4386433/"
+      },
+      "partialReview": [
+        ".cardgrid > .card .cardBody"
+      ],
+      "footer": "Predict ↑, ↓ or ↕ for each row, then reveal.",
+      "sources": [
+        {
+          "label": "Definitions",
+          "ref": "Retained IGCSE Economics definitions · 2026 · 3.2.1",
+          "note": "Disposable income is income remaining after direct taxes have been deducted. Spending is buying goods and services; saving is income not spent; borrowing is obtaining money now to repay later."
+        },
+        {
+          "label": "Syllabus",
+          "ref": "Cambridge 0455 · 2027–2029 · page 16 · 3.2.1",
+          "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
+        },
+        {
+          "label": "Mark scheme",
+          "ref": "0455/21 · May/June 2023 · Q5(a) [2] · 0455_s23_ms_21 · page 20",
+          "extract": "Accept higher incomes, easier borrowing, more confidence and more savings/wealth as reasons why rich households may spend more."
+        }
+      ],
+      "notes": "Begin factor 1 with this note-taking overview. Direct taxes are taxes on income or wealth, such as income tax. Hold other influences constant. Borrowing has no automatic direction: distinguish access to credit from need and actual borrowing. Reveal one outcome at a time."
     },
     {
       "id": "income-amount-and-percentage",
       "type": "cards",
       "layout": "household-income",
       "eyebrow": "1 · Income 收入",
-      "title": "Higher income can raise spending and saving",
+      "title": "1. Disposable income: amounts and shares",
       "lead": "Compare two monthly budgets: what changes in the amount and the share saved?",
       "cards": [
         {
@@ -406,7 +497,7 @@ IGCSE.lesson={
       "id": "income-and-saving-capacity",
       "type": "flow",
       "eyebrow": "Learn",
-      "title": "Why higher-income households often save a larger share",
+      "title": "1. Disposable income: why saving can rise",
       "zhTitle": "为什么高收入家庭通常储蓄比例更高",
       "mode": "fillBlanks",
       "nodes": [
@@ -441,7 +532,7 @@ IGCSE.lesson={
       "id": "income-and-access-to-borrowing",
       "type": "cards",
       "eyebrow": "1 · Income 收入",
-      "title": "Higher income can also make borrowing easier",
+      "title": "1. Disposable income: access to borrowing",
       "cards": [
         {
           "title": "Repayment capacity 偿还能力",
@@ -502,10 +593,81 @@ IGCSE.lesson={
       "notes": "Original question, option order and official key checked against the local PDFs. Independent attempt before selecting. D. Basic needs take a larger share of low incomes. A is too absolute: wealthy households can still borrow for homes. B reverses the usual saving pattern. C confuses needing credit with being able to repay."
     },
     {
+      "id": "discuss-interest-rates",
+      "type": "discussion",
+      "eyebrow": "Before factor 2 · Small-group discussion",
+      "layout": "household-discussion",
+      "question": "Two households each have ¥20,000. One plans to save it; the other plans to borrow ¥20,000. How would a higher interest rate change each decision?",
+      "followUp": "Explain what changes for the saver and for the borrower.",
+      "answer": "A higher interest rate increases the reward for saving, so saving becomes more attractive. It also increases the cost of borrowing, so borrowing and credit-financed spending tend to fall.",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/monetary-policy/visual-pause-credit-card-debt.jpg",
+        "alt": "A person using a laptop while holding a credit card.",
+        "caption": "",
+        "credit": "rupixen / Unsplash",
+        "source": "https://unsplash.com/photos/person-using-laptop-computer-holding-card-Q59HmzK38eQ"
+      },
+      "notes": "Groups of 3–4: allow about one minute. Ask for both sides of the same rate change before revealing the answer. Keep principal and time constant."
+    },
+    {
+      "id": "interest-three-choices",
+      "type": "cards",
+      "eyebrow": "2 · Rate of interest 利率",
+      "title": "2. Rate of interest 利率",
+      "lead": "The rate of interest is the cost of borrowing and the reward for saving.",
+      "layout": "household-effects",
+      "cards": [
+        {
+          "title": "Spending 消费",
+          "signal": "↓",
+          "signalLabel": "Tends to fall",
+          "body": "Credit-financed purchases cost more, while saving becomes more attractive."
+        },
+        {
+          "title": "Saving 储蓄",
+          "signal": "↑",
+          "signalLabel": "Tends to rise",
+          "body": "Money saved earns a higher return."
+        },
+        {
+          "title": "Borrowing 借款",
+          "signal": "↓",
+          "signalLabel": "Tends to fall",
+          "body": "Loans become more expensive to repay."
+        }
+      ],
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/monetary-policy/deposit-into-piggy-bank-savings-account.jpg",
+        "alt": "A coin being deposited into a piggy bank.",
+        "caption": "A higher rate raises the reward for saving.",
+        "credit": "Ken Teegardin / Wikimedia Commons / CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Deposit_Into_Piggy_Bank_Savings_Account_(6093700157).jpg"
+      },
+      "partialReview": [
+        ".cardgrid > .card .cardBody"
+      ],
+      "footer": "Predict ↑, ↓ or ↕ for each row, then reveal.",
+      "sources": [
+        {
+          "label": "Definitions",
+          "ref": "Retained IGCSE Economics definitions · 2026 · 3.2.1",
+          "note": "The rate of interest is the cost of borrowing and the reward for saving."
+        },
+        {
+          "label": "Syllabus",
+          "ref": "Cambridge 0455 · 2027–2029 · page 16 · 3.2.1",
+          "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
+        }
+      ],
+      "notes": "Begin factor 2 with this note-taking overview. Other things equal; lower rates reverse the usual incentives. Existing fixed-rate loans may not change immediately. Reveal one outcome at a time."
+    },
+    {
       "id": "interest-two-sides",
       "type": "compare",
       "eyebrow": "2 · Rate of interest 利率",
-      "title": "What changes when the rate rises from 2% to 5%?",
+      "title": "2. Rate of interest: from 2% to 5%",
       "leftTitle": "Saving ¥2,000 储蓄",
       "rightTitle": "Borrowing ¥2,000 借款",
       "left": [
@@ -541,7 +703,7 @@ IGCSE.lesson={
       "id": "higher-interest-saving",
       "type": "flow",
       "eyebrow": "Learn",
-      "title": "Higher interest rates reward saving",
+      "title": "2. Rate of interest: the reward for saving",
       "zhTitle": "较高利率提高储蓄的回报",
       "mode": "fillBlanks",
       "nodes": [
@@ -576,7 +738,7 @@ IGCSE.lesson={
       "id": "higher-interest-borrowing",
       "type": "flow",
       "eyebrow": "Learn",
-      "title": "Higher interest rates raise borrowing costs",
+      "title": "2. Rate of interest: the cost of borrowing",
       "zhTitle": "较高利率增加借款成本",
       "mode": "fillBlanks",
       "nodes": [
@@ -645,30 +807,75 @@ IGCSE.lesson={
       "layout": "household-options-table"
     },
     {
+      "id": "discuss-confidence",
+      "type": "discussion",
+      "eyebrow": "Before factor 3 · Small-group discussion",
+      "layout": "household-discussion",
+      "question": "Emma’s income has not changed, but she is less confident that her job is secure. How might her spending, saving and borrowing change?",
+      "followUp": "Distinguish what she wants to do from what her income allows her to do.",
+      "answer": "Emma may delay spending and borrowing and try to save more for emergencies. If she later loses her income, however, her ability to save may fall and she may use accumulated savings.",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/fiscal-policy/visual-pause-job-interview.jpg",
+        "alt": "A job candidate listens during a professional interview.",
+        "caption": "",
+        "credit": "Artem Podrez / Pexels",
+        "source": "https://www.pexels.com/photo/man-having-an-interview-6585014/"
+      },
+      "notes": "Groups of 3–4: allow about one minute. Current income is unchanged in the question. Use the answer to distinguish desired precautionary saving from the ability to save after income falls."
+    },
+    {
       "id": "confidence-household-choices",
-      "type": "compare",
-      "title": "Confidence changes plans for future income",
-      "leftTitle": "More confidence 信心增强",
-      "rightTitle": "Less confidence 信心减弱",
-      "left": [
-        "Expected secure jobs and higher future income.",
-        "More willingness to spend or borrow now; less need for precautionary saving."
-      ],
-      "right": [
-        "Concern about job loss or lower future income.",
-        "Delay purchases and borrowing; save for emergencies if income allows."
-      ],
+      "type": "cards",
+      "title": "3. Confidence 信心",
       "partialReview": [
-        ".splitCols > .card"
+        ".cardgrid > .card .cardBody"
       ],
-      "notes": "3 · Confidence. Expected income is different from current income. A household can become less confident even before its pay falls. Once unemployment actually reduces income, ability to save may fall; desire and ability must be separated.",
+      "notes": "Other things equal, with current income unchanged. Lower confidence usually reverses these intentions: delay spending and borrowing; save for emergencies if income allows. Actual job loss can reduce the ability to save. Confidence about repayment does not guarantee loan approval.",
       "sources": [
         {
           "label": "Syllabus",
           "ref": "Cambridge 0455 · 2027–2029 · page 16 · 3.2.1",
           "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
+        },
+        {
+          "label": "Mark scheme",
+          "ref": "0455/22 · February/March 2025 · Q1(d) [4] · 0455_m25_ms_22",
+          "extract": "Accept greater confidence about future job prospects, earnings or job security leading to more borrowing or less saving."
         }
-      ]
+      ],
+      "eyebrow": "Learn",
+      "lead": "Confidence = expectations about future income, employment and economic conditions.",
+      "layout": "household-effects",
+      "cards": [
+        {
+          "title": "Spending 消费",
+          "signal": "↑",
+          "signalLabel": "More willing",
+          "body": "Households feel more secure about future income."
+        },
+        {
+          "title": "Saving 储蓄",
+          "signal": "↓",
+          "signalLabel": "May fall",
+          "body": "Precautionary saving may fall because emergencies seem less likely."
+        },
+        {
+          "title": "Borrowing 借款",
+          "signal": "↑",
+          "signalLabel": "More willing",
+          "body": "Future repayments seem more affordable."
+        }
+      ],
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/investment-analysis/lesson-2/family-financial-planning-2020.jpg",
+        "alt": "A couple reviews household financial documents with a calculator and laptop.",
+        "caption": "Expectations about future income affect choices made today.",
+        "credit": "Mikhail Nilov / Pexels",
+        "source": "https://www.pexels.com/photo/couple-calculating-all-their-bills-6964107/"
+      },
+      "footer": "Predict ↑, ↓ or ↕ for each row, then reveal."
     },
     {
       "id": "confidence-versus-income",
@@ -690,27 +897,84 @@ IGCSE.lesson={
       "sharePrompt": "Write independently; reveal each model separately."
     },
     {
-      "id": "age-household-timeline",
+      "id": "discuss-age",
+      "type": "discussion",
+      "eyebrow": "Before factor 4 · Small-group discussion",
+      "layout": "household-discussion",
+      "question": "How might a 22-year-old worker and a 62-year-old worker use the same monthly income differently?",
+      "followUp": "Compare their spending needs, saving goals and reasons to borrow.",
+      "answer": "The younger worker may borrow for a home or furniture and have limited accumulated savings. The worker approaching retirement may save more, reduce debt and postpone some spending. These are tendencies, not rules for every household.",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/investment-analysis/lesson-2/university-students-campus-2021.jpg",
+        "alt": "Three young adults carry books and papers while walking across a campus.",
+        "caption": "",
+        "credit": "George Pak / Pexels",
+        "source": "https://www.pexels.com/photo/students-walking-on-the-campus-7972653/"
+      },
+      "notes": "Groups of 3–4: allow about one minute. Accept different reasoned choices. Do not imply that age alone determines behaviour; income, wealth, dependants and pension arrangements also matter."
+    },
+    {
+      "id": "age-three-choices",
       "type": "cards",
-      "layout": "household-age",
       "eyebrow": "4 · Age 年龄",
-      "title": "Income and needs change through life",
+      "title": "4. Age 年龄",
+      "lead": "Age affects household choices as needs, income and financial goals change through life.",
+      "layout": "household-effects",
       "cards": [
         {
-          "title": "Early working life 开始工作",
-          "body": "Limited savings and large purchases may encourage borrowing."
+          "title": "Spending 消费",
+          "signal": "↕",
+          "signalLabel": "Varies",
+          "body": "Large purchases may be common in early working life; accumulated savings can support spending after retirement."
         },
         {
-          "title": "Preparing for retirement 准备退休",
-          "body": "People may save more now to support living standards later."
+          "title": "Saving 储蓄",
+          "signal": "↕",
+          "signalLabel": "Varies",
+          "body": "Saving may rise before retirement, then fall as retirees draw on accumulated savings."
         },
         {
-          "title": "After retirement 退休以后",
-          "body": "Lower earned income may lead people to draw on savings for spending."
+          "title": "Borrowing 借款",
+          "signal": "↕",
+          "signalLabel": "Varies",
+          "body": "Borrowing may fund large purchases earlier in life and fall as earned income and repayment time decline."
         }
       ],
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/investment-analysis/lesson-2/retirement-goal-couple-2017.jpg",
+        "alt": "An older couple walks together while holding hands.",
+        "caption": "Approaching and entering retirement can change saving and spending.",
+        "credit": "Noelle Otto / Pexels",
+        "source": "https://www.pexels.com/photo/old-couple-walking-while-holding-hands-906111/"
+      },
       "partialReview": [
-        ".cardgrid > .card"
+        ".cardgrid > .card .cardBody"
+      ],
+      "footer": "Predict ↑, ↓ or ↕ for each row, then reveal.",
+      "sources": [
+        {
+          "label": "Syllabus",
+          "ref": "Cambridge 0455 · 2027–2029 · page 16 · 3.2.1",
+          "note": "Influences on households’ spending, saving and borrowing: income; rate of interest; confidence; age; culture."
+        },
+        {
+          "label": "Mark scheme",
+          "ref": "0455/21 · October/November 2024 · Q5(b) [4] · 0455_w24_ms_21 · page 24",
+          "extract": "Accept saving before retirement and withdrawing accumulated savings to fund living after retirement."
+        }
+      ],
+      "notes": "Begin factor 4 with this note-taking overview. These are possible life-cycle patterns, not rules about every person. Distinguish saving before retirement from drawing down savings after retirement. Reveal one outcome at a time."
+    },
+    {
+      "id": "age-household-timeline",
+      "type": "dataTable",
+      "layout": "household-age-effects",
+      "eyebrow": "4 · Age 年龄",
+      "title": "4. Age 年龄",
+      "partialReview": [
+        "tbody tr"
       ],
       "sources": [
         {
@@ -729,12 +993,42 @@ IGCSE.lesson={
           "extract": "Accept: fewer people working can lead to withdrawals of savings to fund living; older people may have accumulated savings and spend more; people approaching retirement may save more to support retirement living standards and reduce current spending. Maximum 3 marks for a relevant explanation of either spending or saving."
         }
       ],
-      "notes": "Illustrated life stages are tendencies, not rules about every person. Age can affect borrowing through needs and repayment prospects. Define retirement as leaving paid work and an ageing population as a rising proportion of older people, before the final original question. Pensions, wealth, family needs and health vary. Savings stock can decline even when current spending is maintained."
+      "notes": "Illustrated life stages are tendencies, not rules about every person. Age can affect borrowing through needs and repayment prospects. Define retirement as leaving paid work and an ageing population as a rising proportion of older people, before the final original question. Pensions, wealth, family needs and health vary. Savings stock can decline even when current spending is maintained.",
+      "lead": "Changing needs and income → different choices through life",
+      "table": {
+        "columns": [
+          "Life stage 人生阶段",
+          "Spending 消费",
+          "Saving 储蓄",
+          "Borrowing 借款"
+        ],
+        "rows": [
+          [
+            "Early working life",
+            "Large purchases: a home or furniture.",
+            "Limited income can restrict saving.",
+            "May borrow to fund large purchases."
+          ],
+          [
+            "Approaching retirement",
+            "May cut spending to build a fund.",
+            "May save more for future living costs.",
+            "May reduce debt before earnings fall."
+          ],
+          [
+            "After retirement",
+            "Savings can fund living costs.",
+            "May draw on accumulated savings.",
+            "Lower earned income may limit access."
+          ]
+        ]
+      },
+      "prompt": "These are possible patterns; pensions, wealth and family needs also matter."
     },
     {
       "id": "age-before-after-retirement",
       "type": "compare",
-      "title": "Age does not produce one fixed saving response",
+      "title": "4. Age: before and after retirement",
       "leftTitle": "Before retirement 退休前",
       "rightTitle": "After retirement 退休后",
       "left": [
@@ -768,23 +1062,60 @@ IGCSE.lesson={
       ]
     },
     {
+      "id": "discuss-culture",
+      "type": "discussion",
+      "eyebrow": "Before factor 5 · Small-group discussion",
+      "layout": "household-discussion",
+      "question": "Two households have the same income and face the same interest rate. Why might their spending, saving and borrowing choices still differ?",
+      "followUp": "Think about attitudes to thrift, debt, gifts and celebrations.",
+      "answer": "Shared values, customs and social expectations can affect whether households prioritise current spending, saving for future security or using credit. These influences vary within every society and do not determine every individual choice.",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/market-economic-system/public-fireworks-crowd.jpg",
+        "alt": "A crowd watches a public fireworks celebration.",
+        "caption": "",
+        "credit": "Horizon206 / Wikimedia Commons / CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:People_watching_fireworks.jpg"
+      },
+      "notes": "Groups of 3–4: allow about one minute. Ask for mechanisms rather than claims about a nationality, religion or ethnic group. Do not ask students to disclose private family finances."
+    },
+    {
       "id": "culture-household-choices",
       "type": "cards",
-      "eyebrow": "5 · Culture 文化",
-      "title": "Social attitudes influence household choices",
+      "eyebrow": "Learn",
+      "title": "5. Culture 文化",
       "cards": [
         {
-          "title": "Saving and debt 储蓄与债务",
-          "body": "Valuing thrift or avoiding debt may encourage saving and discourage borrowing."
+          "title": "Spending 消费",
+          "signal": "↕",
+          "signalLabel": "May vary",
+          "body": "Celebrations and gifts may raise spending, while thrift may restrain it."
         },
         {
-          "title": "Spending expectations 消费习惯",
-          "body": "Celebrations, gifts and expectations about living standards may increase spending."
+          "title": "Saving 储蓄",
+          "signal": "↕",
+          "signalLabel": "May vary",
+          "body": "Valuing thrift and future security may encourage more saving."
+        },
+        {
+          "title": "Borrowing 借款",
+          "signal": "↕",
+          "signalLabel": "May vary",
+          "body": "Avoiding debt may reduce borrowing, while accepting credit may increase it."
         }
       ],
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/investment-analysis/lesson-1/family-goal-piggy-bank-target.jpg",
+        "alt": "A piggy bank stands in front of a target.",
+        "caption": "Shared priorities can influence household financial goals.",
+        "credit": "Dany Kurniawan / Pexels",
+        "source": "https://www.pexels.com/photo/a-piggy-bank-on-the-table-12357524/"
+      },
       "partialReview": [
-        ".cardgrid > .card"
+        ".cardgrid > .card .cardBody"
       ],
+      "footer": "Predict ↑, ↓ or ↕ for each row, then reveal.",
       "sources": [
         {
           "label": "Syllabus",
@@ -802,7 +1133,9 @@ IGCSE.lesson={
           "extract": "One mark for each influence. Accept interest; disposable income/earnings/wealth/taxation; confidence; saving schemes; strength of financial institutions; age/dependants; culture; cost of living/inflation. Other relevant influences may be credited. Accept any two from the first three responses."
         }
       ],
-      "notes": "Culture means shared values, customs and social expectations. These are possible mechanisms, not claims about everyone in a country, religion or ethnic group. People facing similar incomes and rates can make different choices. Avoid asking students to disclose family finances."
+      "notes": "Culture means shared values, customs and social expectations. These are possible mechanisms, not claims about everyone in a country, religion or ethnic group. People facing similar incomes and rates can make different choices. Avoid asking students to disclose family finances. Reveal each outcome separately. These are alternative influences within cultures, not stereotypes or an inevitable response.",
+      "lead": "Culture = shared values, customs and social conventions that influence choices.",
+      "layout": "household-effects"
     },
     {
       "id": "apply-five-influences",

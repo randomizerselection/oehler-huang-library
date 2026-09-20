@@ -29,14 +29,6 @@
  .household-classroom .slide.is-section .content{grid-template-columns:1fr}
  .household-classroom .slide.is-section .visual{display:none}
  .household-classroom .slide.is-section .sectionTitle{color:white;background:none;-webkit-text-fill-color:currentColor;font-size:clamp(46px,4.7vw,86px);line-height:1.15;font-weight:700}
- .household-classroom .is-layout-household-influence-overview .content.is-section>div{display:grid;grid-template-columns:minmax(0,.85fr) minmax(460px,1.15fr);grid-template-rows:auto auto;gap:28px 6vw;align-items:center;width:100%}
- .household-classroom .is-layout-household-influence-overview .sectionTitle{grid-column:1;grid-row:1;font-size:clamp(44px,4vw,70px)}
- .household-classroom .is-layout-household-influence-overview .sectionProgress{grid-column:1;grid-row:2;margin:0}
- .household-classroom .household-influence-list{grid-column:2;grid-row:1/3;list-style:none;margin:0;padding:0;border-top:1px solid #64737b}
- .household-classroom .household-influence-list li{display:grid;grid-template-columns:50px 1fr;gap:12px;align-items:baseline;padding:15px 0;border-bottom:1px solid #64737b}
- .household-classroom .household-influence-number{color:#d6a34a;font-size:27px;font-weight:700;font-variant-numeric:tabular-nums}
- .household-classroom .household-influence-list strong{display:block;color:#fff;font-size:clamp(28px,2.2vw,38px);line-height:1.2;font-weight:600}
- .household-classroom .household-influence-list small{display:block;color:#d9e5e4;font-size:24px;line-height:1.35;margin-top:4px}
  .household-classroom .slide.is-hero .content{grid-template-columns:1fr}
  .household-classroom .slide.is-hero .content main{z-index:2;width:63%;align-content:center}
  .household-classroom .slide.is-hero h1{font-size:clamp(48px,4.8vw,92px);font-weight:700;line-height:1.05;letter-spacing:-.03em}
@@ -170,14 +162,6 @@
  .household-classroom .slide.is-hero .visual{inset:35% 0 0;opacity:.4}
  .household-classroom .slide.is-hero h1{font-size:44px}
  .household-classroom .slide.is-hero .kicker{font-size:24px}
- .household-classroom .is-layout-household-influence-overview .content.is-section>div{display:block}
- .household-classroom .is-layout-household-influence-overview .sectionTitle{font-size:38px}
- .household-classroom .is-layout-household-influence-overview .sectionProgress{margin-top:22px}
- .household-classroom .household-influence-list{margin-top:28px}
- .household-classroom .household-influence-list li{grid-template-columns:38px 1fr;padding:13px 0}
- .household-classroom .household-influence-number{font-size:23px}
- .household-classroom .household-influence-list strong{font-size:25px}
- .household-classroom .household-influence-list small{font-size:21px}
  .household-classroom .classificationItem{grid-template-columns:1fr;gap:12px;padding:18px 0}
  .household-classroom .classificationItemTop p,.household-classroom .classificationAnswer{font-size:23px}
  .household-classroom .classificationResult{min-height:90px;padding-left:16px}
@@ -210,3 +194,89 @@
  .household-classroom .examChainLink b{font-size:20px}
 }
 @media print{.classroom-source-buttons,.classroom-source-dialog,.classroom-slide-number,.household-scene{display:none!important}.household-classroom .has-household-scene .cardgrid{position:static;opacity:1;width:auto;height:auto}.household-exam-table{border-collapse:collapse;width:100%}.household-exam-table td,.household-exam-table th{border:1px solid #777;padding:6px}}
+
+/* Numbered household factors: illustrated overview and consistent note-taking rows. */
+.household-factor-picture svg{display:block;width:100%;height:100%}
+@media screen{
+ .household-classroom .is-layout-household-influence-overview .cardgrid{gap:0}
+ .household-classroom .is-layout-household-influence-overview .card{display:grid;grid-template-columns:78px 1fr;grid-template-rows:auto auto;column-gap:24px;padding:7px 0;border-bottom:1px solid #d4dedc;align-items:center}
+ .household-classroom .household-factor-picture{grid-row:1/3;width:72px;height:72px}
+ .household-classroom .is-layout-household-influence-overview .cardTitle{grid-column:2;font-size:clamp(28px,2.2vw,40px)}
+ .household-classroom .is-layout-household-influence-overview .cardBody{grid-column:2;font-size:clamp(24px,1.8vw,34px);margin:0;color:#51616b}
+ .household-classroom .is-layout-household-effects .content{grid-template-columns:minmax(0,1.65fr) minmax(250px,.55fr);gap:38px}
+ .household-classroom .is-layout-household-effects .content main{min-width:0}
+ .household-classroom .is-layout-household-effects .cardgrid{gap:0}
+ .household-classroom .is-layout-household-effects .card{display:grid;grid-template-columns:minmax(165px,.55fr) minmax(0,2fr);gap:20px;align-items:center;min-height:104px;padding:13px 0;border-bottom:1px solid #d4dedc}
+ .household-classroom .is-layout-household-effects .cardBody{display:grid;grid-template-columns:130px minmax(0,1fr);gap:20px;align-items:center;margin:0;font-size:clamp(23px,1.52vw,31px);line-height:1.32}
+ .household-classroom .is-layout-household-effects .cardTitle{font-size:clamp(24px,1.55vw,31px);line-height:1.2}
+ .household-classroom .household-effect-signal{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:8px;color:#166c72}
+ .household-classroom .household-effect-signal strong{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#dce9e6;font-size:30px;line-height:1}
+ .household-classroom .household-effect-signal span{color:#166c72!important;font-size:18px;line-height:1.15;font-weight:700}
+ .household-classroom .household-effect-copy{display:block;color:#142f43!important}
+ .household-classroom .is-layout-household-effects .visual{align-self:stretch;min-height:0}
+ .household-classroom .is-layout-household-effects .photoPanel{height:100%;max-height:55vh;min-height:360px}
+ .household-classroom .is-layout-household-effects .photoPanel img{width:100%;height:100%;object-fit:cover}
+ .household-classroom .is-layout-household-effects .prompt{font-size:24px}
+ .household-classroom .is-layout-household-age-effects .dataTableBlock{width:100%;gap:0}
+ .household-classroom .is-layout-household-age-effects .dataTableWrap{box-shadow:none;border:0;border-radius:0}
+ .household-classroom .is-layout-household-age-effects .prompt{font-size:22px;margin:12px 0 0;padding:8px 0;font-weight:400}
+ .household-classroom .is-layout-household-age-effects table{width:100%;table-layout:fixed;border-collapse:collapse;background:none}
+ .household-classroom .is-layout-household-age-effects th,.household-classroom .is-layout-household-age-effects td{padding:14px 12px;text-align:left;vertical-align:top;white-space:normal;border:0;border-bottom:1px solid #d4dedc;font-size:clamp(27px,1.9vw,36px);line-height:1.3;color:#142f43;background:none}
+ .household-classroom .is-layout-household-age-effects th{color:#166c72;font-weight:600;text-transform:none;letter-spacing:0}
+ .household-classroom .is-layout-household-age-effects tr{background:none}
+ .household-classroom #deck .is-layout-household-discussion{color:white;background:#142f43}
+ .household-classroom #deck .is-layout-household-discussion::before{display:block;content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,47,67,.94),rgba(20,47,67,.62));z-index:1}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionContent{position:relative;z-index:2;align-self:center}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt{max-width:1100px}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt>p{color:white;font-size:clamp(38px,3.3vw,63px);line-height:1.22}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt .discussionFollowUp{color:#d9e5e4;font-size:clamp(28px,2.1vw,40px);margin-top:30px;line-height:1.4}
+ .household-classroom #deck .slide.is-layout-household-discussion .badge{color:#d9e5e4}
+}
+@media screen and (min-width:1700px){
+ .household-classroom .is-layout-household-influence-overview .card{grid-template-columns:105px 1fr;padding:14px 0}
+ .household-classroom .household-factor-picture{width:94px;height:94px}
+ .household-classroom .is-layout-household-effects .card{grid-template-columns:minmax(220px,.55fr) minmax(0,2fr);min-height:138px}
+ .household-classroom .is-layout-household-effects .cardBody{grid-template-columns:145px minmax(0,1fr)}
+ .household-classroom .household-effect-signal{grid-template-columns:52px 1fr}
+ .household-classroom .household-effect-signal strong{width:52px;height:52px;font-size:38px}
+ .household-classroom .household-effect-signal span{font-size:23px}
+}
+@media screen and (min-width:761px) and (max-width:1100px){
+ .household-classroom .is-layout-household-effects .content{grid-template-columns:minmax(0,1fr) 180px;gap:22px}
+ .household-classroom .is-layout-household-effects .card{grid-template-columns:122px minmax(0,1fr);gap:14px;min-height:92px;padding:10px 0}
+ .household-classroom .is-layout-household-effects .cardBody{grid-template-columns:108px minmax(0,1fr);gap:14px}
+ .household-classroom .is-layout-household-effects .cardTitle{font-size:21px}
+ .household-classroom .is-layout-household-effects .cardBody{font-size:21px;line-height:1.25}
+ .household-classroom .household-effect-signal{grid-template-columns:36px 1fr;gap:6px}
+ .household-classroom .household-effect-signal strong{width:36px;height:36px;font-size:26px}
+ .household-classroom .household-effect-signal span{font-size:15px}
+ .household-classroom .is-layout-household-effects .photoPanel{min-height:330px;max-height:52vh}
+ .household-classroom .is-layout-household-effects .lead{font-size:24px;line-height:1.28;margin-bottom:14px}
+}
+@media screen and (max-width:760px){
+ .household-classroom .is-layout-household-influence-overview .card{grid-template-columns:58px 1fr;column-gap:16px;padding:14px 0}
+ .household-classroom .household-factor-picture{width:54px;height:54px}
+ .household-classroom .is-layout-household-influence-overview .cardTitle{font-size:24px}
+ .household-classroom .is-layout-household-influence-overview .cardBody{font-size:21px}
+ .household-classroom .is-layout-household-effects .content{display:block}
+ .household-classroom .is-layout-household-effects .card{grid-template-columns:1fr;gap:10px;min-height:0}
+ .household-classroom .is-layout-household-effects .cardBody{grid-template-columns:112px minmax(0,1fr);gap:14px}
+ .household-classroom .is-layout-household-effects .cardTitle,.household-classroom .is-layout-household-effects .cardBody{font-size:23px}
+ .household-classroom .household-effect-signal{grid-template-columns:36px 1fr;gap:6px}
+ .household-classroom .household-effect-signal strong{width:36px;height:36px;font-size:25px}
+ .household-classroom .household-effect-signal span{font-size:16px}
+ .household-classroom .is-layout-household-effects .photoPanel{height:230px;min-height:230px;margin-top:22px}
+ .household-classroom .is-layout-household-age-effects .dataTableWrap{overflow-x:auto}
+ .household-classroom .is-layout-household-age-effects table{min-width:840px}
+ .household-classroom .is-layout-household-age-effects th,.household-classroom .is-layout-household-age-effects td{font-size:22px}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt>p{font-size:32px}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt .discussionFollowUp{font-size:24px}
+}
+@media print{.household-factor-picture{display:none}}
+
+@media screen{
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt .discussionFollowUp{font-size:clamp(28px,2.1vw,40px)!important;font-weight:400;max-width:100%;text-wrap:pretty}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionPrompt{font-family:Arial,'Microsoft YaHei',sans-serif}
+ .household-classroom #deck .slide.is-layout-household-discussion .classroom-source-buttons button{color:#d9e5e4;border-color:#64737b}
+ .household-classroom #deck .slide.is-layout-household-discussion .discussionAnswerButton{background:#f7f7f2;color:#142f43;border:0;box-shadow:none;font-size:19px}
+}

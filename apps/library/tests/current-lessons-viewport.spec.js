@@ -15,6 +15,8 @@ const lessons = [
   ['a-level/lessons/9-1-2-investment-accelerator', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-3-income-gaps', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-3-full-employment-essay', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-2-1-growth-output-gaps', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-2-2-fiscal-expansion-multiplier', '#stage', '.controls', '#fullscreen', '#status'],
 ];
 
 for (const [route] of [...lessons, ['lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem']]) {
@@ -161,7 +163,12 @@ async function prepareLessonSelector(page, role = 'teacher', failFirstLoad = fal
       selectorAdapters: context => ({
         dataAdapter: {
           listClasses: async () => ({ items: [{ class_id: 'test-class', name: 'Synthetic A Level' }] }),
-          loadRoster: async () => ({ students: [{ account_id: 'test-student', display_name: 'Synthetic student' }] })
+          loadRoster: async () => ({ students: [{
+            account_id: 'test-student',
+            display_name: 'Synthetic student',
+            attendance_history: { marks: 5, present: 4, absent: 1, rate: 80, recent: [{ status: 'absent', marked_at: '2026-09-10T08:00:00.000Z' }] },
+            homework: { total: 3, eligible: 3, completed: 2, late: 0, missing: 1, awaiting_working: 0, completion_rate: 67, outstanding: [{ assignment_title: 'Fiscal policy essay', assigned_on: '2026-09-15', status: 'missing' }], last: { assignment_title: 'Fiscal policy essay', assigned_on: '2026-09-15', status: 'missing' } }
+          }] })
         },
         sessionAdapter: {
           start: async value => {
@@ -174,6 +181,97 @@ async function prepareLessonSelector(page, role = 'teacher', failFirstLoad = fal
   }, role);
   return () => runtimeRequests;
 }
+
+test('@smoke lesson roll call expands beyond the selector sidebar', async ({ page, isMobile }) => {
+  await prepareLessonSelector(page);
+  const viewport = isMobile ? { width: 390, height: 844 } : { width: 1280, height: 720 };
+  await page.setViewportSize(viewport);
+  await page.goto('http://lesson.test/a-level/lessons/9-1-3-full-employment-essay/index.html?class=test-class');
+  await page.locator('#studentSelectorButton').click();
+  await page.getByRole('button', { name: 'Take Attendance', exact: true }).click();
+
+  const panel = page.locator('.studentSelectorSidePanel');
+  const rollCall = page.getByRole('dialog', { name: 'Roll call' });
+  await expect(panel).toHaveClass(/is-attendance-active/);
+  await expect(rollCall).toBeVisible();
+  expect(await rollCall.boundingBox()).toMatchObject({ x: 0, y: 0, width: viewport.width, height: viewport.height });
+  await expect(rollCall.getByText('Previous attendance')).toBeVisible();
+  await expect(rollCall.getByText('Homework completion')).toBeVisible();
+  await expect(rollCall.getByText('Fiscal policy essay')).toBeVisible();
+  await expect(page.locator('.lesson-selector-heading')).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(viewport.width);
+});
+
+for (const lesson of [
+  'a-level/lessons/9-1-3-full-employment-essay',
+  'investment-analysis/lessons/1-1-3-compound-growth',
+  'lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem'
+]) {
+  test(`@smoke @responsive lesson attendance styling and bilingual names: ${lesson}`, async ({ page, isMobile }) => {
+    await prepareLessonSelector(page);
+    await page.addInitScript(() => {
+      const adapters = window.OHPlatform.selectorAdapters;
+      window.OHPlatform.selectorAdapters = context => {
+        const result = adapters(context);
+        const loadRoster = result.dataAdapter.loadRoster;
+        result.dataAdapter.loadRoster = async () => {
+          const roster = await loadRoster();
+          roster.students[0].display_name = '陈思远 Alexander';
+          return roster;
+        };
+        return result;
+      };
+    });
+    const viewport = isMobile ? { width: 390, height: 844 } : { width: 1280, height: 720 };
+    await page.setViewportSize(viewport);
+    await page.goto(`http://lesson.test/${lesson}/index.html?class=test-class`);
+    await page.keyboard.press('s');
+    await page.getByRole('button', { name: 'Take Attendance', exact: true }).click();
+    const rollCall = page.getByRole('dialog', { name: 'Roll call' });
+    await expect(rollCall.getByLabel('Homework statistics')).toHaveCSS('display', 'grid');
+    await expect(rollCall.locator('.selector-rollcall-name-row')).toHaveCSS('display', 'flex');
+    await expect(rollCall.locator('.selector-homework-badge')).toHaveText('🥈');
+    await expect(rollCall.locator('.selector-homework-meter')).toHaveCSS('height', '5px');
+    const name = await rollCall.getByRole('heading', { name: '陈思远 Alexander' }).boundingBox();
+    const badge = await rollCall.locator('.selector-homework-badge').boundingBox();
+    expect(badge.y + badge.height / 2).toBeGreaterThanOrEqual(name.y);
+    expect(badge.y + badge.height / 2).toBeLessThanOrEqual(name.y + name.height);
+    expect(badge.x + badge.width).toBeLessThanOrEqual(viewport.width);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(viewport.width);
+    if (!isMobile) {
+      const cards = await rollCall.locator('.selector-insight-card').all();
+      const first = await cards[0].boundingBox(), second = await cards[1].boundingBox();
+      expect(Math.abs(first.y - second.y)).toBeLessThan(2);
+      const footer = await rollCall.locator('.selector-rollcall-footer').boundingBox();
+      expect(second.y + second.height).toBeLessThanOrEqual(footer.y);
+    }
+  });
+}
+
+test('@smoke file-opened A Level lessons load the current local selector runtime', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'Exact desktop file-opened lesson regression.');
+  // This case verifies offline/public fallback, independent of a developer's
+  // running local platform and its teacher sign-in prompt.
+  await page.route('http://127.0.0.1:4173/**', route => route.abort());
+  await page.route('https://randomizerselection.github.io/studentselector/assets/students.csv', route => route.fulfill({
+    contentType: 'text/csv', body: 'Class,Student\nS3.3,柏一鹏 Liam\n'
+  }));
+  await page.route('https://randomizerselection.github.io/studentselector/assets/messages.csv', async route => route.fulfill({
+    contentType: 'text/csv', body: await readFile(path.join(root, '..', 'student-selector', 'assets', 'messages.csv'))
+  }));
+  await page.setViewportSize({ width: 1280, height: 720 });
+  const lessonFile = path.join(root, 'a-level', 'lessons', '9-1-3-full-employment-essay', 'index.html');
+  await page.goto(pathToFileURL(lessonFile).href);
+  await page.locator('#studentSelectorButton').click();
+  await page.locator('.selector-class-select').selectOption('S3.3');
+  const runtimeSrc = await page.locator('script[data-student-selector-runtime]').getAttribute('src');
+  expect(runtimeSrc).toBe(pathToFileURL(path.join(root, '..', 'student-selector', 'selector.js')).href);
+  await page.getByRole('button', { name: 'Take Attendance', exact: true }).click();
+  const rollCall = page.getByRole('dialog', { name: 'Roll call' });
+  await expect(rollCall).toBeVisible();
+  expect(await rollCall.boundingBox()).toMatchObject({ x: 0, y: 0, width: 1280, height: 720 });
+  await expect(rollCall.getByRole('heading', { name: '柏一鹏 Liam' })).toBeVisible();
+});
 
 test('@smoke Economics classroom selector stays open without sign-in', async ({ page }) => {
   await prepareLessonSelector(page, null);
@@ -415,6 +513,17 @@ for (const [route, canvas, controls, fullscreen, status] of lessons) {
     await page.screenshot({ path: testInfo.outputPath('selector-result.png') });
     const outcome = await page.locator('[data-action="no-grade"]').boundingBox();
     expect(outcome.y + outcome.height).toBeLessThanOrEqual(viewport.height);
+    const selectedStudent = await page.locator('[data-current-name]').textContent();
+    await page.getByRole('button', { name: 'Minimize student selector', exact: true }).click();
+    await expect(panel).toHaveClass(/is-minimized/);
+    await expect(page.getByRole('button', { name: 'Restore student selector', exact: true })).toBeVisible();
+    await expect(page.locator('#studentSelectorButton')).toHaveAttribute('aria-pressed', 'false');
+    if (!isMobile) await expectLargestCanvas(page, canvas);
+    await page.getByRole('button', { name: 'Restore student selector', exact: true }).click();
+    await expect(panel).not.toHaveClass(/is-minimized/);
+    await expect(page.locator('[data-current-name]')).toHaveText(selectedStudent);
+    await expect(page.locator('[data-action="no-grade"]')).toBeVisible();
+    await expect(page.locator('#studentSelectorButton')).toHaveAttribute('aria-pressed', 'true');
     await page.locator('[data-action="no-grade"]').click();
     await page.keyboard.press('Escape');
     await expect(panel).toBeVisible();

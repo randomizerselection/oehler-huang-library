@@ -780,9 +780,14 @@ window.ALEVEL_SYLLABUS = {
       "outcome": "Distinguish changes in actual output from productive capacity and identify positive and negative output gaps.",
       "retrieve": "Recall equilibrium income and the full-employment benchmark.",
       "teach": "Compare a movement towards capacity with an increase in capacity; connect PPC and actual/potential output diagrams.",
-      "practice": "Interpret an output time series and annotate periods of spare capacity and output above a sustainable level.",
+      "practice": "Use PPC and AD/AS to distinguish actual and potential growth and identify positive and negative output gaps; time-series and percentage practice are optional.",
       "check": "Classify a change as actual growth, potential growth or both and justify the classification.",
-      "followUp": "Write a short comparison of a negative output gap and a fall in potential output."
+      "followUp": "Next actual teaching session: Fiscal expansion and the multiplier, the separate 40-minute continuation linked on the course page. Prepare two paragraphs in class; complete 9708/41 May/June 2026 Q4 afterwards.",
+      "resource": {
+        "label": "Actual growth, potential growth and output gaps slides",
+        "href": "lessons/9-2-1-growth-output-gaps/index.html",
+        "note": "Teacher report, 20 September 2026: one 40-minute lesson covered through gap-measures (slide 20), stopping before fiscal-expansion-section. Fiscal expansion, the multiplier application and the 2026 essay remain untaught. The next prepared 40-minute lesson is Fiscal expansion and the multiplier (lessons/9-2-2-fiscal-expansion-multiplier/index.html), linked on the course page. The original deck retains its prepared continuation and optional material for reference; neither is recorded as taught. Workbook allocations are preserved; insert this continuation before the planned business-cycle session. The separate earlier full-employment essay workshop has no new completion report."
+      }
     },
     {
       "id": "al-006",
@@ -1748,3 +1753,303 @@ window.ALEVEL_SYLLABUS = {
     }
   ]
 };
+
+// Actual semester pacing; original workbook allocations above remain unchanged.
+window.ALEVEL_SYLLABUS.semesterPlan = {
+  "updated": "2026-09-20",
+  "start": "2026-09-21",
+  "deadline": "2027-01-14",
+  "lessonsPerWeek": 2,
+  "minutesPerLesson": 40,
+  "sections": [
+    "9",
+    "10"
+  ],
+  "coreSlots": 25,
+  "reserveSlots": 4,
+  "reviewSlots": 3,
+  "nominalSlots": 32,
+  "weeks": [
+    {
+      "week": 1,
+      "start": "2026-09-21",
+      "slots": [
+        {
+          "kind": "teaching",
+          "title": "Fiscal expansion and the multiplier",
+          "href": "../lessons/9-2-2-fiscal-expansion-multiplier/index.html",
+          "codes": [
+            "9.1.1",
+            "9.1.3",
+            "9.2.2"
+          ]
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-006"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "start": "2026-09-28",
+      "slots": [
+        {
+          "kind": "reserve",
+          "title": "Holiday / disruption reserve"
+        },
+        {
+          "kind": "reserve",
+          "title": "Holiday / disruption reserve"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "start": "2026-10-05",
+      "slots": [
+        {
+          "kind": "reserve",
+          "title": "Holiday / disruption reserve"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-007"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "start": "2026-10-12",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-008"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-009"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "start": "2026-10-19",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-010"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-011"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "start": "2026-10-26",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-012"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-013"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "start": "2026-11-02",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-014"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-015"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "start": "2026-11-09",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-016"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-017"
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "start": "2026-11-16",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-018"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-019"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "start": "2026-11-23",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-020"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-021"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "start": "2026-11-30",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-022"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-023"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "start": "2026-12-07",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-024"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-025"
+        }
+      ]
+    },
+    {
+      "week": 13,
+      "start": "2026-12-14",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-026"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-027"
+        }
+      ]
+    },
+    {
+      "week": 14,
+      "start": "2026-12-21",
+      "slots": [
+        {
+          "kind": "teaching",
+          "lessonId": "al-028"
+        },
+        {
+          "kind": "teaching",
+          "lessonId": "al-029"
+        }
+      ]
+    },
+    {
+      "week": 15,
+      "start": "2026-12-28",
+      "slots": [
+        {
+          "kind": "reserve",
+          "title": "Holiday / disruption reserve"
+        },
+        {
+          "kind": "review",
+          "title": "Paper 3 macro diagnostic and targeted correction"
+        }
+      ]
+    },
+    {
+      "week": 16,
+      "start": "2027-01-04",
+      "slots": [
+        {
+          "kind": "review",
+          "title": "Timed Paper 4 macro-policy essay"
+        },
+        {
+          "kind": "review",
+          "title": "Essay feedback, diagram corrections and policy judgement"
+        }
+      ]
+    }
+  ]
+};
+
+// Coverage reports are not exact teaching dates.
+window.ALEVEL_SYLLABUS.teachingRecords = {
+  "al-001": {
+    "status": "Taught",
+    "reportedOn": "2026-09-10",
+    "note": "The 10 September teacher report confirms the multiplier lesson had been studied. Exact teaching date not recorded."
+  },
+  "al-002": {
+    "status": "Not confirmed",
+    "note": "Prepared deck available; completion and actual teaching date have not been confirmed."
+  },
+  "al-003": {
+    "status": "Not confirmed",
+    "note": "Not yet taught as of the 10 September report; later completion and teaching date need confirmation."
+  },
+  "al-004": {
+    "status": "In progress",
+    "reportedOn": "2026-09-16",
+    "note": "Income-gap theory taught through closing-deflationary-gap, step 4. The essay workshop remains unconfirmed; investment/accelerator completion and exact teaching dates also need confirmation."
+  },
+  "al-005": {
+    "status": "In progress",
+    "reportedOn": "2026-09-20",
+    "note": "One 40-minute class covered through gap-measures (slide 20). Fiscal expansion and the essay were not started. Exact class date needs confirmation; 20 September is the report date."
+  },
+  "fiscal-continuation": {
+    "status": "Planned",
+    "note": "Next 40-minute class, before the business cycle. Prepared, not yet reported as taught."
+  },
+  "full-employment-workshop": {
+    "status": "Planned",
+    "note": "Previously untaught. Set as diagnostic homework during the week beginning 21 September; use reserve/review time if reteaching is needed."
+  }
+};
+window.ALEVEL_SYLLABUS.extraSessions = [
+  {
+    "id": "fiscal-continuation",
+    "title": "Fiscal expansion and the multiplier",
+    "href": "../lessons/9-2-2-fiscal-expansion-multiplier/index.html",
+    "plannedWeek": "2026-09-21",
+    "slot": 1
+  },
+  {
+    "id": "full-employment-workshop",
+    "title": "Full-employment policies: essay workshop",
+    "href": "../lessons/9-1-3-full-employment-essay/index.html",
+    "plannedWeek": "2026-09-21",
+    "homework": true
+  }
+];

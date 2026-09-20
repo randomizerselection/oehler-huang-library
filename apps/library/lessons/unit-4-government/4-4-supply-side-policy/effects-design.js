@@ -37,26 +37,27 @@
   'Effect on price stability':['factory','costs','prices'],
   'Effect on export revenue':['costs','globe','demand','exports'],
   'Effect on import expenditure':['domestic','transfer','costs'],
-  'Growth can improve government finances':['employment','income','tax','balance']
+  'Growth can improve government finances':['employment','income','tax','balance'],
+  'Short-run demand may rise before supply':['factory','demand','prices'],
+  'Skilled workers may emigrate':['skills','globe','tax'],
+  'Tax cuts may not finance new investment':['tax','income','investment']
  };
  // Preserve the teaching relationship: two conditions differ from a sequence or
  // a comparison. The content lives only in slides-lesson-*.js.
  const cardDesigns={
   'When productivity gains do not lower inflation':['paired',['costs','demand']],
-  'Short-run demand may rise before supply':['sequence',['investment','clock']],
   'Skills must match available jobs':['paired',['skills','vacancy']],
-  'Skilled workers may emigrate':['sequence',['skills','globe']],
   'Access affects income distribution':['comparison',['access','access']],
   'Opportunity cost is the alternative forgone':['paired',['tax','hospital']],
-  'Tax cuts may not finance new investment':['sequence',['tax','investment']],
   'Privatisation changes more than ownership':['paired',['balance','access']],
   'Deregulation and flexibility involve trade-offs':['comparison',['factory','protection']],
   'Education can widen the budget deficit first':['comparison',['clock','investment']],
   'Develop both sides of a Discuss answer':['principles',['factory','protection','judgement']],
   'Effect on the current account':['balance',['exports','domestic','balance']],
   'Spending now, benefits later':['timeline',['investment','clock','factory']],
+  'Emigration in practice: the Philippines':['example',[]],
  };
- const summaryIcons={'Growth and employment':'factory','Prices':'prices','Competitiveness':'globe','Explain conditions':'skills','Compare costs and timing':'clock','Discuss both sides':'judgement'};
+ const summaryIcons={'Growth and employment':'factory','Prices':'prices','Competitiveness':'globe','Explain conditions 解释条件':'skills','Compare costs and timing 比较成本与时滞':'clock','Discuss both sides 讨论正反两面':'judgement'};
  const bilingual=element=>{
   if(!element||element.children.length)return;
   const text=element.textContent.trim();
@@ -84,7 +85,7 @@
    if(design){
     slide.classList.add(`ssp-${design[0]}`);
     slide.querySelectorAll('.cardgrid>.card').forEach((card,n)=>{
-     const glyph=document.createElement('div');glyph.className='ssp-card-glyph';glyph.innerHTML=icon(design[1][n]);card.prepend(glyph);
+     if(design[0]!=='example'){const glyph=document.createElement('div');glyph.className='ssp-card-glyph';glyph.innerHTML=icon(design[1][n]);card.prepend(glyph);}
      bilingual(card.querySelector('.cardTitle'));
     });
    }

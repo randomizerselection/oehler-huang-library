@@ -20,11 +20,11 @@ test('combined server serves shared assets and compatibility routes without expo
     app.platformStore.close();
     await rm(dataDir, { recursive: true, force: true });
   });
-  for (const url of ['/', '/econmark/single', '/econmark/batch', '/platform/account-shell.js', '/src/demo-data.js', '/assets/samples/weak.svg', '/student-selector/selector.js', '/student-selector/assets/messages.csv', '/investment-analysis/lessons/1-1-2-measuring-investment-return/SOURCE-NOTES.md', '/investment-analysis/unit-1/lesson-1-archive-price-graph/index.html']) {
+  for (const url of ['/', '/econmark/single', '/econmark/batch', '/platform/account-shell.js', '/src/demo-data.js', '/assets/samples/weak.svg', '/student-selector/selector.js', '/student-selector/assets/messages.csv', '/investment-analysis/lessons/1-1-2-measuring-investment-return/SOURCE-NOTES.md', '/investment-analysis/unit-1/lesson-1/index.html']) {
     const response = await fetch(base + url);
     assert.equal(response.status, 200, url);
   }
-  for (const url of ['/econmark/server/app-server.mjs', '/econmark/prompts/00-shared-guardrails.md', '/econmark/spec/grading-input.schema.json', '/student-selector/assets/students.csv', '/student-selector/tests/harness.html', '/generated/quiz-bank.json', '/references/igcse-economics-definitions-2026.md', '/investment-analysis/AGENTS.md', '/authoring/README.md', '/investment-analysis/%5c..%5cpackage.json', '/bad%ZZ']) {
+  for (const url of ['/econmark/server/app-server.mjs', '/econmark/prompts/00-shared-guardrails.md', '/econmark/spec/grading-input.schema.json', '/student-selector/assets/students.csv', '/student-selector/tests/harness.html', '/generated/quiz-bank.json', '/references/igcse-economics-definitions-2026.md', '/investment-analysis/AGENTS.md', '/investment-analysis/_template/index.html', '/investment-analysis/_archive/personal-finance-course-map-data.js', '/investment-analysis/unit-1/lesson-1-archive-price-graph/index.html', '/investment-analysis/unit-1/lesson-1-generator-comparison-archive-economics/index.html', '/investment-analysis/unit-1/lesson-1-all-types/index.html', '/authoring/README.md', '/investment-analysis/%5c..%5cpackage.json', '/bad%ZZ']) {
     assert.equal((await fetch(base + url)).status, 404, url);
   }
   const selector = await fetch(base + '/selector/', { redirect: 'manual' });

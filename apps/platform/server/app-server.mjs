@@ -18,6 +18,9 @@ import {
   clearSessionCookie,
   clientIp,
   createRateLimiter,
+  filePageCorsHeaders,
+  filePagesAllowed,
+  isFilePageOrigin,
   parseCookies,
   securityHeaders,
   sessionCookie
@@ -81,7 +84,7 @@ function csvCell(value) {
 }
 
 function quizAttemptsCsv(items) {
-  const columns = ["attempt_id", "created_at", "class_name", "display_name", "username", "course_id", "lesson_id", "quiz_id", "quiz_version", "score", "max_score", "percentage"];
+  const columns = ["attempt_id", "created_at", "class_name", "display_name", "student_id", "username", "course_id", "lesson_id", "quiz_id", "quiz_version", "score", "max_score", "percentage"];
   return [columns.join(","), ...items.map((item) => columns.map((column) => csvCell(item[column])).join(","))].join("\r\n");
 }
 
@@ -103,9 +106,12 @@ async function readJson(request, maximumBytes) {
   }
 }
 
-function assertSameOrigin(request) {
+function assertSameOrigin(request, allowFilePages = false) {
   const origin = request.headers.origin;
   if (!origin) return;
+  // Locally opened lesson decks (file://) send Origin: null; allow them only when
+  // file-page access is enabled for this request (loopback hosts by default).
+  if (allowFilePages && isFilePageOrigin(origin)) return;
   try {
     if (new URL(origin).host !== request.headers.host) throw new Error("host mismatch");
   } catch {
@@ -156,6 +162,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
   });
   const loginLimiter = createRateLimiter({ maximum: config.loginAttemptsPer15Minutes, windowMs: 15 * 60 * 1000 });
   const gradeLimiter = createRateLimiter({ maximum: config.gradingRequestsPerHour, windowMs: 60 * 60 * 1000 });
+  const assertRequestOrigin = (request) => assertSameOrigin(request, filePagesAllowed(config, request));
 
   function sessionFromRequest(request) {
     const token = parseCookies(request.headers.cookie)[config.cookieName];
@@ -195,7 +202,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/register/student") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const rate = loginLimiter(clientIp(request));
       if (!rate.allowed) throw new HttpError("Too many registration attempts. Try again later.", "AUTH_RATE_LIMITED", 429);
       const created = await platformStore.registerStudent(await readJson(request, 64 * 1024));
@@ -204,7 +211,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/register/teacher") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const rate = loginLimiter(clientIp(request));
       if (!rate.allowed) throw new HttpError("Too many registration attempts. Try again later.", "AUTH_RATE_LIMITED", 429);
       const created = await platformStore.registerTeacher(await readJson(request, 64 * 1024));
@@ -213,27 +220,27 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/recover") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const rate = loginLimiter(clientIp(request));
       if (!rate.allowed) throw new HttpError("Too many recovery attempts. Try again later.", "AUTH_RATE_LIMITED", 429);
       json(response, 200, await platformStore.recoverAccount(await readJson(request, 64 * 1024)));
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/recovery-code") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       json(response, 200, platformStore.rotateRecoveryCode(session.account.account_id));
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/admin/teacher-invitations") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "admin", { csrf: true });
       json(response, 201, platformStore.createTeacherInvitation(session.account.account_id, await readJson(request, 64 * 1024)));
       return true;
     }
     const adminResetMatch = rawPath.match(/^\/api\/admin\/accounts\/([^/]+)\/reset-password$/);
     if (request.method === "POST" && adminResetMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "admin", { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       json(response, 200, await platformStore.adminResetPassword(session.account.account_id, decodeURIComponent(adminResetMatch[1]), payload.new_password));
@@ -241,7 +248,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const deletionCompleteMatch = rawPath.match(/^\/api\/admin\/privacy\/([^/]+)\/complete$/);
     if (request.method === "POST" && deletionCompleteMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "admin", { csrf: true });
       json(response, 200, await platformStore.completeDeletion(session.account.account_id, decodeURIComponent(deletionCompleteMatch[1])));
       return true;
@@ -265,7 +272,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && ["/api/auth/register", "/api/auth/login"].includes(rawPath)) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const rate = loginLimiter(clientIp(request));
       if (!rate.allowed) throw new HttpError("Too many sign-in attempts. Try again later.", "AUTH_RATE_LIMITED", 429);
       const payload = await readJson(request, 64 * 1024);
@@ -292,14 +299,14 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/logout") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { token } = requireSession(request, { csrf: true });
       accountStore.endSession(token);
       json(response, 200, { authenticated: false }, { "set-cookie": clearSessionCookie(config, request) });
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/auth/password") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       await accountStore.changePassword(session.account.account_id, payload.current_password, payload.new_password);
@@ -308,7 +315,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "PATCH" && rawPath === "/api/account/profile") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       json(response, 200, { account: platformStore.updateProfile(session.account.account_id, await readJson(request, 64 * 1024)) });
       return true;
@@ -319,13 +326,13 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/classes") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 201, platformStore.createClass(session.account.account_id, await readJson(request, 64 * 1024)));
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/classes/join") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "student", { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       json(response, 200, platformStore.joinClass(session.account.account_id, payload.join_code));
@@ -333,14 +340,14 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const classConsentMatch = rawPath.match(/^\/api\/classes\/([^/]+)\/consent-attestation$/);
     if (request.method === "POST" && classConsentMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 200, platformStore.attestClassConsent(session.account.account_id, decodeURIComponent(classConsentMatch[1]), await readJson(request, 64 * 1024)));
       return true;
     }
     const classJoinCodeMatch = rawPath.match(/^\/api\/classes\/([^/]+)\/join-code$/);
     if (request.method === "POST" && classJoinCodeMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 200, platformStore.rotateJoinCode(session.account.account_id, decodeURIComponent(classJoinCodeMatch[1])));
       return true;
@@ -358,7 +365,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && learningAssignmentsMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 201, platformStore.createLearningAssignment(session.account.account_id, decodeURIComponent(learningAssignmentsMatch[1]), await readJson(request, 128 * 1024), contentCatalog));
       return true;
@@ -370,7 +377,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const quizAttemptMatch = rawPath.match(/^\/api\/quizzes\/([^/]+)\/attempts$/);
     if (request.method === "POST" && (quizAttemptMatch || rawPath === "/api/quiz-attempts")) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       const payload = await readJson(request, 256 * 1024);
       const quizId = quizAttemptMatch ? decodeURIComponent(quizAttemptMatch[1]) : String(payload.quiz_id ?? "").trim();
@@ -412,7 +419,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/learning/events/batch") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       const payload = await readJson(request, 512 * 1024);
       json(response, 202, platformStore.recordLearningEvents(session.account.account_id, payload.events));
@@ -441,7 +448,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/selector/sessions") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 201, platformStore.startSelectorSession(session.account.account_id, await readJson(request, 64 * 1024)));
       return true;
@@ -454,14 +461,21 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const selectorEventsMatch = rawPath.match(/^\/api\/selector\/sessions\/([^/]+)\/events\/batch$/);
     if (request.method === "POST" && selectorEventsMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       json(response, 200, platformStore.recordSelectorEvents(session.account.account_id, decodeURIComponent(selectorEventsMatch[1]), await readJson(request, 256 * 1024)));
       return true;
     }
+    const selectorAttendanceMatch = rawPath.match(/^\/api\/selector\/sessions\/([^/]+)\/attendance$/);
+    if (request.method === "POST" && selectorAttendanceMatch) {
+      assertRequestOrigin(request);
+      const { session } = requireRole(request, "teacher", { csrf: true });
+      json(response, 200, platformStore.recordSelectorAttendance(session.account.account_id, decodeURIComponent(selectorAttendanceMatch[1]), await readJson(request, 256 * 1024)));
+      return true;
+    }
     const selectorCompleteMatch = rawPath.match(/^\/api\/selector\/sessions\/([^/]+)\/complete$/);
     if (request.method === "POST" && selectorCompleteMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       json(response, 200, platformStore.completeSelectorSession(session.account.account_id, decodeURIComponent(selectorCompleteMatch[1]), payload.status));
@@ -473,19 +487,43 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       json(response, 200, platformStore.selectorReport(session.account.account_id, decodeURIComponent(selectorReportMatch[1])));
       return true;
     }
+    const homeworkMatch = rawPath.match(/^\/api\/classes\/([^/]+)\/homework$/);
+    if (request.method === "POST" && homeworkMatch) {
+      assertRequestOrigin(request);
+      const { session } = requireRole(request, "teacher", { csrf: true });
+      json(response, 200, platformStore.recordHomeworkSubmissions(session.account.account_id, decodeURIComponent(homeworkMatch[1]), await readJson(request, 256 * 1024)));
+      return true;
+    }
+    const studentOverviewMatch = rawPath.match(/^\/api\/classes\/([^/]+)\/student-overview$/);
+    if (request.method === "GET" && studentOverviewMatch) {
+      const { session } = requireRole(request, "teacher");
+      json(response, 200, platformStore.classStudentOverview(session.account.account_id, decodeURIComponent(studentOverviewMatch[1]), contentCatalog));
+      return true;
+    }
+    if (request.method === "GET" && rawPath === "/api/students/overview") {
+      const { session } = requireRole(request, "teacher");
+      json(response, 200, platformStore.teacherStudentOverview(session.account.account_id, contentCatalog));
+      return true;
+    }
+    const studentProfileMatch = rawPath.match(/^\/api\/students\/([^/]+)\/profile$/);
+    if (request.method === "GET" && studentProfileMatch) {
+      const { session } = requireRole(request, "teacher");
+      json(response, 200, platformStore.studentProfile(session.account.account_id, decodeURIComponent(studentProfileMatch[1]), contentCatalog));
+      return true;
+    }
     if (request.method === "GET" && rawPath === "/api/privacy/export") {
       const { session } = requireSession(request);
       json(response, 200, platformStore.privacyExport(session.account.account_id), { "content-disposition": `attachment; filename="oehler-huang-export-${session.account.account_id}.json"` });
       return true;
     }
     if (request.method === "PATCH" && rawPath === "/api/privacy/correction") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       json(response, 200, platformStore.correctAccount(session.account.account_id, await readJson(request, 64 * 1024)));
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/privacy/deletion-request") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireSession(request, { csrf: true });
       json(response, 202, platformStore.requestDeletion(session.account.account_id, await readJson(request, 64 * 1024)));
       return true;
@@ -509,7 +547,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const decisionMatch = rawPath.match(/^\/api\/runs\/([^/]+)\/decision$/);
     if (request.method === "POST" && decisionMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const runId = decodeURIComponent(decisionMatch[1]);
       const stored = accountStore.getRunForActor(runId, session.account);
@@ -542,7 +580,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/assignments") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       json(response, 201, accountStore.createAssignment(session.account.account_id, payload));
@@ -557,7 +595,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "PATCH" && assignmentMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const payload = await readJson(request, 64 * 1024);
       json(response, 200, accountStore.updateAssignment(decodeURIComponent(assignmentMatch[1]), session.account.account_id, payload));
@@ -565,7 +603,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
     }
     const assignmentActionMatch = rawPath.match(/^\/api\/assignments\/([^/]+)\/(publish|revise|archive)$/);
     if (request.method === "POST" && assignmentActionMatch) {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const assignmentId = decodeURIComponent(assignmentActionMatch[1]);
       const action = assignmentActionMatch[2];
@@ -586,7 +624,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/student/grade") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "student", { csrf: true });
       const rate = gradeLimiter(session.account.account_id);
       if (!rate.allowed) throw new HttpError("This account has reached the configured hourly grading limit.", "GRADING_RATE_LIMITED", 429);
@@ -626,7 +664,7 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
       return true;
     }
     if (request.method === "POST" && rawPath === "/api/grade") {
-      assertSameOrigin(request);
+      assertRequestOrigin(request);
       const { session } = requireRole(request, "teacher", { csrf: true });
       const rate = gradeLimiter(session.account.account_id);
       if (!rate.allowed) throw new HttpError("This account has reached the configured hourly grading limit.", "GRADING_RATE_LIMITED", 429);
@@ -670,6 +708,22 @@ export async function createEconMarkServer({ root = process.cwd(), env = process
   const server = createServer(async (request, response) => {
     const requestUrl = new URL(request.url, "http://localhost");
     let rawPath = requestUrl.pathname;
+    // Lesson decks opened from disk (Origin: null) may call this server on loopback.
+    const filePageCors = filePageCorsHeaders(config, request);
+    if (filePageCors) {
+      const writeHead = response.writeHead.bind(response);
+      response.writeHead = (status, headers = {}) => writeHead(status, { ...filePageCors, ...headers });
+      if (request.method === "OPTIONS") {
+        response.writeHead(204, securityHeaders({
+          "access-control-allow-methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+          "access-control-allow-headers": "content-type, x-csrf-token",
+          "access-control-max-age": "600",
+          "cache-control": "no-store"
+        }));
+        response.end();
+        return;
+      }
+    }
     try {
       rawPath = decodeURIComponent(rawPath);
       if (rawPath.startsWith("/api/") && await apiHandler(request, response, rawPath)) return;

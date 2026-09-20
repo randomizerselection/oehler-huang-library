@@ -26,7 +26,7 @@ The Library is public. Accounts, class rosters, learning records, Student Select
 - `/econmark/teacher` EconMark teacher workspace and quiz gradebook
 - `/api/` platform API
 
-This monorepo is the only active source of truth. Superseded standalone sources and generated artifacts are preserved outside the repository under `C:\Users\oehle\Documents\oehler-huang-legacy-sources`; they are not runtime dependencies.
+This monorepo is the only active source of truth. Superseded standalone sources and generated artifacts are preserved outside the repository under `C:\Users\oehle\Documents\oehler-huang-legacy-sources`; they are not runtime dependencies and their archived server launchers require an explicit opt-in on a non-production port.
 
 Investment and A-level lesson authoring now lives here too. Edit the HTML lessons
 directly in `apps/library/investment-analysis/lessons/` and

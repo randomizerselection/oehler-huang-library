@@ -10,7 +10,7 @@ IGCSE.lesson = {
     "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
     "deliveryPlan": {
       "durationMinutes": 55,
-      "coreEndSlide": 28,
+      "coreEndSlide": 29,
       "status": "Prepared; not evidence of taught coverage"
     }
   },
@@ -23,7 +23,7 @@ IGCSE.lesson = {
       "title": "Limitations and evaluation",
       "zhTitle": "局限与评价",
       "kicker": "Conditions, trade-offs and Discuss questions",
-      "visual": IGCSE.photos.supplySidePolicy.autoMechanicsTraining,
+      "visual": IGCSE.photos.supplySidePolicy.bridgeConstruction,
       "sources": [
         {
           "label": "Course reference",
@@ -154,22 +154,29 @@ IGCSE.lesson = {
     },
     {
       id: 'short-run-demand-may-rise-before-supply',
-      "type": "cards",
+      "type": "flow",
+      "mode": "fillBlanks",
       "eyebrow": "Learn",
       "title": "Short-run demand may rise before supply",
       "zhTitle": "短期内需求可能先于供给增长",
-      "cards": [
-        {
-          "title": "Government spending rises",
-          "body": "Payments for teachers and construction add to total demand."
-        },
-        {
-          "title": "Capacity responds later",
-          "body": "If spare capacity is limited, spending may push up prices before the supply benefit appears."
-        }
-      ],
-      "partialReview": [
-        ".cardgrid > .card"
+      "nodes": [
+        [
+          {
+            "text": "Government spending on teachers and construction __________",
+            "answer": "rises",
+            "zh": "政府为教师与建设付款：支出增加"
+          },
+          {
+            "text": "Total demand increases __________ capacity has fully grown",
+            "answer": "before",
+            "zh": "总需求先于产能充分增长"
+          },
+          {
+            "text": "With limited spare capacity, prices may __________ first",
+            "answer": "rise",
+            "zh": "闲置产能有限时，价格可能先上涨"
+          }
+        ]
       ],
       "sources": [
         {
@@ -183,7 +190,8 @@ IGCSE.lesson = {
           "msPage": 18,
           "extract": "Accepted points: skills attract investment, raise demand and growth; easier employment; lower average costs and inflation; exports; wider access to well-paid work. Limits: extra government spending may raise demand and inflation; skilled workers may emigrate; too few suitable jobs; access restricted to higher incomes may increase inequality."
         }
-      ]
+      ],
+      "notes": "Reveal each blank after students predict it. The final effect is short-run price pressure: the scheme accepts that extra government spending may raise demand and inflation before the supply benefit appears. The condition — limited spare capacity — decides how strong this effect is."
     },
     {
       id: 'skills-must-match-available-jobs',
@@ -221,22 +229,29 @@ IGCSE.lesson = {
     },
     {
       id: 'skilled-workers-may-emigrate',
-      "type": "cards",
+      "type": "flow",
+      "mode": "fillBlanks",
       "eyebrow": "Learn",
       "title": "Skilled workers may emigrate",
       "zhTitle": "技术劳动者可能移居国外",
-      "cards": [
-        {
-          "title": "Publicly funded education",
-          "body": "Workers gain skills and qualifications."
-        },
-        {
-          "title": "Better opportunities abroad",
-          "body": "Some move abroad; the home economy loses part of the expected output and tax benefit."
-        }
-      ],
-      "partialReview": [
-        ".cardgrid > .card"
+      "nodes": [
+        [
+          {
+            "text": "Publicly funded education builds skills and __________",
+            "answer": "qualifications",
+            "zh": "公共资助的教育培养技能与资历"
+          },
+          {
+            "text": "Some workers __________ for better-paid work abroad",
+            "answer": "emigrate",
+            "zh": "部分劳动者移居国外"
+          },
+          {
+            "text": "The home economy loses output and __________",
+            "answer": "tax revenue",
+            "zh": "本国经济损失产出与税收"
+          }
+        ]
       ],
       "sources": [
         {
@@ -252,6 +267,30 @@ IGCSE.lesson = {
         }
       ],
       "notes": "The original scheme accepts emigration as a limit on home-country growth. Do not claim all educated workers emigrate or ignore possible remittances; remittances do not replace the lost domestic labour input."
+    },
+    {
+      id: 'emigration-in-practice-filipino-nurses',
+      "type": "cards",
+      "eyebrow": "Example",
+      "title": "Emigration in practice: the Philippines",
+      "zhTitle": "实例：菲律宾护士外流",
+      "cards": [
+        {
+          "title": "316,000 licensed nurses abroad",
+          "body": "In 2021 the Philippine Department of Health estimated that around 316,000 licensed nurses — about half of the country's total — were working overseas. The home economy loses part of the output and tax revenue its training was expected to create.",
+          "visual": IGCSE.photos.supplySidePolicy.airportDepartures
+        }
+      ],
+      "partialReview": false,
+      "sources": [
+        {
+          "type": "Real-world data",
+          "label": "Real-world data",
+          "ref": "Department of Health (Philippines), 2021 estimate; reported by Re:solve Global Health (2026)",
+          "note": "Around 316,000 licensed nurses — about 51% of the national total — had migrated overseas by 2021. Dated evidence for the emigration limit in 2024ON-21 Q3(d); distinguish this historical estimate from current conditions. Emigrants' remittances and returning skills can offset part of the loss."
+        }
+      ],
+      "notes": "Show the fact immediately. Connect to the previous flow: publicly funded training leaves the country when nurses emigrate. Balance in discussion: remittances, returning experience and possible 'brain gain' if training expands in response to migration opportunities."
     },
     {
       id: 'access-affects-income-distribution',
@@ -333,11 +372,11 @@ IGCSE.lesson = {
       "zhTitle": "机会成本是放弃的次佳选择",
       "cards": [
         {
-          "title": "Limited public funds",
+          "title": "Limited public funds 公共资金有限",
           "body": "Spending on training may mean a planned hospital improvement is not funded."
         },
         {
-          "title": "Compare the alternatives",
+          "title": "Compare the alternatives 比较备选方案",
           "body": "The opportunity cost is the hospital improvement forgone, not simply the money spent."
         }
       ],
@@ -361,22 +400,29 @@ IGCSE.lesson = {
     },
     {
       id: 'tax-cuts-may-not-finance-new-investment',
-      "type": "cards",
+      "type": "flow",
+      "mode": "fillBlanks",
       "eyebrow": "Learn",
       "title": "Tax cuts may not finance new investment",
       "zhTitle": "减税未必转化为新增投资",
-      "cards": [
-        {
-          "title": "Immediate effect 直接影响",
-          "body": "Lower tax rates may reduce government tax revenue."
-        },
-        {
-          "title": "Uncertain response 不确定的反应",
-          "body": "Firms may save retained profits or pay dividends if demand and confidence are weak."
-        }
-      ],
-      "partialReview": [
-        ".cardgrid > .card"
+      "nodes": [
+        [
+          {
+            "text": "A lower tax rate may immediately __________ government revenue",
+            "answer": "reduce",
+            "zh": "较低税率可能直接减少政府税收"
+          },
+          {
+            "text": "With weak demand and confidence, firms may __________ or distribute profits",
+            "answer": "save",
+            "zh": "需求与信心疲软时，企业可能储蓄或分配利润"
+          },
+          {
+            "text": "New investment may not __________",
+            "answer": "rise",
+            "zh": "新增投资未必增加"
+          }
+        ]
       ],
       "sources": [
         {
@@ -435,11 +481,11 @@ IGCSE.lesson = {
       "zhTitle": "放松管制与灵活性的取舍",
       "cards": [
         {
-          "title": "Lower barriers and costs",
+          "title": "Lower barriers and costs 降低门槛与成本",
           "body": "Easier entry and hiring may increase competition, investment and employment."
         },
         {
-          "title": "Protection still matters",
+          "title": "Protection still matters 保护仍然重要",
           "body": "Removing useful safety or environmental rules can increase harm; easier dismissal can reduce job security."
         }
       ],
@@ -596,15 +642,15 @@ IGCSE.lesson = {
       "zhTitle": "充分分析讨论题的正反两面",
       "cards": [
         {
-          "title": "Develop the benefit",
+          "title": "Develop the benefit 分析益处",
           "body": "Explain how the policy changes the economy and helps the aim in the question."
         },
         {
-          "title": "Develop the limitation",
+          "title": "Develop the limitation 分析局限",
           "body": "Explain why the effect may be weaker, delayed or offset by a cost."
         },
         {
-          "title": "Make a conditional judgement",
+          "title": "Make a conditional judgement 作出有条件的判断",
           "body": "Decide which conditions matter most, and use them to answer the question."
         }
       ],
@@ -878,15 +924,15 @@ IGCSE.lesson = {
       "zhTitle": "总结",
       "cards": [
         {
-          "title": "Explain conditions",
+          "title": "Explain conditions 解释条件",
           "body": "Relevant skills, vacancies, access and worker retention affect the result."
         },
         {
-          "title": "Compare costs and timing",
+          "title": "Compare costs and timing 比较成本与时滞",
           "body": "Upfront spending and tax losses can precede uncertain long-run benefits."
         },
         {
-          "title": "Discuss both sides",
+          "title": "Discuss both sides 讨论正反两面",
           "body": "Develop the economic links, then make a judgement answering the exact question."
         }
       ],
@@ -915,6 +961,130 @@ IGCSE.lesson = {
           "extract": "Accepted points: productivity, growth and employment may raise direct and indirect tax revenue; privatisation brings sale revenue and may reduce support for state firms. Limits: education, training and infrastructure cost money; tax cuts may reduce revenue; profitable state firms provide profit income that is lost after sale. The deficit may rise in the short run and fall in the long run. Confusing the budget deficit with a balance of payments deficit fails to analyse this question."
         }
       ]
+    },
+    {
+      id: 'optional-practice',
+      "type": "section",
+      "eyebrow": "Optional · spare time",
+      "title": "Optional practice",
+      "zhTitle": "可选练习",
+      "sources": [
+        {
+          "label": "Course reference",
+          "ref": "0455 syllabus 4.4.1–4.4.3; definitions 2026; supply-side Lessons 1–3",
+          "note": "Teacher explanation or retrieval. See EFFECTS-SOURCES.md for the distinction between original scheme points and teaching applications."
+        }
+      ],
+      "partialReview": false
+    },
+    {
+      id: 'discuss-whether-or-not-a-government-should-increase-its-spen',
+      "type": "exam",
+      "eyebrow": "Optional · exam practice",
+      "title": "Discuss whether or not a government should increase its spending on healthcare. [8]",
+      "prompt": "Optional spare-time practice · 8–10 minutes. Develop how healthcare spending could help the macroeconomic aims; develop the costs and limitations; end with a conditional judgement.",
+      "partialReview": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024MJ-23 Q4(d)",
+          "question": "Discuss whether or not a government should increase its spending on healthcare.",
+          "marks": 8,
+          "qp": "0455_s24_qp_23",
+          "qpPage": 4,
+          "ms": "0455_s24_ms_23",
+          "msPage": 22,
+          "extract": "Accepted points for: prevent illness, disease spread and death rates; may improve productivity; healthcare may be under-consumed (merit good); the poor may be unable to afford healthcare; may increase life expectancy; may increase employment in healthcare; may boost total demand, growth and tax revenue; may reduce unemployment. Against: cost may cause a budget deficit; may require higher taxes; increased spending may cause inflation; opportunity cost, e.g. education; private sector provision may be more efficient; does not guarantee higher quality healthcare."
+        }
+      ],
+      "notes": "Use only if the core lesson finishes early. Allow an independent written attempt before the model. The source controls preserve the exact question and original scheme. This is an original question; the following prose is a teacher model, not an official answer.",
+      "examSpec": {
+        "pattern": "2024MJ-23 Q4(d)"
+      }
+    },
+    {
+      id: 'discuss-whether-or-not-a-government-should-increase-its-spen-2',
+      "type": "modelAnswer",
+      "eyebrow": "Optional · teaching model · benefits",
+      "title": "Discuss whether or not a government should increase its spending on healthcare. [8]",
+      "paragraphs": [
+        "Higher healthcare spending can prevent illness and reduce death rates, raising life expectancy. Healthier workers lose less working time, so productivity may improve. The spending can also increase employment in healthcare and add to total demand, supporting economic growth.",
+        "As a merit good, healthcare may be under-consumed because people undervalue its full benefits, and poorer households may be unable to afford it. Government provision can widen access, and a healthier, higher-earning population may eventually raise tax revenue."
+      ],
+      "answer": "Higher healthcare spending can prevent illness and reduce death rates, raising life expectancy. Healthier workers lose less working time, so productivity may improve. The spending can also increase employment in healthcare and add to total demand, supporting economic growth.\n\nAs a merit good, healthcare may be under-consumed because people undervalue its full benefits, and poorer households may be unable to afford it. Government provision can widen access, and a healthier, higher-earning population may eventually raise tax revenue.",
+      "partialReview": [
+        ".modelAnswerParagraphs > p"
+      ],
+      "links": [
+        "average costs",
+        "export revenue",
+        "import expenditure",
+        "productivity",
+        "tax revenue",
+        "government spending",
+        "suitable jobs",
+        "short run",
+        "long run"
+      ],
+      "showLinkChips": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024MJ-23 Q4(d)",
+          "question": "Discuss whether or not a government should increase its spending on healthcare.",
+          "marks": 8,
+          "qp": "0455_s24_qp_23",
+          "qpPage": 4,
+          "ms": "0455_s24_ms_23",
+          "msPage": 22,
+          "extract": "Accepted points for: prevent illness, disease spread and death rates; may improve productivity; healthcare may be under-consumed (merit good); the poor may be unable to afford healthcare; may increase life expectancy; may increase employment in healthcare; may boost total demand, growth and tax revenue; may reduce unemployment. Against: cost may cause a budget deficit; may require higher taxes; increased spending may cause inflation; opportunity cost, e.g. education; private sector provision may be more efficient; does not guarantee higher quality healthcare."
+        }
+      ],
+      "examSpec": {
+        "pattern": "2024MJ-23 Q4(d)"
+      }
+    },
+    {
+      id: 'discuss-whether-or-not-a-government-should-increase-its-spen-3',
+      "type": "modelAnswer",
+      "eyebrow": "Optional · teaching model · limits and judgement",
+      "title": "Discuss whether or not a government should increase its spending on healthcare. [8]",
+      "paragraphs": [
+        "However, the extra spending has an opportunity cost — the same funds could improve education — and may create or widen a budget deficit or require higher taxes. If the economy is near full capacity, the extra demand may cause inflation, and higher spending does not guarantee better quality healthcare.",
+        "Overall, increased spending is more justified when healthcare is clearly under-consumed and spending is well targeted at prevention and access. Where the budget is already in deficit and capacity is stretched, the case for higher spending is weaker."
+      ],
+      "answer": "However, the extra spending has an opportunity cost — the same funds could improve education — and may create or widen a budget deficit or require higher taxes. If the economy is near full capacity, the extra demand may cause inflation, and higher spending does not guarantee better quality healthcare.\n\nOverall, increased spending is more justified when healthcare is clearly under-consumed and spending is well targeted at prevention and access. Where the budget is already in deficit and capacity is stretched, the case for higher spending is weaker.",
+      "partialReview": [
+        ".modelAnswerParagraphs > p"
+      ],
+      "links": [
+        "average costs",
+        "export revenue",
+        "import expenditure",
+        "productivity",
+        "tax revenue",
+        "government spending",
+        "suitable jobs",
+        "short run",
+        "long run"
+      ],
+      "showLinkChips": false,
+      "sources": [
+        {
+          "label": "Paper 2",
+          "ref": "2024MJ-23 Q4(d)",
+          "question": "Discuss whether or not a government should increase its spending on healthcare.",
+          "marks": 8,
+          "qp": "0455_s24_qp_23",
+          "qpPage": 4,
+          "ms": "0455_s24_ms_23",
+          "msPage": 22,
+          "extract": "Accepted points for: prevent illness, disease spread and death rates; may improve productivity; healthcare may be under-consumed (merit good); the poor may be unable to afford healthcare; may increase life expectancy; may increase employment in healthcare; may boost total demand, growth and tax revenue; may reduce unemployment. Against: cost may cause a budget deficit; may require higher taxes; increased spending may cause inflation; opportunity cost, e.g. education; private sector provision may be more efficient; does not guarantee higher quality healthcare."
+        }
+      ],
+      "examSpec": {
+        "pattern": "2024MJ-23 Q4(d)"
+      }
     }
   ]
 };

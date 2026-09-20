@@ -12,7 +12,7 @@
       if(source.qp){
         list.push({type:'Question paper',ref:source.ref+' · original question',detail:source.question+' ['+source.marks+']',url:'./assets/'+source.qp+'-p'+source.qpPage+'.png'});
         list.push({type:'Mark scheme',ref:source.ref+' · scheme points (summary)',detail:source.extract+'\n\nOpen the original page for the full official wording and level descriptors.',url:'./assets/'+source.ms+'-p'+source.msPage+'.png'});
-      } else list.push({type:'Course reference',ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n')});
+      } else list.push({type:source.type||'Course reference',ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n')});
     }
     if(s.type==='modelAnswer')list.push({type:'Teaching model',ref:'Teacher-written prose, based on the cited original scheme',detail:s.answer});
     if(s.visual?.source)list.push({type:'Photo',ref:s.visual.caption||s.visual.alt,detail:s.visual.credit,url:s.visual.source});

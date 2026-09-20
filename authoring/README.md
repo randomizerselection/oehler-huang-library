@@ -24,7 +24,8 @@ Investment Lesson 2 (Measuring investment return), Lesson 3 (Compound growth),
 A-level 9.1.1 Part 1 (The multiplier), 9.1.1 Part 2 (National income determination), 9.1.2 Part 1 (Components of aggregate demand:
 consumption and saving) and 9.1.2 Part 2 (Investment and the accelerator,
 government spending and net exports), and 9.1.3 Part 1 (Equilibrium income and expenditure gaps)
-and Part 2 (Full-employment policies: essay workshop).
+and Part 2 (Full-employment policies: essay workshop), followed by 9.2.1–9.2.2
+(Actual growth, potential growth and output gaps).
 
 Unlinked lessons and unused lesson types are legacy. Start new HTML lessons from
 the linked course's existing content and renderer, preserve its design identity,

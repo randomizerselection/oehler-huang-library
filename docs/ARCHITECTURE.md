@@ -62,7 +62,8 @@ the same implementation or contract; do not create a universal lesson renderer.
 |---|---|---|
 | Active lesson | Linked from its course landing page | Included in the catalogue and current checks |
 | Draft | New work not yet linked; label it as a draft | Not registered as active; a public HTML file may still have a direct URL |
-| Compatibility content | Old lessons, old course maps, historical Business pages and archive-named lesson folders | Existing eligible public URLs remain available, but are not automatically catalogued |
+| Compatibility content | Stable old lesson and course-map routes that still have useful incoming links | Explicitly eligible URLs remain available, but are not automatically catalogued |
+| Archive/template content | `_archive`, `_template`, archive-named experiments and renderer galleries | Retained locally for reference; excluded from HTTP and release inputs |
 | Private reference/archive | `authoring/`, exact `archive/` directories, textbooks, old deployment sources and research references | Retained locally; excluded from HTTP and release inputs |
 | Generated runtime data | `apps/library/generated/` manifest and quiz bank | Versioned outputs, rebuilt from active sources; quiz bank is server-only |
 | Working output | `tmp/`, `.codex-tmp*/`, reports, caches, classroom exports | Ignored by Git and excluded from releases |
@@ -77,9 +78,11 @@ its catalogue entry. Catalogue removal does not remove the HTML URL or erase dat
 Legacy sources are preserved rather than repeatedly copied into new active trees.
 Consult `authoring/README.md` for the external recovery archive. Do not delete old
 lesson directories merely because their names look obsolete: they may preserve
-historical links. Before relocating a compatibility file, inspect incoming links,
-retain the needed URL/redirect, and verify the affected pages. No archive expiry or
-automatic deletion policy is implied by this architecture.
+historical links. Stable compatibility lessons may remain public, but `_template`,
+`_archive`, archive-named experiments, generator comparisons and all-types galleries
+are local references only. Before relocating a compatibility file, inspect incoming
+links, retain the needed URL or redirect, and verify the affected pages. No archive
+expiry or automatic deletion policy is implied by this architecture.
 
 Existing loose PowerPoint exports in the repository root are pre-consolidation
 working material. New source decks belong under the relevant `authoring/` course;
@@ -107,6 +110,22 @@ The publisher rebuilds content, checks and tests locally, and stops on any faile
 native command before upload. Content generation replaces files atomically so an
 overlay release cannot rewrite a prior release through an inherited hard link.
 Changing source or release policy locally does not deploy it or change DNS.
+
+## Homework automation
+
+`apps/platform/homework/` owns the local QQ/IC3 and DingTalk/S3 integrations.
+Its shared Python controller collects evidence, emits compact agent review packets,
+binds reviewed plans to their inputs, and invokes the existing transactional and
+delivery adapters. Provider-specific class scope, marking rules and transport
+credentials remain separate. See `apps/platform/homework/README.md`.
+
+Private `.platform-data/homework/runtime.json` registers each existing runtime
+directory. Legacy `name-lists/automation` Python paths forward to this source;
+their state and delivery histories remain in place during the compatibility
+transition. There is no second roster, submission database or copied live ledger.
+Transport installations and credentials remain outside the repository. The
+homework source and all runtime artifacts are excluded from HTTP/public releases.
+Run `npm run test:homework` for the isolated Python regression suites.
 
 ## Validation
 

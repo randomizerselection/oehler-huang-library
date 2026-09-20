@@ -15,6 +15,11 @@ function booleanValue(value, fallback = false) {
   return ["1", "true", "yes", "on"].includes(String(value).toLowerCase());
 }
 
+function optionalBoolean(value) {
+  if (value == null || String(value).trim() === "") return null;
+  return ["1", "true", "yes", "on"].includes(String(value).toLowerCase());
+}
+
 function commaSeparated(value, fallback) {
   const values = String(value ?? "")
     .split(",")
@@ -70,11 +75,15 @@ export function resolveAppConfig(env = process.env, root = process.cwd()) {
     gradingRequestsPerHour,
     cookieSecure: booleanValue(env.ECONMARK_COOKIE_SECURE, false),
     cookieName: "oh_session",
+    // Tri-state: OH_ALLOW_FILE_PAGES=1 always allows file:// lesson pages to call the API,
+    // 0 never does, and unset allows it only when the request targets a loopback host.
+    allowFilePages: optionalBoolean(env.OH_ALLOW_FILE_PAGES),
     allowLegacyRegistration: !econmarkPrivate && booleanValue(env.OH_ALLOW_LEGACY_REGISTRATION, false),
     diskWarnPercent: boundedInteger(env.OH_DISK_WARN_PERCENT, 60, 1, 99),
     diskCriticalPercent: boundedInteger(env.OH_DISK_CRITICAL_PERCENT, 70, 1, 99),
     diskUploadStopPercent: boundedInteger(env.OH_DISK_UPLOAD_STOP_PERCENT, 80, 1, 99),
     public: Object.freeze({
+      service_id: "oehler-huang-platform",
       max_file_mb: teacherMaxFileMb,
       student_max_file_mb: studentMaxFileMb,
       teacher_max_file_mb: teacherMaxFileMb,

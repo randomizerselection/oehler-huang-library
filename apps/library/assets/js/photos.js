@@ -1107,6 +1107,20 @@ window.IGCSE = window.IGCSE || {};
       'Wikimedia Commons / Museum of Vojvodinian Slovaks',
       'https://commons.wikimedia.org/wiki/File:Stock_certificate.jpg'
     ),
+    bridgeConstruction: photo(
+      'supply-side-policy',
+      'bridge-construction-dusk.png',
+      'An unfinished concrete motorway bridge under construction at dusk, with cranes and an incomplete span over a river valley.',
+      'AI-generated image (Kimi), September 2026; AI生成 watermark retained',
+      '../../../assets/images/supply-side-policy/bridge-construction-dusk.png'
+    ),
+    airportDepartures: photo(
+      'supply-side-policy',
+      'airport-departures-hall.png',
+      'Travellers with suitcases walking towards a flight departures board in an international airport.',
+      'AI-generated image (Kimi), September 2026; AI生成 watermark retained',
+      '../../../assets/images/supply-side-policy/airport-departures-hall.png'
+    ),
     healthcareWorkforce: fiscalPolicy.healthcare,
     roadwork: fiscalPolicy.roadwork,
     chipsInvestment: fiscalPolicyFacts.chipsForAmerica,

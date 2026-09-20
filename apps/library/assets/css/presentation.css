@@ -1,3 +1,6 @@
+@import url("./lesson-selector-attendance.css");
+@import url("../../../student-selector/assets/selection-stage.css");
+
 /* ============================================================
    Presentation engine — deck, slides, navigation, print, motion
    Depends on theme.css tokens.
@@ -4247,6 +4250,17 @@ h2 .inlineZh {
   box-sizing: border-box;
 }
 
+.lesson-selector-platform-hint {
+  margin: 10px 14px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--field);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .studentSelectorSidePanel button,
 .studentSelectorSidePanel select,
 .studentSelectorSidePanel textarea {
@@ -4265,10 +4279,10 @@ h2 .inlineZh {
 }
 .studentSelectorSidePanel .selector-load-status p { margin: 0 0 8px; }
 
+.studentSelectorPanelMinimize,
 .studentSelectorPanelClose {
   position: absolute;
   top: 10px;
-  right: 10px;
   z-index: 5;
   display: grid;
   place-items: center;
@@ -4283,12 +4297,59 @@ h2 .inlineZh {
   cursor: pointer;
 }
 
+.studentSelectorPanelMinimize {
+  right: 54px;
+  font-size: 20px;
+}
+
+.studentSelectorPanelClose { right: 10px; }
+
+.studentSelectorPanelMinimize:hover,
+.studentSelectorPanelMinimize:focus-visible,
 .studentSelectorPanelClose:hover,
 .studentSelectorPanelClose:focus-visible {
   background: rgba(16, 35, 58, .94);
   outline: 2px solid rgba(255, 209, 102, .62);
   outline-offset: 2px;
 }
+
+.studentSelectorPanelRestore { display: none; }
+
+.studentSelectorSidePanel.is-minimized {
+  inset: 14px 12px auto auto;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.studentSelectorSidePanel.is-minimized > :not(.studentSelectorPanelRestore) { display: none !important; }
+
+.studentSelectorSidePanel.is-minimized .studentSelectorPanelRestore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: rgba(7, 17, 31, .94);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.studentSelectorSidePanel.is-minimized .studentSelectorPanelRestore:hover,
+.studentSelectorSidePanel.is-minimized .studentSelectorPanelRestore:focus-visible {
+  background: rgba(16, 35, 58, .98);
+  outline: 2px solid rgba(255, 209, 102, .62);
+  outline-offset: 2px;
+}
+
+.studentSelectorSidePanel.is-minimized .studentSelectorPanelRestore span:last-child { font-size: 22px; line-height: .7; }
 
 .studentSelectorSidePanel .selector-root {
   min-height: 0;
@@ -4679,7 +4740,7 @@ h2 .inlineZh {
 }
 
 .studentSelectorSidePanel.is-stage-overlay .selector-stage-header {
-  padding-right: 56px;
+  padding-right: 100px;
 }
 
 .studentSelectorSidePanel.is-stage-overlay .selector-stage-header h2 {
@@ -6558,6 +6619,11 @@ body.is-flashcard-mode #deck {
   .studentSelectorSidePanel {
     width: 100vw;
     left: 0;
+  }
+
+  .studentSelectorSidePanel.is-minimized {
+    left: auto;
+    width: auto;
   }
 
   .studentSelectorSidePanel.is-stage-overlay .selector-outcomes {

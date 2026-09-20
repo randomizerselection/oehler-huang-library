@@ -39,3 +39,8 @@ authoring/**/~$*
 **/.gradle/
 **/__pycache__/
 **/*.pyc
+
+# Homework integrations keep private runtime data outside their source tree.
+apps/platform/homework/workflows/*/config.json
+apps/platform/homework/workflows/*/state/
+apps/platform/homework/workflows/*/attachments/

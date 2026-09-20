@@ -1,0 +1,559 @@
+/* Saved attendance is also shown in the dock, outside the full-screen roll call. */
+.studentSelectorSidePanel :is(.selector-attendance-status, .selector-saved-banner) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  border: 1px solid #b9cfc0;
+  border-radius: var(--selector-radius, 6px);
+  background: #eaf2eb;
+  color: #285d38;
+}
+.studentSelectorSidePanel :is(.selector-attendance-status, .selector-saved-banner) > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #397a4b;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.studentSelectorSidePanel :is(.selector-attendance-status, .selector-saved-banner) > div { min-width: 0; }
+.studentSelectorSidePanel :is(.selector-attendance-status, .selector-saved-banner) strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.studentSelectorSidePanel :is(.selector-attendance-status, .selector-saved-banner) small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: inherit;
+}
+
+/* Roll call leaves the utility sidebar and becomes the classroom surface. */
+.studentSelectorSidePanel.is-attendance-active {
+  inset: 0;
+  width: 100vw;
+  border-left: 0;
+  background: var(--paper, #f5f4ef);
+}
+.studentSelectorSidePanel.is-attendance-active .lesson-selector-heading { display: none; }
+.studentSelectorSidePanel.is-attendance-active .studentSelectorPanelRestore { display: none; }
+.studentSelectorSidePanel.is-attendance-active .studentSelectorMount { height: 100dvh; }
+.studentSelectorSidePanel.is-attendance-active .selector-modal.is-attendance {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  padding: 0;
+  background: var(--paper, #f5f4ef);
+}
+
+/* Attendance mirrors the selector view; keep course fonts and tokens. */
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen {
+  display: grid;
+  --muted: #607277;
+  --line: #dce2db;
+  --forest: #286b60;
+  color: #152326;
+  font-family: var(--sans, "Segoe UI", sans-serif);
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  grid-template-rows: auto 3px minmax(0, 1fr) auto;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #f5f4ef;
+  box-shadow: none;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px clamp(22px, 3vw, 48px) 14px;
+  border-bottom: 1px solid #e0e5df;
+  background: #fcfcf8;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header > div {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header > .selector-rollcall-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.studentSelectorSidePanel .selector-attendance-sound { min-height: 40px; padding: 8px 12px; font-size: 13px; }
+.studentSelectorSidePanel .selector-attendance-sound[aria-pressed="true"] { background: #e3eee7; color: #174d45; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-kicker,
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-now,
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading span,
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list > span,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework > span {
+  color: var(--forest);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header strong {
+  color: var(--muted);
+  font-size: 0.82rem;
+  padding-left: 18px;
+  border-left: 1px solid #d7dfd8;
+  font-weight: 500;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen > .selector-attendance-progress {
+  height: 3px;
+  border-radius: 0;
+  background: rgba(155, 180, 176, 0.28);
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-layout {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+  padding: 24px clamp(24px, 5vw, 80px);
+  overflow: auto;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.7fr);
+  align-items: center;
+  gap: 32px;
+  padding: 6px 0 24px;
+  border-bottom: 1px solid #dce2db;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-person { min-width: 0; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity h2 {
+  max-width: 100%;
+  margin: 14px 0 clamp(24px, 5vh, 56px);
+  font-family: var(--sans, "Segoe UI", sans-serif);
+  font-size: clamp(3rem, 5.8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-name-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+  margin: 8px 0 0;
+  max-width: 100%;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-name-row h2 {
+  min-width: 0;
+  margin: 0;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-name-row .selector-homework-badge {
+  display: grid;
+  place-items: center;
+  flex: none;
+  line-height: 1;
+  width: 66px;
+  height: 66px;
+  border: 1px solid #e1e6de;
+  border-radius: 50%;
+  background: #fffefa;
+  font-size: 2.3rem;
+  filter: none;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 16px 0 0;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 6px 12px;
+  border-left: 1px solid #e3e8e1;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats > div:first-child { border-left: 0; padding-left: 0; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats .needs-attention {
+  color: #946014;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats dt {
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats dd {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-caption {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner.is-unknown {
+  border-color: #b6c2c3;
+  background: #eef2f2;
+  color: #4c6063;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner.is-unknown > span {
+  background: #4c6063;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #d5e3d6;
+  border-radius: 12px;
+  background: #edf4eb;
+  padding: 14px 16px;
+  color: #315b3a;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner.has-concerns {
+  border-color: #e9ddc5;
+  background: #faf4e8;
+  color: #704b10;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner > span {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #315b3a;
+  color: white;
+  font-weight: 900;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner.has-concerns > span {
+  background: #bf7c18;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner strong,
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner small {
+  display: block;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-concern-banner small {
+  margin-top: 3px;
+  color: inherit;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-student-insights {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-content: start;
+  align-items: start;
+  gap: 24px;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-card {
+  min-width: 0;
+  border: 1px solid #e0e5dd;
+  border-radius: 16px;
+  background: #fffefa;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(25, 35, 35, 0.025);
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 6px 16px;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading > div { display: contents; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading div > span { grid-column: 1 / -1; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading div > span,
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading div > strong {
+  display: block;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading div > strong {
+  margin-top: 5px;
+  font-family: var(--sans, "Segoe UI", sans-serif);
+  font-size: clamp(2.2rem, 3.5vw, 3.25rem);
+  line-height: 1;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-heading small {
+  max-width: 190px;
+  justify-self: end;
+  color: var(--muted);
+  line-height: 1.4;
+  text-align: right;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-strip {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-strip > div { display: grid; justify-items: center; gap: 6px; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-strip small { color: var(--muted); font-size: 0.72rem; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-meter { height: 5px; margin-top: 16px; border-radius: 9px; background: #e9eee6; overflow: hidden; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-homework-meter > span { display: block; height: 100%; border-radius: inherit; background: #397b70; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-calculation-note { margin-top: 14px; color: var(--muted); font-size: 0.75rem; line-height: 1.5; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-calculation-note summary { cursor: pointer; width: fit-content; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-calculation-note p { margin: 6px 0 0; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-strip span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #e8f3e7;
+  color: #3d6b35;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-history-strip span.is-absent {
+  background: #f7e5df;
+  color: #944733;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list div,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework {
+  min-width: 0;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list strong,
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list small,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework strong,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework small {
+  display: block;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list strong,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework strong {
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-outstanding-list small,
+.studentSelectorSidePanel.is-attendance-active .selector-latest-homework small,
+.studentSelectorSidePanel.is-attendance-active .selector-insight-empty {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-insight-empty {
+  margin-bottom: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  line-height: 1.45;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(500px, 1.2fr);
+  align-items: center;
+  gap: 24px;
+  padding: 16px clamp(22px, 3vw, 48px) 20px;
+  border-top: 1px solid #dce2db;
+  background: #fcfcf8;
+  box-shadow: none;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer .selector-help {
+  margin: 0;
+  text-align: left;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-rollcall-actions {
+  grid-template-columns: 0.8fr 1.2fr 1fr;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-rollcall-actions .selector-button {
+  min-height: 56px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-actions .selector-primary { background: #286b60; border-color: #286b60; color: #fff; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-actions .selector-primary:hover { background: #205a50; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-attendance-absent {
+  border-color: #d98d7a;
+  background: #f5e2dc;
+  color: #873e2c;
+}
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-actions kbd {
+  margin-left: 8px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 2px 6px;
+  opacity: 0.68;
+  font: 700 0.72rem/1.2 "Segoe UI", sans-serif;
+}
+
+
+
+@media (min-width: 921px) and (max-height: 800px) {
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-layout {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-student-insights { gap: 12px; }
+.studentSelectorSidePanel.is-attendance-active .selector-insight-card { padding: 16px; }
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats { margin-top: 12px; }
+}
+
+@media (max-width: 920px) {
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-layout {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 22px;
+    padding-top: 24px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity {
+    justify-content: flex-start;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity h2 {
+    margin: 0;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-name-row {
+    margin: 8px 0 0;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 0;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-homework-stats > div:nth-child(odd) { border-left: 0; padding-left: 0; }
+.studentSelectorSidePanel.is-attendance-active .selector-student-insights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer .selector-help {
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-actions {
+    grid-template-columns: 1fr;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen {
+    padding: 0;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header {
+    padding: 12px 14px 10px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header > div {
+    display: grid;
+    gap: 6px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-header strong { border: 0; padding: 0; }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity { grid-template-columns: 1fr; gap: 18px; padding-bottom: 20px; }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-name-row .selector-homework-badge { width: 52px; height: 52px; font-size: 1.8rem; }
+.studentSelectorSidePanel.is-attendance-active .selector-insight-card { padding: 20px; }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-layout {
+    padding: 18px 14px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-identity h2 {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-student-insights {
+    grid-template-columns: 1fr;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer {
+    padding: 10px 14px 14px;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-footer .selector-help {
+    display: none;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-rollcall-actions {
+    grid-template-columns: 0.72fr 1fr 0.82fr;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-rollcall-actions .selector-button {
+    min-height: 56px;
+    padding-inline: 8px;
+    font-size: 0.92rem;
+  }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-actions kbd {
+    display: none;
+  }
+}
+.studentSelectorSidePanel.is-attendance-active .selector-attendance-progress span { display: block; height: 100%; background: var(--forest); }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-close { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #edf2ef; }
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-close:hover { background: #e0e9e2; }
+
+.studentSelectorSidePanel.is-attendance-active .selector-rollcall-screen .selector-button { cursor: pointer; }
