@@ -66,3 +66,10 @@ the course-card count needed the new eighth lesson, and the old multiplier
 fullscreen check timed out under concurrent load. After updating the count, the
 focused navigation rerun passed all 20 applicable checks (two mobile-only checks
 skipped), including both failures and the new lesson's fullscreen/selector flows.
+# Curriculum status corrected 20 September 2026
+
+This prepared deck is **optional synoptic practice**, not the next compulsory
+lesson. The class already studied the multiplier. Proceed with
+`9-2-3-business-cycle` for 9.2.3; use selected fiscal applications during 9.2.4 and
+revisit the full essay in 10.3.1. The 40-minute workshop route below is retained
+for optional use and is no longer a scheduled core slot.

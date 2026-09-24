@@ -39,6 +39,21 @@ design and interactions.
 
 ## Standing classroom-deck preferences
 
+- A-level business-cycle feedback, 21 September 2026: use a staged visual hook,
+  picture-led syllabus section dividers, specifically related real-world images
+  and sourced data. Present original Paper 4 tasks under “Paper 4 Past Paper
+  Question”, with readable extracts and smaller paper references. Essay sequence:
+  very large original question for copying → concise visual AO structure → model
+  prose. See `authoring/a-level/AGENTS.md` for the full durable guidance.
+
+- A-level sequencing correction (20 September 2026): after growth/output gaps,
+  teach 9.2.3 business-cycle phases, causes and automatic stabilisers, then growth
+  policies, inclusive growth and sustainability. Prior multiplier teaching is
+  retrieval, not another compulsory fiscal/multiplier lesson. Place past-paper
+  questions where their prerequisites are taught; use the newest relevant wording,
+  with short applications early and synoptic essay evaluation later. The fiscal
+  workshop remains optional practice for 9.2.4/10.3.1.
+
 - A-level coverage, 20 September 2026: the 40-minute growth/output-gap lesson ended after `gap-measures` (slide 20), before `fiscal-expansion-section`. Next is the prepared 40-minute `9-2-2-fiscal-expansion-multiplier` continuation, not the business cycle. Keep eight minutes for independent paragraphs; the complete essay is homework/later writing. See `authoring/a-level/planning/TEACHING_PROGRESS.md`; prepared content is not taught coverage.
 
 - A-level diagram axes use English-only labels, without Chinese translations (20 September 2026). This overrides the broader bilingual chart-label preference for axes.
@@ -149,7 +164,11 @@ overrides older conflicting lesson-builder defaults.
 - Student rosters, class memberships, attendance and homework records live in the platform database (`.platform-data/econmark.sqlite`, git-ignored). This replaces the `C:\Users\oehle\Documents\name-lists\outputs\20260910-s3-name-list` Excel workflow; that workbook is a historical snapshot only — do not regenerate spreadsheet name lists as the working copy (17 September 2026).
 - View and manage students through the teacher "学生数据" tab (`/econmark/teacher?tab=students`) or the platform store/API. The student selector, the DingTalk homework checker and future integrations should all read from this shared data pool rather than keeping separate copies.
 - QQ homework submissions (IC3 classes) flow through the same pool: the `qq-ic3` automation at `C:\Users\oehle\Documents\name-lists\automation\qq-ic3\` (NapCatQQ OneBot v11 transport, teacher QQ 1507125549) writes `homework_submissions` with `source='qq'` and links students via `student_integrations(provider='qq', external_id=<QQ number>)` (18 September 2026).
+- Student-selector rewards treat quiz achievement and structured-question completion as separate reasons for praise (20 September 2026). Show the first five students on the latest non-QQ scored assignment plus everyone tied with the fifth student; separately show every submitted/late student on the latest QQ assignment, without using the QQ score. Future IC homework commonly has both records for the same weekend, and both should appear on the classroom reward screen.
+- Ketangpai score exports for IC1, IC2 and IC3 represent grade-wide Economics homework: every numbered class in the grade has the same assignment. Import the selected current columns for every active numbered class, excluding non-Economics classes such as `IC3 Investment`, and let those records drive selector homework symbols. S3 homework remains class/provider-specific and must not use the IC workbook importer (20 September 2026).
 - Homework automation source and shared orchestration now belong to `apps/platform/homework/`. Read its `README.md` and `REVIEW.md` for changes or regular checks. The private `.platform-data/homework/runtime.json` registry preserves existing QQ/S3 runtime directories and delivery histories; legacy Python paths are compatibility launchers. Preserve the Codex S3.3/S3.4, Kimi S3.6, and Kimi QQ class/model boundaries. Run `npm run test:homework` after changes. Do not duplicate or reset live state, or move the running transport/credential stores (19 September 2026).
+- For an explicit S3.6 absence-message and lesson-PDF request, use the implemented fast path in `apps/platform/homework/ABSENCE_FOLLOWUPS.md`. Start with local `status`, then date-scoped `prepare`, review, `authorize` and `send`. Do not turn a routine send into development, run full homework collection/tests, or recreate temporary recovery scripts. The helper handles bounded confirmation/retry checks; uncertain outcomes require recipient-specific evidence (20 September 2026).
+- S3.6 absence messages never attach the lesson PDF to a student's personal message. Post the PDF into the `Economics 5` class group when the group does not already carry it, and tell the student to download it from there, so a PDF the teacher already posted is not duplicated (21 September 2026).
 - Student account credentials live only in git-ignored `authoring/**/outputs/` PRIVATE files. Never commit credentials or `.platform-data/`.
 - Student IDs (`accounts.student_id`) use the school-issued 学号 wherever the name-list workbook provides one (currently S3.3/S3.4/S3.6, 8-digit `2024xxxx`). IC classes had no school IDs in the 20260910 workbook (IC2.2/IC2.3's "Student No." column is class-internal numbering, not a school ID); they keep provisional `STU-####` IDs until the school list is supplied. When a school 学号 becomes available, prefer it over the provisional ID.
 - Administrative/form class is stored separately in `accounts.form_class`. For current eight-digit school IDs, the fifth digit is the form class (`20241025` → class 1, `20244019` → class 4); valid values are 1–6. Course-class membership remains in `class_memberships` because students from several form classes may share one Economics course.

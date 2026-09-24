@@ -72,12 +72,6 @@ IGCSE.flashcards={
       "answer": "immigrants"
     },
     {
-      "id": "population-recall-3",
-      "type": "fillBlank",
-      "prompt": "Better healthcare usually lowers the __________ rate.",
-      "answer": "death"
-    },
-    {
       "id": "population-recall-4",
       "type": "fillBlank",
       "prompt": "Population change = natural increase + net __________.",

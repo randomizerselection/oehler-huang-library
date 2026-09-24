@@ -46,8 +46,8 @@ def schema_version(connection=None):
 
 def require_schema(connection=None):
     version = schema_version(connection)
-    if version < 15:
-        raise RuntimeError(f'Platform database schema v16 is required; found v{version}')
+    if version < 21:
+        raise RuntimeError(f'Platform database schema v21 is required; found v{version}')
     return version
 
 
@@ -106,6 +106,36 @@ def student_by_key(key, connection=None):
     if len(matches) != 1:
         raise ValueError(f'Platform student key is missing or ambiguous: {key}')
     return matches[0]
+
+
+def require_in_scope_student(account_id, class_id=None, connection=None):
+    """Revalidate an active S3.6 membership inside the caller's transaction."""
+    owned = connection is None
+    connection = connection or connect(readonly=True)
+    try:
+        placeholders = ','.join('?' for _ in PLATFORM_CLASSES)
+        parameters = [account_id, *PLATFORM_CLASSES]
+        class_clause = ''
+        if class_id is not None:
+            class_clause = ' AND c.id=?'
+            parameters.append(class_id)
+        rows = connection.execute(f'''
+            SELECT a.id AS account_id,c.id AS class_id,c.name AS class_name,
+                   m.roster_number,si.external_id AS dingtalk_id
+            FROM accounts a
+            JOIN class_memberships m ON m.account_id=a.id
+            JOIN classes c ON c.id=m.class_id
+            LEFT JOIN student_integrations si
+              ON si.account_id=a.id AND si.provider='dingtalk'
+            WHERE a.id=? AND a.role='student' AND a.status='active'
+              AND m.status='active' AND c.name IN ({placeholders}){class_clause}
+        ''', tuple(parameters)).fetchall()
+        if len(rows) != 1:
+            raise ValueError('Absence/reminder recipient is outside the active S3.6 roster')
+        return dict(rows[0])
+    finally:
+        if owned:
+            connection.close()
 
 
 def assignment_metadata(header):

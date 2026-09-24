@@ -1,6 +1,6 @@
 {
   "schema_version": "oehler-huang-quiz-bank/1.0.0",
-  "source_hash": "47768e9c0702e38005b2bf0a0b55fb005df56190a07e43bb25346f9e33fc96c2",
+  "source_hash": "c11f5e16e9ca2a759ec641af7b8733ac52568aaeef95b595881205decc4cdafc",
   "quizzes": [
     {
       "id": "1-1-1-basic-economic-problem",
@@ -317,6 +317,123 @@
           ],
           "answer": 0,
           "explanation": "The sewing machine is a human-made good used in production.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "1-2-2-quantity-quality-factors",
+      "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "1-2-2-quantity-quality-factors",
+      "lesson_title": "Quantity and quality of factors",
+      "title": "Quantity and quality of factors quiz",
+      "description": "Classify changes and explain how the quantity or quality of factors can increase.",
+      "route": "/lessons/unit-1-basic-economic-problem/1-2-factors-of-production/lesson-3/",
+      "source": "lessons/unit-1-basic-economic-problem/1-2-factors-of-production/quiz-lesson-3.js",
+      "questions": [
+        {
+          "id": "quantity-meaning",
+          "type": "multipleChoice",
+          "prompt": "Which change increases the quantity of labour?",
+          "choices": [
+            "Workers complete training.",
+            "More people join the labour force.",
+            "Workers receive better healthcare.",
+            "Workers gain experience."
+          ],
+          "answer": 1,
+          "explanation": "More people joining the labour force increases the number of workers available.",
+          "points": 1
+        },
+        {
+          "id": "land-reclamation",
+          "type": "fillBlank",
+          "prompt": "Creating usable land from the sea is called land __________.",
+          "acceptedAnswers": [
+            "reclamation"
+          ],
+          "explanation": "Land reclamation can increase the quantity of land.",
+          "points": 1
+        },
+        {
+          "id": "capital-quantity",
+          "type": "multipleChoice",
+          "prompt": "A factory buys five additional machines of the same type. What changes?",
+          "choices": [
+            "Quality of labour",
+            "Quantity of capital",
+            "Quality of land",
+            "Quantity of enterprise"
+          ],
+          "answer": 1,
+          "explanation": "Additional machines increase the amount of capital goods.",
+          "points": 1
+        },
+        {
+          "id": "labour-quality",
+          "type": "multipleChoice",
+          "prompt": "Which change is most likely to improve the quality of labour?",
+          "choices": [
+            "Immigration increases.",
+            "More factories open.",
+            "Workers receive job-specific training.",
+            "New oil is discovered."
+          ],
+          "answer": 2,
+          "explanation": "Training develops skills and can raise labour productivity.",
+          "points": 1
+        },
+        {
+          "id": "healthcare-link",
+          "type": "fillBlank",
+          "prompt": "Better healthcare may improve labour quality because healthier workers may take fewer days off __________.",
+          "acceptedAnswers": [
+            "sick",
+            "ill",
+            "work"
+          ],
+          "explanation": "Healthier workers may be absent less often and can produce more.",
+          "points": 1
+        },
+        {
+          "id": "land-quality",
+          "type": "multipleChoice",
+          "prompt": "Which change is most likely to improve the quality of land?",
+          "choices": [
+            "Land reclamation",
+            "Discovery of oil",
+            "Use of fertiliser to raise soil fertility",
+            "A larger labour force"
+          ],
+          "answer": 2,
+          "explanation": "Fertiliser can raise the fertility and productivity of existing land.",
+          "points": 1
+        },
+        {
+          "id": "capital-quality",
+          "type": "fillBlank",
+          "prompt": "Research and development can improve the quality of capital through advances in __________.",
+          "acceptedAnswers": [
+            "technology",
+            "technological progress"
+          ],
+          "explanation": "Better technology can make capital equipment faster, safer or more reliable.",
+          "points": 1
+        },
+        {
+          "id": "two-mark-logic",
+          "type": "multipleChoice",
+          "prompt": "Which answer best explains how education may raise productivity?",
+          "choices": [
+            "Education is important.",
+            "Education costs money.",
+            "Education increases the quantity of land.",
+            "Education develops workers’ skills, enabling each worker to produce more output."
+          ],
+          "answer": 3,
+          "explanation": "A developed explanation links the influence to skills and then to higher output per worker.",
           "points": 1
         }
       ]
@@ -1918,6 +2035,274 @@
           ],
           "answer": 0,
           "explanation": "Desire to save is different from the ability to save.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "3-3-1-choice-of-occupation",
+      "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-3-1-choice-of-occupation",
+      "lesson_title": "Workers: choice of occupation",
+      "title": "Workers: choice of occupation",
+      "description": "Retrieval practice aligned with Cambridge IGCSE Economics 0455 syllabus 3.3.1.",
+      "route": "/lessons/unit-3-decision-makers/3-3-workers/",
+      "source": "lessons/unit-3-decision-makers/3-3-workers/quiz.js",
+      "questions": [
+        {
+          "id": "financial-reward",
+          "type": "multipleChoice",
+          "prompt": "Which is a wage factor affecting occupation choice?",
+          "choices": [
+            "A performance bonus",
+            "Job security",
+            "Working conditions",
+            "Promotion prospects"
+          ],
+          "answer": 0,
+          "explanation": "A performance bonus is money paid to the worker, so it is a financial reward.",
+          "points": 1
+        },
+        {
+          "id": "non-wage-definition",
+          "type": "fillBlank",
+          "prompt": "Job features other than financial rewards are called __________ factors.",
+          "acceptedAnswers": [
+            "non-wage",
+            "non wage",
+            "non-wage factors",
+            "non wage factors"
+          ],
+          "explanation": "Non-wage factors are job features other than financial rewards that influence occupation choice.",
+          "points": 1
+        },
+        {
+          "id": "security",
+          "type": "multipleChoice",
+          "prompt": "A worker chooses a permanent contract rather than a temporary contract. Which factor most directly influenced the choice?",
+          "choices": [
+            "Job security",
+            "Pay / wages",
+            "Overtime pay",
+            "Bonus"
+          ],
+          "answer": 0,
+          "explanation": "A permanent contract may make continued employment and future income more predictable.",
+          "points": 1
+        },
+        {
+          "id": "job-safety-versus-security",
+          "type": "multipleChoice",
+          "prompt": "A roofer chooses a building site with guard rails and safety harnesses. Which non-wage factor most directly influenced the choice?",
+          "choices": [
+            "Working conditions",
+            "Job security",
+            "Promotion prospects",
+            "Working hours"
+          ],
+          "answer": 0,
+          "explanation": "Guard rails and harnesses reduce the risk of injury, so this is job safety and therefore part of working conditions. Job security instead concerns the risk of losing the job.",
+          "points": 1
+        },
+        {
+          "id": "commission",
+          "type": "fillBlank",
+          "prompt": "A car salesperson receives 3% of the value of every sale. This payment is called __________.",
+          "acceptedAnswers": [
+            "commission"
+          ],
+          "explanation": "Commission is pay linked to the value or number of sales made.",
+          "points": 1
+        },
+        {
+          "id": "location",
+          "type": "multipleChoice",
+          "prompt": "A worker accepts lower pay to work close to an elderly parent. Which non-wage factor is most important?",
+          "choices": [
+            "Location and nearness to family",
+            "Performance bonus",
+            "Overtime rate",
+            "Commission rate"
+          ],
+          "answer": 0,
+          "explanation": "The worker values location and nearness to family more than the higher pay forgone.",
+          "points": 1
+        },
+        {
+          "id": "promotion",
+          "type": "fillBlank",
+          "prompt": "The chance to move into a more senior role is described as a __________ prospect.",
+          "acceptedAnswers": [
+            "promotion",
+            "career progression",
+            "progression"
+          ],
+          "explanation": "Promotion prospects concern the opportunity to move to a more senior role.",
+          "points": 1
+        },
+        {
+          "id": "fringe-benefit",
+          "type": "multipleChoice",
+          "prompt": "Which is most clearly a fringe benefit?",
+          "choices": [
+            "A company car",
+            "An hourly wage",
+            "Overtime pay",
+            "A cash bonus"
+          ],
+          "answer": 0,
+          "explanation": "A company car is a non-cash benefit provided in addition to ordinary pay.",
+          "points": 1
+        },
+        {
+          "id": "different-choices",
+          "type": "fillBlank",
+          "prompt": "Two workers may choose different jobs because they give different __________ to wage and non-wage factors.",
+          "acceptedAnswers": [
+            "importance",
+            "weight",
+            "priority",
+            "priorities"
+          ],
+          "explanation": "Workers have different circumstances and priorities, so the same job features may lead to different choices.",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "id": "3-3-2-wage-determination",
+      "version": "1.0.0",
+      "course_id": "economics",
+      "course_title": "Cambridge IGCSE Economics 0455",
+      "lesson_id": "3-3-2-wage-determination",
+      "lesson_title": "Workers: wage determination",
+      "title": "Workers: wage determination",
+      "description": "Retrieval practice for Cambridge IGCSE Economics 0455 syllabus 3.3.2.",
+      "route": "/lessons/unit-3-decision-makers/3-3-workers/lesson-2/",
+      "source": "lessons/unit-3-decision-makers/3-3-workers/quiz-lesson-2.js",
+      "questions": [
+        {
+          "id": "employer-side",
+          "type": "multipleChoice",
+          "prompt": "In a labour market, who demands labour?",
+          "choices": [
+            "Employers",
+            "Workers",
+            "Trade unions",
+            "Applicants"
+          ],
+          "answer": 0,
+          "explanation": "Employers demand workers to help produce goods and services.",
+          "points": 1
+        },
+        {
+          "id": "derived-demand",
+          "type": "multipleChoice",
+          "prompt": "Demand for bread rises. What is the most direct effect on bakeries’ demand for bakers?",
+          "choices": [
+            "It may increase",
+            "It must decrease",
+            "It is unchanged",
+            "It becomes the supply of labour"
+          ],
+          "answer": 0,
+          "explanation": "Higher product demand can make firms want to produce more, increasing derived demand for labour.",
+          "points": 1
+        },
+        {
+          "id": "labour-supply",
+          "type": "fillBlank",
+          "prompt": "Workers offer their labour on the __________ side of the labour market.",
+          "acceptedAnswers": [
+            "supply",
+            "labour supply",
+            "supply of labour"
+          ],
+          "explanation": "Workers supply labour; employers demand it.",
+          "points": 1
+        },
+        {
+          "id": "equilibrium",
+          "type": "multipleChoice",
+          "prompt": "Demand for workers rises while labour supply is unchanged. What happens at the new equilibrium?",
+          "choices": [
+            "Wage and employment rise",
+            "Wage and employment fall",
+            "Wage falls and employment rises",
+            "Nothing changes"
+          ],
+          "answer": 0,
+          "explanation": "A rightward shift of labour demand raises both the equilibrium wage and quantity of labour employed.",
+          "points": 1
+        },
+        {
+          "id": "trade-union",
+          "type": "multipleChoice",
+          "prompt": "What is collective bargaining?",
+          "choices": [
+            "A union negotiating with employers for its members",
+            "Each worker negotiating alone",
+            "A government fixing every wage",
+            "Firms setting product prices together"
+          ],
+          "answer": 0,
+          "explanation": "Collective bargaining is negotiation by workers’ representatives on behalf of members.",
+          "points": 1
+        },
+        {
+          "id": "bargaining",
+          "type": "multipleChoice",
+          "prompt": "A hospital has one specialist applicant for several vacancies. What is the likely effect on the applicant’s bargaining power?",
+          "choices": [
+            "It may strengthen",
+            "It must disappear",
+            "It becomes irrelevant",
+            "It is always unchanged"
+          ],
+          "answer": 0,
+          "explanation": "A scarce suitable worker may have stronger bargaining power because the employer has fewer alternatives.",
+          "points": 1
+        },
+        {
+          "id": "wage-floor",
+          "type": "fillBlank",
+          "prompt": "A government-set legal wage floor is a __________ wage.",
+          "acceptedAnswers": [
+            "minimum",
+            "minimum wage",
+            "national minimum"
+          ],
+          "explanation": "The minimum wage is the lowest wage employers may legally pay.",
+          "points": 1
+        },
+        {
+          "id": "binding-floor",
+          "type": "multipleChoice",
+          "prompt": "A minimum wage above equilibrium can create which labour-market outcome?",
+          "choices": [
+            "Labour supplied exceeds labour demanded",
+            "Labour demanded always rises",
+            "Labour supplied becomes zero",
+            "All workers remain employed"
+          ],
+          "answer": 0,
+          "explanation": "At a binding floor, more workers may seek jobs than firms wish to hire.",
+          "points": 1
+        },
+        {
+          "id": "nonbinding-floor",
+          "type": "multipleChoice",
+          "prompt": "A legal minimum wage is below the wage firms already pay. What does the simple labour-market model predict?",
+          "choices": [
+            "No direct change in equilibrium pay or employment",
+            "Certain unemployment",
+            "No workers offer labour",
+            "All firms must raise pay"
+          ],
+          "answer": 0,
+          "explanation": "The minimum does not bind because the market wage already exceeds it.",
           "points": 1
         }
       ]

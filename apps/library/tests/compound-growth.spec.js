@@ -33,7 +33,7 @@ test('@smoke compound concepts: truthful chart scales and mechanism-before-defin
   expect(source).not.toMatch(/NS&I|NAMING THE PATTERN/);
   expect(number('returns-build-on-returns')).toBeLessThan(number('definition-compounding'));
   expect(slides.some(slide => slide.id === 'definition-future-value')).toBe(false);
-  expect(number('rate-comparison')).toBeLessThan(number('definition-assumed-return'));
+  expect(slides.some(slide => slide.id === 'definition-assumed-return')).toBe(false);
   expect(number('future-value-formula')).toBe(number('section-future-value') + 1);
   expect(number('future-goal-pause')).toBeGreaterThan(number('section-future-value'));
   expect(slides.some(slide => slide.id === 'reinvestment-choice')).toBe(false);
@@ -49,7 +49,7 @@ test('@smoke compound concepts: truthful chart scales and mechanism-before-defin
   expect(heights[7]/heights[6]).toBeCloseTo(.331);
   await page.keyboard.press('ArrowLeft');
   await expect(slide.locator('.growth-stage.is-visible')).toHaveCount(3);
-  for(const id of ['definition-compounding','definition-reinvestment','definition-assumed-return']) {
+  for(const id of ['definition-compounding','definition-reinvestment']) {
     const definition=await open(page,id);
     await expect(definition.locator('[lang="zh-CN"]')).toBeVisible();
     await expect(definition.locator('.term-label')).toHaveCount(0);
@@ -60,46 +60,6 @@ test('@smoke compound concepts: truthful chart scales and mechanism-before-defin
   await expect(formula.locator('.formula-term').first()).toBeVisible();
   await expect(formula.locator('.formula-term').first()).toContainText('principal + growth');
   await expect(formula.locator('.formula-term').first().locator('[lang="zh-CN"]').last()).toHaveText('期末总金额＝本金＋增长额');
-});
-
-test('@smoke historical asset evidence preserves staged results and sourced growth paths', async ({page}) => {
-  await page.setViewportSize({width:1280,height:720});
-  for (const id of ['historical-returns-us','historical-returns-china']) {
-    const slide = await open(page,id);
-    await expect(slide.locator('.history-result.is-visible')).toHaveCount(0);
-    await expect(slide.locator('.history-card img')).toHaveCount(3);
-    for(let n=1;n<=3;n++) {
-      await page.keyboard.press('ArrowRight');
-      await expect(slide.locator('.history-result.is-visible')).toHaveCount(n);
-    }
-    await expect(slide.locator('.history-rate > strong')).toHaveCount(3);
-    const bounds=await slide.evaluate(el=>({cardBottom:Math.max(...[...el.querySelectorAll('.history-card')].map(e=>e.getBoundingClientRect().bottom)), footerTop:el.querySelector('.history-footer').getBoundingClientRect().top}));
-    expect(bounds.cardBottom).toBeLessThan(bounds.footerTop);
-  }
-  const us=slides.find(s=>s.id==='historical-returns-us');
-  const endpoints=[[139341.42,1157598.95],[4331.30,7752.88],[2110.47,21025.41]];
-  us.items.forEach((item,i)=>expect(item.rate).toBeCloseTo(100*((endpoints[i][1]/endpoints[i][0])**(1/21)-1),2));
-  for (const country of ['us','china']) {
-    expect(number(`historical-growth-${country}`)).toBe(number(`historical-returns-${country}`)+1);
-    const data=slides.find(s=>s.id===`historical-growth-${country}`);
-    expect(data.years).toHaveLength(22);
-    expect(data.years[0]).toBe(2004);
-    expect(data.years.at(-1)).toBe(2025);
-    expect(data.min).toBe(0);
-    expect(data.max).toBe(11000);
-    for (const series of data.series) {expect(series.values).toHaveLength(22);expect(series.values[0]).toBe(1000);}
-    const chart=await open(page,data.id);
-    await expect(chart.locator('.concept-series > path')).toHaveCount(3);
-    await expect(chart.locator('.chart-end-label')).toHaveCount(3);
-    await expect(chart.locator('.concept-series circle')).toHaveCount(66);
-  }
-  const china=slides.find(s=>s.id==='historical-growth-china');
-  expect(china.series.map(s=>s.values.at(-1))).toEqual([7000,2450,8260]);
-  expect(china.series[0].values[3]).toBe(5620);
-  expect(china.series[0].values[4]).toBe(1930);
-  const usa=slides.find(s=>s.id==='historical-growth-us');
-  expect(usa.series[0].values[4]).toBeLessThan(usa.series[0].values[3]);
-  expect(usa.series[1].values[18]).toBeLessThan(usa.series[1].values[17]);
 });
 
 test('@smoke comparison adds exactly one year per click and reverses without leaking future balances', async ({page}) => {
@@ -134,18 +94,12 @@ test('@smoke historical growth and student cases have consistent evidence and co
   await interest.locator('summary').click();
   await expect(interest.locator('.retrieval-equation')).toHaveCount(4);
   await expect(interest.locator('.retrieval-equation').last()).toContainText('¥110.25');
-  const lin = await open(page, 'extra-lin-table');
-  await expect(lin.locator('.retrieval-table')).not.toBeVisible();
-  await lin.locator('summary').click();
-  await expect(lin.locator('.retrieval-table tbody tr')).toHaveCount(3);
-  await expect(lin.locator('.retrieval-table tbody tr').last()).toContainText('¥2,315.25');
-  await expect(lin.locator('.retrieval-answer')).toContainText('¥2,431.01');
-  expect(number('rate-comparison')).toBe(number('section-projections') + 1);
-  expect(number('extra-lin-table')).toBeGreaterThan(number('final-check'));
-  expect(number('extra-changing-returns')).toBe(number('extra-lin-table') + 1);
-  expect(slides.some(s => ['smg-projection-task','microsoft-real-return-path','horizon-practice'].includes(s.id))).toBe(false);
-  const rates = await open(page, 'rate-comparison');
-  await expect(rates.locator('.chart-target')).toContainText('¥2,400');
+  expect(number('summary-compound-growth')).toBe(number('mcq-exponent') + 1);
+  expect(slides.some(s => ['section-projections','rate-comparison','historical-returns-us','extra-lin-table'].includes(s.id))).toBe(false);
+  const summary = await open(page, 'summary-compound-growth');
+  await expect(summary.locator('.retrieval-answer > div')).not.toBeVisible();
+  await summary.locator('summary').click();
+  await expect(summary.locator('.retrieval-answer')).toContainText('¥1,331');
 });
 
 test('@smoke retrieval hides methods until requested and preserves mathematical notation', async ({page}) => {

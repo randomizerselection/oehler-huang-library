@@ -108,6 +108,23 @@ def parse_message_time(value):
     return dt.datetime.strptime(value, '%Y-%m-%d %H:%M:%S').replace(tzinfo=TZ)
 
 
+def validate_closed_decision(decision, message, snapshot):
+    """Require a later human teacher reply in the same conversation."""
+    answer_id = decision.get('answeredByMessageId')
+    if not answer_id:
+        raise ValueError('Closed conversation decision needs answeredByMessageId')
+    conversation_id = message.get('conversationId')
+    conversations = snapshot.get('result', {}).get('conversationMessagesList', [])
+    conversation = next((item for item in conversations
+                         if item.get('openConversationId') == conversation_id), None)
+    reply = next((item for item in (conversation or {}).get('messages', [])
+                  if (item.get('openMessageId') or item.get('messageId')) == answer_id), None)
+    if (not reply or reply.get('senderOpenDingTalkId') != CONFIG['selfOpenDingTalkId']
+            or parse_message_time(reply.get('createTime', '1970-01-01 00:00:00'))
+            <= parse_message_time(message['time'])):
+        raise ValueError('Closed conversation must reference a later teacher reply in the same chat')
+
+
 def media_evidence(message_id):
     path = ROOT / 'state' / 'media.json'
     records = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
@@ -152,6 +169,8 @@ def verified_student(decision, message, students):
 
 def prepare():
     batch, decisions = load('pending.json'), load('decisions.json')
+    snapshot = load('latest-response.json') if any(
+        decision.get('action') == 'closed' for decision in decisions) else None
     if batch.get('complete') is not True or not batch.get('batchId') or not batch.get('snapshotDigest'):
         raise RuntimeError('Pending evidence is not a complete durable fetch batch')
     name_path = ROOT / 'state' / 'english-name-decisions.json'
@@ -184,9 +203,12 @@ def prepare():
     with connect(readonly=True) as db:
         plan['schemaVersion'] = require_schema(db)
         for decision in decisions:
-            if decision['action'] not in ('submitted', 'needs_work', 'ignore', 'pending', 'out_of_scope'):
+            if decision['action'] not in ('submitted', 'needs_work', 'ignore', 'pending', 'out_of_scope', 'closed'):
                 raise ValueError('Unknown decision action')
             message = known[decision['messageId']]
+            if decision['action'] == 'closed':
+                validate_closed_decision(decision, message, snapshot)
+                continue
             sender_classes = set(classify_dingtalk_senders([message.get('senderId')], connection=db).get(message.get('senderId'), []))
             in_scope_sender = bool(sender_classes.intersection(PLATFORM_CLASSES))
             if decision['action'] == 'out_of_scope':

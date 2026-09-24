@@ -20,7 +20,8 @@ HERE = Path(__file__).resolve().parent
 REAL_DIR = HERE.parent
 SCRIPTS = ['fetch.py', 'platform_db.py', 'update.py', 'receipts.py',
            'working_followups.py', 'english_name_ack.py', 'reply_queue.py',
-           'personal_requests.py', 'run_guard.py', 'media.py', 'reminders.py']
+           'personal_requests.py', 'run_guard.py', 'media.py', 'reminders.py',
+            'absence_followups.py', 'absence_delivery.py', 'absence_receipts.py']
 MODULES = [s[:-3] for s in SCRIPTS]
 
 TZ = dt.timezone(dt.timedelta(hours=8))
@@ -62,8 +63,17 @@ def build_db(path):
         CREATE TABLE homework_submission_events (id TEXT PRIMARY KEY,
             homework_submission_id TEXT, event_type TEXT, provider TEXT,
             external_message_id TEXT, occurred_at TEXT, evidence_json TEXT, recorded_at TEXT);
+        CREATE TABLE selector_attendance_log (id TEXT PRIMARY KEY, session_id TEXT,
+            class_id TEXT, student_account_id TEXT, status TEXT, lesson_content_id TEXT,
+            marked_at TEXT, recorded_at TEXT);
+        CREATE TABLE absence_followups (attendance_log_id TEXT PRIMARY KEY, provider TEXT,
+            status TEXT, recipient_external_id TEXT, outbound_message_id TEXT,
+            conversation_id TEXT, message_text TEXT, lesson_pdf_name TEXT,
+            lesson_pdf_sha256 TEXT, sent_at TEXT, response_message_id TEXT,
+            reason_text TEXT, responded_at TEXT, updated_at TEXT,
+            absence_start_date TEXT, absence_end_date TEXT, reason_category TEXT);
     ''')
-    connection.execute('PRAGMA user_version=18')
+    connection.execute('PRAGMA user_version=21')
     connection.executemany('INSERT INTO classes VALUES (?,?,?)',
                            [(CLASS_S36, 'S3.6', OWNER), (CLASS_S33, 'S3.3', OWNER)])
     connection.executemany('INSERT INTO accounts VALUES (?,?,?,?,?,?,?,?,?)', [
@@ -109,6 +119,85 @@ def homework_row(db_path, student=EMMA):
     return dict(row) if row else None
 
 
+LESSON_SLUG = '9-2-1-growth-output-gaps'
+LESSON_TITLE = 'Actual growth, potential growth and output gaps'
+LESSON_CONTENT_ID = ('C::Users:oehle:Documents:oehler-huang-platform:apps:library:a-level:lessons:'
+                     + LESSON_SLUG)
+LESSON_GROUP_TITLE = 'Economics 5'
+LESSON_GROUP_ID = 'cid-fixture-econ5'
+LESSON_MARKED_AT = '2026-09-20T05:57:50.771Z'
+
+
+def write_lesson_assets(fixture, slug=LESSON_SLUG, title=LESSON_TITLE):
+    manifest = fixture.tmp / 'apps' / 'library' / 'generated' / 'content-manifest.json'
+    manifest.parent.mkdir(parents=True, exist_ok=True)
+    manifest.write_text(json.dumps({'items': [
+        {'id': 'a-level:lessons:' + slug, 'title': title + ' · A Level Economics'}]}), encoding='utf-8')
+    pdf = fixture.tmp / 'authoring' / 'a-level' / 'outputs' / 'pdf' / (slug + '.pdf')
+    pdf.parent.mkdir(parents=True, exist_ok=True)
+    pdf.write_bytes(b'%PDF-1.4 fixture lesson\n')
+    return pdf
+
+
+def default_scenario(**overrides):
+    """Group-search defaults, so a later scenario reset still resolves the lesson group."""
+    scenario = {
+        'groupSearch': [{'cursor': '0', 'hasMore': False, 'groups': [
+            {'title': LESSON_GROUP_TITLE, 'openConversationId': LESSON_GROUP_ID, 'memberCount': 37}]}],
+        'messageSearch': [{'cursor': '0', 'hasMore': False, 'conversations': []}],
+    }
+    scenario.update(overrides)
+    return scenario
+
+
+def group_missing():
+    return {'groupSearch': [{'cursor': '0', 'hasMore': False, 'groups': []}]}
+
+
+def group_has_pdf(name, group_id=LESSON_GROUP_ID, message_id='group-card-1'):
+    """A message-search page showing the lesson PDF already posted in the group."""
+    return {'messageSearch': [{'cursor': '0', 'hasMore': False, 'conversations': [
+        {'openConversationId': group_id, 'singleChat': False, 'title': LESSON_GROUP_TITLE,
+         'messages': [{'openMessageId': message_id, 'createTime': '2026-09-20 09:00:00',
+                       'sender': 'Samuel Oehler-Huang', 'senderOpenDingTalkId': 'SELF',
+                       'content': f'[文件] {name} fileId: FILE1 注意：如需下载使用dws drive download命令下载',
+                       'resources': [{'resourceId': 'FILE1', 'resourceIdType': 'fileId',
+                                      'resourceType': 'file', 'url': 'url'}]}]}]}]}
+
+
+def insert_absence(db_path, student, status='absent', log_id='attlog-1', session_id='session-1',
+                   lesson_content_id=LESSON_CONTENT_ID, marked_at=LESSON_MARKED_AT,
+                   class_id=CLASS_S36, followup=None):
+    connection = sqlite3.connect(db_path)
+    connection.execute('INSERT OR REPLACE INTO selector_attendance_log VALUES (?,?,?,?,?,?,?,?)',
+                       (log_id, session_id, class_id, student['accountId'], status,
+                        lesson_content_id, marked_at, marked_at))
+    if followup is not None:
+        connection.execute('''INSERT OR REPLACE INTO absence_followups
+            (attendance_log_id,provider,status,recipient_external_id,conversation_id,message_text,
+             sent_at,updated_at) VALUES (?,?,?,?,?,?,?,?)''',
+            (log_id, 'dingtalk', followup.get('status', 'sent'),
+             followup.get('recipient_id', student['dingtalkId']), followup.get('conversation_id'),
+             followup.get('message'), followup.get('sent_at'), followup.get('sent_at')))
+    connection.commit()
+    connection.close()
+
+
+def unlink_dingtalk(db_path, student):
+    connection = sqlite3.connect(db_path)
+    connection.execute('DELETE FROM student_integrations WHERE account_id=?', (student['accountId'],))
+    connection.commit()
+    connection.close()
+
+
+def absence_followup_row(db_path, log_id='attlog-1'):
+    connection = sqlite3.connect(db_path)
+    connection.row_factory = sqlite3.Row
+    row = connection.execute('SELECT * FROM absence_followups WHERE attendance_log_id=?', (log_id,)).fetchone()
+    connection.close()
+    return dict(row) if row else None
+
+
 def build_workspace(test, scenario=None):
     """Create a temp workspace; registers cleanup on the TestCase."""
     tmp = Path(tempfile.mkdtemp(prefix='s36-test-'))
@@ -119,6 +208,7 @@ def build_workspace(test, scenario=None):
     for script in SCRIPTS:
         shutil.copy(REAL_DIR / script, ws / script)
     shutil.copy(REAL_DIR.parents[1] / 'student_messages.py', ws / 'student_messages.py')
+    shutil.copy(REAL_DIR.parents[1] / 'absence_periods.py', ws / 'absence_periods.py')
     (ws / 'assignments.json').write_text(json.dumps(FIXTURE_ASSIGNMENTS), encoding='utf-8')
     shutil.copy(HERE / 'mock_cli.py', ws / 'mock_cli.py')
     cli_cmd = ws / 'mock-cli.cmd'
@@ -138,7 +228,7 @@ def build_workspace(test, scenario=None):
     env = dict(os.environ, MOCK_SCENARIO=str(scenario_path), MOCK_LOG_DIR=str(logs))
     fixture = SimpleNamespace(tmp=tmp, ws=ws, state=ws / 'state', db=db_path,
                               scenario_path=scenario_path, logs=logs, env=env)
-    set_scenario(fixture, scenario or {})
+    set_scenario(fixture, default_scenario(**(scenario or {})))
     return fixture
 
 

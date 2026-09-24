@@ -1,33 +1,80 @@
 # A-level teaching progress
 
-Teacher reports take precedence over the original workbook pacing. Prepared
-slides are not evidence of teaching. Do not change the source workbooks or infer
-completion of an earlier lesson from the order in which new decks were prepared.
+Teacher-confirmed coverage overrides prepared slide counts and workbook pacing.
 
-## Latest report: 20 September 2026
+## Confirmed position: 20 September 2026
 
-- Lesson: Actual growth, potential growth and output gaps.
-- Actual time: 40 minutes.
-- Completed through `gap-measures`, slide 20, including Output gaps and expenditure gaps.
-- Not started: `fiscal-expansion-section`, Fiscal expansion and the multiplier (slide 21).
-- Still untaught: the fiscal application, 2026 essay workshop and later optional material.
-- Next actual session: [Fiscal expansion and the multiplier](../../../apps/library/a-level/lessons/9-2-2-fiscal-expansion-multiplier/index.html), prepared as one 40-minute continuation. Its 17-slide core ends with Summary; six complete-model slides and the full essay assignment follow.
-- The original 61-slide growth deck is retained as a reference. Use the new continuation for the next class, rather than treating its pre-existing later slides as already covered.
-- Business-cycle teaching follows the continuation. Original `al-005`/`al-006` workbook allocations remain intact; this additional actual session is recorded here instead of silently reallocating syllabus time.
+The teacher reported two classes in week 1 (1–4 September), two in week 2
+(7–11 September), two in week 3 (14–18 September), and one taught today in
+week 4 (20–24 September): seven completed classes. The second class of week 3
+was explicitly confirmed as the full-employment essay workshop.
 
-## Earlier unresolved coverage
+The earlier six classes are mapped by teaching sequence to these weekly windows:
 
-The 16 September report stopped the income/expenditure-gap lesson at
-`closing-deflationary-gap`, reveal step 4. The separate full-employment essay
-workshop was untaught then; no later report confirms its completion.
+| Teaching week | Classes | Coverage |
+| --- | --- | --- |
+| 1: 1–4 September | 2 | Multiplier; national income determination |
+| 2: 7–11 September | 2 | Consumption/saving; investment and accelerator |
+| 3: 14–18 September | 2 | Income-gap theory; full-employment essay workshop |
+| 4: 20–24 September | 1 taught, 1 planned | Growth/output-gap theory on 20 September; business cycle next |
 
-## Semester target confirmed 20 September 2026
+Exact dates for weeks 1–3 were not supplied. Preserve weekly precision rather
+than fabricating class dates. Reference lesson al-004 spans two actual theory
+classes across weeks 2–3; the essay workshop has a separate teaching record.
+The latest confirmation supersedes the earlier untaught essay-workshop report.
 
-- Two 40-minute lessons per week; semester ends around 14 January 2027.
-- Complete sections 9–10 (the macroeconomy and government macroeconomic intervention) by then. Section 11 follows later.
-- Forward budget: 16 full week windows, 21 September–10 January, provide 32 nominal slots. Allocate 25 to teaching (the fiscal continuation plus reference lessons `al-006`–`al-029`), four to holidays/disruption and three to assessment/review. The partial 11–14 January week is additional contingency, excluded from the budget.
-- Finish new content in the week beginning 21 December. Reserve three slots around early October and one around New Year provisionally; these are allowances, not confirmed school closure dates.
-- Preserve workbook allocations as the reference. The actual dated semester schedule is stored in `apps/library/a-level/syllabus-data.js` as `semesterPlan` and displayed/exported on the Syllabus and lesson planner page.
-- Faster pacing means concise retrieval, model application, independent calculation/diagram/paragraph practice and feedback in class. Full essays and optional extensions go to homework. Do not remove assessed reasoning or infer coverage from prepared slides.
-- Assign the earlier unconfirmed full-employment essay as diagnostic homework; use review/reserve time for identified teaching needs. This replaces the older assumption of another compulsory standalone workshop slot, following the teacher's semester deadline.
-- If closures or slower progress use more than four slots, revise the budget promptly; use the final partial week only if lessons occur before the deadline.
+Growth/output-gap theory reached gap-measures, slide 20, in 40 minutes on
+20 September. The fiscal section was not started. Mark the taught core as Taught
+and the separate fiscal continuation as Planned; do not mark all 61 prepared
+slides as taught. The fiscal deck is retained as optional synoptic practice for 9.2.4/10.3.1.
+The next core deck is The business cycle (9.2.3), with 25 core slides and
+an optional growth essay after Summary. The original growth deck remains a reference.
+
+## Prepared continuation: 21 September 2026
+
+`9-2-4-growth-policies` is ready for the class **after Business cycle is taught**.
+It covers 9.2.4 in one 40-minute lesson: 24 core slides, including an eight-minute
+independent paragraph, followed by six optional essay/9.2.5-preview slides.
+Cases: Elizabeth line infrastructure and Singapore SkillsFuture training.
+Original practice: 9708/31 Oct/Nov 2025 Q16; 9708/33 Oct/Nov 2025 Q20;
+9708/44 May/June 2025 Q5 [20]. The full essay is homework.
+
+The request to prepare the following deck is not an explicit dated report of
+business-cycle coverage. Keep confirmed teaching records and completed-slot
+counts unchanged until the teacher confirms coverage. Original workbook
+allocations remain intact; the optional inclusive-growth preview is not yet taught.
+
+## Forward semester schedule
+
+Two 40-minute classes weekly; complete sections 9–10 before approximately
+14 January 2027. Section 11 follows later.
+
+The current schedule includes the completed 20 September class plus 31 remaining
+slots: 24 teaching (reference lessons 6–29), four
+holiday/disruption reserves, and three assessment/review lessons. The business cycle is
+class 2 of week 4. Removing the compulsory fiscal workshop restores one reserve
+slot; new content still ends in the week of
+21 December. Holiday allowances are provisional, not a confirmed school calendar.
+The partial 11–14 January week remains additional contingency.
+
+Keep brief retrieval, model teaching, independent application and feedback in
+class; set complete essays and optional extensions as homework. Review pacing
+if more than four further slots are lost.
+
+## Planner records
+
+Canonical defaults live in apps/library/a-level/syllabus-data.js:
+semesterPlan, teachingRecords and extraSessions. Keep the 48 original reference
+allocations intact. The planner shows scheduled weeks, an optional exact planned
+date, a separate actual teaching date and a status. Browser edits persist as
+local overrides and export to CSV; file and localhost origins have separate
+storage. Report dates must never substitute for actual teaching dates.
+
+## Question placement correction
+
+Syllabus sequence governs core teaching. The newest relevant question supports
+the current knowledge point rather than determining the next topic. Use the 2025
+growth/full-employment essay now as homework, 2026 cycle evidence and MCQs in
+9.2.3, a potential-growth policy essay after 9.2.4, and the synoptic fiscal essay
+for selective application in 9.2.4 and full policy evaluation in 10.3.1. The
+planner assessmentSequence records references, purpose and prerequisites.

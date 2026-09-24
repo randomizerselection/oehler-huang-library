@@ -10,6 +10,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from fetch import CONFIG, ROOT, TZ, roster, save
+from student_messages import dingtalk_text
 from platform_db import homework_row
 from reminders import deliver
 from receipts import receipt_key, submitted_records
@@ -52,7 +53,7 @@ def make_message(category, name):
         'incomplete_h1_missing_h2': f"{salutation} your Homework 1 answer is still incomplete because it does not show your working, and Homework 2 is also overdue. Please send full working for Homework 1 and complete Homework 2 today. The Homework 2 question is attached.",
         'incomplete_h1': f"{salutation} your Homework 1 answer is still incomplete because it does not show your working. Please send a clear photo showing your full working. The question is attached.",
     }
-    return templates[category]
+    return dingtalk_text(templates[category])
 
 
 def prepare():

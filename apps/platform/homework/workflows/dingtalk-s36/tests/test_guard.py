@@ -16,7 +16,7 @@ class PreflightTests(unittest.TestCase):
         report = json.loads(result.stdout)
         self.assertEqual(report['status'], 'ok')
         self.assertEqual(report['checks']['account'], {'corpId': 'CORP5', 'userId': 'USER5'})
-        self.assertEqual(report['checks']['platformSchemaVersion'], 18)
+        self.assertEqual(report['checks']['platformSchemaVersion'], 21)
 
     def test_preflight_success_snake_case_and_flat_shapes(self):
         for mode in ('snake', 'flat'):

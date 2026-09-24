@@ -2,6 +2,43 @@
 
 Use the latest teacher report to plan the next lesson. The interactive syllabus at `apps/library/investment-analysis/syllabus-2026-27.html` is the current timetable and lesson plan; this file records the evidence for pacing changes.
 
+## Report received 22 September 2026
+
+### First monthly exam review prepared, 23 September 2026
+
+Lesson 6 is now linked at `lessons/monthly-exam-review/index.html`: 34 core
+slides plus two optional chart applications, with a 40-minute plan covering
+the current first monthly exam's concepts and calculation methods. It uses
+fresh analogues rather than exposing the future paper. See
+`MONTHLY_EXAM_REVIEW.md` for the private coverage map and pacing.
+
+The current first-monthly Investment `exam.json` records a later explicit
+teacher confirmation: “Include Share price and company size — taught.” Use that
+confirmation for this exam/review scope; it supersedes the older prepared-only
+label below for that lesson. This does not confirm that Risk and possible return
+or the review lesson itself has been taught.
+
+### Next new lesson prepared, 23 September 2026
+
+Risk and possible return (Lesson 7, 1.2.1) is now linked after Share price and company size: `lessons/risk-possible-return/index.html`. It has 30 core slides plus two optional applications, with staged Tesla historical/scenario evidence, expected versus realised return, ending-value/downside calculations, volatility and the risk–return trade-off. Assessment comprises independent calculation, two hinge MCQs and four final MCQs including the exit. This is prepared material, not confirmed taught coverage. The existing pre-exam revision slot remains unchanged. See `LESSON_07_RISK_RETURN_PLAN.md`.
+
+- **Confirmed taught lessons:** What is investment? (including investment versus speculation), Measuring investment return, Compound growth, and Planning your first stock trades.
+- **Assumed return:** the prepared lesson was too cluttered and was not taught successfully. Its deck is now an unlinked legacy reference and its annualised-return, required-return and forecast-assumption content must not be retrieved or assessed as taught knowledge.
+- **Nominal and real return:** do not teach it before the monthly exam. The prepared deck is deferred for possible later use.
+- **Next new teaching:** Share price and company size, organised around `market capitalisation = share price × shares outstanding`. The later same-day request below supersedes the initially proposed 14–16-slide scope.
+- **Pre-exam plan:** teach Share price and company size, then use the remaining available period for revision rather than adding another new topic. The monthly exam should draw only on the five confirmed lessons.
+- **Trading follow-up:** some teams have not completed their first trades. Give targeted procedural support separately; do not organise the next whole-class lesson as a rescue workshop.
+
+This report supersedes the earlier planned Assumed return → risk workshop → Nominal and real return sequence below.
+
+### Prepared clarity revision, 23 September 2026
+
+The current prepared Share price and company size version has 33 core slides plus three optional applications. It supersedes the 22 September 32-core-slide draft after teacher feedback that vague titles, repeated framing and crowded evidence displays buried the key knowledge. Section dividers and teaching slides now name the concept or skill directly; the market-capitalisation section includes protected independent calculation practice; and the information section uses a concise positive/negative expectation mechanism, two one-sentence directional fill-in definitions for students to complete and copy, three separate picture-led concept/example slides, a simple bid-to-trade visual, and streamlined NVIDIA (May 2023) and Apple (January 2019) evidence. The Apple figures were rechecked against Apple's original announcements. Two formative hinge MCQs are followed by four independent one-mark MCQs, including the exit. The plan remains 40 minutes, including Summary and buffer. This is prepared content, not confirmed taught coverage. The wider scheme of work was not synchronised by this deck-only revision. See `SHARE_PRICE_DESIGN_REVIEW.md` and the latest saved preferences.
+
+### Superseded prepared design revision, 22 September 2026
+
+The initial 17-slide design and subsequent 26-slide real-company revision were superseded by the 32-core-slide information-depth draft. That draft retained Apple/Costco market-cap comparisons, two sourced information cases and Nintendo's split, and replaced written assessment with MCQs. The 23 September clarity revision above is now authoritative.
+
 ## Report received 9 September 2026
 
 - **Completed coverage:** Compound growth, up to but not including the section **Assumed return**.

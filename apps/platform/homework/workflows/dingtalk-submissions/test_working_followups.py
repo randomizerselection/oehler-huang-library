@@ -29,12 +29,12 @@ class WorkingFollowupsTests(unittest.TestCase):
         with patch.object(w,'cli',side_effect=api) as api:
             self.assertEqual(w.run(explicit_request=True)['sent'],1);self.assertEqual(w.run(explicit_request=True)['sent'],0)
             self.assertEqual(api.call_count,2)
-            self.assertIn('Hi Liam, I received your answer for your assignment. Please send a clear photo showing your working so I can record a complete submission.',api.call_args_list[0].args[0])
+            self.assertIn("Hi Liam, I received your answer for your assignment. Please send a clear photo showing your working so I can record a complete submission. — Adam, Samuel's automated teaching assistant.",api.call_args_list[0].args[0])
             self.assertIn('--ai-tag=true',api.call_args_list[0].args[0])
     def test_numbered_homework_followup_names_the_assignment(self):
         with patch.object(w,'assignment_label',return_value='Homework 2'),patch.object(w,'cli',side_effect=[{'openTaskId':'task'},{'openMessageId':'sent','openConversationId':'chat'}]) as api:
             self.assertEqual(w.run()['sent'],1)
-            self.assertIn('Hi Liam, I received your answer for Homework 2. Please send a clear photo showing your working so I can record a complete submission.',api.call_args_list[0].args[0])
+            self.assertIn("Hi Liam, I received your answer for Homework 2. Please send a clear photo showing your working so I can record a complete submission. — Adam, Samuel's automated teaching assistant.",api.call_args_list[0].args[0])
     def test_accompanying_or_later_work_photo_suppresses_followup(self):
         save(self.root/'state/ledger.json',{'processed':{'letter':self.item,'photo':{**self.item,'workingPhotoPresent':True}}})
         with patch.object(w,'cli') as api:self.assertEqual(w.run(explicit_request=True)['sent'],0);api.assert_not_called()

@@ -16,8 +16,10 @@
     if(s.type==='classificationTask')list.push({type:'Teaching model',ref:'Teacher-written retrieval or application',detail:s.items.map(x=>x.text+'\n'+x.answer).join('\n\n')});
     if(s.notes&&s.layout?.startsWith('population-'))list.push({type:'Teaching notes',ref:'Explanation, assumptions and classroom use',detail:s.notes});
     if(s.visual?.source)list.push({type:'Photo',ref:s.visual.alt,detail:s.visual.credit,url:s.visual.source});
+    (s.cardVisuals||[]).forEach(v=>{if(v?.source||v?.credit)list.push({type:'Photo',ref:v.alt,detail:v.credit,url:v.source});});
     return list;
   }
+  const markSchemeMarkup=detail=>escape(detail).replace(/([^.;:\n]*?\(\d+\))/g,'<mark>$1</mark>').replace(/(Official answer:\s*[A-D])/g,'<mark>$1</mark>');
   const dialog=document.createElement('dialog');
   dialog.className='classroom-source-dialog';
   dialog.setAttribute('aria-labelledby','classroomSourceTitle');
@@ -46,12 +48,14 @@
       button.setAttribute('aria-label',`Show ${type.toLowerCase()} sources`);button.setAttribute('aria-haspopup','dialog');
       button.addEventListener('click',()=>{
         invoker=button;
-        dialog.querySelector('.classroom-source-content').innerHTML=entries.filter(r=>r.type===type).map(r=>`<article><p class="classroom-source-type">${escape(r.type)}</p><h3>${escape(r.ref)}</h3><p class="classroom-source-detail">${escape(r.detail)}</p>${optionsMarkup(r)}${/^https?:\/\//.test(r.url||'')?`<a href="${escape(r.url)}" target="_blank" rel="noopener">Open original source ↗</a>`:''}</article>`).join('');
+        dialog.querySelector('.classroom-source-content').innerHTML=entries.filter(r=>r.type===type).map(r=>`<article><p class="classroom-source-type">${escape(r.type)}</p><h3>${escape(r.ref)}</h3><p class="classroom-source-detail">${r.type==='Mark scheme'?markSchemeMarkup(r.detail):escape(r.detail)}</p>${optionsMarkup(r)}${/^https?:\/\//.test(r.url||'')?`<a href="${escape(r.url)}" target="_blank" rel="noopener">Open original source ↗</a>`:''}</article>`).join('');
         dialog.showModal();
       });nav.append(button);
     });
-    slide.querySelector('.topline').append(nav);
+    const topline=slide.querySelector('.topline');
+    if(topline)topline.append(nav);else{nav.classList.add('classroom-visual-pause-sources');slide.append(nav);}
     const number=document.createElement('span');number.className='classroom-slide-number';number.textContent=String(index+1).padStart(2,'0');
-    slide.querySelector('.slide-footer').append(number);
+    const footer=slide.querySelector('.slide-footer');
+    if(footer)footer.append(number);else{number.classList.add('classroom-visual-pause-number');slide.append(number);}
   });
 })();

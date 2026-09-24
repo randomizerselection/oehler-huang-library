@@ -31,6 +31,21 @@ function lessonLabel(title, contentId) {
   const slug = String(contentId).split(/[\\/#]/).filter(Boolean).at(-1).replace(/^\d+(?:-\d+)*-/, "").replace(/[-_]+/g, " ").trim();
   return slug ? `${slug.charAt(0).toUpperCase()}${slug.slice(1)}` : contentId;
 }
+function absencePeriodLabel(absence) {
+  if (!absence?.absence_start_date || !absence?.absence_end_date) return "Single recorded absence";
+  const range = `${fmtDate(absence.absence_start_date)} – ${fmtDate(absence.absence_end_date)}`;
+  if (absence.period_status === "active") return `Active now · ${range}`;
+  if (absence.period_status === "upcoming") return `Upcoming · ${range}`;
+  return `Recorded period · ${range}`;
+}
+function absenceCell(absence) {
+  if (!absence) return node("span", "muted", "—");
+  const wrap = node("div", `absence-summary${absence.active ? " is-active" : ""}`);
+  wrap.append(pill(absence.category_label || "Other / unspecified", `absence-${absence.category || "other"}`));
+  wrap.append(node("span", "absence-reason", absence.reason));
+  wrap.append(node("small", "cell-sub", absencePeriodLabel(absence)));
+  return wrap;
+}
 function pill(label, kind) { const span = document.createElement("span"); span.className = `pill pill-${kind}`; span.textContent = label; return span; }
 function meterCell(pct, detail) {
   const wrap = node("div", "meter-cell");
@@ -208,7 +223,7 @@ async function refreshQuizGradebook() {
 }
 
 function studentNeedsAttention(item) {
-  return item.attendance.last_status === "absent" || item.homework.missing > 0 || item.homework.awaiting_working > 0;
+  return item.attendance.last_status === "absent" || item.absence?.active || item.homework.missing > 0 || item.homework.awaiting_working > 0;
 }
 
 function summariseStudents(students) {
@@ -224,11 +239,12 @@ function summariseStudents(students) {
     if (item.homework.missing > 0) acc.studentsMissing += 1;
     if (item.homework.awaiting_working > 0) acc.studentsAwaitingWorking += 1;
     if (item.attendance.last_status === "absent") acc.latestAbsences += 1;
+    if (item.absence?.active) acc.activeAbsences += 1;
     if (item.selector.selected_count === 0) acc.neverSelected += 1;
     if (studentNeedsAttention(item)) acc.needsAttention += 1;
     if (item.form_class) acc.formClasses.add(String(item.form_class));
     return acc;
-  }, { presents: 0, marks: 0, submitted: 0, late: 0, homework: 0, missing: 0, awaitingWorking: 0, selections: 0, studentsMissing: 0, studentsAwaitingWorking: 0, latestAbsences: 0, neverSelected: 0, needsAttention: 0, formClasses: new Set() });
+  }, { presents: 0, marks: 0, submitted: 0, late: 0, homework: 0, missing: 0, awaitingWorking: 0, selections: 0, studentsMissing: 0, studentsAwaitingWorking: 0, latestAbsences: 0, activeAbsences: 0, neverSelected: 0, needsAttention: 0, formClasses: new Set() });
 }
 
 function renderStudentStats(payload, students) {
@@ -260,7 +276,7 @@ function renderAttentionSummary(students) {
   [
     ["Missing submissions", totals.missing, studentCountLabel(totals.studentsMissing)],
     ["Working required", totals.awaitingWorking, studentCountLabel(totals.studentsAwaitingWorking)],
-    ["Latest status absent", totals.latestAbsences, "Based on each student's latest mark"],
+    ["Active absence periods", totals.activeAbsences, "Recorded periods covering today"],
     ["Not selected yet", totals.neverSelected, "Class participation coverage"]
   ].forEach(([label, value, detail]) => {
     const metric = node("div", "attention-metric");
@@ -338,6 +354,9 @@ function renderStudentOverview(payload) {
     }
     else attendanceCell.append(node("span", "muted", "—"));
     row.append(attendanceCell);
+    const absenceReasonCell = document.createElement("td");
+    absenceReasonCell.append(absenceCell(item.absence));
+    row.append(absenceReasonCell);
     const homeworkCell = document.createElement("td");
     if (item.homework.total) {
       homeworkCell.append(meterCell(Math.round(((item.homework.submitted + item.homework.late) / item.homework.total) * 100), `${item.homework.submitted} submitted · ${item.homework.late} late · ${item.homework.total} total`));
@@ -362,7 +381,7 @@ function renderStudentOverview(payload) {
     row.append(selectedCell);
     elements.studentsRows.append(row);
   }
-  if (!students.length) { const row = document.createElement("tr"); const cell = node("td", "assignment-empty", "No students match these filters."); cell.colSpan = 7; row.append(cell); elements.studentsRows.append(row); }
+  if (!students.length) { const row = document.createElement("tr"); const cell = node("td", "assignment-empty", "No students match these filters."); cell.colSpan = 8; row.append(cell); elements.studentsRows.append(row); }
 }
 
 async function refreshStudentsPanel() {
@@ -404,7 +423,17 @@ async function openStudentProfile(accountId) {
     fillRows(elements.studentAttendance, payload.attendance, 6, (item) => [
       fmtDate(item.marked_at), fmtTime(item.marked_at), item.class_name || "—", lessonLabel(item.lesson_title, item.lesson_content_id),
       pill(ATTENDANCE_LABELS[item.status] ?? item.status, item.status),
-      item.reason_text || (item.followup_status === "sent" ? "Awaiting reply" : item.followup_status === "unreachable" ? "DingTalk identity not linked" : item.followup_status === "failed" ? "Delivery failed" : item.status === "absent" ? "Not sent" : "—")
+      item.reason_text ? (() => {
+        const wrap = node("div", `absence-summary${item.absence_active ? " is-active" : ""}`);
+        wrap.append(pill(item.reason_category_label || "Other / unspecified", `absence-${item.reason_category || "other"}`));
+        wrap.append(node("span", "absence-reason", item.reason_text));
+        wrap.append(node("small", "cell-sub", absencePeriodLabel({
+          absence_start_date: item.absence_start_date,
+          absence_end_date: item.absence_end_date,
+          period_status: item.absence_period_status
+        })));
+        return wrap;
+      })() : (item.followup_status === "sent" ? "Awaiting reply" : item.followup_status === "unreachable" ? "DingTalk identity not linked" : item.followup_status === "failed" ? "Delivery failed" : item.status === "absent" ? "Not sent" : "—")
     ]);
     fillRows(elements.studentHomework, payload.homework, 4, (item) => [
       item.assigned_on, item.assignment_title,

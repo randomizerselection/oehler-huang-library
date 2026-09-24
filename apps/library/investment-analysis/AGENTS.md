@@ -11,6 +11,19 @@ root. Work only in `oehler-huang-platform`.
   `course-assets/js/presentation.js` and local `course-assets/images/`.
 - Preserve the warm-paper, forest-green and copper design, semantic slide IDs,
   teacher notes, sources and answer/reveal interactions used by the linked lessons.
+- Apply the 22 September 2026 stronger-design guidance in the saved preferences:
+  simple content still needs a visual mechanism, a prediction followed by evidence,
+  a connected worked model and independent assessment. The redesigned share-price
+  lesson demonstrates this; static repeated text cards are not the default.
+  The later same-day feedback requires real companies wherever possible,
+  sufficient connected knowledge for 40 minutes, frequent formative checks and
+  marked exam-style practice with protected independent response and feedback.
+  Do not treat the earlier 14–16-slide simplification as a curriculum ceiling.
+- Course exams are almost entirely MCQs (22 September clarification). Make
+  exam-style practice and exits predominantly multiple choice, with application,
+  calculation, causal reasoning and distractor explanations. Teach information
+  effects through explicit mechanisms, visual models and dated real-company
+  evidence; see the newest section of the saved lesson preferences.
 - The current course sequence is `syllabus-2026-27.html`. The `termBank` in
   `course-map-financial-decisions-data.js` remains a terminology reference; its older
   lesson numbering and generator contract do not replace the current syllabus.

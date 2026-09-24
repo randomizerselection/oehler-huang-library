@@ -118,6 +118,14 @@ class HistoryTests(unittest.TestCase):
 
 
 class MessageTests(unittest.TestCase):
+    def test_adam_identity_is_explicit_single_line_and_dingtalk_only(self):
+        original = replies.receipt_text({}, {'english': 'Emma'}, 'Homework 2')
+        signed = replies.dingtalk_text(original)
+        self.assertEqual(signed, original + " — Adam, Samuel's automated teaching assistant.")
+        self.assertEqual(replies.dingtalk_text(signed), signed)
+        self.assertNotIn('\n', signed)
+        self.assertNotIn('Adam', original)  # Shared QQ templates stay unchanged.
+
     def test_personalization_uses_verified_name_and_catalog_topic_with_safe_fallback(self):
         meta = {'displayName': 'Homework 2', 'header': '18 Sep 2026\nDeflationary gap (Q18)'}
         label = replies.assignment_label(meta)

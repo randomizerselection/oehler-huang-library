@@ -66,6 +66,8 @@
 .syllabus-planner .personal-status[data-status="In progress"]{color:#f0c078}
 .syllabus-planner .record-timing{display:block;font-size:12px;line-height:1.6;color:var(--ink-dim);margin-top:8px}
 .syllabus-planner .coverage-note{font-size:14px;line-height:1.6;margin-top:16px;color:var(--ink-dim)}
+.syllabus-planner .assessment-stage{margin:20px 0;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.syllabus-planner .assessment-stage h3{font-size:18px;color:var(--course-accent)}
 .syllabus-planner .continuation-record{padding:18px;border:1px solid var(--line);border-radius:12px;margin-top:16px;background:rgba(14,30,47,.86)}
 .syllabus-planner .continuation-record h3{font-size:17px;margin-bottom:8px}
 .syllabus-planner .plan-body { padding: 0 24px 24px; }

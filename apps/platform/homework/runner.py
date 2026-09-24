@@ -54,6 +54,8 @@ def compact(payload):
             for key, value in payload.items()
             if key in {'pending', 'privateConversations', 'submitted', 'homeworkWrites',
                        'nameWrites', 'sent', 'eligible', 'deferred', 'awaitingConfirmation',
+                        'alreadyConfirmed', 'captured', 'corrected', 'backfilled',
+                        'absenceReasons', 'preExistingReasons', 'periodBackfilled', 'initialized',
                        'needsAttention', 'new', 'changed', 'openCount', 'transcribed',
                        'cached', 'skipped', 'status', 'unreviewed', 'open', 'changes',
                        'commitVerified', 'homeworkVerified', 'namesVerified', 'identityLinksVerified'}}
@@ -236,7 +238,8 @@ class Workflow:
         for item in batch.get('messages', []):
             mid, cid = item['messageId'], item.get('conversationId')
             msg = {key: item.get(key) for key in ('messageId', 'time', 'sender', 'senderId', 'conversationId',
-                                                  'title', 'text', 'candidates', 'contactSearchError') if key in item}
+                                                  'title', 'text', 'candidates', 'scope', 'verifiedClasses',
+                                                   'contactSearchError', 'absenceReason') if key in item}
             msg['media'] = media_by_id.get(mid, [])
             msg['ocr'] = ocr_by_id.get(mid, [])
             details = ocr_details_by_id.get(mid, [])
@@ -390,6 +393,9 @@ class Workflow:
             self.step('feedback.py', '--send')
         if self.profile == 'dingtalk-submissions':
             self.step('reply_queue.py', 'apply')
+            self.step('absence_receipts.py', '--send')
+        elif self.profile == 'dingtalk-s36':
+            self.step('absence_receipts.py', '--send')
         # A delivery-time refresh can discover new work. Never hide it as complete.
         latest = read(self.state / 'pending.json', {})
         processed = read(self.state / 'ledger.json', {}).get('processed', {})

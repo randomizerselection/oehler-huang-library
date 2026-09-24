@@ -20,6 +20,7 @@
     slotMedium: "assets/medium_slot.mp3",
     slotLong: "assets/long_slot.mp3",
     timeup: "assets/timeup.mp3",
+    rewards: "assets/Elmer-Bernstein.mp3",
     ratings: {
       "A*": "assets/sound_a_star.mp3",
       A: "assets/sound_a.mp3",
@@ -224,7 +225,7 @@
       this.unlock().then((ready) => {
         if (!ready) return;
         const paths = [AUDIO.intro, AUDIO.closing, AUDIO.slotShort, AUDIO.slotMedium,
-          AUDIO.slotLong, AUDIO.timeup, ...Object.values(AUDIO.ratings)];
+          AUDIO.slotLong, AUDIO.timeup, AUDIO.rewards, ...Object.values(AUDIO.ratings)];
         return Promise.all(paths.map((path) => this.buffer(path)));
       }).catch((error) => this.reportError(error));
     }
@@ -422,6 +423,7 @@
               studentLabels[studentId] = student.display_name || student.username || studentId;
               studentContext[studentId] = {
                 attendance_history: student.attendance_history,
+                absence_context: student.absence_context,
                 homework: student.homework
               };
             }
@@ -472,6 +474,14 @@
 
     homeworkStatusLabel(status) {
       return ({ submitted: "Submitted", late: "Late", missing: "Missing", awaiting_working: "Working needed", exempt: "Exempt" })[status] || status || "No record";
+    }
+
+    absencePeriodLabel(absence) {
+      if (!absence?.absence_start_date || !absence?.absence_end_date) return "Single recorded absence";
+      const range = `${this.contextDate(absence.absence_start_date)} – ${this.contextDate(absence.absence_end_date)}`;
+      if (absence.period_status === "active") return `Active now · ${range}`;
+      if (absence.period_status === "upcoming") return `Upcoming · ${range}`;
+      return `Previous period · ${range}`;
     }
 
     homeworkBadge(studentId) {
@@ -526,6 +536,7 @@
           this.studentLabels[studentId] = item.display_name || item.username || studentId;
           this.studentContext[studentId] = {
             attendance_history: item.attendance_history,
+            absence_context: item.absence_context,
             homework: item.homework
           };
         });
@@ -1016,6 +1027,95 @@
       this.render();
     }
 
+    rewardsFromHomeworkRecords(records = []) {
+      const latestAssignment = (eligible) => {
+        const groups = new Map();
+        records.filter(eligible).forEach((item) => {
+          const key = `${item.assignment_title}\u0000${item.assigned_on}`;
+          const group = groups.get(key) || { assignment_title: item.assignment_title, assigned_on: item.assigned_on, recorded_at: "", items: [] };
+          group.items.push(item);
+          if (String(item.recorded_at || "") > group.recorded_at) group.recorded_at = String(item.recorded_at || "");
+          groups.set(key, group);
+        });
+        return [...groups.values()].sort((left, right) =>
+          String(right.assigned_on).localeCompare(String(left.assigned_on))
+          || right.recorded_at.localeCompare(left.recorded_at))[0] || null;
+      };
+      const scoreAssignment = latestAssignment((item) => item.source !== "qq"
+        && Number.isFinite(Number(item.score)) && Number(item.score_max) > 0);
+      let scoreRewards = null;
+      if (scoreAssignment) {
+        let rank = 0;
+        let previous = null;
+        const ranked = scoreAssignment.items
+          .filter((item) => Number.isFinite(Number(item.score)) && Number(item.score_max) > 0)
+          .sort((left, right) => (Number(right.score) / Number(right.score_max)) - (Number(left.score) / Number(left.score_max))
+            || this.studentLabel(left.account_id).localeCompare(this.studentLabel(right.account_id)))
+          .map((item) => {
+            if (!previous || Number(item.score) * Number(previous.score_max) !== Number(previous.score) * Number(item.score_max)) rank += 1;
+            previous = item;
+            return {
+              account_id: item.account_id,
+              display_name: item.display_name || this.studentLabel(item.account_id),
+              score: Number(item.score),
+              score_max: Number(item.score_max),
+              percentage: Math.round((Number(item.score) / Number(item.score_max)) * 1000) / 10,
+              rank
+            };
+          });
+        const fifthStudent = ranked[4] || null;
+        scoreRewards = {
+          kind: "score",
+          label: "Quiz high scores",
+          assignment_title: scoreAssignment.assignment_title,
+          assigned_on: scoreAssignment.assigned_on,
+          graded_count: ranked.length,
+          entries: fifthStudent
+            ? ranked.filter((student) => student.score * fifthStudent.score_max >= fifthStudent.score * student.score_max)
+            : ranked
+        };
+      }
+      const submissionAssignment = latestAssignment((item) => item.source === "qq" && ["submitted", "late"].includes(item.status));
+      const submissionRewards = submissionAssignment ? {
+        kind: "submission",
+        label: "Structured question submitted",
+        assignment_title: submissionAssignment.assignment_title,
+        assigned_on: submissionAssignment.assigned_on,
+        submitted_count: submissionAssignment.items.length,
+        entries: submissionAssignment.items
+          .slice()
+          .sort((left, right) => this.studentLabel(left.account_id).localeCompare(this.studentLabel(right.account_id)))
+          .map((item) => ({ account_id: item.account_id, display_name: item.display_name || this.studentLabel(item.account_id) }))
+      } : null;
+      return { groups: [scoreRewards, submissionRewards].filter(Boolean) };
+    }
+
+    async showHomeworkLeaders() {
+      const className = this.state.selectedClass;
+      if (!className || !this.options.sessionAdapter) return;
+      this.sound.prepare();
+      try {
+        const session = await this.ensureRemoteSession(className);
+        if (this.state.selectedClass !== className) return;
+        let rewards = session && Object.prototype.hasOwnProperty.call(session, "homework_rewards")
+          ? session.homework_rewards
+          : null;
+        if (!rewards && this.options.dataAdapter?.loadHomeworkRewards) {
+          const result = await this.options.dataAdapter.loadHomeworkRewards(className);
+          rewards = this.rewardsFromHomeworkRecords(result?.records || []);
+          if (session) session.homework_rewards = rewards;
+        }
+        if (!rewards && session?.homework_leaderboard) {
+          rewards = { groups: [{ kind: "score", label: "Quiz high scores", ...session.homework_leaderboard }] };
+        }
+        this.modal = { type: "homework-leaders", className, rewards: rewards || { groups: [] } };
+        this.render();
+        this.sound.play(AUDIO.rewards, { loop: true });
+      } catch (error) {
+        this.showMessage("Homework rewards unavailable", error.message || "The latest homework reward data could not be loaded.");
+      }
+    }
+
     showFeedback(title, message) {
       this.modal = { type: "feedback", title, message };
       this.render();
@@ -1033,6 +1133,7 @@
         this.container.querySelector('[data-action="start"]')?.focus();
         return;
       }
+      if (this.modal?.type === "homework-leaders") this.sound.stopMusic();
       this.modal = null;
       this.render();
     }
@@ -1131,13 +1232,14 @@
       if (this.destroyed) return;
       this.container.classList.add("selector-root");
       this.container.classList.toggle("is-attendance-active", this.modal?.type === "attendance");
+      this.container.classList.toggle("is-leaderboard-active", this.modal?.type === "homework-leaders");
       this.container.setAttribute('aria-busy', String(this.loading));
       this.container.innerHTML = `
         <div class="selector-shell">
           ${this.renderDock()}
           ${this.renderStage()}
         </div>
-        <div class="selector-modal ${this.modal?.type === "attendance" ? "is-attendance" : ""}" data-modal ${this.modal ? "" : "hidden"}>
+        <div class="selector-modal ${this.modal?.type === "attendance" ? "is-attendance" : ""} ${this.modal?.type === "homework-leaders" ? "is-leaderboard" : ""}" data-modal ${this.modal ? "" : "hidden"}>
           ${this.modal ? this.renderModalContent() : ""}
         </div>
       `;
@@ -1203,6 +1305,7 @@
           <div class="selector-actions">
             <button class="selector-button" type="button" data-action="attendance" ${this.ready && selected ? '' : 'disabled'}>${attendanceStatus?.finalized ? "Review Attendance" : "Take Attendance"}</button>
             <button class="selector-button" type="button" data-action="summary" ${this.ready && selected ? '' : 'disabled'}>View Summary</button>
+            ${this.options.sessionAdapter ? `<button class="selector-button selector-reward-button" type="button" data-action="homework-leaders" ${this.ready && selected ? '' : 'disabled'}>Top Homework</button>` : ""}
             <button class="selector-button" type="button" data-action="intro">Play Intro</button>
             <button class="selector-button" type="button" data-action="closing">Play Closing</button>
           </div>
@@ -1304,6 +1407,7 @@
       if (this.modal.type === "attendance") return this.renderAttendance();
       if (this.modal.type === "attendance-review") return this.renderAttendanceReview();
       if (this.modal.type === "attendance-result") return this.renderAttendanceResult();
+      if (this.modal.type === "homework-leaders") return this.renderHomeworkLeaders();
       if (this.modal.type === "summary") return this.renderSummary();
       if (this.modal.type === "feedback") return this.renderFeedback();
       return this.renderMessage();
@@ -1314,7 +1418,9 @@
       if (!modal) return;
       modal.hidden = !this.modal;
       modal.classList.toggle("is-attendance", this.modal?.type === "attendance");
+      modal.classList.toggle("is-leaderboard", this.modal?.type === "homework-leaders");
       this.container.classList.toggle("is-attendance-active", this.modal?.type === "attendance");
+      this.container.classList.toggle("is-leaderboard-active", this.modal?.type === "homework-leaders");
       modal.innerHTML = this.modal ? this.renderModalContent() : "";
       this.bind();
     }
@@ -1336,6 +1442,7 @@
       const current = this.studentLabel(currentId);
       const context = this.contextForStudent(currentId);
       const attendance = context.attendance_history || { marks: 0, present: 0, absent: 0, recent: [], rate: null };
+      const absence = context.absence_context || null;
       const homework = context.homework || { total: 0, eligible: 0, completed: 0, late: 0, missing: 0, awaiting_working: 0, outstanding: [], last: null, completion_rate: null };
       const badge = this.homeworkBadge(currentId);
       const completed = this.modal.index;
@@ -1371,6 +1478,11 @@
                 <span aria-hidden="true">${concerns.length ? "!" : limitedHistory ? "i" : "✓"}</span>
                 <div><strong>${concerns.length ? "Worth checking" : limitedHistory ? "Limited history" : "No recorded concerns"}</strong><small>${escapeHtml(concerns.join(" · ") || (limitedHistory ? "Attendance or homework history is not available yet." : "Previous attendance and homework look clear."))}</small></div>
               </div>
+              ${absence ? `<div class="selector-absence-banner ${absence.active ? "is-active" : absence.period_status === "upcoming" ? "is-upcoming" : ""}" aria-label="Recorded absence reason">
+                <div><span>${absence.active ? "Current recorded absence" : absence.period_status === "upcoming" ? "Upcoming recorded absence" : "Latest recorded absence"}</span><strong>${escapeHtml(absence.category_label || "Other / unspecified")}</strong></div>
+                <p>${escapeHtml(absence.reason)}</p>
+                <small>${escapeHtml(this.absencePeriodLabel(absence))}</small>
+              </div>` : ""}
             </section>
             <aside class="selector-student-insights" aria-label="Student history">
               <article class="selector-insight-card">
@@ -1491,6 +1603,82 @@
       `;
     }
 
+    renderHomeworkLeaders() {
+      const groups = this.modal.rewards?.groups || [];
+      const ordinal = (rank) => {
+        const value = Number(rank);
+        const suffix = value % 10 === 1 && value % 100 !== 11 ? "st"
+          : value % 10 === 2 && value % 100 !== 12 ? "nd"
+          : value % 10 === 3 && value % 100 !== 13 ? "rd" : "th";
+        return `${value}${suffix}`;
+      };
+      const renderScoreGroup = (group) => {
+        const rankCounts = group.entries.reduce((counts, entry) => {
+          counts[entry.rank] = (counts[entry.rank] || 0) + 1;
+          return counts;
+        }, {});
+        const cards = group.entries.map((entry) => {
+          const percentage = Number.isInteger(entry.percentage) ? entry.percentage : Number(entry.percentage).toFixed(1);
+          const rankLabel = `${rankCounts[entry.rank] > 1 ? "Joint " : ""}${ordinal(entry.rank)}`;
+          const medal = ({ 1: "🥇", 2: "🥈", 3: "🥉" })[entry.rank] || "⭐";
+          return `
+            <article class="selector-leader-card" data-rank="${Number(entry.rank)}">
+              <span class="selector-leader-medal" aria-hidden="true">${medal}</span>
+              <div class="selector-leader-name">${escapeHtml(entry.display_name)}</div>
+              <div class="selector-leader-result"><strong>${escapeHtml(String(entry.score))}/${escapeHtml(String(entry.score_max))}</strong><span>${escapeHtml(String(percentage))}%</span></div>
+              <div class="selector-leader-rank">${escapeHtml(rankLabel)}</div>
+            </article>
+          `;
+        }).join("");
+        return `
+          <section class="selector-reward-group is-score" aria-label="Quiz high scores">
+            <header class="selector-reward-group-header">
+              <span>${escapeHtml(group.label || "Quiz high scores")} · ${escapeHtml(this.contextDate(group.assigned_on))}</span>
+              <h3>${escapeHtml(group.assignment_title)}</h3>
+              <p>${Number(group.graded_count) || 0} graded · top five students plus every tie at the cutoff</p>
+            </header>
+            <div class="selector-leader-grid">${cards}</div>
+          </section>
+        `;
+      };
+      const renderSubmissionGroup = (group) => `
+        <section class="selector-reward-group is-submission" aria-label="Structured question submissions">
+          <header class="selector-reward-group-header">
+            <span>${escapeHtml(group.label || "Structured question submitted")} · ${escapeHtml(this.contextDate(group.assigned_on))}</span>
+            <h3>${escapeHtml(group.assignment_title)}</h3>
+            <p>${Number(group.submitted_count) || group.entries.length} students submitted in QQ</p>
+          </header>
+          <div class="selector-submitter-grid">
+            ${group.entries.map((entry) => `<div class="selector-submitter"><span aria-hidden="true">✓</span><strong>${escapeHtml(entry.display_name)}</strong></div>`).join("")}
+          </div>
+        </section>
+      `;
+      return `
+        <section class="selector-modal__panel selector-leaderboard-screen" role="dialog" aria-modal="true" aria-label="Top homework performers">
+          <header class="selector-leaderboard-header">
+            <div>
+              <span class="selector-leaderboard-kicker">Celebrate excellent work</span>
+              <h2>Homework Rewards</h2>
+              <p>${escapeHtml(this.classLabel(this.modal.className))}</p>
+            </div>
+            <button class="selector-close" type="button" data-action="close-modal" aria-label="Close">×</button>
+          </header>
+          ${groups.length ? `
+            <div class="selector-reward-groups">
+              ${groups.map((group) => group.kind === "submission" ? renderSubmissionGroup(group) : renderScoreGroup(group)).join("")}
+            </div>
+            <footer class="selector-leaderboard-footer"><strong>Outstanding work — congratulations!</strong><span>Quiz achievement and structured-question completion are celebrated separately.</span></footer>
+          ` : `
+            <div class="selector-leaderboard-empty">
+              <span aria-hidden="true">🏅</span>
+              <h3>No homework reward data yet</h3>
+              <p>Quiz high scores or completed QQ structured-question submissions will appear here.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
     renderSummary() {
       const className = this.modal.className;
       const data = className ? this.classState(className) : { grades: {}, ungraded: [], absent: [] };
@@ -1547,6 +1735,7 @@
           if (action === "attendance-sound") this.toggleAttendanceSound();
           if (action === "attendance") this.startAttendance();
           if (action === "summary") this.showSummary();
+          if (action === "homework-leaders") this.showHomeworkLeaders();
           if (action === "intro") this.playIntro();
           if (action === "closing") this.playClosing();
           if (action === "start") this.startSelection();

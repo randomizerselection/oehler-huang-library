@@ -6,6 +6,17 @@ import re
 
 CJK = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
 
+DINGTALK_SIGNATURE = " — Adam, Samuel's automated teaching assistant."
+
+
+def dingtalk_text(text):
+    """Identify new DingTalk drafts before review/persistence, never at transport.
+
+    Keep one line for Windows .cmd launchers. Persisted deliveries retain their
+    original text and keys; QQ templates do not use this identity.
+    """
+    return text if text.endswith(DINGTALK_SIGNATURE) else text + DINGTALK_SIGNATURE
+
 
 def greeting(student):
     name = (student.get('english') or '').strip()

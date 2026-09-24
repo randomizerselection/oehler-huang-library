@@ -22,6 +22,7 @@ import time
 from pathlib import Path
 
 from fetch import CONFIG, ROOT, TZ, cli, ensure_english_only, roster, save
+from student_messages import dingtalk_text
 from platform_db import assignment_metadata, connect, homework_row, require_schema
 from receipts import field
 
@@ -71,10 +72,10 @@ def compose_message(student, owed_metas):
     if len(metas) == 1:
         due = meta_due(metas[0])
         deadline = f' - it was due on {due}.' if due else '.'
-        return (f"{salutation} I don't have your {labels[0]} yet{deadline}"
+        return dingtalk_text(f"{salutation} I don't have your {labels[0]} yet{deadline}"
                 f" Please send a photo of your answer with your working. The question is attached.")
     due_parts = ' and '.join(f'{label} was due on {meta_due(meta)}' for label, meta in zip(labels, metas))
-    return (f"{salutation} I don't have your {' or '.join(labels)} yet - {due_parts}."
+    return dingtalk_text(f"{salutation} I don't have your {' or '.join(labels)} yet - {due_parts}."
             f" Please send a photo of your answer with your working for each. The questions are attached.")
 
 
@@ -310,7 +311,12 @@ def live_owed_set(recipient, owed_headers):
     return owed
 
 
-def deliver(state, state_path, key, recipient, args, sender=cli):
+def deliver(state, state_path, key, recipient, args, sender=cli, target=None):
+    """Send one idempotent message and persist its confirmation state.
+
+    `target` overrides the default direct-message address so the same state
+    machine can post into a group conversation.
+    """
     entry = state['messages'].get(key, {})
     if entry.get('status') == 'sent':
         return True
@@ -322,12 +328,13 @@ def deliver(state, state_path, key, recipient, args, sender=cli):
             save(state_path, state)
             raise RuntimeError('Uncertain delivery; inspect the DingTalk chat before any retry')
         entry.update(status='sending', attemptedAt=now.isoformat(),
-                     recipientId=recipient['recipientId'], studentKey=recipient['student']['key'],
-                     idempotencyKey=key)
+                     recipientId=recipient['recipientId'],
+                     studentKey=recipient.get('student', {}).get('key'), idempotencyKey=key)
         state['messages'][key] = entry
         save(state_path, state)
         try:
-            response = sender(['chat', 'message', 'send', '--open-dingtalk-id', recipient['recipientId'],
+            response = sender(['chat', 'message', 'send',
+                               *(target or ['--open-dingtalk-id', recipient['recipientId']]),
                                *args, '--ai-tag=true', '--idempotency-key', key, '--yes'])
         except Exception as error:
             entry.update(status='uncertain', lastError=str(error)[:500])

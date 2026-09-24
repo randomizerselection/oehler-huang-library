@@ -34,6 +34,7 @@ def main():
         for source in (HOME / 'workflows/dingtalk-submissions').glob('*.py'):
             shutil.copyfile(source, root / source.name)
         shutil.copyfile(HOME / 'student_messages.py', root / 'student_messages.py')
+        shutil.copyfile(HOME / 'absence_periods.py', root / 'absence_periods.py')
         (root / 'config.json').write_text(json.dumps({
             'classes': ['S3.3', 'S3.4'], 'cli': 'fixture-no-live-cli', 'profile': 'fixture',
             'platformDatabase': str(root / 'must-not-open.sqlite'), 'platformProject': str(root),

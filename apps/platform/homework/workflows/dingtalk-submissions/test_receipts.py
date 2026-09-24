@@ -64,29 +64,31 @@ class ReceiptTests(unittest.TestCase):
             self.assertEqual(r.run(send=True)['eligible'],0)
         self.assertEqual(len(calls),2)
         self.assertIn('--ai-tag=true',calls[0])
-        self.assertIn("Hi Liam, thanks for sending your assignment. I've marked it as submitted.",calls[0])
+        self.assertIn("Hi Liam, thanks for sending your assignment. I've marked it as submitted. — Adam, Samuel's automated teaching assistant.",calls[0])
         self.assertIn('student-id',calls[0])
     def test_numbered_homework_receipt_uses_catalog_without_changing_key(self):
         root=Path(self.tmp.name)
         save(root/'assignments.json',[{'header':'assignment','displayName':'Homework 2'}])
         with patch.object(r,'ROOT',root):
-            self.assertEqual(r.receipt_text(self.item),"Hi Liam, thanks for sending Homework 2. I've marked it as submitted.")
+            self.assertEqual(r.receipt_text(self.item),"Hi Liam, thanks for sending Homework 2. I've marked it as submitted. — Adam, Samuel's automated teaching assistant.")
             self.assertEqual(r.receipt_key(self.item),self.key)
     def test_missing_english_name_uses_neutral_english_greeting(self):
         with patch.object(r,'roster',return_value=[{'key':self.item['studentKey'],'english':'','name':'王同学'}]):
             text=r.receipt_text(self.item)
-        self.assertEqual(text,"Hi, thanks for sending your assignment. I've marked it as submitted.")
+        self.assertEqual(text,"Hi, thanks for sending your assignment. I've marked it as submitted. — Adam, Samuel's automated teaching assistant.")
         self.assertNotIn('王同学',text)
     def test_never_sends_before_saved_verification(self):
         with patch.object(r,'verify_saved',side_effect=ValueError('not saved')),patch.object(r,'cli') as api:
             with self.assertRaises(ValueError):r.run(send=True)
             api.assert_not_called()
     def test_pending_task_is_queried_without_resending(self):
-        save(self.state,{'receipts':{self.key:{'status':'awaiting-confirmation','openTaskId':'task'}}})
+        original = 'Hi Liam, your homework has been recorded.'
+        save(self.state,{'receipts':{self.key:{'status':'awaiting-confirmation','openTaskId':'task','text':original}}})
         with patch.object(r,'cli',return_value={'result':{'openMessageId':'msg','openConversationId':'conv'}}) as api:
             self.assertEqual(r.run(send=True)['sent'],1)
             self.assertEqual(api.call_args.args[0][2],'query-send-status')
             self.assertEqual(api.call_count,1)
+        self.assertEqual(json.loads(self.state.read_text())['receipts'][self.key]['text'], original)
     def test_expired_uncertain_attempt_is_not_retried(self):
         old=(dt.datetime.now(r.TZ)-dt.timedelta(days=2)).isoformat()
         save(self.state,{'receipts':{self.key:{'status':'sending','attemptedAt':old}}})

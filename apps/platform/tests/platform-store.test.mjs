@@ -28,14 +28,14 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
     uploadGuard: () => ({ allowed: true })
   };
   const accounts = createAccountStore(config);
-  const store = createPlatformStore(config);
+  const store = createPlatformStore({ ...config, now: () => new Date("2026-09-22T04:00:00.000Z") });
   t.after(async () => {
     store.close();
     accounts.close();
     await rm(dataDir, { recursive: true, force: true });
   });
 
-  assert.equal(store.migration.to, 19);
+  assert.equal(store.migration.to, 21);
   const admin = await store.bootstrapAdmin({ username: "admin.one", display_name: "Admin One", password: "admin-password-1" });
   const invitation = store.createTeacherInvitation(admin.account.account_id);
   const teacher = await store.registerTeacher({ invitation_code: invitation.invitation_code, username: "teacher.one", display_name: "Teacher One", password: "teacher-password-1" });
@@ -95,7 +95,7 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   await rejectsCode(() => Promise.resolve(store.recordSelectorEvents(teacher.account.account_id, selector.session_id, { version: attendanceFinal.version, events: [{ type: "selection", event_id: "select-duplicate", student_account_id: studentOne.account.account_id }] })), "SELECTOR_ALREADY_SELECTED");
   assert.equal(store.startSelectorSession(teacher.account.account_id, { class_id: classroom.class_id }).session_id, selector.session_id, "a second tab resumes the one active session");
 
-  await store.registerStudent({ join_code: classJoin.join_code, username: "student.three", display_name: "Student Three", password: "student-password-3" });
+  const studentThree = await store.registerStudent({ join_code: classJoin.join_code, username: "student.three", display_name: "Student Three", password: "student-password-3" });
   assert.equal(store.selectorSessionState(teacher.account.account_id, selector.session_id).roster.length, 2, "active sessions retain their membership snapshot");
   await rejectsCode(() => Promise.resolve(store.recordSelectorEvents(teacher.account.account_id, selector.session_id, {
     version: attendanceFinal.version,
@@ -175,16 +175,20 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   const graded = store.recordHomeworkSubmissions(teacher.account.account_id, classroom.class_id, {
     assignment_title: "Supply-side essay",
     assigned_on: "2026-09-18",
-    source: "qq",
-    items: [{
-      student_account_id: studentOne.account.account_id,
-      status: "submitted",
-      score: 5,
-      score_max: 8,
-      feedback: "Develop the counter-argument before judging."
-    }]
+    source: "ketangpai",
+    items: [
+      {
+        student_account_id: studentOne.account.account_id,
+        status: "submitted",
+        score: 5,
+        score_max: 8,
+        feedback: "Develop the counter-argument before judging."
+      },
+      { student_account_id: studentTwo.account.account_id, status: "submitted", score: 7, score_max: 8 },
+      { student_account_id: studentThree.account.account_id, status: "submitted", score: 14, score_max: 16 }
+    ]
   });
-  assert.equal(graded.recorded, 1);
+  assert.equal(graded.recorded, 3);
   const gradedRow = store.database.prepare("SELECT score,score_max,feedback,graded_at FROM homework_submissions WHERE student_account_id=? AND assignment_title='Supply-side essay'").get(studentOne.account.account_id);
   assert.equal(gradedRow.score, 5);
   assert.equal(gradedRow.score_max, 8);
@@ -199,9 +203,31 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   const regraded = store.database.prepare("SELECT status,score FROM homework_submissions WHERE student_account_id=? AND assignment_title='Supply-side essay'").get(studentOne.account.account_id);
   assert.equal(regraded.status, "late");
   assert.equal(regraded.score, 5);
+  store.recordHomeworkSubmissions(teacher.account.account_id, classroom.class_id, {
+    assignment_title: "Structured growth question",
+    assigned_on: "2026-09-17",
+    source: "qq",
+    items: [
+      { student_account_id: studentOne.account.account_id, status: "submitted" },
+      { student_account_id: studentTwo.account.account_id, status: "submitted" },
+      { student_account_id: studentThree.account.account_id, status: "missing" }
+    ]
+  });
+  const rewardState = store.selectorSessionState(teacher.account.account_id, nextLessonSelector.session_id);
+  const leaderboard = rewardState.homework_leaderboard;
+  assert.equal(leaderboard.assignment_title, "Supply-side essay");
+  assert.equal(leaderboard.assigned_on, "2026-09-18");
+  assert.equal(leaderboard.graded_count, 3);
+  assert.deepEqual(leaderboard.entries.map((entry) => [entry.display_name, entry.percentage, entry.rank]), [
+    ["Student Three", 87.5, 1],
+    ["Student Two", 87.5, 1],
+    ["Student One", 62.5, 2]
+  ], "leaderboard ranks percentages, keeps proportional-score ties, and uses dense places");
+  assert.deepEqual(rewardState.homework_rewards.groups.map((group) => group.kind), ["score", "submission"]);
+  assert.deepEqual(rewardState.homework_rewards.groups[1].entries.map((entry) => entry.display_name), ["Student One", "Student Two"]);
   // Remove the grading fixture again so the later aggregate assertions in this
   // shared test still describe the original homework set.
-  store.database.prepare("DELETE FROM homework_submissions WHERE assignment_title='Supply-side essay'").run();
+  store.database.prepare("DELETE FROM homework_submissions WHERE assignment_title IN ('Supply-side essay','Structured growth question')").run();
   await rejectsCode(() => Promise.resolve(store.recordHomeworkSubmissions(teacher.account.account_id, classroom.class_id, { assignment_title: "Bad grade", assigned_on: "2026-09-18", items: [{ student_account_id: studentOne.account.account_id, status: "submitted", score: 9, score_max: 8 }] })), "HOMEWORK_SCORE_RANGE_INVALID");
   await rejectsCode(() => Promise.resolve(store.recordHomeworkSubmissions(teacher.account.account_id, classroom.class_id, { assignment_title: "Bad grade", assigned_on: "2026-09-18", items: [{ student_account_id: studentOne.account.account_id, status: "submitted", score: 4 }] })), "HOMEWORK_SCORE_MAX_REQUIRED");
   await rejectsCode(() => Promise.resolve(store.recordHomeworkSubmissions(teacher.account.account_id, classroom.class_id, { assignment_title: "Bad grade", assigned_on: "2026-09-18", items: [{ student_account_id: studentOne.account.account_id, status: "submitted", score: 2.5, score_max: 8 }] })), "HOMEWORK_SCORE_INVALID");
@@ -232,11 +258,15 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   assert.equal(rollCallTwo.homework.late, 1);
   const absentLog = store.database.prepare("SELECT id FROM selector_attendance_log WHERE student_account_id=? AND status='absent'").get(studentTwo.account.account_id);
   store.database.prepare(`INSERT INTO absence_followups
-    (attendance_log_id,status,recipient_external_id,outbound_message_id,conversation_id,message_text,lesson_pdf_name,lesson_pdf_sha256,sent_at,response_message_id,reason_text,responded_at,updated_at)
-    VALUES (?,'responded','ding-student-two','msg-out','conv-two','Please explain your absence.','lesson.pdf','abc','2026-08-11T10:03:00.000Z','msg-in','Medical appointment','2026-08-11T10:10:00.000Z','2026-08-11T10:10:00.000Z')`).run(absentLog.id);
+    (attendance_log_id,status,recipient_external_id,outbound_message_id,conversation_id,message_text,lesson_pdf_name,lesson_pdf_sha256,sent_at,response_message_id,reason_text,reason_category,absence_start_date,absence_end_date,responded_at,updated_at)
+    VALUES (?,'responded','ding-student-two','msg-out','conv-two','Please explain your absence.','lesson.pdf','abc','2026-08-11T10:03:00.000Z','msg-in','Medical appointment','health','2026-09-20','2026-09-30','2026-08-11T10:10:00.000Z','2026-08-11T10:10:00.000Z')`).run(absentLog.id);
   const overviewWithReason = store.classStudentOverview(teacher.account.account_id, classroom.class_id);
   assert.equal(overviewWithReason.attendance_log[0].followup_sent, 1);
   assert.equal(overviewWithReason.attendance_log[0].reasons_received, 1);
+  assert.equal(overviewWithReason.students.find((item) => item.account_id === studentTwo.account.account_id).absence.category_label, "Health / medical");
+  assert.equal(overviewWithReason.students.find((item) => item.account_id === studentTwo.account.account_id).absence.active, true);
+  const rollCallWithReason = store.selectorSessionState(teacher.account.account_id, nextLessonSelector.session_id);
+  assert.equal(rollCallWithReason.roster.find((item) => item.account_id === studentTwo.account.account_id).absence_context.reason, "Medical appointment");
   assert.ok(overview.attendance_log_by_form_class.some((item) => item.form_class === 4));
   assert.equal(overviewOne.selector.a_count, 1);
   const allCourses = store.teacherStudentOverview(teacher.account.account_id);
@@ -251,6 +281,8 @@ test("shared accounts, classes, learning, selector, recovery, isolation, and del
   assert.equal(profile.selector.length, 1);
   const absentProfile = store.studentProfile(teacher.account.account_id, studentTwo.account.account_id);
   assert.equal(absentProfile.attendance[0].reason_text, "Medical appointment");
+  assert.equal(absentProfile.attendance[0].reason_category_label, "Health / medical");
+  assert.equal(absentProfile.attendance[0].absence_active, true);
   await rejectsCode(() => Promise.resolve(store.studentProfile(otherTeacher.account.account_id, studentOne.account.account_id)), "STUDENT_NOT_FOUND");
 
   const exportedWithHomework = store.privacyExport(studentOne.account.account_id);

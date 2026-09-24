@@ -1,0 +1,56 @@
+/* Diagram layouts belong to Workers Lesson 2; the course renderer stays shared. */
+@media screen {
+  .wage-classroom .is-layout-wage-diagram .content { display: block; padding-top: 0; }
+  .wage-classroom .is-layout-wage-diagram .content main { display: block; }
+  .wage-classroom .is-layout-wage-diagram .content .cardgrid { display: none; }
+  .wage-classroom .is-layout-wage-diagram .visual { display: block; width: 100%; height: min(63vh, 660px); margin: 0; }
+  .wage-classroom .is-layout-wage-diagram h2 { margin-bottom: 4px; }
+  .wage-classroom .is-layout-wage-diagram .lead { margin: 0 0 8px; color: #142f43; font-size: clamp(22px, 1.7vw, 32px); }
+  .wage-diagram { width: 100%; height: 100%; color: #142f43; }
+  .wage-diagram svg { display: block; width: 100%; height: calc(100% - 35px); overflow: visible; }
+  .wage-diagram svg.wage-diagram-mobile { display: none; }
+  .wage-diagram .axis { stroke: #142f43; stroke-width: 4; }
+  .wage-diagram .demand-line { fill: none; stroke: #c76c43; stroke-width: 6; }
+  .wage-diagram .supply-line { fill: none; stroke: #166c72; stroke-width: 6; }
+  .wage-diagram .shifted { stroke-dasharray: 12 8; }
+  .wage-diagram .guide { stroke: #788991; stroke-width: 2.5; stroke-dasharray: 8 7; }
+  .wage-diagram .guide.new { stroke: #166c72; }
+  .wage-diagram .point { fill: #142f43; }
+  .wage-diagram .point.new { fill: #166c72; }
+  .wage-diagram .floor-line { stroke: #a83835; stroke-width: 6; }
+  .wage-diagram .shift-arrow,.wage-diagram .gap-line { fill: none; stroke: #166c72; stroke-width: 4; }
+  .wage-diagram text { font-family: Arial, 'Microsoft YaHei', sans-serif; fill: #142f43; }
+  .wage-diagram .axis-label { font-size: 27px; font-weight: 700; }
+  .wage-diagram .axis-value,.wage-diagram .point-label,.wage-diagram .curve-label { font-size: 27px; font-weight: 700; }
+  .wage-diagram .axis-value.new,.wage-diagram .point-label.new { fill: #166c72; }
+  .wage-diagram .floor-label { fill: #a83835; font-size: 26px; font-weight: 700; }
+  .wage-diagram .gap-label { fill: #166c72; font-size: 29px; font-weight: 700; }
+  .wage-classroom .wage-diagram-caption { margin: 0; color: #142f43; text-align: center; font-size: clamp(20px, 1.45vw, 28px); font-weight: 600; }
+  .wage-classroom .is-layout-wage-contrast .cardgrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px; }
+  .wage-classroom .is-layout-wage-contrast .card { border-top: 5px solid #166c72; padding-top: 20px; }
+  .wage-classroom .is-layout-wage-contrast .card:nth-child(2) { border-top-color: #c76c43; }
+  .wage-classroom .is-layout-wage-contrast .cardVisual { height: min(31vh, 300px); }
+  .wage-classroom .is-layout-wage-contrast .cardBody { font-size: clamp(23px, 1.6vw, 31px); }
+  .wage-classroom .flowChip { background: #f4f8f6; box-shadow: none; border: 1px solid #d4dedc; }
+  .wage-classroom .flowChip .flowText { color: #142f43; font-size: clamp(24px, 1.8vw, 33px); line-height: 1.25; }
+  .wage-classroom .flowChip .flowTextZh { color: #51616b; font-size: clamp(20px, 1.45vw, 28px); }
+  .wage-classroom .flowChip .blankAnswer { color: #142f43; background: #e6f1ef; }
+  .wage-classroom #deck .is-modelAnswer h2 { font-size: clamp(34px, 2.8vw, 50px); }
+  .wage-classroom #deck .is-modelAnswer .modelAnswerText p { margin-bottom: 8px; padding: 3px 0 3px 20px; font-size: clamp(25px, 1.78vw, 32px); line-height: 1.27; }
+  .wage-classroom .modelAnswerLabel { margin-bottom: 8px; }
+}
+@media screen and (max-width:760px) {
+  .wage-classroom .is-layout-wage-diagram .content { width: 100%; min-width: 0; }
+  .wage-classroom .is-layout-wage-diagram .visual { width: 100%; height: auto; overflow: hidden; }
+  .wage-diagram svg.wage-diagram-desktop { display: none; }
+  .wage-diagram svg.wage-diagram-mobile { display: block; width: 100%; height: auto; min-width: 0; }
+  .wage-diagram .axis-label,.wage-diagram .axis-value,.wage-diagram .point-label,.wage-diagram .curve-label { font-size: 16px; }
+  .wage-diagram .floor-label,.wage-diagram .gap-label { font-size: 15px; }
+  .wage-classroom .wage-diagram-caption { font-size: 18px; line-height: 1.3; }
+  .wage-classroom .flowChain { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .wage-classroom .flowChip { width: 100%; min-width: 0; min-height: 0; padding: 14px 18px; }
+  .wage-classroom .flowChip .flowText { font-size: 22px; }
+  .wage-classroom .flowChip .flowTextZh { font-size: 18px; }
+  .wage-classroom .is-layout-wage-contrast .cardgrid { grid-template-columns: 1fr; gap: 20px; }
+  .wage-classroom .is-layout-wage-contrast .cardVisual { height: 175px; }
+}

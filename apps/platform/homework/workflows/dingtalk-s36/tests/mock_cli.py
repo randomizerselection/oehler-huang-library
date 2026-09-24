@@ -122,6 +122,29 @@ def main():
             'spaceId': per_file.get('spaceId', info.get('spaceId', 'SPACE1')),
             'fileId': file_id,
             'name': per_file.get('name', info.get('name', 'question.png'))}}))
+    elif tuple(args[:2]) == ('chat', 'search'):
+        cursor = args[args.index('--cursor') + 1] if '--cursor' in args else '0'
+        page = find_page(config.get('groupSearch', []), cursor)
+        if page is None:
+            fail('no scripted group search page for cursor ' + cursor)
+        if 'error' in page:
+            fail(page['error'])
+        result = {'groups': page.get('groups', []), 'hasMore': page.get('hasMore', False)}
+        if 'nextCursor' in page:
+            result['nextCursor'] = page['nextCursor']
+        print(json.dumps({'success': True, 'result': result}))
+    elif command == ('chat', 'message', 'search'):
+        cursor = args[args.index('--cursor') + 1] if '--cursor' in args else '0'
+        page = find_page(config.get('messageSearch', []), cursor)
+        if page is None:
+            fail('no scripted message search page for cursor ' + cursor)
+        if 'error' in page:
+            fail(page['error'])
+        result = {'conversationMessagesList': page.get('conversations', []),
+                  'hasMore': page.get('hasMore', False)}
+        if 'nextCursor' in page:
+            result['nextCursor'] = page['nextCursor']
+        print(json.dumps({'success': True, 'result': result}))
     elif command == ('contact', 'user', 'get-self'):
         get_self(config.get('getSelf', {}))
     elif command == ('chat', 'message', 'list-all'):
@@ -151,10 +174,12 @@ def main():
     elif command == ('chat', 'message', 'send'):
         send_config = config.get('send', {})
         content = args[args.index('--content') + 1] if '--content' in args else None
-        recipient = args[args.index('--open-dingtalk-id') + 1]
+        is_group = '--group' in args
+        recipient = args[args.index('--group' if is_group else '--open-dingtalk-id') + 1]
         key = args[args.index('--idempotency-key') + 1] if '--idempotency-key' in args else None
         task = send_config.get('openTaskId', 'task-1')
-        log('sends.log', {'openDingTalkId': recipient, 'content': content,
+        log('sends.log', {'openDingTalkId': None if is_group else recipient,
+                          'group': recipient if is_group else None, 'content': content,
                           'msgType': args[args.index('--msg-type') + 1] if '--msg-type' in args else None,
                           'dentryId': args[args.index('--dentry-id') + 1] if '--dentry-id' in args else None,
                           'spaceId': args[args.index('--space-id') + 1] if '--space-id' in args else None,

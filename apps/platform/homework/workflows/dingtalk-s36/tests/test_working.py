@@ -73,7 +73,7 @@ class WorkingTimingTests(unittest.TestCase):
         sends = read_log(fixture, 'sends.log')
         self.assertEqual(len(sends), 1)
         self.assertEqual(sends[0]['content'],
-                         'Hi Emma, I received your answer for Homework 1 — Inflationary gap (Q19). Please send a clear photo showing your working so I can record a complete submission.')
+                         "Hi Emma, I received your answer for Homework 1 — Inflationary gap (Q19). Please send a clear photo showing your working so I can record a complete submission. — Adam, Samuel's automated teaching assistant.")
         followups = load_state(fixture, 'working-followups.json')['followups']
         self.assertEqual(next(iter(followups.values()))['status'], 'sent')
         # Idempotent on the next run.

@@ -758,7 +758,7 @@ window.ALEVEL_SYLLABUS = {
       "resource": {
         "label": "Equilibrium income and expenditure gaps slides",
         "href": "lessons/9-1-3-income-gaps/index.html",
-        "note": "Original half-session allocation retained. Teacher report, 16 September 2026: completed Part 1 through closing-deflationary-gap, reveal step 4; the essay workshop remains untaught. Continue with Full-employment policies: essay workshop (Part 2), linked on the course page, in a separate teaching slot. The added Part 1 summary is available for recap and is not recorded as taught."
+        "note": "Original half-session allocation retained. Teacher report, 16 September 2026: completed Part 1 through closing-deflationary-gap, reveal step 4; the essay workshop had not yet begun at that point. The later 20 September report confirms that the full-employment essay workshop was taught in the second class of week 3 (14–18 September). The added Part 1 summary is available for recap and is not recorded as taught."
       }
     },
     {
@@ -782,11 +782,11 @@ window.ALEVEL_SYLLABUS = {
       "teach": "Compare a movement towards capacity with an increase in capacity; connect PPC and actual/potential output diagrams.",
       "practice": "Use PPC and AD/AS to distinguish actual and potential growth and identify positive and negative output gaps; time-series and percentage practice are optional.",
       "check": "Classify a change as actual growth, potential growth or both and justify the classification.",
-      "followUp": "Next actual teaching session: Fiscal expansion and the multiplier, the separate 40-minute continuation linked on the course page. Prepare two paragraphs in class; complete 9708/41 May/June 2026 Q4 afterwards.",
+      "followUp": "Next: The business cycle (9.2.3). Consolidate actual/potential growth with 9708/41 Oct/Nov 2025 Q5 as homework. Keep the 2026 fiscal/multiplier essay as later synoptic practice.",
       "resource": {
         "label": "Actual growth, potential growth and output gaps slides",
         "href": "lessons/9-2-1-growth-output-gaps/index.html",
-        "note": "Teacher report, 20 September 2026: one 40-minute lesson covered through gap-measures (slide 20), stopping before fiscal-expansion-section. Fiscal expansion, the multiplier application and the 2026 essay remain untaught. The next prepared 40-minute lesson is Fiscal expansion and the multiplier (lessons/9-2-2-fiscal-expansion-multiplier/index.html), linked on the course page. The original deck retains its prepared continuation and optional material for reference; neither is recorded as taught. Workbook allocations are preserved; insert this continuation before the planned business-cycle session. The separate earlier full-employment essay workshop has no new completion report."
+        "note": "Growth/output-gap theory taught on 20 September through gap-measures (slide 20). Later fiscal and essay material in this older deck is retained as optional practice, not the next teaching session. Next syllabus content is 9.2.3: phases, causes and automatic stabilisers."
       }
     },
     {
@@ -808,9 +808,14 @@ window.ALEVEL_SYLLABUS = {
       "outcome": "Explain phases and causes of the business cycle and how automatic stabilisers affect fluctuations.",
       "retrieve": "Retrieve actual/potential growth and output-gap definitions.",
       "teach": "Devote three quarters to the cycle, shocks and automatic stabilisers; use the final quarter to introduce demand- and supply-side growth policies.",
-      "practice": "Annotate a cycle diagram, distinguish discretionary policy from automatic stabilisers, and match a policy to a diagnosed problem.",
+      "practice": "Identify cycle phases; explain two pieces of original 2026 Paper 4 evidence; trace demand/supply causes and automatic tax/benefit responses. Apply original 2026 Paper 3 questions.",
       "check": "Explain how one automatic stabiliser moderates a downturn without a new policy decision.",
-      "followUp": "Prepare a causal chain from a growth policy to output and employment."
+      "followUp": "Complete 9708/41 Oct/Nov 2025 Q5 on growth and full employment using already-taught PPC/AD–AS models. Next lesson develops policies to promote growth and evaluates their effectiveness.",
+      "resource": {
+        "label": "The business cycle slides",
+        "href": "lessons/9-2-3-business-cycle/index.html",
+        "note": "Next class: week 4, second lesson. Complete 9.2.3, introduce demand management versus capacity growth, then continue 9.2.4. Original 2026 Paper 3 Q18/Q21 and Paper 4 Q1(a) are integrated; the growth essay follows Summary as homework."
+      }
     },
     {
       "id": "al-007",
@@ -830,10 +835,15 @@ window.ALEVEL_SYLLABUS = {
       "title": "Growth policies and inclusive growth",
       "outcome": "Evaluate policies to raise output and introduce the distinction between equity and equality.",
       "retrieve": "Recall cycle causes and the difference between demand and productive capacity.",
-      "teach": "Use three quarters to compare growth policies and their limits; use the final quarter to define inclusive growth, equity and equality.",
-      "practice": "Compare two policy proposals using time lags, spare capacity and distributional effects.",
+      "teach": "Prepared classroom deck focuses on 9.2.4 mechanisms and effectiveness; an optional 9.2.5 preview follows Summary. Preserve the original workbook's 0.75/0.25 allocation as a reference, not evidence of taught coverage.",
+      "practice": "Apply Elizabeth line and SkillsFuture cases; write an independent policy paragraph in eight minutes. Use original Paper 3 retrieval/exit and 9708/44 May/June 2025 Q5.",
       "check": "Recommend a growth policy for a stated economy and explain one condition for success.",
-      "followUp": "Identify who might gain less from the recommended policy and explain why."
+      "followUp": "Complete 9708/44 May/June 2025 Q5 after an independent first attempt. Next core lesson: inclusive growth and its policies.",
+      "resource": {
+        "label": "Policies to promote economic growth slides",
+        "href": "lessons/9-2-4-growth-policies/index.html",
+        "note": "Prepared for the class after Business cycle: 24 core slides in 40 minutes, including eight minutes of independent writing. Complete essay and a brief inclusive-growth preview follow Summary. Original reference allocations are unchanged; preparation is not taught coverage."
+      }
     },
     {
       "id": "al-008",
@@ -1753,11 +1763,9 @@ window.ALEVEL_SYLLABUS = {
     }
   ]
 };
-
-// Actual semester pacing; original workbook allocations above remain unchanged.
 window.ALEVEL_SYLLABUS.semesterPlan = {
   "updated": "2026-09-20",
-  "start": "2026-09-21",
+  "start": "2026-09-20",
   "deadline": "2027-01-14",
   "lessonsPerWeek": 2,
   "minutesPerLesson": 40,
@@ -1765,30 +1773,25 @@ window.ALEVEL_SYLLABUS.semesterPlan = {
     "9",
     "10"
   ],
-  "coreSlots": 25,
+  "coreSlots": 24,
   "reserveSlots": 4,
   "reviewSlots": 3,
   "nominalSlots": 32,
   "weeks": [
     {
       "week": 1,
-      "start": "2026-09-21",
+      "start": "2026-09-20",
       "slots": [
         {
-          "kind": "teaching",
-          "title": "Fiscal expansion and the multiplier",
-          "href": "../lessons/9-2-2-fiscal-expansion-multiplier/index.html",
-          "codes": [
-            "9.1.1",
-            "9.1.3",
-            "9.2.2"
-          ]
+          "kind": "completed",
+          "lessonId": "al-005"
         },
         {
           "kind": "teaching",
           "lessonId": "al-006"
         }
-      ]
+      ],
+      "end": "2026-09-24"
     },
     {
       "week": 2,
@@ -2000,41 +2003,49 @@ window.ALEVEL_SYLLABUS.semesterPlan = {
         }
       ]
     }
-  ]
+  ],
+  "completedSlots": 1
 };
-
-// Coverage reports are not exact teaching dates.
 window.ALEVEL_SYLLABUS.teachingRecords = {
   "al-001": {
     "status": "Taught",
     "reportedOn": "2026-09-10",
-    "note": "The 10 September teacher report confirms the multiplier lesson had been studied. Exact teaching date not recorded."
+    "note": "Multiplier lesson taught. Recorded against the first two-class teaching week; exact class date not supplied.",
+    "actualWeek": "1–4 September 2026 (week 1)"
   },
   "al-002": {
-    "status": "Not confirmed",
-    "note": "Prepared deck available; completion and actual teaching date have not been confirmed."
+    "status": "Taught",
+    "note": "National-income lesson included in the completed earlier teaching sequence; exact class date not supplied.",
+    "actualWeek": "1–4 September 2026 (week 1)",
+    "reportedOn": "2026-09-20"
   },
   "al-003": {
-    "status": "Not confirmed",
-    "note": "Not yet taught as of the 10 September report; later completion and teaching date need confirmation."
+    "status": "Taught",
+    "note": "Consumption and saving taught in the earlier sequence. Exact class date not supplied.",
+    "actualWeek": "7–11 September 2026 (week 2)",
+    "reportedOn": "2026-09-20"
   },
   "al-004": {
-    "status": "In progress",
-    "reportedOn": "2026-09-16",
-    "note": "Income-gap theory taught through closing-deflationary-gap, step 4. The essay workshop remains unconfirmed; investment/accelerator completion and exact teaching dates also need confirmation."
+    "status": "Taught",
+    "reportedOn": "2026-09-20",
+    "note": "This reference allocation spans separate taught classes: investment/accelerator and income-gap theory. The teacher also confirmed the full-employment essay workshop in week 3, recorded separately above.",
+    "actualWeek": "7–18 September 2026 (weeks 2–3)"
   },
   "al-005": {
-    "status": "In progress",
+    "status": "Taught",
     "reportedOn": "2026-09-20",
-    "note": "One 40-minute class covered through gap-measures (slide 20). Fiscal expansion and the essay were not started. Exact class date needs confirmation; 20 September is the report date."
+    "note": "Core growth/output-gap theory taught on 20 September through gap-measures (slide 20). Fiscal expansion was not started and is a separate planned continuation; later optional slides are not counted as taught.",
+    "actualDate": "2026-09-20"
   },
   "fiscal-continuation": {
-    "status": "Planned",
-    "note": "Next 40-minute class, before the business cycle. Prepared, not yet reported as taught."
+    "status": "Optional",
+    "note": "Synoptic fiscal-policy essay practice, not the next compulsory lesson. Multiplier already taught. Use selectively when evaluating growth policies (9.2.4), then revisit full policy effectiveness in 10.3.1."
   },
   "full-employment-workshop": {
-    "status": "Planned",
-    "note": "Previously untaught. Set as diagnostic homework during the week beginning 21 September; use reserve/review time if reteaching is needed."
+    "status": "Taught",
+    "note": "Teacher confirmed this was the second class of week 3. Completion supersedes the earlier untaught report; exact date within the week was not supplied.",
+    "actualWeek": "14–18 September 2026 (week 3, second class)",
+    "reportedOn": "2026-09-20"
   }
 };
 window.ALEVEL_SYLLABUS.extraSessions = [
@@ -2042,14 +2053,56 @@ window.ALEVEL_SYLLABUS.extraSessions = [
     "id": "fiscal-continuation",
     "title": "Fiscal expansion and the multiplier",
     "href": "../lessons/9-2-2-fiscal-expansion-multiplier/index.html",
-    "plannedWeek": "2026-09-21",
-    "slot": 1
+    "plannedWindow": "Optional during 9.2.4; revisit in 10.3.1"
   },
   {
     "id": "full-employment-workshop",
     "title": "Full-employment policies: essay workshop",
     "href": "../lessons/9-1-3-full-employment-essay/index.html",
-    "plannedWeek": "2026-09-21",
-    "homework": true
+    "plannedWeek": "2026-09-14",
+    "slot": 2
+  }
+];
+window.ALEVEL_SYLLABUS.assessmentSequence = [
+  {
+    "stage": "9.2.1–9.2.2 · now",
+    "reference": "9708/41 Oct/Nov 2025 Q5 · 20 marks",
+    "question": "Economic growth can only occur when an economy is below full employment. Evaluate this statement.",
+    "use": "Consolidate taught actual/potential growth as homework. Model demand-led output growth, then a capacity shift and a conditional judgement. Relevant topic fit takes priority over a newer but synoptic question.",
+    "href": "../lessons/9-2-3-business-cycle/index.html#full-employment-essay-guidance"
+  },
+  {
+    "stage": "9.2.3 · next class",
+    "reference": "9708/41 May/June 2026 Q1(a) · 4 marks; 9708/34 May/June 2026 Q18; 9708/31 May/June 2026 Q21",
+    "question": "Evidence of expansion; automatic stabilisers; overheating.",
+    "use": "Teach the cycle first. Use two evidence–explanation pairs for Paper 4, then Paper 3 application and exit questions. No forced full essay before its prerequisites are taught.",
+    "href": "../lessons/9-2-3-business-cycle/index.html"
+  },
+  {
+    "stage": "9.2.4 · growth policies",
+    "reference": "9708/44 May/June 2025 Q5 · 20 marks",
+    "question": "Evaluate how a country might increase its potential economic growth.",
+    "use": "After teaching policy mechanisms, compare at least two supply-side policies using PPC/AS capacity shifts. Develop analysis first, then conditional evaluation of lags, constraints and costs. Official scheme: p.15, AO1+AO2 14; AO3 6.",
+    "href": "../lessons/9-2-4-growth-policies/index.html#policy-essay-question"
+  },
+  {
+    "stage": "9.2.6 · sustainability",
+    "reference": "9708/44 May/June 2026 Q1(d) · 8 marks",
+    "question": "Using the information and your economics knowledge, assess whether there is a conflict between economic growth and sustainability in Czechia.",
+    "use": "Introduce after sustainable-growth mechanisms. Use the complete original extract and table when building that lesson; teach contextual analysis and a supported judgement."
+  },
+  {
+    "stage": "9.2.4 application → 10.3.1 consolidation",
+    "reference": "9708/41 May/June 2026 Q4 · 20 marks",
+    "question": "Fiscal expansion, the multiplier and closing a negative output gap.",
+    "use": "Optional short retrieval/application during growth policy; full essay evaluation when policy effectiveness is taught. Keep the original question and mark scheme, but do not schedule another compulsory multiplier lesson.",
+    "href": "../lessons/9-2-2-fiscal-expansion-multiplier/index.html#current-essay-question"
+  },
+  {
+    "stage": "10.2–10.3 · conflicts and effectiveness",
+    "reference": "9708/41 May/June 2025 Q4 · 20 marks",
+    "question": "Fiscal policy in an economy experiencing stagflation.",
+    "use": "After policy conflicts and supply shocks: explain the output–inflation trade-off with AD/AS and judge fiscal-policy effectiveness. The original mark scheme limits analysis without a relevant diagram.",
+    "href": "../lessons/9-2-1-growth-output-gaps/index.html#stagflation-essay-guidance"
   }
 ];

@@ -40,17 +40,28 @@ def save(path, data):
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     tmp.replace(path)
 
-def cli(args):
+class DingTalkError(RuntimeError):
+    """Preserve structured provider failures, including errors emitted on stderr."""
+    def __init__(self, payload):
+        self.payload = payload
+        super().__init__(json.dumps(payload, ensure_ascii=True)[:1500])
+
+
+def cli(args, timeout=240):
     if args[:3] == ['chat', 'message', 'send'] and '--content' in args:
         content_index = args.index('--content') + 1
         if content_index >= len(args):
             raise ValueError('Missing value for --content')
         ensure_english_only(args[content_index])
-    proc = subprocess.run([CONFIG['cli'], '--profile', CONFIG['profile'], *args], capture_output=True, encoding='utf-8', timeout=240)
+    proc = subprocess.run([CONFIG['cli'], '--profile', CONFIG['profile'], *args], capture_output=True, encoding='utf-8', timeout=timeout)
     try:
         result = json.loads(proc.stdout)
     except ValueError:
-        raise RuntimeError('DingTalk returned non-JSON output: ' + proc.stderr[:500])
+        try:
+            failure = json.loads(proc.stderr)
+        except ValueError:
+            raise RuntimeError('DingTalk returned non-JSON output: ' + proc.stderr[:500])
+        raise DingTalkError(failure)
     # Asynchronous writes wrap the normal API result in an operation envelope.
     accepted = result.get('success') is True or (
         result.get('ok') is True and isinstance(result.get('data'), dict)
@@ -68,7 +79,7 @@ def cli(args):
                 accepted = content.get('success') is True or (
                     isinstance(inner, dict) and inner.get('success') is True)
     if proc.returncode or not accepted:
-        raise RuntimeError(json.dumps(result, ensure_ascii=True)[:1500])
+        raise DingTalkError(result)
     return result
 
 def roster():
@@ -178,6 +189,24 @@ def main():
     pending = sorted(durable.values(), key=lambda item: (item.get('time') or '', item['messageId']))
     batch = {'batchId': uuid.uuid4().hex[:12], 'runId': os.environ.get('S36_RUN_ID') or None, 'start': start, 'end': end, 'platformSchemaVersion': schema_version(), 'messages': pending}
     save(ROOT / 'state' / 'pending.json', batch)
+    # This is an intentional fetch side effect, run only after the complete
+    # evidence batch is durable. It never sends a student message.
+    from absence_followups import capture as capture_absence_reasons
+    absence_capture = capture_absence_reasons(ROOT / 'state' / 'latest-response.json')
+    captured_by_id = {item['messageId']: item for item in absence_capture.get('items', [])}
+    if captured_by_id:
+        for item in pending:
+            captured = captured_by_id.get(item['messageId'])
+            if captured:
+                item['absenceReason'] = {
+                    'attendanceLogId': captured['attendanceLogId'],
+                    'reason': captured['reason'],
+                    'category': captured['category'],
+                    'absenceStartDate': captured['absencePeriod'][0] if captured.get('absencePeriod') else None,
+                    'absenceEndDate': captured['absencePeriod'][1] if captured.get('absencePeriod') else None,
+                }
+        batch['messages'] = pending
+        save(ROOT / 'state' / 'pending.json', batch)
     print(json.dumps({'start': start, 'end': end, 'privateConversations': sum(bool(c.get('singleChat')) for c in conversations), 'pending': len(pending), 'pendingFile': str(ROOT / 'state' / 'pending.json'), 'batchId': batch['batchId']}, ensure_ascii=True))
 
 if __name__ == '__main__':

@@ -25,4 +25,6 @@ const selector = window.StudentSelector.mount(panel, {
 
 Use `skipStyles: true` in lessons so the lesson viewer supplies scoped selector styles. Closing a panel only hides it; the platform session remains active for reopening. “End session” completes it, and “Reset” completes it with reset status before starting a new snapshot.
 
+The selector-session response includes `homework_rewards.groups`. The score group contains the latest non-QQ scored assignment and the first five students plus all ties at the fifth-student cutoff. A separate submission group contains every submitted/late student from the latest QQ structured-question assignment, without using its score. `homework_leaderboard` remains as a score-only compatibility field. The authenticated selector presents these through **Top Homework**; classroom-mode/public fallbacks do not expose the control or protected result data.
+
 The application loads only non-roster assets relative to `basePath`: feedback messages, icons, audio, CSS, and JavaScript. There is intentionally no deployed `assets/students.csv`.

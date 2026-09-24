@@ -9,7 +9,7 @@
     if (runtimePromise) return runtimePromise;
     runtimePromise = new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = new URL('selector.js', baseUrl).href;
+      script.src = new URL('selector.js?v=20260920.3', baseUrl).href;
       script.dataset.studentSelectorRuntime = '';
       const timer = setTimeout(() => fail(), 15000);
       const fail = () => {
@@ -33,7 +33,7 @@
     platformPromise = new Promise((resolve) => {
       const script = document.createElement('script');
       // platform-shell.js lives next to this file in apps/library/assets/js/.
-      script.src = new URL('platform-shell.js', integrationScriptUrl).href;
+      script.src = new URL('platform-shell.js?v=20260920.2', integrationScriptUrl).href;
       script.onload = () => resolve(global.OHPlatform || null);
       script.onerror = () => resolve(null);
       document.head.append(script);
@@ -68,6 +68,7 @@
       document.body.classList.remove('is-student-selector-open');
       document.body.classList.remove('is-student-selector-minimized');
       document.body.classList.remove('is-selector-attendance-active');
+      document.body.classList.remove('is-selector-leaderboard-active');
       document.body.style.removeProperty('--selector-slide-scale');
       button.setAttribute('aria-pressed', 'false');
       button.focus({ preventScroll: true });
@@ -170,8 +171,11 @@
         const syncStage = () => {
           panel.classList.toggle('is-stage-overlay', ['selecting', 'selected'].includes(app.stage?.mode));
           const attendanceActive = Boolean(panel.querySelector('.selector-modal.is-attendance:not([hidden])'));
+          const leaderboardActive = Boolean(panel.querySelector('.selector-modal.is-leaderboard:not([hidden])'));
           panel.classList.toggle('is-attendance-active', attendanceActive);
+          panel.classList.toggle('is-leaderboard-active', leaderboardActive);
           document.body.classList.toggle('is-selector-attendance-active', attendanceActive);
+          document.body.classList.toggle('is-selector-leaderboard-active', leaderboardActive);
         };
         const observer = new MutationObserver(syncStage);
         observer.observe(panel.querySelector('.studentSelectorMount'), {

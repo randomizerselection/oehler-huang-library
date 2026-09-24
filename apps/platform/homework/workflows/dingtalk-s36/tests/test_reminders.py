@@ -57,9 +57,7 @@ class ReminderCampaignTests(unittest.TestCase):
                          [EMMA['key'], LEO['key']])
         self.assertEqual(plan['recipients'][0]['recipientId'], EMMA['dingtalkId'])
         self.assertEqual(plan['recipients'][0]['message'],
-                         "Hi Emma, I don't have your Homework 1 yet - it was due on "
-                         "17 September. Please send a photo of your answer with your working. "
-                         "The question is attached.")
+                         "Hi Emma, I don't have your Homework 1 yet - it was due on 17 September. Please send a photo of your answer with your working. The question is attached. — Adam, Samuel's automated teaching assistant.")
         self.assertTrue(plan['recipients'][1]['message'].startswith('Hi, I don'))
         self.assertEqual(plan['attachmentSha256'],
                          hashlib.sha256(self.attachment.read_bytes()).hexdigest())
@@ -329,10 +327,7 @@ class ReminderCampaignTests(unittest.TestCase):
 class CombinedReminderTests(unittest.TestCase):
     """Combined campaigns: one message per student naming all owed assignments,
     one question file card per owed assignment."""
-    HW1_MESSAGE_2 = ("Hi Emma, I don't have your Homework 1 or Homework 2 yet - "
-                     "Homework 1 was due on 17 September and Homework 2 was due on "
-                     "18 September. Please send a photo of your answer with your "
-                     "working for each. The questions are attached.")
+    HW1_MESSAGE_2 = ("Hi Emma, I don't have your Homework 1 or Homework 2 yet - Homework 1 was due on 17 September and Homework 2 was due on 18 September. Please send a photo of your answer with your working for each. The questions are attached. — Adam, Samuel's automated teaching assistant.")
 
     def setUp(self):
         self.fixture = build_workspace(self, self.drive_scenario())
@@ -381,8 +376,7 @@ class CombinedReminderTests(unittest.TestCase):
         self.assertEqual(emma['message'], self.HW1_MESSAGE_2)
         self.assertEqual(leo['owed'], [fixtures.HEADER2])
         self.assertEqual(leo['message'],
-                         "Hi, I don't have your Homework 2 yet - it was due on 18 September. "
-                         "Please send a photo of your answer with your working. The question is attached.")
+                         "Hi, I don't have your Homework 2 yet - it was due on 18 September. Please send a photo of your answer with your working. The question is attached. — Adam, Samuel's automated teaching assistant.")
         self.assertEqual([a['assignment'] for a in plan['attachments']],
                          [fixtures.HEADER, fixtures.HEADER2])
         self.assertEqual(plan['attachments'][0]['sha256'],
@@ -405,9 +399,7 @@ class CombinedReminderTests(unittest.TestCase):
                          [{'assignment': fixtures.HEADER,
                            'reason': 'already reminded earlier today (delivery confirmed)'}])
         self.assertEqual(emma['message'],
-                         "Hi Emma, I don't have your Homework 2 yet - it was due on "
-                         "18 September. Please send a photo of your answer with your "
-                         "working. The question is attached.")
+                         "Hi Emma, I don't have your Homework 2 yet - it was due on 18 September. Please send a photo of your answer with your working. The question is attached. — Adam, Samuel's automated teaching assistant.")
         self.assertEqual(self.recipient(LEO)['owed'], [fixtures.HEADER2])
 
         # Excluding everything a student owes drops them from the recipients.
@@ -488,9 +480,7 @@ class CombinedReminderTests(unittest.TestCase):
         emma_sends = [s for s in sends if s['openDingTalkId'] == EMMA['dingtalkId']]
         self.assertEqual(len(emma_sends), 2)
         self.assertEqual(emma_sends[0]['content'],
-                         "Hi Emma, I don't have your Homework 2 yet - it was due on "
-                         "18 September. Please send a photo of your answer with your "
-                         "working. The question is attached.")
+                         "Hi Emma, I don't have your Homework 2 yet - it was due on 18 September. Please send a photo of your answer with your working. The question is attached. — Adam, Samuel's automated teaching assistant.")
         # Only the Homework 2 card goes out; the Homework 1 card is not sent.
         self.assertEqual(emma_sends[1]['dentryId'], 'D2')
         self.assertNotIn('D1', [s['dentryId'] for s in sends])

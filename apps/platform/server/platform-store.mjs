@@ -9,6 +9,15 @@ const USERNAME_PATTERN = /^[\p{L}\p{N}._-]{3,60}$/u;
 const CODE_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 const OUTCOMES = new Set(["A*", "A", "B", "C", "No Grade", "Absent"]);
 const HOMEWORK_STATUSES = new Set(["submitted", "late", "missing", "exempt", "awaiting_working"]);
+const ABSENCE_CATEGORY_LABELS = {
+  health: "Health / medical",
+  academic: "Academic / examination",
+  school_activity: "School activity",
+  family_personal: "Family / personal",
+  travel_transport: "Travel / transport",
+  appointment: "Appointment / administrative",
+  other: "Other / unspecified"
+};
 
 export class PlatformStoreError extends Error {
   constructor(message, code = "PLATFORM_STORE_ERROR", status = 400) {
@@ -34,6 +43,35 @@ function code(prefix, size = 12) {
 
 function jsonParse(value, fallback) {
   try { return JSON.parse(value); } catch { return fallback; }
+}
+
+function shanghaiDate(value) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(value);
+  const get = (type) => parts.find((part) => part.type === type)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+function absenceContext(row, today) {
+  if (!row?.reason_text) return null;
+  const start = row.absence_start_date || null;
+  const end = row.absence_end_date || null;
+  const periodStatus = start && end
+    ? (today < start ? "upcoming" : today > end ? "ended" : "active")
+    : "single_record";
+  const category = row.reason_category || "other";
+  return {
+    category,
+    category_label: ABSENCE_CATEGORY_LABELS[category] || ABSENCE_CATEGORY_LABELS.other,
+    reason: row.reason_text,
+    absence_start_date: start,
+    absence_end_date: end,
+    marked_at: row.marked_at,
+    responded_at: row.responded_at,
+    period_status: periodStatus,
+    active: periodStatus === "active"
+  };
 }
 
 function optionalTimestamp(value, codeName) {
@@ -591,6 +629,25 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
     return { session_id: row.id, class_id: row.class_id, lesson_content_id: row.lesson_content_id, learning_assignment_id: row.learning_assignment_id, selection_policy: row.selection_policy, status: row.status, version: row.version, started_at: row.started_at, updated_at: row.updated_at, completed_at: row.completed_at, attendance_finalized_at: row.attendance_finalized_at };
   }
 
+  function absenceContextsForClass(classId) {
+    const today = shanghaiDate(now());
+    const byStudent = new Map();
+    const priority = { active: 3, upcoming: 2, single_record: 1, ended: 1 };
+    for (const row of database.prepare(`SELECT l.student_account_id AS account_id,l.marked_at,
+        f.reason_text,f.reason_category,f.responded_at,f.absence_start_date,f.absence_end_date
+      FROM absence_followups f
+      JOIN selector_attendance_log l ON l.id=f.attendance_log_id
+      WHERE l.class_id=? AND f.status='responded' AND f.reason_text IS NOT NULL
+      ORDER BY f.responded_at DESC,l.marked_at DESC`).all(classId)) {
+      const context = absenceContext(row, today);
+      const existing = byStudent.get(row.account_id);
+      if (!existing || priority[context.period_status] > priority[existing.period_status]) {
+        byStudent.set(row.account_id, context);
+      }
+    }
+    return byStudent;
+  }
+
   function selectorRosterContext(classId, sessionId) {
     const attendanceByStudent = new Map();
     for (const item of database.prepare(`SELECT l.student_account_id AS account_id,l.status,l.marked_at
@@ -627,7 +684,86 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       homeworkByStudent.set(item.account_id, summary);
     }
 
-    return { attendanceByStudent, homeworkByStudent };
+    const latestScoredAssignment = database.prepare(`SELECT h.assignment_title,h.assigned_on,MAX(h.recorded_at) AS last_recorded_at
+      FROM homework_submissions h
+      JOIN selector_session_roster r ON r.student_account_id=h.student_account_id AND r.session_id=?
+      WHERE h.class_id=? AND COALESCE(h.source,'manual')<>'qq' AND h.score IS NOT NULL AND h.score_max IS NOT NULL AND h.score_max>0
+      GROUP BY h.assignment_title,h.assigned_on
+      ORDER BY h.assigned_on DESC,last_recorded_at DESC
+      LIMIT 1`).get(sessionId, classId);
+    let scoreRewards = null;
+    if (latestScoredAssignment) {
+      const scored = database.prepare(`SELECT h.student_account_id AS account_id,r.student_display_name AS display_name,
+          h.score,h.score_max,r.roster_position
+        FROM homework_submissions h
+        JOIN selector_session_roster r ON r.student_account_id=h.student_account_id AND r.session_id=?
+        WHERE h.class_id=? AND h.assignment_title=? AND h.assigned_on=?
+          AND h.score IS NOT NULL AND h.score_max IS NOT NULL AND h.score_max>0
+        ORDER BY (h.score * 1.0 / h.score_max) DESC,r.roster_position`).all(
+          sessionId, classId, latestScoredAssignment.assignment_title, latestScoredAssignment.assigned_on
+        );
+      let rank = 0;
+      let previous = null;
+      const ranked = scored.map((student) => {
+        if (!previous || Number(student.score) * Number(previous.score_max) !== Number(previous.score) * Number(student.score_max)) rank += 1;
+        previous = student;
+        return {
+          account_id: student.account_id,
+          display_name: student.display_name,
+          score: Number(student.score),
+          score_max: Number(student.score_max),
+          percentage: Math.round((Number(student.score) / Number(student.score_max)) * 1000) / 10,
+          rank
+        };
+      });
+      const fifthStudent = ranked[4] || null;
+      const entries = fifthStudent
+        ? ranked.filter((student) => student.score * fifthStudent.score_max >= fifthStudent.score * student.score_max)
+        : ranked;
+      scoreRewards = {
+        kind: "score",
+        label: "Quiz high scores",
+        assignment_title: latestScoredAssignment.assignment_title,
+        assigned_on: latestScoredAssignment.assigned_on,
+        graded_count: ranked.length,
+        entries
+      };
+    }
+
+    const latestQqAssignment = database.prepare(`SELECT h.assignment_title,h.assigned_on,MAX(h.recorded_at) AS last_recorded_at
+      FROM homework_submissions h
+      JOIN selector_session_roster r ON r.student_account_id=h.student_account_id AND r.session_id=?
+      WHERE h.class_id=? AND h.source='qq' AND h.status IN ('submitted','late')
+      GROUP BY h.assignment_title,h.assigned_on
+      ORDER BY h.assigned_on DESC,last_recorded_at DESC
+      LIMIT 1`).get(sessionId, classId);
+    let submissionRewards = null;
+    if (latestQqAssignment) {
+      const entries = database.prepare(`SELECT h.student_account_id AS account_id,r.student_display_name AS display_name,r.roster_position
+        FROM homework_submissions h
+        JOIN selector_session_roster r ON r.student_account_id=h.student_account_id AND r.session_id=?
+        WHERE h.class_id=? AND h.assignment_title=? AND h.assigned_on=? AND h.source='qq'
+          AND h.status IN ('submitted','late')
+        ORDER BY r.roster_position`).all(sessionId, classId, latestQqAssignment.assignment_title, latestQqAssignment.assigned_on)
+        .map(({ account_id, display_name }) => ({ account_id, display_name }));
+      submissionRewards = {
+        kind: "submission",
+        label: "Structured question submitted",
+        assignment_title: latestQqAssignment.assignment_title,
+        assigned_on: latestQqAssignment.assigned_on,
+        submitted_count: entries.length,
+        entries
+      };
+    }
+
+    const homeworkRewards = { groups: [scoreRewards, submissionRewards].filter(Boolean) };
+    return {
+      attendanceByStudent,
+      absenceByStudent: absenceContextsForClass(classId),
+      homeworkByStudent,
+      homeworkRewards,
+      homeworkLeaderboard: scoreRewards
+    };
   }
 
   function selectorSessionState(teacherId, sessionId) {
@@ -653,6 +789,7 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
             ...attendance,
             rate: attendance.marks ? Math.round((attendance.present / attendance.marks) * 100) : null
           },
+          absence_context: context.absenceByStudent.get(student.account_id) || null,
           homework: {
             ...homework,
             completion_rate: homework.eligible ? Math.round((homework.completed / homework.eligible) * 100) : null
@@ -671,6 +808,8 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
         finalized: Boolean(row.attendance_finalized_at) && Number(attendanceSummary.marked || 0) === Number(attendanceSummary.roster_total || 0),
         finalized_at: row.attendance_finalized_at ?? null
       },
+      homework_rewards: context.homeworkRewards,
+      homework_leaderboard: context.homeworkLeaderboard,
       selections: database.prepare("SELECT id AS selection_id,event_id,student_account_id AS account_id,sequence_number,selected_at,outcome,outcome_at FROM selector_selections WHERE session_id=? ORDER BY sequence_number").all(sessionId)
     };
   }
@@ -963,6 +1102,7 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       WHERE l.class_id=? ORDER BY l.marked_at DESC`).all(classId)) {
       if (!latestAttendance.has(row.account_id)) latestAttendance.set(row.account_id, row);
     }
+    const absenceByStudent = absenceContextsForClass(classId);
     const attendanceLog = database.prepare(`SELECT l.session_id, se.started_at, se.attendance_finalized_at, l.lesson_content_id,
         (SELECT COUNT(*) FROM selector_session_roster r WHERE r.session_id=l.session_id) AS roster_total,
         COUNT(*) AS marked,
@@ -1026,6 +1166,7 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
             last_lesson_content_id: lastAttendance?.lesson_content_id ?? null,
             last_lesson_title: lessonTitle(lastAttendance?.lesson_content_id)
           },
+          absence: absenceByStudent.get(student.account_id) || null,
           homework: {
             total: Number(homework?.total ?? 0),
             submitted: Number(homework?.submitted ?? 0),
@@ -1078,6 +1219,13 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
             last_lesson_title: student.attendance.last_lesson_title
           });
         }
+        if (student.absence && (!existing.absence
+            || (student.absence.active && !existing.absence.active)
+            || (student.absence.period_status === "upcoming" && !["active", "upcoming"].includes(existing.absence.period_status))
+            || (student.absence.period_status === existing.absence.period_status
+              && newest(existing.absence.responded_at, student.absence.responded_at)))) {
+          existing.absence = student.absence;
+        }
         for (const key of ["total", "submitted", "late", "missing", "awaiting_working", "exempt"]) existing.homework[key] += student.homework[key];
         if (newest(existing.homework.last_assigned_on, student.homework.last_assigned_on)) {
           Object.assign(existing.homework, {
@@ -1116,12 +1264,22 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       WHERE m.account_id=? AND c.owner_account_id=? AND m.status='active' ORDER BY c.name`).all(accountId, teacherId);
     if (!classes.length) throw new PlatformStoreError("That student is not in any of your classes.", "STUDENT_NOT_FOUND", 404);
     const attendance = database.prepare(`SELECT l.class_id, c.name AS class_name, l.status, l.marked_at, l.lesson_content_id,
-          f.status AS followup_status, f.sent_at AS followup_sent_at, f.reason_text, f.responded_at
+          f.status AS followup_status, f.sent_at AS followup_sent_at, f.reason_text,f.reason_category,
+          f.absence_start_date,f.absence_end_date,f.responded_at
         FROM selector_attendance_log l
         JOIN classes c ON c.id=l.class_id AND c.owner_account_id=?
         LEFT JOIN absence_followups f ON f.attendance_log_id=l.id
         WHERE l.student_account_id=? ORDER BY l.marked_at DESC LIMIT 100`).all(teacherId, accountId)
-      .map((row) => ({ ...row, lesson_title: row.lesson_content_id ? contentCatalog?.get?.(row.lesson_content_id)?.title ?? null : null }));
+      .map((row) => {
+        const reason = absenceContext(row, shanghaiDate(now()));
+        return {
+          ...row,
+          reason_category_label: reason?.category_label ?? null,
+          absence_period_status: reason?.period_status ?? null,
+          absence_active: reason?.active ?? false,
+          lesson_title: row.lesson_content_id ? contentCatalog?.get?.(row.lesson_content_id)?.title ?? null : null
+        };
+      });
     return {
       student: publicAccount(account),
       classes,
@@ -1152,7 +1310,8 @@ export function createPlatformStore({ dataDir, studentClasses = [], classJoinReq
       lesson_progress: database.prepare("SELECT * FROM lesson_progress WHERE account_id=?").all(accountId),
       selector_participation: database.prepare("SELECT se.class_id,ss.sequence_number,ss.selected_at,ss.outcome,ss.outcome_at FROM selector_selections ss JOIN selector_sessions se ON se.id=ss.session_id WHERE ss.student_account_id=? ORDER BY ss.selected_at").all(accountId),
       selector_attendance: database.prepare("SELECT class_id,status,lesson_content_id,marked_at FROM selector_attendance_log WHERE student_account_id=? ORDER BY marked_at").all(accountId),
-      absence_followups: database.prepare(`SELECT l.class_id,l.lesson_content_id,l.marked_at,f.status,f.sent_at,f.reason_text,f.responded_at
+      absence_followups: database.prepare(`SELECT l.class_id,l.lesson_content_id,l.marked_at,f.status,f.sent_at,
+          f.reason_text,f.reason_category,f.absence_start_date,f.absence_end_date,f.responded_at
         FROM absence_followups f JOIN selector_attendance_log l ON l.id=f.attendance_log_id
         WHERE l.student_account_id=? ORDER BY l.marked_at`).all(accountId),
       homework_submissions: database.prepare("SELECT class_id,assignment_title,assigned_on,due_at,status,completed_at,is_late,teacher_accepted,source,source_message_id,evidence_json,note,confirmation_sent_at,last_activity_at,score,score_max,feedback,graded_at,recorded_at FROM homework_submissions WHERE student_account_id=? ORDER BY assigned_on").all(accountId),

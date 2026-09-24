@@ -41,7 +41,7 @@ def run(send=False):
             if attempted and now - dt.datetime.fromisoformat(attempted) > dt.timedelta(hours=23):
                 result['needsAttention'].append({'studentKey': item['studentKey'], 'reason': 'Uncertain send is outside safe retry window'})
                 continue
-            text = item.get('text') or student_messages.name_text(item['englishName'])
+            text = item.get('text') or student_messages.dingtalk_text(student_messages.name_text(item['englishName']))
             item.update(
                 acknowledgementStatus='sending',
                 attemptedAt=attempted or now.isoformat(),

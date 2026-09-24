@@ -53,7 +53,7 @@ def run(explicit_request=False, student_key=None):
             continue
         verify_saved(item,expected_status='Awaiting working' if item['action']=='needs_work' else None)
         student=students[item['studentKey']]
-        text=student_messages.working_text(item, student, assignment_label(item))
+        text=student_messages.dingtalk_text(student_messages.working_text(item, student, assignment_label(item)))
         task=entry.get('openTaskId')
         if not task:
             if not context_ready(item):

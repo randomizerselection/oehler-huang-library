@@ -52,7 +52,7 @@ class EnglishNameTests(unittest.TestCase):
         self.assertEqual(json.loads(ack.stdout)['sent'], 1)
         sends = read_log(fixture, 'sends.log')
         self.assertEqual(len(sends), 1)
-        self.assertEqual(sends[0]['content'], "Hi Leo, thanks for letting me know. I've saved your preferred English name.")
+        self.assertEqual(sends[0]['content'], "Hi Leo, thanks for letting me know. I've saved your preferred English name. — Adam, Samuel's automated teaching assistant.")
         self.assertEqual(sends[0]['openDingTalkId'], LEO['dingtalkId'])
         # Second run is idempotent.
         ack = run_script(fixture, 'english_name_ack.py', '--send')
@@ -125,6 +125,9 @@ class ReceiptTests(unittest.TestCase):
         sends = read_log(fixture, 'sends.log')
         self.assertEqual(len(sends), 1)
         self.assertTrue(sends[0]['content'].startswith('Hi Emma,'))
+        self.assertTrue(sends[0]['content'].endswith(" — Adam, Samuel's automated teaching assistant."))
+        saved = load_state(fixture, 'receipts.json')['receipts']
+        self.assertEqual(next(iter(saved.values()))['text'], sends[0]['content'])
         self.assertEqual(sends[0]['idempotencyKey'],
                          'submission-' + receipt_key('fixture-profile', EMMA['key'], HEADER))
         self.assertIsNotNone(homework_row(fixture.db)['confirmation_sent_at'])

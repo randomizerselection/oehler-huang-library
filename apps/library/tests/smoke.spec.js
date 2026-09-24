@@ -704,13 +704,14 @@ test.describe('site smoke', () => {
 
     await expect(page.getByRole('heading', { name: /^A Level Economics$/i })).toBeVisible();
     await expect(page.getByText('Cambridge International AS & A Level Economics 9708')).toBeVisible();
-    await expect(page.locator('.a-level-lesson-card')).toHaveCount(8);
+    await expect(page.locator('.a-level-lesson-card')).toHaveCount(10);
     await expect(page.locator('.lesson-card').filter({ hasText: 'The multiplier process' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-1-multiplier/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Consumption and saving functions' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-aggregate-demand/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Investment, government spending and net exports' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-2-investment-accelerator/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Equilibrium income and expenditure gaps' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-income-gaps/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Full-employment policies: essay workshop' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-1-3-full-employment-essay/index.html');
     await expect(page.locator('.lesson-card').filter({ hasText: 'Fiscal expansion and the multiplier' }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-2-2-fiscal-expansion-multiplier/index.html');
+    await expect(page.locator('.lesson-card').filter({ has: page.getByRole('heading', { name: 'The business cycle', exact: true }) }).getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', 'lessons/9-2-3-business-cycle/index.html');
     await expectNoHorizontalOverflow(page);
   });
 
@@ -724,6 +725,8 @@ test.describe('site smoke', () => {
       { path: 'a-level/lessons/9-1-3-full-employment-essay/index.html', title: 'Full-employment policies: essay workshop', heroTitle: 'Full-employment policies: essay workshop' },
       { path: 'a-level/lessons/9-2-1-growth-output-gaps/index.html', title: 'Actual growth, potential growth and output gaps', heroTitle: 'Actual growth, potential growth and output gaps' },
       { path: 'a-level/lessons/9-2-2-fiscal-expansion-multiplier/index.html', title: 'Fiscal expansion and the multiplier', heroTitle: 'Fiscal expansion and the multiplier' },
+      { path: 'a-level/lessons/9-2-3-business-cycle/index.html', title: 'The business cycle', heroTitle: 'The business cycle' },
+      { path: 'a-level/lessons/9-2-4-growth-policies/index.html', title: 'Policies to promote economic growth', heroTitle: 'Policies to promote economic growth' },
     ];
 
     for (const lesson of lessons) {
@@ -1160,7 +1163,7 @@ test.describe('site smoke', () => {
     for (const course of [
       { route: 'economics/index.html', name: 'IGCSE Economics', count: 29, section: '#course-map' },
       { route: 'a-level/index.html', name: 'A Level Economics', count: 4, section: '#lessons' },
-      { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 3, section: '#course-map' },
+      { route: 'investment-analysis/index.html', name: 'Investment and finance', count: 6, section: '#course-map' },
     ]) {
       await page.goto(pageUrl(course.route));
       await expect(page.getByRole('heading', { name: course.name, exact: true })).toBeVisible();
@@ -1182,7 +1185,8 @@ test.describe('site smoke', () => {
     await expect(page.getByRole('link', { name: 'Definitions', exact: true })).toHaveAttribute('href', 'definitions.html');
     await expect(page.locator('.lesson-card a[href="lessons/1-1-2-measuring-investment-return/index.html"]')).toHaveCount(1);
     await expect(page.locator('.lesson-card a[href="lessons/1-1-3-compound-growth/index.html"]')).toHaveCount(1);
-    await expect(page.locator('.lesson-card a[href="lessons/1-1-3-assumed-return/index.html"]')).toHaveCount(1);
+    await expect(page.locator('.lesson-card a[href="lessons/1-1-3-assumed-return/index.html"]')).toHaveCount(0);
+    await expect(page.locator('.lesson-card a[href="lessons/share-price-company-size/index.html"]')).toHaveCount(1);
     await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
   });
 
@@ -1194,8 +1198,10 @@ test.describe('site smoke', () => {
     await expect(page.locator('.economics-priority-panel')).toHaveCount(0);
     await expect(page.locator('.course-roadmap .unit-step.is-live')).toHaveCount(1);
     await expect(page.locator('.unit-topics .topic-group')).toHaveCount(1);
-    await expect(page.locator('.lesson-card')).toHaveCount(6);
-    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(6);
+    await expect(page.locator('.lesson-card')).toHaveCount(8);
+    await expect(page.locator('.lesson-card .lesson-action.primary')).toHaveCount(8);
+    await expect(page.locator('a[href="lessons/monthly-exam-review/index.html"]')).toHaveCount(1);
+    await expect(page.locator('a[href="lessons/risk-possible-return/index.html"]')).toHaveCount(1);
     await expect(page.locator('a[href*="unit-1/lesson-"]')).toHaveCount(0);
     await expect(page.locator('a[href="syllabus-2026-27.html"]')).toHaveCount(1);
     await expectNoHorizontalOverflow(page);
@@ -1206,8 +1212,10 @@ test.describe('site smoke', () => {
       { path: 'investment-analysis/lessons/stock-market-game-launch/index.html', title: /Launch film/i },
       { path: 'investment-analysis/lessons/1-1-2-measuring-investment-return/index.html', title: /Measuring investment return/i },
       { path: 'investment-analysis/lessons/1-1-3-compound-growth/index.html', title: /Compound growth/i },
-      { path: 'investment-analysis/lessons/1-1-3-assumed-return/index.html', title: /Assumed return/i },
       { path: 'investment-analysis/lessons/first-stock-trades/index.html', title: /Planning your first stock trades/i },
+      { path: 'investment-analysis/lessons/share-price-company-size/index.html', title: /Share price and company size/i },
+      { path: 'investment-analysis/lessons/monthly-exam-review/index.html', title: /First monthly exam review/i },
+      { path: 'investment-analysis/lessons/risk-possible-return/index.html', title: /Risk and possible return/i },
       { path: 'investment-analysis/lessons/1-1-4-nominal-real-return/index.html', title: /Nominal and real return/i },
     ];
 
@@ -1228,17 +1236,45 @@ test.describe('site smoke', () => {
     }
   });
 
-  test('@smoke Investment teaching sequence brings orders before the first weekend', async ({ page }) => {
+  test('@smoke @responsive Workers wage determination is linked and its study views load', async ({ page }) => {
+    const lesson = 'lessons/unit-3-decision-makers/3-3-workers/lesson-2.html';
+    await page.goto(pageUrl('economics/index.html'));
+    const card = page.locator('article.lesson-card').filter({ hasText: 'Wage determination' });
+    await expect(card).toHaveCount(1);
+    await expect(card.locator('a')).toHaveCount(4);
+    await expect(card.getByRole('link', { name: 'Open lesson' })).toHaveAttribute('href', `../${lesson}`);
+
+    await page.goto(`${pageUrl(lesson)}#27`);
+    await expect(page.locator('#deck .slide')).toHaveCount(35);
+    await expect(page.locator('.slide.is-active')).toContainText('A minimum wage above equilibrium');
+    await expect(page.locator('.slide.is-active .wage-diagram')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    for (const [view, text] of [
+      ['print', 'minimum wage'],
+      ['quiz', 'Workers: wage determination'],
+      ['flashcards', 'Wage determination flashcards'],
+    ]) {
+      await page.goto(`${pageUrl(lesson)}?view=${view}`);
+      await expect(page.locator('body')).toContainText(text);
+      await expectNoHorizontalOverflow(page);
+    }
+  });
+
+  test('@smoke Investment teaching sequence ends new content with company size before revision', async ({ page }) => {
     await page.goto(pageUrl('investment-analysis/syllabus-2026-27.html'));
     await expect(page.locator('.lesson')).toHaveCount(33);
     const numbers = await page.locator('.lesson__number').allTextContents();
     expect(numbers).toEqual(Array.from({length: 33}, (_, i) => `Lesson ${i + 1}`));
     await expect(page.locator('#lesson-18')).toContainText('Wed Sep 16');
-    await expect(page.locator('#lesson-4')).toContainText('Wed Sep 23');
+    await expect(page.locator('#lesson-19')).toContainText('Wed Sep 23');
+    await expect(page.locator('#lesson-pre-exam-revision')).toContainText('Fri Sep 25');
+    await expect(page.locator('#lesson-4')).toContainText('Wed Nov 4');
     const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
     expect(new Set(ids).size).toBe(ids.length);
     await page.locator('#group-filter').selectOption('group-5');
     await expect(page.locator('#lesson-18')).toBeVisible();
+    await expect(page.locator('#lesson-19')).toBeVisible();
     await expect(page.locator('#lesson-4')).toHaveCount(0);
   });
 

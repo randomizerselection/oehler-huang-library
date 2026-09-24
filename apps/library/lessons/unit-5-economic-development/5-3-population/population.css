@@ -60,11 +60,11 @@
  .population-classroom .is-term .termBox{padding:0;background:none;border:0;border-radius:0;box-shadow:none;margin-top:36px}
  .population-classroom #deck .is-term .termDefinitionText{font-size:clamp(36px,3vw,56px);line-height:1.45;color:#142f43;font-weight:400}
  .population-classroom .is-term .termDefinitionZh{font-size:27px;color:#51616b;margin-top:28px}
- .population-classroom .is-term .definitionBlankAnswer{background:#dce9e6;border:0;border-bottom:3px solid #166c72;border-radius:0;color:transparent}
+ .population-classroom .is-term .definitionBlankAnswer{background:#dce9e6;border:0;border-bottom:3px solid #166c72;border-radius:0;color:transparent;display:inline-block;min-width:0;width:auto;height:auto;min-height:1.15em;padding:0 .16em .04em;line-height:1.15;vertical-align:baseline;white-space:nowrap}
  .population-classroom .is-term .definitionBlankAnswer.is-revealed{color:#166c72}
  .population-classroom .is-term .photoPanel{height:53vh}
  .population-classroom .is-term .photoPanel img[src$=".svg"]{object-fit:contain}
- .population-classroom .has-population-scene .cardgrid{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;overflow:hidden}
+ .population-classroom .has-population-scene .cardgrid{display:none}
  .population-classroom .population-scene svg{display:block;width:100%;max-height:44vh;margin:18px 0}
  .population-classroom .scene-caption{font-size:28px;color:#166c72;line-height:1.35;border-top:2px solid #d4dedc;padding-top:20px;min-height:85px;margin:0}
  .population-classroom .is-compare .content{grid-template-columns:1fr}
@@ -121,6 +121,23 @@
  .population-classroom #deck .paperExtractText p{font-size:clamp(30px,2.1vw,40px);line-height:1.55;color:#142f43;font-weight:400}
  .population-classroom .paperExtractLabel{font-size:18px;color:#51616b}
  .population-classroom .is-layout-population-summary .card{border-bottom:1px solid #d4dedc;padding:12px 0}
+ .population-classroom #deck .slide.is-visualPause{position:fixed;inset:0;width:100vw;height:100vh;padding:0;gap:0;background:#f7f7f2;z-index:1;overflow:hidden}
+ .population-classroom #deck .slide.is-visualPause .visualPauseImage{width:100%;height:100%;display:block}
+ .population-classroom #deck .slide.is-layout-population-map .visualPauseImage{object-fit:contain;background:#fff}
+ .population-classroom #deck .slide.is-layout-population-photo-pause .visualPauseImage{object-fit:cover}
+ .population-classroom #deck .slide.is-layout-population-photo-pause::after{display:block;content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,47,67,.72),transparent 62%);pointer-events:none}
+ .population-classroom .is-layout-population-photo-grid .cardgrid{gap:22px 28px;margin-top:14px}
+ .population-classroom .is-layout-population-photo-grid.has-3-photo-cards .cardgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .population-classroom .is-layout-population-photo-grid.has-4-photo-cards .cardgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 32px}
+ .population-classroom .is-layout-population-photo-grid .card{border-top:3px solid #166c72;padding-top:0;overflow:hidden}
+ .population-classroom .population-card-visual{height:16vh;min-height:120px;margin:0 0 13px;overflow:hidden;background:#dce9e6}
+ .population-classroom .population-card-visual img{width:100%;height:100%;object-fit:cover;display:block}
+ .population-classroom .is-layout-population-photo-grid .cardTitle{font-size:clamp(23px,1.65vw,31px);line-height:1.2}
+ .population-classroom .is-layout-population-photo-grid .cardBody{font-size:clamp(21px,1.45vw,28px);line-height:1.3;margin-top:7px}
+ .population-classroom .is-layout-population-extremes .cardgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;margin-top:42px}
+ .population-classroom .is-layout-population-extremes .card{border-top:4px solid #166c72;padding:25px 0}
+ .population-classroom .is-layout-population-extremes .cardTitle{font-size:clamp(32px,2.5vw,48px)}
+ .population-classroom .is-layout-population-extremes .cardBody{font-size:clamp(28px,2vw,38px)}
  .population-classroom .classroom-source-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto;max-width:70%;justify-content:flex-end}
  .population-classroom .classroom-source-buttons button{background:none;color:#51616b;border:1px solid #b9cdca;border-radius:3px;padding:5px 10px;font-size:13px;cursor:pointer}
  .population-classroom .slide:is(.is-hero,.is-section) .classroom-source-buttons button{color:#d9e5e4;border-color:#64737b}
@@ -134,6 +151,13 @@
 .classroom-source-content{overflow:auto;padding-top:20px}
 .classroom-source-content h3{font-size:24px;color:#166c72}
 .classroom-source-content p,.classroom-source-content li{font-size:22px;line-height:1.5;white-space:pre-line}
+.classroom-source-content article+article{border-top:1px solid #d4dedc;margin-top:22px;padding-top:22px}
+.classroom-source-type{color:#51616b!important;font-size:17px!important;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.classroom-source-detail{color:#142f43!important}
+.classroom-source-detail mark{background:#dce9e6;color:#0f555a;padding:.04em .12em;font-weight:700}
+.classroom-visual-pause-sources{position:absolute;top:24px;right:28px;z-index:4;max-width:60%!important}
+.classroom-visual-pause-sources button{background:rgba(247,247,242,.94)!important;color:#142f43!important;border-color:#8fa7a3!important}
+.classroom-visual-pause-number{position:absolute;right:30px;bottom:22px;z-index:4;background:rgba(247,247,242,.9);color:#142f43;padding:5px 8px;border-radius:2px;font-size:14px}
 .classroom-source-content table{border-collapse:collapse;width:100%;font-size:22px}
 .classroom-source-content th,.classroom-source-content td{padding:10px;text-align:left;border-bottom:1px solid #d4dedc}
 @media screen and (min-width:1700px){.population-classroom .classificationItemTop p,.population-classroom .classificationAnswer,.population-classroom .scene-caption,.population-classroom .modelAnswerText,.population-classroom .compareBlock .choice{font-size:36px}.population-classroom .classificationResult{min-height:145px}.population-classroom .choices.is-mcq .choice{font-size:34px;min-height:72px}.population-classroom .mcqExplanation{font-size:30px}.population-classroom .quizBlock>.lead{font-size:38px}.population-classroom .population-exam-table{font-size:32px}.population-classroom .population-exam-table td{padding:12px}.population-classroom .flowText{font-size:39px}.population-classroom .flowTextZh{font-size:32px}}
@@ -156,7 +180,7 @@
  .population-classroom .is-outcomes .choice{grid-template-columns:40px 1fr;padding:20px 0;gap:8px 12px}
  .population-classroom .is-outcomes .choice>span:first-child{font-size:24px}
  .population-classroom .is-outcomes .outcomeZh{font-size:21px}
- .population-classroom .has-population-scene .cardgrid{position:static;opacity:1;width:auto;height:auto;pointer-events:auto}
+ .population-classroom .has-population-scene .cardgrid{display:grid;position:static;opacity:1;width:auto;height:auto;pointer-events:auto}
  .population-classroom .population-scene{display:none}
  .population-classroom .splitCols{display:grid;grid-template-columns:1fr;gap:22px}
  .population-classroom .compareBlock .card>b{font-size:25px}
@@ -178,29 +202,43 @@
  .population-classroom #deck .is-term .termDefinitionText{font-size:30px}
  .population-classroom .is-layout-population-explain .cardgrid{grid-template-columns:1fr 1fr;gap:12px}
  .population-classroom .examChainLink b{font-size:20px}
+ .population-classroom .is-layout-population-photo-grid.has-3-photo-cards .cardgrid,.population-classroom .is-layout-population-photo-grid.has-4-photo-cards .cardgrid,.population-classroom .is-layout-population-extremes .cardgrid{grid-template-columns:1fr}
+ .population-classroom .population-card-visual{height:200px}
+ .population-classroom #deck .slide.is-visualPause{overflow:hidden;padding:0}
 }
-@media print{.classroom-source-buttons,.classroom-source-dialog,.classroom-slide-number,.population-scene{display:none!important}.population-classroom .has-population-scene .cardgrid{position:static;opacity:1;width:auto;height:auto}.population-exam-table{border-collapse:collapse;width:100%}.population-exam-table td,.population-exam-table th{border:1px solid #777;padding:6px}}
+@media print{.classroom-source-buttons,.classroom-source-dialog,.classroom-slide-number,.population-scene{display:none!important}.population-classroom .has-population-scene .cardgrid{display:grid;position:static;opacity:1;width:auto;height:auto}.population-exam-table{border-collapse:collapse;width:100%}.population-exam-table td,.population-exam-table th{border:1px solid #777;padding:6px}}
 
-/* Numbered population factors: illustrated overview rows. */
-.population-factor-picture svg{display:block;width:100%;height:100%}
+/* Three parallel drivers: the syllabus's "how" before the lesson explains "why". */
+.population-driver-picture svg{display:block;width:100%;height:100%}
 @media screen{
- .population-classroom .is-layout-population-factor-overview .cardgrid{gap:0}
- .population-classroom .is-layout-population-factor-overview .card{display:grid;grid-template-columns:78px 1fr;grid-template-rows:auto auto;column-gap:24px;padding:7px 0;border-bottom:1px solid #d4dedc;align-items:center}
- .population-classroom .population-factor-picture{grid-row:1/3;width:72px;height:72px}
- .population-classroom .is-layout-population-factor-overview .cardTitle{grid-column:2;font-size:clamp(28px,2.2vw,40px)}
- .population-classroom .is-layout-population-factor-overview .cardBody{grid-column:2;font-size:clamp(24px,1.8vw,34px);margin:0;color:#51616b}
+ .population-classroom .is-layout-population-driver-overview .cardgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;margin-top:32px}
+ .population-classroom .is-layout-population-driver-overview .card{display:grid;grid-template-columns:76px 1fr;grid-template-rows:auto 1fr;column-gap:20px;padding:22px 0;border-top:3px solid #166c72;align-items:start}
+ .population-classroom .population-driver-picture{grid-row:1/3;width:70px;height:70px}
+ .population-classroom .is-layout-population-driver-overview .cardTitle{grid-column:2;font-size:clamp(27px,2vw,37px);line-height:1.2}
+ .population-classroom .is-layout-population-driver-overview .cardBody{grid-column:2;font-size:clamp(25px,1.75vw,33px);line-height:1.35;margin:12px 0 0;color:#142f43}
+ .population-classroom .is-layout-population-migration-factors .cardgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px;margin-top:20px}
+ .population-classroom .is-layout-population-migration-factors .card{border-top:3px solid #166c72;padding:18px 0}
+ .population-classroom .is-layout-population-migration-factors .card:nth-child(3){grid-column:1/-1;border-top-color:#d6a34a}
+ .population-classroom .is-layout-population-migration-factors .cardTitle,.population-classroom .is-layout-population-death-factors .cardTitle{font-size:clamp(27px,1.9vw,36px)}
+ .population-classroom .is-layout-population-migration-factors .cardBody,.population-classroom .is-layout-population-death-factors .cardBody{font-size:clamp(25px,1.75vw,33px);line-height:1.35}
+ .population-classroom .is-layout-population-death-factors .cardgrid{gap:0}
+ .population-classroom .is-layout-population-death-factors .card{display:grid;grid-template-columns:minmax(250px,.7fr) 1.3fr;gap:30px;border-bottom:1px solid #d4dedc;padding:15px 0;align-items:center}
+ .population-classroom .is-layout-population-death-factors .cardBody{margin:0}
 }
 @media screen and (min-width:1700px){
- .population-classroom .is-layout-population-factor-overview .card{grid-template-columns:105px 1fr;padding:14px 0}
- .population-classroom .population-factor-picture{width:94px;height:94px}
+ .population-classroom .is-layout-population-driver-overview .card{grid-template-columns:95px 1fr;padding:28px 0}
+ .population-classroom .population-driver-picture{width:88px;height:88px}
 }
 @media screen and (max-width:760px){
- .population-classroom .is-layout-population-factor-overview .card{grid-template-columns:58px 1fr;column-gap:16px;padding:14px 0}
- .population-classroom .population-factor-picture{width:54px;height:54px}
- .population-classroom .is-layout-population-factor-overview .cardTitle{font-size:24px}
- .population-classroom .is-layout-population-factor-overview .cardBody{font-size:21px}
+ .population-classroom .is-layout-population-driver-overview .cardgrid,.population-classroom .is-layout-population-migration-factors .cardgrid{grid-template-columns:1fr;gap:12px}
+ .population-classroom .is-layout-population-driver-overview .card{grid-template-columns:58px 1fr;column-gap:16px;padding:16px 0}
+ .population-classroom .population-driver-picture{width:54px;height:54px}
+ .population-classroom .is-layout-population-driver-overview .cardTitle,.population-classroom .is-layout-population-migration-factors .cardTitle,.population-classroom .is-layout-population-death-factors .cardTitle{font-size:24px}
+ .population-classroom .is-layout-population-driver-overview .cardBody,.population-classroom .is-layout-population-migration-factors .cardBody,.population-classroom .is-layout-population-death-factors .cardBody{font-size:21px}
+ .population-classroom .is-layout-population-migration-factors .card:nth-child(3){grid-column:auto}
+ .population-classroom .is-layout-population-death-factors .card{grid-template-columns:1fr;gap:5px;padding:16px 0}
 }
-@media print{.population-factor-picture{display:none}}
+@media print{.population-driver-picture{display:none}}
 
 /* Discussion slides: question over a relevant background image. */
 @media screen{
@@ -218,4 +256,16 @@
 @media screen and (max-width:760px){
  .population-classroom #deck .slide.is-layout-population-discussion .discussionPrompt>p{font-size:32px}
  .population-classroom #deck .slide.is-layout-population-discussion .discussionPrompt .discussionFollowUp{font-size:24px!important}
+}
+
+/* Keep the complete migration scenes visible beside their explanations. */
+@media screen and (min-width:761px){
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .card{display:grid;grid-template-columns:46% minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:18px;align-items:start;padding-top:12px}
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .population-card-visual{grid-row:1 / span 2;height:auto;min-height:0;margin:0;background:none;align-self:center}
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .population-card-visual img{height:auto;object-fit:contain}
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .cardgrid{row-gap:26px}
+}
+@media screen and (max-width:760px){
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .population-card-visual{height:auto;min-height:0;background:none}
+ .population-classroom .slide:has(img[src$="migration-jobs-generated.png"]) .population-card-visual img{height:auto;object-fit:contain}
 }

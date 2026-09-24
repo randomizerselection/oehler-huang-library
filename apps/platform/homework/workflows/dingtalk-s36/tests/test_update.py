@@ -78,6 +78,48 @@ class BatchBindingTests(WorkspaceCase):
 
 
 class DecisionValidationTests(WorkspaceCase):
+    def test_acknowledgment_cannot_be_reviewed_as_an_absence_reason(self):
+        fixture = build_workspace(self)
+        incoming = emma_message(mid='absence-1')
+        incoming['text'] = 'okok'
+        incoming['absenceReason'] = {'attendanceLogId': 'attlog-1', 'reason': 'okok',
+                                     'category': 'other'}
+        write_pending(fixture, [incoming])
+        write_decisions(fixture, [{'messageId': 'absence-1', 'action': 'absence_reason',
+                                   'studentKey': EMMA['key'], 'evidence': 'Acknowledgment only.'}])
+        result = self.prepare(fixture)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('explicit, substantive student reason', result.stderr)
+
+    def test_reviewed_absence_reason_is_bound_to_captured_platform_row(self):
+        fixture = build_workspace(self)
+        incoming = emma_message(mid='absence-1')
+        incoming['text'] = 'Absence reason: I was ill.'
+        incoming['absenceReason'] = {'attendanceLogId': 'attlog-1', 'reason': 'I was ill.', 'category': 'health',
+                                     'absenceStartDate': None, 'absenceEndDate': None}
+        with sqlite3.connect(fixture.db) as db:
+            db.execute('INSERT INTO selector_attendance_log VALUES (?,?,?,?,?,?,?,?)',
+                       ('attlog-1', 'session-1', CLASS_S36, EMMA['accountId'], 'absent',
+                        'lesson', '2026-09-16T00:00:00+00:00', '2026-09-16T00:00:00+00:00'))
+            db.execute('''INSERT INTO absence_followups
+                (attendance_log_id,provider,status,recipient_external_id,conversation_id,sent_at,
+                 response_message_id,reason_text,reason_category,responded_at,updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?)''',
+                       ('attlog-1', 'dingtalk', 'responded', EMMA['dingtalkId'], 'conv-1',
+                        '2026-09-16T00:05:00+00:00', 'absence-1', 'I was ill.', 'health',
+                        '2026-09-16T02:00:00+00:00', '2026-09-16T02:00:00+00:00'))
+        write_pending(fixture, [incoming])
+        write_decisions(fixture, [{'messageId': 'absence-1', 'action': 'absence_reason',
+                                   'studentKey': EMMA['key'],
+                                   'evidence': 'Captured reply to the verified absence prompt.'}])
+        prepared = self.prepare(fixture)
+        self.assertEqual(prepared.returncode, 0, prepared.stderr)
+        self.assertEqual(load_state(fixture, 'plan.json')['absenceReviews'][0]['attendanceLogId'], 'attlog-1')
+        committed = self.commit(fixture)
+        self.assertEqual(committed.returncode, 0, committed.stderr)
+        ledger = load_state(fixture, 'ledger.json')['processed']['absence-1']
+        self.assertEqual(ledger['action'], 'absence_reason')
+
     def test_s33_student_is_rejected(self):
         fixture = build_workspace(self)
         incoming = message('m1', WENDY['dingtalkId'], candidates=[{'key': WENDY['key']}],

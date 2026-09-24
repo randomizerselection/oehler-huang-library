@@ -1,10 +1,10 @@
-# Lesson 7: Nominal and real return — sources
+# Lesson 13: Nominal and real return — sources
 
-Prepared 10 September 2026 for syllabus 1.1.4. All money amounts, returns, inflation rates and future phone budgets in this lesson are **assumed teaching scenarios**, not observed market returns, current prices or forecasts. No external investment cash flows; income is retained or included in ending value. Ignore fees and tax unless explicitly stated.
+Prepared 10 September 2026 for syllabus 1.1.4 and deferred on 22 September until after the monthly exam. All money amounts, returns, inflation rates and future phone budgets in this lesson are **assumed teaching scenarios**, not observed market returns, current prices or forecasts. No external investment cash flows; income is retained or included in ending value. Ignore fees and tax unless explicitly stated.
 
 ## Definitions and method
 
-- [Current course syllabus](../../syllabus-2026-27.html), Lesson 7 / 1.1.4: nominal versus real return, purchasing power, approximate real-return calculation, four-case comparison and 7%/3% hinge. English glossary meanings follow the retained course term bank.
+- [Current course syllabus](../../syllabus-2026-27.html), deferred Lesson 13 / 1.1.4: nominal versus real return, purchasing power, approximate real-return calculation, four-case comparison and 7%/3% hinge. English glossary meanings follow the retained course term bank.
 - [European Central Bank: nominal and real interest rates](https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me/html/nominal_and_real_interest_rates.en.html): money returns versus purchasing power and the subtraction approach. Accessed 10 September 2026. This deck explicitly labels subtraction an approximation and applies it to total investment return, not only deposit interest.
 - [IMF: Inflation—Prices on the Rise](https://www.imf.org/en/publications/fandd/issues/series/back-to-basics/inflation): general prices, representative consumption baskets and purchasing power. Accessed 10 September 2026. One product’s changing price does not establish the general inflation rate.
 

@@ -73,7 +73,17 @@
 
   function findContent() {
     const route = currentRoute();
-    return state.manifest.items.find((item) => item.route === route) || {
+    const exact = state.manifest.items.find((item) => item.route === route);
+    if (exact) return exact;
+    // A deck opened from disk or behind a hosting prefix has a longer pathname than the
+    // manifest route, so fall back to the longest route it ends with. The site root route
+    // is excluded because it is a suffix of every path.
+    const key = route.toLowerCase();
+    const matched = state.manifest.items
+      .filter((item) => item.route !== "/" && key.endsWith(item.route.toLowerCase()))
+      .sort((a, b) => b.route.length - a.route.length)[0];
+    if (matched) return matched;
+    return {
       id: route.replace(/^\/+|\/+$/g, "").replaceAll("/", ":") || "library:home",
       version: "1.0.0",
       route,
@@ -166,7 +176,32 @@
     return {
       dataAdapter: {
         listClasses: () => api("/api/selector/classes"),
-        loadRoster: (classId) => api(`/api/selector/classes/${encodeURIComponent(classId)}/roster`)
+        loadRoster: (classId) => api(`/api/selector/classes/${encodeURIComponent(classId)}/roster`),
+        loadHomeworkRewards: async (classId) => {
+          // Compatibility path for a selector page refreshed while an older local
+          // Platform process is still running. Current servers include rewards in
+          // the session response, so this fan-out is only used when that field is absent.
+          const overview = await api(`/api/classes/${encodeURIComponent(classId)}/student-overview`);
+          const profiles = await Promise.all((overview.students || []).map(async (student) => ({
+            student,
+            profile: await api(`/api/students/${encodeURIComponent(student.account_id)}/profile`)
+          })));
+          return {
+            records: profiles.flatMap(({ student, profile }) => (profile.homework || [])
+              .filter((item) => String(item.class_id) === String(classId))
+              .map((item) => ({
+                account_id: String(student.account_id),
+                display_name: student.display_name || student.username || String(student.account_id),
+                assignment_title: item.assignment_title,
+                assigned_on: item.assigned_on,
+                source: item.source,
+                status: item.status,
+                score: item.score,
+                score_max: item.score_max,
+                recorded_at: item.recorded_at
+              })))
+          };
+        }
       },
       sessionAdapter: {
         start: (value) => api("/api/selector/sessions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...value, ...lessonContext }) }),

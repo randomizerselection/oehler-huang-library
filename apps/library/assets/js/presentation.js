@@ -2033,7 +2033,7 @@ function loadSelectorPlatformShell() {
   selectorPlatformPromise = new Promise((resolve) => {
     const script = document.createElement('script');
     // platform-shell.js lives next to this file in apps/library/assets/js/.
-    script.src = new URL('platform-shell.js', navigationAssetUrl).href;
+    script.src = new URL('platform-shell.js?v=20260920.2', navigationAssetUrl).href;
     script.onload = () => resolve(window.OHPlatform || null);
     script.onerror = () => resolve(null);
     document.head.append(script);
@@ -2130,6 +2130,7 @@ function closeStudentSelectorPanel() {
   document.body.classList.remove('is-student-selector-open');
   document.body.classList.remove('is-student-selector-minimized');
   document.body.classList.remove('is-selector-attendance-active');
+  document.body.classList.remove('is-selector-leaderboard-active');
   document.body.style.removeProperty('--student-selector-deck-scale');
   syncStudentSelectorButtons();
   if (wasOpen) document.querySelector('[data-student-selector]')?.focus({ preventScroll: true });
@@ -2153,8 +2154,11 @@ function syncStudentSelectorStageMode(panel) {
 
   panel.classList.toggle('is-stage-overlay', shouldOverlay);
   const attendanceActive = Boolean(panel.querySelector('.selector-modal.is-attendance:not([hidden])'));
+  const leaderboardActive = Boolean(panel.querySelector('.selector-modal.is-leaderboard:not([hidden])'));
   panel.classList.toggle('is-attendance-active', attendanceActive);
+  panel.classList.toggle('is-leaderboard-active', leaderboardActive);
   document.body.classList.toggle('is-selector-attendance-active', attendanceActive);
+  document.body.classList.toggle('is-selector-leaderboard-active', leaderboardActive);
 }
 
 function minimizeStudentSelectorPanel() {

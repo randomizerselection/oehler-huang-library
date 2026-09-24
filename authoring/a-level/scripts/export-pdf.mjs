@@ -18,6 +18,9 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(`${base}/a-level/lessons/${slug}/index.html`, { waitUntil: 'load' });
   await page.waitForFunction(() => Boolean(window.EconPresentation?.deck));
+  // Some lessons add their navigation asynchronously after the deck mounts.
+  // Let that initialization finish before the export replaces the document body.
+  await page.waitForFunction(() => document.querySelector('#helpButton')?.textContent === 'Keyboard shortcuts');
   await page.emulateMedia({ media: 'screen', reducedMotion: 'reduce' });
   await page.addStyleTag({ content: `
     html,body{margin:0!important;padding:0!important;width:1600px!important;height:auto!important;overflow:visible!important}
@@ -40,7 +43,7 @@ try {
     document.querySelectorAll('img').forEach(image => image.loading = 'eager');
     await Promise.all([...document.images].map(image => image.decode()));
   });
-  const manifest = await page.evaluate(() => {
+  const manifest = await page.evaluate(async () => {
     const deck = window.EconPresentation.deck;
     const sourceStage = document.querySelector('#stage');
     const pages = [], records = [];
@@ -122,6 +125,10 @@ try {
         }
       }
     });
+    // Flush lesson-owned MutationObservers while their source stage and controls
+    // still exist. Otherwise a queued callback can run after export teardown and
+    // report a false page error for a missing stage or status element.
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     document.body.replaceChildren(...pages);
     // Preserve lesson-specific ID styles after making cloned IDs unique.
     // Amend this export document's CSSOM only; classroom files stay unchanged.

@@ -94,32 +94,6 @@ IGCSE.quiz={
       ],
       "answer": 0,
       "explanation": "Population change = natural increase + net migration = 40,000 + (−10,000) = +30,000."
-    },
-    {
-      "id": "lower-death-rate",
-      "type": "multipleChoice",
-      "prompt": "Which change would most likely lower a country's death rate?",
-      "choices": [
-        "Better healthcare",
-        "A lower average age of marriage",
-        "A higher birth rate",
-        "More emigration"
-      ],
-      "answer": 0,
-      "explanation": "Better healthcare helps more people survive illness, so fewer people die each year."
-    },
-    {
-      "id": "high-birth-rate",
-      "type": "multipleChoice",
-      "prompt": "Which is an accepted reason why a country may have a high birth rate?",
-      "choices": [
-        "A low average age of marriage",
-        "A high average age",
-        "Good quality healthcare",
-        "A large total population"
-      ],
-      "answer": 0,
-      "explanation": "A low age of marriage tends to raise the birth rate. Population size affects numbers, not rates."
     }
   ]
 };

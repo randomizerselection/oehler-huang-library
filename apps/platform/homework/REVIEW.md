@@ -1,5 +1,15 @@
 # Regular-check review contract
 
+DingTalk's student-facing assistant is **Adam**, Samuel's automated teaching
+assistant. Samuel remains the teacher. New DingTalk text must end with
+` — Adam, Samuel's automated teaching assistant.` via
+`student_messages.dingtalk_text` before it is reviewed or saved as a delivery
+intent. Use a helpful assistant voice; refer teaching questions and personal
+requests to Samuel, and never imply that Adam taught the lesson or personally
+made a teacher decision. Use this identity for both S3.3/S3.4 and S3.6 without
+changing their model/class boundaries. Preserve existing delivery text and keys
+when resuming old sends. QQ is outside this naming change.
+
 Use the profile supplied by the scheduled job. Do not change classes, models,
 transport accounts or schedules. Prefer `runner.py` as described in README.md:
 collect, review its packet/media, prepare, inspect the exact plan, finish. The
@@ -72,16 +82,33 @@ Homework decisions retain `messageId`, `action`, supported `studentKey` and
 fields. Use `contextReviewed`, `workingCheckEvidence` and `workingPhotoPresent`
 when requesting working. Keep separate clear name decisions with `messageId`,
 `studentKey`, `englishName`; do not replace an existing name from ambiguous text.
+Before leaving a non-homework question or request pending, inspect its later
+same-conversation history. Use action `closed` with the exact later teacher
+`answeredByMessageId` when Samuel or a reviewed assistant message already answered it. A closed decision
+never writes homework, links an identity or sends another reply. Use the packet's
+verified `scope`/`verifiedClasses` evidence to classify platform-verified S3.6
+messages `out_of_scope`, even when the conversation has since closed.
 S3.3/S3.4 decision files are lists; Kimi profiles use
 `{"batchId": "<packet batchId>", "decisions": [...]}`. Write an empty current-batch
 name list when there are no name changes. Do not reuse decisions from another batch.
 One message can support multiple assignments or independent name/personal outcomes.
+For S3.6, a pending message with `absenceReason` has already been captured against
+the verified attendance record. Confirm that the message actually states why the
+student was absent before using action `absence_reason`, the verified `studentKey`,
+and factual `evidence`. An acknowledgment such as `okok` is not an absence reason:
+leave it pending and report the erroneous capture for correction; never authorize
+the receipt. A valid reviewed action authorizes exactly one deterministic
+acknowledgment at finish.
 
 For S3.3/S3.4 personal requests, write a list to `personalDecisionsPath`: each
-entry has the target `key`, `status` (`open`, `routine`, `answered`, `out_of_scope`)
+entry has the target `key`, `status` (`open`, `routine`, `answered`, `resolved`,
+`out_of_scope`)
 and factual `reason`. `open` also needs `summary`; `answered` needs the later
-non-automated `answeredByMessageId` from that same conversation. Do not dismiss
-an open request as routine. Review every unreviewed target; use `[]` when there
+non-automated `answeredByMessageId` from that same conversation. Use `resolved`
+with `resolvedByMessageId` when a later student message supplies the requested
+information, such as a missing absence reason. Do not dismiss an open request as
+routine. Review every unreviewed target and close older open targets when later
+conversation history proves they were answered or resolved; use `[]` when there
 are no changes. QQ/S3.6 personal requests are reported locally only. Never answer
 a personal request on Samuel's behalf.
 
@@ -90,5 +117,22 @@ English; use `Hi,` when there is no suitable preferred English name. Completion
 receipts follow verified commits; name acknowledgments follow verified updates.
 Never run reminders, campaigns, new absence questions or lesson-PDF sends as part
 of a regular check. Existing sent-absence response capture remains automatic.
+When a verified absence reason is captured and marked `routine`, the finish helper
+must send and confirm exactly one English acknowledgment. A later explicit
+`Absence reason:` message supersedes an earlier unacknowledged placeholder, and a
+verified manually sent absence prompt may be reconciled to its matching attendance
+record. Do not describe a reason as captured merely because it was marked routine:
+confirm the capture and the new-send/already-confirmed receipt counts from finish.
+For S3.6, `absence_reason` is the equivalent reviewed status. Explicit multi-day
+ranges, clear `until` dates, and exact durations are stored as inclusive absence
+periods. A later attendance record whose lesson date falls inside that recorded
+period is reported as covered and must not produce another absence question.
+Every captured verified reason is also assigned one stable dashboard category:
+`health`, `academic`, `school_activity`, `family_personal`, `travel_transport`,
+`appointment`, or `other`. Both DingTalk workflows use the shared conservative
+classifier; unmatched wording stays `other` instead of being guessed. The teacher
+dashboard and selector roll call read that category, the exact student wording,
+and any inclusive period directly from the platform database. Ambiguous numeric
+dates are never guessed; surface them for Samuel instead.
 Do not self-repair code, alter credentials, retry login, clear state, or blindly
 retry failed/uncertain sends. Report failures with the run/log path and stop.

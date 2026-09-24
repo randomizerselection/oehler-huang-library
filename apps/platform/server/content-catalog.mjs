@@ -20,13 +20,31 @@ export function createContentCatalog(libraryRoot) {
   validateContentCatalog(manifest, bank);
   const items = new Map(manifest.items.map((item) => [item.id, item]));
   const quizzes = new Map(bank.quizzes.map((quiz) => [quiz.id, quiz]));
+  // Longest route first so a nested lesson route wins over a shorter suffix. The site
+  // root route is excluded because it is a suffix of every path.
+  const routesByLength = manifest.items.filter((item) => item.route !== "/").sort((a, b) => b.route.length - a.route.length);
+  const aliases = new Map();
 
   function publicManifest() {
     return manifest;
   }
 
+  // A deck opened from disk or behind a hosting prefix reports its page path instead
+  // of the manifest id, e.g. "C::Users:me:apps:library:a-level:lessons:9-2-1-growth-output-gaps".
+  // Records keep such ids, so resolve them by route suffix to recover the real item.
+  function fromPagePath(id) {
+    const path = `/${id.replace(/[:\\]+/g, "/").replace(/^\/+|\/+$/g, "").toLowerCase()}/`;
+    const item = routesByLength.find((candidate) => path.endsWith(candidate.route.toLowerCase())) ?? null;
+    aliases.set(id, item);
+    return item;
+  }
+
   function get(id) {
-    return items.get(id) ?? quizzes.get(id) ?? null;
+    const key = String(id ?? "").trim();
+    if (!key) return null;
+    const direct = items.get(key) ?? quizzes.get(key);
+    if (direct) return direct;
+    return aliases.has(key) ? aliases.get(key) : fromPagePath(key);
   }
 
   function quiz(id) {

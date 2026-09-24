@@ -6,13 +6,26 @@
   if(!slides.length || !document.body.classList.contains('enterprise-classroom')) return;
   const lesson=window.IGCSE.lesson;
   const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const syllabus={type:'Syllabus',ref:'Cambridge IGCSE Economics 0455 · 2027–2029 · 1.2.1',detail:'Definitions of the factors of production and their rewards. This lesson covers enterprise and factor rewards; mobility and changes in the quantity or quality of factors are later knowledge points.'};
-  const definitions={type:'Definitions',ref:'IGCSE Economics definitions · retained 2026 course reference',detail:'Land: natural resources used in production. Labour: human effort used in production. Capital: human-made goods used in production. Enterprise organises the other factors of production and takes risks.'};
+  const isQuantityQuality=lesson.meta?.code==='1.2.2';
+  const syllabus={type:'Syllabus',ref:`Cambridge IGCSE Economics 0455 · 2027–2029 · ${lesson.meta?.code||'1.2'}`,detail:isQuantityQuality?'Causes of changes in the quantity and quality of factors of production.':'Definitions of the factors of production and their rewards.'};
+  const definitions={type:'Definitions',ref:'IGCSE Economics definitions · retained 2026 course reference',detail:isQuantityQuality?'Quantity concerns the amount of factors available. Quality concerns their productive capability; accepted causes include education, training, healthcare, technology, research and development, land improvement and experience.':'Land: natural resources used in production. Labour: human effort used in production. Capital: human-made goods used in production. Enterprise organises the other factors of production and takes risks.'};
   // References and official answers verified in PAPER-SOURCES.md.
   const paper2={
     '2025MJ-21 Q3(a)':{ref:'0455/21 · May/June 2025 · Q3(a) [2]',question:'Identify the rewards to capital and land.',answer:'Interest (1); rent (1).',msPage:19},
-    '2023FM-22 Q2(a)':{ref:'0455/22 · February/March 2023 · Q2(a) [2]',question:'Identify two reasons why people become entrepreneurs.',answer:'One mark per distinct accepted reason. Accepted reasons include profit, independence, following an interest, innovation and flexible working hours.',msPage:15}
+    '2023FM-22 Q2(a)':{ref:'0455/22 · February/March 2023 · Q2(a) [2]',question:'Identify two reasons why people become entrepreneurs.',answer:'One mark per distinct accepted reason. Accepted reasons include profit, independence, following an interest, innovation and flexible working hours.',msPage:15},
+    '2023FM-22 Q1(b)':{ref:'0455/22 · February/March 2023 · Q1(b) [2]',question:'Identify two causes of the increase in the quantity of US factors of production.',answer:'Land reclamation (1); increase in the labour force (1).',msPage:8},
+    '2023MJ-22 Q3(b)':{ref:'0455/22 · May/June 2023 · Q3(b) [4]',question:'Explain one reason why the quantity of land may increase and one reason why the quality of land may increase.',answer:'One mark for each reason and one mark for each explanation. Accepted chains include reclamation → land created from the sea, and fertiliser → higher fertility/productivity.',msPage:16},
+    '2025ON-21 Q3(b)':{ref:'0455/21 · October/November 2025 · Q3(b) [4]',question:'Explain two influences on productivity.',answer:'One mark for each influence and one mark for each explanation. Accepted influences include factor quality, technology, education and healthcare.',msPage:18}
   };
+  const sourceType=source=>({
+    'Original Cambridge question':'Question paper',
+    'Cambridge Paper 2':'Question paper',
+    'Cambridge mark scheme':'Mark scheme',
+    'Authentic photograph':'Photo',
+    'Authentic training photograph':'Photo',
+    'Authentic healthcare photograph':'Photo',
+    'Real-world data':'Real-world data'
+  })[source.label]||'Course reference';
   function records(s) {
     const list=[];
     if(s.type==='quiz'){
@@ -26,14 +39,14 @@
           list.push({type:'Question paper',ref:`Cambridge ${original.ref} · printed page 4`,detail:original.question});
           list.push({type:'Mark scheme',ref:`Cambridge ${original.ref} · official mark scheme, page ${original.msPage}`,detail:original.answer});
         } else if(source.label==='Syllabus and definitions') list.push(syllabus,definitions);
-        else list.push({type:source.label==='Real-world data'?'Real-world data':'Course reference',ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n'),url:source.url});
+        else list.push({type:sourceType(source),ref:source.ref,detail:[source.note,source.question,source.extract].filter(Boolean).join('\n\n'),url:source.url});
       }
       if(['hero','section','outcomes'].includes(s.type)) list.push(syllabus);
       if(s.type==='classificationTask') list.push(definitions);
       if(s.type==='modelAnswer') list.push({type:'Teaching model',ref:'Teacher-written model based on the cited mark scheme',detail:s.answer});
       if(s.layout?.startsWith('factor-') && s.type==='cards') list.push({type:'Teaching model',ref:'Original classroom explanation and illustration',detail:['factor-case','factor-assembly','factor-revenue','factor-risk'].includes(s.layout)?'Emma’s school-fair business is fictional. She produces 12 boxes, charges ¥15 per box and pays total costs of ¥120 before sales. Unsold boxes have no resale value. All agreed payments are included in the cost. The diagrams and numerical explanations are teacher-created.':'The visual explanation is teacher-created from the cited course references. It is not an official Cambridge model answer.'});
     }
-    if(s.visual?.src?.includes('enterprise-launch-hero')) list.push({type:'Illustration',ref:'Original AI-generated classroom illustration',detail:'Fictional entrepreneur coordinating a sneaker workshop. Created with OpenAI image generation for this lesson; it does not depict a real business.'});
+    if(s.visual?.credit?.includes('OpenAI image generation')) list.push({type:'Illustration',ref:s.visual.alt||'Original AI-generated classroom illustration',detail:`${s.visual.credit}. Created for this lesson; it does not depict a real business or named person.`});
     else if(s.visual?.source) list.push({type:'Photo',ref:s.visual.caption,detail:s.visual.credit,url:s.visual.source});
     return list.filter((r,i)=>list.findIndex(x=>x.type===r.type&&x.ref===r.ref)===i);
   }
@@ -68,8 +81,10 @@
         dialog.showModal();
       });nav.append(button);
     });
-    slide.querySelector('.topline').append(nav);
+    const topline=slide.querySelector('.topline');
+    if(topline)topline.append(nav);
     const number=document.createElement('span');number.className='classroom-slide-number';number.textContent=String(index+1).padStart(2,'0');
-    slide.querySelector('.slide-footer').append(number);
+    const footer=slide.querySelector('.slide-footer');
+    if(footer)footer.append(number);
   });
 })();

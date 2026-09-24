@@ -1,20 +1,21 @@
-// Canonical 40-minute continuation. Teacher models are separate from original mark schemes.
+// Optional synoptic policy-essay workshop; not the next compulsory lesson.
 window.ALEVEL_LESSON = {
   "meta": {
     "title": "Fiscal expansion and the multiplier",
     "course": "Cambridge A Level Economics",
-    "syllabus": "9708 · 9.1.1 · 9.1.3 · 9.2.2",
+    "syllabus": "9708 · 9.1 retrieval · 9.2.4 / 10.3.1 application",
     "coreEnd": "lesson-conclusion",
-    "plannedLessons": 1,
+    "plannedLessons": 0,
     "durationMinutes": 40,
     "continuationOf": "9-2-1-growth-output-gaps",
-    "startsAfter": "gap-measures"
+    "startsAfter": "gap-measures",
+    "optionalWorkshop": true
   },
   "sourceLibrary": {
     "syllabus": {
       "type": "Syllabus",
       "ref": "Cambridge 9708 · 2026–2028 · §9.1.1, §9.1.3 and §9.2.2 · printed pp.29–30.",
-      "detail": "Apply the multiplier and expenditure-gap analysis to closing a negative output gap. This is the untaught continuation of the growth/output-gap lesson, not the business-cycle lesson.",
+      "detail": "Optional synoptic application of previously taught multiplier/output-gap knowledge. Use during growth-policy evaluation (9.2.4) or macroeconomic-policy effectiveness (10.3.1). It is not the next required section after 9.2.2.",
       "url": "https://www.cambridgeinternational.org/Images/697423-2026-2028-syllabus.pdf#page=29"
     },
     "photo": {
@@ -95,12 +96,12 @@ window.ALEVEL_LESSON = {
       ],
       "code": "9.1.1 · 9.1.3 · 9.2.2",
       "eyebrow": "CAMBRIDGE A LEVEL ECONOMICS · 9708",
-      "subtitle": "Can £50bn of extra spending close a £200bn output gap?",
-      "syllabus": "财政扩张与乘数",
+      "subtitle": "Optional policy essay practice: can £50bn close a £200bn output gap?",
+      "syllabus": "选修综合练习 · 9.2.4 / 10.3.1",
       "image": "../../../assets/images/fiscal-policy/visual-pause-toronto-skyline.jpg",
       "imageAlt": "Toronto skyline, buildings, transport and construction illustrate economy-wide activity.",
       "imagePosition": "center 60%",
-      "notes": "Prepared continuation, not yet taught. The previous 40-minute lesson covered through gap-measures (slide 20), stopping before fiscal-expansion-section. Keep this lesson to 40 minutes: 0–4 retrieval/objectives; 4–15 formula, AE–Y worked model and independent calculation; 15–21 AD/AS and comparison; 21–24 original essay and guidance; 24–32 two independent paragraphs; 32–37 feedback; 37–39 original Paper 3 exit; 39–40 Summary. Full essay/model after Summary is homework or a later writing period. AD/AS basics, output-gap definitions and multiplier prerequisites are already known. Do not skip the eight-minute writing interval to rush the complete model.",
+      "notes": "Optional workshop retained for later policy evaluation. The next compulsory lesson is The business cycle, 9.2.3. Use selected questions as retrieval; do not reteach the multiplier simply because an essay combines topics. Prepared continuation, not yet taught. The previous 40-minute lesson covered through gap-measures (slide 20), stopping before fiscal-expansion-section. Keep this lesson to 40 minutes: 0–4 retrieval/objectives; 4–15 formula, AE–Y worked model and independent calculation; 15–21 AD/AS and comparison; 21–24 original essay and guidance; 24–32 two independent paragraphs; 32–37 feedback; 37–39 original Paper 3 exit; 39–40 Summary. Full essay/model after Summary is homework or a later writing period. AD/AS basics, output-gap definitions and multiplier prerequisites are already known. Do not skip the eight-minute writing interval to rush the complete model.",
       "section": "1 · Fiscal expansion and the multiplier",
       "sources": [
         "Syllabus: Cambridge 9708 · 2026–2028 · §9.1.1, §9.1.3 and §9.2.2 · printed pp.29–30. Apply the multiplier and expenditure-gap analysis to closing a negative output gap. This is the untaught continuation of the growth/output-gap lesson, not the business-cycle lesson.",

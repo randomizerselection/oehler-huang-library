@@ -14,6 +14,76 @@ requested PowerPoint task; they do not override the current HTML course system.
 
 ## Exam alignment and authentic practice
 
+Feedback, 21 September 2026 (business cycle):
+
+- Follow-up refinements: show economic growth, unemployment and inflation in
+  aligned rows for each cycle phase; distinguish output turning points from the
+  growth rate and qualify typical demand-led patterns. Cycle curves must progress
+  monotonically through time without accidental loops at the trough/recovery.
+- Introduce real cases with a short factual sentence (e.g. “In 2024, …”) over
+  relevant imagery. Prefer human consequences or striking verified evidence to
+  dry institutional statements and ceremonial photographs.
+- For short Paper 4 evidence questions, verify the exact scheme and show each
+  complete identification + explanation pair before revealing the next factor;
+  label the separate marks where the original scheme specifies them.
+- Broad causes slides must represent the range of causes, not imply that a
+  single illustrated investment channel explains all fluctuations. Make policy
+  classifications formative checks: cases first, independent classification and
+  justification, then separately revealed feedback.
+- Use direct academic hero subtitles and retrieval titles. Highlight the syllabus
+  terms in learning objectives. Add compact concept visuals above paired
+  definitions when they clarify the distinction. For business-cycle causation,
+  distinguish the autonomous change that starts the movement from the multiplier
+  and accelerator mechanisms that can amplify it. Link the multiplier to induced
+  consumption through income, and link the accelerator to a change in the growth
+  of demand or output and induced investment. State the conditions that can weaken
+  the accelerator and never imply that investment is the only initial cause.
+- Apply these visual, source and exam-sequencing preferences to subsequent
+  A-level decks as standing guidance, not only to the business-cycle revision.
+  The next prepared deck is `9-2-4-growth-policies`, for use after 9.2.3 is taught;
+  preparing it does not establish a new teaching record.
+- Begin with a concrete, staged visual hook before consolidating definitions. Use
+  syllabus knowledge-point titles, especially phases, causes of the cycle and the
+  role of automatic stabilisers; show causal links as connected paths.
+- Add brief full-screen photo dividers between major syllabus sections. Real-world
+  cases need specifically related pictures, sourced data and a clear distinction
+  between contextual photographs and evidence of the event or year described.
+- Use the main title “Paper 4 Past Paper Question” for original Paper 4 tasks,
+  with the paper/series/question/marks in a smaller reference. Introduce a data
+  case with a relevant full-screen image, and give the original extract a readable
+  editorial layout alongside the question and revealed evidence–explanation pairs.
+- For essays, show the exact question very large on its own slide for copying,
+  then a brief visually memorable AO-labelled structure, then staged model prose.
+  This supersedes the older title preference for these past-paper question slides.
+- Keep AD causes central, but retain the short AS explanation explicitly covered
+  in Bamford & Grant §42.3. The business cycle is not restricted to AD shocks.
+  Distinguish automatic changes under existing tax/benefit rules from newly
+  introduced discretionary schemes; identify budget estimates as budget effects.
+
+Curriculum correction, 20 September 2026: follow the syllabus sequence after
+9.2.1–9.2.2 with **9.2.3 business-cycle phases, causes and automatic stabilisers**,
+then 9.2.4 growth policies, 9.2.5 inclusive growth and 9.2.6 sustainability.
+The multiplier was taught earlier. Retrieve it briefly to explain cycle propagation;
+do not give it another compulsory lesson because a recent essay combines topics.
+The fiscal/multiplier deck is now optional synoptic practice for 9.2.4/10.3.1.
+The next core deck is `9-2-3-business-cycle`. Current forward budget: 24 teaching,
+four reserve and three assessment/review slots. This supersedes the fiscal-next
+instructions and 25-teaching-slot budgets preserved in the historical notes below.
+Choose the newest *relevant* question after its prerequisites are taught. Use
+original Paper 3 retrieval/hinges, Paper 4 structured evidence early, then scaffold
+analysis and evaluation for essays at the appropriate topic; revisit synoptic
+essays later. See the planner's `assessmentSequence` and source audit.
+
+Latest teaching-record clarification, 20 September 2026: seven classes are taught
+(two in each of weeks 1–3, one in week 4). The full-employment essay workshop
+was explicitly confirmed taught in the second class of week 3 (14–18 September),
+superseding the older untaught reports below. Growth/output-gap core theory was
+taught on 20 September through slide 20; fiscal continuation is planned for the
+second class of week 4 (20–24 September). Use weekly precision for earlier classes,
+whose exact dates were not supplied. The revised forward budget is 31 remaining
+slots: 25 teaching, three reserves and three assessment/review. See the latest
+TEACHING_PROGRESS.md and planner records for current status.
+
 Semester pacing confirmed 20 September 2026: two 40-minute lessons weekly,
 finishing all section 9 macroeconomics and section 10 macroeconomic policy by
 approximately 14 January 2027. Follow `planning/TEACHING_PROGRESS.md` and the

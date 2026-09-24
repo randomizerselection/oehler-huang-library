@@ -9,9 +9,9 @@ const root = path.resolve(__dirname, '../../../apps/library');
 const course = path.join(root, 'investment-analysis');
 const lessonFolder = process.argv[2] || 'lesson-03';
 const selected = process.argv.slice(3).map(Number);
-assert.match(lessonFolder, /^lesson-\d{2}$/);
-const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth', 'lesson-04': '1-1-3-assumed-return', 'lesson-05': 'first-stock-trades', 'lesson-07': '1-1-4-nominal-real-return'};
-const lessonSlug = aliases[lessonFolder];
+assert.match(lessonFolder, /^(?:lesson-\d{2}|monthly-exam-review)$/);
+const aliases = {'lesson-02': '1-1-2-measuring-investment-return', 'lesson-03': '1-1-3-compound-growth', 'lesson-04': '1-1-3-assumed-return', 'lesson-05': 'first-stock-trades', 'lesson-06': 'share-price-company-size', 'lesson-07': '1-1-4-nominal-real-return', 'lesson-08': 'risk-possible-return'};
+const lessonSlug = lessonFolder === 'monthly-exam-review' ? lessonFolder : aliases[lessonFolder];
 assert.ok(lessonSlug, 'Use a linked lesson alias; add a new alias when publishing a lesson');
 const lessonRoute = `investment-analysis/lessons/${lessonSlug}`;
 assert.ok(fs.readFileSync(path.join(course, 'index.html'), 'utf8').includes(`lessons/${lessonSlug}/index.html`), 'Lesson must be linked from the course landing page');
@@ -21,7 +21,7 @@ const sandbox = {window: {}};
 vm.runInNewContext(fs.readFileSync(path.join(root,lessonRoute,'slides.js'),'utf8'),sandbox);
 const lesson=sandbox.window.INVESTMENT_COURSE.lesson;
 assert.equal(new Set(lesson.slides.map(s=>s.id)).size,lesson.slides.length,'unique semantic slide IDs');
-assert.equal(lesson.slides.filter(s=>s.kind==='section').length,3);
+assert.equal(lesson.slides.filter(s=>s.kind==='section').length,lessonSlug==='share-price-company-size'?4:3);
 assert.equal(lesson.slides.find(s=>s.kind==='objectives').items.length,3);
 lesson.slides.forEach(s=>assert.ok(s.note,`Missing teacher note: ${s.id}`));
 const server=http.createServer((req,res)=>{
@@ -53,7 +53,7 @@ const server=http.createServer((req,res)=>{
       for(const b of await slide.locator('.blank-answer,.inline-reveal').all()){
         await b.click(); assert.equal(await b.getAttribute('aria-expanded'),'true');
       }
-      for(const answer of await slide.locator('details.retrieval-answer').all()) {
+      for(const answer of await slide.locator('details.retrieval-answer,details.rr-answer,details.rv-answer').all()) {
         assert.equal(await answer.getAttribute('open'), null, 'model answer starts hidden');
         await answer.locator('summary').click();
         assert.notEqual(await answer.getAttribute('open'), null, 'model answer reveals');
@@ -76,7 +76,7 @@ const server=http.createServer((req,res)=>{
           if(hidden)continue;
           // The course deliberately keeps chart labels readable in a labelled,
           // keyboard-focusable horizontal scroller on phones.
-          const scroller=node.parentElement.closest('.concept-chart-plot');
+          const scroller=node.parentElement.closest('.concept-chart-plot,.rr-history .slide-body,.rr-paths .slide-body');
           if(width<821&&scroller&&scroller.scrollWidth>scroller.clientWidth&&['auto','scroll'].includes(getComputedStyle(scroller).overflowX))continue;
           const range=document.createRange();range.selectNodeContents(node);
           for(const r of range.getClientRects())for(let a=node.parentElement;a&&a!==el.parentElement;a=a.parentElement){

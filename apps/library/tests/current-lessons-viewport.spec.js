@@ -6,8 +6,10 @@ const { readFile } = require('node:fs/promises');
 const lessons = [
   ['investment-analysis/lessons/1-1-2-measuring-investment-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-3-compound-growth', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
-  ['investment-analysis/lessons/1-1-3-assumed-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/first-stock-trades', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/share-price-company-size', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/monthly-exam-review', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
+  ['investment-analysis/lessons/risk-possible-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['investment-analysis/lessons/1-1-4-nominal-real-return', '#deck', '.deck-controls', '#fullscreenButton', '#slideStatus'],
   ['a-level/lessons/9-1-1-multiplier', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-1-1-national-income-determination', '#stage', '.controls', '#fullscreen', '#status'],
@@ -17,6 +19,8 @@ const lessons = [
   ['a-level/lessons/9-1-3-full-employment-essay', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-2-1-growth-output-gaps', '#stage', '.controls', '#fullscreen', '#status'],
   ['a-level/lessons/9-2-2-fiscal-expansion-multiplier', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-2-3-business-cycle', '#stage', '.controls', '#fullscreen', '#status'],
+  ['a-level/lessons/9-2-4-growth-policies', '#stage', '.controls', '#fullscreen', '#status'],
 ];
 
 for (const [route] of [...lessons, ['lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem']]) {
@@ -173,7 +177,33 @@ async function prepareLessonSelector(page, role = 'teacher', failFirstLoad = fal
         sessionAdapter: {
           start: async value => {
             window.selectorCalls.push({ context, session: value });
-            return { session_id: 'test-session', class_id: value.class_id, status: 'active', version: 1 };
+            return {
+              session_id: 'test-session', class_id: value.class_id, status: 'active', version: 1,
+              roster: [{
+                account_id: 'test-student',
+                display_name: 'Synthetic student',
+                attendance_history: { marks: 5, present: 4, absent: 1, rate: 80, recent: [{ status: 'absent', marked_at: '2026-09-10T08:00:00.000Z' }] },
+                homework: { total: 3, eligible: 3, completed: 2, late: 0, missing: 1, awaiting_working: 0, completion_rate: 67, outstanding: [{ assignment_title: 'Fiscal policy essay', assigned_on: '2026-09-15', status: 'missing' }], last: { assignment_title: 'Fiscal policy essay', assigned_on: '2026-09-15', status: 'missing' } }
+              }],
+              attendance: [], selections: [],
+              attendance_summary: { roster_total: 1, marked: 0, present: 0, absent: 0, finalized: false, finalized_at: null },
+              homework_rewards: { groups: [
+                {
+                  kind: 'score', label: 'Quiz high scores', assignment_title: 'Fiscal expansion analysis', assigned_on: '2026-09-19', graded_count: 5,
+                  entries: [
+                    { account_id: 'test-student', display_name: 'Synthetic student', score: 20, score_max: 20, percentage: 100, rank: 1 },
+                    { account_id: 'test-2', display_name: 'Student Two', score: 20, score_max: 20, percentage: 100, rank: 1 },
+                    { account_id: 'test-3', display_name: 'Student Three', score: 20, score_max: 20, percentage: 100, rank: 1 },
+                    { account_id: 'test-4', display_name: 'Student Four', score: 20, score_max: 20, percentage: 100, rank: 1 },
+                    { account_id: 'test-5', display_name: 'Student Five', score: 20, score_max: 20, percentage: 100, rank: 1 }
+                  ]
+                },
+                {
+                  kind: 'submission', label: 'Structured question submitted', assignment_title: 'Fiscal policy essay', assigned_on: '2026-09-18', submitted_count: 2,
+                  entries: [{ account_id: 'test-student', display_name: 'Synthetic student' }, { account_id: 'test-2', display_name: 'Student Two' }]
+                }
+              ] }
+            };
           }
         }
       })
@@ -200,6 +230,34 @@ test('@smoke lesson roll call expands beyond the selector sidebar', async ({ pag
   await expect(rollCall.getByText('Fiscal policy essay')).toBeVisible();
   await expect(page.locator('.lesson-selector-heading')).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(viewport.width);
+});
+
+test('@smoke latest homework leaders expand to a classroom praise screen', async ({ page, isMobile }) => {
+  await prepareLessonSelector(page);
+  const viewport = isMobile ? { width: 390, height: 844 } : { width: 2048, height: 1080 };
+  await page.setViewportSize(viewport);
+  await page.goto('http://lesson.test/lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/index.html?class=test-class');
+  await page.locator('#studentSelectorButton').click();
+  await page.getByRole('button', { name: 'Top Homework', exact: true }).click();
+
+  const panel = page.locator('.studentSelectorSidePanel');
+  const praise = page.getByRole('dialog', { name: 'Top homework performers' });
+  await expect(panel).toHaveClass(/is-leaderboard-active/);
+  await expect(praise).toBeVisible();
+  expect(await praise.boundingBox()).toMatchObject({ x: 0, y: 0, width: viewport.width, height: viewport.height });
+  await expect(praise.getByRole('heading', { name: 'Fiscal expansion analysis' })).toBeVisible();
+  await expect(praise.getByText('Synthetic student', { exact: true })).toBeVisible();
+  await expect(praise.getByRole('heading', { name: 'Fiscal policy essay' })).toBeVisible();
+  await expect(page.locator('.lesson-selector-heading')).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(viewport.width);
+  if (!isMobile) {
+    const cards = await praise.getByLabel('Quiz high scores').locator('.selector-leader-card').evaluateAll((items) => items.map((item) => {
+      const bounds = item.getBoundingClientRect();
+      return { y: bounds.y, scrollWidth: item.scrollWidth, clientWidth: item.clientWidth };
+    }));
+    expect(new Set(cards.map((card) => Math.round(card.y))).size).toBe(1);
+    expect(cards.every((card) => card.scrollWidth <= card.clientWidth + 1)).toBe(true);
+  }
 });
 
 for (const lesson of [

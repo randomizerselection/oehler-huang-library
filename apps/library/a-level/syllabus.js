@@ -2,7 +2,7 @@
   'use strict';
   const data = window.ALEVEL_SYLLABUS;
   const storageKey = 'oh-a-level-syllabus-personal-v1';
-  const statuses = ['Planned', 'In progress', 'Taught', 'Not confirmed'];
+  const statuses = ['Planned', 'In progress', 'Taught', 'Optional', 'Not confirmed'];
   const byId = new Map(data.lessons.map(lesson => [lesson.id, lesson]));
   const extras = data.extraSessions || [];
   const recordIds = new Set([...byId.keys(), ...extras.map(item => item.id)]);
@@ -27,7 +27,7 @@
       if (!recordIds.has(id) || !entry || typeof entry !== 'object') continue;
       personal[id] = {
         date: /^\d{4}-\d{2}-\d{2}$/.test(entry.date || '') ? entry.date : '',
-        actualDate: /^\d{4}-\d{2}-\d{2}$/.test(entry.actualDate || '') ? entry.actualDate : '',
+        ...(Object.hasOwn(entry,'actualDate') ? {actualDate:/^\d{4}-\d{2}-\d{2}$/.test(entry.actualDate || '') ? entry.actualDate : ''} : {}),
         status: statuses.includes(entry.status) ? entry.status : 'Planned',
         notes: typeof entry.notes === 'string' ? entry.notes.slice(0, 5000) : '',
       };
@@ -39,12 +39,13 @@
   const plannedFor = id => {
     const entry=entryFor(id), planned=schedule.get(id);
     if(entry.date) return entry.date;
+    if(planned?.plannedWindow) return planned.plannedWindow;
     if(planned) return `Week of ${planned.plannedWeek}${planned.homework?' · homework':` · class ${planned.slot}`}`;
     return byId.get(id)?.section === '11' ? 'After 14 January 2027 · next-term dates TBC' : 'Earlier plan date not recorded';
   };
   const actualFor = id => {
     const entry=entryFor(id);
-    return entry.actualDate || (entry.status==='Planned'?'Not yet taught':`Exact date unconfirmed${entry.reportedOn?' · reported '+entry.reportedOn:''}`);
+    return entry.actualDate || entry.actualWeek || (['Planned','Optional'].includes(entry.status)?'Not yet taught':`Exact date unconfirmed${entry.reportedOn?' · reported '+entry.reportedOn:''}`);
   };
   const timingText = id => `Planned: ${plannedFor(id)} · Actually taught: ${actualFor(id)}`;
   const recordControls = id => {
@@ -137,15 +138,16 @@
   function renderSemester() {
     const slotHtml = raw => {
       const slot = semesterSlot(raw);
-      const id=slot.lessonId || (slot.kind==='teaching'?'fiscal-continuation':null);
-      return `<td><span class="semester-kind">${escape({teaching:'Teaching',reserve:'Reserved',review:'Assessment / review'}[slot.kind])}</span>${slot.href ? `<a href="${escape(slot.href)}">${escape(slot.title)}</a>` : escape(slot.title)}${slot.codes ? `<small>${escape(slot.codes.join(' · '))}</small>` : ''}${id?`<small data-semester-record="${id}">${escape(entryFor(id).status)} · Actually taught: ${escape(actualFor(id))}</small>`:''}</td>`;
+    const id=slot.lessonId || (slot.kind==='teaching'?'fiscal-continuation':null);
+      return `<td><span class="semester-kind">${escape({completed:'Completed class',teaching:'Teaching',reserve:'Reserved',review:'Assessment / review'}[slot.kind])}</span>${slot.href ? `<a href="${escape(slot.href)}">${escape(slot.title)}</a>` : escape(slot.title)}${slot.codes ? `<small>${escape(slot.codes.join(' · '))}</small>` : ''}${id?`<small data-semester-record="${id}">${escape(entryFor(id).status)} · Actually taught: ${escape(actualFor(id))}</small>`:''}</td>`;
     };
     $('semester-content').innerHTML = `<p><strong>Two 40-minute lessons per week · finish sections 9–10 before approximately 14 January 2027.</strong> Section 11 follows later.</p>
-      <p><strong>32 nominal slots = 25 teaching + 4 holiday/disruption reserves + 3 assessment/review.</strong> The 16 full weeks run from 21 September to 10 January; any lessons on 11–14 January are additional contingency, not required to make this plan fit.</p>
-      <p><strong>Reported coverage:</strong> growth/output gaps reached slide 20, <em>Output gaps and expenditure gaps</em>. Next: <a href="../lessons/9-2-2-fiscal-expansion-multiplier/index.html">Fiscal expansion and the multiplier</a>, still untaught. The schedule then covers reference lessons 6–29, targeting completion of new content in the week of 21 December.</p>
-      <p>Keep model teaching, calculation/diagram practice and a short assessed response in class. Set complete essays and optional extensions as homework; use retrieval and feedback to address errors. The earlier full-employment essay workshop has no confirmed completion: assign its essay as diagnostic homework and use reserve/review time if further teaching is needed.</p>
+      <p><strong>Teacher report, 20 September 2026 — seven classes taught:</strong> two in week 1 (1–4 September), two in week 2 (7–11 September), two in week 3 (14–18 September), and growth/output gaps on 20 September in week 4 (20–24 September). The full-employment essay workshop was the second class of week 3. Earlier lessons are recorded by teaching week; exact dates were not supplied.</p>
+      <p><strong>31 slots remain = 24 teaching + 4 holiday/disruption reserves + 3 assessment/review.</strong> The table includes the completed 20 September class plus those 31 slots. Any lessons on 11–14 January are additional contingency. The fiscal/multiplier workshop is optional synoptic practice, so it does not consume another core teaching slot.</p>
+      <p><strong>Taught on 20 September:</strong> growth/output-gap theory through slide 20, <em>Output gaps and expenditure gaps</em>. Next this week: <a href="../lessons/9-2-3-business-cycle/index.html">The business cycle</a> (9.2.3), followed by growth policies, inclusive growth and sustainable growth. Reference lessons 6–29 target completion of new content in the week of 21 December.</p>
+      <p>Keep model teaching, calculation/diagram practice and a short assessed response in class. Set complete essays and optional extensions as homework; use retrieval and feedback to address errors.</p>
       <details class="source-notes"><summary>Weekly semester schedule and assumptions</summary>
-      <p>These are week windows, not fixed lesson dates. Holiday reserves around early October and New Year are planning allowances, not a confirmed school calendar; move them to match the actual timetable. If more than four slots are lost, use the final partial week and review the remaining budget. Prepared lessons and this schedule do not mark anything as taught.</p>
+      <p>These are week windows, not fixed lesson dates. Week 4 uses the teacher's 20–24 September window; subsequent rows use calendar weeks. Holiday reserves around early October and New Year are planning allowances, not a confirmed school calendar. If more than four further slots are lost, use the final partial week and review the remaining budget. Only teacher-confirmed coverage is marked taught.</p>
       <table class="semester-table"><caption>Forward plan from the teacher-reported stopping point</caption><thead><tr><th scope="col">Week beginning</th><th scope="col">First slot</th><th scope="col">Second slot</th></tr></thead><tbody>${semester.weeks.map(week => `<tr><th scope="row">${escape(week.start)}</th>${week.slots.map(slotHtml).join('')}</tr>`).join('')}</tbody></table>
       <p><strong>11–14 January:</strong> final corrections or catch-up if the timetable permits. No new syllabus topic is scheduled here.</p></details>`;
   }
@@ -171,21 +173,26 @@
       rows.push([week.start, i + 1, slot.kind, slot.title, slot.lessonId || '', (slot.codes || []).join('; '),entry.date||'',entry.actualDate||'',entry.status||slot.kind]);
     }));
     saveCsv(rows, 'a-level-semester-to-2027-01-14.csv');
-    $('semester-download-status').textContent = 'Downloaded 32 slots: 25 teaching, 4 reserves and 3 assessment/review.';
+    $('semester-download-status').textContent = 'Downloaded 32 slots: 1 completed, 24 future teaching, 4 reserves and 3 assessment/review.';
   }
   function downloadCsv() {
     const weekly = Number($('lessons-per-week').value);
     const validWeekly = Number.isInteger(weekly) && weekly >= 1 && weekly <= 10;
-    const rows = [['Lesson', 'Section', 'Title', 'Syllabus codes', 'Allocation', 'Suggested week', 'Planned date', 'Teaching status', 'Learning outcome', 'Retrieve', 'Teach and model', 'Practise and apply', 'Exit check', 'Follow-up', 'Planning notes','Scheduled window','Actual teaching date','Coverage report date','Confirmed coverage']];
+    const rows = [['Lesson', 'Section', 'Title', 'Syllabus codes', 'Allocation', 'Suggested week', 'Planned date', 'Teaching status', 'Learning outcome', 'Retrieve', 'Teach and model', 'Practise and apply', 'Exit check', 'Follow-up', 'Planning notes','Scheduled window','Actual teaching date','Coverage report date','Confirmed coverage','Actual teaching week']];
     visibleLessons().forEach(lesson => {
       const entry = entryFor(lesson.id);
-      rows.push([lesson.number, lesson.section, lesson.title, lessonCodes(lesson).join('; '), lesson.allocations.map(a => `${a.code}: ${a.lessons}`).join('; ') + (lesson.consolidation ? `; consolidation: ${lesson.consolidation}` : ''), validWeekly ? Math.ceil(lesson.number / weekly) : '', entry.date, entry.status, lesson.outcome, lesson.retrieve, lesson.teach, lesson.practice, lesson.check, lesson.followUp, entry.notes,plannedFor(lesson.id),entry.actualDate,entry.reportedOn||'',entry.note||'']);
+      rows.push([lesson.number, lesson.section, lesson.title, lessonCodes(lesson).join('; '), lesson.allocations.map(a => `${a.code}: ${a.lessons}`).join('; ') + (lesson.consolidation ? `; consolidation: ${lesson.consolidation}` : ''), validWeekly ? Math.ceil(lesson.number / weekly) : '', entry.date, entry.status, lesson.outcome, lesson.retrieve, lesson.teach, lesson.practice, lesson.check, lesson.followUp, entry.notes,plannedFor(lesson.id),entry.actualDate,entry.reportedOn||'',entry.note||'',entry.actualWeek||'']);
+    });
+    extras.filter(item=>matches('9',item.title)).forEach(item=>{
+      const entry=entryFor(item.id);
+      rows.push([item.id,'9',item.title,'','','',entry.date,entry.status,'','','','','','',entry.notes,plannedFor(item.id),entry.actualDate,entry.reportedOn||'',entry.note||'',entry.actualWeek||'']);
     });
     saveCsv(rows, 'a-level-lesson-plan.csv');
     $('draft-status').textContent = `Downloaded ${rows.length - 1} lesson plans with your dates, status and notes.`;
   }
   $('plan-summary').textContent = `${data.lessons.length} lessons · ${points.size} syllabus points · ${data.sections.length} sections`;
   renderSemester();
+  $('assessment-sequence').innerHTML=data.assessmentSequence.map(item=>`<article class="assessment-stage"><h3>${escape(item.stage)}</h3><p><strong>${escape(item.reference)}</strong></p><p>${escape(item.question)}</p><p>${escape(item.use)}</p>${item.href?`<a href="${escape(item.href)}">Open the question and teaching support</a>`:''}</article>`).join('');
   $('continuation-records').innerHTML=extras.map(item=>{
     const entry=entryFor(item.id);
     return `<article class="continuation-record" data-lesson="${item.id}" id="${item.id}"><h3><a href="${escape(item.href)}">${escape(item.title)}</a></h3><span class="personal-status" data-status="${entry.status}">${entry.status}</span><p class="record-timing">${escape(timingText(item.id))}</p><p class="coverage-note">${escape(entry.note)}</p>${recordControls(item.id)}<p class="print-personal">${escape(personalPrint(entry,item.id))}</p></article>`;

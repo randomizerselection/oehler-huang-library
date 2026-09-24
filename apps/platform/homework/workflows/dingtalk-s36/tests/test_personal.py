@@ -1,5 +1,6 @@
 """Scenario group 10: S3.6 personal-request attention report (read-only)."""
 import json
+import sqlite3
 import subprocess
 import sys
 import unittest
@@ -20,6 +21,36 @@ def emma_conversation(messages):
 
 
 class PersonalRequestTests(unittest.TestCase):
+    def test_student_thanks_after_teacher_answer_keeps_conversation_closed(self):
+        fixture = build_workspace(self)
+        question = wire_message('q1', 'DING_EMMA', '2026-09-18 08:30:00', content='Could you explain this?')
+        reply = wire_message('r1', 'SELF', '2026-09-18 08:45:00', content='Yes. Here is the explanation.')
+        thanks = wire_message('q2', 'DING_EMMA', '2026-09-18 08:50:00', content='Okay, thank you!')
+        seed_archive(fixture, {'conv-emma': emma_conversation([question, reply, thanks])})
+        report = json.loads(run_script(fixture, 'personal_requests.py', 'report').stdout)
+        self.assertEqual(report['openCount'], 0)
+        self.assertEqual(report['new'][0]['status'], 'closed')
+
+    def test_captured_absence_reason_is_not_a_personal_request(self):
+        fixture = build_workspace(self)
+        reason = wire_message('absence-1', 'DING_EMMA', '2026-09-18 08:30:00',
+                              content='Absence reason: I was ill.')
+        seed_archive(fixture, {'conv-emma': emma_conversation([reason])})
+        with sqlite3.connect(fixture.db) as db:
+            db.execute("INSERT INTO selector_attendance_log VALUES (?,?,?,?,?,?,?,?)",
+                       ('attlog-1', 'session-1', 'class-s36', 'acct-emma', 'absent',
+                        'lesson', '2026-09-18T00:00:00+00:00', '2026-09-18T00:00:00+00:00'))
+            db.execute("""INSERT INTO absence_followups
+                (attendance_log_id,provider,status,recipient_external_id,conversation_id,sent_at,
+                 response_message_id,reason_text,responded_at,updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                       ('attlog-1', 'dingtalk', 'responded', 'DING_EMMA', 'conv-emma',
+                        '2026-09-18T00:05:00+00:00', 'absence-1', 'I was ill.',
+                        '2026-09-18T00:30:00+00:00', '2026-09-18T00:30:00+00:00'))
+        report = json.loads(run_script(fixture, 'personal_requests.py', 'report').stdout)
+        self.assertEqual(report['openCount'], 0)
+        self.assertEqual(report['new'], [])
+
     def test_new_open_item_then_stable_then_closed_by_personal_reply(self):
         fixture = build_workspace(self)
         question = wire_message('q1', 'DING_EMMA', '2026-09-18 08:30:00',

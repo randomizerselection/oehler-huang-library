@@ -105,7 +105,7 @@ def apply_reviews(state, decisions):
     for d in decisions:
         if d['key'] not in messages:raise ValueError('Unknown source message')
         status=d['status']
-        if status not in ('open','routine','answered','out_of_scope'):raise ValueError('Invalid review status')
+        if status not in ('open','routine','answered','resolved','out_of_scope'):raise ValueError('Invalid review status')
         if not d.get('reason'):raise ValueError('Review needs factual evidence')
         if status=='out_of_scope' and messages[d['key']].get('senderOpenDingTalkId') not in set(state.get('outOfScopeSenderIds',[])):
             raise ValueError('Out-of-scope review requires a platform-verified sender outside S3.3/S3.4')
@@ -122,6 +122,13 @@ def apply_reviews(state, decisions):
                 reply.get('messageAiSendFlag') or d.get('answeredByMessageId') in automated or
                 reply.get('createTime','')<=source.get('createTime','')):
                 raise ValueError('Answer must reference a later personal reply in the same chat')
+        if status=='resolved':
+            source=messages[d['key']]
+            resolution=state['conversations'][source['conversationId']]['messages'].get(d.get('resolvedByMessageId'),{})
+            if (resolution.get('senderOpenDingTalkId')!=source.get('senderOpenDingTalkId') or
+                d.get('resolvedByMessageId') in automated or
+                resolution.get('createTime','')<=source.get('createTime','')):
+                raise ValueError('Resolution must reference a later student follow-up in the same chat')
         if old.get('status')!=status and (status=='open' or old.get('status')=='open'):
             changes.append({'key':d['key'],'status':status,'title':messages[d['key']]['title'],'summary':d.get('summary') or old.get('summary','')})
         if old and old!=d:

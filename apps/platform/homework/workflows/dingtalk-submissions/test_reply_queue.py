@@ -42,6 +42,16 @@ class ReplyQueueTests(unittest.TestCase):
         state=self.state()
         q.apply_reviews(state,[dict(key=self.k,status='open',summary='Reference',reason='Needs decision')])
         with self.assertRaises(ValueError):q.apply_reviews(state,[dict(key=self.k,status='routine',reason='Ignore')])
+    def test_open_item_can_be_resolved_by_later_student_followup(self):
+        state=self.state()
+        q.apply_reviews(state,[dict(key=self.k,status='open',summary='Need more information',reason='Student has not supplied it')])
+        state['conversations']['chat']['messages']['later']={
+            'openMessageId':'later','senderOpenDingTalkId':'student',
+            'createTime':'2026-09-16 09:20:00','content':'Here is the requested information.'}
+        q.apply_reviews(state,[dict(key=self.k,status='resolved',reason='Student supplied the requested information',resolvedByMessageId='later')])
+        self.assertEqual(state['reviews'][self.k]['status'],'resolved')
+        with self.assertRaises(ValueError):
+            q.apply_reviews(state,[dict(key=self.k,status='resolved',reason='Wrong message',resolvedByMessageId='out')])
     def test_new_question_in_same_chat_reopens_queue(self):
         state=self.state()
         q.apply_reviews(state,[dict(key=self.k,status='answered',reason='Samuel agreed',answeredByMessageId='out')]);q.save(q.STATE,state)

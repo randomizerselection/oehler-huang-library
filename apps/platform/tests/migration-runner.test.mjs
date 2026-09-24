@@ -61,10 +61,10 @@ test("standalone unified-login version 5 migrates without losing profile classes
 
   const migration = runPlatformMigrations(database, { dataDir });
   assert.equal(migration.from, 5);
-  assert.equal(migration.to, 19);
+  assert.equal(migration.to, 21);
   assert.equal(migration.compatibility, "standalone-unified-v5");
   assert.ok(existsSync(migration.backupPath), "the pre-migration database is backed up");
-  assert.equal(database.prepare("PRAGMA user_version").get().user_version, 19);
+  assert.equal(database.prepare("PRAGMA user_version").get().user_version, 21);
   assert.equal(database.prepare("SELECT class_name FROM accounts WHERE id='legacy-student'").get().class_name, "IC 1.2");
 
   const unifiedColumns = new Set(database.prepare("PRAGMA table_info(quiz_attempts)").all().map((column) => column.name));

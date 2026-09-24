@@ -13,6 +13,20 @@ Model choice, schedules, accounts, recipients and grading rules remain owned by
 their existing jobs. This controller makes no model API calls. It consolidates
 deterministic operations so the reviewer spends context on evidence and decisions.
 
+DingTalk messages identify **Adam, Samuel's automated teaching assistant**.
+Samuel is the teacher; Adam records submissions, sends authorized routine
+follow-ups and passes personal requests to Samuel through the existing review
+queue. New receipts, working requests, name acknowledgments, reminder campaign
+drafts and absence follow-ups carry the same explicit signature. Saved delivery
+text and idempotency keys are preserved so this change does not resend messages.
+The existing compatibility launchers load these templates directly; no reinstall
+or announcement campaign is needed. QQ retains its current identity.
+
+Suggested classroom introduction: “Adam is my automated teaching assistant on
+DingTalk. He helps me record homework and send reminders. His messages are signed
+with his name. I'm still your teacher; please address personal matters and
+teaching questions to me.”
+
 ## Run a regular check
 
 Use `python apps/platform/homework/runner.py PROFILE ACTION` from the repository,
@@ -35,7 +49,8 @@ runtime already configured for the job. Read [REVIEW.md](REVIEW.md) for decision
 5. `finish --run-id ID --plan-sha256 SHA`: only after reviewing the printed plan,
    pass its exact SHA. The controller rejects changes to inputs or plan, calls
    the existing transactional commit, and runs receipts, working requests, name
-   acknowledgements, QQ grading feedback, and the S3.3/S3.4 personal queue.
+   acknowledgements, QQ grading feedback, the S3.3/S3.4 personal queue, and
+   one confirmed acknowledgment for each newly captured reviewed absence reason.
 
 For an **empty** complete fetch, `collect` returns `ready-to-finish`. Review any
 personal queue changes, then call `finish --run-id ID` directly. No homework
@@ -78,6 +93,76 @@ one hour expires. It is optional and does not send messages or modify decisions.
 QQ commit now reads back critical saved values through a fresh database connection
 and reports verification counts in the normal finish output. Routine checks use
 these counts and the reviewed plan instead of extra SQL or historical log reads.
+
+## Ask absent students why they were away
+
+For an explicit **S3.6 absence + lesson PDF** request, go directly to
+[ABSENCE_FOLLOWUPS.md](ABSENCE_FOLLOWUPS.md). This is an implemented campaign,
+not a development task or a regular homework check. Its maintained commands
+handle preparation, review, authorization, bounded delivery recovery and status.
+Do not recreate the module or write a temporary send/recovery driver.
+
+`absence_followups.py` exists in both the `dingtalk-submissions` and `dingtalk-s36`
+workflows. It reads `selector_attendance_log`, so it only ever questions students
+whose absence was actually marked. Export the lesson PDF first, then run
+`prepare`, review the draft plan (recipients, exact English message, lesson date
+and PDF hash), set its status to `authorized`, and run `send`. Each recipient gets
+one idempotent text question, confirmed before `absence_followups` is written. A
+student with no platform identity link and no unique org-directory match stays in
+`unreachable` and is never messaged.
+
+The two workflows distribute the lesson PDF differently. S3.3/S3.4 attach a file
+card to the student's own message. S3.6 never attaches it: `send` posts the PDF
+into the `Economics 5` class group when the group does not already carry it, and
+the question tells the student to download it from that group, so a PDF the
+teacher already posted is not duplicated.
+
+Replies need no separate step: every complete `fetch.py` scan records a later
+reply in the same verified conversation only when it begins with `Absence reason:`
+and contains more than an acknowledgment. Other replies remain ordinary messages;
+they do not fill `reason_text` or trigger a reason receipt. A later explicit
+reason can replace an earlier unacknowledged legacy placeholder, and a verified
+manually sent absence prompt can be reconciled to the matching attendance record. Regular
+finish sends one idempotent acknowledgment after the reason is reviewed as
+routine (`absence_reason` in the S3.6 review). Explicit multi-day date ranges,
+clear `until` dates and exact durations are stored as inclusive absence periods.
+Any later marked absence whose lesson date falls within that period is listed as
+covered and is never asked again, including after the period itself has ended.
+Ambiguous dates remain unrecorded rather than being guessed. Pass
+`--resolve-uncertain <key> --note <evidence>` only after inspecting the chat and
+confirming that nothing was sent; never retry an unresolved delivery blindly.
+S3.6 also handles one explicitly retryable `THREADPOOL_BUSY` rejection after a
+complete scan of the attempt window in the verified student's conversation;
+unclear results remain uncertain. Persisted send tasks are polled without resending.
+Never run `prepare` or `send` as part of a regular check.
+
+## Import IC Ketangpai score exports
+
+IC1, IC2 and IC3 Ketangpai score exports can populate the same
+`homework_submissions` table used by the selector. The importer targets every
+active numbered class in one grade (for example, `IC3.1` and `IC3.2`) and excludes
+non-Economics classes such as `IC3 Investment`. A numeric score means submitted;
+`未交` means missing. Duplicate Ketangpai accounts for one legal name are combined,
+and the highest recorded score is retained. Whole-number percentages also populate
+the platform score field; fractional percentages remain in the import evidence
+without blocking the submission record. The importer stops if any workbook row or
+roster student is unmatched, rather than guessing an identity.
+
+Run a dry check first, with one date per selected assignment in newest-first
+column order. Use `--match KETANGPAI_ACCOUNT=STUDENT_ID` for a source row whose
+name does not identify the roster student, and `--ignore KETANGPAI_ACCOUNT` only
+for a known teacher or non-student row.
+
+```powershell
+npm run homework:import:ic --workspace=@oehler-huang/platform -- --file "C:\path\IC3 scores.xls" --grade IC3 --latest 2 --date 2026-09-20 --date 2026-09-13 --match ktp123=STU-0001 --ignore ktp999
+```
+
+After reviewing the class totals, create a platform backup and rerun the same
+command with `--apply`. Successful imports also register one stable Ketangpai
+account per student for later matching. Reimporting the same assignment is safe:
+the platform updates the existing class, student, title and date record. This
+workflow is only for combined IC grade exports; S3 remains provider-driven and
+must not use this importer.
 
 ## Source and private data
 

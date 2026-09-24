@@ -20,6 +20,7 @@ async function prepare(page) {
 const routes = [
   'lessons/unit-1-basic-economic-problem/1-1-basic-economic-problem/index.html',
   'lessons/unit-1-basic-economic-problem/1-2-factors-of-production/lesson-2.html',
+  'lessons/unit-1-basic-economic-problem/1-2-factors-of-production/lesson-3.html',
   'lessons/unit-4-government/4-4-supply-side-policy/lesson-4.html'
 ];
 

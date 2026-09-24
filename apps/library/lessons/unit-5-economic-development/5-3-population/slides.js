@@ -1,4 +1,3 @@
-/* Canonical lesson source. Official syllabus 2027-2029 p23; original papers and schemes checked. See authoring/igcse-economics/population/. */
 window.IGCSE=window.IGCSE||{};
 IGCSE.lesson={
   "meta": {
@@ -9,11 +8,10 @@ IGCSE.lesson={
     "courseLabel": "Cambridge IGCSE Economics 0455",
     "creatorLabel": "Created by Samuel Oehler-Huang, Suzhou Foreign Language School",
     "deliveryPlan": {
-      "durationMinutes": 75,
-      "coreEndSlide": 34,
-      "previousEndpoint": "Households: spending, saving and borrowing",
-      "status": "Prepared; not yet reported taught",
-      "suggestedPause": "After population-increase-paper1, if taught across two sessions"
+      "durationMinutes": 40,
+      "coreEndSlide": 21,
+      "previousEndpoint": "Supply-side policy: limitations and evaluation",
+      "status": "Taught through the previous Paper 1 question; completed at slide 20 on 24 September 2026"
     }
   },
   "slides": [
@@ -40,29 +38,29 @@ IGCSE.lesson={
           "note": "Factors that affect population growth: definitions of birth rate, death rate, net migration, immigration and emigration; how and why birth rates, death rates and net migration can vary between countries."
         }
       ],
-      "notes": "First deck of Unit 5, after Households. Prepared, not reported taught. Allow 70–80 minutes including independent writing and feedback; a natural pause is after the second Paper 1 check. Four parts: natural change; migration; why rates vary; original papers. Optimum population and the effects of population change belong to 5.3.2, the next deck."
+      "notes": "Lesson 1 was taught through the population increase Paper 1 question. This deck covers birth and death rates, natural change, immigration, emigration and net migration. The next lesson explains why rates vary."
     },
     {
-      "id": "recall-households-and-banks",
+      "id": "recall-supply-side-policy",
       "type": "classificationTask",
       "layout": "population-written",
       "eyebrow": "Recall",
-      "title": "Recall: households and banks",
+      "title": "Recall: supply-side policy",
       "items": [
         {
-          "text": "What is saving?",
-          "answer": "Income not spent."
+          "text": "Why may education and training take years to raise productive capacity?",
+          "answer": "Skills take time to develop, and the training must match the jobs employers need."
         },
         {
-          "text": "Other things equal, what happens to borrowing when the interest rate rises?",
-          "answer": "Borrowing tends to fall because loans become more expensive to repay."
+          "text": "How may a successful supply-side policy reduce cost-push inflation?",
+          "answer": "Higher productivity can lower average costs, reducing pressure on firms to raise prices."
         },
         {
-          "text": "What does lender of last resort mean?",
-          "answer": "The central bank lends to commercial banks that cannot obtain the funds they need elsewhere."
+          "text": "Why may government supply-side policies increase a budget deficit in the short run?",
+          "answer": "Education, training, healthcare and infrastructure require government spending before higher tax revenue may arrive."
         }
       ],
-      "notes": "Three minutes independently. Recent retrieval from Households plus spaced retrieval from Central banks. Reveal models one at a time.",
+      "notes": "Three minutes independently. All three questions retrieve the immediately preceding Supply-side policy sequence, especially its effects and evaluation decks. Reveal models one at a time.",
       "sharePrompt": "Write independently; reveal each model separately."
     },
     {
@@ -71,14 +69,14 @@ IGCSE.lesson={
       "eyebrow": "Objectives",
       "title": "By the end, you can",
       "bullets": [
-        "Define birth rate, death rate and net migration.",
-        "Explain how births, deaths and migration change a country's population.",
-        "Apply these ideas to original past-paper questions."
+        "Define birth rate, death rate, immigration, emigration and net migration.",
+        "Calculate natural increase, net migration and population change.",
+        "Use a real country and a past-paper question to explain population change."
       ],
       "zhBullets": [
-        "定义出生率、死亡率与净迁移。",
-        "解释出生、死亡与迁移如何改变一国人口。",
-        "运用这些概念解答历年真题。"
+        "定义出生率、死亡率、迁入、迁出与净迁移。",
+        "计算自然增长、净迁移与人口变化。",
+        "用真实国家案例和历年真题解释人口变化。"
       ],
       "sources": [
         {
@@ -108,7 +106,7 @@ IGCSE.lesson={
       "layout": "population-natural",
       "eyebrow": "A teaching example",
       "title": "One year in a town of 1,000 people",
-      "lead": "Each person icon represents 50 residents · predict the change before each reveal",
+      "lead": "Count the changes · predict the final population before each reveal",
       "cards": [
         {
           "title": "14 births 出生",
@@ -146,18 +144,28 @@ IGCSE.lesson={
       "definitionZh": "出生率是每年每千人口中的出生人数。",
       "keyTerms": [
         {
-          "term": "per 1,000 of the population per year",
-          "zh": "每年每千人口",
+          "term": "number of births",
+          "zh": "出生人数",
+          "explain": false
+        },
+        {
+          "term": "per 1,000",
+          "zh": "每千人口",
+          "explain": false
+        },
+        {
+          "term": "per year",
+          "zh": "每年",
           "explain": false
         }
       ],
       "visual": {
         "type": "photo",
-        "src": "../../../assets/images/population/newborn-baby.jpg",
-        "alt": "A newborn baby held by a midwife moments after birth.",
+        "src": "../../../assets/images/population/sleeping-newborn-baby.jpg",
+        "alt": "A newborn baby sleeping on a soft white blanket.",
         "caption": "",
-        "credit": "Ernest F / Wikimedia Commons / CC BY-SA 3.0",
-        "source": "https://commons.wikimedia.org/wiki/File:HumanNewborn.JPG"
+        "credit": "Stephanie Pratt / Wikimedia Commons / CC0 1.0; resized",
+        "source": "https://commons.wikimedia.org/wiki/File:Sleeping-baby.jpg"
       },
       "showExamples": false,
       "layout": "photo-term",
@@ -168,7 +176,27 @@ IGCSE.lesson={
           "note": "Birth rate: the number of births per 1000 population per year."
         }
       ],
-      "notes": "Consolidate the town example into the definition. The town's birth rate is 14 per 1,000 per year. A rate allows fair comparison between countries of different sizes; the total number of births does not."
+      "notes": "Consolidate the town example into the definition. The town's birth rate is 14 per 1,000 of the population per year. Keep the three marking elements visible: births, per 1,000 population and per year."
+    },
+    {
+      "id": "birth-rate-map",
+      "type": "visualPause",
+      "layout": "population-map",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/population/birth-rate-map-2023.svg",
+        "alt": "World choropleth map of birth rates in 2023, showing the highest rates concentrated in sub-Saharan Africa.",
+        "credit": "UN World Population Prospects (2024), processed by Our World in Data / CC BY 4.0",
+        "source": "https://ourworldindata.org/grapher/crude-birth-rate?tab=map&time=2023"
+      },
+      "sources": [
+        {
+          "label": "Data",
+          "ref": "UN World Population Prospects 2024 · 2023 estimates",
+          "note": "Birth rate: annual number of live births per 1,000 people in the total population."
+        }
+      ],
+      "notes": "Visual reset between definitions. Ask students to locate the darkest and lightest regions, then predict whether the next map—the death rate—will show the same pattern. Return to explanations in Part 3."
     },
     {
       "id": "death-rate-definition",
@@ -181,21 +209,22 @@ IGCSE.lesson={
       "definitionZh": "死亡率是每年每千人口中的死亡人数。",
       "keyTerms": [
         {
-          "term": "per 1,000 of the population per year",
-          "zh": "每年每千人口",
+          "term": "number of deaths",
+          "zh": "死亡人数",
+          "explain": false
+        },
+        {
+          "term": "per 1,000",
+          "zh": "每千人口",
+          "explain": false
+        },
+        {
+          "term": "per year",
+          "zh": "每年",
           "explain": false
         }
       ],
-      "visual": {
-        "type": "photo",
-        "src": "../../../assets/images/population/elderly-woman-portrait.jpg",
-        "alt": "Portrait of an elderly woman.",
-        "caption": "",
-        "credit": "Ferdinand Reus / Wikimedia Commons / CC BY-SA 2.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Elderly_Gambian_woman_face_portrait.jpg"
-      },
       "showExamples": false,
-      "layout": "photo-term",
       "sources": [
         {
           "label": "Definitions",
@@ -204,6 +233,26 @@ IGCSE.lesson={
         }
       ],
       "notes": "The town's death rate is 9 per 1,000 per year. Also called the mortality rate. Life expectancy is the average number of years a person can expect to live; lower death rates usually mean higher life expectancy."
+    },
+    {
+      "id": "death-rate-map",
+      "type": "visualPause",
+      "layout": "population-map",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/population/death-rate-map-2023.svg",
+        "alt": "World choropleth map of crude death rates in 2023.",
+        "credit": "UN World Population Prospects (2024), processed by Our World in Data / CC BY 4.0",
+        "source": "https://ourworldindata.org/grapher/crude-death-rate?tab=map&time=2023"
+      },
+      "sources": [
+        {
+          "label": "Data",
+          "ref": "UN World Population Prospects 2024 · crude death rate · 2023",
+          "note": "Annual number of deaths per 1,000 people. The crude rate is not adjusted for differences in age structure."
+        }
+      ],
+      "notes": "Visual reset before natural increase. Ask what is surprising when this is compared with the birth-rate map. Do not explain every cause yet; establish that two independently varying rates must be combined."
     },
     {
       "id": "natural-increase-definition",
@@ -216,8 +265,13 @@ IGCSE.lesson={
       "definitionZh": "当出生率高于死亡率时，人口自然增长。",
       "keyTerms": [
         {
-          "term": "birth rate higher than death rate",
-          "zh": "出生率高于死亡率",
+          "term": "birth rate",
+          "zh": "出生率",
+          "explain": false
+        },
+        {
+          "term": "death rate",
+          "zh": "死亡率",
           "explain": false
         }
       ],
@@ -238,38 +292,6 @@ IGCSE.lesson={
         }
       ],
       "notes": "Natural change ignores migration. When the death rate is higher than the birth rate, the population naturally decreases. The town's natural increase is 14 − 9 = 5 per 1,000 per year."
-    },
-    {
-      "id": "birth-rate-calculation",
-      "type": "cards",
-      "eyebrow": "Worked example",
-      "title": "Calculating the birth rate",
-      "lead": "A town has 50,000 residents. 700 babies are born in one year. What is the birth rate?",
-      "cards": [
-        {
-          "title": "birth rate = births ÷ population × 1,000",
-          "body": "The formula counts births per 1,000 residents."
-        },
-        {
-          "title": "= 700 ÷ 50,000 × 1,000",
-          "body": "Substitute the town's figures."
-        },
-        {
-          "title": "= 14 per 1,000 per year",
-          "body": "The same rate as the 1,000-person town: 14 births per 1,000 residents."
-        }
-      ],
-      "partialReview": [
-        ".cardgrid > .card"
-      ],
-      "notes": "Give students a minute to attempt the calculation before revealing the method. The death rate uses the same structure: deaths ÷ population × 1,000. Rates, not totals, allow comparison between towns or countries of different sizes.",
-      "sources": [
-        {
-          "label": "Definitions",
-          "ref": "Retained IGCSE Economics definitions · 2026 · 5.3.1",
-          "note": "Birth rate: the number of births per 1000 population per year. Death rate: the number of deaths per 1000 population per year."
-        }
-      ]
     },
     {
       "id": "natural-growth-paper1",
@@ -454,34 +476,135 @@ IGCSE.lesson={
       "notes": "The town's net migration is 8 − 5 = +3. Positive net migration adds to the population; negative net migration (net emigration) reduces it. Net migration can also be expressed as a rate per 1,000."
     },
     {
-      "id": "town-total-change",
+      "id": "why-net-migration-rates-vary",
       "type": "cards",
-      "eyebrow": "Putting it together",
-      "title": "The town's population change",
-      "lead": "Population change = natural increase + net migration",
+      "layout": "population-photo-grid",
+      "eyebrow": "Learn",
+      "title": "Causes of differences in net migration",
+      "zhTitle": "净迁移差异的原因",
       "cards": [
         {
-          "title": "Natural increase: +5",
-          "body": "Births (14) minus deaths (9)."
+          "title": "Jobs and income 工作与收入",
+          "body": "More jobs or higher wages attract immigrants because people may gain income and a higher living standard."
         },
         {
-          "title": "Net migration: +3",
-          "body": "Immigrants (8) minus emigrants (5)."
+          "title": "Education and healthcare 教育与医疗",
+          "body": "Better services attract migrants by improving skills, employment prospects, health or quality of life."
         },
         {
-          "title": "Total change: +8",
-          "body": "1,000 + 5 + 3 = 1,008 residents at the end of the year."
+          "title": "Family links 家庭联系",
+          "body": "People may immigrate to join relatives who already live in another country."
+        },
+        {
+          "title": "Conflict, crime and poverty 冲突、犯罪与贫困",
+          "body": "Threats to safety or living standards push people to emigrate."
+        }
+      ],
+      "cardVisuals": [
+        {
+          "type": "photo",
+          "src": "../../../assets/images/population/migration-jobs-generated.png",
+          "alt": "A jobseeker with a suitcase meets an employer beside a large WE ARE HIRING sign.",
+          "caption": "A jobseeker with a suitcase meets an employer beside a large WE ARE HIRING sign.",
+          "credit": "AI-generated teaching illustration / OpenAI image generation / 22 September 2026; fictional scene, not a documentary photograph."
+        },
+        {
+          "type": "photo",
+          "src": "../../../assets/images/population/migration-services-generated.png",
+          "alt": "A classroom lesson beside a doctor examining a child illustrates access to education and healthcare.",
+          "caption": "A classroom lesson beside a doctor examining a child illustrates access to education and healthcare.",
+          "credit": "AI-generated teaching illustration / OpenAI image generation / 22 September 2026; fictional scene, not a documentary photograph."
+        },
+        {
+          "type": "photo",
+          "src": "../../../assets/images/population/migration-family-generated.png",
+          "alt": "An arriving daughter and child reunite with relatives at an airport, with luggage beside them.",
+          "caption": "An arriving daughter and child reunite with relatives at an airport, with luggage beside them.",
+          "credit": "AI-generated teaching illustration / OpenAI image generation / 22 September 2026; fictional scene, not a documentary photograph."
+        },
+        {
+          "type": "photo",
+          "src": "../../../assets/images/population/migration-conflict-generated.png",
+          "alt": "A family carries luggage away from damaged homes towards a border crossing.",
+          "caption": "A family carries luggage away from damaged homes towards a border crossing.",
+          "credit": "AI-generated teaching illustration / OpenAI image generation / 22 September 2026; fictional scene, not a documentary photograph."
         }
       ],
       "partialReview": [
         ".cardgrid > .card"
       ],
-      "notes": "Ask students to combine the two changes before revealing the total. Both components can be negative: a country can shrink through natural decrease, net emigration, or both — Romania in Part 4 is a real example.",
       "sources": [
         {
-          "label": "Definitions",
-          "ref": "Retained IGCSE Economics definitions · 2026 · 5.3.1",
-          "note": "Natural increase: birth rate exceeds death rate. Net migration: immigration minus emigration."
+          "label": "Syllabus",
+          "ref": "Cambridge 0455 · 2027–2029 · page 23 · 5.3.1",
+          "note": "How and why net migration rates can vary between countries."
+        },
+        {
+          "label": "Mark scheme",
+          "ref": "0455/23 · October/November 2024 · Q2(c) [6] · 0455_w24_ms_23 · page 14",
+          "extract": "Pull factors include higher income, more job opportunities, better healthcare and education, and family links. Push factors include conflict, crime, corruption, intolerance, famine, pollution, climate change, poverty and high taxes."
+        }
+      ],
+      "notes": "Reveal one illustrated cause at a time. These AI-generated scenes illustrate job opportunities, services, family reunion and conflict; they do not depict particular real events. The conflict image is one example of the wider push-factor category. Ask whether each factor is mainly a pull factor, a push factor or can be both. Countries differ in the strength of these factors and in migration restrictions. Net migration still depends on immigration relative to emigration, not on one flow alone."
+    },
+    {
+      "id": "romania-visual-pause",
+      "type": "visualPause",
+      "layout": "population-photo-pause",
+      "visual": {
+        "type": "photo",
+        "src": "../../../assets/images/population/bucharest-skyline.jpg",
+        "alt": "A wide skyline view across Bucharest, Romania.",
+        "caption": "Bucharest, Romania",
+        "credit": "Dan Mihai Pitea / Wikimedia Commons / CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bucharest_Skyline.jpg",
+        "objectPosition": "50% 48%"
+      },
+      "sources": [
+        {
+          "label": "Question paper",
+          "ref": "0455/22 · February/March 2025 · Q1 source",
+          "extract": "Romania's population fell from 23 million in 1990 to 19 million in 2022."
+        }
+      ],
+      "notes": "Observation question: this is Bucharest, Romania. What two flows could make a country's population fall even while its economy and cities continue to change? Bridge directly to the real 2025 Paper 2 case."
+    },
+    {
+      "id": "romania-population-change",
+      "type": "cards",
+      "layout": "population-romania-case",
+      "eyebrow": "Real case · Romania",
+      "title": "Romania lost 4 million people",
+      "lead": "1990: 23 million → 2022: 19 million",
+      "cards": [
+        {
+          "title": "Birth rate fell",
+          "body": "Fewer births reduced natural population growth."
+        },
+        {
+          "title": "Death rate also fell",
+          "body": "This change alone would tend to increase, not reduce, population growth."
+        },
+        {
+          "title": "Net emigration",
+          "body": "More Romanian workers left to live abroad than migrants arrived to live in Romania."
+        }
+      ],
+      "partialReview": [
+        ".cardgrid > .card"
+      ],
+      "notes": "Reveal the data before the explanations. Ask which two changes explain the fall: the accepted answers are the fall in birth rate and emigration/net emigration. Use the falling death rate as a deliberate distractor: fewer deaths would not explain the population decline.",
+      "sources": [
+        {
+          "label": "Question paper",
+          "ref": "0455/22 · February/March 2025 · Q1 source and Q1(b) [2]",
+          "question": "Identify two reasons why Romania's population fell between 1990 and 2022.",
+          "extract": "Romania's population fell from 23 million to 19 million. Its birth rate and death rate both fell. More Romanian workers left the country to work and live abroad than workers arrived from other countries."
+        },
+        {
+          "label": "Mark scheme",
+          "ref": "0455/22 · February/March 2025 · Q1(b) [2] · 0455_m25_ms_22",
+          "extract": "Fall in birth rate (1). Emigration / net emigration / people leaving the country (1)."
         }
       ]
     },
@@ -518,559 +641,27 @@ IGCSE.lesson={
       "notes": "Original question, option order and official key checked against the local PDFs. Independent attempt before selecting. B. More immigration adds residents. A raises departures; C means a natural decrease; D tends to raise the death rate, increasing natural decrease or reducing natural increase. Suggested pause point if the lesson runs across two sessions."
     },
     {
-      "id": "why-rates-vary-section",
-      "type": "section",
-      "eyebrow": "Part 3",
-      "title": "Why birth and death rates vary between countries",
-      "zhTitle": "为什么各国出生率与死亡率不同",
-      "sources": [
-        {
-          "label": "Syllabus",
-          "ref": "Cambridge 0455 · 2027–2029 · page 23 · 5.3.1",
-          "note": "Factors that affect population growth: definitions of birth rate, death rate, net migration, immigration and emigration; how and why birth rates, death rates and net migration can vary between countries."
-        }
-      ]
-    },
-    {
-      "id": "discuss-birth-rates",
-      "type": "discussion",
-      "eyebrow": "Small-group discussion",
-      "layout": "population-discussion",
-      "question": "Monaco has one of the world's lowest birth rates; Niger has one of the highest. Why might birth rates differ so much between countries?",
-      "followUp": "Suggest two reasons and explain each.",
-      "answer": "Where the average age of marriage is low or education about birth control is limited, birth rates tend to be higher. A high birth rate can also reflect lower incomes and living standards, and a younger population has more people of child-bearing age.",
-      "visual": {
-        "type": "photo",
-        "src": "../../../assets/images/fiscal-policy/students-in-a-classroom.jpg",
-        "alt": "Students working at desks in a classroom.",
-        "caption": "",
-        "credit": "Ente75 / Wikimedia Commons",
-        "source": "https://commons.wikimedia.org/wiki/File:Students_in_a_classroom.jpg"
-      },
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/22 · October/November 2024 · Q1(e) [4] · 0455_w24_qp_22",
-          "question": "Analyse the relationship between birth rate and average age. The source data show Monaco with the lowest birth rate and the highest average age, and Niger with the highest birth rate and the lowest average age."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_ms_21",
-          "extract": "High birth rate (1) due to e.g. low age of marriage / lack of education on birth control (1). High fertility rates (1) due to e.g. young female population (1)."
-        }
-      ],
-      "notes": "Groups of 3–4: allow about one minute. The Monaco–Niger contrast comes from the original 2024 O/N 22 source data. Keep suggested answers hidden until groups have shared; the next slide organises the accepted reasons."
-    },
-    {
-      "id": "rates-vary-overview",
-      "type": "cards",
-      "eyebrow": "Overview",
-      "title": "Why birth and death rates vary between countries",
-      "layout": "population-factor-overview",
-      "cards": [
-        {
-          "title": "1. Income and nutrition",
-          "body": "收入与营养"
-        },
-        {
-          "title": "2. Healthcare",
-          "body": "医疗保健"
-        },
-        {
-          "title": "3. Education",
-          "body": "教育"
-        },
-        {
-          "title": "4. Average age",
-          "body": "平均年龄"
-        },
-        {
-          "title": "5. War and natural disasters",
-          "body": "战争与自然灾害"
-        }
-      ],
-      "partialReview": false,
-      "sources": [
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2023 · Q3(a) [2] · 0455_s23_ms_21",
-          "extract": "Two from differences in: income / standard of living; healthcare; education; nutrition; lifestyles / suicide rates; average age; spread of Covid / infectious diseases; war / conflict; natural disasters; air pollution / water pollution; conditions of work; level of crime. Do not accept differences in population size as these affect number rather than rate."
-        }
-      ],
-      "notes": "Show all five numbered influences together and give students time to copy the headings. These five come from the accepted reasons in 0455/21 M/J/2023 Q3(a); the scheme also accepts lifestyles, infectious disease, pollution, working conditions and crime. Differences in population size are not accepted because they change the number, not the rate."
-    },
-    {
-      "id": "healthcare-lowers-death-rate",
-      "type": "flow",
-      "eyebrow": "Learn",
-      "title": "How better healthcare lowers the death rate",
-      "zhTitle": "更好的医疗如何降低死亡率",
-      "mode": "fillBlanks",
-      "nodes": [
-        [
-          {
-            "text": "Healthcare __________",
-            "answer": "improves",
-            "zh": "医疗改善"
-          },
-          {
-            "text": "More people __________ serious illness",
-            "answer": "survive",
-            "zh": "更多人挺过重病"
-          },
-          {
-            "text": "Death rate __________",
-            "answer": "falls",
-            "zh": "死亡率下降"
-          }
-        ]
-      ],
-      "sources": [
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_ms_21",
-          "extract": "Low death rate / high life expectancy (1) due to e.g. good quality healthcare (1)."
-        }
-      ],
-      "notes": "Other things equal. Better healthcare also raises life expectancy, so an older average age can follow. Higher incomes and better nutrition work through the same mechanism: healthier people live longer."
-    },
-    {
-      "id": "why-birth-rates-can-be-high",
-      "type": "cards",
-      "eyebrow": "Learn",
-      "title": "Why a birth rate can be high",
-      "cards": [
-        {
-          "title": "Low age of marriage 结婚年龄较早",
-          "body": "People tend to have children earlier, and more of them."
-        },
-        {
-          "title": "Limited education on birth control 缺乏避孕教育",
-          "body": "Families may be larger when contraception is less understood or less available."
-        },
-        {
-          "title": "A young population 人口结构年轻",
-          "body": "More people of child-bearing age raises the fertility rate."
-        }
-      ],
-      "partialReview": [
-        ".cardgrid > .card"
-      ],
-      "sources": [
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_ms_21",
-          "extract": "High birth rate (1) due to e.g. low age of marriage / lack of education on birth control (1). High fertility rates (1) due to e.g. young female population (1)."
-        }
-      ],
-      "notes": "Each card is an accepted reason from the 2025 M/J 21 Q4(b) scheme; reveal one at a time. The fertility rate is the average number of children per woman. These are tendencies between countries, not rules about every family."
-    },
-    {
-      "id": "high-growth-paper1",
-      "type": "quiz",
-      "eyebrow": "0455/12 · F/M/2024 · Q25",
-      "question": "An economy has a high rate of population growth.\nWhat is most likely to have caused this?",
-      "choices": [
-        "The average years of schooling is relatively high.",
-        "The birth rate is lower than the death rate.",
-        "The retirement age has increased.",
-        "There are more immigrants than emigrants."
-      ],
-      "answer": 3,
-      "prompt": "D. More immigrants than emigrants means positive net migration, which adds to the population. B would cause a natural decrease; A and C do not directly add people.",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/12 · F/M/2024 · Q25 · original printed page 9",
-          "question": "An economy has a high rate of population growth.\nWhat is most likely to have caused this?"
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/12 · F/M/2024 · Q25 · official key page 2",
-          "extract": "Official answer: D."
-        },
-        {
-          "label": "Teaching model",
-          "ref": "Teacher-written explanation",
-          "note": "D. More immigrants than emigrants means positive net migration, which adds to the population. B would cause a natural decrease; A and C do not directly add people."
-        }
-      ],
-      "notes": "Original question, option order and official key checked against the local PDFs. Independent attempt before selecting. D. More immigrants than emigrants means positive net migration, which adds to the population. B would cause a natural decrease; A and C do not directly add people."
-    },
-    {
-      "id": "population-data-paper1",
-      "type": "quiz",
-      "eyebrow": "0455/13 · M/J/2024 · Q26",
-      "question": "The table shows population statistics for three countries in a particular year.\nWhat can be concluded from the table?",
-      "choices": [
-        "country X has fewer females than country Y",
-        "country Y has the smallest population increase",
-        "country Y has the highest living standards",
-        "country Z has a decreasing population"
-      ],
-      "answer": 3,
-      "prompt": "D. Z: natural increase = (40 − 35) × 40,000 = 200,000, minus net emigration of 1,000,000, so its population falls by 800,000. X grows by 40,000 + 20,000 = 60,000 and Y by 60,000 + 50,000 = 110,000, so B is wrong. The table shows nothing about females (A) or living standards (C).",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/13 · M/J/2024 · Q26 · original printed page 9",
-          "question": "The table shows population statistics for three countries in a particular year.\nWhat can be concluded from the table?"
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/13 · M/J/2024 · Q26 · official key page 2",
-          "extract": "Official answer: D."
-        },
-        {
-          "label": "Teaching model",
-          "ref": "Teacher-written explanation",
-          "note": "D. Z: natural increase = (40 − 35) × 40,000 = 200,000, minus net emigration of 1,000,000, so its population falls by 800,000. X grows by 40,000 + 20,000 = 60,000 and Y by 60,000 + 50,000 = 110,000, so B is wrong. The table shows nothing about females (A) or living standards (C)."
-        }
-      ],
-      "notes": "Original question, option order, table and official key checked against the local PDFs. Independent attempt before selecting. Guide the calculation: natural change = (birth rate − death rate) × population ÷ 1,000, then add net migration. D. Z: natural increase = (40 − 35) × 40,000 = 200,000, minus net emigration of 1,000,000, so its population falls by 800,000. X grows by 40,000 + 20,000 = 60,000 and Y by 60,000 + 50,000 = 110,000, so B is wrong. The table shows nothing about females (A) or living standards (C).",
-      "layout": "population-data-mcq",
-      "dataTable": {
-        "headers": [
-          "country",
-          "population size (millions)",
-          "birth rate (per thousand of population per year)",
-          "death rate (per thousand of population per year)",
-          "net migration"
-        ],
-        "rows": [
-          [
-            "X",
-            20,
-            10,
-            8,
-            "+20 000"
-          ],
-          [
-            "Y",
-            30,
-            20,
-            18,
-            "+50 000"
-          ],
-          [
-            "Z",
-            40,
-            40,
-            35,
-            "−1 000 000"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "population-past-papers",
-      "type": "section",
-      "eyebrow": "Part 4",
-      "title": "Past-paper questions",
-      "zhTitle": "历年真题",
-      "sources": [
-        {
-          "label": "Syllabus",
-          "ref": "Cambridge 0455 · 2027–2029 · page 23 · 5.3.1",
-          "note": "Factors that affect population growth: definitions of birth rate, death rate, net migration, immigration and emigration; how and why birth rates, death rates and net migration can vary between countries."
-        }
-      ]
-    },
-    {
-      "id": "emigration-define-question",
-      "type": "exam",
-      "eyebrow": "0455/23 · M/J/2023 · Q4(a) [2]",
-      "title": "Define emigration. [2]",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/23 · May/June 2023 · Q4(a) [2] · 0455_s23_qp_23",
-          "question": "Define emigration."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/23 · May/June 2023 · Q4(a) [2] · 0455_s23_ms_23",
-          "extract": "Emigration is when people exit / leave (1) a country (1) to live in another country (1)."
-        }
-      ],
-      "prompt": "Write a full definition. The scheme has three marking points for two marks.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      }
-    },
-    {
-      "id": "emigration-define-model",
-      "type": "modelAnswer",
-      "eyebrow": "Teacher-written model",
-      "title": "Define emigration. [2]",
-      "paragraphs": [
-        "Emigration is when people leave a country to live in another country."
-      ],
-      "answer": "Emigration is when people leave a country to live in another country.",
-      "showLinkChips": false,
-      "partialReview": [
-        ".modelAnswerText > p"
-      ],
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/23 · May/June 2023 · Q4(a) [2] · 0455_s23_qp_23",
-          "question": "Define emigration."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/23 · May/June 2023 · Q4(a) [2] · 0455_s23_ms_23",
-          "extract": "Emigration is when people exit / leave (1) a country (1) to live in another country (1)."
-        }
-      ],
-      "notes": "The model covers all three marking points: leaving, a country, to live in another country. Moving for a holiday or a business trip is not emigration.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      }
-    },
-    {
-      "id": "romania-population-question",
-      "type": "exam",
-      "eyebrow": "0455/22 · F/M/2025 · Q1(b) [2]",
-      "title": "Identify two reasons why Romania's population fell between 1990 and 2022. [2]",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/22 · February/March 2025 · Q1(b) [2] · 0455_m25_qp_22",
-          "question": "Identify two reasons why Romania's population fell between 1990 and 2022."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/22 · February/March 2025 · Q1(b) [2] · 0455_m25_ms_22",
-          "extract": "Fall in birth rate (1) emigration / net emigration / people leaving the country (1)."
-        }
-      ],
-      "prompt": "Identify two distinct reasons. No developed explanation is required by “Identify”.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      },
-      "notes": "The same Romanian source as the Households lesson: falling birth rate and emigration reduced the population. A fall in the birth rate below the death rate causes natural decrease; net emigration removes residents."
-    },
-    {
-      "id": "romania-population-model",
-      "type": "modelAnswer",
-      "eyebrow": "Teacher-written model",
-      "title": "Identify two reasons why Romania's population fell between 1990 and 2022. [2]",
-      "paragraphs": [
-        "The birth rate fell.",
-        "People emigrated — more people left Romania than moved in."
-      ],
-      "answer": "The birth rate fell.\n\nPeople emigrated — more people left Romania than moved in.",
-      "showLinkChips": false,
-      "partialReview": [
-        ".modelAnswerText > p"
-      ],
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/22 · February/March 2025 · Q1(b) [2] · 0455_m25_qp_22",
-          "question": "Identify two reasons why Romania's population fell between 1990 and 2022."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/22 · February/March 2025 · Q1(b) [2] · 0455_m25_ms_22",
-          "extract": "Fall in birth rate (1) emigration / net emigration / people leaving the country (1)."
-        }
-      ],
-      "notes": "One mark for each reason. A falling birth rate below the death rate gives natural decrease; net emigration reduces the population further.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      }
-    },
-    {
-      "id": "death-rates-vary-question",
-      "type": "exam",
-      "eyebrow": "0455/21 · M/J/2023 · Q3(a) [2]",
-      "title": "Identify two reasons why death rates may vary between countries. [2]",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/21 · May/June 2023 · Q3(a) [2] · 0455_s23_qp_21",
-          "question": "Identify two reasons why death rates may vary between countries."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2023 · Q3(a) [2] · 0455_s23_ms_21",
-          "extract": "Two from differences in: income / standard of living; healthcare; education; nutrition; lifestyles / suicide rates; average age; spread of Covid / infectious diseases; war / conflict; natural disasters; air pollution / water pollution; conditions of work; level of crime. Do not accept differences in population size as these affect number rather than rate. If more than two reasons are given, consider the first three."
-        }
-      ],
-      "prompt": "Name two different reasons. Differences in population size are not accepted.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      }
-    },
-    {
-      "id": "death-rates-vary-model",
-      "type": "modelAnswer",
-      "eyebrow": "Teacher-written model",
-      "title": "Identify two reasons why death rates may vary between countries. [2]",
-      "paragraphs": [
-        "Differences in healthcare.",
-        "Differences in nutrition."
-      ],
-      "answer": "Differences in healthcare.\n\nDifferences in nutrition.",
-      "showLinkChips": false,
-      "partialReview": [
-        ".modelAnswerText > p"
-      ],
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/21 · May/June 2023 · Q3(a) [2] · 0455_s23_qp_21",
-          "question": "Identify two reasons why death rates may vary between countries."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2023 · Q3(a) [2] · 0455_s23_ms_21",
-          "extract": "Two from differences in: income / standard of living; healthcare; education; nutrition; lifestyles / suicide rates; average age; spread of Covid / infectious diseases; war / conflict; natural disasters; air pollution / water pollution; conditions of work; level of crime. Do not accept differences in population size as these affect number rather than rate. If more than two reasons are given, consider the first three."
-        }
-      ],
-      "notes": "Two accepted reasons, one mark each; the scheme accepts a broad list, including income, education, average age, war and natural disasters. Do not imply these two are uniquely correct.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 2
-      }
-    },
-    {
-      "id": "high-growth-exit",
-      "type": "exam",
-      "eyebrow": "Check · Exit ticket 离堂小测",
-      "title": "Explain two reasons why a country may have a high population growth rate. [4]",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_qp_21",
-          "question": "Explain two reasons why a country may have a high population growth rate."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_ms_21",
-          "extract": "High birth rate (1) due to e.g. low age of marriage / lack of education on birth control (1). Low death rate / high life expectancy (1) due to e.g. good quality healthcare (1). Immigration / net immigration (1) due to e.g. high incomes (1). High fertility rates (1) due to e.g. young female population (1). Birth rate higher than the death rate (1) results in higher natural growth rate (1). One mark each for each of two reasons identified and one mark each for each of two explanations. If more than two reasons given, consider the first three."
-        }
-      ],
-      "layout": "population-explain",
-      "keywords": [
-        "Reason 1: identify",
-        "Explain why it raises growth",
-        "Reason 2: identify",
-        "Explain why it raises growth"
-      ],
-      "prompt": "Work independently. Write one developed explanation for each of two reasons.",
-      "notes": "Assessed exit: 4 minutes, four marks using the original scheme. Each reason needs one identification and one explanation. Keep the plan rows visible while students write.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 4
-      }
-    },
-    {
-      "id": "high-growth-exit-model",
-      "type": "modelAnswer",
-      "eyebrow": "Teacher-written model",
-      "title": "Explain two reasons why a country may have a high population growth rate. [4]",
-      "paragraphs": [
-        "The country may have a high birth rate, for example because of a low average age of marriage, so many babies are born each year.",
-        "It may have a low death rate, for example because of good quality healthcare, so fewer people die each year."
-      ],
-      "answer": "The country may have a high birth rate, for example because of a low average age of marriage, so many babies are born each year.\n\nIt may have a low death rate, for example because of good quality healthcare, so fewer people die each year.",
-      "showLinkChips": false,
-      "partialReview": [
-        ".modelAnswerText > p"
-      ],
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_qp_21",
-          "question": "Explain two reasons why a country may have a high population growth rate."
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/21 · May/June 2025 · Q4(b) [4] · 0455_s25_ms_21",
-          "extract": "High birth rate (1) due to e.g. low age of marriage / lack of education on birth control (1). Low death rate / high life expectancy (1) due to e.g. good quality healthcare (1). Immigration / net immigration (1) due to e.g. high incomes (1). High fertility rates (1) due to e.g. young female population (1). Birth rate higher than the death rate (1) results in higher natural growth rate (1). One mark each for each of two reasons identified and one mark each for each of two explanations. If more than two reasons given, consider the first three."
-        }
-      ],
-      "links": [
-        "high birth rate",
-        "low average age of marriage",
-        "low death rate",
-        "good quality healthcare"
-      ],
-      "notes": "Complete teacher-written model: two accepted identifications with development. Net immigration due to high incomes is another valid choice. Reveal paragraphs separately and link each explanation back to the plan rows.",
-      "examSpec": {
-        "paper": "Paper 2",
-        "marks": 4
-      }
-    },
-    {
-      "id": "population-summary",
+      "id": "population-lesson-1-summary",
       "type": "cards",
       "eyebrow": "Review",
       "title": "Summary",
       "layout": "population-summary",
       "cards": [
         {
-          "title": "Births, deaths and natural increase",
-          "body": "Birth rate minus death rate gives natural change; more births than deaths means a natural increase."
+          "title": "Natural change",
+          "body": "Birth rate − death rate gives the rate of natural increase."
         },
         {
           "title": "Migration",
-          "body": "Net migration = immigration − emigration. Population change = natural increase + net migration."
+          "body": "Net migration = immigration − emigration."
         },
         {
-          "title": "Why rates vary",
-          "body": "Income and nutrition, healthcare, education, average age, and war and natural disasters explain differences between countries."
+          "title": "Population change",
+          "body": "Natural increase and net migration together determine population change."
         }
       ],
       "partialReview": false,
-      "notes": "Return to the three objectives. Use the exit responses to decide whether to revisit natural change, net migration or the reasons rates vary. The next deck, 5.3.2, covers optimum population and the effects of population change.",
-      "sources": [
-        {
-          "label": "Syllabus",
-          "ref": "Cambridge 0455 · 2027–2029 · page 23 · 5.3.1",
-          "note": "Factors that affect population growth: definitions of birth rate, death rate, net migration, immigration and emigration; how and why birth rates, death rates and net migration can vary between countries."
-        }
-      ]
-    },
-    {
-      "id": "optional-spare-paper1",
-      "type": "quiz",
-      "eyebrow": "Optional · spare time · 0455/12 · M/J/2024 · Q26",
-      "question": "A rise in which factor would cause an increase in the population growth rate of a country?",
-      "choices": [
-        "birth rate",
-        "death rate",
-        "infant mortality rate",
-        "net emigration"
-      ],
-      "answer": 0,
-      "prompt": "A. A higher birth rate raises natural increase. Higher death or infant mortality rates reduce growth; net emigration means more people leaving than arriving.",
-      "sources": [
-        {
-          "label": "Question paper",
-          "ref": "0455/12 · M/J/2024 · Q26 · original printed page 8",
-          "question": "A rise in which factor would cause an increase in the population growth rate of a country?"
-        },
-        {
-          "label": "Mark scheme",
-          "ref": "0455/12 · M/J/2024 · Q26 · official key page 2",
-          "extract": "Official answer: A."
-        },
-        {
-          "label": "Teaching model",
-          "ref": "Teacher-written explanation",
-          "note": "A. A higher birth rate raises natural increase. Higher death or infant mortality rates reduce growth; net emigration means more people leaving than arriving."
-        }
-      ],
-      "notes": "Optional question for spare time after the core ending. Original question, option order and official key checked against the local PDFs. A. A higher birth rate raises natural increase. Higher death or infant mortality rates reduce growth; net emigration means more people leaving than arriving."
+      "notes": "Conclude the taught material. Next lesson: why birth and death rates, and therefore population growth, vary between countries."
     }
   ]
 };

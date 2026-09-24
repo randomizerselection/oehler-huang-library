@@ -5,7 +5,8 @@ from fixtures import REAL_DIR
 
 SCANNED = ['fetch.py', 'update.py', 'receipts.py', 'working_followups.py',
            'english_name_ack.py', 'run_guard.py', 'personal_requests.py']
-FORBIDDEN = ['auth login', 'reminders', 'daily_campaign', 'category']
+FORBIDDEN = ['auth login', 'reminders', 'daily_campaign', 'category.py',
+             'from category import', 'import category']
 
 
 class StaticSafetyTests(unittest.TestCase):

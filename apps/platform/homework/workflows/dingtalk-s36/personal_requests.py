@@ -9,9 +9,10 @@ sends, answers, or files anything.
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from fetch import ROOT, CONFIG, TZ, save
-from platform_db import roster as platform_roster
+from platform_db import PLATFORM_CLASSES, connect, require_schema, roster as platform_roster
 import reply_queue
 
 STATE = ROOT / 'state' / 'personal-attention.json'
@@ -31,11 +32,33 @@ def load_previous():
     return json.loads(STATE.read_text(encoding='utf-8')) if STATE.exists() else {'items': {}}
 
 
+def captured_absence_ids():
+    placeholders = ','.join('?' for _ in PLATFORM_CLASSES)
+    with connect(readonly=True) as db:
+        require_schema(db)
+        return {row['response_message_id'] for row in db.execute(f'''
+            SELECT f.response_message_id
+            FROM absence_followups f
+            JOIN selector_attendance_log l ON l.id=f.attendance_log_id
+            JOIN classes c ON c.id=l.class_id
+            WHERE f.status='responded' AND f.response_message_id IS NOT NULL
+              AND c.name IN ({placeholders})
+        ''', PLATFORM_CLASSES)}
+
+
+def is_closing_acknowledgment(message):
+    text = (message.get('content') or message.get('text') or '').strip().lower()
+    text = re.sub(r'[^a-z\u3400-\u9fff]+', ' ', text).strip()
+    return len(text) <= 80 and bool(re.search(
+        r'\b(?:ok|okay|got it|understood|thank you|thanks|alright|all right)\b|^(?:好的|明白了|收到|谢谢)', text))
+
+
 def current_items():
     archive = reply_queue.load_state()
     students = platform_roster()
     linked = {s['dingtalkId'] for s in students if s.get('dingtalkId')}
     automated = reply_queue.automated_ids()
+    absence_ids = captured_absence_ids()
     self_id = CONFIG['selfOpenDingTalkId']
     items = {}
     for cid, conversation in archive['conversations'].items():
@@ -43,7 +66,8 @@ def current_items():
         incoming = [m for m in messages
                     if m.get('senderOpenDingTalkId') != self_id
                     and m.get('senderOpenDingTalkId') in linked
-                    and (m.get('openMessageId') or m.get('messageId')) not in automated]
+                    and (m.get('openMessageId') or m.get('messageId')) not in automated
+                    and (m.get('openMessageId') or m.get('messageId')) not in absence_ids]
         if not incoming:
             continue
         latest = max(incoming, key=lambda m: m.get('createTime', ''))
@@ -54,6 +78,15 @@ def current_items():
             and (m.get('openMessageId') or m.get('messageId')) not in automated
             and m.get('createTime', '') > latest.get('createTime', '')
             for m in messages)
+        if not answered and is_closing_acknowledgment(latest):
+            earlier_incoming = [m for m in incoming if m.get('createTime', '') < latest.get('createTime', '')]
+            answered = any(
+                reply.get('senderOpenDingTalkId') == self_id
+                and not reply.get('messageAiSendFlag')
+                and (reply.get('openMessageId') or reply.get('messageId')) not in automated
+                and any(source.get('createTime', '') < reply.get('createTime', '') < latest.get('createTime', '')
+                        for source in earlier_incoming)
+                for reply in messages)
         items[reply_queue.key(cid, latest_id)] = {
             'conversationId': cid,
             'messageId': latest_id,

@@ -106,6 +106,16 @@
 .pill-grade-b { background:#fdf0d7; color:#8a6116; }
 .pill-grade-c { background:#f8e0dc; color:#9a3d33; }
 .pill-grade-no-grade { background:#eceae2; color:#6a675e; }
+.pill-absence-health { background:#dcefeb; color:#245f58; }
+.pill-absence-academic { background:#e7e7f5; color:#4a4c7a; }
+.pill-absence-school_activity { background:#e7f0dd; color:#466326; }
+.pill-absence-family_personal { background:#f2e6ef; color:#70486a; }
+.pill-absence-travel_transport { background:#e4edf5; color:#365d78; }
+.pill-absence-appointment { background:#f4ead7; color:#76581d; }
+.pill-absence-other { background:#eceae2; color:#5f5c54; }
+.absence-summary { display:grid; justify-items:start; gap:5px; min-width:170px; max-width:280px; padding:7px 8px; border-left:3px solid #c6cec9; border-radius:0 7px 7px 0; background:#f7f7f3; }
+.absence-summary.is-active { border-left-color:#c05b4d; background:#fff2ed; }
+.absence-reason { color:var(--ink); font-size:11.5px; line-height:1.4; overflow-wrap:anywhere; }
 .meter-cell { display:grid; grid-template-columns:minmax(70px,110px) auto; gap:3px 10px; align-items:center; }
 .meter-cell b { font-size:13px; font-variant-numeric:tabular-nums; }
 .meter-cell small { grid-column:1/-1; color:var(--muted); font-size:10px; }

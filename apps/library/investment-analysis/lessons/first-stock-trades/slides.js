@@ -13,7 +13,7 @@ window.INVESTMENT_COURSE = window.INVESTMENT_COURSE || {};
   // Crop and annotation coordinates are original screenshot pixels.
   const screen=(id,title,titleZh,file,size,crop,rows,boxes,note,extra={})=>table(id,title,titleZh,rows,note+capture,{group:'SMG WALKTHROUGH',screenshot:{src:`assets/smg-${file}.png`,size,crop,boxes,alt:title},sources:smg,...extra});
   window.INVESTMENT_COURSE.lesson={
-    meta:{lesson:5,title:'Planning your first stock trades',titleZh:'规划首次股票交易',folio:'FIRST STOCK TRADES',course:'Investment Course',source:'SOURCE-NOTES.md',plannedMinutes:40,coreSlideCount:30,date:'2026-09-16'},photos:{exchange:photo},
+    meta:{lesson:4,title:'Planning your first stock trades',titleZh:'规划首次股票交易',folio:'FIRST STOCK TRADES',course:'Investment Course',source:'SOURCE-NOTES.md',plannedMinutes:40,coreSlideCount:30,date:'2026-09-16'},photos:{exchange:photo},
     slides:[
       {id:'hero',kind:'hero',title:'Planning your first stock trades',zh:'规划首次股票交易',subtitle:'From $100,000 of virtual cash to your team’s first share purchase.',photo,syllabus:[{code:'3',title:'Markets, evidence and investment decisions',zh:'市场、证据与投资决策'},{code:'3.1',title:'How markets work',zh:'市场如何运作'},{code:'3.1.2',title:'How a trade reaches the market',zh:'交易如何进入市场'}],note:'0–0:30. Special practical SMG lesson. No opening retrieval. Teach shares and the observed interface, with two planning periods totalling ten minutes. AAPL is the supplied example, not a prescribed investment. No student account is accessed by this lesson.',sources:[{label:'NYSE photo · Epicgenius · CC BY-SA 4.0',href:photo.source}]},
       table('launch-recap','Last Friday’s Stock Market Game launch','回顾上周五的模拟交易任务',[

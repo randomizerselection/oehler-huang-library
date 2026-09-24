@@ -24,7 +24,7 @@ def receipt_text(item):
     students = [s for s in roster() if s['key'] == item['studentKey']]
     if len(students) != 1:
         raise ValueError('Receipt requires a unique student name')
-    return student_messages.receipt_text(item, students[0], assignment_label(item))
+    return student_messages.dingtalk_text(student_messages.receipt_text(item, students[0], assignment_label(item)))
 
 
 def receipt_key(item):

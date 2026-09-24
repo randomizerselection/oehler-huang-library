@@ -32,11 +32,8 @@ Each table row contains a syllabus reference, a term, and exam-ready definition 
 | 1.2.1 | Labour | Human effort / workers used in production. Reward: wages / salaries. |
 | 1.2.1 | Capital | Human-made goods used for production. A capital good is a good used to produce another good or service / a human-made good used for production, e.g. a machine. Reward: interest. |
 | 1.2.1 | Enterprise / entrepreneur | Enterprise is the factor that organises the other factors of production and takes risks. An entrepreneur runs / owns a business, may be innovative, and is willing to take risks. Reward: profit. |
-| 1.2.2 | Labour mobility | The ability of workers to move occupationally or geographically to take up another job. |
-| 1.2.2 | Occupational mobility | The ability of labour to move from one type of job / occupation to another; affected by skills, qualifications, training and willingness / ability to undertake training. |
-| 1.2.2 | Geographical mobility | The ability of labour to move from one area or country to another; affected by transport, housing, family ties, language and immigration restrictions. |
-| 1.2.3 | Quantity of factors of production | Can increase through land reclamation, discovery of resources, an increase in the labour force / immigration, investment in capital goods, and more entrepreneurs. |
-| 1.2.3 | Quality of factors of production | Can increase through improved education, improved training / higher skills, improved healthcare, better quality capital equipment, advances in technology, research and development, and increased experience. |
+| 1.2.2 | Quantity of factors of production | Can increase through land reclamation, discovery of resources, an increase in the labour force / immigration, investment in capital goods, and more entrepreneurs. |
+| 1.2.2 | Quality of factors of production | Can increase through improved education, improved training / higher skills, improved healthcare, better quality capital equipment, advances in technology, research and development, and increased experience. |
 | 1.3.1 | Opportunity cost | The next best alternative forgone / given up. |
 | 1.3.2 | Opportunity cost in decision making | Choice involves opportunity cost. Consumers with limited incomes sacrifice another product; workers with limited time may sacrifice another job or leisure; producers with limited financial resources choose what / how / where to produce; governments with limited tax revenue sacrifice alternative spending priorities. |
 | 1.4.1 | Production possibility curve (PPC) | A curve showing the maximum combinations of two goods / outputs that can be produced with available resources and current technology / productive capacity. |
@@ -144,7 +141,10 @@ Each table row contains a syllabus reference, a term, and exam-ready definition 
 | 3.3.2 | Minimum wage | A minimum price for labour / wage floor set by government. If set above the equilibrium wage, it can raise wages but may create unemployment / a surplus of labour. |
 | 3.3.2 | Derived demand for labour | Demand for labour is derived from demand for the product the workers produce. |
 | 3.3.3 | Reasons for differences in earnings | Differences in demand and supply, skills, training, qualifications, productivity, relative bargaining strength, discrimination, government policy, sector, risk / unsociable hours and working conditions. |
-| 3.3.4 | Division of labour / specialisation | Workers specialise in particular tasks or stages of production; this can increase output and productivity but may create boredom, dependence and loss of flexibility. |
+| 3.3.4 | Labour mobility | The ability of workers to move occupationally or geographically to take up another job. |
+| 3.3.4 | Occupational mobility | The ability of labour to move from one type of job / occupation to another; affected by skills, qualifications, training and willingness / ability to undertake training. |
+| 3.3.4 | Geographical mobility | The ability of labour to move from one area or country to another; affected by transport, housing, family ties, language and immigration restrictions. |
+| 3.3.5 | Division of labour / specialisation | Workers specialise in particular tasks or stages of production; this can increase output and productivity but may create boredom, dependence and loss of flexibility. |
 | 3.4.1 | Trade union | An organisation of workers that uses collective bargaining to improve wages, working hours and working conditions, protect employment and influence government policy. |
 | 3.4.2 | Collective bargaining | Negotiation by a trade union with employers on behalf of workers, usually over wages, hours and working conditions. |
 | 3.4.2 | Industrial action | Action by workers such as a strike; it can disrupt production and may reduce productivity / wages. |

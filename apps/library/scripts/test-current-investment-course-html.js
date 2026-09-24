@@ -26,21 +26,33 @@ const expectedLessons = [
     title: 'Compound growth',
   },
   {
-    route: 'lessons/1-1-3-assumed-return/index.html',
-    directory: '1-1-3-assumed-return',
-    number: 4,
-    title: 'Assumed return',
-  },
-  {
     route: 'lessons/first-stock-trades/index.html',
     directory: 'first-stock-trades',
-    number: 5,
+    number: 4,
     title: 'Planning your first stock trades',
+  },
+  {
+    route: 'lessons/share-price-company-size/index.html',
+    directory: 'share-price-company-size',
+    number: 5,
+    title: 'Share price and company size',
+  },
+  {
+    route: 'lessons/monthly-exam-review/index.html',
+    directory: 'monthly-exam-review',
+    number: 6,
+    title: 'First monthly exam review',
+  },
+  {
+    route: 'lessons/risk-possible-return/index.html',
+    directory: 'risk-possible-return',
+    number: 7,
+    title: 'Risk and possible return',
   },
   {
     route: 'lessons/1-1-4-nominal-real-return/index.html',
     directory: '1-1-4-nominal-real-return',
-    number: 7,
+    number: 13,
     title: 'Nominal and real return',
   },
 ];
@@ -102,15 +114,17 @@ check(Boolean(courseDataMatch), 'syllabus-2026-27.html: embedded course data is 
 if (courseDataMatch) {
   const courseData = JSON.parse(courseDataMatch[1]);
   check(courseData.lessons?.length === 33, 'syllabus-2026-27.html: expected 33 teaching periods after the pacing revision');
+  check(courseData.lessons?.find((lesson) => lesson.number === 1)?.focus === 'What is investment?', 'syllabus-2026-27.html: Lesson 1 must preserve the taught investment-versus-speculation foundation');
   check(courseData.lessons?.find((lesson) => lesson.number === 2)?.focus === 'Measuring investment return', 'syllabus-2026-27.html: Lesson 2 does not match the published HTML lesson');
   check(courseData.lessons?.find((lesson) => lesson.number === 3)?.focus === 'Compound growth', 'syllabus-2026-27.html: Lesson 3 does not match the published HTML lesson');
-  check(courseData.lessons?.find((lesson) => lesson.number === 3)?.coverage?.firstUntaughtSlideId === 'section-projections', 'The teacher-reported stopping point must be preserved');
-  check(courseData.lessons?.find((lesson) => lesson.number === 4)?.focus === 'Assumed return', 'Lesson 4 must teach the untaught continuation');
-  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.id === 'lesson-18', 'Move the existing execution period before the first trading weekend');
-  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.date === 'Wed Sep 16', 'First trades preparation must use the next existing teaching slot');
-  check(courseData.lessons?.find((lesson) => lesson.number === 6)?.date === 'Fri Sep 18', 'Risk and order rehearsal must precede the weekend');
-  check(courseData.lessons?.find((lesson) => lesson.number === 7)?.focus === 'Nominal and real return', 'Preserve nominal and real return after the first-trade preparation');
-  check(courseData.lessons?.find((lesson) => lesson.number === 7)?.date === 'Wed Sep 23', 'Nominal and real return must use the following Wednesday slot');
+  check(!courseData.lessons?.some((lesson) => lesson.id === 'lesson-3-continuation'), 'Assumed return must remain outside the active syllabus sequence');
+  check(courseData.lessons?.find((lesson) => lesson.number === 4)?.id === 'lesson-18', 'Planning the first stock trades must be Lesson 4');
+  check(courseData.lessons?.find((lesson) => lesson.number === 4)?.date === 'Wed Sep 16', 'First trades preparation must preserve its taught date');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.id === 'lesson-19', 'Share price and company size must be the next active lesson');
+  check(courseData.lessons?.find((lesson) => lesson.number === 5)?.date === 'Wed Sep 23', 'Share price and company size must use the final new-teaching slot before revision');
+  check(courseData.lessons?.find((lesson) => lesson.number === 6)?.id === 'lesson-pre-exam-revision', 'The following period must be monthly-exam revision');
+  check(courseData.lessons?.find((lesson) => lesson.number === 13)?.focus === 'Nominal and real return', 'Nominal and real return must be deferred until after the monthly exam');
+  check(courseData.lessons?.find((lesson) => lesson.number === 13)?.date === 'Wed Nov 4', 'Nominal and real return must use its deferred provisional slot');
   check(courseData.lessons?.at(-1)?.date === 'TBC', 'The additional final session must not invent an unconfirmed date');
   check(new Set(courseData.lessons.map(lesson => lesson.id)).size === 33, 'Syllabus lesson IDs must remain unique');
 }

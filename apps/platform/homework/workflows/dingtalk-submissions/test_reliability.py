@@ -23,7 +23,7 @@ ASSIGNMENT = "15 Sep 2026\nInflationary gap (Q19)"
 def create_fixture_database(path):
     db = sqlite3.connect(path)
     db.executescript('''
-      PRAGMA user_version=18;
+      PRAGMA user_version=21;
       CREATE TABLE accounts (
         id TEXT PRIMARY KEY,username TEXT,display_name TEXT,password_hash TEXT,
         created_at TEXT,updated_at TEXT,last_login_at TEXT,status TEXT,role TEXT,
@@ -62,7 +62,7 @@ def create_fixture_database(path):
       CREATE TABLE absence_followups (
         attendance_log_id TEXT PRIMARY KEY,status TEXT,recipient_external_id TEXT,
         conversation_id TEXT,sent_at TEXT,response_message_id TEXT,reason_text TEXT,
-        responded_at TEXT,updated_at TEXT
+        responded_at TEXT,updated_at TEXT,absence_start_date TEXT,absence_end_date TEXT,reason_category TEXT
       );
       INSERT INTO accounts VALUES
         ('teacher','teacher','Teacher','','2026-01-01','2026-01-01',NULL,'active','teacher',NULL,NULL,NULL,'Teacher','',NULL),
@@ -454,15 +454,21 @@ class ScopeAndQueueTests(FixtureCase):
             db.executescript('''
               INSERT INTO selector_attendance_log VALUES ('a33','session','c33','s33','absent','lesson','2026-09-18T00:00:00+00:00','2026-09-18');
               INSERT INTO selector_attendance_log VALUES ('a36','session','c36','s36','absent','lesson','2026-09-18T00:00:00+00:00','2026-09-18');
-              INSERT INTO absence_followups VALUES ('a33','sent','ding-s33','chat33','2026-09-18T00:00:00+00:00',NULL,NULL,NULL,'2026-09-18');
-              INSERT INTO absence_followups VALUES ('a36','sent','ding-s36','chat36','2026-09-18T00:00:00+00:00',NULL,NULL,NULL,'2026-09-18');
+              INSERT INTO absence_followups
+                (attendance_log_id,status,recipient_external_id,conversation_id,sent_at,
+                 response_message_id,reason_text,responded_at,updated_at)
+                VALUES ('a33','sent','ding-s33','chat33','2026-09-18T00:00:00+00:00',NULL,NULL,NULL,'2026-09-18');
+              INSERT INTO absence_followups
+                (attendance_log_id,status,recipient_external_id,conversation_id,sent_at,
+                 response_message_id,reason_text,responded_at,updated_at)
+                VALUES ('a36','sent','ding-s36','chat36','2026-09-18T00:00:00+00:00',NULL,NULL,NULL,'2026-09-18');
             ''')
             db.commit()
         snapshot = {'complete': True, 'result': {'hasMore': False, 'conversationMessagesList': [
             {'singleChat': True, 'openConversationId': 'chat33', 'messages': [
-                {'openMessageId': 'r33', 'senderOpenDingTalkId': 'ding-s33', 'createTime': '2026-09-18 08:05:00', 'content': 'Medical appointment'}]},
+                {'openMessageId': 'r33', 'senderOpenDingTalkId': 'ding-s33', 'createTime': '2026-09-18 08:05:00', 'content': 'Absence reason: Medical appointment'}]},
             {'singleChat': True, 'openConversationId': 'chat36', 'messages': [
-                {'openMessageId': 'r36', 'senderOpenDingTalkId': 'ding-s36', 'createTime': '2026-09-18 08:05:00', 'content': 'Medical appointment'}]},
+                {'openMessageId': 'r36', 'senderOpenDingTalkId': 'ding-s36', 'createTime': '2026-09-18 08:05:00', 'content': 'Absence reason: Medical appointment'}]},
         ]}}
         path = self.root / 'state' / 'snapshot.json'
         path.write_text(json.dumps(snapshot), encoding='utf-8')

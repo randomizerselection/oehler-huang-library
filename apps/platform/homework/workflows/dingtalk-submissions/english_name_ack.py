@@ -44,7 +44,7 @@ def run(send=False):
                 result['needsAttention'].append({'studentKey': item['studentKey'], 'reason': 'Uncertain prior send; inspect chat before any retry'})
                 continue
             verify_saved(item)
-            text = item.get('text') or student_messages.name_text(item['englishName'])
+            text = item.get('text') or student_messages.dingtalk_text(student_messages.name_text(item['englishName']))
             ensure_english_only(text)
             item.update(
                 acknowledgementStatus='sending',

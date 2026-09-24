@@ -31,7 +31,7 @@ test("decodes and plays every original MP3 with the original duration mapping", 
   const result = await page.evaluate(async () => {
     const app = window.__selector;
     const files = ["welcome", "closing", "select_student", "medium_slot", "long_slot",
-      "timeup", "sound_a_star", "sound_a", "sound_b", "sound_c"];
+      "timeup", "Elmer-Bernstein", "sound_a_star", "sound_a", "sound_b", "sound_c"];
     const decoded = [];
     for (const name of files) {
       await app.sound.play(`assets/${name}.mp3`);
@@ -44,7 +44,7 @@ test("decodes and plays every original MP3 with the original duration mapping", 
     return { decoded, state, slots: [3, 5, 20].map((seconds) => app.slotSound(seconds)) };
   });
   expect(result.state).toBe("running");
-  expect(result.decoded).toHaveLength(10);
+  expect(result.decoded).toHaveLength(11);
   for (const clip of result.decoded) {
     expect(clip.duration, clip.name).toBeGreaterThan(0);
     expect(clip.hasSignal, clip.name).toBe(true);
@@ -324,6 +324,10 @@ test("roll call is full screen and surfaces attendance and homework talking poin
   const bounds = await rollCall.boundingBox();
   expect(bounds).toMatchObject({ x: 0, y: 0, width: 1280, height: 800 });
   await expect(rollCall.getByText("Previous attendance")).toBeVisible();
+  await expect(rollCall.getByText("Current recorded absence")).toBeVisible();
+  await expect(rollCall.getByText("Health / medical")).toBeVisible();
+  await expect(rollCall.getByText("Recovering from flu.")).toBeVisible();
+  await expect(rollCall.getByText(/Active now/)).toBeVisible();
   await expect(rollCall.getByText("90%", { exact: true })).toBeVisible();
   await expect(rollCall.getByText("Homework completion")).toBeVisible();
   await expect(rollCall.getByText("Market structures worksheet")).toBeVisible();
@@ -433,6 +437,86 @@ test("selected student shows a homework encouragement badge", async ({ page }) =
   });
   await expect(badge).toHaveCount(1);
   await expect(currentName).toHaveText("Dan");
+});
+
+test("teacher can present five quiz leaders with cutoff ties and separate QQ submitters", async ({ page }) => {
+  await page.setViewportSize({ width: 2048, height: 1080 });
+  await page.goto("/tests/harness.html");
+  await page.evaluate(() => {
+    window.__selector.destroy();
+    const roster = [
+      { account_id: "student-1", display_name: "Ada" },
+      { account_id: "student-2", display_name: "Ben" },
+      { account_id: "student-3", display_name: "Chloe" },
+      { account_id: "student-4", display_name: "Dan" },
+      { account_id: "student-5", display_name: "Emma" },
+      { account_id: "student-6", display_name: "Finn" },
+      { account_id: "student-7", display_name: "Gina" }
+    ];
+    window.__selector = window.StudentSelector.mount(document.querySelector("#app"), {
+      ...window.__testAdapters,
+      dataAdapter: {
+        listClasses: async () => ({ items: [{ class_id: "class-test", name: "Synthetic Class" }] }),
+        loadRoster: async () => ({ students: roster }),
+        loadHomeworkRewards: async () => ({ records: [
+          ...[
+            ["student-1", "Ada", 100], ["student-2", "Ben", 100], ["student-3", "Chloe", 95],
+            ["student-4", "Dan", 90], ["student-5", "Emma", 85], ["student-6", "Finn", 85], ["student-7", "Gina", 80]
+          ].map(([account_id, display_name, score]) => ({ account_id, display_name, assignment_title: "Living standards", assigned_on: "2026-09-20", source: "ketangpai", status: "submitted", score, score_max: 100 })),
+          { account_id: "student-1", display_name: "Ada", assignment_title: "Structured growth question", assigned_on: "2026-09-18", source: "qq", status: "submitted" },
+          { account_id: "student-7", display_name: "Gina", assignment_title: "Structured growth question", assigned_on: "2026-09-18", source: "qq", status: "submitted" },
+          { account_id: "student-3", display_name: "Chloe", assignment_title: "Structured growth question", assigned_on: "2026-09-18", source: "qq", status: "missing" }
+        ] })
+      },
+      sessionAdapter: {
+        start: async () => ({
+          session_id: "selector-leaders",
+          class_id: "class-test",
+          status: "active",
+          version: 1,
+          roster,
+          attendance: [],
+          selections: [],
+          attendance_summary: { roster_total: 7, marked: 0, present: 0, absent: 0, finalized: false, finalized_at: null }
+        })
+      }
+    });
+  });
+  await page.locator("[data-action='class']").selectOption("class-test");
+  expect(await page.evaluate(() => window.__selector.sound.current)).toBeNull();
+  await page.getByRole("button", { name: "Top Homework", exact: true }).click();
+
+  const dialog = page.getByRole("dialog", { name: "Top homework performers" });
+  await expect(dialog).toBeVisible();
+  await expect.poll(() => page.evaluate(() => Boolean(window.__selector.sound.current?.loop))).toBe(true);
+  await expect(dialog.getByRole("heading", { name: "Homework Rewards" })).toBeVisible();
+  await expect(dialog.getByRole("heading", { name: "Living standards" })).toBeVisible();
+  await expect(dialog.getByText("Sep 20", { exact: false })).toBeVisible();
+  await expect(dialog.locator(".selector-leader-card")).toHaveCount(6);
+  await expect(dialog.getByText("Gina", { exact: true })).toHaveCount(1);
+  await expect(dialog.getByText("Joint 1st", { exact: true })).toHaveCount(2);
+  await expect(dialog.getByText("100/100", { exact: true })).toHaveCount(2);
+  await expect(dialog.getByText("top five students plus every tie at the cutoff", { exact: false })).toBeVisible();
+  await expect(dialog.getByRole("heading", { name: "Structured growth question" })).toBeVisible();
+  await expect(dialog.getByText("2 students submitted in QQ", { exact: true })).toBeVisible();
+  await expect(dialog.getByLabel("Structured question submissions").getByText("Ada", { exact: true })).toBeVisible();
+  await expect(dialog.getByLabel("Structured question submissions").getByText("Gina", { exact: true })).toBeVisible();
+
+  const cardLayout = await dialog.getByLabel("Quiz high scores").locator(".selector-leader-card").evaluateAll((cards) =>
+    cards.map((card) => {
+      const bounds = card.getBoundingClientRect();
+      return { x: bounds.x, y: bounds.y, right: bounds.right, scrollWidth: card.scrollWidth, clientWidth: card.clientWidth };
+    }));
+  expect(new Set(cardLayout.slice(0, 5).map((card) => Math.round(card.y))).size).toBe(1);
+  expect(cardLayout[5].y).toBeGreaterThan(cardLayout[4].y);
+  expect(cardLayout.every((card) => card.scrollWidth <= card.clientWidth + 1)).toBe(true);
+
+  const bounds = await dialog.boundingBox();
+  expect(bounds).toMatchObject({ x: 0, y: 0, width: 2048, height: 1080 });
+
+  await dialog.getByRole("button", { name: "Close" }).click();
+  await expect(dialog).toBeHidden();
+  await expect.poll(() => page.evaluate(() => window.__selector.sound.current)).toBeNull();
 });
 
 test("homework badges cover tier boundaries, exemptions and classes without homework", async ({ page }) => {

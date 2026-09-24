@@ -52,8 +52,8 @@ def schema_version(connection=None):
 
 def require_schema(connection=None):
     version = schema_version(connection)
-    if version < 17:
-        raise RuntimeError(f'Platform database schema v17 is required; found v{version}')
+    if version < 21:
+        raise RuntimeError(f'Platform database schema v21 is required; found v{version}')
     return version
 
 

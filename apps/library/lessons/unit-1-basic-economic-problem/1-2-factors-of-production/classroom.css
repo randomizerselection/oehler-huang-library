@@ -155,6 +155,43 @@
  .enterprise-classroom .is-layout-factor-motives .cardTitle { padding:0; color:#142f43; font-size:30px; line-height:1.2; font-weight:600; }
  .enterprise-classroom .is-layout-factor-motives .cardTitle .inlineZh { color:#51616b; font-size:24px; margin-top:10px; }
  .enterprise-classroom .is-layout-factor-motives .cardBody { padding:0; margin-top:22px; font-size:27px; font-weight:400; line-height:1.35; color:#142f43; }
+ /* Four concrete routes to higher labour quality: equal photo cards with
+    classroom-readable English and Chinese labels. */
+ .enterprise-classroom .is-layout-factor-quality-routes .cardgrid {
+   margin-top:24px;
+   gap:22px;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .card {
+   border:1px solid #c9d8d3;
+   background:#fff;
+   box-shadow:0 10px 28px rgba(20,47,67,.08);
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardVisual {
+   aspect-ratio:16 / 8;
+   border-radius:4px;
+   overflow:hidden;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardVisual img {
+   width:100%;
+   height:100%;
+   object-fit:cover;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardTitle {
+   color:#142f43;
+   font-size:25px;
+   font-weight:700;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardTitleZh {
+   color:#166c72;
+   font-size:22px;
+   margin-top:7px;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardBody {
+   color:#2f4654;
+   font-size:20px;
+   line-height:1.3;
+ }
+ .enterprise-classroom .is-layout-factor-quality-routes .num { display:none; }
  .enterprise-classroom .examChainLabel,
  .enterprise-classroom .examBlock .cardgrid:empty { display:none; }
  .enterprise-classroom .examBlock,
@@ -275,6 +312,10 @@
  .enterprise-classroom .factor-option-head { font-size:19px; }
  .enterprise-classroom .is-layout-factor-motives .cardgrid { grid-template-columns:1fr; gap:35px; }
  .enterprise-classroom .is-layout-factor-motives .cardBody { font-size:24px; }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardgrid { grid-template-columns:1fr; gap:18px; }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardTitle { font-size:24px; }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardTitleZh { font-size:21px; }
+ .enterprise-classroom .is-layout-factor-quality-routes .cardBody { font-size:20px; }
  .enterprise-classroom .is-compare .splitCols { grid-template-columns:1fr; gap:25px; }
  .enterprise-classroom .is-compare .card li { font-size:24px; }
  .enterprise-classroom .modelAnswerText { font-size:28px; }

@@ -9,6 +9,7 @@ import uuid
 
 from fetch import ROOT, CONFIG, TZ, save, roster
 from platform_db import assignment_metadata, backup, connect, require_schema
+from absence_followups import explicit_reason, normalize_reason, is_substantive_absence_reason
 
 
 def load(name):
@@ -91,13 +92,42 @@ def prepare():
     students = {student['key']: student for student in roster()}
     plan = {
         'schemaVersion': None, 'batchId': batch_id, 'end': batch['end'], 'decisions': decisions, 'nameDecisions': name_decisions,
-        'homeworkWrites': [], 'nameWrites': [], 'identityLinks': [],
+        'homeworkWrites': [], 'nameWrites': [], 'identityLinks': [], 'absenceReviews': [],
     }
     with connect(readonly=True) as db:
         plan['schemaVersion'] = require_schema(db)
         for decision in decisions:
-            if decision['action'] not in ('submitted', 'needs_work', 'ignore', 'pending'):
+            if decision['action'] not in ('submitted', 'needs_work', 'absence_reason', 'ignore', 'pending'):
                 raise ValueError('Unknown decision action')
+            if decision['action'] == 'absence_reason':
+                if not decision.get('evidence') or not decision.get('studentKey'):
+                    raise ValueError('Absence-reason review needs verified student and evidence')
+                message = known[decision['messageId']]
+                if (not explicit_reason(message.get('text'))
+                        or not is_substantive_absence_reason(normalize_reason(message.get('text')))):
+                    raise ValueError('Absence-reason review requires an explicit, substantive student reason')
+                student = verified_student(decision, message, students)
+                captured = message.get('absenceReason') or {}
+                row = db.execute('''
+                    SELECT f.attendance_log_id,f.reason_text,f.reason_category,
+                           f.absence_start_date,f.absence_end_date
+                    FROM absence_followups f
+                    JOIN selector_attendance_log l ON l.id=f.attendance_log_id
+                    WHERE f.status='responded' AND f.response_message_id=?
+                      AND l.student_account_id=? AND l.class_id=?
+                ''', (decision['messageId'], student['accountId'], student['classId'])).fetchone()
+                if (not row or captured.get('attendanceLogId') != row['attendance_log_id']
+                        or captured.get('reason') != row['reason_text']
+                        or captured.get('category') != row['reason_category']):
+                    raise ValueError('Absence reason is not the verified captured platform record')
+                plan['absenceReviews'].append({
+                    'messageId': decision['messageId'], 'studentKey': student['key'],
+                    'attendanceLogId': row['attendance_log_id'], 'reason': row['reason_text'],
+                    'category': row['reason_category'],
+                    'absenceStartDate': row['absence_start_date'],
+                    'absenceEndDate': row['absence_end_date'],
+                })
+                continue
             if decision['action'] not in ('submitted', 'needs_work'):
                 continue
             if decision['action'] == 'submitted' and decision.get('responseFormat') == 'letter_only' and not decision.get('workingPhotoPresent') and not decision.get('teacherAccepted'):
@@ -159,7 +189,8 @@ def prepare():
     save(ROOT / 'state' / 'plan.json', plan)
     print(json.dumps({
         'platformDatabase': CONFIG['platformDatabase'], 'homeworkWrites': plan['homeworkWrites'],
-        'nameWrites': plan['nameWrites'], 'identityLinks': len(plan['identityLinks']),
+        'nameWrites': plan['nameWrites'], 'absenceReviews': plan['absenceReviews'],
+        'identityLinks': len(plan['identityLinks']),
     }, ensure_ascii=True))
 
 
@@ -280,6 +311,7 @@ def commit():
         print(json.dumps({
             'database': CONFIG['platformDatabase'], 'backup': backup_path,
             'submitted': sum(decision['action'] == 'submitted' for decision in plan['decisions']),
+            'absenceReasons': sum(decision['action'] == 'absence_reason' for decision in plan['decisions']),
             'pending': len(unresolved) + len(undecided), 'homeworkWrites': len(plan.get('homeworkWrites', [])),
             'nameWrites': len(plan.get('nameWrites', [])),
         }))

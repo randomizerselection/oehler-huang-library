@@ -1,0 +1,90 @@
+window.IGCSE = window.IGCSE || {};
+
+IGCSE.quiz = {
+  id: '3-3-1-choice-of-occupation',
+  version: '1.0.0',
+  title: 'Workers: choice of occupation',
+  description: 'Retrieval practice aligned with Cambridge IGCSE Economics 0455 syllabus 3.3.1.',
+  sources: [
+    {
+      label: 'Syllabus',
+      ref: 'Cambridge 0455 · 2027-2029 · page 16 · 3.3.1',
+      note: 'Factors affecting an individual’s choice of occupation: wage and non-wage factors.',
+    },
+    {
+      label: 'Definitions',
+      ref: 'Retained IGCSE Economics definitions · 2026 · 3.3.1',
+      note: 'Wage factors and non-wage factors in occupation choice.',
+    },
+  ],
+  questions: [
+    {
+      id: 'financial-reward',
+      type: 'multipleChoice',
+      prompt: 'Which is a wage factor affecting occupation choice?',
+      choices: ['A performance bonus', 'Job security', 'Working conditions', 'Promotion prospects'],
+      answer: 0,
+      explanation: 'A performance bonus is money paid to the worker, so it is a financial reward.',
+    },
+    {
+      id: 'non-wage-definition',
+      type: 'fillBlank',
+      prompt: 'Job features other than financial rewards are called __________ factors.',
+      acceptedAnswers: ['non-wage', 'non wage', 'non-wage factors', 'non wage factors'],
+      explanation: 'Non-wage factors are job features other than financial rewards that influence occupation choice.',
+    },
+    {
+      id: 'security',
+      type: 'multipleChoice',
+      prompt: 'A worker chooses a permanent contract rather than a temporary contract. Which factor most directly influenced the choice?',
+      choices: ['Job security', 'Pay / wages', 'Overtime pay', 'Bonus'],
+      answer: 0,
+      explanation: 'A permanent contract may make continued employment and future income more predictable.',
+    },
+    {
+      id: 'job-safety-versus-security',
+      type: 'multipleChoice',
+      prompt: 'A roofer chooses a building site with guard rails and safety harnesses. Which non-wage factor most directly influenced the choice?',
+      choices: ['Working conditions', 'Job security', 'Promotion prospects', 'Working hours'],
+      answer: 0,
+      explanation: 'Guard rails and harnesses reduce the risk of injury, so this is job safety and therefore part of working conditions. Job security instead concerns the risk of losing the job.',
+    },
+    {
+      id: 'commission',
+      type: 'fillBlank',
+      prompt: 'A car salesperson receives 3% of the value of every sale. This payment is called __________.',
+      acceptedAnswers: ['commission'],
+      explanation: 'Commission is pay linked to the value or number of sales made.',
+    },
+    {
+      id: 'location',
+      type: 'multipleChoice',
+      prompt: 'A worker accepts lower pay to work close to an elderly parent. Which non-wage factor is most important?',
+      choices: ['Location and nearness to family', 'Performance bonus', 'Overtime rate', 'Commission rate'],
+      answer: 0,
+      explanation: 'The worker values location and nearness to family more than the higher pay forgone.',
+    },
+    {
+      id: 'promotion',
+      type: 'fillBlank',
+      prompt: 'The chance to move into a more senior role is described as a __________ prospect.',
+      acceptedAnswers: ['promotion', 'career progression', 'progression'],
+      explanation: 'Promotion prospects concern the opportunity to move to a more senior role.',
+    },
+    {
+      id: 'fringe-benefit',
+      type: 'multipleChoice',
+      prompt: 'Which is most clearly a fringe benefit?',
+      choices: ['A company car', 'An hourly wage', 'Overtime pay', 'A cash bonus'],
+      answer: 0,
+      explanation: 'A company car is a non-cash benefit provided in addition to ordinary pay.',
+    },
+    {
+      id: 'different-choices',
+      type: 'fillBlank',
+      prompt: 'Two workers may choose different jobs because they give different __________ to wage and non-wage factors.',
+      acceptedAnswers: ['importance', 'weight', 'priority', 'priorities'],
+      explanation: 'Workers have different circumstances and priorities, so the same job features may lead to different choices.',
+    },
+  ],
+};

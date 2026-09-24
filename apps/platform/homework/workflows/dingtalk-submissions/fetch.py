@@ -267,7 +267,14 @@ def main():
             content = msg.get('content') or msg.get('text') or ''
             if not candidates and not re.search(r'作业|homework|assignment|答案|question|图片消息|文件消息', content, re.I):
                 continue
-            pending.append({'messageId': mid, 'time': msg.get('createTime'), 'sender': sender, 'senderId': sender_id, 'conversationId': conversation.get('openConversationId'), 'title': title, 'text': content, 'resources': msg.get('resources', []), 'candidates': candidates})
+            verified_classes = sorted(sender_classes.get(sender_id, []))
+            scope = ('in_scope' if set(verified_classes).intersection(PLATFORM_CLASSES)
+                     else 'out_of_scope' if verified_classes else 'unresolved')
+            pending.append({'messageId': mid, 'time': msg.get('createTime'), 'sender': sender,
+                            'senderId': sender_id, 'conversationId': conversation.get('openConversationId'),
+                            'title': title, 'text': content, 'resources': msg.get('resources', []),
+                            'candidates': candidates, 'scope': scope,
+                            'verifiedClasses': verified_classes})
 
     # Retain unresolved evidence from earlier completed scans even if it has aged
     # outside the current overlap window. Stable message IDs deduplicate ties and
@@ -310,12 +317,18 @@ def main():
     # These are intentional fetch side effects and run only after the complete
     # evidence batch is durable. Neither sends a student message.
     from absence_followups import capture as capture_absence_reasons
-    capture_absence_reasons(ROOT / 'state' / 'latest-response.json')
+    absence_capture = capture_absence_reasons(ROOT / 'state' / 'latest-response.json')
     from reply_queue import capture_fresh
     authorized_sender_ids = {student['dingtalkId'] for student in students if student.get('dingtalkId')}
     capture_fresh(snapshot, end, authorized_sender_ids=authorized_sender_ids,
                   out_of_scope_sender_ids=platform_out_of_scope)
-    print(json.dumps({'start': start, 'end': end, 'privateConversations': sum(bool(c.get('singleChat')) for c in conversations), 'pending': len(pending), 'pendingFile': str(ROOT / 'state' / 'pending.json'), 'batchId': batch['batchId']}, ensure_ascii=True))
+    print(json.dumps({'start': start, 'end': end,
+                      'privateConversations': sum(bool(c.get('singleChat')) for c in conversations),
+                      'pending': len(pending), 'pendingFile': str(ROOT / 'state' / 'pending.json'),
+                      'batchId': batch['batchId'],
+                      'captured': absence_capture.get('captured', 0),
+                      'corrected': absence_capture.get('corrected', 0),
+                      'backfilled': absence_capture.get('backfilled', 0)}, ensure_ascii=True))
 
 if __name__ == '__main__':
     main()

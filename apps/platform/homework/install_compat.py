@@ -18,6 +18,7 @@ def wrapper(source):
             'import sys as _sys\nfrom pathlib import Path as _Path\n'
             f'_source = _Path({str(source)!r})\n'
             '_sys.path.insert(0, str(_source.parent))\n'
+            '_sys.path.insert(0, str(_source.parents[2]))\n'
             '__file__ = str(_source)\n'
             'exec(compile(_source.read_text(encoding="utf-8"), str(_source), "exec"), globals())\n')
 
@@ -37,7 +38,11 @@ def instructions(profile):
             'delivery ledgers or switch account/profile/model/class scope. The\n'
             'existing Python filenames are compatibility launchers. Scheduled\n'
             'checks must not edit source, install dependencies or self-repair.\n'
-            'Keep regular checks free of reminders/campaigns and surface failures.\n')
+            'Keep regular checks free of reminders/campaigns and surface failures.\n'
+            + (f'\nFor explicit S3.6 absence questions with lesson PDFs, use the existing\n'
+               f'`{HOME / "ABSENCE_FOLLOWUPS.md"}` fast path. Do not port the module,\n'
+               'run homework collection/tests, or build a temporary retry driver.\n'
+               if profile == 'dingtalk-s36' else ''))
 
 
 def live_workers(roots):
